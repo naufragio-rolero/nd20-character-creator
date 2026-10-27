@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#122532">
+  <meta name="description" content="Generador de personajes, seguidores y herramientas para Naufragio d20 y Dungeon Hack.">
+  <title>El Naufragio · Forja de personajes</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/rules.js"></script>
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <header class="encabezado">
+    <div class="marca">
+      <p class="sobrelinea">EL NAUFRAGIO / HERRAMIENTAS DE ROL</p>
+      <h1>Forja de personajes</h1>
+      <p class="subtitulo">Dos juegos. Una mesa. Infinitas historias.</p>
+    </div>
+    <a class="enlace-github" href="https://github.com/naufragio-rolero/nd20-character-creator" target="_blank" rel="noopener noreferrer">Código y documentación</a>
+  </header>
+  <main class="disposicion">
+    <aside class="panel" aria-label="Opciones de generación">
+      <h2>Configurar la forja</h2>
+      <form id="configuracion">
+        <div class="campo">
+          <label for="juego">Sistema</label>
+          <select id="juego" name="juego">
+            <option value="nd20">Naufragio d20 · Fantasía</option>
+            <option value="nd20_cifi">Naufragio d20 · CiFi</option>
+            <option value="dh">Dungeon Hack</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="nivel">Nivel <span id="rango-nivel">1–30</span></label>
+          <input id="nivel" name="nivel" type="number" value="1" min="1" max="30" step="1" required>
+        </div>
+        <div class="campo">
+          <label for="ocupacion">Ocupación / Clase</label>
+          <select id="ocupacion" name="ocupacion"><option value="">Aleatoria</option></select>
+        </div>
+        <div class="campo">
+          <label for="especie">Especie</label>
+          <select id="especie" name="especie"><option value="">Aleatoria</option></select>
+        </div>
+        <fieldset id="opciones-dh" hidden>
+          <legend>Opciones de Dungeon Hack</legend>
+          <label class="casilla"><input id="con-especie" type="checkbox" checked> Aplicar especies</label>
+          <p class="ayuda">Procedencias permitidas</p>
+          <div id="origenes" class="origenes"></div>
+        </fieldset>
+        <div class="campo">
+          <label for="semilla">Semilla opcional</label>
+          <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Para repetir resultados">
+          <small>Con la misma semilla y configuración obtendrás los mismos personajes.</small>
+        </div>
+        <div class="campo">
+          <label for="cantidad">Cuántas fichas</label>
+          <input id="cantidad" type="number" min="1" max="12" value="1" required>
+        </div>
+        <button class="principal" id="generar" type="submit">Generar personajes</button>
+      </form>
+      <section class="herramientas" aria-label="Otras herramientas">
+        <h3>Herramientas del Cronista</h3>
+        <div class="botonera">
+          <button id="generar-seguidor" type="button">Generar seguidor</button>
+          <button id="generar-matriz" type="button">Matriz de Atributos</button>
+          <button id="generar-mazmorra" type="button">Mazmorra rápida</button>
+        </div>
+        <small>Los seguidores son propios de Dungeon Hack. Las matrices y mazmorras son ayudas independientes.</small>
+      </section>
+    </aside>
+    <section class="resultados" aria-labelledby="titulo-resultados">
+      <div class="barra-resultados">
+        <div>
+          <p class="sobrelinea">RESULTADOS</p>
+          <h2 id="titulo-resultados">La mesa está preparada</h2>
+          <p id="contador" class="muted">Todavía no has generado ninguna ficha.</p>
+        </div>
+        <div class="acciones-resultados">
+          <button id="exportar" type="button" disabled>Exportar .txt</button>
+          <button id="borrar" type="button" disabled>Limpiar mesa</button>
+        </div>
+      </div>
+      <div id="estado" class="estado" role="status" aria-live="polite"></div>
+      <div id="fichas" class="fichas" aria-live="off">
+        <div class="vacio" id="vacio">
+          <span class="emblema" aria-hidden="true">◇</span>
+          <p>Una historia espera a su protagonista.</p>
+          <p class="muted">Elige un sistema y genera tu primera ficha.</p>
+        </div>
+      </div>
+      <footer class="pie">Creado para la mesa de juego. Datos y reglas originales de sus respectivos proyectos. <a href="https://naufragio.net/" target="_blank" rel="noopener noreferrer">El Naufragio</a>.</footer>
+    </section>
+  </main>
+</body>
+</html>
