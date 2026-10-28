@@ -1056,12 +1056,12 @@ const noctVaron=reglas.crearNd20(nocturna,{
 assert.equal(noctVaron.sexo,'masculino');
 assert.ok(!catSexo.femeninos_por_especie['Humano natural'].includes(noctVaron.nombre));
 for(const sexo of ['femenino','masculino']){
-  const ficha=reglas.eleccionDH(datosDH,{
+  const ficha=reglas.eleccionDH(dh,{
     juego:'dh',nivel:1,ocupacion:'dwarf_class',
     origenes:[0,1,2,3,4],sexo,conEspecie:false},
     reglas.aleatorioSemilla('dwarf-'+sexo));
   assert.equal(ficha.sexo,sexo,'Dungeon Hack también admite sexo explícito');
-  assert.ok(sexoMotor.nombresDH(datosDH.classes.dwarf_class.names,sexo).includes(ficha.nombre));
+  assert.ok(sexoMotor.nombresDH(dh.classes.dwarf_class.names,sexo).includes(ficha.nombre));
 }
 const indexSexo=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
 const appSexo=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
