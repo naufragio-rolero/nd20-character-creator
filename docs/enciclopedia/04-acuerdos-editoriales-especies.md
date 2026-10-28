@@ -36,3 +36,7 @@ El 2026-10-28 el autor fijó literalmente estas dos reglas:
 - **Castigo del Reino Sombrío (Gerudo):** +2 al daño; si el Conjuro tiene «Duración: X Turnos», aumenta **2 Turnos** su Duración; no se aplica a duraciones medidas en Intervalos. Se mantiene la pérdida de 1 Punto de Salud por lanzamiento. Actualizado [Especies](https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit) y [Lista Talentos Nd20 · Talentos!H138](https://docs.google.com/spreadsheets/d/1LLFbp7HO8EkC3M1zOEW1is0qvMz-D4n9AulIK2FIEgQ/edit).
 
 Se conserva el estado histórico de los JSON `02*`, por lo que no se debe usar su texto previo para reemplazar las versiones vivas actualizadas. Para el siguiente paso de integración, consultar `04b-talentos-especies-aprobados.json`.
+
+## Verificación posterior de sincronización — 2026-10-28
+
+Se han contrastado los 90 registros históricos de Ylat/Hyrule y Nocturna contra sus documentos vivos. **ESP-09 y ESP-10 están sincronizados** con el registro canónico `04b` y, en el caso de Castigo, con `Talentos!H138`. Se identificaron **13 fichas con diferencias**; sus textos vigentes se conservaron en [05a-fichas-especies-vigentes.json](05a-fichas-especies-vigentes.json), con revisión y procedencia. Véase [informe de conciliación](05-conciliacion-fuentes-vivas-especies.md). Las instantáneas `02*` no se han modificado. Se detectó además una errata aún presente en «Morador de las profundidades» («puedes en distinguir»); **ESP-11 no está cerrado por completo**.
