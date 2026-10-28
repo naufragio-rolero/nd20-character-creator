@@ -52,12 +52,25 @@
     var tools=nombre==='herramientas';
     $('panel-personajes').hidden=tools;
     $('panel-herramientas').hidden=!tools;
+    // El Sistema sigue accesible en las dos pestañas; el resto de
+    // ajustes solo aparece en Personajes si se abre el desplegable.
+    $('opciones-avanzadas-personajes').hidden=tools;
     ['personajes','herramientas'].forEach(function(key){
       var button=$('tab-'+key),selected=key===nombre;
       button.classList.toggle('activa',selected);
       button.setAttribute('aria-selected',String(selected));
       button.tabIndex=selected?0:-1;
     });
+    actualizarGenerarFlotante();
+  }
+  function actualizarGenerarFlotante(){
+    var flotante=$('generar-flotante');
+    var rapido=$('generacion-rapida');
+    if(!flotante||!rapido)return;
+    var bounds=rapido.getBoundingClientRect();
+    var visible=bounds.bottom>60&&bounds.top<window.innerHeight-60;
+    flotante.hidden=$('panel-personajes').hidden||visible||window.scrollY<160||
+      !!borrador||$('generar').disabled;
   }
   function fuentesNd20Activas(){
     return Array.from(document.querySelectorAll('#fuentes-nd20 input:checked')).map(function(e){
@@ -94,6 +107,8 @@
     if (!datos.dh) return;
     var juego = $('juego').value, dh = juego === 'dh';
     refrescarBotonesSistema();
+    $('sistema-actual').textContent=$('juego').selectedOptions[0]?.textContent||
+      'Sistema sin seleccionar';
     $('opciones-dh').hidden = !dh;
     $('opciones-fuentes').hidden = dh;
     $('opciones-nombres-ylat').hidden = juego!=='nd20';
@@ -338,10 +353,12 @@
     borrador=null;
     $('editor-elecciones').hidden=true;
     $('grupos-elecciones').textContent='';
+    actualizarGenerarFlotante();
   }
   function prepararEditor(personaje,plan,rng){
     borrador={personaje:personaje,plan:plan,rng:rng};
     $('editor-elecciones').hidden=false;
+    actualizarGenerarFlotante();
     $('editor-titulo').textContent='Personalizar · '+personaje.descripcion;
     $('editor-resumen').textContent='Nivel '+personaje.nivel+
       ' · '+plan.pasos.filter(function(x){return !x.automatico;})
@@ -431,6 +448,17 @@
     });
   }
   function vincular() {
+    var avanzadas=$('opciones-avanzadas');
+    avanzadas.addEventListener('toggle',function(){
+      $('panel-forja').classList.toggle('panel-con-avanzadas',avanzadas.open);
+      actualizarGenerarFlotante();
+    });
+    $('generar-flotante').addEventListener('click',function(){
+      if($('generar').disabled||borrador||$('panel-personajes').hidden)return;
+      $('configuracion').requestSubmit($('generar'));
+    });
+    window.addEventListener('scroll',actualizarGenerarFlotante,{passive:true});
+    window.addEventListener('resize',actualizarGenerarFlotante);
     $('alternar-menu').addEventListener('click',function(){
       alternarMenu(!$('panel-forja').classList.contains('panel-abierto'));
     });
@@ -632,6 +660,7 @@
     }catch(error){ /* El formulario funciona sin almacenamiento. */ }
     vincular();refrescarSelectores();dibujar();
     $('generar').disabled=false;
+    actualizarGenerarFlotante();
     aviso('Datos listos. Puedes empezar a generar personajes.');
   }
   $('generar').disabled=true;
