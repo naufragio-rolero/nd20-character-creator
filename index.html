@@ -18,7 +18,7 @@
       <h1>Forja de personajes</h1>
       <p class="subtitulo">Naufragio d20 y Dungeon Hack. Personajes y herramientas en una misma forja.</p>
     </div>
-    <div class="cabecera-acciones"><label class="tema-control" for="selector-tema">Tema
+    <div class="cabecera-acciones"><button id="alternar-menu" class="boton-menu" type="button" aria-controls="panel-forja" aria-expanded="false" aria-label="Abrir menú de la forja"><span class="lineas-menu" aria-hidden="true"><span></span><span></span><span></span></span><span>Menú</span></button><label class="tema-control" for="selector-tema">Tema
       <select id="selector-tema" aria-label="Tema visual">
         <option value="clasico">Clásico</option>
         <option value="ebano">Ébano</option>
@@ -29,7 +29,7 @@
     <a class="enlace-github" href="https://github.com/naufragio-rolero/nd20-character-creator" target="_blank" rel="noopener noreferrer">Código y documentación</a></div>
   </header>
   <main class="disposicion">
-    <aside class="panel" aria-label="Opciones de generación">
+    <aside class="panel" id="panel-forja" aria-label="Opciones de generación">
       <h2>La forja</h2>
       <div class="pestanas-panel" role="tablist" aria-label="Panel de la forja">
         <button type="button" id="tab-personajes" role="tab" aria-controls="panel-personajes" aria-selected="true" class="activa">Personajes</button>
@@ -67,8 +67,13 @@
         <fieldset id="opciones-dh" hidden>
           <legend>Opciones de Dungeon Hack</legend>
           <label class="casilla"><input id="con-especie" type="checkbox" checked> Aplicar especies</label>
-          <p class="ayuda">Procedencias permitidas</p>
+          <p class="ayuda">Procedencias permitidas para clases y especies</p>
           <div id="origenes" class="origenes"></div>
+        </fieldset>
+        <fieldset id="opciones-fuentes" hidden>
+          <legend>Fuentes permitidas · Naufragio d20</legend>
+          <p class="ayuda">Las fuentes marcadas determinan qué Ocupaciones y Especies entran en la generación.</p>
+          <div id="fuentes-nd20" class="origenes"></div>
         </fieldset>
         <div class="campo" id="opciones-nombres-ylat">
           <label for="modo-nombre">Nombres de Ylat</label>

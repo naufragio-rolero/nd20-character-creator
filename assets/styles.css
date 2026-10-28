@@ -130,6 +130,9 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 
 
 /* Pestañas y botones compactos del selector de sistema. */
+.boton-menu{display:none}
+.lineas-menu{display:inline-flex;flex-direction:column;justify-content:center;gap:4px;width:19px}
+.lineas-menu span{display:block;height:2px;width:100%;background:currentColor;border-radius:2px}
 .cabecera-acciones{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
 .tema-control{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--secundario);font-weight:700}
 .tema-control select{width:auto;min-width:130px;min-height:38px;padding:.4rem .6rem}
@@ -203,3 +206,9 @@ body[data-tema]:not([data-tema=clasico]) .icon-btn{
 }
 body[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);border-color:var(--borde)}
 @media(max-width:830px){.cabecera-acciones{width:100%;justify-content:space-between}}
+
+/* En móvil, la configuración se despliega bajo un control de navegación accesible. */
+@media(max-width:830px){
+  .boton-menu{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;min-height:44px;padding:.6rem .85rem}
+  .panel:not(.panel-abierto){display:none}
+}

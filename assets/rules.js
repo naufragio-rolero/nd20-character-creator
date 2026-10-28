@@ -55,8 +55,18 @@
     config = config || {};
     var nivel = clamp(Math.floor(Number(config.nivel) || 1), 1, 30);
     var especies = datos.especies, ocupaciones = datos.ocupaciones;
-    var esps = Object.keys(especies), ocs = Object.keys(ocupaciones);
-    if (!esps.length || !ocs.length) throw Error('Faltan datos de especies u ocupaciones');
+    var fuentes=datos.fuentes||{}, permitidas=Array.isArray(config.fuentes)?config.fuentes:null;
+    function permitida(tipo,key){
+      return !permitidas||permitidas.indexOf((fuentes[tipo]||{})[key]||'DRS')!==-1;
+    }
+    var esps=Object.keys(especies).filter(function(key){return permitida('especies',key);});
+    var ocs=Object.keys(ocupaciones).filter(function(key){return permitida('ocupaciones',key);});
+    if (!esps.length || !ocs.length)
+      throw Error('No hay Ocupaciones o Especies disponibles con las fuentes seleccionadas.');
+    if(config.especie&&esps.indexOf(config.especie)===-1)
+      throw Error('La Especie elegida no pertenece a las fuentes permitidas.');
+    if(config.ocupacion&&ocs.indexOf(config.ocupacion)===-1)
+      throw Error('La Ocupación elegida no pertenece a las fuentes permitidas.');
     var elegido = (config.especie && especies[config.especie]) ? config.especie : '';
     var at = {}, especie = null, intentos = 0;
     do {
@@ -151,6 +161,8 @@
           esp.esencia ? [['Esencia', esp.esencia]] : []),
       capacidades:capacidades,
       competencias:(oc.competencias || []).slice(), equipo:equipo, origen:tipo,
+      procedenciaOcupacion:(fuentes.ocupaciones||{})[ocupacion]||tipo,
+      procedenciaEspecie:(fuentes.especies||{})[especie]||tipo,
       riqueza:riqueza,
       notas:detalles.concat((oc.poderes || []).length ? ['Poderes declarados: ' + oc.poderes.join(', ') + '.'] : [],
         config.aplazarElecciones ? [] : ['El generador no asigna Conjuros ni Técnicas por Nivel.'])
@@ -181,6 +193,9 @@
   function eleccionDH(datos, config, rng) {
     var origenes = Array.isArray(config.origenes) ? config.origenes.map(Number) : null;
     var clases = datos.classes;
+    if(config.ocupacion&&clases[config.ocupacion]&&origenes&&
+      origenes.indexOf(Number(clases[config.ocupacion].origin))===-1)
+      throw Error('La Clase elegida no pertenece a las procedencias permitidas.');
     var claseKey = config.ocupacion && clases[config.ocupacion] ?
       config.ocupacion : escogerEntradaPorOrigen(clases, origenes, rng);
     var clase = clases[claseKey], nivel = clamp(Math.floor(Number(config.nivel) || 1), 1, 36);
@@ -192,8 +207,12 @@
       var razas = Object.keys(datos.races).filter(function (k) {
         var r = datos.races[k];
         return (!config.especie || k === config.especie) &&
+          (!origenes||origenes.indexOf(Number(r.origin))!==-1) &&
           (r.req || []).every(function (x) { return atributos[x[0]] <= x[1]; });
       });
+      if(config.especie&&origenes&&datos.races[config.especie]&&
+        origenes.indexOf(Number(datos.races[config.especie].origin))===-1)
+        throw Error('La Especie elegida no pertenece a las procedencias permitidas.');
       if (razas.length) especie = datos.races[escoger(razas, rng)];
     }
     if (Number.isInteger(favor) && favor >= 0 && favor < atributos.length)
@@ -229,6 +248,8 @@
       juego:'Dungeon Hack', nombre:nombre,
       descripcion:(especie ? especie.name + ' · ' : '') + clase.name,
       nivel:nivel, concepto:'', origen:datos.origins[clase.origin] || 'Dungeon Hack',
+      procedenciaOcupacion:datos.origins[clase.origin]||'Dungeon Hack',
+      procedenciaEspecie:especie?(datos.origins[especie.origin]||'Dungeon Hack'):'',
       atributos:ATTR_DH.map(function (nombre, i) {
         return {nombre:nombre, valor:20-atributos[i], dificultad:atributos[i], favorito:i === favor};
       }),

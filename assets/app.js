@@ -7,6 +7,7 @@
   var entradas = [];
   var correlativo = 0;
   var borrador = null;
+  var fuentesGuardadas = {};
   var $ = function (id) {return document.getElementById(id);};
   function aviso(mensaje, esError) {
     $('estado').textContent = mensaje || '';
@@ -56,19 +57,43 @@
       button.tabIndex=selected?0:-1;
     });
   }
-  function origenOcupacion(nombre,juego){
-    if(juego==='dh')return '';
-    if(juego==='nd20_cifi')return 'CiFi';
-    if(juego==='nd20_nocturna')return 'Nocturna';
-    if(datos.fantasiaAmpliadas && datos.fantasiaAmpliadas[nombre])
-      return datos.fantasiaAmpliadas[nombre].suplemento || 'Nuevas Ocupaciones';
-    return 'DRS';
+  function fuentesNd20Activas(){
+    return Array.from(document.querySelectorAll('#fuentes-nd20 input:checked')).map(function(e){
+      return e.value;
+    });
+  }
+  function datosJuego(juego){
+    return juego==='nd20_cifi' ? datos.cifi : juego==='nd20_nocturna' ? datos.nocturna : datos.fantasia;
+  }
+  function configurarFuentesNd20(juego,grupo){
+    var cont=$('fuentes-nd20');
+    if(cont.dataset.juego===juego)return;
+    var nombres=Array.from(new Set(Object.values(grupo.fuentes.ocupaciones)
+      .concat(Object.values(grupo.fuentes.especies)))).sort(function(a,b){
+      if(a==='DRS')return -1;
+      if(b==='DRS')return 1;
+      return a.localeCompare(b,'es');
+    });
+    var previas=fuentesGuardadas[juego];
+    cont.textContent='';
+    nombres.forEach(function(nombre){
+      var label=document.createElement('label'),input=document.createElement('input');
+      label.className='casilla';
+      input.type='checkbox';
+      input.value=nombre;
+      input.checked=!previas||previas.indexOf(nombre)!==-1;
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(' '+nombre));
+      cont.appendChild(label);
+    });
+    cont.dataset.juego=juego;
   }
   function refrescarSelectores() {
     if (!datos.dh) return;
     var juego = $('juego').value, dh = juego === 'dh';
     refrescarBotonesSistema();
     $('opciones-dh').hidden = !dh;
+    $('opciones-fuentes').hidden = dh;
     $('opciones-nombres-ylat').hidden = juego!=='nd20';
     $('modos-creacion').hidden = dh;
     $('generar-seguidor').disabled = !dh;
@@ -79,25 +104,33 @@
     $('especie').disabled = dh && !$('con-especie').checked;
     if (dh) {
       var orig = origenesActivos();
-      var claves = Object.keys(datos.dh.classes).filter(function (key) {
-        return orig.indexOf(datos.dh.classes[key].origin) !== -1;
+      var claves = Object.keys(datos.dh.classes).filter(function(key){
+        return orig.indexOf(datos.dh.classes[key].origin)!==-1;
       });
-      selecciones('ocupacion', claves.map(function (key) {
-        return {key:key, nombre:datos.dh.classes[key].name+
+      selecciones('ocupacion', claves.map(function(key){
+        return {key:key,nombre:datos.dh.classes[key].name+
           ' ('+(datos.dh.origins[datos.dh.classes[key].origin]||'Dungeon Hack')+')'};
-      }).sort(ordenar), true);
-      selecciones('especie', Object.keys(datos.dh.races).map(function (key) {
-        return {key:key, nombre:datos.dh.races[key].name};
-      }).sort(ordenar), true);
+      }).sort(ordenar),true);
+      selecciones('especie', Object.keys(datos.dh.races).filter(function(key){
+        return orig.indexOf(datos.dh.races[key].origin)!==-1;
+      }).map(function(key){
+        return {key:key,nombre:datos.dh.races[key].name+
+          ' ('+(datos.dh.origins[datos.dh.races[key].origin]||'Dungeon Hack')+')'};
+      }).sort(ordenar),true);
     } else {
-      var d = juego === 'nd20_cifi' ? datos.cifi :
-        juego === 'nd20_nocturna' ? datos.nocturna : datos.fantasia;
-      selecciones('ocupacion', Object.keys(d.ocupaciones).map(function (key) {
-        return {key:key, nombre:key+' ('+origenOcupacion(key,juego)+')'};
-      }).sort(ordenar), true);
-      selecciones('especie', Object.keys(d.especies).map(function (key) {
-        return {key:key, nombre:key};
-      }).sort(ordenar), true);
+      var d=datosJuego(juego);
+      configurarFuentesNd20(juego,d);
+      var fuentes=fuentesNd20Activas();
+      selecciones('ocupacion',Object.keys(d.ocupaciones).filter(function(key){
+        return fuentes.indexOf(d.fuentes.ocupaciones[key])!==-1;
+      }).map(function(key){
+        return {key:key,nombre:key+' ('+d.fuentes.ocupaciones[key]+')'};
+      }).sort(ordenar),true);
+      selecciones('especie',Object.keys(d.especies).filter(function(key){
+        return fuentes.indexOf(d.fuentes.especies[key])!==-1;
+      }).map(function(key){
+        return {key:key,nombre:key+' ('+d.fuentes.especies[key]+')'};
+      }).sort(ordenar),true);
     }
   }
   function ordenar(a,b) {return a.nombre.localeCompare(b.nombre, 'es');}
@@ -115,26 +148,36 @@
     var origenes=origenesActivos();
     if (juego==='dh' && !origenes.length)
       throw Error('Marca al menos una procedencia para Dungeon Hack.');
+    var fuentes=juego==='dh'?null:fuentesNd20Activas();
+    if(juego!=='dh'&&!fuentes.length)
+      throw Error('Marca al menos una fuente de Naufragio d20.');
     var modo = dhModo(juego);
     if(modo==='personalizado' && cantidad!==1)
       throw Error('El modo Personalizado crea una ficha por vez. Selecciona cantidad 1.');
     return {juego:juego, nivel:nivel, cantidad:cantidad, modo:modo,
       ocupacion:$('ocupacion').value, especie:$('especie').value,
-      conEspecie:$('con-especie').checked, origenes:origenes,
+      conEspecie:$('con-especie').checked, origenes:origenes, fuentes:fuentes,
       nombre:$('nombre-personaje').value.trim(),
       modoNombre:$('modo-nombre').value};
   }
   function crearFicha(cfg, rng) {
-    if (cfg.juego === 'dh') {
-      var dh=reglas.eleccionDH(datos.dh,cfg,rng);
-      dh.procedenciaOcupacion=dh.origen;
-      return dh;
-    }
-    var ficha=reglas.crearNd20(cfg.juego==='nd20_cifi' ? datos.cifi :
-      cfg.juego==='nd20_nocturna' ? datos.nocturna : datos.fantasia,
+    if (cfg.juego === 'dh') return reglas.eleccionDH(datos.dh,cfg,rng);
+    return reglas.crearNd20(datosJuego(cfg.juego),
       Object.assign({},cfg,{aplazarElecciones:true,tesauroYlat:datos.tesauroYlat}),rng);
-    ficha.procedenciaOcupacion=origenOcupacion(ficha.descripcion.split(' · ')[0],cfg.juego);
-    return ficha;
+  }
+  function fuentesFicha(personaje){
+    var ocupacion=personaje.procedenciaOcupacion||personaje.origen||'Sin especificar';
+    var especie=personaje.procedenciaEspecie;
+    return 'Fuente · Ocupación: '+ocupacion+(especie?' · Especie: '+especie:'');
+  }
+  function alternarMenu(abierto){
+    $('panel-forja').classList.toggle('panel-abierto',abierto);
+    $('alternar-menu').setAttribute('aria-expanded',String(abierto));
+    $('alternar-menu').setAttribute('aria-label',
+      abierto?'Cerrar menú de la forja':'Abrir menú de la forja');
+  }
+  function cerrarMenuMovil(){
+    if(window.matchMedia('(max-width:830px)').matches)alternarMenu(false);
   }
   function htmlLista(titulo, valores) {
     if (!valores || !valores.length) return '';
@@ -145,11 +188,6 @@
     return '<div class="recursos">' + (pares || []).map(function (p) {
       return '<div><span>' + esc(p[0]) + '</span><strong>' + esc(p[1]) + '</strong></div>';
     }).join('') + '</div>';
-  }
-  function descripcionConFuente(personaje){
-    var p=personaje.descripcion.split(' · ');
-    if(personaje.procedenciaOcupacion)p[0]+=' ('+personaje.procedenciaOcupacion+')';
-    return p.join(' · ');
   }
   function fichaHTML(personaje, id) {
     var esDungeonHack = personaje.juego.indexOf('Dungeon Hack') === 0;
@@ -164,7 +202,7 @@
     return '<article class="tarjeta" data-id="' + id + '">' +
       '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(personaje.juego) +
       ' · Nivel ' + esc(personaje.nivel) + '</p><h3>' + esc(personaje.nombre) +
-      '</h3><p>' + esc(descripcionConFuente(personaje)) + '</p></div>' +
+      '</h3><p>' + esc(personaje.descripcion) + '</p></div>' +
       '<button class="icon-btn eliminar-ficha" data-id="' + id + '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div>' +
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
       '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos) +
@@ -175,7 +213,7 @@
       htmlLista('Equipo',personaje.equipo) +
       (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
       htmlLista('Observaciones',personaje.notas) +
-      '<div class="pie-ficha"><small>Origen: ' + esc(personaje.origen) +
+      '<div class="pie-ficha"><small>' + esc(fuentesFicha(personaje)) +
       '</small><button type="button" class="copiar-ficha" data-id="' + id +
       '">Copiar ficha</button></div></article>';
   }
@@ -201,7 +239,7 @@
     return html;
   }
   function fichaTexto(p) {
-    var str=[p.nombre,p.juego,'Nivel: '+p.nivel,descripcionConFuente(p)];
+    var str=[p.nombre,p.juego,'Nivel: '+p.nivel,p.descripcion];
     if(p.concepto)str.push('Concepto: '+p.concepto);
     str.push('', 'Atributos:');
     var esDH = p.juego.indexOf('Dungeon Hack') === 0;
@@ -218,7 +256,7 @@
       }
     });
     if(p.riqueza)str.push('Riqueza: '+p.riqueza);
-    str.push('Origen: '+p.origen);
+    str.push(fuentesFicha(p));
     return str.join('\n');
   }
   function mapaTexto(filas) {
@@ -340,6 +378,9 @@
     });
   }
   function vincular() {
+    $('alternar-menu').addEventListener('click',function(){
+      alternarMenu(!$('panel-forja').classList.contains('panel-abierto'));
+    });
     document.querySelectorAll('.juegos-compactos [data-juego]').forEach(function(button){
       button.addEventListener('click',function(){
         $('juego').value=button.dataset.juego;
@@ -362,6 +403,10 @@
     $('juego').addEventListener('change',refrescarSelectores);
     $('con-especie').addEventListener('change',refrescarSelectores);
     $('origenes').addEventListener('change',refrescarSelectores);
+    $('fuentes-nd20').addEventListener('change',function(){
+      fuentesGuardadas[$('juego').value]=fuentesNd20Activas();
+      refrescarSelectores();
+    });
     $('configuracion').addEventListener('submit',function(e) {
       e.preventDefault();
       conControl(function () {
@@ -375,11 +420,13 @@
             c.juego==='nd20_nocturna'?datos.nocturna:datos.fantasia;
           var plan=poderes.planificar(opciones,juegoDatos,datos.catalogo,datos.progresiones);
           if(c.modo==='personalizado'&&plan.pasos.some(function(x){return !x.automatico;})){
+            cerrarMenuMovil();
             prepararEditor(personaje,plan,r);return;
           }
           items.push(poderes.aplicar(personaje,plan,poderes.resolver(plan,null,r)));
         }
         items.forEach(function(p){agregar('ficha',p);});
+        cerrarMenuMovil();
       });
     });
     $('form-elecciones').addEventListener('submit',function(event){
@@ -462,6 +509,33 @@
         datos.cifi.especies[key]=Object.assign({},datos.cifi.especies[key],extra.cifi.especies[key]);
     });
     datos.nocturna=extra.nocturna;
+    // Las fuentes se obtienen de los metadatos documentales, no del nombre mostrado.
+    datos.fantasia.fuentes={
+      especies:Object.fromEntries(Object.keys(datos.fantasia.especies).map(function(key){
+        var ficha=extra.fantasia.especies[key];
+        return [key,ficha?(ficha.fuente||'NaufragioD20 — Especies').replace(/\\s*\\(Google Drive\\)$/,''):'DRS'];
+      })),
+      ocupaciones:Object.fromEntries(Object.keys(datos.fantasia.ocupaciones).map(function(key){
+        var ficha=extra.fantasia.ocupaciones[key];
+        return [key,ficha?(ficha.suplemento||'NaufragioD20 — Ocupaciones'):'DRS'];
+      }))
+    };
+    datos.cifi.fuentes={
+      especies:Object.fromEntries(Object.keys(datos.cifi.especies).map(function(key){
+        return [key,'Naufragio d20 CiFi'];
+      })),
+      ocupaciones:Object.fromEntries(Object.keys(datos.cifi.ocupaciones).map(function(key){
+        return [key,'Naufragio d20 CiFi'];
+      }))
+    };
+    datos.nocturna.fuentes={
+      especies:Object.fromEntries(Object.keys(datos.nocturna.especies).map(function(key){
+        return [key,'Naufragio d20 Nocturna'];
+      })),
+      ocupaciones:Object.fromEntries(Object.keys(datos.nocturna.ocupaciones).map(function(key){
+        return [key,'Naufragio d20 Nocturna'];
+      }))
+    };
     datos.fantasiaAmpliadas=extra.fantasia.ocupaciones;
     datos.catalogo=loaded.catalogo;
     datos.tesauroYlat=loaded.tesauroYlat;

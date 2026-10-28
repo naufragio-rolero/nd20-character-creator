@@ -252,3 +252,55 @@ assert.ok(tesauroYlat.entradas.some(x=>x.nombre===nombreOriginal.nombre&&x.tipo=
 const pag=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
 assert.ok(pag.includes('id="modo-nombre"'),'Selector de nombres disponible');
 console.log('OK · Talentos, Hurí y tesauro Ylat validados.');
+
+/* Fuentes y navegación responsive: la selección debe afectar al motor, no solo a la interfaz. */
+const fantasiaConFuentes=Object.assign({},fantasiaExtendida,{
+  fuentes:{
+    ocupaciones:Object.fromEntries(Object.keys(fantasiaExtendida.ocupaciones).map(k=>[
+      k,catalogo.fantasia.ocupaciones[k]?
+        catalogo.fantasia.ocupaciones[k].suplemento:'DRS'
+    ])),
+    especies:Object.fromEntries(Object.keys(fantasiaExtendida.especies).map(k=>[
+      k,catalogo.fantasia.especies[k]?'NaufragioD20 — Especies':'DRS'
+    ]))
+  }
+});
+for(let i=0;i<25;i++){
+  const p=reglas.crearNd20(fantasiaConFuentes,{juego:'nd20',nivel:1,fuentes:['DRS']},
+    reglas.aleatorioSemilla('fuente-drs-'+i));
+  assert.equal(p.procedenciaOcupacion,'DRS');
+  assert.equal(p.procedenciaEspecie,'DRS');
+}
+const arlequin=reglas.crearNd20(fantasiaConFuentes,{
+  juego:'nd20',nivel:1,fuentes:['DRS','Nuevas Ocupaciones'],
+  ocupacion:'Arlequín',especie:'Humano común'
+},reglas.aleatorioSemilla('arlequin-fuente'));
+assert.equal(arlequin.descripcion,'Arlequín · Humano común');
+assert.equal(arlequin.procedenciaOcupacion,'Nuevas Ocupaciones');
+assert.equal(arlequin.procedenciaEspecie,'DRS');
+assert.throws(()=>reglas.crearNd20(fantasiaConFuentes,{
+  juego:'nd20',nivel:1,fuentes:['DRS'],ocupacion:'Arlequín'
+},reglas.aleatorioSemilla('excluido')),/fuentes permitidas/i);
+assert.throws(()=>reglas.crearNd20(fantasiaConFuentes,{
+  juego:'nd20',nivel:1,fuentes:['DRS','Nuevas Ocupaciones'],especie:'Dracónido'
+},reglas.aleatorioSemilla('especie-excluida')),/fuentes permitidas/i);
+const claseDH=reglas.eleccionDH(dh,{
+  juego:'dh',nivel:1,origenes:[0],ocupacion:'cleric',conEspecie:true
+},reglas.aleatorioSemilla('dh-fuente-clase'));
+assert.equal(claseDH.procedenciaOcupacion,'Dungeon Hack');
+assert.equal(claseDH.procedenciaEspecie,'');
+assert.throws(()=>reglas.eleccionDH(dh,{
+  juego:'dh',nivel:1,origenes:[1],ocupacion:'cleric'
+},reglas.aleatorioSemilla('dh-fuente-excluida')),/procedencias permitidas/i);
+assert.throws(()=>reglas.eleccionDH(dh,{
+  juego:'dh',nivel:1,origenes:[0],ocupacion:'cleric',especie:'dragonborn'
+},reglas.aleatorioSemilla('dh-especie-excluida')),/procedencias permitidas/i);
+const htmlForja=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+assert.ok(htmlForja.includes('id="alternar-menu"')&&htmlForja.includes('aria-expanded="false"'));
+assert.ok(htmlForja.includes('id="opciones-fuentes"')&&htmlForja.includes('id="fuentes-nd20"'));
+const jsForja=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
+assert.ok(jsForja.includes('esc(personaje.descripcion)')&&!jsForja.includes('descripcionConFuente'));
+assert.ok(jsForja.includes('fuentesFicha(personaje)'));
+const cssForja=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'utf8');
+assert.ok(cssForja.includes('.panel:not(.panel-abierto){display:none}'));
+console.log('OK · Filtros de fuentes y menú móvil verificados.');
