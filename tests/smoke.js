@@ -570,3 +570,90 @@ assert.ok(jsControl.includes('repertorios.importar(repertoriosCatalogo,parsed.re
   'JSON importable con repertorios');
 console.log('OK · '+repertoriosPrueba.length+
   ' repertorios de nombres y conceptos, tesauro protegido y JSON validado.');
+
+
+/* Talentos iniciales y equipo: verificación de 37 Ocupaciones × 4 niveles. */
+const equipoDRS=leer('equipo-inicial.json');
+const equipoApi=require('../assets/equipment.js');
+assert.ok(equipoDRS.armas.some(x=>x.nombre==='Martillo de guerra'&&x.precio===15));
+assert.ok(equipoDRS.paquetes.some(x=>x.nombre==='Especial devotos'&&x.precio===10));
+let pruebasEquipo=0;
+for(const [nombre,ocupacion] of Object.entries(fantasiaExtendida.ocupaciones)){
+  for(const nivel of [1,6,12,30]){
+    const cfg={juego:'nd20',ocupacion:nombre,especie:'Humano común',nivel,
+      aplazarElecciones:true,catalogoEquipo:equipoDRS};
+    const uno=reglas.crearNd20(fantasiaExtendida,cfg,reglas.aleatorioSemilla('equipo-'+nombre+'-'+nivel));
+    const otro=reglas.crearNd20(fantasiaExtendida,cfg,reglas.aleatorioSemilla('equipo-'+nombre+'-'+nivel));
+    assert.deepEqual(uno,otro,'Equipo determinista: '+nombre+'/'+nivel);
+    assert.ok(!uno.capacidades.some(x=>x.includes('(consulta Nivel y condiciones del manual)')),
+      'Sin Talentos de referencia no verificados: '+nombre);
+    const presupuesto=Number(uno.riqueza.match(/\/ (\d+) mo iniciales/)[1]);
+    const saldo=Number(uno.riqueza.match(/^(\d+(?:\.\d+)?) mo restantes/)[1]);
+    const nota=uno.notas.find(x=>x.startsWith('Equipo DRS adquirido por '));
+    assert.ok(nota,'Compra DRS para '+nombre);
+    const gasto=Number(nota.match(/por ([\d.]+) mo/)[1]);
+    assert.ok(gasto>=0&&saldo>=0&&Math.abs((gasto+saldo)-presupuesto)<0.001,
+      'Presupuesto sin rebasar: '+nombre+'/'+nivel);
+    assert.ok(uno.equipo.some(x=>x.startsWith('Paquete ')),'Provisiones básicas: '+nombre+'/'+nivel);
+    pruebasEquipo++;
+  }
+}
+const forenseTalentos=reglas.crearNd20(fantasiaExtendida,{
+  juego:'nd20',ocupacion:'Forense',especie:'Humano común',nivel:1,
+  aplazarElecciones:true,catalogoEquipo:equipoDRS},
+  reglas.aleatorioSemilla('forense-inicial'));
+assert.ok(forenseTalentos.capacidades.includes('Hallar la verdad')&&
+  forenseTalentos.capacidades.includes('Olfato deductivo'));
+const barbaroTalentos=reglas.crearNd20(fantasiaExtendida,{
+  juego:'nd20',ocupacion:'Bárbaro',especie:'Humano común',nivel:1,
+  aplazarElecciones:true,catalogoEquipo:equipoDRS},
+  reglas.aleatorioSemilla('barbaro-inicial'));
+assert.ok(barbaroTalentos.capacidades.includes('Brutalidad')&&
+  barbaroTalentos.capacidades.includes('Cólera'));
+assert.ok(!barbaroTalentos.capacidades.includes('Energúmeno')&&
+  !barbaroTalentos.capacidades.includes('Receloso'));
+const planBar=poderes.planificar({juego:'nd20',ocupacion:'Bárbaro',
+  especie:'Humano común',nivel:1},fantasiaExtendida,catalogoPoderes,progresiones);
+assert.deepEqual(planBar.pasos.find(x=>x.id==='talento-ocupacion-inicial')
+  .opciones.map(x=>x.nombre),['Energúmeno','Receloso']);
+const resultadoBar=poderes.resolver(planBar,{'talento-ocupacion-inicial':['Receloso']},
+  reglas.aleatorioSemilla('barbaro-seleccion'));
+const finalBar=poderes.aplicar(barbaroTalentos,planBar,resultadoBar);
+assert.ok(finalBar.capacidades.includes('Receloso')&&!finalBar.capacidades.includes('Energúmeno'));
+const adalidTalentos=reglas.crearNd20(fantasiaExtendida,{
+  juego:'nd20',ocupacion:'Adalid',especie:'Humano común',nivel:1,
+  aplazarElecciones:true,catalogoEquipo:equipoDRS},
+  reglas.aleatorioSemilla('adalid-inicial'));
+assert.ok(adalidTalentos.capacidades.includes('Poderío del caballero'));
+assert.ok(!adalidTalentos.capacidades.includes('Desafío honorable'));
+const planAdalid=poderes.planificar({juego:'nd20',ocupacion:'Adalid',
+  especie:'Humano común',nivel:1},fantasiaExtendida,catalogoPoderes,progresiones);
+assert.equal(planAdalid.pasos.find(x=>x.id==='compromiso-adalid').opciones.length,3);
+const resultadoAdalid=poderes.resolver(planAdalid,
+  {'compromiso-adalid':['Juramento sagrado']},reglas.aleatorioSemilla('adalid-elegido'));
+const finalAdalid=poderes.aplicar(adalidTalentos,planAdalid,resultadoAdalid);
+assert.ok(finalAdalid.capacidades.includes('Imposición de manos')&&
+  !finalAdalid.capacidades.includes('Desafío honorable'));
+for(const nombre of ['Druida','Lardeur','Derviche']){
+  const perfil=fantasiaExtendida.ocupaciones[nombre];
+  assert.equal(perfil.talentos_documentacion.verificado,false);
+  assert.equal(perfil.talentos.length,0);
+}
+const cifiEudemonista=reglas.crearNd20(cifiExtendida,{
+  juego:'nd20_cifi',ocupacion:'Eudemonista',especie:'Humano natural',nivel:1,
+  aplazarElecciones:true,catalogoEquipo:equipoDRS},
+  reglas.aleatorioSemilla('eudemonista-gratis'));
+assert.ok(cifiEudemonista.equipo.some(x=>x.includes('gratuita')));
+assert.equal(cifiEudemonista.riqueza,'');
+const cifiDiplomatico=reglas.crearNd20(cifiExtendida,{
+  juego:'nd20_cifi',ocupacion:'Diplomático',especie:'Humano natural',nivel:1,
+  aplazarElecciones:true,catalogoEquipo:equipoDRS},
+  reglas.aleatorioSemilla('diplomatico-compras'));
+assert.ok(!cifiDiplomatico.equipo.some(x=>x.includes('filosofal')));
+const bloqueo=equipoApi.compraInicial({
+  armas:[],armaduras:[],competencias:['Puedes equipar bastones.',
+    'A partir de Nivel 6, puedes equipar armaduras ligeras.']},
+  'Ocupación de prueba','nd20',equipoDRS,100,reglas.aleatorioSemilla('bloqueo'),1);
+assert.ok(!bloqueo.equipo.some(x=>x==='Armadura acolchada'||x==='Armadura de cuero'),
+  'No se adquiere armadura antes del Nivel 6');
+console.log('OK · '+pruebasEquipo+' compras iniciales y elecciones de Talentos contrastadas.');

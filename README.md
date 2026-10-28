@@ -202,3 +202,27 @@ el repositorio cambia. Los JSON antiguos sin repertorios siguen admitidos.
 
 **No se aplica nada al generador en el navegador:** la revisión enviada debe
 validarse e incorporarse explícitamente al código y a los ficheros de datos.
+
+
+### Primera fase: Talentos iniciales y equipo
+
+Se han contrastado 30 de las 33 Ocupaciones de Fantasía ampliada con
+NaufragioD20 — Ocupaciones. Los Talentos iniciales fijos se muestran sin el
+aviso de consulta del manual. Druida, Lardeur y Derviche mantienen sus Talentos
+sin conceder hasta localizar la fuente completa.
+
+El Bárbaro elige exactamente uno entre Energúmeno y Receloso. El Adalid elige
+un Compromiso y recibe el Talento exclusivo de la rama si corresponde.
+Quedan pendientes los Poderes adicionales del Compromiso, los Talentos de otras
+Ocupaciones del Diletante y el estilo inicial del Gladiador.
+
+En Fantasía, la Forja tira 4d10 × 10 mo y compra armamento, armadura y
+paquete de equipo dentro del presupuesto, usando los precios del DRS y
+las competencias permitidas al Nivel solicitado. El saldo y el coste quedan
+reflejados en la ficha. Se conserva el recuerdo personal de la Especie sin
+imputarle un precio de compra.
+
+CiFi no tiene riqueza inicial documentada: por ahora no se simulan compras,
+salvo el arma filosofal gratuita del Eudemonista. Nocturna tampoco recibe
+riqueza DRS hasta obtener la fuente económica propia. El catálogo
+es una primera selección contrastada y no incluye aún toda la armería.
