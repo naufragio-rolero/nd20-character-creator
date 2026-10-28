@@ -153,8 +153,8 @@ console.log('OK · '+eleccionesValidadas+' comprobaciones de progresión y selec
 const progresoAmpliado=progresiones.ampliadas;
 assert.equal(Object.keys(progresoAmpliado.fantasia).length,33,'Tablas de Ocupaciones ampliadas');
 assert.equal(Object.keys(progresoAmpliado.nocturna).length,8,'Tablas Nocturna');
-assert.equal(Object.values(progresoAmpliado.fantasia).filter(t=>t.verificado).length,30,
-  'Solo 30 tablas de Fantasía verificadas íntegramente');
+assert.equal(Object.values(progresoAmpliado.fantasia).filter(t=>t.verificado).length,31,
+  '31 tablas de Fantasía verificadas; Adalid contrastado con el manual');
 for(const [key,tabla] of Object.entries(progresoAmpliado.nocturna))
   assert.ok(tabla.verificado && tabla.niveles.length===30 && tabla.niveles.every(Array.isArray),
     'Tabla de Nocturna completa: '+key);
@@ -198,9 +198,10 @@ const hechicero=poderes.planificar({juego:'nd20',nivel:15,
   ocupacion:'Hechicero',especie:'Humano común'},fantasiaExtendida,catalogoPoderes,progresiones);
 assert.ok(hechicero.pasos.some(p=>p.id==='vinculo-arcano'));
 assert.ok(hechicero.pasos.some(p=>p.dependeVinculo));
-const noVerificado=poderes.planificar({juego:'nd20',nivel:30,ocupacion:'Adalid',
+const adalidVerificado=poderes.planificar({juego:'nd20',nivel:30,ocupacion:'Adalid',
   especie:'Humano común'},fantasiaExtendida,catalogoPoderes,progresiones);
-assert.ok(noVerificado.avisos.some(x=>x.includes('verificación manual')),'Adalid no se inventa');
+assert.ok(adalidVerificado.avisos.some(x=>x.includes('correspondencia de Escuelas')),
+  'Adalid: tabla verificada, Conjuros ambiguos no inventados');
 const documento=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
 for(const tag of ['data-juego="nd20"','data-juego="nd20_cifi"','data-juego="nd20_nocturna"',
  'data-juego="dh"','tab-herramientas','selector-tema'])
@@ -717,3 +718,78 @@ assert.ok(fs.existsSync(path.join(__dirname,'..','docs','decisiones-editoriales.
   'La decisión consta por escrito para actualizar el DRS');
 console.log('OK · '+cifiValidados+
   ' compras CiFi comprobadas: 4d10 × 100 cr, precios, regalos y saldo.');
+
+
+/* Decisiones editoriales: riqueza adicional, exclusión de Nocturna, estilos y Diletante. */
+const fuentesCifiOficiales=leer('ocupaciones_cifi.json');
+const nombresCifi=new Set(equipoDRS.cifi.armas.map(x=>x.nombre)
+  .concat(['Anillo de defensa','Cordón de luz','Vara sónica',
+    'Martillo meteórico','Lanzamisiles']));
+for(const [ocupacion,ficha] of Object.entries(fuentesCifiOficiales)){
+  for(const arma of ficha.armas)
+    assert.ok(nombresCifi.has(arma),'Arma CiFi no oficial: '+ocupacion+' / '+arma);
+  for(const armadura of ficha.armaduras)
+    assert.ok(equipoDRS.cifi.protecciones.some(x=>x.nombre===armadura),
+      'Protección CiFi no oficial: '+ocupacion+' / '+armadura);
+}
+for(const juego of ['nd20','nd20_cifi']){
+  const grupo=juego==='nd20'?fantasiaExtendida:cifiExtendida;
+  const oc=juego==='nd20'?'Guerrero':'Soldado';
+  for(const nivel of [1,2,6,12,30]){
+    const clave='extra-'+juego+'-'+nivel;
+    const base=reglas.crearNd20(grupo,{
+      juego,nivel,ocupacion:oc,especie:juego==='nd20'?'Humano común':'Humano natural',
+      catalogoEquipo:equipoDRS},reglas.aleatorioSemilla(clave));
+    const bonus=reglas.crearNd20(grupo,{
+      juego,nivel,ocupacion:oc,especie:juego==='nd20'?'Humano común':'Humano natural',
+      riquezaPorNivel:true,catalogoEquipo:equipoDRS},reglas.aleatorioSemilla(clave));
+    const symbol=juego==='nd20'?'mo':'cr';
+    const inicialBase=Number(base.riqueza.match(new RegExp('/ (\\d+) '+symbol+' iniciales'))[1]);
+    const inicialBonus=Number(bonus.riqueza.match(new RegExp('/ (\\d+) '+symbol+' iniciales'))[1]);
+    const nota=bonus.notas.find(x=>x.startsWith('Riqueza adicional opcional: '));
+    assert.ok(nota,'Se documenta evolución por nivel: '+juego);
+    const extra=Number(nota.match(/= (\d+) (?:mo|cr)/)[1]);
+    assert.ok(extra>=(nivel-1)*4&&extra<=(nivel-1)*40);
+    assert.equal(inicialBonus-inicialBase,extra,
+      'Se conserva capital inicial y se suma 4d10 por Nivel adicional');
+    if(nivel===1)assert.equal(extra,0);
+  }
+}
+const nocturnaSinEquipo=reglas.crearNd20(nocturna,{
+  juego:'nd20_nocturna',ocupacion:'Arcanista',especie:'Humano natural',
+  nivel:30,catalogoEquipo:equipoDRS,riquezaPorNivel:true},
+  reglas.aleatorioSemilla('nocturna-sin-equipo'));
+assert.equal(nocturnaSinEquipo.riqueza,'','Nocturna sin dinero');
+assert.ok(!nocturnaSinEquipo.equipo.some(x=>x.startsWith('Paquete ')),
+  'Nocturna sin paquetes del DRS');
+const estilos=[1,12,24].map(n=>poderes.planificar({
+  juego:'nd20',ocupacion:'Gladiador',especie:'Humano común',nivel:n},
+  fantasiaExtendida,catalogoPoderes,progresiones));
+assert.deepEqual(estilos.map(p=>p.pasos.filter(x=>x.tipo==='estilo_gladiatoria').length),
+  [1,2,3],'Se desbloquea un Estilo de gladiatoria en 1, 12 y 24');
+const fullEstilos=poderes.resolver(estilos[2],null,reglas.aleatorioSemilla('estilos-random'));
+const elegidosEstilos=fullEstilos.elementos.filter(x=>x.tipo==='estilo_gladiatoria');
+assert.equal(new Set(elegidosEstilos.map(x=>x.nombre)).size,3,'Estilos no repetidos');
+for(const [nivel,nt,nc] of [[1,1,1],[6,2,1],[9,2,2],[12,3,2]]){
+  const p=poderes.planificar({juego:'nd20',ocupacion:'Diletante',
+    especie:'Humano común',nivel},fantasiaExtendida,catalogoPoderes,progresiones);
+  assert.equal(p.pasos.filter(x=>x.tipo==='talento_ajeno').length,nt);
+  assert.equal(p.pasos.filter(x=>x.tipo==='competencias_diletante').length,nc);
+  const result=poderes.resolver(p,null,reglas.aleatorioSemilla('dil-'+nivel));
+  assert.equal(new Set(result.elementos.filter(x=>x.tipo==='talento_ajeno')
+    .map(x=>x.id)).size,nt,'Talentos ajenos sin repetir');
+}
+const pA=poderes.planificar({juego:'nd20',ocupacion:'Adalid',especie:'Humano común',
+  nivel:30},fantasiaExtendida,catalogoPoderes,progresiones);
+const tecnicasAd=pA.pasos.find(x=>x.titulo==='Técnicas de Adalid');
+assert.ok(tecnicasAd&&tecnicasAd.dependeCompromiso,'Técnicas filtradas por compromiso');
+const picks={ 'compromiso-adalid':['Juramento sagrado'] };
+const disponiblesJur=poderes.disponibles(tecnicasAd,picks);
+assert.ok(disponiblesJur.every(x=>x.categoria==='Disciplina'),
+  'Juramento solo Técnicas de Disciplina');
+assert.ok(poderes.disponibles(tecnicasAd,{
+  'compromiso-adalid':['Guardián leal']}).every(x=>['Disciplina','Fuerza bruta'].includes(x.categoria)));
+assert.equal(progresoAmpliado.fantasia.Adalid.niveles[29][0],'6');
+assert.equal(progresoAmpliado.fantasia.Adalid.niveles[29][4],'4');
+assert.equal(progresoAmpliado.fantasia.Adalid.lista_conjuros[1][0],'Bendición');
+console.log('OK · riqueza adicional opcional, equipo aleatorio, CiFi oficial y elecciones 1–30.');
