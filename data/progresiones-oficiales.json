@@ -2539,7 +2539,10 @@
         ],
         "fuente": "NaufragioD20 — Ocupaciones · Nuevas",
         "verificado": true,
-        "categorias": [],
+        "categorias": [
+          "Fuerza bruta",
+          "Trucos sucios"
+        ],
         "escuelas": [],
         "especialidades": []
       },
@@ -2644,7 +2647,8 @@
         "verificado": true,
         "categorias": [],
         "escuelas": [],
-        "especialidades": []
+        "especialidades": [],
+        "categorias_fuente": "No se indican categorías en el apartado Poderes; por decisión editorial, todas las Técnicas compatibles."
       },
       "Doncella de la Espada": {
         "tipo": "perfil_ampliado",
@@ -3319,7 +3323,10 @@
         ],
         "fuente": "NaufragioD20 — Ocupaciones · Nuevas",
         "verificado": true,
-        "categorias": [],
+        "categorias": [
+          "Fuerza bruta",
+          "Preternatural"
+        ],
         "escuelas": [],
         "especialidades": []
       },
@@ -3453,7 +3460,10 @@
         ],
         "fuente": "NaufragioD20 — Ocupaciones · Nuevas",
         "verificado": true,
-        "categorias": [],
+        "categorias": [
+          "Disciplina",
+          "Fuerza bruta"
+        ],
         "escuelas": [],
         "especialidades": []
       },
@@ -3725,7 +3735,9 @@
         ],
         "fuente": "NaufragioD20 — Ocupaciones · Nuevas",
         "verificado": true,
-        "categorias": [],
+        "categorias": [
+          "Trucos sucios"
+        ],
         "escuelas": [],
         "especialidades": []
       },
