@@ -115,7 +115,8 @@
     var conceptos = (oc.conceptos || []).concat(esp.conceptos || []);
     var esFantasia = config.juego === 'nd20';
     var esCifi = config.juego === 'nd20_cifi';
-    var presupuesto = esFantasia ? suma(4, 10, rng) * 10 : null;
+    var presupuesto = esFantasia ? suma(4, 10, rng) * 10 :
+      esCifi ? suma(4, 10, rng) * 100 : null;
     var compra = equipoApi && config.catalogoEquipo ?
       equipoApi.compraInicial(oc, ocupacion, config.juego, config.catalogoEquipo, presupuesto, rng, nivel) :
       {equipo:[],restante:presupuesto,notas:[
@@ -152,8 +153,8 @@
     if(oc.talentos_documentacion&&oc.talentos_documentacion.condiciones)
       detalles.push(oc.talentos_documentacion.condiciones+'.');
     if (esp.debilidad) detalles.push('Debilidad de Especie: ' + esp.debilidad);
-    var riqueza = esFantasia ? compra.restante+' mo restantes / '+presupuesto+' mo iniciales' : '';
-    if (esCifi) detalles.push('El manual CiFi consultado no define la riqueza inicial de creación: no se simulan compras con créditos.');
+    var riqueza = esFantasia ? compra.restante+' mo restantes / '+presupuesto+' mo iniciales' :
+      esCifi ? compra.restante+' cr restantes / '+presupuesto+' cr iniciales' : '';
     var poolNombres=(config.tesauroYlat && config.juego==='nd20' &&
       config.modoNombre!=='especie') ?
       config.tesauroYlat.entradas.filter(function(item) {
