@@ -375,3 +375,50 @@ for(const expected of ['control-editor.js','control-ui.js','id="crear-token"',
   assert.ok(controlHtml.includes(expected),'Acción de control editorial: '+expected);
 console.log('OK · Inventario editorial ('+inventarioEditorial.length+
   ' elementos), revisión JSON y acceso local validados.');
+
+/* Procedencia documental de los Conjuros: conciliación con Lista Poderes Nd20.xlsx. */
+const origenesConjuros={
+  'Nd20':64,
+  'Tomo de Magia':50,
+  'Slat-Deanaich':101,
+  'Grimorio de Tuliëlle':142,
+  'Pergaminos de Excelsus':64,
+  'Sangromancia':12
+};
+for(const [origen,cantidad] of Object.entries(origenesConjuros))
+  assert.equal(catalogoPoderes.conjuros.filter(x=>x.origen===origen).length,cantidad,
+    'Origen documentado: '+origen);
+const pendientesOrigen=catalogoPoderes.conjuros.filter(x=>!x.origen);
+assert.equal(pendientesOrigen.length,1,'Única discrepancia sin atribuir falsamente');
+assert.equal(pendientesOrigen[0].nombre,'Ira celestial');
+assert.equal(pendientesOrigen[0].circulo,3);
+assert.equal(catalogoPoderes.conjuros.find(x=>x.nombre==='Ira celestial'&&x.circulo===5).origen,
+  'Nd20','Atribución contrastada de Ira celestial del Círculo 5');
+assert.equal(poderes.origenConjuro('conjuro_conocido','Aprender Conjuros','Nd20'),
+  ' · Nd20');
+assert.equal(poderes.origenConjuro('poder_especial','Conjuros de Nictomante',null),
+  ' · Origen sin verificar');
+assert.equal(poderes.origenConjuro('tecnica','Técnicas conocidas','Nd20'),'',
+  'No se etiquetan otras familias con procedencia de Conjuros');
+const planOrigen=poderes.planificar(
+  {juego:'nd20',nivel:1,ocupacion:'Mago',especie:'Humano común'},
+  fantasiaExtendida,catalogoPoderes,progresiones);
+const conjuroOrigen=planOrigen.pasos.find(p=>p.tipo==='conjuro_conocido'&&p.opciones.length);
+assert.ok(conjuroOrigen,'El Mago ofrece Conjuros');
+assert.ok(conjuroOrigen.opciones.every(x=>Object.hasOwn(x,'origen')),
+  'Origen propagado al selector Personalizado');
+const decididoOrigen=poderes.resolver(planOrigen,null,reglas.aleatorioSemilla('origen-conjuros'));
+assert.ok(decididoOrigen.elementos.filter(x=>x.tipo==='conjuro_conocido').every(x=>x.origen),
+  'Origen propagado a resultados');
+const baseOrigen=reglas.crearNd20(fantasiaExtendida,
+  {juego:'nd20',nivel:1,ocupacion:'Mago',especie:'Humano común',aplazarElecciones:true},
+  reglas.aleatorioSemilla('base-origen'));
+const fichaOrigen=poderes.aplicar(baseOrigen,planOrigen,decididoOrigen);
+assert.ok(fichaOrigen.poderes.some(x=>x.includes(' · Nd20')),
+  'Origen visible en ficha generada');
+const controlConjuro=inventarioEditorial.find(x=>x.tipo==='Conjuro'&&x.nombre==='Aguijón impío');
+assert.equal(controlConjuro.fuente,'Nd20','Origen correcto en control editorial');
+const controlPendiente=inventarioEditorial.find(x=>x.tipo==='Conjuro'&&
+  x.nombre==='Ira celestial'&&x.detalle.includes('Círculo 3'));
+assert.equal(controlPendiente.fuente,'Origen sin verificar');
+console.log('OK · 433 orígenes de Conjuros documentados y una discrepancia identificada.');

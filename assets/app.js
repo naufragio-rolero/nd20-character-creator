@@ -373,6 +373,7 @@
         item.textContent=(op.id==='__vacio'?op.nombre:
           poderes.nombreEtiquetado(paso.tipo,paso.titulo,op.nombre))+
           (op.circulo?' · C'+op.circulo:'')+
+          (op.id==='__vacio'?'':poderes.origenConjuro(paso.tipo,paso.titulo,op.origen))+
           (op.requisito?' · Requisitos de uso: '+op.requisito:'');
         sel.appendChild(item);
       });

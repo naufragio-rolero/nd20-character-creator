@@ -64,7 +64,8 @@
     ];
     tipos.forEach(function(par){
       (p[par[0]]||[]).forEach(function(x,i){
-        agregar("Nd20 · Poderes",par[1],x.id||String(i),x.nombre,x.fuente||p.fuentes?.tomo,
+        agregar("Nd20 · Poderes",par[1],x.id||String(i),x.nombre,
+          par[0]==="conjuros"?(x.origen||"Origen sin verificar"):(x.fuente||p.fuentes?.tomo),
           [x.categoria,x.circulo?"Círculo "+x.circulo:"",x.requisito].filter(Boolean).join(" · "));
       });
     });

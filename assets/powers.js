@@ -11,7 +11,7 @@
     var nombres=(lista||[]).reduce(function(a,x){return a.concat(x);},[]);
     return catalogo.conjuros.filter(function(s){
       return s.circulo<=circulo && nombres.indexOf(s.nombre)!==-1;
-    }).map(function(x){return {id:x.id,nombre:x.nombre,circulo:x.circulo,escuelas:x.escuelas};});
+    }).map(function(x){return {id:x.id,nombre:x.nombre,circulo:x.circulo,escuelas:x.escuelas,origen:x.origen};});
   }
   function habilidadesNocturna(arr,especie){
     var tipos=["Strigoi","Jiangshi","Hombre lobo","Hombre cuervo","Sidhe","Ceniciento"];
@@ -47,6 +47,11 @@
     var codigo=codigoPoder(tipo,etapa);
     return (codigo?"["+codigo+"] ":"")+nombre;
   }
+  function origenConjuro(tipo,etapa,origen){
+    var esConjuro=tipo==="conjuro_conocido"||tipo==="conjuro_preparado"||
+      (tipo==="poder_especial"&&/^Conjuros/i.test(etapa));
+    return esConjuro?" · "+(origen||"Origen sin verificar"):"";
+  }
   function nuevo(id,titulo,tipo,cantidad,opciones,adicional){
     return Object.assign({id:id,titulo:titulo,tipo:tipo,cantidad:cantidad,opciones:opciones||[],
       repetibles:false,automatico:false},adicional||{});
@@ -81,7 +86,7 @@
     if(!maximo||!escuelas.length)return [];
     return catalogo.conjuros.filter(function(v){
       return v.circulo<=maximo && v.escuelas.some(function(e){return escuelas.indexOf(e)!==-1;});
-    }).map(function(v){return {id:v.id,nombre:v.nombre,circulo:v.circulo,escuelas:v.escuelas};});
+    }).map(function(v){return {id:v.id,nombre:v.nombre,circulo:v.circulo,escuelas:v.escuelas,origen:v.origen};});
   }
   function extraerOpciones(plan,paso,opciones,cantidad,avisos) {
     if(!cantidad)return;
@@ -143,7 +148,7 @@
       var maxN=numero(columna(tabla,fila,/Círculo.*máximo/i));
       var lista=(catalogo.especiales?.lista_nictomancia)||[];
       var poolN=catalogo.conjuros.filter(function(x){return lista.indexOf(x.nombre)!==-1&&x.circulo<=maxN;})
-        .map(function(x){return {id:x.id,nombre:x.nombre,circulo:x.circulo};});
+        .map(function(x){return {id:x.id,nombre:x.nombre,circulo:x.circulo,origen:x.origen};});
       if(conocidos)extraerOpciones(pasos,"Conjuros de Nictomancia",poolN,conocidos,avisos);
       var pn=columna(tabla,fila,/Puntos de Nictalgia/i);
       if(pn!==null)recursos.push(["Nictalgia",pn]);
@@ -407,7 +412,7 @@
         if(id==="__vacio")return;
         var val=(paso.opciones||[]).find(function(x){return x.id===id;});
         objetos.push({id:id,nombre:val.nombre,tipo:paso.tipo,etapa:paso.titulo,info:val.requisito||"",
-          circulo:val.circulo||paso.circulo||null});
+          circulo:val.circulo||paso.circulo||null,origen:val.origen||null});
       });
     }
     return {decisiones:decisiones,elementos:objetos};
@@ -420,9 +425,10 @@
     resultado.elementos.forEach(function(x){
       if(x.tipo==="talento")personaje.capacidades.push(x.nombre);
       else if(x.tipo==="conjuro_preparado")
-        personaje.conjuros_preparados.push(nombreEtiquetado(x.tipo,x.etapa,x.nombre)+" (C"+x.circulo+")");
+        personaje.conjuros_preparados.push(nombreEtiquetado(x.tipo,x.etapa,x.nombre)+
+          " (C"+x.circulo+")"+origenConjuro(x.tipo,x.etapa,x.origen));
       else personaje.poderes.push(nombreEtiquetado(x.tipo,x.etapa,x.nombre)+
-        (x.circulo?" (C"+x.circulo+")":""));
+        (x.circulo?" (C"+x.circulo+")":"")+origenConjuro(x.tipo,x.etapa,x.origen));
     });
     (plan.recursos||[]).forEach(function(r){
       var idx=personaje.recursos.findIndex(function(v){return v[0]===r[0];});
@@ -437,5 +443,6 @@
     return personaje;
   }
   return {planificar:planificar,resolver:resolver,aplicar:aplicar,disponibles:disponibles,
-    codigoPoder:codigoPoder,nombreEtiquetado:nombreEtiquetado};
+    codigoPoder:codigoPoder,nombreEtiquetado:nombreEtiquetado,
+    origenConjuro:origenConjuro};
 });
