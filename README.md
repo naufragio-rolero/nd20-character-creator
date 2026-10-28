@@ -1,6 +1,27 @@
 # Forja de personajes · El Naufragio
 
-Generador estático para **Naufragio d20 (Fantasía y CiFi)** y **Dungeon Hack**, diseñado para publicarse en GitHub Pages sin servidor, base de datos, Python ni compilación.
+Generador estático para **Naufragio d20 (Fantasía, CiFi y Nocturna)** y **Dungeon Hack**, diseñado para publicarse en GitHub Pages sin servidor, base de datos, Python ni compilación.
+
+## Modos de creación de Talentos y Poderes
+
+- **Rápido:** el generador completa de forma determinista las elecciones permitidas a partir de una semilla, atendiendo al Nivel y a la progresión oficial.
+- **Personalizado:** primero genera los Atributos y el perfil, luego permite elegir Talentos, Técnicas, Argucias, Scripts, Conjuros conocidos y Conjuros preparados. Valida las listas de cada clase, los Círculos desbloqueados, la cantidad de elecciones y la repetición indebida. Requiere **una ficha por operación**.
+- **Psion:** sigue asignando los Poderes mediante la tabla d20 (no son de libre elección, tampoco en Personalizado).
+- **Mago:** separa el aprendizaje de Conjuros por Nivel (2 en Nivel 1 y 1 adicional por Nivel) de su preparación diaria; permite dejar Espacios sin preparar.
+- **Clérigo:** conoce automáticamente su lista del DRS cuando desbloquea cada Círculo; elige los Conjuros preparados según los Espacios disponibles.
+- **Guerrero:** elige Brío musculoso o Sacrificio de escudo, sin conceder ambos a la vez.
+- **Nocturna:** elige 1 Talento de Especie y otro de Ocupación en Nivel 1, y un segundo Talento de Ocupación en Nivel 9.
+- **CiFi:** se aplican las tablas de Técnicas, Argucias, Scripts, Poderes Psiónicos e Ímpetu documentadas, además de respetar el nivel requerido para desbloquear nuevas elecciones.
+
+### Catálogos y progresiones
+
+- `data/catalogo-poderes.json`: **434 entradas singulares de Conjuros** extraídas del Tomo de Magia consultado, 24 Técnicas, 20 Poderes Psiónicos, 6 Argucias y 10 Scripts. Incluye Círculos, Escuelas y categorías relevantes. El número 434 representa las entradas extraídas de esta versión del documento; debe cotejarse con el inventario editorial maestro antes de considerarse el total canónico cerrado.
+- `data/progresiones-oficiales.json`: tablas por Nivel **1–30** del Clérigo, Guerrero, Mago y Ladrón; Diplomático, Eudemonista, Forajido, Psion, Soldado y Tecnópata. Todas están referenciadas a los documentos DRS/CiFi consultados.
+- **Alcance actual:** los Conjuros efectivamente ofrecidos como opciones automáticas al Mago y Clérigo son los de sus **listas expresas del DRS**. El Tomo completo queda estructurado, pero otros Conjuros deben habilitarse por Escuelas, Ocupaciones y progresiones específicas antes de automatizar su asignación.
+- Las otras **33 Ocupaciones ampliadas** de Fantasía aún no tienen sus progresiones especiales codificadas. Sus Talentos siguen como referencias, sin concederse automáticamente.
+- **Nocturna:** sus Talentos seleccionables están operativos; la adquisición de Conjuros, Vampirismo, poderes de otras Especies y progresiones de sus Ocupaciones aún requiere un motor especializado. Sus recursos y Debilidades ya se muestran.
+- Si un Nivel permite más Técnicas que las opciones compatibles documentadas en el catálogo, el generador **no inventa ni duplica Técnicas** y advierte del déficit.
+- Los requisitos de Atributo y equipo de muchas Técnicas se refieren a **usarlas**, no a aprenderlas; se muestran al seleccionarlas y deben comprobarse durante la partida.
 
 ## Funciones
 

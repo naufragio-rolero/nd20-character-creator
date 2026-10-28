@@ -1,0 +1,5085 @@
+{
+  "version": 1,
+  "fuentes": {
+    "tomo": "NaufragioD20 — Tomo de Magia [legacy] (Drive)",
+    "tecnicas": "NaufragioD20DRS, NaufragioD20CiFi, NaufragioD20 — Ocupaciones",
+    "licencia": "CC BY-SA 4.0"
+  },
+  "conjuros": [
+    {
+      "id": "conjuro-0",
+      "nombre": "Aguijón impío",
+      "circulo": 1,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-1",
+      "nombre": "Atraer muertos vivientes",
+      "circulo": 1,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-2",
+      "nombre": "Caída de pluma",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-3",
+      "nombre": "Chispa curativa",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-4",
+      "nombre": "Dardo ígneo",
+      "circulo": 1,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-5",
+      "nombre": "Detectar magia",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-6",
+      "nombre": "Disipar magia",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-7",
+      "nombre": "Dormir",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-8",
+      "nombre": "Luz",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-9",
+      "nombre": "Mano de mago",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-10",
+      "nombre": "Mensaje lejano",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-11",
+      "nombre": "Valentía",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-12",
+      "nombre": "Amistad animal",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-13",
+      "nombre": "Apertura arcana",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-14",
+      "nombre": "Calentar metal",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-15",
+      "nombre": "Charco de aceite",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-16",
+      "nombre": "Curación",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-17",
+      "nombre": "Fuego lunar",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-18",
+      "nombre": "Ilusión",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-19",
+      "nombre": "Resistir los elementos",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-20",
+      "nombre": "Silencio",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-21",
+      "nombre": "Toque eléctrico",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-22",
+      "nombre": "Alzar hombre corrupto",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-23",
+      "nombre": "Arma elemental",
+      "circulo": 3,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-24",
+      "nombre": "Armadura de maná",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-25",
+      "nombre": "Aura de pestilencia",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-26",
+      "nombre": "Bola de fuego",
+      "circulo": 3,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-27",
+      "nombre": "Hablar con los muertos",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-28",
+      "nombre": "Luz de luna",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-29",
+      "nombre": "Poza hedionda",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-30",
+      "nombre": "Proyectil mágico",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-31",
+      "nombre": "Quitar maldición",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-32",
+      "nombre": "Contrato de fraternidad",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-33",
+      "nombre": "Detectar la mentira",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-34",
+      "nombre": "Espejo de sombras",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-35",
+      "nombre": "Hablar con las plantas",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-36",
+      "nombre": "Muro de fuego",
+      "circulo": 4,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-37",
+      "nombre": "Piel de piedra",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-38",
+      "nombre": "Polimorfia",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-39",
+      "nombre": "Prelación",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-40",
+      "nombre": "Tentáculos negros",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-41",
+      "nombre": "Tormenta de espadas",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-42",
+      "nombre": "Alzar maldito",
+      "circulo": 5,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-43",
+      "nombre": "Atravesar paredes",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-44",
+      "nombre": "Crear muertos vivientes",
+      "circulo": 5,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-45",
+      "nombre": "Forja arcana",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-46",
+      "nombre": "Ira celestial",
+      "circulo": 5,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-47",
+      "nombre": "Marca del dador oscuro",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-48",
+      "nombre": "Orbe elemental",
+      "circulo": 5,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-49",
+      "nombre": "Transfusión de dolor",
+      "circulo": 5,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-50",
+      "nombre": "Intercambio de almas",
+      "circulo": 6,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-51",
+      "nombre": "Lluvia de estrellas",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-52",
+      "nombre": "Petrificar",
+      "circulo": 6,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-53",
+      "nombre": "Protección contra la muerte",
+      "circulo": 6,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-54",
+      "nombre": "Rayo solar",
+      "circulo": 6,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-55",
+      "nombre": "Recuperación divina",
+      "circulo": 6,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-56",
+      "nombre": "Cimitarra arcana",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-57",
+      "nombre": "Control climático",
+      "circulo": 7,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-58",
+      "nombre": "Niebla carmesí",
+      "circulo": 7,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-59",
+      "nombre": "Sino del Segador",
+      "circulo": 7,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-60",
+      "nombre": "Alterar el ser",
+      "circulo": 8,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-61",
+      "nombre": "Palabra de Poder: Muerte",
+      "circulo": 8,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-62",
+      "nombre": "Resurrección",
+      "circulo": 8,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-63",
+      "nombre": "Viaje espaciotemporal",
+      "circulo": 8,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-64",
+      "nombre": "Alzar cráneo reptante",
+      "circulo": 1,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-65",
+      "nombre": "Burla cruel",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia bárdica"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-66",
+      "nombre": "Coraza",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-67",
+      "nombre": "Embozo de sombras",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-68",
+      "nombre": "Explosión sobrenatural",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-69",
+      "nombre": "Onda atronadora",
+      "circulo": 1,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-70",
+      "nombre": "Plumaje de Sylestria",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-71",
+      "nombre": "Rayo hielo",
+      "circulo": 1,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-72",
+      "nombre": "Explosión sónica",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-73",
+      "nombre": "Fuego purificador",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-74",
+      "nombre": "Paso de la bruma",
+      "circulo": 2,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-75",
+      "nombre": "Púa ósea",
+      "circulo": 2,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-76",
+      "nombre": "Repulsión infernal",
+      "circulo": 2,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Reacción"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-77",
+      "nombre": "Rociada ardiente",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-78",
+      "nombre": "Suplicio mental",
+      "circulo": 2,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-79",
+      "nombre": "Toque narcótico",
+      "circulo": 2,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-80",
+      "nombre": "Coraza de huesos",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-81",
+      "nombre": "Corromper conjuro elemental",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Reacción"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-82",
+      "nombre": "Espinas psíquicas",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-83",
+      "nombre": "Fantasmas aullantes",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-84",
+      "nombre": "Maldición de los elementos",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Maldición"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-85",
+      "nombre": "Plegaria de sosiego",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-86",
+      "nombre": "Robar la luz",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-87",
+      "nombre": "Salmo de protección",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-88",
+      "nombre": "Tridente flamígero",
+      "circulo": 3,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-89",
+      "nombre": "Vigilia de muerte",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-90",
+      "nombre": "Alzar gólem de carne",
+      "circulo": 4,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-91",
+      "nombre": "Descarga sombría",
+      "circulo": 4,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-92",
+      "nombre": "Estallido de escarcha",
+      "circulo": 4,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-93",
+      "nombre": "Galerna",
+      "circulo": 4,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-94",
+      "nombre": "Golpe de rayo",
+      "circulo": 4,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-95",
+      "nombre": "Idea devoradora",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-96",
+      "nombre": "Maldición del caos",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Maldición"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-97",
+      "nombre": "Trance iracundo",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-98",
+      "nombre": "Agujero negro",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-99",
+      "nombre": "Bomba ácida",
+      "circulo": 5,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-100",
+      "nombre": "Corona de Ylathia",
+      "circulo": 5,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-101",
+      "nombre": "Detonación cadavérica",
+      "circulo": 5,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-102",
+      "nombre": "Maldición de debilidad",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Maldición"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-103",
+      "nombre": "Presencia de Vaiel",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-104",
+      "nombre": "Profanar",
+      "circulo": 5,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-105",
+      "nombre": "Sacrificio santificado",
+      "circulo": 5,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-106",
+      "nombre": "Cadena de relámpagos",
+      "circulo": 6,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-107",
+      "nombre": "Maldición de vínculo mortal",
+      "circulo": 6,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Maldición"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-108",
+      "nombre": "Ventisca",
+      "circulo": 6,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-109",
+      "nombre": "Estrella divina",
+      "circulo": 7,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-110",
+      "nombre": "Nimbo humeante",
+      "circulo": 7,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-111",
+      "nombre": "Penitencia",
+      "circulo": 7,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-112",
+      "nombre": "Día de los muertos",
+      "circulo": 8,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-113",
+      "nombre": "Tromba de meteoritos",
+      "circulo": 8,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-114",
+      "nombre": "Dardo de penumbra",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Nictomancia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-115",
+      "nombre": "Flecha mágica",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-116",
+      "nombre": "Cosecha de Mushuki",
+      "circulo": 1,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-117",
+      "nombre": "Hoja rugiente",
+      "circulo": 1,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-118",
+      "nombre": "Punición",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-119",
+      "nombre": "Claridad",
+      "circulo": 1,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-120",
+      "nombre": "Convertir agua",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-121",
+      "nombre": "Endeblez",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-122",
+      "nombre": "Florecimiento",
+      "circulo": 1,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-123",
+      "nombre": "Imbecilidad",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-124",
+      "nombre": "Marchitar",
+      "circulo": 1,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-125",
+      "nombre": "Pirotecnia mágica",
+      "circulo": 1,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-126",
+      "nombre": "Resguardo reactivo",
+      "circulo": 1,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-127",
+      "nombre": "Torpeza",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-128",
+      "nombre": "Alzar brezo espinoso",
+      "circulo": 1,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-129",
+      "nombre": "Crecimiento salvaje",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-130",
+      "nombre": "Adarga de hielo",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-131",
+      "nombre": "Trampa de enredaderas",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-132",
+      "nombre": "Materializar arma",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-133",
+      "nombre": "Caminar de los vientos",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-134",
+      "nombre": "Amparo contra el veneno",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-135",
+      "nombre": "Llamada de auxilio",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-136",
+      "nombre": "Égida consagrada",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-137",
+      "nombre": "Armadura ígnea",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-138",
+      "nombre": "Estrépito",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-139",
+      "nombre": "Vitalidad quimérica",
+      "circulo": 2,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-140",
+      "nombre": "Identificar varitas o pergaminos",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-141",
+      "nombre": "Mirada paralizante",
+      "circulo": 2,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-142",
+      "nombre": "Ecos de decadencia",
+      "circulo": 2,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-143",
+      "nombre": "Orbe tenebroso",
+      "circulo": 2,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-144",
+      "nombre": "Marcha de araña",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-145",
+      "nombre": "Manantial hediondo",
+      "circulo": 2,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-146",
+      "nombre": "Saeta gélida",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-147",
+      "nombre": "Aliento de agonía",
+      "circulo": 2,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-148",
+      "nombre": "Sello rúnico: Trampa",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-149",
+      "nombre": "Aura de resguardo",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-150",
+      "nombre": "Huracán floral",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-151",
+      "nombre": "Portal sombrío",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Nictomancia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-152",
+      "nombre": "Nube de polen somnífero",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-153",
+      "nombre": "Bendecir el cuerpo",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-154",
+      "nombre": "Ira celestial",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-155",
+      "nombre": "Carne cambiante",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-156",
+      "nombre": "Ancla sombría",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-157",
+      "nombre": "Aura de restauración",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-158",
+      "nombre": "Corcel de los astros",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-159",
+      "nombre": "Séquito infernal",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-160",
+      "nombre": "Llamada del lobo espectral",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-161",
+      "nombre": "Maldición discordante",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Maldición"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-162",
+      "nombre": "Mandala hipnótico",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-163",
+      "nombre": "Exhalación de la tumba",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-164",
+      "nombre": "Quemadura de maná",
+      "circulo": 3,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-165",
+      "nombre": "Rayo llameante",
+      "circulo": 3,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-166",
+      "nombre": "Torbellino de arena",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-167",
+      "nombre": "Barrera eléctrica",
+      "circulo": 4,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-168",
+      "nombre": "Tornado",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-169",
+      "nombre": "Reparación magna",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-170",
+      "nombre": "Aura de espinas",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-171",
+      "nombre": "Intruso onírico",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-172",
+      "nombre": "Enjambre voraz",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-173",
+      "nombre": "Esfera corrosiva",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-174",
+      "nombre": "Alzar goblin de lodo",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-175",
+      "nombre": "Hálito de ultratumba",
+      "circulo": 4,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Nictomancia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-176",
+      "nombre": "Infundir terror",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-177",
+      "nombre": "Invocar elemental menor",
+      "circulo": 4,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-178",
+      "nombre": "Lanza de sombras",
+      "circulo": 4,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Nictomancia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-179",
+      "nombre": "Luna nueva",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-180",
+      "nombre": "Ola salvaje",
+      "circulo": 4,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-181",
+      "nombre": "Pulso de sanación",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-182",
+      "nombre": "Relámpago",
+      "circulo": 4,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-183",
+      "nombre": "Círculo de potenciación",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-184",
+      "nombre": "Sentidos puros",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-185",
+      "nombre": "Viaje por la Urdimbre",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-186",
+      "nombre": "Vigor de coloso",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-187",
+      "nombre": "Invocar espíritu de cuchillas",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-188",
+      "nombre": "Destello aural",
+      "circulo": 5,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-189",
+      "nombre": "Erradicar",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Nictomancia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-190",
+      "nombre": "Maldición enfermiza",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Maldición"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-191",
+      "nombre": "Niebla",
+      "circulo": 5,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-192",
+      "nombre": "Olvido",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Nictomancia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-193",
+      "nombre": "Posesión mental",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-194",
+      "nombre": "Salvaguarda mental",
+      "circulo": 5,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-195",
+      "nombre": "Silencio nocturno",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-196",
+      "nombre": "Toque vampírico",
+      "circulo": 5,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-197",
+      "nombre": "Crecimiento primordial",
+      "circulo": 5,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-198",
+      "nombre": "Barrera astral: Muerte",
+      "circulo": 6,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-199",
+      "nombre": "Acelerar",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-200",
+      "nombre": "Ojo de Taiuhn",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-201",
+      "nombre": "Garra vampírica",
+      "circulo": 6,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-202",
+      "nombre": "Sello rúnico: Viaje",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-203",
+      "nombre": "Huracán",
+      "circulo": 6,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-204",
+      "nombre": "Yugo de la muerte viviente",
+      "circulo": 6,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-205",
+      "nombre": "Maldición de pesadumbre",
+      "circulo": 6,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Maldición"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-206",
+      "nombre": "Floración cinérea",
+      "circulo": 7,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-207",
+      "nombre": "Tempestad vengativa",
+      "circulo": 7,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-208",
+      "nombre": "Cataclismo tenebroso",
+      "circulo": 8,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Nictomancia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-209",
+      "nombre": "Deseo",
+      "circulo": 8,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-210",
+      "nombre": "Apocalipsis",
+      "circulo": 8,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-211",
+      "nombre": "Diluvio universal",
+      "circulo": 8,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-212",
+      "nombre": "Luna carmesí",
+      "circulo": 8,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia de sangre",
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-213",
+      "nombre": "Ojo de la tormenta",
+      "circulo": 8,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-214",
+      "nombre": "Destrucción",
+      "circulo": 8,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-215",
+      "nombre": "Puerta al Universo",
+      "circulo": 8,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-216",
+      "nombre": "Escudo",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-217",
+      "nombre": "Bendición",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-218",
+      "nombre": "Disco celeste de Excelsus",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-219",
+      "nombre": "Detectar lo Corrupto",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-220",
+      "nombre": "Detectar lo Sagrado",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-221",
+      "nombre": "Glosolalia menor",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-222",
+      "nombre": "Encandilamiento",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-223",
+      "nombre": "Fuego feérico",
+      "circulo": 1,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-224",
+      "nombre": "Interpretar inscripciones arcanas",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-225",
+      "nombre": "Tomo parlante de Tuliëlle",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-226",
+      "nombre": "Trocar tamaño",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-227",
+      "nombre": "Palabra de Custodia: Corrupción",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-228",
+      "nombre": "Palabra de Custodia: Rectitud",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-229",
+      "nombre": "Palabra de Custodia: Sosiego",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-230",
+      "nombre": "Palabra de Poder: Obediencia",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-231",
+      "nombre": "Purificar alimento",
+      "circulo": 1,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-232",
+      "nombre": "Reparación menor",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-233",
+      "nombre": "Revelar objeto maravilloso",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-234",
+      "nombre": "Sellar entrada",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-235",
+      "nombre": "Sello rúnico: Marca",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-236",
+      "nombre": "Atormentar",
+      "circulo": 2,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-237",
+      "nombre": "Boca mágica",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-238",
+      "nombre": "Invisibilidad",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-239",
+      "nombre": "Levitación",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-240",
+      "nombre": "Muro de fuerza",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-241",
+      "nombre": "Sello rúnico: Localización",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-242",
+      "nombre": "Detectar lo invisible",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-243",
+      "nombre": "Sifón de recuerdos",
+      "circulo": 2,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-244",
+      "nombre": "Presagio",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-245",
+      "nombre": "Bravura",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-246",
+      "nombre": "Destello de Kaeduin",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-247",
+      "nombre": "Palabra de Poder: Discurso",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-248",
+      "nombre": "Antídoto natural",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-249",
+      "nombre": "Hablar con los animales",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-250",
+      "nombre": "Nube tóxica",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-251",
+      "nombre": "Redes arácnidas",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-252",
+      "nombre": "Descarga de debilidad",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [
+        "Nictomancia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-253",
+      "nombre": "Aura de invisibilidad",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-254",
+      "nombre": "Prisa",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-255",
+      "nombre": "Revelar ilusiones",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-256",
+      "nombre": "Freno",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-257",
+      "nombre": "Sello rúnico: Explosión",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-258",
+      "nombre": "Vuelo",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-259",
+      "nombre": "Neblinificación",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-260",
+      "nombre": "Palabra de Poder: Detención",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-261",
+      "nombre": "Palabra de Poder: Sugestión",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-262",
+      "nombre": "Visión de Nastala",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-263",
+      "nombre": "Roce de Nirebia",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-264",
+      "nombre": "Cólera de Nirebia",
+      "circulo": 3,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-265",
+      "nombre": "Múltiples brazos de Khalakk",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-266",
+      "nombre": "Reanimación alquímica",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-267",
+      "nombre": "Palabra de Custodia: Loriga",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-268",
+      "nombre": "Toque de abnegación",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-269",
+      "nombre": "Descarga ardiente",
+      "circulo": 3,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-270",
+      "nombre": "Paseo sobre las aguas",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-271",
+      "nombre": "Oleada aérea",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-272",
+      "nombre": "Aliento de Lenseng",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-273",
+      "nombre": "Dilatación arcana",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-274",
+      "nombre": "Orbe devoramagia menor",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-275",
+      "nombre": "Invisibilidad magna",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-276",
+      "nombre": "Zona onírica",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-277",
+      "nombre": "Espía de la Urdimbre",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-278",
+      "nombre": "Barrera astral: Urdimbre",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-279",
+      "nombre": "Barrera astral: Armamento",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-280",
+      "nombre": "Teletransporte forzoso",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-281",
+      "nombre": "Cinco senderos de Excelsus",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-282",
+      "nombre": "Provocar confusión",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-283",
+      "nombre": "Dominar criatura",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-284",
+      "nombre": "Clarividencia",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-285",
+      "nombre": "Transmutación artesana",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-286",
+      "nombre": "Terreno consagrado",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-287",
+      "nombre": "Aro de llamas abrasadoras",
+      "circulo": 4,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-288",
+      "nombre": "Muralla de hielo",
+      "circulo": 4,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-289",
+      "nombre": "Surcar la tierra",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-290",
+      "nombre": "Despertar de la vegetación",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-291",
+      "nombre": "Purga tóxica",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-292",
+      "nombre": "Glosolalia mayor †",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-293",
+      "nombre": "Consulta astral",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-294",
+      "nombre": "Arca de éter",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-295",
+      "nombre": "Prisma del alma",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-296",
+      "nombre": "Barrera astral: Obstáculo",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-297",
+      "nombre": "Telequinesis",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-298",
+      "nombre": "Teletransporte",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-299",
+      "nombre": "Mirada de la verdad",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-300",
+      "nombre": "Guardián fantasmal",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-301",
+      "nombre": "Provocar confusión en masa",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-302",
+      "nombre": "Palabra de Poder: Estulticia",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-303",
+      "nombre": "Detener criatura",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-304",
+      "nombre": "Purga de maldad",
+      "circulo": 5,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-305",
+      "nombre": "Trance celestial",
+      "circulo": 5,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-306",
+      "nombre": "Mandato divino",
+      "circulo": 5,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-307",
+      "nombre": "Muro de piedra",
+      "circulo": 5,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-308",
+      "nombre": "Esfera vital",
+      "circulo": 5,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-309",
+      "nombre": "Nube de aniquilación",
+      "circulo": 5,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-310",
+      "nombre": "Plaga de alimañas",
+      "circulo": 5,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-311",
+      "nombre": "Manto del inquebrantable",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-312",
+      "nombre": "Encandilamiento magno",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-313",
+      "nombre": "Muro de espinas férreas",
+      "circulo": 6,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-314",
+      "nombre": "Ventura arcana",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-315",
+      "nombre": "Rayo desintegrador",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-316",
+      "nombre": "Cúpula antimagia",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-317",
+      "nombre": "Orbe devoramagia mayor",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-318",
+      "nombre": "Ventana mágica",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-319",
+      "nombre": "Palabra de Custodia: Retorno",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-320",
+      "nombre": "Doble ilusorio",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-321",
+      "nombre": "Rememorar",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-322",
+      "nombre": "Palabra de Poder: Encomienda",
+      "circulo": 6,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-323",
+      "nombre": "Palabra de Poder: Atracción",
+      "circulo": 6,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-324",
+      "nombre": "Luz del peregrino",
+      "circulo": 6,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-325",
+      "nombre": "Santuario sagrado",
+      "circulo": 6,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-326",
+      "nombre": "Hablar con las criaturas",
+      "circulo": 6,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-327",
+      "nombre": "Dominar la tierra",
+      "circulo": 6,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-328",
+      "nombre": "Palabra de Poder: Óbito",
+      "circulo": 6,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-329",
+      "nombre": "Lienzo de la creación",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-330",
+      "nombre": "Glorioso orbe protector de Excelsus",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-331",
+      "nombre": "Caer hacia arriba",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-332",
+      "nombre": "Puño mágico de Zurari",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-333",
+      "nombre": "Legado de poder",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-334",
+      "nombre": "Umbral etéreo",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-335",
+      "nombre": "Barrera astral: Espejo",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-336",
+      "nombre": "Sello rúnico: Retorno",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-337",
+      "nombre": "Sello rúnico: Vigilante",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-338",
+      "nombre": "Eclipse del artefacto",
+      "circulo": 7,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-339",
+      "nombre": "Lienzo viviente",
+      "circulo": 7,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-340",
+      "nombre": "Palabra de Poder: Aturdimiento",
+      "circulo": 7,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-341",
+      "nombre": "Efigie profana",
+      "circulo": 7,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-342",
+      "nombre": "Palabra de Poder: Sagrado",
+      "circulo": 7,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-343",
+      "nombre": "Descarga de caos",
+      "circulo": 7,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-344",
+      "nombre": "División oceánica",
+      "circulo": 7,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-345",
+      "nombre": "Terremoto",
+      "circulo": 7,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-346",
+      "nombre": "Velo de la mente",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-347",
+      "nombre": "Palimpsesto oculto",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-348",
+      "nombre": "Eternidad arcana",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-349",
+      "nombre": "Polimorfia magna",
+      "circulo": 7,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-350",
+      "nombre": "Palabra de Poder: Exigencia",
+      "circulo": 7,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-351",
+      "nombre": "Prisión laberíntica",
+      "circulo": 8,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-352",
+      "nombre": "Duplicado perfecto",
+      "circulo": 8,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-353",
+      "nombre": "Metamorfosis suprema",
+      "circulo": 8,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-354",
+      "nombre": "Libertad",
+      "circulo": 8,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-355",
+      "nombre": "Detención temporal",
+      "circulo": 8,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-356",
+      "nombre": "Cárcel de la eternidad",
+      "circulo": 8,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-357",
+      "nombre": "Éxtasis profundo",
+      "circulo": 8,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-358",
+      "nombre": "Calma silvestre",
+      "circulo": 1,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-359",
+      "nombre": "Desvanecer escritura",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-360",
+      "nombre": "Consagrar/Profanar agua",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-361",
+      "nombre": "Carcajadas infames de Hstet",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia bárdica"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-362",
+      "nombre": "Comité de limpieza arcano",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-363",
+      "nombre": "Senda oculta",
+      "circulo": 1,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-364",
+      "nombre": "Resistencia al clima",
+      "circulo": 1,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-365",
+      "nombre": "Detectar trampas",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-366",
+      "nombre": "Sentir el norte",
+      "circulo": 1,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-367",
+      "nombre": "Bendición del Crecio",
+      "circulo": 1,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-368",
+      "nombre": "Reposo del caído",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-369",
+      "nombre": "Alivio pasajero",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-370",
+      "nombre": "Deformar madera",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-371",
+      "nombre": "Saliva ácida de Valujna",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-372",
+      "nombre": "Velo ilusorio profano",
+      "circulo": 2,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-373",
+      "nombre": "Corteza de roble",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-374",
+      "nombre": "Alzar esqueleto secuaz",
+      "circulo": 2,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-375",
+      "nombre": "Albor de la vida",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-376",
+      "nombre": "Putrefacción forzada",
+      "circulo": 2,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-377",
+      "nombre": "Excelso festín de Excelsus",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-378",
+      "nombre": "Ajuar codicioso de Penderthorn",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-379",
+      "nombre": "Apagallamas",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-380",
+      "nombre": "Fusión pétrea",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-381",
+      "nombre": "Mordida de dragón",
+      "circulo": 3,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-382",
+      "nombre": "Trampa de fuego",
+      "circulo": 3,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-383",
+      "nombre": "Trampa ilusoria",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-384",
+      "nombre": "Refugio de la cuerda",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-385",
+      "nombre": "Ráfaga de burbujas",
+      "circulo": 3,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-386",
+      "nombre": "Ídolo guardián de Mulinith",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-387",
+      "nombre": "Invocar ejército ilusorio",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-388",
+      "nombre": "Terreno espinoso",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-389",
+      "nombre": "Reencarnación kaélica",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-390",
+      "nombre": "Cabaña acogedora de Tuliëlle",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-391",
+      "nombre": "Repulsión: Alimañas",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-392",
+      "nombre": "Restablecimiento",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-393",
+      "nombre": "Terreno ilusorio",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-394",
+      "nombre": "Viaje sepulcral",
+      "circulo": 4,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-395",
+      "nombre": "Explosión arcana",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-396",
+      "nombre": "Controlar los vientos",
+      "circulo": 5,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-397",
+      "nombre": "Viaje arbóreo",
+      "circulo": 5,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-398",
+      "nombre": "Toque de Z'Thur",
+      "circulo": 5,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-399",
+      "nombre": "Prominencia",
+      "circulo": 5,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-400",
+      "nombre": "Maldición permanente",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Maldición"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-401",
+      "nombre": "Discurso de necios",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-402",
+      "nombre": "Profecía del tiempo",
+      "circulo": 5,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-403",
+      "nombre": "Hablar con las rocas",
+      "circulo": 6,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-404",
+      "nombre": "Repulsión: Bestias",
+      "circulo": 6,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-405",
+      "nombre": "Rebobinar",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-406",
+      "nombre": "Muro de huesos",
+      "circulo": 6,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-407",
+      "nombre": "Maldición de sanación",
+      "circulo": 6,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Maldición"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-408",
+      "nombre": "Gracia de la fertilidad",
+      "circulo": 6,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-409",
+      "nombre": "Erupción",
+      "circulo": 6,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-410",
+      "nombre": "Armadura tetraelemental",
+      "circulo": 6,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-411",
+      "nombre": "Alzar treante",
+      "circulo": 7,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-412",
+      "nombre": "Baile desternillante de Jejas Jajaner",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-413",
+      "nombre": "Restablecimiento magno",
+      "circulo": 7,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-414",
+      "nombre": "Invisibilidad magna en masa",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-415",
+      "nombre": "Invocar elemental mayor",
+      "circulo": 7,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-416",
+      "nombre": "Invocar vórtice de energía",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-417",
+      "nombre": "Tetramageddon",
+      "circulo": 7,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-418",
+      "nombre": "Cañón aural",
+      "circulo": 7,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-419",
+      "nombre": "Encierro de alma",
+      "circulo": 8,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-420",
+      "nombre": "Hambre de Nastala",
+      "circulo": 8,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-421",
+      "nombre": "Mundo onírico",
+      "circulo": 8,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Nictomancia"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-422",
+      "nombre": "Rayo de sangre",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-423",
+      "nombre": "Sangre de Umbrathia",
+      "circulo": 1,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-424",
+      "nombre": "Latido oscuro",
+      "circulo": 1,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-425",
+      "nombre": "Tajo carmesí de Nebb",
+      "circulo": 2,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-426",
+      "nombre": "Lanza hemática",
+      "circulo": 2,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-427",
+      "nombre": "Bomba escarlata",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-428",
+      "nombre": "Manto encarnado de sangre",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-429",
+      "nombre": "Maldición de vínculo sanguíneo",
+      "circulo": 4,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Magia de sangre",
+        "Maldición"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-430",
+      "nombre": "Alzar gólem de sangre",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia de sangre",
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-431",
+      "nombre": "Sangre hirviente",
+      "circulo": 5,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-432",
+      "nombre": "Convergencia vital de Olphegor",
+      "circulo": 6,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    },
+    {
+      "id": "conjuro-433",
+      "nombre": "Palabra de Poder: Hemorragia",
+      "circulo": 7,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Magia de sangre"
+      ],
+      "fuente": "Tomo de Magia"
+    }
+  ],
+  "tecnicas": [
+    {
+      "id": "tecnica-01",
+      "nombre": "Ataque certero",
+      "categoria": "Disciplina",
+      "requisito": "",
+      "coste": "",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-02",
+      "nombre": "Baluarte",
+      "categoria": "Disciplina",
+      "requisito": "no haberte movido esta Ronda, escudo grande equipado, Resistencia 13+",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-03",
+      "nombre": "Disparo aturdidor",
+      "categoria": "Disciplina",
+      "requisito": "arma a distancia, Intuición 8+",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-04",
+      "nombre": "Doble ataque",
+      "categoria": "Disciplina",
+      "requisito": "Agilidad 8+",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-05",
+      "nombre": "Impacto poderoso",
+      "categoria": "Fuerza bruta",
+      "requisito": "Fuerza 8+",
+      "coste": "",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-06",
+      "nombre": "Rajar",
+      "categoria": "Fuerza bruta",
+      "requisito": "Guerrero, Nivel 6+",
+      "coste": "",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-07",
+      "nombre": "Matamagia",
+      "categoria": "Preternatural",
+      "requisito": "el objetivo ha de estar bajo un efecto mágico positivo, Mente 10+",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-08",
+      "nombre": "Reflejo mágico",
+      "categoria": "Preternatural",
+      "requisito": "debes llevar un escudo mediano o grande equipado, Resistencia 10+",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-09",
+      "nombre": "Ataque sorpresa",
+      "categoria": "Trucos sucios",
+      "requisito": "Ladrón",
+      "coste": "",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-10",
+      "nombre": "Golpe de escudo",
+      "categoria": "Trucos sucios",
+      "requisito": "debes llevar un escudo equipado, Resistencia 8+",
+      "coste": "especial, ver descripción",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-11",
+      "nombre": "Cobertura vengativa",
+      "categoria": "Disciplina",
+      "requisito": "arma de fuego a distancia",
+      "coste": "tu Turno",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "tecnica-12",
+      "nombre": "Pausa para fumar",
+      "categoria": "Disciplina",
+      "requisito": "Resistencia 8+, un paquete de cigarros",
+      "coste": "tirada DU de cigarros",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "tecnica-13",
+      "nombre": "Ataque explosivo",
+      "categoria": "Fuerza bruta",
+      "requisito": "pistolas, escopeta de plasma o rifles como arma",
+      "coste": "",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "tecnica-14",
+      "nombre": "Fuego automático",
+      "categoria": "Fuerza bruta",
+      "requisito": "boxeadora, metralleta láser, fusil de plasma o rotatoria láser como arma",
+      "coste": "",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "tecnica-15",
+      "nombre": "Postura de Gaehr Moradh",
+      "categoria": "Disciplina",
+      "requisito": "Valquiria",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 Ocupaciones"
+    },
+    {
+      "id": "tecnica-16",
+      "nombre": "Carga de caballería",
+      "categoria": "Disciplina",
+      "requisito": "Fuerza 11+, Resistencia 11+, debes llevar equipada con arma de asta y debes estar cabalgando una criatura con el Rasgo Montura.",
+      "coste": "2 puntos de Esfuerzo",
+      "fuente": "Naufragio d20 Ocupaciones"
+    },
+    {
+      "id": "tecnica-17",
+      "nombre": "Danza aérea",
+      "categoria": "Disciplina",
+      "requisito": "Agilidad 12+, no debes llevar equipada armadura, debes tener a mano 1d6 +2 armas arrojadizas, debes tener espacio suficiente para poder realizar la maniobra",
+      "coste": "2 puntos de Esfuerzo",
+      "fuente": "Naufragio d20 Ocupaciones"
+    },
+    {
+      "id": "tecnica-18",
+      "nombre": "Salto mortal",
+      "categoria": "Disciplina",
+      "requisito": "Agilidad 8+, debes llevar equipada un arma cuerpo a cuerpo a dos manos, debes tener espacio suficiente para poder realizar la maniobra",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 Ocupaciones"
+    },
+    {
+      "id": "tecnica-19",
+      "nombre": "Baile frenético",
+      "categoria": "Fuerza bruta",
+      "requisito": "Resistencia 8+",
+      "coste": "½ de tu Salud total",
+      "fuente": "Naufragio d20 Ocupaciones"
+    },
+    {
+      "id": "tecnica-20",
+      "nombre": "Anhelo voluntarioso",
+      "categoria": "Preternatural",
+      "requisito": "Mente 8+, Valquiria",
+      "coste": "½ de tu Salud actual",
+      "fuente": "Naufragio d20 Ocupaciones"
+    },
+    {
+      "id": "tecnica-21",
+      "nombre": "Corte fantasma",
+      "categoria": "Preternatural",
+      "requisito": "Presencia 10+, arma de filo",
+      "coste": "1 Esfuerzo",
+      "fuente": "Naufragio d20 Ocupaciones"
+    },
+    {
+      "id": "tecnica-22",
+      "nombre": "Orden siniestra",
+      "categoria": "Preternatural",
+      "requisito": "Endecha de los condenados",
+      "coste": "",
+      "fuente": "Naufragio d20 Ocupaciones"
+    },
+    {
+      "id": "tecnica-23",
+      "nombre": "Distorsión temporal reactiva",
+      "categoria": "Preternatural",
+      "requisito": "Agilidad 10+, Cronómaca",
+      "coste": "1 Esfuerzo",
+      "fuente": "Naufragio d20 Ocupaciones"
+    },
+    {
+      "id": "tecnica-24",
+      "nombre": "Siervo de las sombras",
+      "categoria": "Preternatural",
+      "requisito": "Mente 8+, Endecha de los condenados",
+      "coste": "2 puntos de Esfuerzo",
+      "fuente": "Naufragio d20 Ocupaciones"
+    }
+  ],
+  "poderes_psionicos": [
+    {
+      "id": "psionico-1",
+      "numero": 1,
+      "nombre": "Aparición lejana",
+      "impetu": 1,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-2",
+      "numero": 2,
+      "nombre": "Agresión psíquica",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-3",
+      "numero": 3,
+      "nombre": "Clariestesia",
+      "impetu": 2,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-4",
+      "numero": 4,
+      "nombre": "Combate precognitivo",
+      "impetu": 2,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-5",
+      "numero": 5,
+      "nombre": "Copiar conocimientos",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-6",
+      "numero": 6,
+      "nombre": "Discernir mentiras",
+      "impetu": 2,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-7",
+      "numero": 7,
+      "nombre": "Dominar el cuerpo",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-8",
+      "numero": 8,
+      "nombre": "Escrutar pensamientos",
+      "impetu": 2,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-9",
+      "numero": 9,
+      "nombre": "Invisibilidad psíquica",
+      "impetu": 1,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-10",
+      "numero": 10,
+      "nombre": "Manipular la memoria",
+      "impetu": 3,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-11",
+      "numero": 11,
+      "nombre": "Piroquinesia",
+      "impetu": 3,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-12",
+      "numero": 12,
+      "nombre": "Psicometría",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-13",
+      "numero": 13,
+      "nombre": "Sanación kinética",
+      "impetu": 1,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-14",
+      "numero": 14,
+      "nombre": "Proyección astral",
+      "impetu": 2,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-15",
+      "numero": 15,
+      "nombre": "Revivificar",
+      "impetu": 20,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-16",
+      "numero": 16,
+      "nombre": "Robo mental",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-17",
+      "numero": 17,
+      "nombre": "Sentidos aumentados",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-18",
+      "numero": 18,
+      "nombre": "Telequinesis",
+      "impetu": 2,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-19",
+      "numero": 19,
+      "nombre": "Translocación",
+      "impetu": 3,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-20",
+      "numero": 20,
+      "nombre": "Visión remota",
+      "impetu": 1,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    }
+  ],
+  "argucias": [
+    {
+      "id": "argucia-1",
+      "nombre": "Chascarrillos",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "argucia-2",
+      "nombre": "Culo inquieto",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "argucia-3",
+      "nombre": "Desconfianza",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "argucia-4",
+      "nombre": "Mataxenos",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "argucia-5",
+      "nombre": "Menuda potra",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "argucia-6",
+      "nombre": "Ñapa",
+      "fuente": "Naufragio d20 CiFi"
+    }
+  ],
+  "listas_drs": {
+    "Clérigo": {
+      "1": [
+        "Atraer muertos vivientes",
+        "Chispa curativa",
+        "Detectar magia",
+        "Disipar magia",
+        "Luz",
+        "Mensaje lejano",
+        "Valentía"
+      ],
+      "2": [
+        "Amistad animal",
+        "Calentar metal",
+        "Curación",
+        "Fuego lunar",
+        "Resistir los elementos",
+        "Silencio"
+      ],
+      "3": [
+        "Aura de pestilencia",
+        "Hablar con los muertos",
+        "Luz de luna",
+        "Quitar maldición"
+      ],
+      "4": [
+        "Detectar la mentira",
+        "Hablar con las plantas",
+        "Piel de piedra",
+        "Prelación"
+      ],
+      "5": [
+        "Atravesar paredes",
+        "Crear muertos vivientes",
+        "Ira celestial",
+        "Transfusión de dolor"
+      ],
+      "6": [
+        "Petrificar",
+        "Protección contra la muerte",
+        "Rayo solar",
+        "Recuperación divina"
+      ],
+      "7": [
+        "Control climático",
+        "Sino del Segador"
+      ],
+      "8": [
+        "Palabra de Poder: Muerte",
+        "Resurrección"
+      ]
+    },
+    "Mago": {
+      "1": [
+        "Aguijón impío",
+        "Caída de pluma",
+        "Dardo ígneo",
+        "Detectar magia",
+        "Disipar magia",
+        "Dormir",
+        "Mano de mago",
+        "Mensaje lejano"
+      ],
+      "2": [
+        "Apertura arcana",
+        "Calentar metal",
+        "Charco de aceite",
+        "Ilusión",
+        "Silencio",
+        "Toque eléctrico"
+      ],
+      "3": [
+        "Alzar hombre corrupto",
+        "Arma elemental",
+        "Armadura de maná",
+        "Bola de fuego",
+        "Poza hedionda",
+        "Proyectil mágico"
+      ],
+      "4": [
+        "Espejo de sombras",
+        "Muro de fuego",
+        "Polimorfia",
+        "Tentáculos negros",
+        "Tormenta de espadas"
+      ],
+      "5": [
+        "Alzar maldito",
+        "Atravesar paredes",
+        "Forja arcana",
+        "Transfusión de dolor"
+      ],
+      "6": [
+        "Intercambio de almas",
+        "Lluvia de estrellas",
+        "Petrificar",
+        "Rayo solar"
+      ],
+      "7": [
+        "Cimitarra arcana",
+        "Niebla carmesí"
+      ],
+      "8": [
+        "Alterar el ser",
+        "Viaje espaciotemporal"
+      ]
+    }
+  },
+  "scripts": [
+    {
+      "id": "script-1",
+      "nombre": "Gray Phantom",
+      "descripcion": "Reduce en 1d6 el Nivel de la Barrera de Identificación.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-2",
+      "nombre": "Stonebrick",
+      "descripcion": "Reduce en 1d4 el Nivel de la Barrera de Autentificación.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-3",
+      "nombre": "The Bulgarian Job",
+      "descripcion": "Supera de forma instantánea la Barrera de Identificación.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-4",
+      "nombre": "Dominion Blue",
+      "descripcion": "Supera de forma instantánea la Barrera de Autentificación.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-5",
+      "nombre": "Bubble",
+      "descripcion": "Reduce en 1d6 el Nivel de la Barrera de Autorización.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-6",
+      "nombre": "Nautical Defender",
+      "descripcion": "Obtén un +2 al resultado de una Tirada de hackeo.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-7",
+      "nombre": "Ophideus",
+      "descripcion": "Cancela inmediatamente el despliegue de Medidas defensivas si éstas se disparan en las Barreras de Identificación o Autentificación.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-8",
+      "nombre": "Donatello",
+      "descripcion": "Permite salir inmediatamente del sistema si saltan las Medidas defensivas en la Barrera de Autorización.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-9",
+      "nombre": "False Brain",
+      "descripcion": "Hace creer al sistema que ha sufrido un falso positivo de hackeo. El hacker puede continuar con el proceso, pero con un -2 a la próxima Tirada de hackeo.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-10",
+      "nombre": "Thursday Benefits",
+      "descripcion": "En lugar de utilizar las Medidas defensivas de la Barrera en la que se encuentra, el sistema utilizará las Medidas defensivas de la Barrera de Identificación (las más laxas).",
+      "fuente": "Naufragio d20 CiFi"
+    }
+  ]
+}

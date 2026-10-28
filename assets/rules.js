@@ -111,12 +111,14 @@
     var tipo = config.juego === 'nd20_cifi' ? 'Naufragio d20 · CiFi' :
       config.juego === 'nd20_nocturna' ? 'Naufragio d20 · Nocturna' : 'Naufragio d20 · Fantasía';
     var capacidades = (esp.talentos || []).concat(oc.talentos || []);
-    if ((esp.talentos_elegir || []).length) {
+    if (config.aplazarElecciones && config.juego === 'nd20' && ocupacion === 'Guerrero')
+      capacidades = capacidades.filter(function(x){return x !== 'Brío musculoso' && x !== 'Sacrificio de escudo';});
+    if (!config.aplazarElecciones && (esp.talentos_elegir || []).length) {
       var eleccionEspecie = escoger(esp.talentos_elegir, rng);
       capacidades.push(eleccionEspecie);
       detalles.push('Talento adicional de Especie seleccionado: ' + eleccionEspecie + '.');
     }
-    if ((oc.talentos_elegir || []).length) {
+    if (!config.aplazarElecciones && (oc.talentos_elegir || []).length) {
       var eleccionOcupacion = escoger(oc.talentos_elegir, rng);
       capacidades.push(eleccionOcupacion);
       detalles.push('Talento adicional de Ocupación seleccionado: ' + eleccionOcupacion + '.');
@@ -141,7 +143,7 @@
       competencias:(oc.competencias || []).slice(), equipo:equipo, origen:tipo,
       riqueza:riqueza,
       notas:detalles.concat((oc.poderes || []).length ? ['Poderes declarados: ' + oc.poderes.join(', ') + '.'] : [],
-        ['El generador no asigna Conjuros ni Técnicas por Nivel.'])
+        config.aplazarElecciones ? [] : ['El generador no asigna Conjuros ni Técnicas por Nivel.'])
     };
   }
   function dificultadDH(rng) {

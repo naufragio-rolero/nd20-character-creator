@@ -2,9 +2,11 @@
 (function () {
   'use strict';
   var reglas = window.NaufragioRules;
+  var poderes = window.NaufragioPoderes;
   var datos = {};
   var entradas = [];
   var correlativo = 0;
+  var borrador = null;
   var $ = function (id) {return document.getElementById(id);};
   function aviso(mensaje, esError) {
     $('estado').textContent = mensaje || '';
@@ -39,6 +41,7 @@
     if (!datos.dh) return;
     var juego = $('juego').value, dh = juego === 'dh';
     $('opciones-dh').hidden = !dh;
+    $('modos-creacion').hidden = dh;
     $('generar-seguidor').disabled = !dh;
     $('nivel').max = dh ? '36' : '30';
     $('rango-nivel').textContent = dh ? '1–36' : '1–30';
@@ -68,6 +71,10 @@
     }
   }
   function ordenar(a,b) {return a.nombre.localeCompare(b.nombre, 'es');}
+  function dhModo(juego) {
+    if(juego==='dh')return 'rapido';
+    return document.querySelector('input[name="modo-creacion"]:checked').value;
+  }
   function config() {
     var juego=$('juego').value, nivel=Number($('nivel').value);
     var cantidad=Number($('cantidad').value);
@@ -78,7 +85,10 @@
     var origenes=origenesActivos();
     if (juego==='dh' && !origenes.length)
       throw Error('Marca al menos una procedencia para Dungeon Hack.');
-    return {juego:juego, nivel:nivel, cantidad:cantidad,
+    var modo = dhModo(juego);
+    if(modo==='personalizado' && cantidad!==1)
+      throw Error('El modo Personalizado crea una ficha por vez. Selecciona cantidad 1.');
+    return {juego:juego, nivel:nivel, cantidad:cantidad, modo:modo,
       ocupacion:$('ocupacion').value, especie:$('especie').value,
       conEspecie:$('con-especie').checked, origenes:origenes,
       nombre:$('nombre-personaje').value.trim()};
@@ -86,7 +96,8 @@
   function crearFicha(cfg, rng) {
     if (cfg.juego === 'dh') return reglas.eleccionDH(datos.dh,cfg,rng);
     return reglas.crearNd20(cfg.juego==='nd20_cifi' ? datos.cifi :
-      cfg.juego==='nd20_nocturna' ? datos.nocturna : datos.fantasia,cfg,rng);
+      cfg.juego==='nd20_nocturna' ? datos.nocturna : datos.fantasia,
+      Object.assign({},cfg,{aplazarElecciones:true}),rng);
   }
   function htmlLista(titulo, valores) {
     if (!valores || !valores.length) return '';
@@ -116,6 +127,8 @@
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
       '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos) +
       htmlLista('Talentos y capacidades',personaje.capacidades) +
+      htmlLista('Conjuros y Poderes conocidos',personaje.poderes) +
+      htmlLista('Conjuros preparados',personaje.conjuros_preparados) +
       htmlLista('Competencias',personaje.competencias) +
       htmlLista('Equipo',personaje.equipo) +
       (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
@@ -153,8 +166,9 @@
     p.atributos.forEach(function(a){
       str.push('- '+a.nombre+': '+(esDH?'DD '+a.dificultad:a.valor+' (DA '+a.dificultad+'+)')+(a.favorito?' [favorito]':''));
     });
-    ['recursos','capacidades','competencias','equipo','notas'].forEach(function (key) {
+    ['recursos','capacidades','poderes','conjuros_preparados','competencias','equipo','notas'].forEach(function (key) {
       var titulos={recursos:'Recursos',capacidades:'Talentos y capacidades',
+        poderes:'Conjuros y Poderes conocidos',conjuros_preparados:'Conjuros preparados',
         competencias:'Competencias',equipo:'Equipo',notas:'Observaciones'};
       if(p[key]&&p[key].length) {
         str.push('',titulos[key]+':');
@@ -215,6 +229,74 @@
       aviso('No se pudo copiar automáticamente. Utiliza «Exportar .txt».',true);
     }
   }
+
+  function cerrarEditor(){
+    borrador=null;
+    $('editor-elecciones').hidden=true;
+    $('grupos-elecciones').textContent='';
+  }
+  function prepararEditor(personaje,plan,rng){
+    borrador={personaje:personaje,plan:plan,rng:rng};
+    $('editor-elecciones').hidden=false;
+    $('editor-titulo').textContent='Personalizar · '+personaje.descripcion;
+    $('editor-resumen').textContent='Nivel '+personaje.nivel+
+      ' · '+plan.pasos.filter(function(x){return !x.automatico;})
+        .reduce(function(n,x){return n+x.cantidad;},0)+' elecciones. '+
+      (plan.avisos||[]).join(' ');
+    var cont=$('grupos-elecciones');
+    cont.textContent='';
+    plan.pasos.forEach(function(paso){
+      var field=document.createElement('fieldset');
+      field.className='grupo-poderes';
+      var legend=document.createElement('legend');
+      legend.textContent=paso.titulo+' ('+paso.cantidad+')';
+      field.appendChild(legend);
+      if(paso.automatico){
+        var txt=document.createElement('p');txt.className='ayuda';
+        txt.textContent='Asignación aleatoria obligatoria según tabla d20.';
+        field.appendChild(txt);
+      }else {
+        for(var i=0;i<paso.cantidad;i++){
+          var label=document.createElement('label');
+          label.className='eleccion-poder';
+          label.textContent=(i+1)+'. ';
+          var sel=document.createElement('select');
+          sel.dataset.paso=paso.id;sel.dataset.orden=String(i);sel.required=true;
+          label.appendChild(sel);field.appendChild(label);
+        }
+      }
+      cont.appendChild(field);
+    });
+    refrescarOpciones();
+    $('editor-elecciones').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function leerElecciones(){
+    var result={};
+    $('grupos-elecciones').querySelectorAll('select[data-paso]').forEach(function(sel){
+      if(!result[sel.dataset.paso])result[sel.dataset.paso]=[];
+      if(sel.value)result[sel.dataset.paso].push(sel.value);
+    });
+    return result;
+  }
+  function refrescarOpciones(){
+    if(!borrador)return;
+    var selecciones=leerElecciones();
+    $('grupos-elecciones').querySelectorAll('select[data-paso]').forEach(function(sel){
+      var paso=borrador.plan.pasos.find(function(p){return p.id===sel.dataset.paso;});
+      var anterior=sel.value,disponibles=poderes.disponibles(paso,selecciones);
+      sel.textContent='';
+      var option=document.createElement('option');
+      option.value='';option.textContent='— Elige una opción —';sel.appendChild(option);
+      disponibles.forEach(function(op){
+        var item=document.createElement('option');
+        item.value=op.id;
+        item.textContent=op.nombre+(op.circulo?' · C'+op.circulo:'')+
+          (op.requisito?' · Requisitos de uso: '+op.requisito:'');
+        sel.appendChild(item);
+      });
+      if(disponibles.some(function(op){return op.id===anterior;}))sel.value=anterior;
+    });
+  }
   function vincular() {
     $('juego').addEventListener('change',refrescarSelectores);
     $('con-especie').addEventListener('change',refrescarSelectores);
@@ -223,8 +305,40 @@
       e.preventDefault();
       conControl(function () {
         var c=config(),createRng=rngUnico(),items=[];
-        for(var i=0;i<c.cantidad;i++) items.push(crearFicha(c,createRng(i)));
+        for(var i=0;i<c.cantidad;i++){
+          var r=createRng(i),personaje=crearFicha(c,r);
+          if(c.juego==='dh'){items.push(personaje);continue;}
+          var partes=personaje.descripcion.split(' · ');
+          var opciones=Object.assign({},c,{ocupacion:partes[0],especie:partes.slice(1).join(' · ')});
+          var juegoDatos=c.juego==='nd20_cifi'?datos.cifi:
+            c.juego==='nd20_nocturna'?datos.nocturna:datos.fantasia;
+          var plan=poderes.planificar(opciones,juegoDatos,datos.catalogo,datos.progresiones);
+          if(c.modo==='personalizado'&&plan.pasos.some(function(x){return !x.automatico;})){
+            prepararEditor(personaje,plan,r);return;
+          }
+          items.push(poderes.aplicar(personaje,plan,poderes.resolver(plan,null,r)));
+        }
         items.forEach(function(p){agregar('ficha',p);});
+      });
+    });
+    $('form-elecciones').addEventListener('submit',function(event){
+      event.preventDefault();
+      conControl(function(){
+        if(!borrador)throw Error('No existe un personaje pendiente.');
+        var e=leerElecciones();
+        var resultado=poderes.resolver(borrador.plan,e,borrador.rng);
+        agregar('ficha',poderes.aplicar(borrador.personaje,borrador.plan,resultado));
+        cerrarEditor();
+      });
+    });
+    $('grupos-elecciones').addEventListener('change',function(event){
+      if(event.target.matches('select[data-paso]'))refrescarOpciones();
+    });
+    $('cancelar-elecciones').addEventListener('click',cerrarEditor);
+    document.querySelectorAll('input[name="modo-creacion"]').forEach(function(radio){
+      radio.addEventListener('change',function(){
+        if(radio.checked && radio.value==='personalizado')$('cantidad').value='1';
+        $('cantidad').disabled=radio.checked && radio.value==='personalizado';
       });
     });
     $('generar-seguidor').addEventListener('click',function(){
@@ -262,6 +376,8 @@
       especies:'data/especies.json',ocupaciones:'data/ocupaciones.json',
       especiesCifi:'data/especies_cifi.json',ocupacionesCifi:'data/ocupaciones_cifi.json',
       ampliado:'data/catalogo-ampliado.json',
+      catalogo:'data/catalogo-poderes.json',
+      progresiones:'data/progresiones-oficiales.json',
       dungeon:'data/dungeon-hack.json'
     };
     var elementos=await Promise.all(Object.entries(archivos).map(async function(par){
@@ -284,6 +400,8 @@
         datos.cifi.especies[key]=Object.assign({},datos.cifi.especies[key],extra.cifi.especies[key]);
     });
     datos.nocturna=extra.nocturna;
+    datos.catalogo=loaded.catalogo;
+    datos.progresiones=loaded.progresiones;
     datos.dh=loaded.dungeon;
     $('origenes').textContent='';
     datos.dh.origins.forEach(function(nombre,index){

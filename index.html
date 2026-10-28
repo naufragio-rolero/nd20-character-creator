@@ -8,6 +8,7 @@
   <title>El Naufragio · Forja de personajes</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="assets/rules.js"></script>
+  <script defer src="assets/powers.js"></script>
   <script defer src="assets/app.js"></script>
 </head>
 <body>
@@ -60,6 +61,12 @@
           <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Para repetir resultados">
           <small>Con la misma semilla y configuración obtendrás los mismos personajes.</small>
         </div>
+        <fieldset id="modos-creacion">
+          <legend>Modo de creación · Naufragio d20</legend>
+          <label class="casilla"><input type="radio" name="modo-creacion" value="rapido" checked> <strong>Rápido:</strong> elecciones automáticas reglamentarias</label>
+          <label class="casilla"><input type="radio" name="modo-creacion" value="personalizado"> <strong>Personalizado:</strong> elegir Talentos y Poderes paso a paso</label>
+          <small>Las progresiones pendientes de validar se señalan; nunca se asignan Poderes inventados. El Psion tira 1d20 en ambos modos.</small>
+        </fieldset>
         <div class="campo">
           <label for="cantidad">Cuántas fichas</label>
           <input id="cantidad" type="number" min="1" max="12" value="1" required>
@@ -89,6 +96,17 @@
         </div>
       </div>
       <div id="estado" class="estado" role="status" aria-live="polite"></div>
+      <section id="editor-elecciones" class="editor-elecciones" hidden aria-label="Personalizar personaje">
+        <h3 id="editor-titulo">Personalizar personaje</h3>
+        <p id="editor-resumen" class="muted"></p>
+        <form id="form-elecciones">
+          <div id="grupos-elecciones"></div>
+          <div class="botonera">
+            <button type="submit" class="principal">Finalizar personaje</button>
+            <button type="button" id="cancelar-elecciones">Cancelar</button>
+          </div>
+        </form>
+      </section>
       <div id="fichas" class="fichas" aria-live="off">
         <div class="vacio" id="vacio">
           <span class="emblema" aria-hidden="true">◇</span>

@@ -31,6 +31,10 @@ jobs:
           test -s data/ocupaciones.json
           test -s data/especies_cifi.json
           test -s data/ocupaciones_cifi.json
+          test -s data/catalogo-ampliado.json
+          test -s data/catalogo-poderes.json
+          test -s data/progresiones-oficiales.json
+          test -s assets/powers.js
 
       - name: Comprobar generadores y catálogos
         run: node tests/smoke.js

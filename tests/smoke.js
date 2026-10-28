@@ -99,3 +99,51 @@ const aumentado=reglas.crearNd20(cifiExtendida,
 assert.ok(aumentado.atributos.find(a=>a.nombre==='Resistencia').valor>=7);
 assert.ok(aumentado.atributos.find(a=>a.nombre==='Presencia').valor>=7);
 console.log('OK · '+ampliadas+' fichas adicionales con material documental.');
+
+
+/* Modos rápido y personalizado: progresiones oficiales y elección validada. */
+const poderes=require('../assets/powers.js');
+const catalogoPoderes=leer('catalogo-poderes.json');
+const progresiones=leer('progresiones-oficiales.json');
+assert.equal(catalogoPoderes.conjuros.length,434,'Conjuros extraídos del Tomo');
+assert.equal(catalogoPoderes.poderes_psionicos.length,20,'Tabla psiónica d20');
+assert.equal(catalogoPoderes.scripts.length,10,'Scripts CiFi');
+assert.equal(new Set(catalogoPoderes.tecnicas.map(t=>t.id)).size,catalogoPoderes.tecnicas.length,'IDs únicos de Técnicas');
+assert.equal(progresiones.fantasia.Mago.niveles[0][0],1,'Espacios Mago Nv 1');
+assert.equal(progresiones.fantasia['Clérigo'].niveles[0][0],0,'Clérigo sin espacio Nv 1');
+assert.equal(progresiones.cifi.Psion.niveles[0][0],4,'Ímpetu Psion Nv 1');
+
+let eleccionesValidadas=0;
+for(const [juego,grupo] of [
+  ['nd20',fantasiaExtendida],['nd20_cifi',cifiExtendida],['nd20_nocturna',nocturna]
+]){
+  for(const ocupacion of Object.keys(grupo.ocupaciones)){
+    for(let nivel=1;nivel<=30;nivel++){
+      const rng=reglas.aleatorioSemilla('poderes-'+juego+ocupacion+nivel);
+      const pj=reglas.crearNd20(grupo,
+        {juego,nivel,ocupacion,aplazarElecciones:true},rng);
+      const especie=pj.descripcion.split(' · ').slice(1).join(' · ');
+      const plan=poderes.planificar({juego,nivel,ocupacion,especie},grupo,catalogoPoderes,progresiones);
+      const rapido=poderes.resolver(plan,null,rng);
+      const guiado=poderes.resolver(plan,rapido.decisiones,reglas.aleatorioSemilla('solo-psion'));
+      assert.deepEqual(
+        guiado.elementos.filter(x=>x.tipo!=='psionico').map(x=>x.id),
+        rapido.elementos.filter(x=>x.tipo!=='psionico').map(x=>x.id),
+        'Modo Personalizado conserva las elecciones permitidas');
+      const terminado=poderes.aplicar(pj,plan,rapido);
+      assert.ok(terminado.poderes && terminado.conjuros_preparados);
+      eleccionesValidadas++;
+    }
+  }
+}
+const poolNoct=poderes.planificar(
+  {juego:'nd20_nocturna',nivel:9,ocupacion:'Arcanista',especie:'Humano natural'},
+  nocturna,catalogoPoderes,progresiones);
+assert.equal(poolNoct.pasos.length,3,'Talento de especie y dos de Ocupación');
+assert.ok(poolNoct.pasos.some(s=>s.id==='talento-ocupacion-9'));
+assert.throws(()=>poderes.resolver(poolNoct,{
+  'talento-especie-1':['No existe'],
+  'talento-ocupacion-1':['Biblioteca ambulante'],
+  'talento-ocupacion-9':['Caos esotérico']
+},()=>.2),/fuera de catálogo/i);
+console.log('OK · '+eleccionesValidadas+' comprobaciones de progresión y selección.');
