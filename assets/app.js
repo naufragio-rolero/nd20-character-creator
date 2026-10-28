@@ -69,6 +69,7 @@
     var juego = $('juego').value, dh = juego === 'dh';
     refrescarBotonesSistema();
     $('opciones-dh').hidden = !dh;
+    $('opciones-nombres-ylat').hidden = juego!=='nd20';
     $('modos-creacion').hidden = dh;
     $('generar-seguidor').disabled = !dh;
     $('nivel').max = dh ? '36' : '30';
@@ -120,7 +121,8 @@
     return {juego:juego, nivel:nivel, cantidad:cantidad, modo:modo,
       ocupacion:$('ocupacion').value, especie:$('especie').value,
       conEspecie:$('con-especie').checked, origenes:origenes,
-      nombre:$('nombre-personaje').value.trim()};
+      nombre:$('nombre-personaje').value.trim(),
+      modoNombre:$('modo-nombre').value};
   }
   function crearFicha(cfg, rng) {
     if (cfg.juego === 'dh') {
@@ -130,7 +132,7 @@
     }
     var ficha=reglas.crearNd20(cfg.juego==='nd20_cifi' ? datos.cifi :
       cfg.juego==='nd20_nocturna' ? datos.nocturna : datos.fantasia,
-      Object.assign({},cfg,{aplazarElecciones:true}),rng);
+      Object.assign({},cfg,{aplazarElecciones:true,tesauroYlat:datos.tesauroYlat}),rng);
     ficha.procedenciaOcupacion=origenOcupacion(ficha.descripcion.split(' · ')[0],cfg.juego);
     return ficha;
   }
@@ -435,6 +437,7 @@
       especies:'data/especies.json',ocupaciones:'data/ocupaciones.json',
       especiesCifi:'data/especies_cifi.json',ocupacionesCifi:'data/ocupaciones_cifi.json',
       ampliado:'data/catalogo-ampliado.json',
+      tesauroYlat:'data/tesauro-ylat.json',
       catalogo:'data/catalogo-poderes.json',
       progresiones:'data/progresiones-oficiales.json',
       dungeon:'data/dungeon-hack.json'
@@ -461,6 +464,7 @@
     datos.nocturna=extra.nocturna;
     datos.fantasiaAmpliadas=extra.fantasia.ocupaciones;
     datos.catalogo=loaded.catalogo;
+    datos.tesauroYlat=loaded.tesauroYlat;
     datos.progresiones=loaded.progresiones;
     datos.dh=loaded.dungeon;
     $('origenes').textContent='';

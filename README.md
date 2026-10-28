@@ -2,6 +2,15 @@
 
 Generador estático para **Naufragio d20 (Fantasía, CiFi y Nocturna)** y **Dungeon Hack**, diseñado para publicarse en GitHub Pages sin servidor, base de datos, Python ni compilación.
 
+## Tesauro de nombres Ylat y Talentos documentados
+
+- `data/tesauro-ylat.json` contiene **200 nombres únicos** obtenidos exclusivamente a partir de tres documentos seleccionados de la Biblioteca `/Ylat`: *Personages Niguaze.pdf*, *Cronicas de Niguaze  .pdf* y *Hilo Isla Tormenta 2019.pdf*.
+- **51 nombres documentados** indican el archivo y la página en que aparecen; son nombres de personajes existentes en esos textos.
+- **149 nombres combinados** reutilizan nombres y apellidos documentados para sugerir personajes nuevos. **No son personajes canónicos ni atribuciones de culturas o especies**.
+- En Nd20 Fantasía hay un selector para optar por **variantes inspiradas** (por defecto), **nombres documentados** o el **repertorio de la Especie**. El campo de nombre manual sigue teniendo prioridad. Otros sistemas conservan sus propios repertorios.
+- Los Talentos documentados de las ocupaciones ampliadas se muestran ahora en **Talentos y capacidades** en vez de Observaciones. Si la adquisición depende del Nivel o de una elección todavía no automatizada, aparece indicado para evitar otorgar capacidades indebidamente.
+- **Hurí:** Encanto y Defensa sin armadura aparecen como Talentos; la progresión de Magia tántrica se representa por cantidad de artes conocidas (1 en niveles 1–5, 2 en 6–11, 3 en 12–17 y 4 desde 18), junto con su Blindaje sin armadura. El documento de Ocupaciones **no proporciona nombres ni efectos de las artes tántricas**; el generador las identifica como pendientes, sin inventarlas.
+
 ## Menú, procedencia y temas
 
 La barra lateral tiene un selector de sistema compacto (**Nd20F**, **Nd20C**, **Nd20N** y **DH**), un panel independiente para **Herramientas del Cronista / DJ** y una pestaña principal de **Personajes**.

@@ -123,16 +123,26 @@
       capacidades.push(eleccionOcupacion);
       detalles.push('Talento adicional de Ocupación seleccionado: ' + eleccionOcupacion + '.');
     }
-    if ((oc.talentos_referencia || []).length)
-      detalles.push('Talentos documentados de la Ocupación (consulta condiciones y progreso): ' + oc.talentos_referencia.join(', ') + '.');
+    (oc.talentos_referencia || []).forEach(function(talento) {
+      if (capacidades.indexOf(talento)!==-1)return;
+      var fijo = ['Hurí','Chamán'].indexOf(ocupacion)!==-1;
+      capacidades.push(fijo ? talento : talento + ' (consulta Nivel y condiciones del manual)');
+    });
     if (esp.debilidad) detalles.push('Debilidad de Especie: ' + esp.debilidad);
     if (!arma && !armadura) detalles.push('El equipo inicial debe elegirse según las Competencias y las reglas del manual.');
 
     var esCifi = config.juego === 'nd20_cifi';
     var riqueza = esCifi ? '' : suma(4, 10, rng) * 10 + ' mo';
     if (esCifi) detalles.push('La riqueza inicial en créditos no está implementada; acordadla con el Cronista.');
+    var poolNombres=(config.tesauroYlat && config.juego==='nd20' &&
+      config.modoNombre!=='especie') ?
+      config.tesauroYlat.entradas.filter(function(item) {
+        return item.tipo===(config.modoNombre==='documentado'?'documentado':'combinado');
+      }) : [];
+    var nombreYlat=escoger(poolNombres,rng);
     return {
-      juego:tipo, nombre:config.nombre || escoger(esp.nombres || [], rng) || 'Sin nombre',
+      juego:tipo, nombre:config.nombre || (nombreYlat && nombreYlat.nombre) ||
+        escoger(esp.nombres || [], rng) || 'Sin nombre',
       descripcion:ocupacion + ' · ' + especie, nivel:nivel,
       concepto:escoger(conceptos, rng) || 'Aventurero',
       atributos:paresAtributos(ATTR_ND.map(function (a) {return at[a];}), ATTR_ND, favorito),

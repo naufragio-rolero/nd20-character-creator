@@ -209,3 +209,46 @@ const estilos=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'u
 for(const tema of ['ebano','ceruleo','obsidiana'])
  assert.ok(estilos.includes('data-tema='+tema),'Tema '+tema);
 console.log('OK · '+planificados+' pruebas de Poderes adicionales y nuevas interfaces.');
+
+
+/* Corrección editorial: Talentos visibles, Magia tántrica y tesauro de Ylat. */
+const tesauroYlat=leer('tesauro-ylat.json');
+assert.equal(tesauroYlat.entradas.length,200,'Tesauro con doscientas entradas');
+assert.equal(tesauroYlat.entradas.filter(n=>n.tipo==='documentado').length,51);
+assert.equal(tesauroYlat.entradas.filter(n=>n.tipo==='combinado').length,149);
+assert.equal(new Set(tesauroYlat.entradas.map(n=>n.nombre.toLocaleLowerCase('es'))).size,200,
+  'No hay nombres duplicados');
+assert.ok(tesauroYlat.entradas.filter(n=>n.tipo==='documentado').every(n=>
+  n.fuente && n.fuente.archivo && n.fuente.pagina>=1),'Procedencia de nombres documentados');
+
+for(const [nivel,artes,blindaje] of [
+  [1,1,'d6/d6'],[6,2,'d6/d6'],[12,3,'d8/d6'],[18,4,'d10/d6'],[30,4,'d10/d6']
+]){
+  const rng=reglas.aleatorioSemilla('huri-'+nivel);
+  const pj=reglas.crearNd20(fantasiaExtendida,
+    {juego:'nd20',nivel,ocupacion:'Hurí',especie:'Humano común',
+     modoNombre:'combinado',tesauroYlat,aplazarElecciones:true},rng);
+  assert.ok(pj.capacidades.includes('Encanto'));
+  assert.ok(pj.capacidades.includes('Defensa sin armadura'));
+  assert.ok(!pj.notas.some(x=>x.includes('Talentos documentados')));
+  assert.ok(tesauroYlat.entradas.some(x=>x.nombre===pj.nombre&&x.tipo==='combinado'));
+  const plan=poderes.planificar({juego:'nd20',nivel,ocupacion:'Hurí',especie:'Humano común'},
+    fantasiaExtendida,catalogoPoderes,progresiones);
+  const final=poderes.aplicar(pj,plan,poderes.resolver(plan,null,rng));
+  assert.equal(Number(final.recursos.find(x=>x[0]==='Magia tántrica · artes conocidas')[1]),artes);
+  assert.equal(final.recursos.find(x=>x[0]==='Blindaje sin armadura')[1],blindaje);
+  assert.ok(final.poderes.some(x=>x.startsWith('Magia tántrica')));
+  assert.ok(final.notas.some(x=>x.includes('no incluye sus nombres ni efectos')));
+}
+const chamanTalentos=reglas.crearNd20(fantasiaExtendida,
+  {juego:'nd20',nivel:1,ocupacion:'Chamán',especie:'Humano común',aplazarElecciones:true},
+  reglas.aleatorioSemilla('chaman-talent'));
+for(const t of ['Espíritu ancestral','Puntos de Chamanismo','Resonancia salvaje'])
+  assert.ok(chamanTalentos.capacidades.includes(t),'Talento visible: '+t);
+const nombreOriginal=reglas.crearNd20(fantasiaExtendida,
+  {juego:'nd20',nivel:1,ocupacion:'Hurí',especie:'Humano común',modoNombre:'documentado',
+    tesauroYlat,aplazarElecciones:true},reglas.aleatorioSemilla('canon'));
+assert.ok(tesauroYlat.entradas.some(x=>x.nombre===nombreOriginal.nombre&&x.tipo==='documentado'));
+const pag=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+assert.ok(pag.includes('id="modo-nombre"'),'Selector de nombres disponible');
+console.log('OK · Talentos, Hurí y tesauro Ylat validados.');

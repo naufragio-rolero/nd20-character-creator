@@ -1,0 +1,2157 @@
+{
+  "version": 1,
+  "titulo": "Tesauro onomástico de Ylat",
+  "contexto": "Documentos seleccionados por el usuario en la Biblioteca /Ylat",
+  "politica": "Los nombres documentados se citan con archivo y página. Los combinados son propuestas nuevas basadas en elementos literales del corpus, no personajes canónicos.",
+  "entradas": [
+    {
+      "id": "ylat-d001",
+      "nombre": "Carmelo Ratazzi",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 4
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d002",
+      "nombre": "Remigio Ratazzi",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 2
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d003",
+      "nombre": "Lorenzo Ratazzi",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 2
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d004",
+      "nombre": "Serafina Dolcemare",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 2
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d005",
+      "nombre": "Marcella Dolcemare",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 2
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d006",
+      "nombre": "Sahib Averroes",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 7
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d007",
+      "nombre": "Juan Alvarado",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 9
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d008",
+      "nombre": "Sahure em Wase",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 11
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d009",
+      "nombre": "Pedro Sancho",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 10
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d010",
+      "nombre": "Emberlin Mertordrag",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 14
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d011",
+      "nombre": "Naxkary Alinary",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 19
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d012",
+      "nombre": "Tegku Bagui Fénix",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 20
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d013",
+      "nombre": "Naxka Bagui Fénix",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 20
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d014",
+      "nombre": "Lucio Balaur",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 14
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d015",
+      "nombre": "Siksax de Sunseok",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Personages Niguaze.pdf",
+        "pagina": 14
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d016",
+      "nombre": "Frida Halvigar",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 3
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d017",
+      "nombre": "Torben Halvigar",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 4
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d018",
+      "nombre": "Ram Balaur",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 5
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d019",
+      "nombre": "Yara Satomi",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 9
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d020",
+      "nombre": "Erika Bonardo",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 24
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d021",
+      "nombre": "Vladislav Mardarescu",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 26
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d022",
+      "nombre": "Sor Amparo",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 4
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d023",
+      "nombre": "Sor Lualhati",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 47
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d024",
+      "nombre": "Kaldun Anun",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 57
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d025",
+      "nombre": "Saelvion Aerthalas",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 65
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d026",
+      "nombre": "Thalios Arroyo Cristalino",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 8
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d027",
+      "nombre": "Cladinia Arawel",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 8
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d028",
+      "nombre": "Maelyr Zarpa de Musgo",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 16
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d029",
+      "nombre": "Tharia Raíz Profunda",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 16
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d030",
+      "nombre": "Eldrin Lethariel",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 18
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d031",
+      "nombre": "Minara",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 3
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d032",
+      "nombre": "Triko",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Cronicas de Niguaze  .pdf",
+        "pagina": 2
+      },
+      "ambito": "Niguace"
+    },
+    {
+      "id": "ylat-d033",
+      "nombre": "Nilsea",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 2
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d034",
+      "nombre": "Kalzifer",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 3
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d035",
+      "nombre": "Oiam Orbem",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 4
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d036",
+      "nombre": "Xandor Tugg",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 5
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d037",
+      "nombre": "Noron Cabeza de Oso",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 6
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d038",
+      "nombre": "Kharan Boll",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 7
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d039",
+      "nombre": "Drakabel",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 8
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d040",
+      "nombre": "Tanto",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 9
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d041",
+      "nombre": "Gorgan Hueso de Sangre",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 2
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d042",
+      "nombre": "Kutak",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 11
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d043",
+      "nombre": "Abdul",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 11
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d044",
+      "nombre": "Thingrim",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 12
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d045",
+      "nombre": "Lazare Brice",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 14
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d046",
+      "nombre": "Joseph Williams",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 14
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d047",
+      "nombre": "Saewig Shadelgast",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 13
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d048",
+      "nombre": "Jeremie Alban",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 14
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d049",
+      "nombre": "Máthair Felsaer",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 14
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d050",
+      "nombre": "Vaelar Eldarien",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 15
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-d051",
+      "nombre": "Pietro",
+      "tipo": "documentado",
+      "fuente": {
+        "archivo": "Hilo Isla Tormenta 2019.pdf",
+        "pagina": 8
+      },
+      "ambito": "Isla Tormenta"
+    },
+    {
+      "id": "ylat-c001",
+      "nombre": "Nilsea Orbem",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Nilsea",
+        "Orbem"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c002",
+      "nombre": "Sahure Halvigar",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Sahure",
+        "Halvigar"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c003",
+      "nombre": "Frida Ratazzi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Frida",
+        "Ratazzi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c004",
+      "nombre": "Minara Dolcemare",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Minara",
+        "Dolcemare"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c005",
+      "nombre": "Sahib Satomi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Sahib",
+        "Satomi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c006",
+      "nombre": "Tanto Cabeza de Oso",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Tanto",
+        "Cabeza de Oso"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c007",
+      "nombre": "Vladislav Bonardo",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Vladislav",
+        "Bonardo"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c008",
+      "nombre": "Tharia Averroes",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Tharia",
+        "Averroes"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c009",
+      "nombre": "Abdul Boll",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Abdul",
+        "Boll"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c010",
+      "nombre": "Tegku Alvarado",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Tegku",
+        "Alvarado"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c011",
+      "nombre": "Yara Mardarescu",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Yara",
+        "Mardarescu"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c012",
+      "nombre": "Saewig Hueso de Sangre",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Saewig",
+        "Hueso de Sangre"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c013",
+      "nombre": "Remigio Anun",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Remigio",
+        "Anun"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c014",
+      "nombre": "Emberlin em Wase",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Emberlin",
+        "em Wase"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c015",
+      "nombre": "Vaelar Brice",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Vaelar",
+        "Brice"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c016",
+      "nombre": "Saelvion Sancho",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Saelvion",
+        "Sancho"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c017",
+      "nombre": "Triko Aerthalas",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Triko",
+        "Aerthalas"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c018",
+      "nombre": "Oiam Williams",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Oiam",
+        "Williams"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c019",
+      "nombre": "Siksax Arroyo Cristalino",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Siksax",
+        "Arroyo Cristalino"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c020",
+      "nombre": "Lualhati Mertordrag",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Lualhati",
+        "Mertordrag"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c021",
+      "nombre": "Kharan Shadelgast",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Kharan",
+        "Shadelgast"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c022",
+      "nombre": "Sahib Alinary",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Sahib",
+        "Alinary"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c023",
+      "nombre": "Naxka Arawel",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Naxka",
+        "Arawel"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c024",
+      "nombre": "Kutak Alban",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Kutak",
+        "Alban"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c025",
+      "nombre": "Serafina Bagui Fénix",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Serafina",
+        "Bagui Fénix"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c026",
+      "nombre": "Lazare Felsaer",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Lazare",
+        "Felsaer"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c027",
+      "nombre": "Yara Balaur",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Yara",
+        "Balaur"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c028",
+      "nombre": "Thalios Raíz Profunda",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Thalios",
+        "Raíz Profunda"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c029",
+      "nombre": "Máthair Eldarien",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Máthair",
+        "Eldarien"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c030",
+      "nombre": "Pedro Lethariel",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Pedro",
+        "Lethariel"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c031",
+      "nombre": "Torben de Sunseok",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Torben",
+        "de Sunseok"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c032",
+      "nombre": "Triko Halvigar",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Triko",
+        "Halvigar"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c033",
+      "nombre": "Juan Ratazzi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Juan",
+        "Ratazzi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c034",
+      "nombre": "Noron Tugg",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Noron",
+        "Tugg"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c035",
+      "nombre": "Amparo Dolcemare",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Amparo",
+        "Dolcemare"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c036",
+      "nombre": "Eldrin Satomi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Eldrin",
+        "Satomi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c037",
+      "nombre": "Naxka Bonardo",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Naxka",
+        "Bonardo"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c038",
+      "nombre": "Erika Averroes",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Erika",
+        "Averroes"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c039",
+      "nombre": "Thingrim Boll",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Thingrim",
+        "Boll"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c040",
+      "nombre": "Lorenzo Alvarado",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Lorenzo",
+        "Alvarado"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c041",
+      "nombre": "Naxkary Mardarescu",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Naxkary",
+        "Mardarescu"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c042",
+      "nombre": "Thalios Anun",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Thalios",
+        "Anun"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c043",
+      "nombre": "Carmelo em Wase",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Carmelo",
+        "em Wase"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c044",
+      "nombre": "Pietro Brice",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Pietro",
+        "Brice"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c045",
+      "nombre": "Frida Sancho",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Frida",
+        "Sancho"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c046",
+      "nombre": "Kaldun Aerthalas",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Kaldun",
+        "Aerthalas"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c047",
+      "nombre": "Juan Arroyo Cristalino",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Juan",
+        "Arroyo Cristalino"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c048",
+      "nombre": "Lucio Mertordrag",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Lucio",
+        "Mertordrag"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c049",
+      "nombre": "Drakabel Shadelgast",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Drakabel",
+        "Shadelgast"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c050",
+      "nombre": "Tharia Alinary",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Tharia",
+        "Alinary"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c051",
+      "nombre": "Marcella Arawel",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Marcella",
+        "Arawel"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c052",
+      "nombre": "Erika Zarpa de Musgo",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Erika",
+        "Zarpa de Musgo"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c053",
+      "nombre": "Cladinia Bagui Fénix",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Cladinia",
+        "Bagui Fénix"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c054",
+      "nombre": "Joseph Felsaer",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Joseph",
+        "Felsaer"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c055",
+      "nombre": "Emberlin Balaur",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Emberlin",
+        "Balaur"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c056",
+      "nombre": "Ram Raíz Profunda",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Ram",
+        "Raíz Profunda"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c057",
+      "nombre": "Carmelo Lethariel",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Carmelo",
+        "Lethariel"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c058",
+      "nombre": "Sahure de Sunseok",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Sahure",
+        "de Sunseok"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c059",
+      "nombre": "Kalzifer Orbem",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Kalzifer",
+        "Orbem"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c060",
+      "nombre": "Lualhati Halvigar",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Lualhati",
+        "Halvigar"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c061",
+      "nombre": "Minara Ratazzi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Minara",
+        "Ratazzi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c062",
+      "nombre": "Lucio Dolcemare",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Lucio",
+        "Dolcemare"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c063",
+      "nombre": "Vladislav Satomi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Vladislav",
+        "Satomi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c064",
+      "nombre": "Gorgan Cabeza de Oso",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Gorgan",
+        "Cabeza de Oso"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c065",
+      "nombre": "Serafina Bonardo",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Serafina",
+        "Bonardo"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c066",
+      "nombre": "Tegku Averroes",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Tegku",
+        "Averroes"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c067",
+      "nombre": "Cladinia Alvarado",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Cladinia",
+        "Alvarado"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c068",
+      "nombre": "Remigio Mardarescu",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Remigio",
+        "Mardarescu"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c069",
+      "nombre": "Jeremie Hueso de Sangre",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Jeremie",
+        "Hueso de Sangre"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c070",
+      "nombre": "Torben Anun",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Torben",
+        "Anun"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c071",
+      "nombre": "Saelvion em Wase",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Saelvion",
+        "em Wase"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c072",
+      "nombre": "Sahure Sancho",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Sahure",
+        "Sancho"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c073",
+      "nombre": "Siksax Aerthalas",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Siksax",
+        "Aerthalas"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c074",
+      "nombre": "Xandor Williams",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Xandor",
+        "Williams"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c075",
+      "nombre": "Eldrin Arroyo Cristalino",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Eldrin",
+        "Arroyo Cristalino"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c076",
+      "nombre": "Sahib Mertordrag",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Sahib",
+        "Mertordrag"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c077",
+      "nombre": "Vladislav Alinary",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Vladislav",
+        "Alinary"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c078",
+      "nombre": "Maelyr Arawel",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Maelyr",
+        "Arawel"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c079",
+      "nombre": "Abdul Alban",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Abdul",
+        "Alban"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c080",
+      "nombre": "Naxkary Zarpa de Musgo",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Naxkary",
+        "Zarpa de Musgo"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c081",
+      "nombre": "Yara Bagui Fénix",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Yara",
+        "Bagui Fénix"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c082",
+      "nombre": "Remigio Balaur",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Remigio",
+        "Balaur"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c083",
+      "nombre": "Pedro Raíz Profunda",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Pedro",
+        "Raíz Profunda"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c084",
+      "nombre": "Kaldun Lethariel",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Kaldun",
+        "Lethariel"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c085",
+      "nombre": "Triko de Sunseok",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Triko",
+        "de Sunseok"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c086",
+      "nombre": "Siksax Halvigar",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Siksax",
+        "Halvigar"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c087",
+      "nombre": "Amparo Ratazzi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Amparo",
+        "Ratazzi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c088",
+      "nombre": "Kharan Tugg",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Kharan",
+        "Tugg"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c089",
+      "nombre": "Naxka Satomi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Naxka",
+        "Satomi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c090",
+      "nombre": "Maelyr Bonardo",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Maelyr",
+        "Bonardo"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c091",
+      "nombre": "Lorenzo Averroes",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Lorenzo",
+        "Averroes"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c092",
+      "nombre": "Lazare Boll",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Lazare",
+        "Boll"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c093",
+      "nombre": "Ram Alvarado",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Ram",
+        "Alvarado"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c094",
+      "nombre": "Thalios Mardarescu",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Thalios",
+        "Mardarescu"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c095",
+      "nombre": "Pedro Anun",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Pedro",
+        "Anun"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c096",
+      "nombre": "Frida em Wase",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Frida",
+        "em Wase"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c097",
+      "nombre": "Nilsea Brice",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Nilsea",
+        "Brice"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c098",
+      "nombre": "Minara Sancho",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Minara",
+        "Sancho"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c099",
+      "nombre": "Juan Aerthalas",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Juan",
+        "Aerthalas"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c100",
+      "nombre": "Amparo Arroyo Cristalino",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Amparo",
+        "Arroyo Cristalino"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c101",
+      "nombre": "Tharia Mertordrag",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Tharia",
+        "Mertordrag"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c102",
+      "nombre": "Tanto Shadelgast",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Tanto",
+        "Shadelgast"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c103",
+      "nombre": "Tegku Alinary",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Tegku",
+        "Alinary"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c104",
+      "nombre": "Erika Arawel",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Erika",
+        "Arawel"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c105",
+      "nombre": "Lorenzo Zarpa de Musgo",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Lorenzo",
+        "Zarpa de Musgo"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c106",
+      "nombre": "Emberlin Bagui Fénix",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Emberlin",
+        "Bagui Fénix"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c107",
+      "nombre": "Saewig Felsaer",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Saewig",
+        "Felsaer"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c108",
+      "nombre": "Saelvion Balaur",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Saelvion",
+        "Balaur"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c109",
+      "nombre": "Carmelo Raíz Profunda",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Carmelo",
+        "Raíz Profunda"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c110",
+      "nombre": "Frida Lethariel",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Frida",
+        "Lethariel"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c111",
+      "nombre": "Lualhati de Sunseok",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Lualhati",
+        "de Sunseok"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c112",
+      "nombre": "Sahib Halvigar",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Sahib",
+        "Halvigar"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c113",
+      "nombre": "Lucio Ratazzi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Lucio",
+        "Ratazzi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c114",
+      "nombre": "Tharia Dolcemare",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Tharia",
+        "Dolcemare"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c115",
+      "nombre": "Serafina Satomi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Serafina",
+        "Satomi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c116",
+      "nombre": "Kutak Cabeza de Oso",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Kutak",
+        "Cabeza de Oso"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c117",
+      "nombre": "Yara Bonardo",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Yara",
+        "Bonardo"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c118",
+      "nombre": "Cladinia Averroes",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Cladinia",
+        "Averroes"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c119",
+      "nombre": "Emberlin Alvarado",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Emberlin",
+        "Alvarado"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c120",
+      "nombre": "Torben Mardarescu",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Torben",
+        "Mardarescu"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c121",
+      "nombre": "Máthair Hueso de Sangre",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Máthair",
+        "Hueso de Sangre"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c122",
+      "nombre": "Triko Anun",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Triko",
+        "Anun"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c123",
+      "nombre": "Lualhati Sancho",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Lualhati",
+        "Sancho"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c124",
+      "nombre": "Eldrin Aerthalas",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Eldrin",
+        "Aerthalas"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c125",
+      "nombre": "Noron Williams",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Noron",
+        "Williams"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c126",
+      "nombre": "Naxka Arroyo Cristalino",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Naxka",
+        "Arroyo Cristalino"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c127",
+      "nombre": "Vladislav Mertordrag",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Vladislav",
+        "Mertordrag"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c128",
+      "nombre": "Serafina Alinary",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Serafina",
+        "Alinary"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c129",
+      "nombre": "Naxkary Arawel",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Naxkary",
+        "Arawel"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c130",
+      "nombre": "Thingrim Alban",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Thingrim",
+        "Alban"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c131",
+      "nombre": "Thalios Zarpa de Musgo",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Thalios",
+        "Zarpa de Musgo"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c132",
+      "nombre": "Remigio Bagui Fénix",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Remigio",
+        "Bagui Fénix"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c133",
+      "nombre": "Torben Balaur",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Torben",
+        "Balaur"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c134",
+      "nombre": "Kaldun Raíz Profunda",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Kaldun",
+        "Raíz Profunda"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c135",
+      "nombre": "Pietro Eldarien",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Pietro",
+        "Eldarien"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c136",
+      "nombre": "Juan Lethariel",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Juan",
+        "Lethariel"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c137",
+      "nombre": "Eldrin Halvigar",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Eldrin",
+        "Halvigar"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c138",
+      "nombre": "Marcella Ratazzi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Marcella",
+        "Ratazzi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c139",
+      "nombre": "Drakabel Tugg",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Drakabel",
+        "Tugg"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c140",
+      "nombre": "Erika Dolcemare",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Erika",
+        "Dolcemare"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c141",
+      "nombre": "Maelyr Satomi",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Maelyr",
+        "Satomi"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c142",
+      "nombre": "Naxkary Bonardo",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Naxkary",
+        "Bonardo"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c143",
+      "nombre": "Ram Averroes",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Ram",
+        "Averroes"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c144",
+      "nombre": "Joseph Boll",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Joseph",
+        "Boll"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c145",
+      "nombre": "Carmelo Alvarado",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Carmelo",
+        "Alvarado"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c146",
+      "nombre": "Pedro Mardarescu",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Pedro",
+        "Mardarescu"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c147",
+      "nombre": "Minara em Wase",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Minara",
+        "em Wase"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c148",
+      "nombre": "Kalzifer Brice",
+      "tipo": "combinado",
+      "ambito": "Isla Tormenta",
+      "semillas": [
+        "Kalzifer",
+        "Brice"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    },
+    {
+      "id": "ylat-c149",
+      "nombre": "Lucio Sancho",
+      "tipo": "combinado",
+      "ambito": "Niguace",
+      "semillas": [
+        "Lucio",
+        "Sancho"
+      ],
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+    }
+  ]
+}

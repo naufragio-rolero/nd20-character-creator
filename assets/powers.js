@@ -86,6 +86,21 @@
     }
     var nivel=config.nivel, fila=tabla.niveles[nivel-1]||[];
     var nombre=config.ocupacion, cols=tabla.columnas;
+    if(nombre==="Hurí"){
+      var artes=numero(columna(tabla,fila,/^Magia tántrica$/i));
+      var defensa=columna(tabla,fila,/^Defensa sin armadura$/i);
+      if(artes){
+        recursos.push(["Magia tántrica · artes conocidas",artes]);
+        pasos.push(nuevo("magia-tantrica","Magia tántrica documentada","magia_tantrica",1,
+          [{id:"magia-tantrica",nombre:"Magia tántrica: "+artes+
+            (artes===1?" arte conocida":" artes conocidas")+" (efectos sin catalogar)"}],
+          {automatico:true}));
+        avisos.push("El suplemento indica la cantidad de artes tántricas por Nivel, "+
+          "pero no incluye sus nombres ni efectos. Deben acordarse con el Cronista; "+
+          "el generador no los inventa.");
+      }
+      if(defensa!==null)recursos.push(["Blindaje sin armadura",defensa]);
+    }
     var tecnica=numero(columna(tabla,fila,/^Técnicas(?: de combate)?$/i));
     if(tecnica && tabla.categorias.length){
       var pool=tecnicas(catalogo,tabla.categorias,config.juego,nombre);
