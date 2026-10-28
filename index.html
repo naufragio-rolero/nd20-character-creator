@@ -1,12 +1,23 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-tema="clasico">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#122532">
   <meta name="description" content="Generador de personajes, seguidores y herramientas para Naufragio d20 y Dungeon Hack.">
   <title>El Naufragio · Forja de personajes</title>
+  <script>
+    // Antes del CSS y de la primera pintura: evita el destello del tema Clásico.
+    (function(){
+      try {
+        var tema=localStorage.getItem('forja-tema');
+        if(['clasico','ebano','ceruleo','obsidiana'].includes(tema))
+          document.documentElement.dataset.tema=tema;
+      } catch (error) { /* Sin almacenamiento: usar Clásico. */ }
+    })();
+  </script>
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <script defer src="assets/equipment.js"></script>
   <script defer src="assets/rules.js"></script>
   <script defer src="assets/powers.js"></script>
@@ -14,7 +25,7 @@
   <script defer src="assets/tooltip-ui.js"></script>
   <script defer src="assets/app.js"></script>
 </head>
-<body data-tema="clasico">
+<body>
   <header class="encabezado">
     <div class="marca">
       <p class="sobrelinea">EL NAUFRAGIO / HERRAMIENTAS DE ROL</p>
@@ -38,9 +49,7 @@
         <button type="button" id="tab-personajes" role="tab" aria-controls="panel-personajes" aria-selected="true" class="activa">Personajes</button>
         <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false">Herramientas</button>
       </div>
-      <div id="panel-personajes" role="tabpanel" aria-labelledby="tab-personajes">
-      <form id="configuracion">
-        <div class="campo">
+      <div class="campo campo-sistema-global">
           <label id="etiqueta-sistema" for="juego">Sistema</label>
           <div class="juegos-compactos" role="group" aria-labelledby="etiqueta-sistema">
             <button type="button" data-juego="nd20" class="sistema-activo" aria-pressed="true" title="Naufragio d20 Fantasía"><span aria-hidden="true">⚔</span><strong>Nd20F</strong></button>
@@ -55,6 +64,8 @@
             <option value="dh">Dungeon Hack</option>
           </select>
         </div>
+      <div id="panel-personajes" role="tabpanel" aria-labelledby="tab-personajes">
+      <form id="configuracion">
         <div class="campo">
           <label for="nivel">Nivel <span id="rango-nivel">1–30</span></label>
           <input id="nivel" name="nivel" type="number" value="1" min="1" max="30" step="1" required>

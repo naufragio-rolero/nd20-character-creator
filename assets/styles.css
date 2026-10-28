@@ -134,6 +134,7 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 .lineas-menu{display:inline-flex;flex-direction:column;justify-content:center;gap:4px;width:19px}
 .lineas-menu span{display:block;height:2px;width:100%;background:currentColor;border-radius:2px}
 .cabecera-acciones{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.campo-sistema-global{margin-top:.9rem;margin-bottom:1.15rem}
 .tema-control{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--secundario);font-weight:700}
 .tema-control select{width:auto;min-width:130px;min-height:38px;padding:.4rem .6rem}
 .pestanas-panel{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;margin:-.55rem 0 1.1rem}
@@ -147,7 +148,7 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 #juego.sr-only{min-height:0;padding:0;border:0}
 /* Tokens de tema: Clásico conserva el diseño ya publicado.
    Cerúleo toma la paleta #050150 / #000066 / #33cccc de Heaven's Gate. */
-body[data-tema=ebano]{
+html[data-tema=ebano]{
   color-scheme:light;
   --fondo:#eff1f3;--fondo2:#f6f7f9;--superficie:#fff;--superficie2:#f5f6f7;
   --borde:#b9c1c8;--texto:#20262b;--secundario:#54616b;--oro:#2b3740;
@@ -155,7 +156,7 @@ body[data-tema=ebano]{
   --tema-boton-texto:#ffffff;--tema-boton-hover:#d7e1e7;--tema-field-bg:#fff;
   --tema-ficha-bg:#fff;--tema-ficha-head:#e2e5e7;--tema-ficha-text:#20262b;
 }
-body[data-tema=ceruleo]{
+html[data-tema=ceruleo]{
   color-scheme:dark;
   --fondo:#050150;--fondo2:#08065e;--superficie:#000066;--superficie2:#101078;
   --borde:#2546b8;--texto:#fff;--secundario:#b7dfff;--oro:#33cccc;
@@ -163,7 +164,7 @@ body[data-tema=ceruleo]{
   --tema-boton-texto:#05014e;--tema-boton-hover:#191d8c;--tema-field-bg:#090950;
   --tema-ficha-bg:#f3f8ff;--tema-ficha-head:#dbefff;--tema-ficha-text:#071448;
 }
-body[data-tema=obsidiana]{
+html[data-tema=obsidiana]{
   color-scheme:dark;
   --fondo:#000;--fondo2:#080808;--superficie:#101010;--superficie2:#181818;
   --borde:#595959;--texto:#fff;--secundario:#d1d1d1;--oro:#fff;
@@ -171,40 +172,40 @@ body[data-tema=obsidiana]{
   --tema-boton-texto:#000;--tema-boton-hover:#272727;--tema-field-bg:#050505;
   --tema-ficha-bg:#131313;--tema-ficha-head:#222;--tema-ficha-text:#fff;
 }
-body[data-tema]:not([data-tema=clasico]){
+html[data-tema]:not([data-tema=clasico]){
   background:linear-gradient(135deg,var(--fondo),var(--fondo2) 80%);
 }
-body[data-tema]:not([data-tema=clasico]) .panel{
+html[data-tema]:not([data-tema=clasico]) .panel{
   background:var(--superficie);box-shadow:0 7px 26px #0002;
 }
-body[data-tema]:not([data-tema=clasico]) :is(select,input[type=number],input[type=text],.eleccion-poder select){
+html[data-tema]:not([data-tema=clasico]) :is(select,input[type=number],input[type=text],.eleccion-poder select){
   border-color:var(--borde);background:var(--tema-field-bg);color:var(--texto)
 }
-body[data-tema]:not([data-tema=clasico]) button:hover:not(:disabled):not(.principal):not(.sistema-activo):not(.activa){
+html[data-tema]:not([data-tema=clasico]) button:hover:not(:disabled):not(.principal):not(.sistema-activo):not(.activa){
   background:var(--tema-boton-hover)
 }
-body[data-tema]:not([data-tema=clasico]) button.principal,
-body[data-tema]:not([data-tema=clasico]) .pestanas-panel button.activa,
-body[data-tema]:not([data-tema=clasico]) .juegos-compactos button.sistema-activo{color:var(--tema-boton-texto)}
-body[data-tema]:not([data-tema=clasico]) .editor-elecciones{
+html[data-tema]:not([data-tema=clasico]) button.principal,
+html[data-tema]:not([data-tema=clasico]) .pestanas-panel button.activa,
+html[data-tema]:not([data-tema=clasico]) .juegos-compactos button.sistema-activo{color:var(--tema-boton-texto)}
+html[data-tema]:not([data-tema=clasico]) .editor-elecciones{
   background:var(--superficie);border-color:var(--borde)
 }
-body[data-tema]:not([data-tema=clasico]) .tarjeta{
+html[data-tema]:not([data-tema=clasico]) .tarjeta{
   background:var(--tema-ficha-bg);color:var(--tema-ficha-text);box-shadow:0 5px 18px #0002
 }
-body[data-tema]:not([data-tema=clasico]) .cabecera-ficha{
+html[data-tema]:not([data-tema=clasico]) .cabecera-ficha{
   background:var(--tema-ficha-head);border-color:var(--borde)
 }
-body[data-tema]:not([data-tema=clasico]) .tarjeta :is(.cabecera-ficha p:last-child,.etiqueta,.concepto,.bloque-ficha h4,.atributo small,.recursos span,.pie-ficha small,.leyenda){
+html[data-tema]:not([data-tema=clasico]) .tarjeta :is(.cabecera-ficha p:last-child,.etiqueta,.concepto,.bloque-ficha h4,.atributo small,.recursos span,.pie-ficha small,.leyenda){
   color:var(--tema-ficha-text);opacity:.78
 }
-body[data-tema]:not([data-tema=clasico]) .tarjeta :is(.atributos,.atributo,.recursos,.pie-ficha){border-color:var(--borde)}
-body[data-tema]:not([data-tema=clasico]) .recursos>div{background:var(--tema-ficha-head)}
-body[data-tema]:not([data-tema=clasico]) .pie-ficha button,
-body[data-tema]:not([data-tema=clasico]) .icon-btn{
+html[data-tema]:not([data-tema=clasico]) .tarjeta :is(.atributos,.atributo,.recursos,.pie-ficha){border-color:var(--borde)}
+html[data-tema]:not([data-tema=clasico]) .recursos>div{background:var(--tema-ficha-head)}
+html[data-tema]:not([data-tema=clasico]) .pie-ficha button,
+html[data-tema]:not([data-tema=clasico]) .icon-btn{
   color:var(--tema-ficha-text);background:transparent;border-color:var(--borde)
 }
-body[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);border-color:var(--borde)}
+html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);border-color:var(--borde)}
 @media(max-width:830px){.cabecera-acciones{width:100%;justify-content:space-between}}
 
 /* En móvil, la configuración se despliega bajo un control de navegación accesible. */

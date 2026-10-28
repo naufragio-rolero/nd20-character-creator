@@ -419,19 +419,16 @@
       button.addEventListener('click',function(){
         $('juego').value=button.dataset.juego;
         refrescarSelectores();
-        marcarPanel('personajes');
       });
     });
     $('tab-personajes').addEventListener('click',function(){marcarPanel('personajes');});
     $('tab-herramientas').addEventListener('click',function(){marcarPanel('herramientas');});
     var tema=$('selector-tema');
-    try {
-      var saved=localStorage.getItem('forja-tema');
-      if(['clasico','ebano','ceruleo','obsidiana'].indexOf(saved)!==-1)tema.value=saved;
-    }catch(error){ /* Navegación privada / almacenamiento bloqueado. */ }
-    document.body.dataset.tema=tema.value;
+    var temaInicial=document.documentElement.dataset.tema||'clasico';
+    if(['clasico','ebano','ceruleo','obsidiana'].includes(temaInicial))
+      tema.value=temaInicial;
     tema.addEventListener('change',function(){
-      document.body.dataset.tema=tema.value;
+      document.documentElement.dataset.tema=tema.value;
       try{localStorage.setItem('forja-tema',tema.value);}catch(error){}
     });
     $('juego').addEventListener('change',refrescarSelectores);
