@@ -21,7 +21,18 @@
           "Eres competente con el Kit de medicina y con la Tinta y Pluma."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Juez que duda de sus sentencias",
+          "Investigadora de crímenes imposibles",
+          "Noble empeñado en hacer justicia",
+          "Verdugo con remordimientos tardíos",
+          "Coleccionista de confesiones falsas",
+          "Magistrada perseguida por un inocente",
+          "Perito comprado por un acusado",
+          "Autoridad temida por sus vecinos",
+          "Detective de un asesinato familiar",
+          "Burgués que protege al culpable"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -45,7 +56,18 @@
           "Eres competente con las Ganzúas y con la Tinta y Pluma."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Aprendiz de mago expulsado",
+          "Estafadora con modales refinados",
+          "Ratero alérgico al esfuerzo",
+          "Embaucador de ambición desmedida",
+          "Carterista perseguido por su maestro",
+          "Farsante que desea redimirse",
+          "Deudora de demasiados prestamistas",
+          "Saboteador incapaz de guardar secretos",
+          "Vagabundo con talento arcano",
+          "Ladrón que teme la magia"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -69,7 +91,18 @@
           "Eres competente con la Pértiga y con la Cometa."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Funambulista sin sentido del peligro",
+          "Artista arruinada por su fama",
+          "Contorsionista con miedo al encierro",
+          "Malabarista perseguido por deudas",
+          "Exploradora de tejados imposibles",
+          "Exhibicionista que busca una audiencia",
+          "Saltimbanqui cansado de sonreír",
+          "Superviviente de un circo incendiado",
+          "Equilibrista obsesionada con la perfección",
+          "Acróbata que añora la quietud"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -94,7 +127,18 @@
           "Eres competente con el Astrolabio y el Microscopio."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Intérprete de presagios contradictorios",
+          "Consejero que ocultó un augurio",
+          "Estudiosa de estrellas desaparecidas",
+          "Charlatán que acertó demasiado",
+          "Cartógrafa del firmamento cambiante",
+          "Astrólogo perseguido por sus predicciones",
+          "Escéptica fascinada por los astros",
+          "Erudito que teme al destino",
+          "Adivina que falsea horóscopos",
+          "Aprendiz obsesionado con un eclipse"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -119,7 +163,18 @@
           "Puedes manipular bombas, granadas y otros explosivos."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Minera enamorada del estruendo",
+          "Zapador que teme otra tragedia",
+          "Experto en derrumbes calculados",
+          "Artificiera de paciencia explosiva",
+          "Saboteador que evita las víctimas",
+          "Prospector arruinado por un accidente",
+          "Ingeniera que perdió su cuadrilla",
+          "Demoledor meticuloso hasta la obsesión",
+          "Buscadora de minerales peligrosos",
+          "Inventor perseguido por sus explosiones"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -151,7 +206,18 @@
           "No tienes riqueza inicial; en su lugar, comienzas con unos harapos (Armadura de tela), una cachiporra (Clava) y una tapa de barril (Escudo pequeño)."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Mendiga orgullosa de su libertad",
+          "Desposeído que rechaza la caridad",
+          "Superviviente de una mala cosecha",
+          "Huérfano que inventa familias",
+          "Proscrita por un crimen ajeno",
+          "Vagabundo con ambiciones de noble",
+          "Antiguo rico convertido en mendigo",
+          "Refugiada que nunca echa raíces",
+          "Desdichado de optimismo contagioso",
+          "Pordiosero que guarda un secreto"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -178,7 +244,18 @@
           "Eres competente con el Kit de medicina y con la Piedra de afilar."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Guerrera incapaz de perdonar",
+          "Discípula que rechaza matar",
+          "Espadachina enfrentada a su instructora",
+          "Novicia que duda del sacrificio",
+          "Defensora de un enemigo derrotado",
+          "Virtuosa obsesionada con la armonía",
+          "Combatiente tentada por la venganza",
+          "Espadachina que abandonó su disciplina",
+          "Veterana que añora la infancia",
+          "Protectora de quien la traicionó"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -203,7 +280,18 @@
           "Eres competente con la Piedra de afilar y con la Cometa."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Campeona que cuestiona su misión",
+          "Guerrera nostálgica de su retiro",
+          "Elegida que desafía a su reina",
+          "Hija de un amor prohibido",
+          "Heroína aterrada de fallar",
+          "Portadora de una promesa imposible",
+          "Mensajera entre mortal y divino",
+          "Guerrera que oculta sus dudas",
+          "Valquiria cansada de ser símbolo",
+          "Exiliada que anhela volver"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -227,7 +315,18 @@
           "Eres competente con el Kit de masajes y con los Aparatos de placer."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Antigua figura de veneración",
+          "Seductora que desdeña los lujos",
+          "Devota enfrentada al pudor impuesto",
+          "Viajera en busca de libertad",
+          "Encantador que teme la intimidad",
+          "Superviviente de un culto olvidado",
+          "Artista que reivindica el deseo",
+          "Mediadora entre fe y pasión",
+          "Amante que rechaza la posesión",
+          "Portadora de un legado despreciado"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -253,7 +352,18 @@
           "Eres competente con las Herramientas de carpintero y el Telar."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Artista que habla con sus títeres",
+          "Inventora de muñecos imperfectos",
+          "Buscador de la marioneta definitiva",
+          "Titiritero acusado de brujería",
+          "Creadora que teme sus obras",
+          "Artesana obsesionada con los rostros",
+          "Viajero acompañado por su creación",
+          "Manipuladora incapaz de mentir",
+          "Viuda que talla recuerdos",
+          "Marionetista perseguido por un cliente"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -278,7 +388,18 @@
           "Eres competente con el Cuchillo de desuello y con la Piedra de afilar."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Navegante que prefiere negociar",
+          "Saqueadora arrepentida de su pasado",
+          "Explorador perdido lejos del norte",
+          "Guerrero que teme al mar",
+          "Marinera obsesionada con nuevas costas",
+          "Proscrito que añora su tripulación",
+          "Capitana perseguida por un motín",
+          "Combatiente que desprecia el saqueo",
+          "Viajera en busca de reconocimiento",
+          "Corsario que juró proteger aldeas"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -303,7 +424,18 @@
           "Eres competente con la Cuna de judas y con la Piedra de afilar."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Ejecutor que aborrece la sangre",
+          "Carcelera cómplice de una fuga",
+          "Interrogador incapaz de olvidar",
+          "Verdugo que busca absolución",
+          "Funcionario comprado por un noble",
+          "Custodia de un secreto terrible",
+          "Torturador que cuestiona sus órdenes",
+          "Carcelero enamorado de una prisionera",
+          "Ejecutora marcada por un error",
+          "Guardián de condenas injustas"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -329,7 +461,18 @@
           "Eres competente con el Kit de medicina y con el Maniquí de entrenamiento."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Campeona que compra su libertad",
+          "Luchador que teme al público",
+          "Veterana de demasiadas arenas",
+          "Esclavo convertido en ídolo",
+          "Contendiente que se niega a rematar",
+          "Apostadora que lucha por deudas",
+          "Gladiadora perseguida por su fama",
+          "Rival que protege a su enemigo",
+          "Combatiente que busca a su familia",
+          "Ídolo harto de los aplausos"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -354,7 +497,18 @@
           "Eres competente con las Ganzúas y con los Bolos de malabarismo."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Comediante que espía entre risas",
+          "Bufona de lengua despiadada",
+          "Actor incapaz de mostrar tristeza",
+          "Prestidigitador perseguido por un chiste",
+          "Artista que humilla a poderosos",
+          "Farsante que perdió su máscara",
+          "Bromista que protege un secreto",
+          "Actriz que confunde ficción y realidad",
+          "Titiritero de emociones ajenas",
+          "Arlequín que desea ser tomado en serio"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -379,7 +533,18 @@
           "Eres competente con el Saco de boxeo y con la Cuerda de entrenamiento."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Campeona de peleas clandestinas",
+          "Boxeador que rehúye las armas",
+          "Esclavo liberado por sus puños",
+          "Veterana que teme otra lesión",
+          "Bravucón de manos delicadas",
+          "Luchadora que protege a niños",
+          "Maestro que perdió su gimnasio",
+          "Competidora adicta a los desafíos",
+          "Púgil derrotado por su orgullo",
+          "Matón arrepentido de una paliza"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -403,7 +568,18 @@
           "Eres competente con el Kit de cocina y el Kit de medicina."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Catador incapaz de saciarse",
+          "Hedonista que desprecia la riqueza",
+          "Viajera persiguiendo sabores imposibles",
+          "Gourmet aterrorizado por la escasez",
+          "Comensal que evita comer solo",
+          "Buscadora de placeres prohibidos",
+          "Noble aburrida de los banquetes",
+          "Crítico gastronómico sin paladar",
+          "Epicúrea que disfruta el peligro",
+          "Coleccionista de recuerdos sensoriales"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -428,7 +604,18 @@
           "Eres competente con el Alambique y el Kit de medicina."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Iniciado consumido por la noche",
+          "Conjuradora que teme al alba",
+          "Exiliado de su propia sombra",
+          "Estudioso de una oscuridad creciente",
+          "Devota de la Verdadera Noche",
+          "Arcanista que oculta sus dones",
+          "Viajera que persigue el crepúsculo",
+          "Hereje arrepentido de su iniciación",
+          "Tejedora de miedos ajenos",
+          "Sombrío obsesionado con recuperar poder"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -455,7 +642,18 @@
           "Eres competente con las Cronoesferas y con la Piedra de afilar."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Guerrera que llega siempre tarde",
+          "Combatiente perseguida por un instante",
+          "Vigilante de errores irreversibles",
+          "Espadachina que ansía detenerse",
+          "Veterana atormentada por decisiones pasadas",
+          "Soldado que teme al futuro",
+          "Aprendiz que perdió varios recuerdos",
+          "Duelista obsesionado con un segundo",
+          "Exploradora que repite sus errores",
+          "Guardatiempo enfrentada a su destino"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -481,7 +679,18 @@
           "Eres competente con el Grimorio de Diagramas  y con la Tinta y Pluma."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Elegida que teme a su espíritu",
+          "Mortal cansada de servir",
+          "Invocador que cuestiona a los dioses",
+          "Devota que busca su autonomía",
+          "Viajera perseguida por una visión",
+          "Receptáculo de una presencia incómoda",
+          "Mediadora entre espíritus rivales",
+          "Invocadora obsesionada con la libertad",
+          "Creyente que esconde su don",
+          "Elegida que desobedece un mandato"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -588,7 +797,18 @@
           "Eres competente con la Piedra de afilar y con la Tinta y Pluma."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Caballero de juramento imposible",
+          "Defensora de un código olvidado",
+          "Noble que perdió su honor",
+          "Justiciero que duda de su causa",
+          "Escudero empeñado en demostrar valía",
+          "Combatiente obligado a servir",
+          "Adalid que protege a un traidor",
+          "Veterana sin orden ni señor",
+          "Paladín de convicciones cambiantes",
+          "Jinete que antepone la compasión"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -616,7 +836,18 @@
           "Eres competente con el Kit de escalada y con la Piedra de afilar."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Guerrero extrañado por la ciudad",
+          "Nómada que busca una familia",
+          "Superviviente de tierras heladas",
+          "Combatiente que detesta mandar",
+          "Cazadora de gloria inmediata",
+          "Exiliado incapaz de quedarse quieto",
+          "Bárbara fascinada por los libros",
+          "Forastero perdido entre intrigas",
+          "Mercenario que añora la estepa",
+          "Brutal defensor de los débiles"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -642,7 +873,18 @@
           "Eres competente con Instrumentos musicales y con el Kit de escalada."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Cronista que exagera sus hazañas",
+          "Música que busca una canción perdida",
+          "Cantor enamorado de su rival",
+          "Viajera que escucha demasiados secretos",
+          "Poeta acusado de difamación",
+          "Bardo cuya voz inspira temor",
+          "Recopilador de leyendas olvidadas",
+          "Intérprete incapaz de afrontar el silencio",
+          "Trovadora que reniega de la fama",
+          "Músico que persigue una verdad"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -668,7 +910,18 @@
           "Eres competente con el Kit de medicina y con la Piedra de afilar."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Estratega atormentada por una derrota",
+          "Capitán que rechaza sacrificios inútiles",
+          "Veterano de órdenes equivocadas",
+          "Comandante que escucha a desertores",
+          "Táctica brillante sin ejército",
+          "Oficial perseguido por su estandarte",
+          "Belisario que perdió la confianza",
+          "Soldado convertido en negociador",
+          "Líder incapaz de retirarse",
+          "Estratega que teme decidir"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -694,7 +947,18 @@
           "Eres competente con la Piedra de afilar y con la Tinta y Pluma."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Deudor de una entidad impaciente",
+          "Hechicera que renegó de su pacto",
+          "Embaucador atrapado por su promesa",
+          "Brujo que busca recuperar su alma",
+          "Devota de un patrón cruel",
+          "Conjurador que teme el cobro",
+          "Aprendiz seducida por un atajo",
+          "Hereje arrepentido demasiado tarde",
+          "Pactante que protege a inocentes",
+          "Mortal que intenta burlar al destino"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -720,7 +984,18 @@
           "Eres competente con el Kit de cocina y con el Kit de trampero."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Rastreadora unida a una bestia",
+          "Arquero que protege a sus presas",
+          "Exploradora de territorios amenazados",
+          "Cazador perseguido por una criatura",
+          "Guía que evita matar animales",
+          "Superviviente de un bosque incendiado",
+          "Rastreadora en busca de equilibrio",
+          "Compañero de una fiera herida",
+          "Defensora contra cazadores furtivos",
+          "Arquera que teme perderse"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -746,7 +1021,18 @@
           "Eres competente con el Kit de escalada y con el Kit de trampero."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Arquero de espíritus inquietos",
+          "Defensora de una urdimbre herida",
+          "Cazador de corrupción espiritual",
+          "Guerrero que desoyó a sus ancestros",
+          "Viajera que sigue presagios",
+          "Celador dividido entre dos deberes",
+          "Tiradora perseguida por un espectro",
+          "Protector incapaz de descansar",
+          "Vigilante de un juramento ancestral",
+          "Arquero que teme sus visiones"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -771,7 +1057,18 @@
           "Eres competente con Instrumentos musicales de percusión y con el Kit de herborista."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Curandera que escucha a los espíritus",
+          "Viajero acompañado por un espíritu bestial",
+          "Sanador que reniega de la ciudad",
+          "Aprendiz de voces ancestrales",
+          "Mediadora de conflictos invisibles",
+          "Chamán perseguido por un presagio",
+          "Ermitaña que añora la compañía",
+          "Defensora de la naturaleza herida",
+          "Devoto que duda de sus espíritus",
+          "Guía de un pueblo dividido"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -801,7 +1098,18 @@
           "Eres competente con una herramienta a tu elección."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Aprendiz de demasiados oficios",
+          "Erudita incapaz de terminar proyectos",
+          "Viajero que cambia de profesión",
+          "Curiosa arruinada por sus experimentos",
+          "Estudiante que abandona sus maestros",
+          "Inventor enamorado de los comienzos",
+          "Vagabunda de talentos dispersos",
+          "Aventurero que teme echar raíces",
+          "Estafador con conocimientos inesperados",
+          "Buscadora perpetua de novedades"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -826,7 +1134,18 @@
           "Eres competente con el Alambique y con la Piedra de canalización."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Prodigio que teme su herencia",
+          "Conjuradora incapaz de contenerse",
+          "Arcanista que nunca estudió magia",
+          "Hechicero orgulloso de su don",
+          "Viajera perseguida por accidentes mágicos",
+          "Portador de una urdimbre inquieta",
+          "Mortal que añora ser corriente",
+          "Heredera de poder impredecible",
+          "Mago resentido con los eruditos",
+          "Hechicera en busca de autocontrol"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
@@ -851,7 +1170,18 @@
           "Eres competente con el Alambique y con la Piedra de canalización."
         ],
         "talentos": [],
-        "conceptos": [],
+        "conceptos": [
+          "Elegida que desconfía de sus dioses",
+          "Vidente perseguido por sus palabras",
+          "Mensajera de presagios incompletos",
+          "Oráculo que ansía una vida normal",
+          "Devota que interpreta sueños ajenos",
+          "Joven aterrada por su destino",
+          "Mediador entre fe y dudas",
+          "Profetisa que calla una visión",
+          "Sacerdote sin respuestas claras",
+          "Vasija que rechaza obedecer"
+        ],
         "armas": [],
         "armaduras": [],
         "poderes": [],
