@@ -2,8 +2,8 @@
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-10-28.  
-**Estado global:** Inventario y extracción literal de los 115 Talentos de Especies terminados; preclasificación de propiedades y reglas de adquisición documentadas; siguiente tarea: validación manual y decisiones editoriales abiertas. Las demás tandas siguen pendientes.  
-**Rama documental:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
+**Estado global:** extracciones completas; 11 acuerdos editoriales tratados con correcciones documentales y 7 Talentos fijos incorporados en rama PR. Pendientes el umbral de Probabilidad, el +2 a duración, las equivalencias de Ocupaciones derivadas y la validación final.  
+**Rama de trabajo:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
 
@@ -67,6 +67,26 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [ ] Separar los objetos mágicos reglamentarios de los objetos narrativos o emocionales de Forja.
 - [ ] Entregar catálogo estructurado validado.
 
+## 2A. Acuerdos y correcciones del autor (2026-10-28)
+
+- [x] Incorporar a `data/catalogo-ampliado.json` (rama PR) los **7 Talentos fijos** ausentes de Ylat/Hyrule.
+- [x] Corregir «Baja estatura» de Ylat según el DRS y preservar «Pequeño» como versión sin penalizador de Movimiento.
+- [x] Conservar «Herencia dual» en Semielfo/Semiorco como dos Talentos diferentes.
+- [x] Corregir «Escudo eléctrico» (radio de 4 m) y «Estallido escupefuego» (radio de 2 m) en documento vivo y hoja Talentos.
+- [x] Fijar «Hálito de energía» en 1d4 para Niveles 1–5 y progresión posterior en fuente viva y hoja Talentos.
+- [x] Documentar el funcionamiento condicional de «Vuelo», «Fuente de maná» y «Vínculo psiónico»; sin alterar el código.
+- [x] Vincular documentalmente «Aliados en las sombras» con su desarrollo completo; integración UI pendiente.
+- [x] Sustituir la Tirada de Resistencia de «Chillido de ultratumba» por Tirada de Probabilidad (d20) en el documento vivo.
+- [x] Uniformar «Nivel del Círculo» en «Fuente de maná» en el documento vivo y hoja Talentos.
+- [x] Corregir erratas concretas de «Visión en la oscuridad» y «Ladrón de almas» en documentos vivos.
+- [x] Añadir **15 filas** a la hoja «Ocupaciones» de «Lista Talentos Nd20» con columna «Deriva de / referencia» pendiente de clasificación (incluye «Psion» CiFi como registro diferenciado).
+- [ ] Resolver el **umbral** de la Tirada de Probabilidad (d20) para «Chillido de ultratumba».
+- [ ] Resolver la **unidad** del +2 a duración de «Castigo del Reino Sombrío».
+- [ ] Clasificar Ocupaciones derivadas y las sustituciones compatibles en Hyrule.
+- [ ] Reextraer y validar las fichas contra las versiones **corregidas** de las fuentes vivas.
+
+**Registro detallado:** [acuerdos editoriales](04-acuerdos-editoriales-especies.md) y [vínculo de Talentos ampliados](04a-vinculos-talentos-especies.json). Los archivos `02*` conservan la captura original de sus respectivas fuentes.
+
 ## 3. Integración y pruebas — bloqueadas hasta validación
 
 - [ ] Definir identificadores estables por sistema/categoría/fuente y reglas de relación para homónimos.
@@ -94,5 +114,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 | 2026-10-28 | Creación de este plan de trabajo | Punto de control para las siguientes tandas. |
 | 2026-10-28 | Extracción literal de 115 vínculos Especie–Talento | [Informe y repertorios](02-informe-extraccion-especies.md); 115/115 con texto, 44 Especies y 0 fichas vacías. Pendiente validación. |
 | 2026-10-28 | Preclasificación de propiedades y acceso | [Revisión y hallazgos](03-informe-propiedades-especies.md): 115 fichas con citas localizables, 14 sustituciones Hyrule, 8 elecciones Nocturna y 11 hallazgos. **Normalización y validación pendientes.** |
+
+| 2026-10-28 | Aplicación de acuerdos ESP-01 a ESP-11 | [Acuerdos](04-acuerdos-editoriales-especies.md); 7 Talentos fijos en rama PR, documentos vivos y hoja maestra corregidos, 15 Ocupaciones añadidas. Quedan 3 decisiones y revalidación. |
 
 **Norma de actualización:** al cerrar una sesión, marcar únicamente casillas demostradas, añadir la fecha y el enlace al entregable o PR en el registro; mantener abiertas las discrepancias no resueltas. Cuando cambie el estado de una PR, actualizar también su referencia. No equiparar «inventariado» con «extraído» ni «extraído» con «validado».
