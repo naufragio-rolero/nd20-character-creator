@@ -49,8 +49,17 @@
         <div><strong id="cuenta-total">0</strong><span>Elementos catalogados</span></div>
         <div><strong id="cuenta-cambios">0</strong><span>Revisiones guardadas</span></div>
         <div><strong id="cuenta-ocultos">0</strong><span>Marcados para ocultar</span></div>
-        <div><strong id="cuenta-sinrevisar">0</strong><span>Sin estado editorial</span></div>
+        <div><strong id="cuenta-sinrevisar">0</strong><span>Publicación pendiente</span></div>
+        <div><strong id="cuenta-publicados">0</strong><span>Publicados</span></div>
+        <div><strong id="cuenta-sinprobar">0</strong><span>Pruebas por revisar</span></div>
       </div>
+      <section class="lotes-base" aria-label="Lotes publicados confirmados">
+        <h2>Lotes publicados confirmados</h2>
+        <p class="muted">Nd20 DRS, Nd20 CiFi y Dungeon Hack. Se da por publicada únicamente
+          la información de esos orígenes; no se infiere que esté probada. Las
+          correcciones individuales tienen prioridad.</p>
+        <div id="lotes-publicados"></div>
+      </section>
       <div class="barra-control">
         <div>
           <h2>Inventario</h2>
@@ -73,10 +82,14 @@
         <label for="tipo-control">Tipo
           <select id="tipo-control"><option value="">Todos los tipos</option></select>
         </label>
+        <label for="fuente-control">Fuente documental
+          <select id="fuente-control"><option value="">Todas las fuentes</option></select>
+        </label>
         <label for="estado-filtro">Revisión
           <select id="estado-filtro">
             <option value="">Todos los elementos</option>
-            <option value="sin_revisar">Sin revisar</option>
+            <option value="sin_revisar">Publicación por revisar</option>
+            <option value="sin_probar">Pruebas por revisar</option>
             <option value="cambiados">Con decisiones guardadas</option>
             <option value="ocultos">Marcados para ocultar</option>
             <option value="no_publicados">Marcados como no publicados</option>
@@ -84,6 +97,36 @@
           </select>
         </label>
       </div>
+      <section class="bloque-control acciones-lote" aria-label="Aplicar decisiones al lote filtrado">
+        <div>
+          <h2>Aplicar una decisión a todo el lote filtrado</h2>
+          <p class="muted">Se aplicará a todos los registros que cumplan los filtros,
+            no solo a los primeros 70. Cada campo se modifica de forma independiente.</p>
+        </div>
+        <div class="configuracion-lote">
+          <label for="lote-publicado">Publicación
+            <select id="lote-publicado">
+              <option value="">No modificar</option>
+              <option value="si">Publicado: sí</option><option value="no">Publicado: no</option>
+              <option value="sin_revisar">Dejar sin revisar</option>
+            </select>
+          </label>
+          <label for="lote-probado">Pruebas
+            <select id="lote-probado">
+              <option value="">No modificar</option>
+              <option value="si">Probado: sí</option><option value="no">Probado: no</option>
+              <option value="sin_revisar">Dejar sin revisar</option>
+            </select>
+          </label>
+          <label for="lote-visible">Visibilidad propuesta
+            <select id="lote-visible">
+              <option value="">No modificar</option>
+              <option value="si">Mostrar</option><option value="no">Ocultar</option>
+            </select>
+          </label>
+          <button type="button" id="aplicar-lote">Aplicar al lote filtrado</button>
+        </div>
+      </section>
       <div class="columnas-control">
         <section class="bloque-control lista-control" aria-label="Resultados del inventario">
           <p id="numero-resultados" class="muted"></p>
@@ -119,7 +162,7 @@
                 placeholder="Motivos para incluir, excluir, corregir o volver a probar…"></textarea>
             </label>
             <p class="ayuda">Los cambios se guardan en este navegador. Solo se aplicarán al generador tras revisar e incorporar el JSON al repositorio.</p>
-            <button type="button" id="restablecer-elemento">Dejar este elemento sin revisar</button>
+            <button type="button" id="restablecer-elemento">Restablecer al estado de su lote</button>
           </form>
         </section>
       </div>

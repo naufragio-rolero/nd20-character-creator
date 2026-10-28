@@ -15,14 +15,14 @@
 .token-generado p{width:100%;margin:0;font-size:.85rem}
 .token-generado code{font-size:.85rem;overflow-wrap:anywhere}
 .enlace-secundario{background:transparent;border:0;text-decoration:underline;color:var(--secundario);padding:.5rem 0}
-.resumen-control{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin:1rem 0 1.5rem}
+.resumen-control{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1rem 0 1.5rem}
 .resumen-control>div{border:1px solid var(--borde);background:var(--superficie);border-radius:10px;padding:.8rem 1rem;display:grid;gap:.1rem}
 .resumen-control strong{font-size:1.6rem;color:var(--oro);font-variant-numeric:tabular-nums}
 .resumen-control span{font-size:.75rem;color:var(--secundario)}
 .barra-control{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
 .barra-control h2{font:500 1.7rem Georgia,serif;margin:0}
 .acciones-control{display:flex;gap:.5rem;flex-wrap:wrap}
-.filtros-control{display:grid;grid-template-columns:2fr repeat(3,minmax(130px,1fr));gap:.7rem;margin-bottom:1rem}
+.filtros-control{display:grid;grid-template-columns:2fr repeat(4,minmax(130px,1fr));gap:.7rem;margin-bottom:1rem}
 .filtros-control label,.detalle-control label:not(.casilla){display:grid;gap:.35rem;font-size:.83rem;font-weight:650}
 .filtros-control input,.filtros-control select,.detalle-control select,.detalle-control textarea{width:100%;border:1px solid var(--borde);background:var(--fondo);color:var(--texto);border-radius:7px;padding:.65rem .7rem;min-height:44px}
 .filtros-control input[type=search]{background:var(--fondo);color:var(--texto)}
@@ -59,3 +59,16 @@
   .acciones-control button{flex:1}
   .resumen-control>div{padding:.6rem}
 }
+.lotes-base{margin-bottom:1.2rem;padding:1rem 1.25rem;border:1px solid var(--borde);border-radius:10px}
+.lotes-base h2{font:500 1.25rem Georgia,serif;margin:0 0 .3rem}
+.lotes-base p{font-size:.83rem}
+#lotes-publicados{display:flex;gap:.5rem 1.5rem;flex-wrap:wrap}
+#lotes-publicados p{margin:.25rem 0;font-size:.8rem}
+.acciones-lote{display:grid;gap:.8rem;margin-bottom:1rem}
+.acciones-lote h2{margin-bottom:.15rem}
+.acciones-lote p{margin:0;font-size:.81rem}
+.configuracion-lote{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;align-items:end;gap:.7rem}
+.configuracion-lote label{display:grid;gap:.35rem;font-size:.83rem;font-weight:650}
+.configuracion-lote select{width:100%;min-height:44px;background:var(--fondo);color:var(--texto);border:1px solid var(--borde);border-radius:7px;padding:.65rem}
+@media(max-width:1100px){.configuracion-lote{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:510px){.configuracion-lote{grid-template-columns:1fr}}

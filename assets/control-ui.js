@@ -90,7 +90,7 @@
     mensaje("Token restablecido. La revisión permanece guardada en este navegador.");
   }
   function estado(id){
-    return control.normalizarCambio(cambios[id]||{});
+    return control.estadoEfectivo(porId.get(id),cambios);
   }
   function guardarCambios(){
     escribirLocal(CLAVE_BORRADOR,JSON.stringify(cambios));
@@ -100,7 +100,7 @@
     var valor={visible:$("detalle-visible").checked,
       publicado:$("detalle-publicado").value,probado:$("detalle-probado").value,
       notas:$("detalle-notas").value};
-    if(control.sinCambios(valor))delete cambios[seleccionado];
+    if(control.coincideBase(porId.get(seleccionado),valor))delete cambios[seleccionado];
     else cambios[seleccionado]=control.normalizarCambio(valor);
     guardarCambios();resumen();lista();
   }
@@ -126,15 +126,21 @@
   function resumen(){
     $("cuenta-total").textContent=inventario.length;
     $("cuenta-cambios").textContent=Object.keys(cambios).length;
-    $("cuenta-ocultos").textContent=Object.values(cambios).filter(function(v){return v.visible===false;}).length;
+    $("cuenta-ocultos").textContent=inventario.filter(function(item){return !estado(item.id).visible;}).length;
     $("cuenta-sinrevisar").textContent=inventario.filter(function(item){
-      var v=estado(item.id);
-      return v.publicado==="sin_revisar"&&v.probado==="sin_revisar";
+      return estado(item.id).publicado==="sin_revisar";
+    }).length;
+    $("cuenta-publicados").textContent=inventario.filter(function(item){
+      return estado(item.id).publicado==="si";
+    }).length;
+    $("cuenta-sinprobar").textContent=inventario.filter(function(item){
+      return estado(item.id).probado==="sin_revisar";
     }).length;
   }
   function filtroEstado(item,filtro){
     var v=estado(item.id);
-    if(filtro==="sin_revisar")return v.publicado==="sin_revisar"&&v.probado==="sin_revisar";
+    if(filtro==="sin_revisar")return v.publicado==="sin_revisar";
+    if(filtro==="sin_probar")return v.probado==="sin_revisar";
     if(filtro==="cambiados")return !!cambios[item.id];
     if(filtro==="ocultos")return !v.visible;
     if(filtro==="no_publicados")return v.publicado==="no";
@@ -144,9 +150,10 @@
   function resultados(){
     var q=$("buscar-control").value.trim().toLocaleLowerCase("es"),
       sistema=$("sistema-control").value,tipo=$("tipo-control").value,
-      estadoFiltro=$("estado-filtro").value;
+      fuente=$("fuente-control").value,estadoFiltro=$("estado-filtro").value;
     return inventario.filter(function(item){
       return (!sistema||item.sistema===sistema)&&(!tipo||item.tipo===tipo)&&
+        (!fuente||item.fuente===fuente)&&
         (!q||[item.nombre,item.fuente,item.detalle,item.sistema,item.tipo].join(" ")
           .toLocaleLowerCase("es").includes(q))&&filtroEstado(item,estadoFiltro);
     });
@@ -173,6 +180,37 @@
     $("mas-elementos").hidden=encontrados.length<=limite;
   }
   function renderizar(){resumen();lista();}
+  function rellenarLotes(){
+    var cont=$("lotes-publicados");cont.replaceChildren();
+    control.lotesConfirmados(inventario).forEach(function(lote){
+      var p=document.createElement("p"),b=document.createElement("strong");
+      b.textContent=lote.nombre+": ";
+      p.appendChild(b);p.appendChild(document.createTextNode(lote.cantidad+
+        " elementos · Publicación confirmada · Pruebas pendientes, salvo revisión individual"));
+      cont.appendChild(p);
+    });
+  }
+  function aplicarAccionMasiva(){
+    var publicado=$("lote-publicado").value,probado=$("lote-probado").value,
+      visible=$("lote-visible").value,accion={};
+    if(publicado)accion.publicado=publicado;
+    if(probado)accion.probado=probado;
+    if(visible)accion.visible=visible==="si";
+    if(!Object.keys(accion).length){mensaje("Selecciona alguna decisión para el lote.",true);return;}
+    var encontrados=resultados();
+    if(!encontrados.length){mensaje("No hay elementos con los filtros actuales.",true);return;}
+    if(!confirm("¿Aplicar la decisión a los "+encontrados.length+
+      " elementos que cumplen todos los filtros, incluidos los que aún no has desplazado?"+
+      "\nNo se modifican los campos que dejes en «No modificar». La revisión se guardará en este navegador."))return;
+    try{
+      var res=control.aplicarLote(inventario,cambios,encontrados.map(function(x){return x.id;}),accion);
+      escribirLocal(CLAVE_BORRADOR,JSON.stringify(res.cambios));
+      cambios=res.cambios;
+      renderizar();if(seleccionado)elegir(seleccionado);
+      mensaje("Lote aplicado: "+res.afectados+" registros modificados de "+
+        encontrados.length+" seleccionados. Exporta el JSON para conservarlos.");
+    }catch(err){mensaje("No se pudo aplicar el lote: "+err.message,true);}
+  }
   function poblarSelect(id,nombres){
     var sel=$(id);
     nombres.sort(function(a,b){return a.localeCompare(b,"es");}).forEach(function(name){
@@ -211,10 +249,11 @@
       try{tokenOlvidado();}catch(e){mensaje(e.message,true);}
     });
     $("bloquear-control").addEventListener("click",bloquear);
-    ["buscar-control","sistema-control","tipo-control","estado-filtro"].forEach(function(id){
+    ["buscar-control","sistema-control","tipo-control","fuente-control","estado-filtro"].forEach(function(id){
       $(id).addEventListener(id==="buscar-control"?"input":"change",function(){limite=70;lista();});
     });
     $("mas-elementos").addEventListener("click",function(){limite+=70;lista();});
+    $("aplicar-lote").addEventListener("click",aplicarAccionMasiva);
     $("lista-inventario").addEventListener("click",function(e){
       var button=e.target.closest("button[data-id]");
       if(button)elegir(button.dataset.id);
@@ -266,9 +305,11 @@
     }
     poblarSelect("sistema-control",Array.from(new Set(inventario.map(function(x){return x.sistema;}))));
     poblarSelect("tipo-control",Array.from(new Set(inventario.map(function(x){return x.tipo;}))));
+    poblarSelect("fuente-control",Array.from(new Set(inventario.map(function(x){return x.fuente;}))));
+    rellenarLotes();
     conectar();accesoVisible();
     $("acceso-control").hidden=false;
-    mensaje(inventario.length+" elementos cargados. Sin revisar no significa publicado ni probado.");
+    mensaje(inventario.length+" elementos cargados. Tres lotes publicados confirmados; el resto y las pruebas siguen pendientes.");
   }
   cargar().catch(function(e){mensaje("No se pudo iniciar el control editorial: "+e.message,true);});
 })();
