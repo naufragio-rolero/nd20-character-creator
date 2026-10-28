@@ -1,0 +1,445 @@
+{
+  "version": 1,
+  "editorial": "Etiquetado de nombres para coherencia de la Forja; no implica restricción mecánica del reglamento.",
+  "ocupaciones_contexto_femenino": {
+    "Doncella de la Espada": {
+      "fuente": "NaufragioD20 — Ocupaciones · Doncella de la Espada",
+      "motivo": "Organización descrita en femenino: las doncellas"
+    },
+    "Valquiria": {
+      "fuente": "NaufragioD20 — Ocupaciones · Valquiria",
+      "motivo": "Comunidad de guerreras sagradas lideradas por una Reina"
+    },
+    "Invocadora": {
+      "fuente": "NaufragioD20 — Ocupaciones · Invocadora",
+      "motivo": "Trasfondo de avatar narrado explícitamente en femenino"
+    }
+  },
+  "especies_preferencia_femenino": {
+    "Gerudo": {
+      "fuente": "NaufragioD20 — Especies · Gerudo",
+      "motivo": "Tribu casi exclusivamente femenina; nacimiento masculino muy excepcional, pero posible"
+    }
+  },
+  "femeninos_por_especie": {
+    "Elfo agreste": [
+      "Thalindra",
+      "Lirelia",
+      "Arwen",
+      "Elariana",
+      "Galadriel",
+      "Aranel",
+      "Caladwen"
+    ],
+    "Enano montañés": [],
+    "Humano común": [
+      "Emily",
+      "Anna",
+      "Sarah",
+      "Sophia",
+      "Olivia",
+      "Ava",
+      "Emma",
+      "Mia",
+      "Ella",
+      "Grace"
+    ],
+    "Mediano amable": [
+      "Rosie",
+      "Primrose",
+      "Daisy",
+      "Rosa",
+      "Estella",
+      "Ruby",
+      "Gilly",
+      "Lily"
+    ],
+    "Gnomo urbano": [
+      "Engranajeza",
+      "Varitacentella",
+      "Ruecamolida",
+      "Cimacreante",
+      "Estallidochispa",
+      "Chisparreloj"
+    ],
+    "Semielfo": [
+      "Aria",
+      "Arwen",
+      "Alandria",
+      "Thalia",
+      "Eloria",
+      "Elariel",
+      "Caladwen",
+      "Elariana",
+      "Mirel"
+    ],
+    "Orco común": [
+      "Urga",
+      "Gorza"
+    ],
+    "Semiorco": [
+      "Kara",
+      "Gorza"
+    ],
+    "Dracónido": [
+      "Irvena",
+      "Odrisa",
+      "Vesnia",
+      "Cirelda",
+      "Denoria",
+      "Auvira",
+      "Jarela",
+      "Beltrena",
+      "Nerelda"
+    ],
+    "Elfo blanco": [
+      "Velhira",
+      "Naelis",
+      "Dhaera",
+      "Yllith",
+      "Emrane",
+      "Ismara",
+      "Zelaira",
+      "Aldrisa",
+      "Qerida"
+    ],
+    "Elfo celestial": [
+      "Ysilde",
+      "Liriaen",
+      "Elenza",
+      "Taevia",
+      "Calirena",
+      "Naoria",
+      "Faedria"
+    ],
+    "Elfo nerai": [
+      "Vormia",
+      "Tarielu",
+      "Elvona",
+      "Silnera",
+      "Lervia",
+      "Uvalia",
+      "Arsena",
+      "Olemira",
+      "Nivera"
+    ],
+    "Enano selvático": [
+      "Ombra",
+      "Dumera",
+      "Krisna",
+      "Menka",
+      "Roksha",
+      "Breka",
+      "Osmundra",
+      "Seka",
+      "Drolma",
+      "Korza"
+    ],
+    "Pelaje silvestre": [
+      "Miska",
+      "Pimra",
+      "Zirni",
+      "Nimka",
+      "Sovra",
+      "Biska",
+      "Lisha",
+      "Riska",
+      "Yurra"
+    ],
+    "Pelaje urbanita": [
+      "Tisca",
+      "Nivra",
+      "Tirka",
+      "Narda",
+      "Kiveli",
+      "Silda",
+      "Lisu",
+      "Pekra",
+      "Tovra",
+      "Bambiqa"
+    ],
+    "Gnomo sylestri": [
+      "Mirelda",
+      "Farenza",
+      "Elsira",
+      "Lemira",
+      "Nolvia",
+      "Velmae",
+      "Ullesa",
+      "Hedra"
+    ],
+    "Humano malasthino": [
+      "Soria",
+      "Caleda",
+      "Estavia",
+      "Revia",
+      "Alderia",
+      "Yasira",
+      "Lemara",
+      "Ovila",
+      "Serima"
+    ],
+    "Humano ujibo": [
+      "Norida",
+      "Velissa",
+      "Tazira",
+      "Sarima",
+      "Nezra",
+      "Mosena",
+      "Camria",
+      "Lueda",
+      "Dajira",
+      "Suvina"
+    ],
+    "Iblisio": [
+      "Raskia",
+      "Osmira",
+      "Cemira",
+      "Yazbel",
+      "Beldra",
+      "Nivessa",
+      "Umrisa",
+      "Halvia",
+      "Serzha"
+    ],
+    "Mediano jóbito": [
+      "Lellina",
+      "Solvina",
+      "Mirupa",
+      "Tibena",
+      "Jomira",
+      "Mureta",
+      "Civela",
+      "Rusmela",
+      "Tromina",
+      "Viruza"
+    ],
+    "Semitrol": [
+      "Irdana",
+      "Dolvia",
+      "Sevra",
+      "Eshora",
+      "Ivara",
+      "Bergha",
+      "Neska",
+      "Urvia",
+      "Anvra"
+    ],
+    "Redivivo": [
+      "Ilsenia",
+      "Ysolda",
+      "Odela",
+      "Celiara",
+      "Muresa",
+      "Irenia",
+      "Lorea",
+      "Eldria",
+      "Nolena",
+      "Solveta"
+    ],
+    "Rusalka costero": [
+      "Néyora",
+      "Sirenae",
+      "Aruvía",
+      "Tamora",
+      "Orissa",
+      "Muralea",
+      "Nevara",
+      "Talmira",
+      "Dorena"
+    ],
+    "Deku": [
+      "Tronca",
+      "Mofena",
+      "Bretila",
+      "Ramira",
+      "Fosca",
+      "Oliviaza",
+      "Tívera"
+    ],
+    "Goron": [
+      "Magria",
+      "Grudma",
+      "Huldra"
+    ],
+    "Zora": [
+      "Neleira",
+      "Ariola",
+      "Iduvia",
+      "Yemira",
+      "Rivora",
+      "Alunia",
+      "Lumea",
+      "Emoria"
+    ],
+    "Zora (linaje olardiente)": [
+      "Urmaga",
+      "Thorga",
+      "Vruska",
+      "Korasha",
+      "Gorsha",
+      "Nargua",
+      "Trelga",
+      "Bruska",
+      "Kersha",
+      "Ogresa"
+    ],
+    "Kokiri": [
+      "Olera",
+      "Brinna",
+      "Ronea",
+      "Elani",
+      "Norea",
+      "Mivela"
+    ],
+    "Orni": [
+      "Alqira",
+      "Odrika",
+      "Voria",
+      "Luvela",
+      "Temira",
+      "Ravela",
+      "Anqira",
+      "Márkia"
+    ],
+    "Gerudo": [
+      "Arvessa",
+      "Nadirae",
+      "Tessara",
+      "Vardena",
+      "Merasha",
+      "Sulena",
+      "Orzaria",
+      "Kavessa",
+      "Zaremi",
+      "Ravira",
+      "Telmara",
+      "Yuressa",
+      "Zaldira",
+      "Sarmela",
+      "Odrasha",
+      "Velzira",
+      "Nesvara",
+      "Darmina",
+      "Quessara",
+      "Azmela"
+    ],
+    "Humano natural": [
+      "Eva",
+      "Sarah",
+      "Emily",
+      "Abigail",
+      "Sophia",
+      "Olivia",
+      "Isabella",
+      "Emma",
+      "Ava",
+      "Mia"
+    ],
+    "Humano aumentado": [
+      "Aria",
+      "Athena",
+      "Gaia",
+      "Selene",
+      "Iris",
+      "Electra",
+      "Pandora",
+      "Daphne"
+    ],
+    "Sylph mindari": [
+      "Selene",
+      "Rhea",
+      "Cassiopeia",
+      "Theia",
+      "Eos"
+    ],
+    "Sylph zanshi": [
+      "Lyra",
+      "Astra",
+      "Vega",
+      "Andromeda",
+      "Bellatrix"
+    ]
+  },
+  "nombres_editoriales": {
+    "Enano montañés": {
+      "femenino": [
+        "Hilda",
+        "Brynja",
+        "Runa",
+        "Sigrid",
+        "Dís",
+        "Ástrid"
+      ]
+    },
+    "Gruul bruto": {
+      "femenino": []
+    },
+    "Gruul zángano": {
+      "femenino": []
+    }
+  },
+  "nombres_generales_femeninos": [
+    "Serafina",
+    "Marcella",
+    "Frida",
+    "Yara",
+    "Erika",
+    "Amparo",
+    "Lualhati",
+    "Cladinia",
+    "Tharia",
+    "Minara",
+    "Nilsea",
+    "Naxka",
+    "Máthair",
+    "Nara",
+    "Elvira",
+    "Lidia",
+    "Lucita",
+    "Cora",
+    "Dalia",
+    "Iria"
+  ],
+  "nombres_generales_masculinos": [
+    "Carmelo",
+    "Remigio",
+    "Lorenzo",
+    "Juan",
+    "Pedro",
+    "Lucio",
+    "Torben",
+    "Ram",
+    "Vladislav",
+    "Kaldun",
+    "Saelvion",
+    "Thalios",
+    "Eldrin",
+    "Triko",
+    "Kalzifer",
+    "Oiam",
+    "Xandor",
+    "Noron",
+    "Kharan",
+    "Gorgan",
+    "Kutak",
+    "Abdul",
+    "Thingrim",
+    "Lazare",
+    "Joseph",
+    "Saewig",
+    "Jeremie",
+    "Pietro",
+    "Tanto"
+  ],
+  "sexo_por_especie_neutral": [
+    "Gruul bruto",
+    "Gruul zángano",
+    "Gnomo urbano",
+    "Kokiri"
+  ],
+  "configuracion": {
+    "sexo_por_defecto": "aleatorio",
+    "respetar_contexto": true
+  }
+}
