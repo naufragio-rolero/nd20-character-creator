@@ -883,3 +883,87 @@ assert.ok(appTooltips.includes('consultar-ficha-eleccion'));
 assert.ok(stylesTooltips.includes('.ficha-emergente'));
 assert.ok(stylesTooltips.includes(':focus-visible'));
 console.log('OK · categorías de Técnicas verificadas y fichas emergentes con fuentes reales.');
+
+
+/* Regresión: tema sin FOUC, sistema visible en Herramientas, requisitos VA. */
+const htmlTemas=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+const cssTemas=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'utf8');
+const appTemas=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
+assert.ok(htmlTemas.includes('<html lang="es" data-tema="clasico">'),
+  'Tema por defecto definido en raíz desde el parser');
+const preCSS=htmlTemas.indexOf("localStorage.getItem('forja-tema')");
+const stylesheet=htmlTemas.indexOf('href="assets/styles.css"');
+assert.ok(preCSS>0 && preCSS<stylesheet,
+  'Tema se lee antes de cargar CSS y de la primera pintura');
+assert.ok(!htmlTemas.includes('<body data-tema="clasico">'),
+  'El cuerpo no debe forzar el tema Clásico al entrar');
+assert.ok(cssTemas.includes('html[data-tema=ebano]'));
+assert.ok(cssTemas.includes('html[data-tema=ceruleo]'));
+assert.ok(cssTemas.includes('html[data-tema=obsidiana]'));
+assert.ok(cssTemas.includes('html[data-tema]:not([data-tema=clasico]) body'),
+  'El fondo usa el tema inicial en body sin destello');
+assert.ok(!cssTemas.includes('body[data-tema=ebano]'),
+  'Las variables deben residir en html, no esperar al body');
+assert.ok(appTemas.includes('document.documentElement.dataset.tema=tema.value'),
+  'El selector modifica el mismo atributo que el script temprano');
+const tab=htmlTemas.indexOf('id="tab-herramientas"');
+const system=htmlTemas.indexOf('id="etiqueta-sistema"');
+const panel=htmlTemas.indexOf('id="panel-personajes"');
+const tools=htmlTemas.indexOf('id="panel-herramientas"');
+assert.ok(tab>=0&&tab<system&&system<panel&&panel<tools,
+  'Sistema queda visible en ambas pestañas del menú');
+assert.ok(appTemas.includes("marcarPanel('herramientas')"));
+assert.ok(!/refrescarSelectores\(\);\s*marcarPanel\('personajes'\)/.test(appTemas),
+  'Cambiar sistema no debe expulsar al usuario de Herramientas');
+assert.ok(appTemas.includes("'generar-seguidor').disabled = !dh"),
+  'Generar seguidor deshabilitado fuera de Dungeon Hack');
+const favicon=fs.readFileSync(path.join(__dirname,'..','assets','favicon.svg'),'utf8');
+assert.ok(htmlTemas.includes('rel="icon" type="image/svg+xml" href="assets/favicon.svg"'));
+assert.ok(favicon.includes('viewBox="0 0 64 64"')&&favicon.includes('D20'),
+  'Favicon local derivado del emblema d20');
+
+const requisitosVA='arma a distancia, Intuición 8+';
+const int13=[{nombre:'Intuición',valor:13,dificultad:7}];
+const int7=[{nombre:'Intuición',valor:7,dificultad:13}];
+const apto=poderes.estadoUsoVA(requisitosVA,int13);
+assert.equal(apto.comprobados[0].requerido,8);
+assert.equal(apto.comprobados[0].va,13);
+assert.equal(apto.faltantes.length,0,
+  'DA 7 equivale a VA 13: puede USAR Disparo aturdidor con VA 8+');
+const pendiente=poderes.estadoUsoVA(requisitosVA,int7);
+assert.equal(pendiente.faltantes.length,1,
+  'VA 7 (DA 13) puede aprender pero no utilizar Disparo aturdidor');
+const fuerzaInt=poderes.estadoUsoVA('Fuerza 10+, Intuición 9+',
+  [{nombre:'Fuerza',valor:8,dificultad:12},{nombre:'Intuición',valor:11,dificultad:9}]);
+assert.deepEqual(fuerzaInt.faltantes.map(x=>x.atributo),['Fuerza'],
+  'Requisitos de varios Atributos se contrastan independientemente');
+assert.equal(poderes.estadoUsoVA('escudo grande equipado',int7).faltantes.length,0,
+  'No interpretar requisitos de equipo como mínimos de VA');
+
+const muestraPlan={recursos:[],avisos:[]},ejemploRes={
+  decisiones:{tecnicas:['tecnica-03']},
+  elementos:[{id:'tecnica-03',nombre:'Disparo aturdidor',tipo:'tecnica',
+    etapa:'Técnicas conocidas',info:requisitosVA,origen:null,circulo:null}]
+};
+const pjAntes=reglas.crearNd20(fantasiaExtendida,
+  {juego:'nd20',nivel:1,ocupacion:'Guerrero',especie:'Humano común'},
+  reglas.aleatorioSemilla('va-requisito'));
+pjAntes.atributos.find(x=>x.nombre==='Intuición').valor=7;
+pjAntes.atributos.find(x=>x.nombre==='Intuición').dificultad=13;
+const pjPendiente=poderes.aplicar(pjAntes,muestraPlan,ejemploRes);
+assert.ok(pjPendiente.poderes.some(x=>x.includes('Disparo aturdidor')),
+  'Una Técnica se puede aprender aunque VA sea insuficiente para usarla');
+assert.ok(pjPendiente.notas.some(x=>x.includes('pendiente de uso: Disparo aturdidor')&&
+  x.includes('actual VA 7')),'Se marca la Técnica aprendida como no utilizable');
+const pjApto=reglas.crearNd20(fantasiaExtendida,
+  {juego:'nd20',nivel:1,ocupacion:'Guerrero',especie:'Humano común'},
+  reglas.aleatorioSemilla('va-requisito-apto'));
+pjApto.atributos.find(x=>x.nombre==='Intuición').valor=13;
+pjApto.atributos.find(x=>x.nombre==='Intuición').dificultad=7;
+const pjValido=poderes.aplicar(pjApto,muestraPlan,ejemploRes);
+assert.ok(!pjValido.notas.some(x=>x.includes('pendiente de uso: Disparo aturdidor')));
+assert.ok(appTemas.includes('Requisitos de uso (VA)'),
+  'El editor etiqueta explícitamente VA, no DA');
+assert.ok(appTemas.includes("'<strong>VA '"),
+  'La ficha separa claramente Valor y Dificultad de Atributo');
+console.log('OK · tema previo al CSS, favicon, selector global y Técnica VA 8+ validados.');
