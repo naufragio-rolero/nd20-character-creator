@@ -724,7 +724,7 @@ console.log('OK · '+cifiValidados+
 const fuentesCifiOficiales=leer('ocupaciones_cifi.json');
 const nombresCifi=new Set(equipoDRS.cifi.armas.map(x=>x.nombre)
   .concat(['Anillo de defensa','Cordón de luz','Vara sónica',
-    'Martillo meteórico','Lanzamisiles']));
+    'Martillo meteórico','Lanzamisiles','Fusil de plasma']));
 for(const [ocupacion,ficha] of Object.entries(fuentesCifiOficiales)){
   for(const arma of ficha.armas)
     assert.ok(nombresCifi.has(arma),'Arma CiFi no oficial: '+ocupacion+' / '+arma);
