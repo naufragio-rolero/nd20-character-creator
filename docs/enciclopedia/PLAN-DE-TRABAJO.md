@@ -2,7 +2,7 @@
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-10-28.  
-**Estado global:** extracciones completas; ESP-09 y ESP-10 cerrados con Probabilidad 11+ y duración +2 Turnos condicionada. Quedan pendientes las equivalencias de Ocupaciones derivadas y la validación final; PR sin fusionar.  
+**Estado global:** extracción de Especies completa y 13 fichas corregidas reextraídas; ESP-09 y ESP-10 cerrados con Probabilidad 11+ y duración +2 Turnos condicionada. Quedan pendientes equivalencias de Ocupaciones derivadas, errata adicional en «Morador de las profundidades» y validación de las 115 relaciones; PR sin fusionar.  
 **Rama de trabajo:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
@@ -83,7 +83,8 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [x] Fijar **Probabilidad 11+** para «Chillido de ultratumba» (documento vivo y [texto aprobado](04b-talentos-especies-aprobados.json)).
 - [x] Fijar **+2 Turnos** a la Duración de «Castigo del Reino Sombrío», **solo** cuando el Conjuro tenga «Duración: X Turnos» (documento vivo, hoja Talentos y [texto aprobado](04b-talentos-especies-aprobados.json)).
 - [ ] Clasificar Ocupaciones derivadas y las sustituciones compatibles en Hyrule.
-- [ ] Reextraer y validar las fichas contra las versiones **corregidas** de las fuentes vivas.
+- [x] Reextraer las **13 fichas modificadas** en Ylat/Hyrule y Nocturna, preservando las instantáneas históricas ([textos vigentes](05a-fichas-especies-vigentes.json), [conciliación](05-conciliacion-fuentes-vivas-especies.md)).
+- [ ] Reextraer y **validar mecánicamente** el repertorio completo de 115 fichas; comprobar además las versiones DRS/CiFi y restantes discrepancias documentales.
 
 **Registro detallado:** [acuerdos editoriales](04-acuerdos-editoriales-especies.md), [textos canónicos aprobados](04b-talentos-especies-aprobados.json) y [vínculo de Talentos ampliados](04a-vinculos-talentos-especies.json). Los archivos `02*` conservan la captura original de sus respectivas fuentes.
 
@@ -118,5 +119,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 | 2026-10-28 | Aplicación de acuerdos ESP-01 a ESP-11 | [Acuerdos](04-acuerdos-editoriales-especies.md); 7 Talentos fijos en rama PR, documentos vivos y hoja maestra corregidos, 15 Ocupaciones añadidas. Quedan 3 decisiones y revalidación. |
 
 | 2026-10-28 | Resolución definitiva de ESP-09 y ESP-10 | Probabilidad 11+ para Chillido de ultratumba y +2 Turnos a Castigo del Reino Sombrío cuando el Conjuro indique «Duración: X Turnos». [Textos aprobados](04b-talentos-especies-aprobados.json); fuentes vivas y hoja corregidas. |
+
+| 2026-10-28 | Conciliación con fuentes vivas y reextracción selectiva | [Informe](05-conciliacion-fuentes-vivas-especies.md) y [13 fichas vigentes](05a-fichas-especies-vigentes.json): 58 Ylat/Hyrule + 32 Nocturna contrastadas, 13 diferencias textuales incorporadas sin alterar `02*`. «Aletas del ciclón» es una diferencia de serialización de tabla, no de regla. DRS/CiFi (25) y validación mecánica (115) pendientes; errata adicional en «Morador de las profundidades». |
 
 **Norma de actualización:** al cerrar una sesión, marcar únicamente casillas demostradas, añadir la fecha y el enlace al entregable o PR en el registro; mantener abiertas las discrepancias no resueltas. Cuando cambie el estado de una PR, actualizar también su referencia. No equiparar «inventariado» con «extraído» ni «extraído» con «validado».
