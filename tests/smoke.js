@@ -237,7 +237,7 @@ for(const [nivel,artes,blindaje] of [
   const final=poderes.aplicar(pj,plan,poderes.resolver(plan,null,rng));
   assert.equal(Number(final.recursos.find(x=>x[0]==='Magia tántrica · artes conocidas')[1]),artes);
   assert.equal(final.recursos.find(x=>x[0]==='Blindaje sin armadura')[1],blindaje);
-  assert.ok(final.poderes.some(x=>x.startsWith('Magia tántrica')));
+  assert.ok(final.poderes.some(x=>x.startsWith('[Mt] Magia tántrica')));
   assert.ok(final.notas.some(x=>x.includes('no incluye sus nombres ni efectos')));
 }
 const chamanTalentos=reglas.crearNd20(fantasiaExtendida,
@@ -304,3 +304,30 @@ assert.ok(jsForja.includes('fuentesFicha(personaje)'));
 const cssForja=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'utf8');
 assert.ok(cssForja.includes('.panel:not(.panel-abierto){display:none}'));
 console.log('OK · Filtros de fuentes y menú móvil verificados.');
+
+/* Prefijos de tipos: visibles en las elecciones y en las fichas, sin tocar requisitos. */
+const prefijos=[
+  ['tecnica','Técnicas conocidas','Ataque certero','[T] Ataque certero'],
+  ['conjuro_conocido','Aprender Conjuros','Aguijón impío','[C] Aguijón impío'],
+  ['conjuro_preparado','Preparar · Círculo 1','Aguijón impío','[C] Aguijón impío'],
+  ['psionico','Poderes Psiónicos','Agresión psíquica','[Ps] Agresión psíquica'],
+  ['poder_especial','Privilegios','Atemorizar plebeyo','[Pr] Atemorizar plebeyo'],
+  ['poder_especial','Órdenes de batalla','¡Aguanta!','[Or] ¡Aguanta!'],
+  ['poder_especial','Técnicas de Pugilista','Ataque certero','[T] Ataque certero'],
+  ['poder_especial','Conjuros conocidos de Druida','Luz','[C] Luz'],
+  ['poder_especial','Canciones','Arrullo pacificador','[Ca] Arrullo pacificador'],
+  ['poder_especial','Recetas de cocina','Sopa del Pecado Menor','[Rc] Sopa del Pecado Menor'],
+  ['magia_tantrica','Magia tántrica documentada','Magia tántrica','[Mt] Magia tántrica']
+];
+for(const [tipo,etapa,nombre,esperado] of prefijos)
+  assert.equal(poderes.nombreEtiquetado(tipo,etapa,nombre),esperado);
+assert.equal(poderes.nombreEtiquetado('talento','Talentos','Encanto'),'Encanto');
+const pjEtiqueta=reglas.crearNd20(fantasiaExtendida,{
+  juego:'nd20',nivel:1,ocupacion:'Forense',especie:'Humano común',aplazarElecciones:true
+},reglas.aleatorioSemilla('forense-label'));
+const planEtiqueta=poderes.planificar({juego:'nd20',nivel:1,ocupacion:'Forense',especie:'Humano común'},
+  fantasiaExtendida,catalogoPoderes,progresiones);
+const fichaEtiqueta=poderes.aplicar(pjEtiqueta,planEtiqueta,
+  poderes.resolver(planEtiqueta,null,reglas.aleatorioSemilla('forense-priv')));
+assert.ok(fichaEtiqueta.poderes.some(s=>s.startsWith('[Pr] ')));
+console.log('OK · Etiquetado de familias de Poderes verificado.');

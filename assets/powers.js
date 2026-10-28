@@ -21,6 +21,30 @@
       return true;
     }).map(function(name){return {id:name,nombre:name};});
   }
+  /* Prefijos editoriales: solo identifican el tipo, nunca alteran las reglas. */
+  function codigoPoder(tipo,etapa){
+    if(tipo==="tecnica")return "T";
+    if(tipo==="conjuro_conocido"||tipo==="conjuro_preparado")return "C";
+    if(tipo==="psionico")return "Ps";
+    if(tipo==="argucia")return "Ar";
+    if(tipo==="script")return "Sc";
+    if(tipo==="magia_tantrica")return "Mt";
+    if(tipo==="poder_especial"){
+      if(/^Técnicas/i.test(etapa))return "T";
+      if(/^Conjuros/i.test(etapa))return "C";
+      if(/^Privilegios/i.test(etapa))return "Pr";
+      if(/^Órdenes de batalla/i.test(etapa))return "Or";
+      if(/^Flechería arcana/i.test(etapa))return "Fa";
+      if(/^Canciones/i.test(etapa))return "Ca";
+      if(/^Eidolas/i.test(etapa))return "Ei";
+      if(/^Recetas de cocina/i.test(etapa))return "Rc";
+    }
+    return "";
+  }
+  function nombreEtiquetado(tipo,etapa,nombre){
+    var codigo=codigoPoder(tipo,etapa);
+    return (codigo?"["+codigo+"] ":"")+nombre;
+  }
   function nuevo(id,titulo,tipo,cantidad,opciones,adicional){
     return Object.assign({id:id,titulo:titulo,tipo:tipo,cantidad:cantidad,opciones:opciones||[],
       repetibles:false,automatico:false},adicional||{});
@@ -393,8 +417,10 @@
     personaje.conjuros_preparados=[];
     resultado.elementos.forEach(function(x){
       if(x.tipo==="talento")personaje.capacidades.push(x.nombre);
-      else if(x.tipo==="conjuro_preparado")personaje.conjuros_preparados.push("C"+x.circulo+" · "+x.nombre);
-      else personaje.poderes.push(x.nombre+(x.circulo?" (C"+x.circulo+")":""));
+      else if(x.tipo==="conjuro_preparado")
+        personaje.conjuros_preparados.push(nombreEtiquetado(x.tipo,x.etapa,x.nombre)+" (C"+x.circulo+")");
+      else personaje.poderes.push(nombreEtiquetado(x.tipo,x.etapa,x.nombre)+
+        (x.circulo?" (C"+x.circulo+")":""));
     });
     (plan.recursos||[]).forEach(function(r){
       var idx=personaje.recursos.findIndex(function(v){return v[0]===r[0];});
@@ -408,5 +434,6 @@
     if(vacios)personaje.notas.push(vacios+" Espacio(s) de Conjuro sin preparar.");
     return personaje;
   }
-  return {planificar:planificar,resolver:resolver,aplicar:aplicar,disponibles:disponibles};
+  return {planificar:planificar,resolver:resolver,aplicar:aplicar,disponibles:disponibles,
+    codigoPoder:codigoPoder,nombreEtiquetado:nombreEtiquetado};
 });
