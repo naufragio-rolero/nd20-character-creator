@@ -1,0 +1,87 @@
+# Enciclopedia de Talentos, Poderes y Objetos — Plan de trabajo
+
+**Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
+**Última actualización:** 2026-10-28.  
+**Estado global:** Inventario inicial terminado; siguiente tarea: extracción documental de Talentos de Especies.  
+**Rama documental:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
+
+Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
+
+## 1. Hitos generales
+
+- [x] **Auditoría inicial:** inspección de arquitectura, fuentes, índices, fichas emergentes y límites de accesibilidad.
+- [x] **Inventario inicial:** recuento de los catálogos digitales, contraste preliminar con fuentes, anomalías y dos registros CSV.
+- [ ] **Extracción:** volcar literalmente los efectos y propiedades reglamentarias por cada una de las seis tandas.
+- [ ] **Validación:** conciliar fuentes, duplicados, homónimos, requisitos, estados y exactitud de cada ficha.
+- [ ] **Implementación:** integrar datos estructurados y fichas emergentes en Forja, sin alterar sus reglas de juego.
+- [ ] **Pruebas:** pruebas de datos, regresión de creación de personajes, interacción táctil, teclado, foco y lectores de pantalla.
+- [ ] **Cierre:** documentación actualizada, PR revisadas y cambios incorporados en la rama principal.
+
+## 2. Tandas documentales
+
+### Tanda 1 — Talentos de Especies · **Siguiente**
+- [x] Inventario nominal de las 44 Especies, con **115 relaciones Especie–Talento** (94 recogidas en JSON y 21 detectadas solo en fuentes).
+- [x] Registrar los **7 Talentos fijos omitidos** y los **14 Talentos opcionales de Hyrule**.
+- [ ] Extraer texto literal, tipo, activación, costes, requisitos, escalado y fuente exacta; no completar campos inexistentes por analogía.
+- [ ] Diferenciar Talentos fijos, elegibles y opcionales; documentar cuándo y cómo se adquieren.
+- [ ] Contrastar cada efecto y resolver las discrepancias detectadas, incluida la identidad de Talentos homónimos.
+- [ ] Entregar repertorio estructurado validado y registro de asuntos pendientes.
+
+### Tanda 2 — Talentos de Ocupaciones
+- [x] Inventario nominal: **163 relaciones Ocupación–Talento** consolidadas desde 234 referencias JSON, correspondientes a 51 Ocupaciones.
+- [ ] Extraer efectos y propiedades literales, niveles de adquisición y condiciones de elección.
+- [ ] Contrastar referencias y progresiones, incluyendo pendientes de Truhán y Astrólogo.
+- [ ] Entregar repertorio estructurado validado y registro de discrepancias.
+
+### Tanda 3 — Técnicas y Poderes especiales
+- [x] Localizar categorías y recuentos: Técnicas (24), Psiónica (20), Argucias (6), Scripts (10), Órdenes (8), Flechería (14), Privilegios (6), Canciones (24), Eidolas (32) y Recetas (34).
+- [ ] Extraer efectos, costes, requisitos y fuentes literales; distinguir repertorios y elecciones de efectos.
+- [ ] Conciliar referencias cruzadas con Ocupaciones y comprobar cobertura descriptiva.
+- [ ] Entregar repertorio estructurado validado.
+
+### Tanda 4 — Conjuros
+- [x] Inventario digital: **434 registros, 433 nombres normalizados distintos**.
+- [ ] Comparar íntegramente con la hoja maestra y ambos tomos de magia.
+- [ ] Documentar y resolver **«Ira celestial»** en dos Círculos y el doble encabezado **«Arma elemental»**, sin fusionar automáticamente.
+- [ ] Extraer descripción literal, Escuela, Círculo, alcance, duración, lanzamiento, efectos y procedencia cuando estén documentados.
+- [ ] Entregar repertorio estructurado validado.
+
+### Tanda 5 — Equipo
+- [x] Inventario de equipo inicial en Forja: **48 registros de Fantasía** y **33 de CiFi**; identificar las 5 opciones de Armamento filosofal.
+- [ ] Confrontar estos registros con las **listas completas de equipo** de los manuales.
+- [ ] Inventariar el equipo de **Nocturna** en su fuente, sin importar compras o riqueza de otras ambientaciones.
+- [ ] Extraer literalmente precios, categorías, propiedades y competencias; separar decisiones editoriales de reglas del manual.
+- [ ] Entregar catálogo estructurado validado.
+
+### Tanda 6 — Objetos mágicos
+- [x] Localizar **28 fichas de objeto en bloques principales y 1 ejemplo de apéndice** en el documento de Objetos mágicos.
+- [ ] Comprobar menciones adicionales no representadas por encabezados propios.
+- [ ] Extraer efectos, rareza, naturaleza, requisitos y procedencia literal, si la fuente los indica.
+- [ ] Separar los objetos mágicos reglamentarios de los objetos narrativos o emocionales de Forja.
+- [ ] Entregar catálogo estructurado validado.
+
+## 3. Integración y pruebas — bloqueadas hasta validación
+
+- [ ] Definir identificadores estables por sistema/categoría/fuente y reglas de relación para homónimos.
+- [ ] Preparar el esquema de datos común, conservando valores ausentes como **no documentados**, no como reglas negativas.
+- [ ] Integrar catálogos sin sustituir automáticamente los JSON usados para crear personajes.
+- [ ] Revisar las fichas emergentes, la interacción táctil y el comportamiento accesible con teclado y lector de pantalla.
+- [ ] Pasar pruebas automáticas y comprobaciones en navegador; revisar regresiones de creación de personajes.
+- [ ] Publicar solo después de revisión y aceptación de cambios.
+
+## 4. Entregables existentes
+
+- [Inventario transversal](01-inventario.md) — panorama y discrepancias.
+- [Registro de Talentos de Especies](01a-talentos-especies.csv) — datos nominales y fuente.
+- [Registro de Talentos de Ocupaciones](01b-talentos-ocupaciones.csv) — datos nominales y fuente.
+- [Decisiones editoriales actuales](../decisiones-editoriales.md) — mantener independientes del contenido oficial.
+
+## 5. Registro de avances
+
+| Fecha | Acción | Evidencia / estado |
+|---|---|---|
+| 2026-10-28 | Auditoría inicial del repositorio | Finalizada; sin cambios de código. |
+| 2026-10-28 | Inventario inicial transversal y dos CSV | Documentado en esta rama, PR #3 abierta. |
+| 2026-10-28 | Creación de este plan de trabajo | Punto de control para las siguientes tandas. |
+
+**Norma de actualización:** al cerrar una sesión, marcar únicamente casillas demostradas, añadir la fecha y el enlace al entregable o PR en el registro; mantener abiertas las discrepancias no resueltas. Cuando cambie el estado de una PR, actualizar también su referencia. No equiparar «inventariado» con «extraído» ni «extraído» con «validado».
