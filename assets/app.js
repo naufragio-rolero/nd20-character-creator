@@ -207,7 +207,7 @@
     var attrs = personaje.atributos.map(function (a) {
       var cifra = esDungeonHack ?
         '<strong>' + esc(a.dificultad) + '</strong><small>DD</small>' :
-        '<strong>' + esc(a.valor) + '</strong><small>DA ' + esc(a.dificultad) + '+</small>';
+        '<strong>VA ' + esc(a.valor) + '</strong><small>DA ' + esc(a.dificultad) + '+</small>';
       return '<div class="atributo"><span class="nombre-atributo">' + esc(a.nombre) +
         (a.favorito ? ' <span title="Atributo favorito" aria-label="Favorito">★</span>' : '') +
         '</span><span>' + cifra + '</span></div>';
@@ -392,7 +392,15 @@
           poderes.nombreEtiquetado(paso.tipo,paso.titulo,op.nombre))+
           (op.circulo?' · C'+op.circulo:'')+
           (op.id==='__vacio'?'':poderes.origenConjuro(paso.tipo,paso.titulo,op.origen))+
-          (op.requisito?' · Requisitos de uso: '+op.requisito:'');
+          (op.requisito?' · Requisitos de uso (VA): '+op.requisito:'');
+        if(['tecnica','poder_especial'].includes(paso.tipo)&&
+          (paso.tipo==='tecnica'||/^Técnicas/i.test(paso.titulo))){
+          var uso=poderes.estadoUsoVA(op.requisito,borrador.personaje.atributos);
+          if(uso.comprobados.length){
+            item.textContent+=uso.faltantes.length?
+              ' · Aprendible; VA insuficiente para usar':' · VA suficiente para usar';
+          }
+        }
         sel.appendChild(item);
       });
       if(disponibles.some(function(op){return op.id===anterior;}))sel.value=anterior;
