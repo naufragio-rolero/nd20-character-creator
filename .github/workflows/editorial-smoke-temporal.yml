@@ -1,0 +1,28 @@
+name: Validacion editorial temporal de la Forja
+on:
+  push:
+    branches:
+      - editorial/repertorios-fantasia-2026-10-28
+
+permissions:
+  contents: read
+
+jobs:
+  humo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+      - name: Preparar Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Comprobar sintaxis
+        run: |
+          node --check tests/smoke.js
+          node --check assets/repertorios.js
+          node --check assets/rules.js
+          node --check assets/app.js
+          node --check assets/control-ui.js
+      - name: Validar generadores y catalogos
+        run: node tests/smoke.js
