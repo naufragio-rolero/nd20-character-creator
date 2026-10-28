@@ -1,0 +1,222 @@
+{
+  "fecha_corte": "2026-10-28",
+  "estado": "reextraccion_parcial_de_textos_vigentes_sin_validacion_mecanica",
+  "objetivo": "Diferencias entre las instantáneas 02b/02c y documentos vivos: conserva el original histórico, no sobrescribe la ejecución de Forja ni valida automáticamente sus efectos.",
+  "alcance": {
+    "registros_contrastados": 90,
+    "registros_actualizados": 13,
+    "ylat_hyrule": 11,
+    "nocturna": 2,
+    "registros_drs_cifi_no_recontrastados": 25
+  },
+  "registros": [
+    {
+      "id_documental": "talento-especie:ampliadas:draconido:halito-de-energia",
+      "sistema": "Ampliadas",
+      "especie": "Dracónido",
+      "talento": "Hálito de energía",
+      "tipo": "fijo",
+      "texto_vigente": "Acción\nCoste: 1 Esfuerzo\nExhalas un ataque energético que cubre un cono de 6 metros frente a ti y afecta a todas las criaturas al alcance; cada una de ellas debe realizar una Tirada de Agilidad / Tirada de Probabilidad 12+ para intentar eludir el ataque y recibir la mitad de daño.\nEste ataque causa 1d4 de daño en los Niveles 1 a 5 y aumenta en 1d4 adicional al alcanzar los Niveles 6, 12, 18, 24 y 30. El tipo de daño está asociado a tu Estirpe dragontina.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "instantanea_historica": "docs/enciclopedia/02b-extraccion-especies-ylat-hyrule.json",
+        "revision_historica": "AHj4eMSPD05YFXBN_hVSn22I1zo40D_9YgVvduZbVoo2x3Dp4gxiB5DaG477nVA1OZ0udJSJKagc4UXT_xXAUA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-blanco:vision-en-la-oscuridad",
+      "sistema": "Ampliadas",
+      "especie": "Elfo blanco",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "texto_vigente": "Pasiva\nPuedes distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "instantanea_historica": "docs/enciclopedia/02b-extraccion-especies-ylat-hyrule.json",
+        "revision_historica": "AHj4eMSPD05YFXBN_hVSn22I1zo40D_9YgVvduZbVoo2x3Dp4gxiB5DaG477nVA1OZ0udJSJKagc4UXT_xXAUA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-celestial:fuente-de-mana",
+      "sistema": "Ampliadas",
+      "especie": "Elfo celestial",
+      "talento": "Fuente de maná",
+      "tipo": "fijo",
+      "texto_vigente": "Este Talento tiene un efecto distinto si eres lanzador de conjuros o no. De una forma u otra, debes dormir al menos ocho horas para recuperar el uso de la Fuente de maná.\nSi eres lanzador de conjuros: una vez al día, puedes extraer una pizca de poder de la Urdimbre para alimentar tu capacidad de lanzamiento de conjuros. Si meditas durante un Intervalo, recuperas el uso de uno de tus Conjuros cuyo Nivel del Círculo sea el más bajo disponible; si perteneces a una Ocupación que no memoriza los Conjuros, recuperarás 1d4 Puntos de Recurso o aumentarás en un rango tu DU de Conjuros.\nSi no eres lanzador de conjuros: elige un Conjuro cuyo Nivel del Círculo sea 1 de la lista disponible para el Mago. Puedes lanzar este Conjuro una vez al día, como si fueras un arcanista; en caso de que necesites un Atributo para lanzar el Conjuro, es Mente.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "instantanea_historica": "docs/enciclopedia/02b-extraccion-especies-ylat-hyrule.json",
+        "revision_historica": "AHj4eMSPD05YFXBN_hVSn22I1zo40D_9YgVvduZbVoo2x3Dp4gxiB5DaG477nVA1OZ0udJSJKagc4UXT_xXAUA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:pelaje-silvestre:vision-en-la-oscuridad",
+      "sistema": "Ampliadas",
+      "especie": "Pelaje silvestre",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "texto_vigente": "Pasiva\nPuedes distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "instantanea_historica": "docs/enciclopedia/02b-extraccion-especies-ylat-hyrule.json",
+        "revision_historica": "AHj4eMSPD05YFXBN_hVSn22I1zo40D_9YgVvduZbVoo2x3Dp4gxiB5DaG477nVA1OZ0udJSJKagc4UXT_xXAUA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gnomo-sylestri:baja-estatura",
+      "sistema": "Ampliadas",
+      "especie": "Gnomo sylestri",
+      "talento": "Baja estatura",
+      "tipo": "fijo",
+      "texto_vigente": "Pasiva\nEres más pequeño que un Elfo, un Enano o un Humano. Tu Movimiento se reduce en 1 (ya calculado). No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños. Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "instantanea_historica": "docs/enciclopedia/02b-extraccion-especies-ylat-hyrule.json",
+        "revision_historica": "AHj4eMSPD05YFXBN_hVSn22I1zo40D_9YgVvduZbVoo2x3Dp4gxiB5DaG477nVA1OZ0udJSJKagc4UXT_xXAUA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gnomo-sylestri:fuente-de-mana",
+      "sistema": "Ampliadas",
+      "especie": "Gnomo sylestri",
+      "talento": "Fuente de maná",
+      "tipo": "fijo",
+      "texto_vigente": "Este Talento tiene un efecto distinto si eres lanzador de conjuros o no. De una forma u otra, debes dormir al menos ocho horas para recuperar el uso de la Fuente de maná.\nSi eres lanzador de conjuros: una vez al día, puedes extraer una pizca de poder de la Urdimbre para alimentar tu capacidad de lanzamiento de conjuros. Si meditas durante un Intervalo, recuperas el uso de uno de tus Conjuros cuyo Nivel del Círculo sea el más bajo disponible; si perteneces a una Ocupación que no memoriza los Conjuros, recuperarás 1d4 Puntos de Recurso o aumentarás en un rango tu DU de Conjuros.\nSi no eres lanzador de conjuros: elige un Conjuro cuyo Nivel del Círculo sea 1 de la lista disponible para el Mago. Puedes lanzar este Conjuro una vez al día, como si fueras un arcanista; en caso de que necesites un Atributo para lanzar el Conjuro, es Mente.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "instantanea_historica": "docs/enciclopedia/02b-extraccion-especies-ylat-hyrule.json",
+        "revision_historica": "AHj4eMSPD05YFXBN_hVSn22I1zo40D_9YgVvduZbVoo2x3Dp4gxiB5DaG477nVA1OZ0udJSJKagc4UXT_xXAUA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:mediano-jobito:baja-estatura",
+      "sistema": "Ampliadas",
+      "especie": "Mediano jóbito",
+      "talento": "Baja estatura",
+      "tipo": "fijo",
+      "texto_vigente": "Pasiva\nEres más pequeño que un Elfo, un Enano o un Humano. Tu Movimiento se reduce en 1 (ya calculado). No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños. Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "instantanea_historica": "docs/enciclopedia/02b-extraccion-especies-ylat-hyrule.json",
+        "revision_historica": "AHj4eMSPD05YFXBN_hVSn22I1zo40D_9YgVvduZbVoo2x3Dp4gxiB5DaG477nVA1OZ0udJSJKagc4UXT_xXAUA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:rusalka-costero:vision-en-la-oscuridad",
+      "sistema": "Ampliadas",
+      "especie": "Rusalka costero",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "texto_vigente": "Pasiva\nPuedes distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "instantanea_historica": "docs/enciclopedia/02b-extraccion-especies-ylat-hyrule.json",
+        "revision_historica": "AHj4eMSPD05YFXBN_hVSn22I1zo40D_9YgVvduZbVoo2x3Dp4gxiB5DaG477nVA1OZ0udJSJKagc4UXT_xXAUA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora:escudo-electrico",
+      "sistema": "Ampliadas",
+      "especie": "Zora",
+      "talento": "Escudo eléctrico",
+      "tipo": "fijo",
+      "texto_vigente": "Reacción\nCoste: 1 Esfuerzo\nCuando seas herido por un ataque cuerpo a cuerpo, puedes activar la bioelectricidad natural en tu cuerpo para lanzar una terrible descarga a tu alrededor. Realiza una Tirada de Resistencia: si tienes éxito, causas 1d10 de daño de relámpago por cada uno de tus Niveles a todas las criaturas en un radio de 4 metros a tu alrededor; la mitad si no la superas.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "instantanea_historica": "docs/enciclopedia/02b-extraccion-especies-ylat-hyrule.json",
+        "revision_historica": "AHj4eMSPD05YFXBN_hVSn22I1zo40D_9YgVvduZbVoo2x3Dp4gxiB5DaG477nVA1OZ0udJSJKagc4UXT_xXAUA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora-linaje-olardiente:estallido-escupefuego",
+      "sistema": "Ampliadas",
+      "especie": "Zora (linaje olardiente)",
+      "talento": "Estallido escupefuego",
+      "tipo": "fijo",
+      "texto_vigente": "Acción\nCoste: 1 Esfuerzo\nEres capaz de vomitar un orbe de saliva pegajosa muy volátil e inflamable. Es tu forma favorita de cazar presas, pues una vez han sido quemadas, son fáciles de devorar y digerir. Este vómito tiene un alcance de 12 metros. Realiza una Tirada de Agilidad: si tienes éxito, causas 1d8 de daño por fuego por cada uno de tus Niveles a todas las criaturas en un radio de 2 metros alrededor del punto de impacto, la mitad si no la superas.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "instantanea_historica": "docs/enciclopedia/02b-extraccion-especies-ylat-hyrule.json",
+        "revision_historica": "AHj4eMSPD05YFXBN_hVSn22I1zo40D_9YgVvduZbVoo2x3Dp4gxiB5DaG477nVA1OZ0udJSJKagc4UXT_xXAUA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gerudo:castigo-del-reino-sombrio",
+      "sistema": "Ampliadas",
+      "especie": "Gerudo",
+      "talento": "Castigo del Reino Sombrío",
+      "tipo": "opcional",
+      "texto_vigente": "Pasiva\nEste Talento sólo está disponible para las Gerudo de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nTus Conjuros de las Escuelas Demonología y Nigromancia tienen un +2 al daño. Si tienen Duración: X Turnos, aumentas su Duración en 2 Turnos. A cambio, pierdes 1 Punto de Salud cada vez que lanzas un Conjuro.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "instantanea_historica": "docs/enciclopedia/02b-extraccion-especies-ylat-hyrule.json",
+        "revision_historica": "AHj4eMSPD05YFXBN_hVSn22I1zo40D_9YgVvduZbVoo2x3Dp4gxiB5DaG477nVA1OZ0udJSJKagc4UXT_xXAUA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:jiangshi:ladron-de-almas",
+      "sistema": "Nocturna",
+      "especie": "Jiangshi",
+      "talento": "Ladrón de almas",
+      "tipo": "fijo",
+      "texto_vigente": "No envejeces ni puedes morir por causas naturales. Tu existencia está conectada a todo tu cuerpo, y aunque te despedacen podrás mover cada parte de forma independiente. Debes absorber la esencia vital de los vivos para mantenerte en movimiento. Dispones de un Recurso denominado «Dado de Almas», que comienza en d6 y tiene un máximo de d12.\nDebes consumir la esencia de un humano mortal con tus manos: cada vez que lo hagas, podrás realizar una Tirada del Dado de Almas: si sacas el máximo o el nº directamente inferior (5 y 6 en d6, por ejemplo), aumentarás en 1 rango el Dado.\nConsumir el alma se considera una Tirada de Ataque: si la víctima no se da cuenta de lo que vas a hacer, tienes éxito de forma automática. De otra forma, deberás tratarlo como una Tirada de ataque cuerpo a cuerpo, y superar la Tirada cada Turno que estés devorando su alma. Provocas 2d6 de daño impío por cada Turno que estés devorando un alma (necesitas consumir almas durante 1 Turno cada día).\nRecuperas 1d6 de Salud por cada Turno devorando un alma, no te puedes curar de otra forma, ni siquiera por medios mágicos. Si devoras por completo el alma de un humano mortal, podrás ignorar tu Debilidad durante 1d4 Intervalos, pero deberás realizar una Tirada de Esencia.\nCada día que pase, debes realizar una Tirada del Dado de Almas, con un -1 a la Tirada por cada día sin disfrutar del alma de un mortal; si éste Dado se agota, caerás en el Sopor del Jiangshi, un estado de muerte en vida en el que estarás paralizado y plenamente consciente de lo que sucede a tu alrededor, de forma permanente hasta que un brujo lance el conjuro «Reanimar Jiangshi» sobre ti.\nAdemás, eres capaz de usar una suerte de magia vampírica, conocida como Vampirismo. Comienzas con 1 poder vampírico, y aprendes uno nuevo cada Nivel múltiplo de 2, hasta un máximo de 10. Consulta más adelante, en el Capítulo de Poderes, los detalles sobre el Vampirismo.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "instantanea_historica": "docs/enciclopedia/02c-extraccion-especies-nocturna.json",
+        "revision_historica": "AHj4eMRwJ2QmR4PzXP_9JdxTP_XTO18Uxp4xoddWI0lQ7z17sZAefiTKYO6KcbcSTnJlT1Uq5ETHoM0qJc1jiA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:jiangshi:chillido-de-ultratumba",
+      "sistema": "Nocturna",
+      "especie": "Jiangshi",
+      "talento": "Chillido de ultratumba",
+      "tipo": "elegible",
+      "texto_vigente": "Puedes gastar 1 Punto de Esfuerzo para liberar un grito aterrador que afecta a todas las criaturas en un radio de 10m. Tienes una Probabilidad 11+ de que queden paralizadas durante 1d4 Turnos.",
+      "procedencia": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "instantanea_historica": "docs/enciclopedia/02c-extraccion-especies-nocturna.json",
+        "revision_historica": "AHj4eMRwJ2QmR4PzXP_9JdxTP_XTO18Uxp4xoddWI0lQ7z17sZAefiTKYO6KcbcSTnJlT1Uq5ETHoM0qJc1jiA"
+      },
+      "estado": "reextraido_de_fuente_viva_pendiente_validacion_mecanica"
+    }
+  ]
+}
