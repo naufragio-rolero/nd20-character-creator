@@ -422,3 +422,75 @@ const controlPendiente=inventarioEditorial.find(x=>x.tipo==='Conjuro'&&
   x.nombre==='Ira celestial'&&x.detalle.includes('Círculo 3'));
 assert.equal(controlPendiente.fuente,'Origen sin verificar');
 console.log('OK · 433 orígenes de Conjuros documentados y una discrepancia identificada.');
+
+
+/* Revisión por lotes confirmados: publicación sí, pruebas independientes. */
+const lotesEditoriales=controlEditorial.lotesConfirmados(inventarioEditorial);
+assert.deepEqual(lotesEditoriales.map(x=>x.id),['nd20-drs','nd20-cifi','dungeon-hack']);
+assert.ok(lotesEditoriales.every(x=>x.cantidad>0),'Los tres lotes tienen material');
+const sumarLotes=lotesEditoriales.reduce((n,l)=>n+l.cantidad,0);
+const idsPorLote=inventarioEditorial.filter(e=>
+  lotesEditoriales.some(l=>controlEditorial.perteneceALote(e,l.id)));
+assert.equal(idsPorLote.length,sumarLotes,'Los lotes no se solapan');
+assert.equal(controlEditorial.estadoBase(elementoEditor('Nd20 Fantasía','Especie','Humano común')).publicado,
+  'si','Especie DRS publicada');
+assert.equal(controlEditorial.estadoBase(elementoEditor('Nd20 Fantasía','Ocupación','Mago')).publicado,
+  'si','Ocupación DRS publicada');
+assert.equal(controlEditorial.estadoBase(elementoEditor('Nd20 CiFi','Ocupación','Psion')).publicado,
+  'si','Ocupación CiFi publicada');
+assert.equal(controlEditorial.estadoBase(elementoEditor('Dungeon Hack','Especie','Dracónido')).publicado,
+  'si','Todas las procedencias de Dungeon Hack publicadas');
+assert.equal(controlEditorial.estadoBase(controlConjuro).publicado,'si',
+  'Conjuros con origen Nd20 se agrupan en DRS');
+assert.equal(controlEditorial.estadoBase(
+  elementoEditor('Nd20 · Poderes','Poder Psiónico','Agresión psíquica')).publicado,
+  'si','Los Poderes CiFi están en el lote');
+assert.equal(controlEditorial.estadoBase(huriEditor).publicado,'sin_revisar',
+  'No presuponer publicado material de nuevas Ocupaciones');
+assert.equal(controlEditorial.estadoBase(controlPendiente).publicado,'sin_revisar',
+  'No presuponer publicado un Conjuro de origen desconocido');
+const conjuroTomo=inventarioEditorial.find(e=>e.tipo==='Conjuro'&&e.fuente==='Tomo de Magia');
+assert.equal(controlEditorial.estadoBase(conjuroTomo).publicado,'sin_revisar',
+  'Tomo de Magia es independiente del DRS');
+assert.ok(idsPorLote.every(e=>controlEditorial.estadoBase(e).probado==='sin_revisar'),
+  'Publicado NO implica probado');
+const manualDH=elementoEditor('Dungeon Hack','Especie','Dracónido');
+const siguiente=controlEditorial.aplicarLote(inventarioEditorial,{},
+  [manualDH.id,huriEditor.id],{publicado:'no'});
+assert.equal(siguiente.afectados,2);
+assert.equal(controlEditorial.estadoEfectivo(manualDH,siguiente.cambios).publicado,'no',
+  'Un cambio individual prevalece sobre publicación base');
+assert.equal(controlEditorial.estadoEfectivo(huriEditor,siguiente.cambios).publicado,'no');
+assert.equal(controlEditorial.estadoEfectivo(manualDH,siguiente.cambios).probado,'sin_revisar',
+  'La decisión masiva no altera la prueba');
+const otra=controlEditorial.aplicarLote(inventarioEditorial,siguiente.cambios,
+  [manualDH.id],{publicado:'si'});
+assert.ok(!Object.hasOwn(otra.cambios,manualDH.id),
+  'Al restaurar publicación base se elimina la excepción');
+const loteDePruebas=controlEditorial.aplicarLote(inventarioEditorial,
+  {[manualDH.id]:{visible:true,publicado:'si',probado:'sin_revisar',notas:'Nota privada de revisión'}},
+  [manualDH.id],{probado:'si'});
+assert.equal(loteDePruebas.cambios[manualDH.id].notas,'Nota privada de revisión',
+  'No sobrescribir notas');
+assert.equal(loteDePruebas.cambios[manualDH.id].publicado,'si',
+  'No sobrescribir publicación');
+assert.throws(()=>controlEditorial.aplicarLote(inventarioEditorial,{},['id-inexistente'],
+  {visible:false}),/fuera del catálogo/);
+assert.throws(()=>controlEditorial.aplicarLote(inventarioEditorial,{},[manualDH.id],
+  {editor:true}),/no permitido/);
+const loteSerializado=controlEditorial.crearRevision(inventarioEditorial,otra.cambios,
+  '2026-10-28T00:00:00Z');
+assert.equal(loteSerializado.lotes_base_publicados.length,3,
+  'La revisión JSON declara los lotes base');
+assert.equal(loteSerializado.cambios[huriEditor.id].publicado,'no');
+const sinCambio=controlEditorial.crearRevision(inventarioEditorial,
+  {[manualDH.id]:controlEditorial.estadoBase(manualDH)});
+assert.equal(Object.keys(sinCambio.cambios).length,0,
+  'No se exportan miles de registros equivalentes al estado base');
+assert.deepEqual(controlEditorial.importarRevision(inventarioEditorial,
+  {esquema:controlEditorial.ESQUEMA,cambios:otra.cambios}),otra.cambios,
+  'Revisión v1 anterior compatible');
+for(const ref of ['id="fuente-control"','id="lote-publicado"','id="lote-probado"',
+  'id="lote-visible"','id="aplicar-lote"','id="lotes-publicados"'])
+  assert.ok(controlHtml.includes(ref),'Acciones masivas disponibles: '+ref);
+console.log('OK · '+sumarLotes+' entradas de tres lotes publicados; pruebas pendientes y edición por lotes validadas.');

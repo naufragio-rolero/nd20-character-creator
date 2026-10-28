@@ -153,3 +153,28 @@ La herramienta de revisión está en [control.html](control.html) (al publicar:
 de edición de ese navegador. No es una contraseña de acceso real ni una
 barrera contra otros visitantes o personas con acceso al almacenamiento local.
 La página sigue siendo pública; no introduzcas credenciales de GitHub aquí.
+
+
+### Lotes de publicación confirmada y edición masiva
+
+La revisión editorial da por publicados, por confirmación del autor, los
+bloques **Naufragio d20 DRS**, **Naufragio d20 CiFi** y **Dungeon Hack
+completo**, sin asignar el estado *probado*.
+
+- **DRS:** Ocupaciones, Especies y Talentos base de Fantasía; sus cuatro
+  progresiones documentales; Técnicas con fuente «Naufragio d20 DRS»;
+  Conjuros cuyo origen específico es «Nd20» en la lista contrastada.
+- **CiFi:** Especies, Ocupaciones y Talentos de CiFi; sus progresiones;
+  Técnicas, Scripts, Argucias y Poderes Psiónicos cuya fuente es CiFi.
+- **Dungeon Hack:** todas sus Ocupaciones, Especies y Talentos, con independencia
+  de que su fuente sea Dungeon Hack, Ylat, El Naufragio u otra procedencia
+  recogida en su catálogo.
+
+Los demás suplementos, incluidos Tomo de Magia, nuevas Ocupaciones y
+Especies ampliadas, no se dan por publicados sin confirmación. Los estados
+predefinidos son editoriales: no cambian el contenido del generador.
+El panel permite filtrar por fuente, sistema, tipo, texto y estado; aplicar
+**publicado**, **probado** o **visible** a todas las coincidencias (con
+confirmación) y corregir elementos individuales. El JSON v1 exportado
+incluye lotes_base_publicados con los recuentos y cambios solo con las
+excepciones; los JSON v1 anteriores se pueden seguir importando.
