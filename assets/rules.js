@@ -1,10 +1,12 @@
 /* Generadores puros y deterministas: sin servidor ni dependencias. */
 (function (root, factory) {
   var api = factory(typeof module !== 'undefined' && module.exports ?
-    require('./equipment.js') : root.NaufragioEquipment);
+    require('./equipment.js') : root.NaufragioEquipment,
+    typeof module !== 'undefined' && module.exports ?
+    require('./sex.js') : root.NaufragioSexo);
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.NaufragioRules = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function (equipoApi) {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (equipoApi, sexoApi) {
   'use strict';
   var ATTR_ND = ['Fuerza', 'Agilidad', 'Resistencia', 'Mente', 'Intuición', 'Presencia'];
   var ATTR_DH = ['Fuerza', 'Destreza', 'Constitución', 'Inteligencia', 'Sabiduría', 'Carisma'];
@@ -78,6 +80,24 @@
       intentos++;
     } while (!especie && intentos < 500);
     if (!especie) throw Error('No se cumplen los requisitos de la especie seleccionada');
+    var sexoFuente=config.catalogoSexo||null;
+    var coherencia=config.respetarContextoSexo!==false;
+    var sexo;
+    if(sexoApi&&sexoFuente){
+      var solicitud=sexoApi.forma(config.sexo);
+      var forzada=config.ocupacion&&sexoApi.preferenciaOcupacion(config.ocupacion,sexoFuente);
+      // Una Ocupación escogida cuya tradición es femenina resuelve la
+      // elección automática antes de filtrar el resto de las Ocupaciones.
+      sexo=sexoApi.resolverSexo(solicitud,config.ocupacion||null,especie,
+        sexoFuente,coherencia,rng);
+      if(coherencia){
+        ocs=ocs.filter(function(n){return sexoApi.ocuparPermitida(n,sexo,sexoFuente,true);});
+        if(!ocs.length)throw Error('No quedan Ocupaciones compatibles con el sexo elegido.');
+      }
+    }else{
+      sexo=config.sexo==='femenino'||config.sexo==='masculino'?
+        config.sexo:(rng()<.5?'femenino':'masculino');
+    }
     var ocupacion = (config.ocupacion && ocupaciones[config.ocupacion]) ?
       config.ocupacion : escoger(ocs, rng);
     var esp = especies[especie], oc = ocupaciones[ocupacion];
@@ -170,9 +190,22 @@
         return item.tipo===(config.modoNombre==='documentado'?'documentado':'combinado');
       }) : [];
     var nombreYlat=escoger(poolNombres,rng);
+    var nombreConSexo=sexoFuente&&sexoApi?
+      sexoApi.elegirNombre(config,especie,esp.nombres||[],poolNombres,sexo,sexoFuente,rng):null;
+    if(nombreConSexo&&nombreConSexo.nota&&nombreConSexo.nota!=='Nombre elegido manualmente.')
+      detalles.push(nombreConSexo.nota);
+    if(sexoFuente&&coherencia&&sexo==='masculino'&&
+      sexoFuente.especies_preferencia_femenino?.[especie])
+      detalles.push('Varón excepcional de '+especie+
+        ': posibilidad excepcional reconocida por su descripción de Especie.');
+    if(sexoFuente&&sexoFuente.ocupaciones_contexto_femenino?.[ocupacion]&&
+      sexo==='masculino'&&!coherencia)
+      detalles.push('Excepción narrativa elegida: '+ocupacion+
+        ' se describe en femenino, pero el manual no declara prohibición mecánica.');
     return {
-      juego:tipo, nombre:config.nombre || (nombreYlat && nombreYlat.nombre) ||
-        escoger(esp.nombres || [], rng) || 'Sin nombre',
+      juego:tipo, nombre:(nombreConSexo&&nombreConSexo.nombre)||
+        config.nombre || (nombreYlat&&nombreYlat.nombre) ||
+        escoger(esp.nombres || [],rng) || 'Sin nombre', sexo:sexo,
       descripcion:ocupacion + ' · ' + especie, nivel:nivel,
       concepto:escoger(conceptos, rng) || 'Aventurero',
       atributos:paresAtributos(ATTR_ND.map(function (a) {return at[a];}), ATTR_ND, favorito),
@@ -260,12 +293,15 @@
     }
     var herramientas = comprar(datos.tool_packs, clase.tools);
     var paquete = comprar(datos.equip_packs, clase.equip);
-    var nombre = escoger(clase.names || [], rng) || 'Sin nombre';
+    var sexoDH=config.sexo==='femenino'||config.sexo==='masculino'?
+      config.sexo:(rng()<.5?'femenino':'masculino');
+    var candidatosDH=sexoApi?sexoApi.nombresDH(clase.names||[],sexoDH):clase.names||[];
+    var nombre=config.nombre || escoger(candidatosDH,rng) || 'Sin nombre';
     var capacidades = (clase.skills || []).concat(especie ? (especie.skills || []) : []);
     var notas = (clase.adv || []).slice();
     if (especie && especie.old) notas.push('Vejez: ' + especie.old);
     return {
-      juego:'Dungeon Hack', nombre:nombre,
+      juego:'Dungeon Hack', nombre:nombre, sexo:sexoDH,
       descripcion:(especie ? especie.name + ' · ' : '') + clase.name,
       nivel:nivel, concepto:'', origen:datos.origins[clase.origin] || 'Dungeon Hack',
       procedenciaOcupacion:datos.origins[clase.origin]||'Dungeon Hack',
