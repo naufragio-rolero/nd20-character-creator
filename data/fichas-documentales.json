@@ -1,0 +1,163 @@
+{
+  "Ataque certero": {
+    "sistema": "nd20",
+    "descripcion": "Obtienes +2 a la Tirada de Ataque y -2 a la Tirada de Daño (mínimo 1).",
+    "alcance": "Arma",
+    "fuente": "NaufragioD20DRS · Técnicas · Disciplina"
+  },
+  "Baluarte": {
+    "sistema": "nd20",
+    "descripcion": "Recuperas 1d4 Puntos de Salud, recibes los beneficios de Posición defensiva y, si sufres daño, duplicas el resultado del Blindaje.",
+    "coste": "1 punto de Esfuerzo",
+    "fuente": "NaufragioD20DRS · Técnicas · Disciplina"
+  },
+  "Expulsar muertos vivientes": {
+    "sistema": "nd20",
+    "descripcion": "Emites una onda en un radio de 18 m. Los muertos vivientes de Nivel igual o inferior al tuyo pueden ser destruidos (Probabilidad 15+); si resisten, deben alejarse durante 1 Intervalo o 6 Turnos, o hasta perderte de vista.",
+    "activacion": "Acción",
+    "atributo": "Intuición",
+    "coste": "1 punto de Esfuerzo",
+    "fuente": "NaufragioD20DRS · Clérigo"
+  },
+  "Fortaleza piadosa": {
+    "sistema": "nd20",
+    "descripcion": "Tienes Ventaja en las Tiradas de Resistencia para soportar los Estados Parálisis o Veneno.",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20DRS · Clérigo"
+  },
+  "Recuperación": {
+    "sistema": "nd20",
+    "descripcion": "Tras un combate, puedes gastar 1 Esfuerzo y emplear un Intervalo en recuperar 1d8 Puntos de Salud. También tienes Ventaja en las Tiradas de Resistencia para regenerar Esfuerzo.",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20DRS · Guerrero"
+  },
+  "Brío musculoso": {
+    "sistema": "nd20",
+    "descripcion": "Ventaja en las Tiradas de Fuerza para derribar puertas y obstáculos similares. Potencia +1 adicional a Nivel 10 y a Nivel 22 (máximo natural Potencia 3).",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20DRS · Guerrero"
+  },
+  "Sacrificio de escudo": {
+    "sistema": "nd20",
+    "descripcion": "Si fallas una Tirada de Bloqueo o Esquiva, puedes destruir el escudo equipado para evitar por completo el daño. Un escudo mágico queda con Durabilidad 0.",
+    "activacion": "Reacción",
+    "fuente": "NaufragioD20DRS · Guerrero"
+  },
+  "Linaje feérico": {
+    "sistema": "nd20",
+    "descripcion": "Inmunidad al Estado Parálisis y Ventaja al resistir el conjuro Dormir mediante una Tirada de Intuición.",
+    "fuente": "NaufragioD20DRS · Especies"
+  },
+  "Rapidez": {
+    "sistema": "nd20",
+    "descripcion": "El Movimiento aumenta en 1; ya está incluido en la ficha generada.",
+    "fuente": "NaufragioD20DRS · Especies"
+  },
+  "Hallar la verdad": {
+    "sistema": "nd20",
+    "descripcion": "Tras formular una pregunta y obtener respuesta de un PNJ, descubres si ha mentido deliberadamente; el Cronista solo confirma verdad o mentira, sin dar más detalles.",
+    "activacion": "Acción",
+    "atributo": "Intuición",
+    "coste": "1 Esfuerzo",
+    "fuente": "NaufragioD20 — Ocupaciones · Forense"
+  },
+  "Olfato deductivo": {
+    "sistema": "nd20",
+    "descripcion": "Al investigar pruebas o detalles durante un Intervalo, obtienes +2 en la Tirada de Intuición; a partir de Nivel 12 obtienes Ventaja.",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20 — Ocupaciones · Forense"
+  },
+  "Aterrorizar": {
+    "sistema": "nd20",
+    "descripcion": "Una vez al día reduces 1d6 Niveles (mínimo 1) a los objetivos humanoides afectados, exclusivamente para Enemigos poderosos, Decapitación y Torturar. Aumenta un dado en Niveles 12, 24 y 30.",
+    "activacion": "Acción",
+    "fuente": "NaufragioD20 — Ocupaciones · Verdugo"
+  },
+  "Decapitación": {
+    "sistema": "nd20",
+    "descripcion": "Puedes ejecutar sin Tirada a un enemigo tumbado e indefenso, de Nivel inferior y Tamaño igual o menor que el tuyo, si llevas equipada un hacha de verdugo.",
+    "activacion": "Especial",
+    "fuente": "NaufragioD20 — Ocupaciones · Verdugo"
+  },
+  "Torturar": {
+    "sistema": "nd20",
+    "descripcion": "En un lugar tranquilo y tras 4 Intervalos, superas una Tirada de Fuerza para causar daño igual a la mitad de la Salud actual (nunca hasta 0). Si el objetivo no supera tu Nivel, puedes exigir una respuesta sí/no, sin garantía adicional de veracidad por parte del Cronista.",
+    "activacion": "Acción",
+    "fuente": "NaufragioD20 — Ocupaciones · Verdugo"
+  },
+  "Energúmeno": {
+    "sistema": "nd20",
+    "descripcion": "Ventaja en las Tiradas de Fuerza para romper objetos. Potencia +1 a Nivel 10 y otro +1 a Nivel 22 (máximo natural Potencia 3).",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20 — Ocupaciones · Bárbaro"
+  },
+  "Receloso": {
+    "sistema": "nd20",
+    "descripcion": "Ventaja en las Tiradas de Intuición para detectar trampas, engaños mágicos o alteraciones sobrenaturales de la percepción.",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20 — Ocupaciones · Bárbaro"
+  },
+  "Contundencia": {
+    "sistema": "nd20",
+    "descripcion": "Potencia +1 con puños o armas de puño. Aumenta en +1 en los Niveles 9, 18 y 27, hasta Potencia +4.",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20 — Ocupaciones · Pugilista"
+  },
+  "Juego de piernas": {
+    "sistema": "nd20",
+    "descripcion": "Ventaja al esquivar ataques cuerpo a cuerpo de enemigos desarmados; contra enemigos armados, +2 a las Tiradas de Agilidad para esquivar ataques cuerpo a cuerpo.",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20 — Ocupaciones · Pugilista"
+  },
+  "Mímica": {
+    "sistema": "nd20",
+    "descripcion": "Reproduces la Acción o Poder de un aliado que ya haya actuado en la Ronda, al que puedas ver a 5 m², usando tus propios Atributos y modificadores.",
+    "activacion": "Reacción",
+    "coste": "1 Esfuerzo",
+    "fuente": "NaufragioD20 — Ocupaciones · Arlequín"
+  },
+  "Ridículo": {
+    "sistema": "nd20",
+    "descripcion": "Con Bolos de Malabarismo, afectas a 1d6 criaturas que puedan verte y oírte en 10 m²: penalización -2 a sus Tiradas durante 1d6 Turnos (1 Intervalo fuera del combate). El dado de criaturas mejora a Niveles 12 y 24.",
+    "activacion": "Acción",
+    "coste": "1 Esfuerzo",
+    "fuente": "NaufragioD20 — Ocupaciones · Arlequín"
+  },
+  "Estilos de gladiatoria": {
+    "sistema": "nd20",
+    "descripcion": "Elige un estilo a Nivel 1 y otros en Niveles 12 y 24. Durante un combate solo puede estar activo uno y no puedes cambiarlo.",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20 — Ocupaciones · Gladiador"
+  },
+  "Oratoria exquisita": {
+    "sistema": "nd20_cifi",
+    "descripcion": "Ventaja en Tiradas de Presencia al pronunciar un discurso ante una multitud.",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20CiFi · Diplomático"
+  },
+  "Tiempo bala": {
+    "sistema": "nd20_cifi",
+    "descripcion": "Actúas dos veces seguidas durante tu Turno; después sufres -2 para evitar ataques durante 2 Turnos. La penalización disminuye en 1 a Niveles 9 y 18.",
+    "activacion": "Acción",
+    "coste": "1 Esfuerzo",
+    "fuente": "NaufragioD20CiFi · Soldado"
+  },
+  "Hacker": {
+    "sistema": "nd20_cifi",
+    "descripcion": "Ventaja en Tiradas de hackeo.",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20CiFi · Tecnópata"
+  },
+  "Unión cibernética": {
+    "sistema": "nd20_cifi",
+    "descripcion": "Ventaja en las Tiradas de Esencia al instalarse un Implante. Si ya tienes Ventaja por Especie, puedes elegir un Implante adicional gratuito durante la creación.",
+    "activacion": "Pasiva",
+    "fuente": "NaufragioD20CiFi · Tecnópata"
+  },
+  "Aguijón impío": {
+    "sistema": "nd20",
+    "descripcion": "Proyectas una púa venenosa y putrefacta que inflige 1d6 de daño por veneno e impío al superar una Tirada de Conjuro.",
+    "alcance": "20 m",
+    "fuente": "NaufragioD20DRS / Tomo de Magia · Círculo 1"
+  }
+}
