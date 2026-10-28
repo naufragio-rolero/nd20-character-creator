@@ -136,6 +136,21 @@
       "precio": 0.1,
       "tipo": "distancia",
       "municion": "Balines"
+    },
+    {
+      "nombre": "Guantelete armado",
+      "precio": 18,
+      "tipo": "una_mano"
+    },
+    {
+      "nombre": "Látigo",
+      "precio": 2,
+      "tipo": "una_mano"
+    },
+    {
+      "nombre": "Tridente",
+      "precio": 5,
+      "tipo": "dos_manos"
     }
   ],
   "municion": [

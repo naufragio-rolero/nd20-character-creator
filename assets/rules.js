@@ -117,7 +117,7 @@
     var esCifi = config.juego === 'nd20_cifi';
     var presupuesto = esFantasia ? suma(4, 10, rng) * 10 : null;
     var compra = equipoApi && config.catalogoEquipo ?
-      equipoApi.compraInicial(oc, ocupacion, config.juego, config.catalogoEquipo, presupuesto, rng) :
+      equipoApi.compraInicial(oc, ocupacion, config.juego, config.catalogoEquipo, presupuesto, rng, nivel) :
       {equipo:[],restante:presupuesto,notas:[
         'El inventario inicial requiere el catálogo de equipo contrastado.'
       ]};

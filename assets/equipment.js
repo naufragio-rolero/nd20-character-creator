@@ -7,7 +7,7 @@
 })(typeof globalThis!=="undefined"?globalThis:this,function(){
   "use strict";
   function normal(s){return String(s||"").toLocaleLowerCase("es").normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
-  function compraInicial(ocupacion,nombre,juego,catalogo,presupuesto,rng){
+  function compraInicial(ocupacion,nombre,juego,catalogo,presupuesto,rng,nivel){
     rng=rng||Math.random;
     var eq=[],notas=[],gasto=0;
     if(juego==="nd20_cifi"){
@@ -22,7 +22,12 @@
       notas:["Equipo inicial de Nocturna: pendiente de fuentes económicas y de armamento."]};
     if(!catalogo||!Number.isInteger(presupuesto)||presupuesto<0)
       throw Error("Falta la tabla DRS o el presupuesto inicial documentado.");
-    var comp=ocupacion.competencias||[],texto=normal(comp.join(" "));
+    // Competencias desbloqueadas en niveles futuros NO habilitan compras iniciales.
+    nivel=Number(nivel)||1;
+    var comp=(ocupacion.competencias||[]).filter(function(regla){
+      var m=normal(regla).match(/a partir de nivel\s*(\d+)/);
+      return !m||nivel>=Number(m[1]);
+    });
     var armasPermitidas=[],armadurasPermitidas=[],escudosPermitidos=[];
     var explicitas=(ocupacion.armas||[]).map(normal);
     if(explicitas.length){
@@ -52,7 +57,7 @@
           "lanza":/lanzas/,"espada corta":/espadas cortas/,
           "espada larga":/espadas largas|espadas(?! cortas)/,
           "espada ropera":/espadas roperas|floretes|estoques/,
-          "maz a":/mazas/,"martillo ligero":/martillos ligeros/,
+          "maza":/mazas/,"martillo ligero":/martillos ligeros/,
           "guadana":/guadanas/,"latigo":/latigos/,"guantelete armado":/guanteletes armados/,
           "tridente":/tridentes/,"cimitarra":/cimitarras/,"gran clava":/grandes clavas/
         };
