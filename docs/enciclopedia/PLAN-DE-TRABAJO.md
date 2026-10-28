@@ -2,7 +2,7 @@
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-10-28.  
-**Estado global:** extracciones completas; 11 acuerdos editoriales tratados con correcciones documentales y 7 Talentos fijos incorporados en rama PR. Pendientes el umbral de Probabilidad, el +2 a duración, las equivalencias de Ocupaciones derivadas y la validación final.  
+**Estado global:** extracciones completas; ESP-09 y ESP-10 cerrados con Probabilidad 11+ y duración +2 Turnos condicionada. Quedan pendientes las equivalencias de Ocupaciones derivadas y la validación final; PR sin fusionar.  
 **Rama de trabajo:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
@@ -80,12 +80,12 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [x] Uniformar «Nivel del Círculo» en «Fuente de maná» en el documento vivo y hoja Talentos.
 - [x] Corregir erratas concretas de «Visión en la oscuridad» y «Ladrón de almas» en documentos vivos.
 - [x] Añadir **15 filas** a la hoja «Ocupaciones» de «Lista Talentos Nd20» con columna «Deriva de / referencia» pendiente de clasificación (incluye «Psion» CiFi como registro diferenciado).
-- [ ] Resolver el **umbral** de la Tirada de Probabilidad (d20) para «Chillido de ultratumba».
-- [ ] Resolver la **unidad** del +2 a duración de «Castigo del Reino Sombrío».
+- [x] Fijar **Probabilidad 11+** para «Chillido de ultratumba» (documento vivo y [texto aprobado](04b-talentos-especies-aprobados.json)).
+- [x] Fijar **+2 Turnos** a la Duración de «Castigo del Reino Sombrío», **solo** cuando el Conjuro tenga «Duración: X Turnos» (documento vivo, hoja Talentos y [texto aprobado](04b-talentos-especies-aprobados.json)).
 - [ ] Clasificar Ocupaciones derivadas y las sustituciones compatibles en Hyrule.
 - [ ] Reextraer y validar las fichas contra las versiones **corregidas** de las fuentes vivas.
 
-**Registro detallado:** [acuerdos editoriales](04-acuerdos-editoriales-especies.md) y [vínculo de Talentos ampliados](04a-vinculos-talentos-especies.json). Los archivos `02*` conservan la captura original de sus respectivas fuentes.
+**Registro detallado:** [acuerdos editoriales](04-acuerdos-editoriales-especies.md), [textos canónicos aprobados](04b-talentos-especies-aprobados.json) y [vínculo de Talentos ampliados](04a-vinculos-talentos-especies.json). Los archivos `02*` conservan la captura original de sus respectivas fuentes.
 
 ## 3. Integración y pruebas — bloqueadas hasta validación
 
@@ -116,5 +116,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 | 2026-10-28 | Preclasificación de propiedades y acceso | [Revisión y hallazgos](03-informe-propiedades-especies.md): 115 fichas con citas localizables, 14 sustituciones Hyrule, 8 elecciones Nocturna y 11 hallazgos. **Normalización y validación pendientes.** |
 
 | 2026-10-28 | Aplicación de acuerdos ESP-01 a ESP-11 | [Acuerdos](04-acuerdos-editoriales-especies.md); 7 Talentos fijos en rama PR, documentos vivos y hoja maestra corregidos, 15 Ocupaciones añadidas. Quedan 3 decisiones y revalidación. |
+
+| 2026-10-28 | Resolución definitiva de ESP-09 y ESP-10 | Probabilidad 11+ para Chillido de ultratumba y +2 Turnos a Castigo del Reino Sombrío cuando el Conjuro indique «Duración: X Turnos». [Textos aprobados](04b-talentos-especies-aprobados.json); fuentes vivas y hoja corregidas. |
 
 **Norma de actualización:** al cerrar una sesión, marcar únicamente casillas demostradas, añadir la fecha y el enlace al entregable o PR en el registro; mantener abiertas las discrepancias no resueltas. Cuando cambie el estado de una PR, actualizar también su referencia. No equiparar «inventariado» con «extraído» ni «extraído» con «validado».
