@@ -1,9 +1,10 @@
 /* Generadores puros y deterministas: sin servidor ni dependencias. */
 (function (root, factory) {
-  var api = factory();
+  var api = factory(typeof module !== 'undefined' && module.exports ?
+    require('./equipment.js') : root.NaufragioEquipment);
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.NaufragioRules = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (equipoApi) {
   'use strict';
   var ATTR_ND = ['Fuerza', 'Agilidad', 'Resistencia', 'Mente', 'Intuición', 'Presencia'];
   var ATTR_DH = ['Fuerza', 'Destreza', 'Constitución', 'Inteligencia', 'Sabiduría', 'Carisma'];
@@ -112,12 +113,18 @@
     }
     var esfuerzo = clamp((Number(oc.esfuerzo) || 0) + Math.floor(nivel / 6), 0, 9);
     var conceptos = (oc.conceptos || []).concat(esp.conceptos || []);
-    var equipo = [];
-    var arma = escoger(oc.armas || [], rng), armadura = escoger(oc.armaduras || [], rng);
-    if (arma) equipo.push(arma);
-    if (armadura) equipo.push(armadura);
+    var esFantasia = config.juego === 'nd20';
+    var esCifi = config.juego === 'nd20_cifi';
+    var presupuesto = esFantasia ? suma(4, 10, rng) * 10 : null;
+    var compra = equipoApi && config.catalogoEquipo ?
+      equipoApi.compraInicial(oc, ocupacion, config.juego, config.catalogoEquipo, presupuesto, rng) :
+      {equipo:[],restante:presupuesto,notas:[
+        'El inventario inicial requiere el catálogo de equipo contrastado.'
+      ]};
+    var equipo = compra.equipo.slice();
+    detalles = detalles.concat(compra.notas);
     var recuerdo = escoger(esp.objetos_emocionales || [], rng);
-    if (recuerdo) equipo.push(recuerdo);
+    if (recuerdo) equipo.push(recuerdo + ' (recuerdo personal; sin precio de compra)');
     var tipo = config.juego === 'nd20_cifi' ? 'Naufragio d20 · CiFi' :
       config.juego === 'nd20_nocturna' ? 'Naufragio d20 · Nocturna' : 'Naufragio d20 · Fantasía';
     var capacidades = (esp.talentos || []).concat(oc.talentos || []);
@@ -133,17 +140,20 @@
       capacidades.push(eleccionOcupacion);
       detalles.push('Talento adicional de Ocupación seleccionado: ' + eleccionOcupacion + '.');
     }
-    (oc.talentos_referencia || []).forEach(function(talento) {
-      if (capacidades.indexOf(talento)!==-1)return;
-      var fijo = ['Hurí','Chamán'].indexOf(ocupacion)!==-1;
-      capacidades.push(fijo ? talento : talento + ' (consulta Nivel y condiciones del manual)');
+    // Los Talentos oficiales de inicio figuran en oc.talentos, contrastados
+    // con el apartado Talentos del manual; no se conceden referencias sueltas.
+    var referencias=(oc.talentos_referencia||[]).filter(function(t){
+      return capacidades.indexOf(t)<0 &&
+        (oc.talentos_elegir||[]).indexOf(t)<0 &&
+        !(ocupacion==='Adalid'&&['Desafío honorable','Imposición de manos'].includes(t));
     });
+    if(referencias.length)
+      detalles.push('Talentos pendientes de verificación o elección: '+referencias.join(', ')+'.');
+    if(oc.talentos_documentacion&&oc.talentos_documentacion.condiciones)
+      detalles.push(oc.talentos_documentacion.condiciones+'.');
     if (esp.debilidad) detalles.push('Debilidad de Especie: ' + esp.debilidad);
-    if (!arma && !armadura) detalles.push('El equipo inicial debe elegirse según las Competencias y las reglas del manual.');
-
-    var esCifi = config.juego === 'nd20_cifi';
-    var riqueza = esCifi ? '' : suma(4, 10, rng) * 10 + ' mo';
-    if (esCifi) detalles.push('La riqueza inicial en créditos no está implementada; acordadla con el Cronista.');
+    var riqueza = esFantasia ? compra.restante+' mo restantes / '+presupuesto+' mo iniciales' : '';
+    if (esCifi) detalles.push('El manual CiFi consultado no define la riqueza inicial de creación: no se simulan compras con créditos.');
     var poolNombres=(config.tesauroYlat && config.juego==='nd20' &&
       config.modoNombre!=='especie') ?
       config.tesauroYlat.entradas.filter(function(item) {
