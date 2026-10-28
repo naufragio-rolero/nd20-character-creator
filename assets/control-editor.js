@@ -7,6 +7,69 @@
   "use strict";
   var ESQUEMA="naufragio.revision-editorial/v1";
   var ESTADOS=["sin_revisar","si","no"];
+  /* Los lotes reflejan solo publicación confirmada, nunca pruebas. */
+  var LOTES=[
+    {id:"nd20-drs",nombre:"Naufragio d20 DRS"},
+    {id:"nd20-cifi",nombre:"Naufragio d20 CiFi"},
+    {id:"dungeon-hack",nombre:"Dungeon Hack · todas las fuentes"}
+  ];
+  function perteneceALote(item,id){
+    if(!item)return false;
+    var sistema=item.sistema,fuente=item.fuente;
+    if(id==="nd20-drs")return (
+      (sistema==="Nd20 Fantasía"&&fuente==="DRS")||
+      (sistema==="Nd20 fantasia"&&item.tipo==="Progresión"&&/^NaufragioD20DRS/.test(fuente))||
+      (sistema==="Nd20 · Poderes"&&(fuente==="Nd20"||fuente==="Naufragio d20 DRS")));
+    if(id==="nd20-cifi")return (
+      sistema==="Nd20 CiFi"||sistema==="Nd20 cifi"||
+      (sistema==="Nd20 · Poderes"&&fuente==="Naufragio d20 CiFi"));
+    if(id==="dungeon-hack")return sistema==="Dungeon Hack";
+    return false;
+  }
+  function loteDe(item){
+    return LOTES.find(function(lote){return perteneceALote(item,lote.id);})||null;
+  }
+  function estadoBase(item){
+    return {visible:true,publicado:loteDe(item)?"si":"sin_revisar",
+      probado:"sin_revisar",notas:""};
+  }
+  function estadoEfectivo(item,cambios){
+    if(!item)throw Error("Elemento inexistente en el catálogo.");
+    return cambios&&Object.prototype.hasOwnProperty.call(cambios,item.id)?
+      normalizarCambio(cambios[item.id]):estadoBase(item);
+  }
+  function lotesConfirmados(inventario){
+    return LOTES.map(function(lote){
+      return {id:lote.id,nombre:lote.nombre,
+        cantidad:inventario.filter(function(x){return perteneceALote(x,lote.id);}).length};
+    });
+  }
+  function coincideBase(item,valor){
+    var v=normalizarCambio(valor),base=estadoBase(item);
+    return v.visible===base.visible&&v.publicado===base.publicado&&
+      v.probado===base.probado&&v.notas===base.notas;
+  }
+  function aplicarLote(inventario,cambios,ids,accion){
+    if(!Array.isArray(ids)||!accion||typeof accion!=="object"||
+      Array.isArray(accion)||!Object.keys(accion).length)
+      throw Error("Selecciona elementos y alguna acción editorial.");
+    Object.keys(accion).forEach(function(campo){
+      if(!["visible","publicado","probado"].includes(campo))
+        throw Error("Campo editorial no permitido: "+campo);
+    });
+    var mapa=new Map(inventario.map(function(item){return [item.id,item];}));
+    var nuevos=Object.assign({},cambios||{}),afectados=0;
+    new Set(ids).forEach(function(id){
+      var item=mapa.get(id);
+      if(!item)throw Error("Elemento fuera del catálogo: "+id);
+      var previo=estadoEfectivo(item,nuevos);
+      var siguiente=normalizarCambio(Object.assign({},previo,accion));
+      if(JSON.stringify(previo)!==JSON.stringify(siguiente))afectados++;
+      if(coincideBase(item,siguiente))delete nuevos[id];
+      else nuevos[id]=siguiente;
+    });
+    return {cambios:nuevos,afectados:afectados};
+  }
   function idPara(sistema,tipo,clave){
     return [sistema,tipo,clave].map(encodeURIComponent).join(":");
   }
@@ -92,7 +155,8 @@
     ["fantasia","cifi","nocturna"].forEach(function(rama){
       Object.keys(progresiones[rama]||{}).forEach(function(nombre){
         agregar("Nd20 "+rama,"Progresión",nombre,nombre,
-          progresiones.fuentes?.[rama]||"Documento de Referencia del Sistema",
+          (rama==="fantasia"?progresiones.fuentes?.drs:progresiones.fuentes?.[rama])||
+            "Documento de Referencia del Sistema",
           "Tabla de progresión");
       });
     });
@@ -125,28 +189,34 @@
     return v.visible&&v.publicado==="sin_revisar"&&v.probado==="sin_revisar"&&!v.notas;
   }
   function crearRevision(inventario,cambios,fecha){
-    var admitidos=new Set(inventario.map(function(x){return x.id;})),depurados={};
+    var mapa=new Map(inventario.map(function(x){return [x.id,x];})),depurados={};
     Object.keys(cambios||{}).sort().forEach(function(id){
-      if(!admitidos.has(id))throw Error("Elemento fuera del catálogo: "+id);
-      var v=normalizarCambio(cambios[id]);
-      if(!sinCambios(v))depurados[id]=v;
+      var item=mapa.get(id);
+      if(!item)throw Error("Elemento fuera del catálogo: "+id);
+      var valor=normalizarCambio(cambios[id]);
+      if(!coincideBase(item,valor))depurados[id]=valor;
     });
     return {esquema:ESQUEMA,fecha:fecha||new Date().toISOString(),
       repositorio:"naufragio-rolero/nd20-character-creator",
-      total_inventario:inventario.length,cambios:depurados};
+      total_inventario:inventario.length,
+      lotes_base_publicados:lotesConfirmados(inventario),
+      cambios:depurados};
   }
   function importarRevision(inventario,revision){
     if(!revision||revision.esquema!==ESQUEMA||!revision.cambios||
       typeof revision.cambios!=="object"||Array.isArray(revision.cambios))
       throw Error("El archivo no utiliza el esquema de revisión editorial v1.");
-    var admitidos=new Set(inventario.map(function(x){return x.id;})),cambios={};
+    var mapa=new Map(inventario.map(function(x){return [x.id,x];})),cambios={};
     Object.entries(revision.cambios).forEach(function(par){
-      if(!admitidos.has(par[0]))throw Error("El JSON contiene un elemento desconocido: "+par[0]);
+      var item=mapa.get(par[0]);
+      if(!item)throw Error("El JSON contiene un elemento desconocido: "+par[0]);
       var valor=normalizarCambio(par[1]);
-      if(!sinCambios(valor))cambios[par[0]]=valor;
+      if(!coincideBase(item,valor))cambios[par[0]]=valor;
     });
     return cambios;
   }
   return {ESQUEMA:ESQUEMA,crearInventario:crearInventario,crearRevision:crearRevision,
-    importarRevision:importarRevision,normalizarCambio:normalizarCambio,sinCambios:sinCambios};
+    importarRevision:importarRevision,normalizarCambio:normalizarCambio,sinCambios:sinCambios,
+    perteneceALote:perteneceALote,estadoBase:estadoBase,estadoEfectivo:estadoEfectivo,
+    coincideBase:coincideBase,lotesConfirmados:lotesConfirmados,aplicarLote:aplicarLote};
 });
