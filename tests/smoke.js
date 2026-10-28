@@ -1076,3 +1076,64 @@ assert.ok(appSexo.includes('forja-sexo-pj')&&appSexo.includes('forja-respetar-co
 assert.ok(appSexo.includes('sexoApi.ocuparPermitida'),'Filtrado de Ocupaciones según ajuste');
 assert.ok(appSexo.includes('Sexo:'),'Sexo incluido en ficha exportada');
 console.log('OK · sexo y nombres de personajes, excepciones y configuración editable.');
+
+
+/* UI: generación rápida, ajustes avanzados plegables y acceso flotante. */
+const nuevaForja=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+const nuevaInterfaz=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
+const estilosNuevos=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'utf8');
+function indiceHtml(fragmento){
+  const idx=nuevaForja.indexOf(fragmento);
+  assert.ok(idx>=0,'Debe existir: '+fragmento);
+  return idx;
+}
+const panelPersonajes=indiceHtml('id="panel-personajes"');
+const formulario=indiceHtml('id="configuracion"');
+const campoNivel=indiceHtml('id="nivel"');
+const campoCantidad=indiceHtml('id="cantidad"');
+const accionGenerar=indiceHtml('id="generar"');
+const detalles=indiceHtml('id="opciones-avanzadas"');
+const sistema=indiceHtml('id="juego"');
+const herramientas=indiceHtml('id="panel-herramientas"');
+assert.ok(panelPersonajes<formulario&&formulario<campoNivel&&
+  campoNivel<campoCantidad&&campoCantidad<accionGenerar&&
+  accionGenerar<detalles&&detalles<sistema&&sistema<herramientas,
+  'Primero Nivel/Cantidad/Generar; después opciones avanzadas con Sistema; luego Herramientas');
+for(const nombre of [
+  'ocupacion','especie','opciones-dh','opciones-fuentes','sexo-pj',
+  'respetar-contexto-sexo','modo-nombre','nombre-personaje','semilla',
+  'modos-creacion','opciones-riqueza-nivel']){
+  const i=indiceHtml('id="'+nombre+'"');
+  assert.ok(i>detalles&&i<herramientas,
+    'La opción secundaria está dentro del submenú avanzado: '+nombre);
+}
+assert.equal((nuevaForja.match(/id="generar"/g)||[]).length,1,
+  'Un solo botón principal para evitar generaciones dobles');
+assert.ok(nuevaForja.includes('<details id="opciones-avanzadas"'));
+assert.ok(!nuevaForja.includes('<details id="opciones-avanzadas" open'),
+  'Los ajustes avanzados empiezan plegados');
+assert.ok(nuevaForja.includes('id="opciones-avanzadas-personajes"'),
+  'Separar opciones generales de las propias de los personajes');
+assert.ok(nuevaInterfaz.includes("$('opciones-avanzadas-personajes').hidden=tools"),
+  'En Herramientas, seguir pudiendo cambiar el Sistema');
+assert.ok(nuevaInterfaz.includes('function actualizarGenerarFlotante()'));
+assert.ok(nuevaInterfaz.includes("window.addEventListener('scroll',actualizarGenerarFlotante"));
+assert.ok(nuevaInterfaz.includes("window.addEventListener('resize',actualizarGenerarFlotante"));
+assert.ok(nuevaInterfaz.includes("$('configuracion').requestSubmit($('generar'))"),
+  'La generación flotante reutiliza validación y evento del formulario real');
+assert.ok(nuevaInterfaz.includes('!!borrador'),
+  'El botón flotante desaparece cuando hay elecciones de personaje pendientes');
+assert.ok(nuevaInterfaz.includes("avanzadas.addEventListener('toggle'"),
+  'El estado desplegado controla el posicionamiento del panel');
+assert.ok(nuevaForja.includes('id="generar-flotante"')&&
+  nuevaForja.includes('id="sistema-actual"'),
+  'Acceso flotante y sistema activo identificables');
+assert.ok(estilosNuevos.includes('.generacion-rapida')&&
+  estilosNuevos.includes('.campos-rapidos')&&
+  estilosNuevos.includes('.opciones-avanzadas>summary')&&
+  estilosNuevos.includes('.panel.panel-con-avanzadas')&&
+  estilosNuevos.includes('.generar-flotante'),
+  'Estilos de interacción y adaptación a pantallas móviles');
+assert.ok(estilosNuevos.includes('env(safe-area-inset-bottom'),
+  'Botón flotante respeta la zona segura del móvil');
+console.log('OK · Generación inmediata, opciones avanzadas y flotante responsive validados.');
