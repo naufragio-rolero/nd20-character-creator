@@ -115,8 +115,17 @@
     var conceptos = (oc.conceptos || []).concat(esp.conceptos || []);
     var esFantasia = config.juego === 'nd20';
     var esCifi = config.juego === 'nd20_cifi';
-    var presupuesto = esFantasia ? suma(4, 10, rng) * 10 :
+    var presupuestoBase = esFantasia ? suma(4, 10, rng) * 10 :
       esCifi ? suma(4, 10, rng) * 100 : null;
+    var riquezaAdicional=0;
+    if((esFantasia||esCifi)&&config.riquezaPorNivel===true){
+      // Cada Nivel ganado después del primero aporta 4d10 mo/cr adicionales.
+      for(var extraNivel=2;extraNivel<=nivel;extraNivel++)
+        riquezaAdicional+=suma(4,10,rng);
+      detalles.push('Riqueza adicional opcional: '+(nivel-1)+
+        ' Niveles × 4d10 = '+riquezaAdicional+' '+(esFantasia?'mo':'cr')+'.');
+    }
+    var presupuesto=presupuestoBase===null?null:presupuestoBase+riquezaAdicional;
     var compra = equipoApi && config.catalogoEquipo ?
       equipoApi.compraInicial(oc, ocupacion, config.juego, config.catalogoEquipo, presupuesto, rng, nivel) :
       {equipo:[],restante:presupuesto,notas:[

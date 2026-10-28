@@ -242,3 +242,13 @@ documentado del Eudemonista no se cobra y el Tecnópata comienza con su
 Ordenador neuronal. Las armas automáticas y protecciones solo se sugieren
 entre las competencias inequívocas; casos ambiguos, incluidos ciertos
 nombres de equipo heredados, quedan como asuntos de revisión editorial.
+
+
+### Decisiones editoriales confirmadas (28-10-2026)
+
+La compra de equipo es aleatoria en ambos modos; no se garantiza material
+básico gratuito. La riqueza adicional es optativa y añade 4d10 por cada
+Nivel posterior al primero, en mo (Fantasía) o cr (CiFi), manteniendo
+la riqueza de Nivel 1. El equipo de Nocturna sigue desactivado.
+Los nombres de armas de CiFi proceden de las tablas del manual.
+Las decisiones se documentan en docs/decisiones-editoriales.md.

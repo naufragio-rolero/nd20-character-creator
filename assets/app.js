@@ -95,6 +95,7 @@
     $('opciones-dh').hidden = !dh;
     $('opciones-fuentes').hidden = dh;
     $('opciones-nombres-ylat').hidden = juego!=='nd20';
+    $('opciones-riqueza-nivel').hidden=dh||juego==='nd20_nocturna';
     $('modos-creacion').hidden = dh;
     $('generar-seguidor').disabled = !dh;
     $('nivel').max = dh ? '36' : '30';
@@ -158,7 +159,9 @@
       ocupacion:$('ocupacion').value, especie:$('especie').value,
       conEspecie:$('con-especie').checked, origenes:origenes, fuentes:fuentes,
       nombre:$('nombre-personaje').value.trim(),
-      modoNombre:$('modo-nombre').value};
+      modoNombre:$('modo-nombre').value,
+      riquezaPorNivel:(juego==='nd20'||juego==='nd20_cifi')&&
+        $('riqueza-por-nivel').checked};
   }
   function crearFicha(cfg, rng) {
     if (cfg.juego === 'dh') return reglas.eleccionDH(datos.dh,cfg,rng);

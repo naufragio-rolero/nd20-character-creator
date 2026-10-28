@@ -101,6 +101,12 @@
           <label class="casilla"><input type="radio" name="modo-creacion" value="personalizado"> <strong>Personalizado:</strong> elegir Talentos y Poderes paso a paso</label>
           <small>Las progresiones pendientes de validar se señalan; nunca se asignan Poderes inventados. El Psion tira 1d20 en ambos modos.</small>
         </fieldset>
+        <fieldset id="opciones-riqueza-nivel">
+          <legend>Riqueza adicional (opcional)</legend>
+          <label class="casilla"><input type="checkbox" id="riqueza-por-nivel">
+            Sumar 4d10 mo/cr por cada Nivel ganado después del primero</label>
+          <small>Se añade al capital inicial. Equipo aleatorio y comprado; no se concede equipo básico gratuito. No se aplica a Nocturna ni a Dungeon Hack.</small>
+        </fieldset>
         <div class="campo">
           <label for="cantidad">Cuántas fichas</label>
           <input id="cantidad" type="number" min="1" max="12" value="1" required>

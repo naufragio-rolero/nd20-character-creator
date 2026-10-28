@@ -37,3 +37,29 @@
 5. ¿Cómo completar las elecciones de Compromiso del Adalid, Diletante y
    Gladiador, y el resto de progresiones especiales de Fantasía?
 6. ¿Qué capital inicial y paquetes específicos tendrá Nocturna?
+
+
+## DEC-2026-10-28-02 · Riqueza adicional por Nivel
+
+**Aprobada como opción de la Forja.** El capital inicial permanece inalterado:
+Fantasía 4d10 × 10 mo; CiFi 4d10 × 100 cr.
+
+Si se activa la opción «Riqueza adicional», se tira **4d10 por cada
+Nivel posterior al 1** y se suma el resultado en **monedas de oro para
+Fantasía** o **Créditos para CiFi**. No se aplica a Nocturna ni Dungeon
+Hack. Es una regla editorial opcional, **no** una regla del DRS publicado.
+El equipo se compra aleatoriamente dentro del presupuesto resultante.
+
+## DEC-2026-10-28-03 · Otras decisiones del autor
+
+- **Equipo: aleatorio**, tanto en modo Rápido como Personalizado; la
+  configuración Personalizada afecta a Talentos y Poderes, no a compras.
+- **Denominaciones de armas:** usar únicamente nombres que aparezcan en el
+  manual de cada ambientación; reemplazar las listas heredadas de CiFi.
+- **Talentos:** completar las elecciones de Gladiador, Adalid y Diletante
+  conforme a las reglas y restricciones del manual de Ocupaciones.
+- **Equipo básico gratuito:** **NO**. Solo hay material comprado y objetos
+  explícitamente concedidos por Especie o Talento. Los paquetes del DRS
+  se compran, nunca se regalan.
+- **Nocturna:** **NO** habilitar compras, paquetes ni riqueza de equipo
+  por analogía con Fantasía o CiFi.
