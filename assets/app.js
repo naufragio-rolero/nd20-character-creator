@@ -513,7 +513,7 @@
     datos.fantasia.fuentes={
       especies:Object.fromEntries(Object.keys(datos.fantasia.especies).map(function(key){
         var ficha=extra.fantasia.especies[key];
-        return [key,ficha?(ficha.fuente||'NaufragioD20 — Especies').replace(/\\s*\\(Google Drive\\)$/,''):'DRS'];
+        return [key,ficha?(ficha.fuente||'NaufragioD20 — Especies').replace(' (Google Drive)',''):'DRS'];
       })),
       ocupaciones:Object.fromEntries(Object.keys(datos.fantasia.ocupaciones).map(function(key){
         var ficha=extra.fantasia.ocupaciones[key];
