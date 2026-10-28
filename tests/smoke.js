@@ -910,8 +910,10 @@ const tab=htmlTemas.indexOf('id="tab-herramientas"');
 const system=htmlTemas.indexOf('id="etiqueta-sistema"');
 const panel=htmlTemas.indexOf('id="panel-personajes"');
 const tools=htmlTemas.indexOf('id="panel-herramientas"');
-assert.ok(tab>=0&&tab<system&&system<panel&&panel<tools,
-  'Sistema queda visible en ambas pestañas del menú');
+assert.ok(tab>=0&&tab<panel&&panel<system&&system<tools &&
+  htmlTemas.indexOf('id="opciones-avanzadas"')<system &&
+  htmlTemas.indexOf('id="opciones-avanzadas-personajes"')>system,
+  'Sistema permanece en las opciones globales, accesible desde ambas pestañas');
 assert.ok(appTemas.includes("marcarPanel('herramientas')"));
 assert.ok(!/refrescarSelectores\(\);\s*marcarPanel\('personajes'\)/.test(appTemas),
   'Cambiar sistema no debe expulsar al usuario de Herramientas');
