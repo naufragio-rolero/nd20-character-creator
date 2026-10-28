@@ -317,6 +317,8 @@ const prefijos=[
   ['poder_especial','Conjuros conocidos de Druida','Luz','[C] Luz'],
   ['poder_especial','Canciones','Arrullo pacificador','[Ca] Arrullo pacificador'],
   ['poder_especial','Recetas de cocina','Sopa del Pecado Menor','[Rc] Sopa del Pecado Menor'],
+  ['vinculo','Patrón','Ananke','[V] Ananke'],
+  ['escuela','Segunda Escuela maestra','Elemental','[Es] Elemental'],
   ['magia_tantrica','Magia tántrica documentada','Magia tántrica','[Mt] Magia tántrica']
 ];
 for(const [tipo,etapa,nombre,esperado] of prefijos)

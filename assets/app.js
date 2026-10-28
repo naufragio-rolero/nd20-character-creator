@@ -370,7 +370,8 @@
       disponibles.forEach(function(op){
         var item=document.createElement('option');
         item.value=op.id;
-        item.textContent=poderes.nombreEtiquetado(paso.tipo,paso.titulo,op.nombre)+
+        item.textContent=(op.id==='__vacio'?op.nombre:
+          poderes.nombreEtiquetado(paso.tipo,paso.titulo,op.nombre))+
           (op.circulo?' · C'+op.circulo:'')+
           (op.requisito?' · Requisitos de uso: '+op.requisito:'');
         sel.appendChild(item);

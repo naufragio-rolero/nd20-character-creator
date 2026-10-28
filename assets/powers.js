@@ -29,6 +29,8 @@
     if(tipo==="argucia")return "Ar";
     if(tipo==="script")return "Sc";
     if(tipo==="magia_tantrica")return "Mt";
+    if(tipo==="vinculo")return "V";
+    if(tipo==="escuela")return "Es";
     if(tipo==="poder_especial"){
       if(/^Técnicas/i.test(etapa))return "T";
       if(/^Conjuros/i.test(etapa))return "C";
