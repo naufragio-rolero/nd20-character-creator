@@ -334,7 +334,18 @@
       "Isabella",
       "Emma",
       "Ava",
-      "Mia"
+      "Mia",
+      "Clara Velsa",
+      "Lina Berov",
+      "Elia Cordes",
+      "Nora Vidalet",
+      "Tania Rosmel",
+      "Inés Dovira",
+      "Yara Montesín",
+      "Rebeca Soléz",
+      "Amira Costel",
+      "Julia Corbes",
+      "Nadia Castel"
     ],
     "Humano aumentado": [
       "Aria",
@@ -359,6 +370,91 @@
       "Vega",
       "Andromeda",
       "Bellatrix"
+    ],
+    "Humano arcano": [
+      "Mara Delvor",
+      "Yune Velasco",
+      "Ariadna Bresel",
+      "Lidia Orvella",
+      "Lara Nestri",
+      "Vera Ramiel",
+      "Sonia Altamar",
+      "Celia Vardés",
+      "Eva Morell",
+      "Noelia Terrán",
+      "Sara Lemón"
+    ],
+    "Strigoi": [
+      "Ilena Vost",
+      "Nara Vercen",
+      "Dámaris Solven",
+      "Silvia Noctel",
+      "Elvira Brezán",
+      "Iria Valdrés",
+      "Luz Damar",
+      "Renata Belmar",
+      "Cora Merlet",
+      "Estela Corvis",
+      "Marina Dolvet"
+    ],
+    "Jiangshi": [
+      "Naia Lerín",
+      "Mina Javert",
+      "Xia Merel",
+      "Marta Velin",
+      "Mei Darán",
+      "Dara Poves",
+      "Kira Sorcel",
+      "Linae Perot",
+      "Elsa Torrevi",
+      "Iria Montel"
+    ],
+    "Hombre lobo": [
+      "Brenda Velar",
+      "Violeta Neri",
+      "Alba Costera",
+      "Sandra Volper",
+      "Nerea Belén",
+      "Jana Corven",
+      "Elsa Tejer",
+      "Gala Montresa",
+      "Leire Toral",
+      "Paula Bernat"
+    ],
+    "Hombre cuervo": [
+      "Aldara Sorel",
+      "Sira Varden",
+      "Anaís Mervel",
+      "Aina Domarel",
+      "Vania Relmont",
+      "Dalia Mirvet",
+      "Noemí Saldres",
+      "Nora Belvera",
+      "Vega Carmes",
+      "Lía Dervés"
+    ],
+    "Sidhe": [
+      "Iria Faelven",
+      "Maela Virdan",
+      "Neria Doviel",
+      "Avela Darsiel",
+      "Ilenna Coriel",
+      "Vaela Merín",
+      "Esmira Theren",
+      "Aenor Velian",
+      "Rielma Arvon",
+      "Loriaen Mírel",
+      "Eirena Veldris",
+      "Nimriel Coren"
+    ],
+    "Ceniciento": [
+      "Dalia Tervén",
+      "Irene Rosval",
+      "Noa Cerel",
+      "Eva Vordel",
+      "Renée Tormes",
+      "Cleo Barnés",
+      "Vero Morís"
     ]
   },
   "nombres_editoriales": {
