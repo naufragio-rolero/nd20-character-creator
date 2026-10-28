@@ -134,12 +134,17 @@
     }
     var tecnica=numero(columna(tabla,fila,/^Técnicas(?: de combate)?$/i));
     if(tecnica && tabla.categorias.length){
-      var pool=tecnicas(catalogo,tabla.categorias,config.juego,nombre);
+      var categorias=nombre==="Adalid"?
+        ["Disciplina","Fuerza bruta","Preternatural"]:tabla.categorias;
+      var pool=tecnicas(catalogo,categorias,config.juego,nombre);
       if(nombre==="Pugilista")
         pool=pool.filter(function(t){return !/arma\s+(?:a distancia|cuerpo a cuerpo)|escudo|arrojadiza/i.test(t.requisito||"");});
       if(nombre==="Celador")
         pool=pool.filter(function(t){return !/arma cuerpo a cuerpo|espada|escudo/i.test(t.requisito||"");});
       extraerOpciones(pasos,"Técnicas de "+nombre,pool,tecnica,avisos);
+      var ultimo=pasos[pasos.length-1];
+      if(nombre==="Adalid"&&ultimo&&ultimo.titulo==="Técnicas de Adalid")
+        ultimo.dependeCompromiso=true;
     }else if(tecnica)avisos.push("La tabla indica "+tecnica+" Técnicas, pero no está verificada la categoría habilitada para "+nombre+".");
     var maximo=numero(columna(tabla,fila,/^(?:Círculo máximo de Conjuros|Círculo máximo|Círculo de Conjuro|Nivel de Conjuro)$/i));
     var conocidos=numero(columna(tabla,fila,/^Conjuros(?: conocidos)?$/i));
@@ -172,7 +177,16 @@
     }else if(nombre==="Cronómaca"){
       avisos.push("Los Conjuros de Cronurgia requieren etiquetas contrastadas antes de permitir su elección.");
     }else if(nombre==="Adalid"){
-      avisos.push("Los Conjuros del Adalid dependen del Compromiso elegido.");
+      // La lista documental de Conjuros está disponible; su asignación por
+      // Escuela/Compromiso requiere conciliar los Círculos con el catálogo.
+      avisos.push("Los Conjuros del Adalid dependen del Compromiso. Su tabla está " +
+        "reconstruida, pero la correspondencia de Escuelas y Círculos con el catálogo " +
+        "de conjuros sigue pendiente de validar; no se asignan hechizos dudosos.");
+      for(var cAd=1;cAd<=4;cAd++){
+        var nAd=numero(columna(tabla,fila,new RegExp("^"+cAd+"$")));
+        if(nAd)avisos.push("Adalid: "+nAd+" Espacio(s) del Círculo "+cAd+
+          " si eliges un Compromiso que conceda Conjuros.");
+      }
     }else if(nombre==="Brujo"||nombre==="Chamán"||nombre==="Hechicero"||nombre==="Oráculo"){
       var vinculos=catalogo.especiales?.vinculos?.[nombre]||[];
       if(vinculos.length){
@@ -249,8 +263,35 @@
       avisos.push("El Lardeur puede aprender más Recetas durante la aventura; no existe un máximo por Nivel.");
     }
     // Tablas documentadas con mejoras pasivas no elegibles.
-    if(nombre==="Diletante")avisos.push("Los Talentos tomados de otras Ocupaciones necesitan elegir su origen y verificar compatibilidades.");
-    if(nombre==="Adalid")avisos.push("Debes definir el Compromiso del Adalid antes de adquirir sus Técnicas especiales.");
+    if(nombre==="Diletante")avisos.push("Los Talentos aprendidos mediante Diletante que conceden Poderes requieren aplicar el factor de Nivel 1/5 indicado en el manual.");
+    if(nombre==="Adalid")avisos.push("Las Técnicas del Adalid se restringen automáticamente por Compromiso.");
+  }
+
+
+  // El manual de Ocupaciones: Gladiador 1/12/24, Diletante 1/6/12 y 1/9.
+  var ESTILOS_GLADIADOR=["Cestus","Dimacaero","Murmillo","Retiario","Secutor","Veles"];
+  var COMPETENCIAS_DILETANTE=[
+    {id:"armas-varias",nombre:"Armas variadas y dos tipos de armaduras",
+      requisito:"Elegir 4 armas entre armas de una mano, dos manos, arrojadizas o a distancia; elegir 2 tipos de armadura en orden ascendente."},
+    {id:"armas-escudo",nombre:"Tres armas, tres tipos de armadura y escudo mediano",
+      requisito:"Elegir 3 armas entre armas de una mano o a distancia; elegir 3 tipos de armadura en orden ascendente; competencia con escudos medianos."},
+    {id:"protecciones",nombre:"Cuatro tipos de armadura y cualquier escudo",
+      requisito:"Elegir 4 tipos de armadura en orden ascendente; competencia con cualquier escudo."}
+  ];
+  function talentosDiletante(datos){
+    var prohibidos=["Diletante","Marginado"],condicionados=[
+      "Compromiso del adalid","Estilos de gladiatoria","Aprendiz de todo",
+      "Competencias y poderes"];
+    return Object.entries(datos.ocupaciones||{}).filter(function(par){
+      return prohibidos.indexOf(par[0])<0&&
+        (!par[1].talentos_documentacion||par[1].talentos_documentacion.verificado!==false);
+    }).flatMap(function(par){
+      return (par[1].talentos||[]).filter(function(t){
+        return !condicionados.includes(t);
+      }).map(function(t){
+        return {id:par[0]+": "+t,nombre:t,requisito:"Ocupación de origen: "+par[0]};
+      });
+    });
   }
 
   function planificar(config,datos,catalogo,progresiones){
@@ -270,12 +311,25 @@
           "compromiso",1,perfil.compromisos.map(function(v){
             return {id:v.nombre,nombre:v.nombre};
           })));
-        avisos.push("Los Poderes y Competencias especiales del Compromiso del Adalid quedan pendientes de resolver según su rama documental.");
+        avisos.push("Los Conjuros del Adalid no se atribuyen automáticamente hasta conciliar las listas por Escuela y Círculo.");
       }
-      if(ocupacion==="Diletante")
-        avisos.push("Los Talentos ajenos del Diletante (Niveles 1, 6 y 12) requieren una selección restringida aún pendiente.");
+      if(ocupacion==="Diletante"){
+        var poolD=talentosDiletante(datos);
+        for(var nivD of [1,6,12])if(nivel>=nivD)
+          pasos.push(nuevo("talento-diletante-"+nivD,
+            "Talento de otra Ocupación · Nivel "+nivD,"talento_ajeno",1,
+            poolD,{grupo:"talentos-diletante"}));
+        for(var compD of [1,9])if(nivel>=compD)
+          pasos.push(nuevo("competencias-diletante-"+compD,
+            "Lista de competencias · Nivel "+compD,"competencias_diletante",1,
+            COMPETENCIAS_DILETANTE,{grupo:"competencias-diletante"}));
+      }
       if(ocupacion==="Gladiador")
-        avisos.push("El Estilo de gladiatoria inicial necesita un catálogo de elecciones antes de asignarse.");
+        for(var estiloNivel of [1,12,24])if(nivel>=estiloNivel)
+          pasos.push(nuevo("estilo-gladiador-"+estiloNivel,
+            "Estilo de gladiatoria · Nivel "+estiloNivel,"estilo_gladiatoria",1,
+            ESTILOS_GLADIADOR.map(function(t){return {id:t,nombre:t};}),
+            {grupo:"estilos-gladiador"}));
     }
     if(juego==="nd20_nocturna"){
       var es=datos.especies[especie],oc=datos.ocupaciones[ocupacion];
@@ -365,6 +419,24 @@
       });
       lista=lista.filter(function(op){return conocidos.has(op.id);});
     }
+    if(paso.dependeCompromiso){
+      var compromiso=(selecciones["compromiso-adalid"]||[])[0];
+      var categorias=["Disciplina"];
+      if(compromiso==="Guardián leal")categorias.push("Fuerza bruta");
+      if(compromiso==="Endecha de los condenados")categorias.push("Preternatural");
+      lista=lista.filter(function(x){return categorias.includes(x.categoria);});
+    }
+    if(["talentos-diletante","competencias-diletante","estilos-gladiador"].includes(paso.grupo)){
+      var idsUsados=new Set();
+      Object.keys(selecciones||{}).forEach(function(k){
+        if(k===paso.id)return;
+        var mismo=paso.grupo==="talentos-diletante"?k.startsWith("talento-diletante-"):
+          paso.grupo==="competencias-diletante"?k.startsWith("competencias-diletante-"):
+          k.startsWith("estilo-gladiador-");
+        if(mismo)(selecciones[k]||[]).forEach(function(id){idsUsados.add(id);});
+      });
+      lista=lista.filter(function(x){return !idsUsados.has(x.id);});
+    }
     if(paso.grupo==="talentos-ocupacion"){
       var usados=new Set();
       Object.keys(selecciones||{}).filter(function(k){return k.startsWith("talento-ocupacion-")&&k!==paso.id;}).forEach(function(k){
@@ -444,10 +516,25 @@
     resultado.elementos.forEach(function(x){
       if(x.tipo==="talento"){
         if(!personaje.capacidades.includes(x.nombre))personaje.capacidades.push(x.nombre);
+      }else if(x.tipo==="talento_ajeno"){
+        personaje.capacidades.push(x.nombre+" (Diletante; "+x.info+")");
+      }else if(x.tipo==="competencias_diletante"){
+        personaje.competencias=personaje.competencias||[];
+        personaje.competencias.push("Diletante · "+x.nombre+": "+x.info);
+      }else if(x.tipo==="estilo_gladiatoria"){
+        personaje.capacidades.push("Estilo de gladiatoria: "+x.nombre);
       }else if(x.tipo==="compromiso"){
         personaje.capacidades.push("Compromiso del adalid: "+x.nombre);
         if(x.nombre==="Guardián leal")personaje.capacidades.push("Desafío honorable");
         if(x.nombre==="Juramento sagrado")personaje.capacidades.push("Imposición de manos");
+        if(x.nombre==="Guardián leal")
+          personaje.competencias.push("Técnicas de batalla: Disciplina y Fuerza bruta");
+        if(x.nombre==="Endecha de los condenados")
+          personaje.competencias.push("Técnicas de batalla: Disciplina y Preternatural");
+        if(x.nombre==="Juramento sagrado")
+          personaje.competencias.push("Conjuros: Escuela Divina hasta Círculo 4");
+        if(x.nombre==="Endecha de los condenados")
+          personaje.competencias.push("Conjuros: Arcana, Demonología y Nigromancia hasta Círculo 4");
       }
       else if(x.tipo==="conjuro_preparado")
         personaje.conjuros_preparados.push(nombreEtiquetado(x.tipo,x.etapa,x.nombre)+
