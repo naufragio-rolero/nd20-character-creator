@@ -8,6 +8,8 @@ Documentación de Talentos, Poderes, Conjuros y Objetos de **Naufragio d20**. Es
 - [01B — Talentos de Ocupaciones](01b-talentos-ocupaciones.csv): **163** relaciones nominales únicas por Ocupación; conserva el campo JSON de procedencia.
 - [02 — Extracción de Talentos de Especies](02-informe-extraccion-especies.md): **115 fichas literales** en tres JSON (DRS/CiFi, Ylat/Hyrule, Nocturna), pendientes de validación.
 - [03 — Preclasificación y hallazgos de Talentos de Especies](03-informe-propiedades-especies.md): indicios mecánicos localizables, reglas de adquisición de Hyrule/Nocturna y **11 hallazgos** pendientes de resolución.
+- [04 — Acuerdos editoriales de Talentos de Especies](04-acuerdos-editoriales-especies.md): decisiones del autor, estado de aplicación y preguntas abiertas.
+- [04B — Textos aprobados de Jiangshi y Gerudo](04b-talentos-especies-aprobados.json): versiones vigentes, posteriores a las extracciones históricas 02*.
 
 **Convenciones:** estar en el JSON ≠ disponer de efecto completo; coincidir con `fichas-documentales.json` por nombre ≠ verificación de identidad mecánica; verificado en una progresión ≠ reglamento completamente extraído. Las diferencias se registran sin corregirlas automáticamente. Los Talentos homónimos deben mantenerse vinculados a su sistema y Especie/Ocupación. La fuente prevalece para la extracción literal, siempre señalando si se trata de DRS, suplemento, documento vivo o decisión editorial.
 
