@@ -38,6 +38,8 @@ jobs:
           test -s assets/powers.js
           test -s control.html
           test -s assets/control-editor.js
+          test -s assets/repertorios.js
+          node --check assets/repertorios.js
           test -s assets/control-ui.js
           test -s assets/control.css
           node --check assets/powers.js

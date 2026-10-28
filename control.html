@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="stylesheet" href="assets/control.css">
   <script defer src="assets/control-editor.js"></script>
+  <script defer src="assets/repertorios.js"></script>
   <script defer src="assets/control-ui.js"></script>
 </head>
 <body data-tema="clasico" class="pagina-control">
@@ -45,6 +46,11 @@
       <button type="button" id="copiar-token">Copiar token</button>
     </section>
     <section id="mesa-control" hidden aria-label="Inventario editorial">
+      <div class="pestanas-editor" role="tablist" aria-label="Secciones del control editorial">
+        <button type="button" id="tab-inventario" role="tab" aria-controls="panel-inventario-editor" aria-selected="true">Publicación y pruebas</button>
+        <button type="button" id="tab-repertorios" role="tab" aria-controls="panel-repertorios-editor" aria-selected="false">Nombres y conceptos</button>
+      </div>
+      <div id="panel-inventario-editor" role="tabpanel" aria-labelledby="tab-inventario">
       <div class="resumen-control" id="resumen-control" aria-live="polite">
         <div><strong id="cuenta-total">0</strong><span>Elementos catalogados</span></div>
         <div><strong id="cuenta-cambios">0</strong><span>Revisiones guardadas</span></div>
@@ -165,7 +171,73 @@
             <button type="button" id="restablecer-elemento">Restablecer al estado de su lote</button>
           </form>
         </section>
+
       </div>
+      </div>
+      <section id="panel-repertorios-editor" role="tabpanel" aria-labelledby="tab-repertorios" hidden>
+        <div class="barra-control">
+          <div>
+            <h2>Repertorios de nombres y conceptos</h2>
+            <p class="muted">Edita un repertorio completo: una entrada por línea. Sin generar contenidos ficticios automáticamente.</p>
+          </div>
+          <div class="acciones-control">
+            <button type="button" id="importar-repertorios">Importar revisión JSON</button>
+            <button type="button" id="exportar-repertorios" class="principal">Exportar revisión JSON</button>
+          </div>
+        </div>
+        <div class="resumen-repertorios">
+          <span><strong id="total-repertorios">0</strong> repertorios</span>
+          <span><strong id="total-entradas">0</strong> entradas actuales</span>
+          <span><strong id="total-propuestas">0</strong> repertorios modificados</span>
+        </div>
+        <div class="filtros-repertorios">
+          <label for="buscar-repertorio">Buscar repertorio
+            <input type="search" id="buscar-repertorio" placeholder="Especie, Ocupación o fuente…">
+          </label>
+          <label for="sistema-repertorio">Sistema
+            <select id="sistema-repertorio"><option value="">Todos los sistemas</option></select>
+          </label>
+          <label for="tipo-repertorio">Contenido
+            <select id="tipo-repertorio">
+              <option value="">Nombres y conceptos</option>
+              <option value="nombres">Solo nombres</option>
+              <option value="conceptos">Solo conceptos</option>
+            </select>
+          </label>
+          <label for="estado-repertorio">Estado
+            <select id="estado-repertorio">
+              <option value="">Todos</option>
+              <option value="editados">Con cambios</option>
+              <option value="vacios">Sin entradas aún</option>
+            </select>
+          </label>
+        </div>
+        <div class="columnas-control">
+          <section class="bloque-control lista-control" aria-label="Lista de repertorios">
+            <p class="muted" id="cuenta-repertorios-filtrados"></p>
+            <ul id="lista-repertorios" class="elementos-control"></ul>
+          </section>
+          <section class="bloque-control detalle-control" aria-label="Editar repertorio">
+            <p id="repertorio-vacio" class="muted">Selecciona una Especie, Ocupación o repertorio general.</p>
+            <form id="form-repertorio" hidden>
+              <p id="repertorio-sistema" class="sobrelinea"></p>
+              <h3 id="repertorio-titulo"></h3>
+              <p id="repertorio-fuente" class="muted"></p>
+              <p id="repertorio-ayuda" class="muted"></p>
+              <label for="repertorio-valores">Entradas (una por línea)
+                <textarea id="repertorio-valores" rows="16" spellcheck="false" placeholder="Escribe una entrada por línea…"></textarea>
+              </label>
+              <p id="repertorio-contador" class="muted"></p>
+              <p id="repertorio-error" class="mensaje-repertorio" role="status" aria-live="polite"></p>
+              <div class="acciones-repertorio">
+                <button type="submit" id="guardar-repertorio" class="principal">Guardar propuestas</button>
+                <button type="button" id="restaurar-repertorio">Restaurar lista original</button>
+              </div>
+              <p class="muted">El guardado es local y no modifica el generador. Exporta el JSON y compártelo para incorporar los cambios.</p>
+            </form>
+          </section>
+        </div>
+      </section>
     </section>
   </main>
 </body>
