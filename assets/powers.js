@@ -258,6 +258,25 @@
     var nivel=rango(Number(config.nivel)||1,1,30),pasos=[],avisos=[],recursos=[];
     var rama=juego==="nd20"?"fantasia":juego==="nd20_cifi"?"cifi":"nocturna";
     var p=(progresiones[rama]||{})[ocupacion];
+    if(juego==="nd20"){
+      var perfil=datos.ocupaciones[ocupacion]||{};
+      if((perfil.talentos_elegir||[]).length){
+        pasos.push(nuevo("talento-ocupacion-inicial",
+          "Talento de "+ocupacion+" · Nivel 1","talento",1,
+          perfil.talentos_elegir.map(function(t){return {id:t,nombre:t};})));
+      }
+      if(ocupacion==="Adalid"&&(perfil.compromisos||[]).length){
+        pasos.push(nuevo("compromiso-adalid","Compromiso del Adalid · Nivel 1",
+          "compromiso",1,perfil.compromisos.map(function(v){
+            return {id:v.nombre,nombre:v.nombre};
+          })));
+        avisos.push("Los Poderes y Competencias especiales del Compromiso del Adalid quedan pendientes de resolver según su rama documental.");
+      }
+      if(ocupacion==="Diletante")
+        avisos.push("Los Talentos ajenos del Diletante (Niveles 1, 6 y 12) requieren una selección restringida aún pendiente.");
+      if(ocupacion==="Gladiador")
+        avisos.push("El Estilo de gladiatoria inicial necesita un catálogo de elecciones antes de asignarse.");
+    }
     if(juego==="nd20_nocturna"){
       var es=datos.especies[especie],oc=datos.ocupaciones[ocupacion];
       if(es&&(es.talentos_elegir||[]).length)
@@ -423,7 +442,13 @@
     personaje.poderes=[];
     personaje.conjuros_preparados=[];
     resultado.elementos.forEach(function(x){
-      if(x.tipo==="talento")personaje.capacidades.push(x.nombre);
+      if(x.tipo==="talento"){
+        if(!personaje.capacidades.includes(x.nombre))personaje.capacidades.push(x.nombre);
+      }else if(x.tipo==="compromiso"){
+        personaje.capacidades.push("Compromiso del adalid: "+x.nombre);
+        if(x.nombre==="Guardián leal")personaje.capacidades.push("Desafío honorable");
+        if(x.nombre==="Juramento sagrado")personaje.capacidades.push("Imposición de manos");
+      }
       else if(x.tipo==="conjuro_preparado")
         personaje.conjuros_preparados.push(nombreEtiquetado(x.tipo,x.etapa,x.nombre)+
           " (C"+x.circulo+")"+origenConjuro(x.tipo,x.etapa,x.origen));

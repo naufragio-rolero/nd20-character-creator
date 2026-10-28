@@ -163,7 +163,8 @@
   function crearFicha(cfg, rng) {
     if (cfg.juego === 'dh') return reglas.eleccionDH(datos.dh,cfg,rng);
     return reglas.crearNd20(datosJuego(cfg.juego),
-      Object.assign({},cfg,{aplazarElecciones:true,tesauroYlat:datos.tesauroYlat}),rng);
+      Object.assign({},cfg,{aplazarElecciones:true,tesauroYlat:datos.tesauroYlat,
+        catalogoEquipo:datos.equipoInicial}),rng);
   }
   function fuentesFicha(personaje){
     var ocupacion=personaje.procedenciaOcupacion||personaje.origen||'Sin especificar';
@@ -490,6 +491,7 @@
       tesauroYlat:'data/tesauro-ylat.json',
       catalogo:'data/catalogo-poderes.json',
       progresiones:'data/progresiones-oficiales.json',
+      equipoInicial:'data/equipo-inicial.json',
       dungeon:'data/dungeon-hack.json'
     };
     var elementos=await Promise.all(Object.entries(archivos).map(async function(par){
@@ -543,6 +545,7 @@
     datos.catalogo=loaded.catalogo;
     datos.tesauroYlat=loaded.tesauroYlat;
     datos.progresiones=loaded.progresiones;
+    datos.equipoInicial=loaded.equipoInicial;
     datos.dh=loaded.dungeon;
     $('origenes').textContent='';
     datos.dh.origins.forEach(function(nombre,index){

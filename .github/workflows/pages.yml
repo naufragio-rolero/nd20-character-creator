@@ -35,6 +35,10 @@ jobs:
           test -s data/catalogo-poderes.json
           test -s data/tesauro-ylat.json
           test -s data/progresiones-oficiales.json
+          test -s data/equipo-inicial.json
+          test -s assets/equipment.js
+          node --check assets/equipment.js
+          node --check assets/rules.js
           test -s assets/powers.js
           test -s control.html
           test -s assets/control-editor.js
