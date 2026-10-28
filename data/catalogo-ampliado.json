@@ -20,7 +20,10 @@
           "Puedes equipar armaduras ligeras y armaduras intermedias.",
           "Eres competente con el Kit de medicina y con la Tinta y Pluma."
         ],
-        "talentos": [],
+        "talentos": [
+          "Hallar la verdad",
+          "Olfato deductivo"
+        ],
         "conceptos": [
           "Juez que duda de sus sentencias",
           "Investigadora de crímenes imposibles",
@@ -41,7 +44,14 @@
           "Hallar la verdad",
           "Olfato deductivo"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Truhán": {
         "atributo_favorito": [
@@ -55,7 +65,10 @@
           "Puedes equipar armaduras ligeras.",
           "Eres competente con las Ganzúas y con la Tinta y Pluma."
         ],
-        "talentos": [],
+        "talentos": [
+          "Cotilla",
+          "Fullerías"
+        ],
         "conceptos": [
           "Aprendiz de mago expulsado",
           "Estafadora con modales refinados",
@@ -76,7 +89,14 @@
           "Cotilla",
           "Fullerías"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Acróbata": {
         "atributo_favorito": [
@@ -90,7 +110,11 @@
           "Puedes equipar armaduras ligeras.",
           "Eres competente con la Pértiga y con la Cometa."
         ],
-        "talentos": [],
+        "talentos": [
+          "Equilibrio perfecto",
+          "Frustración canalizada",
+          "Maniobra letal"
+        ],
         "conceptos": [
           "Funambulista sin sentido del peligro",
           "Artista arruinada por su fama",
@@ -112,7 +136,14 @@
           "Frustración canalizada",
           "Maniobra letal"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Astrólogo": {
         "atributo_favorito": [
@@ -126,7 +157,10 @@
           "Puedes equipar ropa, túnicas y armaduras de tela.",
           "Eres competente con el Astrolabio y el Microscopio."
         ],
-        "talentos": [],
+        "talentos": [
+          "Cauce astral",
+          "Premonición estelar"
+        ],
         "conceptos": [
           "Intérprete de presagios contradictorios",
           "Consejero que ocultó un augurio",
@@ -147,7 +181,14 @@
           "Cauce astral",
           "Premonición estelar"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Dinamitero": {
         "atributo_favorito": [
@@ -162,7 +203,10 @@
           "Puedes equipar armaduras ligeras y armaduras intermedias.",
           "Puedes manipular bombas, granadas y otros explosivos."
         ],
-        "talentos": [],
+        "talentos": [
+          "Experto en bombas",
+          "Ingeniería explosiva"
+        ],
         "conceptos": [
           "Minera enamorada del estruendo",
           "Zapador que teme otra tragedia",
@@ -183,7 +227,14 @@
           "Experto en bombas",
           "Ingeniería explosiva"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Marginado": {
         "atributo_favorito": [
@@ -205,7 +256,11 @@
           "A partir de Nivel 6, puedes equipar armaduras ligeras.",
           "No tienes riqueza inicial; en su lugar, comienzas con unos harapos (Armadura de tela), una cachiporra (Clava) y una tapa de barril (Escudo pequeño)."
         ],
-        "talentos": [],
+        "talentos": [
+          "Estulticia",
+          "Golpe desesperado",
+          "Infeliz"
+        ],
         "conceptos": [
           "Mendiga orgullosa de su libertad",
           "Desposeído que rechaza la caridad",
@@ -227,7 +282,14 @@
           "Golpe desesperado",
           "Infeliz"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Doncella de la Espada": {
         "atributo_favorito": [
@@ -243,7 +305,10 @@
           "Puedes equipar cualquier tipo de armadura.",
           "Eres competente con el Kit de medicina y con la Piedra de afilar."
         ],
-        "talentos": [],
+        "talentos": [
+          "Esplendor",
+          "Oleada extensiva"
+        ],
         "conceptos": [
           "Guerrera incapaz de perdonar",
           "Discípula que rechaza matar",
@@ -264,7 +329,14 @@
           "Esplendor",
           "Oleada extensiva"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Valquiria": {
         "atributo_favorito": [
@@ -279,7 +351,10 @@
           "Puedes equipar cualquier tipo de armadura.",
           "Eres competente con la Piedra de afilar y con la Cometa."
         ],
-        "talentos": [],
+        "talentos": [
+          "Alas de la libertad",
+          "Poderío de la Reina"
+        ],
         "conceptos": [
           "Campeona que cuestiona su misión",
           "Guerrera nostálgica de su retiro",
@@ -300,7 +375,14 @@
           "Alas de la libertad",
           "Poderío de la Reina"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Hurí": {
         "atributo_favorito": [
@@ -314,7 +396,10 @@
           "Puedes equipar ropa, túnicas y armaduras de tela.",
           "Eres competente con el Kit de masajes y con los Aparatos de placer."
         ],
-        "talentos": [],
+        "talentos": [
+          "Encanto",
+          "Defensa sin armadura"
+        ],
         "conceptos": [
           "Antigua figura de veneración",
           "Seductora que desdeña los lujos",
@@ -335,7 +420,14 @@
           "Encanto",
           "Defensa sin armadura"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Marionetista": {
         "atributo_favorito": [
@@ -351,7 +443,10 @@
           "Puedes equipar armaduras de tela y armaduras ligeras hechas de madera.",
           "Eres competente con las Herramientas de carpintero y el Telar."
         ],
-        "talentos": [],
+        "talentos": [
+          "Dominio de las marionetas",
+          "Solidez ligna"
+        ],
         "conceptos": [
           "Artista que habla con sus títeres",
           "Inventora de muñecos imperfectos",
@@ -372,7 +467,14 @@
           "Dominio de las marionetas",
           "Solidez ligna"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Vikingo": {
         "atributo_favorito": [
@@ -387,7 +489,11 @@
           "Puedes equipar armaduras ligeras e intermedias.",
           "Eres competente con el Cuchillo de desuello y con la Piedra de afilar."
         ],
-        "talentos": [],
+        "talentos": [
+          "Corazón de escarcha",
+          "Pillaje voraz",
+          "Ira del rayo"
+        ],
         "conceptos": [
           "Navegante que prefiere negociar",
           "Saqueadora arrepentida de su pasado",
@@ -409,7 +515,14 @@
           "Pillaje voraz",
           "Ira del rayo"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Verdugo": {
         "atributo_favorito": [
@@ -423,7 +536,11 @@
           "Puedes equipar armaduras ligeras e intermedias.",
           "Eres competente con la Cuna de judas y con la Piedra de afilar."
         ],
-        "talentos": [],
+        "talentos": [
+          "Aterrorizar",
+          "Decapitación",
+          "Torturar"
+        ],
         "conceptos": [
           "Ejecutor que aborrece la sangre",
           "Carcelera cómplice de una fuga",
@@ -445,7 +562,14 @@
           "Decapitación",
           "Torturar"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Gladiador": {
         "atributo_favorito": [
@@ -460,7 +584,10 @@
           "Puedes equipar armaduras ligeras e intermedias.",
           "Eres competente con el Kit de medicina y con el Maniquí de entrenamiento."
         ],
-        "talentos": [],
+        "talentos": [
+          "Estilos de gladiatoria",
+          "Protecciones cómodas"
+        ],
         "conceptos": [
           "Campeona que compra su libertad",
           "Luchador que teme al público",
@@ -481,7 +608,14 @@
           "Estilos de gladiatoria",
           "Protecciones cómodas"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": "Elegir un estilo de gladiatoria durante la creación"
+        }
       },
       "Arlequín": {
         "atributo_favorito": [
@@ -496,7 +630,10 @@
           "Puedes equipar armaduras de tela y ligeras.",
           "Eres competente con las Ganzúas y con los Bolos de malabarismo."
         ],
-        "talentos": [],
+        "talentos": [
+          "Mímica",
+          "Ridículo"
+        ],
         "conceptos": [
           "Comediante que espía entre risas",
           "Bufona de lengua despiadada",
@@ -517,7 +654,14 @@
           "Mímica",
           "Ridículo"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Pugilista": {
         "atributo_favorito": [
@@ -532,7 +676,10 @@
           "Puedes equipar únicamente ropa y armaduras de tela.",
           "Eres competente con el Saco de boxeo y con la Cuerda de entrenamiento."
         ],
-        "talentos": [],
+        "talentos": [
+          "Contundencia",
+          "Juego de piernas"
+        ],
         "conceptos": [
           "Campeona de peleas clandestinas",
           "Boxeador que rehúye las armas",
@@ -553,7 +700,14 @@
           "Contundencia",
           "Juego de piernas"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Epicúreo": {
         "atributo_favorito": [
@@ -567,7 +721,10 @@
           "Puedes equipar ropa, armaduras de tela y armaduras ligeras.",
           "Eres competente con el Kit de cocina y el Kit de medicina."
         ],
-        "talentos": [],
+        "talentos": [
+          "Paladar exquisito",
+          "Escudo placentero"
+        ],
         "conceptos": [
           "Catador incapaz de saciarse",
           "Hedonista que desprecia la riqueza",
@@ -588,7 +745,14 @@
           "Paladar exquisito",
           "Escudo placentero"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Nictomante": {
         "atributo_favorito": [
@@ -603,7 +767,11 @@
           "Puedes equipar ropa, armaduras de tela y túnicas.",
           "Eres competente con el Alambique y el Kit de medicina."
         ],
-        "talentos": [],
+        "talentos": [
+          "Ablución nocturna",
+          "Puntos de Nictalgia",
+          "Celaje umbrío"
+        ],
         "conceptos": [
           "Iniciado consumido por la noche",
           "Conjuradora que teme al alba",
@@ -625,7 +793,14 @@
           "Puntos de Nictalgia",
           "Celaje umbrío"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Cronómaca": {
         "atributo_favorito": [
@@ -641,7 +816,10 @@
           "Puedes equipar ropa, armaduras ligeras y armaduras medias.",
           "Eres competente con las Cronoesferas y con la Piedra de afilar."
         ],
-        "talentos": [],
+        "talentos": [
+          "Guardatiempo",
+          "Impulso temporal"
+        ],
         "conceptos": [
           "Guerrera que llega siempre tarde",
           "Combatiente perseguida por un instante",
@@ -662,7 +840,14 @@
           "Guardatiempo",
           "Impulso temporal"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Invocadora": {
         "atributo_favorito": [
@@ -678,7 +863,10 @@
           "Puedes equipar ropa, armaduras ligeras y armaduras medias.",
           "Eres competente con el Grimorio de Diagramas  y con la Tinta y Pluma."
         ],
-        "talentos": [],
+        "talentos": [
+          "Abnegación",
+          "Convocar Eidolon"
+        ],
         "conceptos": [
           "Elegida que teme a su espíritu",
           "Mortal cansada de servir",
@@ -699,7 +887,14 @@
           "Abnegación",
           "Convocar Eidolon"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Druida": {
         "atributo_favorito": [
@@ -737,7 +932,17 @@
           "Forma salvaje",
           "Sendero de la naturaleza"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": false,
+          "nivel_inicial": 1,
+          "pendientes": [
+            "Forma salvaje",
+            "Sendero de la naturaleza"
+          ],
+          "condiciones": ""
+        }
       },
       "Lardeur": {
         "atributo_favorito": [
@@ -774,7 +979,18 @@
           "Haute cuisine",
           "Mise en place"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": false,
+          "nivel_inicial": 1,
+          "pendientes": [
+            "Cata magistral",
+            "Haute cuisine",
+            "Mise en place"
+          ],
+          "condiciones": ""
+        }
       },
       "Derviche": {
         "atributo_favorito": [
@@ -813,7 +1029,19 @@
           "Maniobra letal",
           "Oleada extensiva"
         ],
-        "suplemento": "Nuevas Ocupaciones"
+        "suplemento": "Nuevas Ocupaciones",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": false,
+          "nivel_inicial": 1,
+          "pendientes": [
+            "Danza de las dos hojas",
+            "Defensa sin armadura",
+            "Maniobra letal",
+            "Oleada extensiva"
+          ],
+          "condiciones": ""
+        }
       },
       "Adalid": {
         "atributo_favorito": [
@@ -829,7 +1057,10 @@
           "Puedes equipar cualquier tipo de armadura.",
           "Eres competente con la Piedra de afilar y con la Tinta y Pluma."
         ],
-        "talentos": [],
+        "talentos": [
+          "Poderío del caballero",
+          "Compromiso del adalid"
+        ],
         "conceptos": [
           "Caballero de juramento imposible",
           "Defensora de un código olvidado",
@@ -852,7 +1083,28 @@
           "Desafío honorable",
           "Imposición de manos"
         ],
-        "suplemento": "Ylat"
+        "suplemento": "Ylat",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": "Compromiso del adalid obligatorio: su elección afecta a Talentos y Poderes"
+        },
+        "compromisos": [
+          {
+            "nombre": "Guardián leal",
+            "talento": "Desafío honorable"
+          },
+          {
+            "nombre": "Juramento sagrado",
+            "talento": "Imposición de manos"
+          },
+          {
+            "nombre": "Endecha de los condenados",
+            "talento": null
+          }
+        ]
       },
       "Bárbaro": {
         "atributo_favorito": [
@@ -868,7 +1120,10 @@
           "Puedes equipar cualquier armadura ligera y la armadura de pieles.",
           "Eres competente con el Kit de escalada y con la Piedra de afilar."
         ],
-        "talentos": [],
+        "talentos": [
+          "Brutalidad",
+          "Cólera"
+        ],
         "conceptos": [
           "Guerrero extrañado por la ciudad",
           "Nómada que busca una familia",
@@ -891,7 +1146,18 @@
           "Energúmeno",
           "Receloso"
         ],
-        "suplemento": "Ylat"
+        "suplemento": "Ylat",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        },
+        "talentos_elegir": [
+          "Energúmeno",
+          "Receloso"
+        ]
       },
       "Bardo": {
         "atributo_favorito": [
@@ -905,7 +1171,10 @@
           "Puedes equipar cualquier armadura ligera, la armadura de pieles y la cota de anillas.",
           "Eres competente con Instrumentos musicales y con el Kit de escalada."
         ],
-        "talentos": [],
+        "talentos": [
+          "Cultura del viajero",
+          "Entusiasmo"
+        ],
         "conceptos": [
           "Cronista que exagera sus hazañas",
           "Música que busca una canción perdida",
@@ -926,7 +1195,14 @@
           "Cultura del viajero",
           "Entusiasmo"
         ],
-        "suplemento": "Ylat"
+        "suplemento": "Ylat",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Belisario": {
         "atributo_favorito": [
@@ -942,7 +1218,11 @@
           "Puedes equipar armaduras ligeras e intermedias.",
           "Eres competente con el Kit de medicina y con la Piedra de afilar."
         ],
-        "talentos": [],
+        "talentos": [
+          "Apariencia intimidante",
+          "Estratega avezado",
+          "Preparación"
+        ],
         "conceptos": [
           "Estratega atormentada por una derrota",
           "Capitán que rechaza sacrificios inútiles",
@@ -964,7 +1244,14 @@
           "Estratega avezado",
           "Preparación"
         ],
-        "suplemento": "Ylat"
+        "suplemento": "Ylat",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Brujo": {
         "atributo_favorito": [
@@ -979,7 +1266,11 @@
           "Puedes equipar armaduras ligeras.",
           "Eres competente con la Piedra de afilar y con la Tinta y Pluma."
         ],
-        "talentos": [],
+        "talentos": [
+          "Esbirro familiar",
+          "Puntos de Brujería",
+          "Rebote arcano"
+        ],
         "conceptos": [
           "Deudor de una entidad impaciente",
           "Hechicera que renegó de su pacto",
@@ -1001,7 +1292,14 @@
           "Puntos de Brujería",
           "Rebote arcano"
         ],
-        "suplemento": "Ylat"
+        "suplemento": "Ylat",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Cazador": {
         "atributo_favorito": [
@@ -1016,7 +1314,10 @@
           "Puedes equipar armaduras ligeras e intermedias que no sean de metal.",
           "Eres competente con el Kit de cocina y con el Kit de trampero."
         ],
-        "talentos": [],
+        "talentos": [
+          "Compañero animal",
+          "Marca del cazador"
+        ],
         "conceptos": [
           "Rastreadora unida a una bestia",
           "Arquero que protege a sus presas",
@@ -1037,7 +1338,14 @@
           "Compañero animal",
           "Marca del cazador"
         ],
-        "suplemento": "Ylat"
+        "suplemento": "Ylat",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Celador": {
         "atributo_favorito": [
@@ -1053,7 +1361,10 @@
           "Puedes equipar armaduras ligeras.",
           "Eres competente con el Kit de escalada y con el Kit de trampero."
         ],
-        "talentos": [],
+        "talentos": [
+          "Arma de celador",
+          "Disparo inevitable"
+        ],
         "conceptos": [
           "Arquero de espíritus inquietos",
           "Defensora de una urdimbre herida",
@@ -1074,7 +1385,14 @@
           "Arma de celador",
           "Disparo inevitable"
         ],
-        "suplemento": "Ylat"
+        "suplemento": "Ylat",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Chamán": {
         "atributo_favorito": [
@@ -1089,7 +1407,11 @@
           "Puedes equipar armaduras ligeras e intermedias hechas de cuero o hueso.",
           "Eres competente con Instrumentos musicales de percusión y con el Kit de herborista."
         ],
-        "talentos": [],
+        "talentos": [
+          "Espíritu ancestral",
+          "Puntos de Chamanismo",
+          "Resonancia salvaje"
+        ],
         "conceptos": [
           "Curandera que escucha a los espíritus",
           "Viajero acompañado por un espíritu bestial",
@@ -1111,7 +1433,14 @@
           "Puntos de Chamanismo",
           "Resonancia salvaje"
         ],
-        "suplemento": "Ylat"
+        "suplemento": "Ylat",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Diletante": {
         "atributo_favorito": [
@@ -1130,7 +1459,10 @@
           "Puedes equipar armaduras ligeras.",
           "Eres competente con una herramienta a tu elección."
         ],
-        "talentos": [],
+        "talentos": [
+          "Aprendiz de todo",
+          "Competencias y poderes"
+        ],
         "conceptos": [
           "Aprendiz de demasiados oficios",
           "Erudita incapaz de terminar proyectos",
@@ -1151,7 +1483,14 @@
           "Aprendiz de todo",
           "Competencias y poderes"
         ],
-        "suplemento": "Ylat"
+        "suplemento": "Ylat",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": "Elecciones de Talentos ajenos a Nivel 1, 6 y 12 pendientes de catálogo elegible"
+        }
       },
       "Hechicero": {
         "atributo_favorito": [
@@ -1166,7 +1505,10 @@
           "Puedes equipar únicamente ropa, túnicas y armaduras de tela.",
           "Eres competente con el Alambique y con la Piedra de canalización."
         ],
-        "talentos": [],
+        "talentos": [
+          "Canal sortílego",
+          "Dado de Hechicería"
+        ],
         "conceptos": [
           "Prodigio que teme su herencia",
           "Conjuradora incapaz de contenerse",
@@ -1187,7 +1529,14 @@
           "Canal sortílego",
           "Dado de Hechicería"
         ],
-        "suplemento": "Ylat"
+        "suplemento": "Ylat",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       },
       "Oráculo": {
         "atributo_favorito": [
@@ -1202,7 +1551,11 @@
           "Puedes equipar ropa, túnicas, armaduras de tela y armaduras acolchadas.",
           "Eres competente con el Alambique y con la Piedra de canalización."
         ],
-        "talentos": [],
+        "talentos": [
+          "Dado de Prodigios",
+          "Plegaria suplicante",
+          "Visión oracular"
+        ],
         "conceptos": [
           "Elegida que desconfía de sus dioses",
           "Vidente perseguido por sus palabras",
@@ -1224,7 +1577,14 @@
           "Plegaria suplicante",
           "Visión oracular"
         ],
-        "suplemento": "Ylat"
+        "suplemento": "Ylat",
+        "talentos_documentacion": {
+          "manual": "NaufragioD20 — Ocupaciones",
+          "verificado": true,
+          "nivel_inicial": 1,
+          "pendientes": [],
+          "condiciones": ""
+        }
       }
     },
     "especies": {

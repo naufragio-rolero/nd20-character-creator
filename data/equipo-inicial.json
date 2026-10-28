@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "fuentes": {
+    "fantasia": "NaufragioD20DRS v1.1.12 · Equipo: Listas de equipo y Paquetes de equipo",
+    "cifi": "NaufragioD20CiFi v1.0.3 · Equipo; sin riqueza inicial definida"
+  },
+  "divisa": "mo",
+  "equivalencias": {
+    "mc": 0.01,
+    "mp": 0.1,
+    "mo": 1
+  },
+  "armas": [
+    {
+      "nombre": "Daga",
+      "precio": 2,
+      "tipo": "ligera"
+    },
+    {
+      "nombre": "Clava",
+      "precio": 0.1,
+      "tipo": "ligera"
+    },
+    {
+      "nombre": "Hoz",
+      "precio": 1,
+      "tipo": "ligera"
+    },
+    {
+      "nombre": "Martillo ligero",
+      "precio": 2,
+      "tipo": "ligera"
+    },
+    {
+      "nombre": "Hacha de mano",
+      "precio": 5,
+      "tipo": "ligera"
+    },
+    {
+      "nombre": "Espada corta",
+      "precio": 10,
+      "tipo": "ligera"
+    },
+    {
+      "nombre": "Cimitarra",
+      "precio": 25,
+      "tipo": "ligera"
+    },
+    {
+      "nombre": "Bastón",
+      "precio": 0.2,
+      "tipo": "una_mano"
+    },
+    {
+      "nombre": "Lanza",
+      "precio": 1,
+      "tipo": "una_mano"
+    },
+    {
+      "nombre": "Maza",
+      "precio": 5,
+      "tipo": "una_mano"
+    },
+    {
+      "nombre": "Hacha de batalla",
+      "precio": 10,
+      "tipo": "una_mano"
+    },
+    {
+      "nombre": "Mayal",
+      "precio": 10,
+      "tipo": "una_mano"
+    },
+    {
+      "nombre": "Espada larga",
+      "precio": 15,
+      "tipo": "una_mano"
+    },
+    {
+      "nombre": "Martillo de guerra",
+      "precio": 15,
+      "tipo": "una_mano"
+    },
+    {
+      "nombre": "Espada ropera",
+      "precio": 25,
+      "tipo": "una_mano"
+    },
+    {
+      "nombre": "Gran clava",
+      "precio": 0.2,
+      "tipo": "dos_manos"
+    },
+    {
+      "nombre": "Guadaña",
+      "precio": 10,
+      "tipo": "dos_manos"
+    },
+    {
+      "nombre": "Espadón",
+      "precio": 50,
+      "tipo": "dos_manos"
+    },
+    {
+      "nombre": "Arco corto",
+      "precio": 25,
+      "tipo": "distancia",
+      "municion": "Flechas"
+    },
+    {
+      "nombre": "Arco largo",
+      "precio": 50,
+      "tipo": "distancia",
+      "municion": "Flechas"
+    },
+    {
+      "nombre": "Ballesta ligera",
+      "precio": 40,
+      "tipo": "distancia",
+      "municion": "Virotes"
+    },
+    {
+      "nombre": "Ballesta de mano",
+      "precio": 75,
+      "tipo": "distancia",
+      "municion": "Virotes"
+    },
+    {
+      "nombre": "Cerbatana",
+      "precio": 1,
+      "tipo": "distancia",
+      "municion": "Dardos"
+    },
+    {
+      "nombre": "Honda",
+      "precio": 0.1,
+      "tipo": "distancia",
+      "municion": "Balines"
+    }
+  ],
+  "municion": [
+    {
+      "nombre": "Flechas",
+      "precio": 2,
+      "du": "d8"
+    },
+    {
+      "nombre": "Virotes",
+      "precio": 2,
+      "du": "d8"
+    },
+    {
+      "nombre": "Dardos",
+      "precio": 0.2,
+      "du": "d4"
+    },
+    {
+      "nombre": "Balines",
+      "precio": 0.1,
+      "du": "d10"
+    }
+  ],
+  "armaduras": [
+    {
+      "nombre": "Armadura de tela",
+      "precio": 1,
+      "tipo": "tela"
+    },
+    {
+      "nombre": "Armadura acolchada",
+      "precio": 5,
+      "tipo": "ligera"
+    },
+    {
+      "nombre": "Armadura de cuero",
+      "precio": 10,
+      "tipo": "ligera"
+    },
+    {
+      "nombre": "Cuero tachonado",
+      "precio": 30,
+      "tipo": "ligera"
+    },
+    {
+      "nombre": "Armadura de pieles",
+      "precio": 15,
+      "tipo": "intermedia"
+    },
+    {
+      "nombre": "Camisote de mallas",
+      "precio": 50,
+      "tipo": "intermedia"
+    },
+    {
+      "nombre": "Cota de anillas",
+      "precio": 45,
+      "tipo": "intermedia"
+    },
+    {
+      "nombre": "Coraza",
+      "precio": 100,
+      "tipo": "intermedia"
+    },
+    {
+      "nombre": "Cota de mallas",
+      "precio": 75,
+      "tipo": "pesada"
+    }
+  ],
+  "escudos": [
+    {
+      "nombre": "Escudo pequeño",
+      "precio": 5
+    },
+    {
+      "nombre": "Escudo mediano",
+      "precio": 10
+    },
+    {
+      "nombre": "Escudo grande",
+      "precio": 12
+    }
+  ],
+  "paquetes": [
+    {
+      "nombre": "Especial arcanistas",
+      "precio": 25,
+      "contenido": "Mochila; antorcha (DU d6); ración de alimento (DU d6); túnica; saco de dormir; yesquero; estuche de pergaminos vacío; tinta y pluma (DU d6); libro de conjuros en blanco"
+    },
+    {
+      "nombre": "Especial criminales",
+      "precio": 25,
+      "contenido": "Bolsa de cuero; odre de agua (DU d6); antorcha (DU d6); disfraz; ganzúas; kit de escalada; saco de dormir"
+    },
+    {
+      "nombre": "Especial devotos",
+      "precio": 10,
+      "contenido": "Mochila; odre de agua (DU d6); dos raciones de alimento (DU d6 cada una); túnica; vela (DU d4); saco de dormir; yesquero; sello de orden sagrada; símbolo sagrado"
+    },
+    {
+      "nombre": "Especial exploración",
+      "precio": 10,
+      "contenido": "Mochila; odre de agua (DU d6); tres raciones (DU d6); cuerda; kit de cocina; caña y aparejos; catalejo; ropa de viaje; tienda de campaña; yesquero"
+    },
+    {
+      "nombre": "Especial mazmorras",
+      "precio": 6,
+      "contenido": "Mochila; odre de agua (DU d6); ración (DU d6); antorcha (DU d6); tiza (DU d6); pértiga; ropa de viaje; manta; yesquero"
+    }
+  ],
+  "obsequios_cifi": {
+    "Eudemonista": {
+      "fuente": "NaufragioD20CiFi · Eudemonista · Armamento filosofal",
+      "opciones": [
+        "Espada láser",
+        "Hacha de derelictos",
+        "Vibrodaga",
+        "Vibromachete",
+        "Monocuchillo"
+      ]
+    }
+  },
+  "opciones_seguras": {
+    "nota": "El equipamiento se compra solo entre opciones compatibles; competencias ambiguas requieren revisión."
+  }
+}
