@@ -1,0 +1,61 @@
+/* Control editorial. Hereda paleta y tipografía de la Forja. */
+.pagina-control{min-height:100vh}
+.cabecera-control{align-items:center;padding-top:2.3rem}
+.cabecera-control h1{font-size:clamp(2.1rem,4.5vw,3.5rem)}
+.contenido-control{width:min(1400px,100%);margin:auto;padding:2rem 2.4rem 5rem}
+.nota-seguridad{padding:1rem 1.3rem;border:1px solid var(--borde);border-radius:10px;background:var(--superficie)}
+.nota-seguridad h2{font-size:1rem;margin:0 0 .45rem;color:var(--oro)}
+.nota-seguridad p{font-size:.88rem;color:var(--secundario);margin:0}
+.bloque-control{background:var(--superficie);border:1px solid var(--borde);border-radius:12px;padding:1.3rem}
+.bloque-control h2{font:500 1.5rem Georgia,serif;margin:0 0 .5rem}
+.acciones-acceso{display:flex;gap:.8rem;align-items:end;flex-wrap:wrap;margin:1.2rem 0}
+.acciones-acceso label{display:grid;gap:.35rem;min-width:min(100%,310px);font-size:.86rem}
+.acciones-acceso button.principal,.acciones-control button.principal{width:auto;margin:0}
+.token-generado{background:var(--fondo2);border:1px dashed var(--oro2);padding:1rem;border-radius:8px;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+.token-generado p{width:100%;margin:0;font-size:.85rem}
+.token-generado code{font-size:.85rem;overflow-wrap:anywhere}
+.enlace-secundario{background:transparent;border:0;text-decoration:underline;color:var(--secundario);padding:.5rem 0}
+.resumen-control{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin:1rem 0 1.5rem}
+.resumen-control>div{border:1px solid var(--borde);background:var(--superficie);border-radius:10px;padding:.8rem 1rem;display:grid;gap:.1rem}
+.resumen-control strong{font-size:1.6rem;color:var(--oro);font-variant-numeric:tabular-nums}
+.resumen-control span{font-size:.75rem;color:var(--secundario)}
+.barra-control{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.barra-control h2{font:500 1.7rem Georgia,serif;margin:0}
+.acciones-control{display:flex;gap:.5rem;flex-wrap:wrap}
+.filtros-control{display:grid;grid-template-columns:2fr repeat(3,minmax(130px,1fr));gap:.7rem;margin-bottom:1rem}
+.filtros-control label,.detalle-control label:not(.casilla){display:grid;gap:.35rem;font-size:.83rem;font-weight:650}
+.filtros-control input,.filtros-control select,.detalle-control select,.detalle-control textarea{width:100%;border:1px solid var(--borde);background:var(--fondo);color:var(--texto);border-radius:7px;padding:.65rem .7rem;min-height:44px}
+.filtros-control input[type=search]{background:var(--fondo);color:var(--texto)}
+.columnas-control{display:grid;grid-template-columns:minmax(270px,1fr) minmax(320px,1fr);gap:1rem;align-items:start}
+.lista-control{min-width:0}
+.elementos-control{padding:0;margin:.8rem 0 0;list-style:none;display:grid;gap:.4rem}
+.elementos-control button{display:grid;text-align:left;width:100%;gap:.13rem;padding:.65rem .75rem;border-color:var(--borde)}
+.elementos-control button[aria-current=true]{border-color:var(--oro);background:var(--superficie2)}
+.elementos-control .titulo-elemento{font-size:.9rem;font-weight:700}
+.elementos-control .meta-elemento{color:var(--secundario);font-size:.74rem;font-weight:400;overflow-wrap:anywhere}
+.elementos-control .meta-elemento strong{color:var(--oro);font-weight:650}
+#mas-elementos{margin-top:.8rem;width:100%}
+.detalle-control{position:sticky;top:1rem}
+#detalle-editor{display:grid;gap:1rem}
+#detalle-nombre{font:600 1.65rem Georgia,serif;margin:0}
+#detalle-sistema{margin:0}
+#detalle-tipo{margin:0}
+#detalle-fuente{font-size:.85rem;margin:0;overflow-wrap:anywhere}
+#detalle-referencia{margin:0}
+.decision-visible{padding:.8rem;background:var(--fondo2);border-radius:7px;margin:0}
+.detalle-control textarea{font:inherit;min-height:110px;resize:vertical}
+#restablecer-elemento{justify-self:start}
+@media(max-width:1000px){.filtros-control{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:830px){
+  .contenido-control{padding:1rem 1rem 3rem}
+  .columnas-control{grid-template-columns:1fr}
+  .detalle-control{position:static}
+  .resumen-control{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cabecera-control{align-items:flex-start}
+}
+@media(max-width:510px){
+  .filtros-control{grid-template-columns:1fr}
+  .acciones-control{width:100%}
+  .acciones-control button{flex:1}
+  .resumen-control>div{padding:.6rem}
+}

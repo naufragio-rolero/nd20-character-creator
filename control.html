@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#122532">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Revisión editorial local de los catálogos de Naufragio d20 y Dungeon Hack.">
+  <title>El Naufragio · Control editorial</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/control.css">
+  <script defer src="assets/control-editor.js"></script>
+  <script defer src="assets/control-ui.js"></script>
+</head>
+<body data-tema="clasico" class="pagina-control">
+  <header class="encabezado cabecera-control">
+    <div>
+      <p class="sobrelinea">EL NAUFRAGIO / HERRAMIENTAS INTERNAS</p>
+      <h1>Control editorial</h1>
+      <p class="subtitulo">Inventario de Ocupaciones, Especies, Talentos, Poderes y progresiones.</p>
+    </div>
+    <a class="enlace-github" href="index.html">Volver a la Forja</a>
+  </header>
+  <main class="contenido-control">
+    <section class="nota-seguridad" aria-label="Alcance de la protección">
+      <h2>Revisión local, sin publicación automática</h2>
+      <p>El token protege únicamente la sesión de edición de <strong>este navegador</strong>. No es autenticación de servidor: el contenido del repositorio y esta herramienta siguen siendo públicos. Las decisiones se guardan en el navegador y solo se envían a otros cuando exportas el JSON.</p>
+    </section>
+    <p id="estado-control" class="estado" role="status" aria-live="polite">Preparando inventario…</p>
+    <section id="acceso-control" class="bloque-control" aria-labelledby="titulo-acceso" hidden>
+      <h2 id="titulo-acceso">Acceso a la revisión</h2>
+      <p id="ayuda-acceso" class="muted"></p>
+      <div class="acciones-acceso">
+        <button id="crear-token" type="button">Generar token local</button>
+        <label for="token-acceso">Token de este navegador
+          <input id="token-acceso" type="password" autocomplete="off" spellcheck="false" placeholder="Introduce tu token de edición">
+        </label>
+        <button id="abrir-control" type="button" class="principal">Desbloquear editor</button>
+      </div>
+      <div id="token-generado" class="token-generado" hidden>
+        <p><strong>Copia y guarda este token:</strong> no volverá a mostrarse automáticamente.</p>
+        <code id="valor-token"></code>
+        <button type="button" id="copiar-token">Copiar token</button>
+      </div>
+      <button type="button" id="reponer-token" class="enlace-secundario">Restablecer token local</button>
+    </section>
+    <section id="mesa-control" hidden aria-label="Inventario editorial">
+      <div class="resumen-control" id="resumen-control" aria-live="polite">
+        <div><strong id="cuenta-total">0</strong><span>Elementos catalogados</span></div>
+        <div><strong id="cuenta-cambios">0</strong><span>Revisiones guardadas</span></div>
+        <div><strong id="cuenta-ocultos">0</strong><span>Marcados para ocultar</span></div>
+        <div><strong id="cuenta-sinrevisar">0</strong><span>Sin estado editorial</span></div>
+      </div>
+      <div class="barra-control">
+        <div>
+          <h2>Inventario</h2>
+          <p class="muted">Publicación y pruebas son dos estados distintos. Sin revisar no equivale a aprobado.</p>
+        </div>
+        <div class="acciones-control">
+          <button type="button" id="importar-control">Importar revisión .json</button>
+          <input type="file" accept=".json,application/json" id="archivo-revision" class="sr-only">
+          <button type="button" id="exportar-control" class="principal">Exportar revisión .json</button>
+          <button type="button" id="bloquear-control">Bloquear</button>
+        </div>
+      </div>
+      <div class="filtros-control">
+        <label for="buscar-control">Buscar por nombre, fuente o referencia
+          <input id="buscar-control" type="search" placeholder="Ej.: Hurí, Privilegios, Nocturna">
+        </label>
+        <label for="sistema-control">Sistema
+          <select id="sistema-control"><option value="">Todos los sistemas</option></select>
+        </label>
+        <label for="tipo-control">Tipo
+          <select id="tipo-control"><option value="">Todos los tipos</option></select>
+        </label>
+        <label for="estado-filtro">Revisión
+          <select id="estado-filtro">
+            <option value="">Todos los elementos</option>
+            <option value="sin_revisar">Sin revisar</option>
+            <option value="cambiados">Con decisiones guardadas</option>
+            <option value="ocultos">Marcados para ocultar</option>
+            <option value="no_publicados">Marcados como no publicados</option>
+            <option value="no_probados">Marcados como no probados</option>
+          </select>
+        </label>
+      </div>
+      <div class="columnas-control">
+        <section class="bloque-control lista-control" aria-label="Resultados del inventario">
+          <p id="numero-resultados" class="muted"></p>
+          <ul id="lista-inventario" class="elementos-control"></ul>
+          <button type="button" id="mas-elementos" hidden>Mostrar más elementos</button>
+        </section>
+        <section class="bloque-control detalle-control" aria-label="Editar decisión editorial">
+          <div id="detalle-vacio" class="muted">Selecciona un elemento del inventario para revisar su estado.</div>
+          <form id="detalle-editor" hidden>
+            <p id="detalle-sistema" class="sobrelinea"></p>
+            <h3 id="detalle-nombre"></h3>
+            <p id="detalle-tipo" class="muted"></p>
+            <p id="detalle-fuente"></p>
+            <p id="detalle-referencia" class="muted"></p>
+            <label class="casilla decision-visible"><input type="checkbox" id="detalle-visible" checked>
+              Mostrar en el generador (propuesta)</label>
+            <label for="detalle-publicado">¿Está publicado?
+              <select id="detalle-publicado">
+                <option value="sin_revisar">Sin revisar</option>
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+              </select>
+            </label>
+            <label for="detalle-probado">¿Está probado?
+              <select id="detalle-probado">
+                <option value="sin_revisar">Sin revisar</option>
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+              </select>
+            </label>
+            <label for="detalle-notas">Notas editoriales
+              <textarea id="detalle-notas" rows="5" maxlength="2000"
+                placeholder="Motivos para incluir, excluir, corregir o volver a probar…"></textarea>
+            </label>
+            <p class="ayuda">Los cambios se guardan en este navegador. Solo se aplicarán al generador tras revisar e incorporar el JSON al repositorio.</p>
+            <button type="button" id="restablecer-elemento">Dejar este elemento sin revisar</button>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
