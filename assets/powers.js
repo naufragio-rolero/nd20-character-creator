@@ -134,7 +134,7 @@
       }
       if(defensa!==null)recursos.push(["Blindaje sin armadura",defensa]);
     }
-    var tecnica=numero(columna(tabla,fila,/^Técnicas(?: de combate)?$/i));
+    var tecnica=numero(columna(tabla,fila,/^Técnicas(?: de combate)?(?: \(si procede\))?$/i));
     if(tecnica && nombre!=="Diletante"){
       var categorias=nombre==="Adalid"?
         ["Disciplina","Fuerza bruta","Preternatural"]:tabla.categorias||[];
