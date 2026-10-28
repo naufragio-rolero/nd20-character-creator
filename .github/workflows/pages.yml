@@ -36,6 +36,14 @@ jobs:
           test -s data/tesauro-ylat.json
           test -s data/progresiones-oficiales.json
           test -s assets/powers.js
+          test -s control.html
+          test -s assets/control-editor.js
+          test -s assets/control-ui.js
+          test -s assets/control.css
+          node --check assets/powers.js
+          node --check assets/app.js
+          node --check assets/control-editor.js
+          node --check assets/control-ui.js
 
       - name: Comprobar generadores y catálogos
         run: node tests/smoke.js
@@ -44,7 +52,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p site
-          cp index.html .nojekyll site/
+          cp index.html control.html .nojekyll site/
           cp -R assets data site/
 
       - name: Guardar sitio estático

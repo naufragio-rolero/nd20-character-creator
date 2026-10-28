@@ -128,3 +128,28 @@ No hay dependencias de npm ni flujos de GitHub Actions asociados a estas pruebas
 ## Autoría y licencias
 
 El repositorio original incorpora una licencia **GPL-3.0** para el código. El documento de referencia de **Naufragio d20** se publica bajo **CC BY-SA 4.0**; sus términos y atribuciones se mantienen al reutilizar el contenido. Los datos importados de Dungeon Hack proceden del generador mencionado arriba y conservan la autoría y derechos que les correspondan. La presencia de una licencia del software no supone una relicencia automática de los textos de los juegos.
+
+
+## Control editorial local
+
+La herramienta de revisión está en [control.html](control.html) (al publicar:
+\`https://naufragio-rolero.github.io/nd20-character-creator/control.html\`).
+
+- Genera un token local en el navegador; guárdalo. El hash y las decisiones se guardan
+  en el almacenamiento **local** del dispositivo. Recuperar o restablecer el token
+  no concede acceso de escritura al repositorio.
+- Filtra el inventario de Ocupaciones, Especies, Talentos, Poderes y progresiones.
+  Para cada registro puedes proponer visibilidad, indicar si está publicado/probado
+  y dejar notas. **Sin revisar** es el estado inicial de publicación y prueba.
+- Exporta \`revision-editorial.json\`. El fichero solo contiene cambios respecto
+  al estado de partida, con identificadores estables y validación de estados.
+  Puedes importarlo de nuevo desde el editor y usarlo como propuesta de modificación
+  del catálogo por una persona con permisos en GitHub.
+- El formulario no modifica los catálogos de juego, ni oculta contenido a visitantes,
+  ni publica cambios en GitHub. Las reglas y la selección de la Forja solo se
+  modificarán cuando esa revisión se incorpore expresamente al repositorio.
+
+**Seguridad:** GitHub Pages es estático. El token local solo bloquea la interfaz
+de edición de ese navegador. No es una contraseña de acceso real ni una
+barrera contra otros visitantes o personas con acceso al almacenamiento local.
+La página sigue siendo pública; no introduzcas credenciales de GitHub aquí.

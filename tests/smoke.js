@@ -331,3 +331,45 @@ const fichaEtiqueta=poderes.aplicar(pjEtiqueta,planEtiqueta,
   poderes.resolver(planEtiqueta,null,reglas.aleatorioSemilla('forense-priv')));
 assert.ok(fichaEtiqueta.poderes.some(s=>s.startsWith('[Pr] ')));
 console.log('OK · Etiquetado de familias de Poderes verificado.');
+
+/* Control editorial: inventario completo, estados no inferidos e intercambio seguro por JSON. */
+const controlEditorial=require('../assets/control-editor.js');
+const inventarioEditorial=controlEditorial.crearInventario({
+  especies:fantasia.especies,ocupaciones:fantasia.ocupaciones,
+  especiesCifi:cifi.especies,ocupacionesCifi:cifi.ocupaciones,
+  ampliado:catalogo,dungeon:dh,catalogo:catalogoPoderes,progresiones:progresiones
+});
+assert.ok(inventarioEditorial.length>750,'Inventario editorial amplio');
+assert.equal(inventarioEditorial.length,new Set(inventarioEditorial.map(e=>e.id)).size,
+  'IDs únicos de revisión editorial');
+function elementoEditor(sistema,tipo,nombre){
+  const item=inventarioEditorial.find(x=>x.sistema===sistema&&x.tipo===tipo&&x.nombre===nombre);
+  assert.ok(item,'Elemento existente: '+sistema+'/'+tipo+'/'+nombre);
+  return item;
+}
+const huriEditor=elementoEditor('Nd20 Fantasía','Ocupación','Hurí');
+elementoEditor('Nd20 Fantasía','Especie','Humano común');
+elementoEditor('Nd20 · Poderes','Privilegio','Atemorizar plebeyo');
+elementoEditor('Nd20 · Poderes','Técnica','Ataque certero');
+elementoEditor('Dungeon Hack','Especie','Dracónido');
+const cambioEditor={[huriEditor.id]:{
+  visible:false,publicado:'no',probado:'sin_revisar',notas:'Pendiente de revisión'
+}};
+const exportado=controlEditorial.crearRevision(inventarioEditorial,cambioEditor,'2026-10-28T00:00:00Z');
+assert.equal(exportado.esquema,'naufragio.revision-editorial/v1');
+assert.equal(Object.keys(exportado.cambios).length,1);
+assert.deepEqual(controlEditorial.importarRevision(inventarioEditorial,exportado),cambioEditor,
+  'JSON editable y reversible sin modificar los catálogos');
+assert.throws(()=>controlEditorial.crearRevision(inventarioEditorial,{'inventado':{visible:false}}),
+  /fuera del catálogo/i,'Rechazar registros inventados');
+assert.throws(()=>controlEditorial.importarRevision(inventarioEditorial,{
+  esquema:controlEditorial.ESQUEMA,cambios:{[huriEditor.id]:{publicado:'confirmado'}}
+}),/desconocido/i,'Rechazar estados arbitrarios');
+assert.ok(!Object.prototype.hasOwnProperty.call(catalogo.fantasia.ocupaciones.Hurí,'publicado'),
+  'No se infiere estado publicado por estar documentado');
+const controlHtml=fs.readFileSync(path.join(__dirname,'..','control.html'),'utf8');
+for(const expected of ['control-editor.js','control-ui.js','id="crear-token"',
+  'id="detalle-publicado"','id="detalle-probado"','id="detalle-visible"','id="exportar-control"'])
+  assert.ok(controlHtml.includes(expected),'Acción de control editorial: '+expected);
+console.log('OK · Inventario editorial ('+inventarioEditorial.length+
+  ' elementos), revisión JSON y acceso local validados.');
