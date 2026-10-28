@@ -50,6 +50,27 @@
         <button type="button" id="tab-personajes" role="tab" aria-controls="panel-personajes" aria-selected="true" class="activa">Personajes</button>
         <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false">Herramientas</button>
       </div>
+      <p id="sistema-actual" class="sistema-actual" aria-live="polite">Naufragio d20 · Fantasía</p>
+      <div id="panel-personajes" role="tabpanel" aria-labelledby="tab-personajes">
+        <form id="configuracion">
+          <div id="generacion-rapida" class="generacion-rapida">
+            <div class="campos-rapidos">
+        <div class="campo">
+          <label for="nivel">Nivel <span id="rango-nivel">1–30</span></label>
+          <input id="nivel" name="nivel" type="number" value="1" min="1" max="30" step="1" required>
+        </div>
+        <div class="campo">
+          <label for="cantidad">Cuántas fichas</label>
+          <input id="cantidad" type="number" min="1" max="12" value="1" required>
+        </div>
+            </div>
+            <button class="principal" id="generar" type="submit">Generar personajes</button>
+          </div>
+        </form>
+      </div>
+      <details id="opciones-avanzadas" class="opciones-avanzadas">
+        <summary>Opciones avanzadas <span aria-hidden="true" class="flecha-avanzada">⌄</span></summary>
+        <div class="opciones-avanzadas-contenido">
       <div class="campo campo-sistema-global">
           <label id="etiqueta-sistema" for="juego">Sistema</label>
           <div class="juegos-compactos" role="group" aria-labelledby="etiqueta-sistema">
@@ -65,12 +86,7 @@
             <option value="dh">Dungeon Hack</option>
           </select>
         </div>
-      <div id="panel-personajes" role="tabpanel" aria-labelledby="tab-personajes">
-      <form id="configuracion">
-        <div class="campo">
-          <label for="nivel">Nivel <span id="rango-nivel">1–30</span></label>
-          <input id="nivel" name="nivel" type="number" value="1" min="1" max="30" step="1" required>
-        </div>
+          <div id="opciones-avanzadas-personajes">
         <div class="campo">
           <label for="ocupacion">Ocupación / Clase</label>
           <select id="ocupacion" name="ocupacion"><option value="">Aleatoria</option></select>
@@ -138,13 +154,9 @@
             Sumar 4d10 mo/cr por cada Nivel ganado después del primero</label>
           <small>Se añade al capital inicial. Equipo aleatorio y comprado; no se concede equipo básico gratuito. No se aplica a Nocturna ni a Dungeon Hack.</small>
         </fieldset>
-        <div class="campo">
-          <label for="cantidad">Cuántas fichas</label>
-          <input id="cantidad" type="number" min="1" max="12" value="1" required>
+          </div>
         </div>
-        <button class="principal" id="generar" type="submit">Generar personajes</button>
-      </form>
-      </div>
+      </details>
       <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
         <h3>Herramientas del Cronista</h3>
         <div class="botonera">
@@ -189,5 +201,7 @@
       <footer class="pie">Creado para la mesa de juego. Datos y reglas originales de sus respectivos proyectos. <a href="https://naufragio.net/" target="_blank" rel="noopener noreferrer">El Naufragio</a>.</footer>
     </section>
   </main>
+  <button id="generar-flotante" class="generar-flotante" type="button" hidden
+    aria-label="Generar personajes con la configuración actual">Generar personajes</button>
 </body>
 </html>
