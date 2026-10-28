@@ -341,8 +341,7 @@
       {
         "nombre": "Revolver iónico",
         "precio": 250,
-        "categoria": "fuego",
-        "municion": "Balas láser"
+        "categoria": "fuego"
       },
       {
         "nombre": "Escopeta de plasma",
@@ -506,7 +505,7 @@
           "Escudo portátil",
           "Barrera de energía"
         ],
-        "nota": "Armas de fuego sencillas/militares pendientes de clasificar por categoría documental"
+        "nota": "Los tipos de armas de fuego sencillas/militares deben clasificarse antes de sugerir armas de fuego a esta Ocupación."
       },
       "Psion": {
         "armas": [

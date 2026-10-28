@@ -28,7 +28,7 @@ for(const [tipo, data] of [['nd20',fantasia],['nd20_cifi',cifi]]) {
     assert.ok(a.atributos.every((x)=>x.valor>=4&&x.valor<=18),'VA válido');
     const es=Number(a.recursos.find((x)=>x[0]==='Esfuerzo')[1]);
     assert.ok(es<=9 && es>=0,'Esfuerzo válido');
-    if(tipo==='nd20_cifi') assert.ok(a.notas.some((s)=>s.includes('créditos')),'Sin invención de riqueza');
+    if(tipo==='nd20_cifi') assert.ok(/^\d+ cr restantes \/ \d+ cr iniciales$/.test(a.riqueza),'Créditos iniciales aprobados');
   }
 }
 
@@ -648,7 +648,8 @@ const cifiEudemonista=reglas.crearNd20(cifiExtendida,{
   aplazarElecciones:true,catalogoEquipo:equipoDRS},
   reglas.aleatorioSemilla('eudemonista-gratis'));
 assert.ok(cifiEudemonista.equipo.some(x=>x.includes('gratuita')));
-assert.equal(cifiEudemonista.riqueza,'');
+assert.ok(/^\\d+ cr restantes \\/ \\d+ cr iniciales$/.test(cifiEudemonista.riqueza),
+  'CiFi: capital inicial aprobado por el autor');
 const cifiDiplomatico=reglas.crearNd20(cifiExtendida,{
   juego:'nd20_cifi',ocupacion:'Diplomático',especie:'Humano natural',nivel:1,
   aplazarElecciones:true,catalogoEquipo:equipoDRS},
@@ -661,3 +662,58 @@ const bloqueo=equipoApi.compraInicial({
 assert.ok(!bloqueo.equipo.some(x=>x==='Armadura acolchada'||x==='Armadura de cuero'),
   'No se adquiere armadura antes del Nivel 6');
 console.log('OK · '+pruebasEquipo+' compras iniciales y elecciones de Talentos contrastadas.');
+
+
+/* Decisión CiFi 28-10-2026: 4d10 × 100 cr, compras con precios del manual. */
+assert.equal(equipoDRS.cifi.capital_inicial.formula,'4d10 × 100 cr');
+assert.equal(equipoDRS.cifi.capital_inicial.minimo,400);
+assert.equal(equipoDRS.cifi.capital_inicial.maximo,4000);
+assert.ok(equipoDRS.cifi.capital_inicial.naturaleza.includes('decisión editorial'));
+assert.equal(equipoDRS.cifi.armas.find(x=>x.nombre==='Pistola láser').precio,80);
+assert.equal(equipoDRS.cifi.protecciones.find(x=>x.nombre==='Coraza de asalto').precio,350);
+assert.equal(equipoDRS.cifi.ddp.find(x=>x.nombre==='Escudo portátil').precio,50);
+let cifiValidados=0;
+for(const nombre of Object.keys(cifiExtendida.ocupaciones)){
+  for(const nivel of [1,6,12,30]){
+    const opciones={juego:'nd20_cifi',ocupacion:nombre,especie:'Humano natural',
+      nivel,aplazarElecciones:true,catalogoEquipo:equipoDRS};
+    const rng=reglas.aleatorioSemilla('creditos-'+nombre+'-'+nivel);
+    const personaje=reglas.crearNd20(cifiExtendida,opciones,rng);
+    const repetido=reglas.crearNd20(cifiExtendida,opciones,
+      reglas.aleatorioSemilla('creditos-'+nombre+'-'+nivel));
+    assert.deepEqual(personaje,repetido,'Compras CiFi reproducibles '+nombre);
+    const partes=personaje.riqueza.match(/^(\d+) cr restantes \/ (\d+) cr iniciales$/);
+    assert.ok(partes,'Saldo cr visible: '+nombre);
+    const saldo=Number(partes[1]),presupuesto=Number(partes[2]);
+    assert.ok(presupuesto>=400 && presupuesto<=4000 && presupuesto%100===0);
+    const nota=personaje.notas.find(x=>x.startsWith('Compra CiFi propuesta: '));
+    assert.ok(nota,'Compra de equipo documentada '+nombre);
+    const gastado=Number(nota.match(/propuesta: (\d+) cr/)[1]);
+    assert.equal(gastado+saldo,presupuesto,'Contabilidad exacta sin sobrecostes '+nombre);
+    assert.ok(personaje.notas.some(x=>x.includes('decisión editorial pendiente')),
+      'Distinguir decisión del autor de regla original');
+    if(nombre==='Eudemonista'){
+      assert.ok(personaje.equipo.some(x=>x.includes('Armamento filosofal; gratuito')));
+      assert.ok(!personaje.equipo.some(x=>x.includes('Escudo portátil')));
+    }else if(nombre==='Tecnópata'){
+      assert.ok(personaje.equipo.some(x=>x.includes('Implante de Ordenador neuronal')));
+    }else {
+      assert.ok(!personaje.equipo.some(x=>x.includes('Armamento filosofal; gratuito')));
+      assert.ok(!personaje.equipo.some(x=>x.includes('Implante de Ordenador neuronal')));
+    }
+    if(nombre==='Psion')
+      assert.ok(!personaje.equipo.some(x=>equipoDRS.cifi.protecciones.some(v=>x===v.nombre)),
+        'Psion no puede usar protección corporal');
+    cifiValidados++;
+  }
+}
+const cifiSinCatalogo=reglas.crearNd20(cifiExtendida,
+  {juego:'nd20_cifi',ocupacion:'Soldado',especie:'Humano natural',nivel:1},
+  reglas.aleatorioSemilla('capital-sin-catalogo'));
+assert.ok(/^\d+ cr restantes \/ \d+ cr iniciales$/.test(cifiSinCatalogo.riqueza),
+  'Riqueza calculada también sin módulo de compras');
+assert.ok(cifiSinCatalogo.notas.some(x=>x.includes('requiere el catálogo')));
+assert.ok(fs.existsSync(path.join(__dirname,'..','docs','decisiones-editoriales.md')),
+  'La decisión consta por escrito para actualizar el DRS');
+console.log('OK · '+cifiValidados+
+  ' compras CiFi comprobadas: 4d10 × 100 cr, precios, regalos y saldo.');

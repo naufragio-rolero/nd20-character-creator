@@ -226,3 +226,19 @@ CiFi no tiene riqueza inicial documentada: por ahora no se simulan compras,
 salvo el arma filosofal gratuita del Eudemonista. Nocturna tampoco recibe
 riqueza DRS hasta obtener la fuente económica propia. El catálogo
 es una primera selección contrastada y no incluye aún toda la armería.
+
+
+### Decisión aprobada: dinero inicial de CiFi (28-10-2026)
+
+El autor ha aprobado **4d10 × 100 Créditos** como capital inicial.
+Es la traslación de los 4d10 × 10 mo de Fantasía al valor de la moneda
+CiFi (1 cr = 1 mp; 1 mo = 10 mp). **No figura aún como texto normativo en
+el DRS de CiFi v1.0.3**, que deberá actualizarse: véase
+docs/decisiones-editoriales.md.
+
+En la Forja, los personajes de CiFi tienen saldo en Créditos y una
+**propuesta de compra** con precios de las tablas oficiales. El regalo
+documentado del Eudemonista no se cobra y el Tecnópata comienza con su
+Ordenador neuronal. Las armas automáticas y protecciones solo se sugieren
+entre las competencias inequívocas; casos ambiguos, incluidos ciertos
+nombres de equipo heredados, quedan como asuntos de revisión editorial.
