@@ -3,6 +3,7 @@
   'use strict';
   var reglas = window.NaufragioRules;
   var poderes = window.NaufragioPoderes;
+  var infoUI = window.NaufragioInfoUI;
   var datos = {};
   var entradas = [];
   var correlativo = 0;
@@ -183,10 +184,18 @@
   function cerrarMenuMovil(){
     if(window.matchMedia('(max-width:830px)').matches)alternarMenu(false);
   }
-  function htmlLista(titulo, valores) {
+  function sistemaFicha(p){
+    return p.juego.includes('CiFi')?'nd20_cifi':
+      p.juego.includes('Nocturna')?'nd20_nocturna':
+      p.juego.includes('Fantasía')?'nd20':'dh';
+  }
+  function htmlLista(titulo, valores, grupo, sistema) {
     if (!valores || !valores.length) return '';
     return '<section class="bloque-ficha"><h4>' + esc(titulo) + '</h4><ul>' +
-      valores.map(function (v) {return '<li>' + esc(v) + '</li>';}).join('') + '</ul></section>';
+      valores.map(function (v) {
+        var item=grupo&&infoUI?infoUI.etiqueta(v,grupo,sistema):esc(v);
+        return '<li>' + item + '</li>';
+      }).join('') + '</ul></section>';
   }
   function htmlRecursos(pares) {
     return '<div class="recursos">' + (pares || []).map(function (p) {
@@ -210,11 +219,11 @@
       '<button class="icon-btn eliminar-ficha" data-id="' + id + '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div>' +
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
       '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos) +
-      htmlLista('Talentos y capacidades',personaje.capacidades) +
-      htmlLista('Conjuros y Poderes conocidos',personaje.poderes) +
-      htmlLista('Conjuros preparados',personaje.conjuros_preparados) +
+      htmlLista('Talentos y capacidades',personaje.capacidades,'talento',sistemaFicha(personaje)) +
+      htmlLista('Conjuros y Poderes conocidos',personaje.poderes,'poder',sistemaFicha(personaje)) +
+      htmlLista('Conjuros preparados',personaje.conjuros_preparados,'poder',sistemaFicha(personaje)) +
       htmlLista('Competencias',personaje.competencias) +
-      htmlLista('Equipo',personaje.equipo) +
+      htmlLista('Equipo',personaje.equipo,'equipo',sistemaFicha(personaje)) +
       (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
       htmlLista('Observaciones',personaje.notas) +
       '<div class="pie-ficha"><small>' + esc(fuentesFicha(personaje)) +
@@ -346,7 +355,12 @@
           label.textContent=(i+1)+'. ';
           var sel=document.createElement('select');
           sel.dataset.paso=paso.id;sel.dataset.orden=String(i);sel.required=true;
-          label.appendChild(sel);field.appendChild(label);
+          label.appendChild(sel);
+          var ver=document.createElement('button');
+          ver.type='button';ver.className='consultar-ficha-eleccion';
+          ver.textContent='Ver ficha';ver.hidden=true;
+          ver.setAttribute('aria-label','Consultar información de la opción seleccionada');
+          label.appendChild(ver);field.appendChild(label);
         }
       }
       cont.appendChild(field);
@@ -382,6 +396,19 @@
         sel.appendChild(item);
       });
       if(disponibles.some(function(op){return op.id===anterior;}))sel.value=anterior;
+      var ver=sel.parentElement.querySelector('.consultar-ficha-eleccion');
+      if(ver){
+        var elegida=disponibles.find(function(op){return op.id===sel.value;});
+        var grupo=['talento','talento_ajeno','estilo_gladiatoria'].includes(paso.tipo)?
+          'talento':paso.tipo==='competencias_diletante'?'': 'poder';
+        var tipo=sistemaFicha(borrador.personaje);
+        ver.hidden=!(elegida&&grupo&&infoUI?.consulta(elegida.nombre,grupo,tipo));
+        if(!ver.hidden){
+          ver.dataset.glosaNombre=elegida.nombre;
+          ver.dataset.glosaGrupo=grupo;
+          ver.dataset.glosaSistema=tipo;
+        }
+      }
     });
   }
   function vincular() {
@@ -495,6 +522,7 @@
       catalogo:'data/catalogo-poderes.json',
       progresiones:'data/progresiones-oficiales.json',
       equipoInicial:'data/equipo-inicial.json',
+      fichasDocumentales:'data/fichas-documentales.json',
       dungeon:'data/dungeon-hack.json'
     };
     var elementos=await Promise.all(Object.entries(archivos).map(async function(par){
@@ -549,6 +577,14 @@
     datos.tesauroYlat=loaded.tesauroYlat;
     datos.progresiones=loaded.progresiones;
     datos.equipoInicial=loaded.equipoInicial;
+    if(infoUI&&window.NaufragioTooltipIndex){
+      var indice=window.NaufragioTooltipIndex.indice({
+        fantasia:datos.fantasia,cifi:datos.cifi,nocturna:datos.nocturna,
+        catalogo:datos.catalogo,equipo:datos.equipoInicial,
+        descripciones:loaded.fichasDocumentales
+      });
+      infoUI.configurar(indice);
+    }
     datos.dh=loaded.dungeon;
     $('origenes').textContent='';
     datos.dh.origins.forEach(function(nombre,index){
