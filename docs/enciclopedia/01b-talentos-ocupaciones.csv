@@ -1,0 +1,164 @@
+sistema,ocupacion,talento,campos_de_json,ficha_por_nombre,fuente,nota
+DRS,Clérigo,Expulsar muertos vivientes,talentos,sí,NaufragioD20DRS.docx,
+DRS,Clérigo,Fortaleza piadosa,talentos,sí,NaufragioD20DRS.docx,
+DRS,Guerrero,Recuperación,talentos,sí,NaufragioD20DRS.docx,
+DRS,Guerrero,Brío musculoso,talentos,sí,NaufragioD20DRS.docx,
+DRS,Guerrero,Sacrificio de escudo,talentos,sí,NaufragioD20DRS.docx,
+DRS,Mago,Bagaje de arcanista,talentos,no,NaufragioD20DRS.docx,
+DRS,Mago,Meditación,talentos,no,NaufragioD20DRS.docx,
+DRS,Ladrón,Preparación,talentos,no,NaufragioD20DRS.docx,
+DRS,Ladrón,Sutileza,talentos,no,NaufragioD20DRS.docx,
+Ampliadas,Forense,Hallar la verdad,talentos + talentos_referencia,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Forense,Olfato deductivo,talentos + talentos_referencia,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Truhán,Cotilla,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Truhán,Fullerías,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Acróbata,Equilibrio perfecto,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Acróbata,Frustración canalizada,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Acróbata,Maniobra letal,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Astrólogo,Cauce astral,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Astrólogo,Premonición estelar,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Dinamitero,Experto en bombas,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Dinamitero,Ingeniería explosiva,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Marginado,Estulticia,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Marginado,Golpe desesperado,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Marginado,Infeliz,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Doncella de la Espada,Esplendor,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Doncella de la Espada,Oleada extensiva,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Valquiria,Alas de la libertad,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Valquiria,Poderío de la Reina,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Hurí,Encanto,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Hurí,Defensa sin armadura,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Marionetista,Dominio de las marionetas,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Marionetista,Solidez ligna,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Vikingo,Corazón de escarcha,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Vikingo,Pillaje voraz,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Vikingo,Ira del rayo,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Verdugo,Aterrorizar,talentos + talentos_referencia,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Verdugo,Decapitación,talentos + talentos_referencia,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Verdugo,Torturar,talentos + talentos_referencia,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Gladiador,Estilos de gladiatoria,talentos + talentos_referencia,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Gladiador,Protecciones cómodas,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Arlequín,Mímica,talentos + talentos_referencia,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Arlequín,Ridículo,talentos + talentos_referencia,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Pugilista,Contundencia,talentos + talentos_referencia,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Pugilista,Juego de piernas,talentos + talentos_referencia,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Epicúreo,Paladar exquisito,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Epicúreo,Escudo placentero,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Nictomante,Ablución nocturna,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Nictomante,Puntos de Nictalgia,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Nictomante,Celaje umbrío,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Cronómaca,Guardatiempo,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Cronómaca,Impulso temporal,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Invocadora,Abnegación,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Invocadora,Convocar Eidolon,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Druida,Forma salvaje,talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),
+Ampliadas,Druida,Sendero de la naturaleza,talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),
+Ampliadas,Lardeur,Cata magistral,talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),
+Ampliadas,Lardeur,Haute cuisine,talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),
+Ampliadas,Lardeur,Mise en place,talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),
+Ampliadas,Derviche,Danza de las dos hojas,talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),
+Ampliadas,Derviche,Defensa sin armadura,talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),
+Ampliadas,Derviche,Maniobra letal,talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),
+Ampliadas,Derviche,Oleada extensiva,talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),
+Ampliadas,Adalid,Poderío del caballero,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Adalid,Compromiso del adalid,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Adalid,Desafío honorable,talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Adalid,Imposición de manos,talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Bárbaro,Brutalidad,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Bárbaro,Cólera,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Bárbaro,Energúmeno,talentos_referencia + talentos_elegir,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Bárbaro,Receloso,talentos_referencia + talentos_elegir,sí,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Bardo,Cultura del viajero,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Bardo,Entusiasmo,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Belisario,Apariencia intimidante,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Belisario,Estratega avezado,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Belisario,Preparación,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Brujo,Esbirro familiar,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Brujo,Puntos de Brujería,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Brujo,Rebote arcano,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Cazador,Compañero animal,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Cazador,Marca del cazador,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Celador,Arma de celador,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Celador,Disparo inevitable,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Chamán,Espíritu ancestral,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Chamán,Puntos de Chamanismo,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Chamán,Resonancia salvaje,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Diletante,Aprendiz de todo,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Diletante,Competencias y poderes,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Hechicero,Canal sortílego,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Hechicero,Dado de Hechicería,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Oráculo,Dado de Prodigios,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Oráculo,Plegaria suplicante,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+Ampliadas,Oráculo,Visión oracular,talentos + talentos_referencia,no,NaufragioD20 — Ocupaciones (Google Docs),"La ocupación tiene referencias marcadas verificadas; no acredita texto íntegro de efectos"
+CiFi,Diplomático,Oratoria exquisita,talentos,sí,NaufragioD20CiFi.docx,
+CiFi,Diplomático,Preparación,talentos,no,NaufragioD20CiFi.docx,
+CiFi,Diplomático,Séquito personal,talentos,no,NaufragioD20CiFi.docx,
+CiFi,Eudemonista,Armamento filosofal,talentos,no,NaufragioD20CiFi.docx,
+CiFi,Eudemonista,Entelequia,talentos,no,NaufragioD20CiFi.docx,
+CiFi,Eudemonista,Estoicismo,talentos,no,NaufragioD20CiFi.docx,
+CiFi,Forajido,Pasado turbulento,talentos,no,NaufragioD20CiFi.docx,
+CiFi,Forajido,Suerte del tonto,talentos,no,NaufragioD20CiFi.docx,
+CiFi,Psion,Entereza mental,talentos,no,NaufragioD20CiFi.docx,
+CiFi,Psion,Someter el cuerpo,talentos,no,NaufragioD20CiFi.docx,
+CiFi,Soldado,Especialista en armamento,talentos,no,NaufragioD20CiFi.docx,
+CiFi,Soldado,Llamada del deber,talentos,no,NaufragioD20CiFi.docx,
+CiFi,Soldado,Tiempo bala,talentos,sí,NaufragioD20CiFi.docx,
+CiFi,Tecnópata,Hacker,talentos,sí,NaufragioD20CiFi.docx,
+CiFi,Tecnópata,Unión cibernética,talentos,sí,NaufragioD20CiFi.docx,
+Nocturna,Arcanista,Conducto arcano,talentos,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Arcanista,Puntos de Gnosis,talentos,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Arcanista,Biblioteca ambulante,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Arcanista,Canal de las sombras,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Arcanista,Caos esotérico,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Arcanista,Estallido arcano,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Arcanista,Sacrificio vital,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Arcanista,Voluntad indómita,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Cazador de monstruos,Ojo del cazador,talentos,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Cazador de monstruos,Aceptación,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Cazador de monstruos,Alquimia limitada,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Cazador de monstruos,Cazador letal,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Cazador de monstruos,Instintos sobrenaturales,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Cazador de monstruos,Reflejos de la noche,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Cazador de monstruos,Soy lo que cazo,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Delincuente,Instintos de los bajos fondos,talentos,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Delincuente,Arrancar información,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Delincuente,El jeta de Wall Street,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Delincuente,Facha de hampón,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Delincuente,Maestro en allanamientos,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Delincuente,Rutas de entrada y salida,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Delincuente,Señor del crimen,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Espiritista,Voz de ultratumba,talentos,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Espiritista,Cadena de los hados,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Espiritista,Destino entrelazado,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Espiritista,Hebras de la Urdimbre,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Espiritista,Ligadura espiritual,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Espiritista,Paso espectral,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Espiritista,Premonición,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Investigador,Perspicacia de sabueso,talentos,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Investigador,Cazarreliquias,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Investigador,Diletante místico,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Investigador,Erudición sobrenatural,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Investigador,Instintos del morador nocturno,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Investigador,Saqueador de tumbas,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Investigador,Sospechosos habituales,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Mercenario,Arte de la guerra,talentos,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Mercenario,¡Estáis encerrados conmigo!,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Mercenario,Adrenalina,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Mercenario,En racha,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Mercenario,Frenesí sanguinario,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Mercenario,Imparable,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Mercenario,Plan de batalla,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Operador,Cerebro cibernético,talentos,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Operador,Homebrew,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Operador,Interacción remota,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Operador,Presencia fantasma,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Operador,Ojos en la red,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Operador,Sabotaje electromagnético,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Operador,Tecnomante,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Pícaro,Lengua de serpiente,talentos,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Pícaro,Artimañas legales,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Pícaro,El precio justo,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Pícaro,Estafador experto,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Pícaro,Maestro del espectáculo,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Pícaro,Rostro cambiante,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Pícaro,Zorro astuto,talentos_elegir,no,NaufragioD20Nocturna (Google Docs),
