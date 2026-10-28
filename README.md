@@ -178,3 +178,27 @@ El panel permite filtrar por fuente, sistema, tipo, texto y estado; aplicar
 confirmación) y corregir elementos individuales. El JSON v1 exportado
 incluye lotes_base_publicados con los recuentos y cambios solo con las
 excepciones; los JSON v1 anteriores se pueden seguir importando.
+
+
+### Editor de nombres y conceptos
+
+Dentro de control.html, la pestaña **Nombres y conceptos** expone los repertorios
+que ya utiliza la Forja:
+
+- Fantasía, CiFi y Nocturna: listas de nombres y conceptos por Especie u
+  Ocupación, incluidas las casillas vacías de suplementos.
+- Dungeon Hack: listas de nombres por Ocupación y nombres de seguidores.
+  No hay conceptos de Dungeon Hack en las fuentes, así que no se inventan.
+- Ylat: 51 nombres documentados **solo lectura** (conservan su procedencia)
+  y 149 nombres combinados editables.
+
+Se edita un repertorio a la vez, con una entrada por línea. Se validan longitud,
+duplicados y estructura; se pueden añadir, retirar y reordenar entradas y
+restaurar el original. Las propuestas se guardan en localStorage, separado
+de los estados editoriales. Exportar produce un único revision-editorial.json
+con el bloque opcional repertorios, y cada repertorio editado lleva su
+ruta, valores originales y valores propuestos para detectar conflictos si
+el repositorio cambia. Los JSON antiguos sin repertorios siguen admitidos.
+
+**No se aplica nada al generador en el navegador:** la revisión enviada debe
+validarse e incorporarse explícitamente al código y a los ficheros de datos.

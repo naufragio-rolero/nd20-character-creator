@@ -494,3 +494,79 @@ for(const ref of ['id="fuente-control"','id="lote-publicado"','id="lote-probado"
   'id="lote-visible"','id="aplicar-lote"','id="lotes-publicados"'])
   assert.ok(controlHtml.includes(ref),'Acciones masivas disponibles: '+ref);
 console.log('OK · '+sumarLotes+' entradas de tres lotes publicados; pruebas pendientes y edición por lotes validadas.');
+
+
+/* Repertorios: Fuente => edición propuesta -> JSON reversible, sin alterar catálogos. */
+const catalogoRepertorios=require('../assets/repertorios.js');
+const repertoriosPrueba=catalogoRepertorios.generar({
+  especies:fantasia.especies,ocupaciones:fantasia.ocupaciones,
+  especiesCifi:cifi.especies,ocupacionesCifi:cifi.ocupaciones,
+  ampliado:catalogo,dungeon:dh,tesauroYlat
+});
+assert.ok(repertoriosPrueba.length>150,'Nombres y conceptos de todas las líneas');
+assert.equal(new Set(repertoriosPrueba.map(x=>x.id)).size,repertoriosPrueba.length,
+  'IDs estables de repertorio sin duplicados');
+function localizarRep(sistema,categoria,nombre,campo){
+  const v=repertoriosPrueba.find(x=>x.sistema===sistema&&x.categoria===categoria&&
+    x.nombre===nombre&&x.campo===campo);
+  assert.ok(v,'Existe el repertorio: '+[sistema,categoria,nombre,campo].join('/'));
+  return v;
+}
+const nombresHumanos=localizarRep('Nd20 Fantasía','Especie','Humano común','nombres');
+assert.equal(nombresHumanos.valores.length,20,'Nombres base documentados');
+const conceptosMago=localizarRep('Nd20 Fantasía','Ocupación','Mago','conceptos');
+assert.equal(conceptosMago.valores.length,10,'Conceptos de ocupación');
+const cifiNombres=localizarRep('Nd20 CiFi','Especie','Humano natural','nombres');
+assert.equal(cifiNombres.valores.length,20,'Nombres de CiFi');
+const conceptosVacios=localizarRep('Nd20 Fantasía','Ocupación','Hurí','conceptos');
+assert.equal(conceptosVacios.valores.length,0,'Suplementos vacíos editables');
+const nombresDh=localizarRep('Dungeon Hack','Ocupación','Clérigo','nombres');
+assert.ok(nombresDh.valores.length>=10,'Nombres originales de Dungeon Hack');
+const nombresSeguidores=localizarRep('Dungeon Hack','Seguidores','Nombres de seguidores','nombres');
+assert.ok(nombresSeguidores.valores.length>0,'Nombres de seguidores');
+const ylatDocumentados=localizarRep('Nd20 Fantasía','Tesauro Ylat','Nombres documentados','nombres');
+const ylatCombinados=localizarRep('Nd20 Fantasía','Tesauro Ylat','Nombres combinados','nombres');
+assert.equal(ylatDocumentados.valores.length,51,'Conservar nombres documentados');
+assert.equal(ylatCombinados.valores.length,149,'Nombres combinados ampliables');
+assert.equal(ylatDocumentados.editable,false,'Referencias documentadas protegidas');
+assert.equal(ylatCombinados.editable,true,'Creaciones combinadas editables');
+assert.throws(()=>catalogoRepertorios.actualizar(repertoriosPrueba,{},
+  ylatDocumentados.id,['Nombre inventado']),/solo lectura/i,
+  'No inventar nombres documentados');
+const inventarioOriginal=JSON.stringify(fantasia.especies);
+const actualizacionRep=catalogoRepertorios.actualizar(repertoriosPrueba,{},
+  nombresHumanos.id,nombresHumanos.valores.concat('Personaje de prueba editorial'));
+const ampliacionRep=catalogoRepertorios.actualizar(repertoriosPrueba,actualizacionRep,
+  conceptosVacios.id,['Concepto editorial de prueba']);
+assert.equal(catalogoRepertorios.valorActual(nombresHumanos,ampliacionRep).length,21);
+assert.equal(catalogoRepertorios.valorActual(conceptosVacios,ampliacionRep).length,1);
+assert.equal(JSON.stringify(fantasia.especies),inventarioOriginal,'No mutar fuentes en memoria');
+assert.throws(()=>catalogoRepertorios.actualizar(repertoriosPrueba,{},nombresHumanos.id,
+  ['Repetido','repetido']),/duplicadas/i,'Rechazar entradas repetidas');
+assert.throws(()=>catalogoRepertorios.actualizar(repertoriosPrueba,{},nombresHumanos.id,
+  ['x'.repeat(161)]),/demasiado larga/i);
+const exportadoRep=catalogoRepertorios.exportar(repertoriosPrueba,ampliacionRep);
+assert.equal(Object.keys(exportadoRep).length,2,'Solo repertorios modificados');
+const reimportadoRep=catalogoRepertorios.importar(repertoriosPrueba,exportadoRep);
+assert.deepEqual(reimportadoRep,ampliacionRep,'Exportación e importación sin pérdidas');
+assert.deepEqual(catalogoRepertorios.importar(repertoriosPrueba,undefined),{},
+  'Compatible con JSON previos sin repertorios');
+assert.throws(()=>catalogoRepertorios.importar(repertoriosPrueba,
+  {[nombresHumanos.id]:{ruta:nombresHumanos.ruta,
+    originales:['Fuente cambiada'],valores:['Falso']}}),/ha cambiado/i,
+  'Detectar cambios en el catálogo original');
+assert.throws(()=>catalogoRepertorios.importar(repertoriosPrueba,
+  {[ylatDocumentados.id]:{ruta:ylatDocumentados.ruta,
+    originales:ylatDocumentados.valores,valores:['Falso']}}),/protegido/i);
+const htmlControl=fs.readFileSync(path.join(__dirname,'..','control.html'),'utf8');
+for(const ref of ['assets/repertorios.js','id="panel-repertorios-editor"',
+  'id="repertorio-valores"','id="guardar-repertorio"','id="restaurar-repertorio"',
+  'id="tab-repertorios"','id="exportar-repertorios"'])
+  assert.ok(htmlControl.includes(ref),'Editor de repertorios conectado: '+ref);
+const jsControl=fs.readFileSync(path.join(__dirname,'..','assets','control-ui.js'),'utf8');
+assert.ok(jsControl.includes('revision.repertorios=repertorios.exportar'),
+  'Los repertorios se incluyen en el JSON editorial unificado');
+assert.ok(jsControl.includes('repertorios.importar(repertoriosCatalogo,parsed.repertorios)'),
+  'JSON importable con repertorios');
+console.log('OK · '+repertoriosPrueba.length+
+  ' repertorios de nombres y conceptos, tesauro protegido y JSON validado.');
