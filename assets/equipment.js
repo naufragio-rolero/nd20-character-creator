@@ -10,8 +10,10 @@
   function compraCifi(nombre,catalogo,presupuesto,rng){
     var cifi=catalogo.cifi,perfil=cifi&&cifi.competencias[nombre];
     if(!perfil)throw Error("No existe una tabla de Competencias CiFi para "+nombre);
-    if(!Number.isInteger(presupuesto)||presupuesto<400||presupuesto>4000||presupuesto%100!==0)
-      throw Error("Capital CiFi incorrecto: se esperan 4d10 × 100 Créditos.");
+    // El capital 4d10 × 100 cr puede incorporar el bono opcional
+    // de 4d10 cr por cada Nivel posterior al primero.
+    if(!Number.isInteger(presupuesto)||presupuesto<400)
+      throw Error("Capital CiFi incorrecto: se requiere al menos la riqueza inicial de creación.");
     var eq=[],notas=[],gastado=0;
     function comprar(opciones,porcentaje){
       var disponibles=opciones.filter(function(x){
