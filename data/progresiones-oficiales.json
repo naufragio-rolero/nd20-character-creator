@@ -5333,64 +5333,264 @@
             "",
             "",
             "",
-            "4"
+            ""
           ],
           [
             "1",
-            "11",
-            "4",
-            "4",
-            "4"
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "1",
+            "1",
+            "",
+            "",
+            ""
           ],
           [
             "2",
-            "13",
+            "1",
+            "",
+            "",
+            ""
+          ],
+          [
+            "2",
+            "2",
+            "1",
+            "",
+            ""
+          ],
+          [
+            "2",
+            "2",
+            "1",
+            "",
+            ""
+          ],
+          [
+            "3",
+            "3",
+            "2",
+            "1",
+            ""
+          ],
+          [
+            "3",
+            "3",
+            "2",
+            "1",
+            ""
+          ],
+          [
+            "3",
+            "4",
+            "3",
+            "2",
+            "1"
+          ],
+          [
+            "4",
+            "4",
+            "3",
+            "2",
+            "1"
+          ],
+          [
+            "4",
+            "4",
+            "4",
+            "3",
+            "2"
+          ],
+          [
+            "4",
+            "4",
+            "4",
+            "3",
+            "2"
+          ],
+          [
             "5",
+            "4",
+            "4",
+            "4",
+            "3"
+          ],
+          [
+            "5",
+            "4",
+            "4",
+            "4",
+            "3"
+          ],
+          [
+            "5",
+            "4",
+            "4",
             "4",
             "4"
           ],
           [
+            "6",
             "4",
-            "Lista de Conjuros del Adalid",
-            "Nivel 1",
-            "Bendición",
-            "Detectar el Mal"
+            "4",
+            "4",
+            "4"
           ],
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ],
+          [
+            "6",
+            "4",
+            "4",
+            "4",
+            "4"
+          ]
         ],
         "fuente": "NaufragioD20 — Ocupaciones · Ylat",
-        "verificado": false,
+        "verificado": true,
         "categorias": [
           "Disciplina"
         ],
         "escuelas": [],
         "especialidades": [],
-        "advertencia": "Extracción tabular incompleta: requiere verificación manual contra el documento original."
+        "lista_conjuros": {
+          "1": [
+            "Bendición",
+            "Detectar el Mal",
+            "Escudo",
+            "Orden",
+            "Protección contra el Mal",
+            "Purificar sustento",
+            "Remendar",
+            "Santuario"
+          ],
+          "2": [
+            "Heroísmo",
+            "Predicar",
+            "Resistir el frío",
+            "Resistir el fuego",
+            "Fuego purificador",
+            "Obstáculo"
+          ],
+          "3": [
+            "Controlar enfermedades",
+            "Detectar ilusión",
+            "Disipar magia",
+            "Eliminar maldición",
+            "Guerrero legendario",
+            "Ropa sagrada"
+          ],
+          "4": [
+            "Discernir mentiras",
+            "Lugar sagrado",
+            "Neutralizar veneno",
+            "Protección contra conjuros",
+            "Protección contra las armas",
+            "Sacrificio santificado"
+          ]
+        },
+        "condiciones": {
+          "magia_desde": 3,
+          "circulo_maximo": 4,
+          "compromisos_magicos": [
+            "Juramento sagrado",
+            "Endecha de los condenados"
+          ],
+          "desglose": "Las escuelas autorizadas dependen del Compromiso; la lista de Conjuros está agrupada bajo Adalid en el manual."
+        }
       },
       "Bárbaro": {
         "tipo": "perfil_ampliado",
