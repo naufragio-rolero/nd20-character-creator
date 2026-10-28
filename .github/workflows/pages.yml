@@ -36,6 +36,11 @@ jobs:
           test -s data/tesauro-ylat.json
           test -s data/progresiones-oficiales.json
           test -s data/equipo-inicial.json
+          test -s data/fichas-documentales.json
+          test -s assets/tooltips.js
+          test -s assets/tooltip-ui.js
+          node --check assets/tooltips.js
+          node --check assets/tooltip-ui.js
           test -s assets/equipment.js
           node --check assets/equipment.js
           node --check assets/rules.js
