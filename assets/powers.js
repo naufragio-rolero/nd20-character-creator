@@ -38,6 +38,175 @@
       return true;
     }).map(function(t){return {id:t.id,nombre:t.nombre,categoria:t.categoria,requisito:t.requisito};});
   }
+
+  function columna(tabla,fila,patron) {
+    if(!tabla||!fila)return null;
+    var index=tabla.columnas.findIndex(function(c){
+      return patron.test(String(c).replace(/\s+/g," ").trim());
+    });
+    return index<0?null:fila[index];
+  }
+  function numero(valor){return /^\d+$/.test(String(valor||""))?Number(valor):0;}
+  function disponibilidadCatalogo(items,nivel){
+    return (items||[]).filter(function(v){return Number(v.min_nivel||v.nivel||1)<=nivel;})
+      .map(function(v){return {id:v.id,nombre:v.nombre,requisito:v.requisito||"",circulo:v.circulo||null};});
+  }
+  function magiaPorEscuela(catalogo,escuelas,maximo) {
+    if(!maximo||!escuelas.length)return [];
+    return catalogo.conjuros.filter(function(v){
+      return v.circulo<=maximo && v.escuelas.some(function(e){return escuelas.indexOf(e)!==-1;});
+    }).map(function(v){return {id:v.id,nombre:v.nombre,circulo:v.circulo,escuelas:v.escuelas};});
+  }
+  function extraerOpciones(plan,paso,opciones,cantidad,avisos) {
+    if(!cantidad)return;
+    if(!opciones.length){
+      avisos.push("Sin catálogo compatible verificado para "+paso+".");
+      return;
+    }
+    if(opciones.length<cantidad){
+      avisos.push("En "+paso+" hay "+cantidad+" plazas pero solo "+opciones.length+
+        " opciones documentadas: no se inventan las restantes.");
+      cantidad=opciones.length;
+    }
+    plan.push(nuevo("extra-"+paso.replace(/[^\w]/g,"-").toLowerCase(),
+      paso,"poder_especial",cantidad,opciones));
+  }
+  function agregarProgresoAmpliado(config,catalogo,progresiones,pasos,avisos,recursos) {
+    var sector=config.juego==="nd20"?"fantasia":"nocturna";
+    var tabla=progresiones.ampliadas && progresiones.ampliadas[sector] &&
+      progresiones.ampliadas[sector][config.ocupacion];
+    if(!tabla){
+      avisos.push("Progresión específica aún no incorporada para esta Ocupación.");
+      return;
+    }
+    if(!tabla.verificado){
+      avisos.push("La tabla de "+config.ocupacion+" requiere verificación manual. "+
+        "Se conserva como referencia sin asignar capacidades dudosas.");
+      return;
+    }
+    var nivel=config.nivel, fila=tabla.niveles[nivel-1]||[];
+    var nombre=config.ocupacion, cols=tabla.columnas;
+    var tecnica=numero(columna(tabla,fila,/^Técnicas(?: de combate)?$/i));
+    if(tecnica && tabla.categorias.length){
+      var pool=tecnicas(catalogo,tabla.categorias,config.juego,nombre);
+      if(nombre==="Pugilista")
+        pool=pool.filter(function(t){return !/arma\s+(?:a distancia|cuerpo a cuerpo)|escudo|arrojadiza/i.test(t.requisito||"");});
+      if(nombre==="Celador")
+        pool=pool.filter(function(t){return !/arma cuerpo a cuerpo|espada|escudo/i.test(t.requisito||"");});
+      extraerOpciones(pasos,"Técnicas de "+nombre,pool,tecnica,avisos);
+    }else if(tecnica)avisos.push("La tabla indica "+tecnica+" Técnicas, pero no está verificada la categoría habilitada para "+nombre+".");
+    var maximo=numero(columna(tabla,fila,/^(?:Círculo máximo de Conjuros|Círculo máximo|Círculo de Conjuro|Nivel de Conjuro)$/i));
+    var conocidos=numero(columna(tabla,fila,/^Conjuros(?: conocidos)?$/i));
+    var diarios=numero(columna(tabla,fila,/^Conjuros diarios$/i));
+    if(nombre==="Nictomante"){
+      var maxN=numero(columna(tabla,fila,/Círculo.*máximo/i));
+      var lista=(catalogo.especiales?.lista_nictomancia)||[];
+      var poolN=catalogo.conjuros.filter(function(x){return lista.indexOf(x.nombre)!==-1&&x.circulo<=maxN;})
+        .map(function(x){return {id:x.id,nombre:x.nombre,circulo:x.circulo};});
+      if(conocidos)extraerOpciones(pasos,"Conjuros de Nictomancia",poolN,conocidos,avisos);
+      var pn=columna(tabla,fila,/Puntos de Nictalgia/i);
+      if(pn!==null)recursos.push(["Nictalgia",pn]);
+    }else if(nombre==="Arcanista"&&sector==="nocturna"){
+      pasos.push(nuevo("escuela-maestra","Segunda Escuela maestra","escuela",1,
+        ["Elemental","Nigromancia","Demonología","Divina","Naturaleza"].map(function(x){return {id:x,nombre:x};})));
+      var nm=numero(columna(tabla,fila,/Círculo máximo de Conjuros/i));
+      var nc=numero(columna(tabla,fila,/Conjuros conocidos/i));
+      if(nc)extraerOpciones(pasos,"Conjuros del Arcanista",
+        magiaPorEscuela(catalogo,["Arcana","Elemental","Nigromancia","Demonología","Divina","Naturaleza"],nm),
+        nc,avisos);
+      var last=pasos[pasos.length-1];if(last&&last.titulo==="Conjuros del Arcanista")
+        last.dependeEscuela=true;
+    }else if(nombre==="Espiritista"){
+      var pd=columna(tabla,fila,/Puntos de.*Destino/i);
+      if(pd!==null)recursos.push(["Destino",pd]);
+      if(conocidos)extraerOpciones(pasos,"Conjuros del Espiritista",
+        magiaPorEscuela(catalogo,["Divina","Nigromancia"],maximo),conocidos,avisos);
+    }else if(nombre==="Epicúreo"){
+      avisos.push("Los Conjuros del Epicúreo deben beneficiar al grupo: no se asignan hasta etiquetar sus efectos.");
+    }else if(nombre==="Cronómaca"){
+      avisos.push("Los Conjuros de Cronurgia requieren etiquetas contrastadas antes de permitir su elección.");
+    }else if(nombre==="Adalid"){
+      avisos.push("Los Conjuros del Adalid dependen del Compromiso elegido.");
+    }else if(nombre==="Brujo"||nombre==="Chamán"||nombre==="Hechicero"||nombre==="Oráculo"){
+      var vinculos=catalogo.especiales?.vinculos?.[nombre]||[];
+      if(vinculos.length){
+        pasos.push(nuevo("vinculo-arcano",
+          ({Brujo:"Patrón",Chamán:"Tradición ancestral",Hechicero:"Estirpe arcana",
+            Oráculo:"Llama divina"})[nombre],"vinculo",1,vinculos));
+        if(conocidos){
+          var todas=["Arcana","Demonología","Divina","Nigromancia","Elemental","Naturaleza"];
+          var poolV=magiaPorEscuela(catalogo,todas,maximo);
+          extraerOpciones(pasos,"Conjuros de "+nombre,poolV,conocidos,avisos);
+          var pasoV=pasos[pasos.length-1];
+          if(pasoV&&pasoV.titulo==="Conjuros de "+nombre){
+            pasoV.dependeVinculo=true;pasoV.vinculos=vinculos;
+          }
+        }
+      }else avisos.push("No hay origen sobrenatural documental para "+nombre+".");
+      var recurso=nombre==="Brujo"?["Brujería",columna(tabla,fila,/Puntos de Brujería/i)]:
+        nombre==="Chamán"?["Chamanismo",columna(tabla,fila,/Puntos de Chamanismo/i)]:
+        nombre==="Hechicero"?["Dado de Hechicería",columna(tabla,fila,/Dado de Hechicería/i)]:
+        ["Dado de Prodigios",columna(tabla,fila,/Dado de Hechicería/i)];
+      if(recurso[1]!==null)recursos.push(recurso);
+    }else if(nombre==="Truhán"||nombre==="Astrólogo"){
+      avisos.push("La tabla de "+nombre+" aún requiere verificación por Círculo.");
+    }else{
+      if(conocidos){
+        var escuela=tabla.escuelas||[];
+        extraerOpciones(pasos,"Conjuros conocidos de "+nombre,
+          magiaPorEscuela(catalogo,escuela,maximo),conocidos,avisos);
+      }
+      if(diarios && tabla.escuelas.length)
+        extraerOpciones(pasos,"Conjuros diarios de "+nombre,
+          magiaPorEscuela(catalogo,tabla.escuelas,maximo),diarios,avisos);
+      // Tablas de Espacios de Conjuro por Círculo.
+      if(cols.some(function(x){return /^[1-8]$/.test(x);}) && nombre==="Druida"){
+        for(var ci=1;ci<=8;ci++){
+          var espacios=numero(columna(tabla,fila,new RegExp("^"+ci+"$")));
+          if(!espacios)continue;
+          var lista=magiaPorEscuela(catalogo,tabla.escuelas,ci).filter(function(x){return x.circulo===ci;});
+          if(lista.length)pasos.push(nuevo("ampliado-preparado-"+ci,"Preparar Círculo "+ci+
+            " · "+nombre,"conjuro_preparado",espacios,lista,{circulo:ci,repetibles:true}));
+        }
+      }
+    }
+    var especiales=catalogo.especiales||{};
+    if((tabla.especialidades||[]).includes("privilegios"))
+      extraerOpciones(pasos,"Privilegios",disponibilidadCatalogo(especiales.privilegios,nivel),
+        numero(columna(tabla,fila,/Privilegios/i)),avisos);
+    if((tabla.especialidades||[]).includes("ordenes"))
+      extraerOpciones(pasos,"Órdenes de batalla",disponibilidadCatalogo(especiales.ordenes,nivel),
+        numero(columna(tabla,fila,/Órdenes de batalla/i)),avisos);
+    if((tabla.especialidades||[]).includes("flecheria")){
+      extraerOpciones(pasos,"Flechería arcana",disponibilidadCatalogo(especiales.flecheria,nivel),
+        numero(columna(tabla,fila,/^Recetas$/i)),avisos);
+      var proyectiles=columna(tabla,fila,/^Proyectiles$/i);
+      if(proyectiles!==null)recursos.push(["Proyectiles arcanos",proyectiles]);
+    }
+    if((tabla.especialidades||[]).includes("canciones")){
+      var cnt=numero(columna(tabla,fila,/^Canciones$/i));
+      var comp=String(columna(tabla,fila,/Complejidad Canciones/i)||"");
+      var max=comp.includes("Míticas")?4:comp.includes("Maestras")?3:
+        comp.includes("Intrincadas")?2:1;
+      var poolC=(especiales.canciones||[]).filter(function(x){return x.complejidad<=max;});
+      extraerOpciones(pasos,"Canciones",disponibilidadCatalogo(poolC,nivel),cnt,avisos);
+    }
+    if((tabla.especialidades||[]).includes("eidolas")){
+      var count=numero(columna(tabla,fila,/Diagramas astrales/i));
+      var categoria=numero(columna(tabla,fila,/Categoría Eidolon/i));
+      var poolE=(especiales.eidolas||[]).filter(function(x){return x.categoria<=categoria;});
+      extraerOpciones(pasos,"Eidolas",disponibilidadCatalogo(poolE,nivel),count,avisos);
+    }
+    if((tabla.especialidades||[]).includes("recetas")){
+      var poolR=disponibilidadCatalogo(especiales.recetas,nivel);
+      extraerOpciones(pasos,"Recetas de cocina",poolR,2,avisos);
+      avisos.push("El Lardeur puede aprender más Recetas durante la aventura; no existe un máximo por Nivel.");
+    }
+    // Tablas documentadas con mejoras pasivas no elegibles.
+    if(nombre==="Diletante")avisos.push("Los Talentos tomados de otras Ocupaciones necesitan elegir su origen y verificar compatibilidades.");
+    if(nombre==="Adalid")avisos.push("Debes definir el Compromiso del Adalid antes de adquirir sus Técnicas especiales.");
+  }
+
   function planificar(config,datos,catalogo,progresiones){
     var juego=config.juego,ocupacion=config.ocupacion,especie=config.especie;
     var nivel=rango(Number(config.nivel)||1,1,30),pasos=[],avisos=[],recursos=[];
@@ -53,12 +222,13 @@
           pasos.push(nuevo("talento-ocupacion-"+n,"Talento de Ocupación · Nivel "+n,"talento",1,
             habilidadesNocturna(oc.talentos_elegir,especie),{grupo:"talentos-ocupacion"}));
       }
-      avisos.push("Los Conjuros y Poderes sobrenaturales propios de Nocturna requieren progresiones adicionales aún no codificadas.");
+      agregarProgresoAmpliado(config,catalogo,progresiones,pasos,avisos,recursos);
+      avisos.push("Los Poderes específicos de Especie (Vampirismo, etc.) que carecen de tabla verificable siguen pendientes.");
       return {pasos:pasos,avisos:avisos,recursos:recursos,fuente:progresiones.fuentes.nocturna};
     }
     if(!p){
-      avisos.push("No hay una progresión de Poderes verificada para esta Ocupación. No se asignan Poderes automáticamente.");
-      return {pasos:pasos,avisos:avisos,recursos:recursos,fuente:"Pendiente de verificación"};
+      agregarProgresoAmpliado(config,catalogo,progresiones,pasos,avisos,recursos);
+      return {pasos:pasos,avisos:avisos,recursos:recursos,fuente:"Naufragio d20 · Suplementos"};
     }
     var f=fila(p,nivel);
     if(juego==="nd20"&&ocupacion==="Guerrero"){
@@ -106,6 +276,23 @@
   }
   function disponibles(paso,selecciones){
     var lista=paso.opciones||[];
+    if(paso.dependeVinculo){
+      var elegido=(selecciones["vinculo-arcano"]||[])[0];
+      var vic=(paso.vinculos||[]).find(function(x){return x.id===elegido;});
+      if(!vic)lista=[];
+      else lista=lista.filter(function(op){
+        return (op.escuelas||[]).some(function(e){return vic.escuelas.includes(e);});
+      });
+    }
+    if(paso.dependeEscuela){
+      var elegida=(selecciones["escuela-maestra"]||[])[0];
+      lista=lista.filter(function(op){
+        // Pool de escuelas originales; consultar el catálogo fuente para cada Conjuro.
+        var info=(paso.opciones||[]).find(function(x){return x.id===op.id;});
+        return info && ((info.escuelas||[]).includes("Arcana")||
+          (info.escuelas||[]).includes(elegida));
+      });
+    }
     if(paso.dependeGrimorio){
       var conocidos=new Set();
       Object.keys(selecciones||{}).filter(function(k){return k.startsWith("grimorio-");}).forEach(function(k){

@@ -37,9 +37,37 @@
       return Number(e.value);
     });
   }
+  function refrescarBotonesSistema() {
+    var juego=$('juego').value;
+    document.querySelectorAll('.juegos-compactos [data-juego]').forEach(function(button){
+      var activo=button.dataset.juego===juego;
+      button.classList.toggle('sistema-activo',activo);
+      button.setAttribute('aria-pressed',String(activo));
+    });
+  }
+  function marcarPanel(nombre){
+    var tools=nombre==='herramientas';
+    $('panel-personajes').hidden=tools;
+    $('panel-herramientas').hidden=!tools;
+    ['personajes','herramientas'].forEach(function(key){
+      var button=$('tab-'+key),selected=key===nombre;
+      button.classList.toggle('activa',selected);
+      button.setAttribute('aria-selected',String(selected));
+      button.tabIndex=selected?0:-1;
+    });
+  }
+  function origenOcupacion(nombre,juego){
+    if(juego==='dh')return '';
+    if(juego==='nd20_cifi')return 'CiFi';
+    if(juego==='nd20_nocturna')return 'Nocturna';
+    if(datos.fantasiaAmpliadas && datos.fantasiaAmpliadas[nombre])
+      return datos.fantasiaAmpliadas[nombre].suplemento || 'Nuevas Ocupaciones';
+    return 'DRS';
+  }
   function refrescarSelectores() {
     if (!datos.dh) return;
     var juego = $('juego').value, dh = juego === 'dh';
+    refrescarBotonesSistema();
     $('opciones-dh').hidden = !dh;
     $('modos-creacion').hidden = dh;
     $('generar-seguidor').disabled = !dh;
@@ -54,7 +82,8 @@
         return orig.indexOf(datos.dh.classes[key].origin) !== -1;
       });
       selecciones('ocupacion', claves.map(function (key) {
-        return {key:key, nombre:datos.dh.classes[key].name};
+        return {key:key, nombre:datos.dh.classes[key].name+
+          ' ('+(datos.dh.origins[datos.dh.classes[key].origin]||'Dungeon Hack')+')'};
       }).sort(ordenar), true);
       selecciones('especie', Object.keys(datos.dh.races).map(function (key) {
         return {key:key, nombre:datos.dh.races[key].name};
@@ -63,7 +92,7 @@
       var d = juego === 'nd20_cifi' ? datos.cifi :
         juego === 'nd20_nocturna' ? datos.nocturna : datos.fantasia;
       selecciones('ocupacion', Object.keys(d.ocupaciones).map(function (key) {
-        return {key:key, nombre:key};
+        return {key:key, nombre:key+' ('+origenOcupacion(key,juego)+')'};
       }).sort(ordenar), true);
       selecciones('especie', Object.keys(d.especies).map(function (key) {
         return {key:key, nombre:key};
@@ -94,10 +123,16 @@
       nombre:$('nombre-personaje').value.trim()};
   }
   function crearFicha(cfg, rng) {
-    if (cfg.juego === 'dh') return reglas.eleccionDH(datos.dh,cfg,rng);
-    return reglas.crearNd20(cfg.juego==='nd20_cifi' ? datos.cifi :
+    if (cfg.juego === 'dh') {
+      var dh=reglas.eleccionDH(datos.dh,cfg,rng);
+      dh.procedenciaOcupacion=dh.origen;
+      return dh;
+    }
+    var ficha=reglas.crearNd20(cfg.juego==='nd20_cifi' ? datos.cifi :
       cfg.juego==='nd20_nocturna' ? datos.nocturna : datos.fantasia,
       Object.assign({},cfg,{aplazarElecciones:true}),rng);
+    ficha.procedenciaOcupacion=origenOcupacion(ficha.descripcion.split(' · ')[0],cfg.juego);
+    return ficha;
   }
   function htmlLista(titulo, valores) {
     if (!valores || !valores.length) return '';
@@ -108,6 +143,11 @@
     return '<div class="recursos">' + (pares || []).map(function (p) {
       return '<div><span>' + esc(p[0]) + '</span><strong>' + esc(p[1]) + '</strong></div>';
     }).join('') + '</div>';
+  }
+  function descripcionConFuente(personaje){
+    var p=personaje.descripcion.split(' · ');
+    if(personaje.procedenciaOcupacion)p[0]+=' ('+personaje.procedenciaOcupacion+')';
+    return p.join(' · ');
   }
   function fichaHTML(personaje, id) {
     var esDungeonHack = personaje.juego.indexOf('Dungeon Hack') === 0;
@@ -122,7 +162,7 @@
     return '<article class="tarjeta" data-id="' + id + '">' +
       '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(personaje.juego) +
       ' · Nivel ' + esc(personaje.nivel) + '</p><h3>' + esc(personaje.nombre) +
-      '</h3><p>' + esc(personaje.descripcion) + '</p></div>' +
+      '</h3><p>' + esc(descripcionConFuente(personaje)) + '</p></div>' +
       '<button class="icon-btn eliminar-ficha" data-id="' + id + '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div>' +
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
       '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos) +
@@ -159,7 +199,7 @@
     return html;
   }
   function fichaTexto(p) {
-    var str=[p.nombre,p.juego,'Nivel: '+p.nivel,p.descripcion];
+    var str=[p.nombre,p.juego,'Nivel: '+p.nivel,descripcionConFuente(p)];
     if(p.concepto)str.push('Concepto: '+p.concepto);
     str.push('', 'Atributos:');
     var esDH = p.juego.indexOf('Dungeon Hack') === 0;
@@ -298,6 +338,25 @@
     });
   }
   function vincular() {
+    document.querySelectorAll('.juegos-compactos [data-juego]').forEach(function(button){
+      button.addEventListener('click',function(){
+        $('juego').value=button.dataset.juego;
+        refrescarSelectores();
+        marcarPanel('personajes');
+      });
+    });
+    $('tab-personajes').addEventListener('click',function(){marcarPanel('personajes');});
+    $('tab-herramientas').addEventListener('click',function(){marcarPanel('herramientas');});
+    var tema=$('selector-tema');
+    try {
+      var saved=localStorage.getItem('forja-tema');
+      if(['clasico','ebano','ceruleo','obsidiana'].indexOf(saved)!==-1)tema.value=saved;
+    }catch(error){ /* Navegación privada / almacenamiento bloqueado. */ }
+    document.body.dataset.tema=tema.value;
+    tema.addEventListener('change',function(){
+      document.body.dataset.tema=tema.value;
+      try{localStorage.setItem('forja-tema',tema.value);}catch(error){}
+    });
     $('juego').addEventListener('change',refrescarSelectores);
     $('con-especie').addEventListener('change',refrescarSelectores);
     $('origenes').addEventListener('change',refrescarSelectores);
@@ -400,6 +459,7 @@
         datos.cifi.especies[key]=Object.assign({},datos.cifi.especies[key],extra.cifi.especies[key]);
     });
     datos.nocturna=extra.nocturna;
+    datos.fantasiaAmpliadas=extra.fantasia.ocupaciones;
     datos.catalogo=loaded.catalogo;
     datos.progresiones=loaded.progresiones;
     datos.dh=loaded.dungeon;

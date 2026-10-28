@@ -11,22 +11,41 @@
   <script defer src="assets/powers.js"></script>
   <script defer src="assets/app.js"></script>
 </head>
-<body>
+<body data-tema="clasico">
   <header class="encabezado">
     <div class="marca">
       <p class="sobrelinea">EL NAUFRAGIO / HERRAMIENTAS DE ROL</p>
       <h1>Forja de personajes</h1>
-      <p class="subtitulo">Dos juegos. Una mesa. Infinitas historias.</p>
+      <p class="subtitulo">Naufragio d20 y Dungeon Hack. Personajes y herramientas en una misma forja.</p>
     </div>
-    <a class="enlace-github" href="https://github.com/naufragio-rolero/nd20-character-creator" target="_blank" rel="noopener noreferrer">Código y documentación</a>
+    <div class="cabecera-acciones"><label class="tema-control" for="selector-tema">Tema
+      <select id="selector-tema" aria-label="Tema visual">
+        <option value="clasico">Clásico</option>
+        <option value="ebano">Ébano</option>
+        <option value="ceruleo">Cerúleo</option>
+        <option value="obsidiana">Obsidiana</option>
+      </select>
+    </label>
+    <a class="enlace-github" href="https://github.com/naufragio-rolero/nd20-character-creator" target="_blank" rel="noopener noreferrer">Código y documentación</a></div>
   </header>
   <main class="disposicion">
     <aside class="panel" aria-label="Opciones de generación">
-      <h2>Configurar la forja</h2>
+      <h2>La forja</h2>
+      <div class="pestanas-panel" role="tablist" aria-label="Panel de la forja">
+        <button type="button" id="tab-personajes" role="tab" aria-controls="panel-personajes" aria-selected="true" class="activa">Personajes</button>
+        <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false">Herramientas</button>
+      </div>
+      <div id="panel-personajes" role="tabpanel" aria-labelledby="tab-personajes">
       <form id="configuracion">
         <div class="campo">
-          <label for="juego">Sistema</label>
-          <select id="juego" name="juego">
+          <label id="etiqueta-sistema" for="juego">Sistema</label>
+          <div class="juegos-compactos" role="group" aria-labelledby="etiqueta-sistema">
+            <button type="button" data-juego="nd20" class="sistema-activo" aria-pressed="true" title="Naufragio d20 Fantasía"><span aria-hidden="true">⚔</span><strong>Nd20F</strong></button>
+            <button type="button" data-juego="nd20_cifi" aria-pressed="false" title="Naufragio d20 CiFi"><span aria-hidden="true">✦</span><strong>Nd20C</strong></button>
+            <button type="button" data-juego="nd20_nocturna" aria-pressed="false" title="Naufragio d20 Nocturna"><span aria-hidden="true">☾</span><strong>Nd20N</strong></button>
+            <button type="button" data-juego="dh" aria-pressed="false" title="Dungeon Hack"><span aria-hidden="true">◇</span><strong>DH</strong></button>
+          </div>
+          <select id="juego" name="juego" class="sr-only" tabindex="-1" aria-hidden="true">
             <option value="nd20">Naufragio d20 · Fantasía</option>
             <option value="nd20_cifi">Naufragio d20 · CiFi</option>
             <option value="nd20_nocturna">Naufragio d20 · Nocturna</option>
@@ -73,7 +92,8 @@
         </div>
         <button class="principal" id="generar" type="submit">Generar personajes</button>
       </form>
-      <section class="herramientas" aria-label="Otras herramientas">
+      </div>
+      <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
         <h3>Herramientas del Cronista</h3>
         <div class="botonera">
           <button id="generar-seguidor" type="button">Generar seguidor</button>

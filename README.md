@@ -2,6 +2,27 @@
 
 Generador estático para **Naufragio d20 (Fantasía, CiFi y Nocturna)** y **Dungeon Hack**, diseñado para publicarse en GitHub Pages sin servidor, base de datos, Python ni compilación.
 
+## Menú, procedencia y temas
+
+La barra lateral tiene un selector de sistema compacto (**Nd20F**, **Nd20C**, **Nd20N** y **DH**), un panel independiente para **Herramientas del Cronista / DJ** y una pestaña principal de **Personajes**.
+
+Las Ocupaciones muestran entre paréntesis su origen en el selector y en la ficha: **DRS**, **Nuevas Ocupaciones**, **Ylat**, **CiFi**, **Nocturna**; para Dungeon Hack se usa el origen de la clase declarado en `data/dungeon-hack.json`, sin cambiar su identificador interno.
+
+Se ofrecen cuatro temas sin dependencias externas: **Clásico** (el original), **Ébano** (blanco y gris), **Cerúleo** (azul/cian inspirado en los tokens `assets/css/hg-tokens.css` del repositorio `starkvind/heavens-gate`) y **Obsidiana** (negro y blanco). La elección se recuerda en el almacenamiento local del navegador cuando está disponible.
+
+## Ampliación de progresiones
+
+En `data/progresiones-oficiales.json` se recogen **33 perfiles de Ocupaciones de Fantasía**: 30 tablas están extraídas íntegramente, mientras **Truhán, Astrólogo y Adalid** conservan un aviso y **no se automatizan** hasta contrastar las celdas vacías de sus tablas originales. También se incluyen las **8 tablas de Nocturna** completas.
+
+Catálogos adicionales de `data/catalogo-poderes.json`:
+- 8 Órdenes de batalla, 6 Privilegios, 14 recetas de Flechería arcana.
+- 24 Canciones, 32 Eidolas y recetas del Lardeur identificadas en el documento de ocupaciones.
+- Selecciones de Patrón del Brujo (27), Tradición del Chamán (4), Estirpe del Hechicero (8) y Llama divina del Oráculo (8), con escuelas filtradas según la opción elegida.
+
+Los modos **Rápido** y **Personalizado** aplican las nuevas progresiones cuando la fuente define el número y tipo de Poderes. El motor permite escoger Conjuros según Escuelas/Círculos de origen, canciones por complejidad, Eidolas por Categoría, Flechería por requisito de Nivel, Privilegios, Técnicas por categorías y Órdenes por progreso.
+
+**Límites deliberados:** los requisitos situacionales para usar Técnicas y los beneficios de Talentos deben consultarse en sus manuales. La selección de Conjuros beneficiosos del Epicúreo, Cronurgia del Cronómaca, Compromisos del Adalid y algunos Poderes de Especie de Nocturna todavía necesitan información adicional o etiquetado antes de convertirse en opciones automáticas verificadas. El generador no debe confundirse con una validación exhaustiva de reglas: las progresiones se han contrastado parcialmente de forma automatizada y requieren revisión editorial.
+
 ## Modos de creación de Talentos y Poderes
 
 - **Rápido:** el generador completa de forma determinista las elecciones permitidas a partir de una semilla, atendiendo al Nivel y a la progresión oficial.

@@ -29,7 +29,8 @@
         "talentos_referencia": [
           "Hallar la verdad",
           "Olfato deductivo"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Truhán": {
         "atributo_favorito": [
@@ -52,7 +53,8 @@
         "talentos_referencia": [
           "Cotilla",
           "Fullerías"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Acróbata": {
         "atributo_favorito": [
@@ -76,7 +78,8 @@
           "Equilibrio perfecto",
           "Frustración canalizada",
           "Maniobra letal"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Astrólogo": {
         "atributo_favorito": [
@@ -99,7 +102,8 @@
         "talentos_referencia": [
           "Cauce astral",
           "Premonición estelar"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Dinamitero": {
         "atributo_favorito": [
@@ -123,7 +127,8 @@
         "talentos_referencia": [
           "Experto en bombas",
           "Ingeniería explosiva"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Marginado": {
         "atributo_favorito": [
@@ -155,7 +160,8 @@
           "Estulticia",
           "Golpe desesperado",
           "Infeliz"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Doncella de la Espada": {
         "atributo_favorito": [
@@ -180,7 +186,8 @@
         "talentos_referencia": [
           "Esplendor",
           "Oleada extensiva"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Valquiria": {
         "atributo_favorito": [
@@ -204,7 +211,8 @@
         "talentos_referencia": [
           "Alas de la libertad",
           "Poderío de la Reina"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Hurí": {
         "atributo_favorito": [
@@ -227,7 +235,8 @@
         "talentos_referencia": [
           "Encanto",
           "Defensa sin armadura"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Marionetista": {
         "atributo_favorito": [
@@ -252,7 +261,8 @@
         "talentos_referencia": [
           "Dominio de las marionetas",
           "Solidez ligna"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Vikingo": {
         "atributo_favorito": [
@@ -277,7 +287,8 @@
           "Corazón de escarcha",
           "Pillaje voraz",
           "Ira del rayo"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Verdugo": {
         "atributo_favorito": [
@@ -301,7 +312,8 @@
           "Aterrorizar",
           "Decapitación",
           "Torturar"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Gladiador": {
         "atributo_favorito": [
@@ -325,7 +337,8 @@
         "talentos_referencia": [
           "Estilos de gladiatoria",
           "Protecciones cómodas"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Arlequín": {
         "atributo_favorito": [
@@ -349,7 +362,8 @@
         "talentos_referencia": [
           "Mímica",
           "Ridículo"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Pugilista": {
         "atributo_favorito": [
@@ -373,7 +387,8 @@
         "talentos_referencia": [
           "Contundencia",
           "Juego de piernas"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Epicúreo": {
         "atributo_favorito": [
@@ -396,7 +411,8 @@
         "talentos_referencia": [
           "Paladar exquisito",
           "Escudo placentero"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Nictomante": {
         "atributo_favorito": [
@@ -421,7 +437,8 @@
           "Ablución nocturna",
           "Puntos de Nictalgia",
           "Celaje umbrío"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Cronómaca": {
         "atributo_favorito": [
@@ -446,7 +463,8 @@
         "talentos_referencia": [
           "Guardatiempo",
           "Impulso temporal"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Invocadora": {
         "atributo_favorito": [
@@ -471,7 +489,8 @@
         "talentos_referencia": [
           "Abnegación",
           "Convocar Eidolon"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Druida": {
         "atributo_favorito": [
@@ -497,7 +516,8 @@
         "talentos_referencia": [
           "Forma salvaje",
           "Sendero de la naturaleza"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Lardeur": {
         "atributo_favorito": [
@@ -522,7 +542,8 @@
           "Cata magistral",
           "Haute cuisine",
           "Mise en place"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Derviche": {
         "atributo_favorito": [
@@ -549,7 +570,8 @@
           "Defensa sin armadura",
           "Maniobra letal",
           "Oleada extensiva"
-        ]
+        ],
+        "suplemento": "Nuevas Ocupaciones"
       },
       "Adalid": {
         "atributo_favorito": [
@@ -576,7 +598,8 @@
           "Compromiso del adalid",
           "Desafío honorable",
           "Imposición de manos"
-        ]
+        ],
+        "suplemento": "Ylat"
       },
       "Bárbaro": {
         "atributo_favorito": [
@@ -603,7 +626,8 @@
           "Cólera",
           "Energúmeno",
           "Receloso"
-        ]
+        ],
+        "suplemento": "Ylat"
       },
       "Bardo": {
         "atributo_favorito": [
@@ -626,7 +650,8 @@
         "talentos_referencia": [
           "Cultura del viajero",
           "Entusiasmo"
-        ]
+        ],
+        "suplemento": "Ylat"
       },
       "Belisario": {
         "atributo_favorito": [
@@ -652,7 +677,8 @@
           "Apariencia intimidante",
           "Estratega avezado",
           "Preparación"
-        ]
+        ],
+        "suplemento": "Ylat"
       },
       "Brujo": {
         "atributo_favorito": [
@@ -677,7 +703,8 @@
           "Esbirro familiar",
           "Puntos de Brujería",
           "Rebote arcano"
-        ]
+        ],
+        "suplemento": "Ylat"
       },
       "Cazador": {
         "atributo_favorito": [
@@ -701,7 +728,8 @@
         "talentos_referencia": [
           "Compañero animal",
           "Marca del cazador"
-        ]
+        ],
+        "suplemento": "Ylat"
       },
       "Celador": {
         "atributo_favorito": [
@@ -726,7 +754,8 @@
         "talentos_referencia": [
           "Arma de celador",
           "Disparo inevitable"
-        ]
+        ],
+        "suplemento": "Ylat"
       },
       "Chamán": {
         "atributo_favorito": [
@@ -751,7 +780,8 @@
           "Espíritu ancestral",
           "Puntos de Chamanismo",
           "Resonancia salvaje"
-        ]
+        ],
+        "suplemento": "Ylat"
       },
       "Diletante": {
         "atributo_favorito": [
@@ -779,7 +809,8 @@
         "talentos_referencia": [
           "Aprendiz de todo",
           "Competencias y poderes"
-        ]
+        ],
+        "suplemento": "Ylat"
       },
       "Hechicero": {
         "atributo_favorito": [
@@ -803,7 +834,8 @@
         "talentos_referencia": [
           "Canal sortílego",
           "Dado de Hechicería"
-        ]
+        ],
+        "suplemento": "Ylat"
       },
       "Oráculo": {
         "atributo_favorito": [
@@ -828,7 +860,8 @@
           "Dado de Prodigios",
           "Plegaria suplicante",
           "Visión oracular"
-        ]
+        ],
+        "suplemento": "Ylat"
       }
     },
     "especies": {

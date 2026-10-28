@@ -147,3 +147,65 @@ assert.throws(()=>poderes.resolver(poolNoct,{
   'talento-ocupacion-9':['Caos esotérico']
 },()=>.2),/fuera de catálogo/i);
 console.log('OK · '+eleccionesValidadas+' comprobaciones de progresión y selección.');
+
+
+/* Edición 2026-10: catálogos ampliados, subopciones y menú compacto. */
+const progresoAmpliado=progresiones.ampliadas;
+assert.equal(Object.keys(progresoAmpliado.fantasia).length,33,'Tablas de Ocupaciones ampliadas');
+assert.equal(Object.keys(progresoAmpliado.nocturna).length,8,'Tablas Nocturna');
+assert.equal(Object.values(progresoAmpliado.fantasia).filter(t=>t.verificado).length,30,
+  'Solo 30 tablas de Fantasía verificadas íntegramente');
+for(const [key,tabla] of Object.entries(progresoAmpliado.nocturna))
+  assert.ok(tabla.verificado && tabla.niveles.length===30 && tabla.niveles.every(Array.isArray),
+    'Tabla de Nocturna completa: '+key);
+const ex=catalogoPoderes.especiales;
+assert.equal(ex.ordenes.length,8);
+assert.equal(ex.flecheria.length,14);
+assert.equal(ex.privilegios.length,6);
+assert.equal(ex.canciones.length,24);
+assert.equal(ex.eidolas.length,32);
+assert.ok(ex.recetas.length>=28);
+assert.equal(ex.vinculos.Brujo.length,27);
+assert.equal(ex.vinculos.Hechicero.length,8);
+assert.equal(ex.vinculos.Oráculo.length,8);
+assert.equal(ex.vinculos.Chamán.length,4);
+
+let planificados=0;
+for(const [juego,grupo] of [['nd20',fantasiaExtendida],['nd20_cifi',cifiExtendida],['nd20_nocturna',nocturna]]){
+  for(const ocupacion of Object.keys(grupo.ocupaciones)){
+    for(let nivel=1;nivel<=30;nivel++){
+      const rng=reglas.aleatorioSemilla('expansion-'+juego+'-'+ocupacion+'-'+nivel);
+      const pj=reglas.crearNd20(grupo,{juego,nivel,ocupacion,aplazarElecciones:true},rng);
+      const especie=pj.descripcion.split(' · ').slice(1).join(' · ');
+      const plan=poderes.planificar({juego,nivel,ocupacion,especie},grupo,catalogoPoderes,progresiones);
+      const resultado=poderes.resolver(plan,null,rng);
+      const personal=poderes.resolver(plan,resultado.decisiones,reglas.aleatorioSemilla('guiado'));
+      assert.deepEqual(
+        resultado.elementos.filter(e=>e.tipo!=='psionico').map(e=>e.id),
+        personal.elementos.filter(e=>e.tipo!=='psionico').map(e=>e.id),
+        'Los dos modos coinciden salvo la tirada obligatoria del Psion');
+      const final=poderes.aplicar(pj,plan,resultado);
+      assert.ok(final.capacidades && final.poderes && final.conjuros_preparados);
+      planificados++;
+    }
+  }
+}
+const planArcano=poderes.planificar({juego:'nd20_nocturna',nivel:1,
+  ocupacion:'Arcanista',especie:'Humano natural'},nocturna,catalogoPoderes,progresiones);
+const secundaria=planArcano.pasos.find(p=>p.id==='escuela-maestra');
+assert.ok(secundaria && secundaria.opciones.length===5,'Segunda Escuela maestra opcional');
+const hechicero=poderes.planificar({juego:'nd20',nivel:15,
+  ocupacion:'Hechicero',especie:'Humano común'},fantasiaExtendida,catalogoPoderes,progresiones);
+assert.ok(hechicero.pasos.some(p=>p.id==='vinculo-arcano'));
+assert.ok(hechicero.pasos.some(p=>p.dependeVinculo));
+const noVerificado=poderes.planificar({juego:'nd20',nivel:30,ocupacion:'Adalid',
+  especie:'Humano común'},fantasiaExtendida,catalogoPoderes,progresiones);
+assert.ok(noVerificado.avisos.some(x=>x.includes('verificación manual')),'Adalid no se inventa');
+const documento=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+for(const tag of ['data-juego="nd20"','data-juego="nd20_cifi"','data-juego="nd20_nocturna"',
+ 'data-juego="dh"','tab-herramientas','selector-tema'])
+ assert.ok(documento.includes(tag),'Menú contiene '+tag);
+const estilos=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'utf8');
+for(const tema of ['ebano','ceruleo','obsidiana'])
+ assert.ok(estilos.includes('data-tema='+tema),'Tema '+tema);
+console.log('OK · '+planificados+' pruebas de Poderes adicionales y nuevas interfaces.');

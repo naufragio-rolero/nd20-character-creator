@@ -5081,5 +5081,1114 @@
       "descripcion": "En lugar de utilizar las Medidas defensivas de la Barrera en la que se encuentra, el sistema utilizará las Medidas defensivas de la Barrera de Identificación (las más laxas).",
       "fuente": "Naufragio d20 CiFi"
     }
-  ]
+  ],
+  "especiales": {
+    "version": 1,
+    "fuente": "NaufragioD20 — Ocupaciones (documento original)",
+    "ordenes": [
+      {
+        "id": "ordenes-1",
+        "nombre": "¡Aguanta!",
+        "min_nivel": 1,
+        "requisito": "",
+        "fuente": "Órdenes de batalla"
+      },
+      {
+        "id": "ordenes-2",
+        "nombre": "¡Ataca!",
+        "min_nivel": 1,
+        "requisito": "",
+        "fuente": "Órdenes de batalla"
+      },
+      {
+        "id": "ordenes-3",
+        "nombre": "¡No puedes ganar!",
+        "min_nivel": 1,
+        "requisito": "",
+        "fuente": "Órdenes de batalla"
+      },
+      {
+        "id": "ordenes-4",
+        "nombre": "¡Por aquí!",
+        "min_nivel": 1,
+        "requisito": "",
+        "fuente": "Órdenes de batalla"
+      },
+      {
+        "id": "ordenes-5",
+        "nombre": "¡Presta atención!",
+        "min_nivel": 1,
+        "requisito": "",
+        "fuente": "Órdenes de batalla"
+      },
+      {
+        "id": "ordenes-6",
+        "nombre": "¡Ten cuidado!",
+        "min_nivel": 1,
+        "requisito": "",
+        "fuente": "Órdenes de batalla"
+      },
+      {
+        "id": "ordenes-7",
+        "nombre": "¡Tiembla, gusano!",
+        "min_nivel": 1,
+        "requisito": "",
+        "fuente": "Órdenes de batalla"
+      },
+      {
+        "id": "ordenes-8",
+        "nombre": "¡Vuelve en ti!",
+        "min_nivel": 1,
+        "requisito": "",
+        "fuente": "Órdenes de batalla"
+      }
+    ],
+    "flecheria": [
+      {
+        "id": "flecheria-1",
+        "nombre": "Deflagrador",
+        "min_nivel": 8,
+        "requisito": "Nivel 8",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-2",
+        "nombre": "Distante",
+        "min_nivel": 3,
+        "requisito": "Nivel 3",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-3",
+        "nombre": "Elemental",
+        "min_nivel": 1,
+        "requisito": "Nivel 1",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-4",
+        "nombre": "Enraizador",
+        "min_nivel": 1,
+        "requisito": "Nivel 1",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-5",
+        "nombre": "Extendido",
+        "min_nivel": 10,
+        "requisito": "Nivel 10",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-6",
+        "nombre": "Fulminante",
+        "min_nivel": 8,
+        "requisito": "Nivel 8",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-7",
+        "nombre": "Gemelo",
+        "min_nivel": 3,
+        "requisito": "Nivel 3",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-8",
+        "nombre": "Guardián",
+        "min_nivel": 5,
+        "requisito": "Nivel 5",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-9",
+        "nombre": "Ineludible",
+        "min_nivel": 5,
+        "requisito": "Nivel 5",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-10",
+        "nombre": "Intangible",
+        "min_nivel": 3,
+        "requisito": "Nivel 3",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-11",
+        "nombre": "Invernal",
+        "min_nivel": 8,
+        "requisito": "Nivel 8",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-12",
+        "nombre": "Mortífero",
+        "min_nivel": 10,
+        "requisito": "Nivel 10",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-13",
+        "nombre": "Ofidio",
+        "min_nivel": 1,
+        "requisito": "Nivel 1",
+        "fuente": "Flechería arcana"
+      },
+      {
+        "id": "flecheria-14",
+        "nombre": "Penetrante",
+        "min_nivel": 3,
+        "requisito": "Nivel 3",
+        "fuente": "Flechería arcana"
+      }
+    ],
+    "privilegios": [
+      {
+        "id": "privilegios-1",
+        "nombre": "Atemorizar plebeyo",
+        "min_nivel": 1,
+        "requisito": "",
+        "fuente": "Privilegios"
+      },
+      {
+        "id": "privilegios-2",
+        "nombre": "Corazonada",
+        "min_nivel": 6,
+        "requisito": "Nivel 6",
+        "fuente": "Privilegios"
+      },
+      {
+        "id": "privilegios-3",
+        "nombre": "Investigar sospechoso",
+        "min_nivel": 1,
+        "requisito": "",
+        "fuente": "Privilegios"
+      },
+      {
+        "id": "privilegios-4",
+        "nombre": "Llamada a la turba",
+        "min_nivel": 6,
+        "requisito": "Nivel 6",
+        "fuente": "Privilegios"
+      },
+      {
+        "id": "privilegios-5",
+        "nombre": "Red de contactos",
+        "min_nivel": 1,
+        "requisito": "",
+        "fuente": "Privilegios"
+      },
+      {
+        "id": "privilegios-6",
+        "nombre": "Representante de la justicia",
+        "min_nivel": 6,
+        "requisito": "Nivel 6",
+        "fuente": "Privilegios"
+      }
+    ],
+    "canciones": [
+      {
+        "id": "cancion-1",
+        "nombre": "Arrullo pacificador",
+        "complejidad": 1,
+        "categoria": "Sencillas"
+      },
+      {
+        "id": "cancion-2",
+        "nombre": "Cantata de ánimo",
+        "complejidad": 1,
+        "categoria": "Sencillas"
+      },
+      {
+        "id": "cancion-3",
+        "nombre": "Fuga crepuscular",
+        "complejidad": 1,
+        "categoria": "Sencillas"
+      },
+      {
+        "id": "cancion-4",
+        "nombre": "Minueto borrascoso",
+        "complejidad": 1,
+        "categoria": "Sencillas"
+      },
+      {
+        "id": "cancion-5",
+        "nombre": "Preludio arcano",
+        "complejidad": 1,
+        "categoria": "Sencillas"
+      },
+      {
+        "id": "cancion-6",
+        "nombre": "Serenata del vigor",
+        "complejidad": 1,
+        "categoria": "Sencillas"
+      },
+      {
+        "id": "cancion-7",
+        "nombre": "Bolero fogoso",
+        "complejidad": 2,
+        "categoria": "Intrincadas"
+      },
+      {
+        "id": "cancion-8",
+        "nombre": "Coro de alianzas",
+        "complejidad": 2,
+        "categoria": "Intrincadas"
+      },
+      {
+        "id": "cancion-9",
+        "nombre": "Ecos de discordia",
+        "complejidad": 2,
+        "categoria": "Intrincadas"
+      },
+      {
+        "id": "cancion-10",
+        "nombre": "Himno de la tierra",
+        "complejidad": 2,
+        "categoria": "Intrincadas"
+      },
+      {
+        "id": "cancion-11",
+        "nombre": "Nocturno celestial",
+        "complejidad": 2,
+        "categoria": "Intrincadas"
+      },
+      {
+        "id": "cancion-12",
+        "nombre": "Sinfonía valerosa",
+        "complejidad": 2,
+        "categoria": "Intrincadas"
+      },
+      {
+        "id": "cancion-13",
+        "nombre": "Aria de otromundo",
+        "complejidad": 3,
+        "categoria": "Maestras"
+      },
+      {
+        "id": "cancion-14",
+        "nombre": "Elegía de la esperanza",
+        "complejidad": 3,
+        "categoria": "Maestras"
+      },
+      {
+        "id": "cancion-15",
+        "nombre": "Himno de la brisa",
+        "complejidad": 3,
+        "categoria": "Maestras"
+      },
+      {
+        "id": "cancion-16",
+        "nombre": "Melodía repetitiva",
+        "complejidad": 3,
+        "categoria": "Maestras"
+      },
+      {
+        "id": "cancion-17",
+        "nombre": "Tonada estridente",
+        "complejidad": 3,
+        "categoria": "Maestras"
+      },
+      {
+        "id": "cancion-18",
+        "nombre": "Oda a la lluvia",
+        "complejidad": 3,
+        "categoria": "Maestras"
+      },
+      {
+        "id": "cancion-19",
+        "nombre": "Balada primaveral",
+        "complejidad": 4,
+        "categoria": "Míticas"
+      },
+      {
+        "id": "cancion-20",
+        "nombre": "Elogio inspirador",
+        "complejidad": 4,
+        "categoria": "Míticas"
+      },
+      {
+        "id": "cancion-21",
+        "nombre": "Felicidad extenuante",
+        "complejidad": 4,
+        "categoria": "Míticas"
+      },
+      {
+        "id": "cancion-22",
+        "nombre": "Impromptu cavernario",
+        "complejidad": 4,
+        "categoria": "Míticas"
+      },
+      {
+        "id": "cancion-23",
+        "nombre": "Réquiem",
+        "complejidad": 4,
+        "categoria": "Míticas"
+      },
+      {
+        "id": "cancion-24",
+        "nombre": "Tonos desquiciantes",
+        "complejidad": 4,
+        "categoria": "Míticas"
+      }
+    ],
+    "eidolas": [
+      {
+        "id": "eidolon-1",
+        "nombre": "Kayulio, cacique emperador",
+        "categoria": 1
+      },
+      {
+        "id": "eidolon-2",
+        "nombre": "Lonian, dogo sempiterno",
+        "categoria": 1
+      },
+      {
+        "id": "eidolon-3",
+        "nombre": "Rufushia, la luz del hogar",
+        "categoria": 1
+      },
+      {
+        "id": "eidolon-4",
+        "nombre": "Schoff, sabueso de las llanuras",
+        "categoria": 1
+      },
+      {
+        "id": "eidolon-5",
+        "nombre": "Sel-Line, acechadora de la puerta",
+        "categoria": 1
+      },
+      {
+        "id": "eidolon-6",
+        "nombre": "Sheólidas, travieso embaucador",
+        "categoria": 1
+      },
+      {
+        "id": "eidolon-7",
+        "nombre": "Tal-lu-reihm, negrura ardiente",
+        "categoria": 1
+      },
+      {
+        "id": "eidolon-8",
+        "nombre": "Velunion, pescador del abismo",
+        "categoria": 1
+      },
+      {
+        "id": "eidolon-9",
+        "nombre": "Arkonis, la piedra eterna",
+        "categoria": 2
+      },
+      {
+        "id": "eidolon-10",
+        "nombre": "Goralax, bestia cenicienta",
+        "categoria": 2
+      },
+      {
+        "id": "eidolon-11",
+        "nombre": "Maia, brisa serena del vero",
+        "categoria": 2
+      },
+      {
+        "id": "eidolon-12",
+        "nombre": "Opharis, el que ilumina",
+        "categoria": 2
+      },
+      {
+        "id": "eidolon-13",
+        "nombre": "Talisa, señora de las heladas",
+        "categoria": 2
+      },
+      {
+        "id": "eidolon-14",
+        "nombre": "Varlyna, eco de la civilización",
+        "categoria": 2
+      },
+      {
+        "id": "eidolon-15",
+        "nombre": "Warnok, las fauces salvajes",
+        "categoria": 2
+      },
+      {
+        "id": "eidolon-16",
+        "nombre": "Xalanth, yugo de rivalidad",
+        "categoria": 2
+      },
+      {
+        "id": "eidolon-17",
+        "nombre": "Binexa, el corazón desgarrado",
+        "categoria": 3
+      },
+      {
+        "id": "eidolon-18",
+        "nombre": "Cath Palug, guardián de las llamas del cambio",
+        "categoria": 3
+      },
+      {
+        "id": "eidolon-19",
+        "nombre": "Ezion, la tempestad del desierto",
+        "categoria": 3
+      },
+      {
+        "id": "eidolon-20",
+        "nombre": "Nerevion, la vorágine de las profundidades",
+        "categoria": 3
+      },
+      {
+        "id": "eidolon-21",
+        "nombre": "Skaldrak, leviatán errante",
+        "categoria": 3
+      },
+      {
+        "id": "eidolon-22",
+        "nombre": "Velghor, viento furioso",
+        "categoria": 3
+      },
+      {
+        "id": "eidolon-23",
+        "nombre": "Yl-Veris, la reina de la poza",
+        "categoria": 3
+      },
+      {
+        "id": "eidolon-24",
+        "nombre": "Zephradon, el trueno eterno",
+        "categoria": 3
+      },
+      {
+        "id": "eidolon-25",
+        "nombre": "Faustargon, ira celestial",
+        "categoria": 4
+      },
+      {
+        "id": "eidolon-26",
+        "nombre": "Garathur, el rey del mar",
+        "categoria": 4
+      },
+      {
+        "id": "eidolon-27",
+        "nombre": "Hefair, tejedor de niebla",
+        "categoria": 4
+      },
+      {
+        "id": "eidolon-28",
+        "nombre": "Ifraya, la princesa glacial",
+        "categoria": 4
+      },
+      {
+        "id": "eidolon-29",
+        "nombre": "Kleion, la línea encarnada",
+        "categoria": 4
+      },
+      {
+        "id": "eidolon-30",
+        "nombre": "Luxorath, faro del infinito",
+        "categoria": 4
+      },
+      {
+        "id": "eidolon-31",
+        "nombre": "Nunem, la caldera ancestral",
+        "categoria": 4
+      },
+      {
+        "id": "eidolon-32",
+        "nombre": "Valkhar, sombra devastadora",
+        "categoria": 4
+      }
+    ],
+    "recetas": [
+      {
+        "id": "receta-1",
+        "nombre": "Sopa del Pecado Menor",
+        "nivel": 1
+      },
+      {
+        "id": "receta-2",
+        "nombre": "Fritura de Bocarte Penitente",
+        "nivel": 1
+      },
+      {
+        "id": "receta-3",
+        "nombre": "Compota de Bananas Tristes",
+        "nivel": 1
+      },
+      {
+        "id": "receta-4",
+        "nombre": "Guiso de Conejo al Lamento Dulce",
+        "nivel": 1
+      },
+      {
+        "id": "receta-5",
+        "nombre": "Polvo de Escarabajo en Crema de Cactus",
+        "nivel": 1
+      },
+      {
+        "id": "receta-6",
+        "nombre": "Filete de Ardilla con Reducción de Zarzamora",
+        "nivel": 1
+      },
+      {
+        "id": "receta-7",
+        "nombre": "Lengua Crujiente del Solitario",
+        "nivel": 3
+      },
+      {
+        "id": "receta-8",
+        "nombre": "Ensalada de Plumas y Remordimiento",
+        "nivel": 3
+      },
+      {
+        "id": "receta-9",
+        "nombre": "Filete de Pez Demonio a la Desesperada",
+        "nivel": 3
+      },
+      {
+        "id": "receta-10",
+        "nombre": "Lomo de Carpa a la Sombra del Sauce",
+        "nivel": 3
+      },
+      {
+        "id": "receta-11",
+        "nombre": "Relleno de Codorniz con Frutos Secos y Mentol",
+        "nivel": 3
+      },
+      {
+        "id": "receta-12",
+        "nombre": "Tacos de Culebra con Salsa Oscura",
+        "nivel": 3
+      },
+      {
+        "id": "receta-13",
+        "nombre": "Estofado de Reptil con Fruta de Guerra",
+        "nivel": 6
+      },
+      {
+        "id": "receta-14",
+        "nombre": "Confit de Codorniz de las Tres Noches",
+        "nivel": 6
+      },
+      {
+        "id": "receta-15",
+        "nombre": "Risotto de Babosa Reluciente y Mentol de Cumbre",
+        "nivel": 6
+      },
+      {
+        "id": "receta-16",
+        "nombre": "Sopa de Flamenco al Espíritu de Pantano",
+        "nivel": 6
+      },
+      {
+        "id": "receta-17",
+        "nombre": "Milhojas de Ciervo y Luz Antinatural",
+        "nivel": 12
+      },
+      {
+        "id": "receta-18",
+        "nombre": "Ceviche de Pez Mantequilla con Lamentos de Fuego",
+        "nivel": 12
+      },
+      {
+        "id": "receta-19",
+        "nombre": "Banquete del Colmillo Danzante",
+        "nivel": 12
+      },
+      {
+        "id": "receta-20",
+        "nombre": "Falsas Costillas de Serpiente al Alma",
+        "nivel": 12
+      },
+      {
+        "id": "receta-21",
+        "nombre": "Lengua Caramelizada del Aium Caído",
+        "nivel": 12
+      },
+      {
+        "id": "receta-22",
+        "nombre": "Banquete del Olvido Satisfecho",
+        "nivel": 12
+      },
+      {
+        "id": "receta-23",
+        "nombre": "Consomé del Primer Pecado",
+        "nivel": 12
+      },
+      {
+        "id": "receta-24",
+        "nombre": "Lengua de Dios y Mantequilla de Pantano",
+        "nivel": 12
+      },
+      {
+        "id": "receta-25",
+        "nombre": "Niño Degollado en Vino de Lava",
+        "nivel": 12
+      },
+      {
+        "id": "receta-26",
+        "nombre": "Milhojas de Anémona sobre Neblina Azul",
+        "nivel": 12
+      },
+      {
+        "id": "receta-27",
+        "nombre": "Banquete de las Últimas Palabras",
+        "nivel": 12
+      },
+      {
+        "id": "receta-28",
+        "nombre": "Oración Lacustre de Medianoche",
+        "nivel": 12
+      },
+      {
+        "id": "receta-29",
+        "nombre": "Ragú del Cazador Derrotado",
+        "nivel": 12
+      },
+      {
+        "id": "receta-30",
+        "nombre": "Salmón en Cama de Escarcha y Aceite Negro",
+        "nivel": 12
+      },
+      {
+        "id": "receta-31",
+        "nombre": "Croquetas del Ciego Profético",
+        "nivel": 12
+      },
+      {
+        "id": "receta-32",
+        "nombre": "Tartaleta de Corazón Montañés",
+        "nivel": 12
+      },
+      {
+        "id": "receta-33",
+        "nombre": "Escabeche de Trucha con Cítricos del Fin",
+        "nivel": 12
+      },
+      {
+        "id": "receta-34",
+        "nombre": "Sopa de Tripas para el Cuarto Viento",
+        "nivel": 12
+      }
+    ],
+    "lista_nictomancia": [
+      "Aguijón impío",
+      "Dardo de penumbra",
+      "Silencio",
+      "Hablar con los muertos",
+      "Portal sombrío",
+      "Espejo de sombras",
+      "Tentáculos negros",
+      "Atravesar paredes",
+      "Intercambio de almas",
+      "Sino del Segador",
+      "Palabra de Poder: Muerte"
+    ],
+    "vinculos": {
+      "Brujo": [
+        {
+          "id": "Brujo-0",
+          "nombre": "Ananke",
+          "escuelas": [
+            "Naturaleza",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Brujo-1",
+          "nombre": "Baasmoth",
+          "escuelas": [
+            "Arcana",
+            "Demonología"
+          ]
+        },
+        {
+          "id": "Brujo-2",
+          "nombre": "Chispater",
+          "escuelas": [
+            "Divina",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Brujo-3",
+          "nombre": "Doshiketzal",
+          "escuelas": [
+            "Divina",
+            "Naturaleza"
+          ]
+        },
+        {
+          "id": "Brujo-4",
+          "nombre": "Eurinomio",
+          "escuelas": [
+            "Divina",
+            "Elemental"
+          ]
+        },
+        {
+          "id": "Brujo-5",
+          "nombre": "Fekuba",
+          "escuelas": [
+            "Arcana",
+            "Naturaleza"
+          ]
+        },
+        {
+          "id": "Brujo-6",
+          "nombre": "Gadreel",
+          "escuelas": [
+            "Arcana",
+            "Elemental"
+          ]
+        },
+        {
+          "id": "Brujo-7",
+          "nombre": "Heos",
+          "escuelas": [
+            "Demonología",
+            "Naturaleza"
+          ]
+        },
+        {
+          "id": "Brujo-8",
+          "nombre": "Idromelakh",
+          "escuelas": [
+            "Demonología",
+            "Elemental"
+          ]
+        },
+        {
+          "id": "Brujo-9",
+          "nombre": "Jorldreen",
+          "escuelas": [
+            "Arcana",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Brujo-10",
+          "nombre": "Klaloc",
+          "escuelas": [
+            "Arcana",
+            "Demonología"
+          ]
+        },
+        {
+          "id": "Brujo-11",
+          "nombre": "Lunerion",
+          "escuelas": [
+            "Arcana",
+            "Divina"
+          ]
+        },
+        {
+          "id": "Brujo-12",
+          "nombre": "Malduke",
+          "escuelas": [
+            "Arcana",
+            "Elemental"
+          ]
+        },
+        {
+          "id": "Brujo-13",
+          "nombre": "Nuada",
+          "escuelas": [
+            "Demonología",
+            "Elemental"
+          ]
+        },
+        {
+          "id": "Brujo-14",
+          "nombre": "Oonine",
+          "escuelas": [
+            "Arcana",
+            "Divina"
+          ]
+        },
+        {
+          "id": "Brujo-15",
+          "nombre": "Quraç",
+          "escuelas": [
+            "Naturaleza",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Brujo-16",
+          "nombre": "Sayeal",
+          "escuelas": [
+            "Demonología",
+            "Divina"
+          ]
+        },
+        {
+          "id": "Brujo-17",
+          "nombre": "Tegmine",
+          "escuelas": [
+            "Demonología",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Brujo-18",
+          "nombre": "Urorus",
+          "escuelas": [
+            "Demonología",
+            "Divina"
+          ]
+        },
+        {
+          "id": "Brujo-19",
+          "nombre": "Vidar",
+          "escuelas": [
+            "Elemental",
+            "Naturaleza"
+          ]
+        },
+        {
+          "id": "Brujo-20",
+          "nombre": "Wenerus",
+          "escuelas": [
+            "Arcana",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Brujo-21",
+          "nombre": "Xipetotec",
+          "escuelas": [
+            "Elemental",
+            "Naturaleza"
+          ]
+        },
+        {
+          "id": "Brujo-22",
+          "nombre": "Yastraea",
+          "escuelas": [
+            "Divina",
+            "Elemental"
+          ]
+        },
+        {
+          "id": "Brujo-23",
+          "nombre": "Zenobia",
+          "escuelas": [
+            "Arcana",
+            "Naturaleza"
+          ]
+        },
+        {
+          "id": "Brujo-24",
+          "nombre": "Aquelarre del cementerio",
+          "escuelas": [
+            "Arcana",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Brujo-25",
+          "nombre": "Aquelarre del diablo",
+          "escuelas": [
+            "Arcana",
+            "Demonología"
+          ]
+        },
+        {
+          "id": "Brujo-26",
+          "nombre": "Aquelarre del páramo",
+          "escuelas": [
+            "Demonología",
+            "Naturaleza"
+          ]
+        }
+      ],
+      "Chamán": [
+        {
+          "id": "Chamán-0",
+          "nombre": "Acechadores de la jungla negra",
+          "escuelas": [
+            "Demonología",
+            "Elemental",
+            "Naturaleza"
+          ]
+        },
+        {
+          "id": "Chamán-1",
+          "nombre": "Brotes del pantano",
+          "escuelas": [
+            "Arcana",
+            "Demonología",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Chamán-2",
+          "nombre": "Linaje de la garra plateada",
+          "escuelas": [
+            "Arcana",
+            "Divina",
+            "Elemental"
+          ]
+        },
+        {
+          "id": "Chamán-3",
+          "nombre": "Prosapia de tierras cenicientas",
+          "escuelas": [
+            "Elemental",
+            "Naturaleza",
+            "Nigromancia"
+          ]
+        }
+      ],
+      "Hechicero": [
+        {
+          "id": "Hechicero-0",
+          "nombre": "Angelical",
+          "escuelas": [
+            "Divina",
+            "Naturaleza"
+          ]
+        },
+        {
+          "id": "Hechicero-1",
+          "nombre": "Demoníaca",
+          "escuelas": [
+            "Demonología",
+            "Elemental",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Hechicero-2",
+          "nombre": "Dracónica",
+          "escuelas": [
+            "Arcana",
+            "Elemental"
+          ]
+        },
+        {
+          "id": "Hechicero-3",
+          "nombre": "Estelar",
+          "escuelas": [
+            "Arcana",
+            "Demonología",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Hechicero-4",
+          "nombre": "Fantasmal",
+          "escuelas": [
+            "Arcana",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Hechicero-5",
+          "nombre": "Feérica",
+          "escuelas": [
+            "Arcana",
+            "Demonología",
+            "Naturaleza"
+          ]
+        },
+        {
+          "id": "Hechicero-6",
+          "nombre": "Lunar",
+          "escuelas": [
+            "Arcana",
+            "Divina"
+          ]
+        },
+        {
+          "id": "Hechicero-7",
+          "nombre": "Oceánica",
+          "escuelas": [
+            "Arcana",
+            "Elemental",
+            "Naturaleza"
+          ]
+        }
+      ],
+      "Oráculo": [
+        {
+          "id": "Oráculo-0",
+          "nombre": "Fuego de Xelastris",
+          "escuelas": [
+            "Arcana",
+            "Divina",
+            "Demonología",
+            "Elemental"
+          ]
+        },
+        {
+          "id": "Oráculo-1",
+          "nombre": "Presión de Hstet",
+          "escuelas": [
+            "Arcana",
+            "Demonología",
+            "Divina",
+            "Elemental"
+          ]
+        },
+        {
+          "id": "Oráculo-2",
+          "nombre": "Manto de Lenseng",
+          "escuelas": [
+            "Arcana",
+            "Divina",
+            "Elemental",
+            "Naturaleza"
+          ]
+        },
+        {
+          "id": "Oráculo-3",
+          "nombre": "Hálitos de Ornuth Aium",
+          "escuelas": [
+            "Demonología",
+            "Divina",
+            "Elemental",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Oráculo-4",
+          "nombre": "Venganza de Valujna",
+          "escuelas": [
+            "Divina",
+            "Elemental",
+            "Naturaleza",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Oráculo-5",
+          "nombre": "Chirridos de Nastala",
+          "escuelas": [
+            "Arcana",
+            "Demonología",
+            "Divina",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Oráculo-6",
+          "nombre": "Cenizas de Z’Thur",
+          "escuelas": [
+            "Arcana",
+            "Divina",
+            "Elemental",
+            "Nigromancia"
+          ]
+        },
+        {
+          "id": "Oráculo-7",
+          "nombre": "Sangre de Ganragán",
+          "escuelas": [
+            "Demonología",
+            "Elemental",
+            "Naturaleza",
+            "Nigromancia"
+          ]
+        }
+      ]
+    }
+  }
 }
