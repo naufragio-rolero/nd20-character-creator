@@ -987,7 +987,7 @@ for(const clase of chicas){
       reglas.aleatorioSemilla('sexo-'+clase+'-'+semilla));
     assert.equal(ficha.sexo,'femenino','Ocupación con descripción femenina: '+clase);
     assert.ok(ficha.nombre!=='Joseph Williams','No repetir el caso Joseph Doncella');
-    assert.ok(catSexo.nombres_generales_femeninos.includes(ficha.nombre.split(' ')[0])||
+    assert.ok(catSexo.nombres_generales_femeninos.includes(sexoMotor.primerNombre(ficha.nombre))||
       ficha.nombre==='Sin nombre','Nombre seleccionado del repertorio femenino');
     assert.deepEqual(ficha,reglas.crearNd20(fantasiaExtendida,opt,
       reglas.aleatorioSemilla('sexo-'+clase+'-'+semilla)),
