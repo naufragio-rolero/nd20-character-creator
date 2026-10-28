@@ -518,8 +518,8 @@ const conceptosMago=localizarRep('Nd20 Fantasía','Ocupación','Mago','conceptos
 assert.equal(conceptosMago.valores.length,10,'Conceptos de ocupación');
 const cifiNombres=localizarRep('Nd20 CiFi','Especie','Humano natural','nombres');
 assert.equal(cifiNombres.valores.length,20,'Nombres de CiFi');
-const conceptosVacios=localizarRep('Nd20 Fantasía','Ocupación','Hurí','conceptos');
-assert.equal(conceptosVacios.valores.length,0,'Suplementos vacíos editables');
+const conceptosHuri=localizarRep('Nd20 Fantasía','Ocupación','Hurí','conceptos');
+assert.equal(conceptosHuri.valores.length,10,'Propuestas editoriales de Hurí disponibles');
 const nombresDh=localizarRep('Dungeon Hack','Ocupación','Clérigo','nombres');
 assert.ok(nombresDh.valores.length>=10,'Nombres originales de Dungeon Hack');
 const nombresSeguidores=localizarRep('Dungeon Hack','Seguidores','Nombres de seguidores','nombres');
@@ -537,9 +537,9 @@ const inventarioOriginal=JSON.stringify(fantasia.especies);
 const actualizacionRep=catalogoRepertorios.actualizar(repertoriosPrueba,{},
   nombresHumanos.id,nombresHumanos.valores.concat('Personaje de prueba editorial'));
 const ampliacionRep=catalogoRepertorios.actualizar(repertoriosPrueba,actualizacionRep,
-  conceptosVacios.id,['Concepto editorial de prueba']);
+  conceptosHuri.id,conceptosHuri.valores.concat('Concepto editorial de prueba'));
 assert.equal(catalogoRepertorios.valorActual(nombresHumanos,ampliacionRep).length,21);
-assert.equal(catalogoRepertorios.valorActual(conceptosVacios,ampliacionRep).length,1);
+assert.equal(catalogoRepertorios.valorActual(conceptosHuri,ampliacionRep).length,11);
 assert.equal(JSON.stringify(fantasia.especies),inventarioOriginal,'No mutar fuentes en memoria');
 assert.throws(()=>catalogoRepertorios.actualizar(repertoriosPrueba,{},nombresHumanos.id,
   ['Repetido','repetido']),/duplicadas/i,'Rechazar entradas repetidas');
