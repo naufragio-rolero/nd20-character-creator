@@ -41,6 +41,9 @@ jobs:
           test -s assets/tooltip-ui.js
           node --check assets/tooltips.js
           node --check assets/tooltip-ui.js
+          test -s data/sexo-personajes.json
+          test -s assets/sex.js
+          node --check assets/sex.js
           test -s assets/equipment.js
           node --check assets/equipment.js
           node --check assets/rules.js

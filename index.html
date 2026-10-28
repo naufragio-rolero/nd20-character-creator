@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <script defer src="assets/equipment.js"></script>
+  <script defer src="assets/sex.js"></script>
   <script defer src="assets/rules.js"></script>
   <script defer src="assets/powers.js"></script>
   <script defer src="assets/tooltips.js"></script>
@@ -88,6 +89,23 @@
           <legend>Fuentes permitidas · Naufragio d20</legend>
           <p class="ayuda">Las fuentes marcadas determinan qué Ocupaciones y Especies entran en la generación.</p>
           <div id="fuentes-nd20" class="origenes"></div>
+        </fieldset>
+        <div class="campo" id="opciones-sexo">
+          <label for="sexo-pj">Sexo del personaje</label>
+          <select id="sexo-pj" name="sexo">
+            <option value="aleatorio">Aleatorio</option>
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+          </select>
+          <small>El nombre generado sigue la elección cuando existe un repertorio clasificado.</small>
+        </div>
+        <fieldset id="opciones-contexto-sexo">
+          <legend>Coherencia narrativa de Ocupaciones</legend>
+          <label class="casilla"><input id="respetar-contexto-sexo" type="checkbox" checked>
+            Respetar el trasfondo femenino de ciertas Ocupaciones</label>
+          <small>Activado: Doncella de la Espada, Valquiria e Invocadora se generan en femenino.
+          Desactívalo para permitir personajes excepcionales. No es una prohibición mecánica del DRS.
+          Los varones Gerudo son posibles, aunque excepcionales.</small>
         </fieldset>
         <div class="campo" id="opciones-nombres-ylat">
           <label for="modo-nombre">Nombres de Ylat</label>

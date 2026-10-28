@@ -4,6 +4,7 @@
   var reglas = window.NaufragioRules;
   var poderes = window.NaufragioPoderes;
   var infoUI = window.NaufragioInfoUI;
+  var sexoApi = window.NaufragioSexo;
   var datos = {};
   var entradas = [];
   var correlativo = 0;
@@ -98,6 +99,7 @@
     $('opciones-nombres-ylat').hidden = juego!=='nd20';
     $('opciones-riqueza-nivel').hidden=dh||juego==='nd20_nocturna';
     $('modos-creacion').hidden = dh;
+    $('opciones-contexto-sexo').hidden=dh;
     $('generar-seguidor').disabled = !dh;
     $('nivel').max = dh ? '36' : '30';
     $('rango-nivel').textContent = dh ? '1–36' : '1–30';
@@ -123,8 +125,12 @@
       var d=datosJuego(juego);
       configurarFuentesNd20(juego,d);
       var fuentes=fuentesNd20Activas();
+      var sexoElegido=$('sexo-pj').value;
+      var respetar=$('respetar-contexto-sexo').checked;
       selecciones('ocupacion',Object.keys(d.ocupaciones).filter(function(key){
-        return fuentes.indexOf(d.fuentes.ocupaciones[key])!==-1;
+        return fuentes.indexOf(d.fuentes.ocupaciones[key])!==-1 &&
+          (sexoElegido!=='masculino'||!respetar||!sexoApi||
+            sexoApi.ocuparPermitida(key,'masculino',datos.sexo,true));
       }).map(function(key){
         return {key:key,nombre:key+' ('+d.fuentes.ocupaciones[key]+')'};
       }).sort(ordenar),true);
@@ -160,6 +166,8 @@
       ocupacion:$('ocupacion').value, especie:$('especie').value,
       conEspecie:$('con-especie').checked, origenes:origenes, fuentes:fuentes,
       nombre:$('nombre-personaje').value.trim(),
+      sexo:$('sexo-pj').value,
+      respetarContextoSexo:$('respetar-contexto-sexo').checked,
       modoNombre:$('modo-nombre').value,
       riquezaPorNivel:(juego==='nd20'||juego==='nd20_cifi')&&
         $('riqueza-por-nivel').checked};
@@ -168,7 +176,7 @@
     if (cfg.juego === 'dh') return reglas.eleccionDH(datos.dh,cfg,rng);
     return reglas.crearNd20(datosJuego(cfg.juego),
       Object.assign({},cfg,{aplazarElecciones:true,tesauroYlat:datos.tesauroYlat,
-        catalogoEquipo:datos.equipoInicial}),rng);
+        catalogoEquipo:datos.equipoInicial,catalogoSexo:datos.sexo}),rng);
   }
   function fuentesFicha(personaje){
     var ocupacion=personaje.procedenciaOcupacion||personaje.origen||'Sin especificar';
@@ -214,7 +222,9 @@
     }).join('');
     return '<article class="tarjeta" data-id="' + id + '">' +
       '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(personaje.juego) +
-      ' · Nivel ' + esc(personaje.nivel) + '</p><h3>' + esc(personaje.nombre) +
+      ' · Nivel ' + esc(personaje.nivel) +
+      (personaje.sexo?' · '+esc(personaje.sexo==='femenino'?'Femenino':'Masculino'):'') +
+      '</p><h3>' + esc(personaje.nombre) +
       '</h3><p>' + esc(personaje.descripcion) + '</p></div>' +
       '<button class="icon-btn eliminar-ficha" data-id="' + id + '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div>' +
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
@@ -253,6 +263,7 @@
   }
   function fichaTexto(p) {
     var str=[p.nombre,p.juego,'Nivel: '+p.nivel,p.descripcion];
+    if(p.sexo)str.push('Sexo: '+(p.sexo==='femenino'?'Femenino':'Masculino'));
     if(p.concepto)str.push('Concepto: '+p.concepto);
     str.push('', 'Atributos:');
     var esDH = p.juego.indexOf('Dungeon Hack') === 0;
@@ -440,6 +451,15 @@
       try{localStorage.setItem('forja-tema',tema.value);}catch(error){}
     });
     $('juego').addEventListener('change',refrescarSelectores);
+    $('sexo-pj').addEventListener('change',function(){
+      try{localStorage.setItem('forja-sexo-pj',$('sexo-pj').value);}catch(error){}
+      refrescarSelectores();
+    });
+    $('respetar-contexto-sexo').addEventListener('change',function(){
+      try{localStorage.setItem('forja-respetar-contexto-sexo',
+        String($('respetar-contexto-sexo').checked));}catch(error){}
+      refrescarSelectores();
+    });
     $('con-especie').addEventListener('change',refrescarSelectores);
     $('origenes').addEventListener('change',refrescarSelectores);
     $('fuentes-nd20').addEventListener('change',function(){
@@ -524,6 +544,7 @@
       especiesCifi:'data/especies_cifi.json',ocupacionesCifi:'data/ocupaciones_cifi.json',
       ampliado:'data/catalogo-ampliado.json',
       tesauroYlat:'data/tesauro-ylat.json',
+      sexoCatalogo:'data/sexo-personajes.json',
       catalogo:'data/catalogo-poderes.json',
       progresiones:'data/progresiones-oficiales.json',
       equipoInicial:'data/equipo-inicial.json',
@@ -580,6 +601,7 @@
     datos.fantasiaAmpliadas=extra.fantasia.ocupaciones;
     datos.catalogo=loaded.catalogo;
     datos.tesauroYlat=loaded.tesauroYlat;
+    datos.sexo=loaded.sexoCatalogo;
     datos.progresiones=loaded.progresiones;
     datos.equipoInicial=loaded.equipoInicial;
     if(infoUI&&window.NaufragioTooltipIndex){
@@ -600,6 +622,14 @@
       label.appendChild(input);label.appendChild(document.createTextNode(' '+nombre));
       $('origenes').appendChild(label);
     });
+    try{
+      var sexoGuardado=localStorage.getItem('forja-sexo-pj');
+      if(['aleatorio','femenino','masculino'].includes(sexoGuardado))
+        $('sexo-pj').value=sexoGuardado;
+      var contextoGuardado=localStorage.getItem('forja-respetar-contexto-sexo');
+      if(contextoGuardado==='true'||contextoGuardado==='false')
+        $('respetar-contexto-sexo').checked=contextoGuardado==='true';
+    }catch(error){ /* El formulario funciona sin almacenamiento. */ }
     vincular();refrescarSelectores();dibujar();
     $('generar').disabled=false;
     aviso('Datos listos. Puedes empezar a generar personajes.');
