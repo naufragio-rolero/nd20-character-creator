@@ -1,5 +1,5 @@
-/* Compra inicial conservadora basada en precios del DRS y competencias documentadas.
- * CiFi no tiene riqueza inicial documentada: no se asignan compras de crédito. */
+/* Compras iniciales basadas en precios y competencias documentadas.
+ * CiFi: capital 4d10 × 100 cr aprobado por el autor, aún pendiente de DRS. */
 (function(root,factory){
   var api=factory();
   if(typeof module!=="undefined"&&module.exports)module.exports=api;
@@ -7,17 +7,57 @@
 })(typeof globalThis!=="undefined"?globalThis:this,function(){
   "use strict";
   function normal(s){return String(s||"").toLocaleLowerCase("es").normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
+  function compraCifi(nombre,catalogo,presupuesto,rng){
+    var cifi=catalogo.cifi,perfil=cifi&&cifi.competencias[nombre];
+    if(!perfil)throw Error("No existe una tabla de Competencias CiFi para "+nombre);
+    if(!Number.isInteger(presupuesto)||presupuesto<400||presupuesto>4000||presupuesto%100!==0)
+      throw Error("Capital CiFi incorrecto: se esperan 4d10 × 100 Créditos.");
+    var eq=[],notas=[],gastado=0;
+    function comprar(opciones,porcentaje){
+      var disponibles=opciones.filter(function(x){
+        return x.precio<=presupuesto-gastado&&x.precio<=Math.round(presupuesto*porcentaje);
+      });
+      if(!disponibles.length)return null;
+      var elegido=disponibles[Math.floor(rng()*disponibles.length)];
+      gastado+=elegido.precio;eq.push(elegido.nombre);
+      return elegido;
+    }
+    function permitidos(tipo){
+      var nombres=new Set(perfil[tipo]||[]);
+      return (cifi[tipo]||[]).filter(function(x){return nombres.has(x.nombre);});
+    }
+    var obsequio=catalogo.obsequios_cifi?.[nombre];
+    if(obsequio&&obsequio.opciones?.length){
+      var regalo=obsequio.opciones[Math.floor(rng()*obsequio.opciones.length)];
+      eq.push(regalo+" (Armamento filosofal; gratuito)");
+    }
+    if(nombre==="Tecnópata")eq.push("Implante de Ordenador neuronal (inicial; gratuito)");
+    var arma=comprar(permitidos("armas"),0.3);
+    if(arma&&arma.municion){
+      var mun=cifi.municion.find(function(x){return x.nombre===arma.municion;});
+      if(mun&&mun.precio<=presupuesto-gastado){
+        gastado+=mun.precio;eq.push(mun.nombre+" (DU "+mun.du+")");
+      }else notas.push("Arma a distancia sin munición comprada: comprobar suministro.");
+    }
+    comprar(permitidos("protecciones"),0.24);
+    comprar(permitidos("ddp"),0.1);
+    // Sugerencias de compra, no lotes gratuitos ni equipo obligatorio del manual.
+    ["Paquete de alimento","Morfesaco","Botiquín","Batería"].forEach(function(n){
+      var x=cifi.utiles.find(function(y){return y.nombre===n;});
+      if(x&&gastado+x.precio<=presupuesto){gastado+=x.precio;eq.push(x.nombre+(x.du?" (DU "+x.du+")":""));}
+    });
+    if(perfil.nota)notas.push(perfil.nota);
+    if(!arma&&!obsequio)notas.push("Sin arma sugerida de compra: revisar Competencias y precios.");
+    var restante=presupuesto-gastado;
+    if(restante<0)throw Error("La propuesta CiFi supera el capital inicial.");
+    notas.push("Compra CiFi propuesta: "+gastado+" cr de "+presupuesto+" cr; saldo "+restante+" cr.");
+    notas.push("Capital inicial CiFi: 4d10 × 100 cr, decisión editorial pendiente de incorporarse al DRS.");
+    return {equipo:eq,gastado:gastado,restante:restante,notas:notas};
+  }
   function compraInicial(ocupacion,nombre,juego,catalogo,presupuesto,rng,nivel){
     rng=rng||Math.random;
     var eq=[],notas=[],gasto=0;
-    if(juego==="nd20_cifi"){
-      var regalo=catalogo?.obsequios_cifi?.[nombre];
-      if(regalo&&regalo.opciones.length){
-        var cual=regalo.opciones[Math.floor(rng()*regalo.opciones.length)];
-        eq.push(cual+" (arma filosofal de Ocupación; gratuita)");
-      }else notas.push("No se adjudican compras de CiFi sin riqueza inicial documentada.");
-      return {equipo:eq,gastado:0,restante:null,notas:notas};
-    }
+    if(juego==="nd20_cifi")return compraCifi(nombre,catalogo,presupuesto,rng);
     if(juego!=="nd20")return {equipo:[],gastado:0,restante:null,
       notas:["Equipo inicial de Nocturna: pendiente de fuentes económicas y de armamento."]};
     if(!catalogo||!Number.isInteger(presupuesto)||presupuesto<0)
