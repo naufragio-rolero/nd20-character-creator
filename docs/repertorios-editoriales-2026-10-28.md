@@ -45,6 +45,19 @@ Ninguna propuesta intenta fijar un idioma, tradición onomástica,
 institución o geografía nuevos. Los conceptos son semillas narrativas, no
 Trasfondos con beneficios.
 
+## Verificación ejecutada
+
+El 28/10/2026 se ejecutó realmente en **GitHub Actions** (Node.js 22) el
+comando `node tests/smoke.js` sobre la rama editorial, junto a
+`node --check` para el script de pruebas y los principales módulos JavaScript.
+**Resultado: todas las etapas de validación concluyeron correctamente.**
+
+Evidencia:
+https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/40688687329
+
+La validación de software no reemplaza el cotejo editorial con las fuentes que
+faltan; los repertorios mantienen el carácter de propuesta no canónica.
+
 ## Validación automática aplicada al catálogo
 
 - Los 101 repertorios anteriormente vacíos tienen 20 nombres por Especie
@@ -58,7 +71,7 @@ Trasfondos con beneficios.
 - Se adapta la prueba del editor que esperaba un repertorio vacío
   de Hurí; ahora comprueba su lista completa y la edición incremental.
 
-**Pendiente para aprobación humana:** revisar estilo, coherencia con
-la ambientación, originalidad editorial y, especialmente, las 29 listas
-con fuente no localizada o insuficiente. El estado del conjunto se
-mantiene como propuesta hasta su aprobación explícita.
+**Pendiente para aprobación editorial del contenido:** revisar estilo,
+coherencia con la ambientación, originalidad y, especialmente, las 29 listas
+con fuente no localizada o insuficiente. La incorporación técnica del catálogo
+no convierte las propuestas en canon; su estado se mantiene hasta su revisión.
