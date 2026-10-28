@@ -616,7 +616,9 @@ const planBar=poderes.planificar({juego:'nd20',ocupacion:'Bárbaro',
   especie:'Humano común',nivel:1},fantasiaExtendida,catalogoPoderes,progresiones);
 assert.deepEqual(planBar.pasos.find(x=>x.id==='talento-ocupacion-inicial')
   .opciones.map(x=>x.nombre),['Energúmeno','Receloso']);
-const resultadoBar=poderes.resolver(planBar,{'talento-ocupacion-inicial':['Receloso']},
+const barAuto=poderes.resolver(planBar,null,reglas.aleatorioSemilla('barbaro-autofill'));
+const resultadoBar=poderes.resolver(planBar,
+  Object.assign({},barAuto.decisiones,{'talento-ocupacion-inicial':['Receloso']}),
   reglas.aleatorioSemilla('barbaro-seleccion'));
 const finalBar=poderes.aplicar(barbaroTalentos,planBar,resultadoBar);
 assert.ok(finalBar.capacidades.includes('Receloso')&&!finalBar.capacidades.includes('Energúmeno'));
@@ -629,8 +631,10 @@ assert.ok(!adalidTalentos.capacidades.includes('Desafío honorable'));
 const planAdalid=poderes.planificar({juego:'nd20',ocupacion:'Adalid',
   especie:'Humano común',nivel:1},fantasiaExtendida,catalogoPoderes,progresiones);
 assert.equal(planAdalid.pasos.find(x=>x.id==='compromiso-adalid').opciones.length,3);
+const adalidAuto=poderes.resolver(planAdalid,null,reglas.aleatorioSemilla('adalid-autofill'));
 const resultadoAdalid=poderes.resolver(planAdalid,
-  {'compromiso-adalid':['Juramento sagrado']},reglas.aleatorioSemilla('adalid-elegido'));
+  Object.assign({},adalidAuto.decisiones,{'compromiso-adalid':['Juramento sagrado']}),
+  reglas.aleatorioSemilla('adalid-elegido'));
 const finalAdalid=poderes.aplicar(adalidTalentos,planAdalid,resultadoAdalid);
 assert.ok(finalAdalid.capacidades.includes('Imposición de manos')&&
   !finalAdalid.capacidades.includes('Desafío honorable'));
