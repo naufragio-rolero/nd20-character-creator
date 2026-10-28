@@ -37,12 +37,12 @@ De los 115 vínculos de Especie, **94** están representados en el JSON y **21 s
 
 ### 2.2 Catorce Talentos opcionales de Hyrule sin registro equivalente
 
-- ** Deku**: Bombardero deku; Tirano del bosque; Semilladora.
-- ** Goron**: Aplomo goron; Reposo del héroe; Perdición del dodongo.
-- ** Zora**: Aletas del ciclón; Morador de las profundidades.
-- ** Kokiri**: Sabiduría de las hadas; Tácticas de las hadas.
-- ** Orni**: Afinidad aérea; Surcavientos.
-- ** Gerudo**: Castigo del Reino Sombrío; Entereza del desierto.
+- **Deku**: Bombardero deku; Tirano del bosque; Semilladora.
+- **Goron**: Aplomo goron; Reposo del héroe; Perdición del dodongo.
+- **Zora**: Aletas del ciclón; Morador de las profundidades.
+- **Kokiri**: Sabiduría de las hadas; Tácticas de las hadas.
+- **Orni**: Afinidad aérea; Surcavientos.
+- **Gerudo**: Castigo del Reino Sombrío; Entereza del desierto.
 
 Son apartados explícitos «Talentos opcionales...» en el documento vivo. **Pendiente** documentar el procedimiento, requisitos y Niveles de elección antes de incorporarlos a Forja.
 
