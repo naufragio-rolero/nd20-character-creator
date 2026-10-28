@@ -159,5 +159,41 @@
     "descripcion": "Proyectas una púa venenosa y putrefacta que inflige 1d6 de daño por veneno e impío al superar una Tirada de Conjuro.",
     "alcance": "20 m",
     "fuente": "NaufragioD20DRS / Tomo de Magia · Círculo 1"
+  },
+  "Cestus": {
+    "sistema": "nd20",
+    "descripcion": "+2 al ataque y daño con manos desnudas o guanteletes armados; +1 a esquivar ataques cuerpo a cuerpo vistiendo ropa o armadura ligera.",
+    "fuente": "NaufragioD20 — Ocupaciones · Gladiador",
+    "activacion": "Estilo de gladiatoria"
+  },
+  "Dimacaero": {
+    "sistema": "nd20",
+    "descripcion": "Con dos armas, +3 a la Tirada de ataque y usas el dado de daño más alto.",
+    "fuente": "NaufragioD20 — Ocupaciones · Gladiador",
+    "activacion": "Estilo de gladiatoria"
+  },
+  "Murmillo": {
+    "sistema": "nd20",
+    "descripcion": "+1 a ataque, esquiva cuerpo a cuerpo y daño con espada corta y escudo pequeño o intermedio.",
+    "fuente": "NaufragioD20 — Ocupaciones · Gladiador",
+    "activacion": "Estilo de gladiatoria"
+  },
+  "Retiario": {
+    "sistema": "nd20",
+    "descripcion": "+2 a atacar con tridente o red; Desventaja al enemigo al intentar liberarse de la red.",
+    "fuente": "NaufragioD20 — Ocupaciones · Gladiador",
+    "activacion": "Estilo de gladiatoria"
+  },
+  "Secutor": {
+    "sistema": "nd20",
+    "descripcion": "+3 a daño con espadón; +2 a la esquiva frente a armas de asta, lanzas y redes.",
+    "fuente": "NaufragioD20 — Ocupaciones · Gladiador",
+    "activacion": "Estilo de gladiatoria"
+  },
+  "Veles": {
+    "sistema": "nd20",
+    "descripcion": "+1 a ataque y daño con jabalinas, lanzas y armas arrojadizas. Recuperas al finalizar el Turno un arma arrojada durante tu ataque.",
+    "fuente": "NaufragioD20 — Ocupaciones · Gladiador",
+    "activacion": "Estilo de gladiatoria"
   }
 }

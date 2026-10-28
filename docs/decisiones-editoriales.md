@@ -81,3 +81,23 @@ El equipo se compra aleatoriamente dentro del presupuesto resultante.
   indicadas las opciones individuales de armas y tipos de armadura
   que requieren confirmación, así como la aplicación del Nivel 1/5
   si el Talento concede Poderes especiales.
+
+
+## DEC-2026-10-28-04 · Categorías de Técnicas y fichas emergentes
+
+- Cuando una Ocupación tenga una tabla de Técnicas pero el apartado
+  Poderes no indique categorías, podrá aprender **todas las categorías
+  compatibles del sistema**, respetando las exclusividades y requisitos.
+- La frase «sin categoría en el JSON» NO significa «sin restricción en el
+  manual». Se han recuperado las categorías expresas:
+  **Dinamitero** (Fuerza bruta y Trucos sucios);
+  **Vikingo** (Fuerza bruta y Preternatural);
+  **Verdugo** (Disciplina y Fuerza bruta);
+  **Arlequín** (Trucos sucios).
+  **Gladiador** (Disciplina, Fuerza bruta y Trucos sucios).
+  **Marginado** no indica categorías, por lo que aplica la nueva decisión.
+  El **Diletante** depende de las elecciones de Competencias y Poderes:
+  no recibe por defecto todas las Técnicas.
+- Habilitar fichas emergentes al hover, foco de teclado y pulsación para
+  Talentos, Poderes y Objetos. Mostrar solo datos documentados del catálogo
+  y descripciones verificadas; marcar las descripciones que falten.

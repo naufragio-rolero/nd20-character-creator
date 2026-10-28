@@ -257,3 +257,19 @@ Las decisiones se documentan en docs/decisiones-editoriales.md.
 La generación de Nocturna **no incluye compras ni capital inicial**
 por decisión expresa del autor; no debe deducirse que estén pendientes
 de incorporarse por analogía con otros sistemas.
+
+
+### Fichas emergentes (Talentos, Poderes y Objetos)
+
+Los nombres consultables aparecen subrayados en las fichas. Al situar el
+puntero, enfocar con teclado o pulsar, se abre una tarjeta con los datos del
+catálogo: tipo, Categoría, Círculo, Escuelas, Requisitos, Coste, precio o DU
+cuando existen. En el editor Personalizado, el botón «Ver ficha» permite
+consultar la opción seleccionada (los elementos de un selector nativo no
+ofrecen hover fiable en todos los navegadores).
+
+Se incorpora el archivo data/fichas-documentales.json con una primera
+selección de descripciones contrastadas en los manuales del proyecto.
+Cuando falte una descripción, se indica expresamente y no se improvisan
+efectos. El índice se genera en assets/tooltips.js y la interfaz se controla
+en assets/tooltip-ui.js. Ninguna ficha requiere una consulta a red externa.

@@ -12,7 +12,7 @@
   function limpiar(t){
     return String(t||"").replace(/^\[[^\]]+\]\s*/,"")
       .replace(/\s+\(C[1-8]\)/g,"")
-      .replace(/\s+·\s+(Nd20|Tomo de Magia|[^\n()]*Origen sin verificar).*$/i,"")
+      .replace(/\s+·\s+[^\n]+$/,"")
       .replace(/\s+\((?:Diletante;|recuerdo personal;|arma filosofal;|Armamento filosofal;|inicial;)[^)]+\)/g,"")
       .replace(/\s+\(DU\s*d\d+\)/g,"")
       .replace(/^Paquete\s+/i,"").trim();
@@ -92,6 +92,10 @@
     ocupaciones(fuentes.cifi?.ocupaciones,"nd20_cifi");
     especies(fuentes.nocturna?.especies,"nd20_nocturna");
     ocupaciones(fuentes.nocturna?.ocupaciones,"nd20_nocturna");
+    ["Cestus","Dimacaero","Murmillo","Retiario","Secutor","Veles"].forEach(function(n){
+      anotar(n,"Estilo de gladiatoria","nd20","NaufragioD20 — Ocupaciones · Gladiador",
+        {grupo:"talento",datos:[["Obtención","Nivel 1, 12 o 24"]]});
+    });
     var catalogo=fuentes.catalogo||{};
     elementos(catalogo.conjuros,"Conjuro","nd20");
     elementos(catalogo.tecnicas,"Técnica","nd20");
