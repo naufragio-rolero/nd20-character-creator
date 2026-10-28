@@ -762,12 +762,12 @@ const nocturnaSinEquipo=reglas.crearNd20(nocturna,{
 assert.equal(nocturnaSinEquipo.riqueza,'','Nocturna sin dinero');
 assert.ok(!nocturnaSinEquipo.equipo.some(x=>x.startsWith('Paquete ')),
   'Nocturna sin paquetes del DRS');
-const estilos=[1,12,24].map(n=>poderes.planificar({
+const estilosComprobados=[1,12,24].map(n=>poderes.planificar({
   juego:'nd20',ocupacion:'Gladiador',especie:'Humano común',nivel:n},
   fantasiaExtendida,catalogoPoderes,progresiones));
-assert.deepEqual(estilos.map(p=>p.pasos.filter(x=>x.tipo==='estilo_gladiatoria').length),
+assert.deepEqual(estilosComprobados.map(p=>p.pasos.filter(x=>x.tipo==='estilo_gladiatoria').length),
   [1,2,3],'Se desbloquea un Estilo de gladiatoria en 1, 12 y 24');
-const fullEstilos=poderes.resolver(estilos[2],null,reglas.aleatorioSemilla('estilos-random'));
+const fullEstilos=poderes.resolver(estilosComprobados[2],null,reglas.aleatorioSemilla('estilos-random'));
 const elegidosEstilos=fullEstilos.elementos.filter(x=>x.tipo==='estilo_gladiatoria');
 assert.equal(new Set(elegidosEstilos.map(x=>x.nombre)).size,3,'Estilos no repetidos');
 for(const [nivel,nt,nc] of [[1,1,1],[6,2,1],[9,2,2],[12,3,2]]){
