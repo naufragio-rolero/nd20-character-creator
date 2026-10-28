@@ -58,8 +58,10 @@
   }
   function fila(p,n){return p&&p.niveles&&p.niveles[rango(n,1,30)-1]||[];}
   function tecnicas(catalogo,categorias,juego,ocupacion){
+    // Sin categorías restrictivas declaradas: todas las Técnicas del sistema.
+    var habilitadas=Array.isArray(categorias)&&categorias.length?categorias:null;
     return catalogo.tecnicas.filter(function(t){
-      if(categorias.indexOf(t.categoria)<0)return false;
+      if(habilitadas&&habilitadas.indexOf(t.categoria)<0)return false;
       if(juego==="nd20" && /CiFi$/.test(t.fuente))return false;
       if(juego==="nd20_cifi" && /Ocupaciones$/.test(t.fuente))return false;
       // Los requisitos de Atributo y equipo son para el uso; una Ocupación específica sí restringe.
@@ -133,9 +135,9 @@
       if(defensa!==null)recursos.push(["Blindaje sin armadura",defensa]);
     }
     var tecnica=numero(columna(tabla,fila,/^Técnicas(?: de combate)?$/i));
-    if(tecnica && tabla.categorias.length){
+    if(tecnica && nombre!=="Diletante"){
       var categorias=nombre==="Adalid"?
-        ["Disciplina","Fuerza bruta","Preternatural"]:tabla.categorias;
+        ["Disciplina","Fuerza bruta","Preternatural"]:tabla.categorias||[];
       var pool=tecnicas(catalogo,categorias,config.juego,nombre);
       if(nombre==="Pugilista")
         pool=pool.filter(function(t){return !/arma\s+(?:a distancia|cuerpo a cuerpo)|escudo|arrojadiza/i.test(t.requisito||"");});
@@ -145,7 +147,9 @@
       var ultimo=pasos[pasos.length-1];
       if(nombre==="Adalid"&&ultimo&&ultimo.titulo==="Técnicas de Adalid")
         ultimo.dependeCompromiso=true;
-    }else if(tecnica)avisos.push("La tabla indica "+tecnica+" Técnicas, pero no está verificada la categoría habilitada para "+nombre+".");
+    }else if(tecnica&&nombre==="Diletante"){
+      avisos.push("Diletante: las Técnicas dependen de las Competencias y Poderes de la lista seleccionada.");
+    }
     var maximo=numero(columna(tabla,fila,/^(?:Círculo máximo de Conjuros|Círculo máximo|Círculo de Conjuro|Nivel de Conjuro)$/i));
     var conocidos=numero(columna(tabla,fila,/^Conjuros(?: conocidos)?$/i));
     var diarios=numero(columna(tabla,fila,/^Conjuros diarios$/i));
