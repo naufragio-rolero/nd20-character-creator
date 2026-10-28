@@ -793,3 +793,91 @@ assert.equal(progresoAmpliado.fantasia.Adalid.niveles[29][0],'6');
 assert.equal(progresoAmpliado.fantasia.Adalid.niveles[29][4],'4');
 assert.equal(progresoAmpliado.fantasia.Adalid.lista_conjuros[1][0],'Bendición');
 console.log('OK · riqueza adicional opcional, equipo aleatorio, CiFi oficial y elecciones 1–30.');
+
+
+/* Reglas por categoría y fichas emergentes verificadas. */
+const categoriasManuales={
+  Dinamitero:['Fuerza bruta','Trucos sucios'],
+  Vikingo:['Fuerza bruta','Preternatural'],
+  Verdugo:['Disciplina','Fuerza bruta'],
+  Arlequín:['Trucos sucios'],
+  Gladiador:['Disciplina','Fuerza bruta','Trucos sucios']
+};
+for(const [nombre,categorias] of Object.entries(categoriasManuales)){
+  assert.deepEqual(progresoAmpliado.fantasia[nombre].categorias,categorias,
+    'Respetar las categorías explícitas del manual: '+nombre);
+  const plan=poderes.planificar({juego:'nd20',nivel:30,
+    ocupacion:nombre,especie:'Humano común'},
+    fantasiaExtendida,catalogoPoderes,progresiones);
+  const tecnica=plan.pasos.find(x=>x.titulo==='Técnicas de '+nombre);
+  assert.ok(tecnica,'Técnicas generadas para '+nombre);
+  assert.ok(tecnica.opciones.every(x=>categorias.includes(x.categoria)),
+    'Solo categorías expresas: '+nombre);
+  assert.ok(!plan.avisos.some(x=>x.includes('no está verificada la categoría')),
+    'No mostrar aviso obsoleto de categoría');
+}
+const marginado=poderes.planificar({juego:'nd20',nivel:30,ocupacion:'Marginado',
+  especie:'Humano común'},fantasiaExtendida,catalogoPoderes,progresiones);
+const tecnicoMarginado=marginado.pasos.find(x=>x.titulo==='Técnicas de Marginado');
+assert.ok(tecnicoMarginado,'Marginado recibe Técnicas cuando la progresión las permite');
+assert.ok(new Set(tecnicoMarginado.opciones.map(x=>x.categoria)).size>1,
+  'Sin categorías expresas: todas las categorías compatibles del sistema');
+assert.ok(!marginado.avisos.some(x=>x.includes('no está verificada la categoría')));
+const diletanteTecnicas=poderes.planificar({juego:'nd20',nivel:30,
+  ocupacion:'Diletante',especie:'Humano común'},
+  fantasiaExtendida,catalogoPoderes,progresiones);
+assert.ok(!diletanteTecnicas.pasos.some(x=>x.titulo==='Técnicas de Diletante'),
+  'Diletante no recibe Técnicas sin lista previa');
+assert.ok(diletanteTecnicas.avisos.some(x=>x.includes('dependen de las Competencias')),
+  'Diletante conserva restricción especial');
+
+const tooltipApi=require('../assets/tooltips.js');
+const uiApi=require('../assets/tooltip-ui.js');
+const detallesDoc=leer('fichas-documentales.json');
+const indiceFichas=tooltipApi.indice({
+  fantasia:fantasiaExtendida,cifi:cifiExtendida,nocturna,
+  catalogo:catalogoPoderes,equipo:equipoDRS,descripciones:detallesDoc
+});
+assert.ok(indiceFichas.total>=500,'Índice amplio para Talentos/Poderes/Objetos');
+function tooltipBuscar(nombre,grupo,sistema){
+  const resultado=tooltipApi.buscar(indiceFichas,nombre,grupo,sistema);
+  assert.ok(resultado,'Ficha indexada: '+nombre);
+  return resultado;
+}
+assert.ok(tooltipBuscar('Hallar la verdad','talento','nd20')
+  .descripcion.includes('PNJ'),'Efecto del Talento desde manual');
+assert.ok(tooltipBuscar('Decapitación','talento','nd20')
+  .descripcion.includes('hacha'),'Condiciones específicas del Verdugo');
+assert.ok(tooltipBuscar('Tiempo bala','talento','nd20_cifi')
+  .descripcion.includes('Turno'),'Talento CiFi contrastado');
+assert.ok(tooltipBuscar('Cestus','talento','nd20')
+  .datos.some(x=>x[0]==='Obtención'),'Estilo de gladiatoria');
+assert.ok(tooltipBuscar('[T] Baluarte','poder','nd20')
+  .datos.some(x=>x[0]==='Requisito'),'Requisito de Técnica');
+assert.ok(tooltipBuscar('[C] Aguijón impío (C1) · Nd20','poder','nd20')
+  .datos.some(x=>x[0]==='Escuelas'),'Escuela del Conjuro');
+assert.ok(tooltipBuscar('Paquete Especial arcanistas: mochila; túnica','equipo','nd20')
+  .datos.some(x=>x[0]==='Precio'),'Paquete de equipo y su precio');
+assert.ok(tooltipBuscar('Pistola láser','equipo','nd20_cifi')
+  .datos.some(x=>x[1]==='80 cr'),'Precio oficial CiFi');
+assert.ok(tooltipBuscar('Armadura de cuero','equipo','nd20')
+  .datos.some(x=>x[1]==='10 mo'),'Precio oficial Fantasía');
+assert.ok(!tooltipApi.buscar(indiceFichas,'Talento inexistente','talento','nd20'),
+  'No inventar contenido que no existe');
+uiApi.configurar(indiceFichas);
+assert.ok(uiApi.etiqueta('Hallar la verdad','talento','nd20').includes('data-glosa-nombre'));
+assert.ok(!uiApi.etiqueta('Dato inexistente','talento','nd20').includes('button'));
+assert.ok(!uiApi.etiqueta('<img src=x onerror=alert(1)>','poder','nd20').includes('<img'),
+  'Escapar HTML no confiable');
+const htmlTooltips=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+const appTooltips=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
+const stylesTooltips=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'utf8');
+for(const token of ['assets/tooltips.js','assets/tooltip-ui.js'])
+  assert.ok(htmlTooltips.includes(token),'Dependencia cargada '+token);
+assert.ok(appTooltips.includes('data/fichas-documentales.json'));
+assert.ok(appTooltips.includes('infoUI.configurar(indice)'));
+assert.ok(appTooltips.includes('infoUI.etiqueta(v,grupo,sistema)'));
+assert.ok(appTooltips.includes('consultar-ficha-eleccion'));
+assert.ok(stylesTooltips.includes('.ficha-emergente'));
+assert.ok(stylesTooltips.includes(':focus-visible'));
+console.log('OK · categorías de Técnicas verificadas y fichas emergentes con fuentes reales.');
