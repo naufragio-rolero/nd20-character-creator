@@ -2,7 +2,7 @@
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-10-28.  
-**Estado global:** Inventario inicial terminado; siguiente tarea: extracción documental de Talentos de Especies.  
+**Estado global:** Inventario inicial terminado y texto de los 115 Talentos de Especies extraído. Siguiente tarea: desglose de propiedades y validación documental; demás tandas pendientes.  
 **Rama documental:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
@@ -19,13 +19,17 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 ## 2. Tandas documentales
 
-### Tanda 1 — Talentos de Especies · **Siguiente**
+### Tanda 1 — Talentos de Especies · **Extracción literal terminada; validación pendiente**
 - [x] Inventario nominal de las 44 Especies, con **115 relaciones Especie–Talento** (94 recogidas en JSON y 21 detectadas solo en fuentes).
 - [x] Registrar los **7 Talentos fijos omitidos** y los **14 Talentos opcionales de Hyrule**.
-- [ ] Extraer texto literal, tipo, activación, costes, requisitos, escalado y fuente exacta; no completar campos inexistentes por analogía.
-- [ ] Diferenciar Talentos fijos, elegibles y opcionales; documentar cuándo y cómo se adquieren.
+- [x] Extraer el texto literal completo de los 115 bloques de Talentos de Especies, con sistema, Especie, tipo y fuente (tres JSON documentales).
+- [x] Identificar las etiquetas independientes de activación/coste/requisitos cuando aparecen literalmente en el texto.
+- [ ] Completar la descomposición sistemática de los costes, requisitos, duraciones, activaciones y escalados descritos dentro de la prosa; no completar campos por analogía.
+- [x] Diferenciar documentalmente 77 Talentos fijos, 24 elegibles y 14 opcionales (relaciones, no nombres únicos).
+- [ ] Documentar con precisión cuándo y cómo se adquieren los Talentos elegibles y opcionales.
 - [ ] Contrastar cada efecto y resolver las discrepancias detectadas, incluida la identidad de Talentos homónimos.
-- [ ] Entregar repertorio estructurado validado y registro de asuntos pendientes.
+- [x] Publicar repertorio preliminar de 115 registros extraídos, más informe de cobertura y pendientes ([fase 2](02-informe-extraccion-especies.md)).
+- [ ] Entregar repertorio **validado** tras conciliación editorial y revisión mecánica.
 
 ### Tanda 2 — Talentos de Ocupaciones
 - [x] Inventario nominal: **163 relaciones Ocupación–Talento** consolidadas desde 234 referencias JSON, correspondientes a 51 Ocupaciones.
@@ -74,6 +78,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [Inventario transversal](01-inventario.md) — panorama y discrepancias.
 - [Registro de Talentos de Especies](01a-talentos-especies.csv) — datos nominales y fuente.
 - [Registro de Talentos de Ocupaciones](01b-talentos-ocupaciones.csv) — datos nominales y fuente.
+- [Extracción preliminar de Talentos de Especies](02-informe-extraccion-especies.md) — informe de QA y enlaces a 3 repertorios literales.
 - [Decisiones editoriales actuales](../decisiones-editoriales.md) — mantener independientes del contenido oficial.
 
 ## 5. Registro de avances
@@ -83,5 +88,6 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 | 2026-10-28 | Auditoría inicial del repositorio | Finalizada; sin cambios de código. |
 | 2026-10-28 | Inventario inicial transversal y dos CSV | Documentado en esta rama, PR #3 abierta. |
 | 2026-10-28 | Creación de este plan de trabajo | Punto de control para las siguientes tandas. |
+| 2026-10-28 | Extracción literal de 115 vínculos Especie–Talento | [Informe y repertorios](02-informe-extraccion-especies.md); 115/115 con texto, 44 Especies y 0 fichas vacías. Pendiente validación. |
 
 **Norma de actualización:** al cerrar una sesión, marcar únicamente casillas demostradas, añadir la fecha y el enlace al entregable o PR en el registro; mantener abiertas las discrepancias no resueltas. Cuando cambie el estado de una PR, actualizar también su referencia. No equiparar «inventariado» con «extraído» ni «extraído» con «validado».
