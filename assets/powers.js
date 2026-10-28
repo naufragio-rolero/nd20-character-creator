@@ -57,6 +57,25 @@
       repetibles:false,automatico:false},adicional||{});
   }
   function fila(p,n){return p&&p.niveles&&p.niveles[rango(n,1,30)-1]||[];}
+  function estadoUsoVA(requisito,atributos){
+    // Los requisitos de Técnicas expresan Valor de Atributo (VA),
+    // no Dificultad de Atributo (DA). Se comprueban para USAR, no aprender.
+    var actual=Object.fromEntries((atributos||[]).map(function(a){
+      return [a.nombre,Number(a.valor)];
+    }));
+    var patron=/(Fuerza|Agilidad|Resistencia|Mente|Intuición|Presencia)\s+(\d+)\+/gi;
+    var coincidente,comprobados=[],faltantes=[];
+    while((coincidente=patron.exec(requisito||''))!==null){
+      var nombre=coincidente[1].toLocaleLowerCase('es');
+      var canon=['Fuerza','Agilidad','Resistencia','Mente','Intuición','Presencia']
+        .find(function(x){return x.toLocaleLowerCase('es')===nombre;});
+      var objetivo=Number(coincidente[2]),va=actual[canon];
+      var dato={atributo:canon,requerido:objetivo,va:Number.isFinite(va)?va:null};
+      comprobados.push(dato);
+      if(dato.va!==null&&dato.va<objetivo)faltantes.push(dato);
+    }
+    return {comprobados:comprobados,faltantes:faltantes};
+  }
   function tecnicas(catalogo,categorias,juego,ocupacion){
     // Sin categorías restrictivas declaradas: todas las Técnicas del sistema.
     var habilitadas=Array.isArray(categorias)&&categorias.length?categorias:null;
@@ -520,6 +539,16 @@
     personaje.poderes=[];
     personaje.conjuros_preparados=[];
     resultado.elementos.forEach(function(x){
+      var esTecnica=x.tipo==="tecnica"||
+        (x.tipo==="poder_especial"&&/^Técnicas/i.test(x.etapa));
+      if(esTecnica){
+        var estado=estadoUsoVA(x.info,personaje.atributos);
+        if(estado.faltantes.length)
+          personaje.notas.push("Técnica aprendida, pendiente de uso: "+x.nombre+
+            ". Requiere "+estado.faltantes.map(function(a){
+              return a.atributo+" VA "+a.requerido+"+ (actual VA "+a.va+")";
+            }).join("; ")+".");
+      }
       if(x.tipo==="talento"){
         if(!personaje.capacidades.includes(x.nombre))personaje.capacidades.push(x.nombre);
       }else if(x.tipo==="talento_ajeno"){
@@ -562,5 +591,5 @@
   }
   return {planificar:planificar,resolver:resolver,aplicar:aplicar,disponibles:disponibles,
     codigoPoder:codigoPoder,nombreEtiquetado:nombreEtiquetado,
-    origenConjuro:origenConjuro};
+    origenConjuro:origenConjuro,estadoUsoVA:estadoUsoVA};
 });
