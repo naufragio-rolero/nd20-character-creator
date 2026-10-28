@@ -2,7 +2,7 @@
   "version": 1,
   "fuentes": {
     "fantasia": "NaufragioD20DRS v1.1.12 · Equipo: Listas de equipo y Paquetes de equipo",
-    "cifi": "NaufragioD20CiFi v1.0.3 · Equipo; sin riqueza inicial definida"
+    "cifi": "NaufragioD20CiFi v1.0.3 · Equipo (precios y competencias); capital inicial mediante decisión editorial del 28-10-2026, todavía no incorporada al manual"
   },
   "divisa": "mo",
   "equivalencias": {
@@ -277,5 +277,305 @@
   },
   "opciones_seguras": {
     "nota": "El equipamiento se compra solo entre opciones compatibles; competencias ambiguas requieren revisión."
+  },
+  "cifi": {
+    "fuente": "NaufragioD20CiFi v1.0.3 · Equipo: listas de equipo",
+    "capital_inicial": {
+      "formula": "4d10 × 100 cr",
+      "dados": 4,
+      "caras": 10,
+      "multiplicador": 100,
+      "minimo": 400,
+      "maximo": 4000,
+      "naturaleza": "decisión editorial aprobada el 28-10-2026; pendiente de incorporar al DRS CiFi",
+      "equivalencia": "1 mo = 10 mp = 10 cr"
+    },
+    "armas": [
+      {
+        "nombre": "Monocuchillo",
+        "precio": 10,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Porra de contusión",
+        "precio": 50,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Vibrodaga",
+        "precio": 65,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Navaja gravitatoria",
+        "precio": 225,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Espada láser",
+        "precio": 200,
+        "categoria": "una_mano"
+      },
+      {
+        "nombre": "Hacha de derelictos",
+        "precio": 100,
+        "categoria": "una_mano"
+      },
+      {
+        "nombre": "Vibromachete",
+        "precio": 250,
+        "categoria": "una_mano"
+      },
+      {
+        "nombre": "Pistola láser",
+        "precio": 80,
+        "categoria": "fuego",
+        "municion": "Balas láser"
+      },
+      {
+        "nombre": "Cortadora de plasma",
+        "precio": 125,
+        "categoria": "fuego",
+        "municion": "Células de plasma"
+      },
+      {
+        "nombre": "Revolver iónico",
+        "precio": 250,
+        "categoria": "fuego",
+        "municion": "Balas láser"
+      },
+      {
+        "nombre": "Escopeta de plasma",
+        "precio": 300,
+        "categoria": "fuego",
+        "municion": "Cartuchos de plasma"
+      },
+      {
+        "nombre": "Rifle de precisión",
+        "precio": 500,
+        "categoria": "fuego",
+        "municion": "Células de plasma"
+      }
+    ],
+    "municion": [
+      {
+        "nombre": "Balas láser",
+        "precio": 20,
+        "du": "d6"
+      },
+      {
+        "nombre": "Células de plasma",
+        "precio": 10,
+        "du": "d8"
+      },
+      {
+        "nombre": "Cartuchos de plasma",
+        "precio": 50,
+        "du": "d6"
+      }
+    ],
+    "protecciones": [
+      {
+        "nombre": "Equipo de tecnópata",
+        "precio": 50,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Traje de polímero de carbono",
+        "precio": 150,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Coraza de asalto",
+        "precio": 350,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Chaleco de corsario",
+        "precio": 500,
+        "categoria": "intermedia"
+      },
+      {
+        "nombre": "Armadura de seguridad",
+        "precio": 750,
+        "categoria": "intermedia"
+      },
+      {
+        "nombre": "Armadura militar",
+        "precio": 1000,
+        "categoria": "intermedia"
+      },
+      {
+        "nombre": "Equipo de diamantina",
+        "precio": 2500,
+        "categoria": "pesada"
+      }
+    ],
+    "ddp": [
+      {
+        "nombre": "Escudo portátil",
+        "precio": 50
+      },
+      {
+        "nombre": "Barrera de energía",
+        "precio": 100
+      },
+      {
+        "nombre": "Muro de plasma",
+        "precio": 200
+      }
+    ],
+    "utiles": [
+      {
+        "nombre": "Paquete de alimento",
+        "precio": 2
+      },
+      {
+        "nombre": "Batería",
+        "precio": 10,
+        "du": "d8"
+      },
+      {
+        "nombre": "Glowstick",
+        "precio": 1
+      },
+      {
+        "nombre": "Morfesaco",
+        "precio": 40
+      },
+      {
+        "nombre": "Cuerda sintética",
+        "precio": 15
+      },
+      {
+        "nombre": "Botiquín",
+        "precio": 50,
+        "du": "d6"
+      },
+      {
+        "nombre": "Ordenador personal",
+        "precio": 300
+      },
+      {
+        "nombre": "Smartcom",
+        "precio": 125
+      }
+    ],
+    "competencias": {
+      "Diplomático": {
+        "armas": [
+          "Monocuchillo",
+          "Porra de contusión",
+          "Vibrodaga",
+          "Navaja gravitatoria"
+        ],
+        "protecciones": [
+          "Equipo de tecnópata",
+          "Traje de polímero de carbono",
+          "Coraza de asalto"
+        ],
+        "ddp": [
+          "Escudo portátil"
+        ]
+      },
+      "Eudemonista": {
+        "armas": [],
+        "protecciones": [],
+        "ddp": [],
+        "gratuito": "Armamento filosofal: arma cuerpo a cuerpo elegida"
+      },
+      "Forajido": {
+        "armas": [
+          "Monocuchillo",
+          "Porra de contusión",
+          "Vibrodaga",
+          "Navaja gravitatoria",
+          "Espada láser",
+          "Hacha de derelictos",
+          "Vibromachete"
+        ],
+        "protecciones": [
+          "Equipo de tecnópata",
+          "Traje de polímero de carbono",
+          "Coraza de asalto",
+          "Chaleco de corsario",
+          "Armadura de seguridad",
+          "Armadura militar"
+        ],
+        "ddp": [
+          "Escudo portátil",
+          "Barrera de energía"
+        ],
+        "nota": "Armas de fuego sencillas/militares pendientes de clasificar por categoría documental"
+      },
+      "Psion": {
+        "armas": [
+          "Monocuchillo",
+          "Porra de contusión",
+          "Vibrodaga",
+          "Navaja gravitatoria"
+        ],
+        "protecciones": [],
+        "ddp": [
+          "Escudo portátil"
+        ]
+      },
+      "Soldado": {
+        "armas": [
+          "Monocuchillo",
+          "Porra de contusión",
+          "Vibrodaga",
+          "Navaja gravitatoria",
+          "Espada láser",
+          "Hacha de derelictos",
+          "Vibromachete",
+          "Pistola láser",
+          "Cortadora de plasma",
+          "Revolver iónico",
+          "Escopeta de plasma",
+          "Rifle de precisión"
+        ],
+        "protecciones": [
+          "Equipo de tecnópata",
+          "Traje de polímero de carbono",
+          "Coraza de asalto",
+          "Chaleco de corsario",
+          "Armadura de seguridad",
+          "Armadura militar",
+          "Equipo de diamantina"
+        ],
+        "ddp": [
+          "Escudo portátil",
+          "Barrera de energía",
+          "Muro de plasma"
+        ]
+      },
+      "Tecnópata": {
+        "armas": [
+          "Monocuchillo",
+          "Porra de contusión",
+          "Vibrodaga",
+          "Navaja gravitatoria",
+          "Pistola láser",
+          "Cortadora de plasma",
+          "Revolver iónico",
+          "Escopeta de plasma",
+          "Rifle de precisión"
+        ],
+        "protecciones": [
+          "Equipo de tecnópata",
+          "Traje de polímero de carbono",
+          "Coraza de asalto",
+          "Chaleco de corsario",
+          "Armadura de seguridad",
+          "Armadura militar"
+        ],
+        "ddp": [
+          "Escudo portátil"
+        ],
+        "gratuito": "Implante de Ordenador neuronal (competencia; sin coste indicado por el manual)"
+      }
+    },
+    "politica_compra": "Sugerencia de compra automática del generador, no lote gratuito del reglamento; equipamiento no incluido debe poder comprarse por separado"
   }
 }
