@@ -648,7 +648,7 @@ const cifiEudemonista=reglas.crearNd20(cifiExtendida,{
   aplazarElecciones:true,catalogoEquipo:equipoDRS},
   reglas.aleatorioSemilla('eudemonista-gratis'));
 assert.ok(cifiEudemonista.equipo.some(x=>x.includes('gratuita')));
-assert.ok(/^\\d+ cr restantes \\/ \\d+ cr iniciales$/.test(cifiEudemonista.riqueza),
+assert.ok(/^\d+ cr restantes \/ \d+ cr iniciales$/.test(cifiEudemonista.riqueza),
   'CiFi: capital inicial aprobado por el autor');
 const cifiDiplomatico=reglas.crearNd20(cifiExtendida,{
   juego:'nd20_cifi',ocupacion:'Diplomático',especie:'Humano natural',nivel:1,
