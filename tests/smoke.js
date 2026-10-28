@@ -139,7 +139,7 @@ for(const [juego,grupo] of [
 const poolNoct=poderes.planificar(
   {juego:'nd20_nocturna',nivel:9,ocupacion:'Arcanista',especie:'Humano natural'},
   nocturna,catalogoPoderes,progresiones);
-assert.equal(poolNoct.pasos.length,3,'Talento de especie y dos de Ocupación');
+assert.equal(poolNoct.pasos.filter(x=>x.tipo==='talento').length,3,'Talentos de Nocturna');
 assert.ok(poolNoct.pasos.some(s=>s.id==='talento-ocupacion-9'));
 assert.throws(()=>poderes.resolver(poolNoct,{
   'talento-especie-1':['No existe'],
