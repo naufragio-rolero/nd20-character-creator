@@ -252,3 +252,8 @@ Nivel posterior al primero, en mo (Fantasía) o cr (CiFi), manteniendo
 la riqueza de Nivel 1. El equipo de Nocturna sigue desactivado.
 Los nombres de armas de CiFi proceden de las tablas del manual.
 Las decisiones se documentan en docs/decisiones-editoriales.md.
+
+
+La generación de Nocturna **no incluye compras ni capital inicial**
+por decisión expresa del autor; no debe deducirse que estén pendientes
+de incorporarse por analogía con otros sistemas.

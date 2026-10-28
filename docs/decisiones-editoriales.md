@@ -63,3 +63,21 @@ El equipo se compra aleatoriamente dentro del presupuesto resultante.
   se compran, nunca se regalan.
 - **Nocturna:** **NO** habilitar compras, paquetes ni riqueza de equipo
   por analogía con Fantasía o CiFi.
+
+
+### Estado de implementación de las elecciones (Forja)
+
+- **Gladiador:** estilos Cestus, Dimacaero, Murmillo, Retiario, Secutor
+  y Veles, seleccionados a Niveles 1, 12 y 24 sin repeticiones.
+  Categorías de Técnicas del manual: Disciplina, Fuerza bruta y Trucos sucios.
+- **Adalid:** compromiso entre Guardián leal, Juramento sagrado y
+  Endecha de los condenados. Las Técnicas se restringen por rama.
+  Se reconstruyó la tabla Nivel 1–30 y la lista de Conjuros del manual.
+  **Pendiente:** conciliar por Escuela y Círculo todos los Conjuros
+  del Adalid con el catálogo, que contiene discrepancias de nombres y
+  Círculos. No otorgar conjuros fuera de una lista verificada.
+- **Diletante:** Talentos procedentes de otra Ocupación a Niveles 1,
+  6 y 12, y elección de listas de Competencias a 1 y 9; quedan
+  indicadas las opciones individuales de armas y tipos de armadura
+  que requieren confirmación, así como la aplicación del Nivel 1/5
+  si el Talento concede Poderes especiales.

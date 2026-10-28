@@ -61,7 +61,7 @@
     var eq=[],notas=[],gasto=0;
     if(juego==="nd20_cifi")return compraCifi(nombre,catalogo,presupuesto,rng);
     if(juego!=="nd20")return {equipo:[],gastado:0,restante:null,
-      notas:["Equipo inicial de Nocturna: pendiente de fuentes económicas y de armamento."]};
+      notas:["Nocturna: no se genera equipo ni riqueza, por decisión editorial."]};
     if(!catalogo||!Number.isInteger(presupuesto)||presupuesto<0)
       throw Error("Falta la tabla DRS o el presupuesto inicial documentado.");
     // Competencias desbloqueadas en niveles futuros NO habilitan compras iniciales.

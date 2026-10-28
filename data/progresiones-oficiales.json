@@ -3587,7 +3587,11 @@
         ],
         "fuente": "NaufragioD20 — Ocupaciones · Nuevas",
         "verificado": true,
-        "categorias": [],
+        "categorias": [
+          "Disciplina",
+          "Fuerza bruta",
+          "Trucos sucios"
+        ],
         "escuelas": [],
         "especialidades": []
       },

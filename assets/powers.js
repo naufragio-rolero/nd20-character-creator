@@ -324,12 +324,14 @@
             "Lista de competencias · Nivel "+compD,"competencias_diletante",1,
             COMPETENCIAS_DILETANTE,{grupo:"competencias-diletante"}));
       }
-      if(ocupacion==="Gladiador")
+      if(ocupacion==="Gladiador"){
         for(var estiloNivel of [1,12,24])if(nivel>=estiloNivel)
           pasos.push(nuevo("estilo-gladiador-"+estiloNivel,
             "Estilo de gladiatoria · Nivel "+estiloNivel,"estilo_gladiatoria",1,
             ESTILOS_GLADIADOR.map(function(t){return {id:t,nombre:t};}),
             {grupo:"estilos-gladiador"}));
+        avisos.push("El Gladiador solo puede tener activo un Estilo y no cambiarlo durante el Combate.");
+      }
     }
     if(juego==="nd20_nocturna"){
       var es=datos.especies[especie],oc=datos.ocupaciones[ocupacion];
