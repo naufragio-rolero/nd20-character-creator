@@ -967,3 +967,112 @@ assert.ok(appTemas.includes('Requisitos de uso (VA)'),
 assert.ok(appTemas.includes("'<strong>VA '"),
   'La ficha separa claramente Valor y Dificultad de Atributo');
 console.log('OK · tema previo al CSS, favicon, selector global y Técnica VA 8+ validados.');
+
+
+/* Sexo configurable y contexto narrativo sin inventar restricciones mecánicas. */
+const catSexo=leer('sexo-personajes.json');
+const sexoMotor=require('../assets/sex.js');
+const chicas=['Doncella de la Espada','Valquiria','Invocadora'];
+for(const clase of chicas){
+  assert.ok(catSexo.ocupaciones_contexto_femenino[clase]&&
+    catSexo.ocupaciones_contexto_femenino[clase].fuente.includes('Ocupaciones'));
+  assert.equal(sexoMotor.preferenciaOcupacion(clase,catSexo),'femenino');
+  assert.equal(sexoMotor.ocuparPermitida(clase,'masculino',catSexo,true),false);
+  assert.equal(sexoMotor.ocuparPermitida(clase,'masculino',catSexo,false),true);
+  const opt={juego:'nd20',nivel:1,ocupacion:clase,especie:'Humano común',
+    sexo:'aleatorio',respetarContextoSexo:true,catalogoSexo:catSexo,
+    tesauroYlat,modoNombre:'documentado'};
+  for(const semilla of ['uno','dos','tres','cuatro']){
+    const ficha=reglas.crearNd20(fantasiaExtendida,opt,
+      reglas.aleatorioSemilla('sexo-'+clase+'-'+semilla));
+    assert.equal(ficha.sexo,'femenino','Ocupación con descripción femenina: '+clase);
+    assert.ok(ficha.nombre!=='Joseph Williams','No repetir el caso Joseph Doncella');
+    assert.ok(catSexo.nombres_generales_femeninos.includes(ficha.nombre.split(' ')[0])||
+      ficha.nombre==='Sin nombre','Nombre seleccionado del repertorio femenino');
+    assert.deepEqual(ficha,reglas.crearNd20(fantasiaExtendida,opt,
+      reglas.aleatorioSemilla('sexo-'+clase+'-'+semilla)),
+      'La semilla reproduce sexo y nombre');
+  }
+  assert.throws(()=>reglas.crearNd20(fantasiaExtendida,
+    {...opt,sexo:'masculino'},reglas.aleatorioSemilla('incompatible')),
+    /se describe en femenino|Respetar trasfondo/,'Bloqueo narrativo configurable');
+  const excepcion=reglas.crearNd20(fantasiaExtendida,{
+    ...opt,sexo:'masculino',respetarContextoSexo:false,
+    nombre:'Joseph Williams'},reglas.aleatorioSemilla('excepcion'));
+  assert.equal(excepcion.sexo,'masculino');
+  assert.equal(excepcion.nombre,'Joseph Williams','Nombre manual siempre editable');
+  assert.ok(excepcion.notas.some(x=>x.includes('Excepción narrativa elegida')),
+    'Aviso de desviación de trasfondo, no rechazo mecánico');
+}
+for(const semilla of Array.from({length:90},(_,i)=>i)){
+  const p=reglas.crearNd20(fantasiaExtendida,{
+    juego:'nd20',nivel:1,sexo:'masculino',respetarContextoSexo:true,
+    catalogoSexo:catSexo,especie:'Humano común'},
+    reglas.aleatorioSemilla('ocupacion-m-'+semilla));
+  assert.equal(p.sexo,'masculino');
+  assert.ok(!chicas.some(x=>p.descripcion.startsWith(x+' · ')),
+    'Ocupación aleatoria no contradice la configuración');
+}
+for(const sexo of ['femenino','masculino']){
+  const p=reglas.crearNd20(fantasiaExtendida,{
+    juego:'nd20',nivel:1,ocupacion:'Guerrero',especie:'Humano común',
+    sexo,catalogoSexo:catSexo,modoNombre:'especie'},
+    reglas.aleatorioSemilla('humano-'+sexo));
+  assert.equal(p.sexo,sexo);
+  assert.ok(catSexo.femeninos_por_especie['Humano común'].includes(p.nombre)===
+    (sexo==='femenino'),'Nombres comunes clasificados por sexo');
+}
+const enana=reglas.crearNd20(fantasiaExtendida,{
+  juego:'nd20',nivel:1,ocupacion:'Doncella de la Espada',especie:'Enano montañés',
+  sexo:'aleatorio',catalogoSexo:catSexo,modoNombre:'especie'},
+  reglas.aleatorioSemilla('enana-doncella'));
+assert.equal(enana.sexo,'femenino');
+assert.ok(catSexo.nombres_editoriales['Enano montañés'].femenino.includes(enana.nombre),
+  'El repertorio masculino del enano no se usa para una Doncella');
+assert.ok(enana.notas.some(x=>x.includes('Nombre propuesto editorialmente')),
+  'La propuesta onomástica se señala, sin presentarla como canon');
+const gerudo=reglas.crearNd20(fantasiaExtendida,{
+  juego:'nd20',nivel:1,ocupacion:'Guerrero',especie:'Gerudo',
+  sexo:'aleatorio',catalogoSexo:catSexo,modoNombre:'especie'},
+  reglas.aleatorioSemilla('gerudo'));
+assert.equal(gerudo.sexo,'femenino','Gerudo femenina por defecto');
+const gerudoRaro=reglas.crearNd20(fantasiaExtendida,{
+  juego:'nd20',nivel:1,ocupacion:'Guerrero',especie:'Gerudo',
+  sexo:'masculino',catalogoSexo:catSexo,modoNombre:'especie'},
+  reglas.aleatorioSemilla('gerudo-excepcional'));
+assert.equal(gerudoRaro.sexo,'masculino','Varón Gerudo es posible según manual');
+assert.ok(gerudoRaro.notas.some(x=>x.includes('Varón excepcional')));
+assert.equal(gerudoRaro.nombre,'Sin nombre','No inventar nombres masculinos gerudo sin fuente');
+const cifiMujer=reglas.crearNd20(cifiExtendida,{
+  juego:'nd20_cifi',nivel:1,ocupacion:'Tecnópata',especie:'Humano natural',
+  sexo:'femenino',catalogoSexo:catSexo,modoNombre:'especie'},
+  reglas.aleatorioSemilla('mujer-cifi'));
+assert.equal(cifiMujer.sexo,'femenino');
+assert.ok(catSexo.femeninos_por_especie['Humano natural'].includes(cifiMujer.nombre));
+const noctVaron=reglas.crearNd20(nocturna,{
+  juego:'nd20_nocturna',nivel:1,ocupacion:'Mercenario',
+  especie:'Humano natural',sexo:'masculino',catalogoSexo:catSexo,
+  modoNombre:'especie'},reglas.aleatorioSemilla('hombre-nocturna'));
+assert.equal(noctVaron.sexo,'masculino');
+assert.ok(!catSexo.femeninos_por_especie['Humano natural'].includes(noctVaron.nombre));
+for(const sexo of ['femenino','masculino']){
+  const ficha=reglas.eleccionDH(datosDH,{
+    juego:'dh',nivel:1,ocupacion:'dwarf_class',
+    origenes:[0,1,2,3,4],sexo,conEspecie:false},
+    reglas.aleatorioSemilla('dwarf-'+sexo));
+  assert.equal(ficha.sexo,sexo,'Dungeon Hack también admite sexo explícito');
+  assert.ok(sexoMotor.nombresDH(datosDH.classes.dwarf_class.names,sexo).includes(ficha.nombre));
+}
+const indexSexo=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+const appSexo=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
+for(const token of ['id="sexo-pj"','value="aleatorio"','value="femenino"',
+  'value="masculino"','id="respetar-contexto-sexo"','assets/sex.js'])
+  assert.ok(indexSexo.includes(token),'Control sexo: '+token);
+assert.ok(appSexo.includes("sexo:$('sexo-pj').value"),'Sexo en configuración');
+assert.ok(appSexo.includes('catalogoSexo:datos.sexo'), 'Catálogo disponible en reglas');
+assert.ok(appSexo.includes("data/sexo-personajes.json"),'Datos de sexo cargados');
+assert.ok(appSexo.includes('forja-sexo-pj')&&appSexo.includes('forja-respetar-contexto-sexo'),
+  'Configuración de sexo persistente y modificable');
+assert.ok(appSexo.includes('sexoApi.ocuparPermitida'),'Filtrado de Ocupaciones según ajuste');
+assert.ok(appSexo.includes('Sexo:'),'Sexo incluido en ficha exportada');
+console.log('OK · sexo y nombres de personajes, excepciones y configuración editable.');

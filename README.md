@@ -273,3 +273,16 @@ selección de descripciones contrastadas en los manuales del proyecto.
 Cuando falte una descripción, se indica expresamente y no se improvisan
 efectos. El índice se genera en assets/tooltips.js y la interfaz se controla
 en assets/tooltip-ui.js. Ninguna ficha requiere una consulta a red externa.
+
+
+### Sexo y coherencia narrativa del personaje
+
+La configuración permite elegir **sexo Aleatorio, Femenino o Masculino** y
+activar o desactivar la **coherencia narrativa de Ocupaciones**.
+Con ella activa, las descripciones femeninas de Doncella de la Espada,
+Valquiria e Invocadora se respetan sin presentarse como restricciones
+mecánicas. Los varones Gerudo, explícitamente muy excepcionales en el
+manual, pueden seleccionarse manualmente. Se filtran los nombres que
+cuentan con clasificación editorial, y el campo de nombre introducido
+manualmente siempre prevalece. El ajuste queda guardado localmente.
+El catálogo y sus fuentes están en \`data/sexo-personajes.json\`.

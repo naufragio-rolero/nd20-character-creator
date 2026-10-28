@@ -101,3 +101,32 @@ El equipo se compra aleatoriamente dentro del presupuesto resultante.
 - Habilitar fichas emergentes al hover, foco de teclado y pulsación para
   Talentos, Poderes y Objetos. Mostrar solo datos documentados del catálogo
   y descripciones verificadas; marcar las descripciones que falten.
+
+
+## DEC-2026-10-28-05 · Sexo del personaje y coherencia narrativa
+
+Se incorpora selector editable **Aleatorio / Femenino / Masculino**, persistido
+en la configuración local, aplicado a personajes de Fantasía, CiFi, Nocturna
+y Dungeon Hack. La ficha y su exportación incluyen el sexo resultante.
+
+La casilla **«Respetar el trasfondo femenino de ciertas Ocupaciones»**
+está activada inicialmente y es desactivable. El documento
+\`NaufragioD20 — Ocupaciones\` describe en femenino a **Doncella de la
+Espada**, **Valquiria** e **Invocadora**. Sus bloques de Competencias y
+Poderes no declaran una prohibición mecánica de sexo: por tanto, se aplica
+solo una restricción narrativa configurable en el generador.
+
+La Especie **Gerudo**, según \`NaufragioD20 — Especies\`, es casi
+exclusivamente femenina, pero admite excepcionales varones. El modo
+Aleatorio escogerá femenina; una elección explícita masculina se respeta
+y se marca como excepcional.
+
+Los nombres se filtran desde repertorios existentes siempre que haya
+clasificación editorial; los nombres proporcionados manualmente nunca
+se corrigen. Cuando faltan nombres de mujer para «Enano montañés» se
+usan unas pocas **propuestas editoriales**, expresamente etiquetadas
+y distintas del canon. Si falta un nombre apropiado, se deja «Sin nombre»
+y se pide rellenar el campo: no se atribuye identidad inventada al manual.
+
+Las listas de Dungeon Hack están estructuradas con nombres femeninos
+y masculinos por bloques; el selector mantiene esa organización.
