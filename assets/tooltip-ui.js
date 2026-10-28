@@ -100,7 +100,8 @@
     escuchando=true;
     document.addEventListener("pointerover",function(e){
       var a=getTarget(e);
-      if(a&&e.pointerType==="mouse"&&!(a.contains(e.relatedTarget)))mostrar(a,false);
+      if(a&&e.pointerType==="mouse"&&!(a.contains(e.relatedTarget))&&
+         !(a===ancla&&fija))mostrar(a,false);
     });
     document.addEventListener("pointerout",function(e){
       var a=getTarget(e);
@@ -115,7 +116,9 @@
     document.addEventListener("click",function(e){
       var a=getTarget(e);
       if(a){
-        if(a===ancla&&fija)cerrar();else mostrar(a,true);
+        // El foco llega antes que click, también en pantallas táctiles.
+        // Pulsar siempre abre: no cerrar por un falso doble evento.
+        mostrar(a,true);
       }else if(card&&!card.contains(e.target))cerrar();
     });
     document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrar();});

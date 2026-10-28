@@ -850,6 +850,8 @@ assert.ok(tooltipBuscar('Decapitación','talento','nd20')
   .descripcion.includes('hacha'),'Condiciones específicas del Verdugo');
 assert.ok(tooltipBuscar('Tiempo bala','talento','nd20_cifi')
   .descripcion.includes('Turno'),'Talento CiFi contrastado');
+assert.ok(tooltipBuscar('Estilo de gladiatoria: Cestus','talento','nd20')
+  .descripcion.includes('guanteletes'),'El estilo del personaje consulta su ficha');
 assert.ok(tooltipBuscar('Cestus','talento','nd20')
   .datos.some(x=>x[0]==='Obtención'),'Estilo de gladiatoria');
 assert.ok(tooltipBuscar('[T] Baluarte','poder','nd20')
