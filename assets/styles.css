@@ -172,7 +172,7 @@ html[data-tema=obsidiana]{
   --tema-boton-texto:#000;--tema-boton-hover:#272727;--tema-field-bg:#050505;
   --tema-ficha-bg:#131313;--tema-ficha-head:#222;--tema-ficha-text:#fff;
 }
-html[data-tema]:not([data-tema=clasico]){
+html[data-tema]:not([data-tema=clasico]) body{
   background:linear-gradient(135deg,var(--fondo),var(--fondo2) 80%);
 }
 html[data-tema]:not([data-tema=clasico]) .panel{
