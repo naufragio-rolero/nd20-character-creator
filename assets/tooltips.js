@@ -15,6 +15,7 @@
       .replace(/\s+·\s+[^\n]+$/,"")
       .replace(/\s+\((?:Diletante;|recuerdo personal;|arma filosofal;|Armamento filosofal;|inicial;)[^)]+\)/g,"")
       .replace(/\s+\(DU\s*d\d+\)/g,"")
+      .replace(/^Paquete\s+([^:]+):.*$/i,"$1")
       .replace(/^Paquete\s+/i,"").trim();
   }
   function indice(fuentes){
