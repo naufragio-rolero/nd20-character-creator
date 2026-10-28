@@ -1,0 +1,116 @@
+sistema,especie,talento,tipo,presente_en_json,presente_en_fuente,ficha_por_nombre,fuente,nota
+DRS,Elfo agreste,Linaje feérico,fijo,sí,sí,sí,NaufragioD20DRS.docx,
+DRS,Elfo agreste,Rapidez,fijo,sí,sí,sí,NaufragioD20DRS.docx,
+DRS,Enano montañés,Corpulencia,fijo,sí,sí,no,NaufragioD20DRS.docx,
+DRS,Enano montañés,Visión en la oscuridad,fijo,sí,sí,no,NaufragioD20DRS.docx,
+DRS,Humano común,Buen desarrollo,fijo,sí,sí,no,NaufragioD20DRS.docx,
+DRS,Mediano amable,Baja estatura,fijo,sí,sí,no,NaufragioD20DRS.docx,
+DRS,Mediano amable,¡Sálvese quien pueda!,fijo,sí,sí,no,NaufragioD20DRS.docx,
+DRS,Gnomo urbano,Baja estatura,fijo,sí,sí,no,NaufragioD20DRS.docx,
+DRS,Gnomo urbano,Visión en la oscuridad,fijo,sí,sí,no,NaufragioD20DRS.docx,
+DRS,Semielfo,Ánimo,fijo,sí,sí,no,NaufragioD20DRS.docx,
+DRS,Semielfo,Herencia dual (SE),fijo,sí,sí,no,NaufragioD20DRS.docx,La fuente titula las dos variantes «Herencia dual»
+DRS,Orco común,Ira interna,fijo,sí,sí,no,NaufragioD20DRS.docx,
+DRS,Orco común,Saña primitiva,fijo,sí,sí,no,NaufragioD20DRS.docx,
+DRS,Semiorco,Sed de sangre,fijo,sí,sí,no,NaufragioD20DRS.docx,
+DRS,Semiorco,Herencia dual (SO),fijo,sí,sí,no,NaufragioD20DRS.docx,La fuente titula las dos variantes «Herencia dual»
+Ampliadas,Dracónido,Estirpe dragontina,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Dracónido,Hálito de energía,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Elfo blanco,Linaje feérico,fijo,sí,sí,sí,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Elfo blanco,Visión en la oscuridad,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Elfo celestial,Linaje feérico,fijo,sí,sí,sí,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Elfo celestial,Fuente de maná,fijo (no indexado),no,sí,no,NaufragioD20 — Especies (Google Docs),Encabezado de Talento bajo la Especie
+Ampliadas,Elfo nerai,Linaje feérico,fijo,sí,sí,sí,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Elfo nerai,Morador pelágico,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Enano selvático,Corpulencia,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Enano selvático,Hambre caníbal,fijo (no indexado),no,sí,no,NaufragioD20 — Especies (Google Docs),Encabezado de Talento bajo la Especie
+Ampliadas,Pelaje silvestre,Musculatura felina,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Pelaje silvestre,Visión en la oscuridad,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Pelaje urbanita,Estallido de velocidad,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Pelaje urbanita,Musculatura felina,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Gnomo sylestri,Baja estatura,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Gnomo sylestri,Fuente de maná,fijo (no indexado),no,sí,no,NaufragioD20 — Especies (Google Docs),Encabezado de Talento bajo la Especie
+Ampliadas,Humano malasthino,Adaptación,fijo (no indexado),no,sí,no,NaufragioD20 — Especies (Google Docs),Encabezado de Talento bajo la Especie
+Ampliadas,Humano ujibo,Diplomacia,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Iblisio,Aguante ígneo,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Iblisio,Labia infernal,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Mediano jóbito,Buena suerte,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Mediano jóbito,Baja estatura,fijo (no indexado),no,sí,no,NaufragioD20 — Especies (Google Docs),Encabezado de Talento bajo la Especie
+Ampliadas,Semitrol,Sed de sangre,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Semitrol,Regeneración de trol,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Redivivo,Existencia blasfema,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Redivivo,Marcha de la tumba,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Rusalka costero,Legado del océano,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Rusalka costero,Visión en la oscuridad,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Deku,Planta feérica,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Deku,Pétaleteo,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Deku,Pequeño,fijo (no indexado),no,sí,no,NaufragioD20 — Especies (Google Docs),Encabezado de Talento bajo la Especie
+Ampliadas,Goron,Gorología,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Goron,Carga punzante,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Zora,Herencia zora,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Zora,Escudo eléctrico,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Zora (linaje olardiente),Herencia olardiente,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Zora (linaje olardiente),Estallido escupefuego,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Kokiri,Compañera feérica,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Kokiri,Retoño de la foresta,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Kokiri,Pequeño,fijo (no indexado),no,sí,no,NaufragioD20 — Especies (Google Docs),Encabezado de Talento bajo la Especie
+Ampliadas,Orni,Vuelo,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Orni,Favor del espíritu orni,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Gerudo,Armas de los ancestros gerudo,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+Ampliadas,Gerudo,Vitalidad de la arena,fijo,sí,sí,no,NaufragioD20 — Especies (Google Docs),
+CiFi,Humano natural,Buen desarrollo,fijo,sí,sí,no,NaufragioD20CiFi.docx,
+CiFi,Humano aumentado,Tolerancia a la mejora,fijo,sí,sí,no,NaufragioD20CiFi.docx,
+CiFi,Gruul bruto,Corpulencia,fijo,sí,sí,no,NaufragioD20CiFi.docx,
+CiFi,Gruul bruto,Saña primitiva,fijo,sí,sí,no,NaufragioD20CiFi.docx,
+CiFi,Gruul zángano,Sinapsis perladas,fijo,sí,sí,no,NaufragioD20CiFi.docx,
+CiFi,Gruul zángano,Rapidez,fijo,sí,sí,sí,NaufragioD20CiFi.docx,
+CiFi,Sylph mindari,Vínculo psiónico,fijo,sí,sí,no,NaufragioD20CiFi.docx,
+CiFi,Sylph mindari,Visión en la oscuridad,fijo,sí,sí,no,NaufragioD20CiFi.docx,
+CiFi,Sylph zanshi,Ánimo,fijo,sí,sí,no,NaufragioD20CiFi.docx,
+CiFi,Sylph zanshi,Sangre del cosmos,fijo,sí,sí,no,NaufragioD20CiFi.docx,
+Nocturna,Humano natural,Buen desarrollo,fijo,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Humano natural,Adaptación,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Humano natural,Fuerza de voluntad,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Humano natural,Red de contactos,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Humano arcano,Vestigios de hechicería,fijo,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Humano arcano,Resistencia mágica,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Humano arcano,Ojos de Murati,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Humano arcano,Aliados en las sombras,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Strigoi,Sino de los condenados,fijo,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Strigoi,Depredador depravado,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Strigoi,Fascinación,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Strigoi,Sombra siniestra,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Jiangshi,Ladrón de almas,fijo,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Jiangshi,Carne cadavérica,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Jiangshi,Chillido de ultratumba,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Jiangshi,Salto sobrenatural,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Hombre lobo,Licantropía,fijo,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Hombre lobo,Incansable,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Hombre lobo,Rabia brutal,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Hombre lobo,Zancada salvaje,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Hombre cuervo,Corantropía,fijo,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Hombre cuervo,Memoria eidética,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Hombre cuervo,Sombra aérea,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Hombre cuervo,Ventriloquía,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Sidhe,Vestigios de Sylestria,fijo,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Sidhe,Corazón ardiente,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Sidhe,Ecos de Sylestria,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Sidhe,Fulgor irreal,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Ceniciento,Naturaleza mutable,fijo,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Ceniciento,Doble reflejo,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Ceniciento,Ecos de los demás,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Nocturna,Ceniciento,Retoño del caos,elegible,sí,sí,no,NaufragioD20Nocturna (Google Docs),
+Ampliadas, Deku,Bombardero deku,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Deku,Tirano del bosque,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Deku,Semilladora,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Goron,Aplomo goron,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Goron,Reposo del héroe,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Goron,Perdición del dodongo,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Zora,Aletas del ciclón,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Zora,Morador de las profundidades,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Kokiri,Sabiduría de las hadas,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Kokiri,Tácticas de las hadas,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Orni,Afinidad aérea,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Orni,Surcavientos,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Gerudo,Castigo del Reino Sombrío,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
+Ampliadas, Gerudo,Entereza del desierto,opcional (fuente),no,sí,no,NaufragioD20 — Especies (Google Docs),"Sección «Talentos opcionales»; adquisición por validar"
