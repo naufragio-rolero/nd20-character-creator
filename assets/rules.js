@@ -45,7 +45,10 @@
   }
   function requisitoCumplido(especie, valores) {
     var attr = especie.atributo_requisito;
-    return !attr || (valores[attr] || 0) >= (especie.atributo_valor || 0);
+    var antiguo = !attr || (valores[attr] || 0) >= (especie.atributo_valor || 0);
+    return antiguo && (especie.requisitos || []).every(function(req) {
+      return (valores[req.atributo] || 0) >= req.minimo;
+    });
   }
   function crearNd20(datos, config, rng) {
     rng = rng || Math.random;
@@ -99,23 +102,43 @@
     }
     var esfuerzo = clamp((Number(oc.esfuerzo) || 0) + Math.floor(nivel / 6), 0, 9);
     var conceptos = (oc.conceptos || []).concat(esp.conceptos || []);
-    var equipo = [escoger(oc.armas || [], rng) || 'Desarmado',
-      escoger(oc.armaduras || [], rng) || 'Ropa común'];
+    var equipo = [];
+    var arma = escoger(oc.armas || [], rng), armadura = escoger(oc.armaduras || [], rng);
+    if (arma) equipo.push(arma);
+    if (armadura) equipo.push(armadura);
     var recuerdo = escoger(esp.objetos_emocionales || [], rng);
     if (recuerdo) equipo.push(recuerdo);
-    var tipo = config.juego === 'nd20_cifi' ? 'Naufragio d20 · CiFi' : 'Naufragio d20 · Fantasía';
+    var tipo = config.juego === 'nd20_cifi' ? 'Naufragio d20 · CiFi' :
+      config.juego === 'nd20_nocturna' ? 'Naufragio d20 · Nocturna' : 'Naufragio d20 · Fantasía';
+    var capacidades = (esp.talentos || []).concat(oc.talentos || []);
+    if ((esp.talentos_elegir || []).length) {
+      var eleccionEspecie = escoger(esp.talentos_elegir, rng);
+      capacidades.push(eleccionEspecie);
+      detalles.push('Talento adicional de Especie seleccionado: ' + eleccionEspecie + '.');
+    }
+    if ((oc.talentos_elegir || []).length) {
+      var eleccionOcupacion = escoger(oc.talentos_elegir, rng);
+      capacidades.push(eleccionOcupacion);
+      detalles.push('Talento adicional de Ocupación seleccionado: ' + eleccionOcupacion + '.');
+    }
+    if ((oc.talentos_referencia || []).length)
+      detalles.push('Talentos documentados de la Ocupación (consulta condiciones y progreso): ' + oc.talentos_referencia.join(', ') + '.');
+    if (esp.debilidad) detalles.push('Debilidad de Especie: ' + esp.debilidad);
+    if (!arma && !armadura) detalles.push('El equipo inicial debe elegirse según las Competencias y las reglas del manual.');
+
     var esCifi = config.juego === 'nd20_cifi';
     var riqueza = esCifi ? '' : suma(4, 10, rng) * 10 + ' mo';
     if (esCifi) detalles.push('La riqueza inicial en créditos no está implementada; acordadla con el Cronista.');
     return {
-      juego:tipo, nombre:escoger(esp.nombres || [], rng) || 'Sin nombre',
+      juego:tipo, nombre:config.nombre || escoger(esp.nombres || [], rng) || 'Sin nombre',
       descripcion:ocupacion + ' · ' + especie, nivel:nivel,
       concepto:escoger(conceptos, rng) || 'Aventurero',
       atributos:paresAtributos(ATTR_ND.map(function (a) {return at[a];}), ATTR_ND, favorito),
       recursos:[['Salud', salud + ' (d' + dadoSalud + ')'],
-        ['Esfuerzo', esfuerzo], ['Movimiento', esp.movimiento]],
-      capacidades:(esp.talentos || []).concat(oc.talentos || []),
-      competencias:[], equipo:equipo, origen:tipo,
+        ['Esfuerzo', esfuerzo], ['Movimiento', esp.movimiento]].concat(
+          esp.esencia ? [['Esencia', esp.esencia]] : []),
+      capacidades:capacidades,
+      competencias:(oc.competencias || []).slice(), equipo:equipo, origen:tipo,
       riqueza:riqueza,
       notas:detalles.concat((oc.poderes || []).length ? ['Poderes declarados: ' + oc.poderes.join(', ') + '.'] : [],
         ['El generador no asigna Conjuros ni Técnicas por Nivel.'])

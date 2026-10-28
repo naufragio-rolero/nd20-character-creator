@@ -1,0 +1,1709 @@
+{
+  "fuentes": {
+    "fantasia_ocupaciones": "NaufragioD20 — Ocupaciones",
+    "fantasia_especies": "NaufragioD20 — Especies",
+    "nocturna": "NaufragioD20Nocturna",
+    "cifi": "NaufragioD20CiFi",
+    "licencia": "CC BY-SA 4.0"
+  },
+  "fantasia": {
+    "ocupaciones": {
+      "Forense": {
+        "atributo_favorito": [
+          "Intuición",
+          "Presencia"
+        ],
+        "salud": 1,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes equipar cualquier arma cuerpo a cuerpo de una mano, escudos pequeños y medianos y cualquier arma a distancia.",
+          "Puedes equipar armaduras ligeras y armaduras intermedias.",
+          "Eres competente con el Kit de medicina y con la Tinta y Pluma."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Hallar la verdad",
+          "Olfato deductivo"
+        ]
+      },
+      "Truhán": {
+        "atributo_favorito": [
+          "Agilidad",
+          "Mente"
+        ],
+        "salud": 0,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes equipar armas ligeras de una mano, espadas largas, floretes, ballestas de mano y arcos cortos.",
+          "Puedes equipar armaduras ligeras.",
+          "Eres competente con las Ganzúas y con la Tinta y Pluma."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Cotilla",
+          "Fullerías"
+        ]
+      },
+      "Acróbata": {
+        "atributo_favorito": [
+          "Agilidad"
+        ],
+        "salud": 0,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes equipar armas ligeras cuerpo a cuerpo, estoques, bastones, lanzas, tridentes y cualquier arma arrojadiza.",
+          "No puedes equipar ningún escudo.",
+          "Puedes equipar armaduras ligeras.",
+          "Eres competente con la Pértiga y con la Cometa."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Equilibrio perfecto",
+          "Frustración canalizada",
+          "Maniobra letal"
+        ]
+      },
+      "Astrólogo": {
+        "atributo_favorito": [
+          "Mente"
+        ],
+        "salud": 0,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes equipar cimitarras, dagas, bastones y cerbatanas.",
+          "No puedes equipar ningún escudo.",
+          "Puedes equipar ropa, túnicas y armaduras de tela.",
+          "Eres competente con el Astrolabio y el Microscopio."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Cauce astral",
+          "Premonición estelar"
+        ]
+      },
+      "Dinamitero": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Mente"
+        ],
+        "salud": 1,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes equipar cualquier arma cuerpo a cuerpo y cualquier arma arrojadiza.",
+          "No puedes equipar ningún escudo.",
+          "Puedes equipar armaduras ligeras y armaduras intermedias.",
+          "Puedes manipular bombas, granadas y otros explosivos."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Experto en bombas",
+          "Ingeniería explosiva"
+        ]
+      },
+      "Marginado": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Agilidad",
+          "Resistencia",
+          "Mente",
+          "Intuición",
+          "Presencia"
+        ],
+        "salud": 0,
+        "esfuerzo": 6,
+        "competencias": [
+          "Puedes equipar clavas, martillos ligeros, mazas, bastones y grandes clavas.",
+          "A partir de Nivel 12, y cada 4 Niveles, adquieres competencia en una nueva arma a tu elección.",
+          "Puedes equipar escudos pequeños.",
+          "A partir de Nivel 18, puedes equipar escudos medianos.",
+          "Puedes equipar ropa, túnicas y armaduras de tela.",
+          "A partir de Nivel 6, puedes equipar armaduras ligeras.",
+          "No tienes riqueza inicial; en su lugar, comienzas con unos harapos (Armadura de tela), una cachiporra (Clava) y una tapa de barril (Escudo pequeño)."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Estulticia",
+          "Golpe desesperado",
+          "Infeliz"
+        ]
+      },
+      "Doncella de la Espada": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Agilidad",
+          "Presencia"
+        ],
+        "salud": 1,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes equipar cualquier arma.",
+          "Puedes equipar escudos pequeños y medianos.",
+          "Puedes equipar cualquier tipo de armadura.",
+          "Eres competente con el Kit de medicina y con la Piedra de afilar."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Esplendor",
+          "Oleada extensiva"
+        ]
+      },
+      "Valquiria": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Mente"
+        ],
+        "salud": 2,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes llevar cualquier arma cuerpo a cuerpo de una mano, armas de asta a dos manos y cualquier arma a distancia.",
+          "Puedes equipar escudos pequeños y medianos.",
+          "Puedes equipar cualquier tipo de armadura.",
+          "Eres competente con la Piedra de afilar y con la Cometa."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Alas de la libertad",
+          "Poderío de la Reina"
+        ]
+      },
+      "Hurí": {
+        "atributo_favorito": [
+          "Presencia"
+        ],
+        "salud": 1,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes equipar cualquier arma cuerpo a cuerpo de una mano y hondas.",
+          "Puedes equipar escudos pequeños.",
+          "Puedes equipar ropa, túnicas y armaduras de tela.",
+          "Eres competente con el Kit de masajes y con los Aparatos de placer."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Encanto",
+          "Defensa sin armadura"
+        ]
+      },
+      "Marionetista": {
+        "atributo_favorito": [
+          "Agilidad",
+          "Mente",
+          "Intuición"
+        ],
+        "salud": -1,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes equipar armas ligeras cuerpo a cuerpo y cualquier arma arrojadiza.",
+          "No puedes equipar escudos.",
+          "Puedes equipar armaduras de tela y armaduras ligeras hechas de madera.",
+          "Eres competente con las Herramientas de carpintero y el Telar."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Dominio de las marionetas",
+          "Solidez ligna"
+        ]
+      },
+      "Vikingo": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Resistencia"
+        ],
+        "salud": 1,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes equipar cualquier tipo de arma.",
+          "Puedes equipar escudos pequeños y medianos.",
+          "Puedes equipar armaduras ligeras e intermedias.",
+          "Eres competente con el Cuchillo de desuello y con la Piedra de afilar."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Corazón de escarcha",
+          "Pillaje voraz",
+          "Ira del rayo"
+        ]
+      },
+      "Verdugo": {
+        "atributo_favorito": [
+          "Fuerza"
+        ],
+        "salud": 1,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes equipar cualquier tipo de arma cuerpo a cuerpo.",
+          "No puedes equipar escudos.",
+          "Puedes equipar armaduras ligeras e intermedias.",
+          "Eres competente con la Cuna de judas y con la Piedra de afilar."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Aterrorizar",
+          "Decapitación",
+          "Torturar"
+        ]
+      },
+      "Gladiador": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Agilidad"
+        ],
+        "salud": 1,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes equipar cualquier arma cuerpo a cuerpo y cualquier arma arrojadiza.",
+          "Puedes equipar escudos pequeños e intermedios.",
+          "Puedes equipar armaduras ligeras e intermedias.",
+          "Eres competente con el Kit de medicina y con el Maniquí de entrenamiento."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Estilos de gladiatoria",
+          "Protecciones cómodas"
+        ]
+      },
+      "Arlequín": {
+        "atributo_favorito": [
+          "Intuición",
+          "Presencia"
+        ],
+        "salud": 0,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes equipar cualquier arma cuerpo a cuerpo de una mano, cualquier arma a distancia y cualquier arma arrojadiza.",
+          "No puedes equipar escudos.",
+          "Puedes equipar armaduras de tela y ligeras.",
+          "Eres competente con las Ganzúas y con los Bolos de malabarismo."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Mímica",
+          "Ridículo"
+        ]
+      },
+      "Pugilista": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Agilidad"
+        ],
+        "salud": 1,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes equipar guanteletes armados, cestus, vendas de combate, guantes de boxeo y garras de tigre.",
+          "No puedes equipar escudos.",
+          "Puedes equipar únicamente ropa y armaduras de tela.",
+          "Eres competente con el Saco de boxeo y con la Cuerda de entrenamiento."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Contundencia",
+          "Juego de piernas"
+        ]
+      },
+      "Epicúreo": {
+        "atributo_favorito": [
+          "Presencia"
+        ],
+        "salud": 0,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes equipar cualquier arma cuerpo a cuerpo de una mano y cualquier arma arrojadiza.",
+          "Puedes equipar escudos pequeños.",
+          "Puedes equipar ropa, armaduras de tela y armaduras ligeras.",
+          "Eres competente con el Kit de cocina y el Kit de medicina."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Paladar exquisito",
+          "Escudo placentero"
+        ]
+      },
+      "Nictomante": {
+        "atributo_favorito": [
+          "Agilidad",
+          "Mente"
+        ],
+        "salud": 0,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes equipar bastones, dagas y cualquier arma arrojadiza.",
+          "No puedes equipar ningún escudo.",
+          "Puedes equipar ropa, armaduras de tela y túnicas.",
+          "Eres competente con el Alambique y el Kit de medicina."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Ablución nocturna",
+          "Puntos de Nictalgia",
+          "Celaje umbrío"
+        ]
+      },
+      "Cronómaca": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Agilidad",
+          "Presencia"
+        ],
+        "salud": 0,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes equipar espadas, mazas y cualquier arma cuerpo a cuerpo de una mano.",
+          "No puedes equipar armas a dos manos ni escudos.",
+          "Puedes equipar ropa, armaduras ligeras y armaduras medias.",
+          "Eres competente con las Cronoesferas y con la Piedra de afilar."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Guardatiempo",
+          "Impulso temporal"
+        ]
+      },
+      "Invocadora": {
+        "atributo_favorito": [
+          "Resistencia",
+          "Mente",
+          "Presencia"
+        ],
+        "salud": -1,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes llevar bastones, dagas, varitas, arcos cortos, ballestas de mano y bumeranes.",
+          "No puedes equipar escudos.",
+          "Puedes equipar ropa, armaduras ligeras y armaduras medias.",
+          "Eres competente con el Grimorio de Diagramas  y con la Tinta y Pluma."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Abnegación",
+          "Convocar Eidolon"
+        ]
+      },
+      "Druida": {
+        "atributo_favorito": [
+          "Resistencia",
+          "Intuición"
+        ],
+        "salud": 0,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes equipar cualquier arma que esté elaborada con madera o hueso.",
+          "Puedes portar escudos pequeños o medianos fabricados con madera o hueso.",
+          "No puedes usar armamento metálico ni escudos metálicos.",
+          "Puedes equipar ropa, armaduras de tela y armaduras ligeras, pero sólo aquellas prendas que estén elaboradas con tela o cuero.",
+          "No puedes usar armaduras metálicas ni herramientas metálicas.",
+          "Eres competente con el Cuchillo de desuello y el Kit de herborista."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Forma salvaje",
+          "Sendero de la naturaleza"
+        ]
+      },
+      "Lardeur": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Mente"
+        ],
+        "salud": 1,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes equipar cualquier tipo de arma.",
+          "Puedes equipar cualquier tipo de escudo.",
+          "Puedes equipar cualquier tipo de armadura.",
+          "Eres competente con la Caña de pescar, con el Cuchillo de desuello, con el Kit de herborista y con el Kit de cocina."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Cata magistral",
+          "Haute cuisine",
+          "Mise en place"
+        ]
+      },
+      "Derviche": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Agilidad"
+        ],
+        "salud": 0,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes equipar cualquier arma ligera cuerpo a cuerpo y cualquier espada cuerpo a cuerpo de una mano.",
+          "Puedes equipar dos armas ligeras cuerpo a cuerpo, una en cada mano; consulta «Combate con dos armas» en el Capítulo de Combate.",
+          "No puedes equipar ningún escudo.",
+          "Puedes equipar ropa, túnicas y armaduras de tela.",
+          "Eres competente con la Piedra de afilar."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Danza de las dos hojas",
+          "Defensa sin armadura",
+          "Maniobra letal",
+          "Oleada extensiva"
+        ]
+      },
+      "Adalid": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Resistencia",
+          "Presencia"
+        ],
+        "salud": 2,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes equipar cualquier tipo de arma.",
+          "Puedes equipar cualquier tipo de escudo.",
+          "Puedes equipar cualquier tipo de armadura.",
+          "Eres competente con la Piedra de afilar y con la Tinta y Pluma."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Poderío del caballero",
+          "Compromiso del adalid",
+          "Desafío honorable",
+          "Imposición de manos"
+        ]
+      },
+      "Bárbaro": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Agilidad",
+          "Resistencia"
+        ],
+        "salud": 2,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes llevar cualquier arma cuerpo a cuerpo, arcos cortos, arcos largos, cerbatanas y hondas.",
+          "Puedes equipar escudos pequeños y medianos.",
+          "Puedes equipar cualquier armadura ligera y la armadura de pieles.",
+          "Eres competente con el Kit de escalada y con la Piedra de afilar."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Brutalidad",
+          "Cólera",
+          "Energúmeno",
+          "Receloso"
+        ]
+      },
+      "Bardo": {
+        "atributo_favorito": [
+          "Presencia"
+        ],
+        "salud": 0,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes llevar cualquier arma ligera además de bastones, espadas largas, espadas roperas, jabalinas, látigos y cualquier arma a distancia.",
+          "No puedes equipar escudos.",
+          "Puedes equipar cualquier armadura ligera, la armadura de pieles y la cota de anillas.",
+          "Eres competente con Instrumentos musicales y con el Kit de escalada."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Cultura del viajero",
+          "Entusiasmo"
+        ]
+      },
+      "Belisario": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Mente",
+          "Presencia"
+        ],
+        "salud": 0,
+        "esfuerzo": 4,
+        "competencias": [
+          "Puedes equipar cualquier tipo de arma.",
+          "Puedes equipar escudos pequeños y medianos.",
+          "Puedes equipar armaduras ligeras e intermedias.",
+          "Eres competente con el Kit de medicina y con la Piedra de afilar."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Apariencia intimidante",
+          "Estratega avezado",
+          "Preparación"
+        ]
+      },
+      "Brujo": {
+        "atributo_favorito": [
+          "Resistencia",
+          "Presencia"
+        ],
+        "salud": 0,
+        "esfuerzo": 2,
+        "competencias": [
+          "Puedes equipar cualquier arma ligera, bastones, espadas largas, espadas roperas, látigos, guadañas, cerbatanas y hondas.",
+          "No puedes equipar escudos.",
+          "Puedes equipar armaduras ligeras.",
+          "Eres competente con la Piedra de afilar y con la Tinta y Pluma."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Esbirro familiar",
+          "Puntos de Brujería",
+          "Rebote arcano"
+        ]
+      },
+      "Cazador": {
+        "atributo_favorito": [
+          "Agilidad",
+          "Intuición"
+        ],
+        "salud": 1,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes equipar cualquier arma ligera, cualquier arma cuerpo a cuerpo de una mano, guadañas, gujas, lanzas, tridentes, cualquier arma a distancia y cualquier arma arrojadiza.",
+          "Puedes equipar escudos pequeños.",
+          "Puedes equipar armaduras ligeras e intermedias que no sean de metal.",
+          "Eres competente con el Kit de cocina y con el Kit de trampero."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Compañero animal",
+          "Marca del cazador"
+        ]
+      },
+      "Celador": {
+        "atributo_favorito": [
+          "Agilidad",
+          "Resistencia",
+          "Intuición"
+        ],
+        "salud": -1,
+        "esfuerzo": 2,
+        "competencias": [
+          "Puedes utilizar cualquier arma arrojadiza, cualquier arma a distancia y armas cuerpo a cuerpo ligeras.",
+          "No puedes equipar escudos.",
+          "Puedes equipar armaduras ligeras.",
+          "Eres competente con el Kit de escalada y con el Kit de trampero."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Arma de celador",
+          "Disparo inevitable"
+        ]
+      },
+      "Chamán": {
+        "atributo_favorito": [
+          "Resistencia",
+          "Intuición"
+        ],
+        "salud": 0,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes utilizar cualquier arma cuerpo a cuerpo hecha de madera o hueso, cerbatanas y bumeranes.",
+          "Puedes equipar escudos pequeños y/o medianos hechos de cuero, madera o hueso.",
+          "Puedes equipar armaduras ligeras e intermedias hechas de cuero o hueso.",
+          "Eres competente con Instrumentos musicales de percusión y con el Kit de herborista."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Espíritu ancestral",
+          "Puntos de Chamanismo",
+          "Resonancia salvaje"
+        ]
+      },
+      "Diletante": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Agilidad",
+          "Resistencia",
+          "Mente",
+          "Intuición",
+          "Presencia"
+        ],
+        "salud": 0,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes utilizar cualquier arma ligera de una mano y bastones.",
+          "Puedes equipar escudos pequeños.",
+          "Puedes equipar armaduras ligeras.",
+          "Eres competente con una herramienta a tu elección."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Aprendiz de todo",
+          "Competencias y poderes"
+        ]
+      },
+      "Hechicero": {
+        "atributo_favorito": [
+          "Mente",
+          "Presencia"
+        ],
+        "salud": -1,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes llevar bastones, ballestas ligeras, clavas, dagas, espadas cortas, látigos, hondas y varitas.",
+          "No puedes equipar escudos.",
+          "Puedes equipar únicamente ropa, túnicas y armaduras de tela.",
+          "Eres competente con el Alambique y con la Piedra de canalización."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Canal sortílego",
+          "Dado de Hechicería"
+        ]
+      },
+      "Oráculo": {
+        "atributo_favorito": [
+          "Mente",
+          "Intuición"
+        ],
+        "salud": -1,
+        "esfuerzo": 3,
+        "competencias": [
+          "Puedes llevar bastones, clavas, hondas, mayales, mazas y látigos.",
+          "No puedes equipar escudos.",
+          "Puedes equipar ropa, túnicas, armaduras de tela y armaduras acolchadas.",
+          "Eres competente con el Alambique y con la Piedra de canalización."
+        ],
+        "talentos": [],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20 — Ocupaciones (Google Drive)",
+        "talentos_referencia": [
+          "Dado de Prodigios",
+          "Plegaria suplicante",
+          "Visión oracular"
+        ]
+      }
+    },
+    "especies": {
+      "Dracónido": {
+        "salud": "d10",
+        "movimiento": 6,
+        "requisitos": [
+          {
+            "atributo": "Fuerza",
+            "minimo": 7
+          },
+          {
+            "atributo": "Resistencia",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Estirpe dragontina",
+          "Hálito de energía"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Elfo blanco": {
+        "salud": "d6",
+        "movimiento": 7,
+        "requisitos": [
+          {
+            "atributo": "Intuición",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Linaje feérico",
+          "Visión en la oscuridad"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Elfo celestial": {
+        "salud": "d6",
+        "movimiento": 6,
+        "requisitos": [
+          {
+            "atributo": "Mente",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Linaje feérico"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Elfo nerai": {
+        "salud": "d6",
+        "movimiento": 6,
+        "requisitos": [
+          {
+            "atributo": "Intuición",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Linaje feérico",
+          "Morador pelágico"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Enano selvático": {
+        "salud": "d8",
+        "movimiento": 5,
+        "requisitos": [
+          {
+            "atributo": "Fuerza",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Corpulencia"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Pelaje silvestre": {
+        "salud": "d6",
+        "movimiento": 7,
+        "requisitos": [
+          {
+            "atributo": "Agilidad",
+            "minimo": 9
+          }
+        ],
+        "talentos": [
+          "Musculatura felina",
+          "Visión en la oscuridad"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Pelaje urbanita": {
+        "salud": "d4",
+        "movimiento": 7,
+        "requisitos": [
+          {
+            "atributo": "Agilidad",
+            "minimo": 7
+          },
+          {
+            "atributo": "Presencia",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Estallido de velocidad",
+          "Musculatura felina"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Gnomo sylestri": {
+        "salud": "d4",
+        "movimiento": 5,
+        "requisitos": [
+          {
+            "atributo": "Agilidad",
+            "minimo": 7
+          },
+          {
+            "atributo": "Mente",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Baja estatura"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Humano malasthino": {
+        "salud": "d6",
+        "movimiento": 6,
+        "requisitos": [],
+        "talentos": [],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Humano ujibo": {
+        "salud": "d6",
+        "movimiento": 6,
+        "requisitos": [
+          {
+            "atributo": "Presencia",
+            "minimo": 5
+          }
+        ],
+        "talentos": [
+          "Diplomacia"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Iblisio": {
+        "salud": "d6",
+        "movimiento": 6,
+        "requisitos": [
+          {
+            "atributo": "Presencia",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Aguante ígneo",
+          "Labia infernal"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Mediano jóbito": {
+        "salud": "d6",
+        "movimiento": 5,
+        "requisitos": [],
+        "talentos": [
+          "Buena suerte"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Semitrol": {
+        "salud": "d10",
+        "movimiento": 6,
+        "requisitos": [
+          {
+            "atributo": "Fuerza",
+            "minimo": 7
+          },
+          {
+            "atributo": "Resistencia",
+            "minimo": 9
+          }
+        ],
+        "talentos": [
+          "Sed de sangre",
+          "Regeneración de trol"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Redivivo": {
+        "salud": "d8",
+        "movimiento": 5,
+        "requisitos": [
+          {
+            "atributo": "Mente",
+            "minimo": 7
+          },
+          {
+            "atributo": "Intuición",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Existencia blasfema",
+          "Marcha de la tumba"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Rusalka costero": {
+        "salud": "d6",
+        "movimiento": 6,
+        "requisitos": [
+          {
+            "atributo": "Agilidad",
+            "minimo": 7
+          },
+          {
+            "atributo": "Intuición",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Legado del océano",
+          "Visión en la oscuridad"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Deku": {
+        "salud": "d4",
+        "movimiento": 7,
+        "requisitos": [
+          {
+            "atributo": "Agilidad",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Planta feérica",
+          "Pétaleteo"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Goron": {
+        "salud": "d10",
+        "movimiento": 4,
+        "requisitos": [
+          {
+            "atributo": "Resistencia",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Gorología",
+          "Carga punzante"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Zora": {
+        "salud": "d8",
+        "movimiento": 6,
+        "requisitos": [
+          {
+            "atributo": "Presencia",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Herencia zora",
+          "Escudo eléctrico"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Zora (linaje olardiente)": {
+        "salud": "d10",
+        "movimiento": 6,
+        "requisitos": [
+          {
+            "atributo": "Fuerza",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Herencia olardiente",
+          "Estallido escupefuego"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Kokiri": {
+        "salud": "d6",
+        "movimiento": 6,
+        "requisitos": [],
+        "talentos": [
+          "Compañera feérica",
+          "Retoño de la foresta"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Orni": {
+        "salud": "d6",
+        "movimiento": 6,
+        "requisitos": [
+          {
+            "atributo": "Agilidad",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Vuelo",
+          "Favor del espíritu orni"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      },
+      "Gerudo": {
+        "salud": "d10",
+        "movimiento": 6,
+        "requisitos": [
+          {
+            "atributo": "Fuerza",
+            "minimo": 7
+          },
+          {
+            "atributo": "Presencia",
+            "minimo": 7
+          }
+        ],
+        "talentos": [
+          "Armas de los ancestros gerudo",
+          "Vitalidad de la arena"
+        ],
+        "nombres": [],
+        "conceptos": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20 — Especies (Google Drive)"
+      }
+    }
+  },
+  "nocturna": {
+    "especies": {
+      "Humano natural": {
+        "salud": "d6",
+        "esencia": "d10",
+        "movimiento": 6,
+        "requisitos": [],
+        "talentos": [
+          "Buen desarrollo"
+        ],
+        "talentos_elegir": [
+          "Adaptación",
+          "Fuerza de voluntad",
+          "Red de contactos"
+        ],
+        "debilidad": "Ninguna. Los humanos no tienen vulnerabilidades sobrenaturales, pero tampoco poseen dones innatos.",
+        "conceptos": [],
+        "nombres": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Humano arcano": {
+        "salud": "d6",
+        "esencia": "d10",
+        "movimiento": 6,
+        "requisitos": [],
+        "talentos": [
+          "Vestigios de hechicería"
+        ],
+        "talentos_elegir": [
+          "Resistencia mágica",
+          "Ojos de Murati",
+          "Aliados en las sombras"
+        ],
+        "debilidad": "Sangre arcana. Tu sangre desprende un aura mágica, fácilmente reconocible por hechiceros, teúrgos y otros seres sobrenaturales. Otorgas un +2 a las Tiradas realizadas para detectar seres mágicos.",
+        "conceptos": [],
+        "nombres": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Strigoi": {
+        "salud": "d8",
+        "esencia": "d8",
+        "movimiento": 6,
+        "requisitos": [],
+        "talentos": [
+          "Sino de los condenados"
+        ],
+        "talentos_elegir": [
+          "Depredador depravado",
+          "Fascinación",
+          "Sombra siniestra"
+        ],
+        "debilidad": "Agonía solar. Si tu piel entra en contacto con la luz del sol, sufres 2d6 de Daño por Turno. Si tu Salud llega a 0 de esta manera, explotarás en una nube de sangre, cenizas y restos putrefactos, abrazando una Muerte definitiva horrible y repulsiva.",
+        "conceptos": [],
+        "nombres": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Jiangshi": {
+        "salud": "d10",
+        "esencia": "d6",
+        "movimiento": 4,
+        "requisitos": [],
+        "talentos": [
+          "Ladrón de almas"
+        ],
+        "talentos_elegir": [
+          "Carne cadavérica",
+          "Chillido de ultratumba",
+          "Salto sobrenatural"
+        ],
+        "debilidad": "Maldición de los sellos. Tu existencia está atada a la maldición que te reanimó. Si un sello taoísta o un símbolo sagrado de protección es colocado en tu frente, se considera que tu Dado de Almas está agotado hasta que este sello sea retirado. Ten en",
+        "conceptos": [],
+        "nombres": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Hombre lobo": {
+        "salud": "d10",
+        "esencia": "d8",
+        "movimiento": 6,
+        "requisitos": [],
+        "talentos": [
+          "Licantropía"
+        ],
+        "talentos_elegir": [
+          "Incansable",
+          "Rabia brutal",
+          "Zancada salvaje"
+        ],
+        "debilidad": "Repulsión argéntea. Al estar vinculado a la luna, tu cuerpo se estremece y se debilita al tocar plata. Cuando sufras heridas por armas o utensilios de plata, recibes el doble de daño y tu regeneración natural se anula ese Intervalo. Sin embargo, perm",
+        "conceptos": [],
+        "nombres": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Hombre cuervo": {
+        "salud": "d6",
+        "esencia": "d12",
+        "movimiento": 6,
+        "requisitos": [],
+        "talentos": [
+          "Corantropía"
+        ],
+        "talentos_elegir": [
+          "Memoria eidética",
+          "Sombra aérea",
+          "Ventriloquía"
+        ],
+        "debilidad": "Odio de Helios. Al estar vinculado al sol, tu cuerpo monstruoso se estremece y se debilita al tocar oro. Cuando sufras heridas por armas o utensilios de oro, recibes el doble de daño y tu regeneración natural se anula ese Intervalo. Sin embargo, perm",
+        "conceptos": [],
+        "nombres": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Sidhe": {
+        "salud": "d4",
+        "esencia": "d12",
+        "movimiento": 6,
+        "requisitos": [],
+        "talentos": [
+          "Vestigios de Sylestria"
+        ],
+        "talentos_elegir": [
+          "Corazón ardiente",
+          "Ecos de Sylestria",
+          "Fulgor irreal"
+        ],
+        "debilidad": "Perdición del Hierro. El contacto con hierro sin forjar te debilita y bloquea tu esencia feérica. Si sufres una herida provocada por Hierro frío, pierdes instantáneamente 1d6 Puntos de Glamour y todos tus dones mágicos (en caso de que los tengas) que",
+        "conceptos": [],
+        "nombres": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Ceniciento": {
+        "salud": "d6",
+        "esencia": "d10",
+        "movimiento": 6,
+        "requisitos": [],
+        "talentos": [
+          "Naturaleza mutable"
+        ],
+        "talentos_elegir": [
+          "Doble reflejo",
+          "Ecos de los demás",
+          "Retoño del caos"
+        ],
+        "debilidad": "Presa de la identidad. Tu esencia no es estable, y cada vez que te aferras demasiado a una identidad, te vuelves más vulnerable a perderte en ella. Si pasas demasiado tiempo adoptando un mismo rol o vida (más de 1 mes sin cambios significativos en tu",
+        "conceptos": [],
+        "nombres": [],
+        "objetos_emocionales": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      }
+    },
+    "ocupaciones": {
+      "Arcanista": {
+        "atributo_favorito": [
+          "Mente",
+          "Intuición"
+        ],
+        "salud": -1,
+        "esfuerzo": 2,
+        "talentos": [
+          "Conducto arcano",
+          "Puntos de Gnosis"
+        ],
+        "talentos_elegir": [
+          "Biblioteca ambulante",
+          "Canal de las sombras",
+          "Caos esotérico",
+          "Estallido arcano",
+          "Sacrificio vital",
+          "Voluntad indómita"
+        ],
+        "competencias": [
+          "Puedes equipar cualquier arma ligera de una mano y varitas de defensa.",
+          "No puedes equipar escudos.",
+          "Puedes equipar armaduras de tela.",
+          "Eres competente con el Alambique y la Tinta y Pluma."
+        ],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Cazador de monstruos": {
+        "atributo_favorito": [
+          "Agilidad",
+          "Intuición"
+        ],
+        "salud": 1,
+        "esfuerzo": 3,
+        "talentos": [
+          "Ojo del cazador"
+        ],
+        "talentos_elegir": [
+          "Aceptación",
+          "Alquimia limitada",
+          "Cazador letal",
+          "Instintos sobrenaturales",
+          "Reflejos de la noche",
+          "Soy lo que cazo"
+        ],
+        "competencias": [
+          "Puedes equipar cualquier arma cuerpo a cuerpo de una mano, espadón, almádena, gran hacha, guja y guadaña, además de cualquier arma arrojadiza y a distancia.",
+          "No puedes equipar escudos.",
+          "Puedes equipar armaduras ligeras y armaduras intermedias.",
+          "Eres competente con el Kit de medicina y los Prismáticos ‡."
+        ],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Delincuente": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Agilidad",
+          "Presencia"
+        ],
+        "salud": 0,
+        "esfuerzo": 4,
+        "talentos": [
+          "Instintos de los bajos fondos"
+        ],
+        "talentos_elegir": [
+          "Arrancar información",
+          "El jeta de Wall Street",
+          "Facha de hampón",
+          "Maestro en allanamientos",
+          "Rutas de entrada y salida",
+          "Señor del crimen"
+        ],
+        "competencias": [
+          "Puedes equipar cualquier arma cuerpo a cuerpo de una mano, pistolas, subfusiles y rifles.",
+          "Puedes equipar escudos pequeños y medianos.",
+          "Puedes equipar armaduras de tela, armaduras ligeras y armaduras intermedias.",
+          "Eres competente con Ganzúas y Kit de falsificación."
+        ],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Espiritista": {
+        "atributo_favorito": [
+          "Intuición",
+          "Presencia"
+        ],
+        "salud": -1,
+        "esfuerzo": 2,
+        "talentos": [
+          "Voz de ultratumba"
+        ],
+        "talentos_elegir": [
+          "Cadena de los hados",
+          "Destino entrelazado",
+          "Hebras de la Urdimbre",
+          "Ligadura espiritual",
+          "Paso espectral",
+          "Premonición"
+        ],
+        "competencias": [
+          "Puedes equipar cualquier arma cuerpo a cuerpo ligera de una mano (dagas ceremoniales, bastones cortos, etc.), bastones y lanzas.",
+          "No puedes equipar escudos.",
+          "Puedes equipar armaduras de tela únicamente (ropa normal o vestimentas rituales, nada de protecciones modernas pesadas).",
+          "Eres competente con la Baraja de tarot ‡ y el Tablero de ouija ‡."
+        ],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Investigador": {
+        "atributo_favorito": [
+          "Agilidad",
+          "Intuición",
+          "Presencia"
+        ],
+        "salud": 0,
+        "esfuerzo": 4,
+        "talentos": [
+          "Perspicacia de sabueso"
+        ],
+        "talentos_elegir": [
+          "Cazarreliquias",
+          "Diletante místico",
+          "Erudición sobrenatural",
+          "Instintos del morador nocturno",
+          "Saqueador de tumbas",
+          "Sospechosos habituales"
+        ],
+        "competencias": [
+          "Puedes equipar cualquier arma cuerpo a cuerpo de una mano y cualquier arma de fuego no pesada.",
+          "Puedes equipar escudos pequeños.",
+          "Puedes equipar cualquier ropa, armaduras de tela, armaduras ligeras y armaduras intermedias.",
+          "Eres competente con las Ganzúas, la Cámara fotográfica y el Kit de CSI."
+        ],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Mercenario": {
+        "atributo_favorito": [
+          "Fuerza",
+          "Agilidad",
+          "Resistencia"
+        ],
+        "salud": 1,
+        "esfuerzo": 4,
+        "talentos": [
+          "Arte de la guerra"
+        ],
+        "talentos_elegir": [
+          "¡Estáis encerrados conmigo!",
+          "Adrenalina",
+          "En racha",
+          "Frenesí sanguinario",
+          "Imparable",
+          "Plan de batalla"
+        ],
+        "competencias": [
+          "Puedes equipar cualquier arma.",
+          "Puedes equipar cualquier tipo de protección.",
+          "Eres competente con el Kit de municiones y el Kit de explosivos.",
+          "Eres competente con cualquier vehículo."
+        ],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Operador": {
+        "atributo_favorito": [
+          "Agilidad",
+          "Mente"
+        ],
+        "salud": 0,
+        "esfuerzo": 4,
+        "talentos": [
+          "Cerebro cibernético"
+        ],
+        "talentos_elegir": [
+          "Homebrew",
+          "Interacción remota",
+          "Presencia fantasma",
+          "Ojos en la red",
+          "Sabotaje electromagnético",
+          "Tecnomante"
+        ],
+        "competencias": [
+          "Puedes equipar cualquier arma cuerpo a cuerpo ligera de una mano (porra, cuchillo, etc.) y armas de fuego de una mano.",
+          "No puedes equipar escudos.",
+          "Puedes equipar armaduras de tela y armaduras ligeras. Eres competente con el Ordenador portátil ‡ y el Kit de electrónica ‡.",
+          "Necesitas un Ordenador portátil para llevar a cabo tus Talentos."
+        ],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      },
+      "Pícaro": {
+        "atributo_favorito": [
+          "Mente",
+          "Intuición",
+          "Presencia"
+        ],
+        "salud": 0,
+        "esfuerzo": 4,
+        "talentos": [
+          "Lengua de serpiente"
+        ],
+        "talentos_elegir": [
+          "Artimañas legales",
+          "El precio justo",
+          "Estafador experto",
+          "Maestro del espectáculo",
+          "Rostro cambiante",
+          "Zorro astuto"
+        ],
+        "competencias": [
+          "Puedes equipar cualquier arma ligera de una mano.",
+          "También puedes usar dagas ocultas, bastones y pistolas de bolsillo.",
+          "No puedes equipar escudos.",
+          "Puedes equipar armaduras de tela y armaduras ligeras.",
+          "Eres competente con la Baraja de póker ‡ y con el Maquillaje ‡."
+        ],
+        "conceptos": [],
+        "armas": [],
+        "armaduras": [],
+        "poderes": [],
+        "fuente": "NaufragioD20Nocturna (Google Drive)"
+      }
+    }
+  },
+  "cifi": {
+    "especies": {
+      "Humano natural": {
+        "esencia": "d10",
+        "requisitos": [],
+        "fuente": "NaufragioD20CiFi (Google Drive)"
+      },
+      "Humano aumentado": {
+        "esencia": "d8",
+        "requisitos": [
+          {
+            "atributo": "Resistencia",
+            "minimo": 7
+          },
+          {
+            "atributo": "Presencia",
+            "minimo": 7
+          }
+        ],
+        "fuente": "NaufragioD20CiFi (Google Drive)"
+      },
+      "Gruul bruto": {
+        "esencia": "d8",
+        "requisitos": [
+          {
+            "atributo": "Fuerza",
+            "minimo": 7
+          }
+        ],
+        "fuente": "NaufragioD20CiFi (Google Drive)"
+      },
+      "Gruul zángano": {
+        "esencia": "d10",
+        "requisitos": [
+          {
+            "atributo": "Mente",
+            "minimo": 7
+          }
+        ],
+        "fuente": "NaufragioD20CiFi (Google Drive)"
+      },
+      "Sylph mindari": {
+        "esencia": "d12",
+        "requisitos": [
+          {
+            "atributo": "Intuición",
+            "minimo": 7
+          }
+        ],
+        "fuente": "NaufragioD20CiFi (Google Drive)"
+      },
+      "Sylph zanshi": {
+        "esencia": "d10",
+        "requisitos": [
+          {
+            "atributo": "Fuerza",
+            "minimo": 7
+          },
+          {
+            "atributo": "Mente",
+            "minimo": 7
+          }
+        ],
+        "fuente": "NaufragioD20CiFi (Google Drive)"
+      }
+    }
+  }
+}

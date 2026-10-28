@@ -28,6 +28,7 @@
           <select id="juego" name="juego">
             <option value="nd20">Naufragio d20 · Fantasía</option>
             <option value="nd20_cifi">Naufragio d20 · CiFi</option>
+            <option value="nd20_nocturna">Naufragio d20 · Nocturna</option>
             <option value="dh">Dungeon Hack</option>
           </select>
         </div>
@@ -49,6 +50,11 @@
           <p class="ayuda">Procedencias permitidas</p>
           <div id="origenes" class="origenes"></div>
         </fieldset>
+        <div class="campo">
+          <label for="nombre-personaje">Nombre del personaje (opcional)</label>
+          <input id="nombre-personaje" name="nombre-personaje" type="text" maxlength="90" placeholder="Si quieres elegirlo tú">
+          <small>Para especies sin un repertorio de nombres documentado, puedes introducir uno aquí.</small>
+        </div>
         <div class="campo">
           <label for="semilla">Semilla opcional</label>
           <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Para repetir resultados">

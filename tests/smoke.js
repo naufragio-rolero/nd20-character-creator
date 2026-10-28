@@ -53,3 +53,49 @@ assert.ok(mapa.every((f)=>f.length===8));
 assert.ok(mapa[0].every((x)=>x==='wall'));
 total+=2;
 console.log('OK · '+total+' comprobaciones de generación superadas.');
+
+
+/* Validación de contenido ampliado procedente de la Biblioteca de Naufragio d20. */
+const catalogo = leer('catalogo-ampliado.json');
+const expandir = (base, nuevos) => ({
+  especies: Object.assign({}, base.especies, nuevos.especies),
+  ocupaciones: Object.assign({}, base.ocupaciones, nuevos.ocupaciones)
+});
+const fantasiaExtendida = expandir(fantasia,catalogo.fantasia);
+const nocturna = catalogo.nocturna;
+const cifiExtendida = {
+  especies: Object.assign({},cifi.especies),
+  ocupaciones: cifi.ocupaciones
+};
+for(const [nombre,mod] of Object.entries(catalogo.cifi.especies))
+  cifiExtendida.especies[nombre]=Object.assign({},cifiExtendida.especies[nombre],mod);
+
+assert.equal(Object.keys(fantasiaExtendida.ocupaciones).length,37,'Ocupaciones Fantasía');
+assert.equal(Object.keys(fantasiaExtendida.especies).length,30,'Especies Fantasía');
+assert.equal(Object.keys(nocturna.especies).length,8,'Especies Nocturna');
+assert.equal(Object.keys(nocturna.ocupaciones).length,8,'Ocupaciones Nocturna');
+assert.equal(cifiExtendida.especies['Humano aumentado'].requisitos.length,2,'Requisitos CiFi');
+
+let ampliadas=0;
+for(const [juego,datos] of [['nd20',fantasiaExtendida],['nd20_cifi',cifiExtendida],['nd20_nocturna',nocturna]]) {
+  for(const especie of Object.keys(datos.especies)){
+    for(const nivel of [1,6,12,30]){
+      const personaje=reglas.crearNd20(datos,{juego,nivel,especie},reglas.aleatorioSemilla(juego+especie+nivel));
+      assert.ok(personaje.descripcion.includes(especie),'Especie respetada');
+      assert.equal(personaje.atributos.length,6);
+      assert.ok(personaje.atributos.every(a=>a.valor>=4&&a.valor<=18),'VA entre 4 y 18');
+      if(juego==='nd20_nocturna')assert.ok(personaje.recursos.some(a=>a[0]==='Esencia'),'Esencia Nocturna');
+      ampliadas++;
+    }
+  }
+  for(const ocupacion of Object.keys(datos.ocupaciones)) {
+    const p=reglas.crearNd20(datos,{juego,nivel:1,ocupacion},reglas.aleatorioSemilla(ocupacion));
+    assert.ok(p.descripcion.startsWith(ocupacion+' ·'),'Ocupación respetada');
+    ampliadas++;
+  }
+}
+const aumentado=reglas.crearNd20(cifiExtendida,
+  {juego:'nd20_cifi',nivel:1,especie:'Humano aumentado'},reglas.aleatorioSemilla('aumentado'));
+assert.ok(aumentado.atributos.find(a=>a.nombre==='Resistencia').valor>=7);
+assert.ok(aumentado.atributos.find(a=>a.nombre==='Presencia').valor>=7);
+console.log('OK · '+ampliadas+' fichas adicionales con material documental.');

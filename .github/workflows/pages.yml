@@ -32,6 +32,9 @@ jobs:
           test -s data/especies_cifi.json
           test -s data/ocupaciones_cifi.json
 
+      - name: Comprobar generadores y catálogos
+        run: node tests/smoke.js
+
       - name: Preparar publicación aislada
         shell: bash
         run: |
