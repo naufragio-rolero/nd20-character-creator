@@ -2,7 +2,7 @@
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-10-28.  
-**Estado global:** Inventario inicial terminado y texto de los 115 Talentos de Especies extraído. Siguiente tarea: desglose de propiedades y validación documental; demás tandas pendientes.  
+**Estado global:** Inventario y extracción literal de los 115 Talentos de Especies terminados; preclasificación de propiedades y reglas de adquisición documentadas; siguiente tarea: validación manual y decisiones editoriales abiertas. Las demás tandas siguen pendientes.  
 **Rama documental:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
@@ -19,15 +19,18 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 ## 2. Tandas documentales
 
-### Tanda 1 — Talentos de Especies · **Extracción literal terminada; validación pendiente**
+### Tanda 1 — Talentos de Especies · **Preclasificación terminada; validación pendiente**
 - [x] Inventario nominal de las 44 Especies, con **115 relaciones Especie–Talento** (94 recogidas en JSON y 21 detectadas solo en fuentes).
 - [x] Registrar los **7 Talentos fijos omitidos** y los **14 Talentos opcionales de Hyrule**.
 - [x] Extraer el texto literal completo de los 115 bloques de Talentos de Especies, con sistema, Especie, tipo y fuente (tres JSON documentales).
 - [x] Identificar las etiquetas independientes de activación/coste/requisitos cuando aparecen literalmente en el texto.
-- [ ] Completar la descomposición sistemática de los costes, requisitos, duraciones, activaciones y escalados descritos dentro de la prosa; no completar campos por analogía.
+- [x] Identificar por fragmentos literales las expresiones de gastos/recursos, duración, alcance, niveles, elección, restricciones y Tiradas en las 115 fichas ([preclasificación](03a-preclasificacion-propiedades-especies.json)).
+- [ ] Revisar manualmente y **normalizar** costes, requisitos, duraciones, activaciones y escalados descritos en la prosa; las etiquetas automáticas no suponen validación ni ausencia de reglas.
 - [x] Diferenciar documentalmente 77 Talentos fijos, 24 elegibles y 14 opcionales (relaciones, no nombres únicos).
-- [ ] Documentar con precisión cuándo y cómo se adquieren los Talentos elegibles y opcionales.
-- [ ] Contrastar cada efecto y resolver las discrepancias detectadas, incluida la identidad de Talentos homónimos.
+- [x] Documentar adquisición de los 14 Talentos opcionales de Hyrule (sustitución de Talento en creación y restricciones de Ocupación) y de los 24 elegibles de Nocturna (uno entre tres por Especie); ver [adquisición](03b-adquisicion-talentos-especies.json).
+- [ ] Resolver qué Ocupaciones cuentan como «derivadas» y qué Talentos pueden sustituirse sin perder la capacidad que define la Ocupación.
+- [x] Registrar [11 hallazgos de contraste y validación](03-informe-propiedades-especies.md), incluidas diferencias de reglas homónimas, fórmulas ambiguas y fuentes cruzadas.
+- [ ] Resolver los hallazgos y **validar manualmente** cada efecto, su contexto y la identidad de los Talentos homónimos.
 - [x] Publicar repertorio preliminar de 115 registros extraídos, más informe de cobertura y pendientes ([fase 2](02-informe-extraccion-especies.md)).
 - [ ] Entregar repertorio **validado** tras conciliación editorial y revisión mecánica.
 
@@ -79,6 +82,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [Registro de Talentos de Especies](01a-talentos-especies.csv) — datos nominales y fuente.
 - [Registro de Talentos de Ocupaciones](01b-talentos-ocupaciones.csv) — datos nominales y fuente.
 - [Extracción preliminar de Talentos de Especies](02-informe-extraccion-especies.md) — informe de QA y enlaces a 3 repertorios literales.
+- [Preclasificación y hallazgos de Talentos de Especies](03-informe-propiedades-especies.md) — evidencias de propiedades, adquisición documentada y 11 asuntos de revisión.
 - [Decisiones editoriales actuales](../decisiones-editoriales.md) — mantener independientes del contenido oficial.
 
 ## 5. Registro de avances
@@ -89,5 +93,6 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 | 2026-10-28 | Inventario inicial transversal y dos CSV | Documentado en esta rama, PR #3 abierta. |
 | 2026-10-28 | Creación de este plan de trabajo | Punto de control para las siguientes tandas. |
 | 2026-10-28 | Extracción literal de 115 vínculos Especie–Talento | [Informe y repertorios](02-informe-extraccion-especies.md); 115/115 con texto, 44 Especies y 0 fichas vacías. Pendiente validación. |
+| 2026-10-28 | Preclasificación de propiedades y acceso | [Revisión y hallazgos](03-informe-propiedades-especies.md): 115 fichas con citas localizables, 14 sustituciones Hyrule, 8 elecciones Nocturna y 11 hallazgos. **Normalización y validación pendientes.** |
 
 **Norma de actualización:** al cerrar una sesión, marcar únicamente casillas demostradas, añadir la fecha y el enlace al entregable o PR en el registro; mantener abiertas las discrepancias no resueltas. Cuando cambie el estado de una PR, actualizar también su referencia. No equiparar «inventariado» con «extraído» ni «extraído» con «validado».
