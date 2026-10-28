@@ -146,6 +146,10 @@
       if(tipo===x.grupo)n+=10;
       if(x.descripcion)n+=2;
       if(x.datos.length)n++;
+      // El precio y estadísticas del catálogo oficial prevalecen sobre
+      // los simples nombres heredados de la lista de Ocupación.
+      if(tipo==="equipo"&&x.datos.some(function(d){return d[0]==="Precio";}))n+=8;
+      if(tipo==="equipo"&&/^Equipo de Ocupación:/.test(x.fuente))n-=4;
       return n;
     }
     lista.sort(function(a,b){return puntuacion(b)-puntuacion(a);});
