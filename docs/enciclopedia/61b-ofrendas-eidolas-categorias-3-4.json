@@ -3,13 +3,12 @@
   "fuente": "NaufragioD20 — Ocupaciones; fichas vivas de Eidolas",
   "criterio": "Ausencia de mención explícita no equivale a ausencia de requisito; no inventar sacrificios, ofrendas, plazos o componentes. Los resúmenes son clasificación, no texto de reglas.",
   "total": 16,
-  "con_condicion_explicita": 11,
   "sin_mencion_explicita": 5,
   "registros": [
     {
       "eidolon": "Binexa",
       "categoria": 3,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "sacrificio_narrativo",
       "resumen_no_literal": "recuerdo feliz escrito en pergamino y quemado en llama negra",
       "momento_no_literal": "para invocarlo",
@@ -19,7 +18,8 @@
       "fuente_parrafos": [
         4979,
         4987
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Cath Palug",
@@ -29,12 +29,13 @@
       "fuente_parrafos": [
         4988,
         4995
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Ezion",
       "categoria": 3,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ofrenda_material",
       "resumen_no_literal": "reliquia de otra era",
       "momento_no_literal": "para obtener su ayuda",
@@ -44,7 +45,8 @@
       "fuente_parrafos": [
         4996,
         5003
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Nerevion",
@@ -54,12 +56,13 @@
       "fuente_parrafos": [
         5004,
         5011
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Skaldrak",
       "categoria": 3,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ritual_material",
       "resumen_no_literal": "antorcha quemada en mar helado hasta ser apagada por el agua",
       "momento_no_literal": "para invocarlo",
@@ -69,7 +72,8 @@
       "fuente_parrafos": [
         5012,
         5020
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Velghor",
@@ -79,12 +83,13 @@
       "fuente_parrafos": [
         5021,
         5028
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Yl-Veris",
       "categoria": 3,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ofrenda_material",
       "resumen_no_literal": "gota de sangre sobre tierra húmeda",
       "momento_no_literal": "antes de prestar su poder",
@@ -94,12 +99,13 @@
       "fuente_parrafos": [
         5029,
         5036
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Zephradon",
       "categoria": 3,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "prueba_narrativa",
       "resumen_no_literal": "soportar tormenta natural bajo su tutela",
       "momento_no_literal": "para ganar su favor",
@@ -109,7 +115,8 @@
       "fuente_parrafos": [
         5037,
         5044
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Faustargon",
@@ -119,12 +126,13 @@
       "fuente_parrafos": [
         5046,
         5053
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Garathur",
       "categoria": 4,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ritual_y_compromiso",
       "resumen_no_literal": "arrojar al mar armadura real; proteger a su pueblo o seres queridos con la vida",
       "momento_no_literal": "durante la convocatoria y como compromiso",
@@ -134,12 +142,13 @@
       "fuente_parrafos": [
         5054,
         5061
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Hefair",
       "categoria": 4,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "prueba_narrativa",
       "resumen_no_literal": "dejarse llevar por alucinaciones de sus efluvios",
       "momento_no_literal": "para obtener secretos de invocación",
@@ -149,12 +158,13 @@
       "fuente_parrafos": [
         5062,
         5071
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Ifraya",
       "categoria": 4,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ritual_material",
       "resumen_no_literal": "lágrima sobre nieve virgen",
       "momento_no_literal": "durante la invocación",
@@ -164,12 +174,13 @@
       "fuente_parrafos": [
         5072,
         5079
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Kleion",
       "categoria": 4,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "prueba_narrativa",
       "resumen_no_literal": "afrontar escenas del pasado con apariciones cronománticas",
       "momento_no_literal": "condición para aceptar invocador",
@@ -179,12 +190,13 @@
       "fuente_parrafos": [
         5080,
         5088
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Luxorath",
       "categoria": 4,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ritual_material",
       "resumen_no_literal": "elevar piedra brillante en montaña al amanecer",
       "momento_no_literal": "para invocarlo",
@@ -194,12 +206,13 @@
       "fuente_parrafos": [
         5089,
         5096
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Nunem",
       "categoria": 4,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ofrenda_material",
       "resumen_no_literal": "piedra volcánica genuina de volcán activo",
       "momento_no_literal": "para invocarlo",
@@ -209,7 +222,8 @@
       "fuente_parrafos": [
         5097,
         5104
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Valkhar",
@@ -219,7 +233,10 @@
       "fuente_parrafos": [
         5105,
         5112
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     }
-  ]
+  ],
+  "criterio_mecanico": "No se infiere obligatoriedad, momento de comprobación, pérdida de recursos ni bloqueo de la invocación a partir del texto narrativo; la condición de activación deberá derivarse de una regla explícita o decisión editorial.",
+  "con_mencion_narrativa_explicita": 11
 }
