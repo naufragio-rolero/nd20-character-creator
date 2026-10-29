@@ -40,7 +40,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 ### Tanda 2 — Talentos de Ocupaciones
 - [x] Inventario nominal: **163 relaciones Ocupación–Talento** consolidadas desde 234 referencias JSON, correspondientes a 51 Ocupaciones.
 - [ ] Extraer efectos y propiedades literales, niveles de adquisición y condiciones de elección. **9 Talentos de 4 Ocupaciones transcritos íntegramente** ([extracción literal](17-extraccion-literal-ocupaciones-lote-1.md), [registros](17a-extraccion-literal-ocupaciones-lote-1.json)); pendiente cotejar niveles de adquisición con las tablas de progreso.
-- [ ] Contrastar referencias y progresiones, incluyendo pendientes de Truhán y Astrólogo.
+- [ ] Contrastar referencias y progresiones, incluyendo pendientes de Truhán y Astrólogo. **Validadas las 4 tablas de progreso de Forense, Truhán, Acróbata y Astrólogo** ([informe](18-validacion-progresiones-ocupaciones-lote-1.md), [datos](18a-progresiones-ocupaciones-lote-1.json)); resto pendiente.
 - [ ] Entregar repertorio estructurado validado y registro de discrepancias.
 
 ### Tanda 3 — Técnicas y Poderes especiales
@@ -146,3 +146,5 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 | 2026-10-29 | Inicio de Tanda 2, Ocupaciones | [9 Talentos de 4 Ocupaciones](16-preextraccion-ocupaciones-lote-1.md) preextraídos del manual de ampliaciones. Pendientes textos íntegros y tablas; detectadas particularidades de Truhán y Astrólogo. |
 
 | 2026-10-29 | Tanda 2, extracción literal | [9 Talentos](17-extraccion-literal-ocupaciones-lote-1.md) transcritos de Forense, Truhán, Acróbata y Astrólogo, con fuente por párrafos. Pendientes tablas de progreso y resto del inventario. |
+
+| 2026-10-29 | Tanda 2, tablas de progresión | [4 tablas originales](18-validacion-progresiones-ocupaciones-lote-1.md) de Forense, Truhán, Acróbata y Astrólogo cotejadas y transcritas (4+21+8+30 filas). Sin decisiones editoriales bloqueantes en este lote. |
