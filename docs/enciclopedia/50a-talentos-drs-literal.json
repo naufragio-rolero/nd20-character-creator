@@ -1,0 +1,128 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20DRS.docx",
+  "grupo": "DRS",
+  "estado": "transcripcion_literal",
+  "registros": [
+    {
+      "ocupacion": "Clérigo",
+      "talento": "Expulsar muertos vivientes",
+      "parrafos_documento": [
+        208,
+        212
+      ],
+      "activacion_literal": "Acción",
+      "atributo_literal": "Atributo: Intuición",
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "texto_literal": "Emites una onda de energía que perturba a los muertos vivientes en un radio de 18 metros a tu alrededor. Todos aquellos que sean de un Nivel igual o inferior al tuyo tienen una Probabilidad 15+ de ser destruídos. Si soportan la expulsión, deberán marcharse lo más lejos de ti durante 1 Intervalo o 6 Turnos, o hasta que dejes de estar a su vista, lo que ocurra antes."
+    },
+    {
+      "ocupacion": "Clérigo",
+      "talento": "Fortaleza piadosa",
+      "parrafos_documento": [
+        213,
+        215
+      ],
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "texto_literal": "Tienes Ventaja a la hora de realizar una Tirada de Resistencia para soportar los Estados Parálisis o Veneno."
+    },
+    {
+      "ocupacion": "Guerrero",
+      "talento": "Recuperación",
+      "parrafos_documento": [
+        284,
+        286
+      ],
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "texto_literal": "Tras un combate, puedes gastar 1 Punto de Esfuerzo y pasar un Intervalo recuperándote para restaurar 1d8 Puntos de Salud. Además, tienes Ventaja en las Tiradas de Resistencia para regenerar tu Esfuerzo gastado."
+    },
+    {
+      "ocupacion": "Guerrero",
+      "talento": "Brío musculoso",
+      "parrafos_documento": [
+        288,
+        290
+      ],
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "texto_literal": "Tienes Ventaja en las Tiradas de Fuerza para derribar puertas, barricadas y cualquier obstáculo similar. Además, tu Potencia aumenta en 1 en Nivel 10 y en Nivel 22, hasta un total de Potencia 3 de forma natural."
+    },
+    {
+      "ocupacion": "Guerrero",
+      "talento": "Sacrificio de escudo",
+      "parrafos_documento": [
+        292,
+        294
+      ],
+      "activacion_literal": "Reacción",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "texto_literal": "Cuando falles una Tirada de Bloqueo o Esquiva, puedes romper tu escudo en lugar de realizar la Tirada de Blindaje; esto te permite evitar todo el daño, como si hubieses tenido éxito en la Tirada de Bloqueo o Esquiva. Obviamente, debes tener un escudo equipado y éste queda destruído por completo tras resolver la situación (salvo que sea mágico, en ese caso su Durabilidad quedará reducida a 0)."
+    },
+    {
+      "ocupacion": "Mago",
+      "talento": "Bagaje de arcanista",
+      "parrafos_documento": [
+        313,
+        315
+      ],
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "texto_literal": "Tienes Ventaja cuando debas realizar una Tirada de Mente para identificar a una criatura sobrenatural o para descifrar un lenguaje que te parezca desconocido."
+    },
+    {
+      "ocupacion": "Mago",
+      "talento": "Meditación",
+      "parrafos_documento": [
+        316,
+        318
+      ],
+      "activacion_literal": "Acción",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "texto_literal": "Si puedes concentrarte durante un Intervalo, sin molestia alguna, y gastas 1 Punto de Esfuerzo, recuperas un Conjuro que ya hayas lanzado durante el día."
+    },
+    {
+      "ocupacion": "Ladrón",
+      "talento": "Preparación",
+      "parrafos_documento": [
+        393,
+        395
+      ],
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "texto_literal": "Tienes Ventaja en la Tirada de Iniciativa si vas a participar en el combate activamente."
+    },
+    {
+      "ocupacion": "Ladrón",
+      "talento": "Sutileza",
+      "parrafos_documento": [
+        396,
+        398
+      ],
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "texto_literal": "Tienes Ventaja en las Tiradas de Agilidad que impliquen abrir cerraduras con ganzúas, desactivar trampas y trepar por superficies verticales."
+    }
+  ],
+  "elecciones_condicionales": [
+    {
+      "ocupacion": "Guerrero",
+      "talento_fijo": "Recuperación",
+      "eleccion_entre": [
+        "Brío musculoso",
+        "Sacrificio de escudo"
+      ],
+      "parrafo_fuente": 287
+    }
+  ],
+  "advertencia": "Son nueve relaciones inventariadas, pero Guerrero no adquiere simultáneamente Brío musculoso y Sacrificio de escudo; el manual dice «Elige uno de los siguientes»."
+}
