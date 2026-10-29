@@ -1,15 +1,15 @@
 {
   "fecha": "2026-10-30",
-  "resultado": "cobertura_documental_completa_con_dos_niveles_de_revision",
+  "resultado": "cobertura_documental_completa_con_revision_manual_y_preindice",
   "conteos": {
     "fichas_con_texto_original": 434,
-    "fichas_revisadas_manual": 100,
+    "fichas_revisadas_manual": 125,
     "fichas_preclasificadas_automatico": 384,
-    "solapadas_manual_y_automatico": 50,
-    "solo_preclasificadas_pendientes_manual": 334,
+    "solapadas_manual_y_automatico": 75,
+    "solo_preclasificadas_pendientes_manual": 309,
     "cobertura_unica": 434
   },
-  "regla_precedencia": "El desglose revisado manualmente (72a–72d) tiene prioridad interpretativa sobre cualquier marcador lexical de los preíndices 73a–73h. Ninguno de los dos supone reglas programadas o aprobaciones editoriales nuevas.",
+  "regla_precedencia": "El desglose manual 72a–72e prevalece para su interpretación sobre las pistas lexicales 73a–73h. Ambos son documentales y no constituyen reglas codificadas, pruebas del generador ni cambios en el texto original.",
   "archivos": [
     {
       "archivo": "72a-desglose-revisado-conjuros-001-025.json",
@@ -33,6 +33,12 @@
       "archivo": "72d-desglose-revisado-conjuros-076-100.json",
       "registros": 25,
       "sha": "77178738880fbeba1aeb2d3529fde098e50d85de",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72e-desglose-revisado-conjuros-101-125.json",
+      "registros": 25,
+      "sha": "8c2927c7918cbe18647b307d0c7f34316dbc3b79",
       "estado": "revisado_manual"
     },
     {
@@ -99,6 +105,11 @@
       "archivo": "75a-auditoria-desglose-manual-100.json",
       "resultado": "100_de_100_referencias_cotejadas",
       "errores": 0
+    },
+    {
+      "archivo": "75b-auditoria-desglose-manual-101-125.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
     }
   ],
   "frecuencia_de_marcadores_en_preindice": {
@@ -121,111 +132,111 @@
   },
   "prioridades_de_revision_por_densidad_lexica": [
     {
-      "n": 102,
-      "nombre": "Dardo de penumbra",
-      "mencionadas": 6
-    },
-    {
       "n": 187,
       "nombre": "Huracán floral",
-      "mencionadas": 6
+      "marcadores": 6
     },
     {
       "n": 244,
       "nombre": "Muro de espinas férreas",
-      "mencionadas": 6
+      "marcadores": 6
     },
     {
       "n": 320,
       "nombre": "Puño mágico de Zurari",
-      "mencionadas": 6
+      "marcadores": 6
     },
     {
       "n": 202,
       "nombre": "Invocar ejército ilusorio",
-      "mencionadas": 5
+      "marcadores": 5
     },
     {
       "n": 207,
       "nombre": "Lanza hemática",
-      "mencionadas": 5
+      "marcadores": 5
     },
     {
       "n": 284,
       "nombre": "Palabra de Poder: Hemorragia",
-      "mencionadas": 5
+      "marcadores": 5
     },
     {
       "n": 306,
       "nombre": "Penitencia",
-      "mencionadas": 5
+      "marcadores": 5
     },
     {
       "n": 369,
       "nombre": "Sello rúnico: Explosión",
-      "mencionadas": 5
+      "marcadores": 5
     },
     {
       "n": 395,
       "nombre": "Trampa de enredaderas",
-      "mencionadas": 5
-    },
-    {
-      "n": 117,
-      "nombre": "Descarga ardiente",
-      "mencionadas": 4
-    },
-    {
-      "n": 124,
-      "nombre": "Descarga de caos",
-      "mencionadas": 4
+      "marcadores": 5
     },
     {
       "n": 147,
       "nombre": "Explosión arcana",
-      "mencionadas": 4
+      "marcadores": 4
     },
     {
       "n": 152,
       "nombre": "Embozo de sombras",
-      "mencionadas": 4
+      "marcadores": 4
     },
     {
       "n": 154,
       "nombre": "Explosión sónica",
-      "mencionadas": 4
+      "marcadores": 4
     },
     {
       "n": 156,
       "nombre": "Espinas psíquicas",
-      "mencionadas": 4
+      "marcadores": 4
     },
     {
       "n": 158,
       "nombre": "Estrella divina",
-      "mencionadas": 4
+      "marcadores": 4
     },
     {
       "n": 159,
       "nombre": "Exhalación de la tumba",
-      "mencionadas": 4
+      "marcadores": 4
     },
     {
       "n": 160,
       "nombre": "Fantasmas aullantes",
-      "mencionadas": 4
+      "marcadores": 4
     },
     {
       "n": 162,
       "nombre": "Floración cinérea",
-      "mencionadas": 4
+      "marcadores": 4
+    },
+    {
+      "n": 172,
+      "nombre": "Glorioso orbe protector de Excelsus",
+      "marcadores": 4
+    },
+    {
+      "n": 197,
+      "nombre": "Invocar espíritu de cuchillas",
+      "marcadores": 4
+    },
+    {
+      "n": 205,
+      "nombre": "Invocar vórtice de energía",
+      "marcadores": 4
     }
   ],
   "errores": [],
-  "limites": [
-    "La extracción completa del texto (434/434) y la preclasificación lexical no prueban que los efectos sean implementables.",
-    "Se revisaron manualmente los primeros 100 Conjuros y los 334 restantes sólo disponen del índice de pistas automatizado.",
-    "La densidad de marcadores no mide dificultad real, sólo facilita ordenar revisiones.",
-    "Las incidencias pendientes no autorizan correcciones silenciosas del texto fuente."
+  "limitaciones": [
+    "El análisis manual de 125 fichas no convierte las 309 restantes en desgloses validados.",
+    "Los 384 preíndices automatizados son pistas textuales verificadas, no efectos programables.",
+    "La prioridad por densidad de marcadores no indica necesariamente la complejidad o gravedad real del Conjuro.",
+    "Las incidencias se registran para decisión editorial, sin alteración silenciosa de las fuentes."
   ]
 }
