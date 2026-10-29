@@ -1,0 +1,200 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "titulo": "NaufragioD20 — Ocupaciones",
+    "url": "https://docs.google.com/document/d/1Zx60pJI_ETuyXvoiATUQk__E2-WUAjAnMbVBzsocIrc/edit",
+    "revision": "AHj4eMT2rOoSo0UavC-SPB-x2KuJ7Qp82ILoADuTR84JXsV6lS2MtAx5evc6pBzac_KCDoW2Wm8QmGvjp73j_g"
+  },
+  "categoria": "Eidolas Categoría 1",
+  "estado": "texto_completo_narrativa_y_3_modalidades",
+  "registros": [
+    {
+      "nombre": "Kayulio",
+      "encabezado_literal": "Kayulio, cacique emperador",
+      "categoria": 1,
+      "afinidad_literal": "Elemento afín: Viento",
+      "parrafos_fuente": [
+        4856,
+        4862
+      ],
+      "contexto_narrativo_literal": [
+        "Los gatónidos del Valle de los maullidos cuentan una historia a sus pequeños, las peripecias de Kayulio el gato más metomentodo y más temerario de toda la región. Se cuenta que se infiltró en una tribu de troblins para rescatar a su hermana de las garras del cacique y esto le hizo ganarse su título. Exige por sus servicios un generoso trozo de carne, si está cocinada mucho mejor."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el pelaje de Kayulio para causar 4 de daño eléctrico cada vez que seas impactado por un ataque físico —cuerpo a cuerpo o a distancia— durante 1d6 Turnos.",
+        "Canalizar": "Canalizar: Carrera relámpago. Kayulio se despereza de una vez y persigue algo invisible, arrasando una línea de hasta 30 metros frente al invocador con 10d4 de daño eléctrico.",
+        "Materializar": "Materializar: Salud 6/1d6/1, Ataque 2d4, Blindaje d4. Kayulio se enfrentará a lo que sea durante 1d6 Turnos, momento en el que se distraerá con otra realidad y se desvanecerá."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4860,
+        "Canalizar": 4861,
+        "Materializar": 4862
+      }
+    },
+    {
+      "nombre": "Lonian",
+      "encabezado_literal": "Lonian, dogo sempiterno",
+      "categoria": 1,
+      "afinidad_literal": "Elemento afín: Agua",
+      "parrafos_fuente": [
+        4863,
+        4869
+      ],
+      "contexto_narrativo_literal": [
+        "Este pequeño perro acompañó a su dueño durante la Guerra de las Llamas, volviéndose más duro a medida que se enfrentaba a monstruos primitivos y salvajes. En su último viaje, dueño y can plantaron cara a un ejército de demonios acuáticos que amenazaban con destruir una aldea costera. Aunque perecieron, el espíritu de ambos se transformó en un Éidolon gracias a la magia deífica de Lenseng. Lonian solicita, cada vez que es invocado, que se cante un himno al Señor de las Mareas durante el próximo amanecer."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la perseverancia de Lonian para obtener 1d4 cargas de escudo acuático. Cada vez que seas impactado por un ataque cuerpo a cuerpo o a distancia, puedes gastar una de esas cargas para que una barrera de agua repela el golpe y reduzcas 1d6 del daño sufrido.",
+        "Canalizar": "Canalizar: Ladrido de la marisma. Lonian surge de un charco de agua del suelo, empapado, y tensa sus músculos. Una onda de energía acuática surge de su boca, arrasando un cono de 15 metros frente a él. Cada criatura herida por el ladrido sufre 3d10 de daño por frío y queda empapada durante 1d2 Turnos.",
+        "Materializar": "Materializar: Salud 6/1d6/1, Ataque d8, Blindaje d4. Lonian luchará a tu lado hasta que finalice el enfrentamiento o su salud sea agotada."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4867,
+        "Canalizar": 4868,
+        "Materializar": 4869
+      }
+    },
+    {
+      "nombre": "Rufushia",
+      "encabezado_literal": "Rufushia, la luz del hogar",
+      "categoria": 1,
+      "afinidad_literal": "Elemento afín: Luz",
+      "parrafos_fuente": [
+        4870,
+        4876
+      ],
+      "contexto_narrativo_literal": [
+        "Los ratones son una de las especies animales más comunes en la civilización. Cuenta la fábula que Rufushia fue un ratón muy pequeño, de pelaje negro y ojos brillantes, llenos de curiosidad, que dominó la magia para iluminar las noches oscuras a sus allegados. Aunque dicha proeza le llevó a ser el conejillo de indias de un arcanista sin escrúpulos, la esencia de Ylathia permeó a través de la Urdimbre y le ofreció una existencia como la representación más pura del hogar. Es por esto que Rufushia exige que se enciendan dos velas y se dejen en el techo o en una viga durante una noche tras invocarle."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la luz de Rufushia para iluminar un área de 6 metros a tu alrededor y obtener resistencia al daño luminoso durante 2d5 Turnos.",
+        "Canalizar": "Canalizar: Brillo cegador. Del cielo surge un rayo de luz por el que baja a toda velocidad Rufushia, que se presenta como un ratón de un tamaño considerable, iluminado por destellos amarillentos. Tras liberar un tremendo fogonazo luminoso, todos los enemigos en un radio de 9 metros a su alrededor quedarán Cegados durante 1d4 Turnos.",
+        "Materializar": "Materializar: Salud 4/1d4/1, Ataque d4, Blindaje d4. Rufushia peleará con sus garras y dientes durante 2d12 Turnos."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4874,
+        "Canalizar": 4875,
+        "Materializar": 4876
+      }
+    },
+    {
+      "nombre": "Schoff",
+      "encabezado_literal": "Schoff, sabueso de las llanuras",
+      "categoria": 1,
+      "afinidad_literal": "Elemento afín: Tierra",
+      "parrafos_fuente": [
+        4877,
+        4883
+      ],
+      "contexto_narrativo_literal": [
+        "La leyenda cuenta que este perro legendario fue uno de los borregueros de Shadel cuando levantó los cimientos de lo que llegaría a ser la capital del reino. Su presencia recorre las Llanuras Vertenia en busca de shadalenses que requieran ayuda. Schoff requiere por sus servicios un buen mendrugo de pan."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el manto de Schoff para obtener Blindaje d8 y resistencia al daño contundente y eléctrico durante 1d4 Turnos.",
+        "Canalizar": "Canalizar: Arremetida peluda. Schoff se abalanza sobre un grupo de hasta 4 enemigos cercanos — 3 metros entre sí— para causar 4d8 de daño contundente y derribarlos.",
+        "Materializar": "Materializar: Salud 8/1d8/2, Ataque d6, Blindaje d8. Schoff luchará a tu lado hasta que finalice el enfrentamiento o su salud sea agotada."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4881,
+        "Canalizar": 4882,
+        "Materializar": 4883
+      }
+    },
+    {
+      "nombre": "Sel-Line",
+      "encabezado_literal": "Sel-Line, acechadora de la puerta",
+      "categoria": 1,
+      "afinidad_literal": "Elemento afín: Oscuridad",
+      "parrafos_fuente": [
+        4884,
+        4890
+      ],
+      "contexto_narrativo_literal": [
+        "Esta temerosa gatónida fue la fiel compañera del Cacique Kayulio y del Embaucador Sheólidas, que se mantuvo con ellos a pesar de las temerarias decisiones que tomaban. Silenciosa y asustadiza, Sel-Line hizo de sus defectos una virtud y pasó a la historia como una de las acechadoras más letales del Valle de los Maullidos. A cambio de sus ayuda, pedirá de forma sutil a su invocador algo de comida, posiblemente galletas u otros elaborados dulces."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el sigilo de Sel-Line para obtener Ventaja en todas las tiradas de Agilidad para moverte sigilosamente o esconderte durante 1d6 Turnos.",
+        "Canalizar": "Canalizar: Bufido aterrador. Sel-Line aparece detrás del invocador, sobresaltada por la situación, y lanza un terrible bufido en una línea de 21 metros frente a ella. Todas las criaturas afectadas por el bufido sufren 7d3 de daño sónico y caen derribadas al suelo.",
+        "Materializar": "Materializar: Salud 4/1d4/1, Ataque 2d3, Blindaje d3. Sel-Line aparecerá envuelta en sombras a tu lado y actuará la última durante el Combate. Tendrá Ventaja para esquivar cualquier ataque y será inmune a cualquier conjuro, pero se marchará de tu realidad pasados 2d3 Turnos."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4888,
+        "Canalizar": 4889,
+        "Materializar": 4890
+      }
+    },
+    {
+      "nombre": "Sheólidas",
+      "encabezado_literal": "Sheólidas, travieso embaucador",
+      "categoria": 1,
+      "afinidad_literal": "Elemento afín: ninguno",
+      "parrafos_fuente": [
+        4891,
+        4897
+      ],
+      "contexto_narrativo_literal": [
+        "Antiguo compañero de aventuras del Cacique Kayulio, Sheólidas pasó a la historia como uno de los felinos más pesados e insistentes de la realidad. Aunque ahora su espíritu mora en el plano astral, la fuerza de voluntad de éste Éidolon es tal que puede afectar el Mundo de la carne. Tras invocarlo, querrá acurrucarse un rato con su invocador, para disfrutar del calor de un ser vivo una vez más."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la insistencia de Sheólidas para obtener la capacidad de repetir una acción —si no te gusta el resultado del d20— con un -2 a la siguiente tirada durante 1d3 Turnos.",
+        "Canalizar": "Canalizar: Maullido acaramelado. Sheólidas aparece en mitad del campo de batalla, frotándose con aliados y enemigos por igual, maullando dulcemente. 1d5 criaturas (elegidas al azar) en un radio de 18 metros de la invocación quedarán impregnadas de su encanto, sufriendo 5d5 de daño psíquico no letal.",
+        "Materializar": "Materializar: Salud 5/1d5/1, Ataque 1d5, Blindaje d5. Shéolidas te ayudará durante 5 Turnos por cada nivel de invocador que tengas, pero no se separará de ti y atacará a las mismas criaturas que tú ataques."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4895,
+        "Canalizar": 4896,
+        "Materializar": 4897
+      }
+    },
+    {
+      "nombre": "Tal-lu-reihm",
+      "encabezado_literal": "Tal-lu-reihm, negrura ardiente",
+      "categoria": 1,
+      "afinidad_literal": "Elemento afín: Fuego",
+      "parrafos_fuente": [
+        4898,
+        4905
+      ],
+      "contexto_narrativo_literal": [
+        "La leyenda cuenta que esta joven rusalka se internó en lo más profundo de un lago de llamas en busca de su hermano perdido, pero que no pudo regresar tras ser consumida por el fuego infernal. Antes de ser abrasada por la brecha rasmálica que moraba en el fondo, rogó a su madre Mushuki y al señor de la tierra, Mulinith, que la diesen una oportunidad.",
+        "Ambos Espíritus deíficos se apiadaron, secando su prisión de fuego y liberándola. Pero lo que quedaba de Tal-lu-reihm no era más que un esqueleto carbonizado: la buena voluntad de estos seres preternaturales le permitieron vivir una vez más, recobrando su carne perdida. Aún con el tono de piel calcinado, comenzó a vagar por los planos tangenciales en busca de su hermano, al que aún creía vivo. Tal-lu-reihm exige a su invocador que medite encima de piedras ardientes en la semana próxima a invocarla."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la piel de Tal-lu-reihm para obtener su escudo obsidiana durante 1d6 Turnos. Cada vez que seas impactado por un ataque físico —cuerpo a cuerpo o a distancia—, el enemigo arderá con las llamas del lago de fuego y sufrirá 6 puntos de daño.",
+        "Canalizar": "Canalizar: Fuego del recuerdo. En el punto de invocación comienza a brotar lava ardiente hasta que se forma un agujero de 2 metros del que surge Tal-lu-reihm. Tras observar a los enemigos, envía una onda de energía ardiente circular a su alrededor, abrasando a todos las criaturas en un radio de 6 metros alrededor de dónde ha surgido. Cada criatura herida por las llamas sufre 6d5 de daño por fuego.",
+        "Materializar": "Materializar: Salud 5/1d5/1, Ataque d6, Blindaje d6. Tal-lu-reihm peleará contra aquellos enemigos visiblemente más poderosos durante 2d6 Turnos, momento en el que desaparecerá en un estallido de llamas."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4903,
+        "Canalizar": 4904,
+        "Materializar": 4905
+      }
+    },
+    {
+      "nombre": "Velunion",
+      "encabezado_literal": "Velunion, pescador del abismo",
+      "categoria": 1,
+      "afinidad_literal": "Elemento afín: Ninguno",
+      "parrafos_fuente": [
+        4906,
+        4913
+      ],
+      "contexto_narrativo_literal": [
+        "Durante las hambrunas que sucedieron a la Guerra de las Llamas, los humanoides mortales tuvieron que sobrevivir a duras penas con los escasos recursos que quedaron sobre la tierra. Los más valientes fueron los pescadores, que con materiales deficientes pudieron arrancar alimento de las turbulentas aguas.",
+        "Velunion fue uno de esos héroes, armado con sus aparejos y su barca, alimentó a dos generaciones de su familia, echándose a la mar sin pensar en el peligro. Los espíritus del agua le transformaron en un ancestro protector cuando pereció, víctima de una enfermedad, en el lecho de muerte en su hogar. A cambio de su ayuda, el pescador requiere una ofrenda de alimento obtenido en el mar o en los ríos, que deberá ser depositada en la orilla de una playa o un lago durante la próxima semana a su invocación."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe las herramientas de Velunion para armarte con una caña de pescar hecha de hielo durante 1d8 Turnos. Podrás atacar a tus oponentes con este arma legendaria, que tiene un alcance de 5 metros y, tras superar una tirada de Fuerza, puedes arrastrar a cualquier oponente que no sea de un Tamaño mayor al tuyo, a un ritmo de 2 metros por Turno.",
+        "Canalizar": "Canalizar: Calma tempestuosa. Del diagrama de invocación surge un torrente de agua que empapa a cualquiera que esté a 3 metros o menos; cuando desaparece el agua, un pescador avejentado, con boina, pantalones y jersey, rodeado por un aura azulada, da un par de pasos frente a él, observando la situación. Tras intercambiar una mirada con su invocador, Velunion libera un suspiro que permite a todos aquellos que sean considerados aliados por él recuperar 1d4 puntos de Salud y, si están afligidos por una Condición o Enfermedad, repetir de nuevo la tirada de salvación.",
+        "Materializar": "Materializar: Salud 7/1d7/1, Ataque d8, Blindaje d4. Velunion intentará proteger a aquellos aliados más débiles durante 3d4 Turnos con su caña de hielo y sus aparejos; en el momento de desaparecer, una niebla reconfortante con olor a mar impregnará el lugar."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4911,
+        "Canalizar": 4912,
+        "Materializar": 4913
+      }
+    }
+  ],
+  "nota": "Esta extracción de Google Docs vigente complementa las transcripciones previas procedentes del documento Word histórico; no las reescribe. Se mantiene OCP-21 (Velunion Agua en tabla, Ninguno en ficha) y OCP-22 (Maia sin cifra de distancia)."
+}
