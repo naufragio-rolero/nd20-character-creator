@@ -1,0 +1,87 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Objetos mágicos.docx, original adjunto",
+  "seccion": "Alijo de contrabando dupoviano",
+  "estado": "transcripcion_literal",
+  "registros": [
+    {
+      "nombre": "Ajorca de empatía disminuida",
+      "tipo_literal": "Tipo: Brazal",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos_fuente": [
+        72,
+        76
+      ],
+      "texto_original": [
+        "Cuenta la leyenda que ésta elaborada ajorca fue el regalo de un gobernante qelastaví a su sucesor, un príncipe atormentado por el sufrimiento del prójimo. Forjada en plata y decorada con gemas del color del arcoiris, alberga en su interior un potente sortilegio que disipa, de forma tenue, la capacidad empática de quien la porte.",
+        "Mientras se lleve puesta, otorga un +2 a las Tiradas de Presencia para soportar el control mental; sin embargo, el portador se volverá frío y eficiente, dejando de lado las meras preocupaciones de la gente común. No le importará sacrificar lo que haga falta si para ello logra un bien mayor."
+      ]
+    },
+    {
+      "nombre": "Broquel de flotabilidad",
+      "tipo_literal": "Tipo: Escudo pequeño",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        77,
+        82
+      ],
+      "texto_original": [
+        "La superficie de este pequeño escudo fabricado con acero turquesa está decorada con imágenes de olas y símbolos marinos de Lenseng.",
+        "Alberga en su interior un conjuro que permite a su portador caminar —andando— por la superficie del agua, sin temer hundirse. Si el usuario realiza movimientos agitados, como correr o entrar en combate, el efecto se desvanece y caerá al agua.",
+        "Aunque puede funcionar en situaciones de mar picada, galernas o tormentas, el hechizo necesita que la superficie a recorrer sea lo más plana posible. Utilizarlo en tales situaciones es una temeridad."
+      ]
+    },
+    {
+      "nombre": "Brújula de Siempreterna",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos_fuente": [
+        83,
+        87
+      ],
+      "texto_original": [
+        "Una elaborada brújula, tallada en bronce pulido y decorada con remates de oro. En ella aparecen los ocho puntos cardinales, fabricados con distintas gemas preciosas, y una aguja de platino fina y reluciente. Alberga en su interior una energía poderosa, antigua y primigenia, que expele de vez en cuando por los recovecos metálicos en forma de polvo dorado.",
+        "Si el usuario, mediante una acción, susurra una localización que se halle en el plano material en el que se encuentre, la Brújula de Siempreterna señalará el camino mediante su aguja y su magia. Debido a esta capacidad, poseerla otorga un +2 a las tiradas de Orientación en tierra lejana."
+      ]
+    },
+    {
+      "nombre": "Cañón de mano malasthino",
+      "tipo_literal": "Tipo: Pistola de chispa",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        88,
+        92
+      ],
+      "texto_original": [
+        "El descubrimiento de las armas de fuego supuso una revolución en la forma de librar las guerras, pero la dependencia de la munición y lo propensos que eran estos artefactos a fallar estrepitosamente provocaron no pocos quebraderos de cabeza.",
+        "Esta maravilla de la ingeniería, fabricada en Murodros, posee unos engranajes que evitan el encasquillamiento. Aparte, este mecanismo hace que la bala salga con más fuerza, otorgando un +1 a las Tiradas de Daño realizadas con ella."
+      ]
+    },
+    {
+      "nombre": "Capa de Iring Thrië",
+      "tipo_literal": "Tipo: Capa",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos_fuente": [
+        93,
+        97
+      ],
+      "texto_original": [
+        "El tacto de esta capa de terciopelo celeste desprende una agradable sensación de espiritualidad. Se cree que fue la mortaja del legendario aventurero élfico Iring Thrië, derrotado en combate singular contra el cacique de las hordas orcas, Ganthur el Fenómeno.",
+        "Si el portador sufre Desventaja a la hora de esquivar un ataque cuerpo a cuerpo o a distancia, puede gastar 1 Punto de Esfuerzo para deslizarse hasta 4 metros en cualquier dirección tras resolver el daño del ataque."
+      ]
+    },
+    {
+      "nombre": "Capisayo popular de Ugnak",
+      "tipo_literal": "Tipo: Capa",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        98,
+        102
+      ],
+      "texto_original": [
+        "Las fiestas populares de la aldea de Ugnak son poco conocidas debido a la mala reputación de la zona. Pero sí que es cierto que sus capisayos son famosos allá donde van debido al buen material del tejido y su fabricación artesana.",
+        "Otorga un +1 a las Tiradas de Presencia del portador, siempre y cuando sus intenciones sean benignas (nada de estafa, engaño, mentira, etc.) para con su interlocutor / objetivo."
+      ]
+    }
+  ]
+}
