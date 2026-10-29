@@ -1,0 +1,154 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "categoria": "Técnicas de batalla",
+  "registros": [
+    {
+      "grupo": "Disciplina",
+      "nombre": "Postura de Gaehr Moradh",
+      "parrafos": [
+        1352,
+        1357
+      ],
+      "coste_literal": "Coste: 1 punto de Esfuerzo",
+      "requisito_literal": "Requisito: Valquiria",
+      "alcance_literal": "Alcance: personal",
+      "duracion_o_etiqueta_literal": "Postura",
+      "texto_literal": "Adoptas una postura beligerante, preparada para la batalla encarnizada frente a ti. Hasta que finalice el conflicto (o pase 1 Intervalo), todos tus ataques cuerpo a cuerpo obtienen Ventaja, pero tú sufres Desventaja a la hora de evitar o bloquear ataques."
+    },
+    {
+      "grupo": "Disciplina",
+      "nombre": "Carga de caballería",
+      "parrafos": [
+        1358,
+        1363
+      ],
+      "coste_literal": "Coste: 2 puntos de Esfuerzo",
+      "requisito_literal": "Requisito: Fuerza 11+, Resistencia 11+, debes llevar equipada con arma de asta y debes estar cabalgando una criatura con el Rasgo Montura.",
+      "alcance_literal": "Alcance: arma",
+      "duracion_o_etiqueta_literal": null,
+      "texto_literal": "Te mueves, como mínimo, 8m (4 Casillas) en línea recta hacia el objetivo. Cuando pases cerca del objetivo, realiza una Tirada de Ataque (con Ventaja si está a pie). Si impactas, causarás tanto daño como tu arma con Potencia +3. El objetivo tiene una Probabilidad 11+ de caer Derribado al suelo (si está cabalgando una montura, es desmontado).\nTras usar esta Técnica, tu Turno finaliza."
+    },
+    {
+      "grupo": "Disciplina",
+      "nombre": "Danza aérea",
+      "parrafos": [
+        1364,
+        1369
+      ],
+      "coste_literal": "Coste: 2 puntos de Esfuerzo",
+      "requisito_literal": "Requisito: Agilidad 12+, no debes llevar equipada armadura, debes tener a mano 1d6 +2 armas arrojadizas, debes tener espacio suficiente para poder realizar la maniobra",
+      "alcance_literal": "Alcance: arma",
+      "duracion_o_etiqueta_literal": null,
+      "texto_literal": "Comienzas a correr a máxima velocidad durante 8m, para pegar un enorme brinco y apoyarte en una pared o superficie sólida e impulsarte hacia el aire al mismo tiempo que desenvainas tus armas arrojadizas.\nMientras estás en el aire, puedes realizar tantos ataques a distancia como resultado hayas obtenido en la Tirada de requisito (recuerda que lo tienes que tirar cada vez que uses Danza aérea); sin embargo, tienes un -2 a todas las tiradas de ataque. Tras resolver estos ataques, puedes aterrizar en cualquier punto en un radio de 8m a tu alrededor."
+    },
+    {
+      "grupo": "Disciplina",
+      "nombre": "Salto mortal",
+      "parrafos": [
+        1370,
+        1374
+      ],
+      "coste_literal": "Coste: 1 punto de Esfuerzo",
+      "requisito_literal": "Requisito: Agilidad 8+, debes llevar equipada un arma cuerpo a cuerpo a dos manos, debes tener espacio suficiente para poder realizar la maniobra",
+      "alcance_literal": "Alcance: especial (10m)",
+      "duracion_o_etiqueta_literal": null,
+      "texto_literal": "Tomas carrerilla durante 4m para pegar un tremendo salto apoyándote en tu arma, catapultándote hacia los aires y recorriendo un máximo de 10m durante la acrobacia. Puedes caer sobre un enemigo dentro del radio de alcance si superas una Tirada de Agilidad: si logras acertar, aterrizas sobre él, causando el daño del arma con Potencia +1."
+    },
+    {
+      "grupo": "Fuerza bruta",
+      "nombre": "Baile frenético",
+      "parrafos": [
+        1376,
+        1380
+      ],
+      "coste_literal": "Coste: ½ de tu Salud total",
+      "requisito_literal": "Requisito: Resistencia 8+",
+      "alcance_literal": "Alcance: personal",
+      "duracion_o_etiqueta_literal": null,
+      "texto_literal": "Realizas un rápido baile ritual mientras te golpeas y te provocas heridas en abdomen, hombros y pecho. El dolor te hace entrar en un trance que te proporciona +2 Potencia hasta que acabe el enfrentamiento (o pase 1 Intervalo)."
+    },
+    {
+      "grupo": "Preternatural",
+      "nombre": "Anhelo voluntarioso",
+      "parrafos": [
+        1382,
+        1386
+      ],
+      "coste_literal": "Coste: ½ de tu Salud actual",
+      "requisito_literal": "Requisito: Mente 8+, Valquiria",
+      "alcance_literal": "Alcance: personal",
+      "duracion_o_etiqueta_literal": null,
+      "texto_literal": "Extraes fuerzas doradas de tu interior que te insuflan con nuevas energías, recuperando 1d4 Puntos de Esfuerzo. Las heridas causadas por esta Técnica son espirituales y no se recuperarán con medicina tradicional o magia curativa, sino tras una merecida meditación a solas en un ambiente tranquilo."
+    },
+    {
+      "grupo": "Preternatural",
+      "nombre": "Corte fantasma",
+      "parrafos": [
+        1387,
+        1391
+      ],
+      "coste_literal": "Coste: 1 Esfuerzo",
+      "requisito_literal": "Requisito: Presencia 10+, arma de filo",
+      "alcance_literal": "Alcance: arma",
+      "duracion_o_etiqueta_literal": null,
+      "texto_literal": "Cuando eres atacado de forma repentina por un enemigo, eres capaz de impactar incluso sin haberlo atacado anteriormente. Activa esta Técnica cuando seas víctima de un ataque cuerpo a cuerpo que no te haya herido: realiza una Tirada de ataque; si tienes éxito, causas daño con Potencia +1 y una bonificación al daño igual a tu Nivel. Por otra parte, si no tienes éxito, causas tanto daño físico como tu Nivel."
+    },
+    {
+      "grupo": "Preternatural",
+      "nombre": "Orden siniestra",
+      "parrafos": [
+        1392,
+        1396
+      ],
+      "coste_literal": null,
+      "requisito_literal": "Requisito: Endecha de los condenados",
+      "alcance_literal": "Alcance: 10 metros",
+      "duracion_o_etiqueta_literal": null,
+      "texto_literal": "Haces saber a tu rival que el dolor que bulle en mi alma no es sólo espiritual, si no una infame maldición que estás dispuesto a compartir con aquellos cobardes que intenten evitar un enfrentamiento contigo.\nPuedes usar esta Técnica como acción gratuita al principio de tu Turno, antes de moverte. Realiza una Tirada de Presencia: si tienes éxito, el objetivo de tu Orden siniestra deberá atacarte durante el próximo Turno o sufrir tanto daño impío como la mitad de tu Nivel (mínimo 1). Sólo puedes tener a un objetivo bajo la influencia de tu Orden siniestra a la vez."
+    },
+    {
+      "grupo": "Preternatural",
+      "nombre": "Distorsión temporal reactiva",
+      "parrafos": [
+        1397,
+        1401
+      ],
+      "coste_literal": "Coste: 1 Esfuerzo",
+      "requisito_literal": "Requisito: Agilidad 10+, Cronómaca",
+      "alcance_literal": "Alcance: personal",
+      "duracion_o_etiqueta_literal": null,
+      "texto_literal": "De tu propio ser emanan pequeñas hebras de energía cronomántica. Cuando sufres daño durante un Combate, puedes activar esta Técnica para acelerar el tiempo alrededor de tu aura: en el siguiente Turno que actúes, obtendrás una acción adicional (atacar, moverte, etc.)."
+    },
+    {
+      "grupo": "Preternatural",
+      "nombre": "Siervo de las sombras",
+      "parrafos": [
+        1402,
+        1408
+      ],
+      "coste_literal": "Coste: 2 puntos de Esfuerzo",
+      "requisito_literal": "Requisito: Mente 8+, Endecha de los condenados",
+      "alcance_literal": "Alcance: 2 metros",
+      "duracion_o_etiqueta_literal": "Duración: 1 Intervalo por Nivel",
+      "texto_literal": "Evocas cánticos lúgubres y blasfemos que arrancan de un reino sombrío una parte de tu alma, materializándola como un ser compuesto por humo negro.\nCreas un doble de ti mismo que está a tu servicio, pero posee la mitad de tus Puntos de Salud máximos. Posee todas tus facultades y capacidades, aunque no tiene raciocinio propio. Si este ser muere antes de que finalice la convocación, tus Puntos de Salud se verán reducidos a 1 y quedarás Enfermo durante 1d6 días."
+    }
+  ],
+  "alertas": [
+    {
+      "id": "OCP-19",
+      "nombre": "Danza aérea",
+      "descripcion": "El número de ataques depende del «resultado ... en la Tirada de requisito», pero éste sólo consigna Agilidad 12+ y 1d6 +2 armas; se debe confirmar qué tirada genera el número de ataques."
+    },
+    {
+      "id": "OCP-20",
+      "nombre": "Corte fantasma",
+      "descripcion": "El fallo de la propia Tirada de ataque causa al usuario daño físico igual a su Nivel según texto literal. No invertir automáticamente el objetivo del daño."
+    }
+  ],
+  "advertencias": [
+    "Requisitos de Ocupación específicos en Postura de Gaehr Moradh, Anhelo voluntarioso, Orden siniestra, Distorsión temporal reactiva y Siervo de las sombras.",
+    "Anhelo voluntarioso utiliza Salud actual, Baile frenético utiliza Salud total; son costes distintos.",
+    "No atribuir estas Técnicas a toda Ocupación sin verificar sus competencias y prerrequisitos."
+  ]
+}
