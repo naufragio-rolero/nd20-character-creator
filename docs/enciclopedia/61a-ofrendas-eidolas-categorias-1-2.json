@@ -8,7 +8,7 @@
     {
       "eidolon": "Kayulio",
       "categoria": 1,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ofrenda_material",
       "resumen_no_literal": "carne",
       "momento_no_literal": "contraprestación por sus servicios",
@@ -18,12 +18,13 @@
       "fuente_parrafos": [
         4856,
         4862
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Lonian",
       "categoria": 1,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ritual_posterior",
       "resumen_no_literal": "himno al Señor de las Mareas",
       "momento_no_literal": "próximo amanecer después de invocarlo",
@@ -33,12 +34,13 @@
       "fuente_parrafos": [
         4863,
         4869
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Rufushia",
       "categoria": 1,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ritual_posterior",
       "resumen_no_literal": "dos velas encendidas sobre techo o viga",
       "momento_no_literal": "durante una noche tras la invocación",
@@ -48,12 +50,13 @@
       "fuente_parrafos": [
         4870,
         4876
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Schoff",
       "categoria": 1,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ofrenda_material",
       "resumen_no_literal": "mendrugo de pan",
       "momento_no_literal": "contraprestación por servicios",
@@ -63,12 +66,13 @@
       "fuente_parrafos": [
         4877,
         4883
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Sel-Line",
       "categoria": 1,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ofrenda_material",
       "resumen_no_literal": "comida, posiblemente galletas o dulces",
       "momento_no_literal": "petición sutil",
@@ -78,12 +82,13 @@
       "fuente_parrafos": [
         4884,
         4890
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Sheólidas",
       "categoria": 1,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "gesto_posterior",
       "resumen_no_literal": "acurrucarse con el invocador",
       "momento_no_literal": "tras la invocación",
@@ -93,12 +98,13 @@
       "fuente_parrafos": [
         4891,
         4897
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Tal-lu-reihm",
       "categoria": 1,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "prueba_posterior",
       "resumen_no_literal": "meditar sobre piedras ardientes",
       "momento_no_literal": "semana posterior a la invocación",
@@ -108,12 +114,13 @@
       "fuente_parrafos": [
         4898,
         4905
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Velunion",
       "categoria": 1,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ofrenda_material_posterior",
       "resumen_no_literal": "alimento procedente del mar o río, depositado en orilla",
       "momento_no_literal": "semana posterior a la invocación",
@@ -123,12 +130,13 @@
       "fuente_parrafos": [
         4906,
         4913
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Arkonis",
       "categoria": 2,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ritual_material",
       "resumen_no_literal": "enterrar joya sin valor en barro",
       "momento_no_literal": "ciclo lunar completo, para conseguir favor",
@@ -138,12 +146,13 @@
       "fuente_parrafos": [
         4915,
         4922
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Goralax",
       "categoria": 2,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ritual_material",
       "resumen_no_literal": "quemar hojarasca, madera e incienso",
       "momento_no_literal": "cuando se le convoca fuera de sus llanuras",
@@ -153,12 +162,13 @@
       "fuente_parrafos": [
         4923,
         4930
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Maia",
       "categoria": 2,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ofrenda_material",
       "resumen_no_literal": "pluma de ave recolectada durante el Vero",
       "momento_no_literal": "símbolo de respeto",
@@ -168,12 +178,13 @@
       "fuente_parrafos": [
         4931,
         4937
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Opharis",
       "categoria": 2,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "gesto_creativo",
       "resumen_no_literal": "obra artística o texto en su honor",
       "momento_no_literal": "ofrenda simbólica",
@@ -183,12 +194,13 @@
       "fuente_parrafos": [
         4938,
         4946
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Talisa",
       "categoria": 2,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ritual_material",
       "resumen_no_literal": "objeto metálico de batalla a la intemperie hasta cubrirse de hielo",
       "momento_no_literal": "para convocarla",
@@ -198,12 +210,13 @@
       "fuente_parrafos": [
         4947,
         4954
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Varlyna",
       "categoria": 2,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ofrenda_ambigua",
       "resumen_no_literal": "atisbo de tecnología del mundo, papel o historia según original",
       "momento_no_literal": "contraprestación por manifestarse",
@@ -213,12 +226,13 @@
       "fuente_parrafos": [
         4955,
         4962
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Warnok",
       "categoria": 2,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "ofrenda_material",
       "resumen_no_literal": "amuleto de hojas, lianas y huesos",
       "momento_no_literal": "señal de respeto",
@@ -228,12 +242,13 @@
       "fuente_parrafos": [
         4963,
         4969
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     },
     {
       "eidolon": "Xalanth",
       "categoria": 2,
-      "estado": "condicion_narrativa_explicita",
+      "estado": "mencion_narrativa_explicita",
       "tipo_analitico": "sacrificio_narrativo",
       "resumen_no_literal": "alma inocente",
       "momento_no_literal": "antes de cumplir su cometido",
@@ -243,7 +258,9 @@
       "fuente_parrafos": [
         4970,
         4977
-      ]
+      ],
+      "requisito_mecanico_confirmado": null
     }
-  ]
+  ],
+  "criterio_mecanico": "No se infiere obligatoriedad, momento de comprobación, pérdida de recursos ni bloqueo de la invocación a partir del texto narrativo; la condición de activación deberá derivarse de una regla explícita o decisión editorial."
 }
