@@ -1,0 +1,264 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "tabla_word": 44,
+  "categoria": "Poderes",
+  "familia": "Eidolas (invocaciones)",
+  "estado": "preindexacion_de_tabla_completa_pendiente_extraccion_de_efectos",
+  "encabezados": [
+    "Nombre",
+    "Epíteto",
+    "Canalización",
+    "Categoría",
+    "Elemento afín"
+  ],
+  "registros": [
+    {
+      "nombre": "Arkonis",
+      "epiteto": "La piedra eterna",
+      "canalizacion": "Escudo terráqueo",
+      "categoria": 2,
+      "elemento_afin": "Tierra"
+    },
+    {
+      "nombre": "Binexa",
+      "epiteto": "El corazón desgarrado",
+      "canalizacion": "Desgarrón emocional",
+      "categoria": 3,
+      "elemento_afin": "Oscuridad"
+    },
+    {
+      "nombre": "Cath Palug",
+      "epiteto": "Guardián de las llamas del cambio",
+      "canalizacion": "Explosión ígnea",
+      "categoria": 3,
+      "elemento_afin": "Fuego"
+    },
+    {
+      "nombre": "Ezion",
+      "epiteto": "La tempestad del desierto",
+      "canalizacion": "Llagas del desierto",
+      "categoria": 3,
+      "elemento_afin": "Tierra"
+    },
+    {
+      "nombre": "Faustargon",
+      "epiteto": "Ira celestial",
+      "canalizacion": "Devastación",
+      "categoria": 4,
+      "elemento_afin": "Rayo"
+    },
+    {
+      "nombre": "Garathur",
+      "epiteto": "El rey del mar",
+      "canalizacion": "Galerna real",
+      "categoria": 4,
+      "elemento_afin": "Agua"
+    },
+    {
+      "nombre": "Goralax",
+      "epiteto": "Bestia cenicienta",
+      "canalizacion": "Meteoro cinéreo",
+      "categoria": 2,
+      "elemento_afin": "Fuego"
+    },
+    {
+      "nombre": "Hefair",
+      "epiteto": "Tejedor de niebla",
+      "canalizacion": "Juicio neblinoso",
+      "categoria": 4,
+      "elemento_afin": "Naturaleza"
+    },
+    {
+      "nombre": "Ifraya",
+      "epiteto": "La princesa glacial",
+      "canalizacion": "Polvo de zafiros",
+      "categoria": 4,
+      "elemento_afin": "Hielo"
+    },
+    {
+      "nombre": "Kayulio",
+      "epiteto": "Cacique emperador",
+      "canalizacion": "Carrera relámpago",
+      "categoria": 1,
+      "elemento_afin": "Viento"
+    },
+    {
+      "nombre": "Kleion",
+      "epiteto": "La línea encarnada",
+      "canalizacion": "Distorsión temporal",
+      "categoria": 4,
+      "elemento_afin": "Ninguno"
+    },
+    {
+      "nombre": "Lonian",
+      "epiteto": "Dogo sempiterno",
+      "canalizacion": "Ladrido de la marisma",
+      "categoria": 1,
+      "elemento_afin": "Agua"
+    },
+    {
+      "nombre": "Luxorath",
+      "epiteto": "Faro del infinito",
+      "canalizacion": "Mirada del cosmos",
+      "categoria": 4,
+      "elemento_afin": "Luz"
+    },
+    {
+      "nombre": "Maia",
+      "epiteto": "Brisa serena del vero",
+      "canalizacion": "Céfiro agotador",
+      "categoria": 2,
+      "elemento_afin": "Viento"
+    },
+    {
+      "nombre": "Nerevion",
+      "epiteto": "La vorágine de las profundidades",
+      "canalizacion": "Torbellino abisal",
+      "categoria": 3,
+      "elemento_afin": "Agua"
+    },
+    {
+      "nombre": "Nunem",
+      "epiteto": "La caldera ancestral",
+      "canalizacion": "Erupción del yermo",
+      "categoria": 4,
+      "elemento_afin": "Fuego"
+    },
+    {
+      "nombre": "Opharis",
+      "epiteto": "El que ilumina",
+      "canalizacion": "Resplandor sanador",
+      "categoria": 2,
+      "elemento_afin": "Luz"
+    },
+    {
+      "nombre": "Rufushia",
+      "epiteto": "La luz del hogar",
+      "canalizacion": "Brillo cegador",
+      "categoria": 1,
+      "elemento_afin": "Luz"
+    },
+    {
+      "nombre": "Schoff",
+      "epiteto": "Sabueso de las llanuras",
+      "canalizacion": "Arremetida peluda",
+      "categoria": 1,
+      "elemento_afin": "Tierra"
+    },
+    {
+      "nombre": "Sel-Line",
+      "epiteto": "Acechadora de la puerta",
+      "canalizacion": "Bufido aterrador",
+      "categoria": 1,
+      "elemento_afin": "Oscuridad"
+    },
+    {
+      "nombre": "Sheólidas",
+      "epiteto": "Travieso embaucador",
+      "canalizacion": "Maullido acaramelado",
+      "categoria": 1,
+      "elemento_afin": "Ninguno"
+    },
+    {
+      "nombre": "Skaldrak",
+      "epiteto": "Leviatán errante",
+      "canalizacion": "Castigo glaciar",
+      "categoria": 3,
+      "elemento_afin": "Hielo"
+    },
+    {
+      "nombre": "Talisa",
+      "epiteto": "Señora de las heladas",
+      "canalizacion": "Ventisca irredenta",
+      "categoria": 2,
+      "elemento_afin": "Hielo"
+    },
+    {
+      "nombre": "Tal-lu-reihm",
+      "epiteto": "Negrura ardiente",
+      "canalizacion": "Fuego del recuerdo",
+      "categoria": 1,
+      "elemento_afin": "Fuego"
+    },
+    {
+      "nombre": "Valkhar",
+      "epiteto": "Sombra devastadora",
+      "canalizacion": "Maldición funesta",
+      "categoria": 4,
+      "elemento_afin": "Oscuridad"
+    },
+    {
+      "nombre": "Varlyna",
+      "epiteto": "Eco de la civilización",
+      "canalizacion": "Tormenta eléctrica",
+      "categoria": 2,
+      "elemento_afin": "Rayo"
+    },
+    {
+      "nombre": "Velghor",
+      "epiteto": "Viento furioso",
+      "canalizacion": "Zona huracanada",
+      "categoria": 3,
+      "elemento_afin": "Viento"
+    },
+    {
+      "nombre": "Velunion",
+      "epiteto": "Pescador del abismo",
+      "canalizacion": "Calma tempestuosa",
+      "categoria": 1,
+      "elemento_afin": "Agua"
+    },
+    {
+      "nombre": "Warnok",
+      "epiteto": "Las fauces salvajes",
+      "canalizacion": "Emboscada de la selva",
+      "categoria": 2,
+      "elemento_afin": "Naturaleza"
+    },
+    {
+      "nombre": "Xalanth",
+      "epiteto": "Yugo de rivalidad",
+      "canalizacion": "Aniquilación dracónica",
+      "categoria": 2,
+      "elemento_afin": "Oscuridad"
+    },
+    {
+      "nombre": "Yl-Veris",
+      "epiteto": "La reina de la poza",
+      "canalizacion": "Eructo fétido",
+      "categoria": 3,
+      "elemento_afin": "Naturaleza"
+    },
+    {
+      "nombre": "Zephradon",
+      "epiteto": "El trueno eterno",
+      "canalizacion": "Veredicto galvánico",
+      "categoria": 3,
+      "elemento_afin": "Rayo"
+    }
+  ],
+  "numero_por_categoria": [
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      8
+    ]
+  ],
+  "notas": [
+    "Invocadora memoriza diagramas astrales, que deben conocerse individualmente.",
+    "El manual distingue Encarnar, Canalizar y Materializar.",
+    "La Canalización listada aquí no sustituye el texto íntegro del efecto correspondiente.",
+    "La tabla contiene exactamente ocho Eidolas por Categoría; completar los treinta y dos apartados 1489–1747 antes de integración."
+  ]
+}
