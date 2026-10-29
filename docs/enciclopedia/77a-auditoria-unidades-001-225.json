@@ -4,9 +4,11 @@
     1,
     225
   ],
+  "version_auditoria": 2,
+  "errata_de_verificacion_corregida": "Se eliminó el límite de palabra incorrecto tras el superíndice ². La versión inicial podía omitir m²/km² aunque el texto fuente era correcto.",
   "metodo": "Buscar literalmente unidades de superficie y volumen expresadas con m2, m², km2, km², «metros cuadrados» o «metros cúbicos». No asignar radios, geometría ni efectos.",
-  "fichas_con_menciones": 29,
-  "referencias_mencionadas": 29,
+  "fichas_con_menciones": 31,
+  "referencias_mencionadas": 32,
   "casos_radio_de_superficie": [
     {
       "n": 90,
@@ -15,16 +17,28 @@
       "texto": "Conjuras un domo de energía telúrica que suprime toda magia en un radio de 3m2 a tu alrededor. Esta Cúpula antimagia permanece fijo en el lugar donde la conjuras, anulando cualquier efecto mágico que entre en su área, pero no se desplaza contigo."
     },
     {
+      "n": 108,
+      "nombre": "Diluvio universal",
+      "parrafo_en_ficha": 5,
+      "texto": "Canalizas el poder primordial del agua y desatas un diluvio que anega la tierra en un radio de 10 km² alrededor de ti. Aguas torrenciales caen desde el cielo o emergen del suelo, arrastrando estructuras, inundando campos y sumergiendo aldeas y pueblos bajo su implacable marea."
+    },
+    {
       "n": 131,
       "nombre": "Discurso de necios",
       "parrafo_en_ficha": 4,
-      "texto": "Conjuras una energía insidiosa que intenta manipular las mentes de hasta 3d6 criaturas de las Categorías Humanoide o Fata, en un radio de 10 metros cuadrados alrededor de un punto dentro del alcance. Realiza una Tirada de Conjuro: si tienes éxito, los seres af"
+      "texto": "Conjuras una energía insidiosa que intenta manipular las mentes de hasta 3d6 criaturas de las Categorías Humanoide o Fata, en un radio de 10 metros cuadrados alrededor de un punto dentro del alcance. Realiza una Tirada de Conjuro: si tienes éxito, los seres afectados entran en un debate interminable"
     },
     {
       "n": 205,
       "nombre": "Invocar vórtice de energía",
       "parrafo_en_ficha": 5,
-      "texto": "Conjuras un vórtice salvaje de energía arcana que aparece como una espiral púrpura fulgurante y agresiva. Este torbellino energético se materializa en un espacio dentro del alcance y ataca indiscriminadamente a todas las criaturas en un radio de 4m2 a su alred"
+      "texto": "Conjuras un vórtice salvaje de energía arcana que aparece como una espiral púrpura fulgurante y agresiva. Este torbellino energético se materializa en un espacio dentro del alcance y ataca indiscriminadamente a todas las criaturas en un radio de 4m2 a su alrededor, ya sean aliados o enemigos."
+    },
+    {
+      "n": 217,
+      "nombre": "Luna carmesí",
+      "parrafo_en_ficha": 8,
+      "texto": "Durante la noche de luna llena, invocas un poder arcano y profano que tiñe el astro celeste de un rojo brillante y ominoso. Este hechizo despierta los instintos más oscuros de todas las criaturas malignas en un radio de 20 km² alrededor de ti, llenándolas de una sed insaciable de sangre y caos, prov"
     }
   ],
   "registros": [
@@ -146,6 +160,19 @@
       ]
     },
     {
+      "numero_tomo": 84,
+      "nombre": "Cataclismo tenebroso",
+      "archivo_fuente": "69d-conjuros-alfabeticos-076-100.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "1 km²",
+          "contexto_literal": "Alcance: 1 km²",
+          "en_alcance": true
+        }
+      ]
+    },
+    {
       "numero_tomo": 85,
       "nombre": "Calma silvestre",
       "archivo_fuente": "69d-conjuros-alfabeticos-076-100.json",
@@ -194,6 +221,19 @@
           "fragmento_literal": "2km2",
           "contexto_literal": "Alcance: 2km2",
           "en_alcance": true
+        }
+      ]
+    },
+    {
+      "numero_tomo": 108,
+      "nombre": "Diluvio universal",
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "10 km²",
+          "contexto_literal": "n diluvio que anega la tierra en un radio de 10 km² alrededor de ti. Aguas torrenciales caen desde el",
+          "en_alcance": false
         }
       ]
     },
@@ -402,6 +442,12 @@
           "fragmento_literal": "20km2",
           "contexto_literal": "Alcance: 20km2 alrededor del lanzador",
           "en_alcance": true
+        },
+        {
+          "parrafo_en_ficha": 8,
+          "fragmento_literal": "20 km²",
+          "contexto_literal": " todas las criaturas malignas en un radio de 20 km² alrededor de ti, llenándolas de una sed insaciabl",
+          "en_alcance": false
         }
       ]
     }
