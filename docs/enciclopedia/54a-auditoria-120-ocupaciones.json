@@ -1,0 +1,248 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "01b-talentos-ocupaciones.csv",
+  "relaciones_historicas": 163,
+  "exclusion_aprobada": [
+    "Gladiador: Estilos de gladiatoria => Poder"
+  ],
+  "relaciones_talento_provisionales": 162,
+  "total_identidades_transcritas": 120,
+  "control": "120/120 coinciden con identidades de inventario; sin duplicados al añadir las 15 fichas de Nocturna",
+  "por_sistema": {
+    "Ampliadas": "81/81",
+    "DRS": "9/9",
+    "CiFi": "15/15",
+    "Nocturna": "15/57"
+  },
+  "pendientes_nocturna": [
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Instintos de los bajos fondos"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Arrancar información"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "El jeta de Wall Street"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Facha de hampón"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Maestro en allanamientos"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Rutas de entrada y salida"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Señor del crimen"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Voz de ultratumba"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Cadena de los hados"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Destino entrelazado"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Hebras de la Urdimbre"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Ligadura espiritual"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Paso espectral"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Premonición"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Perspicacia de sabueso"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Cazarreliquias"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Diletante místico"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Erudición sobrenatural"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Instintos del morador nocturno"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Saqueador de tumbas"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Sospechosos habituales"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Arte de la guerra"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "¡Estáis encerrados conmigo!"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Adrenalina"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "En racha"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Frenesí sanguinario"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Imparable"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Plan de batalla"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Cerebro cibernético"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Homebrew"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Interacción remota"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Presencia fantasma"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Ojos en la red"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Sabotaje electromagnético"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Tecnomante"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Lengua de serpiente"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Artimañas legales"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "El precio justo"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Estafador experto"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Maestro del espectáculo"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Rostro cambiante"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Zorro astuto"
+    }
+  ],
+  "pendientes_por_ocupacion": {
+    "Delincuente": [
+      "Instintos de los bajos fondos",
+      "Arrancar información",
+      "El jeta de Wall Street",
+      "Facha de hampón",
+      "Maestro en allanamientos",
+      "Rutas de entrada y salida",
+      "Señor del crimen"
+    ],
+    "Espiritista": [
+      "Voz de ultratumba",
+      "Cadena de los hados",
+      "Destino entrelazado",
+      "Hebras de la Urdimbre",
+      "Ligadura espiritual",
+      "Paso espectral",
+      "Premonición"
+    ],
+    "Investigador": [
+      "Perspicacia de sabueso",
+      "Cazarreliquias",
+      "Diletante místico",
+      "Erudición sobrenatural",
+      "Instintos del morador nocturno",
+      "Saqueador de tumbas",
+      "Sospechosos habituales"
+    ],
+    "Mercenario": [
+      "Arte de la guerra",
+      "¡Estáis encerrados conmigo!",
+      "Adrenalina",
+      "En racha",
+      "Frenesí sanguinario",
+      "Imparable",
+      "Plan de batalla"
+    ],
+    "Operador": [
+      "Cerebro cibernético",
+      "Homebrew",
+      "Interacción remota",
+      "Presencia fantasma",
+      "Ojos en la red",
+      "Sabotaje electromagnético",
+      "Tecnomante"
+    ],
+    "Pícaro": [
+      "Lengua de serpiente",
+      "Artimañas legales",
+      "El precio justo",
+      "Estafador experto",
+      "Maestro del espectáculo",
+      "Rostro cambiante",
+      "Zorro astuto"
+    ]
+  },
+  "notas": [
+    "No equivale a validación mecánica de los efectos.",
+    "Los 57 registros originales de Nocturna están preindexados en 52a. Tres títulos repetidos requieren asignación contextual al pasar a extracción literal.",
+    "Las fuentes vivas deben conservarse con revisionId."
+  ]
+}
