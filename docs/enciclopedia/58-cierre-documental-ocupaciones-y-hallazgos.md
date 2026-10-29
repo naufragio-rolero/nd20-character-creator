@@ -32,7 +32,7 @@ Se han documentado de forma independiente de los Talentos:
 | [Nuevos Conjuros](43a-conjuros-nuevos-demonologia.json) | 2 Conjuros de Demonología |
 | [Nuevas Técnicas](44a-tecnicas-batalla-nuevas-10.json) | 10 Técnicas |
 | [Índice de Eidolas](45a-indice-eidolas-32-y-afinidades.json) | 32 Eidolas |
-| [Modalidades de Eidolas](46a-eidolas-categoria-1-parte-1.json), [continuación](46b-eidolas-categoria-1-parte-2.json), [Categoría 2](47a-eidolas-categoria-2-parte-1.json), [continuación](47b-eidolas-categoria-2-parte-2.json) | Encarnar, Canalizar y Materializar de **16 Eidolas**; no incluye todavía narrativa completa ni ofrendas |
+| [Modalidades e historias completas de 32 Eidolas](60a-auditoria-eidolas-32-modalidades-96.json) | **32 fichas** vigentes, **96 efectos** (Encarnar, Canalizar, Materializar), 8 Eidolas en cada Categoría. [Categoría 1](59c-eidolas-categoria-1-fichas-vigentes-completas.json), [2](59d-eidolas-categoria-2-fichas-vigentes-completas.json), [3](59a-eidolas-categoria-3-modalidades-y-lore.json) y [4](59b-eidolas-categoria-4-modalidades-y-lore.json). Las ofrendas, cuando existan, siguen integradas en la narración y requieren modelado propio. |
 
 Las cifras de categorías son inventarios independientes; no sumarlas como «Talentos» ni asumir que son elementos únicos frente a catálogos previos sin conciliación.
 
@@ -55,7 +55,7 @@ Las discrepancias anteriores (OCP-06 a OCP-16) se conservan en [seguimiento](32-
 ## 4. Próxima etapa, sin tocar Forja
 
 1. Conciliar editorialmente las contradicciones que afecten a cálculo de Niveles, recursos, áreas o destinatarios de daños.
-2. Completar las **16 Eidolas de Categorías 3 y 4**, y el trasfondo/ofrendas de las 32.
+2. Estructurar las condiciones y ofrendas narrativas de las **32 Eidolas** para uso reglamentario, cotejar las 96 modalidades y resolver OCP-21/OCP-22 sin alterar las fuentes.
 3. Comparar este catálogo suplementario de Poderes/Conjuros/Equipo con los inventarios ya existentes para impedir duplicados; seguir extracción completa de las restantes categorías.
 4. Formalizar los modelos de elección condicional y las tablas de progreso de Nocturna; realizar validación mecánica y pruebas de Forja **sólo tras revisión editorial e integración autorizada**.
 
