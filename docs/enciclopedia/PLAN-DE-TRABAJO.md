@@ -154,3 +154,5 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 | 2026-10-29 | OCP-01 resuelto por el autor | [Poderío de la Reina](20-ocp-01-resolucion-valquiria.md): prevalece el texto, mejoras en Niveles 6, 12, 18, 24 y 30. [Tabla canónica de 30 niveles](20a-ocp-01-valquiria-progresion-aprobada.json). Original histórico y Técnicas preservados; pendiente actualizar manual fuente. |
 
 | 2026-10-29 | Tanda 2, lote 3 y OCP-02 | [12 Talentos preindexados](21-preextraccion-ocupaciones-lote-3.md) de Marionetista, Vikingo, Verdugo, Gladiador y Arlequín. Errata «estabsa» corregida en copia DOCX renderizada; fuente histórica preservada. Alertas OCP-03 a OCP-05 abiertas para cotejo. |
+
+| 2026-10-29 | Tanda 2, continuación lote 3 | [OCP-03 a OCP-05 conciliados](22-conciliaciones-lote-3.md). [8 Talentos literales adicionales](23a-extraccion-literal-ocupaciones-lote-3-parcial.json) de Marionetista, Vikingo, Gladiador y Arlequín. **28 Talentos transcritos**; Verdugo (3) pendiente; Estilos de gladiatoria reclasificado como Poder, pendiente ajustar denominador canónico de 163. |
