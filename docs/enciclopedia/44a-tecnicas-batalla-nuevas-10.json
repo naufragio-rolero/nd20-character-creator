@@ -105,7 +105,7 @@
       "requisito_literal": "Requisito: Endecha de los condenados",
       "alcance_literal": "Alcance: 10 metros",
       "duracion_o_etiqueta_literal": null,
-      "texto_literal": "Haces saber a tu rival que el dolor que bulle en mi alma no es sólo espiritual, si no una infame maldición que estás dispuesto a compartir con aquellos cobardes que intenten evitar un enfrentamiento contigo.\nPuedes usar esta Técnica como acción gratuita al principio de tu Turno, antes de moverte. Realiza una Tirada de Presencia: si tienes éxito, el objetivo de tu Orden siniestra deberá atacarte durante el próximo Turno o sufrir tanto daño impío como la mitad de tu Nivel (mínimo 1). Sólo puedes tener a un objetivo bajo la influencia de tu Orden siniestra a la vez."
+      "texto_literal": "Haces saber a tu rival que el dolor que bulle en tu alma no es sólo espiritual, si no una infame maldición que estás dispuesto a compartir con aquellos cobardes que intenten evitar un enfrentamiento contigo.\nPuedes usar esta Técnica como acción gratuita al principio de tu Turno, antes de moverte. Realiza una Tirada de Presencia: si tienes éxito, el objetivo de tu Orden siniestra deberá atacarte durante el próximo Turno o sufrir tanto daño impío como la mitad de tu Nivel (mínimo 1). Sólo puedes tener a un objetivo bajo la influencia de tu Orden siniestra a la vez."
     },
     {
       "grupo": "Preternatural",
