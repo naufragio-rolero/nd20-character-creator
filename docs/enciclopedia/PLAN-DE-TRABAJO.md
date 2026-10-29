@@ -2,7 +2,7 @@
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-10-29.  
-**Estado global:** extracción de Especies completa y 13 fichas corregidas reextraídas; ESP-09 y ESP-10 cerrados con Probabilidad 11+ y duración +2 Turnos condicionada. 115/115 efectos validados documentalmente. Quedan pendientes equivalencias de Ocupaciones derivadas, errata adicional en «Morador de las profundidades» y validación de las 33 relaciones restantes (completada); PR sin fusionar.  
+**Estado global:** extracción de Especies completa y 13 fichas corregidas reextraídas; ESP-09 y ESP-10 cerrados con Probabilidad 11+ y duración +2 Turnos condicionada. 115/115 efectos validados documentalmente. Quedan pendientes equivalencias de Ocupaciones derivadas y errata en «Morador de las profundidades»; la validación documental de Especies está cerrada. Iniciada la preextracción de Ocupaciones; PR sin fusionar.  
 **Rama de trabajo:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
@@ -19,7 +19,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 ## 2. Tandas documentales
 
-### Tanda 1 — Talentos de Especies · **Preclasificación terminada; validación pendiente**
+### Tanda 1 — Talentos de Especies · **Validación documental terminada (115/115); integración pendiente**
 - [x] Inventario nominal de las 44 Especies, con **115 relaciones Especie–Talento** (94 recogidas en JSON y 21 detectadas solo en fuentes).
 - [x] Registrar los **7 Talentos fijos omitidos** y los **14 Talentos opcionales de Hyrule**.
 - [x] Extraer el texto literal completo de los 115 bloques de Talentos de Especies, con sistema, Especie, tipo y fuente (tres JSON documentales).
@@ -39,7 +39,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 ### Tanda 2 — Talentos de Ocupaciones
 - [x] Inventario nominal: **163 relaciones Ocupación–Talento** consolidadas desde 234 referencias JSON, correspondientes a 51 Ocupaciones.
-- [ ] Extraer efectos y propiedades literales, niveles de adquisición y condiciones de elección.
+- [ ] Extraer efectos y propiedades literales, niveles de adquisición y condiciones de elección. **Iniciada preextracción de 9 Talentos en 4 Ocupaciones** ([lote 1](16-preextraccion-ocupaciones-lote-1.md), [registros](16a-preextraccion-ocupaciones-lote-1.json)); aún no son fichas literales validadas.
 - [ ] Contrastar referencias y progresiones, incluyendo pendientes de Truhán y Astrólogo.
 - [ ] Entregar repertorio estructurado validado y registro de discrepancias.
 
@@ -142,3 +142,5 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 | 2026-10-29 | Validación Ylat/Hyrule y Nocturna, lote 7 | [21 relaciones](12-validacion-documental-especies-lote-7.md) cotejadas con fuente viva. **82/115 validadas, 33 pendientes.** |
 
 | 2026-10-29 | Cierre documental de Especies | [32 relaciones](13-validacion-documental-especies-lote-8.md) y [1 relación con tabla](14-validacion-documental-especies-lote-9.md). **115/115 validadas documentalmente; 0 pendientes de cotejo.** Conciliaciones editoriales [abiertas](15-conciliaciones-pendientes-y-cierre-especies.md). |
+
+| 2026-10-29 | Inicio de Tanda 2, Ocupaciones | [9 Talentos de 4 Ocupaciones](16-preextraccion-ocupaciones-lote-1.md) preextraídos del manual de ampliaciones. Pendientes textos íntegros y tablas; detectadas particularidades de Truhán y Astrólogo. |
