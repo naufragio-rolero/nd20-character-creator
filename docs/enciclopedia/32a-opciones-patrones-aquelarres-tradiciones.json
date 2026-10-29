@@ -1,0 +1,256 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "tablas": [
+    {
+      "indice_word": 24,
+      "nombre": "Patrones de Brujo",
+      "encabezados": [
+        "Nombre",
+        "Categoría",
+        "Escuelas",
+        "Descripción"
+      ],
+      "filas": [
+        [
+          "Ananke",
+          "Infernal",
+          "Naturaleza, Nigromancia",
+          "Criatura demoníaca llena de pústulas que ejerce su control sobre campos putrefactos."
+        ],
+        [
+          "Baasmoth",
+          "Infernal",
+          "Arcana, Demonología",
+          "Violento diablo que fue encarcelado entre varas de polvo estelar. Aúlla desde el fondo de su prisión infernal."
+        ],
+        [
+          "Chispater",
+          "Infernal",
+          "Divina, Nigromancia",
+          "Esfera de luz grisácea que altera la realidad y provoca milagros alucinatorios."
+        ],
+        [
+          "Doshiketzal",
+          "Alienígena",
+          "Divina, Naturaleza",
+          "Ente celestial con alas tejidas de rocío que emana energía curativa."
+        ],
+        [
+          "Eurinomio",
+          "Feérico",
+          "Divina, Elemental",
+          "Gemelos legendarios con poderes sobre la naturaleza y que evocan la electricidad."
+        ],
+        [
+          "Fekuba",
+          "Infernal",
+          "Arcana, Naturaleza",
+          "Bruja antigua que fue encerrada en una de las capas más profundas de Rasmalk; conocida por sus hechizos de tormento."
+        ],
+        [
+          "Gadreel",
+          "Feérico",
+          "Arcana, Elemental",
+          "Entidad preternatural ligada a la naturaleza; se dice que alimenta la magia elemental."
+        ],
+        [
+          "Heos",
+          "Infernal",
+          "Demonología, Naturaleza",
+          "Demonio gusano que ostenta una fuerza inigualable capaz de engullir todo a su paso."
+        ],
+        [
+          "Idromelakh",
+          "Infernal",
+          "Demonología, Elemental",
+          "Monstruo de fuego y hielo que se esconde bajo la superficie de los océanos."
+        ],
+        [
+          "Jorldreen",
+          "Feérico",
+          "Arcana, Nigromancia",
+          "Fantasmas verdiscentes que se esconden entre los bosques, cuya luz es capaz de apaciguar criaturas malignas."
+        ],
+        [
+          "Klaloc",
+          "Alienígena",
+          "Arcana, Demonología",
+          "Ente alienígena de la antigüedad, ubicado en una estrella lejana. Parece poder controlar la energía arcana."
+        ],
+        [
+          "Lunerion",
+          "Feérico",
+          "Arcana, Divina",
+          "Ser místico cuya presencia es una fuente de luminosidad y encanto."
+        ],
+        [
+          "Malduke",
+          "Alienígena",
+          "Arcana, Elemental",
+          "Bestia extraterrestre cuyo intenso poder llameante se extiende a través del universo."
+        ],
+        [
+          "Nuada",
+          "Feérico",
+          "Demonología, Elemental",
+          "Antiguo monarca sylestri, capaz de controlar las fuerzas de la naturaleza."
+        ],
+        [
+          "Oonine",
+          "Alienígena",
+          "Arcana, Divina",
+          "Criatura humanoide de rasgos lampiños, que se comunica en susurros con los mortales."
+        ],
+        [
+          "Quraç",
+          "Feérico",
+          "Naturaleza, Nigromancia",
+          "Seres mágicos de la noche, que manipulan la magia de la oscuridad."
+        ],
+        [
+          "Sayeal",
+          "Infernal",
+          "Demonología, Divina",
+          "Demonio de origen divino que se alimenta de la energía de la vida."
+        ],
+        [
+          "Tegmine",
+          "Alienígena",
+          "Demonología, Nigromancia",
+          "Ente alienígena con cuernos y alas, que dice manipular la muerte."
+        ],
+        [
+          "Urorus",
+          "Feérico",
+          "Demonología, Divina",
+          "Guía espiritual que busca la verdad a través de plegarias blasfemas."
+        ],
+        [
+          "Vidar",
+          "Feérico",
+          "Elemental, Naturaleza",
+          "Monstruo de aspecto masculino con el poder de controlar los elementos."
+        ],
+        [
+          "Wenerus",
+          "Alienígena",
+          "Arcana, Nigromancia",
+          "Entidad extraterrestre e incognoscible, con una mirada penetrante que transporta a otras realidades."
+        ],
+        [
+          "Xipetotec",
+          "Alienígena",
+          "Elemental, Naturaleza",
+          "Bestia primordial cuyo poder de regeneración es legendario."
+        ],
+        [
+          "Yastraea",
+          "Alienígena",
+          "Divina, Elemental",
+          "Antigua hechicera bañada por la luz y la justicia, que se eleva sobre las fuerzas del mal."
+        ],
+        [
+          "Zenobia",
+          "Infernal",
+          "Arcana, Naturaleza",
+          "Abominación de los infiernos, que ostenta una fuerza descomunal y un dominio terrible de las artes arcanas."
+        ]
+      ]
+    },
+    {
+      "indice_word": 25,
+      "nombre": "Aquelarres de Brujo",
+      "encabezados": [
+        "Aquelarre",
+        "Familiar",
+        "Escuelas",
+        "Maldición del Brujo"
+      ],
+      "filas": [
+        [
+          "Aquelarre del cementerio",
+          "Calavera flotante",
+          "Arcana, Nigromancia",
+          "Maldición necrótica: Una enfermedad pestilente y malévola recorrerá el cuerpo del objetivo. Si es derrotada en 1 Intervalo, se transformará en unos Huesos despellejados, un muerto viviente que te servirá durante 1d6 Turnos."
+        ],
+        [
+          "Aquelarre del diablo",
+          "Diablillo peludo",
+          "Arcana, Demonología",
+          "Maldición infernal: Reprendes con una terrible blasfemia, que provocará que su alma arda si es derrotada en 1 Intervalo; si quemas el alma de una criatura viva de esta forma, recuperas tantos Puntos de Salud como tu Dado de Salud."
+        ],
+        [
+          "Aquelarre del páramo",
+          "Gato negro o Sapo con rostro humano",
+          "Demonología, Naturaleza",
+          "Maldición venenosa: Provocas una bruma maligna que debilita el vigor del objetivo. Durante 1 Intervalo, sufrirá Desventaja a la hora de resistir efectos de Conjuros relacionados con el veneno, la ponzoña y el ácido."
+        ]
+      ]
+    },
+    {
+      "indice_word": 29,
+      "nombre": "Tradiciones ancestrales de Chamán",
+      "encabezados": [
+        "Tradición",
+        "Espíritu",
+        "Escuelas",
+        "Virtud del ancestro"
+      ],
+      "filas": [
+        [
+          "Acechadores de la \njungla negra",
+          "Pantera negra",
+          "Demonología, Elemental, Naturaleza",
+          "Paso del silencio: El chamán no hace ruido si camina lentamente."
+        ],
+        [
+          "Brotes del pantano",
+          "Sapo gigante",
+          "Arcana, Demonología, Nigromancia",
+          "Toque tóxico: El chamán desprende un aura venenosa a quienes le golpean cuerpo a cuerpo (12+ posibilidad de envenenar a enemigo)."
+        ],
+        [
+          "Linaje de la \ngarra plateada",
+          "Lobo blanco",
+          "Arcana, Divina, Elemental",
+          "Sorguerno obstinado: El chamán recibe ½ de daño de los ataques y poderes afines al frío."
+        ],
+        [
+          "Prosapia de tierras cenicientas",
+          "Buitre cornudo",
+          "Elemental, Naturaleza, Nigromancia",
+          "Hambre cadavérica: El chamán puede comerse la carne de criaturas muertas para recuperar 1d4 de Salud. Este beneficio funciona una vez por Intervalo."
+        ]
+      ]
+    }
+  ],
+  "reglas_fuente": [
+    {
+      "parrafos": [
+        903,
+        905
+      ],
+      "texto": "Los Patrones son seres sobrenaturales; el Brujo obtiene +1 a Tiradas de lanzamiento de sus dos Escuelas y -1 a las otras cuatro."
+    },
+    {
+      "parrafos": [
+        907,
+        911
+      ],
+      "texto": "El Aquelarre determina el familiar del Brujo y ofrece una Maldición del Brujo; un objetivo maldito a la vez, una maldición por hora, forzable mediante 1 Esfuerzo."
+    },
+    {
+      "parrafos": [
+        1019,
+        1020
+      ],
+      "texto": "Las Tradiciones son ejemplos; pueden crearse otras eligiendo tres Escuelas, animal totémico y una ventaja concreta."
+    }
+  ],
+  "restricciones": [
+    "Los Patrones y Aquelarres son opciones diferentes, no Talentos adicionales automáticos.",
+    "Las Tradiciones son elecciones de tres Escuelas y un Espíritu y Virtud; no otorgar todas las Virtudes simultáneamente.",
+    "Se ha preservado el texto original, incluidas unidades y posibles erratas."
+  ]
+}
