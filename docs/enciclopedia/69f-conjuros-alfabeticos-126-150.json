@@ -1,0 +1,811 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 6,
+  "indices_tomo": [
+    126,
+    150
+  ],
+  "fuente": {
+    "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "estado": "transcripcion_literal_completa_de_cada_ficha",
+  "registros": [
+    {
+      "numero_tomo": 126,
+      "nombre_literal": "Duplicado perfecto",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1013,
+        "indice_ultimo_parrafo": 1020,
+        "indice_inicio_doc": 67913,
+        "indice_fin_doc": 68964
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: personal",
+        "Duración: permanente (ver descripción)",
+        "Creas una réplica exacta de una criatura viva, tanto en cuerpo como en mente. Para realizar este conjuro necesitas un laboratorio con un valor mínimo de 20.000 monedas de oro, además de un fragmento corporal del objetivo, como un cabello o un trozo de carne.",
+        "El proceso de gestación del duplicado requiere 1d8 meses, aunque puede reducirse a 1d6 semanas si te dedicas exclusivamente a ello (trabajando mínimo 4 horas al día). Una vez completado el proceso, debes superar una Tirada de Conjuro para copiar la conciencia original en la mente del duplicado. Si no, la copia desarrollará una inteligencia muy limitada, similar a un niño pequeño. Quizás, con el tiempo, pueda desarrollar una personalidad propia, con una Probabilidad 13+ de que sea similar a la de la criatura clonada.",
+        "Esta réplica es tan fiel al original que solo alguien íntimamente familiarizado con la criatura tendrá una Probabilidad 19+ de detectar que no es el original."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-352",
+          "circulo": 8,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 127,
+      "nombre_literal": "Detención temporal",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1021,
+        "indice_ultimo_parrafo": 1028,
+        "indice_inicio_doc": 68965,
+        "indice_fin_doc": 69372
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: personal",
+        "Duración: 1d4 +2 Turnos",
+        "Cronurgia",
+        "Manipulas el flujo temporal, deteniendo el tiempo para todos excepto para ti. Mientras dure el efecto, puedes actuar con total normalidad mientras el mundo a tu alrededor queda suspendido. Lanzar este Conjuro más de una vez en un mes puede atraer la atención indeseada de cronófagos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-355",
+          "circulo": 8,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 128,
+      "nombre_literal": "Desvanecer escritura",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1029,
+        "indice_ultimo_parrafo": 1033,
+        "indice_inicio_doc": 69373,
+        "indice_fin_doc": 69758
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Borras todo tipo de escritura, ya sea normal o mágica. Las escrituras no mágicas se eliminan automáticamente, mientras que las escrituras mágicas, como runas o marcas arcanas, requieren que las toques y superes una Tirada de Conjuro. Si fallas, la escritura se borra, pero el efecto mágico, si es peligroso, se activa."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-359",
+          "circulo": 1,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 129,
+      "nombre_literal": "Detectar trampas",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1034,
+        "indice_ultimo_parrafo": 1039,
+        "indice_inicio_doc": 69759,
+        "indice_fin_doc": 70114
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Arcana",
+        "Alcance: 15 metros",
+        "Duración: 10 minutos por Nivel",
+        "Detectas trampas simples y fosos en un área de 15 metros de largo y 3 metros de ancho frente a ti. Para percibir las anomalías, debes concentrarte durante 1 Turno en la dirección seleccionada. Este conjuro no detecta trampas mágicas ni mecanismos complejos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-365",
+          "circulo": 1,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 130,
+      "nombre_literal": "Deformar madera",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1040,
+        "indice_ultimo_parrafo": 1044,
+        "indice_inicio_doc": 70115,
+        "indice_fin_doc": 70459
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 15 metros",
+        "Manipulas objetos de madera no mágica, deformándolos a tu voluntad. Puedes afectar un área de hasta 1 metro cúbico, permitiendo doblar, torcer o modificar tablones, vigas u otros objetos similares. Este conjuro no tiene efecto sobre armas mágicas o madera imbuida de poder."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-370",
+          "circulo": 2,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 131,
+      "nombre_literal": "Discurso de necios",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1045,
+        "indice_ultimo_parrafo": 1051,
+        "indice_inicio_doc": 70460,
+        "indice_fin_doc": 71309
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 20 metros",
+        "Duración: 2d8 Intervalos",
+        "Conjuras una energía insidiosa que intenta manipular las mentes de hasta 3d6 criaturas de las Categorías Humanoide o Fata, en un radio de 10 metros cuadrados alrededor de un punto dentro del alcance. Realiza una Tirada de Conjuro: si tienes éxito, los seres afectados entran en un debate interminable, obligados a discutir acaloradamente sobre un tema en el que no están de acuerdo, exponiendo sus puntos de vista, criticando las ideas de los demás y defendiendo sus argumentos sin descanso. ",
+        "Las criaturas pueden moverse y hablar, pero no realizarán ataques ni tomarán medidas ofensivas o defensivas mientras estén atrapadas en la discusión. Sin embargo, si son heridas u ocurre algo que les haga temer por su vida, el efecto del conjuro finalizará."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-401",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 132,
+      "nombre_literal": "Eclipse del artefacto",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1053,
+        "indice_ultimo_parrafo": 1060,
+        "indice_inicio_doc": 71312,
+        "indice_fin_doc": 71920
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Demonología",
+        "Lanzamiento: 3 Turnos",
+        "Alcance: toque",
+        "Duración: permanente",
+        "Envías un objeto que puedas portar a una dimensión de bolsillo, ocultándolo mágicamente mientras dejas en su lugar una ilusión convincente del objeto original. Mientras dure el efecto, puedes usar 3 Turnos para invocar el objeto de regreso a tus manos, donde permanecerá por 1 Intervalo antes de regresar a la dimensión de bolsillo.",
+        "Si el objeto original recibe un conjuro de Disipar magia, será devuelto de forma inmediata a su lugar de origen, cercenando el enlace dimensional que creaste."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-338",
+          "circulo": 7,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 133,
+      "nombre_literal": "Égida consagrada",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1061,
+        "indice_ultimo_parrafo": 1066,
+        "indice_inicio_doc": 71921,
+        "indice_fin_doc": 72248
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "Infundes un escudo con energía divina, envolviéndolo en una protección sagrada. Mientras dure el efecto, el escudo se considera mágico, otorga un +1 a las Tiradas de bloqueo, +1 Blindaje y obtiene Ventaja en sus Tiradas de Durabilidad."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-136",
+          "circulo": 2,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 134,
+      "nombre_literal": "Estrépito",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1067,
+        "indice_ultimo_parrafo": 1071,
+        "indice_inicio_doc": 72249,
+        "indice_fin_doc": 72668
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Elemental",
+        "Alcance: 20 metros",
+        "Haces vibrar las partículas arcanas en torno al objetivo, desatando una explosión de sonido ensordecedora. El objetivo recibe 2d6 puntos de daño sónico, y tanto él como las criaturas adyacentes tienen una Probabilidad 12+ de caer Derribadas y quedar Ensordecidas. Las criaturas con un tamaño mayor a un humanoide estándar son inmunes al efecto de Derribo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-138",
+          "circulo": 2,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 135,
+      "nombre_literal": "Ecos de decadencia",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1072,
+        "indice_ultimo_parrafo": 1077,
+        "indice_inicio_doc": 72669,
+        "indice_fin_doc": 72977
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 6 metros",
+        "Duración: 1 Turno por Nivel",
+        "Canalizas energías corruptas para infectar los oídos del objetivo con una maldición pestilente. Realiza una Tirada de Conjuro: si tienes éxito, el objetivo sufre Sordera, perdiendo toda percepción auditiva."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-142",
+          "circulo": 2,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 136,
+      "nombre_literal": "Enjambre voraz",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1078,
+        "indice_ultimo_parrafo": 1083,
+        "indice_inicio_doc": 72978,
+        "indice_fin_doc": 73383
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 10 metros",
+        "Una nube de insectos voraces surge alrededor de tu mano y se lanza hacia una criatura dentro del alcance. Los insectos infligen 2d10 puntos de daño por veneno mientras lo pican y muerden.",
+        "Después, realiza una Tirada de Conjuro: si tienes éxito, la víctima sufrirá 1d8 puntos de daño por veneno adicional durante los próximos 1d4 Turnos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-172",
+          "circulo": 4,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 137,
+      "nombre_literal": "Esfera corrosiva",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1084,
+        "indice_ultimo_parrafo": 1091,
+        "indice_inicio_doc": 73384,
+        "indice_fin_doc": 73754
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 12 metros",
+        "Conjuras un orbe de ácido puro y lo lanzas hacia un objetivo dentro del alcance. Realiza una Tirada de Conjuro:",
+        "Éxito: Sufre 3d12 puntos de daño por ácido.",
+        "Fallo: Sufre 3d6 puntos de daño por ácido.",
+        "El ácido quema intensamente al contacto, dejando tras de sí marcas de corrosión en todo lo que toca."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-173",
+          "circulo": 4,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 138,
+      "nombre_literal": "Erradicar",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1092,
+        "indice_ultimo_parrafo": 1098,
+        "indice_inicio_doc": 73755,
+        "indice_fin_doc": 74224
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 10 metros",
+        "Requisito: el objetivo debe ser una criatura invocada por un Conjuro de tipo Invocación",
+        "Nictomancia",
+        "Condenas los tejidos arcanos que mantienen la existencia de una criatura invocada de un Nivel igual o inferior al tuyo, deshaciendo la magia que la sostiene. Al lanzar este conjuro, el objetivo es reducido a cenizas cósmicas, desvaneciéndose por completo como si su tiempo de invocación hubiese expirado."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-189",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 139,
+      "nombre_literal": "Escudo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1099,
+        "indice_ultimo_parrafo": 1104,
+        "indice_inicio_doc": 74225,
+        "indice_fin_doc": 74424
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: 2 Intervalos o 6 Turnos en combate",
+        "Refuerzas el tejido arcano de una criatura o de ti mismo, obteniendo un +1 Blindaje de forma natural."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-216",
+          "circulo": 1,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 140,
+      "nombre_literal": "Encandilamiento",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1105,
+        "indice_ultimo_parrafo": 1114,
+        "indice_inicio_doc": 74425,
+        "indice_fin_doc": 75305
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Demonología",
+        "Alcance: 20 metros",
+        "Duración: permanente",
+        "Hebras de energía roja surgen de tus palabras y se adhieren a los pabellones auditivos de una criatura humanoide. Realiza una Tirada de Conjuro: si tienes éxito y el objetivo tiene Nivel 3 o inferior, lo encandilarás hacia tu persona.",
+        "El objetivo retiene su personalidad, pero se sentirá ansioso por complacer tus deseos y obedecerá automáticamente las solicitudes que no contradigan sus intereses. ",
+        "Las peticiones opuestas a sus intereses necesitarán una nueva Tirada de Conjuro, a menos que prometas al humanoide algo que anhele. ",
+        "En caso de maltrato hacia el objetivo, deberás superar una nueva Tirada de Conjuro con Desventaja.",
+        "Fallar cualquiera de estas pruebas hará que el Encandilamiento se disipe, momento en el cual la víctima será consciente de haber sido afectada por tu magia."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-222",
+          "circulo": 1,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 141,
+      "nombre_literal": "Esfera vital",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1115,
+        "indice_ultimo_parrafo": 1120,
+        "indice_inicio_doc": 75306,
+        "indice_fin_doc": 75649
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: personal",
+        "Duración: 1 Intervalo por Nivel",
+        "Conjuras una esfera protectora con una atmósfera respirable en un entorno acuático. Puedes ajustar su tamaño, con un radio de entre 3 y 6 metros. La Esfera vital se desplaza contigo, proporcionando aire fresco y un refugio temporal bajo el agua."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-308",
+          "circulo": 5,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 142,
+      "nombre_literal": "Encandilamiento magno",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1121,
+        "indice_ultimo_parrafo": 1126,
+        "indice_inicio_doc": 75650,
+        "indice_fin_doc": 75907
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 2 metros por Nivel",
+        "Duración: permanente",
+        "Concentras en tu interior una manifestación carmesí de la energía de Rasmalk: aplicas el conjuro Encandilamiento a tantos Humanoides como tu Nivel x2."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-312",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 143,
+      "nombre_literal": "Efigie profana",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1127,
+        "indice_ultimo_parrafo": 1135,
+        "indice_inicio_doc": 75908,
+        "indice_fin_doc": 76560
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Demonología",
+        "Lanzamiento: 2 Intervalos",
+        "Alcance: toque",
+        "Duración: permanente",
+        "Invocación",
+        "Creas un duplicado imperfecto de una criatura utilizando un fragmento de su cuerpo, como restos de cabello o una uña. La Efigie Profana sigue tus órdenes y posee la mitad de la Salud y un tercio de los recuerdos del original. No puede subir de Nivel ni mejorar sus características.",
+        "Si su Salud llega a 0, el duplicado se deshace en un charco de líquido apestoso y corrupto, semejante a agua lodosa. Mientras está con vida, emite un aura mágica perceptible y puede ser fácilmente descubierta por quienes posean visión verdadera."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-341",
+          "circulo": 7,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 144,
+      "nombre_literal": "Eternidad arcana",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1136,
+        "indice_ultimo_parrafo": 1143,
+        "indice_inicio_doc": 76561,
+        "indice_fin_doc": 77076
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: permanente",
+        "Cronurgia",
+        "Invocas un poder arcano ancestral para solidificar los efectos de otro conjuro, otorgándole una duración eterna. Este sortilegio puede aplicarse a objetos, áreas o incluso criaturas, fijando la magia en su esencia para que nunca desaparezca.",
+        "El uso de Eternidad arcana requiere un sacrificio personal: al lanzarlo, envejeces 1d4 años, como pago por manipular el flujo del tiempo y la permanencia de las energías mágicas."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-348",
+          "circulo": 7,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 145,
+      "nombre_literal": "Éxtasis profundo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1144,
+        "indice_ultimo_parrafo": 1150,
+        "indice_inicio_doc": 77077,
+        "indice_fin_doc": 77438
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: toque",
+        "Duración: permanente",
+        "Cronurgia",
+        "Detienes el flujo temporal para una criatura que toques, reduciendo sus funciones vitales hasta el punto de que parece completamente inerte. Para los demás, la criatura estará en un estado que simula la muerte, aunque permanece viva en una suspensión indefinida."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-357",
+          "circulo": 8,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 146,
+      "nombre_literal": "Excelso festín de Excelsus",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1151,
+        "indice_ultimo_parrafo": 1157,
+        "indice_inicio_doc": 77439,
+        "indice_fin_doc": 78101
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Divina",
+        "Alcance: 4 metros",
+        "Duración: 24 horas",
+        "Invocas un festín celestial que materializa comida y agua suficientes para sustentar durante un día a tres criaturas de tamaño humano (o una de tamaño grande), más una criatura adicional por Nivel (una grande por cada tres Niveles).",
+        "La comida comienza a pudrirse tras 24 horas y los recipientes se desvanecerán en polvo arcano, así como el agua se evaporará. El banquete contiene alimentos variados y cocinados mágicamente, como pavos, pollos, filetes de ternera, patatas asadas con finas hierbas, salsas deliciosas, todo en recipientes de cristal y cerámica mágicos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-377",
+          "circulo": 3,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 147,
+      "nombre_literal": "Explosión arcana",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1158,
+        "indice_ultimo_parrafo": 1163,
+        "indice_inicio_doc": 78102,
+        "indice_fin_doc": 78657
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 20 metros",
+        "Concentras un fragmento de la urdimbre mágica y lo lanzas hacia un punto dentro del alcance. Al impactar, el fragmento estalla en una explosión de energía arcana pura, arrasando todo a su alrededor con una onda de fuerza devastadora.",
+        "Realiza una Tirada de Conjuro: si tienes éxito, todas las criaturas en un área de 6m2 alrededor del punto de detonación sufren 1d10 puntos de daño por fuerza por cada uno de tus Niveles; si fallas, las criaturas afectadas reciben la mitad del daño total."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-395",
+          "circulo": 4,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 148,
+      "nombre_literal": "Erupción",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1164,
+        "indice_ultimo_parrafo": 1170,
+        "indice_inicio_doc": 78658,
+        "indice_fin_doc": 79237
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Elemental",
+        "Alcance: 25 metros",
+        "Requisito: el conjuro debe lanzarse sobre suelo sólido.",
+        "Canalizas el poder de la tierra y el fuego para desatar una violenta explosión de magma y rocas en un punto dentro del alcance. El suelo se abre, liberando una erupción de fuego y fragmentos de roca que arrasan con todo en un área de 12m2.",
+        "Todas las criaturas en el área sufren 2d6 puntos de daño contundente y por fuego por cada uno de tus Niveles. El terreno afectado queda inestable y humeante, dificultando el movimiento en la zona a discreción del Cronista."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-409",
+          "circulo": 6,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 149,
+      "nombre_literal": "Encierro de alma",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1171,
+        "indice_ultimo_parrafo": 1177,
+        "indice_inicio_doc": 79238,
+        "indice_fin_doc": 79782
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: toque",
+        "Duración: permanente",
+        "Extraes el alma de una criatura recién muerta y la encierras en una gema valiosa, de al menos 10.000 mo de valor. La criatura debe haber fallecido hace no más de 1 Turno por Nivel.",
+        "El alma atrapada no puede ser devuelta a la vida mediante ningún conjuro, incluido Duplicado perfecto, Crear muertos vivientes, Reanimación alquímica, Resurrección o Deseo. Solo destruyendo la gema se libera el alma, dejando a la víctima vulnerable a ser devuelta a la vida."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-419",
+          "circulo": 8,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 150,
+      "nombre_literal": "Endeblez",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1178,
+        "indice_ultimo_parrafo": 1183,
+        "indice_inicio_doc": 79783,
+        "indice_fin_doc": 80075
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Demonología",
+        "Alcance: 20 metros",
+        "Duración: 1 Turno por Nivel",
+        "Con un gesto cargado de energía negativa, debilitas el vigor del objetivo. Este sufre un -1 al daño que causa durante la duración del conjuro, mientras la energía demoníaca consume su fuerza corporal."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-121",
+          "circulo": 1,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    }
+  ]
+}
