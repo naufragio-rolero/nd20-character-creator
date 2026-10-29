@@ -39,7 +39,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 ### Tanda 2 — Talentos de Ocupaciones
 - [x] Inventario nominal: **163 relaciones Ocupación–Talento** consolidadas desde 234 referencias JSON, correspondientes a 51 Ocupaciones.
-- [ ] Extraer efectos y propiedades literales, niveles de adquisición y condiciones de elección. **20 Talentos de 9 Ocupaciones transcritos íntegramente** ([extracción literal](17-extraccion-literal-ocupaciones-lote-1.md), [registros](17a-extraccion-literal-ocupaciones-lote-1.json)); con [11 Talentos y 5 tablas del lote 2](19-extraccion-ocupaciones-lote-2.md); pendiente completar el resto de Ocupaciones; progresión de Valquiria **OCP-01 aprobada** ([resolución](20-ocp-01-resolucion-valquiria.md)), pendiente de aplicar al manual vigente.
+- [ ] Extraer efectos y propiedades literales, niveles de adquisición y condiciones de elección. **20 Talentos de 9 Ocupaciones transcritos íntegramente** ([extracción literal](17-extraccion-literal-ocupaciones-lote-1.md), [registros](17a-extraccion-literal-ocupaciones-lote-1.json)); con [11 Talentos y 5 tablas del lote 2](19-extraccion-ocupaciones-lote-2.md); pendiente completar el resto de Ocupaciones; [12 Talentos más preindexados](21-preextraccion-ocupaciones-lote-3.md). Progresión de Valquiria **OCP-01 aprobada** ([resolución](20-ocp-01-resolucion-valquiria.md)), pendiente de aplicar al manual vigente.
 - [ ] Contrastar referencias y progresiones, incluyendo pendientes de Truhán y Astrólogo. **Validadas las 4 tablas de progreso de Forense, Truhán, Acróbata y Astrólogo** ([informe](18-validacion-progresiones-ocupaciones-lote-1.md), [datos](18a-progresiones-ocupaciones-lote-1.json)); resto pendiente.
 - [ ] Entregar repertorio estructurado validado y registro de discrepancias.
 
@@ -152,3 +152,5 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 | 2026-10-29 | Tanda 2, lote 2 | [11 Talentos de 5 Ocupaciones y 5 tablas](19-extraccion-ocupaciones-lote-2.md). **20/163 extraídos; 143 pendientes.** OCP-01: contradicción entre texto y tabla de «Poderío de la Reina» (decisión del autor). OCP-02: errata «estabsa». |
 
 | 2026-10-29 | OCP-01 resuelto por el autor | [Poderío de la Reina](20-ocp-01-resolucion-valquiria.md): prevalece el texto, mejoras en Niveles 6, 12, 18, 24 y 30. [Tabla canónica de 30 niveles](20a-ocp-01-valquiria-progresion-aprobada.json). Original histórico y Técnicas preservados; pendiente actualizar manual fuente. |
+
+| 2026-10-29 | Tanda 2, lote 3 y OCP-02 | [12 Talentos preindexados](21-preextraccion-ocupaciones-lote-3.md) de Marionetista, Vikingo, Verdugo, Gladiador y Arlequín. Errata «estabsa» corregida en copia DOCX renderizada; fuente histórica preservada. Alertas OCP-03 a OCP-05 abiertas para cotejo. |
