@@ -1,0 +1,67 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 4,
+  "criterio": "Lectura directa de los DOCX originales, cotejo con referencias explícitas en DRS y bifurcación literal de CiFi",
+  "registros_validados": 3,
+  "total_validados_acumulado": 31,
+  "pendientes": 84,
+  "registros": [
+    {
+      "id_documental": "talento-especie:drs:semielfo:herencia-dual",
+      "sistema": "DRS",
+      "especie": "Semielfo",
+      "talento": "Herencia dual",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 174
+      },
+      "texto_literal": "Elige Buen desarrollo de los humanos o el Linaje feérico de los elfos.",
+      "propiedades_verificadas": [
+        "Elección entre Buen desarrollo y Linaje feérico",
+        "Buen desarrollo mejora un Atributo en 1 durante la creación de PJ",
+        "Linaje feérico concede inmunidad a Parálisis y Ventaja en Intuición para resistir Dormir"
+      ],
+      "observaciones": "Identificador contextual: no equiparar a Herencia dual del Semiorco.",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:semiorco:herencia-dual",
+      "sistema": "DRS",
+      "especie": "Semiorco",
+      "talento": "Herencia dual",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 182
+      },
+      "texto_literal": "Elige el Buen desarrollo de los humanos o la Ira interna de los orcos.",
+      "propiedades_verificadas": [
+        "Elección entre Buen desarrollo e Ira interna",
+        "Buen desarrollo mejora un Atributo en 1 durante la creación de PJ",
+        "Ira interna permite gastar 1 Esfuerzo al quedar con 0 Salud o menos para ajustarla a 1"
+      ],
+      "observaciones": "Identificador contextual: no equiparar a Herencia dual del Semielfo.",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-mindari:vinculo-psionico",
+      "sistema": "CiFi",
+      "especie": "Sylph mindari",
+      "talento": "Vínculo psiónico",
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "parrafos_docx": [
+          107,
+          108,
+          109
+        ]
+      },
+      "texto_literal": "Este Talento funciona de forma diferente según si perteneces a la ocupación Psion o no.\nPsion: Tienes 2 Puntos de Ímpetu adicionales.\nOtra ocupación: Elige un Poder Psiónico de la lista; puedes lanzarlo como si fueses un Psion si gastas 1 Punto de Esfuerzo.",
+      "propiedades_verificadas": [
+        "Si la Ocupación es Psion, +2 Puntos de Ímpetu",
+        "Si es otra Ocupación, elige un Poder Psiónico de la lista y puede lanzarlo por 1 Punto de Esfuerzo"
+      ],
+      "observaciones": "La selección del Poder requiere la lista oficial y no puede resolverse por inferencia.",
+      "estado": "validado_documentalmente_sin_integracion"
+    }
+  ]
+}
