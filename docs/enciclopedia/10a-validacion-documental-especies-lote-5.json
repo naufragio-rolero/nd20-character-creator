@@ -1,0 +1,234 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 5,
+  "metodo": "Coincidencia literal exacta de la ficha extraída con un párrafo del documento vivo Nocturna, más revisión de sus efectos expresos",
+  "registros_validados": 14,
+  "total_validados_acumulado": 45,
+  "pendientes": 70,
+  "registros": [
+    {
+      "id_documental": "talento-especie:nocturna:humano-natural:buen-desarrollo",
+      "sistema": "Nocturna",
+      "especie": "Humano natural",
+      "talento": "Buen desarrollo",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 5285
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-natural:adaptacion",
+      "sistema": "Nocturna",
+      "especie": "Humano natural",
+      "talento": "Adaptación",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Si sufres Desventaja en una Tirada de tu Atributo favorito, obtienes un +2 al resultado final.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 5369
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-natural:fuerza-de-voluntad",
+      "sistema": "Nocturna",
+      "especie": "Humano natural",
+      "talento": "Fuerza de voluntad",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Obtienes +1 en las Tiradas de Salvación de los Atributos Mente, Intuición y Presencia.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 5476
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-natural:red-de-contactos",
+      "sistema": "Nocturna",
+      "especie": "Humano natural",
+      "talento": "Red de contactos",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Conoces a alguien útil en cada ciudad que visitas (pregunta al Cronista).",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 5583
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-arcano:resistencia-magica",
+      "sistema": "Nocturna",
+      "especie": "Humano arcano",
+      "talento": "Resistencia mágica",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Obtienes un +1 a las Tiradas de Salvación para resistir efectos de Conjuros.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 6557
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:jiangshi:carne-cadaverica",
+      "sistema": "Nocturna",
+      "especie": "Jiangshi",
+      "talento": "Carne cadavérica",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Tienes un Blindaje efectivo de 2 para ataques de tipo contundente, cortante y perforante realizados con armas convencionales.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 18325
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-lobo:incansable",
+      "sistema": "Nocturna",
+      "especie": "Hombre lobo",
+      "talento": "Incansable",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Obtienes Ventaja en las Tiradas de Resistencia para recuperar Esfuerzo.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 25587
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-lobo:rabia-brutal",
+      "sistema": "Nocturna",
+      "especie": "Hombre lobo",
+      "talento": "Rabia brutal",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Obtienes un +2 a las Tiradas de Ataque y Daño en tu Forma de Bestia.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 25671
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-lobo:zancada-salvaje",
+      "sistema": "Nocturna",
+      "especie": "Hombre lobo",
+      "talento": "Zancada salvaje",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Obtienes +1 a Movimiento adicional en tus Formas de Lobo y Bestia.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 25754
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-cuervo:sombra-aerea",
+      "sistema": "Nocturna",
+      "especie": "Hombre cuervo",
+      "talento": "Sombra aérea",
+      "tipo": "elegible",
+      "texto_literal_vigente": "En tus Formas de Cuervo o Rara Avis, no haces ningún ruido al moverte.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 29258
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-cuervo:ventriloquia",
+      "sistema": "Nocturna",
+      "especie": "Hombre cuervo",
+      "talento": "Ventriloquía",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Si gastas 1 Punto de Esfuerzo, puedes imitar cualquier voz o sonido (que hayas escuchado al menos una vez en las últimas 24 horas) durante 1 Intervalo.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 29343
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:sidhe:corazon-ardiente",
+      "sistema": "Nocturna",
+      "especie": "Sidhe",
+      "talento": "Corazón ardiente",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Eres más apasionado que otros Sidhe. Obtienes 2 Puntos de Glamour adicionales cuando los recuperes, pero pierdes 1 adicional cuando éstos se consuman.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 34553
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:sidhe:ecos-de-sylestria",
+      "sistema": "Nocturna",
+      "especie": "Sidhe",
+      "talento": "Ecos de Sylestria",
+      "tipo": "elegible",
+      "texto_literal_vigente": "En tu sangre aún quedan fragmentos de tu reino natal. Si gastas 1 Punto de Esfuerzo, puedes lanzar cualquier Conjuro del Primer Círculo de las Escuelas Arcana o Naturaleza.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 34723
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:sidhe:fulgor-irreal",
+      "sistema": "Nocturna",
+      "especie": "Sidhe",
+      "talento": "Fulgor irreal",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Tu mera presencia altera la percepción de los mortales. Obtienes Ventaja en Tiradas de Presencia cuando intentas seducir, manipular o confundir a un mortal que no sea consciente de tu naturaleza feérica.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 34915
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Texto cotejado literalmente con el documento vivo; no supone prueba de funcionamiento en Forja."
+    }
+  ]
+}
