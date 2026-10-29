@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "25_de_25_cotejados",
+  "fichas": 25,
+  "parrafos_referenciados": 50,
+  "errores": [],
+  "fuentes": [
+    {
+      "archivo": "69g-conjuros-alfabeticos-151-175.json",
+      "sha": "290b25c79c15951d02afaa8ec12c9712edf3c241"
+    },
+    {
+      "archivo": "72g-desglose-revisado-conjuros-151-175.json",
+      "commit": "e21eb274c88e1fdf364525ecf5da993777c8b989"
+    }
+  ],
+  "nota": "Índices y nombres cotejados con 69g; la semántica no ha sido programada ni probada en Forja."
+}
