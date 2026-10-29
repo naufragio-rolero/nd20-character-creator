@@ -1,0 +1,220 @@
+{
+  "lote": 3,
+  "fecha": "2026-10-29",
+  "ocupacion": "Verdugo",
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "estado": "transcripcion_literal_cotejada_con_documento_local",
+  "registros": [
+    {
+      "ocupacion": "Verdugo",
+      "talento": "Aterrorizar",
+      "tipo": "Acción",
+      "texto_literal": "Acción\nTu mirada es terrorífica y provoca pesadillas. Una vez al día, puedes clavar tu mirada sobre una criatura humanoide (afectas a tantas criaturas como tu Nivel / 2, mínimo 1) y hacer que, a efectos de la regla de Enemigos poderosos, la Decapitación o tus Torturas, su Nivel se reduzca en 1d6 (hasta un mínimo de 1). Esta reducción de Nivel aumenta en 1 dado en los Niveles 12, 24 y 30, hasta un total de 4d6.",
+      "parrafos_documento": [
+        420,
+        422
+      ]
+    },
+    {
+      "ocupacion": "Verdugo",
+      "talento": "Decapitación",
+      "tipo": "Especial",
+      "texto_literal": "Especial\nPuedes asesinar inmediatamente a una criatura que esté tumbada e indefensa, de un Nivel inferior a ti, y de un Tamaño igual o inferior al tuyo, sin necesidad de Tirada, siempre y cuando lleves equipada un hacha de verdugo. La pesada hoja de tu arma siega su vida y su cabeza del cuerpo como si fuese mantequilla.",
+      "parrafos_documento": [
+        423,
+        425
+      ]
+    },
+    {
+      "ocupacion": "Verdugo",
+      "talento": "Torturar",
+      "tipo": "Acción",
+      "texto_literal": "Acción\nConoces métodos crueles para extraer información de víctimas que no ceden en el primer interrogatorio. Necesitas un lugar tranquilo (unas mazmorras húmedas, por ejemplo), 4 Intervalos y superar una Tirada de Fuerza: si tienes éxito, causas tanto daño físico como la ½ de la Salud actual de la víctima, sin llegar a reducir a 0 o menos su Salud.\nAl final del «tratamiento», si la víctima tiene un Nivel igual o inferior al tuyo, puedes obligarla a responder una pregunta de sí o no. Te contestará con la mayor sinceridad posible, aunque si tu Nivel es inferior te ignorará o te dará una respuesta errónea. Queda en tus manos tratar esta información como consideres, y el Cronista no te dará pista alguna sobre la veracidad.",
+      "parrafos_documento": [
+        426,
+        429
+      ]
+    }
+  ],
+  "tablas_originales": [
+    {
+      "ocupacion": "Marionetista",
+      "indice_word": 9,
+      "encabezados": [
+        "Nivel",
+        "Marionetas"
+      ],
+      "filas": [
+        [
+          "1 - 5",
+          "2"
+        ],
+        [
+          "6- 11",
+          "3"
+        ],
+        [
+          "12 - 17",
+          "4"
+        ],
+        [
+          "18 - 23",
+          "5"
+        ],
+        [
+          "24+",
+          "6"
+        ]
+      ]
+    },
+    {
+      "ocupacion": "Vikingo",
+      "indice_word": 10,
+      "encabezados": [
+        "Nivel",
+        "Técnicas",
+        "Ira del rayo"
+      ],
+      "filas": [
+        [
+          "1-6",
+          "2",
+          "1d6"
+        ],
+        [
+          "7-12",
+          "3",
+          "2d6"
+        ],
+        [
+          "13-18",
+          "4",
+          "3d6"
+        ],
+        [
+          "19-24",
+          "5",
+          "4d6"
+        ],
+        [
+          "25-30",
+          "6",
+          "5d6"
+        ]
+      ]
+    },
+    {
+      "ocupacion": "Verdugo",
+      "indice_word": 11,
+      "encabezados": [
+        "Nivel",
+        "Técnicas",
+        "Aterrorizar"
+      ],
+      "filas": [
+        [
+          "1 - 6",
+          "1",
+          "1d6"
+        ],
+        [
+          "7 - 11",
+          "2",
+          "1d6"
+        ],
+        [
+          "12 - 17",
+          "3",
+          "2d6"
+        ],
+        [
+          "18 - 23",
+          "4",
+          "2d6"
+        ],
+        [
+          "24 - 29",
+          "5",
+          "3d6"
+        ],
+        [
+          "30",
+          "6",
+          "4d6"
+        ]
+      ]
+    },
+    {
+      "ocupacion": "Gladiador",
+      "indice_word": 12,
+      "encabezados": [
+        "Nivel",
+        "Técnicas",
+        "Estilos de gladiatoria (Poder)"
+      ],
+      "filas": [
+        [
+          "1 - 6",
+          "2",
+          "1"
+        ],
+        [
+          "7 - 11",
+          "3",
+          "1"
+        ],
+        [
+          "12 - 17",
+          "4",
+          "2"
+        ],
+        [
+          "18 - 23",
+          "5",
+          "2"
+        ],
+        [
+          "24 - 30",
+          "6",
+          "3"
+        ]
+      ]
+    },
+    {
+      "ocupacion": "Arlequín",
+      "indice_word": 13,
+      "encabezados": [
+        "Nivel",
+        "Técnicas",
+        "Dado de Ridículo"
+      ],
+      "filas": [
+        [
+          "1 - 6",
+          "1",
+          "d6"
+        ],
+        [
+          "7 - 11",
+          "2",
+          "d6"
+        ],
+        [
+          "12 - 23",
+          "3",
+          "d8"
+        ],
+        [
+          "24 - 30",
+          "4",
+          "d10"
+        ]
+      ]
+    }
+  ],
+  "observaciones": [
+    "El nivel de Aterrorizar sólo disminuye a efectos de Enemigos poderosos, Decapitación o Torturas; no el nivel permanente.",
+    "El crecimiento del dado coincide con tabla 11; los tramos de Técnicas son independientes.",
+    "La tabla original de Estilos de gladiatoria pertenece a un Poder por acuerdo editorial OCP-05."
+  ]
+}
