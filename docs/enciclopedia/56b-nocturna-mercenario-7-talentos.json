@@ -1,0 +1,161 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "document_id": "15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28",
+    "url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+    "revision": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ"
+  },
+  "ocupacion": "Mercenario",
+  "estado": "transcripcion_literal_del_documento_vigente",
+  "registros": [
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Arte de la guerra",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1116,
+        1122
+      ],
+      "parrafos_literales": [
+        "Arte de la guerra",
+        "Pasiva",
+        "Tu experiencia en el campo de batalla te permite adaptarte rápidamente al flujo del combate. Al comienzo de cada enfrentamiento, eliges un enfoque de lucha:",
+        "Ofensivo: canalizas toda tu ferocidad para acabar con el enemigo. Durante ese combate, causas 2 de daño adicional con todos tus ataques éxitosos.",
+        "Defensivo: adoptas una postura precavida y táctica. Durante ese combate, obtienes +2 a todas tus Tiradas de Blindaje gracias a tu capacidad para cubrirte y minimizar la exposición.",
+        "Las bonificaciones de ambos enfoques aumentan en +1 en los Niveles 6, 12, 18 y 24, hasta un total de +6.",
+        "Obtienes +1 Potencia en los Niveles 9, 18 y 27, hasta un total de Potencia 4. Además, conoces demasiado bien los horrores de la guerra como para amedrentarte: tienes Ventaja en cualquier Tirada de Salvación de Presencia para resistir efectos de Miedo o Intimidación mientras el combate esté en curso."
+      ],
+      "texto_literal": "Arte de la guerra\nPasiva\nTu experiencia en el campo de batalla te permite adaptarte rápidamente al flujo del combate. Al comienzo de cada enfrentamiento, eliges un enfoque de lucha:\nOfensivo: canalizas toda tu ferocidad para acabar con el enemigo. Durante ese combate, causas 2 de daño adicional con todos tus ataques éxitosos.\nDefensivo: adoptas una postura precavida y táctica. Durante ese combate, obtienes +2 a todas tus Tiradas de Blindaje gracias a tu capacidad para cubrirte y minimizar la exposición.\nLas bonificaciones de ambos enfoques aumentan en +1 en los Niveles 6, 12, 18 y 24, hasta un total de +6.\nObtienes +1 Potencia en los Niveles 9, 18 y 27, hasta un total de Potencia 4. Además, conoces demasiado bien los horrores de la guerra como para amedrentarte: tienes Ventaja en cualquier Tirada de Salvación de Presencia para resistir efectos de Miedo o Intimidación mientras el combate esté en curso.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "¡Estáis encerrados conmigo!",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1125,
+        1128
+      ],
+      "parrafos_literales": [
+        "¡Estáis encerrados conmigo!",
+        "Pasiva",
+        "Cuando estás superado en número o acorralado en combate, tu instinto de supervivencia se dispara. Si al menos 2 enemigos te rodean en combate cuerpo a cuerpo, obtienes un ataque adicional y no sufres Desventaja al disparar armas de fuego a bocajarro contra aquellos que te rodean.",
+        "Además, mientras estés en esta situación de desventaja, obtienes +1 a tu Blindaje hasta que te puedas liberar."
+      ],
+      "texto_literal": "¡Estáis encerrados conmigo!\nPasiva\nCuando estás superado en número o acorralado en combate, tu instinto de supervivencia se dispara. Si al menos 2 enemigos te rodean en combate cuerpo a cuerpo, obtienes un ataque adicional y no sufres Desventaja al disparar armas de fuego a bocajarro contra aquellos que te rodean.\nAdemás, mientras estés en esta situación de desventaja, obtienes +1 a tu Blindaje hasta que te puedas liberar.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Adrenalina",
+      "activacion_literal": "Reacción",
+      "parrafos_fuente": [
+        1129,
+        1132
+      ],
+      "parrafos_literales": [
+        "Adrenalina",
+        "Reacción",
+        "La intensidad de la batalla te vigoriza. Una vez por Combate, cuando derrotas a un enemigo en combate cuerpo a cuerpo, recuperas de inmediato 1 Punto de Esfuerzo (hasta tu máximo, sin exceder tu límite). Si acabas a distancia con un enemigo particularmente desafiante (a criterio del Cronista, como un rival muy superior), también podrías recuperar ese Punto de Esfuerzo.",
+        "En los Niveles 6, 12, 18 y 24 aumentas en 1 las veces que tu Adrenalina te permite recuperar Puntos de Esfuerzo, hasta un total de 5 veces por Combate."
+      ],
+      "texto_literal": "Adrenalina\nReacción\nLa intensidad de la batalla te vigoriza. Una vez por Combate, cuando derrotas a un enemigo en combate cuerpo a cuerpo, recuperas de inmediato 1 Punto de Esfuerzo (hasta tu máximo, sin exceder tu límite). Si acabas a distancia con un enemigo particularmente desafiante (a criterio del Cronista, como un rival muy superior), también podrías recuperar ese Punto de Esfuerzo.\nEn los Niveles 6, 12, 18 y 24 aumentas en 1 las veces que tu Adrenalina te permite recuperar Puntos de Esfuerzo, hasta un total de 5 veces por Combate.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "En racha",
+      "activacion_literal": "Reacción",
+      "parrafos_fuente": [
+        1133,
+        1136
+      ],
+      "parrafos_literales": [
+        "En racha",
+        "Reacción",
+        "Cuando eliminas a un enemigo (lo reduces a 0 Puntos de Salud) en Combate, aprovechas la inercia del momento. Obtienes de forma inmediata una acción adicional que solo puedes emplear para moverte o para realizar un ataque extra (cuerpo a cuerpo o a distancia).",
+        "Este ataque adicional no consume tu acción normal del siguiente turno; es un instante de violencia gratuito. Solo puedes desencadenar este efecto una vez por Ronda, y únicamente durante tu propio Turno."
+      ],
+      "texto_literal": "En racha\nReacción\nCuando eliminas a un enemigo (lo reduces a 0 Puntos de Salud) en Combate, aprovechas la inercia del momento. Obtienes de forma inmediata una acción adicional que solo puedes emplear para moverte o para realizar un ataque extra (cuerpo a cuerpo o a distancia).\nEste ataque adicional no consume tu acción normal del siguiente turno; es un instante de violencia gratuito. Solo puedes desencadenar este efecto una vez por Ronda, y únicamente durante tu propio Turno.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Frenesí sanguinario",
+      "activacion_literal": "Acción",
+      "parrafos_fuente": [
+        1137,
+        1141
+      ],
+      "parrafos_literales": [
+        "Frenesí sanguinario",
+        "Acción",
+        "Coste: 1 Punto de Esfuerzo",
+        "Libera toda tu furia en un asalto imparable: cuando activas este Talento, puedes realizar dos ataques adicionales (además del que ya puedes realizar) contra el mismo objetivo (o contra diferentes objetivos que estén a tu alcance) durante tu Turno.",
+        "Si al menos uno de esos ataques adicionales impacta, cada uno causa daño normal y sumas un dado extra de daño (1d6) debido al impulso brutal de tu acometida. Después de este estallido de violencia, sufres Desventaja en tus Tiradas de Ataque hasta tu próximo Turno (te tomas un segundo para recuperarte del esfuerzo excesivo)."
+      ],
+      "texto_literal": "Frenesí sanguinario\nAcción\nCoste: 1 Punto de Esfuerzo\nLibera toda tu furia en un asalto imparable: cuando activas este Talento, puedes realizar dos ataques adicionales (además del que ya puedes realizar) contra el mismo objetivo (o contra diferentes objetivos que estén a tu alcance) durante tu Turno.\nSi al menos uno de esos ataques adicionales impacta, cada uno causa daño normal y sumas un dado extra de daño (1d6) debido al impulso brutal de tu acometida. Después de este estallido de violencia, sufres Desventaja en tus Tiradas de Ataque hasta tu próximo Turno (te tomas un segundo para recuperarte del esfuerzo excesivo).",
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Imparable",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1142,
+        1145
+      ],
+      "parrafos_literales": [
+        "Imparable",
+        "Pasiva",
+        "Eres un combatiente tenaz que no cede ante las heridas. Obtienes +2 en todas tus tiradas de Salvación de Resistencia para resistir dolor, venenos o efectos que intenten incapacitarte.",
+        "Además, una vez al día, si tus Puntos de Salud fueran a caer a 0 o menos, automáticamente quedas en 1 Punto en su lugar —te niegas a morir mientras te quede un hálito de vida—. Este segundo aliento solo ocurre una vez por día; después de salvarte de esa forma, sabes que la próxima herida grave podría ser la última."
+      ],
+      "texto_literal": "Imparable\nPasiva\nEres un combatiente tenaz que no cede ante las heridas. Obtienes +2 en todas tus tiradas de Salvación de Resistencia para resistir dolor, venenos o efectos que intenten incapacitarte.\nAdemás, una vez al día, si tus Puntos de Salud fueran a caer a 0 o menos, automáticamente quedas en 1 Punto en su lugar —te niegas a morir mientras te quede un hálito de vida—. Este segundo aliento solo ocurre una vez por día; después de salvarte de esa forma, sabes que la próxima herida grave podría ser la última.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Plan de batalla",
+      "activacion_literal": "Acción",
+      "parrafos_fuente": [
+        1146,
+        1150
+      ],
+      "parrafos_literales": [
+        "Plan de batalla",
+        "Acción",
+        "Coste: 1 Punto de Esfuerzo",
+        "Con ojo experto, analizas la situación y das órdenes concisas. Todos los aliados que puedan oírte obtienen Ventaja en su próxima Tirada de Ataque o en su próxima Tirada de Salvación (lo que ocurra primero) siguiendo tus indicaciones.",
+        "Además, puedes recolocar inmediatamente hasta a dos aliados (o a ti mismo y a un aliado) hasta 3 metros, moviéndolos a una posición táctica mejor (por ejemplo, a cubierto o flanqueando al enemigo). Solo puedes usar Plan de batalla una vez por combate, aunque a partir de los Niveles 12 y 24 aumentas en 1 las veces que lo puedes usar, hasta un máximo de 3."
+      ],
+      "texto_literal": "Plan de batalla\nAcción\nCoste: 1 Punto de Esfuerzo\nCon ojo experto, analizas la situación y das órdenes concisas. Todos los aliados que puedan oírte obtienen Ventaja en su próxima Tirada de Ataque o en su próxima Tirada de Salvación (lo que ocurra primero) siguiendo tus indicaciones.\nAdemás, puedes recolocar inmediatamente hasta a dos aliados (o a ti mismo y a un aliado) hasta 3 metros, moviéndolos a una posición táctica mejor (por ejemplo, a cubierto o flanqueando al enemigo). Solo puedes usar Plan de batalla una vez por combate, aunque a partir de los Niveles 12 y 24 aumentas en 1 las veces que lo puedes usar, hasta un máximo de 3.",
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "requisito_literal": null
+    }
+  ],
+  "adquisicion": {
+    "fijo": "Arte de la guerra",
+    "opcionales": [
+      "¡Estáis encerrados conmigo!",
+      "Adrenalina",
+      "En racha",
+      "Frenesí sanguinario",
+      "Imparable",
+      "Plan de batalla"
+    ],
+    "niveles_de_eleccion": [
+      1,
+      9
+    ],
+    "instruccion_literal": "Como Mercenario, puedes tomar uno de los siguientes Talentos a Nivel 1 y otro a Nivel 9."
+  },
+  "nota": "Índices ordinales del documento de Google, no índices Word. Los párrafos se conservan íntegros."
+}
