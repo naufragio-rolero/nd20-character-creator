@@ -87,7 +87,14 @@
     "texto_original": [
       "Al destapar el recipiente, un fuerte olor a hierba machacada y a humedad asalta tus fosas nasales. Si gastas una acción para beber el elixir, recuperas un punto de energía. Si consumes más de un elixir de esfuerzo antes de realizar un descanso, recibirás tantos d6 de daño como tu nivel."
     ],
-    "no_contabilizar_en_28": true
+    "no_contabilizar_en_28": true,
+    "correccion_editorial_aprobada": {
+      "fecha": "2026-10-29",
+      "aprobacion": "Autor, conversación de proyecto",
+      "sustitucion": "recuperas un punto de energía → recuperas 1 punto de Esfuerzo",
+      "efecto_vigente_literal": "Al destapar el recipiente, un fuerte olor a hierba machacada y a humedad asalta tus fosas nasales. Si gastas una acción para beber el elixir, recuperas 1 punto de Esfuerzo. Si consumes más de un elixir de esfuerzo antes de realizar un descanso, recibirás tantos d6 de daño como tu nivel.",
+      "regla": "Prevalece la lectura corregida para nuevas fichas y futura integración. texto_original queda intacto para el cotejo histórico."
+    }
   },
   "alertas": [
     {
