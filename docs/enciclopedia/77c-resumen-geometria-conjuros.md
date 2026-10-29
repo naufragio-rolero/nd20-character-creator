@@ -29,8 +29,14 @@ Las **10 fichas completas con el párrafo corregido** y la correspondencia antes
 
 Los casos restantes que expresan «área de Xm2» u otro alcance superficial no son necesariamente errores, aunque podrían requerir una forma geométrica para calcular casillas afectadas. **No convertirlos automáticamente en radios ni en círculos.**
 
+## Segunda pasada de detección
+
+Una lectura adicional de las 65 fichas con unidades de superficie o volumen ha localizado **seis erratas más** que no estaban entre los diez patrones sintácticos «radio de Xm²»: «Nube de aniquilación» (259) usa «3m2 de radio»; «Niebla carmesí» (257) y «Zona onírica» (434) hablan de «m² de diámetro»; «Torbellino de arena» (396) duplica «m2 metros»; «Deformar madera» (130) llama «área» a un volumen y «Rayo desintegrador» (331) denomina «superficie» a una cantidad cúbica. Las seis **propuestas pendientes de aprobación** están contextualizadas en [77d](77d-segunda-pasada-erratas-geométricas.json). No forman parte de las diez correcciones aprobadas en 78a.
+
+Los diez cambios aprobados han superado [78b — auditoría de sustituciones](78b-auditoria-correcciones-geometria.json): cero alteraciones de párrafos ajenos o metadatos de origen.
+
 ## Limitaciones y próximo paso
 
 La búsqueda detecta **patrones de unidades expresadas textualmente**, no todas las descripciones espaciales: no es una auditoría exhaustiva de conos, líneas, radios en metros, alcances de toque o áreas descritas sin números. El recuento anterior (62 fichas, 65 menciones, ocho casos) se reemplaza por **65 fichas, 69 menciones, 10 casos**, al corregir la detección de `m²` y `km²`. La fuente y sus fichas originales nunca estuvieron afectadas.
 
-**Estado:** los diez casos de «radio de superficie» están resueltos en la capa editorial 78a; quedan pendientes las tres incidencias de Alcance o centro antes indicadas y la auditoría de otras geometrías (conos, líneas, volúmenes y áreas sin forma declarada). No trasladar automáticamente decisiones específicas de Talentos (como Mímica o Ridículo) a todo el Tomo.
+**Estado:** los diez casos iniciales de «radio de superficie» están resueltos en la capa editorial 78a. Continúan pendientes tres incidencias de Alcance o centro, seis erratas adicionales identificadas en 77d y la revisión de otras geometrías (conos, líneas, volúmenes y áreas sin forma declarada). No trasladar automáticamente decisiones específicas de Talentos (como Mímica o Ridículo) a todo el Tomo.
