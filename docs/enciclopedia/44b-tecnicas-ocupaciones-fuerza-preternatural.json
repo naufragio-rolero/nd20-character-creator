@@ -1,0 +1,83 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "categoria": "Técnicas de batalla",
+  "subcategorias": [
+    {
+      "categoria": "Fuerza bruta",
+      "registros": [
+        {
+          "nombre": "Baile frenético",
+          "parrafos": [
+            1376,
+            1380
+          ],
+          "coste": "½ de tu Salud total",
+          "requisito": "Resistencia 8+",
+          "alcance": "personal",
+          "texto_literal": "Realizas un rápido baile ritual mientras te golpeas y te provocas heridas en abdomen, hombros y pecho. El dolor te hace entrar en un trance que te proporciona +2 Potencia hasta que acabe el enfrentamiento (o pase 1 Intervalo)."
+        }
+      ]
+    },
+    {
+      "categoria": "Preternatural",
+      "registros": [
+        {
+          "nombre": "Anhelo voluntarioso",
+          "parrafos": [
+            1382,
+            1386
+          ],
+          "coste": "½ de tu Salud actual",
+          "requisito": "Mente 8+, Valquiria",
+          "alcance": "personal",
+          "texto_literal": "Extraes fuerzas doradas de tu interior que te insuflan con nuevas energías, recuperando 1d4 Puntos de Esfuerzo. Las heridas causadas por esta Técnica son espirituales y no se recuperarán con medicina tradicional o magia curativa, sino tras una merecida meditación a solas en un ambiente tranquilo."
+        },
+        {
+          "nombre": "Corte fantasma",
+          "parrafos": [
+            1387,
+            1391
+          ],
+          "coste": "1 Esfuerzo",
+          "requisito": "Presencia 10+, arma de filo",
+          "alcance": "arma",
+          "texto_literal": "Cuando eres atacado de forma repentina por un enemigo, eres capaz de impactar incluso sin haberlo atacado anteriormente. Activa esta Técnica cuando seas víctima de un ataque cuerpo a cuerpo que no te haya herido: realiza una Tirada de ataque; si tienes éxito, causas daño con Potencia +1 y una bonificación al daño igual a tu Nivel. Por otra parte, si no tienes éxito, causas tanto daño físico como tu Nivel."
+        },
+        {
+          "nombre": "Orden siniestra",
+          "parrafos": [
+            1392,
+            1396
+          ],
+          "requisito": "Endecha de los condenados",
+          "alcance": "10 metros",
+          "texto_literal": "Haces saber a tu rival que el dolor que bulle en tu alma no es sólo espiritual, si no una infame maldición que estás dispuesto a compartir con aquellos cobardes que intenten evitar un enfrentamiento contigo.\nPuedes usar esta Técnica como acción gratuita al principio de tu Turno, antes de moverte. Realiza una Tirada de Presencia: si tienes éxito, el objetivo de tu Orden siniestra deberá atacarte durante el próximo Turno o sufrir tanto daño impío como la mitad de tu Nivel (mínimo 1). Sólo puedes tener a un objetivo bajo la influencia de tu Orden siniestra a la vez."
+        },
+        {
+          "nombre": "Distorsión temporal reactiva",
+          "parrafos": [
+            1397,
+            1401
+          ],
+          "coste": "1 Esfuerzo",
+          "requisito": "Agilidad 10+, Cronómaca",
+          "alcance": "personal",
+          "texto_literal": "De tu propio ser emanan pequeñas hebras de energía cronomántica. Cuando sufres daño durante un Combate, puedes activar esta Técnica para acelerar el tiempo alrededor de tu aura: en el siguiente Turno que actúes, obtendrás una acción adicional (atacar, moverte, etc.)."
+        },
+        {
+          "nombre": "Siervo de las sombras",
+          "parrafos": [
+            1402,
+            1408
+          ],
+          "coste": "2 puntos de Esfuerzo",
+          "requisito": "Mente 8+, Endecha de los condenados",
+          "alcance": "2 metros",
+          "duracion": "1 Intervalo por Nivel",
+          "texto_literal": "Evocas cánticos lúgubres y blasfemos que arrancan de un reino sombrío una parte de tu alma, materializándola como un ser compuesto por humo negro.\nCreas un doble de ti mismo que está a tu servicio, pero posee la mitad de tus Puntos de Salud máximos. Posee todas tus facultades y capacidades, aunque no tiene raciocinio propio. Si este ser muere antes de que finalice la convocación, tus Puntos de Salud se verán reducidos a 1 y quedarás Enfermo durante 1d6 días."
+        }
+      ]
+    }
+  ],
+  "nota": "Conservar los costes literalmente: las fracciones de Salud total y actual no son intercambiables. Orden siniestra no declara coste en su ficha fuente, no se le añade uno."
+}
