@@ -1,0 +1,538 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    76,
+    100
+  ],
+  "numero_registros": 25,
+  "numero_fragmentos_cotejados": 98,
+  "nivel": "revision_manual_documental_no_integracion",
+  "registros": [
+    {
+      "numero_tomo": 76,
+      "nombre": "Claridad",
+      "tipo_analitico_no_oficial": "anulación limitada de penalización para un solo lanzamiento",
+      "fragmentos_reglamentarios_literales": [
+        "Nivel / 6 (mínimo 1)",
+        "únicamente al siguiente Conjuro que lances"
+      ],
+      "advertencias_de_integracion": [
+        "El texto no especifica cómo redondear el cociente Nivel/6.",
+        "No aplicar el beneficio indefinidamente."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 76,
+        "indice_encabezado": 644
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 77,
+      "nombre": "Convertir agua",
+      "tipo_analitico_no_oficial": "conversión permanente de agua en materia",
+      "fragmentos_reglamentarios_literales": [
+        "Duración: permanente",
+        "hasta 1 litro por Nivel",
+        "vino, cerveza, aceite o hielo",
+        "debe estar en un recipiente"
+      ],
+      "advertencias_de_integracion": [
+        "El original dice que el recipiente permite actuar «de manera óptima», sin detallar penalización si falta.",
+        "No crear otros tipos de sustancias."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 77,
+        "indice_encabezado": 649
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 78,
+      "nombre": "Crecimiento salvaje",
+      "tipo_analitico_no_oficial": "crecimiento y restauración natural permanente",
+      "fragmentos_reglamentarios_literales": [
+        "Lanzamiento: 1 Intervalo",
+        "área de 5 m2",
+        "nacerán de inmediato sin peligro alguno",
+        "Duración: permanente"
+      ],
+      "advertencias_de_integracion": [
+        "Conservar 5 m² como superficie, no radio.",
+        "No otorgar crecimiento adicional a criaturas adultas ni regeneración de Salud."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 78,
+        "indice_encabezado": 655
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 79,
+      "nombre": "Caminar de los vientos",
+      "tipo_analitico_no_oficial": "bonificación de Movimiento acumulable",
+      "fragmentos_reglamentarios_literales": [
+        "+1 Movimiento",
+        "puede combinarse con otras habilidades de movimiento",
+        "no permite ignorar terrenos difíciles"
+      ],
+      "advertencias_de_integracion": [
+        "La compatibilidad de Movimiento no elimina penalizaciones de terreno."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 79,
+        "indice_encabezado": 663
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 80,
+      "nombre": "Carne cambiante",
+      "tipo_analitico_no_oficial": "elección exclusiva entre tres alteraciones",
+      "fragmentos_reglamentarios_literales": [
+        "uno de los siguientes beneficios",
+        "Penetración 2",
+        "d8 de daño contundente, cortante o perforante",
+        "resistencia a un tipo de elemento",
+        "tus ropajes y equipo no se adaptan"
+      ],
+      "advertencias_de_integracion": [
+        "No conceder simultáneamente las tres formas.",
+        "No asignar valor numérico a «resistencia» si la ficha no lo da; cotejar DRS.",
+        "Conservar el d8 sin asumir Potencia adicional."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 80,
+        "indice_encabezado": 669
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 81,
+      "nombre": "Corcel de los astros",
+      "tipo_analitico_no_oficial": "montura invocada con limitación por destrucción",
+      "fragmentos_reglamentarios_literales": [
+        "primera vez que uses este conjuro",
+        "elegir el tipo de animal",
+        "0 Puntos de Salud o menos",
+        "24 horas"
+      ],
+      "advertencias_de_integracion": [
+        "La especie de montura se selecciona la primera vez y requiere acuerdo con Cronista.",
+        "No permitir nueva invocación inmediata tras destruirla."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 81,
+        "indice_encabezado": 679
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 82,
+      "nombre": "Círculo de potenciación",
+      "tipo_analitico_no_oficial": "círculo fijo de potenciación por Escuela",
+      "fragmentos_reglamentarios_literales": [
+        "ocupa 2m2",
+        "elegir una Escuela de Magia",
+        "+4 en las Tiradas de Conjuro",
+        "solo beneficia a quien lo dibujó",
+        "Si abandonas el círculo, pierdes la bonificación"
+      ],
+      "advertencias_de_integracion": [
+        "No interpretar 2m2 como radio.",
+        "La bonificación vuelve al regresar dentro de la duración."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 82,
+        "indice_encabezado": 687
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 83,
+      "nombre": "Crecimiento primordial",
+      "tipo_analitico_no_oficial": "área de plantas agresivas con presa seleccionada",
+      "fragmentos_reglamentarios_literales": [
+        "área de 10m2",
+        "Cada Turno, puedes seleccionar hasta 3 criaturas",
+        "2d6 de daño perforante",
+        "Movimiento a 0",
+        "Probabilidad 14+",
+        "Cobertura grande"
+      ],
+      "advertencias_de_integracion": [
+        "No daña automáticamente a todos los presentes: exige seleccionar hasta tres objetivos por Turno.",
+        "No aplicar efecto de daño sobre aliados por mera presencia; sí cobertura explícita."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 83,
+        "indice_encabezado": 695
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 84,
+      "nombre": "Cataclismo tenebroso",
+      "tipo_analitico_no_oficial": "cataclismo con coste de Salud y consecuencias duraderas",
+      "fragmentos_reglamentarios_literales": [
+        "Lanzamiento: 4 Turnos",
+        "¼ de tu Salud máxima",
+        "20d10 puntos de daño impío, la mitad si no",
+        "deberán superar una Tirada de Resistencia",
+        "2d6 Intervalos",
+        "1d8 años"
+      ],
+      "advertencias_de_integracion": [
+        "El texto no especifica qué sucede si un PJ supera o falla la Tirada de Resistencia; requiere aclaración.",
+        "No equiparar ¼ de Salud máxima a ¼ de Salud actual.",
+        "Los daños y efectos sobre el terreno son independientes de la oscuridad temporal."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 84,
+        "indice_encabezado": 704
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 85,
+      "nombre": "Calma silvestre",
+      "tipo_analitico_no_oficial": "pacificación inmediata con comprobación condicional",
+      "fragmentos_reglamentarios_literales": [
+        "área de 10m2",
+        "Bestia de Nivel 3 o inferior",
+        "Si la Bestia dispone de inteligencia excepcional",
+        "tendrás que superar una Tirada de Conjuro"
+      ],
+      "advertencias_de_integracion": [
+        "No aplicar la Tirada de Conjuro a toda Bestia; sólo a casos excepcionales descritos.",
+        "Mantener el límite de Nivel 3."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 85,
+        "indice_encabezado": 718
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 86,
+      "nombre": "Cólera de Nirebia",
+      "tipo_analitico_no_oficial": "dos consecuencias según tipo de criatura",
+      "fragmentos_reglamentarios_literales": [
+        "si tienes éxito",
+        "Si el objetivo es una criatura de tipo Limo",
+        "1d6 puntos de daño por fuerza por cada uno de tus Niveles",
+        "Si no lo es",
+        "fallecerá en 4d6 días",
+        "penalización -2 a todas las Tiradas"
+      ],
+      "advertencias_de_integracion": [
+        "No permitir elegir entre daño de Limo y enfermedad letal independientemente del tipo.",
+        "No inventar método de curación sobrenatural."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 86,
+        "indice_encabezado": 725
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 87,
+      "nombre": "Cinco senderos de Excelsus",
+      "tipo_analitico_no_oficial": "teletransporte entre cinco puertas con azar",
+      "fragmentos_reglamentarios_literales": [
+        "número del 1 al 5",
+        "tirar 1d6",
+        "si saca un 6",
+        "1d4 Intervalos",
+        "lanza 3d6 y elige el número"
+      ],
+      "advertencias_de_integracion": [
+        "Los lanzamientos del usuario y de otras criaturas son distintos.",
+        "No inventar alternativa si los tres d6 del lanzador muestran 6."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 87,
+        "indice_encabezado": 732
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 88,
+      "nombre": "Clarividencia",
+      "tipo_analitico_no_oficial": "visión con fiabilidad secreta",
+      "fragmentos_reglamentarios_literales": [
+        "Cronista determina en secreto",
+        "Probabilidad 7+",
+        "confusa o engañosa"
+      ],
+      "advertencias_de_integracion": [
+        "No informar al jugador del resultado oculto de fiabilidad como dato garantizado."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 88,
+        "indice_encabezado": 740
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 89,
+      "nombre": "Consulta astral",
+      "tipo_analitico_no_oficial": "consulta de información con riesgo acumulado",
+      "fragmentos_reglamentarios_literales": [
+        "Cada respuesta tiene una Probabilidad 15+ de ser falsa",
+        "Después de cada respuesta, debes superar una Tirada de Conjuro",
+        "tantas semanas como preguntas hayas formulado"
+      ],
+      "advertencias_de_integracion": [
+        "La Tirada se realiza después de cada respuesta, no antes.",
+        "El texto permite preguntas hasta que una Tirada detenga la consulta."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 89,
+        "indice_encabezado": 745
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 90,
+      "nombre": "Cúpula antimagia",
+      "tipo_analitico_no_oficial": "supresión mágica fija de entorno",
+      "fragmentos_reglamentarios_literales": [
+        "radio de 3m2",
+        "permanece fijo en el lugar donde la conjuras",
+        "no se desplaza contigo"
+      ],
+      "advertencias_de_integracion": [
+        "«radio de 3m2» mezcla radio lineal y superficie; no asignar geometría arbitraria.",
+        "Aunque Alcance dice personal, el domo no sigue al personaje."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 90,
+        "indice_encabezado": 752
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 91,
+      "nombre": "Cárcel de la eternidad",
+      "tipo_analitico_no_oficial": "prisión permanente mediante Tirada de Conjuro",
+      "fragmentos_reglamentarios_literales": [
+        "si tienes éxito",
+        "animación suspendida para siempre",
+        "indetectable para métodos de adivinación"
+      ],
+      "advertencias_de_integracion": [
+        "No considerar atrapado al objetivo si falla la Tirada.",
+        "La indetectabilidad no implica inmunidad a cualquier rescate físico."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 91,
+        "indice_encabezado": 758
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 92,
+      "nombre": "Consagrar/Profanar agua",
+      "tipo_analitico_no_oficial": "consagración o profanación permanente del agua",
+      "fragmentos_reglamentarios_literales": [
+        "Duración: permanente",
+        "agua bendita",
+        "en agua impía",
+        "según tu intención"
+      ],
+      "advertencias_de_integracion": [
+        "No inventar volumen máximo ni daño a criaturas sin otra regla."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 92,
+        "indice_encabezado": 766
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 93,
+      "nombre": "Carcajadas infames de Hstet",
+      "tipo_analitico_no_oficial": "Derribado por magia bárdica con mantenimiento",
+      "fragmentos_reglamentarios_literales": [
+        "Categorías Fata, Gigante o Humanoide",
+        "si tienes éxito",
+        "queda Derribado",
+        "Al final de cada Turno de la víctima, o cuando reciba daño",
+        "con Desventaja si es provocada por recibir daño"
+      ],
+      "advertencias_de_integracion": [
+        "El mantenimiento exige repetir Tirada de Conjuro en las circunstancias indicadas.",
+        "No tratar la condición Derribado como Parálisis."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 93,
+        "indice_encabezado": 772
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 94,
+      "nombre": "Comité de limpieza arcano",
+      "tipo_analitico_no_oficial": "sirvientes etéreos para tareas de limpieza",
+      "fragmentos_reglamentarios_literales": [
+        "10m2 por Nivel",
+        "exclusivamente a limpiar y ordenar",
+        "No pueden interactuar con objetos mágicos"
+      ],
+      "advertencias_de_integracion": [
+        "Los sirvientes no combaten ni realizan acciones ajenas a la limpieza."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 94,
+        "indice_encabezado": 781
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 95,
+      "nombre": "Cañón aural",
+      "tipo_analitico_no_oficial": "daño mágico en línea geométrica",
+      "fragmentos_reglamentarios_literales": [
+        "20 metros (línea recta)",
+        "2 metros de ancho y 20 metros de largo",
+        "15d10 de daño mágico"
+      ],
+      "advertencias_de_integracion": [
+        "No cambiar una línea de 2 metros de ancho por círculo o cono.",
+        "No consta Tirada de Conjuro adicional específica de impacto."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 95,
+        "indice_encabezado": 789
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 96,
+      "nombre": "Convergencia vital de Olphegor",
+      "tipo_analitico_no_oficial": "igualación de Salud con coste condicional",
+      "fragmentos_reglamentarios_literales": [
+        "Puntos de Salud actuales del objetivo se ajustan",
+        "tus Puntos de Salud máximos",
+        "daño impío equivalente a la diferencia",
+        "no puede ser reducido",
+        "Si el objetivo tiene menos Puntos de Salud que tú, no sufres daño"
+      ],
+      "advertencias_de_integracion": [
+        "La excepción final puede contradecir el daño sufrido cuando el objetivo gana Salud: exigir conciliación antes de implementación.",
+        "No confundir Salud actual del objetivo con máxima del lanzador."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 96,
+        "indice_encabezado": 794
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 97,
+      "nombre": "Cosecha de Mushuki",
+      "tipo_analitico_no_oficial": "creación temporal de raciones naturales",
+      "fragmentos_reglamentarios_literales": [
+        "un racimo de bayas azules por cada Nivel",
+        "alimentar a una persona durante un día completo",
+        "Pasadas 24 horas, se desvanecerán"
+      ],
+      "advertencias_de_integracion": [
+        "Es alimento, no curación ni beneficio mágico adicional."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 97,
+        "indice_encabezado": 801
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 98,
+      "nombre": "Dardo ígneo",
+      "tipo_analitico_no_oficial": "daño por fuego condicionado por éxito",
+      "fragmentos_reglamentarios_literales": [
+        "1d6 de daño por fuego",
+        "si superas una Tirada de Conjuro"
+      ],
+      "advertencias_de_integracion": [
+        "No aplicar daño parcial al fallo como en Bola de fuego; aquí no se menciona."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 98,
+        "indice_encabezado": 808
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 99,
+      "nombre": "Detectar magia",
+      "tipo_analitico_no_oficial": "detección visual de efectos mágicos",
+      "fragmentos_reglamentarios_literales": [
+        "área de 20m a tu alrededor",
+        "Si algo bloquea tu línea de visión",
+        "no podrás ver el resplandor"
+      ],
+      "advertencias_de_integracion": [
+        "La detección depende de la visión: no atraviesa paredes.",
+        "El alcance se expresa «20m» sin precisar aquí superficie o radio exacto."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 99,
+        "indice_encabezado": 813
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 100,
+      "nombre": "Disipar magia",
+      "tipo_analitico_no_oficial": "disipación de área o de objeto",
+      "fragmentos_reglamentarios_literales": [
+        "área de 6m cúbicos",
+        "Nivel mayor a ti, no puedes disiparlo",
+        "Si quieres afectar a una criatura, debes superar una Tirada de Conjuro",
+        "anular sus efectos de forma definitiva"
+      ],
+      "advertencias_de_integracion": [
+        "Las variantes de área y objeto deben registrarse como alternativas, no como efecto automático simultáneo.",
+        "No convertir 6m cúbicos en radio de 6m.",
+        "El original distingue efectos en criaturas y objetos: no exigir la misma Tirada a todas las variantes."
+      ],
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "indice": 100,
+        "indice_encabezado": 818
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    }
+  ],
+  "incidencias_relevantes": [
+    "«Cúpula antimagia»: radio de 3m2, geometría incoherente.",
+    "«Convergencia vital de Olphegor»: daño al lanzador y excepción final con posible contradicción.",
+    "«Cataclismo tenebroso»: Tirada de Resistencia de PJ afectado sin consecuencia explícita del éxito o fallo.",
+    "«Calma silvestre», «Carcajadas infames de Hstet»: Tiradas condicionales, no universales."
+  ]
+}
