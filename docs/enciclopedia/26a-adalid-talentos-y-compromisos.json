@@ -1,0 +1,88 @@
+{
+  "fecha": "2026-10-29",
+  "ocupacion": "Adalid",
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "estado": "transcripcion_literal_y_condicionalidad",
+  "registros": [
+    {
+      "talento": "Poderío del caballero",
+      "tipo": "Pasiva",
+      "texto_literal": "Pasiva\nTu entrenamiento como adalid ha llevado tu cuerpo a su límite mortal. Tus sentidos y tu cuerpo están aumentados por la chispa divina que arde en tu interior. Tienes Ventaja en las Tiradas de Fuerza para apresar o retener oponentes y en las de Resistencia para soportar enfermedades o venenos.",
+      "parrafos": [
+        693,
+        695
+      ]
+    },
+    {
+      "talento": "Compromiso del adalid",
+      "tipo": "Especial",
+      "texto_literal": "Especial\nAntes de comenzar tu adiestramiento, elegiste una orden de caballería, una nación o una secta a la que juraste lealtad y servidumbre. Tus capacidades y poderes como adalid vienen de este compromiso, que conforma prácticamente todo por lo que vives y serán, sin ninguna duda, el motivo por el que mueras. Elige una de las siguientes opciones:\nGuardián leal: Los adalides que se adhieren a este Compromiso han jurado lealtad a una nación, a un linaje o a una casa noble en concreto. Representa el estereotipo de caballero medieval embutido en una coraza pesada y armado con una lanza.\nObtienes el Talento Desafío honorable.\nObtienes competencia con Técnicas de batalla de la categoría Fuerza bruta.\nJuramento sagrado: Aquellos que siguen este Código son considerados guerreros sagrados o paladines de una deidad o espíritu deífico.\nObtienes el Talento Imposición de manos.\nObtienes competencia con Conjuros de la Escuela Divina hasta el Cuarto Círculo. Consulta la Lista de Conjuros del Juramento sagrado para saber a cuales tienes acceso.\nEndecha de los condenados: No todos los adalides son fervientes defensores del bien. Los paladines caídos, antihéroes o estereotipos del guardia negro siguen la Endecha de los condenados, un Compromiso oscuro y triste que representa lo peor de la caballería.\nObtienes competencia con Técnicas de batalla de la categoría Preternatural.\nObtienes competencia con Conjuros de las Escuelas Arcana, Demonología y Nigromancia hasta el Cuarto Círculo. Consulta la Lista de Conjuros de la Endecha de los condenados para saber a cuales tienes acceso.",
+      "parrafos": [
+        696,
+        707
+      ]
+    },
+    {
+      "talento": "Desafío honorable",
+      "tipo": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Esfuerzo\nCargas con la responsabilidad de defender al débil y castigar a los injustos. Puedes canalizar energía sagrada para retar a un oponente en combate singular. El villano afectado por tu desafío deberá enzarzarse en una lucha cuerpo a cuerpo contigo o sufrirá Desventaja en todas sus Tiradas de ataque contra otro objetivo que no seas tú.\nEl Desafío durará hasta que el objetivo sea derrotado o tú caigas inconsciente. Puedes anular este mandato divino simplemente deseándolo, pero si vas desafiando a la ligera, es muy probable que tu orden no se lo tome a bien.",
+      "parrafos": [
+        709,
+        713
+      ]
+    },
+    {
+      "talento": "Imposición de manos",
+      "tipo": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Esfuerzo\nTu toque es capaz de sanar milagrosamente las heridas de otros. Tras tocar a otra criatura viva, puedes hacer que recupere 1d4 Puntos de Salud. Esta cantidad obtiene Potencia +1 en los Niveles 6, 12, 18, 24 y 30, hasta un total de 6d4 Puntos de Salud.",
+      "parrafos": [
+        714,
+        717
+      ]
+    }
+  ],
+  "modelo_de_eleccion": {
+    "nivel": 1,
+    "talentos_fijos": [
+      "Poderío del caballero",
+      "Compromiso del adalid"
+    ],
+    "opciones": [
+      {
+        "nombre": "Guardián leal",
+        "talento_condicional": "Desafío honorable",
+        "tecnicas": [
+          "Fuerza bruta"
+        ]
+      },
+      {
+        "nombre": "Juramento sagrado",
+        "talento_condicional": "Imposición de manos",
+        "conjuros": {
+          "escuelas": [
+            "Divina"
+          ],
+          "circulo_maximo": 4
+        }
+      },
+      {
+        "nombre": "Endecha de los condenados",
+        "talento_condicional": null,
+        "tecnicas": [
+          "Preternatural"
+        ],
+        "conjuros": {
+          "escuelas": [
+            "Arcana",
+            "Demonología",
+            "Nigromancia"
+          ],
+          "circulo_maximo": 4
+        }
+      }
+    ],
+    "nota": "No conceder Desafío honorable ni Imposición de manos a todos los Adalides. La ausencia de Talento adicional en Endecha es textual."
+  },
+  "progresion_conjuros_texto": "Cada 2 niveles, se abre un nuevo Círculo. Cada 2 niveles, se obtiene un Espacio de Conjuro adicional por Círculo. Se comienza con 1 Espacio en el Primer Círculo.",
+  "pendiente": "Contrastar tabla Word 19 y listas de conjuros separadas."
+}
