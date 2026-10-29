@@ -1,0 +1,240 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "lote": 4,
+  "registros_adicionales": [
+    {
+      "ocupacion": "Pugilista",
+      "talento": "Juego de piernas",
+      "tipo": "Pasiva",
+      "parrafos": [
+        512,
+        514
+      ],
+      "texto_literal": "Pasiva\nUna vez que estás en una trifulca, comienza tu baile de combate. Contra oponentes desarmados, tienes Ventaja en las Tiradas de Agilidad para evitar sus ataques cuerpo a cuerpo; sin embargo, contra oponentes armados, obtienes un +2 a las Tiradas de Agilidad para evitar sus ataques cuerpo a cuerpo."
+    }
+  ],
+  "tablas": [
+    {
+      "ocupacion": "Pugilista",
+      "indice_word": 14,
+      "filas": [
+        [
+          "1 - 3",
+          "1",
+          "+1"
+        ],
+        [
+          "4 - 8",
+          "2",
+          "+1"
+        ],
+        [
+          "9 - 12",
+          "3",
+          "+2"
+        ],
+        [
+          "13 - 17",
+          "4",
+          "+2"
+        ],
+        [
+          "18 - 21",
+          "5",
+          "+3"
+        ],
+        [
+          "22 - 26",
+          "6",
+          "+3"
+        ],
+        [
+          "27+",
+          "6",
+          "+4"
+        ]
+      ]
+    },
+    {
+      "ocupacion": "Epicúreo",
+      "indice_word": 15,
+      "filas_representativas": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "3",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "4",
+          "1",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "22 - 30",
+          "6",
+          "6",
+          "6",
+          "6",
+          "6",
+          "6"
+        ]
+      ],
+      "n_filas": 24
+    },
+    {
+      "ocupacion": "Nictomante",
+      "indice_word": 16,
+      "encabezados": [
+        "Nivel",
+        "Técnicas",
+        "Conjuros",
+        "Círculo máximo",
+        "Puntos de Nictalgia",
+        "Celaje umbrío: Daño y Potencia"
+      ],
+      "filas_representativas": [
+        [
+          "1",
+          "1",
+          "0",
+          "0",
+          "2",
+          "d8 / 1"
+        ],
+        [
+          "6",
+          "2",
+          "2",
+          "2",
+          "6",
+          "d8 / 2"
+        ],
+        [
+          "22",
+          "4",
+          "7",
+          "9",
+          "22",
+          "d10 / 3"
+        ],
+        [
+          "23",
+          "4",
+          "7",
+          "9",
+          "24",
+          "d10 / 3"
+        ],
+        [
+          "24 - 30",
+          "4",
+          "8",
+          "9",
+          "24",
+          "d12 / 3"
+        ]
+      ],
+      "n_filas": 25
+    },
+    {
+      "ocupacion": "Cronómaca",
+      "indice_word": 17,
+      "filas_representativas": [
+        [
+          "1 - 2",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "3",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "16 - 30",
+          "4",
+          "4",
+          "4",
+          "4",
+          "4"
+        ]
+      ],
+      "n_filas": 14
+    },
+    {
+      "ocupacion": "Invocadora",
+      "indice_word": 18,
+      "encabezados": [
+        "Nivel",
+        "Diagramas astrales",
+        "Categoría Eidolon",
+        "Nivel de Conjuro",
+        "Conjuros diarios"
+      ],
+      "filas_representativas": [
+        [
+          "1 - 2",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          "3 - 4",
+          "2",
+          "1",
+          "2",
+          "2"
+        ],
+        [
+          "23 - 30",
+          "12",
+          "4",
+          "4",
+          "8"
+        ]
+      ],
+      "n_filas": 16
+    }
+  ],
+  "nota": "Tablas 15-18: se incluyen filas representativas, no extracción íntegra; pendiente completar y validar los tramos sin interpolar.",
+  "hallazgos": [
+    "Nictomante utiliza Puntos de Nictalgia, no espacios de conjuro ordinarios.",
+    "Cronómaca: conjuro sólo desde Nivel 3, según tabla.",
+    "Invocadora: Diagramas astrales y Conjuros diarios son columnas independientes.",
+    "Pugilista: tabla de Contundencia confirma +1 a +4 en Niveles 1, 9, 18, 27."
+  ]
+}
