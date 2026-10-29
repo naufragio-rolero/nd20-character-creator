@@ -1,0 +1,148 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "100_de_100_referencias_cotejadas",
+  "total_fichas_revisadas_manual": 100,
+  "fragmentos_reglamentarios_comprobados": 333,
+  "avisos_de_integracion_documentados": 145,
+  "errores": [],
+  "archivos": [
+    {
+      "source": "69a-conjuros-alfabeticos-001-025.json",
+      "source_sha": "aa1d182e5c253482a7c5b075770cd6de028ff52b",
+      "review": "72a-desglose-revisado-conjuros-001-025.json",
+      "review_sha": "575de321ede77e341e24152d8675ae3d01ec34de",
+      "registros": 25
+    },
+    {
+      "source": "69b-conjuros-alfabeticos-026-050.json",
+      "source_sha": "a5daadb38d64b4eb3687acc1b1e144f89ce181ff",
+      "review": "72b-desglose-revisado-conjuros-026-050.json",
+      "review_sha": "6b08c7994e6be000b6ab9b713964c7d29cdace43",
+      "registros": 25
+    },
+    {
+      "source": "69c-conjuros-alfabeticos-051-075.json",
+      "source_sha": "5ebea0a02a0ba17a7568783833e36cba0ea44738",
+      "review": "72c-desglose-revisado-conjuros-051-075.json",
+      "review_sha": "afb0f8346c49dd781f9c0ca9c9a2b3d83ea0b788",
+      "registros": 25
+    },
+    {
+      "source": "69d-conjuros-alfabeticos-076-100.json",
+      "source_sha": "b688a45427a30f715827b95631b62ac381d111f6",
+      "review": "72d-desglose-revisado-conjuros-076-100.json",
+      "review_sha": "77178738880fbeba1aeb2d3529fde098e50d85de",
+      "registros": 25
+    }
+  ],
+  "pendientes_de_criterio_o_sensibles": [
+    {
+      "numero_tomo": 2,
+      "nombre": "Adarga de hielo",
+      "avisos": [
+        "La pérdida de duración depende de sufrir daño de fuego o calor; no es una pérdida general."
+      ]
+    },
+    {
+      "numero_tomo": 5,
+      "nombre": "Ajuar codicioso de Penderthorn",
+      "avisos": [
+        "Mantener Probabilidad 6 + tu Nivel como fórmula literal; no inferir límite máximo."
+      ]
+    },
+    {
+      "numero_tomo": 13,
+      "nombre": "Alzar esqueleto secuaz",
+      "avisos": [
+        "El texto no especifica redondeo de la mitad del Nivel."
+      ]
+    },
+    {
+      "numero_tomo": 14,
+      "nombre": "Alzar goblin de lodo",
+      "avisos": [
+        "«Explota» en charco de lodo no especifica daño; no inventarlo."
+      ]
+    },
+    {
+      "numero_tomo": 33,
+      "nombre": "Aro de llamas abrasadoras",
+      "avisos": [
+        "No aplicar el daño por mera estancia sin atravesar el círculo.",
+        "El original no especifica cómo se fija el radio dentro del intervalo 6–18."
+      ]
+    },
+    {
+      "numero_tomo": 40,
+      "nombre": "Aura de resguardo",
+      "avisos": [
+        "La expresión «+2 ... y Blindaje» requiere desambiguar si también aumenta el valor de Blindaje o su Tirada."
+      ]
+    },
+    {
+      "numero_tomo": 62,
+      "nombre": "Controlar los vientos",
+      "avisos": [
+        "El original no establece cómo redondear el Nivel/3.",
+        "No convertir los efectos meteorológicos en derribo automático universal."
+      ]
+    },
+    {
+      "numero_tomo": 67,
+      "nombre": "Corromper conjuro elemental",
+      "avisos": [
+        "No interpretar como ataque independiente.",
+        "El original no fija mínimo de dados ni explica interacción con un gasto de recursos adicional."
+      ]
+    },
+    {
+      "numero_tomo": 70,
+      "nombre": "Curación",
+      "avisos": [
+        "No se indica mínimo de grupos de 5 Niveles; no truncar a cero sin decisión o norma explícita."
+      ]
+    },
+    {
+      "numero_tomo": 71,
+      "nombre": "Contrato de fraternidad",
+      "avisos": [
+        "El Círculo está ausente en el Tomo, aunque el catálogo indica Cuarto.",
+        "No decidir redondeo de mitades de daño ni si los dos afectados aplican Blindaje independientemente."
+      ]
+    },
+    {
+      "numero_tomo": 76,
+      "nombre": "Claridad",
+      "avisos": [
+        "El texto no especifica cómo redondear el cociente Nivel/6.",
+        "No aplicar el beneficio indefinidamente."
+      ]
+    },
+    {
+      "numero_tomo": 84,
+      "nombre": "Cataclismo tenebroso",
+      "avisos": [
+        "El texto no especifica qué sucede si un PJ supera o falla la Tirada de Resistencia; requiere aclaración.",
+        "No equiparar ¼ de Salud máxima a ¼ de Salud actual.",
+        "Los daños y efectos sobre el terreno son independientes de la oscuridad temporal."
+      ]
+    },
+    {
+      "numero_tomo": 90,
+      "nombre": "Cúpula antimagia",
+      "avisos": [
+        "«radio de 3m2» mezcla radio lineal y superficie; no asignar geometría arbitraria.",
+        "Aunque Alcance dice personal, el domo no sigue al personaje."
+      ]
+    },
+    {
+      "numero_tomo": 99,
+      "nombre": "Detectar magia",
+      "avisos": [
+        "La detección depende de la visión: no atraviesa paredes.",
+        "El alcance se expresa «20m» sin precisar aquí superficie o radio exacto."
+      ]
+    }
+  ],
+  "advertencia": "Los avisos son precauciones de integración. Una comprobación de citas no verifica la ejecución de reglas en Forja."
+}
