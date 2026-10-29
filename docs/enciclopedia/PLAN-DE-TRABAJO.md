@@ -39,7 +39,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 ### Tanda 2 — Talentos de Ocupaciones
 - [x] Inventario nominal: **163 relaciones Ocupación–Talento** consolidadas desde 234 referencias JSON, correspondientes a 51 Ocupaciones.
-- [ ] Extraer efectos y propiedades literales, niveles de adquisición y condiciones de elección. **Iniciada preextracción de 9 Talentos en 4 Ocupaciones** ([lote 1](16-preextraccion-ocupaciones-lote-1.md), [registros](16a-preextraccion-ocupaciones-lote-1.json)); aún no son fichas literales validadas.
+- [ ] Extraer efectos y propiedades literales, niveles de adquisición y condiciones de elección. **9 Talentos de 4 Ocupaciones transcritos íntegramente** ([extracción literal](17-extraccion-literal-ocupaciones-lote-1.md), [registros](17a-extraccion-literal-ocupaciones-lote-1.json)); pendiente cotejar niveles de adquisición con las tablas de progreso.
 - [ ] Contrastar referencias y progresiones, incluyendo pendientes de Truhán y Astrólogo.
 - [ ] Entregar repertorio estructurado validado y registro de discrepancias.
 
@@ -144,3 +144,5 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 | 2026-10-29 | Cierre documental de Especies | [32 relaciones](13-validacion-documental-especies-lote-8.md) y [1 relación con tabla](14-validacion-documental-especies-lote-9.md). **115/115 validadas documentalmente; 0 pendientes de cotejo.** Conciliaciones editoriales [abiertas](15-conciliaciones-pendientes-y-cierre-especies.md). |
 
 | 2026-10-29 | Inicio de Tanda 2, Ocupaciones | [9 Talentos de 4 Ocupaciones](16-preextraccion-ocupaciones-lote-1.md) preextraídos del manual de ampliaciones. Pendientes textos íntegros y tablas; detectadas particularidades de Truhán y Astrólogo. |
+
+| 2026-10-29 | Tanda 2, extracción literal | [9 Talentos](17-extraccion-literal-ocupaciones-lote-1.md) transcritos de Forense, Truhán, Acróbata y Astrólogo, con fuente por párrafos. Pendientes tablas de progreso y resto del inventario. |
