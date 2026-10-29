@@ -1,8 +1,8 @@
 # Enciclopedia de Talentos, Poderes y Objetos — Plan de trabajo
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
-**Última actualización:** 2026-10-28.  
-**Estado global:** extracción de Especies completa y 13 fichas corregidas reextraídas; ESP-09 y ESP-10 cerrados con Probabilidad 11+ y duración +2 Turnos condicionada. 6/115 efectos validados documentalmente. Quedan pendientes equivalencias de Ocupaciones derivadas, errata adicional en «Morador de las profundidades» y validación de las 115 relaciones; PR sin fusionar.  
+**Última actualización:** 2026-10-29.  
+**Estado global:** extracción de Especies completa y 13 fichas corregidas reextraídas; ESP-09 y ESP-10 cerrados con Probabilidad 11+ y duración +2 Turnos condicionada. 14/115 efectos validados documentalmente. Quedan pendientes equivalencias de Ocupaciones derivadas, errata adicional en «Morador de las profundidades» y validación de las 101 relaciones restantes; PR sin fusionar.  
 **Rama de trabajo:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
@@ -35,7 +35,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [ ] Entregar repertorio **validado** tras conciliación editorial y revisión mecánica.
 
 - [x] Validar documentalmente los **6 primeros vínculos Especie–Talento** de efectos explícitos: 2 Baja estatura, 2 Pequeño, Hambre caníbal y Adaptación ([lote 1](06-validacion-documental-especies-lote-1.md), [registros](06a-validacion-documental-especies-lote-1.json)). Comprobada además la diferencia contextual entre las dos «Herencia dual», **sin contarlas todavía como fichas validadas**.
-- [ ] Validar documentalmente las **109 relaciones Especie–Talento restantes** antes de declarar completa la Tanda 1.
+- [x] Validar **8 relaciones adicionales** del DRS contra sus párrafos originales ([lote 2](07-validacion-documental-especies-lote-2.md), [registros](07a-validacion-documental-especies-lote-2.json)). Acumulado **14/115**.\n- [ ] Validar documentalmente las **101 relaciones Especie–Talento restantes** antes de declarar completa la Tanda 1.
 
 ### Tanda 2 — Talentos de Ocupaciones
 - [x] Inventario nominal: **163 relaciones Ocupación–Talento** consolidadas desde 234 referencias JSON, correspondientes a 51 Ocupaciones.
@@ -91,7 +91,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 **Registro detallado:** [acuerdos editoriales](04-acuerdos-editoriales-especies.md), [textos canónicos aprobados](04b-talentos-especies-aprobados.json) y [vínculo de Talentos ampliados](04a-vinculos-talentos-especies.json). Los archivos `02*` conservan la captura original de sus respectivas fuentes.
 
-## 3. Integración y pruebas — bloqueadas hasta validación
+## 2B. Procedencia editorial y orígenes — pendiente de auditoría\n\n- [ ] Identificar y documentar los orígenes de **Especies, Ocupaciones y Poderes** en Forja, diferenciando fuente editorial, ambientación y disponibilidad efectiva. No inferir orígenes ausentes ni cambiar filtros de Forja sin validación.\n\n## 3. Integración y pruebas — bloqueadas hasta validación
 
 - [ ] Definir identificadores estables por sistema/categoría/fuente y reglas de relación para homónimos.
 - [ ] Preparar el esquema de datos común, conservando valores ausentes como **no documentados**, no como reglas negativas.
@@ -128,3 +128,5 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 | 2026-10-28 | Validación manual inicial de efectos de Especies | [Lote 1](06-validacion-documental-especies-lote-1.md): 6/115 relaciones con mecánicas explícitas contrastadas; 109 pendientes. Herencia dual diferenciada por Especie, sin contar como validación completa. Sin cambios al generador. |
 
 **Norma de actualización:** al cerrar una sesión, marcar únicamente casillas demostradas, añadir la fecha y el enlace al entregable o PR en el registro; mantener abiertas las discrepancias no resueltas. Cuando cambie el estado de una PR, actualizar también su referencia. No equiparar «inventariado» con «extraído» ni «extraído» con «validado».
+
+| 2026-10-29 | Validación documental DRS, lote 2 | [8 relaciones](07-validacion-documental-especies-lote-2.md) cotejadas con DOCX original. **14/115 validadas; 101 pendientes.** Registrada auditoría futura de orígenes editoriales de Especies, Ocupaciones y Poderes. |
