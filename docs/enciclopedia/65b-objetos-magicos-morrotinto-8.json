@@ -1,0 +1,115 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Objetos mágicos.docx (original adjunto)",
+  "seccion": "Artificios Morrotinto",
+  "estado": "transcripcion_literal",
+  "registros": [
+    {
+      "nombre": "Arnés de caída semi-segura",
+      "tipo_literal": "Tipo: Armadura de cuero",
+      "rareza_literal": "Rareza: Inusual",
+      "parrafos_fuente": [
+        27,
+        31
+      ],
+      "texto_original": [
+        "Este chaleco de cuero con varios amarres de hierro contiene un pedazo de piedra volátil, un misterioso mineral que tiene la capacidad de absorber el peso de los materiales que se adhieren a él. No obstante, la cantidad empleada en la elaboración del arnés es muy escasa.",
+        "Si un individuo lleva equipado el «Arnés de caída semi-segura» y sufre daño por caída, tiene una Probabilidad 12+ de reducir a la mitad el daño recibido."
+      ]
+    },
+    {
+      "nombre": "Caña argenta de atracción",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Inusual",
+      "parrafos_fuente": [
+        32,
+        36
+      ],
+      "texto_original": [
+        "Una caña de pescar fabricada con acero ligero y brillante, que presenta una elasticidad asombrosa. El hilo ha sido arrancado de los bigotes de un dragón plateado, y sometido a diversos encantamientos que lo han vuelto prácticamente irrompible.",
+        "Cuando se utiliza esta caña para realizar una tirada de Pesca, otorga un +2 al resultado: su particular resplandor bajo el agua hipnotiza a las posibles presas."
+      ]
+    },
+    {
+      "nombre": "Escarpines levitantes",
+      "tipo_literal": "Tipo: Calzado",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        37,
+        42
+      ],
+      "texto_original": [
+        "Debido a su baja estatura, la especie gnómica ha tenido que enfrentarse a diversas ordalías relacionadas con el nivel del agua. Mientras un mortal cualquiera puede atravesar un pantano con el fango hasta la cintura, un pobre gnomo se asfixia entre cieno y suciedad.",
+        "Los «escarpines levitantes» son una invención espectacular: girando una carraca como acción, emiten un pulso magnético que permite caminar por encima del agua durante 3d6 segundos. Si el usuario está sumergido, los propios escarpines generarán el impulso necesario para llevarlo hasta la superficie; sin embargo, quizás no llegue a tiempo.",
+        "Lamentablemente, las suelas son gruesas y pesadas, por lo que reducen en 1 el Movimiento del portador."
+      ]
+    },
+    {
+      "nombre": "Espadón avaricioso",
+      "tipo_literal": "Tipo: Espadón",
+      "rareza_literal": "Rareza: Inusual",
+      "parrafos_fuente": [
+        43,
+        47
+      ],
+      "texto_original": [
+        "El enrevesado mecanismo que tiene este arma de filo en su interior le permite imbuir una gran cantidad de inercia cuando está activo. Para que funcionen los engranajes, ha de absorber cien monedas de oro mediante una acción, momento en el que se activa y vibra de forma ruidosa.",
+        "Si el aparato está encendido, causa el doble de daño durante un Intervalo o un Combate, lo que concluya antes. Por cada impacto que realiza, existe una Probabilidad 15+ de que el mecanismo se atasque y estropee; si esto ocurre, un ingeniero gnómico tendrá que repararlo, previo pago de 1d10 * 100 monedas de oro."
+      ]
+    },
+    {
+      "nombre": "Trabuco sanguíneo",
+      "tipo_literal": "Tipo: Trabuco",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        48,
+        53
+      ],
+      "texto_original": [
+        "Uno de los mayores problemas de los artificieros gnómicos es la falta de munición. La retorcida idea de un ingeniero enano parecía no tener futuro, hasta que inventó este artefacto: mitad arma, mitad aparato de tortura.",
+        "Posee un tubo de pellejo endurecido que finaliza en una aguja, que ha de inyectarse al torrente sanguíneo del usuario. Cuando se apriete el gatillo, el arma contiene un generador arcano que absorberá sangre y la transformará en el proyectil, provocando un horrible dolor al artillero.",
+        "Por cada disparo, provoca 1d6 de daño al usuario, no absorbible ni reducible bajo ningún concepto. Deja unos moratones molestos y dolorosos tras su uso."
+      ]
+    },
+    {
+      "nombre": "Mono de protección termal",
+      "tipo_literal": "Tipo: Atuendo",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        54,
+        58
+      ],
+      "texto_original": [
+        "La vida del aventurero está repleta de sinsabores y noches al raso. Este elaborado mono de tela gnómica, reforzada con hilos elementales, permite aguantar el azote del clima, sin importar si la temperatura es gélida o ardiente. El usuario puede vestirlo por debajo de su armadura, ya que se pega a la piel.",
+        "Lamentablemente, el tejido tiene una Probabilidad 13+ de perder sus capacidades protectoras cada día que se vista. Una vez desaparecen, ya no se pueden recuperar y el mono se convierte en un pedazo de tela más."
+      ]
+    },
+    {
+      "nombre": "Portaviandas soberbio",
+      "tipo_literal": "Tipo: Herramienta",
+      "rareza_literal": "Rareza: Inusual",
+      "parrafos_fuente": [
+        59,
+        63
+      ],
+      "texto_original": [
+        "Una tartera cuadrada de acero ligero decorada con runas por sus bordes. Éstas no tienen sentido, ya que es un lenguaje mezcla de enano y gnómico, pero el autor intentó imprimir la frase «BUENO ES EL YANTAR QUE NO HUELE A MARJAL». No le salió muy bien.",
+        "Tiene capacidad para guardar hasta tres raciones de comida: mientras estén dentro del portaviandas, no se pudren y aguantan hasta dos años sin consumirse. Un complejo circuito arcano ubicado debajo de la tapa detiene el paso del tiempo de los alimentos; sin embargo, cada vez que se abre hay una Probabilidad 17+ de que los contenidos se transformen en un polvo maloliente."
+      ]
+    },
+    {
+      "nombre": "Remedio infalible de Morrotinto",
+      "tipo_literal": "Tipo: Sustancia",
+      "rareza_literal": "Rareza: Inusual",
+      "parrafos_fuente": [
+        64,
+        68
+      ],
+      "texto_original": [
+        "El lamentable aspecto de este vial, sucio y lleno de manchas amarillentas, no invita a probar el líquido interior. Alberga un brebaje transparente, de olor fuerte con notas dulzonas. Es una mezcla de licor de cereza, alcohol puro y veneno de escorpión.",
+        "No obstante, si un aventurero valeroso se lo toma, podrá realizar una Tirada de Atributo —con un +2 al resultado— para liberarse de una Condición nociva. Todo bien, si no fuese por la terrible resaca que provocará la próxima mañana: durante un Intervalo, -2 a todas las tiradas."
+      ]
+    }
+  ],
+  "advertencia": "Las probabilidades de rotura o desgaste, costes y desventajas son parte de la ficha: no resumir como bonificaciones positivas."
+}
