@@ -1,0 +1,287 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "categoria": "Poderes",
+  "subcategoria": "Canciones",
+  "ocupacion": "Bardo",
+  "marco_reglas": {
+    "parrafos": [
+      1411,
+      1422
+    ],
+    "activacion": "Acción, 1 Punto de Esfuerzo y Tirada de Presencia; si tiene éxito, recupera el Esfuerzo consumido",
+    "mantenimiento": "Cada Turno siguiente, gastar toda la Acción o superar nueva Tirada de Presencia; Tirada de Resistencia al recibir daño",
+    "area_literal": "área de 12 metros alrededor del músico",
+    "archivo": "Libro de partituras",
+    "mezcla": "Desde Nivel 12, mezclar 2 Canciones gastando 1 Punto de Esfuerzo adicional"
+  },
+  "registros": [
+    {
+      "nombre": "Arrullo pacificador",
+      "complejidad": "Sencillas",
+      "grado": 1,
+      "parrafos": [
+        1424,
+        1425
+      ],
+      "efecto_literal": "Los oponentes otorgan +1 a las Tiradas para evitar sus ataques."
+    },
+    {
+      "nombre": "Cantata de ánimo",
+      "complejidad": "Sencillas",
+      "grado": 1,
+      "parrafos": [
+        1426,
+        1427
+      ],
+      "efecto_literal": "Los aliados reciben +1 a sus Tiradas de ataque cuerpo a cuerpo y/o a distancia."
+    },
+    {
+      "nombre": "Fuga crepuscular",
+      "complejidad": "Sencillas",
+      "grado": 1,
+      "parrafos": [
+        1428,
+        1429
+      ],
+      "efecto_literal": "Los aliados reciben +1 a sus Tiradas de Atributo para esquivar o resistir daño de conjuros y/o efectos mágicos."
+    },
+    {
+      "nombre": "Minueto borrascoso",
+      "complejidad": "Sencillas",
+      "grado": 1,
+      "parrafos": [
+        1430,
+        1431
+      ],
+      "efecto_literal": "Los aliados reciben +1 a sus Tiradas para recuperar salud."
+    },
+    {
+      "nombre": "Preludio arcano",
+      "complejidad": "Sencillas",
+      "grado": 1,
+      "parrafos": [
+        1432,
+        1433
+      ],
+      "efecto_literal": "Los aliados reciben +1 a sus Tiradas de lanzamiento de conjuros."
+    },
+    {
+      "nombre": "Serenata del vigor",
+      "complejidad": "Sencillas",
+      "grado": 1,
+      "parrafos": [
+        1434,
+        1435
+      ],
+      "efecto_literal": "Los aliados reciben +1 a sus Tiradas de Atributo para resistir daño de armas o trampas."
+    },
+    {
+      "nombre": "Bolero fogoso",
+      "complejidad": "Intrincadas",
+      "grado": 2,
+      "parrafos": [
+        1437,
+        1438
+      ],
+      "efecto_literal": "Los aliados reciben +1 a sus Tiradas de ataque cuerpo a cuerpo y/o a distancia, y los oponentes otorgan +1 a las Tiradas para evitar sus ataques."
+    },
+    {
+      "nombre": "Coro de alianzas",
+      "complejidad": "Intrincadas",
+      "grado": 2,
+      "parrafos": [
+        1439,
+        1441
+      ],
+      "efecto_literal": "Los aliados comparten el daño sufrido si están al alcance del Coro. El daño se divide entre todos los participantes, dividiendo hacia arriba.\nEjemplo: Si un PJ recibe 4 puntos de daño y tiene 3 aliados, él y sus compañeros recibirán 1 daño sin posibilidad de reducirlo."
+    },
+    {
+      "nombre": "Ecos de discordia",
+      "complejidad": "Intrincadas",
+      "grado": 2,
+      "parrafos": [
+        1442,
+        1443
+      ],
+      "efecto_literal": "Los adversarios sufren 2 puntos de daño adicional de los ataques que sufran."
+    },
+    {
+      "nombre": "Himno de la tierra",
+      "complejidad": "Intrincadas",
+      "grado": 2,
+      "parrafos": [
+        1444,
+        1445
+      ],
+      "efecto_literal": "El terreno alrededor del músico se estabiliza mágicamente, eliminando cualquier impedimento para el movimiento."
+    },
+    {
+      "nombre": "Nocturno celestial",
+      "complejidad": "Intrincadas",
+      "grado": 2,
+      "parrafos": [
+        1446,
+        1447
+      ],
+      "efecto_literal": "Los adversarios considerados demonios o diablos otorgan +2 a las tiradas para resistir efectos de sus habilidades especiales."
+    },
+    {
+      "nombre": "Sinfonía valerosa",
+      "complejidad": "Intrincadas",
+      "grado": 2,
+      "parrafos": [
+        1448,
+        1449
+      ],
+      "efecto_literal": "Los aliados son considerados de un rango superior a la hora de aplicar la regla de Enemigos superiores."
+    },
+    {
+      "nombre": "Aria de otromundo",
+      "complejidad": "Maestras",
+      "grado": 3,
+      "parrafos": [
+        1451,
+        1452
+      ],
+      "efecto_literal": "Los aliados reciben Ventaja en las Tiradas de Blindaje para reducir daño de conjuros o ataques de naturaleza mágica."
+    },
+    {
+      "nombre": "Elegía de la esperanza",
+      "complejidad": "Maestras",
+      "grado": 3,
+      "parrafos": [
+        1453,
+        1454
+      ],
+      "efecto_literal": "Los aliados recuperan 1d4 Puntos de Salud cada Turno."
+    },
+    {
+      "nombre": "Himno de la brisa",
+      "complejidad": "Maestras",
+      "grado": 3,
+      "parrafos": [
+        1455,
+        1456
+      ],
+      "efecto_literal": "Cada vez que un aliado cause daño a un oponente, recupera 1d8 Puntos de Salud."
+    },
+    {
+      "nombre": "Melodía repetitiva",
+      "complejidad": "Maestras",
+      "grado": 3,
+      "parrafos": [
+        1457,
+        1458
+      ],
+      "efecto_literal": "El músico realiza una tirada de Presencia cada vez que llegue el turno de un adversario; si la supera, el afectado debe repetir la última acción que tomó en el Turno anterior."
+    },
+    {
+      "nombre": "Tonada estridente",
+      "complejidad": "Maestras",
+      "grado": 3,
+      "parrafos": [
+        1459,
+        1460
+      ],
+      "efecto_literal": "Los adversarios sufren 1d6 Puntos de daño sónico cada Turno."
+    },
+    {
+      "nombre": "Oda a la lluvia",
+      "complejidad": "Maestras",
+      "grado": 3,
+      "parrafos": [
+        1461,
+        1462
+      ],
+      "efecto_literal": "Los aliados reciben un +2 a las Tiradas de Atributo para liberarse de un Estado alterado o efecto pernicioso."
+    },
+    {
+      "nombre": "Balada primaveral",
+      "complejidad": "Míticas",
+      "grado": 4,
+      "parrafos": [
+        1464,
+        1465
+      ],
+      "efecto_literal": "Los aliados pueden gastar una acción durante su turno para recuperar 1d4 puntos de salud."
+    },
+    {
+      "nombre": "Elogio inspirador",
+      "complejidad": "Míticas",
+      "grado": 4,
+      "parrafos": [
+        1466,
+        1467
+      ],
+      "efecto_literal": "Uno de los aliados recibe una acción adicional para este Turno."
+    },
+    {
+      "nombre": "Felicidad extenuante",
+      "complejidad": "Míticas",
+      "grado": 4,
+      "parrafos": [
+        1468,
+        1469
+      ],
+      "efecto_literal": "Los adversarios otorgan Ventaja a las Tiradas para evitar sus ataques cuerpo a cuerpo o a distancia."
+    },
+    {
+      "nombre": "Impromptu cavernario",
+      "complejidad": "Míticas",
+      "grado": 4,
+      "parrafos": [
+        1470,
+        1471
+      ],
+      "efecto_literal": "Los aliados obtienen +2 Potencia."
+    },
+    {
+      "nombre": "Réquiem",
+      "complejidad": "Míticas",
+      "grado": 4,
+      "parrafos": [
+        1472,
+        1473
+      ],
+      "efecto_literal": "Los oponentes de categoría Muerto viviente otorgan Ventaja para impactarlos con ataques cuerpo a cuerpo, a distancia o con Conjuros dañinos. Además, sufrirán el doble de daño."
+    },
+    {
+      "nombre": "Tonos desquiciantes",
+      "complejidad": "Míticas",
+      "grado": 4,
+      "parrafos": [
+        1474,
+        1475
+      ],
+      "efecto_literal": "Dos oponentes que puedan escuchar los Tonos se enemistan: éste Turno se atacarán entre ellos. Deben estar ambos al alcance entre sí."
+    }
+  ],
+  "grados": [
+    {
+      "nombre": "Sencillas",
+      "grado": 1,
+      "cantidad": 6
+    },
+    {
+      "nombre": "Intrincadas",
+      "grado": 2,
+      "cantidad": 6
+    },
+    {
+      "nombre": "Maestras",
+      "grado": 3,
+      "cantidad": 6
+    },
+    {
+      "nombre": "Míticas",
+      "grado": 4,
+      "cantidad": 6
+    }
+  ],
+  "advertencias": [
+    "No son Talentos fijos; su adquisición depende de progresión de Canciones del Bardo.",
+    "Las Canciones mantenidas exigen acción o tirada adicional cada Turno: no aplicar duración indefinida sin continuidad.",
+    "El texto de Coro de alianzas incluye un ejemplo que no debe tratarse como regla separada."
+  ]
+}
