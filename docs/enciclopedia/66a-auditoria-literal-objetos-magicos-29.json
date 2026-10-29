@@ -1,0 +1,232 @@
+{
+  "fecha": "2026-10-29",
+  "fuente_comprobacion": "NaufragioD20 — Objetos mágicos.docx (adjunto); lectura con python-docx, párrafos originales",
+  "metodo": "Comparar FNV-1a de 32 bits sobre cada párrafo de efecto con trim() y unión con salto de línea; hashing por puntos de código Unicode. Se omiten sólo espacios iniciales/finales, no se normaliza la terminología. Comprobar nombre, tipo, rareza y rango de párrafos contra índice.",
+  "resultado": "coincidencia_literal_29_de_29",
+  "totales": {
+    "objetos_principales": 28,
+    "ejemplos_apendice": 1,
+    "completos": 29,
+    "efectos_coincidentes": 29,
+    "reglas_comunes_cajas_coinciden": true
+  },
+  "hash_reglas_compartidas_cajas": "fcdb91a4",
+  "incidencias": [],
+  "detalle": [
+    {
+      "nombre": "Manto de Vagryen",
+      "archivo": "65a-objetos-magicos-nasbel-4.json",
+      "hash_original": "f917237e",
+      "hash_transcripcion": "f917237e",
+      "coincide": true
+    },
+    {
+      "nombre": "Peto refulgente de maná",
+      "archivo": "65a-objetos-magicos-nasbel-4.json",
+      "hash_original": "a13de0e0",
+      "hash_transcripcion": "a13de0e0",
+      "coincide": true
+    },
+    {
+      "nombre": "Sello de guarda arcana",
+      "archivo": "65a-objetos-magicos-nasbel-4.json",
+      "hash_original": "b224f439",
+      "hash_transcripcion": "b224f439",
+      "coincide": true
+    },
+    {
+      "nombre": "Susurro de marfil gramarán",
+      "archivo": "65a-objetos-magicos-nasbel-4.json",
+      "hash_original": "32bb3596",
+      "hash_transcripcion": "32bb3596",
+      "coincide": true
+    },
+    {
+      "nombre": "Arnés de caída semi-segura",
+      "archivo": "65b-objetos-magicos-morrotinto-8.json",
+      "hash_original": "46ef82ea",
+      "hash_transcripcion": "46ef82ea",
+      "coincide": true
+    },
+    {
+      "nombre": "Caña argenta de atracción",
+      "archivo": "65b-objetos-magicos-morrotinto-8.json",
+      "hash_original": "8a5b7959",
+      "hash_transcripcion": "8a5b7959",
+      "coincide": true
+    },
+    {
+      "nombre": "Escarpines levitantes",
+      "archivo": "65b-objetos-magicos-morrotinto-8.json",
+      "hash_original": "51d302cc",
+      "hash_transcripcion": "51d302cc",
+      "coincide": true
+    },
+    {
+      "nombre": "Espadón avaricioso",
+      "archivo": "65b-objetos-magicos-morrotinto-8.json",
+      "hash_original": "7ea30b0d",
+      "hash_transcripcion": "7ea30b0d",
+      "coincide": true
+    },
+    {
+      "nombre": "Trabuco sanguíneo",
+      "archivo": "65b-objetos-magicos-morrotinto-8.json",
+      "hash_original": "f684cc82",
+      "hash_transcripcion": "f684cc82",
+      "coincide": true
+    },
+    {
+      "nombre": "Mono de protección termal",
+      "archivo": "65b-objetos-magicos-morrotinto-8.json",
+      "hash_original": "39d4a863",
+      "hash_transcripcion": "39d4a863",
+      "coincide": true
+    },
+    {
+      "nombre": "Portaviandas soberbio",
+      "archivo": "65b-objetos-magicos-morrotinto-8.json",
+      "hash_original": "fba2962b",
+      "hash_transcripcion": "fba2962b",
+      "coincide": true
+    },
+    {
+      "nombre": "Remedio infalible de Morrotinto",
+      "archivo": "65b-objetos-magicos-morrotinto-8.json",
+      "hash_original": "8d394ae0",
+      "hash_transcripcion": "8d394ae0",
+      "coincide": true
+    },
+    {
+      "nombre": "Ajorca de empatía disminuida",
+      "archivo": "65c-objetos-magicos-dupovia-1.json",
+      "hash_original": "6fc4dc7d",
+      "hash_transcripcion": "6fc4dc7d",
+      "coincide": true
+    },
+    {
+      "nombre": "Broquel de flotabilidad",
+      "archivo": "65c-objetos-magicos-dupovia-1.json",
+      "hash_original": "c0abaf59",
+      "hash_transcripcion": "c0abaf59",
+      "coincide": true
+    },
+    {
+      "nombre": "Brújula de Siempreterna",
+      "archivo": "65c-objetos-magicos-dupovia-1.json",
+      "hash_original": "af0b7dc5",
+      "hash_transcripcion": "af0b7dc5",
+      "coincide": true
+    },
+    {
+      "nombre": "Cañón de mano malasthino",
+      "archivo": "65c-objetos-magicos-dupovia-1.json",
+      "hash_original": "0986e3bf",
+      "hash_transcripcion": "0986e3bf",
+      "coincide": true
+    },
+    {
+      "nombre": "Capa de Iring Thrië",
+      "archivo": "65c-objetos-magicos-dupovia-1.json",
+      "hash_original": "7bfb0c35",
+      "hash_transcripcion": "7bfb0c35",
+      "coincide": true
+    },
+    {
+      "nombre": "Capisayo popular de Ugnak",
+      "archivo": "65c-objetos-magicos-dupovia-1.json",
+      "hash_original": "0df7c7f0",
+      "hash_transcripcion": "0df7c7f0",
+      "coincide": true
+    },
+    {
+      "nombre": "Celada del rompecráneos",
+      "archivo": "65d-objetos-magicos-dupovia-2.json",
+      "hash_original": "80902998",
+      "hash_transcripcion": "80902998",
+      "coincide": true
+    },
+    {
+      "nombre": "Higa de la serenidad",
+      "archivo": "65d-objetos-magicos-dupovia-2.json",
+      "hash_original": "31f085f4",
+      "hash_transcripcion": "31f085f4",
+      "coincide": true
+    },
+    {
+      "nombre": "Hilo de brillo dorado",
+      "archivo": "65d-objetos-magicos-dupovia-2.json",
+      "hash_original": "1a48b849",
+      "hash_transcripcion": "1a48b849",
+      "coincide": true
+    },
+    {
+      "nombre": "Mantón del clérigo decepcionado",
+      "archivo": "65d-objetos-magicos-dupovia-2.json",
+      "hash_original": "238bfee4",
+      "hash_transcripcion": "238bfee4",
+      "coincide": true
+    },
+    {
+      "nombre": "Uña de Mogg-Shattoth",
+      "archivo": "65d-objetos-magicos-dupovia-2.json",
+      "hash_original": "4a6d674b",
+      "hash_transcripcion": "4a6d674b",
+      "coincide": true
+    },
+    {
+      "nombre": "Virotes ávidos de carne",
+      "archivo": "65d-objetos-magicos-dupovia-2.json",
+      "hash_original": "fef44116",
+      "hash_transcripcion": "fef44116",
+      "coincide": true
+    },
+    {
+      "nombre": "Arqueta de roble efímero",
+      "archivo": "65e-objetos-magicos-cajas-y-ejemplo.json",
+      "hash_original": "ebff3b7a",
+      "hash_transcripcion": "ebff3b7a",
+      "coincide": true
+    },
+    {
+      "nombre": "Baúl seguro de Feanaro",
+      "archivo": "65e-objetos-magicos-cajas-y-ejemplo.json",
+      "hash_original": "d0ba71a1",
+      "hash_transcripcion": "d0ba71a1",
+      "coincide": true
+    },
+    {
+      "nombre": "Gema cristalina onírica",
+      "archivo": "65e-objetos-magicos-cajas-y-ejemplo.json",
+      "hash_original": "c21a29b0",
+      "hash_transcripcion": "c21a29b0",
+      "coincide": true
+    },
+    {
+      "nombre": "Joyero de nogal grabado",
+      "archivo": "65e-objetos-magicos-cajas-y-ejemplo.json",
+      "hash_original": "7331ba74",
+      "hash_transcripcion": "7331ba74",
+      "coincide": true
+    },
+    {
+      "nombre": "Elixir de esfuerzo",
+      "archivo": "65e-objetos-magicos-cajas-y-ejemplo.json",
+      "hash_original": "4fe082ba",
+      "hash_transcripcion": "4fe082ba",
+      "coincide": true
+    }
+  ],
+  "limitaciones": [
+    "Verificación textual, NO mecánica ni pruebas de Forja.",
+    "Una coincidencia literal no resuelve erratas o ambigüedades de origen, p. ej. m2 en cajas o punto de energía en Elixir.",
+    "La fuente de Objetos mágicos es el DOCX adjunto, no una revisión de documento vivo."
+  ],
+  "archivos": [
+    "65a-objetos-magicos-nasbel-4.json",
+    "65b-objetos-magicos-morrotinto-8.json",
+    "65c-objetos-magicos-dupovia-1.json",
+    "65d-objetos-magicos-dupovia-2.json",
+    "65e-objetos-magicos-cajas-y-ejemplo.json"
+  ]
+}
