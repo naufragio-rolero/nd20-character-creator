@@ -1,0 +1,382 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    126,
+    150
+  ],
+  "numero_registros": 25,
+  "metodo": "Lectura manual del efecto completo por conjuro y cotejo de índices sobre la transcripción 69f. No representa ejecución reglamentaria ni modificaciones del texto fuente.",
+  "registros": [
+    {
+      "numero_tomo": 126,
+      "nombre_literal": "Duplicado perfecto",
+      "lectura_documental_no_oficial": "Duplicación física y mental mediante gestación y Tirada de Conjuro",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Exige laboratorio de 20.000 mo y fragmento del objetivo; la réplica se crea tras 1d8 meses o 1d6 semanas con dedicación. Fallar la Tirada afecta a la conciencia clonada, no describe fracaso de la gestación.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1013
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 127,
+      "nombre_literal": "Detención temporal",
+      "lectura_documental_no_oficial": "Detención del tiempo para todos salvo el lanzador",
+      "indices_de_parrafos_reglamentarios": [
+        2,
+        4,
+        6
+      ],
+      "advertencia_de_integracion": "La duración es 1d4 +2 Turnos; más de un lanzamiento al mes puede atraer cronófagos, sin Probabilidad cuantificada.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1021
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 128,
+      "nombre_literal": "Desvanecer escritura",
+      "lectura_documental_no_oficial": "Borrado automático de escritura mundana y prueba para escritura mágica",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Al fallar sobre escritura mágica, el texto se borra pero el efecto peligroso se activa. No confundir fallo con ausencia de efecto.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1029
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 129,
+      "nombre_literal": "Detectar trampas",
+      "lectura_documental_no_oficial": "Detección dirigida en franja de 15 por 3 metros",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Requiere concentración de 1 Turno por dirección y excluye trampas mágicas y mecanismos complejos.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1034
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 130,
+      "nombre_literal": "Deformar madera",
+      "lectura_documental_no_oficial": "Deformación de un volumen de madera no mágica",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "El límite es 1 metro cúbico de materia u objetos; no transformar en 1 m² de superficie.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1040
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 131,
+      "nombre_literal": "Discurso de necios",
+      "lectura_documental_no_oficial": "Manipulación de hasta 3d6 Humanoides o Fatas que interrumpe sus acciones combativas",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Conserva Tirada de Conjuro, duración e interrupción al sufrir daño o temer por la vida. Aplicar la redacción geométrica aprobada en 78a (10 m² circulares), sin cambiar este texto fuente.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1045
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 132,
+      "nombre_literal": "Eclipse del artefacto",
+      "lectura_documental_no_oficial": "Ocultación dimensional de objeto con ilusión sustituta",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "El retorno exige 3 Turnos y dura 1 Intervalo; Disipar magia devuelve el objeto y rompe el enlace. No tratar la ilusión como una copia física.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1053
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 133,
+      "nombre_literal": "Égida consagrada",
+      "lectura_documental_no_oficial": "Encantamiento temporal de escudo",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Son tres beneficios distintos: escudo mágico, +1 a bloqueo, +1 Blindaje y Ventaja en Durabilidad. No sustituir unos por otros.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1061
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 134,
+      "nombre_literal": "Estrépito",
+      "lectura_documental_no_oficial": "Daño sónico puntual más Probabilidad de Derribo y Ensordecimiento",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "El daño 2d6 alcanza al objetivo; la Probabilidad 12+ afecta también a adyacentes. Solo criaturas mayores que humanoide estándar son inmunes al Derribo, no al resto.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1067
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 135,
+      "nombre_literal": "Ecos de decadencia",
+      "lectura_documental_no_oficial": "Sordera del objetivo condicionada a Tirada de Conjuro",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "La fuente dice Sordera; no convertir automáticamente en el Estado Ensordecido si sus efectos reglamentarios difieren.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1072
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 136,
+      "nombre_literal": "Enjambre voraz",
+      "lectura_documental_no_oficial": "Daño inicial por enjambre y posible daño posterior",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "2d10 de daño por veneno inicial; el 1d8 adicional durante 1d4 Turnos depende de superar una única Tirada de Conjuro posterior.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1078
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 137,
+      "nombre_literal": "Esfera corrosiva",
+      "lectura_documental_no_oficial": "Orbe ácido con daños diferentes en éxito y fallo",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Éxito: 3d12; fallo: 3d6. La frase descriptiva de corrosión no asigna daño prolongado adicional.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1084
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 138,
+      "nombre_literal": "Erradicar",
+      "lectura_documental_no_oficial": "Destrucción de una Invocación enemiga bajo condición de Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        5
+      ],
+      "advertencia_de_integracion": "El objetivo debe proceder de un Conjuro de tipo Invocación y tener Nivel igual o inferior al del lanzador; no se prescribe Tirada adicional.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1092
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 139,
+      "nombre_literal": "Escudo",
+      "lectura_documental_no_oficial": "Blindaje natural temporal proporcionado a una criatura",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "La duración declarada es 2 Intervalos o 6 Turnos en combate; la bonificación es +1 Blindaje, no un Dado nuevo.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1099
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 140,
+      "nombre_literal": "Encandilamiento",
+      "lectura_documental_no_oficial": "Control social condicionado de Humanoide de Nivel 3 o inferior",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "advertencia_de_integracion": "Peticiones contrarias a sus intereses y maltrato requieren nuevas Tiradas. Fallar cualquiera disipa el efecto; no programar obediencia absoluta.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1105
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 141,
+      "nombre_literal": "Esfera vital",
+      "lectura_documental_no_oficial": "Burbuja de aire submarina móvil y ajustable",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Aquí sí se declara un radio lineal entre 3 y 6 metros; no transformarlo en m². El área se mueve con el lanzador.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1115
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 142,
+      "nombre_literal": "Encandilamiento magno",
+      "lectura_documental_no_oficial": "Encandilamiento aplicado a varios Humanoides",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Límite de objetivos: Nivel x2; Alcance: 2 metros por Nivel. El texto remite a Encandilamiento; no eliminar condiciones de la base sin resolución editorial.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1121
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 143,
+      "nombre_literal": "Efigie profana",
+      "lectura_documental_no_oficial": "Efigie invocada con fracciones de Salud y recuerdos",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "La copia tiene mitad de Salud y un tercio de recuerdos; no gana Niveles ni mejora. Al llegar a Salud 0 se deshace.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1127
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 144,
+      "nombre_literal": "Eternidad arcana",
+      "lectura_documental_no_oficial": "Permanencia mágica aplicada a efectos de otro Conjuro",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "El sacrificio explícito es envejecer 1d4 años; no sumar costes ni limitar objetivos fuera de lo que dice la fuente.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1136
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 145,
+      "nombre_literal": "Éxtasis profundo",
+      "lectura_documental_no_oficial": "Suspensión temporal de funciones vitales de una criatura tocada",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "La duración es permanente, pero el texto no declara contramedidas, finalización ni Tirada de resistencia; no inventarlas.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1144
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 146,
+      "nombre_literal": "Excelso festín de Excelsus",
+      "lectura_documental_no_oficial": "Banquete con raciones escaladas por Nivel y caducidad",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Tres criaturas medias (o una grande) de base y una criatura adicional por Nivel (una grande por cada tres). La comida se pudre tras 24 h; no redondear grupos de tres Niveles sin una regla aplicable.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1151
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 147,
+      "nombre_literal": "Explosión arcana",
+      "lectura_documental_no_oficial": "Explosión a distancia con superficie de 6 m² y daño según resultado",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Daño en éxito: 1d10 por Nivel; en fallo: mitad. La fuente no especifica forma geométrica de esos 6 m²; no convertirlos automáticamente en círculo.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1158
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 148,
+      "nombre_literal": "Erupción",
+      "lectura_documental_no_oficial": "Erupción en área de 12 m² con daño por Nivel y terreno residual",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "El texto habla de 2d6 por Nivel de daño contundente y por fuego; no duplicar el daño por tipo. El terreno inestable queda a discreción del Cronista.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1164
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 149,
+      "nombre_literal": "Encierro de alma",
+      "lectura_documental_no_oficial": "Encierro del alma de un fallecido reciente en gema",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "La muerte debe haber ocurrido hace no más de 1 Turno por Nivel; gema de al menos 10.000 mo. Destruir la gema libera el alma, no resucita por sí mismo.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1171
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 150,
+      "nombre_literal": "Endeblez",
+      "lectura_documental_no_oficial": "Debilitamiento del daño causado por un objetivo",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Reduce en 1 el daño que causa durante 1 Turno por Nivel; no se especifica Tirada de Conjuro en la descripción.",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "indice_encabezado": 1178
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}
