@@ -1,0 +1,231 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "cobertura_documental_completa_con_dos_niveles_de_revision",
+  "conteos": {
+    "fichas_con_texto_original": 434,
+    "fichas_revisadas_manual": 100,
+    "fichas_preclasificadas_automatico": 384,
+    "solapadas_manual_y_automatico": 50,
+    "solo_preclasificadas_pendientes_manual": 334,
+    "cobertura_unica": 434
+  },
+  "regla_precedencia": "El desglose revisado manualmente (72a–72d) tiene prioridad interpretativa sobre cualquier marcador lexical de los preíndices 73a–73h. Ninguno de los dos supone reglas programadas o aprobaciones editoriales nuevas.",
+  "archivos": [
+    {
+      "archivo": "72a-desglose-revisado-conjuros-001-025.json",
+      "registros": 25,
+      "sha": "575de321ede77e341e24152d8675ae3d01ec34de",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72b-desglose-revisado-conjuros-026-050.json",
+      "registros": 25,
+      "sha": "6b08c7994e6be000b6ab9b713964c7d29cdace43",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72c-desglose-revisado-conjuros-051-075.json",
+      "registros": 25,
+      "sha": "afb0f8346c49dd781f9c0ca9c9a2b3d83ea0b788",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72d-desglose-revisado-conjuros-076-100.json",
+      "registros": 25,
+      "sha": "77178738880fbeba1aeb2d3529fde098e50d85de",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "73a-preindice-mecanico-051-100.json",
+      "registros": 50,
+      "sha": "28f36f362e8466b90a0c3f4dd63aab4a1f11ed5b",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73b-preindice-mecanico-101-150.json",
+      "registros": 50,
+      "sha": "5f3f3dfeb3cc00540a53351b972c9d3812036ef6",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73c-preindice-mecanico-151-200.json",
+      "registros": 50,
+      "sha": "cb50251df3202dadc7b7ab890061347e97165922",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73d-preindice-mecanico-201-250.json",
+      "registros": 50,
+      "sha": "8d00ed4084f554692f1cc228b24305413c977db1",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73e-preindice-mecanico-251-300.json",
+      "registros": 50,
+      "sha": "d055c5fc31e0dfcfcd7549fb01e8cfac96b01214",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73f-preindice-mecanico-301-350.json",
+      "registros": 50,
+      "sha": "5b8737e50ea9f4fa872a984d3c9241d448438069",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73g-preindice-mecanico-351-400.json",
+      "registros": 50,
+      "sha": "53a043c2f78bbb3d1eedbd24f78947eabf07d0dc",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73h-preindice-mecanico-401-434.json",
+      "registros": 34,
+      "sha": "fcf919a82e333a43627fc2ada232c5dd8a3c4f93",
+      "estado": "preclasificado_automatico"
+    }
+  ],
+  "auditorias": [
+    {
+      "archivo": "74a-auditoria-preindice-051-250.json",
+      "resultado": "integridad_documental_correcta",
+      "errores": 0
+    },
+    {
+      "archivo": "74b-auditoria-preindice-251-434.json",
+      "resultado": "integridad_documental_correcta",
+      "errores": 0
+    },
+    {
+      "archivo": "75a-auditoria-desglose-manual-100.json",
+      "resultado": "100_de_100_referencias_cotejadas",
+      "errores": 0
+    }
+  ],
+  "frecuencia_de_marcadores_en_preindice": {
+    "condicion_o_disparador": 253,
+    "tirada_conjuro": 122,
+    "dano": 151,
+    "radio_o_area": 44,
+    "salud": 36,
+    "ventaja": 19,
+    "nivel": 40,
+    "blindaje": 16,
+    "probabilidad": 26,
+    "magia_invocacion_mencionada": 22,
+    "movimiento": 25,
+    "tirada_atributo_o_salvacion": 8,
+    "desventaja": 14,
+    "estados_mencionados": 9,
+    "limite_simultaneo": 5,
+    "esfuerzo": 2
+  },
+  "prioridades_de_revision_por_densidad_lexica": [
+    {
+      "n": 102,
+      "nombre": "Dardo de penumbra",
+      "mencionadas": 6
+    },
+    {
+      "n": 187,
+      "nombre": "Huracán floral",
+      "mencionadas": 6
+    },
+    {
+      "n": 244,
+      "nombre": "Muro de espinas férreas",
+      "mencionadas": 6
+    },
+    {
+      "n": 320,
+      "nombre": "Puño mágico de Zurari",
+      "mencionadas": 6
+    },
+    {
+      "n": 202,
+      "nombre": "Invocar ejército ilusorio",
+      "mencionadas": 5
+    },
+    {
+      "n": 207,
+      "nombre": "Lanza hemática",
+      "mencionadas": 5
+    },
+    {
+      "n": 284,
+      "nombre": "Palabra de Poder: Hemorragia",
+      "mencionadas": 5
+    },
+    {
+      "n": 306,
+      "nombre": "Penitencia",
+      "mencionadas": 5
+    },
+    {
+      "n": 369,
+      "nombre": "Sello rúnico: Explosión",
+      "mencionadas": 5
+    },
+    {
+      "n": 395,
+      "nombre": "Trampa de enredaderas",
+      "mencionadas": 5
+    },
+    {
+      "n": 117,
+      "nombre": "Descarga ardiente",
+      "mencionadas": 4
+    },
+    {
+      "n": 124,
+      "nombre": "Descarga de caos",
+      "mencionadas": 4
+    },
+    {
+      "n": 147,
+      "nombre": "Explosión arcana",
+      "mencionadas": 4
+    },
+    {
+      "n": 152,
+      "nombre": "Embozo de sombras",
+      "mencionadas": 4
+    },
+    {
+      "n": 154,
+      "nombre": "Explosión sónica",
+      "mencionadas": 4
+    },
+    {
+      "n": 156,
+      "nombre": "Espinas psíquicas",
+      "mencionadas": 4
+    },
+    {
+      "n": 158,
+      "nombre": "Estrella divina",
+      "mencionadas": 4
+    },
+    {
+      "n": 159,
+      "nombre": "Exhalación de la tumba",
+      "mencionadas": 4
+    },
+    {
+      "n": 160,
+      "nombre": "Fantasmas aullantes",
+      "mencionadas": 4
+    },
+    {
+      "n": 162,
+      "nombre": "Floración cinérea",
+      "mencionadas": 4
+    }
+  ],
+  "errores": [],
+  "limites": [
+    "La extracción completa del texto (434/434) y la preclasificación lexical no prueban que los efectos sean implementables.",
+    "Se revisaron manualmente los primeros 100 Conjuros y los 334 restantes sólo disponen del índice de pistas automatizado.",
+    "La densidad de marcadores no mide dificultad real, sólo facilita ordenar revisiones.",
+    "Las incidencias pendientes no autorizan correcciones silenciosas del texto fuente."
+  ]
+}
