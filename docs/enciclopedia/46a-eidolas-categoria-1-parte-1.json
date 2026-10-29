@@ -1,0 +1,61 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "seccion": "Eidolas",
+  "categoria": 1,
+  "estado": "efectos_literales_sin_transcripcion_de_lore",
+  "registros": [
+    {
+      "nombre": "Kayulio",
+      "parrafos": [
+        1489,
+        1495
+      ],
+      "afinidad_ficha": "Viento",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el pelaje de Kayulio para causar 4 de daño eléctrico cada vez que seas impactado por un ataque físico —cuerpo a cuerpo o a distancia— durante 1d6 Turnos.",
+        "Canalizar": "Canalizar: Carrera relámpago. Kayulio se despereza de una vez y persigue algo invisible, arrasando una línea de hasta 30 metros frente al invocador con 10d4 de daño eléctrico.",
+        "Materializar": "Materializar: Salud 6/1d6/1, Ataque 2d4, Blindaje d4. Kayulio se enfrentará a lo que sea durante 1d6 Turnos, momento en el que se distraerá con otra realidad y se desvanecerá."
+      }
+    },
+    {
+      "nombre": "Lonian",
+      "parrafos": [
+        1496,
+        1502
+      ],
+      "afinidad_ficha": "Agua",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la perseverancia de Lonian para obtener 1d4 cargas de escudo acuático. Cada vez que seas impactado por un ataque cuerpo a cuerpo o a distancia, puedes gastar una de esas cargas para que una barrera de agua repela el golpe y reduzcas 1d6 del daño sufrido.",
+        "Canalizar": "Canalizar: Ladrido de la marisma. Lonian surge de un charco de agua del suelo, empapado, y tensa sus músculos. Una onda de energía acuática surge de su boca, arrasando un cono de 15 metros frente a él. Cada criatura herida por el ladrido sufre 3d10 de daño por frío y queda empapada durante 1d2 Turnos.",
+        "Materializar": "Materializar: Salud 6/1d6/1, Ataque d8, Blindaje d4. Lonian luchará a tu lado hasta que finalice el enfrentamiento o su salud sea agotada."
+      }
+    },
+    {
+      "nombre": "Rufushia",
+      "parrafos": [
+        1504,
+        1510
+      ],
+      "afinidad_ficha": "Luz",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la luz de Rufushia para iluminar un área de 6 metros a tu alrededor y obtener resistencia al daño luminoso durante 2d5 Turnos.",
+        "Canalizar": "Canalizar: Brillo cegador. Del cielo surge un rayo de luz por el que baja a toda velocidad Rufushia, que se presenta como un ratón de un tamaño considerable, iluminado por destellos amarillentos. Tras liberar un tremendo fogonazo luminoso, todos los enemigos en un radio de 9 metros a su alrededor quedarán Cegados durante 1d4 Turnos.",
+        "Materializar": "Materializar: Salud 4/1d4/1, Ataque d4, Blindaje d4. Rufushia peleará con sus garras y dientes durante 2d12 Turnos."
+      }
+    },
+    {
+      "nombre": "Schoff",
+      "parrafos": [
+        1511,
+        1517
+      ],
+      "afinidad_ficha": "Tierra",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el manto de Schoff para obtener Blindaje d8 y resistencia al daño contundente y eléctrico durante 1d4 Turnos.",
+        "Canalizar": "Canalizar: Arremetida peluda. Schoff se abalanza sobre un grupo de hasta 4 enemigos cercanos — 3 metros entre sí— para causar 4d8 de daño contundente y derribarlos.",
+        "Materializar": "Materializar: Salud 8/1d8/2, Ataque d6, Blindaje d8. Schoff luchará a tu lado hasta que finalice el enfrentamiento o su salud sea agotada."
+      }
+    }
+  ],
+  "nota": "Se transcriben literalmente las 3 modalidades de cada criatura. La descripción literaria de invocación, trasfondo y exigencias de ofrenda aún debe incorporarse antes de declarar ficha íntegra."
+}
