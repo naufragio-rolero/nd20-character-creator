@@ -36,7 +36,7 @@
       "ocupacion": "Marginado",
       "talento": "Estulticia",
       "activacion_literal": "Pasiva",
-      "texto_literal": "Pasiva\nNo se te da nada bien cualquier tarea: no es que tengas falta de talento, es que tienes un absoluto desinterés en aprender y en descubrir nuevas cosas. Como resultado, no puedes tener Ventaja en ninguna Tirada de forma natural (mediante el uso de herramientas, la ayuda de otros, etc), salvo que uses Esfuerzo o sea una Tirada de Atributo favorito.",
+      "texto_literal": "Pasiva\nNo se te da nada bien cualquier tarea: no es que tengas falta de talento, es que tienes un absoluto desinterés en aprender y en descubrir nuevas cosas. Como resultado, no puedes tener Ventaja en ninguna Tirada de forma natural (mediante el uso de herramientas, la ayuda de otros, etc), salvo que uses Esfuerzo o sea una Tirada de ataque.",
       "fuente": {
         "archivo": "NaufragioD20 — Ocupaciones.docx",
         "parrafo_inicio": 238,
