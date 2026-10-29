@@ -1,0 +1,216 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "ocupacion": "Marionetista",
+  "categoria": "Componentes y habilidades de Seguidores",
+  "fuente_reglas": [
+    1298,
+    1312
+  ],
+  "regla": "Cada marioneta es un Seguidor/PNJ, con Ataque y Defensa, Dado de Salud y sin Moral; la activación de la Habilidad especial del Núcleo cuesta 1 Punto de Esfuerzo del maestro.",
+  "reglas_mejora": "Creación con Nivel del maestro. Mejoras posteriores: Intervalos equivalentes a Nivel/2 redondeado arriba y 50 monedas de oro por Nivel. No avanza como un PJ.",
+  "tablas": [
+    {
+      "indice_word": 41,
+      "tipo": "Armazones",
+      "encabezados": [
+        "d6",
+        "Armazón",
+        "Dado de Salud",
+        "Blindaje",
+        "Defensa"
+      ],
+      "filas": [
+        [
+          "1",
+          "Muelles de mimbre",
+          "d6",
+          "d6 / d6",
+          "+0"
+        ],
+        [
+          "2",
+          "Hierro ligero",
+          "d4",
+          "d8 / d4",
+          "-2"
+        ],
+        [
+          "3",
+          "Bambú oscilante",
+          "d4",
+          "d4 / d8",
+          "+1"
+        ],
+        [
+          "4",
+          "Acero rocoso",
+          "d8",
+          "d8 / d6",
+          "+2"
+        ],
+        [
+          "5",
+          "Porcelana del pueblo",
+          "d6",
+          "d4 / d6",
+          "-1"
+        ],
+        [
+          "6",
+          "Caparazón quelonio",
+          "d10",
+          "d10 / d8",
+          "+0"
+        ]
+      ]
+    },
+    {
+      "indice_word": 42,
+      "tipo": "Extremidades",
+      "encabezados": [
+        "d6",
+        "Extremidades",
+        "Daño",
+        "Ataque",
+        "Movimiento"
+      ],
+      "filas": [
+        [
+          "1",
+          "Garras de madera",
+          "d6",
+          "+0",
+          "6"
+        ],
+        [
+          "2",
+          "Bastones cristalinos",
+          "d4",
+          "+2",
+          "7"
+        ],
+        [
+          "3",
+          "Ladrillo de petralor",
+          "d8",
+          "+1",
+          "5"
+        ],
+        [
+          "4",
+          "Tijeras siniestras",
+          "d10",
+          "-2",
+          "6"
+        ],
+        [
+          "5",
+          "Manos de cerámica",
+          "d6",
+          "+2",
+          "5"
+        ],
+        [
+          "6",
+          "Aguijones arácnidos",
+          "d4",
+          "-3",
+          "8"
+        ]
+      ]
+    },
+    {
+      "indice_word": 43,
+      "tipo": "Núcleos",
+      "encabezados": [
+        "d6",
+        "Núcleo",
+        "Habilidad especial"
+      ],
+      "filas": [
+        [
+          "1",
+          "Llama de una hiladora gris",
+          "Trepada de araña"
+        ],
+        [
+          "2",
+          "Susurro rosáceo de la plañidera",
+          "Aguijón venenoso"
+        ],
+        [
+          "3",
+          "Motivos perversos infantiles",
+          "Extensión"
+        ],
+        [
+          "4",
+          "Versos no escritos del poeta",
+          "Canto hipnotizante"
+        ],
+        [
+          "5",
+          "Ansia olvidada sin pasión",
+          "Ocultación"
+        ],
+        [
+          "6",
+          "Gimoteo auténtico del dictador",
+          "Frenesí"
+        ]
+      ]
+    }
+  ],
+  "habilidades_activables": [
+    {
+      "nombre": "Aguijón venenoso",
+      "parrafos": [
+        1313,
+        1314
+      ],
+      "texto_literal": "Dispone de un pesado artefacto puntiagudo instalado en la espalda que puede emplear para realizar un ataque brutal sobre un objetivo. Obtiene +2 Potencia para el daño y causa Veneno equivalente al Nivel de la marioneta."
+    },
+    {
+      "nombre": "Canto hipnotizante",
+      "parrafos": [
+        1315,
+        1316
+      ],
+      "texto_literal": "Por algún motivo desconocido, la marioneta puede hablar como si fuese una persona real. Además, puede entonar una canción encantadora que provoca un -2 a todas las Tiradas de ataque (+2 a las Tiradas de esquiva en el caso de los PJ) en un radio de 10 metros a su alrededor durante 2d4 Turnos. Esta melodía es de carácter mágico y no es necesario poder escucharla, ya que su voz permea el ambiente y el alma de quienes están cerca."
+    },
+    {
+      "nombre": "Extensión",
+      "parrafos": [
+        1317,
+        1318
+      ],
+      "texto_literal": "Los brazos y piernas de la marioneta tienen un mecanismo de muelles elásticos que permiten extenderse de forma antinatural y perturbadora. La marioneta puede utilizar esta habilidad para moverse más rápido (+2 Movimiento) o disponer de un alcance superior a sus ataques cuerpo a cuerpo (4 metros); la duración es de 1 Intervalo o el final del combate, lo que ocurra antes."
+    },
+    {
+      "nombre": "Frenesí",
+      "parrafos": [
+        1319,
+        1320
+      ],
+      "texto_literal": "Una chispa de furia congelada bulle en el interior del núcleo, capaz de liberar un minúsculo fragmento que anime a la marioneta a dejarse llevar por la más absoluta y pura ira. Cuando es activada, la marioneta realiza 3 ataques por Turno pero, a cambio, sufre Desventaja para evitar cualquier ataque contra ella; la duración es de 1d6 +2 Turnos."
+    },
+    {
+      "nombre": "Ocultación",
+      "parrafos": [
+        1321,
+        1322
+      ],
+      "texto_literal": "La marioneta está recubierta por una tela fabricada a partir de espejos desghóticos, fragmentos de viejos sueños y pesadillas vívidas. Al invocar la magia entrelazada en esos tejidos, es capaz de mimetizarse con el entorno, como si de un camaleón se tratase. En términos de reglas, la marioneta obtiene Ventaja en las Tiradas que deba realizar para ocultar su presencia durante 2 Intervalos. El efecto finaliza si entra en combate o es descubierta."
+    },
+    {
+      "nombre": "Trepada de araña",
+      "parrafos": [
+        1323,
+        1324
+      ],
+      "texto_literal": "Las extremidades de la marioneta se recubren de una sustancia pegajosa e incolora que le permite trepar por las paredes como si fuese una araña. Vislumbrar a un constructo moverse de esta forma es inquietante y enloquecedor, sobre todo si tenemos en cuenta que puede mover todo su Movimiento por la pared o el techo; afortunadamente, el efecto tan «sólo» dura 1d4 Intervalos."
+    }
+  ],
+  "modelo": "Elegir un Armazón, unas Extremidades y un Núcleo por marioneta, asociando la habilidad por el nombre literal; los seis Núcleos son opciones exclusivas de cada constructo.",
+  "no_contabilizar_como": "Talentos independientes del Marionetista"
+}
