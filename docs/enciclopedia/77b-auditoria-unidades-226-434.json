@@ -1,0 +1,491 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    226,
+    434
+  ],
+  "metodo": "Buscar literalmente unidades de superficie y volumen expresadas con m2, m², km2, km², «metros cuadrados» o «metros cúbicos». No asignar radios, geometría ni efectos.",
+  "fichas_con_menciones": 33,
+  "referencias_mencionadas": 36,
+  "casos_radio_de_superficie": [
+    {
+      "n": 318,
+      "nombre": "Purga de maldad",
+      "parrafo_en_ficha": 3,
+      "texto": "Invocas una fuerza sagrada para expulsar o destruir presencias malignas a tu alrededor. Por cada criatura de tipo Demonio, Elemental o Muerto viviente de Nivel inferior a 10 en un radio de 10m2 a tu alrededor, realiza una Tirada de Conjuro; si tienes éxito, de"
+    },
+    {
+      "n": 373,
+      "nombre": "Sello rúnico: Trampa",
+      "parrafo_en_ficha": 5,
+      "texto": "Inscribes un sello mágico en un objeto que pueda abrirse, como una puerta, caja o armario. Cuando el objeto es abierto, el sello estalla en una explosión arcana, infligiendo 2d6 puntos de daño contundente a todas las criaturas adyacentes en un radio de 3m2."
+    },
+    {
+      "n": 393,
+      "nombre": "Tromba de meteoritos",
+      "parrafo_en_ficha": 3,
+      "texto": "Atraes cuatro enormes y ardientes rocas desde más allá de los cielos para que impacten en puntos que has designado. Realiza una Tirada de Conjuro por cada meteorito: arrasa con todo en un radio de 20m2 alrededor del punto de impacto, provocando 30d10 puntos de"
+    },
+    {
+      "n": 395,
+      "nombre": "Trampa de enredaderas",
+      "parrafo_en_ficha": 5,
+      "texto": "Del suelo emergen varias enredaderas robustas, que intentan enroscarse alrededor de todas las criaturas en un radio de 3m2 alrededor del punto de invocación."
+    },
+    {
+      "n": 409,
+      "nombre": "Terremoto",
+      "parrafo_en_ficha": 4,
+      "texto": "Conjuras un poderoso seísmo que afecta un área con un radio de 2m2 por cada Nivel que poseas. Las criaturas dentro del área de efecto quedan tambaleándose, incapaces de moverse, atacar o lanzar conjuros durante la duración. Dependiendo del terreno, Terremoto p"
+    }
+  ],
+  "registros": [
+    {
+      "numero_tomo": 232,
+      "nombre": "Manantial hediondo",
+      "archivo_fuente": "69j-conjuros-alfabeticos-226-250.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "4m2",
+          "contexto_literal": " que infecta la tierra, cubriendo un área de 4m2. Esta corrupción sobrenatural marchita toda veget",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 239,
+      "nombre": "Muralla de hielo",
+      "archivo_fuente": "69j-conjuros-alfabeticos-226-250.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "300 m2",
+          "contexto_literal": "Conjuras un muro de hielo de hasta 300 m2, moldeado a tu gusto. La pared es infranqueable p",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 242,
+      "nombre": "Muro de piedra",
+      "archivo_fuente": "69j-conjuros-alfabeticos-226-250.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "300m2",
+          "contexto_literal": "njuras una sólida muralla de piedra de hasta 300m2, dándole la forma que desees. Para que el Muro de",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 256,
+      "nombre": "Niebla",
+      "archivo_fuente": "69k-conjuros-alfabeticos-251-275.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "8m2",
+          "contexto_literal": "a pesada y opaca ocupa un área equivalente a 8m2 a tu alrededor. Mientras dure el conjuro.",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 257,
+      "nombre": "Niebla carmesí",
+      "archivo_fuente": "69k-conjuros-alfabeticos-251-275.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "10m2",
+          "contexto_literal": "dente de un plano letal. Vomitas un cono, de 10m2 de diámetro, de niebla rojiza que quema la piel y",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 259,
+      "nombre": "Nube de aniquilación",
+      "archivo_fuente": "69k-conjuros-alfabeticos-251-275.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "3m2",
+          "contexto_literal": "el aire a tu alrededor en una nube tóxica de 3m2 de radio que puedes desplazar 3 metros cada Turno",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 260,
+      "nombre": "Nube de polen somnífero",
+      "archivo_fuente": "69k-conjuros-alfabeticos-251-275.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "6m2",
+          "contexto_literal": "juras una nube de polen que cubre un área de 6m2 alrededor del punto de impacto, adormeciendo a to",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 262,
+      "nombre": "Ojo de la tormenta",
+      "archivo_fuente": "69k-conjuros-alfabeticos-251-275.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "5km2",
+          "contexto_literal": "Alcance: 5km2 alrededor del lanzador",
+          "en_alcance": true
+        },
+        {
+          "parrafo_en_ficha": 6,
+          "fragmento_literal": "1km2",
+          "contexto_literal": "climatológicas violentas en un área de hasta 1km2 dentro de la zona afectada. Puedes elegir cualqui",
+          "en_alcance": false
+        },
+        {
+          "parrafo_en_ficha": 8,
+          "fragmento_literal": "10m2",
+          "contexto_literal": "elámpago a todas las criaturas en un área de 10m2 alrededor del impacto.",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 293,
+      "nombre": "Poza hedionda",
+      "archivo_fuente": "69l-conjuros-alfabeticos-276-300.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "4m2",
+          "contexto_literal": "rra y marchita la vida, cubriendo un área de 4m2. Cualquier criatura que entre en el área o comien",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 317,
+      "nombre": "Provocar confusión en masa",
+      "archivo_fuente": "69m-conjuros-alfabeticos-301-325.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "8m2",
+          "contexto_literal": " de energía corrupta y rojiza, en un área de 8m2 alrededor de un punto al alcance, que causa los e",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 318,
+      "nombre": "Purga de maldad",
+      "archivo_fuente": "69m-conjuros-alfabeticos-301-325.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "10m2",
+          "contexto_literal": "viente de Nivel inferior a 10 en un radio de 10m2 a tu alrededor, realiza una Tirada de Conjuro; si",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 331,
+      "nombre": "Rayo desintegrador",
+      "archivo_fuente": "69n-conjuros-alfabeticos-326-350.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "3 metros cúbicos",
+          "contexto_literal": " objeto o una porción de superficie de hasta 3 metros cúbicos. El objetivo queda completamente desintegrado, si",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 334,
+      "nombre": "Rayo solar",
+      "archivo_fuente": "69n-conjuros-alfabeticos-326-350.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "6m2",
+          "contexto_literal": "ador de llamas y luz brillante en un área de 6m2. Cualquier ser que se encuentre dentro del Rayo S",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 336,
+      "nombre": "Rebobinar",
+      "archivo_fuente": "69n-conjuros-alfabeticos-326-350.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "20m2",
+          "contexto_literal": " criaturas en el área de tu percepción (unos 20m2) se revierten como si nunca hubieran sucedido, de",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 338,
+      "nombre": "Redes arácnidas",
+      "archivo_fuente": "69n-conjuros-alfabeticos-326-350.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "5m2",
+          "contexto_literal": "alcance: allí se genera una telaraña de unos 5m2 que atrapa e impide a todas las criaturas que est",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 343,
+      "nombre": "Reparación magna",
+      "archivo_fuente": "69n-conjuros-alfabeticos-326-350.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "10m2",
+          "contexto_literal": "alquier objeto —sea mágico o no— no mayor de 10m2. Si ha perdido alguna pieza, crearás de la nada l",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 357,
+      "nombre": "Robar la luz",
+      "archivo_fuente": "69o-conjuros-alfabeticos-351-375.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "6m2",
+          "contexto_literal": "les, que se extiende hasta cubrir un área de 6m2. Cualquier criatura en el interior de la nube ser",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 367,
+      "nombre": "Santuario sagrado",
+      "archivo_fuente": "69o-conjuros-alfabeticos-351-375.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "18m2",
+          "contexto_literal": "una protección divina sobre un área de hasta 18m2, sellándola contra influencias mágicas de transpo",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 373,
+      "nombre": "Sello rúnico: Trampa",
+      "archivo_fuente": "69o-conjuros-alfabeticos-351-375.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "3m2",
+          "contexto_literal": "odas las criaturas adyacentes en un radio de 3m2.",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 385,
+      "nombre": "Surcar la tierra",
+      "archivo_fuente": "69p-conjuros-alfabeticos-376-400.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "4 metros cúbicos",
+          "contexto_literal": "Remueves o excavas hasta 4 metros cúbicos de tierra, barro o arena, desplazando el material",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 388,
+      "nombre": "Tormenta de espadas",
+      "archivo_fuente": "69p-conjuros-alfabeticos-376-400.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "4m2",
+          "contexto_literal": "sando todo lo que se encuentra en un área de 4m2 centrada en un punto dentro del alcance.",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 393,
+      "nombre": "Tromba de meteoritos",
+      "archivo_fuente": "69p-conjuros-alfabeticos-376-400.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 2,
+          "fragmento_literal": "2km2",
+          "contexto_literal": "Alcance: 2km2",
+          "en_alcance": true
+        },
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "20m2",
+          "contexto_literal": "da meteorito: arrasa con todo en un radio de 20m2 alrededor del punto de impacto, provocando 30d10 ",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 395,
+      "nombre": "Trampa de enredaderas",
+      "archivo_fuente": "69p-conjuros-alfabeticos-376-400.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "3m2",
+          "contexto_literal": "ededor de todas las criaturas en un radio de 3m2 alrededor del punto de invocación.",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 396,
+      "nombre": "Torbellino de arena",
+      "archivo_fuente": "69p-conjuros-alfabeticos-376-400.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "4m2",
+          "contexto_literal": "llino de viento y arena que ocupa un área de 4m2 metros en un espacio adyacente a ti. El Torbellin",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 397,
+      "nombre": "Tornado",
+      "archivo_fuente": "69p-conjuros-alfabeticos-376-400.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "4m2",
+          "contexto_literal": "Convocas un poderoso tornado de 4m2 que se mueve de forma aleatoria 6 metros en cada ",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 399,
+      "nombre": "Tempestad vengativa",
+      "archivo_fuente": "69p-conjuros-alfabeticos-376-400.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "20m2",
+          "contexto_literal": "uvia ácida y rayos mortales sobre un área de 20m2 a tu alrededor, castigando todo lo que se encuent",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 409,
+      "nombre": "Terremoto",
+      "archivo_fuente": "69q-conjuros-alfabeticos-401-425.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "2m2",
+          "contexto_literal": "so seísmo que afecta un área con un radio de 2m2 por cada Nivel que poseas. Las criaturas dentro d",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 410,
+      "nombre": "Trampa de fuego",
+      "archivo_fuente": "69q-conjuros-alfabeticos-401-425.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "2m2",
+          "contexto_literal": " genera una explosión de fuego en un área de 2m2 alrededor del objeto. Todas las criaturas en el á",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 411,
+      "nombre": "Trampa ilusoria",
+      "archivo_fuente": "69q-conjuros-alfabeticos-401-425.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "8 metros cúbicos",
+          "contexto_literal": "Envuelves un objeto de hasta 8 metros cúbicos con un velo mágico, haciéndolo parecer protegido ",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 412,
+      "nombre": "Terreno espinoso",
+      "archivo_fuente": "69q-conjuros-alfabeticos-401-425.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "6m2",
+          "contexto_literal": "sformas el suelo o las paredes en un área de 6m2 por Nivel en una superficie cubierta de puntas ro",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 413,
+      "nombre": "Terreno ilusorio",
+      "archivo_fuente": "69q-conjuros-alfabeticos-401-425.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "4m2",
+          "contexto_literal": "la apariencia de un área de terreno de hasta 4m2 por Nivel, transformándola visualmente en otro ti",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 415,
+      "nombre": "Tetramageddon",
+      "archivo_fuente": "69q-conjuros-alfabeticos-401-425.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "20m2",
+          "contexto_literal": "tos para desatar un cataclismo en un área de 20m2 centrada en un punto dentro del alcance. Este des",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 434,
+      "nombre": "Zona onírica",
+      "archivo_fuente": "69r-conjuros-alfabeticos-426-434.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "4m2",
+          "contexto_literal": "Recreas un área de 4m2 por Nivel de diámetro con la apariencia, olores, ",
+          "en_alcance": false
+        }
+      ]
+    }
+  ]
+}
