@@ -1,0 +1,300 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 18,
+  "indices_tomo": [
+    426,
+    434
+  ],
+  "fuente": {
+    "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "estado": "transcripcion_literal_completa_de_cada_ficha",
+  "registros": [
+    {
+      "numero_tomo": 426,
+      "nombre_literal": "Viaje por la Urdimbre",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3090,
+        "indice_ultimo_parrafo": 3097,
+        "indice_inicio_doc": 221365,
+        "indice_fin_doc": 221953
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: toque",
+        "Requisito: una Runa de viaje marcada con el conjuro Sello rúnico: Viaje",
+        "Cronurgia",
+        "Despiertas la magia latente en una Runa de viaje, previamente establecida con el conjuro Sello rúnico: Viaje. Al activar su poder, abres un portal diminuto que conecta con la ubicación vinculada a esa runa. Este portal permite que tú y hasta un número de criaturas adicionales igual a tu Nivel viajéis instantáneamente a ese lugar. Todas las criaturas deben estar adyacentes a la runa en el momento de la activación."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-185",
+          "circulo": 4,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 427,
+      "nombre_literal": "Viaje sepulcral",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3098,
+        "indice_ultimo_parrafo": 3105,
+        "indice_inicio_doc": 221954,
+        "indice_fin_doc": 222776
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Nigromancia",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: toque",
+        "Usas el poder oscuro de Z'Thur para vincular tumbas profanadas o marcadas con su toque, permitiéndote viajar instantáneamente entre ellas. Te sumerges en una tumba vinculada y emerges desde otra, sin importar la distancia que las separe dentro del mismo plano.",
+        "Las tumbas deben estar profanadas o marcadas previamente con el toque de Z'Thur, un ritual oscuro que las convierte en puntos de tránsito. Tanto la tumba de origen como la de destino deben estar intactas al momento del viaje.",
+        "Si la tumba de destino ha sido destruida o purificada, el viaje falla, y sufres 4d6 de daño impío debido al colapso del vínculo. Este conjuro no permite viajes interplanares ni a tumbas que no hayan sido específicamente preparadas con antelación."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-394",
+          "circulo": 4,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 428,
+      "nombre_literal": "Vigilia de muerte",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3106,
+        "indice_ultimo_parrafo": 3111,
+        "indice_inicio_doc": 222777,
+        "indice_fin_doc": 223323
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "Las fuerzas de ultratumba se entrelazan con el espíritu del objetivo, protegiéndolo temporalmente  de una muerte prematura. Mientras dure el efecto, si la criatura es reducida a 0 Puntos de Salud o menos, en lugar de morir, sus Puntos de Salud se ajustan a 1 y el efecto finaliza. Vigilia de muerte no protege de un fallecimiento natural (por vejez o enfermedad) o por causas sobrenaturales de mayor Nivel, como la desintegración o la galvanización."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-89",
+          "circulo": 3,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 429,
+      "nombre_literal": "Vigor de coloso",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3112,
+        "indice_ultimo_parrafo": 3117,
+        "indice_inicio_doc": 223324,
+        "indice_fin_doc": 223738
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Divina",
+        "Alcance: 10 metros",
+        "Duración: 1 Turno por Nivel",
+        "Invocas la fortaleza de los antiguos titanes a través de plegarias divinas, tonificando el cuerpo del objetivo y otorgándole un +2 a todas las Tiradas de Fuerza durante la duración del conjuro. Este poder celestial refuerza al objetivo, permitiéndole superar límites físicos y enfrentar desafíos con una fuerza renovada."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-186",
+          "circulo": 4,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 430,
+      "nombre_literal": "Visión de Nastala",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3118,
+        "indice_ultimo_parrafo": 3123,
+        "indice_inicio_doc": 223739,
+        "indice_fin_doc": 224115
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Demonología",
+        "Alcance: ilimitado",
+        "Duración: 1 Intervalo por Nivel",
+        "Expandes tu cognición a través de la Urdimbre y, en el interior de tu mente, eres capaz de percibir lo que ocurre en un lugar concreto (que has de conocer previamente o poder verlo desde tu posición). La Visión está limitada a lo que un mortal podría observar y escuchar."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-262",
+          "circulo": 3,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 431,
+      "nombre_literal": "Vitalidad quimérica",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3124,
+        "indice_ultimo_parrafo": 3130,
+        "indice_inicio_doc": 224116,
+        "indice_fin_doc": 224512
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: personal",
+        "Duración: 1 hora por Nivel o hasta que los Puntos de Salud se agoten",
+        "Magia curativa",
+        "Conjuras una imitación de la vida que otorga 1d6 Puntos de salud temporales. Estos puntos pueden exceder tu máximo de salud y se deben consumir primero si recibes daño. Solo puedes beneficiarte de una aplicación de este conjuro a la vez."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-139",
+          "circulo": 2,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 432,
+      "nombre_literal": "Vuelo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3131,
+        "indice_ultimo_parrafo": 3136,
+        "indice_inicio_doc": 224513,
+        "indice_fin_doc": 224864
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: 1 Intervalo por Nivel",
+        "De tus pies surgen cuatro alas translúcidas que te permiten flotar y volar hasta una velocidad máxima de 30 metros por Turno. Para maniobras complejas necesitarás superar Tiradas de Agilidad. Sufres Desventaja en todas las Tiradas mientras vuelas si vas sobrecargado."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-258",
+          "circulo": 3,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 433,
+      "nombre_literal": "Yugo de la muerte viviente",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3138,
+        "indice_ultimo_parrafo": 3143,
+        "indice_inicio_doc": 224867,
+        "indice_fin_doc": 225364
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Requisito: el objetivo debe ser un muerto viviente",
+        "Canalizas el juicio de tu fe divina a través de tus manos, desatando un poder que busca purgar la abominación de la no muerte. Realiza una Tirada de Conjuro: si tienes éxito y la criatura es de Nivel 12 o inferior, es destruída por completo, reducida a cenizas por el juicio divino;  por otra parte, si es de Nivel 12 o superior, sufre 3d6 puntos de daño radiante por Nivel."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-204",
+          "circulo": 6,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 434,
+      "nombre_literal": "Zona onírica",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3145,
+        "indice_ultimo_parrafo": 3150,
+        "indice_inicio_doc": 225367,
+        "indice_fin_doc": 225739
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 60 m",
+        "Duración: permanente",
+        "Recreas un área de 4m2 por Nivel de diámetro con la apariencia, olores, sonidos y tacto que tú desees. Si una criatura intenta probar a ver a qué sabe algo de la Zona onírica, notará que sabe a papel. Cada objeto que generes de esta forma se evaporará en cuanto abandone el área de influencia."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-276",
+          "circulo": 4,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    }
+  ]
+}
