@@ -1,0 +1,404 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    101,
+    125
+  ],
+  "numero_registros": 25,
+  "metodo": "Lectura manual, observación semántica con punteros a párrafos literales 0-based en 69e. Los párrafos históricos no se sustituyen ni alteran.",
+  "registros": [
+    {
+      "numero_tomo": 101,
+      "nombre_literal": "Dormir",
+      "lectura_documental_no_oficial": "Puntos Oníricos comparados con Salud actual",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "No contar la reserva como daño real a la Salud ni dormir si no alcanza toda la Salud actual.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 824
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 102,
+      "nombre_literal": "Dardo de penumbra",
+      "lectura_documental_no_oficial": "Daño impío y posible Ceguera",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Probabilidad 10+ de Ceguera distinta de Tirada de Conjuro; duplicado de fuente con Ocupaciones.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 831
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 103,
+      "nombre_literal": "Descarga sombría",
+      "lectura_documental_no_oficial": "Daño, desintegración y reanimación posterior",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Errata literal «Nivelesa»; el reanimado ataca al ser vivo más cercano, sin obediencia descrita.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 837
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 104,
+      "nombre_literal": "Detonación cadavérica",
+      "lectura_documental_no_oficial": "Explosión de restos mortales",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "La fuente exige restos; no inferir daño adicional sobre quien era el cadáver.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 843
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 105,
+      "nombre_literal": "Día de los muertos",
+      "lectura_documental_no_oficial": "Invocación masiva de cadáveres",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "No establecer máximo arbitrario ni obediencia absoluta de quienes no pueden escuchar.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 849
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 106,
+      "nombre_literal": "Destello aural",
+      "lectura_documental_no_oficial": "Daño que ignora resistencias e inmunidades",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "El texto narra destello que ciega, pero no indica duración mecánica de Ceguera.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 857
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 107,
+      "nombre_literal": "Deseo",
+      "lectura_documental_no_oficial": "Deseo adjudicado por el Cronista",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "advertencia_de_integracion": "Costes y efectos no son operaciones automáticas deterministas.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 862
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 108,
+      "nombre_literal": "Diluvio universal",
+      "lectura_documental_no_oficial": "Diluvio con pérdida de Espacios",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "advertencia_de_integracion": "«10 kilómetros» y «radio de 10 km²» son magnitudes distintas; coste alternativo no definido.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 874
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 109,
+      "nombre_literal": "Destrucción",
+      "lectura_documental_no_oficial": "Destrucción o daño según Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Nivel 20 o inferior desintegra, Nivel 21 o superior recibe daño; sin Tirada específica añadida.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 886
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 110,
+      "nombre_literal": "Disco celeste de Excelsus",
+      "lectura_documental_no_oficial": "Disco de transporte limitado",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Flota como máximo a 1,2 m del suelo y transporta carga aproximada de 300 kg.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 893
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 111,
+      "nombre_literal": "Detectar lo Corrupto",
+      "lectura_documental_no_oficial": "Detección de lo Corrupto",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Qué se entiende como Corrupto lo decide el Cronista; no es listado exhaustivo.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 899
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 112,
+      "nombre_literal": "Detectar lo Sagrado",
+      "lectura_documental_no_oficial": "Detección de lo Sagrado",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Qué se entiende como Sagrado lo decide el Cronista; no es listado exhaustivo.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 904
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 113,
+      "nombre_literal": "Detectar lo invisible",
+      "lectura_documental_no_oficial": "Detección de invisibilidad con distancia variable",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "El alcance «personal» convive con una distancia de percepción de 2 m por Nivel.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 909
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 114,
+      "nombre_literal": "Destello de Kaeduin",
+      "lectura_documental_no_oficial": "Luz mejorada con dos usos",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Vincular el Conjuro Luz; iluminación y ceguera tienen duraciones diferentes.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 916
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 115,
+      "nombre_literal": "Descarga de debilidad",
+      "lectura_documental_no_oficial": "Estado Debilitada tras Tirada",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "Mitad de daño sólo para ataques cuerpo a cuerpo, según texto.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 924
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 116,
+      "nombre_literal": "Detectar la mentira",
+      "lectura_documental_no_oficial": "Detección retrospectiva de mentiras",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Excluye errores involuntarios y declaraciones bajo control mental.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 931
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 117,
+      "nombre_literal": "Descarga ardiente",
+      "lectura_documental_no_oficial": "Daño en línea con mitad al fallo",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "No se fija anchura de la línea ni redondeo de cada cuatro Niveles.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 936
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 118,
+      "nombre_literal": "Dilatación arcana",
+      "lectura_documental_no_oficial": "Prolongación de Conjuro propio",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Duplica como máximo duración, no daño, y sólo si el efecto original sigue activo.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 941
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 119,
+      "nombre_literal": "Dominar criatura",
+      "lectura_documental_no_oficial": "Control por tipo de criatura elegido al aprender",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "advertencia_de_integracion": "Una selección al aprender; Tiradas adicionales para peticiones contrarias, y límite por Nivel.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 947
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 120,
+      "nombre_literal": "Despertar de la vegetación",
+      "lectura_documental_no_oficial": "Vegetación y penalización de Movimiento",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Superficie expresada en m²; no asignar radio ni duración ausente.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 956
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 121,
+      "nombre_literal": "Detener criatura",
+      "lectura_documental_no_oficial": "Parálisis por categoría y Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "La categoría se decide al aprender; un ataque propio o de aliado disipa.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 961
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 122,
+      "nombre_literal": "Doble ilusorio",
+      "lectura_documental_no_oficial": "Doble ilusorio con canalización",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Desaparece si se toca o se golpea; no tiene cuerpo material.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 969
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 123,
+      "nombre_literal": "Dominar la tierra",
+      "lectura_documental_no_oficial": "Traslado de tierra en volumen",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "15 metros cúbicos y dependencia de Surcar la tierra.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 975
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 124,
+      "nombre_literal": "Descarga de caos",
+      "lectura_documental_no_oficial": "Tabla aleatoria de éxito/fallo",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "advertencia_de_integracion": "Preservar los resultados exactos de la tabla d8, incluida la expresión literal 3d3.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 980
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 125,
+      "nombre_literal": "División oceánica",
+      "lectura_documental_no_oficial": "Pasaje oceánico con anchura y duración",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "4 m de ancho, hasta 40 de largo; puede cancelarse sin penalización indicada.",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "indice_encabezado": 1006
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}
