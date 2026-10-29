@@ -1,0 +1,120 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "document_id": "15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28",
+    "revision": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ"
+  },
+  "ocupacion": "Arcanista",
+  "registros": [
+    {
+      "talento": "Conducto arcano",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        553,
+        558
+      ],
+      "coste_literal": null,
+      "texto_literal": "Tu cuerpo es un nodo de poder sobrenatural, un conducto entre la realidad y lo arcano. Esto tiene efectos tanto beneficiosos como peligrosos:\nObtienes un +1 en tus Tiradas de Conjuro para tus dos Escuelas maestras.\nConsumes tantos Puntos de Gnosis como Círculo del Conjuro que estés lanzando. Si no puedes pagar el coste…\nPuedes lanzar un Conjuro sin PG disponibles, canalizando la magia a través de tu cuerpo: realiza una Tirada de Resistencia, y si tienes éxito lanzas el conjuro de forma normal. Sin embargo, si fallas, sufrirás tantos d6 de daño impío como Círculo del Conjuro y éste se lanzará de forma errática (el Cronista te indicará qué problemas tendrás)."
+    },
+    {
+      "talento": "Puntos de Gnosis",
+      "activacion": "Especial",
+      "parrafos_fuente": [
+        559,
+        567
+      ],
+      "coste_literal": null,
+      "texto_literal": "Posees un recurso denominado Puntos de Gnosis (PG), que consumes para lanzar Conjuros. Debes consumir tantos PG como Círculo del Conjuro que quieras lanzar. Para recuperar tu Gnosis, debes meditar en lugares de poder, que dependen de tu Especie:\nHumanos u otra Especie no definida aquí: áreas vinculadas a una Línea ley. Tirada de Presencia, con un éxito se medita durante 1 Intervalo y se restauran todos los PG. La meditación sólo se puede realizar una vez cada 24 horas o no será efectiva.\nVampiros: un baño de sangre en una cripta subterránea. Se requiere la sangre de 1d4 humanos adultos para poder restaurar todos los PG en un 1 Intervalo de baño y meditación.\nTeriántropos: Según la especie animal.\nLobos: aullando a una luna que no esté en Fase Nueva durante 1d6 Turnos. Recuperarás todos los PG, pero sólo puedes hacerlo una vez cada 2 días.\nCuervos: rodeándose de pequeñas baratijas brillantes en un nido relativamente oculto en la oscuridad del bosque; sólo se puede realizar en forma cuervo. Se recuperan todos los PG, pero sólo se puede llevar a cabo una vez cada 4 días.\nHadas: sometiéndose al aura de Sylestria durante al menos 1 Intervalo. Cada zona del Mundo de la Carne posee una fuerza de vínculo con Sylestria (nula, leve, media, severa) y tanto Leve como Media requerirán una Tirada de Intuición (con Desventaja en el primer caso) para recuperar todos tus PG. Si absorbes el aura más de 2 veces en un mismo lugar en menos de un mes, reducirás en un rango (de forma irrecuperable) la fuerza de vínculo de Sylestria."
+    },
+    {
+      "talento": "Biblioteca ambulante",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        570,
+        572
+      ],
+      "coste_literal": null,
+      "texto_literal": "Tienes un conocimiento enciclopédico de lo arcano. Puedes hacer una Tirada de Mente para recordar un detalle oculto sobre una criatura sobrenatural, un objeto mágico o una maldición. Si tienes tiempo para estudiar un texto arcano, puedes identificar el propósito de un objeto mágico o maldito sin necesidad de pruebas adicionales."
+    },
+    {
+      "talento": "Canal de las sombras",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        573,
+        575
+      ],
+      "coste_literal": null,
+      "texto_literal": "Puedes aprender y lanzar Conjuros de la Escuela de Nigromancia o Demonología aunque no sean tus Escuelas Maestra. Sin embargo, cada vez que lo hagas, tienes una Probabilidad 10+ de atraer la atención de entidades del Otro Lado."
+    },
+    {
+      "talento": "Caos esotérico",
+      "activacion": "Reacción",
+      "parrafos_fuente": [
+        576,
+        578
+      ],
+      "coste_literal": null,
+      "texto_literal": "Cuando lanzas un Conjuro y sacas el mejor resultado en tu Tirada de Conjuro, la magia se potencia de forma impredecible. El efecto del Conjuro se duplica (hace el doble de daño, se duplica la Duración, etc.), pero también ocurre un efecto colateral menor (decidido por el Cronista)."
+    },
+    {
+      "talento": "Estallido arcano",
+      "activacion": "Reacción",
+      "parrafos_fuente": [
+        579,
+        581
+      ],
+      "coste_literal": null,
+      "texto_literal": "Cuando fallas una Tirada de Conjuro, puedes liberar una explosión de energía mágica. Todas las criaturas en un radio de 3 metros de ti sufren 1d6 de daño por fuerza y tú sufres la mitad."
+    },
+    {
+      "talento": "Sacrificio vital",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        582,
+        584
+      ],
+      "coste_literal": null,
+      "texto_literal": "Puedes sustituir el Coste de Gnosis de un Conjuro a cambio de tu propia vitalidad. Por cada Punto de Gnosis que necesites para lanzar un Conjuro, puedes perder 2 Puntos de Salud."
+    },
+    {
+      "talento": "Voluntad indómita",
+      "activacion": "Reacción",
+      "parrafos_fuente": [
+        585,
+        588
+      ],
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "texto_literal": "Si un efecto mágico o sobrenatural intenta influenciar tu mente (Encantamiento, Ilusión, Dominación), puedes resistirlo de forma automática."
+    }
+  ],
+  "adquisicion": {
+    "fijos_nivel_1": [
+      "Conducto arcano",
+      "Puntos de Gnosis"
+    ],
+    "opcionales": [
+      "Biblioteca ambulante",
+      "Canal de las sombras",
+      "Caos esotérico",
+      "Estallido arcano",
+      "Sacrificio vital",
+      "Voluntad indómita"
+    ],
+    "selecciones": [
+      {
+        "nivel": 1,
+        "cantidad": 1
+      },
+      {
+        "nivel": 9,
+        "cantidad": 1
+      }
+    ]
+  },
+  "alertas": [
+    "La recuperación de Puntos de Gnosis tiene reglas condicionales según Especie: no imponer descanso universal.",
+    "Los seis Talentos seleccionables no se conceden todos en Nivel 1."
+  ],
+  "nota": "Párrafos ordinales de Google Docs; transcripciones de efectos preservan terminología original."
+}
