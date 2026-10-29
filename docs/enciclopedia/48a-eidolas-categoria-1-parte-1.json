@@ -1,0 +1,65 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "familia": "Eidolas",
+  "categoria": 1,
+  "estado": "extraccion_literal_modalidades_y_contexto",
+  "registros": [
+    {
+      "nombre": "Kayulio",
+      "epiteto": "cacique emperador",
+      "categoria": 1,
+      "elemento": "Viento",
+      "parrafos": [
+        1489,
+        1495
+      ],
+      "contexto_literal": "Los gatónidos del Valle de los maullidos cuentan una historia a sus pequeños, las peripecias de Kayulio el gato más metomentodo y más temerario de toda la región. Se cuenta que se infiltró en una tribu de troblins para rescatar a su hermana de las garras del cacique y esto le hizo ganarse su título. Exige por sus servicios un generoso trozo de carne, si está cocinada mucho mejor.",
+      "encarnar_literal": "Encarnar: recibe el pelaje de Kayulio para causar 4 de daño eléctrico cada vez que seas impactado por un ataque físico —cuerpo a cuerpo o a distancia— durante 1d6 Turnos.",
+      "canalizar_literal": "Canalizar: Carrera relámpago. Kayulio se despereza de una vez y persigue algo invisible, arrasando una línea de hasta 30 metros frente al invocador con 10d4 de daño eléctrico.",
+      "materializar_literal": "Materializar: Salud 6/1d6/1, Ataque 2d4, Blindaje d4. Kayulio se enfrentará a lo que sea durante 1d6 Turnos, momento en el que se distraerá con otra realidad y se desvanecerá."
+    },
+    {
+      "nombre": "Lonian",
+      "epiteto": "dogo sempiterno",
+      "categoria": 1,
+      "elemento": "Agua",
+      "parrafos": [
+        1496,
+        1502
+      ],
+      "contexto_literal": "Este pequeño perro acompañó a su dueño durante la Guerra de las Llamas, volviéndose más duro a medida que se enfrentaba a monstruos primitivos y salvajes. En su último viaje, dueño y can plantaron cara a un ejército de demonios acuáticos que amenazaban con destruir una aldea costera. Aunque perecieron, el espíritu de ambos se transformó en un Éidolon gracias a la magia deífica de Lenseng. Lonian solicita, cada vez que es invocado, que se cante un himno al Señor de las Mareas durante el próximo amanecer.",
+      "encarnar_literal": "Encarnar: recibe la perseverancia de Lonian para obtener 1d4 cargas de escudo acuático. Cada vez que seas impactado por un ataque cuerpo a cuerpo o a distancia, puedes gastar una de esas cargas para que una barrera de agua repela el golpe y reduzcas 1d6 del daño sufrido.",
+      "canalizar_literal": "Canalizar: Ladrido de la marisma. Lonian surge de un charco de agua del suelo, empapado, y tensa sus músculos. Una onda de energía acuática surge de su boca, arrasando un cono de 15 metros frente a él. Cada criatura herida por el ladrido sufre 3d10 de daño por frío y queda empapada durante 1d2 Turnos.",
+      "materializar_literal": "Materializar: Salud 6/1d6/1, Ataque d8, Blindaje d4. Lonian luchará a tu lado hasta que finalice el enfrentamiento o su salud sea agotada."
+    },
+    {
+      "nombre": "Rufushia",
+      "epiteto": "la luz del hogar",
+      "categoria": 1,
+      "elemento": "Luz",
+      "parrafos": [
+        1504,
+        1510
+      ],
+      "contexto_literal": "Los ratones son una de las especies animales más comunes en la civilización. Cuenta la fábula que Rufushia fue un ratón muy pequeño, de pelaje negro y ojos brillantes, llenos de curiosidad, que dominó la magia para iluminar las noches oscuras a sus allegados. Aunque dicha proeza le llevó a ser el conejillo de indias de un arcanista sin escrúpulos, la esencia de Ylathia permeó a través de la Urdimbre y le ofreció una existencia como la representación más pura del hogar. Es por esto que Rufushia exige que se enciendan dos velas y se dejen en el techo o en una viga durante una noche tras invocarle.",
+      "encarnar_literal": "Encarnar: recibe la luz de Rufushia para iluminar un área de 6 metros a tu alrededor y obtener resistencia al daño luminoso durante 2d5 Turnos.",
+      "canalizar_literal": "Canalizar: Brillo cegador. Del cielo surge un rayo de luz por el que baja a toda velocidad Rufushia, que se presenta como un ratón de un tamaño considerable, iluminado por destellos amarillentos. Tras liberar un tremendo fogonazo luminoso, todos los enemigos en un radio de 9 metros a su alrededor quedarán Cegados durante 1d4 Turnos.",
+      "materializar_literal": "Materializar: Salud 4/1d4/1, Ataque d4, Blindaje d4. Rufushia peleará con sus garras y dientes durante 2d12 Turnos."
+    },
+    {
+      "nombre": "Schoff",
+      "epiteto": "sabueso de las llanuras",
+      "categoria": 1,
+      "elemento": "Tierra",
+      "parrafos": [
+        1511,
+        1517
+      ],
+      "contexto_literal": "La leyenda cuenta que este perro legendario fue uno de los borregueros de Shadel cuando levantó los cimientos de lo que llegaría a ser la capital del reino. Su presencia recorre las Llanuras Vertenia en busca de shadalenses que requieran ayuda. Schoff requiere por sus servicios un buen mendrugo de pan.",
+      "encarnar_literal": "Encarnar: recibe el manto de Schoff para obtener Blindaje d8 y resistencia al daño contundente y eléctrico durante 1d4 Turnos.",
+      "canalizar_literal": "Canalizar: Arremetida peluda. Schoff se abalanza sobre un grupo de hasta 4 enemigos cercanos — 3 metros entre sí— para causar 4d8 de daño contundente y derribarlos.",
+      "materializar_literal": "Materializar: Salud 8/1d8/2, Ataque d6, Blindaje d8. Schoff luchará a tu lado hasta que finalice el enfrentamiento o su salud sea agotada."
+    }
+  ],
+  "nota": "Conservar los atributos de Materializar como texto hasta comprobar las reglas de Seguidores."
+}
