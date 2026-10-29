@@ -33,11 +33,11 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 ## D. Estado de verificación
 
 - **434/434** Conjuros transcritos y cotejados contra Google Docs, sin diferencias literales.
-- **175/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72g](72g-desglose-revisado-conjuros-151-175.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) y [75d](75d-auditoria-desglose-manual-151-175.json).
-- **259** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
-- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 259 en fichas mecánicamente verificadas.
+- **200/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72h](72h-desglose-revisado-conjuros-176-200.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) y [75e](75e-auditoria-desglose-manual-176-200.json).
+- **234** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
+- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 234 en fichas mecánicamente verificadas.
 
-**Se puede continuar con 176–200 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
+**Se puede continuar con 201–225 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
 
 **Nota de control:** el recuento espacial de la auditoría inicial se corrigió tras detectar que el superíndice ² quedaba fuera del patrón de búsqueda. La [auditoría vigente](77c-resumen-geometria-conjuros.md) registra 65 fichas con magnitudes espaciales y 10 mezclas de radio y superficie.
 
@@ -70,3 +70,14 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 - **Nueva pasada de superficies:** se han localizado **seis erratas adicionales** fuera de los diez casos ya reparados editorialmente, registradas como **propuestas no aprobadas** en [77d](77d-segunda-pasada-erratas-geométricas.json). No se han alterado los textos fuente.
 
 [Desglose manual 151–175](72g-desglose-revisado-conjuros-151-175.json) y [auditoría de 50 referencias](75d-auditoria-desglose-manual-151-175.json).
+
+## H. Hallazgos del desglose 176–200
+
+- **CONJ-M18 — Guardián fantasmal (177)**: espíritu protector que ataca, pero no dispone de ficha de Salud, daño ni reglas de ataque. No inventar estadísticas.
+- **CONJ-M19 — Intercambio de almas (189)**: conserva explícitamente Mente, Intuición y Presencia; la frase posterior dice que «sus Atributos» cambian con el cuerpo. Debe precisarse esa excepción antes de implementar el intercambio de hojas.
+- **CONJ-M20 — Invocar elemental menor (195)**: cuatro variedades, orden e Iniciativa definidos, pero falta una ficha de criatura o referencia inequívoca para las estadísticas. No improvisarlas.
+- **CONJ-M21 — Invisibilidad magna (200)**: excepciona la cancelación por acciones violentas o hablar, pero no especifica si también excepciona la cancelación por uso de un Poder de Invisibilidad (199). Conservar esta distinción sin suponer inmunidad.
+- **Hálito de ultratumba (183)**: cono expresado como superficie de 6 m², sin dimensiones lineales; **Hambre de Nastala (184)**: alcance en 50 m² sin forma geométrica. No convertir estos números en radios.
+- **Hoja rugiente (185)**: inflige 1d6 adicional incluso si falla el ataque de arma. **Hablar con los muertos (182)**: máximo tres preguntas, excluidos muertos vivientes.
+
+[Desglose 176–200](72h-desglose-revisado-conjuros-176-200.json), [auditoría de 40 referencias](75e-auditoria-desglose-manual-176-200.json). Fuentes literales y funcionamiento de Forja sin modificar.
