@@ -143,7 +143,7 @@
     {
       "id": "OCP-20",
       "nombre": "Corte fantasma",
-      "descripcion": "El fallo de la propia Tirada de ataque causa al usuario daño físico igual a su Nivel según texto literal. No invertir automáticamente el objetivo del daño."
+      "descripcion": "El texto indica «si no tienes éxito, causas tanto daño físico como tu Nivel», pero no identifica expresamente quién recibe ese daño; no atribuirlo automáticamente al usuario ni al adversario sin aclaración editorial."
     }
   ],
   "advertencias": [
