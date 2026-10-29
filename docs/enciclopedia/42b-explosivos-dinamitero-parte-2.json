@@ -1,0 +1,132 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "tabla_word": 40,
+  "categoria": "Poderes > Explosivos",
+  "ocupacion": "Dinamitero",
+  "columnas": [
+    "Explosivo",
+    "Intensidad",
+    "Daño",
+    "Radio",
+    "Efecto"
+  ],
+  "filas_originales": [
+    [
+      "Granada de calor",
+      2,
+      "2d8",
+      "12m",
+      "Causa daño de fuego y libera una oleada de calor que sube la temperatura 2d4 grados centígrados durante 1d4 Turnos."
+    ],
+    [
+      "Granada de pánico",
+      2,
+      "0",
+      "10m",
+      "Crea un estallido de sangre, vísceras y restos humanos que manchan todo el área. Todo es falso, es pintura o material de goma."
+    ],
+    [
+      "Granada de piedras",
+      2,
+      "2d6",
+      "6m",
+      "Causa daño de tierra. La metralla de la explosión es un montón de piedras."
+    ],
+    [
+      "Granada de viento ",
+      2,
+      "2d4",
+      "10m",
+      "Provoca un torbellino de aire. Apaga antorchas y otros fuegos endebles, además de tirar al suelo cualquier objeto no agarrado."
+    ],
+    [
+      "Granada glacial",
+      2,
+      "2d8",
+      "12m",
+      "Causa daño de frío y libera una ola gélida que baja la temperatura 2d6 grados centígrados durante 1d6 Turnos."
+    ],
+    [
+      "Granada luminosa",
+      2,
+      "1d10",
+      "8m",
+      "Causa daño radiante y, además, el Estado Ceguera y Sordera durante 1d4 Turnos a todas las criaturas en el radio."
+    ],
+    [
+      "Bomba de rayo fulminante",
+      3,
+      "4d6",
+      "6m",
+      "Causa daño de rayo y empuja a todas las criaturas 6m hacia atrás si no superan una Tirada de Fuerza."
+    ],
+    [
+      "Bombarda de humo podrido",
+      3,
+      "2d12",
+      "14m",
+      "Causa daño venenoso y crea una nube tóxica que se mantiene durante 1d6 Turnos, otorga cobertura, ocultación y causando daño a todo aquel que finalice su Turno dentro del radio."
+    ],
+    [
+      "Carga de cielo azul",
+      3,
+      "3d6",
+      "20m",
+      "Causa daño radiante y de agua."
+    ],
+    [
+      "Carga de fuego de dragón ",
+      3,
+      "3d6",
+      "20m",
+      "Causa daño de fuego."
+    ],
+    [
+      "Carga de icor maligno",
+      3,
+      "5d4",
+      "8m",
+      "Causa daño ácido."
+    ],
+    [
+      "Petardo sísmico",
+      3,
+      "3d6",
+      "20m",
+      "Causa daño de tierra. Provoca un pequeño terremoto, por lo que causará destrucción estructural."
+    ],
+    [
+      "Dinamita sónica",
+      3,
+      "4d6",
+      "12m",
+      "Causa daño explosivo y Sordera durante 1d6 Turnos."
+    ],
+    [
+      "Granada sombría",
+      3,
+      "2d8",
+      "8m",
+      "Causa daño de oscuridad y crea una zona sombría que otorga cobertura y ocultación durante 1d6 Turnos."
+    ],
+    [
+      "Maniquí astral",
+      3,
+      "0",
+      "10m",
+      "Tiene forma de ser humano. Camina 1d4 * 2m antes de caer al suelo, gritar de forma que hiela la sangre y 1 Turno después, explotar en una supernova de vísceras y restos sanguinolentos."
+    ],
+    [
+      "Obús ralentizador ",
+      3,
+      "1d12",
+      "14m",
+      "Causa daño y ralentiza el tiempo (Freno) durante 1d6 Turnos a todas las criaturas en el área."
+    ]
+  ],
+  "filas_de_tabla": [
+    17,
+    32
+  ],
+  "nota": "Completa 32 Explosivos junto con el archivo 42a-explosivos-dinamitero-parte-1.json. Se conserva el espacio final en tres nombres que aparecen así en el Word; normalizarlos sólo en un campo derivado, no en fuente."
+}
