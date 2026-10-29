@@ -1,0 +1,281 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 6,
+  "registros_validados": 16,
+  "total_validados_acumulado": 61,
+  "pendientes": 54,
+  "registros": [
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-blanco:linaje-feerico",
+      "sistema": "Ampliadas",
+      "especie": "Elfo blanco",
+      "talento": "Linaje feérico",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nEres inmune al estado Parálisis; tienes Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_encabezado": 2689,
+        "indice_fin": 2819
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:enano-selvatico:corpulencia",
+      "sistema": "Ampliadas",
+      "especie": "Enano selvático",
+      "talento": "Corpulencia",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Reacción\nCoste: 1 Esfuerzo\nTu Movimiento se reduce en 1 (ya calculado). Cuando realices una Tirada de Blindaje para reducir daño físico sufrido, puedes gastar 1 Punto de Esfuerzo para repetir la tirada.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_encabezado": 7739,
+        "indice_fin": 7953
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:pelaje-silvestre:musculatura-felina",
+      "sistema": "Ampliadas",
+      "especie": "Pelaje silvestre",
+      "talento": "Musculatura felina",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nEres más pequeño que un Elfo, un Enano o un Humano. Aumenta tu Movimiento en 1 (ya calculado). No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_encabezado": 8928,
+        "indice_fin": 9147
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:pelaje-urbanita:estallido-de-velocidad",
+      "sistema": "Ampliadas",
+      "especie": "Pelaje urbanita",
+      "talento": "Estallido de velocidad",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Acción\nCoste: 1 Esfuerzo\nTomas impulso gracias a tus poderosos músculos de gato y triplicas tu velocidad de Movimiento durante 1d4 Turnos; durante éste Estallido de velocidad, puedes caminar por las paredes durante 1 Turno máximo, teniendo que finalizar tu movimiento en el suelo.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_encabezado": 9817,
+        "indice_fin": 10120
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:humano-ujibo:diplomacia",
+      "sistema": "Ampliadas",
+      "especie": "Humano ujibo",
+      "talento": "Diplomacia",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Reacción\nCuando tengas que tirar el DU de tu Reputación con otra Facción, puedes decidir tener Ventaja o Desventaja en la Tirada según te beneficie.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_encabezado": 14100,
+        "indice_fin": 14259
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:iblisio:aguante-igneo",
+      "sistema": "Ampliadas",
+      "especie": "Iblisio",
+      "talento": "Aguante ígneo",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nObtienes un Blindaje efectivo de 5 contra heridas provocadas por ataques o conjuros basados en el fuego.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_encabezado": 15312,
+        "indice_fin": 15437
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:iblisio:labia-infernal",
+      "sistema": "Ampliadas",
+      "especie": "Iblisio",
+      "talento": "Labia infernal",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nCuando quieres, eres especialmente convincente. Si argumentas de forma lógica y coherente, puedes obtener un +2 a una Tirada de Presencia para engañar, embaucar o convencer a alguien.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_encabezado": 15438,
+        "indice_fin": 15643
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:mediano-jobito:buena-suerte",
+      "sistema": "Ampliadas",
+      "especie": "Mediano jóbito",
+      "talento": "Buena suerte",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Reacción\nCoste: 1 Esfuerzo\nTienes una suerte espectacular; cuando obtengas un 1 como resultado en una Tirada de Atributo, puedes repetir dicha tirada y quedarte con el nuevo resultado (aunque sea otro 1).",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_encabezado": 16809,
+        "indice_fin": 17026
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:semitrol:sed-de-sangre",
+      "sistema": "Ampliadas",
+      "especie": "Semitrol",
+      "talento": "Sed de sangre",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Reacción\nAntes de realizar una Tirada de Ataque con un arma cuerpo a cuerpo, puedes declarar que tu embate será brutal: sufres un -2 a la Tirada de Ataque y un +1 a la Penetración del arma.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_encabezado": 17621,
+        "indice_fin": 17824
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:semitrol:regeneracion-de-trol",
+      "sistema": "Ampliadas",
+      "especie": "Semitrol",
+      "talento": "Regeneración de trol",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nEres capaz de regenerar tus heridas gracias a su sangre monstruosa. Recuperas 1 Punto de Salud al finalizar tu Turno siempre y cuando no hayas recibido daño de fuego o ácido durante dicho Turno.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_encabezado": 17825,
+        "indice_fin": 18047
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:planta-feerica",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Planta feérica",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nEres inmune al estado Parálisis y al estado Dormido, y tienes Ventaja en las Tiradas de salvación contra el estado Veneno. Aumenta tu Movimiento en 1 (ya calculado); sin embargo, sufres el doble de daño de cualquier ataque o Conjuro vinculado al fuego.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_encabezado": 2168,
+        "indice_fin": 2442
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora:herencia-zora",
+      "sistema": "Ampliadas",
+      "especie": "Zora",
+      "talento": "Herencia zora",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nObtienes un Blindaje efectivo de 5 contra heridas provocadas por ataques o conjuros vinculados al agua y al rayo. Además, no necesitas respirar cuando estás bajo el agua y duplicas tu Movimiento cuando estás nadando, en lugar de reducirlo a la mitad.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_encabezado": 10041,
+        "indice_fin": 10312
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora-linaje-olardiente:herencia-olardiente",
+      "sistema": "Ampliadas",
+      "especie": "Zora (linaje olardiente)",
+      "talento": "Herencia olardiente",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nObtienes un Blindaje efectivo de 5 contra heridas provocadas por ataques o conjuros vinculados al agua y al fuego. Además, no necesitas respirar cuando estás bajo el agua y duplicas tu Movimiento cuando estás nadando, en lugar de reducirlo a la mitad.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_encabezado": 11215,
+        "indice_fin": 11493
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:orni:favor-del-espiritu-orni",
+      "sistema": "Ampliadas",
+      "especie": "Orni",
+      "talento": "Favor del espíritu orni",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nEres competente con los arcos cortos y arcos largos, aunque tu Ocupación no te permita utilizarlos.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_encabezado": 20447,
+        "indice_fin": 20577
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gerudo:armas-de-los-ancestros-gerudo",
+      "sistema": "Ampliadas",
+      "especie": "Gerudo",
+      "talento": "Armas de los ancestros gerudo",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nEres competente con las cimitarras, las lanzas, las gujas y el arco corto, aunque tu Ocupación no te permita utilizarlos.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_encabezado": 22645,
+        "indice_fin": 22803
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gerudo:vitalidad-de-la-arena",
+      "sistema": "Ampliadas",
+      "especie": "Gerudo",
+      "talento": "Vitalidad de la arena",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nTienes Ventaja en todas las Tiradas de Resistencia que realices mientras estás en un desierto o en un páramo.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_encabezado": 22804,
+        "indice_fin": 22942
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Cotejo de texto íntegro con párrafos contiguos bajo encabezado del Talento; espacios normalizados"
+    }
+  ]
+}
