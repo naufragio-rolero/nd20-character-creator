@@ -10,7 +10,7 @@ Se extraen **11 Talentos** de cinco Ocupaciones: Dinamitero (Experto en bombas, 
 
 **Tabla de Progreso de la Valquiria, tabla Word 7:** aumenta esos dados en los Niveles **6, 11, 16, 21 y 26**. La tabla presenta 1d6/1d4 (Niveles 1–5), 2d6/2d4 (6–10), 3d6/3d4 (11–15), 4d6/4d4 (16–20), 5d6/5d4 (21–25), 6d6/6d4 (26–30).
 
-**Pregunta editorial:** ¿debe prevalecer el texto o la tabla? Hasta que se resuelva, conservar ambas lecturas y **bloquear únicamente la automatización de esta progresión**.
+**RESUELTO 2026-10-29:** el autor aprueba la progresión del texto (6, 12, 18, 24 y 30). [Resolución editorial](20-ocp-01-resolucion-valquiria.md) y [tabla aprobada por Nivel](20a-ocp-01-valquiria-progresion-aprobada.json). La tabla histórica se conserva en la extracción como evidencia; no se ha editado el manual ni Forja.
 
 ## OCP-02 — Errata editorial
 
