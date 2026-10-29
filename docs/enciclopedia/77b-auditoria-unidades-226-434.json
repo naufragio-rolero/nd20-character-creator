@@ -4,15 +4,17 @@
     226,
     434
   ],
+  "version_auditoria": 2,
+  "errata_de_verificacion_corregida": "Se eliminó el límite de palabra incorrecto tras el superíndice ². La versión inicial podía omitir m²/km² aunque el texto fuente era correcto.",
   "metodo": "Buscar literalmente unidades de superficie y volumen expresadas con m2, m², km2, km², «metros cuadrados» o «metros cúbicos». No asignar radios, geometría ni efectos.",
-  "fichas_con_menciones": 33,
-  "referencias_mencionadas": 36,
+  "fichas_con_menciones": 34,
+  "referencias_mencionadas": 37,
   "casos_radio_de_superficie": [
     {
       "n": 318,
       "nombre": "Purga de maldad",
       "parrafo_en_ficha": 3,
-      "texto": "Invocas una fuerza sagrada para expulsar o destruir presencias malignas a tu alrededor. Por cada criatura de tipo Demonio, Elemental o Muerto viviente de Nivel inferior a 10 en un radio de 10m2 a tu alrededor, realiza una Tirada de Conjuro; si tienes éxito, de"
+      "texto": "Invocas una fuerza sagrada para expulsar o destruir presencias malignas a tu alrededor. Por cada criatura de tipo Demonio, Elemental o Muerto viviente de Nivel inferior a 10 en un radio de 10m2 a tu alrededor, realiza una Tirada de Conjuro; si tienes éxito, destruyes a la criatura."
     },
     {
       "n": 373,
@@ -24,7 +26,7 @@
       "n": 393,
       "nombre": "Tromba de meteoritos",
       "parrafo_en_ficha": 3,
-      "texto": "Atraes cuatro enormes y ardientes rocas desde más allá de los cielos para que impacten en puntos que has designado. Realiza una Tirada de Conjuro por cada meteorito: arrasa con todo en un radio de 20m2 alrededor del punto de impacto, provocando 30d10 puntos de"
+      "texto": "Atraes cuatro enormes y ardientes rocas desde más allá de los cielos para que impacten en puntos que has designado. Realiza una Tirada de Conjuro por cada meteorito: arrasa con todo en un radio de 20m2 alrededor del punto de impacto, provocando 30d10 puntos de daño, o la mitad si no la superas. Una "
     },
     {
       "n": 395,
@@ -36,7 +38,7 @@
       "n": 409,
       "nombre": "Terremoto",
       "parrafo_en_ficha": 4,
-      "texto": "Conjuras un poderoso seísmo que afecta un área con un radio de 2m2 por cada Nivel que poseas. Las criaturas dentro del área de efecto quedan tambaleándose, incapaces de moverse, atacar o lanzar conjuros durante la duración. Dependiendo del terreno, Terremoto p"
+      "texto": "Conjuras un poderoso seísmo que afecta un área con un radio de 2m2 por cada Nivel que poseas. Las criaturas dentro del área de efecto quedan tambaleándose, incapaces de moverse, atacar o lanzar conjuros durante la duración. Dependiendo del terreno, Terremoto puede tener efectos adicionales:"
     }
   ],
   "registros": [
@@ -152,6 +154,19 @@
           "parrafo_en_ficha": 8,
           "fragmento_literal": "10m2",
           "contexto_literal": "elámpago a todas las criaturas en un área de 10m2 alrededor del impacto.",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 264,
+      "nombre": "Ola salvaje",
+      "archivo_fuente": "69k-conjuros-alfabeticos-251-275.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "4m²",
+          "contexto_literal": " con fuerza frente a ti, ocupando un área de 4m² adyacente. La ola se desplaza con violencia, avan",
           "en_alcance": false
         }
       ]
