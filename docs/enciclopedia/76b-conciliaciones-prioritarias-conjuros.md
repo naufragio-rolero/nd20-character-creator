@@ -40,3 +40,13 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 **Se puede continuar con 101–125 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
 
 **Nota de control:** el recuento espacial de la auditoría inicial se corrigió tras detectar que el superíndice ² quedaba fuera del patrón de búsqueda. La [auditoría vigente](77c-resumen-geometria-conjuros.md) registra 65 fichas con magnitudes espaciales y 10 mezclas de radio y superficie.
+
+## E. Hallazgos del desglose 101–125
+
+- **CONJ-M08 — Diluvio universal (108):** declara `Alcance: 10 kilómetros alrededor del lanzador` y luego un «radio de 10 km²»; la discrepancia geométrica se añade a [CONJ-M03](77c-resumen-geometria-conjuros.md). Además exige perder **1d4 Espacios de Conjuro** o «un valor equivalente si no los tienes», sin indicar esa equivalencia. No elegir recurso ni conversión sin decisión editorial.
+- **CONJ-M09 — Destello aural (106):** describe una descarga que ciega, pero sólo cuantifica daño y no define duración de Ceguera. No establecer una duración por inferencia.
+- **CONJ-M10 — Descarga sombría (103):** conserva literalmente `Nivelesa` en «2d4 de daño impío por cada 2 de tus Nivelesa». Se trata de una errata aparente; no se corrige el texto fuente ni se fija redondeo hasta revisión.
+- **CONJ-M11 — Descarga de caos (124):** dispone de una tabla **d8** con resultados separados de éxito/fallo, incluida la expresión literal **3d3**. Se registra como tabla, no como una lista libre de seis efectos a escoger.
+- **Dormir (101):** sus **5d10 Puntos Oníricos** son un presupuesto de comparación con Salud actual para causar el Estado Dormida; la ficha no dice que los Puntos Oníricos inflijan daño. No necesita una regla nueva para conservar esta diferencia.
+
+[Fichas 101–125 revisadas](72e-desglose-revisado-conjuros-101-125.json) y [auditoría de 68 referencias a párrafos](75b-auditoria-desglose-manual-101-125.json). Ninguna de estas observaciones autoriza cambios automáticos a Forja.
