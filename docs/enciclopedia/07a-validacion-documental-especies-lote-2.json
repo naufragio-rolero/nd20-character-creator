@@ -1,0 +1,125 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 2,
+  "criterio": "Cotejo manual del texto extraído con párrafo indicado del DOCX DRS original; sin pruebas de ejecución",
+  "registros": [
+    {
+      "id_documental": "talento-especie:drs:elfo-agreste:linaje-feerico",
+      "sistema": "DRS",
+      "especie": "Elfo agreste",
+      "talento": "Linaje feérico",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 109
+      },
+      "propiedades_verificadas": [
+        "Inmunidad a Parálisis",
+        "Ventaja en Intuición para resistir Dormir"
+      ],
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:elfo-agreste:rapidez",
+      "sistema": "DRS",
+      "especie": "Elfo agreste",
+      "talento": "Rapidez",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 111
+      },
+      "propiedades_verificadas": [
+        "Movimiento +1, ya calculado"
+      ],
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:enano-montanes:corpulencia",
+      "sistema": "DRS",
+      "especie": "Enano montañés",
+      "talento": "Corpulencia",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 120
+      },
+      "propiedades_verificadas": [
+        "Movimiento -1, ya calculado",
+        "Al tirar Blindaje contra daño físico, gastar 1 Esfuerzo permite repetir la tirada"
+      ],
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:humano-comun:buen-desarrollo",
+      "sistema": "DRS",
+      "especie": "Humano común",
+      "talento": "Buen desarrollo",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 130
+      },
+      "propiedades_verificadas": [
+        "Mejora de 1 punto en un Atributo durante creación de PJ"
+      ],
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:mediano-amable:salvese-quien-pueda",
+      "sistema": "DRS",
+      "especie": "Mediano amable",
+      "talento": "¡Sálvese quien pueda!",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 141
+      },
+      "propiedades_verificadas": [
+        "Bajo Parálisis o Miedo, 1 Acción y 1 Esfuerzo permiten liberarse sin tirada"
+      ],
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:orco-comun:ira-interna",
+      "sistema": "DRS",
+      "especie": "Orco común",
+      "talento": "Ira interna",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 162
+      },
+      "propiedades_verificadas": [
+        "Cuando Salud llega a 0 o menos, 1 Esfuerzo la ajusta a 1"
+      ],
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:orco-comun:sana-primitiva",
+      "sistema": "DRS",
+      "especie": "Orco común",
+      "talento": "Saña primitiva",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 164
+      },
+      "propiedades_verificadas": [
+        "+1 Tirada de Daño con arma cuerpo a cuerpo"
+      ],
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:semielfo:animo",
+      "sistema": "DRS",
+      "especie": "Semielfo",
+      "talento": "Ánimo",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 172
+      },
+      "propiedades_verificadas": [
+        "Una vez al día, +2 a Tirada de Atributo de aliado que pueda escuchar",
+        "Declaración antes de la tirada"
+      ],
+      "estado": "validado_documentalmente_sin_integracion"
+    }
+  ],
+  "total_validados_acumulado": 14,
+  "restantes": 101,
+  "nota": "La validación se refiere a la correspondencia textual y sus efectos expresos; no a la implementación de Forja."
+}
