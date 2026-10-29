@@ -210,5 +210,14 @@
     "Círculo ausente en fuente no autoriza copiar como dato literal el círculo del catálogo.",
     "Quedan pendientes revisión de etiquetas y condiciones específicas, así como prueba del comportamiento en Forja.",
     "Los párrafos literales completos están repartidos en 18 lotes para facilitar control y versionado."
-  ]
+  ],
+  "verificacion_literales_publicados": {
+    "fecha": "2026-10-29",
+    "estado": "aprobada_sin_discrepancias",
+    "metodo": "Relectura de 18 archivos 69a–69r y cotejo registro por registro con Google Docs, usando identidad, número, índice de párrafo, texto de cada párrafo y revisión de origen.",
+    "fichas_verificadas": 434,
+    "archivos_verificados": 18,
+    "diferencias": 0,
+    "revision_verificada": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  }
 }
