@@ -1,0 +1,592 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 8,
+  "criterio": "Comparación literal completa con Google Docs vivo, normalizando solo espacios; para fichas reextraídas se usa texto vigente",
+  "registros_validados": 32,
+  "total_validados_acumulado": 114,
+  "pendientes": 1,
+  "registros": [
+    {
+      "id_documental": "talento-especie:ampliadas:draconido:halito-de-energia",
+      "sistema": "Ampliadas",
+      "especie": "Dracónido",
+      "talento": "Hálito de energía",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Acción\nCoste: 1 Esfuerzo\nExhalas un ataque energético que cubre un cono de 6 metros frente a ti y afecta a todas las criaturas al alcance; cada una de ellas debe realizar una Tirada de Agilidad / Tirada de Probabilidad 12+ para intentar eludir el ataque y recibir la mitad de daño.\nEste ataque causa 1d4 de daño en los Niveles 1 a 5 y aumenta en 1d4 adicional al alcanzar los Niveles 6, 12, 18, 24 y 30. El tipo de daño está asociado a tu Estirpe dragontina.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 1511,
+        "indice_fin": 1970,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Se usa texto vigente reextraído, no instantánea histórica."
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-blanco:vision-en-la-oscuridad",
+      "sistema": "Ampliadas",
+      "especie": "Elfo blanco",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nPuedes distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 2843,
+        "indice_fin": 3016,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Se usa texto vigente reextraído, no instantánea histórica."
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-celestial:fuente-de-mana",
+      "sistema": "Ampliadas",
+      "especie": "Elfo celestial",
+      "talento": "Fuente de maná",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Este Talento tiene un efecto distinto si eres lanzador de conjuros o no. De una forma u otra, debes dormir al menos ocho horas para recuperar el uso de la Fuente de maná.\nSi eres lanzador de conjuros: una vez al día, puedes extraer una pizca de poder de la Urdimbre para alimentar tu capacidad de lanzamiento de conjuros. Si meditas durante un Intervalo, recuperas el uso de uno de tus Conjuros cuyo Nivel del Círculo sea el más bajo disponible; si perteneces a una Ocupación que no memoriza los Conjuros, recuperarás 1d4 Puntos de Recurso o aumentarás en un rango tu DU de Conjuros.\nSi no eres lanzador de conjuros: elige un Conjuro cuyo Nivel del Círculo sea 1 de la lista disponible para el Mago. Puedes lanzar este Conjuro una vez al día, como si fueras un arcanista; en caso de que necesites un Atributo para lanzar el Conjuro, es Mente.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 3324,
+        "indice_fin": 4166,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Se usa texto vigente reextraído, no instantánea histórica."
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-celestial:linaje-feerico",
+      "sistema": "Ampliadas",
+      "especie": "Elfo celestial",
+      "talento": "Linaje feérico",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nEres inmune al estado Parálisis; tienes Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 2704,
+        "indice_fin": 2819,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-nerai:linaje-feerico",
+      "sistema": "Ampliadas",
+      "especie": "Elfo nerai",
+      "talento": "Linaje feérico",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nEres inmune al estado Parálisis; tienes Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 2704,
+        "indice_fin": 2819,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:pelaje-silvestre:vision-en-la-oscuridad",
+      "sistema": "Ampliadas",
+      "especie": "Pelaje silvestre",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nPuedes distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 2843,
+        "indice_fin": 3016,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Se usa texto vigente reextraído, no instantánea histórica."
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:pelaje-urbanita:musculatura-felina",
+      "sistema": "Ampliadas",
+      "especie": "Pelaje urbanita",
+      "talento": "Musculatura felina",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nEres más pequeño que un Elfo, un Enano o un Humano. Aumenta tu Movimiento en 1 (ya calculado). No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 8947,
+        "indice_fin": 9147,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gnomo-sylestri:fuente-de-mana",
+      "sistema": "Ampliadas",
+      "especie": "Gnomo sylestri",
+      "talento": "Fuente de maná",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Este Talento tiene un efecto distinto si eres lanzador de conjuros o no. De una forma u otra, debes dormir al menos ocho horas para recuperar el uso de la Fuente de maná.\nSi eres lanzador de conjuros: una vez al día, puedes extraer una pizca de poder de la Urdimbre para alimentar tu capacidad de lanzamiento de conjuros. Si meditas durante un Intervalo, recuperas el uso de uno de tus Conjuros cuyo Nivel del Círculo sea el más bajo disponible; si perteneces a una Ocupación que no memoriza los Conjuros, recuperarás 1d4 Puntos de Recurso o aumentarás en un rango tu DU de Conjuros.\nSi no eres lanzador de conjuros: elige un Conjuro cuyo Nivel del Círculo sea 1 de la lista disponible para el Mago. Puedes lanzar este Conjuro una vez al día, como si fueras un arcanista; en caso de que necesites un Atributo para lanzar el Conjuro, es Mente.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 3324,
+        "indice_fin": 4166,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Se usa texto vigente reextraído, no instantánea histórica."
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:rusalka-costero:vision-en-la-oscuridad",
+      "sistema": "Ampliadas",
+      "especie": "Rusalka costero",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nPuedes distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 2843,
+        "indice_fin": 3016,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Se usa texto vigente reextraído, no instantánea histórica."
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:bombardero-deku",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Bombardero deku",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Acción\nCoste: 1 Esfuerzo\nEste Talento sólo está disponible para los Deku de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nAdquieres la capacidad de expulsar Nueces Deku, unos explosivos vegetales que expeles cuando usas tu capacidad de Pétaleteo. Mientras estés volando gracias a tus pétalos, puedes arrojar una Nuez Deku, que caerá de forma inmediata al espacio que tengas debajo de ti. Ésta nuez liberará una explosión cinética que provocará 1d6 de daño contundente por Nivel a todas las criaturas en un radio de 4 metros alrededor del punto de explosión; debes tener cuidado, pues puedes ser afectado por tu propia detonación.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 2976,
+        "indice_fin": 3778,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:tirano-del-bosque",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Tirano del bosque",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Acción\nCoste: 1 Esfuerzo\nEste Talento sólo está disponible para los Deku de la Ocupación Clérigo, o cualquier Ocupación derivada de ésta. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nEmites una onda de energía que perturba a las criaturas de la categoría Vegetal en un radio de 18 metros a tu alrededor. Todas aquellas que sean de un Nivel igual o inferior al tuyo tienen una Probabilidad 15+ de ser marchitadas. Si soportan esta perturbación, deberán marcharse lo más lejos de ti durante 1 Intervalo o 6 Turnos, o hasta que dejes de estar a su vista, lo que ocurra antes.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 3797,
+        "indice_fin": 4463,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:semilladora",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Semilladora",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Pasiva\nEste Talento sólo está disponible para los Deku de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nAdquieres la capacidad de escupir Semillas Deku, unas pepitas naturales que genera tu cuerpo y que puedes usar como arma a distancia. Considera que tienen un DU d8, que podrás recargar al máximo una vez al día, tras descansar; tienen las mismas características que un Arco corto y tienes un +2 a las Tiradas de ataque realizadas con ellas.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 4476,
+        "indice_fin": 5092,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora:escudo-electrico",
+      "sistema": "Ampliadas",
+      "especie": "Zora",
+      "talento": "Escudo eléctrico",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Reacción\nCoste: 1 Esfuerzo\nCuando seas herido por un ataque cuerpo a cuerpo, puedes activar la bioelectricidad natural en tu cuerpo para lanzar una terrible descarga a tu alrededor. Realiza una Tirada de Resistencia: si tienes éxito, causas 1d10 de daño de relámpago por cada uno de tus Niveles a todas las criaturas en un radio de 4 metros a tu alrededor; la mitad si no la superas.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 10330,
+        "indice_fin": 10713,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Se usa texto vigente reextraído, no instantánea histórica."
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora-linaje-olardiente:estallido-escupefuego",
+      "sistema": "Ampliadas",
+      "especie": "Zora (linaje olardiente)",
+      "talento": "Estallido escupefuego",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Acción\nCoste: 1 Esfuerzo\nEres capaz de vomitar un orbe de saliva pegajosa muy volátil e inflamable. Es tu forma favorita de cazar presas, pues una vez han sido quemadas, son fáciles de devorar y digerir. Este vómito tiene un alcance de 12 metros. Realiza una Tirada de Agilidad: si tienes éxito, causas 1d8 de daño por fuego por cada uno de tus Niveles a todas las criaturas en un radio de 2 metros alrededor del punto de impacto, la mitad si no la superas.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 11516,
+        "indice_fin": 11973,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Se usa texto vigente reextraído, no instantánea histórica."
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gerudo:castigo-del-reino-sombrio",
+      "sistema": "Ampliadas",
+      "especie": "Gerudo",
+      "talento": "Castigo del Reino Sombrío",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Pasiva\nEste Talento sólo está disponible para las Gerudo de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nTus Conjuros de las Escuelas Demonología y Nigromancia tienen un +2 al daño. Si tienen Duración: X Turnos, aumentas su Duración en 2 Turnos. A cambio, pierdes 1 Punto de Salud cada vez que lanzas un Conjuro.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 22996,
+        "indice_fin": 23479,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Se usa texto vigente reextraído, no instantánea histórica."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-arcano:ojos-de-murati",
+      "sistema": "Nocturna",
+      "especie": "Humano arcano",
+      "talento": "Ojos de Murati",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Si te concentras durante un Asalto, podrás ver durante un Intervalo el mundo tal y como es, sin el velo que lo sobrenatural lanza en la realidad para proteger a los mortales. Por ejemplo, cualquier entidad que se esté ocultando a plena vista de la humanidad será visible en su auténtica forma para ti. Una vez finalice el efecto, deberás hacer una Tirada de Esencia.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 6654,
+        "indice_fin": 7036,
+        "metodo": "párrafo completo"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-arcano:aliados-en-las-sombras",
+      "sistema": "Nocturna",
+      "especie": "Humano arcano",
+      "talento": "Aliados en las sombras",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Has desarrollado un vínculo con una presencia oculta que te asiste de forma inusual. No siempre responde, pero cuando lo hace, puede marcar la diferencia. Consulta más adelante el apartado «Aliado en las sombras» para conocer más las implicaciones de este Talento.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 7037,
+        "indice_fin": 7325,
+        "metodo": "párrafo completo"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:strigoi:sino-de-los-condenados",
+      "sistema": "Nocturna",
+      "especie": "Strigoi",
+      "talento": "Sino de los condenados",
+      "tipo": "fijo",
+      "texto_literal_vigente": "No envejeces ni puedes morir por causas naturales. Si pierdes extremidades, o el cuerpo, no lo podrás regenerar, pero todo lo que quede conectado a tu cabeza quedará en un estado de muerte en vida. Dispones de un Recurso denominado «Dado de Sangre», que comienza en d6 y tiene un máximo de d12.\nDebes chupar la sangre de seres vivos con tus colmillos: cada vez que lo hagas, podrás realizar una Tirada del Dado de Sangre: si sacas el máximo o el nº directamente inferior (5 y 6 en d6, por ejemplo), aumentarás en 1 rango el Dado. Los seres humanos te dan Ventaja en la Tirada, mientras que los animales provocan Desventaja; igualmente, ambas presas cuentan como “alimentarte” aunque no aumentes el rango del Dado.\nChupar sangre se considerada una Tirada de Ataque: si la víctima no se da cuenta de lo que vas a hacer, tienes éxito de forma automática. De otra forma, deberás tratarlo como una Tirada de ataque cuerpo a cuerpo, y superar la Tirada cada Turno que estés chupando sangre. Provocas 1d6 de daño perforante e impío por cada Turno que absorbas sangre (necesitas 1 Turno de absorber sangre cada día).\nCada noche que te despiertes, debes realizar una Tirada del Dado de Sangre, con un -1 a la Tirada por cada noche que hayas pasado sin alimentarte; si éste Dado se agota, pierdes el control de tu personaje y éste se convertirá en un depredador enloquecido que hará lo que sea por consumir sangre. Cuando la masacre haya pasado, tu Dado de Sangre se ajustará en d6 y tendrás que realizar una Tirada de Esencia con Desventaja.\nUna vez por Intervalo, puedes realizar una Tirada de Dado de Sangre para recuperar 1d6 Puntos de Salud gracias a la fuerza de la sangre.\nAdemás, eres capaz de usar una suerte de magia vampírica, conocida como Vampirismo. Comienzas con 2 poderes vampíricos, y aprendes uno nuevo cada Nivel múltiplo de 3, hasta un máximo de 12. Consulta más adelante, en el Capítulo de Poderes, los detalles sobre el Vampirismo.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 10978,
+        "indice_fin": 12922,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:strigoi:depredador-depravado",
+      "sistema": "Nocturna",
+      "especie": "Strigoi",
+      "talento": "Depredador depravado",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Consume toda la sangre de una víctima humana e inocente para recuperar todos tus Puntos de Salud por completo y aumentar directamente en 1 rango tu Dado de Sangre; sin embargo, deberás realizar una Tirada de Esencia al finalizar.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 12941,
+        "indice_fin": 13192,
+        "metodo": "párrafo completo"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:strigoi:fascinacion",
+      "sistema": "Nocturna",
+      "especie": "Strigoi",
+      "talento": "Fascinación",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Puedes gastar 1 Punto de Esfuerzo para que un mortal de un Nivel inferior a ti quede Fascinado durante 1d4 Intervalos. Mientras dure el efecto, no podrá atacarte y obedecerá órdenes simples.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 13193,
+        "indice_fin": 13396,
+        "metodo": "párrafo completo"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:strigoi:sombra-siniestra",
+      "sistema": "Nocturna",
+      "especie": "Strigoi",
+      "talento": "Sombra siniestra",
+      "tipo": "elegible",
+      "texto_literal_vigente": "No te ves reflejado en espejos, ni aparecerás en fotografías ni cámaras de seguridad. Tu ropa y accesorios tampoco, es como si tu cuerpo maldito absorbiese la esencia de esos objetos; además, obtienes un +2 en las Tiradas de Agilidad a la hora de moverte sigilosamente.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 13397,
+        "indice_fin": 13684,
+        "metodo": "párrafo completo"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:jiangshi:ladron-de-almas",
+      "sistema": "Nocturna",
+      "especie": "Jiangshi",
+      "talento": "Ladrón de almas",
+      "tipo": "fijo",
+      "texto_literal_vigente": "No envejeces ni puedes morir por causas naturales. Tu existencia está conectada a todo tu cuerpo, y aunque te despedacen podrás mover cada parte de forma independiente. Debes absorber la esencia vital de los vivos para mantenerte en movimiento. Dispones de un Recurso denominado «Dado de Almas», que comienza en d6 y tiene un máximo de d12.\nDebes consumir la esencia de un humano mortal con tus manos: cada vez que lo hagas, podrás realizar una Tirada del Dado de Almas: si sacas el máximo o el nº directamente inferior (5 y 6 en d6, por ejemplo), aumentarás en 1 rango el Dado.\nConsumir el alma se considera una Tirada de Ataque: si la víctima no se da cuenta de lo que vas a hacer, tienes éxito de forma automática. De otra forma, deberás tratarlo como una Tirada de ataque cuerpo a cuerpo, y superar la Tirada cada Turno que estés devorando su alma. Provocas 2d6 de daño impío por cada Turno que estés devorando un alma (necesitas consumir almas durante 1 Turno cada día).\nRecuperas 1d6 de Salud por cada Turno devorando un alma, no te puedes curar de otra forma, ni siquiera por medios mágicos. Si devoras por completo el alma de un humano mortal, podrás ignorar tu Debilidad durante 1d4 Intervalos, pero deberás realizar una Tirada de Esencia.\nCada día que pase, debes realizar una Tirada del Dado de Almas, con un -1 a la Tirada por cada día sin disfrutar del alma de un mortal; si éste Dado se agota, caerás en el Sopor del Jiangshi, un estado de muerte en vida en el que estarás paralizado y plenamente consciente de lo que sucede a tu alrededor, de forma permanente hasta que un brujo lance el conjuro «Reanimar Jiangshi» sobre ti.\nAdemás, eres capaz de usar una suerte de magia vampírica, conocida como Vampirismo. Comienzas con 1 poder vampírico, y aprendes uno nuevo cada Nivel múltiplo de 2, hasta un máximo de 10. Consulta más adelante, en el Capítulo de Poderes, los detalles sobre el Vampirismo.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 16394,
+        "indice_fin": 18306,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Se usa texto vigente reextraído, no instantánea histórica."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:jiangshi:chillido-de-ultratumba",
+      "sistema": "Nocturna",
+      "especie": "Jiangshi",
+      "talento": "Chillido de ultratumba",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Puedes gastar 1 Punto de Esfuerzo para liberar un grito aterrador que afecta a todas las criaturas en un radio de 10m. Tienes una Probabilidad 11+ de que queden paralizadas durante 1d4 Turnos.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 18469,
+        "indice_fin": 18685,
+        "metodo": "párrafo completo"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": "Se usa texto vigente reextraído, no instantánea histórica."
+    },
+    {
+      "id_documental": "talento-especie:nocturna:jiangshi:salto-sobrenatural",
+      "sistema": "Nocturna",
+      "especie": "Jiangshi",
+      "talento": "Salto sobrenatural",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Puedes moverte mediante saltos largos y silenciosos en lugar de caminar. Obtienes +2 a las Tiradas de Agilidad para esquivar ataques cuerpo a cuerpo o a distancia, y puedes saltar hasta 10m en línea recta sin necesidad de una Tirada.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 18686,
+        "indice_fin": 18939,
+        "metodo": "párrafo completo"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-lobo:licantropia",
+      "sistema": "Nocturna",
+      "especie": "Hombre lobo",
+      "talento": "Licantropía",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Tu linaje te permite transformar tu cuerpo, por lo que dispones de 3 formas: Humano, Lobo y Bestia. Cambiar de una forma a otra requiere que gastes 1 Turno mientras tu carne, huesos y órganos se recomponen, retuercen y adquieren un aspecto diferente.\nForma de Humano: No tienes beneficios visibles, más allá de pasar por un humano. Puedes parecer más intimidante o brutal, a elección tuya. Si naciste como humano, tu Debilidad no se aplica en esta forma.\nForma de Lobo: No puedes hablar ni manipular herramientas complejas. Reduces tu Tamaño en 1 (pasas a ser Pequeño), obtienes +2 Movimiento y obtienes Ventaja en Tiradas de Intuición que empleen tus sentidos del oído y del olfato. Obtienes un ataque de mordisco que causa d8 de daño y tiene Potencia 1. Si naciste como lobo, tu Debilidad no se aplica en esta forma.\nForma de Bestia: Eres un híbrido entre hombre y lobo, peludo, intimidante y terrible. Aumentas tu Tamaño en 1 (pasas a ser Grande), obtienes +1 Movimiento, obtienes Ventaja en las Tiradas de Fuerza y Resistencia, y Desventaja en las Tiradas de Mesura, y no puedes hablar más allá de frases cortas y directas. Obtienes un ataque de mordisco que causa d8 de daño y tiene Potencia 1, y un ataque de garras que causa 2d6 de daño y tiene Potencia 1.\nDe igual forma, regeneras 1d8 Puntos de Salud por cada Intervalo que pases en una Forma que no sea tu original (Lobo y Bestia en el caso de humanos, Humano y Bestia en el caso de lobos).\nDado de mesura\nAdemás, tienes un nuevo Recurso llamado «Dado de Mesura», que comienza en d10 y tiene un máximo de d10.\nCada vez que cambies a la forma de Bestia, realiza una Tirada del Dado de Mesura (no apliques la Desventaja provocada por esta Forma para el Dado de Mesura).\nCada vez que te enfrentes a algo que te frustre, te humille o ponga a prueba tu paciencia, debes realizar una Tirada del Dado de Mesura.\nEn las noches de Luna Llena, tiras con Desventaja el Dado de Mesura, y además el Cronista podrá exigirte tirar por nimiedades, ya que estás vinculado con la luna.\nPuedes relajarte cada noche, meditando en silencio y volviéndote uno con el momento (Tirada de Mente) durante 1 Intervalo. Esto te permitirá realizar una Tirada del Dado de Mesura y, si sacas los 2 números más altos (5 y 6 en un d6, por ejemplo) podrás aumentarlo en un un rango.\nSi tu Dado de Mesura se agota, pasarás inmediatamente a Forma de Bestia y comenzarás a romper y a destruir todo, y a todos, durante 1d4 Intervalos. Cuando pase todo esto, pasarás a tu forma original y te quedarás inconsciente otro Intervalo más, momento en el que tu Dado de Mesura se ajustará a d6 y tendrás que realizar una Tirada de Esencia cuando despiertes.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 22897,
+        "indice_fin": 25568,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-cuervo:corantropia",
+      "sistema": "Nocturna",
+      "especie": "Hombre cuervo",
+      "talento": "Corantropía",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Tu linaje te permite transformar tu cuerpo, por lo que dispones de tres formas: Humano, Cuervo y Rara Avis. Cambiar de una forma a otra requiere que gastes 1 Turno, mientras tus huesos se aligeran o endurecen, tu piel se oscurece y tus sentidos se ajustan a la nueva forma.\nForma de Humano: Puedes caminar entre la sociedad sin levantar sospechas. Tu Debilidad no se aplica en esta forma.\nForma de Cuervo: No puedes hablar ni manipular herramientas complejas. Puedes volar, y mientras vuelas duplicas tu Movimiento. Reduces tu Tamaño en 1 (pasas a ser Pequeño, por lo que serás un cuervo corpulento), y obtienes Ventaja en Tiradas de Intuición que empleen tus sentidos del oído y de la visión. Obtienes un ataque de picotazo que causa d4 de daño y tiene Potencia 1. Tu Debilidad no se aplica en esta forma.\nForma de Rara Avis: Eres un híbrido entre hombre y cuervo, con alas negras y aceitosas, extraño e inusualmente torpe. Puedes volar durante 3 Turnos, y luego puedes descender planeando. Ignoras el daño por caída, puedes ver en completa oscuridad, y obtienes Ventaja en las Tiradas de Agilidad. Obtienes un ataque de picotazo que causa d4 de daño y tiene Potencia 2, y un ataque de garras que causa d8 de daño y tiene Potencia 1. A pesar de estas ventajas, los Hombres cuervo ODIAN adoptar esta Forma y sólo lo harán si es estrictamente necesario.\nDe igual forma, regeneras 1d6 Puntos de Salud por cada Intervalo que pases en una Forma que no sea tu original (Cuervo y Rara Avis en el caso de humanos, Humano y Rara Avis en el caso de cuervos).\nNo tienes un Dado de Mesura como los Hombres lobo; vosotros, los cuervos, tenéis el control. Sin embargo, cuando seas expuesto a un secreto del que no sepas todo, tendrás que hacer una Tirada de Presencia para resistir la curiosidad o empezar a indagar y a husmear todo lo posible para enterarte. Con todas las consecuencias que eso conlleva.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 27163,
+        "indice_fin": 29055,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-cuervo:memoria-eidetica",
+      "sistema": "Nocturna",
+      "especie": "Hombre cuervo",
+      "talento": "Memoria eidética",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Puedes memorizar detalles exactos de cualquier cosa que hayas visto en la última semana. Si tú no lo recuerdas como jugador, el Cronista puede ayudarte a recordarlo.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 29074,
+        "indice_fin": 29257,
+        "metodo": "párrafo completo"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:sidhe:vestigios-de-sylestria",
+      "sistema": "Nocturna",
+      "especie": "Sidhe",
+      "talento": "Vestigios de Sylestria",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Tu esencia feérica te mantiene conectado a tu realidad natal, otorgándote un fragmento de su poder.\nEres inmune a la vejez y a los efectos del tiempo mientras estés vinculado a tu reino natal.\nPuedes alterar sutilmente tu apariencia (cambiar el color de tus ojos, alargar tu cabello, suavizar rasgos), pero no puedes disfrazarte por completo sin magia. Estos cambios tardan 1d2 Intervalos en materializarse.\nNo puedes mentir de forma directa. Si intentas decir una mentira consciente, las palabras se atascarán en tu boca o se distorsionarán en frases ambiguas. Esto te provocará una Tirada de Esencia.\nTu espíritu está vinculado a los juramentos. Para ti, las promesas son tan reales como una daga en tu corazón. Cada vez que realizas un juramento, tú y la otra parte selláis un pacto sobrenatural que deberá cumplirse.\nSi alguno de vosotros lo incumple CONSCIENTEMENTE, perderá 1d4 Puntos de Salud de forma permanente y el pacto se romperá. Esta mancha quedará marcada en el aura del infractor para toda la eternidad.\nCompletar y respetar un pacto te permitirá obtener, de forma permanente, 1d4 Puntos de Glamour máximos.\nDe forma adicional, tu existencia está ligada a un recurso denominado «Puntos de Glamour»; comienzas con 10 Puntos de Glamour máximos, y aumentas en 1d6 esta cantidad cada Nivel.\nDependencia del Glamour: Cada día que te despiertes debes consumir tantos Puntos de Glamour como tu Nivel: si éstos llegan a 0, comenzarás a marchitarte y a debilitarte hasta que puedas recuperarlos.\nRecuperar Glamour: Debes inspirarte de los mortales para recargar tu Glamour. Consulta con tu Cronista para entender qué clase de Sidhe eres y qué es lo que te motiva: ten en cuenta que esto, a lo largo del tiempo, puede cambiar y mutar. Contemplar una obra de teatro emocionante, vislumbrar un fenómeno meteorológico sorprendente o, simplemente, probar un plato exquisito, pueden ser ejemplos de cómo un Sidhe restaura su Glamour. En términos de mecánicas, asume que, tras 1 Intervalo «inspirándote», recuperas 2d4 Puntos de Glamour.\nMuerte lenta: Si estás más de un mes con tus Puntos de Glamour a 0, empezarás a envejecer 10 años por cada mes subsiguiente al primero, hasta que mueras de vejez: poco a poco, tu vínculo con Sylestria se irá debilitando hasta desvanecerse por completo. Sin embargo, este proceso se puede detener (pero no revertir) si vuelves a recuperar Glamour.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 32148,
+        "indice_fin": 34534,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:ceniciento:naturaleza-mutable",
+      "sistema": "Nocturna",
+      "especie": "Ceniciento",
+      "talento": "Naturaleza mutable",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Tu existencia es inestable, oscilando entre lo feérico y lo mortal. Tus sentimientos están a flor de piel, tu espontaneidad es vibrante y explosiva.\nNo envejeces mientras tengas al menos 1 Punto de Glamour.\nPuedes cambiar rasgos de tu cuerpo de forma gradual, durante un Intervalo en el que te observarás en el espejo con la mirada perdida y la expresión desencajada.\nTu cabello puede cambiar de color con el tiempo.\nTus ojos pueden reflejar emociones intensas de manera sobrenatural.\nPuedes alargar o acortar tus uñas o dientes sin esfuerzo.\nPuedes parecer ligeramente diferente de un día para otro.\nPuedes percibir la presencia de Sidhes y otros Cenicientos mediante una Tirada de Intuición, sintiendo su aura incluso si intentan ocultarse. Tardarás 1 Turno en darte cuenta de que hay otros como tú.\nTu conexión con Sylestria se debilita con el tiempo. Si pasas un mes sin consumir Glamour, comienzas a envejecer a un ritmo acelerado (1 año por semana). Cuando recuperes el Glamour, dejarás de envejecer, pero no habrá vuelta atrás.\nAdemás, posees un Recurso llamado «Puntos de Glamour», que comienzas con 6 Puntos de Glamour máximos y aumentas en 1d4 cada Nivel.\nDependencia del Glamour: Cada día que pase sin que absorbas Glamour de los mortales, pierdes tantos Puntos de Glamour como tu Nivel.\nPérdida de identidad: Si tus Puntos de Glamour llegan a 0, tu esencia se desmorona, y debes superar una Tirada de Presencia cada día que estés sin Glamour. Si fallas, comenzarás a perder memoria, olvidando tu identidad y propósito poco a poco. Tras 3 fallos seguidos, ya no quedará nada de ti y dejarás de ser un Personaje Jugador, pasando a ser un PNJ bajo el control del Cronista.\nRecuperar Glamour: Los Cenicientos obtienen Glamour de la interacción con los mortales, pero a diferencia de los Sidhe, no se nutren de la inspiración, sino de las emociones intensas.\nPuedes recuperar Glamour al provocar emociones fuertes en los demás (amor, odio, desesperación, euforia).\nSer recordado intensamente por alguien.\nCrear conflictos emocionales poderosos.\nPresenciar o causar eventos de gran significado (una traición, una confesión, una despedida).\nEn términos mecánicos, si logras experimentar una emoción intensa durante 1 Intervalo, recuperas 1d10 Puntos de Glamour.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 36723,
+        "indice_fin": 38989,
+        "metodo": "párrafos consecutivos"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:ceniciento:doble-reflejo",
+      "sistema": "Nocturna",
+      "especie": "Ceniciento",
+      "talento": "Doble reflejo",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Puedes proyectar una apariencia diferente ante cada persona que te mire (sin cambiar físicamente). No es una ilusión mágica, sino una percepción alterada. Dos personas pueden verte de formas distintas al mismo tiempo.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 39008,
+        "indice_fin": 39240,
+        "metodo": "párrafo completo"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:ceniciento:ecos-de-los-demas",
+      "sistema": "Nocturna",
+      "especie": "Ceniciento",
+      "talento": "Ecos de los demás",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Tu naturaleza tan ligada a algo tan visceral como la envidia te permite copiar capacidades que hayas visto en otros: si gastas 1 Punto de Esfuerzo, puedes replicar cualquier Talento que hayas visto en las últimas 12 horas; el efecto dura 1 Intervalo y sólo lo puedes hacer una vez cada 24 horas. El Cronista tiene la última palabra sobre este Talento.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 39241,
+        "indice_fin": 39611,
+        "metodo": "párrafo completo"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:nocturna:ceniciento:retono-del-caos",
+      "sistema": "Nocturna",
+      "especie": "Ceniciento",
+      "talento": "Retoño del caos",
+      "tipo": "elegible",
+      "texto_literal_vigente": "Tu personalidad es una amalgama de muchas vidas, y aunque ahora seas un lienzo nuevo, puedes gastar 1 Punto de Esfuerzo para rememorar fragmentos de una de ellas y recibir información útil por parte del Cronista. Consulta con el Cronista el alcance y contenido de este Talento antes de elegirlo y/o usarlo.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 39612,
+        "indice_fin": 39935,
+        "metodo": "párrafo completo"
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "observaciones": ""
+    }
+  ],
+  "pendientes_conciliacion": [
+    {
+      "id_documental": "talento-especie:ampliadas:zora:aletas-del-ciclon",
+      "motivo": "No coincide el texto completo con párrafo o bloque consecutivo de la fuente viva; revisar estructura y contenido."
+    }
+  ]
+}
