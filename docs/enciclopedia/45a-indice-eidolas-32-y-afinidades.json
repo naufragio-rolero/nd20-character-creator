@@ -1,0 +1,305 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "ocupacion": "Invocadora",
+  "categoria": "Eidolas",
+  "tabla_word": 44,
+  "estado": "indice_completo_con_conciliacion_afinidades; fichas literales de Encarnar/Canalizar/Materializar pendientes",
+  "encabezados_originales": [
+    "Nombre",
+    "Epíteto",
+    "Canalización",
+    "Categoría",
+    "Elemento afín"
+  ],
+  "filas": [
+    {
+      "nombre": "Arkonis",
+      "epiteto": "La piedra eterna",
+      "canalizacion": "Escudo terráqueo",
+      "categoria": 2,
+      "elemento_afin_tabla": "Tierra",
+      "elemento_afin_ficha": "Tierra"
+    },
+    {
+      "nombre": "Binexa",
+      "epiteto": "El corazón desgarrado",
+      "canalizacion": "Desgarrón emocional",
+      "categoria": 3,
+      "elemento_afin_tabla": "Oscuridad",
+      "elemento_afin_ficha": "Oscuridad"
+    },
+    {
+      "nombre": "Cath Palug",
+      "epiteto": "Guardián de las llamas del cambio",
+      "canalizacion": "Explosión ígnea",
+      "categoria": 3,
+      "elemento_afin_tabla": "Fuego",
+      "elemento_afin_ficha": "Fuego"
+    },
+    {
+      "nombre": "Ezion",
+      "epiteto": "La tempestad del desierto",
+      "canalizacion": "Llagas del desierto",
+      "categoria": 3,
+      "elemento_afin_tabla": "Tierra",
+      "elemento_afin_ficha": "Tierra"
+    },
+    {
+      "nombre": "Faustargon",
+      "epiteto": "Ira celestial",
+      "canalizacion": "Devastación",
+      "categoria": 4,
+      "elemento_afin_tabla": "Rayo",
+      "elemento_afin_ficha": "Rayo"
+    },
+    {
+      "nombre": "Garathur",
+      "epiteto": "El rey del mar",
+      "canalizacion": "Galerna real",
+      "categoria": 4,
+      "elemento_afin_tabla": "Agua",
+      "elemento_afin_ficha": "Agua"
+    },
+    {
+      "nombre": "Goralax",
+      "epiteto": "Bestia cenicienta",
+      "canalizacion": "Meteoro cinéreo",
+      "categoria": 2,
+      "elemento_afin_tabla": "Fuego",
+      "elemento_afin_ficha": "Fuego"
+    },
+    {
+      "nombre": "Hefair",
+      "epiteto": "Tejedor de niebla",
+      "canalizacion": "Juicio neblinoso",
+      "categoria": 4,
+      "elemento_afin_tabla": "Naturaleza",
+      "elemento_afin_ficha": "Naturaleza"
+    },
+    {
+      "nombre": "Ifraya",
+      "epiteto": "La princesa glacial",
+      "canalizacion": "Polvo de zafiros",
+      "categoria": 4,
+      "elemento_afin_tabla": "Hielo",
+      "elemento_afin_ficha": "Hielo"
+    },
+    {
+      "nombre": "Kayulio",
+      "epiteto": "Cacique emperador",
+      "canalizacion": "Carrera relámpago",
+      "categoria": 1,
+      "elemento_afin_tabla": "Viento",
+      "elemento_afin_ficha": "Viento"
+    },
+    {
+      "nombre": "Kleion",
+      "epiteto": "La línea encarnada",
+      "canalizacion": "Distorsión temporal",
+      "categoria": 4,
+      "elemento_afin_tabla": "Ninguno",
+      "elemento_afin_ficha": "Ninguno"
+    },
+    {
+      "nombre": "Lonian",
+      "epiteto": "Dogo sempiterno",
+      "canalizacion": "Ladrido de la marisma",
+      "categoria": 1,
+      "elemento_afin_tabla": "Agua",
+      "elemento_afin_ficha": "Agua"
+    },
+    {
+      "nombre": "Luxorath",
+      "epiteto": "Faro del infinito",
+      "canalizacion": "Mirada del cosmos",
+      "categoria": 4,
+      "elemento_afin_tabla": "Luz",
+      "elemento_afin_ficha": "Luz"
+    },
+    {
+      "nombre": "Maia",
+      "epiteto": "Brisa serena del vero",
+      "canalizacion": "Céfiro agotador",
+      "categoria": 2,
+      "elemento_afin_tabla": "Viento",
+      "elemento_afin_ficha": "Viento"
+    },
+    {
+      "nombre": "Nerevion",
+      "epiteto": "La vorágine de las profundidades",
+      "canalizacion": "Torbellino abisal",
+      "categoria": 3,
+      "elemento_afin_tabla": "Agua",
+      "elemento_afin_ficha": "Agua"
+    },
+    {
+      "nombre": "Nunem",
+      "epiteto": "La caldera ancestral",
+      "canalizacion": "Erupción del yermo",
+      "categoria": 4,
+      "elemento_afin_tabla": "Fuego",
+      "elemento_afin_ficha": "Fuego"
+    },
+    {
+      "nombre": "Opharis",
+      "epiteto": "El que ilumina",
+      "canalizacion": "Resplandor sanador",
+      "categoria": 2,
+      "elemento_afin_tabla": "Luz",
+      "elemento_afin_ficha": "Luz"
+    },
+    {
+      "nombre": "Rufushia",
+      "epiteto": "La luz del hogar",
+      "canalizacion": "Brillo cegador",
+      "categoria": 1,
+      "elemento_afin_tabla": "Luz",
+      "elemento_afin_ficha": "Luz"
+    },
+    {
+      "nombre": "Schoff",
+      "epiteto": "Sabueso de las llanuras",
+      "canalizacion": "Arremetida peluda",
+      "categoria": 1,
+      "elemento_afin_tabla": "Tierra",
+      "elemento_afin_ficha": "Tierra"
+    },
+    {
+      "nombre": "Sel-Line",
+      "epiteto": "Acechadora de la puerta",
+      "canalizacion": "Bufido aterrador",
+      "categoria": 1,
+      "elemento_afin_tabla": "Oscuridad",
+      "elemento_afin_ficha": "Oscuridad"
+    },
+    {
+      "nombre": "Sheólidas",
+      "epiteto": "Travieso embaucador",
+      "canalizacion": "Maullido acaramelado",
+      "categoria": 1,
+      "elemento_afin_tabla": "Ninguno",
+      "elemento_afin_ficha": "Ninguno"
+    },
+    {
+      "nombre": "Skaldrak",
+      "epiteto": "Leviatán errante",
+      "canalizacion": "Castigo glaciar",
+      "categoria": 3,
+      "elemento_afin_tabla": "Hielo",
+      "elemento_afin_ficha": "Hielo"
+    },
+    {
+      "nombre": "Talisa",
+      "epiteto": "Señora de las heladas",
+      "canalizacion": "Ventisca irredenta",
+      "categoria": 2,
+      "elemento_afin_tabla": "Hielo",
+      "elemento_afin_ficha": "Hielo"
+    },
+    {
+      "nombre": "Tal-lu-reihm",
+      "epiteto": "Negrura ardiente",
+      "canalizacion": "Fuego del recuerdo",
+      "categoria": 1,
+      "elemento_afin_tabla": "Fuego",
+      "elemento_afin_ficha": "Fuego"
+    },
+    {
+      "nombre": "Valkhar",
+      "epiteto": "Sombra devastadora",
+      "canalizacion": "Maldición funesta",
+      "categoria": 4,
+      "elemento_afin_tabla": "Oscuridad",
+      "elemento_afin_ficha": "Oscuridad"
+    },
+    {
+      "nombre": "Varlyna",
+      "epiteto": "Eco de la civilización",
+      "canalizacion": "Tormenta eléctrica",
+      "categoria": 2,
+      "elemento_afin_tabla": "Rayo",
+      "elemento_afin_ficha": "Rayo"
+    },
+    {
+      "nombre": "Velghor",
+      "epiteto": "Viento furioso",
+      "canalizacion": "Zona huracanada",
+      "categoria": 3,
+      "elemento_afin_tabla": "Viento",
+      "elemento_afin_ficha": "Viento"
+    },
+    {
+      "nombre": "Velunion",
+      "epiteto": "Pescador del abismo",
+      "canalizacion": "Calma tempestuosa",
+      "categoria": 1,
+      "elemento_afin_tabla": "Agua",
+      "elemento_afin_ficha": "Ninguno"
+    },
+    {
+      "nombre": "Warnok",
+      "epiteto": "Las fauces salvajes",
+      "canalizacion": "Emboscada de la selva",
+      "categoria": 2,
+      "elemento_afin_tabla": "Naturaleza",
+      "elemento_afin_ficha": "Naturaleza"
+    },
+    {
+      "nombre": "Xalanth",
+      "epiteto": "Yugo de rivalidad",
+      "canalizacion": "Aniquilación dracónica",
+      "categoria": 2,
+      "elemento_afin_tabla": "Oscuridad",
+      "elemento_afin_ficha": "Oscuridad"
+    },
+    {
+      "nombre": "Yl-Veris",
+      "epiteto": "La reina de la poza",
+      "canalizacion": "Eructo fétido",
+      "categoria": 3,
+      "elemento_afin_tabla": "Naturaleza",
+      "elemento_afin_ficha": "Naturaleza"
+    },
+    {
+      "nombre": "Zephradon",
+      "epiteto": "El trueno eterno",
+      "canalizacion": "Veredicto galvánico",
+      "categoria": 3,
+      "elemento_afin_tabla": "Rayo",
+      "elemento_afin_ficha": "Rayo"
+    }
+  ],
+  "regla_general": {
+    "parrafos": [
+      1478,
+      1486
+    ],
+    "modalidades": [
+      "Encarnar",
+      "Canalizar",
+      "Materializar"
+    ],
+    "preparacion": "Memorizar diagrama astral por la mañana; canalizar tantos Turnos como Categoría; sin recibir daño ni moverse; puede acelerar gastando un punto de energía",
+    "restricciones": "No encadenar efectos Encarnar ni Materializar del mismo tipo; se puede Encarnar y Materializar uno diferente. Tras terminar, no reinvocar hasta 1 Intervalo o 2 si especialmente poderoso."
+  },
+  "incidencias": [
+    {
+      "id": "OCP-21",
+      "nombre": "Velunion",
+      "tipo": "contradiccion_tabla_vs_ficha",
+      "tabla": "Agua",
+      "ficha": "Ninguno",
+      "parrafos_ficha": [
+        1541,
+        1543
+      ],
+      "estado": "pendiente_de_decision_autor"
+    }
+  ],
+  "avisos": [
+    "No equiparar el nombre del Eidolon a un Talento: cada Eidolon tiene tres modalidades distintas.",
+    "Las 32 fichas individuales con efectos detallados requieren extracción literal separada; este archivo es índice y no acredita extracción íntegra.",
+    "No homogeneizar afinidades sin resolución OCP-21."
+  ]
+}
