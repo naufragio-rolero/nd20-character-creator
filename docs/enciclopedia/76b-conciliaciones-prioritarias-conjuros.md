@@ -33,11 +33,11 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 ## D. Estado de verificación
 
 - **434/434** Conjuros transcritos y cotejados contra Google Docs, sin diferencias literales.
-- **150/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72f](72f-desglose-revisado-conjuros-126-150.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) y [75c](75c-auditoria-desglose-manual-126-150.json).
-- **284** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
-- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 284 en fichas mecánicamente verificadas.
+- **175/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72g](72g-desglose-revisado-conjuros-151-175.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) y [75d](75d-auditoria-desglose-manual-151-175.json).
+- **259** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
+- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 259 en fichas mecánicamente verificadas.
 
-**Se puede continuar con 151–175 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
+**Se puede continuar con 176–200 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
 
 **Nota de control:** el recuento espacial de la auditoría inicial se corrigió tras detectar que el superíndice ² quedaba fuera del patrón de búsqueda. La [auditoría vigente](77c-resumen-geometria-conjuros.md) registra 65 fichas con magnitudes espaciales y 10 mezclas de radio y superficie.
 
@@ -59,3 +59,14 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 - **Condiciones claras que deben preservarse:** Desvanecer escritura (128) borra la escritura mágica incluso al fallar, pero activa su efecto; Esfera corrosiva (137) causa 3d12 al acertar y 3d6 al fallar; Encandilamiento (140) requiere pruebas nuevas ante peticiones contrarias a intereses y maltrato.
 
 [Desglose manual 126–150](72f-desglose-revisado-conjuros-126-150.json) y [auditoría de 46 referencias a párrafos](75c-auditoria-desglose-manual-126-150.json). Las transcripciones históricas siguen intactas. No se ha implementado ninguna regla en Forja.
+
+## G. Hallazgos del desglose 151–175
+
+- **CONJ-M14 — Estallido de escarcha (157):** el alcance dice literalmente «un cono de 20», sin unidad. No asignar metros por suposición.
+- **CONJ-M15 — Forja arcana (164):** «Cualquier aliado puede gastar **1 arma** imbuyendo un arma...». La unidad de gasto no es operativa. No sustituirla por acción, hora o punto sin decisión editorial.
+- **CONJ-M16 — Galerna (170):** la frase «impede a todos aquellos ubicados en el área de efecto» está truncada y no especifica qué impide. No generar una penalización adicional.
+- **CONJ-M17 — Glorioso orbe protector de Excelsus (172):** se declara daño acumulativo, mitad del daño si se falla la Tirada de Conjuro y una Probabilidad 14+ de fallar el ataque, pero no se define inequívocamente cuándo efectuar esa Tirada de Conjuro.
+- **Estrella divina (158):** tamaño de aparición de 2 m² y radio de daño de 2 metros son magnitudes diferentes que deben coexistir; no se trata necesariamente de contradicción.
+- **Nueva pasada de superficies:** se han localizado **seis erratas adicionales** fuera de los diez casos ya reparados editorialmente, registradas como **propuestas no aprobadas** en [77d](77d-segunda-pasada-erratas-geométricas.json). No se han alterado los textos fuente.
+
+[Desglose manual 151–175](72g-desglose-revisado-conjuros-151-175.json) y [auditoría de 50 referencias](75d-auditoria-desglose-manual-151-175.json).
