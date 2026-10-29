@@ -1,0 +1,70 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "ocupacion": "Marionetista",
+  "categoria": "Poderes",
+  "familia": "Habilidades de Núcleo de marioneta",
+  "registros": [
+    {
+      "nombre": "Aguijón venenoso",
+      "parrafos": [
+        1313,
+        1314
+      ],
+      "texto_literal": "Dispone de un pesado artefacto puntiagudo instalado en la espalda que puede emplear para realizar un ataque brutal sobre un objetivo. Obtiene +2 Potencia para el daño y causa Veneno equivalente al Nivel de la marioneta."
+    },
+    {
+      "nombre": "Canto hipnotizante",
+      "parrafos": [
+        1315,
+        1316
+      ],
+      "texto_literal": "Por algún motivo desconocido, la marioneta puede hablar como si fuese una persona real. Además, puede entonar una canción encantadora que provoca un -2 a todas las Tiradas de ataque (+2 a las Tiradas de esquiva en el caso de los PJ) en un radio de 10 metros a su alrededor durante 2d4 Turnos. Esta melodía es de carácter mágico y no es necesario poder escucharla, ya que su voz permea el ambiente y el alma de quienes están cerca."
+    },
+    {
+      "nombre": "Extensión",
+      "parrafos": [
+        1317,
+        1318
+      ],
+      "texto_literal": "Los brazos y piernas de la marioneta tienen un mecanismo de muelles elásticos que permiten extenderse de forma antinatural y perturbadora. La marioneta puede utilizar esta habilidad para moverse más rápido (+2 Movimiento) o disponer de un alcance superior a sus ataques cuerpo a cuerpo (4 metros); la duración es de 1 Intervalo o el final del combate, lo que ocurra antes."
+    },
+    {
+      "nombre": "Frenesí",
+      "parrafos": [
+        1319,
+        1320
+      ],
+      "texto_literal": "Una chispa de furia congelada bulle en el interior del núcleo, capaz de liberar un minúsculo fragmento que anime a la marioneta a dejarse llevar por la más absoluta y pura ira. Cuando es activada, la marioneta realiza 3 ataques por Turno pero, a cambio, sufre Desventaja para evitar cualquier ataque contra ella; la duración es de 1d6 +2 Turnos."
+    },
+    {
+      "nombre": "Ocultación",
+      "parrafos": [
+        1321,
+        1322
+      ],
+      "texto_literal": "La marioneta está recubierta por una tela fabricada a partir de espejos desghóticos, fragmentos de viejos sueños y pesadillas vívidas. Al invocar la magia entrelazada en esos tejidos, es capaz de mimetizarse con el entorno, como si de un camaleón se tratase. En términos de reglas, la marioneta obtiene Ventaja en las Tiradas que deba realizar para ocultar su presencia durante 2 Intervalos. El efecto finaliza si entra en combate o es descubierta."
+    },
+    {
+      "nombre": "Trepada de araña",
+      "parrafos": [
+        1323,
+        1324
+      ],
+      "texto_literal": "Las extremidades de la marioneta se recubren de una sustancia pegajosa e incolora que le permite trepar por las paredes como si fuese una araña. Vislumbrar a un constructo moverse de esta forma es inquietante y enloquecedor, sobre todo si tenemos en cuenta que puede mover todo su Movimiento por la pared o el techo; afortunadamente, el efecto tan «sólo» dura 1d4 Intervalos."
+    }
+  ],
+  "reglas": {
+    "parrafos": [
+      1298,
+      1304
+    ],
+    "puntos": [
+      "Gestionar marioneta como PNJ Seguidor, con Ataque, Defensa y Dado de Salud.",
+      "La marioneta no tiene Moral.",
+      "Activar la Habilidad especial del Núcleo cuesta 1 Punto de Esfuerzo del maestro.",
+      "Creación: mismo Nivel del maestro; subir atributos o Nivel requiere trabajo posterior: tantos Intervalos como Nivel/2 redondeado arriba y 50 monedas de oro por Nivel.",
+      "Cada marioneta elige Armazón, Extremidades y Núcleo; las opciones son independientes."
+    ]
+  },
+  "nota": "La ficha literal del Talento Dominio de las marionetas y las capacidades de Núcleo son entidades distintas. Las tablas de componentes se publican aparte."
+}
