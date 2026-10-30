@@ -3,13 +3,13 @@
   "resultado": "cobertura_documental_completa_con_revision_manual_y_preindice",
   "conteos": {
     "fichas_con_texto_original": 434,
-    "fichas_revisadas_manual": 300,
+    "fichas_revisadas_manual": 325,
     "fichas_preclasificadas_automatico": 384,
-    "solapadas_manual_y_automatico": 250,
-    "solo_preclasificadas_pendientes_manual": 134,
+    "solapadas_manual_y_automatico": 275,
+    "solo_preclasificadas_pendientes_manual": 109,
     "cobertura_unica": 434
   },
-  "regla_precedencia": "El desglose manual 72a–72l prevalece para su interpretación sobre las pistas lexicales 73a–73h. Ambos son documentales y no constituyen reglas codificadas, pruebas del generador ni cambios en el texto original.",
+  "regla_precedencia": "El desglose manual 72a–72m prevalece para su interpretación sobre las pistas lexicales 73a–73h. Ambos son documentales y no constituyen reglas codificadas, pruebas del generador ni cambios en el texto original.",
   "archivos": [
     {
       "archivo": "72a-desglose-revisado-conjuros-001-025.json",
@@ -81,6 +81,12 @@
       "archivo": "72l-desglose-revisado-conjuros-276-300.json",
       "registros": 25,
       "sha": "2a977e68d730aa76ef9ab5c4596b094db42e31a7",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72m-desglose-revisado-conjuros-301-325.json",
+      "registros": 25,
+      "sha": "4fe1303fd85af01e4a8b89afe4504a8ee99326d4",
       "estado": "revisado_manual"
     },
     {
@@ -185,6 +191,11 @@
     },
     {
       "archivo": "75i-auditoria-desglose-manual-276-300.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75j-auditoria-desglose-manual-301-325.json",
       "resultado": "25_de_25_cotejados",
       "errores": 0
     }
