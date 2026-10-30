@@ -33,11 +33,11 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 ## D. Estado de verificación
 
 - **434/434** Conjuros transcritos y cotejados contra Google Docs, sin diferencias literales.
-- **275/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72k](72k-desglose-revisado-conjuros-251-275.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) [75e](75e-auditoria-desglose-manual-176-200.json) [75f](75f-auditoria-desglose-manual-201-225.json), [75g](75g-auditoria-desglose-manual-226-250.json) y [75h](75h-auditoria-desglose-manual-251-275.json).
-- **159** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
-- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 159 en fichas mecánicamente verificadas.
+- **300/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72l](72l-desglose-revisado-conjuros-276-300.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) [75e](75e-auditoria-desglose-manual-176-200.json) [75f](75f-auditoria-desglose-manual-201-225.json), [75g](75g-auditoria-desglose-manual-226-250.json) [75h](75h-auditoria-desglose-manual-251-275.json) y [75i](75i-auditoria-desglose-manual-276-300.json).
+- **134** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
+- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 134 en fichas mecánicamente verificadas.
 
-**Se puede continuar con 276–300 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
+**Se puede continuar con 301–325 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
 
 **Nota de control:** el recuento espacial de la auditoría inicial se corrigió tras detectar que el superíndice ² quedaba fuera del patrón de búsqueda. La [auditoría vigente](77c-resumen-geometria-conjuros.md) registra 65 fichas con magnitudes espaciales y 10 mezclas de radio y superficie.
 
@@ -112,3 +112,14 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 - **Ojo de la tormenta (262):** expresa 5 km² de alcance, hasta 1 km² por manifestación liberada y 10 m² por impacto de rayo; son cantidades distintas, sin geometría única autorizada.
 
 [Desglose 251–275](72k-desglose-revisado-conjuros-251-275.json); [auditoría de 50 referencias](75h-auditoria-desglose-manual-251-275.json). Fuentes originales y código ejecutable sin modificaciones.
+
+## L. Hallazgos del desglose 276–300
+
+- **CONJ-M32 — Palabra de Poder: Estulticia (282):** el fallo de la Tirada otorga Prisa y la fórmula «un Turno por 1 de tus Niveles» carece de redacción inequívoca. No suprimir el efecto positivo del fallo.
+- **CONJ-M33 — Palabra de Poder: Hemorragia (284):** 1d8 de pérdida de Salud declarada durante la duración sin periodicidad; no convertir automáticamente en daño por Turno.
+- **CONJ-M34 — Palabra de Poder: Aturdimiento (278):** dura 2d8 con Salud ≤30 o 1d6 con Salud 31–70; Salud actual mayor de 70 es inmune. Registrar tres bandas distintas.
+- **CONJ-M35 — Presagio (291):** el Cronista realiza en privado la Probabilidad 15+ de malinterpretación, excepción explícita de este Conjuro que no debe cambiarse por una Tirada del jugador.
+- **Palabra de Poder: Muerte (285):** modalidades alternativas de objetivo único o múltiples objetivos condicionados por Salud y Nivel; no convertirlo en muerte universal sin condiciones.
+- **Proyectil mágico (294):** cantidad de proyectiles igual al Nivel, daño 1d6 cada uno, repartibles a voluntad y sin posibilidad de fallo.
+
+[Desglose 276–300](72l-desglose-revisado-conjuros-276-300.json) y [auditoría de 50 referencias](75i-auditoria-desglose-manual-276-300.json). Todas las transcripciones de 69l permanecen intactas.
