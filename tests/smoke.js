@@ -105,7 +105,7 @@ console.log('OK · '+ampliadas+' fichas adicionales con material documental.');
 const poderes=require('../assets/powers.js');
 const catalogoPoderes=leer('catalogo-poderes.json');
 const progresiones=leer('progresiones-oficiales.json');
-assert.equal(catalogoPoderes.conjuros.length,434,'Conjuros extraídos del Tomo');
+assert.equal(catalogoPoderes.conjuros.length,433,'433 Conjuros únicos del Tomo; Arma elemental aparece dos veces');
 assert.equal(catalogoPoderes.poderes_psionicos.length,20,'Tabla psiónica d20');
 assert.equal(catalogoPoderes.scripts.length,10,'Scripts CiFi');
 assert.equal(new Set(catalogoPoderes.tecnicas.map(t=>t.id)).size,catalogoPoderes.tecnicas.length,'IDs únicos de Técnicas');
@@ -390,9 +390,9 @@ for(const [origen,cantidad] of Object.entries(origenesConjuros))
   assert.equal(catalogoPoderes.conjuros.filter(x=>x.origen===origen).length,cantidad,
     'Origen documentado: '+origen);
 const pendientesOrigen=catalogoPoderes.conjuros.filter(x=>!x.origen);
-assert.equal(pendientesOrigen.length,1,'Única discrepancia sin atribuir falsamente');
-assert.equal(pendientesOrigen[0].nombre,'Ira celestial');
-assert.equal(pendientesOrigen[0].circulo,3);
+assert.equal(pendientesOrigen.length,0,'Sin discrepancias de origen tras cotejo con DRS');
+assert.ok(!catalogoPoderes.conjuros.some(x=>x.nombre==='Ira celestial'&&x.circulo===3),
+  'No ofrecer Ira celestial C3, ausente del DRS');
 assert.equal(catalogoPoderes.conjuros.find(x=>x.nombre==='Ira celestial'&&x.circulo===5).origen,
   'Nd20','Atribución contrastada de Ira celestial del Círculo 5');
 assert.equal(poderes.origenConjuro('conjuro_conocido','Aprender Conjuros','Nd20'),
@@ -421,8 +421,8 @@ const controlConjuro=inventarioEditorial.find(x=>x.tipo==='Conjuro'&&x.nombre===
 assert.equal(controlConjuro.fuente,'Nd20','Origen correcto en control editorial');
 const controlPendiente=inventarioEditorial.find(x=>x.tipo==='Conjuro'&&
   x.nombre==='Ira celestial'&&x.detalle.includes('Círculo 3'));
-assert.equal(controlPendiente.fuente,'Origen sin verificar');
-console.log('OK · 433 orígenes de Conjuros documentados y una discrepancia identificada.');
+assert.equal(controlPendiente,undefined,'No queda un Conjuro inventado de Círculo 3');
+console.log('OK · 433 Conjuros únicos con origen verificado y DRS como autoridad.');
 
 
 /* Revisión por lotes confirmados: publicación sí, pruebas independientes. */
