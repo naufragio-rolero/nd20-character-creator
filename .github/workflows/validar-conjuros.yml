@@ -7,7 +7,10 @@ on:
   pull_request:
     paths:
       - 'data/conjuros-revisados-*.json'
+      - 'data/conjuros-magnitudes-literales.json'
       - 'assets/tooltips.js'
+      - 'assets/tooltip-ui.js'
+      - 'assets/spell-magnitudes.js'
       - 'assets/app.js'
       - 'tests/conjuros.js'
       - 'tests/smoke.js'
@@ -27,6 +30,8 @@ jobs:
         run: |
           node --check assets/app.js
           node --check assets/tooltips.js
+          node --check assets/tooltip-ui.js
+          node --check assets/spell-magnitudes.js
           node --check tests/conjuros.js
       - name: Probar generador y los 434 Conjuros
         run: node tests/smoke.js
