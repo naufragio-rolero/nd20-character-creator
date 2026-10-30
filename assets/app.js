@@ -220,7 +220,7 @@
         (a.favorito ? ' <span title="Atributo favorito" aria-label="Favorito">★</span>' : '') +
         '</span><span>' + cifra + '</span></div>';
     }).join('');
-    return '<article class="tarjeta" data-id="' + id + '">' +
+    return '<article class="tarjeta" data-id="' + id + '" data-nivel="' + esc(personaje.nivel) + '">' +
       '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(personaje.juego) +
       ' · Nivel ' + esc(personaje.nivel) +
       (personaje.sexo?' · '+esc(personaje.sexo==='femenino'?'Femenino':'Masculino'):'') +
@@ -548,6 +548,7 @@
       catalogo:'data/catalogo-poderes.json',
       conjurosUno:'data/conjuros-revisados-001-225.json',
       conjurosDos:'data/conjuros-revisados-226-434.json',
+      magnitudes:'data/conjuros-magnitudes-literales.json',
       progresiones:'data/progresiones-oficiales.json',
       equipoInicial:'data/equipo-inicial.json',
       fichasDocumentales:'data/fichas-documentales.json',
@@ -611,7 +612,8 @@
         fantasia:datos.fantasia,cifi:datos.cifi,nocturna:datos.nocturna,
         catalogo:datos.catalogo,equipo:datos.equipoInicial,
         descripciones:loaded.fichasDocumentales,
-        conjurosRevisados:loaded.conjurosUno.conjuros.concat(loaded.conjurosDos.conjuros)
+        conjurosRevisados:loaded.conjurosUno.conjuros.concat(loaded.conjurosDos.conjuros),
+        magnitudes:loaded.magnitudes
       });
       infoUI.configurar(indice);
     }
