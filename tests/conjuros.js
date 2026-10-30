@@ -81,3 +81,73 @@ assert.ok(iraC3.datos.some(x=>x[0]==='Círculo'&&x[1]==='3'));
 assert.ok(iraC5.datos.some(x=>x[0]==='Círculo'&&x[1]==='5'));
 assert.ok(buscar('[C] Mano de mago (C1) · Nd20').descripcion.length>50);
 console.log('OK · 434 fichas de Conjuros cotejadas; 10 correcciones y fichas emergentes verificadas.');
+
+
+/* Pruebas del primer subconjunto de magnitudes mecánicas literales. */
+const motorMagnitudes=require('../assets/spell-magnitudes.js');
+const literales=leer('data/conjuros-magnitudes-literales.json');
+assert.equal(literales.registros.length,12,'12 fichas de magnitudes registradas');
+assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,12);
+for(const entrada of literales.registros){
+  const ficha=revisados.find(x=>x.numero_tomo===entrada.numero_tomo);
+  assert.ok(ficha,'Ficha de Conjuro original '+entrada.numero_tomo);
+  assert.equal(entrada.id_catalogo,ficha.id_catalogo,'ID literal '+entrada.nombre_tomo);
+  assert.equal(entrada.nombre_tomo,ficha.nombre_tomo,'Nombre literal '+entrada.numero_tomo);
+  assert.ok(ficha.parrafos.join('\n').includes(entrada.evidencia_literal),
+    'Evidencia original exacta de '+entrada.nombre_tomo);
+  assert.equal(entrada.estado,'magnitudes_literales_verificadas_no_ejecucion_completa');
+  assert.ok(entrada.magnitudes.length,'Magnitudes presentes');
+}
+function magnitudes(nombre,nivel){
+  const ficha=literales.registros.find(x=>x.nombre_tomo===nombre);
+  assert.ok(ficha,'Conjuro estructurado: '+nombre);
+  return motorMagnitudes.evaluar(literales,ficha.id_catalogo,nivel);
+}
+function valor(obj,clave){
+  const campo=obj.magnitudes.find(x=>x.clave===clave);
+  assert.ok(campo,'Magnitud de '+obj.nombre_tomo+': '+clave);
+  return campo.valor;
+}
+assert.equal(valor(magnitudes('Mano de mago',1),'carga_maxima_kg'),4);
+assert.equal(valor(magnitudes('Mano de mago',7),'carga_maxima_kg'),28);
+assert.equal(valor(magnitudes('Mano de mago',10),'carga_maxima_kg'),40);
+assert.equal(valor(magnitudes('Mano de mago',30),'carga_maxima_kg'),40);
+assert.equal(valor(magnitudes('Proyectil mágico',1),'numero_proyectiles'),1);
+assert.equal(valor(magnitudes('Proyectil mágico',18),'numero_proyectiles'),18);
+assert.equal(valor(magnitudes('Proyectil mágico',18),'danio_por_proyectil'),'1d6');
+assert.equal(valor(magnitudes('Vigor de coloso',14),'bono_fuerza'),2);
+assert.equal(valor(magnitudes('Vigor de coloso',14),'duracion_turnos'),14);
+assert.equal(valor(magnitudes('Valentía',8),'duracion_turnos'),'1d6',
+  'Dado sin lanzar ni suponer resultados');
+assert.equal(valor(magnitudes('Marcha de araña',8),'factor_movimiento'),0.5,
+  'No redondear Movimiento en el motor');
+assert.equal(valor(magnitudes('Vigilia de muerte',8),'salud_tras_activacion'),1);
+assert.equal(valor(magnitudes('Muro de fuerza',8),'nivel_bloqueado_maximo'),6);
+assert.equal(valor(magnitudes('Caída de pluma',7),'alcance_m'),7);
+assert.equal(valor(magnitudes('Arma elemental',7),'danio_adicional'),'1d6');
+assert.equal(valor(magnitudes('Luz',7),'duracion_ceguera_turnos'),1);
+assert.equal(valor(magnitudes('Dardo ígneo',7),'danio_fuego'),'1d6');
+assert.equal(valor(magnitudes('Chispa curativa',7),'curacion'),'1d4');
+assert.equal(motorMagnitudes.evaluar(literales,'conjuro-no-existe',7),null);
+assert.throws(()=>magnitudes('Mano de mago',0),/Nivel entero positivo/);
+assert.throws(()=>magnitudes('Mano de mago',1.5),/Nivel entero positivo/);
+assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'por_nivel_con_tope',valor:[4]},2),/Factor y tope/);
+assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dinero',valor:4},2),/desconocida/);
+const copia=JSON.stringify(literales);
+magnitudes('Proyectil mágico',9);
+assert.equal(JSON.stringify(literales),copia,'El evaluador no modifica el catálogo');
+const glosarioMagnitudes=tooltip.indice({
+  catalogo,conjurosRevisados:revisados,magnitudes:literales
+});
+assert.ok(tooltip.buscar(glosarioMagnitudes,'[C] Mano de mago (C1) · Nd20','poder','nd20')
+  .magnitudes,'Magnitudes integradas en fichas emergentes');
+assert.ok(!tooltip.buscar(glosarioMagnitudes,'[C] Ira celestial (C3) · Nd20','poder','nd20')
+  .magnitudes,'Círculo no documentado permanece sin magnitudes');
+const htmlIntegracion=fs.readFileSync(path.join(raiz,'index.html'),'utf8');
+const appIntegracion=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
+const uiIntegracion=fs.readFileSync(path.join(raiz,'assets/tooltip-ui.js'),'utf8');
+assert.ok(htmlIntegracion.includes('assets/spell-magnitudes.js'));
+assert.ok(appIntegracion.includes('data/conjuros-magnitudes-literales.json'));
+assert.ok(appIntegracion.includes('data-nivel='));
+assert.ok(uiIntegracion.includes('NaufragioMagnitudes.evaluar'));
+console.log('OK · 12 Conjuros con magnitudes literales calculadas; sin ejecutar daño ni Tiradas.');
