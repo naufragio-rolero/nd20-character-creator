@@ -1,0 +1,205 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "titulo": "NaufragioD20 — Ocupaciones",
+    "url": "https://docs.google.com/document/d/1Zx60pJI_ETuyXvoiATUQk__E2-WUAjAnMbVBzsocIrc/edit",
+    "revision": "AHj4eMT2rOoSo0UavC-SPB-x2KuJ7Qp82ILoADuTR84JXsV6lS2MtAx5evc6pBzac_KCDoW2Wm8QmGvjp73j_g"
+  },
+  "categoria": "Eidolas Categoría 2",
+  "estado": "texto_completo_narrativa_y_3_modalidades",
+  "registros": [
+    {
+      "nombre": "Arkonis",
+      "encabezado_literal": "Arkonis, la piedra eterna",
+      "categoria": 2,
+      "afinidad_literal": "Elemento afín: Tierra",
+      "parrafos_fuente": [
+        4915,
+        4922
+      ],
+      "contexto_narrativo_literal": [
+        "Una imponente figura de roca viviente, con una coraza de placas tectónicas que se mueven y crujen con cada uno de sus pasos. Su piel es áspera como la piedra, y su rostro, impasible, parece esculpido por milenios de viento y tiempo. Porta un bastón tallado de obsidiana, cuya base es una gema de ámbar que parece contener un corazón palpitante. Su conexión con la tierra es tan profunda que, al caminar, la propia naturaleza parece inclinarse ante él.",
+        "Arkonis fue un sabio arcanista de la materia y sanador en tiempos remotos, un maestro bendecido por Mulinith y los elementos físicos. Actuaba como chamán en las montañas más altas y en los reinos más profundos, reconciliando a los espíritus de la tierra con los mortales. Al final de su vida, se fusionó con la tierra misma, convirtiéndose en el protector del conocimiento telúrico. Para conseguir su favor, el invocador debe enterrar una joya sin valor en el barro durante un ciclo lunar completo, simbolizando la paciencia y la transformación."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la Coraza de Arkonis, lo que te otorga 3d6 puntos de Blindaje contra el daño cortante y perforante, además de aumentar su resistencia a Condiciones como Veneno y Enfermedad durante 1d8 Turnos. Además, te vuelves inmune a ser derribado o empujado.",
+        "Canalizar": "Canalizar: Escudo terráqueo. Una barrera de rocas y tierra endurecida se materializa en un radio de 12 metros, protegiendo a todos tus aliados del daño. Arkonis parece proteger a tus aliados con su cuidado férreo. Cualquier aliado dentro de la barrera recibe 2d8 menos de daño por cada ataque durante 1d4 Turnos.",
+        "Materializar": "Materializar: Salud 12/d12/2, Ataque d6, Blindaje d12. Arkonis emerge del suelo como una estatua colosal y lucha al lado del invocador durante 3d6 Turnos, desatando poderosos golpes de tierra que crean fisuras y empujan a los enemigos 6 metros hacia atrás. Su presencia refuerza la defensa natural del grupo, otorgando +2 a todas las Tiradas de salvación contra Condiciones negativas."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4920,
+        "Canalizar": 4921,
+        "Materializar": 4922
+      }
+    },
+    {
+      "nombre": "Goralax",
+      "encabezado_literal": "Goralax, bestia cenicienta",
+      "categoria": 2,
+      "afinidad_literal": "Elemento afín: Fuego",
+      "parrafos_fuente": [
+        4923,
+        4930
+      ],
+      "contexto_narrativo_literal": [
+        "En las antípodas del mundo conocido, se dice que existe una extensa llanura de ceniza en la que todo, salvo el suelo, se encuentra ardiendo. Es en estas tierras lejanas dónde mora Goralax, el remanente de la Guerra de las Llamas, un salvaje mostrenco cuadrúpedo del que emergen llamas grisáceas. Su aspecto bovino y su rostro, envuelto en una nube perpetua de humo negro, sugieren que su origen se halla en Rasmalk, pero nada más lejos de la realidad.",
+        "Goralax fue una de las monturas de los héroes durante el enfrentamiento contra los diablos y ha sobrevivido hasta estos días como testimonio silencioso de las eras olvidadas. Exige a quien lo arrastre fuera de sus llanuras que queme hasta las cenizas una ofrenda hecha de hojarasca, madera e incienso."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el ardor de Goralax para adquirir inmunidad absoluta al fuego y al agua durante 1d8 Turnos.",
+        "Canalizar": "Canalizar: Meteoro cinéreo. La temperatura ambiente en un radio de 15 metros alrededor del invocador comienza a subir hasta hacerse insoportable. De un portal cuadrangular que aparece entre llamas surge Goralax, caminando lentamente. Previo a realizar su ataque, echa un vistazo en derredor y libera una enorme bola de fuego que surge de sus fauces. De inmediato, la llamarada se torna azul y después gris, cayendo sobre el área circular de 12 metros alrededor de la bestia, liberando una enorme ola de energía ardiente que abrasa a cualquier ser en el interior. Cada criatura herida por el fuego sufre 16d5 de daño por calor.",
+        "Materializar": "Materializar: Salud 8/1d8/1, Ataque 4d4, Blindaje d10. Un pequeño avatar de Goralax es arrastrado lejos de sus campos cenicientos y luchará contigo hasta que mueran 3 criaturas o finalice el enfrentamiento."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4928,
+        "Canalizar": 4929,
+        "Materializar": 4930
+      }
+    },
+    {
+      "nombre": "Maia",
+      "encabezado_literal": "Maia, brisa serena del vero",
+      "categoria": 2,
+      "afinidad_literal": "Elemento afín: Viento",
+      "parrafos_fuente": [
+        4931,
+        4937
+      ],
+      "contexto_narrativo_literal": [
+        "Se dice que Maia es la encarnación de los suaves vientos que preceden al Crecio. Su brisa trae consigo el aroma del Vero y la promesa de cielos despejados y días cálidos. Los agricultores de antaño esperaban su llegada como señal de una temporada fértil, mientras que los viajeros dependían de sus vientos para viajes tranquilos y seguros. Maia ofrece su poder a aquellos que la invocan con respeto por la naturaleza, y solo pide una pluma de ave recolectada durante el Vero como símbolo de respeto a su legado."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el toque de Maia para ganar Blindaje 2d6 contra daño a distancia, ya que una brisa suave desvía los proyectiles que te atacan. Además, durante 1d4 Turnos, puedes realizar Tiradas de Agilidad y Resistencia con Ventaja.",
+        "Canalizar": "Canalizar: Céfiro agotador. Una sensación de tranquilidad surge de repente, momento en el que Maia aparece y desata una ráfaga de viento suave pero implacable en un radio de 12 metros que agota las fuerzas de todas las criaturas al alcance. Todas aquellas afectadas por esta brisa tienen una Probabilidad 11+ de quedar Cansadas y no podrán realizar más de una acción por Turno durante 1d4 Turnos.",
+        "Materializar": "Materializar: Salud 6/1d6/1, Ataque d6, Blindaje d4. Maia aparecerá a tu vera como una figura etérea envuelta en viento y luz plateada, provocando un -2 a todas las Tiradas de las criaturas que tú consideres enemigas y estén a metros o menos de ti con ráfagas suaves pero persistentes. Permanecerá en el campo de batalla durante 2d6 Turnos o hasta que haya cansado a 5 criaturas."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4935,
+        "Canalizar": 4936,
+        "Materializar": 4937
+      }
+    },
+    {
+      "nombre": "Opharis",
+      "encabezado_literal": "Opharis, el que ilumina",
+      "categoria": 2,
+      "afinidad_literal": "Elemento afín: Luz",
+      "parrafos_fuente": [
+        4938,
+        4946
+      ],
+      "contexto_narrativo_literal": [
+        "Procedente de fragmentos de pensamientos solidificados en luz divina, se manifiesta como una figura esbelta y luminosa, con alas translúcidas hechas de luz dorada. En sus manos lleva una pluma dorada y una esfera de mercurio en constante movimiento. Su presencia es tranquila y reconfortante, iluminando todo a su alrededor.",
+        "Opharis fue un antiguo regente de las artes y ciencias, conocido por su profundo conocimiento alquímico. Tras la caída de su reino, se transformó en un espíritu de luz, que ofrece sabiduría y sanación a quienes lo invocan. Exige como ofrenda un gesto simbólico de creatividad: una obra de arte o un texto escrito en su honor.",
+        "Habilidades:"
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la Claridad de Opharis, obteniendo Ventaja en tiradas de Intuición durante 1d6 Turnos. También puede ver a través de ilusiones o sanar 2d6 puntos de salud a cualquier aliado en un radio de 10 metros a tu alrededor.",
+        "Canalizar": "Canalizar: Resplandor sanador. Un estallido de luz anuncia la presencia de Opharis, que sana a todos los aliados en un radio de 12 metros alrededor del diagrama. Cada aliado recupera 4d8 puntos de salud y puede realizar una Tirada de Salvación para librarse de cualquier estado debilitante.",
+        "Materializar": "Materializar: Salud 8/d8/2, Ataque d6, Blindaje d6. Opharis lucha a tu lado durante 2d6 Turnos, creando una aura de luz que restaura 1d6 puntos de salud a los aliados cercanos en cada Turno."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4944,
+        "Canalizar": 4945,
+        "Materializar": 4946
+      }
+    },
+    {
+      "nombre": "Talisa",
+      "encabezado_literal": "Talisa, señora de las heladas",
+      "categoria": 2,
+      "afinidad_literal": "Elemento afín: Hielo",
+      "parrafos_fuente": [
+        4947,
+        4954
+      ],
+      "contexto_narrativo_literal": [
+        "Una figura majestuosa y gélida, con una armadura de hielo que brilla como el cristal bajo la luz de la luna. Su largo cabello blanco como la nieve cae en cascada detrás de ella, y sus ojos azules, fríos como el invierno, parecen perforar el alma. Porta una alabarda de hielo tallado, cuya hoja puede partir el suelo con un solo golpe. A su alrededor, el aire siempre está impregnado de una bruma helada que congela todo lo que toca.",
+        "Talisa fue una legendaria comandante de los ejércitos del norte, cuya frialdad y estrategia la convirtieron en una líder imparable en el campo de batalla. Después de su muerte, ascendió como un Eidolon, infundiendo su espíritu en el hielo eterno de las montañas más altas. Para convocarla, el invocador debe ofrecer un objeto metálico de batalla, dejándolo a la intemperie para que se cubra de hielo, simbolizando la pureza y la letalidad del frío."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la Determinación de Talisa, obteniendo 2d6 puntos de Blindaje adicionales contra daño físico y de hielo, junto con Ventaja en Tiradas de Fuerza para acciones de combate durante 1d6 Turnos. Las criaturas cercanas, a menos de 3 metros, ven su velocidad reducida en 2 debido al frío extremo.",
+        "Canalizar": "Canalizar: Ventisca irredenta. Se desata una tormenta devastadora de nieve y vientos helados en un radio de 18 metros desde el diagrama de invocación. Talisa aparece controlando una ventisca terrible, que hiela y paraliza sus objetivos. Las criaturas atrapadas en el área sufren 10d8 de daño por hielo y tienen una Probabilidad 14+ de quedar congeladas en su lugar durante 1d4 Turnos.",
+        "Materializar": "Materializar: Salud 10/d10/2, Ataque d8, Blindaje d8. Talisa aparece junto a su invocador, luchando con su alabarda de hielo durante 2d8 Turnos. Ralentiza a los enemigos cercanos, reduciendo su velocidad a la mitad, y puede proteger a los aliados con su escudo de hielo, reduciendo el daño que reciban en d6."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4952,
+        "Canalizar": 4953,
+        "Materializar": 4954
+      }
+    },
+    {
+      "nombre": "Varlyna",
+      "encabezado_literal": "Varlyna, eco de la civilización",
+      "categoria": 2,
+      "afinidad_literal": "Elemento afín: Rayo",
+      "parrafos_fuente": [
+        4955,
+        4962
+      ],
+      "contexto_narrativo_literal": [
+        "Durante la expansión del Reino de Malasthar se crearon innumerables piezas de tecnología y se exploraron diversos campos del espectro arcano. Varlyna, una de las arcanistas más prolíficas del imperio, desarrolló aparatos mecánicos que concentraban la energía de la Urdimbre en impactos eléctricos. Gracias a estos avances, su país pudo anexionar otros territorios menos avanzados e incluso la capital fue bautizada en su nombre.",
+        "Sin embargo, halló la muerte en un experimento que fusionaría de forma natural la vida humana y las hebras de la Urdimbre. Los registros históricos han olvidado si fue una maniobra de sus rivales o si la mano de Nastala quiso interrumpir semejante herejía. De una forma u otra, Varlyna se recompuso en El Erial como una entidad eléctrica, compuesta de pura energía, capaz de manifestarse como un Eidolon a cambio de un atisbo de tecnología del mundo, ya sea un papel o una historia."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el ingenio de Varlyna para obtener Ventaja en todas las tiradas de Mente para resolver acertijos o problemas durante 1d4 Turnos.",
+        "Canalizar": "Canalizar: Tormenta eléctrica. Una hondonada de nubes grises cubren por completo el cielo o el techo, soltando chispas y calambres; de repente, un cúmulo nuboso empieza a girar sobre sí mismo y se disipa, dejando ver la figura chisporroteante de Varlyna, que libera una descarga eléctrica impresionante sobre un área de 18 metros frente a ella. Cada criatura herida por la tormenta sufre 12d6 de daño por relámpago y tiene una posibilidad 12+ de quedar Paralizada.",
+        "Materializar": "Materializar: Salud 8/1d8/1, Ataque d8, Blindaje d6. Varlyna aparecerá con su forma humana relampagueante para luchar codo a codo contigo durante 2d6 Turnos."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4960,
+        "Canalizar": 4961,
+        "Materializar": 4962
+      }
+    },
+    {
+      "nombre": "Warnok",
+      "encabezado_literal": "Warnok, las fauces salvajes",
+      "categoria": 2,
+      "afinidad_literal": "Elemento afín: Naturaleza",
+      "parrafos_fuente": [
+        4963,
+        4969
+      ],
+      "contexto_narrativo_literal": [
+        "Warnok es la encarnación de la ferocidad y los peligros de las junglas más inhóspitas. Se cuenta que este cocodrilo ancestral acecha en los pantanos más profundos, donde la vegetación es tan densa que apenas permite la entrada de luz. Es el guardián de los secretos de la naturaleza salvaje, y su poder está vinculado a la fuerza indomable de la selva. Solo aquellos que respeten la jungla y sus habitantes pueden llamar a Warnok, y exige que le ofrezcan un pequeño amuleto hecho de hojas, lianas y huesos como señal de respeto."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la furia de Warnok durante 1d8 Turnos para obtener un ataque de mordisco adicional y 2d6 de daño adicional cuerpo a cuerpo.",
+        "Canalizar": "Canalizar: Emboscada de la selva. De repente, surge un montón de vegetación y lianas desde el diagrama de invocación, y después va la brutal forma de Warnok, trayendo consigo la furia de la naturaleza salvaje. Una horda de raíces y lianas brotan desde el suelo en un área de 10 metros alrededor del invocador, atrapando a todas las criaturas a su alcance. Cada ser atrapado queda Paralizado durante 1d4 Turnos y sufrirá 5d6 de daño contundente al inicio de cada uno de sus Turnos. Tiene una Probabilidad 11+ de liberarse, pero si intenta escapar sin éxito, sufre 2d6 de daño adicional por la presión de las lianas.",
+        "Materializar": "Materializar: Salud 7/1d7/2, Ataque d12, Blindaje d6. Warnok aparece como un cocodrilo gigantesco de escamas verdosas y ojos amarillentos brillantes. Durante 2d8 Turnos, atacará con su mandíbula feroz y su cola, ayudando a mantener a raya a los enemigos y protegiendo al invocador."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4967,
+        "Canalizar": 4968,
+        "Materializar": 4969
+      }
+    },
+    {
+      "nombre": "Xalanth",
+      "encabezado_literal": "Xalanth, yugo de rivalidad",
+      "categoria": 2,
+      "afinidad_literal": "Elemento afín: Oscuridad",
+      "parrafos_fuente": [
+        4970,
+        4977
+      ],
+      "contexto_narrativo_literal": [
+        "Xalanth fue un dragón negro que se apostaba en la enorme región boscosa entre el Imperio de Malasthar y el Reino de Shadaleen. Durante décadas fue una terrible amenaza para ambos países, hasta que decidieron unirse en un Turno encarnizado contra la sierpe. El dragón acabó con la vida de miles de soldados y fue el causante de la desaparición de la Orden Bendita de Xelastris; pero su ferocidad llegó a su fin cuando cientos de arcanistas liberaron decenas de proyectiles arcanos sobre su cuerpo, desintegrando parte de su esencia en puro polvo astral.",
+        "Los humanos se quedaron con su cuerpo, que fue aprovechado hasta la última brizna de piel. Xalanth se reformó en una de las provincias más remotas del Mundo onírico, consternado por lo que había sucedido. Su deceso había atraído a El Infante, que empleó sus malévolos poderes para transformarlo en un Eidolon y vincularlo al elemento más puro de sus dominios: la Oscuridad. Xalanth exige a sus invocadores el sacrificio de un alma inocente antes de cumplir su cometido."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la presencia terrible de Xalanth para adquirir unas escamas negras que recorren toda tu piel, otorgándote d10 de Blindaje e inmunidad al daño por ácido y veneno durante 1d6 Turnos.",
+        "Canalizar": "Canalizar: Aniquilación dracónica. Un enorme agujero se abre de repente en el suelo y de ahí surge Xalanth a toda velocidad. Tras aterrizar de forma brusca, carga su arma de aliento y exhala un cono de 21 metros frente a él. Cada criatura herida por el hálito sufre 6d8 de daño por ácido, 6d6 de daño por veneno y tiene una posibilidad 12+ de quedar Envenenada con un veneno igual al Nivel del invocador.",
+        "Materializar": "Materializar: Salud 10/1d10/2, Ataque 2d6, Blindaje d8. Xalanth se materializa con una versión más pequeña de sí mismo y luchará a tu lado hasta que finalice el enfrentamiento o su salud sea agotada."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4975,
+        "Canalizar": 4976,
+        "Materializar": 4977
+      }
+    }
+  ],
+  "nota": "Esta extracción de Google Docs vigente complementa las transcripciones previas procedentes del documento Word histórico; no las reescribe. Se mantiene OCP-21 (Velunion Agua en tabla, Ninguno en ficha) y OCP-22 (Maia sin cifra de distancia)."
+}

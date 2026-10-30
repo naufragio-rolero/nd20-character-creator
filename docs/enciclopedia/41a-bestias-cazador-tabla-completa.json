@@ -1,0 +1,196 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "ocupacion": "Cazador",
+  "categoria": "Bestias, Compañeros animales",
+  "tabla_word": 39,
+  "parrafos_reglas": [
+    1215,
+    1217
+  ],
+  "encabezados_originales": [
+    "Bestia",
+    "Salud",
+    "Salud",
+    "Salud",
+    "Daño"
+  ],
+  "interpretacion_encabezados_explicita_en_parrafo_1216": [
+    "Bestia",
+    "Salud inicial",
+    "Salud por nivel hasta el 11",
+    "Salud a partir del Nivel 12",
+    "Daño"
+  ],
+  "registros": [
+    {
+      "nombre": "Abeja gigante",
+      "salud_inicial": 4,
+      "salud_por_nivel_hasta_11": "1d4",
+      "salud_a_partir_12": "+1",
+      "dano": "1d6"
+    },
+    {
+      "nombre": "Águila",
+      "salud_inicial": 4,
+      "salud_por_nivel_hasta_11": "1d4",
+      "salud_a_partir_12": "+1",
+      "dano": "1d8"
+    },
+    {
+      "nombre": "Araña gigante",
+      "salud_inicial": 6,
+      "salud_por_nivel_hasta_11": "1d6",
+      "salud_a_partir_12": "+1",
+      "dano": "2d4"
+    },
+    {
+      "nombre": "Avispa asesina",
+      "salud_inicial": 4,
+      "salud_por_nivel_hasta_11": "1d4",
+      "salud_a_partir_12": "+1",
+      "dano": "2d4"
+    },
+    {
+      "nombre": "Babuino",
+      "salud_inicial": 8,
+      "salud_por_nivel_hasta_11": "1d8",
+      "salud_a_partir_12": "+2",
+      "dano": "1d6"
+    },
+    {
+      "nombre": "Caballo",
+      "salud_inicial": 8,
+      "salud_por_nivel_hasta_11": "1d8",
+      "salud_a_partir_12": "+2",
+      "dano": "1d4"
+    },
+    {
+      "nombre": "Camaleón cornudo",
+      "salud_inicial": 6,
+      "salud_por_nivel_hasta_11": "1d6",
+      "salud_a_partir_12": "+1",
+      "dano": "1d8"
+    },
+    {
+      "nombre": "Cangrejo gigante",
+      "salud_inicial": 6,
+      "salud_por_nivel_hasta_11": "1d6",
+      "salud_a_partir_12": "+1",
+      "dano": "1d6"
+    },
+    {
+      "nombre": "Cocodrilo",
+      "salud_inicial": 8,
+      "salud_por_nivel_hasta_11": "1d8",
+      "salud_a_partir_12": "+2",
+      "dano": "2d4"
+    },
+    {
+      "nombre": "Comadreja gigante",
+      "salud_inicial": 4,
+      "salud_por_nivel_hasta_11": "1d4",
+      "salud_a_partir_12": "+1",
+      "dano": "1d4"
+    },
+    {
+      "nombre": "Escorpión gigante",
+      "salud_inicial": 6,
+      "salud_por_nivel_hasta_11": "1d6",
+      "salud_a_partir_12": "+1",
+      "dano": "2d4"
+    },
+    {
+      "nombre": "Gusano ocre",
+      "salud_inicial": 10,
+      "salud_por_nivel_hasta_11": "1d10",
+      "salud_a_partir_12": "+3",
+      "dano": "1d4"
+    },
+    {
+      "nombre": "Hormiga gigante",
+      "salud_inicial": 4,
+      "salud_por_nivel_hasta_11": "1d4",
+      "salud_a_partir_12": "+1",
+      "dano": "1d8"
+    },
+    {
+      "nombre": "Lagarto gigante",
+      "salud_inicial": 8,
+      "salud_por_nivel_hasta_11": "1d8",
+      "salud_a_partir_12": "+2",
+      "dano": "1d6"
+    },
+    {
+      "nombre": "León",
+      "salud_inicial": 6,
+      "salud_por_nivel_hasta_11": "1d6",
+      "salud_a_partir_12": "+1",
+      "dano": "1d10"
+    },
+    {
+      "nombre": "Lobo",
+      "salud_inicial": 6,
+      "salud_por_nivel_hasta_11": "1d6",
+      "salud_a_partir_12": "+1",
+      "dano": "2d4"
+    },
+    {
+      "nombre": "Murciélago gigante",
+      "salud_inicial": 4,
+      "salud_por_nivel_hasta_11": "1d4",
+      "salud_a_partir_12": "+1",
+      "dano": "1d6"
+    },
+    {
+      "nombre": "Oso negro",
+      "salud_inicial": 8,
+      "salud_por_nivel_hasta_11": "1d8",
+      "salud_a_partir_12": "+2",
+      "dano": "1d8"
+    },
+    {
+      "nombre": "Oso polar",
+      "salud_inicial": 6,
+      "salud_por_nivel_hasta_11": "1d6",
+      "salud_a_partir_12": "+1",
+      "dano": "1d10"
+    },
+    {
+      "nombre": "Pantera",
+      "salud_inicial": 6,
+      "salud_por_nivel_hasta_11": "1d6",
+      "salud_a_partir_12": "+1",
+      "dano": "1d6"
+    },
+    {
+      "nombre": "Sapo gigante",
+      "salud_inicial": 4,
+      "salud_por_nivel_hasta_11": "1d4",
+      "salud_a_partir_12": "+1",
+      "dano": "1d6"
+    },
+    {
+      "nombre": "Tigre",
+      "salud_inicial": 6,
+      "salud_por_nivel_hasta_11": "1d6",
+      "salud_a_partir_12": "+1",
+      "dano": "2d4"
+    },
+    {
+      "nombre": "Velociraptor",
+      "salud_inicial": 6,
+      "salud_por_nivel_hasta_11": "1d6",
+      "salud_a_partir_12": "+1",
+      "dano": "1d6"
+    },
+    {
+      "nombre": "Zorro",
+      "salud_inicial": 4,
+      "salud_por_nivel_hasta_11": "1d4",
+      "salud_a_partir_12": "+1",
+      "dano": "1d4"
+    }
+  ],
+  "regla_especial": "Las habilidades especiales de cada criatura pueden activarse si el Cazador gasta 1 Punto de Esfuerzo. El jugador y el Cronista acuerdan qué puede hacer cada bestia; no hay una habilidad específica escrita por registro.",
+  "advertencia": "Estos 24 animales no son Talentos nuevos ni poderes automáticamente definidos."
+}

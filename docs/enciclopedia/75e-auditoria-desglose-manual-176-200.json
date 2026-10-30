@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "25_de_25_cotejados",
+  "fichas": 25,
+  "parrafos_referenciados": 40,
+  "errores": [],
+  "fuentes": [
+    {
+      "archivo": "69h-conjuros-alfabeticos-176-200.json",
+      "sha": "c60e80045acff6d0bef3ce666329b508b4ca7164"
+    },
+    {
+      "archivo": "72h-desglose-revisado-conjuros-176-200.json",
+      "commit": "5628acad1ad60f5d4c8b22019d557115f4adde05"
+    }
+  ],
+  "nota": "Verifica correspondencias documentales, no ejecutabilidad en Forja."
+}

@@ -1,0 +1,131 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "ocupacion": "Bardo",
+  "categoria": "Poderes",
+  "familia": "Canciones",
+  "registros": [
+    {
+      "grado": "Maestras",
+      "complejidad": 3,
+      "nombre": "Aria de otromundo",
+      "parrafos": [
+        1451,
+        1452
+      ],
+      "texto_literal": "Los aliados reciben Ventaja en las Tiradas de Blindaje para reducir daño de conjuros o ataques de naturaleza mágica."
+    },
+    {
+      "grado": "Maestras",
+      "complejidad": 3,
+      "nombre": "Elegía de la esperanza",
+      "parrafos": [
+        1453,
+        1454
+      ],
+      "texto_literal": "Los aliados recuperan 1d4 Puntos de Salud cada Turno."
+    },
+    {
+      "grado": "Maestras",
+      "complejidad": 3,
+      "nombre": "Himno de la brisa",
+      "parrafos": [
+        1455,
+        1456
+      ],
+      "texto_literal": "Cada vez que un aliado cause daño a un oponente, recupera 1d8 Puntos de Salud."
+    },
+    {
+      "grado": "Maestras",
+      "complejidad": 3,
+      "nombre": "Melodía repetitiva",
+      "parrafos": [
+        1457,
+        1458
+      ],
+      "texto_literal": "El músico realiza una tirada de Presencia cada vez que llegue el turno de un adversario; si la supera, el afectado debe repetir la última acción que tomó en el Turno anterior."
+    },
+    {
+      "grado": "Maestras",
+      "complejidad": 3,
+      "nombre": "Tonada estridente",
+      "parrafos": [
+        1459,
+        1460
+      ],
+      "texto_literal": "Los adversarios sufren 1d6 Puntos de daño sónico cada Turno."
+    },
+    {
+      "grado": "Maestras",
+      "complejidad": 3,
+      "nombre": "Oda a la lluvia",
+      "parrafos": [
+        1461,
+        1462
+      ],
+      "texto_literal": "Los aliados reciben un +2 a las Tiradas de Atributo para liberarse de un Estado alterado o efecto pernicioso."
+    },
+    {
+      "grado": "Míticas",
+      "complejidad": 4,
+      "nombre": "Balada primaveral",
+      "parrafos": [
+        1464,
+        1465
+      ],
+      "texto_literal": "Los aliados pueden gastar una acción durante su turno para recuperar 1d4 puntos de salud."
+    },
+    {
+      "grado": "Míticas",
+      "complejidad": 4,
+      "nombre": "Elogio inspirador",
+      "parrafos": [
+        1466,
+        1467
+      ],
+      "texto_literal": "Uno de los aliados recibe una acción adicional para este Turno."
+    },
+    {
+      "grado": "Míticas",
+      "complejidad": 4,
+      "nombre": "Felicidad extenuante",
+      "parrafos": [
+        1468,
+        1469
+      ],
+      "texto_literal": "Los adversarios otorgan Ventaja a las Tiradas para evitar sus ataques cuerpo a cuerpo o a distancia."
+    },
+    {
+      "grado": "Míticas",
+      "complejidad": 4,
+      "nombre": "Impromptu cavernario",
+      "parrafos": [
+        1470,
+        1471
+      ],
+      "texto_literal": "Los aliados obtienen +2 Potencia."
+    },
+    {
+      "grado": "Míticas",
+      "complejidad": 4,
+      "nombre": "Réquiem",
+      "parrafos": [
+        1472,
+        1473
+      ],
+      "texto_literal": "Los oponentes de categoría Muerto viviente otorgan Ventaja para impactarlos con ataques cuerpo a cuerpo, a distancia o con Conjuros dañinos. Además, sufrirán el doble de daño."
+    },
+    {
+      "grado": "Míticas",
+      "complejidad": 4,
+      "nombre": "Tonos desquiciantes",
+      "parrafos": [
+        1474,
+        1475
+      ],
+      "texto_literal": "Dos oponentes que puedan escuchar los Tonos se enemistan: éste Turno se atacarán entre ellos. Deben estar ambos al alcance entre sí."
+    }
+  ],
+  "numero_fichas_lote": 12,
+  "numero_canciones_total": 24,
+  "nota": "Este archivo y 45a reúnen las 24 Canciones del Bardo; no confundir grado de complejidad con Círculo de Conjuro."
+}

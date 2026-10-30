@@ -1,0 +1,372 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    326,
+    350
+  ],
+  "numero_registros": 25,
+  "metodo": "Desglose manual basado en todos los párrafos del lote 69n; índices contrastados y excepciones preservadas. No ejecutable.",
+  "registros": [
+    {
+      "numero_tomo": 326,
+      "nombre_literal": "Profecía del tiempo",
+      "lectura_documental_no_oficial": "Amplificación de Cronurgia sobre objetivo",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Duplica duración, alcance o efecto de Cronurgia, según Conjuro. No declara Duración propia ni mecanismo para elegir entre tres multiplicadores.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2423
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 327,
+      "nombre_literal": "Quitar maldición",
+      "lectura_documental_no_oficial": "Eliminación de condiciones causadas por Maldición",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Solo maldiciones de Nivel igual o inferior al lanzador, con Lanzamiento de 3 Turnos.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2431
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 328,
+      "nombre_literal": "Quemadura de maná",
+      "lectura_documental_no_oficial": "Consumo de recurso mágico del objetivo",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "La frase «hace que el objetivo 1 Conjuro» omite el verbo; aparecen alternativas de DU o Puntos de Conjuro. No codificar sin aclaración.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2437
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 329,
+      "nombre_literal": "Ráfaga de burbujas",
+      "lectura_documental_no_oficial": "Ataque de burbujas a uno o dos objetivos",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "1d8 de frío y contundente por cada 3 Niveles; reduce Movimiento en 1d3 durante 1d6 Turnos, con redondeo de Niveles no declarado.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2443
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 330,
+      "nombre_literal": "Rayo de sangre",
+      "lectura_documental_no_oficial": "Daño impío y recuperación de Salud sobre éxito",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Tirada previa, 1d4 impío y restauración de mitad del daño causado; redondeo de mitad sin especificar.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2448
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 331,
+      "nombre_literal": "Rayo desintegrador",
+      "lectura_documental_no_oficial": "Desintegración con excepción de criaturas de Nivel alto",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Nivel 12 o superior requiere estar inconsciente o derrotado y una Tirada de Conjuro; fallo causa 1d6 mágico por Nivel. Errata «superficie de 3 metros cúbicos» pendiente en 77d.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2454
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 332,
+      "nombre_literal": "Rayo hielo",
+      "lectura_documental_no_oficial": "Rayo frío con efecto secundario condicionado",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "1d4 frío sin Tirada explícita; Ralentizado durante próximo Turno si se supera la Tirada de Conjuro.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2460
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 333,
+      "nombre_literal": "Rayo llameante",
+      "lectura_documental_no_oficial": "Dos rayos ígneos distribuibles",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Cada rayo causa 1d6 fuego por cada 3 Niveles, eligiendo uno o dos objetivos; sin Tirada explícita.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2465
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 334,
+      "nombre_literal": "Rayo solar",
+      "lectura_documental_no_oficial": "Rayo solar en círculo de superficie 6 m²",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "En área causa 5d6 fuego y 5d6 radiante; adyacentes sufren mitad. El alcance es 4 m, independiente de superficie.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2470
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 335,
+      "nombre_literal": "Reanimación alquímica",
+      "lectura_documental_no_oficial": "Reanimación reciente con penalización permanente de progreso",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Máximo dos horas desde fallecimiento, reparación física previa, pierde 2 Niveles y 1d4 de Atributos a elegir por jugador; Salud final 1.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2477
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 336,
+      "nombre_literal": "Rebobinar",
+      "lectura_documental_no_oficial": "Reversión del último Turno con riesgo cronófagos",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Revierte estados y posiciones en área de percepción aproximada 20 m²; Probabilidad 14+ de aparición de cronófagos; no extender a sucesos anteriores.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2485
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 337,
+      "nombre_literal": "Recuperación divina",
+      "lectura_documental_no_oficial": "Sanación divina y eliminación de aflicciones",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Restaura 1d12 + mitad de Salud máxima del objetivo; elimina enfermedades, maldiciones, veneno y condiciones negativas. No declara límite de Salud superior.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2492
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 338,
+      "nombre_literal": "Redes arácnidas",
+      "lectura_documental_no_oficial": "Telarañas inmovilizadoras con duración de escape",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Área de unos 5 m² en punto al alcance; pueden romperse tras 2d4 Turnos, sin Tirada especificada.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2497
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 339,
+      "nombre_literal": "Reencarnación kaélica",
+      "lectura_documental_no_oficial": "Reencarnación animal con mente y recuerdos conservados",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Muerte hace menos de una semana; atributos físicos según especie y Cronista; posible recuperación de forma original mediante Deseo a criterio del Cronista.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2504
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 340,
+      "nombre_literal": "Refugio de la cuerda",
+      "lectura_documental_no_oficial": "Refugio extradimensional con aforo y caída al expirar",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Hasta 10 humanoides, ocultación de cuerda y observación sin interacción; expulsión con caída desde mínimo 3 m al terminar.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2512
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 341,
+      "nombre_literal": "Relámpago",
+      "lectura_documental_no_oficial": "Daño por relámpago con excepción elemental de resistencia",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "1d8 por Nivel, ignora resistencias salvo resistencia a relámpago. No añadir efecto de aturdimiento.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2520
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 342,
+      "nombre_literal": "Rememorar",
+      "lectura_documental_no_oficial": "Recuperación de Conjuro consumido",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Devuelve uno de Quinto Círculo o inferior consumido ese día; no restablece todo repertorio.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2525
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 343,
+      "nombre_literal": "Reparación magna",
+      "lectura_documental_no_oficial": "Reparación de objeto con superficie máxima",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Objeto hasta 10 m², incluso mágico, reconstituye partes perdidas, pero no magia perdida.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2530
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 344,
+      "nombre_literal": "Reparación menor",
+      "lectura_documental_no_oficial": "Reparación física limitada a objeto transportable",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Solo objeto no mágico que el lanzador pueda llevar; no restaurar propiedades mágicas.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2535
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 345,
+      "nombre_literal": "Reposo del caído",
+      "lectura_documental_no_oficial": "Protección de cadáver reciente",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Muerte hace cuatro horas o menos; conserva durante 24 horas frente a deterioro y alteración.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2540
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 346,
+      "nombre_literal": "Repulsión infernal",
+      "lectura_documental_no_oficial": "Reacción de daño ante agresor que acaba de herir",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "2d6 de fuego e impío; solo se puede lanzar cuando el arcanista es herido, no como ataque libre.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2547
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 347,
+      "nombre_literal": "Repulsión: Alimañas",
+      "lectura_documental_no_oficial": "Barrera contra Alimañas con comparación de Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Esfera de 6 m de diámetro, no radio. Nivel inferior no atraviesa; para mayores o iguales se realiza Tirada de Conjuro y posible 1d10 fuerza.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2553
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 348,
+      "nombre_literal": "Repulsión: Bestias",
+      "lectura_documental_no_oficial": "Barrera contra Bestias con comparación de Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Esfera de 6 m de diámetro; Nivel inferior no atraviesa; superiores o iguales sujetos a Tirada y 2d8 fuerza.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2560
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 349,
+      "nombre_literal": "Resguardo reactivo",
+      "lectura_documental_no_oficial": "Defensa física reactiva con vulnerabilidad elemental",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "La fuente no cuantifica cuánto reduce daño contundente, cortante o perforante; fuego, frío y rayo se duplican. No asignar reducción arbitraria.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2567
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 350,
+      "nombre_literal": "Resistencia al clima",
+      "lectura_documental_no_oficial": "Protección temporal frente a clima extremo",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Durante 24 horas evita efectos adversos de calor o frío ambiental; no se declara protección contra ataques elementales.",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "indice_encabezado": 2573
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}

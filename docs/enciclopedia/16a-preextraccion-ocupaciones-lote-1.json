@@ -1,0 +1,145 @@
+{
+  "fecha": "2026-10-29",
+  "tanda": 2,
+  "lote": 1,
+  "alcance": "9 relaciones de 4 Ocupaciones; preextracción estructural y resumen de trabajo, NO transcripción literal íntegra ni validación mecánica",
+  "total_inventariado": 163,
+  "registros_preextraidos": 9,
+  "registros": [
+    {
+      "id_documental": "talento-ocupacion:ampliadas:forense:hallar-la-verdad",
+      "ocupacion": "Forense",
+      "talento": "Hallar la verdad",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 71,
+        "parrafo_fin": 76
+      },
+      "activacion_literal": "Acción",
+      "coste_literal": "1 Esfuerzo",
+      "atributo_literal": "Intuición",
+      "resumen_para_revision": "Pregunta a PNJ; detectar mentira deliberada en la respuesta; el Cronista confirma verdad/mentira sin explicar detalles",
+      "estado": "preextraido_pendiente_cotejo_literal_y_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:forense:olfato-deductivo",
+      "ocupacion": "Forense",
+      "talento": "Olfato deductivo",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 77,
+        "parrafo_fin": 79
+      },
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "atributo_literal": null,
+      "resumen_para_revision": "Ventaja en Tirada de Intuición al buscar pruebas o detalles de un sujeto/escenario durante un Intervalo",
+      "estado": "preextraido_pendiente_cotejo_literal_y_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:truhan:cotilla",
+      "ocupacion": "Truhán",
+      "talento": "Cotilla",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 101,
+        "parrafo_fin": 103
+      },
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "atributo_literal": null,
+      "resumen_para_revision": "Ventaja en Intuición para escuchar a través de puertas o paredes endebles y leer labios",
+      "estado": "preextraido_pendiente_cotejo_literal_y_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:truhan:fullerias",
+      "ocupacion": "Truhán",
+      "talento": "Fullerías",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 104,
+        "parrafo_fin": 106
+      },
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "atributo_literal": null,
+      "resumen_para_revision": "Ventaja en Agilidad y/o Presencia para juego de manos, trampas, hurtos, engaños o estafas",
+      "estado": "preextraido_pendiente_cotejo_literal_y_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:acrobata:equilibrio-perfecto",
+      "ocupacion": "Acróbata",
+      "talento": "Equilibrio perfecto",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 130,
+        "parrafo_fin": 132
+      },
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "atributo_literal": null,
+      "resumen_para_revision": "Ventaja en Agilidad para mantener equilibrio, malabares, trepar y desplazamientos verticales",
+      "estado": "preextraido_pendiente_cotejo_literal_y_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:acrobata:frustracion-canalizada",
+      "ocupacion": "Acróbata",
+      "talento": "Frustración canalizada",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 133,
+        "parrafo_fin": 136
+      },
+      "activacion_literal": "Reacción",
+      "coste_literal": null,
+      "atributo_literal": null,
+      "resumen_para_revision": "Tras fallar Agilidad o Resistencia, tirada d20 de Probabilidad (consultar umbral literal); una vez al día",
+      "estado": "preextraido_pendiente_cotejo_literal_y_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:acrobata:maniobra-letal",
+      "ocupacion": "Acróbata",
+      "talento": "Maniobra letal",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 137,
+        "parrafo_fin": 140
+      },
+      "activacion_literal": "Reacción",
+      "coste_literal": "1 Esfuerzo",
+      "atributo_literal": null,
+      "resumen_para_revision": "Contraataque con arma equipada cuando el enemigo falla ataque cuerpo a cuerpo; declaración antes del siguiente evento descrito en la fuente",
+      "estado": "preextraido_pendiente_cotejo_literal_y_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:astrologo:cauce-astral",
+      "ocupacion": "Astrólogo",
+      "talento": "Cauce astral",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 162,
+        "parrafo_fin": 165
+      },
+      "activacion_literal": "Reacción",
+      "coste_literal": "1 Esfuerzo",
+      "atributo_literal": null,
+      "resumen_para_revision": "Al fallar lanzamiento de Conjuro de Escuela Arcana, reconduce energías; verificar desenlace literal antes de implementar",
+      "estado": "preextraido_pendiente_cotejo_literal_y_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:astrologo:premonicion-estelar",
+      "ocupacion": "Astrólogo",
+      "talento": "Premonición estelar",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 166,
+        "parrafo_fin": 170
+      },
+      "activacion_literal": "Acción",
+      "coste_literal": "1 Esfuerzo",
+      "atributo_literal": null,
+      "resumen_para_revision": "Requiere Astrolabio, noche, exterior y mundo natal; tras 1 Intervalo de estudio formula pregunta específica al Cronista",
+      "estado": "preextraido_pendiente_cotejo_literal_y_progresion"
+    }
+  ]
+}

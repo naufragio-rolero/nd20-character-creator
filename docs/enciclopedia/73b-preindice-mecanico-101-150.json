@@ -1,0 +1,1659 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    101,
+    150
+  ],
+  "total": 50,
+  "metodo": "Preclasificación determinista por presencia de expresiones literales. Cada marcador remite al índice de párrafo 0-based de la ficha 69a–69r. Los números de dados y distancias son menciones textuales, no efectos interpretados.",
+  "precauciones": [
+    "No equivale a revisión manual ni a validación mecánica.",
+    "Que aparezca Salud no demuestra curación; que aparezca daño no implica causarlo.",
+    "Los dados y distancias proceden de frases del cuerpo y pueden describir ejemplos o límites, no cuantías de daño.",
+    "No inferir acciones, costes, blancos ni redondeos cuando la fuente calla."
+  ],
+  "registros": [
+    {
+      "numero_tomo": 101,
+      "nombre_literal": "Dormir",
+      "circulo_tomo": 1,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "10m + 2m por Nivel",
+      "duracion_literal": "1d6 Intervalos",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 824,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "salud",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "5d10",
+          "indice_parrafo": 4
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 102,
+      "nombre_literal": "Dardo de penumbra",
+      "circulo_tomo": 1,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "15m",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 831,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "probabilidad",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "ventaja",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "estados_mencionados",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "1d6",
+          "indice_parrafo": 4
+        },
+        {
+          "texto_literal": "1d2",
+          "indice_parrafo": 4
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 103,
+      "nombre_literal": "Descarga sombría",
+      "circulo_tomo": 4,
+      "escuela_literal": "Nigromancia",
+      "alcance_literal": "10 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 837,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        },
+        {
+          "marcador_lexico": "salud",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            3,
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "2d4",
+          "indice_parrafo": 3
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 104,
+      "nombre_literal": "Detonación cadavérica",
+      "circulo_tomo": 5,
+      "escuela_literal": "Nigromancia",
+      "alcance_literal": "6 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 843,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "radio_o_area",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "1d4",
+          "indice_parrafo": 4
+        }
+      ],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "6 metros",
+          "indice_parrafo": 4
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 105,
+      "nombre_literal": "Día de los muertos",
+      "circulo_tomo": 8,
+      "escuela_literal": "Nigromancia",
+      "alcance_literal": "2km2",
+      "duracion_literal": null,
+      "lanzamiento_literal": "1 Intervalo",
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 849,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "radio_o_area",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            5,
+            6
+          ]
+        },
+        {
+          "marcador_lexico": "magia_invocacion_mencionada",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 106,
+      "nombre_literal": "Destello aural",
+      "circulo_tomo": 5,
+      "escuela_literal": "Elemental",
+      "alcance_literal": "6 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 857,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        },
+        {
+          "marcador_lexico": "nivel",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "1d6",
+          "indice_parrafo": 3
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 107,
+      "nombre_literal": "Deseo",
+      "circulo_tomo": 8,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "infinito",
+      "duracion_literal": null,
+      "lanzamiento_literal": "2d6 Intervalos",
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 862,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "salud",
+          "indices_parrafo_en_ficha": [
+            9
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            10
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 108,
+      "nombre_literal": "Diluvio universal",
+      "circulo_tomo": 8,
+      "escuela_literal": "Naturaleza",
+      "alcance_literal": "10 kilómetros alrededor del lanzador",
+      "duracion_literal": "1d6 días",
+      "lanzamiento_literal": "3 Intervalos",
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 874,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "radio_o_area",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            10
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "1d4",
+          "indice_parrafo": 10
+        }
+      ],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "10 metros",
+          "indice_parrafo": 6
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 109,
+      "nombre_literal": "Destrucción",
+      "circulo_tomo": 8,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "4 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 886,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            4,
+            5
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "2d12",
+          "indice_parrafo": 5
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 110,
+      "nombre_literal": "Disco celeste de Excelsus",
+      "circulo_tomo": 1,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "6 metros",
+      "duracion_literal": "1 Intervalo o 6 Turnos en combate",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 893,
+      "marcadores_lexicos": [],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "1,2 metros",
+          "indice_parrafo": 4
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 111,
+      "nombre_literal": "Detectar lo Corrupto",
+      "circulo_tomo": 1,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "personal",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 899,
+      "marcadores_lexicos": [],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 112,
+      "nombre_literal": "Detectar lo Sagrado",
+      "circulo_tomo": 1,
+      "escuela_literal": "Divina",
+      "alcance_literal": "personal",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 904,
+      "marcadores_lexicos": [],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 113,
+      "nombre_literal": "Detectar lo invisible",
+      "circulo_tomo": 2,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "personal",
+      "duracion_literal": "5 Turnos por Nivel",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 909,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "nivel",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "2 metros",
+          "indice_parrafo": 5
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 114,
+      "nombre_literal": "Destello de Kaeduin",
+      "circulo_tomo": 2,
+      "escuela_literal": "Divina",
+      "alcance_literal": "6m",
+      "duracion_literal": "ver descripción",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 916,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            6
+          ]
+        },
+        {
+          "marcador_lexico": "radio_o_area",
+          "indices_parrafo_en_ficha": [
+            6
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "1d6",
+          "indice_parrafo": 6
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 115,
+      "nombre_literal": "Descarga de debilidad",
+      "circulo_tomo": 2,
+      "escuela_literal": "Naturaleza",
+      "alcance_literal": "8 metros",
+      "duracion_literal": "1 Turno por Nivel",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 924,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 116,
+      "nombre_literal": "Detectar la mentira",
+      "circulo_tomo": 4,
+      "escuela_literal": "Divina",
+      "alcance_literal": "personal",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 931,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 117,
+      "nombre_literal": "Descarga ardiente",
+      "circulo_tomo": 3,
+      "escuela_literal": "Elemental",
+      "alcance_literal": "15 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 936,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        },
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        },
+        {
+          "marcador_lexico": "nivel",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "1d8",
+          "indice_parrafo": 3
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 118,
+      "nombre_literal": "Dilatación arcana",
+      "circulo_tomo": 4,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "ilimitado",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 941,
+      "marcadores_lexicos": [],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 119,
+      "nombre_literal": "Dominar criatura",
+      "circulo_tomo": 4,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "30 metros",
+      "duracion_literal": "permanente",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 947,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            5,
+            6
+          ]
+        },
+        {
+          "marcador_lexico": "desventaja",
+          "indices_parrafo_en_ficha": [
+            6
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "3d6",
+          "indice_parrafo": 6
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 120,
+      "nombre_literal": "Despertar de la vegetación",
+      "circulo_tomo": 4,
+      "escuela_literal": "Naturaleza",
+      "alcance_literal": "40 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 956,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "movimiento",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        },
+        {
+          "marcador_lexico": "nivel",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "6m2",
+          "indice_parrafo": 3
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 121,
+      "nombre_literal": "Detener criatura",
+      "circulo_tomo": 5,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "30 metros",
+      "duracion_literal": "1 Turno por Nivel",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 961,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "estados_mencionados",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "1d4",
+          "indice_parrafo": 6
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 122,
+      "nombre_literal": "Doble ilusorio",
+      "circulo_tomo": 6,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "3 metros por Nivel",
+      "duracion_literal": "1 Turno por Nivel o hasta que el Doble sea tocado o impactado por un ataque",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 969,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 123,
+      "nombre_literal": "Dominar la tierra",
+      "circulo_tomo": 6,
+      "escuela_literal": "Naturaleza",
+      "alcance_literal": "80 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 975,
+      "marcadores_lexicos": [],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "15 metros",
+          "indice_parrafo": 3
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 124,
+      "nombre_literal": "Descarga de caos",
+      "circulo_tomo": 7,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "18 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 980,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        },
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            8,
+            9,
+            11,
+            12,
+            14,
+            15
+          ]
+        },
+        {
+          "marcador_lexico": "nivel",
+          "indices_parrafo_en_ficha": [
+            9,
+            12,
+            15
+          ]
+        },
+        {
+          "marcador_lexico": "estados_mencionados",
+          "indices_parrafo_en_ficha": [
+            21
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "d8",
+          "indice_parrafo": 4
+        },
+        {
+          "texto_literal": "2d6",
+          "indice_parrafo": 8
+        },
+        {
+          "texto_literal": "1d6",
+          "indice_parrafo": 9
+        },
+        {
+          "texto_literal": "3d6",
+          "indice_parrafo": 11
+        },
+        {
+          "texto_literal": "3d3",
+          "indice_parrafo": 12
+        },
+        {
+          "texto_literal": "4d6",
+          "indice_parrafo": 14
+        },
+        {
+          "texto_literal": "2d6",
+          "indice_parrafo": 15
+        },
+        {
+          "texto_literal": "1d4",
+          "indice_parrafo": 20
+        },
+        {
+          "texto_literal": "1d6",
+          "indice_parrafo": 21
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 125,
+      "nombre_literal": "División oceánica",
+      "circulo_tomo": 7,
+      "escuela_literal": "Naturaleza",
+      "alcance_literal": "40 metros",
+      "duracion_literal": "1 Intervalo por Nivel",
+      "lanzamiento_literal": "1 Intervalo",
+      "requisito_literal": null,
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "indice_encabezado_fuente": 1006,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "4 metros",
+          "indice_parrafo": 5
+        },
+        {
+          "texto_literal": "40 metros",
+          "indice_parrafo": 5
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 126,
+      "nombre_literal": "Duplicado perfecto",
+      "circulo_tomo": 8,
+      "escuela_literal": "Nigromancia",
+      "alcance_literal": "personal",
+      "duracion_literal": "permanente (ver descripción)",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1013,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "probabilidad",
+          "indices_parrafo_en_ficha": [
+            5,
+            6
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "1d8",
+          "indice_parrafo": 5
+        },
+        {
+          "texto_literal": "1d6",
+          "indice_parrafo": 5
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 127,
+      "nombre_literal": "Detención temporal",
+      "circulo_tomo": 8,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "personal",
+      "duracion_literal": "1d4 +2 Turnos",
+      "lanzamiento_literal": "2 Turnos",
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1021,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            6
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 128,
+      "nombre_literal": "Desvanecer escritura",
+      "circulo_tomo": 1,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "toque",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1029,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 129,
+      "nombre_literal": "Detectar trampas",
+      "circulo_tomo": 1,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "15 metros",
+      "duracion_literal": "10 minutos por Nivel",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1034,
+      "marcadores_lexicos": [],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "15 metros",
+          "indice_parrafo": 4
+        },
+        {
+          "texto_literal": "3 metros",
+          "indice_parrafo": 4
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 130,
+      "nombre_literal": "Deformar madera",
+      "circulo_tomo": 2,
+      "escuela_literal": "Naturaleza",
+      "alcance_literal": "15 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1040,
+      "marcadores_lexicos": [],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "1 metro",
+          "indice_parrafo": 3
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 131,
+      "nombre_literal": "Discurso de necios",
+      "circulo_tomo": 5,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "20 metros",
+      "duracion_literal": "2d8 Intervalos",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1045,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "radio_o_area",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            4,
+            5
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "3d6",
+          "indice_parrafo": 4
+        }
+      ],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "10 metros",
+          "indice_parrafo": 4
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 132,
+      "nombre_literal": "Eclipse del artefacto",
+      "circulo_tomo": 7,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "toque",
+      "duracion_literal": "permanente",
+      "lanzamiento_literal": "3 Turnos",
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1053,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            5,
+            6
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 133,
+      "nombre_literal": "Égida consagrada",
+      "circulo_tomo": 2,
+      "escuela_literal": "Divina",
+      "alcance_literal": "toque",
+      "duracion_literal": "1 Turno por Nivel",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1061,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "blindaje",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "ventaja",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 134,
+      "nombre_literal": "Estrépito",
+      "circulo_tomo": 2,
+      "escuela_literal": "Elemental",
+      "alcance_literal": "20 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1067,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "probabilidad",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        },
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "2d6",
+          "indice_parrafo": 3
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 135,
+      "nombre_literal": "Ecos de decadencia",
+      "circulo_tomo": 2,
+      "escuela_literal": "Nigromancia",
+      "alcance_literal": "6 metros",
+      "duracion_literal": "1 Turno por Nivel",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1072,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 136,
+      "nombre_literal": "Enjambre voraz",
+      "circulo_tomo": 4,
+      "escuela_literal": "Naturaleza",
+      "alcance_literal": "10 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1078,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            3,
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            3,
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "2d10",
+          "indice_parrafo": 3
+        },
+        {
+          "texto_literal": "1d8",
+          "indice_parrafo": 4
+        },
+        {
+          "texto_literal": "1d4",
+          "indice_parrafo": 4
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 137,
+      "nombre_literal": "Esfera corrosiva",
+      "circulo_tomo": 4,
+      "escuela_literal": "Naturaleza",
+      "alcance_literal": "12 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1084,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            3
+          ]
+        },
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            4,
+            5
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "3d12",
+          "indice_parrafo": 4
+        },
+        {
+          "texto_literal": "3d6",
+          "indice_parrafo": 5
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 138,
+      "nombre_literal": "Erradicar",
+      "circulo_tomo": 5,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "10 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": "el objetivo debe ser una criatura invocada por un Conjuro de tipo Invocación",
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1092,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "magia_invocacion_mencionada",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 139,
+      "nombre_literal": "Escudo",
+      "circulo_tomo": 1,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "toque",
+      "duracion_literal": "2 Intervalos o 6 Turnos en combate",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1099,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "blindaje",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 140,
+      "nombre_literal": "Encandilamiento",
+      "circulo_tomo": 1,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "20 metros",
+      "duracion_literal": "permanente",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1105,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            4,
+            6,
+            7
+          ]
+        },
+        {
+          "marcador_lexico": "desventaja",
+          "indices_parrafo_en_ficha": [
+            7
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            4,
+            7
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 141,
+      "nombre_literal": "Esfera vital",
+      "circulo_tomo": 5,
+      "escuela_literal": "Naturaleza",
+      "alcance_literal": "personal",
+      "duracion_literal": "1 Intervalo por Nivel",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1115,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "radio_o_area",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "6 metros",
+          "indice_parrafo": 4
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 142,
+      "nombre_literal": "Encandilamiento magno",
+      "circulo_tomo": 5,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "2 metros por Nivel",
+      "duracion_literal": "permanente",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1121,
+      "marcadores_lexicos": [],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 143,
+      "nombre_literal": "Efigie profana",
+      "circulo_tomo": 7,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "toque",
+      "duracion_literal": "permanente",
+      "lanzamiento_literal": "2 Intervalos",
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1127,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "salud",
+          "indices_parrafo_en_ficha": [
+            6,
+            7
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            7
+          ]
+        },
+        {
+          "marcador_lexico": "magia_invocacion_mencionada",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 144,
+      "nombre_literal": "Eternidad arcana",
+      "circulo_tomo": 7,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "toque",
+      "duracion_literal": "permanente",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1136,
+      "marcadores_lexicos": [],
+      "dados_mencionados": [
+        {
+          "texto_literal": "1d4",
+          "indice_parrafo": 6
+        }
+      ],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 145,
+      "nombre_literal": "Éxtasis profundo",
+      "circulo_tomo": 8,
+      "escuela_literal": "Nigromancia",
+      "alcance_literal": "toque",
+      "duracion_literal": "permanente",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1144,
+      "marcadores_lexicos": [],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 146,
+      "nombre_literal": "Excelso festín de Excelsus",
+      "circulo_tomo": 3,
+      "escuela_literal": "Divina",
+      "alcance_literal": "4 metros",
+      "duracion_literal": "24 horas",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1151,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "nivel",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 147,
+      "nombre_literal": "Explosión arcana",
+      "circulo_tomo": 4,
+      "escuela_literal": "Arcana",
+      "alcance_literal": "20 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1158,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "tirada_conjuro",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "nivel",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "1d10",
+          "indice_parrafo": 4
+        }
+      ],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "6m2",
+          "indice_parrafo": 4
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 148,
+      "nombre_literal": "Erupción",
+      "circulo_tomo": 6,
+      "escuela_literal": "Elemental",
+      "alcance_literal": "25 metros",
+      "duracion_literal": null,
+      "lanzamiento_literal": null,
+      "requisito_literal": "el conjuro debe lanzarse sobre suelo sólido.",
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1164,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "movimiento",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        },
+        {
+          "marcador_lexico": "nivel",
+          "indices_parrafo_en_ficha": [
+            5
+          ]
+        }
+      ],
+      "dados_mencionados": [
+        {
+          "texto_literal": "2d6",
+          "indice_parrafo": 5
+        }
+      ],
+      "distancias_mencionadas": [
+        {
+          "texto_literal": "12m2",
+          "indice_parrafo": 4
+        }
+      ],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 149,
+      "nombre_literal": "Encierro de alma",
+      "circulo_tomo": 8,
+      "escuela_literal": "Nigromancia",
+      "alcance_literal": "toque",
+      "duracion_literal": "permanente",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1171,
+      "marcadores_lexicos": [],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    },
+    {
+      "numero_tomo": 150,
+      "nombre_literal": "Endeblez",
+      "circulo_tomo": 1,
+      "escuela_literal": "Demonología",
+      "alcance_literal": "20 metros",
+      "duracion_literal": "1 Turno por Nivel",
+      "lanzamiento_literal": null,
+      "requisito_literal": null,
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "indice_encabezado_fuente": 1178,
+      "marcadores_lexicos": [
+        {
+          "marcador_lexico": "dano",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        },
+        {
+          "marcador_lexico": "condicion_o_disparador",
+          "indices_parrafo_en_ficha": [
+            4
+          ]
+        }
+      ],
+      "dados_mencionados": [],
+      "distancias_mencionadas": [],
+      "estado": "preclasificacion_lexica_pendiente_desglose_manual"
+    }
+  ]
+}

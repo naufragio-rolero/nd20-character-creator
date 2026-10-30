@@ -1,0 +1,64 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "titulo": "NaufragioD20Nocturna",
+    "documento": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+    "revision": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ"
+  },
+  "tipo": "auditoria_cotejo_literal",
+  "alcance": "Comparación de los párrafos de efectos literales de los 57 Talentos de Nocturna frente al Google Docs vigente. Se han separado de la comparación los rótulos de activación, requisitos y costes cuando se conservan en campos aparte. Se normaliza únicamente el espacio en blanco; no se reescriben los originales.",
+  "total_registros": 57,
+  "coincidencias": 57,
+  "diferencias": [],
+  "ocupaciones": [
+    {
+      "ocupacion": "Arcanista",
+      "archivo": "53a-nocturna-arcanista-8-talentos.json",
+      "coincidencias": 8,
+      "total": 8
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "archivo": "53b-nocturna-cazador-monstruos-7-talentos.json",
+      "coincidencias": 7,
+      "total": 7
+    },
+    {
+      "ocupacion": "Delincuente",
+      "archivo": "55a-nocturna-delincuente-7-talentos.json",
+      "coincidencias": 7,
+      "total": 7
+    },
+    {
+      "ocupacion": "Espiritista",
+      "archivo": "55b-nocturna-espiritista-7-talentos.json",
+      "coincidencias": 7,
+      "total": 7
+    },
+    {
+      "ocupacion": "Investigador",
+      "archivo": "56a-nocturna-investigador-7-talentos.json",
+      "coincidencias": 7,
+      "total": 7
+    },
+    {
+      "ocupacion": "Mercenario",
+      "archivo": "56b-nocturna-mercenario-7-talentos.json",
+      "coincidencias": 7,
+      "total": 7
+    },
+    {
+      "ocupacion": "Operador",
+      "archivo": "56c-nocturna-operador-7-talentos.json",
+      "coincidencias": 7,
+      "total": 7
+    },
+    {
+      "ocupacion": "Pícaro",
+      "archivo": "56d-nocturna-picaro-7-talentos.json",
+      "coincidencias": 7,
+      "total": 7
+    }
+  ],
+  "no_equivale_a": "Validación de mecánicas en Forja ni prueba de progresiones de Nivel o compatibilidad con otras especies u Ocupaciones."
+}

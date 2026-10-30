@@ -1,0 +1,49 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "tabla_word": 32,
+  "ocupacion": "Hechicero",
+  "estado": "indice_no_literal",
+  "filas": [
+    [
+      "Angelical",
+      "Divina, Naturaleza",
+      "+1 curación"
+    ],
+    [
+      "Demoníaca",
+      "Demonología, Elemental, Nigromancia",
+      ""
+    ],
+    [
+      "Dracónica",
+      "Arcana, Elemental",
+      "+1 daño elemental"
+    ],
+    [
+      "Estelar",
+      "Arcana, Demonología, Nigromancia",
+      ""
+    ],
+    [
+      "Fantasmal",
+      "Arcana, Nigromancia",
+      "+1 Turno invocación necromántica"
+    ],
+    [
+      "Feérica",
+      "Arcana, Demonología, Naturaleza",
+      ""
+    ],
+    [
+      "Lunar",
+      "Arcana, Divina",
+      "+1 al lanzamiento de noche"
+    ],
+    [
+      "Oceánica",
+      "Arcana, Elemental, Naturaleza",
+      ""
+    ]
+  ],
+  "nota": "La tabla incluye 8 Estirpes; escoger tres Escuelas o dos más beneficio, según párrafo 1102. Faltan los textos literales completos de los beneficios; no integrar los resúmenes como efectos definitivos."
+}

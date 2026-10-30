@@ -1,0 +1,25 @@
+{
+  "fecha": "2026-10-28",
+  "vinculos": [
+    {
+      "id_documental": "talento-especie:nocturna:humano-arcano:aliados-en-las-sombras",
+      "nombre": "Aliados en las sombras",
+      "especie": "Humano arcano",
+      "documento": "NaufragioD20Nocturna",
+      "ancla_apartado": "Aliado en las sombras",
+      "fuente_doc": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+      "texto_fuente_referencia": "docs/enciclopedia/02c-extraccion-especies-nocturna.json",
+      "campo_texto_ampliacion": "texto_ampliacion_literal",
+      "contenido": [
+        "Dado de Aliado (DAL) d8",
+        "Salud del aliado = Nivel × 4",
+        "Daño psíquico compartido",
+        "Descanso de 24 horas",
+        "Guardián animal",
+        "Reliquia vinculada",
+        "Sombra persistente"
+      ],
+      "estado": "vinculo_documental_confirmado_integracion_ui_pendiente"
+    }
+  ]
+}

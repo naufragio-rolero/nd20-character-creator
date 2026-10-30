@@ -1,0 +1,34 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "categoria": "Poderes",
+  "familia": "Privilegios",
+  "ocupacion": "Forense",
+  "introduccion_literal": "Estos Poderes proceden de la capacidad de razonamiento y deductiva, y de la posición social del Forense. Los objetivos de éstos se asumen PNJ, aunque un Cronista avispado podrá compaginar la tarea de investigación del Forense con el subterfugio del PJ objetivo si ambos tienen intereses opuestos.",
+  "parrafo_intro": 1268,
+  "registros": [
+    {
+      "nombre": "Atemorizar plebeyo",
+      "parrafos": [
+        1269,
+        1272
+      ],
+      "texto_literal": "Ostentas una posición privilegiada y la plebe sabe que puedes condenar a la horca a cualquiera si así lo deseas. Aquellos PNJ de Nivel 1 o inferior considerados Plebeyos o una categoría similar estarán incómodos en tu presencia, e intentarán complacerte si eso significa que vas a desaparecer de sus vidas.\nTe ayudarán en lo que les pidas, incluso si eso significa tener que dejar de lado sus tareas. Afecta a 1 PNJ de Nivel 1 o inferior por Nivel de Forense, y puedes utilizar éste Privilegio una vez al día (obviamente, si abusas de tu posición terminarán perdiendo el respeto).\nAdquieres un uso adicional de Atemorizar plebeyo al día en los Niveles 6, 12 y 18; además, a partir del Nivel 6 puedes empezar a usarlo con PNJ de Nivel 2 o inferior, y en consecuencia cada vez que subas de Nivel con PNJ 4 Niveles por debajo del tuyo."
+    },
+    {
+      "nombre": "Corazonada",
+      "parrafos": [
+        1273,
+        1275
+      ],
+      "texto_literal": "Requisito: Nivel 6\nHas alcanzado un nivel de perfección en tus investigaciones que puedes lograr una imagen perfecta de lo que ha sucedido en una escena del crimen. Una vez al día, puedes pedirle al Cronista una pista crucial para tu investigación. A partir de Nivel 12, puedes usar tu Corazonada dos veces al día."
+    },
+    {
+      "nombre": "Investigar sospechoso",
+      "parrafos": [
+        1276,
+        1278
+      ],
+      "texto_literal": "Permite hallar un historial completo de una persona específica, mediante observación detallada y razonamiento deductivo. Debes emplear, como mínimo, 1 Punto de Esfuerzo y 1d6 * 10 minutos tomando notas y observando al sospechoso antes de poder realizar siquiera una Tirada de Intuición.\nUn éxito en la investigación permite conocer el Nivel aproximado del objetivo, hábitos y gestos distintivos, ingresos, nivel de vida y si parece nervioso o actúa de forma sospechosa. El Cronista puede proporcionar otros detalles interesantes que considere adecuados para la narración."
+    }
+  ]
+}

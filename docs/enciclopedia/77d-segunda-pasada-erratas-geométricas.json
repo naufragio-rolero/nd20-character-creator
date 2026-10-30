@@ -1,0 +1,108 @@
+{
+  "fecha": "2026-10-30",
+  "proposito": "Segunda pasada de geometría sobre registros con unidad de superficie o volumen, fuera de los diez patrones detectados inicialmente",
+  "fuente_menciones": [
+    "77a-auditoria-unidades-001-225.json",
+    "77b-auditoria-unidades-226-434.json"
+  ],
+  "criterio": "Identificar magnitudes incompatibles o unidades duplicadas sin cambiar la fuente ni extrapolar una geometría desconocida.",
+  "hallazgos": [
+    {
+      "numero_tomo": 130,
+      "nombre": "Deformar madera",
+      "tipo": "confusión_área_volumen",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "sha": "c3808dcb7da60b4836aea1df8fe7b6b122edee2a"
+      },
+      "parrafo": 3,
+      "fragmento_original": "área de hasta 1 metro cúbico",
+      "fragmento_propuesto": "volumen de hasta 1 metro cúbico",
+      "parrafo_fuente": "Manipulas objetos de madera no mágica, deformándolos a tu voluntad. Puedes afectar un área de hasta 1 metro cúbico, permitiendo doblar, torcer o modificar tablones, vigas u otros objetos similares. Este conjuro no tiene efecto sobre armas mágicas o madera imbuida de poder.",
+      "parrafo_propuesto": "Manipulas objetos de madera no mágica, deformándolos a tu voluntad. Puedes afectar un volumen de hasta 1 metro cúbico, permitiendo doblar, torcer o modificar tablones, vigas u otros objetos similares. Este conjuro no tiene efecto sobre armas mágicas o madera imbuida de poder.",
+      "nota": "Corrección léxica de magnitud; conservar 1 m³",
+      "estado": "propuesta_no_aprobada_no_aplicada"
+    },
+    {
+      "numero_tomo": 257,
+      "nombre": "Niebla carmesí",
+      "tipo": "diámetro_en_superficie",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "sha": "d3f0662651f107552a2652adb1afaf5b3f51fe19"
+      },
+      "parrafo": 4,
+      "fragmento_original": "un cono, de 10m2 de diámetro, de niebla rojiza",
+      "fragmento_propuesto": "un cono de niebla rojiza que abarca una superficie de 10 m²",
+      "parrafo_fuente": "Generas en tus pulmones un gas maligno procedente de un plano letal. Vomitas un cono, de 10m2 de diámetro, de niebla rojiza que quema la piel y consume el espíritu. Esta área no se moverá y permanecerá latente durante la duración del sortilegio.",
+      "parrafo_propuesto": "Generas en tus pulmones un gas maligno procedente de un plano letal. Vomitas un cono de niebla rojiza que abarca una superficie de 10 m² que quema la piel y consume el espíritu. Esta área no se moverá y permanecerá latente durante la duración del sortilegio.",
+      "nota": "No atribuir anchura ni altura al cono solo desde su superficie",
+      "estado": "propuesta_no_aprobada_no_aplicada"
+    },
+    {
+      "numero_tomo": 259,
+      "nombre": "Nube de aniquilación",
+      "tipo": "radio_en_superficie_orden_inverso",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "sha": "d3f0662651f107552a2652adb1afaf5b3f51fe19"
+      },
+      "parrafo": 4,
+      "fragmento_original": "una nube tóxica de 3m2 de radio",
+      "fragmento_propuesto": "una nube tóxica que ocupa una superficie circular de 3 m²",
+      "parrafo_fuente": "Transformas el aire a tu alrededor en una nube tóxica de 3m2 de radio que puedes desplazar 3 metros cada Turno en la dirección que desees, aunque no podrás realizar otras acciones mientras la controlas. Cualquier criatura de Nivel 8 o inferior que se encuentre dentro de la Nube de aniquilación al inicio de su Turno perece.",
+      "parrafo_propuesto": "Transformas el aire a tu alrededor en una nube tóxica que ocupa una superficie circular de 3 m² que puedes desplazar 3 metros cada Turno en la dirección que desees, aunque no podrás realizar otras acciones mientras la controlas. Cualquier criatura de Nivel 8 o inferior que se encuentre dentro de la Nube de aniquilación al inicio de su Turno perece.",
+      "nota": "Caso equivalente a los 10 de 77c pero que el detector sintáctico no clasificó",
+      "estado": "propuesta_no_aprobada_no_aplicada"
+    },
+    {
+      "numero_tomo": 331,
+      "nombre": "Rayo desintegrador",
+      "tipo": "confusión_superficie_volumen",
+      "fuente": {
+        "archivo": "69n-conjuros-alfabeticos-326-350.json",
+        "sha": "22ac762932bf8fdee72bd3af752d2a5131ea21ca"
+      },
+      "parrafo": 3,
+      "fragmento_original": "una porción de superficie de hasta 3 metros cúbicos",
+      "fragmento_propuesto": "una porción de materia de hasta 3 metros cúbicos",
+      "parrafo_fuente": "Proyectas un rayo de energía violácea pura que reduce a la nada una criatura, objeto o una porción de superficie de hasta 3 metros cúbicos. El objetivo queda completamente desintegrado, sin dejar rastro de su existencia. ",
+      "parrafo_propuesto": "Proyectas un rayo de energía violácea pura que reduce a la nada una criatura, objeto o una porción de materia de hasta 3 metros cúbicos. El objetivo queda completamente desintegrado, sin dejar rastro de su existencia. ",
+      "nota": "Requiere cautela por la elección exacta del objetivo; no alterar el límite de 3 m³",
+      "estado": "propuesta_no_aprobada_no_aplicada"
+    },
+    {
+      "numero_tomo": 396,
+      "nombre": "Torbellino de arena",
+      "tipo": "redundancia_unidades",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "sha": "946052fc29b016a489bba6e8b4bb9f80f23b5d2a"
+      },
+      "parrafo": 4,
+      "fragmento_original": "un área de 4m2 metros",
+      "fragmento_propuesto": "un área de 4 m²",
+      "parrafo_fuente": "Conjuras un torbellino de viento y arena que ocupa un área de 4m2 metros en un espacio adyacente a ti. El Torbellino de arena puede moverse 4 metros a tu voluntad al inicio de cada Turno, y arrasa con cualquier cosa que no esté fijada al suelo o a las paredes. Cualquier criatura que entre en contacto con el torbellino sufre 3d6 puntos de daño contundente y tiene una Probabilidad 14+ de caer Derribada.",
+      "parrafo_propuesto": "Conjuras un torbellino de viento y arena que ocupa un área de 4 m² en un espacio adyacente a ti. El Torbellino de arena puede moverse 4 metros a tu voluntad al inicio de cada Turno, y arrasa con cualquier cosa que no esté fijada al suelo o a las paredes. Cualquier criatura que entre en contacto con el torbellino sufre 3d6 puntos de daño contundente y tiene una Probabilidad 14+ de caer Derribada.",
+      "nota": "Sobra «metros» después de m²; no se conoce forma geométrica",
+      "estado": "propuesta_no_aprobada_no_aplicada"
+    },
+    {
+      "numero_tomo": 434,
+      "nombre": "Zona onírica",
+      "tipo": "diámetro_en_superficie",
+      "fuente": {
+        "archivo": "69r-conjuros-alfabeticos-426-434.json",
+        "sha": "2aa02bdaf507f45272c22e5303cd9d08289893e1"
+      },
+      "parrafo": 4,
+      "fragmento_original": "un área de 4m2 por Nivel de diámetro",
+      "fragmento_propuesto": "una superficie circular de 4 m² por Nivel",
+      "parrafo_fuente": "Recreas un área de 4m2 por Nivel de diámetro con la apariencia, olores, sonidos y tacto que tú desees. Si una criatura intenta probar a ver a qué sabe algo de la Zona onírica, notará que sabe a papel. Cada objeto que generes de esta forma se evaporará en cuanto abandone el área de influencia.",
+      "parrafo_propuesto": "Recreas una superficie circular de 4 m² por Nivel con la apariencia, olores, sonidos y tacto que tú desees. Si una criatura intenta probar a ver a qué sabe algo de la Zona onírica, notará que sabe a papel. Cada objeto que generes de esta forma se evaporará en cuanto abandone el área de influencia.",
+      "nota": "La palabra diámetro sugiere forma circular, pero no permite convertir m² en metros de diámetro",
+      "estado": "propuesta_no_aprobada_no_aplicada"
+    }
+  ],
+  "total": 6
+}

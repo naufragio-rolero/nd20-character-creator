@@ -1,0 +1,223 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "titulo": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "metodo": "Contraste de encabezados, Círculo y Escuela del Google Docs vigente con data/catalogo-poderes.json; las transcripciones completas constan en el manifiesto de lotes 69a-69r. No es una prueba mecánica.",
+  "resultados": {
+    "fichas_tomo": 434,
+    "fichas_catalogo": 434,
+    "nombres_normalizados_tomo": 433,
+    "nombres_normalizados_catalogo": 433,
+    "fichas_con_escuela": 434,
+    "fichas_con_alcance": 434,
+    "fichas_con_circulo": 433,
+    "fichas_sin_circulo": 1,
+    "fichas_sin_texto": 0,
+    "escuelas_diferentes": 0,
+    "circulos_diferentes": 0
+  },
+  "manifest": [
+    {
+      "archivo": "69a-conjuros-alfabeticos-001-025.json",
+      "rango": [
+        1,
+        25
+      ]
+    },
+    {
+      "archivo": "69b-conjuros-alfabeticos-026-050.json",
+      "rango": [
+        26,
+        50
+      ]
+    },
+    {
+      "archivo": "69c-conjuros-alfabeticos-051-075.json",
+      "rango": [
+        51,
+        75
+      ]
+    },
+    {
+      "archivo": "69d-conjuros-alfabeticos-076-100.json",
+      "rango": [
+        76,
+        100
+      ]
+    },
+    {
+      "archivo": "69e-conjuros-alfabeticos-101-125.json",
+      "rango": [
+        101,
+        125
+      ]
+    },
+    {
+      "archivo": "69f-conjuros-alfabeticos-126-150.json",
+      "rango": [
+        126,
+        150
+      ]
+    },
+    {
+      "archivo": "69g-conjuros-alfabeticos-151-175.json",
+      "rango": [
+        151,
+        175
+      ]
+    },
+    {
+      "archivo": "69h-conjuros-alfabeticos-176-200.json",
+      "rango": [
+        176,
+        200
+      ]
+    },
+    {
+      "archivo": "69i-conjuros-alfabeticos-201-225.json",
+      "rango": [
+        201,
+        225
+      ]
+    },
+    {
+      "archivo": "69j-conjuros-alfabeticos-226-250.json",
+      "rango": [
+        226,
+        250
+      ]
+    },
+    {
+      "archivo": "69k-conjuros-alfabeticos-251-275.json",
+      "rango": [
+        251,
+        275
+      ]
+    },
+    {
+      "archivo": "69l-conjuros-alfabeticos-276-300.json",
+      "rango": [
+        276,
+        300
+      ]
+    },
+    {
+      "archivo": "69m-conjuros-alfabeticos-301-325.json",
+      "rango": [
+        301,
+        325
+      ]
+    },
+    {
+      "archivo": "69n-conjuros-alfabeticos-326-350.json",
+      "rango": [
+        326,
+        350
+      ]
+    },
+    {
+      "archivo": "69o-conjuros-alfabeticos-351-375.json",
+      "rango": [
+        351,
+        375
+      ]
+    },
+    {
+      "archivo": "69p-conjuros-alfabeticos-376-400.json",
+      "rango": [
+        376,
+        400
+      ]
+    },
+    {
+      "archivo": "69q-conjuros-alfabeticos-401-425.json",
+      "rango": [
+        401,
+        425
+      ]
+    },
+    {
+      "archivo": "69r-conjuros-alfabeticos-426-434.json",
+      "rango": [
+        426,
+        434
+      ]
+    }
+  ],
+  "diferencias_de_multiplicidad": [
+    {
+      "nombre": "arma elemental",
+      "tomo": 2,
+      "catalogo": 1
+    },
+    {
+      "nombre": "ira celestial",
+      "tomo": 1,
+      "catalogo": 2
+    }
+  ],
+  "incidencias": [
+    {
+      "id": "CONJ-01",
+      "tipo": "duplicacion_distinta_por_fuente",
+      "texto": "Tomo contiene dos copias de Arma elemental idénticas. Catálogo contiene Ira celestial de Círculo 3 y 5. No fusionar registros por nombre.",
+      "detalle": [
+        {
+          "nombre": "arma elemental",
+          "tomo": 2,
+          "catalogo": 1
+        },
+        {
+          "nombre": "ira celestial",
+          "tomo": 1,
+          "catalogo": 2
+        }
+      ]
+    },
+    {
+      "id": "CONJ-02",
+      "tipo": "circulo_ausente",
+      "detalle": [
+        {
+          "nombre": "Contrato de fraternidad",
+          "circulo_catalogo": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CONJ-03",
+      "tipo": "diferencias_de_circulo",
+      "detalle": []
+    },
+    {
+      "id": "CONJ-04",
+      "tipo": "diferencias_escuela",
+      "detalle": []
+    },
+    {
+      "id": "CONJ-05",
+      "tipo": "variacion_grafica",
+      "texto": "Glosolalia mayor frente a Glosolalia mayor †; coincidencia sólo al normalizar †, no alterar textos de fuentes."
+    }
+  ],
+  "errores": [],
+  "limitaciones": [
+    "Círculo ausente en fuente no autoriza copiar como dato literal el círculo del catálogo.",
+    "Quedan pendientes revisión de etiquetas y condiciones específicas, así como prueba del comportamiento en Forja.",
+    "Los párrafos literales completos están repartidos en 18 lotes para facilitar control y versionado."
+  ],
+  "verificacion_literales_publicados": {
+    "fecha": "2026-10-29",
+    "estado": "aprobada_sin_discrepancias",
+    "metodo": "Relectura de 18 archivos 69a–69r y cotejo registro por registro con Google Docs, usando identidad, número, índice de párrafo, texto de cada párrafo y revisión de origen.",
+    "fichas_verificadas": 434,
+    "archivos_verificados": 18,
+    "diferencias": 0,
+    "revision_verificada": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  }
+}

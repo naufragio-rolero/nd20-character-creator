@@ -1,0 +1,53 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "categoria": "Técnicas de batalla",
+  "subcategoria": "Disciplina",
+  "registros": [
+    {
+      "nombre": "Postura de Gaehr Moradh",
+      "parrafos": [
+        1352,
+        1357
+      ],
+      "coste": "1 punto de Esfuerzo",
+      "requisito": "Valquiria",
+      "alcance": "personal",
+      "clasificacion": "Postura",
+      "texto_literal": "Adoptas una postura beligerante, preparada para la batalla encarnizada frente a ti. Hasta que finalice el conflicto (o pase 1 Intervalo), todos tus ataques cuerpo a cuerpo obtienen Ventaja, pero tú sufres Desventaja a la hora de evitar o bloquear ataques."
+    },
+    {
+      "nombre": "Carga de caballería",
+      "parrafos": [
+        1358,
+        1363
+      ],
+      "coste": "2 puntos de Esfuerzo",
+      "requisito": "Fuerza 11+, Resistencia 11+, debes llevar equipada con arma de asta y debes estar cabalgando una criatura con el Rasgo Montura.",
+      "alcance": "arma",
+      "texto_literal": "Te mueves, como mínimo, 8m (4 Casillas) en línea recta hacia el objetivo. Cuando pases cerca del objetivo, realiza una Tirada de Ataque (con Ventaja si está a pie). Si impactas, causarás tanto daño como tu arma con Potencia +3. El objetivo tiene una Probabilidad 11+ de caer Derribado al suelo (si está cabalgando una montura, es desmontado).\nTras usar esta Técnica, tu Turno finaliza."
+    },
+    {
+      "nombre": "Danza aérea",
+      "parrafos": [
+        1364,
+        1369
+      ],
+      "coste": "2 puntos de Esfuerzo",
+      "requisito": "Agilidad 12+, no debes llevar equipada armadura, debes tener a mano 1d6 +2 armas arrojadizas, debes tener espacio suficiente para poder realizar la maniobra",
+      "alcance": "arma",
+      "texto_literal": "Comienzas a correr a máxima velocidad durante 8m, para pegar un enorme brinco y apoyarte en una pared o superficie sólida e impulsarte hacia el aire al mismo tiempo que desenvainas tus armas arrojadizas.\nMientras estás en el aire, puedes realizar tantos ataques a distancia como resultado hayas obtenido en la Tirada de requisito (recuerda que lo tienes que tirar cada vez que uses Danza aérea); sin embargo, tienes un -2 a todas las tiradas de ataque. Tras resolver estos ataques, puedes aterrizar en cualquier punto en un radio de 8m a tu alrededor."
+    },
+    {
+      "nombre": "Salto mortal",
+      "parrafos": [
+        1370,
+        1374
+      ],
+      "coste": "1 punto de Esfuerzo",
+      "requisito": "Agilidad 8+, debes llevar equipada un arma cuerpo a cuerpo a dos manos, debes tener espacio suficiente para poder realizar la maniobra",
+      "alcance": "especial (10m)",
+      "texto_literal": "Tomas carrerilla durante 4m para pegar un tremendo salto apoyándote en tu arma, catapultándote hacia los aires y recorriendo un máximo de 10m durante la acrobacia. Puedes caer sobre un enemigo dentro del radio de alcance si superas una Tirada de Agilidad: si logras acertar, aterrizas sobre él, causando el daño del arma con Potencia +1."
+    }
+  ],
+  "nota": "No confundir Requisito de Atributo, coste y alcance; Postura es un subtipo de la primera Técnica, no una opción separada."
+}

@@ -1,0 +1,32 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "familia": "Eidolas",
+  "categoria": 2,
+  "estado": "modalidades_literales",
+  "registros": [
+    {
+      "nombre": "Warnok",
+      "categoria": 2,
+      "elemento_afin": "Naturaleza",
+      "parrafos": [
+        1598,
+        1604
+      ],
+      "encarnar_literal": "Encarnar: recibe la furia de Warnok durante 1d8 Turnos para obtener un ataque de mordisco adicional y 2d6 de daño adicional cuerpo a cuerpo.",
+      "canalizar_literal": "Canalizar: Emboscada de la selva. De repente, surge un montón de vegetación y lianas desde el diagrama de invocación, y después va la brutal forma de Warnok, trayendo consigo la furia de la naturaleza salvaje. Una horda de raíces y lianas brotan desde el suelo en un área de 10 metros alrededor del invocador, atrapando a todas las criaturas a su alcance. Cada ser atrapado queda Paralizado durante 1d4 Turnos y sufrirá 5d6 de daño contundente al inicio de cada uno de sus Turnos. Tiene una Probabilidad 11+ de liberarse, pero si intenta escapar sin éxito, sufre 2d6 de daño adicional por la presión de las lianas.",
+      "materializar_literal": "Materializar: Salud 7/1d7/2, Ataque d12, Blindaje d6. Warnok aparece como un cocodrilo gigantesco de escamas verdosas y ojos amarillentos brillantes. Durante 2d8 Turnos, atacará con su mandíbula feroz y su cola, ayudando a mantener a raya a los enemigos y protegiendo al invocador."
+    },
+    {
+      "nombre": "Xalanth",
+      "categoria": 2,
+      "elemento_afin": "Oscuridad",
+      "parrafos": [
+        1605,
+        1612
+      ],
+      "encarnar_literal": "Encarnar: recibe la presencia terrible de Xalanth para adquirir unas escamas negras que recorren toda tu piel, otorgándote d10 de Blindaje e inmunidad al daño por ácido y veneno durante 1d6 Turnos.",
+      "canalizar_literal": "Canalizar: Aniquilación dracónica. Un enorme agujero se abre de repente en el suelo y de ahí surge Xalanth a toda velocidad. Tras aterrizar de forma brusca, carga su arma de aliento y exhala un cono de 21 metros frente a él. Cada criatura herida por el hálito sufre 6d8 de daño por ácido, 6d6 de daño por veneno y tiene una posibilidad 12+ de quedar Envenenada con un veneno igual al Nivel del invocador.",
+      "materializar_literal": "Materializar: Salud 10/1d10/2, Ataque 2d6, Blindaje d8. Xalanth se materializa con una versión más pequeña de sí mismo y luchará a tu lado hasta que finalice el enfrentamiento o su salud sea agotada."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "id": "15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28",
+    "tipo": "Google Docs vigente",
+    "revision": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ"
+  },
+  "ocupacion": "Delincuente",
+  "registros": [
+    {
+      "talento": "Instintos de los bajos fondos",
+      "activacion": "Especial",
+      "parrafos_fuente": [
+        728,
+        732
+      ],
+      "coste_literal": null,
+      "texto_literal": "Has sobrevivido en el crimen el tiempo suficiente para reconocer peligros, oportunidades y mentiras sin dudar. De forma natural, te anticipas a las putadas, traiciones, fraudes y emboscadas por la espalda.\nÉsta presión te otorga un +1 a las Tiradas de Intuición a la hora de percibir el ambiente cuando estás cometiendo un crimen. A partir de Nivel 6, esta bonificación aumenta a +2 y, a partir de Nivel 12, pasa a ser Ventaja.\nUna vez al día, si estás en una zona urbana en la que hayas vivido en el pasado, puedes declarar que «conoces al tipo adecuado» para llevar a cabo algún tipo de actividad ilícita (falsificadores, matones, traficantes, etc.). El Cronista tiene la última palabra, pero quién te ayude esperará algo de ti en el futuro. Y más te vale cumplir."
+    },
+    {
+      "talento": "Arrancar información",
+      "activacion": "Acción",
+      "parrafos_fuente": [
+        735,
+        738
+      ],
+      "coste_literal": null,
+      "texto_literal": "La información es poder y tú sabes extraerla… de una forma u otra. Desde la manipulación psicológica hasta la violencia bien medida, tienes talento para hacer hablar a la gente.\nSi pasas al menos 1 Intervalo con un PNJ atemorizado de un Nivel inferior a ti, puedes obligarlo a confesar algo que sepa (aunque no significa que te diga toda la verdad); si usas la violencia o amenazas extremas, el Cronista decidirá si el PNJ se rompe por completo… o si lo convierte en un enemigo jurado."
+    },
+    {
+      "talento": "El jeta de Wall Street",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        739,
+        742
+      ],
+      "coste_literal": null,
+      "texto_literal": "El mercado financiero bursátil es una selva en la que te mueves como si fueses un tigre. Entender los movimientos de la bolsa, los gráficos de cerilla y la compraventa de acciones es un paseo por el parque.  Sin embargo, todo este conocimiento te ha hecho ver las costuras, y no vas a ser tú quien las arregle.\nTienes Ventaja en las Tiradas de Mente o Intuición relacionadas con fraude fiscal, malversación o manipulación financiera de activos. A partir de Nivel 18, eres capaz de sacudir el mercado financiero con total facilidad: tus contactos y conocimientos te permitirán decidir, una vez al día, qué pasa con las acciones de una empresa. Eso sí, el Cronista tiene la última palabra."
+    },
+    {
+      "talento": "Facha de hampón",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        743,
+        746
+      ],
+      "coste_literal": null,
+      "texto_literal": "No sabes si es por tus pintas, por tu cara o por cómo hablas y te mueves, pero algo está claro: acojonas a la gente. Los PNJ de un Nivel inferior a ti, con una predisposición servicial y que sean conscientes de quién eres te tendrán pavor. Con estos individuos, tendrás Ventaja en las Tiradas de Presencia para intimidar o forzar negociaciones.\nAdemás, una vez por Escena podrás obligar a un PNJ que cumpla esas condiciones a que coopere contigo, incluso si es algo ilegal o peligroso. No abuses mucho de ésto, porque el miedo es el preludio al odio."
+    },
+    {
+      "talento": "Maestro en allanamientos",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        747,
+        752
+      ],
+      "coste_literal": null,
+      "texto_literal": "Las cerraduras y los sistemas de seguridad son solo obstáculos temporales. Da igual si es una puerta reforzada, un código cifrado o una caja fuerte de última tecnología: si algo está cerrado, sabes cómo abrirlo.\nPuedes forzar cerraduras convencionales sin necesidad de Tirada (siempre que tengas tiempo y herramientas).\nEn el caso de sistemas avanzados o de alta seguridad, tienes Ventaja en la Tirada de Intuición o Mente para desactivarlos. A partir de Nivel 18, ningún sistema de seguridad se te resistirá y será imposible evitar que los fuerces, salvo en casos de seguridad extrema (que definirá el Cronista).\nUna vez por Escena, si estudias un edificio o una instalación durante al menos 1 Intervalo, puedes pedir al Cronista que te revele el punto más débil de su seguridad."
+    },
+    {
+      "talento": "Rutas de entrada y salida",
+      "activacion": "Acción",
+      "parrafos_fuente": [
+        753,
+        757
+      ],
+      "coste_literal": null,
+      "texto_literal": "Años trabajando como conductor te han permitido desarrollar un sexto sentido a la hora de mover paquetes calientes. Sabes cómo trasladarlos de un lugar a otro sin que sean detectados con facilidad.\nUna vez por Escena, si necesitas mover o colar algo en un sitio dónde ése algo no debería estar, puedes pasar 1 Intervalo estudiando la situación para sacar una buena idea. Si en lugar de 1, pasas 2 Intervalos, podrás pedir al Cronista que te de una pista; por cada 6 Niveles, podrás pedir una pista más, hasta incluso solicitar el plan completo si eres Nivel 30.\nDe una forma u otra, obtendrás el método más adecuado para realizar el contrabando (esconder la mercancía o seguir una ruta desconocida) y que no sea detectado."
+    },
+    {
+      "talento": "Señor del crimen",
+      "activacion": "Acción",
+      "parrafos_fuente": [
+        758,
+        765
+      ],
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "texto_literal": "Ostentas cierta posición dentro de tu organización criminal, lo que te da a acceso a recursos y contactos que están dispuestos a servirte. Una vez por Escena, puedes hacer una llamada y recibir en el siguiente Intervalo algo de lo siguiente sin que nadie pregunte:\nUn PNJ de tu Nivel con una serie de habilidades específicas, que te servirá durante un encargo o misión (decide con el Cronista).\nHasta 5.000 maravs procedentes de negocios ilícitos.\nHasta 4 armas de fuego estándares (pistolas, rifles, etc.) o 1 arma de fuego militar (lanzamisiles, lanzagranadas, rifles antitanque, etc.).\nNo tienes que devolver lo que solicitas (en el caso de las armas o el dinero), pero se espera que sepas «colaborar» en el futuro en otras actividades igual de ilícitas. Cada vez que uses este Talento más de una vez en la misma misión, el Cronista puede pedirte que hagas un favor de vuelta a tu organización."
+    }
+  ],
+  "adquisicion": {
+    "fijo": "Instintos de los bajos fondos",
+    "seleccionables": [
+      "Arrancar información",
+      "El jeta de Wall Street",
+      "Facha de hampón",
+      "Maestro en allanamientos",
+      "Rutas de entrada y salida",
+      "Señor del crimen"
+    ],
+    "elecciones": [
+      {
+        "nivel": 1,
+        "cantidad": 1
+      },
+      {
+        "nivel": 9,
+        "cantidad": 1
+      }
+    ]
+  },
+  "notas": [
+    "La segunda aparición «Instintos de los bajos fondos» en el párrafo 770 es cabecera de columna de la tabla de progreso, no otra ficha.",
+    "«Señor del crimen» indica uso una vez por Escena, y contempla usos adicionales dentro de la misión con obligaciones de favor; no imponer prohibición absoluta donde el texto no la establece."
+  ]
+}

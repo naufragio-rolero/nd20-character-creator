@@ -1,0 +1,370 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Objetos mágicos.docx (archivo adjunto)",
+  "objeto": "Indice técnico de magia, no transcripción de efectos",
+  "registros_principales": [
+    {
+      "nombre": "Manto de Vagryen",
+      "seccion": "Carreta de los Salvadores de Nasbel",
+      "tipo_literal": "Tipo: Túnica",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        7,
+        10
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Peto refulgente de maná",
+      "seccion": "Carreta de los Salvadores de Nasbel",
+      "tipo_literal": "Tipo: Armadura de cuero",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        11,
+        15
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Sello de guarda arcana",
+      "seccion": "Carreta de los Salvadores de Nasbel",
+      "tipo_literal": "Tipo: Anillo",
+      "rareza_literal": "Rareza: Épico",
+      "parrafos": [
+        16,
+        19
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Susurro de marfil gramarán",
+      "seccion": "Carreta de los Salvadores de Nasbel",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Épico",
+      "parrafos": [
+        20,
+        24
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Arnés de caída semi-segura",
+      "seccion": "Artificios Morrotinto",
+      "tipo_literal": "Tipo: Armadura de cuero",
+      "rareza_literal": "Rareza: Inusual",
+      "parrafos": [
+        27,
+        31
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Caña argenta de atracción",
+      "seccion": "Artificios Morrotinto",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Inusual",
+      "parrafos": [
+        32,
+        36
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Escarpines levitantes",
+      "seccion": "Artificios Morrotinto",
+      "tipo_literal": "Tipo: Calzado",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        37,
+        42
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Espadón avaricioso",
+      "seccion": "Artificios Morrotinto",
+      "tipo_literal": "Tipo: Espadón",
+      "rareza_literal": "Rareza: Inusual",
+      "parrafos": [
+        43,
+        47
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Trabuco sanguíneo",
+      "seccion": "Artificios Morrotinto",
+      "tipo_literal": "Tipo: Trabuco",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        48,
+        53
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Mono de protección termal",
+      "seccion": "Artificios Morrotinto",
+      "tipo_literal": "Tipo: Atuendo",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        54,
+        58
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Portaviandas soberbio",
+      "seccion": "Artificios Morrotinto",
+      "tipo_literal": "Tipo: Herramienta",
+      "rareza_literal": "Rareza: Inusual",
+      "parrafos": [
+        59,
+        63
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Remedio infalible de Morrotinto",
+      "seccion": "Artificios Morrotinto",
+      "tipo_literal": "Tipo: Sustancia",
+      "rareza_literal": "Rareza: Inusual",
+      "parrafos": [
+        64,
+        68
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Ajorca de empatía disminuida",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Brazal",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos": [
+        72,
+        76
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Broquel de flotabilidad",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Escudo pequeño",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        77,
+        82
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Brújula de Siempreterna",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos": [
+        83,
+        87
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Cañón de mano malasthino",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Pistola de chispa",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        88,
+        92
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Capa de Iring Thrië",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Capa",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos": [
+        93,
+        97
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Capisayo popular de Ugnak",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Capa",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        98,
+        102
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Celada del rompecráneos",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Casco",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        103,
+        107
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Higa de la serenidad",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Amuleto",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos": [
+        108,
+        112
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Hilo de brillo dorado",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Legendaria",
+      "parrafos": [
+        113,
+        118
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Mantón del clérigo decepcionado",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Capa",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        119,
+        123
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Uña de Mogg-Shattoth",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Tridente",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos": [
+        124,
+        128
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Virotes ávidos de carne",
+      "seccion": "Alijo de contrabando dupoviano",
+      "tipo_literal": "Tipo: Munición (virotes)",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        129,
+        133
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Arqueta de roble efímero",
+      "seccion": "Emporio de cajas de Feanaro & Furia",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos": [
+        143,
+        147
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Baúl seguro de Feanaro",
+      "seccion": "Emporio de cajas de Feanaro & Furia",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Legendaria",
+      "parrafos": [
+        148,
+        152
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Gema cristalina onírica",
+      "seccion": "Emporio de cajas de Feanaro & Furia",
+      "tipo_literal": "Tipo: Foco de conjuros",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos": [
+        153,
+        157
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    },
+    {
+      "nombre": "Joyero de nogal grabado",
+      "seccion": "Emporio de cajas de Feanaro & Furia",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos": [
+        158,
+        162
+      ],
+      "estado": "preindexado_pendiente_extraccion_de_efecto"
+    }
+  ],
+  "ejemplos_de_apendice": [
+    {
+      "nombre": "Elixir de esfuerzo",
+      "seccion": "Apéndice — Objetos de ejemplo",
+      "tipo_literal": "Tipo: Sustancia",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos": [
+        189,
+        192
+      ],
+      "estado": "ejemplo_no_contar_como_objeto_principal"
+    }
+  ],
+  "totales": {
+    "principales": 28,
+    "ejemplos": 1,
+    "por_seccion": [
+      {
+        "seccion": "Carreta de los Salvadores de Nasbel",
+        "cantidad": 4
+      },
+      {
+        "seccion": "Artificios Morrotinto",
+        "cantidad": 8
+      },
+      {
+        "seccion": "Alijo de contrabando dupoviano",
+        "cantidad": 12
+      },
+      {
+        "seccion": "Emporio de cajas de Feanaro & Furia",
+        "cantidad": 4
+      }
+    ]
+  },
+  "reglas_compartidas_a_extraer": [
+    {
+      "seccion": "Emporio de cajas de Feanaro & Furia",
+      "parrafos": [
+        138,
+        142
+      ],
+      "se_aplican_a": [
+        "Arqueta de roble efímero",
+        "Baúl seguro de Feanaro",
+        "Joyero de nogal grabado"
+      ],
+      "nota": "Verificar si Gema cristalina onírica se beneficia de reglas generales de cajas; no asumirlo por pertenecer a la sección."
+    }
+  ],
+  "exclusiones": [
+    "Notas e ideas posteriores al apéndice (párrafo 197 en adelante) no son fichas de objetos finalizadas.",
+    "No confundir nombres de ideas de lanzas y garras del apéndice con inventario de 28 principales."
+  ],
+  "nota": "Conservar rarezas y tipos literales. Faltan los efectos íntegros, propiedades y requisitos antes de integración."
+}

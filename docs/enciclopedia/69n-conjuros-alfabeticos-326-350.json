@@ -1,0 +1,796 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 14,
+  "indices_tomo": [
+    326,
+    350
+  ],
+  "fuente": {
+    "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "estado": "transcripcion_literal_completa_de_cada_ficha",
+  "registros": [
+    {
+      "numero_tomo": 326,
+      "nombre_literal": "Profecía del tiempo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2423,
+        "indice_ultimo_parrafo": 2429,
+        "indice_inicio_doc": 172938,
+        "indice_fin_doc": 173501
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Divina",
+        "Alcance: 4m",
+        "Cronurgia",
+        "Conjuras una bendición divina que alinea al objetivo con el flujo eterno del tiempo, amplificando los efectos cronománticos que lo afecten. Mientras dure el conjuro, cualquier Conjuro de Cronurgia que influya en el objetivo verá duplicada su duración, alcance o efecto.",
+        "Por ejemplo: si un conjuro de Cronurgia ralentiza el tiempo para el objetivo, la duración del efecto será el doble, mientras que si es afectado por un efecto que acelera su Movimiento, este incremento se duplica también."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-402",
+          "circulo": 5,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 327,
+      "nombre_literal": "Quitar maldición",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2431,
+        "indice_ultimo_parrafo": 2436,
+        "indice_inicio_doc": 173504,
+        "indice_fin_doc": 173762
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Divina",
+        "Lanzamiento: 3 Turnos",
+        "Alcance: toque",
+        "Entras en comunión con el alma del objetivo y empleas tu influencia mística para librarle de cualquier Condición causada por una maldición de Nivel igual o inferior al tuyo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-31",
+          "circulo": 3,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 328,
+      "nombre_literal": "Quemadura de maná",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2437,
+        "indice_ultimo_parrafo": 2441,
+        "indice_inicio_doc": 173763,
+        "indice_fin_doc": 174139
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Elemental",
+        "Alcance: 10 metros",
+        "Focalizas tu energía en la conexión arcana del objetivo, provocando que su vínculo con la urdimbre arda en un fuego invisible. Este efecto hace que el objetivo 1 Conjuro que tuviese memorizado (o provocas una Tirada de su DU de magia, o reduces 1d6 sus Puntos de Conjuro), debilitando su capacidad mágica."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-164",
+          "circulo": 3,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 329,
+      "nombre_literal": "Ráfaga de burbujas",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2443,
+        "indice_ultimo_parrafo": 2447,
+        "indice_inicio_doc": 174142,
+        "indice_fin_doc": 174576
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Elemental",
+        "Alcance: 20 metros",
+        "Invocas una explosión de burbujas arremolinadas y chispeantes que impacta contra uno o dos objetivos a tu alcance. Cada objetivo golpeado sufre 1d8 puntos de daño por frío y contundente por cada 3 de tus Niveles. Además, el impacto ralentiza a los afectados, reduciendo su Movimiento en 1d3 durante 1d6 Turnos mientras las burbujas explotan y cubren sus cuerpos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-385",
+          "circulo": 3,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 330,
+      "nombre_literal": "Rayo de sangre",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2448,
+        "indice_ultimo_parrafo": 2453,
+        "indice_inicio_doc": 174577,
+        "indice_fin_doc": 174908
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Demonología",
+        "Alcance: 24m",
+        "Magia de sangre",
+        "Empleas tu propia sangre para forjar un dardo arcano vampírico, que absorbe y consume la energía vital de quien lo roza. Realiza una Tirada de Conjuro: si la superas, un objetivo al alcance sufre 1d4 de daño impío y tú recuperas la ½ del daño causado."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-422",
+          "circulo": 1,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Sangromancia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 331,
+      "nombre_literal": "Rayo desintegrador",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2454,
+        "indice_ultimo_parrafo": 2459,
+        "indice_inicio_doc": 174909,
+        "indice_fin_doc": 175459
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 30 metros",
+        "Proyectas un rayo de energía violácea pura que reduce a la nada una criatura, objeto o una porción de superficie de hasta 3 metros cúbicos. El objetivo queda completamente desintegrado, sin dejar rastro de su existencia. ",
+        "Este conjuro no afecta a seres de Nivel 12 o superior, a menos que estén inconscientes o derrotadas, en cuyo caso tendrás que superar una Tirada de Conjuro: si tienes éxito, desintegras al objetivo, mientras que, si fallas, causas 1d6 de daño mágico por Nivel."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-315",
+          "circulo": 6,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 332,
+      "nombre_literal": "Rayo hielo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2460,
+        "indice_ultimo_parrafo": 2464,
+        "indice_inicio_doc": 175460,
+        "indice_fin_doc": 175785
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Elemental",
+        "Alcance: 18 metros",
+        "De tu dedo índice surge un rayo gélido y resplandeciente que va a gran velocidad hasta el objetivo, helándolo con escarcha arcana. Causas 1d4 de daño por frío; realiza una Tirada de Conjuro: si la superas, el objetivo queda Ralentizado durante su próximo Turno."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-71",
+          "circulo": 1,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 333,
+      "nombre_literal": "Rayo llameante",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2465,
+        "indice_ultimo_parrafo": 2469,
+        "indice_inicio_doc": 175786,
+        "indice_fin_doc": 176096
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Elemental",
+        "Alcance: 50 metros",
+        "De la punta de tu dedo índice emergen dos rayos abrasadores de fuego, dirigidos a uno o dos objetivos dentro del alcance. Cada rayo inflige 1d6 puntos de daño por fuego por cada 3 de tus Niveles, quemando a los enemigos con precisión y poder."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-165",
+          "circulo": 3,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 334,
+      "nombre_literal": "Rayo solar",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2470,
+        "indice_ultimo_parrafo": 2476,
+        "indice_inicio_doc": 176097,
+        "indice_fin_doc": 176507
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Elemental",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: 4m",
+        "Duración: 1d4 +1 Turnos",
+        "Absorbes la energía lumínica de las proximidades, creando en un fiero círculo abrasador de llamas y luz brillante en un área de 6m2. Cualquier ser que se encuentre dentro del Rayo Solar sufre 5d6 de daño por fuego y 5d6 de daño radiante, mientras que quien finalice su Turno adyacente sufre la mitad de daño."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-54",
+          "circulo": 6,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 335,
+      "nombre_literal": "Reanimación alquímica",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2477,
+        "indice_ultimo_parrafo": 2484,
+        "indice_inicio_doc": 176508,
+        "indice_fin_doc": 177176
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Nigromancia",
+        "Lanzamiento: 2 Intervalos",
+        "Alcance: toque",
+        "Requisito: el objetivo debe ser un cadáver que no lleve muerto más de 2 horas.",
+        "Mediante aceites, incienso y una brizna del poder de tu Espíritu deífico, puedes atar el alma de una criatura recién fallecida de nuevo a su cuerpo. Sin embargo, esto provocará que cualquier herida o miembro perdido deban ser remendados y tapados antes de que la Reanimación tenga efecto.",
+        "Un ser devuelto a la vida de esta forma pierde 2 Niveles y reduce sus Atributos en 1d4 puntos, a elegir por el jugador. Tras el ritual, su Salud se ajusta a 1 y tendrá que sanarse de la forma habitual."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-266",
+          "circulo": 3,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 336,
+      "nombre_literal": "Rebobinar",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2485,
+        "indice_ultimo_parrafo": 2491,
+        "indice_inicio_doc": 177177,
+        "indice_fin_doc": 177998
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Cronurgia",
+        "Manipulas el tejido del tiempo, deshaciendo todo lo ocurrido durante el último Turno. Los efectos de acciones, conjuros y movimientos realizados por todas las criaturas en el área de tu percepción (unos 20m2) se revierten como si nunca hubieran sucedido, devolviendo el estado de las cosas al comienzo del Turno anterior. Solo afecta eventos ocurridos en el último Turno. Todo daño, sanación, posiciones, efectos mágicos o resultados de acciones son revertidos.",
+        "Reescribir el tiempo atrae a los cronófagos, entidades extraplanares que se alimentan de paradojas temporales. Al usar este conjuro, hay una Probabilidad 14+ de que una o más de estas criaturas se manifiesten cerca de ti, hambrientas y listas para consumir la brecha temporal que has creado."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-405",
+          "circulo": 6,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 337,
+      "nombre_literal": "Recuperación divina",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2492,
+        "indice_ultimo_parrafo": 2496,
+        "indice_inicio_doc": 177999,
+        "indice_fin_doc": 178210
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Restauras 1d12 + la ½ de Salud máxima del objetivo. Además, eliminas cualquier enfermedad, maldición, veneno o condición negativa de su organismo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-55",
+          "circulo": 6,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 338,
+      "nombre_literal": "Redes arácnidas",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2497,
+        "indice_ultimo_parrafo": 2503,
+        "indice_inicio_doc": 178211,
+        "indice_fin_doc": 178600
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 2 metros por Nivel",
+        "Duración: 1 Intervalo por Nivel",
+        "Generas en tus manos un ovillo de tela de araña y lo arrojas a un punto al alcance: allí se genera una telaraña de unos 5m2 que atrapa e impide a todas las criaturas que estén en su interior.",
+        "Sin embargo, estas redes se pueden romper empleando 2d4 Turnos: no son muy duraderas."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-251",
+          "circulo": 2,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 339,
+      "nombre_literal": "Reencarnación kaélica",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2504,
+        "indice_ultimo_parrafo": 2511,
+        "indice_inicio_doc": 178601,
+        "indice_fin_doc": 179555
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: permanente",
+        "Permites al espíritu de una criatura muerta regresar a la vida, reencarnándolo en el cuerpo de un animal elegido por ti. Este conjuro puede lanzarse solo si la criatura murió hace menos de una semana. Los animales posibles incluyen gatos, perros, felinos, osos, aves rapaces, mapaches, entre otros.",
+        "La criatura reencarnada conserva sus recuerdos y las puntuaciones de Mente, Intuición y Presencia de su vida pasada. Los demás Atributos se ajustarán al tipo de animal, determinado por el Cronista; el reencarnado retiene su Ocupación, pero sus capacidades pueden quedar limitadas debido a las restricciones físicas de su nueva forma, lo que puede impedirle subir Nivel o usar ciertos Talentos.",
+        "Esta transformación es permanente. Una combinación de este conjuro con un efecto como Deseo podría devolver al objetivo a su forma original, según lo determine el Cronista."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-389",
+          "circulo": 4,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 340,
+      "nombre_literal": "Refugio de la cuerda",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2512,
+        "indice_ultimo_parrafo": 2519,
+        "indice_inicio_doc": 179556,
+        "indice_fin_doc": 180509
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: 1 hora por Nivel",
+        "Lanzas este conjuro sobre un trozo de cuerda, haciendo que uno de sus extremos se eleve verticalmente como si estuviera sujeto a un techo invisible. La cuerda conecta con un espacio extradimensional seguro al que podrás acceder al trepar por ella.",
+        "El espacio extradimensional puede albergar hasta 10 criaturas humanoides de tamaño normal. Lo que verán es una habitación cuadrada, sin ventanas, fabricada con ladrillos de luz amarilla, y una trampilla que conecta con el mundo real. Una vez dentro, las criaturas pueden tirar de la cuerda para ocultarla y hacer su ubicación indetectable. Desde el interior, los ocupantes pueden observar el exterior, pero no pueden interactuar con él.",
+        "Los huéspedes deben abandonar el espacio antes de que termine el conjuro. De lo contrario, caerán desde la altura de la cuerda (mínimo 3 metros) y sufrirán daño por la caída."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-384",
+          "circulo": 3,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 341,
+      "nombre_literal": "Relámpago",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2520,
+        "indice_ultimo_parrafo": 2524,
+        "indice_inicio_doc": 180510,
+        "indice_fin_doc": 180847
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Elemental",
+        "Alcance: 20 metros",
+        "Desatas un rayo electrizante desde las alturas, perturbando la atmósfera con tu magia. El conjuro impacta directamente sobre un objetivo dentro del alcance, infligiendo 1d8 de daño de relámpago por Nivel e ignorando cualquier resistencia que no sea la del daño de relámpago."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-182",
+          "circulo": 4,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 342,
+      "nombre_literal": "Rememorar",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2525,
+        "indice_ultimo_parrafo": 2529,
+        "indice_inicio_doc": 180848,
+        "indice_fin_doc": 181112
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Envías tu mente de forma temporal al vasto vacío arcano de la Urdimbre para estimular sus capacidades mágicas. Al regresar, recuperas un Conjuro de Quinto Círculo o inferior que ya hayas consumido este día."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-321",
+          "circulo": 6,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 343,
+      "nombre_literal": "Reparación magna",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2530,
+        "indice_ultimo_parrafo": 2534,
+        "indice_inicio_doc": 181113,
+        "indice_fin_doc": 181537
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 10 metros",
+        "Extiendes tu poder a través de las hebras que forman la Urdimbre, y reparas por completo cualquier objeto —sea mágico o no— no mayor de 10m2. Si ha perdido alguna pieza, crearás de la nada los fragmentos necesarios para que esté completo de nuevo. Este conjuro te permite reparar cualquier cosa, pero si el objetivo había perdido la magia, no la recuperará."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-169",
+          "circulo": 4,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 344,
+      "nombre_literal": "Reparación menor",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2535,
+        "indice_ultimo_parrafo": 2539,
+        "indice_inicio_doc": 181538,
+        "indice_fin_doc": 181741
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Arcana",
+        "Alcance: 12 metros",
+        "Mediante los hilos arcanos de la Urdimbre, arreglas las uniones físicas un objeto no mágico que puedas llevar contigo y que esté dañado."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-232",
+          "circulo": 1,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 345,
+      "nombre_literal": "Reposo del caído",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2540,
+        "indice_ultimo_parrafo": 2546,
+        "indice_inicio_doc": 181742,
+        "indice_fin_doc": 182141
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: 24 horas",
+        "Magia curativa",
+        "Invocas una bendición sagrada sobre un cuerpo recién fallecido (4 horas o menos), preservándolo del deterioro natural y de la influencia de energías malignas. Este conjuro detiene la descomposición y protege el cadáver de efectos que pudieran alterarlo, como la profanación o la reanimación no deseada."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-368",
+          "circulo": 1,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 346,
+      "nombre_literal": "Repulsión infernal",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2547,
+        "indice_ultimo_parrafo": 2552,
+        "indice_inicio_doc": 182142,
+        "indice_fin_doc": 182456
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Demonología",
+        "Alcance: 15 metros",
+        "Reacción",
+        "Este Conjuro sólo se puede lanzar cuando el arcanista es herido por uno de sus enemigos. Apuntas a la criatura que te ha dañado y la condenas a sufrir un castigo por llamas sobrenaturales, provocando 2d6 de daño por fuego e impío."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-76",
+          "circulo": 2,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 347,
+      "nombre_literal": "Repulsión: Alimañas",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2553,
+        "indice_ultimo_parrafo": 2559,
+        "indice_inicio_doc": 182457,
+        "indice_fin_doc": 182988
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: personal",
+        "Duración: 1 Intervalo por Nivel",
+        "Creas una esfera de energía verdosa de 6 metros de diámetro alrededor de ti que protege contra criaturas de Categoría Alimaña, como insectos, arácnidos, serpientes, roedores y seres similares.",
+        "Las Alimañas con un Nivel inferior a ti no pueden atravesar la barrera bajo ninguna circunstancia, mientras que las demás deberán resistir la repulsión (realiza una Tirada de Conjuro); si pueden pasar, sufren 1d10 de daño por fuerza."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-391",
+          "circulo": 4,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 348,
+      "nombre_literal": "Repulsión: Bestias",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2560,
+        "indice_ultimo_parrafo": 2566,
+        "indice_inicio_doc": 182989,
+        "indice_fin_doc": 183509
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: personal",
+        "Duración: 1 Intervalo por Nivel",
+        "Creas una esfera de energía verdosa de 6 metros de diámetro alrededor de ti que protege contra criaturas de Categoría Bestia, como lobos, osos, grandes felinos y seres similares.",
+        "Las Bestias con un Nivel inferior a ti no pueden atravesar la barrera bajo ninguna circunstancia, mientras que las demás deberán resistir la repulsión (realiza una Tirada de Conjuro); si pueden pasar, sufren 2d8 puntos de daño por fuerza."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-404",
+          "circulo": 6,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 349,
+      "nombre_literal": "Resguardo reactivo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2567,
+        "indice_ultimo_parrafo": 2572,
+        "indice_inicio_doc": 183510,
+        "indice_fin_doc": 183943
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Elemental",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "Conjuras una capa de energía elemental que envuelve tu cuerpo, imbuyendo tus ropas con una defensa temporal. Mientras dure el conjuro, reduces el daño recibido de ataques contundentes, cortantes y perforantes. Sin embargo, esta protección te vuelve vulnerable a los elementos fuego, frío y rayo, duplicando el daño recibido por estos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-126",
+          "circulo": 1,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 350,
+      "nombre_literal": "Resistencia al clima",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2573,
+        "indice_ultimo_parrafo": 2579,
+        "indice_inicio_doc": 183944,
+        "indice_fin_doc": 184370
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Elemental",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: toque",
+        "Duración: 24 horas",
+        "Envuelves al objetivo en una capa de energía elemental que lo protege de temperaturas extremas, tanto de calor como de frío. Mientras dure el efecto, el objetivo puede soportar inclemencias meteorológicas severas, como caminar en una ventisca invernal o bajo un sol abrasador, sin sufrir daño o efectos adversos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-364",
+          "circulo": 1,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    }
+  ]
+}

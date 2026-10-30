@@ -1,0 +1,135 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 4,
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "estado": "transcripcion_literal",
+  "registros": [
+    {
+      "ocupacion": "Pugilista",
+      "talento": "Contundencia",
+      "tipo": "Pasiva",
+      "texto_literal": "Pasiva\nTus puñetazos y golpes desarmados son brutales y contundentes. Obtienes Potencia +1 cuando atacas con tus puños, o con un arma considerada «de puño». Esta Bonificación aumenta en +1 en los Niveles 9, 18 y 27, hasta un total de Potencia +4.",
+      "fuente_parrafos": [
+        509,
+        511
+      ]
+    },
+    {
+      "ocupacion": "Epicúreo",
+      "talento": "Paladar exquisito",
+      "tipo": "Pasiva",
+      "texto_literal": "Pasiva\nCuando tomas una Poción o un Elixir, los efectos de dicho bebestible se multiplican por dos. Ten en cuenta que esto se aplica para efectos positivos tanto como negativos.",
+      "fuente_parrafos": [
+        536,
+        538
+      ]
+    },
+    {
+      "ocupacion": "Epicúreo",
+      "talento": "Escudo placentero",
+      "tipo": "Reacción",
+      "texto_literal": "Reacción\nCoste: 1 Esfuerzo\nCuando recibas daño de una fuente no mágica, puedes activar tus instintos hedonistas para reducir un tercio del daño que fueses a recibir; tras usar Escudo placentero, en el siguiente Turno tienes un +2 para impactar al oponente que te hirió.",
+      "fuente_parrafos": [
+        539,
+        542
+      ]
+    },
+    {
+      "ocupacion": "Nictomante",
+      "talento": "Ablución nocturna",
+      "tipo": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Punto de Esfuerzo\nCuando te halles en un área completamente cubierta por la oscuridad,  puedes absorber esa sensación desoladora para recuperarte de tus heridas y regenerar tus energías sombrías: dedica un Intervalo a descansar y restaura todos tus Puntos de Nictalgia y 1d6 de Salud.",
+      "fuente_parrafos": [
+        568,
+        571
+      ]
+    },
+    {
+      "ocupacion": "Nictomante",
+      "talento": "Puntos de Nictalgia",
+      "tipo": "Especial",
+      "texto_literal": "Especial\nPosees un recurso denominado Puntos de Nictalgia (PN), que consumes para lanzar Conjuros y usar alguno de tus Talentos. Debes consumir tantos PN como Círculo del Conjuro que quieras lanzar; recuperas todos tus PN gastados tras emplear tu Talento «Ablución nocturna».",
+      "fuente_parrafos": [
+        572,
+        574
+      ]
+    },
+    {
+      "ocupacion": "Nictomante",
+      "talento": "Celaje umbrío",
+      "tipo": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Punto de Nictalgia\nDuración: 1 Intervalo\nTe rodeas por un manto de sombras incognoscibles, arrancando de tu piel pedazos de ti mismo para crear un doble malévolo y servicial. Creas un «Nictóforo», un portador de las tinieblas que conforman tu propia realidad.\nTrata a esta criatura como un Servidor, que dispone de la mitad de tu Salud máxima y de unos Atributos de Ataque y Defensa equivalentes a tu segundo y tercer mejores Atributos. Este ser te hará caso y será consciente de su propia existencia efímera: cuando se acabe su duración (o sea destruído), sus recuerdos y sensaciones serán transmitidas a ti de vuelta.\nComo método de defensa, puede usar sus Tentáculos de sombras (Daño 1d8, Potencia 1, alcance cuerpo a cuerpo). En los Niveles 6 y 18 su Potencia aumenta en 1, hasta un máximo de 3, mientras que en los Niveles 12 y 24 su Dado de daño aumenta un rango, hasta d12.\nSi gastas 2 Puntos de Nictalgia, puedes hacer que tu Nictóforo estalle en una explosion sombría y libere un Conjuro que puedas lanzar (y pagar su coste en PN) desde su ubicación.\nEJEMPLO: si tienes Salud 20, Mente 8, Intuición 7 y Agilidad, Resistencia, Presencia y Fuerza 5, el Nictóforo resultante de tu Celaje umbrío tendría Salud 10, Ataque 7 y Defensa 5.",
+      "fuente_parrafos": [
+        575,
+        583
+      ]
+    },
+    {
+      "ocupacion": "Cronómaca",
+      "talento": "Guardatiempo",
+      "tipo": "Pasiva",
+      "texto_literal": "Pasiva\nTu conexión natural con el flujo de la historia te ha vuelto un ser resistente a los influjos y alteraciones de la línea temporal. Obtienes Ventaja al resistir Conjuros de Cronurgia o los ataques de criaturas relacionadas con el tiempo, como el Cronófago. También puedes percibir efectos temporales como paradojas, fragmentaciones o alteraciones de la línea temporal.",
+      "fuente_parrafos": [
+        621,
+        623
+      ]
+    },
+    {
+      "ocupacion": "Cronómaca",
+      "talento": "Impulso temporal",
+      "tipo": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Punto de Esfuerzo\nGracias a tus conocimientos, limitados, del futuro, puedes adelantarte a sucesos que puedan darte problemas. Utiliza este Talento para obtener Ventaja en una Tirada que no sabías como jugador que iba a suceder, y que no podrías gastar Esfuerzo de forma natural para conseguir la Ventaja.",
+      "fuente_parrafos": [
+        624,
+        627
+      ]
+    },
+    {
+      "ocupacion": "Invocadora",
+      "talento": "Abnegación",
+      "tipo": "Reacción",
+      "texto_literal": "Reacción\nCoste: 1 Esfuerzo\nSi eres reducida a 0 puntos de salud durante un combate y te quedan intentos de invocación, puedes manifestar la presencia de un Eidolon para que sacrifique su poder a cambio de tu vida. No necesitas acción, solo declararlo.\nEsto te permite mantenerte con 1 Punto de Salud, pero agotas el uso de dicha invocación por el día; y posiblemente no siente nada bien al Eidolon si es un sacrificio a la ligera.",
+      "fuente_parrafos": [
+        654,
+        658
+      ]
+    },
+    {
+      "ocupacion": "Invocadora",
+      "talento": "Convocar Eidolon",
+      "tipo": "Pasiva",
+      "texto_literal": "Pasiva\nPuedes invocar a través de tu fuerza de voluntad la presencia mítica de seres similares a los Espíritus deíficos de las leyendas. Aunque estas criaturas pueden —o no— ser en realidad tales esperpentos, sus capacidades y poder están ligados a las tuyas propias.\nComienzas conociendo un diagrama astral de un Eidolon y podrás añadir más a tu repertorio a medida que vivas aventuras. Necesitarás resolver acertijos o superar pruebas impuestas por los propios Eidolas para desentrañar cada diagrama astral, tareas que el Cronista debe imponerte para que amplies la lista de Eidolas que puedes invocar.",
+      "fuente_parrafos": [
+        659,
+        662
+      ]
+    }
+  ],
+  "pendientes": [
+    {
+      "ocupacion": "Pugilista",
+      "talento": "Juego de piernas",
+      "razon": "texto pendiente de extraer íntegramente"
+    },
+    {
+      "ocupacion": "Epicúreo",
+      "referencia": "Tabla Word 15",
+      "razon": "progresión mágica especial pendiente de contraste"
+    },
+    {
+      "ocupacion": "Nictomante",
+      "referencia": "Tabla Word 16",
+      "razon": "confirmar evolución PN y combinación de Conjuros"
+    },
+    {
+      "ocupacion": "Cronómaca",
+      "referencia": "Tabla Word 17",
+      "razon": "verificar apertura de Círculos"
+    },
+    {
+      "ocupacion": "Invocadora",
+      "referencia": "Tabla Word 18",
+      "razon": "distinguir diagramas de Eidolas y Conjuros diarios"
+    }
+  ]
+}

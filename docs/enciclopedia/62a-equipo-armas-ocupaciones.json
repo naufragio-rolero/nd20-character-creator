@@ -1,0 +1,221 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Ocupaciones.docx, tablas Word 35 y 36 y párrafos 1156–1184",
+  "categoria": "Equipo, armas especiales",
+  "estado": "cotejado_con_docx_local_original",
+  "total": 12,
+  "filas": [
+    {
+      "nombre": "Vendas de batalla",
+      "familia": "puño",
+      "clase_original": "Armas ligeras",
+      "tabla_word": 35,
+      "indice_fila": 3,
+      "estadisticas_literales": {
+        "daño": "-",
+        "penetracion": "1",
+        "durabilidad": "-",
+        "precio": "15 mc"
+      },
+      "marca_nota": false,
+      "descripcion_literal": "Unas tiras de tela elástica preparadas para proteger los nudillos del usuario de contusiones y rozaduras.",
+      "parrafo_descripcion": 1169
+    },
+    {
+      "nombre": "Cestus",
+      "familia": "puño",
+      "clase_original": "Armas ligeras",
+      "tabla_word": 35,
+      "indice_fila": 4,
+      "estadisticas_literales": {
+        "daño": "d6",
+        "penetracion": "2",
+        "durabilidad": "d4",
+        "precio": "7 mo"
+      },
+      "marca_nota": false,
+      "descripcion_literal": "Arma forjada en hierro que se ajusta a los nudillos del usuario. Permite provocar mayores lesiones al oponente cuando es golpeado. ",
+      "parrafo_descripcion": 1159
+    },
+    {
+      "nombre": "Katar",
+      "familia": "puño",
+      "clase_original": "Armas marciales",
+      "tabla_word": 35,
+      "indice_fila": 6,
+      "estadisticas_literales": {
+        "daño": "d6",
+        "penetracion": "1",
+        "durabilidad": "d6",
+        "precio": "2 mo"
+      },
+      "marca_nota": false,
+      "descripcion_literal": "Esta daga con empuñadura en forma de H permite tener un mejor aguante al combatir con ella. Suele ser utilizada por ascetas y monjes de culturas exóticas.",
+      "parrafo_descripcion": 1165
+    },
+    {
+      "nombre": "Media luna",
+      "familia": "puño",
+      "clase_original": "Armas marciales",
+      "tabla_word": 35,
+      "indice_fila": 7,
+      "estadisticas_literales": {
+        "daño": "d4",
+        "penetracion": "2",
+        "durabilidad": "d10",
+        "precio": "5 mo"
+      },
+      "marca_nota": false,
+      "descripcion_literal": "Un semicírculo afilado acabado en una empuñadura. Se emplea en bailes rituales en los que los participantes se provocan cortes a lo largo del cuerpo. ",
+      "parrafo_descripcion": 1167
+    },
+    {
+      "nombre": "Garras de tigre",
+      "familia": "puño",
+      "clase_original": "Armas marciales",
+      "tabla_word": 35,
+      "indice_fila": 8,
+      "estadisticas_literales": {
+        "daño": "d8",
+        "penetracion": "2",
+        "durabilidad": "d8",
+        "precio": "40 mo"
+      },
+      "marca_nota": true,
+      "descripcion_literal": "Guantes de cuero con afiladas cuchillas en forma de tres garras de tigre. Se emplean en artes marciales exóticas para llenar de laceraciones al oponente.",
+      "parrafo_descripcion": 1161
+    },
+    {
+      "nombre": "Guantes de boxeo",
+      "familia": "puño",
+      "clase_original": "Armas marciales",
+      "tabla_word": 35,
+      "indice_fila": 9,
+      "estadisticas_literales": {
+        "daño": "d4",
+        "penetracion": "1",
+        "durabilidad": "d8",
+        "precio": "10 mp"
+      },
+      "marca_nota": true,
+      "descripcion_literal": "Un par de guantes acolchados y reforzados, que protegen la mano y el puño del usuario durante el combate. Su forma ergonómica permite lanzar golpes poderosos sin sacrificar la protección.",
+      "parrafo_descripcion": 1163
+    },
+    {
+      "nombre": "Bumerán",
+      "familia": "arrojadiza",
+      "clase_original": "Armas ligeras",
+      "tabla_word": 36,
+      "indice_fila": 3,
+      "estadisticas_literales": {
+        "alcance": "20 m",
+        "daño": "d4",
+        "penetracion": "0",
+        "durabilidad": "d6",
+        "precio": "1 mo"
+      },
+      "marca_nota": false,
+      "descripcion_literal": "Este arma con forma de palo curvado regresa a su lanzador tras impactar a su objetivo. Suele estar fabricado con madera, aunque existen modelos elaborados con metales ligeros.",
+      "parrafo_descripcion": 1176
+    },
+    {
+      "nombre": "Cuchillo alado",
+      "familia": "arrojadiza",
+      "clase_original": "Armas ligeras",
+      "tabla_word": 36,
+      "indice_fila": 4,
+      "estadisticas_literales": {
+        "alcance": "8 m",
+        "daño": "d6",
+        "penetracion": "2",
+        "durabilidad": "d8",
+        "precio": "25 mo"
+      },
+      "marca_nota": false,
+      "descripcion_literal": "Empuñadura con dos filos de daga en cada uno de sus extremos que gira sobre sí misma al ser arrojada. También puede usarse como arma cuerpo a cuerpo.",
+      "parrafo_descripcion": 1178
+    },
+    {
+      "nombre": "Boleadoras",
+      "familia": "arrojadiza",
+      "clase_original": "Armas de una mano",
+      "tabla_word": 36,
+      "indice_fila": 6,
+      "estadisticas_literales": {
+        "alcance": "10 m",
+        "daño": "d4",
+        "penetracion": "0",
+        "durabilidad": "d6",
+        "precio": "5 mo"
+      },
+      "marca_nota": true,
+      "descripcion_literal": "Un conjunto de varias esferas (por lo general dos o tres) atadas por un cable. Al arrojarse hacia un oponente se enrollan en sus extremidades y causan daño. Un objetivo afectado por las boleadoras reduce a la mitad su movimiento o, si el atacante obtiene un crítico, cae al suelo atrapado por el cable y el peso.",
+      "parrafo_descripcion": 1174
+    },
+    {
+      "nombre": "Chakram",
+      "familia": "arrojadiza",
+      "clase_original": "Armas de una mano",
+      "tabla_word": 36,
+      "indice_fila": 7,
+      "estadisticas_literales": {
+        "alcance": "30 m",
+        "daño": "d8",
+        "penetracion": "1",
+        "durabilidad": "d8",
+        "precio": "15 mo"
+      },
+      "marca_nota": false,
+      "descripcion_literal": "Un círculo metálico con los bordes afilados y una empuñadura en el centro. Gracias a su forma, vuela a gran velocidad e impacta con fuerza, regresando de nuevo a su lanzador.",
+      "parrafo_descripcion": 1180
+    },
+    {
+      "nombre": "Shuriken",
+      "familia": "arrojadiza",
+      "clase_original": "Armas de una mano",
+      "tabla_word": 36,
+      "indice_fila": 8,
+      "estadisticas_literales": {
+        "alcance": "40 m",
+        "daño": "d6",
+        "penetracion": "1",
+        "durabilidad": "d6",
+        "precio": "1 mo"
+      },
+      "marca_nota": true,
+      "descripcion_literal": "Estrella metálica de cuatro o cinco puntas del tamaño de la palma de la mano. Se puede arrojar con facilidad como método disuasorio, para facilitar la huída, o embadurnar en veneno para administrar la toxina a distancia.",
+      "parrafo_descripcion": 1184
+    },
+    {
+      "nombre": "Red",
+      "familia": "arrojadiza",
+      "clase_original": "Armas de dos manos",
+      "tabla_word": 36,
+      "indice_fila": 10,
+      "estadisticas_literales": {
+        "alcance": "4 m",
+        "daño": "d3",
+        "penetracion": "0",
+        "durabilidad": "d4",
+        "precio": "10 mo"
+      },
+      "marca_nota": true,
+      "descripcion_literal": "Una extensa red de cuerda con trozos de metal en los extremos para hacer más peso. Una criatura que sufre daño por la red queda impedida por ella hasta que se libere mediante una tirada de Fuerza.",
+      "parrafo_descripcion": 1182
+    }
+  ],
+  "notas_literales": [
+    {
+      "familia": "puño",
+      "parrafo": 1157,
+      "texto": "† Set de 2 garras / guantes. Deben vestirse en cada mano."
+    },
+    {
+      "familia": "arrojadiza",
+      "parrafo": 1172,
+      "texto": "† No regresan a su lanzador al arrojarse."
+    }
+  ],
+  "contexto_arrojadizas_parrafo_1171": "Las habilidades del celador requieren el uso de armas arrojadizas que no aparecen en el manual básico. El bumerán y el cuchillo alado se consideran armas ligeras; las boleadoras, el chakram y el shuriken se consideran armas de una mano, y la red se considera arma de dos manos.",
+  "advertencia": "Los valores se conservan literalmente, incluidos signos '-', dados y moneda; no se inventa equivalencia de precios o efecto de retorno."
+}

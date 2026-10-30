@@ -1,0 +1,208 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "titulo": "NaufragioD20 — Ocupaciones",
+    "url": "https://docs.google.com/document/d/1Zx60pJI_ETuyXvoiATUQk__E2-WUAjAnMbVBzsocIrc/edit",
+    "revision": "AHj4eMT2rOoSo0UavC-SPB-x2KuJ7Qp82ILoADuTR84JXsV6lS2MtAx5evc6pBzac_KCDoW2Wm8QmGvjp73j_g"
+  },
+  "categoria": "Eidolas Categoría 3",
+  "estado": "transcripcion_literal_de_tres_modalidades_y_narrativa",
+  "registros": [
+    {
+      "nombre": "Binexa",
+      "encabezado_literal": "Binexa, el corazón desgarrado",
+      "categoria": 3,
+      "afinidad_literal": "Elemento afín: Oscuridad",
+      "parrafos_fuente": [
+        4979,
+        4987
+      ],
+      "contexto_narrativo_literal": [
+        "Existe una leyenda antigua, más bien un cuento para niños, en el que se cuenta la trágica historia de Binexa, una entidad que alguna vez fue una criatura seductora y embriagadora, capaz de embelesar a cualquier ser con su presencia. Sin embargo, cuando su amor verdadero le rompió el corazón, su esencia se distorsionó y se convirtió en una criatura oscura, llena de resentimiento y desamor. Su forma, que antaño era sublime, ahora está marcada por el vacío de su dolor.",
+        "Binexa aparece como una figura elegante y esbelta, con una presencia cambiante que fluye entre la belleza y lo grotesco. Sus alas, antes majestuosas, ahora son sombras rasgadas que se extienden como un manto sobre el campo de batalla. Su rostro, en constante transformación, refleja emociones de tristeza profunda y malicia latente. En su pecho, hay un agujero donde debería estar su corazón, un vacío del que emana una oscuridad opresiva.",
+        "Para invocarlo, el invocador debe sacrificar un recuerdo feliz, escribiéndolo en un pergamino antes de quemarlo en una llama negra, invocando así el dolor de Binexa."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la pesadumbre de Binexa, con la que tus ojos se tornarán de un negro profundo, y tus palabras se vuelven irresistibles. Durante 1d4 Turnos, puedes debilitar a tus enemigos, haciendo que cada criatura a la que mires mientras la ataques sufra un -1 a sus Tiradas de Ataque y Defensa. Además, tus enemigos tienen Desventaja en todas las Tiradas de Moral.",
+        "Canalizar": "Canalizar: Desgarrón emocional. Una sombra rápida y fría surge del diagrama, haciendo que Binexa se materialice desde la oscuridad, extendiendo sus alas negras y liberando un grito que llena el aire de angustia. Todas las criaturas en un radio de 15 metros alrededor sufren 18d10 de daño psíquico. Además, todas aquellas criaturas con una Moral de 8 o menos deben realizar una Tirada de Moral.",
+        "Materializar": "Materializar: Salud 9/d9/2, Ataque d8, Blindaje d6. Binexa se materializa como una figura flotante, capaz de atacar a sus enemigos con garras que atraviesan tanto el cuerpo como la mente. Durante 2d6 Turnos, peleará a tu lado, drenando lentamente la energía vital de las criaturas cercanas. Cualquier enemigo que esté a 3 metros de Binexa durante su manifestación sufrirá 2d6 de daño psíquico por Turno debido a la opresiva atmósfera emocional que crea a su alrededor."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4985,
+        "Canalizar": 4986,
+        "Materializar": 4987
+      }
+    },
+    {
+      "nombre": "Cath Palug",
+      "encabezado_literal": "Cath Palug, guardián de las llamas del cambio",
+      "categoria": 3,
+      "afinidad_literal": "Elemento afín: Fuego",
+      "parrafos_fuente": [
+        4988,
+        4995
+      ],
+      "contexto_narrativo_literal": [
+        "En su forma actual, Cath Palug se presenta como un pequeño felino mágico, una apariencia engañosamente inofensiva. Sin embargo, su verdadera naturaleza es la de Agnisthar, el Dios del Fuego, cuyo poder ancestral tenía el potencial de arrasar imperios enteros. Derrotado por un legendario Tetraarcontae, su esencia fue sellada en un cuerpo más dócil, pero no por ello menos peligroso. Cath Palug ofrece su poder a las invocadoras con la capacidad de controlar su voraz energía, otorgando un calor protector o la devastación absoluta del fuego.",
+        "Cath Palug se manifiesta como un felino de tamaño mediano, su cuerpo envuelto en llamas que cambian de tono, pasando del rojo intenso al naranja y al azul. Su pelaje es de color negro carbón, pero sus patas y cola están cubiertas de fuego perpetuo, y sus ojos arden con una luz dorada intensa. Aunque su tamaño es pequeño y su apariencia tierna, el calor que emana es abrasador, lo que sugiere la inmensa energía contenida en su cuerpo. En combate, cuando libera su poder, su forma felina puede expandirse, adquiriendo proporciones bestiales con garras envueltas en llamas y una melena de fuego que ondea a su alrededor."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el manto ardiente de Cath Palug, provocando que tus ataques adquieran el poder del fuego. Durante 1d6 Turnos, tus ataques cuerpo a cuerpo infligen 4d6 de daño por fuego adicional, y obtienes inmunidad al daño por fuego.",
+        "Canalizar": "Canalizar: Explosión ígnea. El suelo comienza a agrietarse bajo los pies del invocador, y de las grietas surgen llamas envolventes. Cath Palug aparece, elevándose en una columna de fuego antes de liberar una onda de calor abrasador. Las llamas se expanden en un radio de 24 metros alrededor de él. Cada criatura en el área sufre 24d6 de daño por fuego, y aquellas que sean heridas, tienen una Probabilidad 14+ de quedar Atrapadas por las llamas, sufriendo 2d6 de daño adicional por cada Turno que permanezcan en el fuego.",
+        "Materializar": "Materializar: Salud 6/2d6/2, Ataque 2d6, Blindaje d6. Cath Palug toma su forma de felino mágico y lucha junto a su invocadora, utilizando su agilidad y sus ataques cargados de fuego. Permanecerá en el campo de batalla durante 3d6 Turnos o hasta que su salud sea agotada."
+      },
+      "indices_modalidades": {
+        "Encarnar": 4993,
+        "Canalizar": 4994,
+        "Materializar": 4995
+      }
+    },
+    {
+      "nombre": "Ezion",
+      "encabezado_literal": "Ezion, la tempestad del desierto",
+      "categoria": 3,
+      "afinidad_literal": "Elemento afín: Tierra",
+      "parrafos_fuente": [
+        4996,
+        5003
+      ],
+      "contexto_narrativo_literal": [
+        "Es el espíritu que habita en las tierras del pasado, la deidad que domina las tormentas de arena y los vastos desiertos. Su forma no es del todo sólida: es un ente fluctuante, formado por partículas de arena y roca que giran a su alrededor en un remolino continuo. En lugar de una figura humanoide estándar, toma la forma de una criatura que cambia constantemente, como una esfinge sin rostro, una figura compuesta por la arena que controla.",
+        "El viento siempre está a su alrededor, azotando cualquier cosa cercana, erosionando piedra, acero e incluso la voluntad de quienes le desafían. Ezion simboliza el poder transformador de la tierra y el tiempo, capaz de destruir y crear en un instante. Para obtener su ayuda, el invocador debe ofrecer a Ezion una reliquia de otra era."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la ordalía de Ezion, obteniendo la capacidad de controlar la tierra y la arena a tu alrededor. Puedes crear muros de arena o endurecer la tierra bajo tus pies para ganar protección. También adquieres Blindaje d8 contra ataques físicos y puedes moverte libremente a través de la tierra suelta o arena durante 1d6 Turnos.",
+        "Canalizar": "Canalizar: Llagas del desierto. Ezion desata una tormenta de arena que se expande en un área de 30 metros a su alrededor. Todas las criaturas dentro de este radio son cegadas por la arena durante 2d6 Turnos. La tormenta inflige 26d6 de daño cortante a todas las criaturas atrapadas en ella, y la visibilidad se reduce a prácticamente cero.",
+        "Materializar": "Materializar: Salud 8/d8/1, Ataque 2d6, Blindaje d4. Ezion se materializa como un remolino viviente de arena y viento, atacando con látigos de polvo y roca. Puede generar una tormenta menor a su alrededor que reduce la movilidad de los enemigos en un área de 12 metros y luchará a tu lado hasta que su salud se agote o el combate termine."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5001,
+        "Canalizar": 5002,
+        "Materializar": 5003
+      }
+    },
+    {
+      "nombre": "Nerevion",
+      "encabezado_literal": "Nerevion, la vorágine de las profundidades",
+      "categoria": 3,
+      "afinidad_literal": "Elemento afín: Agua",
+      "parrafos_fuente": [
+        5004,
+        5011
+      ],
+      "contexto_narrativo_literal": [
+        "Nerevion es el espíritu invocador de las profundidades oceánicas, nacido en los abismos más oscuros y peligrosos del mar. Su poderosa cola se enrosca y golpea como un látigo de maremoto, mientras sus pinzas pueden aplastar barcos y rocas con facilidad. Nerevion controla tanto las mareas furiosas como las tranquilas corrientes subterráneas, representando el poder caótico y sereno del océano.",
+        "Tiene el cuerpo alargado y sinuoso de una morena, pero con una gigantesca cabeza de langosta que domina su parte delantera. Su caparazón oscuro está decorado con bioluminiscencia natural que emite destellos azules y verdes, semejantes a los de las criaturas abisales. Sus pinzas son masivas, capaces de romper incluso el metal más duro, y su cuerpo serpentea con una fluidez casi hipnótica. Su cola se extiende por varios metros, y la utiliza para generar potentes olas o envolverse alrededor de enemigos. Sus ojos, brillando como perlas negras, parecen contener la inmensidad del océano."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la coraza de Nerevion, haciendo que tu cuerpo se adapte al entorno acuático. Obtienes la habilidad de respirar bajo el agua y nadas a una velocidad vertiginosa. Además, tus extremidades se vuelven más fuertes y letales, obteniendo Ventaja en ataques cuerpo a cuerpo durante 1d6 Turnos y causas 3d6 de daño contundente adicional con tus ataques cuerpo a cuerpo. También obtienes una armadura natural con Blindaje d8.",
+        "Canalizar": "Canalizar: Torbellino abisal. Nerevion surge de un torbellino marino, creando un gigantesco remolino de agua alrededor de sus enemigos. Las criaturas en un radio de 24 metros son atrapadas en el remolino, sufriendo 20d8 de daño por aplastamiento mientras son arrastradas hacia el fondo del torbellino. Si una criatura muere producto de la canalización de Nerevion, su cuerpo será absorbido por el abismo primordial del que surge el Eidolón y no se podrá recuperar.",
+        "Materializar": "Materializar: Salud 8/d8/1, Ataque d8+2, Blindaje d10. Nerevion aparece como una criatura marina monstruosa, utilizando su cuerpo serpenteante y sus poderosas pinzas para aplastar a sus enemigos. Su presencia reduce el daño por frío y agua en un área de 15 metros a su alrededor, y puede luchar durante 2d6 Turnos o hasta que su salud sea agotada."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5009,
+        "Canalizar": 5010,
+        "Materializar": 5011
+      }
+    },
+    {
+      "nombre": "Skaldrak",
+      "encabezado_literal": "Skaldrak, leviatán errante",
+      "categoria": 3,
+      "afinidad_literal": "Elemento afín: Hielo",
+      "parrafos_fuente": [
+        5012,
+        5020
+      ],
+      "contexto_narrativo_literal": [
+        "En las frías aguas de las Islas Handelhaok, más allá de la Cordillera de la Ventisca, se cuenta la leyenda de Skaldrak, un colosal reptil helado cuya espalda, envuelta en glaciares, es vista por los bárbaros como una isla errante. Dicen que cuando el Sorguerno se hace más crudo y las tormentas marinas azotan las costas, es Skaldrak quien se mueve bajo las aguas, despertado de su letargo de eras. Este monstruoso eidolon es una entidad de hielo puro, cuyos huesos ancestrales permanecieron congelados en los abismos del mar hasta ser reanimados por las fuerzas arcanas del fin de las eras.",
+        "Con su gigantesco cuerpo cubierto de picos de hielo, su espalda parece un glaciar flotante, y su cola, larga como un río congelado, puede partir barcos en dos. Su leyenda está envuelta en misterio, pues nadie ha sobrevivido al encuentro con Skaldrak para contarlo. Los pueblos bárbaros lo reverencian como un dios de las aguas congeladas, y cuando las islas errantes aparecen en el mar, las aldeas sacrifican fuego en su honor para aplacar su furia.",
+        "Invocar a Skaldrak requiere quemar una antorcha en el mar helado y dejar que las llamas sean apagadas por el océano."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la carga de Skaldrak, cubriendo tu cuerpo se cubre con una gruesa capa de escamas de hielo que te vuelve inmune al daño de agua y hielo. Además, eres capaz de liberar oleadas de frío a distancia, con un alcance de 8 metros, mediante una Tirada de Agilidad; si tienes éxito, causas 4d6 de daño por frío a 1d3 objetivos al alcance. La mitad si fallas.",
+        "Canalizar": "Canalizar: Castigo glaciar. De las profundidades heladas surge Skaldrak, envolviendo a los enemigos en una oleada de agua helada y trozos de hielo flotante. Las criaturas en un radio de 24 metros son golpeadas por un maremoto de frío, sufriendo 25d8 de daño por hielo. Las criaturas que queden heridas por la marea tienen una probabilidad de 16+ de quedar Atrapadas en el hielo durante 1d4 Turnos, sin poder moverse ni actuar.",
+        "Materializar": "Materializar: Salud 12/d12/3, Ataque 2d8, Blindaje d10. Skaldrak emerge como un monstruoso saurio de hielo, aplastando a sus enemigos con su gigantesco cuerpo y congelando el campo de batalla a su alrededor. Luchará a tu lado durante 2d6 Turnos o hasta que su salud sea agotada."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5018,
+        "Canalizar": 5019,
+        "Materializar": 5020
+      }
+    },
+    {
+      "nombre": "Velghor",
+      "encabezado_literal": "Velghor, viento furioso",
+      "categoria": 3,
+      "afinidad_literal": "Elemento afín: Viento",
+      "parrafos_fuente": [
+        5021,
+        5028
+      ],
+      "contexto_narrativo_literal": [
+        "Esta criatura descomunal formada por corrientes de aire huracanadas y ciclónicas es una entidad tan primitiva como el propio mundo. Su cuerpo está compuesto por nubes densas y cargadas de energía, que se enroscan alrededor de un núcleo brillante y etéreo. Velghor encarna la libertad y la furia de la naturaleza, su poder es salvaje e indomable, y dondequiera que aparece, el cielo se agita y las ráfagas de viento sacuden la tierra. Los cielos responden a su llamado, liberando vientos violentos que pueden devastar bosques, arrancar montañas y levantar ciudades enteras. Es el protector de los cielos y un ser impredecible, caótico como el propio viento.",
+        "Tiene la forma de una serpiente aérea colosal, con un cuerpo alargado compuesto por nubes y vientos ciclónicos que giran incesantemente. Sus ojos brillan con un azul intenso, centelleando como rayos en medio de la tormenta. Sus extremidades son tentáculos formados por remolinos de aire, que desgarran el entorno mientras flota sobre la superficie. Aunque carece de alas físicas, puede moverse a velocidades aterradoras, y donde sea que pase, deja un rastro de destrucción en la tierra. Su rugido es el propio sonido del viento gritando."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe los vendavales de Velghor, convirtiéndote en un ser de viento y velocidad. Obtienes inmunidad a los ataques físicos que no sean mágicos durante 1d6 Turnos, y puedes moverte con la velocidad del viento, permitiéndote realizar dos acciones de movimiento por turno sin penalización. Además, cualquier ataque que realices genera una ráfaga de viento, empujando a tus enemigos 3 metros hacia atrás.",
+        "Canalizar": "Canalizar: Zona huracanada. Velghor desata una ráfaga de viento masiva que arrasa todo a su paso. En un cono de 30 metros, los vientos violentos arrancan árboles, destruyen construcciones y lanzan a los enemigos por los aires. Cualquier criatura en el área es arrastrada por el viento y sufre 30d6 de daño contundente. Los objetos no asegurados son levantados y arrojados lejos.",
+        "Materializar": "Materializar: Salud 9/d9/0, Ataque 2d8, Blindaje d11. Velghor se materializa como una tormenta de viento encarnada, luchando a tu lado con ataques de aire que desgarran a los enemigos. Puede crear un aura de vendaval a su alrededor, que reduce la velocidad de los enemigos en un área de 15 metros y derriba cualquier proyectil lanzado hacia él. Luchará hasta que su salud se agote o el combate termine."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5026,
+        "Canalizar": 5027,
+        "Materializar": 5028
+      }
+    },
+    {
+      "nombre": "Yl-Veris",
+      "encabezado_literal": "Yl-Veris, la reina de la poza",
+      "categoria": 3,
+      "afinidad_literal": "Elemento afín: Naturaleza",
+      "parrafos_fuente": [
+        5029,
+        5036
+      ],
+      "contexto_narrativo_literal": [
+        "Las habladurías cuentan una historia sobre Yl-Veris, una preciosa monarca feérica procedente de Sylestria. Sus hazañas se esparcen entre ciénagas olvidadas, donde la naturaleza prospera con veneno y podredumbre. De lejos, parece una majestuosa reina hada, envuelta en un manto de flores y hojas, su rostro brillante y sereno. Pero al acercarse, su verdadera cara queda expuesta: su piel muestra grietas que exudan bilis verde, y de su interior emerge un hedor corrosivo.",
+        "Yl-Veris es la encarnación de la belleza traicionera del pantano, donde todo lo que parece hermoso por fuera es tóxico por dentro. Aunque controla los ciclos naturales, su especialidad es la decadencia y la enfermedad. Exige de su invocador una gota de sangre derramada en tierra húmeda antes de prestar su poder."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el abrazo de Yl-Veris, obteniendo inmunidad al veneno y a la enfermedad durante 1d6 Turnos. Además, cualquier enemigo que te ataque cuerpo a cuerpo tiene una Probabilidad 14+ de quedar envenenado con un Veneno igual a tu nivel durante 1d4 Turnos.",
+        "Canalizar": "Canalizar: Eructo fétido. La Reina del Pantano se materializa envuelta en niebla verde, liberando un vaho tóxico que se extiende en un área de 24 metros. Todas las criaturas dentro de este radio quedan envenenadas con un Veneno igual a tu nivel +2 y sufren 12d8 de daño por veneno. Además, tienen una Probabilidad 16+ de quedar cegadas, debilitadas, y enfermas durante 1d4 Turnos.",
+        "Materializar": "Materializar: Salud 10/d10/2, Ataque d8, Blindaje d6. Yl-Veris lucha a tu lado, criticando tu ropa, tus decisiones estéticas e incluso la forma en la que te mueves, corrompiendo el entorno a su paso y debilitando a las criaturas cercanas con su presencia. Puede mantenerse en el campo de batalla durante 2d6 Turnos o hasta que falle 2 ataques seguidos, momento en el que se frustrará, se enfadará y se desvanecerá tras una sonora flatulencia. Mientras esté presente, las criaturas en un radio de 15 metros ven su velocidad reducida a la mitad por el terreno fangoso que genera a su alrededor."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5034,
+        "Canalizar": 5035,
+        "Materializar": 5036
+      }
+    },
+    {
+      "nombre": "Zephradon",
+      "encabezado_literal": "Zephradon, el trueno eterno",
+      "categoria": 3,
+      "afinidad_literal": "Elemento afín: Rayo",
+      "parrafos_fuente": [
+        5037,
+        5044
+      ],
+      "contexto_narrativo_literal": [
+        "En las cimas más altas de las Montañas Sagradas, Zephradon reina sobre los cielos, desatando tormentas furiosas que rugen en todo el Archipiélago de Malasteen. Es conocido por su temperamento volátil, y aunque invocar su poder no es tarea fácil, aquellos que lo logran pueden desatar su cólera a través de devastadores rayos y truenos. Sin embargo, no concede su poder sin sacrificios; el invocador debe demostrar su dominio sobre los cielos, soportando una tormenta natural bajo su tutela para ganarse su favor.",
+        "Zephradon se manifiesta como un coloso envuelto en rayos y energía eléctrica. Su figura humanoide está compuesta por pura energía luminosa, con músculos que parecen tallados en un cuerpo de tormenta. Su piel es oscura y opaca, apenas visible bajo la malla de relámpagos que lo rodea. En lugar de ojos, tiene dos orbes blancos que emiten luz cegadora, y sus brazos son largos, con dedos afilados que vibran con la electricidad. Alrededor de su torso se pueden ver fragmentos de nube oscura, que lo envuelven y se expanden al moverse. Cada paso que da parece resonar como un trueno, y el aire a su alrededor chisporrotea con tensión eléctrica."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la furia de Zephradon, haciendo que tus movimientos se aceleren como un rayo. Obtienes Ventaja en todas las tiradas de Agilidad durante 1d6 Turnos, y tus ataques cuerpo a cuerpo y a distancia infligen 4d6 de daño por rayo adicional.",
+        "Canalizar": "Canalizar: Veredicto galvánico. Las nubes se arremolinan sobre el invocador mientras Zephradon desciende con la velocidad del rayo. En un estallido de luz cegadora, descarga rayos en un cono de 27 metros frente a él. Cada criatura herida por la tormenta sufre 20d6 de daño por rayo, y tienen una Probabilidad 12+ de quedar Cegadas durante 1d4 Turnos.",
+        "Materializar": "Materializar: Salud 12/d12/2, Ataque d10, Blindaje d8. Zephradon se materializa con su imponente forma de entidad eléctrica, golpeando a sus enemigos con rayos y truenos durante 2d8 Turnos o hasta que su salud sea agotada. Además, reduce la posibilidad de que los enemigos puedan esconderse o escapar, ya que la tormenta que lo acompaña ilumina todo el campo de batalla."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5042,
+        "Canalizar": 5043,
+        "Materializar": 5044
+      }
+    }
+  ],
+  "nota": "Cada modalidad y texto narrativo se conserva íntegramente; los índices corresponden a párrafos normalizados del Google Doc vigente. No se reescriben fuentes históricas ni se declaran mecánicamente validados los efectos."
+}

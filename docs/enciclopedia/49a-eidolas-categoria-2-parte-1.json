@@ -1,0 +1,63 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "categoria": "Eidolas",
+  "nivel_categoria": 2,
+  "estado": "texto_literal_modalidades;_narracion_ambiental_pendiente",
+  "registros": [
+    {
+      "nombre": "Arkonis",
+      "categoria": 2,
+      "elemento_afin": "Tierra",
+      "parrafos": [
+        1550,
+        1557
+      ],
+      "encarnar_literal": "Encarnar: recibe la Coraza de Arkonis, lo que te otorga 3d6 puntos de Blindaje contra el daño cortante y perforante, además de aumentar su resistencia a Condiciones como Veneno y Enfermedad durante 1d8 Turnos. Además, te vuelves inmune a ser derribado o empujado.",
+      "canalizar_literal": "Canalizar: Escudo terráqueo. Una barrera de rocas y tierra endurecida se materializa en un radio de 12 metros, protegiendo a todos tus aliados del daño. Arkonis parece proteger a tus aliados con su cuidado férreo. Cualquier aliado dentro de la barrera recibe 2d8 menos de daño por cada ataque durante 1d4 Turnos.",
+      "materializar_literal": "Materializar: Salud 12/d12/2, Ataque d6, Blindaje d12. Arkonis emerge del suelo como una estatua colosal y lucha al lado del invocador durante 3d6 Turnos, desatando poderosos golpes de tierra que crean fisuras y empujan a los enemigos 6 metros hacia atrás. Su presencia refuerza la defensa natural del grupo, otorgando +2 a todas las Tiradas de salvación contra Condiciones negativas."
+    },
+    {
+      "nombre": "Goralax",
+      "categoria": 2,
+      "elemento_afin": "Fuego",
+      "parrafos": [
+        1558,
+        1565
+      ],
+      "encarnar_literal": "Encarnar: recibe el ardor de Goralax para adquirir inmunidad absoluta al fuego y al agua durante 1d8 Turnos.",
+      "canalizar_literal": "Canalizar: Meteoro cinéreo. La temperatura ambiente en un radio de 15 metros alrededor del invocador comienza a subir hasta hacerse insoportable. De un portal cuadrangular que aparece entre llamas surge Goralax, caminando lentamente. Previo a realizar su ataque, echa un vistazo en derredor y libera una enorme bola de fuego que surge de sus fauces. De inmediato, la llamarada se torna azul y después gris, cayendo sobre el área circular de 12 metros alrededor de la bestia, liberando una enorme ola de energía ardiente que abrasa a cualquier ser en el interior. Cada criatura herida por el fuego sufre 16d5 de daño por calor.",
+      "materializar_literal": "Materializar: Salud 8/1d8/1, Ataque 4d4, Blindaje d10. Un pequeño avatar de Goralax es arrastrado lejos de sus campos cenicientos y luchará contigo hasta que mueran 3 criaturas o finalice el enfrentamiento."
+    },
+    {
+      "nombre": "Maia",
+      "categoria": 2,
+      "elemento_afin": "Viento",
+      "parrafos": [
+        1566,
+        1572
+      ],
+      "encarnar_literal": "Encarnar: recibe el toque de Maia para ganar Blindaje 2d6 contra daño a distancia, ya que una brisa suave desvía los proyectiles que te atacan. Además, durante 1d4 Turnos, puedes realizar Tiradas de Agilidad y Resistencia con Ventaja.",
+      "canalizar_literal": "Canalizar: Céfiro agotador. Una sensación de tranquilidad surge de repente, momento en el que Maia aparece y desata una ráfaga de viento suave pero implacable en un radio de 12 metros que agota las fuerzas de todas las criaturas al alcance. Todas aquellas afectadas por esta brisa tienen una Probabilidad 11+ de quedar Cansadas y no podrán realizar más de una acción por Turno durante 1d4 Turnos.",
+      "materializar_literal": "Materializar: Salud 6/1d6/1, Ataque d6, Blindaje d4. Maia aparecerá a tu vera como una figura etérea envuelta en viento y luz plateada, provocando un -2 a todas las Tiradas de las criaturas que tú consideres enemigas y estén a metros o menos de ti con ráfagas suaves pero persistentes. Permanecerá en el campo de batalla durante 2d6 Turnos o hasta que haya cansado a 5 criaturas."
+    },
+    {
+      "nombre": "Opharis",
+      "categoria": 2,
+      "elemento_afin": "Luz",
+      "parrafos": [
+        1573,
+        1581
+      ],
+      "encarnar_literal": "Encarnar: recibe la Claridad de Opharis, obteniendo Ventaja en tiradas de Intuición durante 1d6 Turnos. También puede ver a través de ilusiones o sanar 2d6 puntos de salud a cualquier aliado en un radio de 10 metros a tu alrededor.",
+      "canalizar_literal": "Canalizar: Resplandor sanador. Un estallido de luz anuncia la presencia de Opharis, que sana a todos los aliados en un radio de 12 metros alrededor del diagrama. Cada aliado recupera 4d8 puntos de salud y puede realizar una Tirada de Salvación para librarse de cualquier estado debilitante.",
+      "materializar_literal": "Materializar: Salud 8/d8/2, Ataque d6, Blindaje d6. Opharis lucha a tu lado durante 2d6 Turnos, creando una aura de luz que restaura 1d6 puntos de salud a los aliados cercanos en cada Turno."
+    }
+  ],
+  "incidencias": [
+    {
+      "id": "OCP-19",
+      "nombre": "Maia",
+      "descripcion": "En Materializar se indica 'estén a metros o menos de ti', falta la cifra de alcance, no inferir."
+    }
+  ]
+}

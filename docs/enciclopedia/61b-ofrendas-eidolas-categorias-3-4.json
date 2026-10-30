@@ -1,0 +1,242 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Ocupaciones; fichas vivas de Eidolas",
+  "criterio": "Ausencia de mención explícita no equivale a ausencia de requisito; no inventar sacrificios, ofrendas, plazos o componentes. Los resúmenes son clasificación, no texto de reglas.",
+  "total": 16,
+  "sin_mencion_explicita": 5,
+  "registros": [
+    {
+      "eidolon": "Binexa",
+      "categoria": 3,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "sacrificio_narrativo",
+      "resumen_no_literal": "recuerdo feliz escrito en pergamino y quemado en llama negra",
+      "momento_no_literal": "para invocarlo",
+      "pasaje_original_integro": "Para invocarlo, el invocador debe sacrificar un recuerdo feliz, escribiéndolo en un pergamino antes de quemarlo en una llama negra, invocando así el dolor de Binexa.",
+      "indice_parrafo_narrativo": 2,
+      "fuente_ficha": "59a-eidolas-categoria-3-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        4979,
+        4987
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Cath Palug",
+      "categoria": 3,
+      "estado": "sin_condicion_explicita_en_narrativa_examinada",
+      "fuente_ficha": "59a-eidolas-categoria-3-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        4988,
+        4995
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Ezion",
+      "categoria": 3,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ofrenda_material",
+      "resumen_no_literal": "reliquia de otra era",
+      "momento_no_literal": "para obtener su ayuda",
+      "pasaje_original_integro": "El viento siempre está a su alrededor, azotando cualquier cosa cercana, erosionando piedra, acero e incluso la voluntad de quienes le desafían. Ezion simboliza el poder transformador de la tierra y el tiempo, capaz de destruir y crear en un instante. Para obtener su ayuda, el invocador debe ofrecer a Ezion una reliquia de otra era.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59a-eidolas-categoria-3-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        4996,
+        5003
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Nerevion",
+      "categoria": 3,
+      "estado": "sin_condicion_explicita_en_narrativa_examinada",
+      "fuente_ficha": "59a-eidolas-categoria-3-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5004,
+        5011
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Skaldrak",
+      "categoria": 3,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ritual_material",
+      "resumen_no_literal": "antorcha quemada en mar helado hasta ser apagada por el agua",
+      "momento_no_literal": "para invocarlo",
+      "pasaje_original_integro": "Invocar a Skaldrak requiere quemar una antorcha en el mar helado y dejar que las llamas sean apagadas por el océano.",
+      "indice_parrafo_narrativo": 2,
+      "fuente_ficha": "59a-eidolas-categoria-3-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5012,
+        5020
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Velghor",
+      "categoria": 3,
+      "estado": "sin_condicion_explicita_en_narrativa_examinada",
+      "fuente_ficha": "59a-eidolas-categoria-3-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5021,
+        5028
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Yl-Veris",
+      "categoria": 3,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ofrenda_material",
+      "resumen_no_literal": "gota de sangre sobre tierra húmeda",
+      "momento_no_literal": "antes de prestar su poder",
+      "pasaje_original_integro": "Yl-Veris es la encarnación de la belleza traicionera del pantano, donde todo lo que parece hermoso por fuera es tóxico por dentro. Aunque controla los ciclos naturales, su especialidad es la decadencia y la enfermedad. Exige de su invocador una gota de sangre derramada en tierra húmeda antes de prestar su poder.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59a-eidolas-categoria-3-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5029,
+        5036
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Zephradon",
+      "categoria": 3,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "prueba_narrativa",
+      "resumen_no_literal": "soportar tormenta natural bajo su tutela",
+      "momento_no_literal": "para ganar su favor",
+      "pasaje_original_integro": "En las cimas más altas de las Montañas Sagradas, Zephradon reina sobre los cielos, desatando tormentas furiosas que rugen en todo el Archipiélago de Malasteen. Es conocido por su temperamento volátil, y aunque invocar su poder no es tarea fácil, aquellos que lo logran pueden desatar su cólera a través de devastadores rayos y truenos. Sin embargo, no concede su poder sin sacrificios; el invocador debe demostrar su dominio sobre los cielos, soportando una tormenta natural bajo su tutela para ganarse su favor.",
+      "indice_parrafo_narrativo": 0,
+      "fuente_ficha": "59a-eidolas-categoria-3-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5037,
+        5044
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Faustargon",
+      "categoria": 4,
+      "estado": "sin_condicion_explicita_en_narrativa_examinada",
+      "fuente_ficha": "59b-eidolas-categoria-4-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5046,
+        5053
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Garathur",
+      "categoria": 4,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ritual_y_compromiso",
+      "resumen_no_literal": "arrojar al mar armadura real; proteger a su pueblo o seres queridos con la vida",
+      "momento_no_literal": "durante la convocatoria y como compromiso",
+      "pasaje_original_integro": "Garathur se manifiesta como un guerrero imponente cubierto de una armadura de coral y escamas de mar. Su tridente brilla con un fulgor azul profundo, y su capa, hecha de algas y espuma marina, ondea como si estuviera siempre bajo el agua. Se le convoca arrojando al mar una pieza de armadura real, y a cambio, exige que el invocador proteja a su pueblo o seres queridos con su vida, como él lo hizo.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59b-eidolas-categoria-4-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5054,
+        5061
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Hefair",
+      "categoria": 4,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "prueba_narrativa",
+      "resumen_no_literal": "dejarse llevar por alucinaciones de sus efluvios",
+      "momento_no_literal": "para obtener secretos de invocación",
+      "pasaje_original_integro": "Hefair exige a sus invocadores que se dejen llevar por las alucinaciones provocadas por sus efluvios. Cuando escucha sus gritos de desesperación y confusión, es cuando otorga sus secretos para invocarlo.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59b-eidolas-categoria-4-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5062,
+        5071
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Ifraya",
+      "categoria": 4,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ritual_material",
+      "resumen_no_literal": "lágrima sobre nieve virgen",
+      "momento_no_literal": "durante la invocación",
+      "pasaje_original_integro": "Ifraya se manifiesta como una figura alta y majestuosa, con piel pálida y ojos azules brillantes que reflejan los glaciares más antiguos. Viste un manto hecho de hielo puro, que chisporrotea y se desintegra en polvo de nieve a cada paso. Sus cabellos parecen estar formados por estalactitas cristalinas, y su corona es una tiara de hielo. Su invocación requiere que el invocador derrame una lágrima sobre la nieve virgen, simbolizando la frialdad y la pérdida.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59b-eidolas-categoria-4-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5072,
+        5079
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Kleion",
+      "categoria": 4,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "prueba_narrativa",
+      "resumen_no_literal": "afrontar escenas del pasado con apariciones cronománticas",
+      "momento_no_literal": "condición para aceptar invocador",
+      "pasaje_original_integro": "Este ser primordial es la manifestación viviente de las corrientes del tiempo, un ser capaz de doblar, alterar y romper las reglas del espacio y la realidad a su antojo. Como predecesor del Vórtice del Vacío, su existencia está profundamente entrelazada con la línea temporal de Eilath, pero su poder es tan vasto que ni siquiera él puede contener el caos absoluto del Vórtice. Kleion exige a sus invocadores que se enfrenten a situaciones del pasado, en el que apariciones cronománticas de sucesos tan reales como si hubiesen sucedido de verdad ponen en duda sus capacidades, su moralidad y su determinación. El señor del tiempo es muy exigente y no aceptará a cualquiera.",
+      "indice_parrafo_narrativo": 0,
+      "fuente_ficha": "59b-eidolas-categoria-4-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5080,
+        5088
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Luxorath",
+      "categoria": 4,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ritual_material",
+      "resumen_no_literal": "elevar piedra brillante en montaña al amanecer",
+      "momento_no_literal": "para invocarlo",
+      "pasaje_original_integro": "Luxorath flota de manera etérea, sin pies que toquen el suelo, su presencia es más la de una baliza cósmica que la de una criatura tangible. Su luz es cegadora pero llena de propósito, guiando a los perdidos y destruyendo las sombras más oscuras. Para invocar a Luxorath, el invocador debe elevar una piedra brillante sobre una montaña al amanecer, representando el ascenso de la luz sobre las tinieblas.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59b-eidolas-categoria-4-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5089,
+        5096
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Nunem",
+      "categoria": 4,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ofrenda_material",
+      "resumen_no_literal": "piedra volcánica genuina de volcán activo",
+      "momento_no_literal": "para invocarlo",
+      "pasaje_original_integro": "Las historias más antiguas mencionan a Nunem como el guardián de los volcanes que existían mucho antes de que el mundo se estabilizara. Este ser contiene dentro de sí el poder de la mismísima tierra en sus fases más violentas. Invocarlo requiere presentar como ofrenda una piedra volcánica genuina, extraída de lo profundo de un volcán activo, para demostrar tu valía.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59b-eidolas-categoria-4-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5097,
+        5104
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Valkhar",
+      "categoria": 4,
+      "estado": "sin_condicion_explicita_en_narrativa_examinada",
+      "fuente_ficha": "59b-eidolas-categoria-4-modalidades-y-lore.json",
+      "fuente_parrafos": [
+        5105,
+        5112
+      ],
+      "requisito_mecanico_confirmado": null
+    }
+  ],
+  "criterio_mecanico": "No se infiere obligatoriedad, momento de comprobación, pérdida de recursos ni bloqueo de la invocación a partir del texto narrativo; la condición de activación deberá derivarse de una regla explícita o decisión editorial.",
+  "con_mencion_narrativa_explicita": 11
+}

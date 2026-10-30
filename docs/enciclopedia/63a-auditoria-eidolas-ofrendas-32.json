@@ -1,0 +1,309 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "Fichas vivas documentadas en 59a–59d; extracción narrativa derivada 61a–61b",
+  "resultado": "consistente_documentalmente",
+  "errores": [],
+  "conteos": {
+    "fichas": 32,
+    "modalidades": 96,
+    "con_mencion_narrativa": 27,
+    "sin_mencion_narrativa": 5,
+    "por_categoria": {
+      "1": 8,
+      "2": 8,
+      "3": 8,
+      "4": 8
+    }
+  },
+  "sin_mencion_explicita": [
+    "Cath Palug",
+    "Nerevion",
+    "Velghor",
+    "Faustargon",
+    "Valkhar"
+  ],
+  "consideraciones": [
+    "Una mención narrativa NO define automáticamente bloqueo de invocación.",
+    "OCP-21 Velunion: afinidad Agua en tabla frente a Ninguno en ficha; esta auditoría no lo resuelve.",
+    "OCP-22 Maia: falta cifra de distancia en modalidad Materializar; esta auditoría no la inventa.",
+    "No se ha comprobado funcionamiento de Forja ni aplicado cambios al código."
+  ],
+  "referencias": {
+    "59c-eidolas-categoria-1-fichas-vigentes-completas.json": {
+      "sha": "39132dbc17bc1af00a5407632f8c1eba05b4502b"
+    },
+    "59d-eidolas-categoria-2-fichas-vigentes-completas.json": {
+      "sha": "ce8a550001e83acb7af4ad8ba4f31265e776ce63"
+    },
+    "59a-eidolas-categoria-3-modalidades-y-lore.json": {
+      "sha": "ce9a32315977b7bdb98359cf4271b843219c326b"
+    },
+    "59b-eidolas-categoria-4-modalidades-y-lore.json": {
+      "sha": "7437b63ce99f2a7035f4082e4cae9f1f4f4622ba"
+    },
+    "61a-ofrendas-eidolas-categorias-1-2.json": {
+      "sha": "dd30fe89f58ca5de6d5e9f241c404dcd8c779aa3"
+    },
+    "61b-ofrendas-eidolas-categorias-3-4.json": {
+      "sha": "2ebb460e3b3dd3e08a82ad0c4608c8586d318ef7"
+    }
+  },
+  "detalle": [
+    {
+      "nombre": "Kayulio",
+      "categoria": 1,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Lonian",
+      "categoria": 1,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Rufushia",
+      "categoria": 1,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Schoff",
+      "categoria": 1,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Sel-Line",
+      "categoria": 1,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Sheólidas",
+      "categoria": 1,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Tal-lu-reihm",
+      "categoria": 1,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Velunion",
+      "categoria": 1,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Arkonis",
+      "categoria": 2,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Goralax",
+      "categoria": 2,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Maia",
+      "categoria": 2,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Opharis",
+      "categoria": 2,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Talisa",
+      "categoria": 2,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Varlyna",
+      "categoria": 2,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Warnok",
+      "categoria": 2,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Xalanth",
+      "categoria": 2,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Binexa",
+      "categoria": 3,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Cath Palug",
+      "categoria": 3,
+      "modalidades": 3,
+      "estado_ofrenda": "sin_condicion_explicita_en_narrativa_examinada",
+      "hay_pasaje_original": false,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Ezion",
+      "categoria": 3,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Nerevion",
+      "categoria": 3,
+      "modalidades": 3,
+      "estado_ofrenda": "sin_condicion_explicita_en_narrativa_examinada",
+      "hay_pasaje_original": false,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Skaldrak",
+      "categoria": 3,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Velghor",
+      "categoria": 3,
+      "modalidades": 3,
+      "estado_ofrenda": "sin_condicion_explicita_en_narrativa_examinada",
+      "hay_pasaje_original": false,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Yl-Veris",
+      "categoria": 3,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Zephradon",
+      "categoria": 3,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Faustargon",
+      "categoria": 4,
+      "modalidades": 3,
+      "estado_ofrenda": "sin_condicion_explicita_en_narrativa_examinada",
+      "hay_pasaje_original": false,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Garathur",
+      "categoria": 4,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Hefair",
+      "categoria": 4,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Ifraya",
+      "categoria": 4,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Kleion",
+      "categoria": 4,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Luxorath",
+      "categoria": 4,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Nunem",
+      "categoria": 4,
+      "modalidades": 3,
+      "estado_ofrenda": "mencion_narrativa_explicita",
+      "hay_pasaje_original": true,
+      "requiere_integracion_mecanica": null
+    },
+    {
+      "nombre": "Valkhar",
+      "categoria": 4,
+      "modalidades": 3,
+      "estado_ofrenda": "sin_condicion_explicita_en_narrativa_examinada",
+      "hay_pasaje_original": false,
+      "requiere_integracion_mecanica": null
+    }
+  ]
+}

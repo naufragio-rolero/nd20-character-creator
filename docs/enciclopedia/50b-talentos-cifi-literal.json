@@ -1,0 +1,185 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20CiFi.docx",
+  "grupo": "CiFi",
+  "estado": "transcripcion_literal",
+  "registros": [
+    {
+      "ocupacion": "Diplomático",
+      "talento": "Oratoria exquisita",
+      "parrafos_documento": [
+        147,
+        149
+      ],
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "texto_literal": "Tienes Ventaja en las Tiradas de Presencia cuando estés dando un discurso frente a una multitud."
+    },
+    {
+      "ocupacion": "Diplomático",
+      "talento": "Preparación",
+      "parrafos_documento": [
+        150,
+        152
+      ],
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "texto_literal": "Tienes Ventaja en la Tirada de Iniciativa si vas a participar en el combate activamente."
+    },
+    {
+      "ocupacion": "Diplomático",
+      "talento": "Séquito personal",
+      "parrafos_documento": [
+        154,
+        159
+      ],
+      "activacion_literal": "Especial",
+      "coste_literal": null,
+      "texto_literal": "Dispones de un séquito de trabajadores que viajan contigo:\nTienes 1d6 +1 asistentes personales que te atienden en tus necesidades diarias durante un mínimo de 8 horas al día. Si alguno no está disponible, puedes solicitar un reemplazo en una semana.\nTambién tienes 1 guardaespaldas que tiene ficha de PNJ, intereses y personalidad definida; parlamenta con el Cronista qué capacidades y equipo tiene este individuo. Está contigo las 24 horas, pero necesita días libres. Si muere, puedes sustituirlo tras una semana de búsqueda y entrevistas.\nEn los Niveles 6 y 12 adquieres la posibilidad de reclutar 1 guardaespaldas más, hasta un total de 3 guardaespaldas."
+    },
+    {
+      "ocupacion": "Eudemonista",
+      "talento": "Armamento filosofal",
+      "parrafos_documento": [
+        183,
+        186
+      ],
+      "activacion_literal": "Especial",
+      "coste_literal": null,
+      "texto_literal": "Elige un arma cuerpo a cuerpo, que representará los valores que defiendes como miembro de la orden. Deberás ponerle un nombre y portarla con orgullo; la obtienes de forma gratuita. Si la pierdes o es destruída, tendrás que dedicar otra semana a reconstruirla, y un coste en Créditos que te indicará el Cronista.\nObtienes un +1 a las Tiradas de esquiva y de daño que realices con éste arma equipada. Ésta bonificación aumenta en +1 en los Niveles 6, 12 y 18, hasta un máximo de +4."
+    },
+    {
+      "ocupacion": "Eudemonista",
+      "talento": "Entelequia",
+      "parrafos_documento": [
+        188,
+        190
+      ],
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "texto_literal": "Tienes Desventaja en las Tiradas de Esencia cuando te coloques un Implante o pongas en tela de juicio tus valores (defínelos con el Cronista durante la creación de personaje)."
+    },
+    {
+      "ocupacion": "Eudemonista",
+      "talento": "Estoicismo",
+      "parrafos_documento": [
+        191,
+        194
+      ],
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "texto_literal": "Tu entrenamiento te ha concedido la capacidad de soportar el dolor de forma estoica. De forma natural tienes un d4 de Blindaje, que se regenera hasta el máximo durante un Intervalo de tranquilidad.\nEste Blindaje natural aumenta en un rango en los Niveles 6, 12 y 18, hasta un rango de d10."
+    },
+    {
+      "ocupacion": "Forajido",
+      "talento": "Pasado turbulento",
+      "parrafos_documento": [
+        215,
+        217
+      ],
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "texto_literal": "Todos los criminales tenéis un pasado: es un dicho que se repite en cada cárcel de las galaxias. Obtienes un +2 a las Tiradas de Presencia en entornos dónde se conozca —o se sospeche— de tu pasado."
+    },
+    {
+      "ocupacion": "Forajido",
+      "talento": "Suerte del tonto",
+      "parrafos_documento": [
+        219,
+        221
+      ],
+      "activacion_literal": "Reacción",
+      "coste_literal": null,
+      "texto_literal": "Tienes una potra que no te la crees ni tú; cuando obtengas un 1 como resultado en una Tirada de Atributo, puedes descartar ése resultado y tirar de nuevo (y te has de quedar con el nuevo resultado, incluso si es otro 1). Sin embargo, te llevarás algún perjuicio que el Cronista te indicará (como una penalización, algo de daño o pérdida de equipo)."
+    },
+    {
+      "ocupacion": "Psion",
+      "talento": "Entereza mental",
+      "parrafos_documento": [
+        241,
+        243
+      ],
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "texto_literal": "Tienes Ventaja a la hora de realizar una Tirada de Mente para soportar cualquier forma de control mental."
+    },
+    {
+      "ocupacion": "Psion",
+      "talento": "Someter el cuerpo",
+      "parrafos_documento": [
+        244,
+        246
+      ],
+      "activacion_literal": "Reacción",
+      "coste_literal": null,
+      "texto_literal": "Si no te quedan Puntos de Ímpetu para pagar el coste de Poderes Psiónicos, puedes recibir en su lugar 1d6 de daño por cada Punto de Ímpetu que necesites. Este daño no se puede reducir ni evitar de ninguna forma. Si mueres usando la Psiónica de esta forma, tu espíritu se convertirá en un atormentado espectro psíquico."
+    },
+    {
+      "ocupacion": "Soldado",
+      "talento": "Especialista en armamento",
+      "parrafos_documento": [
+        267,
+        270
+      ],
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "texto_literal": "Elige un tipo de arma entre armas cuerpo a cuerpo, pistolas, escopetas, ametralladoras, rifles o armas pesadas. Obtienes un +1 a las Tiradas de ataque y daño con ese tipo de armas; en los Niveles 3, 6, 9 y 12 esta bonificación aumenta en +1, hasta un total de +5.\nTambién recibes +1 Potencia en los Niveles 9 y 18."
+    },
+    {
+      "ocupacion": "Soldado",
+      "talento": "Llamada del deber",
+      "parrafos_documento": [
+        272,
+        274
+      ],
+      "activacion_literal": "Reacción",
+      "coste_literal": null,
+      "texto_literal": "Cuando tus Puntos de Salud estén por debajo de ¼ del máximo (por ejemplo, 5 o menos en un PJ con 20 Puntos de Salud) recuperarás 1d4 Puntos de Salud cada Turno hasta que estés por encima de ese ¼."
+    },
+    {
+      "ocupacion": "Soldado",
+      "talento": "Tiempo bala",
+      "parrafos_documento": [
+        275,
+        278
+      ],
+      "activacion_literal": "Acción",
+      "coste_literal": "Coste: 1 Esfuerzo",
+      "texto_literal": "Puedes forzar tus reflejos y tu capacidad de reacción; de esta forma, podrás actuar 2 veces seguidas durante tu Turno. Sin embargo, después de esta proeza sufrirás un -2 a todas las Tiradas para evitar ataques durante 2 Turnos. Esta penalización se reduce en 1 en los Niveles 9 y 18."
+    },
+    {
+      "ocupacion": "Tecnópata",
+      "talento": "Hacker",
+      "parrafos_documento": [
+        301,
+        303
+      ],
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "texto_literal": "Tienes Ventaja en las Tiradas de hackeo."
+    },
+    {
+      "ocupacion": "Tecnópata",
+      "talento": "Unión cibernética",
+      "parrafos_documento": [
+        304,
+        306
+      ],
+      "activacion_literal": "Pasiva",
+      "coste_literal": null,
+      "texto_literal": "Tienes Ventaja cuando debas realizar una Tirada de Esencia al ponerte un Implante. Si ya tienes Ventaja gracias a tu Especie, puedes elegir un Implante adicional de forma gratuita durante la Creación de personaje."
+    }
+  ],
+  "incidencias": [
+    {
+      "id": "OCP-23",
+      "ocupacion": "Psion",
+      "detalle": "El párrafo 238 denomina el recurso Puntos de Ímpetu (PI), mientras el 239 dice «cuántos PP tienes por Nivel». Mantener PI en Talentos y consultar tabla de progreso para resolver el rótulo PP."
+    }
+  ],
+  "advertencias": [
+    "Tecnópata: Unión cibernética ofrece un Implante adicional gratuito sólo si ya dispone de Ventaja por Especie.",
+    "El Eudemonista elige un arma concreta al iniciar Armamento filosofal; no aplicar bonificaciones a todas las armas.",
+    "No fusionar el Talento Preparación del Diplomático con el del Ladrón o Belisario: relaciones con Ocupaciones diferentes aunque texto coincida."
+  ]
+}

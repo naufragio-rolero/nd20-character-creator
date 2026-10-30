@@ -1,0 +1,163 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "document_id": "15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28",
+    "url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+    "revision": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ"
+  },
+  "ocupacion": "Investigador",
+  "estado": "transcripcion_literal_del_documento_vigente",
+  "registros": [
+    {
+      "ocupacion": "Investigador",
+      "talento": "Perspicacia de sabueso",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1028,
+        1034
+      ],
+      "parrafos_literales": [
+        "Perspicacia de sabueso",
+        "Pasiva",
+        "Tu instinto para desentrañar enigmas es prácticamente sobrenatural: ves patrones dónde otros no parecen distinguir nada evidente, observas cambios y alteraciones en el orden, pero todo tiene sentido para ti.",
+        "Obtienes un +2 en todas tus Tiradas de Intuición o Mente para investigar escenas del crimen, analizar pistas o examinar objetos en busca de detalles ocultos.",
+        "Además, nunca te vas con las manos vacías de una escena: si fallas una tirada de investigación en un lugar donde sí hay algún indicio relevante, el Cronista te revelará igualmente una pista menor o parcial (aunque quizá requiera indagar más adelante para conectar todas las piezas).",
+        "Por último, una vez al día puedes declarar que «has leído sobre algo así»: esto te permite recordar inmediatamente un dato crucial (el punto débil de una criatura, el significado de un símbolo rúnico, etc.) sin necesidad de Tirada, siempre que ese conocimiento esté al menos documentado en tu mundo.",
+        "En los Niveles 6, 12, 18 y 24, ganas una pregunta adicional que puedes hacer al Cronista a lo largo del día con este talento (hasta un máximo de 5 preguntas en Nivel 24), representando tu vasta experiencia acumulada."
+      ],
+      "texto_literal": "Perspicacia de sabueso\nPasiva\nTu instinto para desentrañar enigmas es prácticamente sobrenatural: ves patrones dónde otros no parecen distinguir nada evidente, observas cambios y alteraciones en el orden, pero todo tiene sentido para ti.\nObtienes un +2 en todas tus Tiradas de Intuición o Mente para investigar escenas del crimen, analizar pistas o examinar objetos en busca de detalles ocultos.\nAdemás, nunca te vas con las manos vacías de una escena: si fallas una tirada de investigación en un lugar donde sí hay algún indicio relevante, el Cronista te revelará igualmente una pista menor o parcial (aunque quizá requiera indagar más adelante para conectar todas las piezas).\nPor último, una vez al día puedes declarar que «has leído sobre algo así»: esto te permite recordar inmediatamente un dato crucial (el punto débil de una criatura, el significado de un símbolo rúnico, etc.) sin necesidad de Tirada, siempre que ese conocimiento esté al menos documentado en tu mundo.\nEn los Niveles 6, 12, 18 y 24, ganas una pregunta adicional que puedes hacer al Cronista a lo largo del día con este talento (hasta un máximo de 5 preguntas en Nivel 24), representando tu vasta experiencia acumulada.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Cazarreliquias",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1037,
+        1040
+      ],
+      "parrafos_literales": [
+        "Cazarreliquias",
+        "Pasiva",
+        "Eres experto en encontrar tesoros ocultos y artefactos de poder. Siempre que registres a fondo (dedicando al menos 1 Intervalo sin interrupción alguna) un lugar con importancia histórica u oculta, si hay un objeto especial escondido lo encontrarás (o al menos descubrirás indicios claros de dónde puede estar).",
+        "También sabes tasar y evaluar artefactos antiguos o mágicos: al examinar un ítem sobrenatural, el Cronista te dará al menos una pista sobre sus propiedades o su nivel de poder, como si hicieses un análisis preliminar."
+      ],
+      "texto_literal": "Cazarreliquias\nPasiva\nEres experto en encontrar tesoros ocultos y artefactos de poder. Siempre que registres a fondo (dedicando al menos 1 Intervalo sin interrupción alguna) un lugar con importancia histórica u oculta, si hay un objeto especial escondido lo encontrarás (o al menos descubrirás indicios claros de dónde puede estar).\nTambién sabes tasar y evaluar artefactos antiguos o mágicos: al examinar un ítem sobrenatural, el Cronista te dará al menos una pista sobre sus propiedades o su nivel de poder, como si hicieses un análisis preliminar.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Diletante místico",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1041,
+        1046
+      ],
+      "parrafos_literales": [
+        "Diletante místico",
+        "Pasiva",
+        "Requisito: Humano arcano, Vampiro strigoi, Teriántropo lobo, Teriántropo cuervo, Hada sidhe",
+        "Tras años de exposición a lo inexplicable, has aprendido a imitar a los hechiceros en pequeña medida. Obtienes competencia con los Conjuros, y adquieres la capacidad de lanzar Conjuros de la Escuela Arcana.",
+        "Aprendes 2 Conjuros de Primer Círculo, y obtendrás uno nuevo cada 2 de tus Niveles. Cada 6 Niveles, aumentas el Círculo que puedes aprender en uno, hasta el Cuarto Círculo. Puedes lanzar cada uno de esos conjuros una vez por día.",
+        "Tu atributo para lanzarlos es Mente, y no posees Puntos de Gnosis ni Maná: estos hechizos surgen de viejos amuletos, rituales improvisados o simples destellos de comprensión mágica. A discreción del Cronista, podrías necesitar un foco (un amuleto, pentáculo, libro de notas, etc.) para canalizar estos conjuros."
+      ],
+      "texto_literal": "Diletante místico\nPasiva\nRequisito: Humano arcano, Vampiro strigoi, Teriántropo lobo, Teriántropo cuervo, Hada sidhe\nTras años de exposición a lo inexplicable, has aprendido a imitar a los hechiceros en pequeña medida. Obtienes competencia con los Conjuros, y adquieres la capacidad de lanzar Conjuros de la Escuela Arcana.\nAprendes 2 Conjuros de Primer Círculo, y obtendrás uno nuevo cada 2 de tus Niveles. Cada 6 Niveles, aumentas el Círculo que puedes aprender en uno, hasta el Cuarto Círculo. Puedes lanzar cada uno de esos conjuros una vez por día.\nTu atributo para lanzarlos es Mente, y no posees Puntos de Gnosis ni Maná: estos hechizos surgen de viejos amuletos, rituales improvisados o simples destellos de comprensión mágica. A discreción del Cronista, podrías necesitar un foco (un amuleto, pentáculo, libro de notas, etc.) para canalizar estos conjuros.",
+      "coste_literal": null,
+      "requisito_literal": "Requisito: Humano arcano, Vampiro strigoi, Teriántropo lobo, Teriántropo cuervo, Hada sidhe"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Erudición sobrenatural",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1047,
+        1051
+      ],
+      "parrafos_literales": [
+        "Erudición sobrenatural",
+        "Pasiva",
+        "Tu conocimiento sobre lo arcano y lo oculto es enciclopédico. Tienes Ventaja en las Tiradas de Mente para recordar folclore, identificar criaturas sobrenaturales comunes y descifrar textos arcanos o simbología ritual.",
+        "Puedes incluso lanzar Conjuros a partir de pergaminos o grabados en tablas, usando tu atributo de Intuición para lanzarlos; sin embargo, llevar a cabo esto tiene una Probabilidad 12+ de que algo salga mal, al fin y al cabo no eres un arcanista experimentado.",
+        "Además, siempre que te encuentres con una criatura sobrenatural por primera vez, puedes preguntar al Cronista una cosa que «habrías oído» sobre su especie (sus debilidades, costumbres, etc.), y obtendrás alguna información veraz."
+      ],
+      "texto_literal": "Erudición sobrenatural\nPasiva\nTu conocimiento sobre lo arcano y lo oculto es enciclopédico. Tienes Ventaja en las Tiradas de Mente para recordar folclore, identificar criaturas sobrenaturales comunes y descifrar textos arcanos o simbología ritual.\nPuedes incluso lanzar Conjuros a partir de pergaminos o grabados en tablas, usando tu atributo de Intuición para lanzarlos; sin embargo, llevar a cabo esto tiene una Probabilidad 12+ de que algo salga mal, al fin y al cabo no eres un arcanista experimentado.\nAdemás, siempre que te encuentres con una criatura sobrenatural por primera vez, puedes preguntar al Cronista una cosa que «habrías oído» sobre su especie (sus debilidades, costumbres, etc.), y obtendrás alguna información veraz.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Instintos del morador nocturno",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1052,
+        1054
+      ],
+      "parrafos_literales": [
+        "Instintos del morador nocturno",
+        "Pasiva",
+        "Tu experiencia lidiando con las fuerzas de la noche te ha curtido. Obtienes Ventaja en las tiradas de salvación de Presencia para resistir efectos de Miedo sobrenatural o de Fascinación (por ejemplo, el encanto hipnótico de un vampiro). Además, si estás persiguiendo activamente a una criatura sobrenatural (investigando un caso relacionado o siguiendo su pista), una vez por Escena puedes preguntar al Cronista «¿qué es lo más extraño aquí?» y recibirás alguna pista sutil relacionada con tu presa (un rastro inusual, una reacción anómala del entorno, etc.)."
+      ],
+      "texto_literal": "Instintos del morador nocturno\nPasiva\nTu experiencia lidiando con las fuerzas de la noche te ha curtido. Obtienes Ventaja en las tiradas de salvación de Presencia para resistir efectos de Miedo sobrenatural o de Fascinación (por ejemplo, el encanto hipnótico de un vampiro). Además, si estás persiguiendo activamente a una criatura sobrenatural (investigando un caso relacionado o siguiendo su pista), una vez por Escena puedes preguntar al Cronista «¿qué es lo más extraño aquí?» y recibirás alguna pista sutil relacionada con tu presa (un rastro inusual, una reacción anómala del entorno, etc.).",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Saqueador de tumbas",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1055,
+        1058
+      ],
+      "parrafos_literales": [
+        "Saqueador de tumbas",
+        "Pasiva",
+        "Has sobrevivido a trampas antiguas y dispositivos arcanos colocados para mantener a raya a los intrusos. Obtienes Ventaja al efectuar Tiradas de Intuición para detectar trampas, runas de maldición u otros peligros ocultos en ruinas o lugares similares.",
+        "Asimismo, tienes Ventaja en las Tiradas de Agilidad (sea con herramientas o con contraconjuros básicos) para desarmar dichas trampas mundanas o mágicas."
+      ],
+      "texto_literal": "Saqueador de tumbas\nPasiva\nHas sobrevivido a trampas antiguas y dispositivos arcanos colocados para mantener a raya a los intrusos. Obtienes Ventaja al efectuar Tiradas de Intuición para detectar trampas, runas de maldición u otros peligros ocultos en ruinas o lugares similares.\nAsimismo, tienes Ventaja en las Tiradas de Agilidad (sea con herramientas o con contraconjuros básicos) para desarmar dichas trampas mundanas o mágicas.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Sospechosos habituales",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1059,
+        1064
+      ],
+      "parrafos_literales": [
+        "Sospechosos habituales",
+        "Pasiva",
+        "Has pasado suficiente tiempo investigando el submundo criminal y lo sobrenatural como para haber desarrollado una red de contactos poco convencionales. Siempre que estés en una ciudad o asentamiento con actividad criminal o paranormal, puedes declarar que conoces a alguien que pueda ayudarte.",
+        "Puedes pedir al Cronista que introduzca un PNJ con el que tengas una conexión previa (un informante, un contrabandista de artefactos, un exorcista retirado, etc.).",
+        "Tienes Ventaja en Tiradas de Presencia cuando interrogues a criminales, traficantes de información o personas relacionadas con el submundo sobrenatural.",
+        "Si dedicas al menos 1 Intervalo a moverte entre estos círculos, puedes obtener una pista relevante sobre un caso en curso, aunque su fiabilidad dependerá del PNJ."
+      ],
+      "texto_literal": "Sospechosos habituales\nPasiva\nHas pasado suficiente tiempo investigando el submundo criminal y lo sobrenatural como para haber desarrollado una red de contactos poco convencionales. Siempre que estés en una ciudad o asentamiento con actividad criminal o paranormal, puedes declarar que conoces a alguien que pueda ayudarte.\nPuedes pedir al Cronista que introduzca un PNJ con el que tengas una conexión previa (un informante, un contrabandista de artefactos, un exorcista retirado, etc.).\nTienes Ventaja en Tiradas de Presencia cuando interrogues a criminales, traficantes de información o personas relacionadas con el submundo sobrenatural.\nSi dedicas al menos 1 Intervalo a moverte entre estos círculos, puedes obtener una pista relevante sobre un caso en curso, aunque su fiabilidad dependerá del PNJ.",
+      "coste_literal": null,
+      "requisito_literal": null
+    }
+  ],
+  "adquisicion": {
+    "fijo": "Perspicacia de sabueso",
+    "opcionales": [
+      "Cazarreliquias",
+      "Diletante místico",
+      "Erudición sobrenatural",
+      "Instintos del morador nocturno",
+      "Saqueador de tumbas",
+      "Sospechosos habituales"
+    ],
+    "niveles_de_eleccion": [
+      1,
+      9
+    ],
+    "instruccion_literal": "Como Investigador, puedes elegir uno de los siguientes Talentos al Nivel 1 y otro al Nivel 9."
+  },
+  "nota": "Índices ordinales del documento de Google, no índices Word. Los párrafos se conservan íntegros."
+}

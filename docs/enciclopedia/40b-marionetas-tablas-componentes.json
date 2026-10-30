@@ -1,0 +1,165 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "ocupacion": "Marionetista",
+  "categoria": "Poderes y componentes",
+  "tablas": [
+    {
+      "indice_word": 41,
+      "nombre": "Armazones",
+      "encabezados": [
+        "d6",
+        "Armazón",
+        "Dado de Salud",
+        "Blindaje",
+        "Defensa"
+      ],
+      "filas": [
+        [
+          "1",
+          "Muelles de mimbre",
+          "d6",
+          "d6 / d6",
+          "+0"
+        ],
+        [
+          "2",
+          "Hierro ligero",
+          "d4",
+          "d8 / d4",
+          "-2"
+        ],
+        [
+          "3",
+          "Bambú oscilante",
+          "d4",
+          "d4 / d8",
+          "+1"
+        ],
+        [
+          "4",
+          "Acero rocoso",
+          "d8",
+          "d8 / d6",
+          "+2"
+        ],
+        [
+          "5",
+          "Porcelana del pueblo",
+          "d6",
+          "d4 / d6",
+          "-1"
+        ],
+        [
+          "6",
+          "Caparazón quelonio",
+          "d10",
+          "d10 / d8",
+          "+0"
+        ]
+      ]
+    },
+    {
+      "indice_word": 42,
+      "nombre": "Extremidades",
+      "encabezados": [
+        "d6",
+        "Extremidades",
+        "Daño",
+        "Ataque",
+        "Movimiento"
+      ],
+      "filas": [
+        [
+          "1",
+          "Garras de madera",
+          "d6",
+          "+0",
+          "6"
+        ],
+        [
+          "2",
+          "Bastones cristalinos",
+          "d4",
+          "+2",
+          "7"
+        ],
+        [
+          "3",
+          "Ladrillo de petralor",
+          "d8",
+          "+1",
+          "5"
+        ],
+        [
+          "4",
+          "Tijeras siniestras",
+          "d10",
+          "-2",
+          "6"
+        ],
+        [
+          "5",
+          "Manos de cerámica",
+          "d6",
+          "+2",
+          "5"
+        ],
+        [
+          "6",
+          "Aguijones arácnidos",
+          "d4",
+          "-3",
+          "8"
+        ]
+      ]
+    },
+    {
+      "indice_word": 43,
+      "nombre": "Núcleos",
+      "encabezados": [
+        "d6",
+        "Núcleo",
+        "Habilidad especial"
+      ],
+      "filas": [
+        [
+          "1",
+          "Llama de una hiladora gris",
+          "Trepada de araña"
+        ],
+        [
+          "2",
+          "Susurro rosáceo de la plañidera",
+          "Aguijón venenoso"
+        ],
+        [
+          "3",
+          "Motivos perversos infantiles",
+          "Extensión "
+        ],
+        [
+          "4",
+          "Versos no escritos del poeta",
+          "Canto hipnotizante"
+        ],
+        [
+          "5",
+          "Ansia olvidada sin pasión",
+          "Ocultación"
+        ],
+        [
+          "6",
+          "Gimoteo auténtico del dictador",
+          "Frenesí"
+        ]
+      ]
+    }
+  ],
+  "restricciones": [
+    "Cada marioneta tiene una opción de Armazón, una de Extremidades y un Núcleo.",
+    "Armazón determina Dado de Salud, Blindaje y DA de Defensa; Extremidades determinan daño, Ataque y Movimiento; Núcleo concede una habilidad especial.",
+    "Blindaje se conserva como texto 'dN / dN', sin inferir relación entre ambas partes.",
+    "La acción de activar Núcleo consume 1 Punto de Esfuerzo del maestro.",
+    "No asignar automáticamente las seis Habilidades especiales a cada marioneta."
+  ]
+}

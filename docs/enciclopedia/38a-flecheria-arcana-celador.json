@@ -1,0 +1,164 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "ocupacion": "Celador",
+  "categoria": "Poder",
+  "subcategoria": "Flechería arcana",
+  "estado": "extraccion_literal",
+  "regla_general": {
+    "parrafos": [
+      1220,
+      1224
+    ],
+    "preparacion": "1 Intervalo, 1 Punto de Esfuerzo y Tirada de Intuición, sin interrupciones",
+    "vigencia": "1 año",
+    "restriccion": "Sólo funciona mágicamente con el Arma de celador del creador",
+    "cantidad_maxima": "Tabla del Celador; preparar uno adicional despoja al más antiguo de sus propiedades"
+  },
+  "registros": [
+    {
+      "nombre": "Deflagrador",
+      "requisito_literal": "Requisito: Nivel 8",
+      "nivel_minimo": 8,
+      "efecto_literal": "Cuando el proyectil impacta, libera los efectos del conjuro Bola de fuego sobre la criatura objetivo. Emplea tu Nivel para calcular el daño de la explosión.",
+      "parrafos": [
+        1225,
+        1227
+      ]
+    },
+    {
+      "nombre": "Distante",
+      "requisito_literal": "Requisito: Nivel 3",
+      "nivel_minimo": 3,
+      "efecto_literal": "El alcance del arma aumenta en 15 metros por cada 10 de tus Niveles.",
+      "parrafos": [
+        1228,
+        1230
+      ]
+    },
+    {
+      "nombre": "Elemental",
+      "requisito_literal": "Requisito: Nivel 1",
+      "nivel_minimo": 1,
+      "efecto_literal": "Elige uno de los siguientes elementos cuando prepares esta munición: fuego, escarcha o electricidad. El proyectil causará daño del tipo elegido cuando impacte.",
+      "parrafos": [
+        1231,
+        1233
+      ]
+    },
+    {
+      "nombre": "Enraizador",
+      "requisito_literal": "Requisito: Nivel 1",
+      "nivel_minimo": 1,
+      "efecto_literal": "Reduce a la mitad el movimiento de la criatura afectada por el proyectil.",
+      "parrafos": [
+        1234,
+        1236
+      ]
+    },
+    {
+      "nombre": "Extendido",
+      "requisito_literal": "Requisito: Nivel 10",
+      "nivel_minimo": 10,
+      "efecto_literal": "El proyectil se divide en tantos proyectiles como criaturas enemigas estén al alcance de tu arma. Realizas una única tirada de ataque y de daño, pero el dado de daño de tu arma se reduce un rango en esta ocasión.",
+      "parrafos": [
+        1237,
+        1239
+      ]
+    },
+    {
+      "nombre": "Fulminante",
+      "requisito_literal": "Requisito: Nivel 8",
+      "nivel_minimo": 8,
+      "efecto_literal": "En lugar de una tirada de ataque, realiza una tirada de Intuición. La superes o no, libera los efectos del conjuro Golpe de rayo en la dirección en la que arrojas o disparas el proyectil, teniendo en cuenta el resultado de la tirada como si fuese una tirada de conjuro.",
+      "parrafos": [
+        1240,
+        1242
+      ]
+    },
+    {
+      "nombre": "Gemelo",
+      "requisito_literal": "Requisito: Nivel 3",
+      "nivel_minimo": 3,
+      "efecto_literal": "Tras impactar a una criatura, el proyectil sale disparado hacia otra criatura enemiga al alcance, causando el mismo daño. A partir del Nivel 6, el proyectil se divide en dos en lugar de uno y, a partir del Nivel 12, el proyectil se divide en tres en lugar de dos.",
+      "parrafos": [
+        1243,
+        1245
+      ]
+    },
+    {
+      "nombre": "Guardián",
+      "requisito_literal": "Requisito: Nivel 5",
+      "nivel_minimo": 5,
+      "efecto_literal": "Disparas el proyectil hacia el cielo o el techo y queda flotando a gran velocidad en una órbita de 3 metros a tu alrededor. No necesitas tirada para activarlo. En el momento en el que una criatura realice un ataque cuerpo a cuerpo contra ti, realiza una tirada de Intuición: si la superas, el proyectil se abalanza sobre tu agresor, le causa daño con Penetración +1 y lo aparta 2 metros de ti si es posible.",
+      "parrafos": [
+        1246,
+        1248
+      ]
+    },
+    {
+      "nombre": "Ineludible",
+      "requisito_literal": "Requisito: Nivel 5",
+      "nivel_minimo": 5,
+      "efecto_literal": "El proyectil impacta automáticamente al objetivo sin realizar tirada de ataque, siempre y cuando el objetivo esté al alcance del arma.",
+      "parrafos": [
+        1249,
+        1251
+      ]
+    },
+    {
+      "nombre": "Intangible",
+      "requisito_literal": "Requisito: Nivel 3",
+      "nivel_minimo": 3,
+      "efecto_literal": "El proyectil impacta aunque el objetivo esté bajo cobertura. El tirador debe poder ver al objetivo, aunque sea una parte del cuerpo.",
+      "parrafos": [
+        1252,
+        1254
+      ]
+    },
+    {
+      "nombre": "Invernal",
+      "requisito_literal": "Requisito: Nivel 8",
+      "nivel_minimo": 8,
+      "efecto_literal": "Cuando el proyectil impacta, libera los efectos del conjuro Ventisca sobre la criatura objetivo.",
+      "parrafos": [
+        1255,
+        1257
+      ]
+    },
+    {
+      "nombre": "Mortífero",
+      "requisito_literal": "Requisito: Nivel 10",
+      "nivel_minimo": 10,
+      "efecto_literal": "Si la criatura objetivo es de un nivel inferior al tuyo, muere instantáneamente. En caso contrario, recibe el doble de daño.",
+      "parrafos": [
+        1258,
+        1260
+      ]
+    },
+    {
+      "nombre": "Ofidio",
+      "requisito_literal": "Requisito: Nivel 1",
+      "nivel_minimo": 1,
+      "efecto_literal": "Realiza una tirada de Intuición si el proyectil impacta: si tienes éxito, la criatura sufrirá 1d4 de daño cada Turno hasta que muera.",
+      "parrafos": [
+        1261,
+        1263
+      ]
+    },
+    {
+      "nombre": "Penetrante",
+      "requisito_literal": "Requisito: Nivel 3",
+      "nivel_minimo": 3,
+      "efecto_literal": "Reduce en 1d4 el Blindaje del objetivo durante 1d4 Turnos.",
+      "parrafos": [
+        1264,
+        1266
+      ]
+    }
+  ],
+  "avisos": [
+    "Fulminante: la Tirada de Intuición puede fallarse sin impedir que se libere Golpe de rayo; la Tirada determina su resolución.",
+    "Mortífero y Ofidio tienen efectos diferentes; no fusionar.",
+    "No computar estos 14 Poderes como Talentos del Celador."
+  ]
+}

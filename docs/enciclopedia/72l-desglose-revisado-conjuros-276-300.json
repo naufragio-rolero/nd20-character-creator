@@ -1,0 +1,386 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    276,
+    300
+  ],
+  "numero_registros": 25,
+  "metodo": "Lectura manual de las fichas completas e inspección de índices de párrafos sobre 69l; las anotaciones no son cambios mecánicos.",
+  "registros": [
+    {
+      "numero_tomo": 276,
+      "nombre_literal": "Palabra de Custodia: Sosiego",
+      "lectura_documental_no_oficial": "Barrera pacificadora que se disipa al actuar violentamente",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Probabilidad 8+ de que atacante no actúe; duración 2 Turnos por Nivel o hasta acción violenta del afectado.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2064
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 277,
+      "nombre_literal": "Palabra de Poder: Atracción",
+      "lectura_documental_no_oficial": "Sugestión simultánea por conversación",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Remite a Palabra de Poder: Sugestión; un mismo mandato para todas las criaturas y una Tirada de Conjuro por objetivo.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2070
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 278,
+      "nombre_literal": "Palabra de Poder: Aturdimiento",
+      "lectura_documental_no_oficial": "Aturdimiento con duración dependiente de Salud",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "2d8 Turnos si Salud ≤30, 1d6 si supera 30; inmunidad total cuando Salud actual supera 70. No asignar una nueva banda.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2076
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 279,
+      "nombre_literal": "Palabra de Poder: Detención",
+      "lectura_documental_no_oficial": "Detención de 1d4 Humanoides",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Tirada por objetivo, sin inmunidad a parálisis ni Nivel superior al lanzador; cualquier daño cancela el efecto.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2084
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 280,
+      "nombre_literal": "Palabra de Poder: Discurso",
+      "lectura_documental_no_oficial": "Captación de audiencia no hostil mientras habla",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "No actúa sobre hostiles o quien no entiende; Tirada de Conjuro si pide actos contrarios a creencias o naturaleza.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2091
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 281,
+      "nombre_literal": "Palabra de Poder: Encomienda",
+      "lectura_documental_no_oficial": "Tarea forzosa con Maldición condicionada",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Ante resistencia necesita Tirada, Maldición hasta completar; no fijar automáticamente una Maldición concreta.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2098
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 282,
+      "nombre_literal": "Palabra de Poder: Estulticia",
+      "lectura_documental_no_oficial": "Incapacidad mental en éxito, efecto de Prisa en fallo",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "El fallo beneficia al objetivo durante 1 Turno por cada uno de los Niveles del lanzador, según literal «por 1 de tus Niveles»; la interpretación exacta requiere revisión.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2105
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 283,
+      "nombre_literal": "Palabra de Poder: Exigencia",
+      "lectura_documental_no_oficial": "Mensaje o Sugestión a distancia mediante vínculo personal",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Requiere pertenencia o fragmento corporal del destinatario y Tirada de Conjuro; no afecta indiscriminadamente a cualquiera.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2112
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 284,
+      "nombre_literal": "Palabra de Poder: Hemorragia",
+      "lectura_documental_no_oficial": "Parálisis y pérdida de Salud por hemorragia",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Tirada inicial; 1d8 Puntos de Salud durante el efecto de 2 Turnos, pero el texto no fija periodicidad de esa pérdida. No convertirla en 1d8 por Turno.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2117
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 285,
+      "nombre_literal": "Palabra de Poder: Muerte",
+      "lectura_documental_no_oficial": "Dos resoluciones alternativas de muerte según Nivel y Salud",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Primer modo afecta a una criatura de Nivel inferior, segundo a todas bajo mitad de Salud y Nivel inferior. No añadir Tirada no declarada.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2125
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 286,
+      "nombre_literal": "Palabra de Poder: Obediencia",
+      "lectura_documental_no_oficial": "Obediencia de criaturas en función de Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Nivel ≤5 obedece una orden sencilla; Nivel ≥6 requiere Tirada. Orden de morir deja inconsciente hasta finalizar el Turno, no mata.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2133
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 287,
+      "nombre_literal": "Palabra de Poder: Óbito",
+      "lectura_documental_no_oficial": "Efecto de Óbito por Tirada condicionado por Categoría y Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Objetivos vivos de Nivel inferior a 10; inmunes Autómatas y Muertos vivientes; no extenderlo a otras categorías.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2140
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 288,
+      "nombre_literal": "Palabra de Poder: Sagrado",
+      "lectura_documental_no_oficial": "Efecto sagrado radial con exclusiones de objetivo",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Radio 18 m; exceptuados celestiales, sacerdotes, clérigos o fieles devotos. Nivel menor de 12: muerte; resto: sordera, Desventaja y mitad de Movimiento.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2145
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 289,
+      "nombre_literal": "Palabra de Poder: Sugestión",
+      "lectura_documental_no_oficial": "Orden latente activada por condición",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Tirada de Conjuro en lanzamiento y activación cuando ocurra la condición establecida; no es un control permanente sin disparador.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2152
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 290,
+      "nombre_literal": "Purificar alimento",
+      "lectura_documental_no_oficial": "Purificación de alimento y agua",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Límite equivalente al consumo de 2d6+2 criaturas y Alcance 8 m. No asignar volumen fijo.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2159
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 291,
+      "nombre_literal": "Presagio",
+      "lectura_documental_no_oficial": "Presagio con respuestas simbólicas y probabilidad de malinterpretación",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "advertencia_de_integracion": "Probabilidad 15+ ejecutada por Cronista en privado, como excepción explícita a tiradas normales de jugador; no automatizar resultado de interpretación.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2164
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 292,
+      "nombre_literal": "Prisa",
+      "lectura_documental_no_oficial": "Aceleración con acción adicional e Iniciativa automática",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Movimiento +2, acción extra y gana Iniciativa si debe tirarla; anula Freno y viceversa.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2179
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 293,
+      "nombre_literal": "Poza hedionda",
+      "lectura_documental_no_oficial": "Zona pestilente de 4 m² con daño en entrada o inicio de asalto",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "1d4 de veneno y vegetación afectada; alcance escala 2 m por cada 5 Niveles, redondeo pendiente.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2187
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 294,
+      "nombre_literal": "Proyectil mágico",
+      "lectura_documental_no_oficial": "Proyectiles de energía que nunca fallan",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "1d6 de fuerza por proyectil, tantos proyectiles como Nivel; distribución libre entre objetivos, sin Tirada de acierto.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2193
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 295,
+      "nombre_literal": "Piel de piedra",
+      "lectura_documental_no_oficial": "Blindaje por transformación de piel",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "1d6 Blindaje si carece de armadura, o +2 si ya lleva armadura; no sumar ambos.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2199
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 296,
+      "nombre_literal": "Polimorfia",
+      "lectura_documental_no_oficial": "Polimorfia con rasgos físicos de especie elegida",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Salud y Atributos mentales se conservan; Atributos físicos cambian, con Tirada cuando el objetivo se resiste. No copiar identidad.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2205
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 297,
+      "nombre_literal": "Prelación",
+      "lectura_documental_no_oficial": "Supresión específica de penalización por Enemigos superiores",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Solo ignora penalización a atacar o esquivar cuerpo a cuerpo, no cualquier fuente de Desventaja.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2212
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 298,
+      "nombre_literal": "Petrificar",
+      "lectura_documental_no_oficial": "Petrificación y reversión con una Tirada",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "El texto declara éxito de Tirada para petrificar; también permite revertirla, sin fijar requisito distinto.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2218
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 299,
+      "nombre_literal": "Protección contra la muerte",
+      "lectura_documental_no_oficial": "Inmunidad temporal a muerte súbita, Maldiciones y succión",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "No implica inmunidad general a daño ordinario; duración 3 Turnos por Nivel.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2225
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 300,
+      "nombre_literal": "Plumaje de Sylestria",
+      "lectura_documental_no_oficial": "Plumas de bonificación acumulable de Movimiento",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Crea 1d4, cada una concede +1 Movimiento durante 1 Asalto; acumulación máxima +2.",
+      "fuente": {
+        "archivo": "69l-conjuros-alfabeticos-276-300.json",
+        "indice_encabezado": 2231
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}

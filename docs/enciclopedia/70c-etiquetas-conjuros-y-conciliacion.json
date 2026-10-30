@@ -1,0 +1,1155 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "metodo": "Anotar sólo líneas independientes que coinciden literalmente con las etiquetas definidas en el encabezado del Tomo; contrastar con la columna etiquetas de catalogo-poderes.json sin sustituirla automáticamente.",
+  "con_etiquetas_fuente": 91,
+  "numero_etiquetas": 93,
+  "por_etiqueta": {
+    "Cronurgia": 12,
+    "Magia curativa": 12,
+    "Invocación": 30,
+    "Magia de sangre": 16,
+    "Magia bárdica": 2,
+    "Reacción": 2,
+    "Nictomancia": 9,
+    "Magia lunar": 10
+  },
+  "registros_etiquetados": [
+    {
+      "numero_tomo": 1,
+      "nombre_literal": "Acelerar",
+      "circulo_tomo": 6,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 109
+    },
+    {
+      "numero_tomo": 9,
+      "nombre_literal": "Alivio pasajero",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 163
+    },
+    {
+      "numero_tomo": 11,
+      "nombre_literal": "Alzar brezo espinoso",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 177
+    },
+    {
+      "numero_tomo": 12,
+      "nombre_literal": "Alzar cráneo reptante",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 184
+    },
+    {
+      "numero_tomo": 13,
+      "nombre_literal": "Alzar esqueleto secuaz",
+      "circulo_tomo": 2,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 192
+    },
+    {
+      "numero_tomo": 14,
+      "nombre_literal": "Alzar goblin de lodo",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 200
+    },
+    {
+      "numero_tomo": 15,
+      "nombre_literal": "Alzar gólem de carne",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 208
+    },
+    {
+      "numero_tomo": 16,
+      "nombre_literal": "Alzar gólem de sangre",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Magia de sangre",
+        "Invocación"
+      ],
+      "indice_encabezado": 217
+    },
+    {
+      "numero_tomo": 17,
+      "nombre_literal": "Alzar hombre corrupto",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 227
+    },
+    {
+      "numero_tomo": 18,
+      "nombre_literal": "Alzar maldito",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 235
+    },
+    {
+      "numero_tomo": 19,
+      "nombre_literal": "Alzar treante",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 243
+    },
+    {
+      "numero_tomo": 27,
+      "nombre_literal": "Apocalipsis",
+      "circulo_tomo": 8,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 292
+    },
+    {
+      "numero_tomo": 41,
+      "nombre_literal": "Aura de restauración",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 390
+    },
+    {
+      "numero_tomo": 55,
+      "nombre_literal": "Bomba escarlata",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 483
+    },
+    {
+      "numero_tomo": 57,
+      "nombre_literal": "Burla cruel",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Magia bárdica"
+      ],
+      "indice_encabezado": 497
+    },
+    {
+      "numero_tomo": 67,
+      "nombre_literal": "Corromper conjuro elemental",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Reacción"
+      ],
+      "indice_encabezado": 566
+    },
+    {
+      "numero_tomo": 72,
+      "nombre_literal": "Crear muertos vivientes",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 614
+    },
+    {
+      "numero_tomo": 73,
+      "nombre_literal": "Cimitarra arcana",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 623
+    },
+    {
+      "numero_tomo": 81,
+      "nombre_literal": "Corcel de los astros",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 679
+    },
+    {
+      "numero_tomo": 83,
+      "nombre_literal": "Crecimiento primordial",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 695
+    },
+    {
+      "numero_tomo": 84,
+      "nombre_literal": "Cataclismo tenebroso",
+      "circulo_tomo": 8,
+      "etiquetas_literales": [
+        "Nictomancia"
+      ],
+      "indice_encabezado": 704
+    },
+    {
+      "numero_tomo": 93,
+      "nombre_literal": "Carcajadas infames de Hstet",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Magia bárdica"
+      ],
+      "indice_encabezado": 772
+    },
+    {
+      "numero_tomo": 94,
+      "nombre_literal": "Comité de limpieza arcano",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 781
+    },
+    {
+      "numero_tomo": 96,
+      "nombre_literal": "Convergencia vital de Olphegor",
+      "circulo_tomo": 6,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 794
+    },
+    {
+      "numero_tomo": 102,
+      "nombre_literal": "Dardo de penumbra",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Nictomancia"
+      ],
+      "indice_encabezado": 831
+    },
+    {
+      "numero_tomo": 105,
+      "nombre_literal": "Día de los muertos",
+      "circulo_tomo": 8,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 849
+    },
+    {
+      "numero_tomo": 115,
+      "nombre_literal": "Descarga de debilidad",
+      "circulo_tomo": 2,
+      "etiquetas_literales": [
+        "Nictomancia"
+      ],
+      "indice_encabezado": 924
+    },
+    {
+      "numero_tomo": 118,
+      "nombre_literal": "Dilatación arcana",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 941
+    },
+    {
+      "numero_tomo": 127,
+      "nombre_literal": "Detención temporal",
+      "circulo_tomo": 8,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 1021
+    },
+    {
+      "numero_tomo": 138,
+      "nombre_literal": "Erradicar",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Nictomancia"
+      ],
+      "indice_encabezado": 1092
+    },
+    {
+      "numero_tomo": 143,
+      "nombre_literal": "Efigie profana",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 1127
+    },
+    {
+      "numero_tomo": 144,
+      "nombre_literal": "Eternidad arcana",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 1136
+    },
+    {
+      "numero_tomo": 145,
+      "nombre_literal": "Éxtasis profundo",
+      "circulo_tomo": 8,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 1144
+    },
+    {
+      "numero_tomo": 160,
+      "nombre_literal": "Fantasmas aullantes",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 1242
+    },
+    {
+      "numero_tomo": 163,
+      "nombre_literal": "Florecimiento",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 1262
+    },
+    {
+      "numero_tomo": 165,
+      "nombre_literal": "Freno",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 1279
+    },
+    {
+      "numero_tomo": 166,
+      "nombre_literal": "Fuego feérico",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Magia lunar"
+      ],
+      "indice_encabezado": 1287
+    },
+    {
+      "numero_tomo": 167,
+      "nombre_literal": "Fuego lunar",
+      "circulo_tomo": 2,
+      "etiquetas_literales": [
+        "Magia lunar"
+      ],
+      "indice_encabezado": 1295
+    },
+    {
+      "numero_tomo": 171,
+      "nombre_literal": "Garra vampírica",
+      "circulo_tomo": 6,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 1321
+    },
+    {
+      "numero_tomo": 176,
+      "nombre_literal": "Gracia de la fertilidad",
+      "circulo_tomo": 6,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 1353
+    },
+    {
+      "numero_tomo": 183,
+      "nombre_literal": "Hálito de ultratumba",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Nictomancia"
+      ],
+      "indice_encabezado": 1403
+    },
+    {
+      "numero_tomo": 195,
+      "nombre_literal": "Invocar elemental menor",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 1480
+    },
+    {
+      "numero_tomo": 197,
+      "nombre_literal": "Invocar espíritu de cuchillas",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 1498
+    },
+    {
+      "numero_tomo": 202,
+      "nombre_literal": "Invocar ejército ilusorio",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 1532
+    },
+    {
+      "numero_tomo": 204,
+      "nombre_literal": "Invocar elemental mayor",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 1546
+    },
+    {
+      "numero_tomo": 205,
+      "nombre_literal": "Invocar vórtice de energía",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 1556
+    },
+    {
+      "numero_tomo": 206,
+      "nombre_literal": "Lanza de sombras",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Nictomancia"
+      ],
+      "indice_encabezado": 1565
+    },
+    {
+      "numero_tomo": 207,
+      "nombre_literal": "Lanza hemática",
+      "circulo_tomo": 2,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 1571
+    },
+    {
+      "numero_tomo": 208,
+      "nombre_literal": "Latido oscuro",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 1577
+    },
+    {
+      "numero_tomo": 212,
+      "nombre_literal": "Lienzo de la creación",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 1603
+    },
+    {
+      "numero_tomo": 215,
+      "nombre_literal": "Llamada del lobo espectral",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 1623
+    },
+    {
+      "numero_tomo": 216,
+      "nombre_literal": "Lluvia de estrellas",
+      "circulo_tomo": 6,
+      "etiquetas_literales": [
+        "Magia lunar"
+      ],
+      "indice_encabezado": 1630
+    },
+    {
+      "numero_tomo": 217,
+      "nombre_literal": "Luna carmesí",
+      "circulo_tomo": 8,
+      "etiquetas_literales": [
+        "Magia de sangre",
+        "Magia lunar"
+      ],
+      "indice_encabezado": 1638
+    },
+    {
+      "numero_tomo": 218,
+      "nombre_literal": "Luna nueva",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Magia lunar"
+      ],
+      "indice_encabezado": 1653
+    },
+    {
+      "numero_tomo": 220,
+      "nombre_literal": "Luz de luna",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Magia lunar"
+      ],
+      "indice_encabezado": 1669
+    },
+    {
+      "numero_tomo": 250,
+      "nombre_literal": "Mundo onírico",
+      "circulo_tomo": 8,
+      "etiquetas_literales": [
+        "Nictomancia"
+      ],
+      "indice_encabezado": 1872
+    },
+    {
+      "numero_tomo": 251,
+      "nombre_literal": "Manto encarnado de sangre",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 1882
+    },
+    {
+      "numero_tomo": 252,
+      "nombre_literal": "Maldición de vínculo sanguíneo",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 1892
+    },
+    {
+      "numero_tomo": 266,
+      "nombre_literal": "Olvido",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Nictomancia"
+      ],
+      "indice_encabezado": 1996
+    },
+    {
+      "numero_tomo": 284,
+      "nombre_literal": "Palabra de Poder: Hemorragia",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 2117
+    },
+    {
+      "numero_tomo": 292,
+      "nombre_literal": "Prisa",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 2179
+    },
+    {
+      "numero_tomo": 303,
+      "nombre_literal": "Plegaria de sosiego",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 2247
+    },
+    {
+      "numero_tomo": 304,
+      "nombre_literal": "Presencia de Vaiel",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Magia lunar"
+      ],
+      "indice_encabezado": 2255
+    },
+    {
+      "numero_tomo": 309,
+      "nombre_literal": "Portal sombrío",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Nictomancia"
+      ],
+      "indice_encabezado": 2291
+    },
+    {
+      "numero_tomo": 310,
+      "nombre_literal": "Pulso de sanación",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 2299
+    },
+    {
+      "numero_tomo": 311,
+      "nombre_literal": "Posesión mental",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 2306
+    },
+    {
+      "numero_tomo": 319,
+      "nombre_literal": "Plaga de alimañas",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 2372
+    },
+    {
+      "numero_tomo": 320,
+      "nombre_literal": "Puño mágico de Zurari",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 2380
+    },
+    {
+      "numero_tomo": 321,
+      "nombre_literal": "Palimpsesto oculto",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Magia lunar"
+      ],
+      "indice_encabezado": 2390
+    },
+    {
+      "numero_tomo": 326,
+      "nombre_literal": "Profecía del tiempo",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 2423
+    },
+    {
+      "numero_tomo": 330,
+      "nombre_literal": "Rayo de sangre",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 2448
+    },
+    {
+      "numero_tomo": 336,
+      "nombre_literal": "Rebobinar",
+      "circulo_tomo": 6,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 2485
+    },
+    {
+      "numero_tomo": 345,
+      "nombre_literal": "Reposo del caído",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 2540
+    },
+    {
+      "numero_tomo": 346,
+      "nombre_literal": "Repulsión infernal",
+      "circulo_tomo": 2,
+      "etiquetas_literales": [
+        "Reacción"
+      ],
+      "indice_encabezado": 2547
+    },
+    {
+      "numero_tomo": 352,
+      "nombre_literal": "Restablecimiento",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 2588
+    },
+    {
+      "numero_tomo": 353,
+      "nombre_literal": "Restablecimiento magno",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 2594
+    },
+    {
+      "numero_tomo": 357,
+      "nombre_literal": "Robar la luz",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Magia lunar"
+      ],
+      "indice_encabezado": 2623
+    },
+    {
+      "numero_tomo": 358,
+      "nombre_literal": "Roce de Nirebia",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 2630
+    },
+    {
+      "numero_tomo": 365,
+      "nombre_literal": "Sangre de Umbrathia",
+      "circulo_tomo": 1,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 2673
+    },
+    {
+      "numero_tomo": 366,
+      "nombre_literal": "Sangre hirviente",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 2680
+    },
+    {
+      "numero_tomo": 374,
+      "nombre_literal": "Sello rúnico: Viaje",
+      "circulo_tomo": 6,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 2737
+    },
+    {
+      "numero_tomo": 379,
+      "nombre_literal": "Séquito infernal",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 2770
+    },
+    {
+      "numero_tomo": 382,
+      "nombre_literal": "Silencio nocturno",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Magia lunar"
+      ],
+      "indice_encabezado": 2792
+    },
+    {
+      "numero_tomo": 383,
+      "nombre_literal": "Sino del Segador",
+      "circulo_tomo": 7,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 2800
+    },
+    {
+      "numero_tomo": 395,
+      "nombre_literal": "Trampa de enredaderas",
+      "circulo_tomo": 2,
+      "etiquetas_literales": [
+        "Invocación"
+      ],
+      "indice_encabezado": 2873
+    },
+    {
+      "numero_tomo": 398,
+      "nombre_literal": "Toque vampírico",
+      "circulo_tomo": 5,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 2893
+    },
+    {
+      "numero_tomo": 402,
+      "nombre_literal": "Toque de abnegación",
+      "circulo_tomo": 3,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 2921
+    },
+    {
+      "numero_tomo": 416,
+      "nombre_literal": "Tajo carmesí de Nebb",
+      "circulo_tomo": 2,
+      "etiquetas_literales": [
+        "Magia de sangre"
+      ],
+      "indice_encabezado": 3022
+    },
+    {
+      "numero_tomo": 425,
+      "nombre_literal": "Viaje espaciotemporal",
+      "circulo_tomo": 8,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 3082
+    },
+    {
+      "numero_tomo": 426,
+      "nombre_literal": "Viaje por la Urdimbre",
+      "circulo_tomo": 4,
+      "etiquetas_literales": [
+        "Cronurgia"
+      ],
+      "indice_encabezado": 3090
+    },
+    {
+      "numero_tomo": 431,
+      "nombre_literal": "Vitalidad quimérica",
+      "circulo_tomo": 2,
+      "etiquetas_literales": [
+        "Magia curativa"
+      ],
+      "indice_encabezado": 3124
+    }
+  ],
+  "diferencias_con_catalogo": [
+    {
+      "numero_tomo": 9,
+      "nombre_literal": "Alivio pasajero",
+      "circulo_tomo": 1,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 13,
+      "nombre_literal": "Alzar esqueleto secuaz",
+      "circulo_tomo": 2,
+      "etiquetas_tomo": [
+        "Invocación"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Invocación"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 41,
+      "nombre_literal": "Aura de restauración",
+      "circulo_tomo": 3,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 163,
+      "nombre_literal": "Florecimiento",
+      "circulo_tomo": 1,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 176,
+      "nombre_literal": "Gracia de la fertilidad",
+      "circulo_tomo": 6,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 224,
+      "nombre_literal": "Maldición de los elementos",
+      "circulo_tomo": 3,
+      "etiquetas_tomo": [],
+      "etiquetas_catalogo": [
+        "Maldición"
+      ],
+      "solo_tomo": [],
+      "solo_catalogo": [
+        "Maldición"
+      ]
+    },
+    {
+      "numero_tomo": 227,
+      "nombre_literal": "Maldición de vínculo mortal",
+      "circulo_tomo": 6,
+      "etiquetas_tomo": [],
+      "etiquetas_catalogo": [
+        "Maldición"
+      ],
+      "solo_tomo": [],
+      "solo_catalogo": [
+        "Maldición"
+      ]
+    },
+    {
+      "numero_tomo": 233,
+      "nombre_literal": "Maldición discordante",
+      "circulo_tomo": 3,
+      "etiquetas_tomo": [],
+      "etiquetas_catalogo": [
+        "Maldición"
+      ],
+      "solo_tomo": [],
+      "solo_catalogo": [
+        "Maldición"
+      ]
+    },
+    {
+      "numero_tomo": 235,
+      "nombre_literal": "Maldición enfermiza",
+      "circulo_tomo": 5,
+      "etiquetas_tomo": [],
+      "etiquetas_catalogo": [
+        "Maldición"
+      ],
+      "solo_tomo": [],
+      "solo_catalogo": [
+        "Maldición"
+      ]
+    },
+    {
+      "numero_tomo": 236,
+      "nombre_literal": "Maldición de pesadumbre",
+      "circulo_tomo": 6,
+      "etiquetas_tomo": [],
+      "etiquetas_catalogo": [
+        "Maldición"
+      ],
+      "solo_tomo": [],
+      "solo_catalogo": [
+        "Maldición"
+      ]
+    },
+    {
+      "numero_tomo": 247,
+      "nombre_literal": "Maldición permanente",
+      "circulo_tomo": 5,
+      "etiquetas_tomo": [],
+      "etiquetas_catalogo": [
+        "Maldición"
+      ],
+      "solo_tomo": [],
+      "solo_catalogo": [
+        "Maldición"
+      ]
+    },
+    {
+      "numero_tomo": 249,
+      "nombre_literal": "Maldición de sanación",
+      "circulo_tomo": 6,
+      "etiquetas_tomo": [],
+      "etiquetas_catalogo": [
+        "Maldición"
+      ],
+      "solo_tomo": [],
+      "solo_catalogo": [
+        "Maldición"
+      ]
+    },
+    {
+      "numero_tomo": 252,
+      "nombre_literal": "Maldición de vínculo sanguíneo",
+      "circulo_tomo": 4,
+      "etiquetas_tomo": [
+        "Magia de sangre"
+      ],
+      "etiquetas_catalogo": [
+        "Magia de sangre",
+        "Maldición"
+      ],
+      "solo_tomo": [],
+      "solo_catalogo": [
+        "Maldición"
+      ]
+    },
+    {
+      "numero_tomo": 253,
+      "nombre_literal": "Maldición de debilidad",
+      "circulo_tomo": 5,
+      "etiquetas_tomo": [],
+      "etiquetas_catalogo": [
+        "Maldición"
+      ],
+      "solo_tomo": [],
+      "solo_catalogo": [
+        "Maldición"
+      ]
+    },
+    {
+      "numero_tomo": 254,
+      "nombre_literal": "Maldición del caos",
+      "circulo_tomo": 4,
+      "etiquetas_tomo": [],
+      "etiquetas_catalogo": [
+        "Maldición"
+      ],
+      "solo_tomo": [],
+      "solo_catalogo": [
+        "Maldición"
+      ]
+    },
+    {
+      "numero_tomo": 303,
+      "nombre_literal": "Plegaria de sosiego",
+      "circulo_tomo": 3,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 310,
+      "nombre_literal": "Pulso de sanación",
+      "circulo_tomo": 4,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 345,
+      "nombre_literal": "Reposo del caído",
+      "circulo_tomo": 1,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 352,
+      "nombre_literal": "Restablecimiento",
+      "circulo_tomo": 4,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 353,
+      "nombre_literal": "Restablecimiento magno",
+      "circulo_tomo": 7,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 358,
+      "nombre_literal": "Roce de Nirebia",
+      "circulo_tomo": 3,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 402,
+      "nombre_literal": "Toque de abnegación",
+      "circulo_tomo": 3,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    },
+    {
+      "numero_tomo": 431,
+      "nombre_literal": "Vitalidad quimérica",
+      "circulo_tomo": 2,
+      "etiquetas_tomo": [
+        "Magia curativa"
+      ],
+      "etiquetas_catalogo": [],
+      "solo_tomo": [
+        "Magia curativa"
+      ],
+      "solo_catalogo": []
+    }
+  ],
+  "numero_diferencias": 23,
+  "advertencias": [
+    "Las diferencias no son necesariamente errores: el catálogo puede incorporar clasificaciones de otra fuente.",
+    "Las 12 etiquetas Magia curativa del Tomo no constan en el catálogo de Forja; conservarlas para revisión.",
+    "Las 10 etiquetas Maldición del catálogo no aparecen como línea independiente en las fichas del Tomo; no eliminarlas ni convertir en reglas por interpretación.",
+    "Alzar esqueleto secuaz lleva la línea Invocación en el Tomo y carece de esa etiqueta en el catálogo.",
+    "No cambiar datos ni código del generador sin aprobación."
+  ]
+}

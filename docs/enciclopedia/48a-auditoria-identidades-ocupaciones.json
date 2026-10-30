@@ -1,0 +1,381 @@
+{
+  "fecha": "2026-10-29",
+  "fuente_inventario": "01b-talentos-ocupaciones.csv",
+  "total_relaciones_historico": 163,
+  "exclusiones_aceptadas": [
+    {
+      "ocupacion": "Gladiador",
+      "nombre": "Estilos de gladiatoria",
+      "reclasificar_como": "Poder",
+      "origen": "OCP-05 aprobado por autor"
+    }
+  ],
+  "total_relaciones_talentos_provisional": 162,
+  "registros_transcritos_documentalmente": 72,
+  "registros_unicos": 72,
+  "registros_sin_correspondencia": [],
+  "duplicados": [],
+  "pendientes_de_extraccion": [
+    {
+      "ocupacion": "Clérigo",
+      "talento": "Expulsar muertos vivientes"
+    },
+    {
+      "ocupacion": "Clérigo",
+      "talento": "Fortaleza piadosa"
+    },
+    {
+      "ocupacion": "Guerrero",
+      "talento": "Recuperación"
+    },
+    {
+      "ocupacion": "Guerrero",
+      "talento": "Brío musculoso"
+    },
+    {
+      "ocupacion": "Guerrero",
+      "talento": "Sacrificio de escudo"
+    },
+    {
+      "ocupacion": "Mago",
+      "talento": "Bagaje de arcanista"
+    },
+    {
+      "ocupacion": "Mago",
+      "talento": "Meditación"
+    },
+    {
+      "ocupacion": "Ladrón",
+      "talento": "Preparación"
+    },
+    {
+      "ocupacion": "Ladrón",
+      "talento": "Sutileza"
+    },
+    {
+      "ocupacion": "Druida",
+      "talento": "Forma salvaje"
+    },
+    {
+      "ocupacion": "Druida",
+      "talento": "Sendero de la naturaleza"
+    },
+    {
+      "ocupacion": "Lardeur",
+      "talento": "Cata magistral"
+    },
+    {
+      "ocupacion": "Lardeur",
+      "talento": "Haute cuisine"
+    },
+    {
+      "ocupacion": "Lardeur",
+      "talento": "Mise en place"
+    },
+    {
+      "ocupacion": "Derviche",
+      "talento": "Danza de las dos hojas"
+    },
+    {
+      "ocupacion": "Derviche",
+      "talento": "Defensa sin armadura"
+    },
+    {
+      "ocupacion": "Derviche",
+      "talento": "Maniobra letal"
+    },
+    {
+      "ocupacion": "Derviche",
+      "talento": "Oleada extensiva"
+    },
+    {
+      "ocupacion": "Diplomático",
+      "talento": "Oratoria exquisita"
+    },
+    {
+      "ocupacion": "Diplomático",
+      "talento": "Preparación"
+    },
+    {
+      "ocupacion": "Diplomático",
+      "talento": "Séquito personal"
+    },
+    {
+      "ocupacion": "Eudemonista",
+      "talento": "Armamento filosofal"
+    },
+    {
+      "ocupacion": "Eudemonista",
+      "talento": "Entelequia"
+    },
+    {
+      "ocupacion": "Eudemonista",
+      "talento": "Estoicismo"
+    },
+    {
+      "ocupacion": "Forajido",
+      "talento": "Pasado turbulento"
+    },
+    {
+      "ocupacion": "Forajido",
+      "talento": "Suerte del tonto"
+    },
+    {
+      "ocupacion": "Psion",
+      "talento": "Entereza mental"
+    },
+    {
+      "ocupacion": "Psion",
+      "talento": "Someter el cuerpo"
+    },
+    {
+      "ocupacion": "Soldado",
+      "talento": "Especialista en armamento"
+    },
+    {
+      "ocupacion": "Soldado",
+      "talento": "Llamada del deber"
+    },
+    {
+      "ocupacion": "Soldado",
+      "talento": "Tiempo bala"
+    },
+    {
+      "ocupacion": "Tecnópata",
+      "talento": "Hacker"
+    },
+    {
+      "ocupacion": "Tecnópata",
+      "talento": "Unión cibernética"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Conducto arcano"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Puntos de Gnosis"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Biblioteca ambulante"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Canal de las sombras"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Caos esotérico"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Estallido arcano"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Sacrificio vital"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Voluntad indómita"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Ojo del cazador"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Aceptación"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Alquimia limitada"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Cazador letal"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Instintos sobrenaturales"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Reflejos de la noche"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Soy lo que cazo"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Instintos de los bajos fondos"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Arrancar información"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "El jeta de Wall Street"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Facha de hampón"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Maestro en allanamientos"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Rutas de entrada y salida"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Señor del crimen"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Voz de ultratumba"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Cadena de los hados"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Destino entrelazado"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Hebras de la Urdimbre"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Ligadura espiritual"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Paso espectral"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Premonición"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Perspicacia de sabueso"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Cazarreliquias"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Diletante místico"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Erudición sobrenatural"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Instintos del morador nocturno"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Saqueador de tumbas"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Sospechosos habituales"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Arte de la guerra"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "¡Estáis encerrados conmigo!"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Adrenalina"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "En racha"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Frenesí sanguinario"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Imparable"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Plan de batalla"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Cerebro cibernético"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Homebrew"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Interacción remota"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Presencia fantasma"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Ojos en la red"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Sabotaje electromagnético"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Tecnomante"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Lengua de serpiente"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Artimañas legales"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "El precio justo"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Estafador experto"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Maestro del espectáculo"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Rostro cambiante"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Zorro astuto"
+    }
+  ],
+  "advertencia": "Cotejo de identidad (Ocupación, Talento) contra inventario histórico; NO significa validación de efectos mecánicos ni verificación del contenido literal de cada descripción con documento fuente."
+}

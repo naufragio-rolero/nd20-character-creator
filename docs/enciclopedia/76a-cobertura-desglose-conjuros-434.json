@@ -1,0 +1,385 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "desglose_manual_completo_de_434_pendiente_conciliaciones_y_pruebas",
+  "conteos": {
+    "fichas_con_texto_original": 434,
+    "fichas_revisadas_manual": 434,
+    "fichas_preclasificadas_automatico": 384,
+    "solapadas_manual_y_automatico": 384,
+    "solo_preclasificadas_pendientes_manual": 0,
+    "cobertura_unica": 434
+  },
+  "regla_precedencia": "El desglose manual 72a–72r prevalece para su interpretación sobre las pistas lexicales 73a–73h. Ambos son documentales y no constituyen reglas codificadas, pruebas del generador ni cambios en el texto original.",
+  "archivos": [
+    {
+      "archivo": "72a-desglose-revisado-conjuros-001-025.json",
+      "registros": 25,
+      "sha": "575de321ede77e341e24152d8675ae3d01ec34de",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72b-desglose-revisado-conjuros-026-050.json",
+      "registros": 25,
+      "sha": "6b08c7994e6be000b6ab9b713964c7d29cdace43",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72c-desglose-revisado-conjuros-051-075.json",
+      "registros": 25,
+      "sha": "afb0f8346c49dd781f9c0ca9c9a2b3d83ea0b788",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72d-desglose-revisado-conjuros-076-100.json",
+      "registros": 25,
+      "sha": "77178738880fbeba1aeb2d3529fde098e50d85de",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72e-desglose-revisado-conjuros-101-125.json",
+      "registros": 25,
+      "sha": "8c2927c7918cbe18647b307d0c7f34316dbc3b79",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72f-desglose-revisado-conjuros-126-150.json",
+      "registros": 25,
+      "sha": "72c6232aa53eed22608e300c80881f73eac9cb95",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72g-desglose-revisado-conjuros-151-175.json",
+      "registros": 25,
+      "sha": "94e0d60687384c8254712602e0b7c0ba584e6d65",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72h-desglose-revisado-conjuros-176-200.json",
+      "registros": 25,
+      "sha": "d38e750f316494f50a30c50bef270a944046c2a3",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72i-desglose-revisado-conjuros-201-225.json",
+      "registros": 25,
+      "sha": "f75b21771424319d8d7a12c7d1f8b49ba4589af5",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72j-desglose-revisado-conjuros-226-250.json",
+      "registros": 25,
+      "sha": "aa4699d987027ee07b6da89d2f7ea427dd996c81",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72k-desglose-revisado-conjuros-251-275.json",
+      "registros": 25,
+      "sha": "b54255e1aa5ac2bf057aa39e6488b71633c60a12",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72l-desglose-revisado-conjuros-276-300.json",
+      "registros": 25,
+      "sha": "2a977e68d730aa76ef9ab5c4596b094db42e31a7",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72m-desglose-revisado-conjuros-301-325.json",
+      "registros": 25,
+      "sha": "4fe1303fd85af01e4a8b89afe4504a8ee99326d4",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72n-desglose-revisado-conjuros-326-350.json",
+      "registros": 25,
+      "sha": "ee9ec39e69632637cd89f6bd8f4a12cfd2789ac9",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72o-desglose-revisado-conjuros-351-375.json",
+      "registros": 25,
+      "sha": "c584b4cba6bfe480412c727f39ba5b57fc1bf565",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72p-desglose-revisado-conjuros-376-400.json",
+      "registros": 25,
+      "sha": "862bc2d49e7dbcac68e021b7fdece610c9e13c23",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72q-desglose-revisado-conjuros-401-425.json",
+      "registros": 25,
+      "sha": "b847dbf24b75f1067325be529dc73a227938e039",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72r-desglose-revisado-conjuros-426-434.json",
+      "registros": 9,
+      "sha": "6c6b5ea4a698635ededf41c01e8ce17bf704b6b3",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "73a-preindice-mecanico-051-100.json",
+      "registros": 50,
+      "sha": "28f36f362e8466b90a0c3f4dd63aab4a1f11ed5b",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73b-preindice-mecanico-101-150.json",
+      "registros": 50,
+      "sha": "5f3f3dfeb3cc00540a53351b972c9d3812036ef6",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73c-preindice-mecanico-151-200.json",
+      "registros": 50,
+      "sha": "cb50251df3202dadc7b7ab890061347e97165922",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73d-preindice-mecanico-201-250.json",
+      "registros": 50,
+      "sha": "8d00ed4084f554692f1cc228b24305413c977db1",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73e-preindice-mecanico-251-300.json",
+      "registros": 50,
+      "sha": "d055c5fc31e0dfcfcd7549fb01e8cfac96b01214",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73f-preindice-mecanico-301-350.json",
+      "registros": 50,
+      "sha": "5b8737e50ea9f4fa872a984d3c9241d448438069",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73g-preindice-mecanico-351-400.json",
+      "registros": 50,
+      "sha": "53a043c2f78bbb3d1eedbd24f78947eabf07d0dc",
+      "estado": "preclasificado_automatico"
+    },
+    {
+      "archivo": "73h-preindice-mecanico-401-434.json",
+      "registros": 34,
+      "sha": "fcf919a82e333a43627fc2ada232c5dd8a3c4f93",
+      "estado": "preclasificado_automatico"
+    }
+  ],
+  "auditorias": [
+    {
+      "archivo": "74a-auditoria-preindice-051-250.json",
+      "resultado": "integridad_documental_correcta",
+      "errores": 0
+    },
+    {
+      "archivo": "74b-auditoria-preindice-251-434.json",
+      "resultado": "integridad_documental_correcta",
+      "errores": 0
+    },
+    {
+      "archivo": "75a-auditoria-desglose-manual-100.json",
+      "resultado": "100_de_100_referencias_cotejadas",
+      "errores": 0
+    },
+    {
+      "archivo": "75b-auditoria-desglose-manual-101-125.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75c-auditoria-desglose-manual-126-150.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75d-auditoria-desglose-manual-151-175.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75e-auditoria-desglose-manual-176-200.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75f-auditoria-desglose-manual-201-225.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75g-auditoria-desglose-manual-226-250.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75h-auditoria-desglose-manual-251-275.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75i-auditoria-desglose-manual-276-300.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75j-auditoria-desglose-manual-301-325.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75k-auditoria-desglose-manual-326-350.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75l-auditoria-desglose-manual-351-375.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75m-auditoria-desglose-manual-376-400.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75n-auditoria-desglose-manual-401-425.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75o-auditoria-desglose-manual-426-434.json",
+      "resultado": "9_de_9_cotejados",
+      "errores": 0
+    }
+  ],
+  "frecuencia_de_marcadores_en_preindice": {
+    "condicion_o_disparador": 253,
+    "tirada_conjuro": 122,
+    "dano": 151,
+    "radio_o_area": 44,
+    "salud": 36,
+    "ventaja": 19,
+    "nivel": 40,
+    "blindaje": 16,
+    "probabilidad": 26,
+    "magia_invocacion_mencionada": 22,
+    "movimiento": 25,
+    "tirada_atributo_o_salvacion": 8,
+    "desventaja": 14,
+    "estados_mencionados": 9,
+    "limite_simultaneo": 5,
+    "esfuerzo": 2
+  },
+  "prioridades_de_revision_por_densidad_lexica": [
+    {
+      "n": 187,
+      "nombre": "Huracán floral",
+      "marcadores": 6
+    },
+    {
+      "n": 244,
+      "nombre": "Muro de espinas férreas",
+      "marcadores": 6
+    },
+    {
+      "n": 320,
+      "nombre": "Puño mágico de Zurari",
+      "marcadores": 6
+    },
+    {
+      "n": 202,
+      "nombre": "Invocar ejército ilusorio",
+      "marcadores": 5
+    },
+    {
+      "n": 207,
+      "nombre": "Lanza hemática",
+      "marcadores": 5
+    },
+    {
+      "n": 284,
+      "nombre": "Palabra de Poder: Hemorragia",
+      "marcadores": 5
+    },
+    {
+      "n": 306,
+      "nombre": "Penitencia",
+      "marcadores": 5
+    },
+    {
+      "n": 369,
+      "nombre": "Sello rúnico: Explosión",
+      "marcadores": 5
+    },
+    {
+      "n": 395,
+      "nombre": "Trampa de enredaderas",
+      "marcadores": 5
+    },
+    {
+      "n": 147,
+      "nombre": "Explosión arcana",
+      "marcadores": 4
+    },
+    {
+      "n": 152,
+      "nombre": "Embozo de sombras",
+      "marcadores": 4
+    },
+    {
+      "n": 154,
+      "nombre": "Explosión sónica",
+      "marcadores": 4
+    },
+    {
+      "n": 156,
+      "nombre": "Espinas psíquicas",
+      "marcadores": 4
+    },
+    {
+      "n": 158,
+      "nombre": "Estrella divina",
+      "marcadores": 4
+    },
+    {
+      "n": 159,
+      "nombre": "Exhalación de la tumba",
+      "marcadores": 4
+    },
+    {
+      "n": 160,
+      "nombre": "Fantasmas aullantes",
+      "marcadores": 4
+    },
+    {
+      "n": 162,
+      "nombre": "Floración cinérea",
+      "marcadores": 4
+    },
+    {
+      "n": 172,
+      "nombre": "Glorioso orbe protector de Excelsus",
+      "marcadores": 4
+    },
+    {
+      "n": 197,
+      "nombre": "Invocar espíritu de cuchillas",
+      "marcadores": 4
+    },
+    {
+      "n": 205,
+      "nombre": "Invocar vórtice de energía",
+      "marcadores": 4
+    }
+  ],
+  "errores": [],
+  "limitaciones": [
+    "El análisis manual de 125 fichas no convierte las 309 restantes en desgloses validados.",
+    "Los 384 preíndices automatizados son pistas textuales verificadas, no efectos programables.",
+    "La prioridad por densidad de marcadores no indica necesariamente la complejidad o gravedad real del Conjuro.",
+    "Las incidencias se registran para decisión editorial, sin alteración silenciosa de las fuentes."
+  ]
+}

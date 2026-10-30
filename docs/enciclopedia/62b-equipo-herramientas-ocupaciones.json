@@ -1,0 +1,111 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Ocupaciones.docx, tablas Word 37–38",
+  "categoria": "Equipo de aventuras y Herramientas",
+  "registros": [
+    {
+      "categoria": "Equipo de aventuras",
+      "tabla_word": 37,
+      "fila_word": 1,
+      "nombre": "Cometa",
+      "detalles_literal": "Permite planear en el aire, descendiendo lentamente hasta el suelo, durante 1d4 * 10 segundos. Se puede ampliar el tiempo de planeo gastando 1 de Esfuerzo.",
+      "precio_literal": "100 mo"
+    },
+    {
+      "categoria": "Herramientas",
+      "tabla_word": 38,
+      "fila_word": 1,
+      "nombre": "Astrolabio",
+      "detalles_literal": "Instrumento circular astronómico que permite delimitar la posición de las estrellas en el cielo.",
+      "precio_literal": "250 mo"
+    },
+    {
+      "categoria": "Herramientas",
+      "tabla_word": 38,
+      "fila_word": 2,
+      "nombre": "Bolos de malabarismo",
+      "detalles_literal": "Un par de bolos expertamente equilibrados y diseñados para ser lanzados con destreza.",
+      "precio_literal": "10 mp"
+    },
+    {
+      "categoria": "Herramientas",
+      "tabla_word": 38,
+      "fila_word": 3,
+      "nombre": "Cronoesfera",
+      "detalles_literal": "Artefacto esférico que encapsula tiempo; detecta perturbaciones en la línea temporal.",
+      "precio_literal": "500 mo"
+    },
+    {
+      "categoria": "Herramientas",
+      "tabla_word": 38,
+      "fila_word": 4,
+      "nombre": "Cuchillo de desuello",
+      "detalles_literal": "Hoja adaptada para extraer la piel de un animal con facilidad. ",
+      "precio_literal": "25 mp"
+    },
+    {
+      "categoria": "Herramientas",
+      "tabla_word": 38,
+      "fila_word": 5,
+      "nombre": "Cuerda de entrenamiento",
+      "detalles_literal": "Cuerda elástica. Se puede utilizar como si fuese una cuerda normal. Permite preparar el cuerpo y otorga +1 una vez a la semana para la Tirada de recuperar Esfuerzo.",
+      "precio_literal": "5 mp"
+    },
+    {
+      "categoria": "Herramientas",
+      "tabla_word": 38,
+      "fila_word": 6,
+      "nombre": "Cuna de judas",
+      "detalles_literal": "Instrumento de tortura semejante a una pirámide de madera y cuatro estacas que soportan el peso de la víctima.",
+      "precio_literal": "950 mo"
+    },
+    {
+      "categoria": "Herramientas",
+      "tabla_word": 38,
+      "fila_word": 7,
+      "nombre": "Microscopio",
+      "detalles_literal": "Compleja herramientas formada por una lente de aumentos que permite observar objetos y partículas muy pequeñas.",
+      "precio_literal": "600 mo"
+    },
+    {
+      "categoria": "Herramientas",
+      "tabla_word": 38,
+      "fila_word": 8,
+      "nombre": "Piedra de canalización",
+      "detalles_literal": "Artefacto místico que combina la artesanía humana con la esencia sobrenatural de las deidades. Permite conectar con una Alta Entidad tras un Intervalo de meditación.",
+      "precio_literal": "2.500 mo"
+    },
+    {
+      "categoria": "Herramientas",
+      "tabla_word": 38,
+      "fila_word": 9,
+      "nombre": "Saco de boxeo",
+      "detalles_literal": "Permite entrenar puñetazos y juego de piernas. Reduce en 1 punto el requisito de Fuerza para aprender Técnicas de Disciplina o Fuerza bruta (sin requisito de arma) tras 10 sesiones de entrenamiento.",
+      "precio_literal": "15 mo"
+    }
+  ],
+  "tablas": [
+    {
+      "indice_word": 37,
+      "filas_ocupadas": 1,
+      "filas_vacias_sin_equipo": 3
+    },
+    {
+      "indice_word": 38,
+      "filas_ocupadas": 9
+    }
+  ],
+  "alertas": [
+    {
+      "id": "OCP-EQ-01",
+      "item": "Microscopio",
+      "descripcion": "El original dice «Compleja herramientas»; no corregir fuente automáticamente."
+    },
+    {
+      "id": "OCP-EQ-02",
+      "item": "Cometa",
+      "descripcion": "El original dice «gastando 1 de Esfuerzo»; mantener literalmente."
+    }
+  ],
+  "nota": "No convertir precios ni adjudicar peso, rareza o propiedades nuevas."
+}

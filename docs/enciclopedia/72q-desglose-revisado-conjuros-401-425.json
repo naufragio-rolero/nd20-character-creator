@@ -1,0 +1,385 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    401,
+    425
+  ],
+  "numero_registros": 25,
+  "metodo": "Revisión manual de 69q e identificación de efectos, excepciones y lagunas antes de integración.",
+  "registros": [
+    {
+      "numero_tomo": 401,
+      "nombre_literal": "Trocar tamaño",
+      "lectura_documental_no_oficial": "Cambio proporcional de tamaño y valores asociados",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Criatura cambia 20% por Nivel hasta triplicar Tamaño, objeto no mágico 10% por Nivel hasta duplicar. No consta límite mínimo claro al reducir tamaño.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2914
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 402,
+      "nombre_literal": "Toque de abnegación",
+      "lectura_documental_no_oficial": "Cesión de Salud del lanzador a aliado",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Pierde la misma cantidad de Puntos de Salud que cura; no declara tirada ni máximo distinto de Salud disponible.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2921
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 403,
+      "nombre_literal": "Teletransporte forzoso",
+      "lectura_documental_no_oficial": "Teletransporte de objetivo con posible bloqueo de destino",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Tirada si se resiste, destino hasta 100 m, Probabilidad 18+ de encontrar destino ocupado y fallar.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2927
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 404,
+      "nombre_literal": "Transmutación artesana",
+      "lectura_documental_no_oficial": "Transformación de materia en equipo del mismo material",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Un arma o herramienta de longitud máxima 30 cm por Nivel; conserva el material de origen.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2932
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 405,
+      "nombre_literal": "Terreno consagrado",
+      "lectura_documental_no_oficial": "Zona circular de protección contra criaturas consideradas malvadas",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Radio 6 m y bonificación igual a mitad de Nivel a Tiradas de Atributo defensivas; excluye Daño y Blindaje.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2939
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 406,
+      "nombre_literal": "Telequinesis",
+      "lectura_documental_no_oficial": "Control mental de objetos y criaturas con límites por Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Un objeto por cada 2 Niveles y 100 kg por cada 4; exige concentración como única acción y Tirada por criaturas no voluntarias. Redondeos pendientes.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2945
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 407,
+      "nombre_literal": "Teletransporte",
+      "lectura_documental_no_oficial": "Teletransporte de larga distancia con acompañantes y desvío probable",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Hasta 100 km por Nivel y dos acompañantes humanoides; Tirada si se resisten, Probabilidad 15+ de desvío si destino desconocido.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2952
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 408,
+      "nombre_literal": "Trance celestial",
+      "lectura_documental_no_oficial": "Trance de consulta divina condicionado por fidelidad",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "El Cronista decide si exige Tirada; tres respuestas binarias en éxito. Repetir antes de una semana impone Desventaja aun al devoto; consecuencias especiales por fallo.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2958
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 409,
+      "nombre_literal": "Terremoto",
+      "lectura_documental_no_oficial": "Seísmo por terreno con superficie escalada",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "advertencia_de_integracion": "Superficie circular de 2 m² por Nivel aprobada en 78a; tres efectos según terreno y centro del área sin definir dentro del Alcance.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2967
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 410,
+      "nombre_literal": "Trampa de fuego",
+      "lectura_documental_no_oficial": "Trampa ígnea que se activa al abrir objeto",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Área 2 m² alrededor del objeto, 1d10 fuego y 1 contundente por Nivel; clave desactivadora.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2976
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 411,
+      "nombre_literal": "Trampa ilusoria",
+      "lectura_documental_no_oficial": "Falsa trampa sobre objeto de volumen máximo",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Objeto hasta 8 m³; inspección normal detecta trampa y Tirada si observador tiene Nivel igual/superior. Activar o desactivar disipa la ilusión.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2983
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 412,
+      "nombre_literal": "Terreno espinoso",
+      "lectura_documental_no_oficial": "Terreno punzante invisible hasta atravesarlo",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Área 6 m² por Nivel, 1d8 perforante por cada metro avanzado; afecta paredes y suelo.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2990
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 413,
+      "nombre_literal": "Terreno ilusorio",
+      "lectura_documental_no_oficial": "Disfraz visual de terreno con detección posible",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Área 4 m² por Nivel, no afecta criaturas ni objetos reales, Probabilidad 11+ si se interactúa.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 2997
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 414,
+      "nombre_literal": "Toque de Z'Thur",
+      "lectura_documental_no_oficial": "Nexo espiritual permanente con límite de ubicaciones",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "advertencia_de_integracion": "Límite Nivel/3 redondeado hacia abajo explícitamente, incluye acceso por Viaje sepulcral y dificulta purificación divina.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3004
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 415,
+      "nombre_literal": "Tetramageddon",
+      "lectura_documental_no_oficial": "Cataclismo de cuatro elementos y daño compuesto",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Área 20 m²; cuatro tiradas de daño por Nivel, mitad del total al fallar. No introducir una sola clase elemental.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3016
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 416,
+      "nombre_literal": "Tajo carmesí de Nebb",
+      "lectura_documental_no_oficial": "Ataque impío cónico con daño también para lanzador",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Lanzador sufre 1d8 irreducible; objetivo 2d10 impío en éxito o mitad al fallar; forma cónica sin anchura especificada.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3022
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 417,
+      "nombre_literal": "Umbral etéreo",
+      "lectura_documental_no_oficial": "Pasadizo extradimensional de medidas completas",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Profundidad 10 m, ancho 2 m, alto 1,5 m; no puede crearse en metal, permite acompañante, duración un Intervalo por dos Niveles.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3029
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 418,
+      "nombre_literal": "Valentía",
+      "lectura_documental_no_oficial": "Bonificación genérica breve a Tiradas",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "+1 a las Tiradas durante 1d6 Turnos, sin excepción o tipo especificado.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3036
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 419,
+      "nombre_literal": "Velo de la mente",
+      "lectura_documental_no_oficial": "Protección contra intrusiones mentales",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Incluye detección, lectura y manipulación mágica o psíquica; no impide daño físico.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3042
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 420,
+      "nombre_literal": "Velo ilusorio profano",
+      "lectura_documental_no_oficial": "Ilusión visual superpuesta a otro humanoide",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "La víctima parece imitar gestos del lanzador; Tirada de Conjuro para sostener engaño frente a interacción.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3048
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 421,
+      "nombre_literal": "Ventana mágica",
+      "lectura_documental_no_oficial": "Ventana de observación que se puede desplazar",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Diámetro 1 metro y uso exclusivo simultáneo de un observador; desplazarla exige Turno y no puede coexistir otra Ventana.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3055
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 422,
+      "nombre_literal": "Ventisca",
+      "lectura_documental_no_oficial": "Granizo con daño inmediato y efecto de terreno",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "10d6 frío en área dentro de Alcance 100 m; el alcance no define forma geométrica exacta. Escarcha dificulta Movimiento 1 Intervalo.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3062
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 423,
+      "nombre_literal": "Ventura arcana",
+      "lectura_documental_no_oficial": "Almacenamiento de Conjuro personal disparado por condición",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Solo Conjuros de Alcance Personal, condición concreta; nuevo uso reemplaza almacenamiento previo.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3068
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 424,
+      "nombre_literal": "Viaje arbóreo",
+      "lectura_documental_no_oficial": "Traslado entre árboles vivos de igual especie y tamaño",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Si desconoce destino elige dirección y distancia máxima; solo árboles vivos adecuados y no permite viajar entre planos.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3075
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 425,
+      "nombre_literal": "Viaje espaciotemporal",
+      "lectura_documental_no_oficial": "Viaje a tiempo o planos condicionado por conocimiento y acuerdo",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Hasta cuatro acompañantes humanoides más; exige volver a lanzar para regresar y acuerdo explícito de Cronista, jugador y mesa.",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "indice_encabezado": 3082
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}

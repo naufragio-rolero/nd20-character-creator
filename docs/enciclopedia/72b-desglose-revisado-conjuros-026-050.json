@@ -1,0 +1,482 @@
+{
+  "fecha": "2026-10-30",
+  "alcance": "Desglose documental de Conjuros 26–50 con condiciones, efectos y advertencias comprobados",
+  "numero_registros": 25,
+  "numero_fragmentos": 67,
+  "registros": [
+    {
+      "numero_tomo": 26,
+      "nombre": "Arma elemental",
+      "tipo_analitico_no_oficial": "arma con daño elemental añadido",
+      "fragmentos_reglamentarios_literales": [
+        "1d6 de daño adicional",
+        "éste arma se considerará mágica"
+      ],
+      "advertencias_de_integracion": [
+        "Duplicado exacto de la ficha 29 del Tomo: no acumular dos efectos por duplicación documental."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 26,
+        "indice_encabezado": 286
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 27,
+      "nombre": "Apocalipsis",
+      "tipo_analitico_no_oficial": "portal e invocaciones de demonios",
+      "fragmentos_reglamentarios_literales": [
+        "Lanzamiento: 2 Intervalos",
+        "Un portal infernal de 10 metros de diámetro",
+        "1d6 demonios menores emergen por Turno",
+        "a discreción del Cronista"
+      ],
+      "advertencias_de_integracion": [
+        "Los demonios pueden dejar de obedecer; no convertir obediencia en absoluta.",
+        "No generar automáticamente estadísticas ni comportamiento de las criaturas."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 27,
+        "indice_encabezado": 292
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 28,
+      "nombre": "Arca de éter",
+      "tipo_analitico_no_oficial": "almacenamiento extradimensional con riesgo",
+      "fragmentos_reglamentarios_literales": [
+        "1d6 * 10 días",
+        "3 personas por cada 5 de tus Niveles",
+        "Probabilidad 6+",
+        "el destino del ser vivo será decidido por el Cronista"
+      ],
+      "advertencias_de_integracion": [
+        "La capacidad se expresa por carga equivalente a personas, no como masa o volumen fijo.",
+        "Conservar las dos consecuencias distintas según ubicación del cofre al expirar."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 28,
+        "indice_encabezado": 305
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 29,
+      "nombre": "Arma elemental",
+      "tipo_analitico_no_oficial": "duplicado de Arma elemental",
+      "fragmentos_reglamentarios_literales": [
+        "1d6 de daño adicional",
+        "éste arma se considerará mágica"
+      ],
+      "advertencias_de_integracion": [
+        "Duplicado literal de 26; no tratar como opción independiente sin aprobación."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 29,
+        "indice_encabezado": 313
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 30,
+      "nombre": "Armadura de maná",
+      "tipo_analitico_no_oficial": "aumento de Blindaje",
+      "fragmentos_reglamentarios_literales": [
+        "Obtienes +1d4 Blindaje"
+      ],
+      "advertencias_de_integracion": [
+        "No reformular +1d4 como +1d4 a una Tirada de Blindaje sin comprobar uso de términos."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 30,
+        "indice_encabezado": 319
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 31,
+      "nombre": "Armadura ígnea",
+      "tipo_analitico_no_oficial": "daño por contacto agresivo",
+      "fragmentos_reglamentarios_literales": [
+        "cualquier criatura que te golpee cuerpo a cuerpo recibe daño por fuego equivalente a tu Nivel"
+      ],
+      "advertencias_de_integracion": [
+        "Se activa cuando te golpea, no por mera proximidad."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 31,
+        "indice_encabezado": 325
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 32,
+      "nombre": "Armadura tetraelemental",
+      "tipo_analitico_no_oficial": "resistencia elemental sin cuantía",
+      "fragmentos_reglamentarios_literales": [
+        "resistencia a ataques de fuego, frío, relámpago y ácido",
+        "no interfiere con tu equipo"
+      ],
+      "advertencias_de_integracion": [
+        "El texto no indica una reducción numérica específica del daño."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 32,
+        "indice_encabezado": 331
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 33,
+      "nombre": "Aro de llamas abrasadoras",
+      "tipo_analitico_no_oficial": "círculo ígneo móvil y daño a quien lo atraviese",
+      "fragmentos_reglamentarios_literales": [
+        "entre 6 y 18 metros de radio",
+        "se mueve contigo",
+        "3d6 puntos de daño de fuego",
+        "Contra Muertos vivientes, el daño infligido se duplica"
+      ],
+      "advertencias_de_integracion": [
+        "No aplicar el daño por mera estancia sin atravesar el círculo.",
+        "El original no especifica cómo se fija el radio dentro del intervalo 6–18."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 33,
+        "indice_encabezado": 337
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 34,
+      "nombre": "Atormentar",
+      "tipo_analitico_no_oficial": "restricción de acciones con Tirada de Conjuro",
+      "fragmentos_reglamentarios_literales": [
+        "Realiza una Tirada de Conjuro: si tienes éxito",
+        "no podrá tomar la misma Acción de forma consecutiva"
+      ],
+      "advertencias_de_integracion": [
+        "No convertir la restricción en pérdida total del Turno."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 34,
+        "indice_encabezado": 344
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 35,
+      "nombre": "Atraer muertos vivientes",
+      "tipo_analitico_no_oficial": "atracción o invisibilidad frente a muertos vivientes",
+      "fragmentos_reglamentarios_literales": [
+        "ignorarán a cualquier criatura excepto a ti",
+        "Atacar o perturbar a estos seres romperá el sortilegio",
+        "Puedes invertir los efectos"
+      ],
+      "advertencias_de_integracion": [
+        "La invisibilidad alternativa es frente a muertos vivientes, no una invisibilidad universal.",
+        "El original no precisa radio numérico de «a tu alrededor»."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 35,
+        "indice_encabezado": 351
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 36,
+      "nombre": "Atravesar paredes",
+      "tipo_analitico_no_oficial": "pasaje temporal con límites físicos",
+      "fragmentos_reglamentarios_literales": [
+        "1d4 * 3 metros de profundidad",
+        "2 metros de altura y 2 metros de diámetro",
+        "el sortilegio no funcionará"
+      ],
+      "advertencias_de_integracion": [
+        "El pasaje no se crea si provoca derrumbe o falta espacio; conservar esa condición."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 36,
+        "indice_encabezado": 358
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 37,
+      "nombre": "Aura de espinas",
+      "tipo_analitico_no_oficial": "bonificación de ataque y represalia sobre aliados",
+      "fragmentos_reglamentarios_literales": [
+        "+1 al daño",
+        "1d10 puntos de daño perforante",
+        "no reducibles por Blindaje"
+      ],
+      "advertencias_de_integracion": [
+        "La represalia se desencadena cuando causan daño cuerpo a cuerpo al aliado afectado."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 37,
+        "indice_encabezado": 364
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 38,
+      "nombre": "Aura de invisibilidad",
+      "tipo_analitico_no_oficial": "invisibilidad en aura móvil",
+      "fragmentos_reglamentarios_literales": [
+        "aura de 4 metros de radio",
+        "efectos del conjuro Invisibilidad",
+        "será disipada si alguna de las criaturas beneficiadas"
+      ],
+      "advertencias_de_integracion": [
+        "No reinterpretar como invisibilidad permanente o de personas fuera del aura."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 38,
+        "indice_encabezado": 372
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 39,
+      "nombre": "Aura de pestilencia",
+      "tipo_analitico_no_oficial": "daño de veneno por adyacencia al final del Turno",
+      "fragmentos_reglamentarios_literales": [
+        "finalice su Turno adyacente (2m o menos) a ti",
+        "2d8 puntos de daño por veneno"
+      ],
+      "advertencias_de_integracion": [
+        "La condición explícita es terminar el Turno adyacente; no activar daño a cada entrada al área."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 39,
+        "indice_encabezado": 378
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 40,
+      "nombre": "Aura de resguardo",
+      "tipo_analitico_no_oficial": "protección de aliado a distancia",
+      "fragmentos_reglamentarios_literales": [
+        "+2 a las Tiradas para evitar ataques y Blindaje"
+      ],
+      "advertencias_de_integracion": [
+        "La expresión «+2 ... y Blindaje» requiere desambiguar si también aumenta el valor de Blindaje o su Tirada."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 40,
+        "indice_encabezado": 384
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 41,
+      "nombre": "Aura de restauración",
+      "tipo_analitico_no_oficial": "sanación periódica de aliados",
+      "fragmentos_reglamentarios_literales": [
+        "restaura 2 puntos de Salud a todos los aliados",
+        "incluido tú mismo",
+        "al comienzo de cada Turno"
+      ],
+      "advertencias_de_integracion": [
+        "Es una recuperación recurrente cada Turno, no sólo al lanzar el Conjuro."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 41,
+        "indice_encabezado": 390
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 42,
+      "nombre": "Baile desternillante de Jejas Jajaner",
+      "tipo_analitico_no_oficial": "baile obligado e incapacidad temporal",
+      "fragmentos_reglamentarios_literales": [
+        "incapaz de realizar ninguna otra acción",
+        "pierde la capacidad de atacar o lanzar conjuros",
+        "otorga Ventaja",
+        "Nivel superior a ti, deberás superar una Tirada de Conjuro"
+      ],
+      "advertencias_de_integracion": [
+        "La Tirada indicada es para víctimas de Nivel superior; no asumir que siempre se exige."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 42,
+        "indice_encabezado": 398
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 43,
+      "nombre": "Barrera astral: Armamento",
+      "tipo_analitico_no_oficial": "inmunidad a daño de armas comunes",
+      "fragmentos_reglamentarios_literales": [
+        "inmune a cualquier daño realizado con armas cuerpo a cuerpo comunes",
+        "armas mágicas o Conjuros"
+      ],
+      "advertencias_de_integracion": [
+        "No extender inmunidad a daño de armas a distancia o especiales sin texto."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 43,
+        "indice_encabezado": 406
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 44,
+      "nombre": "Barrera astral: Espejo",
+      "tipo_analitico_no_oficial": "reflejo de efecto mágico dirigido",
+      "fragmentos_reglamentarios_literales": [
+        "dirigida directamente hacia ti",
+        "redirigiéndolos de vuelta al lanzador",
+        "los efectos de área"
+      ],
+      "advertencias_de_integracion": [
+        "La inmunidad y reflejo no cubren áreas que incluyan al personaje."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 44,
+        "indice_encabezado": 412
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 45,
+      "nombre": "Barrera astral: Muerte",
+      "tipo_analitico_no_oficial": "inmunidad a muerte súbita, maldiciones y succión",
+      "fragmentos_reglamentarios_literales": [
+        "efectos de muerte súbita, maldiciones y habilidades de succión de vida",
+        "es inmune"
+      ],
+      "advertencias_de_integracion": [
+        "No inferir inmunidad a todo daño sombrío o a todos los Conjuros."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 45,
+        "indice_encabezado": 418
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 46,
+      "nombre": "Barrera astral: Obstáculo",
+      "tipo_analitico_no_oficial": "barrera con Salud y Blindaje propios",
+      "fragmentos_reglamentarios_literales": [
+        "Blindaje 1d6",
+        "Salud equivalente a tu valor de Salud actual",
+        "más de una tonelada",
+        "5 de daño por Turno",
+        "mitad de su Movimiento"
+      ],
+      "advertencias_de_integracion": [
+        "La Salud de la barrera se calcula desde la Salud actual al conjurar, no desde la máxima.",
+        "No atribuir a la barrera un ataque automático."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 46,
+        "indice_encabezado": 424
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 47,
+      "nombre": "Barrera astral: Urdimbre",
+      "tipo_analitico_no_oficial": "resistencia mágica graduada por Círculo",
+      "fragmentos_reglamentarios_literales": [
+        "Conjuros de 1er a 3er Círculo: +6",
+        "Conjuros de 4to a 6to Círculo: +4",
+        "Conjuros de 7mo y 8vo Círculo: +2"
+      ],
+      "advertencias_de_integracion": [
+        "Son bonificaciones a Tiradas de Atributo para resistir/reducir Conjuros, no reducción fija de daño."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 47,
+        "indice_encabezado": 431
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 48,
+      "nombre": "Barrera eléctrica",
+      "tipo_analitico_no_oficial": "daño de proximidad y protección al relámpago",
+      "fragmentos_reglamentarios_literales": [
+        "2d6 de daño de relámpago",
+        "a 2m o menos",
+        "resistencia al relámpago"
+      ],
+      "advertencias_de_integracion": [
+        "La resistencia no tiene valor de reducción concreto en esta ficha."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 48,
+        "indice_encabezado": 440
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 49,
+      "nombre": "Bendición",
+      "tipo_analitico_no_oficial": "recurso temporal de Bendición",
+      "fragmentos_reglamentarios_literales": [
+        "1d6 + tu Nivel",
+        "Puntos de Bendición",
+        "antes de realizar la tirada"
+      ],
+      "advertencias_de_integracion": [
+        "PB aquí designa Puntos de Bendición; no confundir con Puntos de Brujería del Brujo.",
+        "El texto incrementa el resultado natural del d20, no un Atributo permanente."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 49,
+        "indice_encabezado": 446
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 50,
+      "nombre": "Bendecir el cuerpo",
+      "tipo_analitico_no_oficial": "curación adicional desencadenada por otras fuentes",
+      "fragmentos_reglamentarios_literales": [
+        "1d6 Puntos de Salud adicionales",
+        "cada vez que sea sanado mediante conjuros, objetos mágicos o habilidades"
+      ],
+      "advertencias_de_integracion": [
+        "No concede por sí solo una curación inmediata al aplicar el Conjuro."
+      ],
+      "fuente": {
+        "archivo": "69b-conjuros-alfabeticos-026-050.json",
+        "indice": 50,
+        "indice_encabezado": 453
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    }
+  ],
+  "advertencia": "Categorías de análisis no son reglas nuevas. Los avisos no resuelven ambigüedades editoriales."
+}

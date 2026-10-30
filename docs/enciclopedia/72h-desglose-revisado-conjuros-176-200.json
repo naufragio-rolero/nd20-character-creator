@@ -1,0 +1,376 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    176,
+    200
+  ],
+  "numero_registros": 25,
+  "metodo": "Lectura manual de las fichas íntegras; índices cotejados con 69h. Interpretaciones documentales sin implementar efectos.",
+  "registros": [
+    {
+      "numero_tomo": 176,
+      "nombre_literal": "Gracia de la fertilidad",
+      "lectura_documental_no_oficial": "Restauración permanente de fertilidad en cuatro Categorías",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6,
+        7
+      ],
+      "advertencia_de_integracion": "No elimina impedimentos creados por deidades o entidades superiores; no asigna tirada ni coste no descritos.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1353
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 177,
+      "nombre_literal": "Guardián fantasmal",
+      "lectura_documental_no_oficial": "Guardián invisible vinculado a zona de unos 10 m²",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Avisa y ataca a intrusos; el texto no incluye daño ni ficha del guardián. Solo uno activo y cesa al alejarse más de 10 m.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1363
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 178,
+      "nombre_literal": "Hablar con las criaturas",
+      "lectura_documental_no_oficial": "Comunicación con una Categoría elegida al lanzar",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "No presupone actitud amistosa ni obediencia.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1371
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 179,
+      "nombre_literal": "Hablar con las plantas",
+      "lectura_documental_no_oficial": "Entendimiento de plantas y árboles",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "La comunicación no garantiza cooperación ni ausencia de agresión.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1377
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 180,
+      "nombre_literal": "Hablar con las rocas",
+      "lectura_documental_no_oficial": "Comunicación táctil con rocas y formaciones minerales",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "La información se limita a acontecimientos cercanos percibidos por las rocas; no equivale a omnisciencia.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1383
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 181,
+      "nombre_literal": "Hablar con los animales",
+      "lectura_documental_no_oficial": "Comprensión de animales y criaturas con rasgos animales",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "No confiere control sobre dichas criaturas.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1389
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 182,
+      "nombre_literal": "Hablar con los muertos",
+      "lectura_documental_no_oficial": "Tres preguntas a un espíritu en su cadáver original",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Excluye cadáveres transformados en muertos vivientes; respuestas limitadas al saber en vida y a la duración indicada.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1395
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 183,
+      "nombre_literal": "Hálito de ultratumba",
+      "lectura_documental_no_oficial": "Exhalación cónica de 6 m² con daño por Nivel y probabilidad de Enfermedad",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Daño 1d6 por Nivel; Probabilidad 14+ para Enfermedad durante N Turnos. Superficie cónica sin dimensiones lineales declaradas.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1403
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 184,
+      "nombre_literal": "Hambre de Nastala",
+      "lectura_documental_no_oficial": "Anulación selectiva de magia en superficie de alcance 50 m²",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Excluye efectos que el lanzador elija y los artefactos superiores salvo Tirada exigida por el Cronista. Forma y centro de los 50 m² no definidos.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1409
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 185,
+      "nombre_literal": "Hoja rugiente",
+      "lectura_documental_no_oficial": "Refuerzo sónico de ataque con daño adicional incluso en fallo",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "1d6 de daño sónico aun cuando falle el ataque; puede aplicarse al arma de aliado no actuado.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1416
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 186,
+      "nombre_literal": "Huracán",
+      "lectura_documental_no_oficial": "Huracán móvil aleatorio de área 8 m²",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Se mueve hasta 4 m por Turno, causa 2d6 por entrada en área. La forma del área no consta; no sustituir azar por dirección elegida.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1422
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 187,
+      "nombre_literal": "Huracán floral",
+      "lectura_documental_no_oficial": "Torbellino floral a radio lineal 4 m con daño y Ceguera",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Tirada de Conjuro para daño de 1d6 por cada 2 Niveles y Ceguera 1d4 Turnos; no asignar redondeo sin regla.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1428
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 188,
+      "nombre_literal": "Ira celestial",
+      "lectura_documental_no_oficial": "Daño radiante a no muertos o seres de sombras",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Requisito explícito de tipo de objetivo y 4d12 de daño; duplicidad de círculo frente al catálogo sigue pendiente.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1434
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 189,
+      "nombre_literal": "Intercambio de almas",
+      "lectura_documental_no_oficial": "Intercambio permanente de almas con consentimiento",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Si ambos consienten no requiere Tirada; el texto lista atributos mentales conservados y también «sus Atributos» intercambiados: delimitar si incluye solo físicos antes de codificar.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1440
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 190,
+      "nombre_literal": "Idea devoradora",
+      "lectura_documental_no_oficial": "Daño impío al inicio del Turno por duración condicional",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "3d4 al inicio de Turno y sin efecto sobre seres sin raciocinio. Duración 1 Turno por cada 2 Niveles; redondeo pendiente.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1448
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 191,
+      "nombre_literal": "Imbecilidad",
+      "lectura_documental_no_oficial": "Penalización a resistencias frente a magia",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "-1 solo a Tiradas de resistencia o soporte de efectos mágicos durante 1 Turno por Nivel.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1455
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 192,
+      "nombre_literal": "Ilusión",
+      "lectura_documental_no_oficial": "Dos modalidades de ilusión a elegir al lanzar",
+      "indices_de_parrafos_reglamentarios": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Ilusión propia es visual y no cambia voz ni olor; ilusión sonora requiere Tirada si pretende engañar; no atribuir duración no declarada.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1461
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 193,
+      "nombre_literal": "Identificar varitas o pergaminos",
+      "lectura_documental_no_oficial": "Identificación de propiedades de varita o pergamino",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Solo identifica si el Nivel del creador no supera el del lanzador.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1468
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 194,
+      "nombre_literal": "Infundir terror",
+      "lectura_documental_no_oficial": "Terror sujeto a Tirada y Probabilidad de recuperación",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Tirada inicial de Conjuro, Probabilidad 15+ al inicio de cada Turno y terminación al alejarse 100 m del lanzador.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1474
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 195,
+      "nombre_literal": "Invocar elemental menor",
+      "lectura_documental_no_oficial": "Invocación de elemental menor elegido entre cuatro elementos",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Aparece adyacente, comparte Iniciativa, obedece órdenes y límite de uno activo. La ficha no contiene estadísticas del elemental.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1480
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 196,
+      "nombre_literal": "Intruso onírico",
+      "lectura_documental_no_oficial": "Acceso pasivo a sueños de criatura dormida conocida",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "No altera el sueño; cada minuto Probabilidad 16+ de ser detectado y, de ocurrir, Tirada de Conjuro para no ser expulsado.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1489
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 197,
+      "nombre_literal": "Invocar espíritu de cuchillas",
+      "lectura_documental_no_oficial": "Espíritu de cuchillas autónomo que daña aliados y enemigos",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "10d6 a criaturas en radio lineal 3 m; Movimiento 5, prioridad a cercanos y disipación mágica, sin defensa física.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1498
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 198,
+      "nombre_literal": "Interpretar inscripciones arcanas",
+      "lectura_documental_no_oficial": "Lectura de 1d4 inscripciones con reconocimiento permanente",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "El reconocimiento ulterior del código se mantiene sin repetir el Conjuro; no activa inscripciones peligrosas.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1506
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 199,
+      "nombre_literal": "Invisibilidad",
+      "lectura_documental_no_oficial": "Invisibilidad personal o de objetivo tocado",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Incluye equipo y objetos agarrados; se disipa con acciones violentas o uso de Poder. Correr figura como ejemplo de acción violenta.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1512
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 200,
+      "nombre_literal": "Invisibilidad magna",
+      "lectura_documental_no_oficial": "Invisibilidad magna con remisión a Invisibilidad",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Mantiene beneficios de Invisibilidad pero no se disipa por acción violenta o hablar; la fuente no exime expresamente del cese por uso de Poder.",
+      "fuente": {
+        "archivo": "69h-conjuros-alfabeticos-176-200.json",
+        "indice_encabezado": 1519
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}

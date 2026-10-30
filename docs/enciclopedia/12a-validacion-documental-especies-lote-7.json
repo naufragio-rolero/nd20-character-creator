@@ -1,0 +1,346 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 7,
+  "criterio": "Cotejo de texto completo contra párrafos contiguos del documento vivo bajo encabezado; normalización exclusiva de espacios",
+  "registros_validados": 21,
+  "total_validados_acumulado": 82,
+  "pendientes": 33,
+  "registros": [
+    {
+      "id_documental": "talento-especie:ampliadas:draconido:estirpe-dragontina",
+      "sistema": "Ampliadas",
+      "especie": "Dracónido",
+      "talento": "Estirpe dragontina",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nPor tu sangre recorre la magia de los dragones de antaño, adaptando tu físico y tu vínculo con los elementos al de tus ancestros. Durante la creación de personaje, elige uno de los siguientes elementos: fuego, frío, rayo, corrupción, veneno o sonido.\nObtienes un Blindaje efectivo de 5 contra heridas provocadas por dicho elemento; tu piel, tus escamas y tus ojos tendrán una tonalidad similar al elemento seleccionado (rojo / naranja para fuego, azul / morado para frío, amarillo / blanco para rayo, negro / púrpura para corrupción, verde / marrón para veneno y gris / rosa para sonido).",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 896,
+        "indice_fin": 1492
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-nerai:morador-pelagico",
+      "sistema": "Ampliadas",
+      "especie": "Elfo nerai",
+      "talento": "Morador pelágico",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nTu cuerpo está completamente adaptado a la vida submarina. No necesitas respirar cuando estás bajo el agua y duplicas tu Movimiento cuando estás nadando, en lugar de reducirlo a la mitad.\nAdemás, puedes distinguir el entorno a tu alrededor hasta 30 metros cuando te encuentres bajo el agua y no exista ninguna fuente de iluminación; verás formas y movimientos con claridad, aunque los colores y pequeños detalles resultarán difíciles de reconocer.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 6666,
+        "indice_fin": 7120
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:redivivo:existencia-blasfema",
+      "sistema": "Ampliadas",
+      "especie": "Redivivo",
+      "talento": "Existencia blasfema",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nCoste: 1 Esfuerzo\nEres un no-muerto a efectos de reglas: no necesitas comer ni dormir y tu cuerpo no puede ser sanado por curación tradicional, aunque sí mediante la magia. Reduces a la mitad el tiempo necesario para disfrutar de un descanso completo y, si eres afectado por una enfermedad o veneno, puedes gastar Esfuerzo para resistir dicho efecto pernicioso.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 19394,
+        "indice_fin": 19762
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:redivivo:marcha-de-la-tumba",
+      "sistema": "Ampliadas",
+      "especie": "Redivivo",
+      "talento": "Marcha de la tumba",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nTus articulaciones se han vuelto algo rígidas, pero la magia sobrenatural que te mantiene atado al Mundo de la carne es excepcional: reduces en 1 tu Movimiento (ya calculado) pero eres inmune a efectos de reducción de velocidad, como caminar por terreno escarpado, difícil o conjuros que te ralenticen.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 19782,
+        "indice_fin": 20091
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:rusalka-costero:legado-del-oceano",
+      "sistema": "Ampliadas",
+      "especie": "Rusalka costero",
+      "talento": "Legado del océano",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Especial\nCoste: 1 Esfuerzo\nPosees un rasgo físico de varios seres marinos: elige qué clase de aletas, agallas, espinas, órganos bioluminiscentes, vejigas, extensiones cartilaginosas, tentáculos, etc. dispones. Esta elección te permitirá tener algún beneficio en el agua a cambio de gastar Esfuerzo, como por ejemplo:\nUn impulso temporal, utilizable cada Intervalo, que duplica tu Movimiento mientras estás nadando.\nUn arma natural, equivalente a un arma a distancia, que puedes disparar haciendo fuerza con tus músculos (por ejemplo, espinas o escupitajos ácidos). El cartílago disparado se regenera tras 8 horas.\nUna parte de tu cuerpo que se ilumina como una antorcha, incluso debajo del agua, durante 1 Intervalo.\nUnas cuchillas braquiales que puedes extraer a voluntad y tratarlas como armas ligeras.\nUnos tentáculos que te permiten hacer 1 ataque adicional y apresar con un +2 a tus oponentes.\nUnas aletas en brazos y piernas que te permiten emerger del agua a gran velocidad y planear durante 1 Turno.\nConsulta con el Cronista para crear un elemento único de tu personaje.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 21217,
+        "indice_fin": 22295
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:petaleteo",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Pétaleteo",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Acción\nCoste: 1 Esfuerzo\nProvocas el florecimiento a la fuerza de tus pétalos craneales y te elevas 1d6 * 2 metros, generando una pequeña corriente de aire vertical. Durante 2 Turnos, puedes volar a la mitad de tu Movimiento, aunque sólo puedes realizar ataques a distancia.\nCuando finalice el efecto, descenderás lentamente hasta tocar tierra. Si eres dañado cuando estás flotando, debes superar una Tirada de Agilidad o caer de golpe al suelo (aplica Daño por caída si procede).",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 2453,
+        "indice_fin": 2934
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:goron:gorologia",
+      "sistema": "Ampliadas",
+      "especie": "Goron",
+      "talento": "Gorología",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nEres inmune al estado Veneno. Además, te puedes alimentar de cualquier objeto hecho de metal o piedra, como rocas o espadas; no puedes comer algo que sea mágico: te sabrá tan asqueroso que te provocará el vómito. Sin embargo, sufres el doble de daño de cualquier ataque o Conjuro vinculado al agua y reduces tu Movimiento en 2 (ya calculado).",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 6307,
+        "indice_fin": 6656
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:goron:carga-punzante",
+      "sistema": "Ampliadas",
+      "especie": "Goron",
+      "talento": "Carga punzante",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Acción\nCoste: 1 Esfuerzo\nPuedes enrollarte como si fueras una bola de pinchos, y usar la fricción para impulsarte a gran velocidad hacia tus enemigos u obstáculos.\nCuando utilices la Maniobra «Cargar», puedes activar tu Carga punzante: considera que tu Movimiento se multiplica por dos y causas 1d4 de daño adicional por Nivel con tu ataque. Ten en cuenta que, cuando te mueves, haces daño a todo lo que intente tocarte o rozarte. Es posible que puedas romper obstáculos como piedras, barricadas, muros, etc. Consulta con tu Cronista para establecer unos límites.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 6672,
+        "indice_fin": 7236
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:goron:aplomo-goron",
+      "sistema": "Ampliadas",
+      "especie": "Goron",
+      "talento": "Aplomo goron",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Pasiva\nEste Talento sólo está disponible para los Goron de la Ocupación Guerrero, o cualquier Ocupación derivada de ésta. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nCausas el doble de daño cuando utilizas la Maniobra «Aplastar». Además, una vez por Combate, cuando utilices una de las Maniobras «Posición defensiva», «Proteger» o «Escudo humano», recuperas tanta Salud como tu Nivel.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 7276,
+        "indice_fin": 7755
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:goron:reposo-del-heroe",
+      "sistema": "Ampliadas",
+      "especie": "Goron",
+      "talento": "Reposo del héroe",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Este Talento sólo está disponible para los Goron de las Ocupaciones Guerrero o Clérigo, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nPasiva\nUna vez al día y tras un Combate en el que hayas gastado al menos 1 Punto de Esfuerzo, puedes enrollarte sobre ti mismo y descansar durante 1 Intervalo. Si lo haces, recuperas 1 Punto de Esfuerzo al finalizar el reposo.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 7773,
+        "indice_fin": 8271
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:goron:perdicion-del-dodongo",
+      "sistema": "Ampliadas",
+      "especie": "Goron",
+      "talento": "Perdición del dodongo",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Pasiva\nEste Talento sólo está disponible para los Goron de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nTienes Ventaja cuando debas realizar Tiradas para arrojar o manipular objetos explosivos (como granadas, bombas, dinamitas, etc.).",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 8294,
+        "indice_fin": 8702
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora:morador-de-las-profundidades",
+      "sistema": "Ampliadas",
+      "especie": "Zora",
+      "talento": "Morador de las profundidades",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Este Talento sólo está disponible para los Zora de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nPasiva\nTus ojos se han acostumbrado a la inmensa oscuridad del fondo del océano. Tu piel es grisácea y tus globos oculares blanquecinos e inquietantes. Cuando estás bajo el agua, puedes en distinguir el entorno a tu alrededor hasta 100 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.\nAdemás, puedes emplear tu Talento Escudo eléctrico / Estallido escupefuego para iluminar tu piel y dar luz como una Antorcha durante 2 Intervalos.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 13101,
+        "indice_fin": 13864
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:kokiri:companera-feerica",
+      "sistema": "Ampliadas",
+      "especie": "Kokiri",
+      "talento": "Compañera feérica",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Especial\nDesde que naciste, has estado acompañado por un hada vinculada a tu espíritu. Ésta criatura feérica se asemeja a un pequeño destello de luz con forma humanoide; tiene personalidad propia pero su deber es preocuparse por tu bienestar. Se alimenta de tus emociones y tu luz, por lo que intentará que estés bien en todo momento.\nConsidera a tu hada un PNJ que puedes controlar para investigar y sacar información de lugares, monstruos, etc. Tiene un Movimiento efectivo de 7, puede volar, flotar, mantenerse en el aire y es inmune a cualquier ataque físico o mágico; sólo los sortilegios oscuros más poderosos pueden hacer mella en tu hada, y simplemente la obligarían a abandonar el lugar. Si tu mueres, tu hada se desvanecerá en polvo feérico.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 15762,
+        "indice_fin": 16513
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:kokiri:retono-de-la-foresta",
+      "sistema": "Ampliadas",
+      "especie": "Kokiri",
+      "talento": "Retoño de la foresta",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Pasiva\nEres inmune al estado Dormido, y tienes Ventaja en las Tiradas de salvación contra el estado Parálisis. Cuando te mueves por terreno considerado difícil y éste es de origen natural o vegetal (como un camino lleno de zarzas y espinos, o repleto de follaje) no sufres ninguna reducción a tu Movimiento.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 16535,
+        "indice_fin": 16842
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:kokiri:sabiduria-de-las-hadas",
+      "sistema": "Ampliadas",
+      "especie": "Kokiri",
+      "talento": "Sabiduría de las hadas",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Este Talento sólo está disponible para los Kokiri de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nAcción\nCoste: 1 Esfuerzo\nSolicitas ayuda a tu compañera feérica para que, mediante su polvo mágico de hadas, te proporcione un conocimiento que antes no tenías. Tras recibir esta «sabiduría», que durará 1d4 Intervalos, puedes realizar Tiradas de Mente o Intuición para discernir, averiguar o entender algo que, de otra forma, no podrías saber. Deberás esperar un día completo antes de volver a pedir la Sabiduría de las hadas.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 16893,
+        "indice_fin": 17588
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:kokiri:tacticas-de-las-hadas",
+      "sistema": "Ampliadas",
+      "especie": "Kokiri",
+      "talento": "Tácticas de las hadas",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Este Talento sólo está disponible para los Kokiri de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nAcción\nCoste: 1 Esfuerzo\nTe apoyas en las habilidades de tu compañera feérica para coordinar a tus aliados y enfrentarte a los monstruos que desconoces. El hada guiará los golpes y se colocará en los puntos débiles del objetivo.\nElige a una criatura que consideres un enemigo, puedas ver y reconocer, y esté a 20 metros o menos de ti; durante 1d6 Turnos, tú y todos tus aliados tendréis Ventaja en las Tiradas de Ataque y Daño realizadas con armas contra esa criatura. Deberás esperar un día completo antes de volver a pedir las Tácticas de las hadas.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 17611,
+        "indice_fin": 18435
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:orni:vuelo",
+      "sistema": "Ampliadas",
+      "especie": "Orni",
+      "talento": "Vuelo",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Acción\nCoste: especial\nPuedes volar gracias a tus alas: necesitas un lugar alto desde el que poder despegar y corrientes de aire para poder desplazarte; te mueves tu Movimiento * 2 mientras estás en el aire. De otra forma, puedes pegar un salto e impulsarte gracias a tu aleteo, pero hacer esto te cuesta 1 Punto de Esfuerzo.\nNo puedes emprender el vuelo si llevas una armadura intermedia o pesada, o si llevas equipada un arma cuerpo a cuerpo a dos manos.\nMientras estás volando, no puedes lanzar Conjuros que tengan un Lanzamiento superior a 1 Turno.\nEn combate, puedes sostener un arco o ballesta con tus garras, ya que debes usar las alas para maniobrar y mantenerte en el aire.\nPuedes mover la mitad de tu Movimiento en combate, y cambiar tu verticalidad a ¼ de tu Movimiento.\nMantener el Vuelo en cada Turno requiere superar una Tirada de Resistencia al final de tu Turno o el gasto adicional de 1 Punto de Esfuerzo; si no tienes éxito, tus alas se habrán cansado y caerás de forma torpe hacia el suelo el próximo Turno.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 19417,
+        "indice_fin": 20446
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:orni:afinidad-aerea",
+      "sistema": "Ampliadas",
+      "especie": "Orni",
+      "talento": "Afinidad aérea",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Pasiva\nEste Talento sólo está disponible para los Orni de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nCuando canalizas la Urdimbre para lanzar un Conjuro relacionado con el aire, viento o el movimiento, y éste requiera una Tirada de lanzamiento, obtienes Ventaja.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 20618,
+        "indice_fin": 21053
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:orni:surcavientos",
+      "sistema": "Ampliadas",
+      "especie": "Orni",
+      "talento": "Surcavientos",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Pasiva\nEste Talento sólo está disponible para los Orni de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nHas aprendido a aprovecharte de las corrientes de viento con más facilidad que otros miembros de tu especie. Cuando vuelas, te desplazas tu Movimiento * 4 fuera de combate, tu Movimiento completo en combate y la ½ de tu Movimiento a la hora de cambiar tu verticalidad en combate.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 21067,
+        "indice_fin": 21623
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gerudo:entereza-del-desierto",
+      "sistema": "Ampliadas",
+      "especie": "Gerudo",
+      "talento": "Entereza del desierto",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Reacción\nEste Talento sólo está disponible para las Gerudo de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nGracias a tus ancestros, tu cuerpo es capaz de deflectar la magia oscura. Si eres el blanco de un Conjuro que cause un efecto o daño impío o sagrado, puedes evocar tu Entereza del desierto para reducir a la mitad el daño que te hubiese causado. Una vez has usado este Talento, debes descansar mínimo 8 horas para volverlo a utilizar.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.vml2obw2cbpg",
+        "indice_inicio": 23502,
+        "indice_fin": 24116
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-arcano:vestigios-de-hechiceria",
+      "sistema": "Nocturna",
+      "especie": "Humano arcano",
+      "talento": "Vestigios de hechicería",
+      "tipo": "fijo",
+      "texto_literal_vigente": "Eres capaz de reconocer la magia de tan sólo un vistazo; además, elige 3 Conjuros de Primer Círculo de la Escuela Arcana: si gastas 1 Punto de Esfuerzo, puedes lanzar uno de ellos aunque tu Ocupación no te permita lanzar magia.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision_documento": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "tab_id": "t.0",
+        "indice_inicio": 6311,
+        "indice_fin": 6538
+      },
+      "estado": "validado_documentalmente_sin_integracion"
+    }
+  ]
+}

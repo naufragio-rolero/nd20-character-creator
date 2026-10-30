@@ -1,0 +1,296 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Ocupaciones (Google Docs vigente)",
+  "registros_eidolas": 32,
+  "por_categoria": {
+    "1": 8,
+    "2": 8,
+    "3": 8,
+    "4": 8
+  },
+  "modalidades_por_eidolon": [
+    "Encarnar",
+    "Canalizar",
+    "Materializar"
+  ],
+  "total_modalidades_extraidas": 96,
+  "con_narrativa_original": 32,
+  "sin_registro": 0,
+  "afinidades_cotejadas": 32,
+  "afinidades_coincidentes": 31,
+  "discrepancias_afinidad": [
+    {
+      "nombre": "Velunion",
+      "categoria": 1,
+      "afinidad_tabla": "Agua",
+      "afinidad_ficha": "Ninguno",
+      "coincide": false,
+      "archivo": "59c-eidolas-categoria-1-fichas-vigentes-completas.json"
+    }
+  ],
+  "problemas_estructurales": [],
+  "detalle": [
+    {
+      "nombre": "Arkonis",
+      "categoria": 2,
+      "afinidad_tabla": "Tierra",
+      "afinidad_ficha": "Tierra",
+      "coincide": true,
+      "archivo": "59d-eidolas-categoria-2-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Binexa",
+      "categoria": 3,
+      "afinidad_tabla": "Oscuridad",
+      "afinidad_ficha": "Oscuridad",
+      "coincide": true,
+      "archivo": "59a-eidolas-categoria-3-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Cath Palug",
+      "categoria": 3,
+      "afinidad_tabla": "Fuego",
+      "afinidad_ficha": "Fuego",
+      "coincide": true,
+      "archivo": "59a-eidolas-categoria-3-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Ezion",
+      "categoria": 3,
+      "afinidad_tabla": "Tierra",
+      "afinidad_ficha": "Tierra",
+      "coincide": true,
+      "archivo": "59a-eidolas-categoria-3-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Faustargon",
+      "categoria": 4,
+      "afinidad_tabla": "Rayo",
+      "afinidad_ficha": "Rayo",
+      "coincide": true,
+      "archivo": "59b-eidolas-categoria-4-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Garathur",
+      "categoria": 4,
+      "afinidad_tabla": "Agua",
+      "afinidad_ficha": "Agua",
+      "coincide": true,
+      "archivo": "59b-eidolas-categoria-4-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Goralax",
+      "categoria": 2,
+      "afinidad_tabla": "Fuego",
+      "afinidad_ficha": "Fuego",
+      "coincide": true,
+      "archivo": "59d-eidolas-categoria-2-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Hefair",
+      "categoria": 4,
+      "afinidad_tabla": "Naturaleza",
+      "afinidad_ficha": "Naturaleza",
+      "coincide": true,
+      "archivo": "59b-eidolas-categoria-4-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Ifraya",
+      "categoria": 4,
+      "afinidad_tabla": "Hielo",
+      "afinidad_ficha": "Hielo",
+      "coincide": true,
+      "archivo": "59b-eidolas-categoria-4-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Kayulio",
+      "categoria": 1,
+      "afinidad_tabla": "Viento",
+      "afinidad_ficha": "Viento",
+      "coincide": true,
+      "archivo": "59c-eidolas-categoria-1-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Kleion",
+      "categoria": 4,
+      "afinidad_tabla": "Ninguno",
+      "afinidad_ficha": "ninguno",
+      "coincide": true,
+      "archivo": "59b-eidolas-categoria-4-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Lonian",
+      "categoria": 1,
+      "afinidad_tabla": "Agua",
+      "afinidad_ficha": "Agua",
+      "coincide": true,
+      "archivo": "59c-eidolas-categoria-1-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Luxorath",
+      "categoria": 4,
+      "afinidad_tabla": "Luz",
+      "afinidad_ficha": "Luz",
+      "coincide": true,
+      "archivo": "59b-eidolas-categoria-4-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Maia",
+      "categoria": 2,
+      "afinidad_tabla": "Viento",
+      "afinidad_ficha": "Viento",
+      "coincide": true,
+      "archivo": "59d-eidolas-categoria-2-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Nerevion",
+      "categoria": 3,
+      "afinidad_tabla": "Agua",
+      "afinidad_ficha": "Agua",
+      "coincide": true,
+      "archivo": "59a-eidolas-categoria-3-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Nunem",
+      "categoria": 4,
+      "afinidad_tabla": "Fuego",
+      "afinidad_ficha": "Fuego",
+      "coincide": true,
+      "archivo": "59b-eidolas-categoria-4-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Opharis",
+      "categoria": 2,
+      "afinidad_tabla": "Luz",
+      "afinidad_ficha": "Luz",
+      "coincide": true,
+      "archivo": "59d-eidolas-categoria-2-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Rufushia",
+      "categoria": 1,
+      "afinidad_tabla": "Luz",
+      "afinidad_ficha": "Luz",
+      "coincide": true,
+      "archivo": "59c-eidolas-categoria-1-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Schoff",
+      "categoria": 1,
+      "afinidad_tabla": "Tierra",
+      "afinidad_ficha": "Tierra",
+      "coincide": true,
+      "archivo": "59c-eidolas-categoria-1-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Sel-Line",
+      "categoria": 1,
+      "afinidad_tabla": "Oscuridad",
+      "afinidad_ficha": "Oscuridad",
+      "coincide": true,
+      "archivo": "59c-eidolas-categoria-1-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Sheólidas",
+      "categoria": 1,
+      "afinidad_tabla": "Ninguno",
+      "afinidad_ficha": "ninguno",
+      "coincide": true,
+      "archivo": "59c-eidolas-categoria-1-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Skaldrak",
+      "categoria": 3,
+      "afinidad_tabla": "Hielo",
+      "afinidad_ficha": "Hielo",
+      "coincide": true,
+      "archivo": "59a-eidolas-categoria-3-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Talisa",
+      "categoria": 2,
+      "afinidad_tabla": "Hielo",
+      "afinidad_ficha": "Hielo",
+      "coincide": true,
+      "archivo": "59d-eidolas-categoria-2-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Tal-lu-reihm",
+      "categoria": 1,
+      "afinidad_tabla": "Fuego",
+      "afinidad_ficha": "Fuego",
+      "coincide": true,
+      "archivo": "59c-eidolas-categoria-1-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Valkhar",
+      "categoria": 4,
+      "afinidad_tabla": "Oscuridad",
+      "afinidad_ficha": "Oscuridad",
+      "coincide": true,
+      "archivo": "59b-eidolas-categoria-4-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Varlyna",
+      "categoria": 2,
+      "afinidad_tabla": "Rayo",
+      "afinidad_ficha": "Rayo",
+      "coincide": true,
+      "archivo": "59d-eidolas-categoria-2-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Velghor",
+      "categoria": 3,
+      "afinidad_tabla": "Viento",
+      "afinidad_ficha": "Viento",
+      "coincide": true,
+      "archivo": "59a-eidolas-categoria-3-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Velunion",
+      "categoria": 1,
+      "afinidad_tabla": "Agua",
+      "afinidad_ficha": "Ninguno",
+      "coincide": false,
+      "archivo": "59c-eidolas-categoria-1-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Warnok",
+      "categoria": 2,
+      "afinidad_tabla": "Naturaleza",
+      "afinidad_ficha": "Naturaleza",
+      "coincide": true,
+      "archivo": "59d-eidolas-categoria-2-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Xalanth",
+      "categoria": 2,
+      "afinidad_tabla": "Oscuridad",
+      "afinidad_ficha": "Oscuridad",
+      "coincide": true,
+      "archivo": "59d-eidolas-categoria-2-fichas-vigentes-completas.json"
+    },
+    {
+      "nombre": "Yl-Veris",
+      "categoria": 3,
+      "afinidad_tabla": "Naturaleza",
+      "afinidad_ficha": "Naturaleza",
+      "coincide": true,
+      "archivo": "59a-eidolas-categoria-3-modalidades-y-lore.json"
+    },
+    {
+      "nombre": "Zephradon",
+      "categoria": 3,
+      "afinidad_tabla": "Rayo",
+      "afinidad_ficha": "Rayo",
+      "coincide": true,
+      "archivo": "59a-eidolas-categoria-3-modalidades-y-lore.json"
+    }
+  ],
+  "notas": [
+    "Las fichas incluyen el texto narrativo original y las 3 modalidades; la ofrenda, cuando exista, forma parte del texto narrativo y no se ha separado a un campo reglamentario sin cotejo adicional.",
+    "OCP-21 Velunion: la tabla general dice Agua, la ficha Ninguno. Conservar ambos valores hasta decisión del autor.",
+    "OCP-22 Maia: el texto Materializar carece de cifra en la distancia. No inferirla.",
+    "Las fuentes históricas y las transcripciones antiguas se conservan intactas; estas fichas vigentes complementan el catálogo."
+  ]
+}

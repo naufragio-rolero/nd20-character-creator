@@ -1,0 +1,209 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "titulo": "NaufragioD20 — Ocupaciones",
+    "url": "https://docs.google.com/document/d/1Zx60pJI_ETuyXvoiATUQk__E2-WUAjAnMbVBzsocIrc/edit",
+    "revision": "AHj4eMT2rOoSo0UavC-SPB-x2KuJ7Qp82ILoADuTR84JXsV6lS2MtAx5evc6pBzac_KCDoW2Wm8QmGvjp73j_g"
+  },
+  "categoria": "Eidolas Categoría 4",
+  "estado": "transcripcion_literal_de_tres_modalidades_y_narrativa",
+  "registros": [
+    {
+      "nombre": "Faustargon",
+      "encabezado_literal": "Faustargon, ira celestial",
+      "categoria": 4,
+      "afinidad_literal": "Elemento afín: Rayo",
+      "parrafos_fuente": [
+        5046,
+        5053
+      ],
+      "contexto_narrativo_literal": [
+        "Faustargon es una entidad que mora en los dominios más altos del cielo, más allá de las nubes y los mortales. Su poder es inmenso, superando incluso a los espíritus menores del rayo, como Zephradon. Es el maestro absoluto de las tormentas, capaz de desatar huracanes y truenos tan ensordecedores que agrietan la misma tierra. Su figura es imponente y etérea, oculta tras densos nubarrones que lo rodean constantemente. Los cielos se oscurecen cuando decide descender al mundo, y su presencia se manifiesta con relámpagos que iluminan el horizonte.",
+        "Se presenta como un coloso alado, carente de piernas, formado en gran parte por corrientes de electricidad pura. De su torso surge un torso cubierto de placas metálicas que resplandecen con energía azulada, y sus alas parecen hechas de nube y rayo, extendiéndose por millas. En su cabeza, dos cuernos crecen hacia atrás como cables eléctricos, que generan arcos de energía constantemente. Cada uno de sus movimientos desencadena una tormenta, y su mirada es fría como la furia de los cielos."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el poder de Faustargon, adquiriendo inmunidad total a los ataques eléctricos. Durante 1d8 Turnos, tus ataques cuerpo a cuerpo y a distancia infligen 4d8 de daño por rayo adicional, y tu velocidad aumenta, permitiéndote realizar dos acciones por turno sin penalización.",
+        "Canalizar": "Canalizar: Devastación. El cielo se abre en un violento estallido de energía, y Faustargon desciende en una columna de luz eléctrica. Al impactar el suelo, genera una tormenta eléctrica masiva en un radio de 80 metros. Todas las criaturas en el área sufren 40d4 de daño por rayo y quedan Aturdidas durante 1d4 Turnos.",
+        "Materializar": "Materializar: Salud 14/2d14/3, Ataque 2d10, Blindaje d10. Faustargon se materializa como una figura gigantesca envuelta en truenos y relámpagos, arrasando el campo de batalla con ataques eléctricos devastadores. Luchará a tu lado durante 3d8 Turnos o hasta que su salud sea agotada."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5051,
+        "Canalizar": 5052,
+        "Materializar": 5053
+      }
+    },
+    {
+      "nombre": "Garathur",
+      "encabezado_literal": "Garathur, el rey del mar",
+      "categoria": 4,
+      "afinidad_literal": "Elemento afín: Agua",
+      "parrafos_fuente": [
+        5054,
+        5061
+      ],
+      "contexto_narrativo_literal": [
+        "Una vez fue el majestuoso monarca de un reino costero, conocido por su gran sabiduría y conexión arcana sobre los océanos. Gobernaba un imperio próspero, pero su vida terminó en tragedia cuando una galerna descomunal, invocada por fuerzas elementales, amenazó con destruir todo lo que amaba. En un último acto de sacrificio, Garathur se lanzó a las profundidades del océano y usó su conexión con el agua para calmar la tormenta, sellando su destino en las profundidades marinas. Aunque su cuerpo pereció, su espíritu perdura como un Eidolon, velando por aquellos que luchan con nobleza en los mares.",
+        "Garathur se manifiesta como un guerrero imponente cubierto de una armadura de coral y escamas de mar. Su tridente brilla con un fulgor azul profundo, y su capa, hecha de algas y espuma marina, ondea como si estuviera siempre bajo el agua. Se le convoca arrojando al mar una pieza de armadura real, y a cambio, exige que el invocador proteja a su pueblo o seres queridos con su vida, como él lo hizo."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el escudo de Garathur, obteniendo inmunidad al daño por agua y una armadura marina que otorga Blindaje d12. Además, tus ataques cuerpo a cuerpo infligen 3d6 de daño de agua adicional durante 1d6 Turnos.",
+        "Canalizar": "Canalizar: Galerna real. Garathur emerge con su tridente levantado, desatando una tormenta marina furiosa sobre el campo de batalla. Un torrente de agua y vientos huracanados afecta un área de 60 metros, causando 40d6 de daño de agua y viento a todas las criaturas enemigas dentro del área. Además, tienen una Probabilidad 14+ de ser silenciadas durante 1d4 Turnos, incapacitadas de lanzar hechizos o usar habilidades verbales.",
+        "Materializar": "Materializar: Salud 14/d14/5, Ataque d12, Blindaje d16. Garathur se materializa como un rey guerrero, blandiendo su tridente con ferocidad. El monarca lucha con implacable honor hasta que el combate termine."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5059,
+        "Canalizar": 5060,
+        "Materializar": 5061
+      }
+    },
+    {
+      "nombre": "Hefair",
+      "encabezado_literal": "Hefair, tejedor de niebla",
+      "categoria": 4,
+      "afinidad_literal": "Elemento afín: Naturaleza",
+      "parrafos_fuente": [
+        5062,
+        5071
+      ],
+      "contexto_narrativo_literal": [
+        "Esta criatura es una entidad que desafía toda lógica y forma coherente, una quimera nacida del caos y la confusión. Con su habilidad para manipular la niebla y las ilusiones, teje realidades fragmentadas a su alrededor, donde lo verdadero y lo falso se mezclan sin distinción. Aquellos que caen en su dominio quedan atrapados en laberintos de desesperación, incapaces de discernir la realidad mientras la quimera los acecha entre los vapores oníricos.",
+        "Hefair exige a sus invocadores que se dejen llevar por las alucinaciones provocadas por sus efluvios. Cuando escucha sus gritos de desesperación y confusión, es cuando otorga sus secretos para invocarlo.",
+        "Su apariencia es grotesca e imposible de comprender en su totalidad. El cuerpo principal es el de un león, cubierto de un pelaje nebuloso y gris que se difumina en los bordes, como si su figura misma estuviera disolviéndose en la niebla. En lugar de una única cabeza, Hefair posee tres: sus dos raquíticos brazos terminan en cabezas de ciervo, con cuernos retorcidos y ojos blancos sin pupilas, mientras que en el centro de su cuerpo, donde debería estar la cabeza, tiene una grotesca cabeza de salmón, situada de lado, con una boca que nunca cierra y unas agallas que se agitan constantemente.",
+        "De su espalda emerge una larga cola que se bifurca en dos manos humanas, delgadas y huesudas, que parecen actuar como sus ojos y oídos, tocando y explorando el entorno en busca de presas."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el cuerpo quimérico de Hefair, obteniendo inmunidad a los ataques a distancia y Ventaja para esquivar cualquier ataque físico durante 1d6 Turnos. Mientras dure la encarnación, cualquier criatura que te ataque tiene una Probabilidad 12+ de quedar atrapada en una ilusión neblinosa, paralizada en un mundo interior incomprensible.",
+        "Canalizar": "Canalizar: Juicio neblinoso. Hefair invoca una cúpula de niebla alrededor del campo de batalla que cubre un área de 30 metros. Dentro de esta cúpula, sus manos humanas en la cola se extienden y multiplican para atrapar a todas las criaturas al alcance. Cada criatura quedará inmovilizada durante 1d4 Turnos, mientras sufren 15d10 de daño psíquico por Turno a medida que sus mentes sucumben a la niebla y las ilusiones.",
+        "Materializar": "Materializar: Salud 9/d9/0, Ataque 6d4, Blindaje 2d6. Hefair se materializa completamente como la quimera desfigurada, combatiendo con sus dos cabezas de ciervo que desgarran la realidad misma. Sus ataques son un caos impredecible, y cualquier criatura que entre en contacto con sus manos tiene una Probabilidad 12+ de quedar atrapada en una ilusión que lo paraliza durante 1 turno. Hefair luchará hasta que su Salud se agote o el combate termine."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5069,
+        "Canalizar": 5070,
+        "Materializar": 5071
+      }
+    },
+    {
+      "nombre": "Ifraya",
+      "encabezado_literal": "Ifraya, la princesa glacial",
+      "categoria": 4,
+      "afinidad_literal": "Elemento afín: Hielo",
+      "parrafos_fuente": [
+        5072,
+        5079
+      ],
+      "contexto_narrativo_literal": [
+        "En los albores de la civilización, existió un imperio helado gobernado por una princesa cuyo corazón se fue enfriando a medida que las montañas nevadas que rodeaban su hogar se volvían más intransitables. Su amor por su gente y su tierra era tan profundo como el frío que los protegía, pero cuando fue traicionada desde dentro, Ifraya se entregó al poder del hielo, convirtiéndose en la Princesa Glacial, una entidad cuya voluntad podía dominar los ventisqueros más crueles. Su espíritu ahora vaga entre los picos helados, sólo apareciendo ante aquellos invocadores que son capaces de soportar su frialdad tanto física como emocional. Ifraya es tan bella como letal, y su presencia congela no solo el cuerpo, sino también la mente de sus enemigos.",
+        "Ifraya se manifiesta como una figura alta y majestuosa, con piel pálida y ojos azules brillantes que reflejan los glaciares más antiguos. Viste un manto hecho de hielo puro, que chisporrotea y se desintegra en polvo de nieve a cada paso. Sus cabellos parecen estar formados por estalactitas cristalinas, y su corona es una tiara de hielo. Su invocación requiere que el invocador derrame una lágrima sobre la nieve virgen, simbolizando la frialdad y la pérdida."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la corona de Ifraya durante 1d6 Turnos, adquiriendo inmunidad total al daño por frío y ganando la habilidad de congelar a los enemigos cercanos con solo un toque. Tus ataques cuerpo a cuerpo infligen 5d6 de daño por frío adicional, y las criaturas heridas tienen una Probabilidad 14+ de quedar congeladas durante 1d3 Turnos.",
+        "Canalizar": "Canalizar: Polvo de zafiros. Un destello de luz azulada impacta en el centro del diagrama de invocación, mostrando a Ifraya en su gloria. Con un gesto de desprecio, hace aparecer en un vórtice de nieve y frío que arrasa un área de 72 metros alrededor del invocador. Todas las criaturas en el área sufren 30d8 de daño por frío, y quedan congeladas, perdiendo su siguiente Turno de acción. Las criaturas que sobrevivan a este ataque tienen su velocidad reducida a la mitad durante 2d6 Turnos debido al hielo que cubre sus cuerpos.",
+        "Materializar": "Materializar: Salud 12/d12/2, Ataque d12, Blindaje d10. Ifraya se materializa como la Princesa Glacial, luchando a tu lado con sus poderosas ráfagas de hielo; su impacto congela todo lo que toca. Luchará hasta que su salud se agote o sea impactada 5 veces."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5077,
+        "Canalizar": 5078,
+        "Materializar": 5079
+      }
+    },
+    {
+      "nombre": "Kleion",
+      "encabezado_literal": "Kleion, la línea encarnada",
+      "categoria": 4,
+      "afinidad_literal": "Elemento afín: ninguno",
+      "parrafos_fuente": [
+        5080,
+        5088
+      ],
+      "contexto_narrativo_literal": [
+        "Este ser primordial es la manifestación viviente de las corrientes del tiempo, un ser capaz de doblar, alterar y romper las reglas del espacio y la realidad a su antojo. Como predecesor del Vórtice del Vacío, su existencia está profundamente entrelazada con la línea temporal de Eilath, pero su poder es tan vasto que ni siquiera él puede contener el caos absoluto del Vórtice. Kleion exige a sus invocadores que se enfrenten a situaciones del pasado, en el que apariciones cronománticas de sucesos tan reales como si hubiesen sucedido de verdad ponen en duda sus capacidades, su moralidad y su determinación. El señor del tiempo es muy exigente y no aceptará a cualquiera.",
+        "Kleion tiene una forma cambiante y etérea. Su apariencia más común es la de una serpiente inmensa de cristal, de unos treinta pies de largo, con un cuerpo translúcido que parece fluir como el tiempo mismo. A lo largo de su cuerpo, destellos de relojes de arena y esferas astronómicas giran constantemente, mientras las esferas celestiales marcan los segundos y los minutos que pasan a su alrededor. En lugar de ojos, tiene cinco esferas incandescentes de luz blanca pura, que son capaces de ver a través del tiempo y el espacio.",
+        "En los extremos de su serpentino cuerpo, donde deberían estar sus colmillos, hay portales circulares que se abren hacia otros planos. De estos portales surgen hebras de espacio-tiempo que utiliza para manipular la realidad en torno a él. Kleion flota a través del espacio, dejando una estela de distorsiones temporales que hacen que el pasado y el futuro se fusionen en un todo caótico."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe los anillos de Kleion, obteniendo control sobre el flujo del tiempo. Durante 1d4 Turnos, puedes realizar una acción adicional por turno y ralentizar a tus enemigos, otorgándoles Desventaja en sus Tiradas de ataque. Además, cualquier impacto que te alcance tiene un 50% de probabilidad de ser revertido en el tiempo, negando el daño.",
+        "Canalizar": "Canalizar: Distorsión temporal. Kleion invoca una tormenta cronomántica, cubriendo un área de 36 metros. Dentro de este vórtice, el tiempo fluye de manera errática. Todas las criaturas en el área quedan atrapadas en un bucle temporal que repite su último turno sin poder realizar nuevas acciones. Además, cada enemigo en el área sufrirá 46d6 de daño arcano, desintegrando las moléculas de su cuerpo.",
+        "Materializar": "Materializar: Salud 20/d20/5, Ataque 3d8, Blindaje d16. Kleion se materializa en su forma serpentina, desatando una tormenta de distorsiones espaciales y temporales a su alrededor. Cualquier criatura que lo ataque directamente tiene una Probabilidad 14+ de quedar atrapado en un bucle temporal en el que repetirá el mismo turno indefinidamente; cada Turno podrá intentar liberarse del bucle. Kleion combate hasta que su Salud se agote o el combate termine."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5086,
+        "Canalizar": 5087,
+        "Materializar": 5088
+      }
+    },
+    {
+      "nombre": "Luxorath",
+      "encabezado_literal": "Luxorath, faro del infinito",
+      "categoria": 4,
+      "afinidad_literal": "Elemento afín: Luz",
+      "parrafos_fuente": [
+        5089,
+        5096
+      ],
+      "contexto_narrativo_literal": [
+        "En lo más profundo de las eras, en áreas olvidadas de la realidad, existe una entidad que parece haber sido forjada en los rincones más antiguos y lejanos del cosmos, una estructura colosal cuya misión es iluminar los caminos del universo. Su forma recuerda vagamente a un faro, pero no uno ordinario: está compuesto de intrincados engranajes flotantes y paneles iridiscentes que giran constantemente a su alrededor, pulsando con luz y energía. En la cúspide de su figura, un gran ojo emite un haz radiante que atraviesa el vacío, observando y escaneando todo lo que se encuentra en su camino. Su cuerpo no parece de este mundo, una combinación de materiales que vibran con una luz contenida, pero inagotable, como si fuera un artefacto viviente más allá del entendimiento mortal.",
+        "Luxorath flota de manera etérea, sin pies que toquen el suelo, su presencia es más la de una baliza cósmica que la de una criatura tangible. Su luz es cegadora pero llena de propósito, guiando a los perdidos y destruyendo las sombras más oscuras. Para invocar a Luxorath, el invocador debe elevar una piedra brillante sobre una montaña al amanecer, representando el ascenso de la luz sobre las tinieblas."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la radiancia de Luxorath, envolviendo tu cuerpo en partículas luminosas y obteniendo inmunidad a cualquier ataque basado en oscuridad o sombras. Durante 1d8 Turnos, todos tus ataques infligen 8d6 de daño por luz, y los enemigos a 9 metros de ti sufren 4d6 de daño por luz cada turno que permanezcan cerca. Además, el rayo de Luxorath revela cualquier criatura oculta en un radio de 30 metros.",
+        "Canalizar": "Canalizar: Mirada del cosmos. Luxorath despliega su gran ojo metálico, disparando un rayo de luz implacable en un cono de 108 metros frente a él. Todas las criaturas alcanzadas sufren 50d6 de daño por luz. Las criaturas demoníacas, no muertas o envueltas en sombras tienen una Probabilidad 14+ de ser disipadas instantáneamente. Los aliados dentro del alcance reciben una curación equivalente a 5d10 puntos de salud, mientras que cualquier efecto pernicioso que sufran es eliminado.",
+        "Materializar": "Materializar: Salud 20/d20/10, Ataque 2d12, Blindaje d20. Luxorath se manifiesta como un faro colosal hecho de luz y energía, iluminando el campo de batalla y cegando a los enemigos en un radio de 30 metros. Es inmóvil. Su ojo metálico emite un rayo continuo de luz destructiva (con un radio de 10 metros) que inflige 6d8 de daño cada turno a cualquier enemigo que se encuentre bajo su haz. Luxorath permanecerá luchando hasta que el combate termine, puesto que regenera 1d10 de salud cada Turno."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5094,
+        "Canalizar": 5095,
+        "Materializar": 5096
+      }
+    },
+    {
+      "nombre": "Nunem",
+      "encabezado_literal": "Nunem, la caldera ancestral",
+      "categoria": 4,
+      "afinidad_literal": "Elemento afín: Fuego",
+      "parrafos_fuente": [
+        5097,
+        5104
+      ],
+      "contexto_narrativo_literal": [
+        "Este Eidolon es una bestia gigantesca, una criatura que mezcla características de una tortuga y un reptil, capaz de caminar sobre dos poderosas extremidades mientras arrastra su enorme cuerpo por desiertos y tierras abrasadas. Su caparazón, cubierto de roca volcánica, está agrietado en algunos puntos, permitiendo que el calor insoportable de su interior se filtre al exterior. Cada paso que da emite un retumbar profundo que sacude la tierra y genera ondas ígneas que distorsionan el aire a su alrededor. Se dice que Nunem tiene la capacidad de cambiar el clima en cualquier lugar al que vaya, desatando sofocantes olas de calor que marchitan todo a su paso.",
+        "Las historias más antiguas mencionan a Nunem como el guardián de los volcanes que existían mucho antes de que el mundo se estabilizara. Este ser contiene dentro de sí el poder de la mismísima tierra en sus fases más violentas. Invocarlo requiere presentar como ofrenda una piedra volcánica genuina, extraída de lo profundo de un volcán activo, para demostrar tu valía."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: Recibe la roca fundida de Nunem, volviéndote inmune al daño por fuego y absorbiendo 2d6 puntos de daño de cualquier ataque basado en calor durante 1d8 Turnos. Tus ataques físicos, además, infligen 3d8 de daño por fuego.",
+        "Canalizar": "Canalizar: Erupción del yermo. El área a tu alrededor comienza a vibrar mientras el calor aumenta de manera insoportable. Nunem emerge parcialmente del suelo en una explosión de llamas, desatando una ola de calor en un radio de 30 metros. Todas las criaturas en el área sufren 60d6 de daño por fuego. Aquellos alcanzados por el calor quedan Sofocados por el calor, sufriendo 2d6 de daño adicional durante los siguientes 1d4 Turnos.",
+        "Materializar": "Materializar: Salud 16/d16/3, Ataque d16, Blindaje d12. Nunem se manifiesta en su totalidad, avanzando lentamente por el campo de batalla mientras el aire a su alrededor se vuelve irrespirable. La mera cercanía a Nunem debilita a los enemigos, quienes sufren por el calor extremo que irradia. Permanecerá luchando hasta que su salud sea agotada o el combate termine, dejando tras de sí un paisaje arrasado y cubierto de cenizas."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5102,
+        "Canalizar": 5103,
+        "Materializar": 5104
+      }
+    },
+    {
+      "nombre": "Valkhar",
+      "encabezado_literal": "Valkhar, sombra devastadora",
+      "categoria": 4,
+      "afinidad_literal": "Elemento afín: Oscuridad",
+      "parrafos_fuente": [
+        5105,
+        5112
+      ],
+      "contexto_narrativo_literal": [
+        "Un espíritu ligado a la muerte y las sombras, es una entidad de poder temible que acecha en los cenicientos cielos de Desgoth. Su mera presencia absorbe la luz, y donde él se manifiesta, la oscuridad se extiende como un manto que cubre el mundo. Representa la muerte en su forma más pura: inexorable, implacable y eterna. Valkhar es una figura que se desliza entre las sombras y los miedos, nutriéndose de la desesperación y el sufrimiento de los mortales. Es el hermano de Velghor y comparte con él la afinidad por el caos, pero su poder es mucho más siniestro y mortal.",
+        "Aparece como un ser esquelético envuelto en un manto de sombras vivas que se retuercen y se estiran como tentáculos. Su cuerpo es alto y delgado, y de su espalda sobresalen alargadas extremidades similares a garras. No tiene rostro visible, pero en su lugar, dos orbes de luz roja arden en lo que sería su cabeza, como dos estrellas moribundas. Su voz es un susurro que resuena en las mentes de los que lo escuchan, sembrando el miedo."
+      ],
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la mortaja de Valkhar, de la que surge un aura de oscuridad que hace que las sombras te protejan. Obtienes la capacidad de volverte intangible durante 1d6 Turnos, lo que te permite atravesar paredes, objetos y criaturas. Además, cualquier criatura viva que se encuentre en un radio de 6 metros de ti sufre 3d6 de daño impío y tiene una Probabilidad 15+ de quedar Aterrada.",
+        "Canalizar": "Canalizar: Maldición funesta. Valkhar invoca un vasto campo de oscuridad pura que se extiende en un radio de 18 metros. Todas las criaturas en el área quedan atrapadas en una prisión de sombras durante 1d4 Turnos, incapaces de moverse o atacar. Aquellas que queden atrapados sufren 8d8 de daño por sombras por Turno y tienen una Probabilidad 18+ de quedar Malditas de forma permanente.",
+        "Materializar": "Materializar: Salud 14/d14/3, Ataque 4d6, Blindaje d12. Valkhar se materializa como una figura oscura que flota sobre el suelo, envuelto en un aura de muerte y desesperación. Luchará a tu lado, drenando la vida de los enemigos cercanos. Cualquier criatura que lo ataque sufre 1d8 de daño por sombras. Su ataque físico consiste en invocar largas garras de sombras que rasgan a sus oponentes. Luchará hasta que su Salud se agote o el combate termine."
+      },
+      "indices_modalidades": {
+        "Encarnar": 5110,
+        "Canalizar": 5111,
+        "Materializar": 5112
+      }
+    }
+  ],
+  "nota": "Cada modalidad y texto narrativo se conserva íntegramente; los índices corresponden a párrafos normalizados del Google Doc vigente. No se reescriben fuentes históricas ni se declaran mecánicamente validados los efectos."
+}

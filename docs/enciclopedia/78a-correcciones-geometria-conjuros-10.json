@@ -1,0 +1,269 @@
+{
+  "fecha": "2026-10-30",
+  "decision": "Aprobación editorial de geometría circular expresada como superficie, sin reconvertir a radios lineales",
+  "procedencia": "Solicitud del usuario posterior a 77c",
+  "criterios": [
+    "Círculo de superficie equivalente a la unidad original m² o km², no distancia lineal.",
+    "El centro del círculo es el explicitado por el texto de cada conjuro; si no lo dice, se conserva sin inventarlo.",
+    "No se alteran los campos originales de alcance, tiradas, duración, daño ni efectos.",
+    "Los archivos 69a–69r son transcripciones literales intocables: estas fichas revisadas se publican como una capa editorial separada.",
+    "Las contradicciones independientes del cambio geométrico siguen pendientes."
+  ],
+  "total": 10,
+  "registros": [
+    {
+      "numero_tomo": 90,
+      "nombre_literal": "Cúpula antimagia",
+      "fuente": {
+        "archivo": "69d-conjuros-alfabeticos-076-100.json",
+        "sha": "b688a45427a30f715827b95631b62ac381d111f6",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+      },
+      "parrafo_editado": 4,
+      "fragmento_original": "en un radio de 3m2 a tu alrededor",
+      "fragmento_corregido": "en una superficie circular de 3 m² centrada en tu posición al lanzar el conjuro",
+      "texto_original": "Conjuras un domo de energía telúrica que suprime toda magia en un radio de 3m2 a tu alrededor. Esta Cúpula antimagia permanece fijo en el lugar donde la conjuras, anulando cualquier efecto mágico que entre en su área, pero no se desplaza contigo.",
+      "texto_corregido": "Conjuras un domo de energía telúrica que suprime toda magia en una superficie circular de 3 m² centrada en tu posición al lanzar el conjuro. Esta Cúpula antimagia permanece fijo en el lugar donde la conjuras, anulando cualquier efecto mágico que entre en su área, pero no se desplaza contigo.",
+      "parrafos_revisados": [
+        "Sexto Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Duración: 1 Intervalo por Nivel",
+        "Conjuras un domo de energía telúrica que suprime toda magia en una superficie circular de 3 m² centrada en tu posición al lanzar el conjuro. Esta Cúpula antimagia permanece fijo en el lugar donde la conjuras, anulando cualquier efecto mágico que entre en su área, pero no se desplaza contigo."
+      ],
+      "nota_control": "La cúpula permanece fija tras el lanzamiento; la superficie no se desplaza con el lanzador.",
+      "estado": "redaccion_editorial_aprobada_no_aplicada_a_transcripcion_literal"
+    },
+    {
+      "numero_tomo": 108,
+      "nombre_literal": "Diluvio universal",
+      "fuente": {
+        "archivo": "69e-conjuros-alfabeticos-101-125.json",
+        "sha": "05516774d931c0245fd673c85506fd35e5e394a4",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+      },
+      "parrafo_editado": 5,
+      "fragmento_original": "en un radio de 10 km² alrededor de ti",
+      "fragmento_corregido": "en una superficie circular de 10 km² centrada en ti",
+      "texto_original": "Canalizas el poder primordial del agua y desatas un diluvio que anega la tierra en un radio de 10 km² alrededor de ti. Aguas torrenciales caen desde el cielo o emergen del suelo, arrastrando estructuras, inundando campos y sumergiendo aldeas y pueblos bajo su implacable marea.",
+      "texto_corregido": "Canalizas el poder primordial del agua y desatas un diluvio que anega la tierra en una superficie circular de 10 km² centrada en ti. Aguas torrenciales caen desde el cielo o emergen del suelo, arrastrando estructuras, inundando campos y sumergiendo aldeas y pueblos bajo su implacable marea.",
+      "parrafos_revisados": [
+        "Octavo Círculo",
+        "Escuela: Naturaleza",
+        "Lanzamiento: 3 Intervalos",
+        "Alcance: 10 kilómetros alrededor del lanzador",
+        "Duración: 1d6 días",
+        "Canalizas el poder primordial del agua y desatas un diluvio que anega la tierra en una superficie circular de 10 km² centrada en ti. Aguas torrenciales caen desde el cielo o emergen del suelo, arrastrando estructuras, inundando campos y sumergiendo aldeas y pueblos bajo su implacable marea.",
+        "En el área afectada, el nivel del agua sube rápidamente, alcanzando una profundidad de hasta 10 metros en las zonas más bajas.",
+        "Criaturas terrestres: son arrastradas por la inundación.",
+        "Construcciones: las edificaciones menos resistentes son arrasadas o sumergidas.",
+        "Terreno: el paisaje queda transformado, convirtiendo el área en un vasto pantano o un nuevo lago permanente.",
+        "Utilizar este poder desmedido exige un enorme sacrificio personal: deberás perder 1d4 Espacios de Conjuro (o un valor equivalente si no los tienes). Este conjuro es irreversible, y su impacto en el ecosistema y la población es inmenso. Puede enfurecer a deidades o entidades asociadas con el equilibrio natural. "
+      ],
+      "nota_control": "PENDIENTE DISTINTO: el campo Alcance dice «10 kilómetros alrededor del lanzador»; no se modifica el alcance ni se presume equivalencia con los 10 km².",
+      "estado": "redaccion_editorial_aprobada_no_aplicada_a_transcripcion_literal"
+    },
+    {
+      "numero_tomo": 131,
+      "nombre_literal": "Discurso de necios",
+      "fuente": {
+        "archivo": "69f-conjuros-alfabeticos-126-150.json",
+        "sha": "c3808dcb7da60b4836aea1df8fe7b6b122edee2a",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+      },
+      "parrafo_editado": 4,
+      "fragmento_original": "en un radio de 10 metros cuadrados alrededor de un punto dentro del alcance",
+      "fragmento_corregido": "en una superficie circular de 10 m² centrada en un punto dentro del alcance",
+      "texto_original": "Conjuras una energía insidiosa que intenta manipular las mentes de hasta 3d6 criaturas de las Categorías Humanoide o Fata, en un radio de 10 metros cuadrados alrededor de un punto dentro del alcance. Realiza una Tirada de Conjuro: si tienes éxito, los seres afectados entran en un debate interminable, obligados a discutir acaloradamente sobre un tema en el que no están de acuerdo, exponiendo sus puntos de vista, criticando las ideas de los demás y defendiendo sus argumentos sin descanso. ",
+      "texto_corregido": "Conjuras una energía insidiosa que intenta manipular las mentes de hasta 3d6 criaturas de las Categorías Humanoide o Fata, en una superficie circular de 10 m² centrada en un punto dentro del alcance. Realiza una Tirada de Conjuro: si tienes éxito, los seres afectados entran en un debate interminable, obligados a discutir acaloradamente sobre un tema en el que no están de acuerdo, exponiendo sus puntos de vista, criticando las ideas de los demás y defendiendo sus argumentos sin descanso. ",
+      "parrafos_revisados": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 20 metros",
+        "Duración: 2d8 Intervalos",
+        "Conjuras una energía insidiosa que intenta manipular las mentes de hasta 3d6 criaturas de las Categorías Humanoide o Fata, en una superficie circular de 10 m² centrada en un punto dentro del alcance. Realiza una Tirada de Conjuro: si tienes éxito, los seres afectados entran en un debate interminable, obligados a discutir acaloradamente sobre un tema en el que no están de acuerdo, exponiendo sus puntos de vista, criticando las ideas de los demás y defendiendo sus argumentos sin descanso. ",
+        "Las criaturas pueden moverse y hablar, pero no realizarán ataques ni tomarán medidas ofensivas o defensivas mientras estén atrapadas en la discusión. Sin embargo, si son heridas u ocurre algo que les haga temer por su vida, el efecto del conjuro finalizará."
+      ],
+      "nota_control": "El centro es el punto elegido dentro del Alcance de 20 metros.",
+      "estado": "redaccion_editorial_aprobada_no_aplicada_a_transcripcion_literal"
+    },
+    {
+      "numero_tomo": 205,
+      "nombre_literal": "Invocar vórtice de energía",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "sha": "896c24973684a06870dc2806135d7c29a50e8a2c",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+      },
+      "parrafo_editado": 5,
+      "fragmento_original": "en un radio de 4m2 a su alrededor",
+      "fragmento_corregido": "en una superficie circular de 4 m² centrada en el vórtice",
+      "texto_original": "Conjuras un vórtice salvaje de energía arcana que aparece como una espiral púrpura fulgurante y agresiva. Este torbellino energético se materializa en un espacio dentro del alcance y ataca indiscriminadamente a todas las criaturas en un radio de 4m2 a su alrededor, ya sean aliados o enemigos.",
+      "texto_corregido": "Conjuras un vórtice salvaje de energía arcana que aparece como una espiral púrpura fulgurante y agresiva. Este torbellino energético se materializa en un espacio dentro del alcance y ataca indiscriminadamente a todas las criaturas en una superficie circular de 4 m² centrada en el vórtice, ya sean aliados o enemigos.",
+      "parrafos_revisados": [
+        "Séptimo Círculo",
+        "Escuela: Arcana",
+        "Alcance: 10 metros",
+        "Duración: 1 Turno por Nivel",
+        "Invocación",
+        "Conjuras un vórtice salvaje de energía arcana que aparece como una espiral púrpura fulgurante y agresiva. Este torbellino energético se materializa en un espacio dentro del alcance y ataca indiscriminadamente a todas las criaturas en una superficie circular de 4 m² centrada en el vórtice, ya sean aliados o enemigos.",
+        "Las criaturas dentro del área sufren 8d8 puntos de daño por fuerza al comienzo de su Turno. El vórtice actúa al comienzo de cada ronda, moviéndose hacia la criatura más cercana con un Movimiento de 10 metros. No discrimina entre aliados o enemigos. No puede ser atacado físicamente, pero sortilegios de disipación arcana pueden desintegrarlo."
+      ],
+      "nota_control": "El área acompaña al vórtice cuando se mueve, sin cambiar su Movimiento ni el momento de infligir daño.",
+      "estado": "redaccion_editorial_aprobada_no_aplicada_a_transcripcion_literal"
+    },
+    {
+      "numero_tomo": 217,
+      "nombre_literal": "Luna carmesí",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "sha": "896c24973684a06870dc2806135d7c29a50e8a2c",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+      },
+      "parrafo_editado": 8,
+      "fragmento_original": "en un radio de 20 km² alrededor de ti",
+      "fragmento_corregido": "en una superficie circular de 20 km² centrada en ti",
+      "texto_original": "Durante la noche de luna llena, invocas un poder arcano y profano que tiñe el astro celeste de un rojo brillante y ominoso. Este hechizo despierta los instintos más oscuros de todas las criaturas malignas en un radio de 20 km² alrededor de ti, llenándolas de una sed insaciable de sangre y caos, provocando los siguientes efectos:",
+      "texto_corregido": "Durante la noche de luna llena, invocas un poder arcano y profano que tiñe el astro celeste de un rojo brillante y ominoso. Este hechizo despierta los instintos más oscuros de todas las criaturas malignas en una superficie circular de 20 km² centrada en ti, llenándolas de una sed insaciable de sangre y caos, provocando los siguientes efectos:",
+      "parrafos_revisados": [
+        "Octavo Círculo",
+        "Escuela: Demonología",
+        "Lanzamiento: 1d4 +2 Intervalos",
+        "Alcance: 20km2 alrededor del lanzador",
+        "Duración: hasta el amanecer",
+        "Requisito: sólo puede lanzarse bajo la luz de una luna llena visible.",
+        "Magia de sangre",
+        "Magia lunar",
+        "Durante la noche de luna llena, invocas un poder arcano y profano que tiñe el astro celeste de un rojo brillante y ominoso. Este hechizo despierta los instintos más oscuros de todas las criaturas malignas en una superficie circular de 20 km² centrada en ti, llenándolas de una sed insaciable de sangre y caos, provocando los siguientes efectos:",
+        "Sed de sangre: Todas las criaturas malignas de Nivel 20 o inferior se vuelven extremadamente activas y agresivas, priorizando atacar a cualquier ser vivo que encuentren. Duplican su daño y causan Desventaja a cualquiera para esquivar sus ataques.",
+        "Control mental: Mientras dure el conjuro, puedes dirigir mentalmente a estas criaturas hacia un objetivo o lugar específico, moldeando su violencia según tus designios. Si decides no controlarlas, deambularán libremente, sembrando destrucción a su paso.",
+        "Ira irreprimible: Las criaturas controladas no distinguen entre aliados y enemigos si no se especifica un objetivo claro.",
+        "Los efectos cesan al amanecer, momento en el cual las criaturas recuperan su estado habitual, con recuerdos difusos de lo que ha ocurrido.",
+        "Este conjuro es una herramienta de destrucción masiva que, si no se maneja con cuidado, puede volverse en contra del propio lanzador y alterará de forma permanente el equilibrio en la región afectada, dejando un rastro de muerte y caos. Las entidades superiores relacionadas con el orden o la luz podrían intervenir."
+      ],
+      "nota_control": "Se mantiene el Alcance literal de 20km2, que ya emplea unidad de superficie.",
+      "estado": "redaccion_editorial_aprobada_no_aplicada_a_transcripcion_literal"
+    },
+    {
+      "numero_tomo": 318,
+      "nombre_literal": "Purga de maldad",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "sha": "b3a7ec6eb841ef36d520915f99ba84f286dcbc54",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+      },
+      "parrafo_editado": 3,
+      "fragmento_original": "en un radio de 10m2 a tu alrededor",
+      "fragmento_corregido": "dentro de una superficie circular de 10 m² centrada en ti",
+      "texto_original": "Invocas una fuerza sagrada para expulsar o destruir presencias malignas a tu alrededor. Por cada criatura de tipo Demonio, Elemental o Muerto viviente de Nivel inferior a 10 en un radio de 10m2 a tu alrededor, realiza una Tirada de Conjuro; si tienes éxito, destruyes a la criatura.",
+      "texto_corregido": "Invocas una fuerza sagrada para expulsar o destruir presencias malignas a tu alrededor. Por cada criatura de tipo Demonio, Elemental o Muerto viviente de Nivel inferior a 10 dentro de una superficie circular de 10 m² centrada en ti, realiza una Tirada de Conjuro; si tienes éxito, destruyes a la criatura.",
+      "parrafos_revisados": [
+        "Quinto Círculo",
+        "Escuela: Divina",
+        "Alcance: personal",
+        "Invocas una fuerza sagrada para expulsar o destruir presencias malignas a tu alrededor. Por cada criatura de tipo Demonio, Elemental o Muerto viviente de Nivel inferior a 10 dentro de una superficie circular de 10 m² centrada en ti, realiza una Tirada de Conjuro; si tienes éxito, destruyes a la criatura.",
+        "Adicionalmente, cada aliado que esté en el área de efecto y sea capaz de lanzar Conjuros, debe superar una Tirada de Conjuro o perder 1d6 Conjuros de repente (o un equivalente en Recurso).",
+        "Si una criatura logra resistir tu Purga, obtienes Ventaja en tus Tiradas para Evitar ataques de dicha criatura durante los próximos 5 Turnos."
+      ],
+      "nota_control": "Se mantiene la Tirada individual por criatura y los demás efectos sobre aliados.",
+      "estado": "redaccion_editorial_aprobada_no_aplicada_a_transcripcion_literal"
+    },
+    {
+      "numero_tomo": 373,
+      "nombre_literal": "Sello rúnico: Trampa",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "sha": "7026831a157d3f00a890d1eabe659c3acd39e584",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+      },
+      "parrafo_editado": 5,
+      "fragmento_original": "en un radio de 3m2",
+      "fragmento_corregido": "dentro de una superficie circular de 3 m² centrada en el objeto",
+      "texto_original": "Inscribes un sello mágico en un objeto que pueda abrirse, como una puerta, caja o armario. Cuando el objeto es abierto, el sello estalla en una explosión arcana, infligiendo 2d6 puntos de daño contundente a todas las criaturas adyacentes en un radio de 3m2.",
+      "texto_corregido": "Inscribes un sello mágico en un objeto que pueda abrirse, como una puerta, caja o armario. Cuando el objeto es abierto, el sello estalla en una explosión arcana, infligiendo 2d6 puntos de daño contundente a todas las criaturas adyacentes dentro de una superficie circular de 3 m² centrada en el objeto.",
+      "parrafos_revisados": [
+        "Segundo Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: toque",
+        "Duración: permanente o hasta que se activa",
+        "Inscribes un sello mágico en un objeto que pueda abrirse, como una puerta, caja o armario. Cuando el objeto es abierto, el sello estalla en una explosión arcana, infligiendo 2d6 puntos de daño contundente a todas las criaturas adyacentes dentro de una superficie circular de 3 m² centrada en el objeto."
+      ],
+      "nota_control": "Se conserva la restricción original «criaturas adyacentes» además de la superficie; no se amplía el número de objetivos.",
+      "estado": "redaccion_editorial_aprobada_no_aplicada_a_transcripcion_literal"
+    },
+    {
+      "numero_tomo": 393,
+      "nombre_literal": "Tromba de meteoritos",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "sha": "946052fc29b016a489bba6e8b4bb9f80f23b5d2a",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+      },
+      "parrafo_editado": 3,
+      "fragmento_original": "en un radio de 20m2 alrededor del punto de impacto",
+      "fragmento_corregido": "en una superficie circular de 20 m² centrada en el punto de impacto",
+      "texto_original": "Atraes cuatro enormes y ardientes rocas desde más allá de los cielos para que impacten en puntos que has designado. Realiza una Tirada de Conjuro por cada meteorito: arrasa con todo en un radio de 20m2 alrededor del punto de impacto, provocando 30d10 puntos de daño, o la mitad si no la superas. Una criatura solo puede ser afectada por un impacto a la vez.",
+      "texto_corregido": "Atraes cuatro enormes y ardientes rocas desde más allá de los cielos para que impacten en puntos que has designado. Realiza una Tirada de Conjuro por cada meteorito: arrasa con todo en una superficie circular de 20 m² centrada en el punto de impacto, provocando 30d10 puntos de daño, o la mitad si no la superas. Una criatura solo puede ser afectada por un impacto a la vez.",
+      "parrafos_revisados": [
+        "Octavo Círculo",
+        "Escuela: Elemental",
+        "Alcance: 2km2",
+        "Atraes cuatro enormes y ardientes rocas desde más allá de los cielos para que impacten en puntos que has designado. Realiza una Tirada de Conjuro por cada meteorito: arrasa con todo en una superficie circular de 20 m² centrada en el punto de impacto, provocando 30d10 puntos de daño, o la mitad si no la superas. Una criatura solo puede ser afectada por un impacto a la vez."
+      ],
+      "nota_control": "Cada meteorito tiene su propia zona; se conserva la restricción de un impacto por criatura. PENDIENTE DISTINTO: «Alcance: 2km2» también es una superficie y no permite deducir distancia máxima al punto elegido.",
+      "estado": "redaccion_editorial_aprobada_no_aplicada_a_transcripcion_literal"
+    },
+    {
+      "numero_tomo": 395,
+      "nombre_literal": "Trampa de enredaderas",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "sha": "946052fc29b016a489bba6e8b4bb9f80f23b5d2a",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+      },
+      "parrafo_editado": 5,
+      "fragmento_original": "en un radio de 3m2 alrededor del punto de invocación",
+      "fragmento_corregido": "en una superficie circular de 3 m² centrada en el punto de invocación",
+      "texto_original": "Del suelo emergen varias enredaderas robustas, que intentan enroscarse alrededor de todas las criaturas en un radio de 3m2 alrededor del punto de invocación.",
+      "texto_corregido": "Del suelo emergen varias enredaderas robustas, que intentan enroscarse alrededor de todas las criaturas en una superficie circular de 3 m² centrada en el punto de invocación.",
+      "parrafos_revisados": [
+        "Segundo Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 15 metros",
+        "Duración: 1 Turno por Nivel",
+        "Invocación",
+        "Del suelo emergen varias enredaderas robustas, que intentan enroscarse alrededor de todas las criaturas en una superficie circular de 3 m² centrada en el punto de invocación.",
+        "Realiza una Tirada de Conjuro: si tienes éxito, las enredaderas atrapan y retienen a todas las criaturas a su alcance, sin importar si son aliadas o enemigas. Una criatura puede liberarse de este agarre en 1d4; las enredaderas tienen 10 Puntos de Salud y son vulnerables al fuego."
+      ],
+      "nota_control": "No se cambian las Tiradas ni el alcance de 15 metros.",
+      "estado": "redaccion_editorial_aprobada_no_aplicada_a_transcripcion_literal"
+    },
+    {
+      "numero_tomo": 409,
+      "nombre_literal": "Terremoto",
+      "fuente": {
+        "archivo": "69q-conjuros-alfabeticos-401-425.json",
+        "sha": "efaceaafe19965a1fb83fe041e642d0fcc4cd543",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+      },
+      "parrafo_editado": 4,
+      "fragmento_original": "un área con un radio de 2m2 por cada Nivel que poseas",
+      "fragmento_corregido": "una superficie circular de 2 m² por cada Nivel que poseas",
+      "texto_original": "Conjuras un poderoso seísmo que afecta un área con un radio de 2m2 por cada Nivel que poseas. Las criaturas dentro del área de efecto quedan tambaleándose, incapaces de moverse, atacar o lanzar conjuros durante la duración. Dependiendo del terreno, Terremoto puede tener efectos adicionales:",
+      "texto_corregido": "Conjuras un poderoso seísmo que afecta una superficie circular de 2 m² por cada Nivel que poseas. Las criaturas dentro del área de efecto quedan tambaleándose, incapaces de moverse, atacar o lanzar conjuros durante la duración. Dependiendo del terreno, Terremoto puede tener efectos adicionales:",
+      "parrafos_revisados": [
+        "Séptimo Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 60 metros",
+        "Duración: 3d4 +1 Turnos",
+        "Conjuras un poderoso seísmo que afecta una superficie circular de 2 m² por cada Nivel que poseas. Las criaturas dentro del área de efecto quedan tambaleándose, incapaces de moverse, atacar o lanzar conjuros durante la duración. Dependiendo del terreno, Terremoto puede tener efectos adicionales:",
+        "Terreno rígido o rocoso: Grandes fisuras se abren, dividiendo el suelo y haciendo que las criaturas que caigan dentro sufran 1d6 de daño contundente por cada Nivel. Las fisuras permanecen como obstáculos permanentes.",
+        "Terreno blando o arenoso: El suelo se licua temporalmente, atrapando a las criaturas como si estuvieran en arenas movedizas. Tienen una Probabilidad 13+ de escapar o, si fallan,  quedan inmovilizadas hasta que termine el efecto.",
+        "Zonas urbanas: Los edificios y estructuras cercanas colapsan, causando 2d6 de dañocontundente por cada Nivel a las criaturas atrapadas bajo los escombros."
+      ],
+      "nota_control": "La superficie escala con el Nivel, no el radio. PENDIENTE DISTINTO: el texto no precisa cómo se fija el centro del área dentro del Alcance de 60 metros.",
+      "estado": "redaccion_editorial_aprobada_no_aplicada_a_transcripcion_literal"
+    }
+  ]
+}

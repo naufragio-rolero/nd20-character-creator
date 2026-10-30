@@ -1,0 +1,170 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "document_id": "15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28",
+    "url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+    "revision": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ"
+  },
+  "ocupacion": "Operador",
+  "estado": "transcripcion_literal_del_documento_vigente",
+  "registros": [
+    {
+      "ocupacion": "Operador",
+      "talento": "Cerebro cibernético",
+      "activacion_literal": "Especial",
+      "parrafos_fuente": [
+        1210,
+        1215
+      ],
+      "parrafos_literales": [
+        "Cerebro cibernético",
+        "Especial",
+        "Tu mente funciona en sincronía con la tecnología, procesando información a una velocidad asombrosa. Se puede decir que eres uno con el código cuando te conectas a una máquina.",
+        "Obtienes Ventaja en las Tiradas de Mente relacionadas con descifrar códigos, piratear sistemas de seguridad o manipular equipos electrónicos.",
+        "Además, una vez por Escena puedes, instantáneamente y sin tirada, desactivar o manipular un dispositivo electrónico sencillo a tu alcance (cerrar una puerta automática, apagar una cámara de seguridad, etc.), como si tu sola presencia bastase para doblegar la máquina. Si el dispositivo está protegido mágicamente o es especialmente complejo, el Cronista podría requerir una tirada de Mente, pero incluso entonces actuarás con una rapidez inhumana.",
+        "A partir de los Niveles 6, 12, 18 y 24, aumentas en 1 las veces que puedes usar este Talento."
+      ],
+      "texto_literal": "Cerebro cibernético\nEspecial\nTu mente funciona en sincronía con la tecnología, procesando información a una velocidad asombrosa. Se puede decir que eres uno con el código cuando te conectas a una máquina.\nObtienes Ventaja en las Tiradas de Mente relacionadas con descifrar códigos, piratear sistemas de seguridad o manipular equipos electrónicos.\nAdemás, una vez por Escena puedes, instantáneamente y sin tirada, desactivar o manipular un dispositivo electrónico sencillo a tu alcance (cerrar una puerta automática, apagar una cámara de seguridad, etc.), como si tu sola presencia bastase para doblegar la máquina. Si el dispositivo está protegido mágicamente o es especialmente complejo, el Cronista podría requerir una tirada de Mente, pero incluso entonces actuarás con una rapidez inhumana.\nA partir de los Niveles 6, 12, 18 y 24, aumentas en 1 las veces que puedes usar este Talento.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Homebrew",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1218,
+        1223
+      ],
+      "parrafos_literales": [
+        "Homebrew",
+        "Pasiva",
+        "Tu inventiva no tiene límites. Dado el tiempo y componentes necesarios, puedes fabricar artilugios tecnológicos improvisados. Si cuentas con un Intervalo y materiales por valor de 1d6×100 maravs, puedes armar uno de los siguientes dispositivos de un solo uso:",
+        "Bomba PEM: un pequeño explosivo de pulso electromagnético que, al detonar, inutiliza dispositivos electrónicos en un radio de 5m2 durante 1d4 Turnos.",
+        "Pincho decodificador: una herramienta del tamaño de una memoria USB que, conectada a una cerradura electrónica o sistema informático, abre puertas cerradas o desactiva alarmas sin necesidad de tirada (si el sistema está protegido mágicamente, tendrás Ventaja en la Tirada para hackearlo en lugar de anularlo automáticamente).",
+        "Dron espía improvisado: un diminuto dron hecho con piezas recicladas que puede volar discretamente durante una Escena, transmitiendo audio y video a tu dispositivo. Es frágil y se destruirá si recibe cualquier daño."
+      ],
+      "texto_literal": "Homebrew\nPasiva\nTu inventiva no tiene límites. Dado el tiempo y componentes necesarios, puedes fabricar artilugios tecnológicos improvisados. Si cuentas con un Intervalo y materiales por valor de 1d6×100 maravs, puedes armar uno de los siguientes dispositivos de un solo uso:\nBomba PEM: un pequeño explosivo de pulso electromagnético que, al detonar, inutiliza dispositivos electrónicos en un radio de 5m2 durante 1d4 Turnos.\nPincho decodificador: una herramienta del tamaño de una memoria USB que, conectada a una cerradura electrónica o sistema informático, abre puertas cerradas o desactiva alarmas sin necesidad de tirada (si el sistema está protegido mágicamente, tendrás Ventaja en la Tirada para hackearlo en lugar de anularlo automáticamente).\nDron espía improvisado: un diminuto dron hecho con piezas recicladas que puede volar discretamente durante una Escena, transmitiendo audio y video a tu dispositivo. Es frágil y se destruirá si recibe cualquier daño.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Interacción remota",
+      "activacion_literal": "Acción",
+      "parrafos_fuente": [
+        1224,
+        1228
+      ],
+      "parrafos_literales": [
+        "Interacción remota",
+        "Acción",
+        "Coste: 1 Punto de Esfuerzo",
+        "Puedes intentar tomar control remoto de un dispositivo electrónico dentro de un radio de 20m2, aunque no esté conectado a la red. Puertas automáticas, vehículos modernos, cámaras, ascensores: interfieres directamente en su señal inalámbrica o sus circuitos gracias a las antenas de tu dispositivo.",
+        "Realiza una tirada de Mente; con un éxito, asumes el control básico del dispositivo por 1d4 Turnos (un vehículo acelera o frena a tu voluntad, una torreta automática cambia de objetivo, etc.). Si fallas, el aparato se bloquea y activa sus protocolos de seguridad normales (o simplemente ignora tu intento, si es un dispositivo conducido/operado por alguien)."
+      ],
+      "texto_literal": "Interacción remota\nAcción\nCoste: 1 Punto de Esfuerzo\nPuedes intentar tomar control remoto de un dispositivo electrónico dentro de un radio de 20m2, aunque no esté conectado a la red. Puertas automáticas, vehículos modernos, cámaras, ascensores: interfieres directamente en su señal inalámbrica o sus circuitos gracias a las antenas de tu dispositivo.\nRealiza una tirada de Mente; con un éxito, asumes el control básico del dispositivo por 1d4 Turnos (un vehículo acelera o frena a tu voluntad, una torreta automática cambia de objetivo, etc.). Si fallas, el aparato se bloquea y activa sus protocolos de seguridad normales (o simplemente ignora tu intento, si es un dispositivo conducido/operado por alguien).",
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Presencia fantasma",
+      "activacion_literal": "Reacción",
+      "parrafos_fuente": [
+        1229,
+        1233
+      ],
+      "parrafos_literales": [
+        "Presencia fantasma",
+        "Reacción",
+        "Coste: 1 Punto de Esfuerzo",
+        "Cuando una criatura o sistema intenta detectarte a ti o a tus intrusiones (cámaras de seguridad, hechizos de alarma, etc.) mediante tecnología, activas protocolos de sigilo extremos.",
+        "Obtienes Ventaja en la Tirada para mantenerte oculto, gracias a que te deslizas entre las grietas de la percepción digital y mística. Puedes usar esta Reacción incluso si estás ocupado hackeando o realizando otra acción, pero una vez por Escena."
+      ],
+      "texto_literal": "Presencia fantasma\nReacción\nCoste: 1 Punto de Esfuerzo\nCuando una criatura o sistema intenta detectarte a ti o a tus intrusiones (cámaras de seguridad, hechizos de alarma, etc.) mediante tecnología, activas protocolos de sigilo extremos.\nObtienes Ventaja en la Tirada para mantenerte oculto, gracias a que te deslizas entre las grietas de la percepción digital y mística. Puedes usar esta Reacción incluso si estás ocupado hackeando o realizando otra acción, pero una vez por Escena.",
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Ojos en la red",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1234,
+        1236
+      ],
+      "parrafos_literales": [
+        "Ojos en la red",
+        "Pasiva",
+        "Tienes una vasta red de informantes digitales y acceso a bases de datos ocultas. Siempre que dediques al menos 1 Intervalo a buscar información en la red, obtienes automáticamente un dato relevante sobre el tema que indagas (a discreción del Cronista). Además, tienes Ventaja en las tiradas de Intuición o Mente para reunir información o rastrear huellas digitales de personas o criaturas en sistemas informáticos."
+      ],
+      "texto_literal": "Ojos en la red\nPasiva\nTienes una vasta red de informantes digitales y acceso a bases de datos ocultas. Siempre que dediques al menos 1 Intervalo a buscar información en la red, obtienes automáticamente un dato relevante sobre el tema que indagas (a discreción del Cronista). Además, tienes Ventaja en las tiradas de Intuición o Mente para reunir información o rastrear huellas digitales de personas o criaturas en sistemas informáticos.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Sabotaje electromagnético",
+      "activacion_literal": "Acción",
+      "parrafos_fuente": [
+        1237,
+        1240
+      ],
+      "parrafos_literales": [
+        "Sabotaje electromagnético",
+        "Acción",
+        "Coste: 1 Punto de Esfuerzo",
+        "Emites una oleada de interferencia electrónica leve con tus dispositivos modificados. Todos los aparatos electrónicos no protegidos en un radio de 10m2 fallan o se reinician (luces que parpadean, alarmas que cesan momentáneamente, comunicaciones interrumpidas) durante 1d4 Turnos. Equipos más resistentes o críticos (como dispositivos médicos) no se apagarán por completo, pero funcionarán con Desventaja durante ese intervalo. Ten en cuenta que este «apagón digital» podría delatar tu presencia si alguien atento nota el fenómeno."
+      ],
+      "texto_literal": "Sabotaje electromagnético\nAcción\nCoste: 1 Punto de Esfuerzo\nEmites una oleada de interferencia electrónica leve con tus dispositivos modificados. Todos los aparatos electrónicos no protegidos en un radio de 10m2 fallan o se reinician (luces que parpadean, alarmas que cesan momentáneamente, comunicaciones interrumpidas) durante 1d4 Turnos. Equipos más resistentes o críticos (como dispositivos médicos) no se apagarán por completo, pero funcionarán con Desventaja durante ese intervalo. Ten en cuenta que este «apagón digital» podría delatar tu presencia si alguien atento nota el fenómeno.",
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Tecnomante",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1241,
+        1244
+      ],
+      "parrafos_literales": [
+        "Tecnomante",
+        "Pasiva",
+        "Has aprendido a canalizar lo sobrenatural a través de circuitos y cables. Puedes interactuar con entidades del Más Allá por medios electrónicos: por ejemplo, captar psicofonías o visiones a través de una grabación de audio/vídeo. Tendrás que codificar estas grabaciones para que un mortal que no tenga este Talento pueda verlas, proceso que te llevará 1 Intervalo con el equipo adecuado.",
+        "Además, una vez cada 24 horas, puedes intentar «hackear» un efecto mágico basado en tecnología (un sistema de seguridad encantado, un espectro atrapado en una máquina, etc.) realizando una Tirada de Mente mientras tecleas código arcano e introduces protocolos de anulación de seguridad tecnológica mágica. Éste sistema emplea el mismo concepto que el Hackeo habitual."
+      ],
+      "texto_literal": "Tecnomante\nPasiva\nHas aprendido a canalizar lo sobrenatural a través de circuitos y cables. Puedes interactuar con entidades del Más Allá por medios electrónicos: por ejemplo, captar psicofonías o visiones a través de una grabación de audio/vídeo. Tendrás que codificar estas grabaciones para que un mortal que no tenga este Talento pueda verlas, proceso que te llevará 1 Intervalo con el equipo adecuado.\nAdemás, una vez cada 24 horas, puedes intentar «hackear» un efecto mágico basado en tecnología (un sistema de seguridad encantado, un espectro atrapado en una máquina, etc.) realizando una Tirada de Mente mientras tecleas código arcano e introduces protocolos de anulación de seguridad tecnológica mágica. Éste sistema emplea el mismo concepto que el Hackeo habitual.",
+      "coste_literal": null,
+      "requisito_literal": null
+    }
+  ],
+  "adquisicion": {
+    "fijo": "Cerebro cibernético",
+    "opcionales": [
+      "Homebrew",
+      "Interacción remota",
+      "Presencia fantasma",
+      "Ojos en la red",
+      "Sabotaje electromagnético",
+      "Tecnomante"
+    ],
+    "niveles_de_eleccion": [
+      1,
+      9
+    ],
+    "instruccion_literal": "Como Operador, puedes tomar uno de los siguientes Talentos a Nivel 1 y otro a Nivel 9."
+  },
+  "incidencias": [
+    {
+      "id": "OCP-26",
+      "descripcion": "Homebrew, Interacción remota y Sabotaje electromagnético usan áreas 5m2/20m2/10m2 respectivamente, sin geometría explícita. No interpretar como radios lineales de 5/20/10m ni cambiar unidad sin decisión editorial."
+    }
+  ],
+  "notas": [
+    "Los textos se han extraído del bloque de Talentos, no de las cabeceras homónimas de tablas de progresión.",
+    "Los índices de párrafo son ordinales de Google Docs, no índices Word."
+  ]
+}

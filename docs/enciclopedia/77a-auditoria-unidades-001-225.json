@@ -1,0 +1,455 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    1,
+    225
+  ],
+  "version_auditoria": 2,
+  "errata_de_verificacion_corregida": "Se eliminó el límite de palabra incorrecto tras el superíndice ². La versión inicial podía omitir m²/km² aunque el texto fuente era correcto.",
+  "metodo": "Buscar literalmente unidades de superficie y volumen expresadas con m2, m², km2, km², «metros cuadrados» o «metros cúbicos». No asignar radios, geometría ni efectos.",
+  "fichas_con_menciones": 31,
+  "referencias_mencionadas": 32,
+  "casos_radio_de_superficie": [
+    {
+      "n": 90,
+      "nombre": "Cúpula antimagia",
+      "parrafo_en_ficha": 4,
+      "texto": "Conjuras un domo de energía telúrica que suprime toda magia en un radio de 3m2 a tu alrededor. Esta Cúpula antimagia permanece fijo en el lugar donde la conjuras, anulando cualquier efecto mágico que entre en su área, pero no se desplaza contigo."
+    },
+    {
+      "n": 108,
+      "nombre": "Diluvio universal",
+      "parrafo_en_ficha": 5,
+      "texto": "Canalizas el poder primordial del agua y desatas un diluvio que anega la tierra en un radio de 10 km² alrededor de ti. Aguas torrenciales caen desde el cielo o emergen del suelo, arrastrando estructuras, inundando campos y sumergiendo aldeas y pueblos bajo su implacable marea."
+    },
+    {
+      "n": 131,
+      "nombre": "Discurso de necios",
+      "parrafo_en_ficha": 4,
+      "texto": "Conjuras una energía insidiosa que intenta manipular las mentes de hasta 3d6 criaturas de las Categorías Humanoide o Fata, en un radio de 10 metros cuadrados alrededor de un punto dentro del alcance. Realiza una Tirada de Conjuro: si tienes éxito, los seres afectados entran en un debate interminable"
+    },
+    {
+      "n": 205,
+      "nombre": "Invocar vórtice de energía",
+      "parrafo_en_ficha": 5,
+      "texto": "Conjuras un vórtice salvaje de energía arcana que aparece como una espiral púrpura fulgurante y agresiva. Este torbellino energético se materializa en un espacio dentro del alcance y ataca indiscriminadamente a todas las criaturas en un radio de 4m2 a su alrededor, ya sean aliados o enemigos."
+    },
+    {
+      "n": 217,
+      "nombre": "Luna carmesí",
+      "parrafo_en_ficha": 8,
+      "texto": "Durante la noche de luna llena, invocas un poder arcano y profano que tiñe el astro celeste de un rojo brillante y ominoso. Este hechizo despierta los instintos más oscuros de todas las criaturas malignas en un radio de 20 km² alrededor de ti, llenándolas de una sed insaciable de sangre y caos, prov"
+    }
+  ],
+  "registros": [
+    {
+      "numero_tomo": 24,
+      "nombre": "Apagallamas",
+      "archivo_fuente": "69a-conjuros-alfabeticos-001-025.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "15m2",
+          "contexto_literal": "gues cualquier fuego no mágico en un área de 15m2 centrada en un punto que determines. También pued",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 51,
+      "nombre": "Bendición del Crecio",
+      "archivo_fuente": "69c-conjuros-alfabeticos-051-075.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 2,
+          "fragmento_literal": "20m2",
+          "contexto_literal": "Alcance: 20m2",
+          "en_alcance": true
+        }
+      ]
+    },
+    {
+      "numero_tomo": 58,
+      "nombre": "Cabaña acogedora de Tuliëlle",
+      "archivo_fuente": "69c-conjuros-alfabeticos-051-075.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "10m2",
+          "contexto_literal": "Creas una cabaña o refugio de 10m2 a partir de materiales disponibles en el área. El",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 60,
+      "nombre": "Caer hacia arriba",
+      "archivo_fuente": "69c-conjuros-alfabeticos-051-075.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "10 metros cuadrados",
+          "contexto_literal": "leyes naturales de la gravedad en un área de 10 metros cuadrados, invirtiéndola por completo. Todas las criaturas ",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 69,
+      "nombre": "Charco de aceite",
+      "archivo_fuente": "69c-conjuros-alfabeticos-051-075.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "6m2",
+          "contexto_literal": "o charco de aceite resbaladizo en un área de 6m2. Cualquier criatura que entre en el área, tendrá ",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 74,
+      "nombre": "Control climático",
+      "archivo_fuente": "69c-conjuros-alfabeticos-051-075.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "1km2",
+          "contexto_literal": "Alcance: 1km2",
+          "en_alcance": true
+        }
+      ]
+    },
+    {
+      "numero_tomo": 78,
+      "nombre": "Crecimiento salvaje",
+      "archivo_fuente": "69d-conjuros-alfabeticos-076-100.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "5 m2",
+          "contexto_literal": " rápidamente plantas y árboles en un área de 5 m2. La vegetación puede ser utilizada para crear cob",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 82,
+      "nombre": "Círculo de potenciación",
+      "archivo_fuente": "69d-conjuros-alfabeticos-076-100.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "2m2",
+          "contexto_literal": "rcanos, creando un espacio místico que ocupa 2m2. Al lanzar este conjuro, debes elegir una Escuela",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 83,
+      "nombre": "Crecimiento primordial",
+      "archivo_fuente": "69d-conjuros-alfabeticos-076-100.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "10m2",
+          "contexto_literal": "tral de la naturaleza, convocando un área de 10m2 donde las plantas no solo crecen de forma caótica",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 84,
+      "nombre": "Cataclismo tenebroso",
+      "archivo_fuente": "69d-conjuros-alfabeticos-076-100.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "1 km²",
+          "contexto_literal": "Alcance: 1 km²",
+          "en_alcance": true
+        }
+      ]
+    },
+    {
+      "numero_tomo": 85,
+      "nombre": "Calma silvestre",
+      "archivo_fuente": "69d-conjuros-alfabeticos-076-100.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "10m2",
+          "contexto_literal": "acificadora hacia los animales en un área de 10m2, apaciguando su comportamiento y reprimiendo su a",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 90,
+      "nombre": "Cúpula antimagia",
+      "archivo_fuente": "69d-conjuros-alfabeticos-076-100.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "3m2",
+          "contexto_literal": "lúrica que suprime toda magia en un radio de 3m2 a tu alrededor. Esta Cúpula antimagia permanece f",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 94,
+      "nombre": "Comité de limpieza arcano",
+      "archivo_fuente": "69d-conjuros-alfabeticos-076-100.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 2,
+          "fragmento_literal": "10m2",
+          "contexto_literal": "Alcance: 10m2 por Nivel",
+          "en_alcance": true
+        }
+      ]
+    },
+    {
+      "numero_tomo": 105,
+      "nombre": "Día de los muertos",
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "2km2",
+          "contexto_literal": "Alcance: 2km2",
+          "en_alcance": true
+        }
+      ]
+    },
+    {
+      "numero_tomo": 108,
+      "nombre": "Diluvio universal",
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "10 km²",
+          "contexto_literal": "n diluvio que anega la tierra en un radio de 10 km² alrededor de ti. Aguas torrenciales caen desde el",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 120,
+      "nombre": "Despertar de la vegetación",
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "6m2",
+          "contexto_literal": "plosivo de la vegetación en un área de hasta 6m2 por cada uno de tus Niveles. Las criaturas que in",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 123,
+      "nombre": "Dominar la tierra",
+      "archivo_fuente": "69e-conjuros-alfabeticos-101-125.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "15 metros cúbicos",
+          "contexto_literal": " control sobre el terreno, desplazando hasta 15 metros cúbicos de tierra sólida dentro del alcance del Conjuro. ",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 130,
+      "nombre": "Deformar madera",
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "1 metro cúbico",
+          "contexto_literal": "tu voluntad. Puedes afectar un área de hasta 1 metro cúbico, permitiendo doblar, torcer o modificar tablones,",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 131,
+      "nombre": "Discurso de necios",
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "10 metros cuadrados",
+          "contexto_literal": " Categorías Humanoide o Fata, en un radio de 10 metros cuadrados alrededor de un punto dentro del alcance. Realiza",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 147,
+      "nombre": "Explosión arcana",
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "6m2",
+          "contexto_literal": "nes éxito, todas las criaturas en un área de 6m2 alrededor del punto de detonación sufren 1d10 pun",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 148,
+      "nombre": "Erupción",
+      "archivo_fuente": "69f-conjuros-alfabeticos-126-150.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "12m2",
+          "contexto_literal": "s de roca que arrasan con todo en un área de 12m2.",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 158,
+      "nombre": "Estrella divina",
+      "archivo_fuente": "69g-conjuros-alfabeticos-151-175.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "2m2",
+          "contexto_literal": "as un orbe de dicha energía en un espacio de 2m2 que causa 2d8 de daño (depende de tu Espíritu deí",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 163,
+      "nombre": "Florecimiento",
+      "archivo_fuente": "69g-conjuros-alfabeticos-151-175.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "4m2",
+          "contexto_literal": "imiento de flores y vegetación en un área de 4m2, siempre que el suelo sea fértil. Si usas Floreci",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 177,
+      "nombre": "Guardián fantasmal",
+      "archivo_fuente": "69h-conjuros-alfabeticos-176-200.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "10m2",
+          "contexto_literal": "demás, que será vinculado a una zona de unos 10m2 para que la proteja. El Guardián fantasmal vigila",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 183,
+      "nombre": "Hálito de ultratumba",
+      "archivo_fuente": "69h-conjuros-alfabeticos-176-200.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "6m2",
+          "contexto_literal": "na nube pútrida que cubre un área cercana de 6m2 en forma de cono. Este hálito corrosivo inflige 1",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 184,
+      "nombre": "Hambre de Nastala",
+      "archivo_fuente": "69h-conjuros-alfabeticos-176-200.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 2,
+          "fragmento_literal": "50m2",
+          "contexto_literal": "Alcance: 50m2",
+          "en_alcance": true
+        }
+      ]
+    },
+    {
+      "numero_tomo": 186,
+      "nombre": "Huracán",
+      "archivo_fuente": "69h-conjuros-alfabeticos-176-200.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "8m2",
+          "contexto_literal": "as un tornado imponente que ocupa un área de 8m2 y avanza de manera aleatoria, moviéndose hasta 4 ",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 203,
+      "nombre": "Invisibilidad magna en masa",
+      "archivo_fuente": "69i-conjuros-alfabeticos-201-225.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "8m2",
+          "contexto_literal": "da de energía arcana que envuelve un área de 8m2 alrededor de un punto a tu alcance, haciendo que ",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 205,
+      "nombre": "Invocar vórtice de energía",
+      "archivo_fuente": "69i-conjuros-alfabeticos-201-225.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 5,
+          "fragmento_literal": "4m2",
+          "contexto_literal": "damente a todas las criaturas en un radio de 4m2 a su alrededor, ya sean aliados o enemigos.",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 216,
+      "nombre": "Lluvia de estrellas",
+      "archivo_fuente": "69i-conjuros-alfabeticos-201-225.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 4,
+          "fragmento_literal": "12m2",
+          "contexto_literal": "les de fragmentos estelares hacia un área de 12m2; realiza una Tirada de Conjuro: ",
+          "en_alcance": false
+        }
+      ]
+    },
+    {
+      "numero_tomo": 217,
+      "nombre": "Luna carmesí",
+      "archivo_fuente": "69i-conjuros-alfabeticos-201-225.json",
+      "menciones": [
+        {
+          "parrafo_en_ficha": 3,
+          "fragmento_literal": "20km2",
+          "contexto_literal": "Alcance: 20km2 alrededor del lanzador",
+          "en_alcance": true
+        },
+        {
+          "parrafo_en_ficha": 8,
+          "fragmento_literal": "20 km²",
+          "contexto_literal": " todas las criaturas malignas en un radio de 20 km² alrededor de ti, llenándolas de una sed insaciabl",
+          "en_alcance": false
+        }
+      ]
+    }
+  ]
+}

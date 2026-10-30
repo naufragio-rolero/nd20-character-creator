@@ -1,0 +1,813 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 2,
+  "indices_tomo": [
+    26,
+    50
+  ],
+  "fuente": {
+    "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "estado": "transcripcion_literal_completa_de_cada_ficha",
+  "registros": [
+    {
+      "numero_tomo": 26,
+      "nombre_literal": "Arma elemental",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 286,
+        "indice_ultimo_parrafo": 291,
+        "indice_inicio_doc": 17778,
+        "indice_fin_doc": 18122
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Elemental",
+        "Alcance: toque",
+        "Duración: 1 Intervalo o 1 Combate, lo que suceda antes",
+        "Envuelve un arma que tengas en tus manos de energía de los elementos fuego, frío, relámpago o fuerza. Además del daño del elemento vinculado, éste arma se considerará mágica y causará 1d6 de daño adicional, de dicho elemento."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-23",
+          "circulo": 3,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 27,
+      "nombre_literal": "Apocalipsis",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 292,
+        "indice_ultimo_parrafo": 304,
+        "indice_inicio_doc": 18123,
+        "indice_fin_doc": 19269
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Demonología",
+        "Lanzamiento: 2 Intervalos",
+        "Alcance: 30 metros",
+        "Duración: 1 hora",
+        "Invocación",
+        "Rasgando el tejido de la realidad, abres un portal entre el plano material y las profundidades del infierno de Rasmalk. Este cataclismo desata un torrente de energía demoníaca que inunda la tierra, liberando decenas de demonios menores al mundo. Estos seres, en su mayoría fuera de control, atacarán todo lo que encuentren, sembrando el caos y la destrucción.",
+        "Los efectos de este conjuro serán los siguientes:",
+        "Un portal infernal de 10 metros de diámetro aparece en el lugar designado.",
+        "Durante 1 hora, 1d6 demonios menores emergen por Turno, obedeciendo inicialmente al lanzador, pero con probabilidades de volverse contra él si no se controla su voluntad (a discreción del Cronista).",
+        "El poder del portal puede atraer la atención de un Cacique Infernal. Este puede decidir recompensarte, usarte como emisario o devorarte como castigo por tu osadía.",
+        "El inconsciente que libere un Apocalipsis se convierte en un foco de atención universal, atrayendo enemigos, aliados y fuerzas que intentarán detener o aprovechar la catástrofe."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-210",
+          "circulo": 8,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 28,
+      "nombre_literal": "Arca de éter",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 305,
+        "indice_ultimo_parrafo": 312,
+        "indice_inicio_doc": 19270,
+        "indice_fin_doc": 19976
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Duración: 1d6 * 10 días",
+        "Invocas un cofre etéreo en una dimensión de bolsillo, al cual puedes acceder mientras dure el conjuro, convocándolo a tu lado tantas veces como desees. ",
+        "El cofre puede almacenar una carga equivalente a la de 3 personas por cada 5 de tus Niveles. Si metes un ser vivo, existe una Probabilidad 6+ de que el cofre se pierda en las dimensiones, disolviendo el conjuro (el destino del ser vivo será decidido por el Cronista). ",
+        "Al finalizar el conjuro, el cofre desaparece: si estaba en el plano material, deja su contenido ahí; si estaba en la dimensión de bolsillo, dispersa su contenido a través de innumerables realidades."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-294",
+          "circulo": 5,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 29,
+      "nombre_literal": "Arma elemental",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 313,
+        "indice_ultimo_parrafo": 318,
+        "indice_inicio_doc": 19977,
+        "indice_fin_doc": 20321
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Elemental",
+        "Alcance: toque",
+        "Duración: 1 Intervalo o 1 Combate, lo que suceda antes",
+        "Envuelve un arma que tengas en tus manos de energía de los elementos fuego, frío, relámpago o fuerza. Además del daño del elemento vinculado, éste arma se considerará mágica y causará 1d6 de daño adicional, de dicho elemento."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-23",
+          "circulo": 3,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 30,
+      "nombre_literal": "Armadura de maná",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 319,
+        "indice_ultimo_parrafo": 324,
+        "indice_inicio_doc": 20322,
+        "indice_fin_doc": 20526
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Duración: 1d6 Turnos",
+        "Sobrecargas tu espíritu con fuerzas arcanas, canalizando tu energía mágica hacia el exterior. Obtienes +1d4 Blindaje."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-24",
+          "circulo": 3,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 31,
+      "nombre_literal": "Armadura ígnea",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 325,
+        "indice_ultimo_parrafo": 330,
+        "indice_inicio_doc": 20527,
+        "indice_fin_doc": 20823
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Elemental",
+        "Alcance: personal",
+        "Duración: 1d6 Turnos",
+        "Tu piel se envuelve en brasas incandescentes, emitiendo una tenue luz ardiente. Mientras el conjuro esté activo, cualquier criatura que te golpee cuerpo a cuerpo recibe daño por fuego equivalente a tu Nivel."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-137",
+          "circulo": 2,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 32,
+      "nombre_literal": "Armadura tetraelemental",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 331,
+        "indice_ultimo_parrafo": 336,
+        "indice_inicio_doc": 20824,
+        "indice_fin_doc": 21202
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Elemental",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "Envuelves tu cuerpo en una barrera elemental que combina el poder de los cuatro elementos primordiales, otorgándote resistencia a ataques de fuego, frío, relámpago y ácido mientras dure el efecto. Esta armadura elemental no interfiere con tu equipo ni limita tus movimientos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-410",
+          "circulo": 6,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 33,
+      "nombre_literal": "Aro de llamas abrasadoras",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 337,
+        "indice_ultimo_parrafo": 343,
+        "indice_inicio_doc": 21203,
+        "indice_fin_doc": 21584
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Elemental",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: personal",
+        "Duración: 1 Intervalo o 10 Turnos (en Combate)",
+        "Invocas un círculo de llamas entre 6 y 18 metros de radio que rodea tu posición y se mueve contigo. Cualquier criatura que atraviese el círculo sufre 3d6 puntos de daño de fuego. Contra Muertos vivientes, el daño infligido se duplica."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-287",
+          "circulo": 4,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 34,
+      "nombre_literal": "Atormentar",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 344,
+        "indice_ultimo_parrafo": 350,
+        "indice_inicio_doc": 21585,
+        "indice_fin_doc": 21958
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Demonología",
+        "Alcance: 10 metros",
+        "Duración: 1d6 Turnos",
+        "Infectas la mente del objetivo con pensamientos invasivos, dudas y alucinaciones sonoras, que impedirán sus decisiones durante el combate. ",
+        "Realiza una Tirada de Conjuro: si tienes éxito, el objetivo afligido no podrá tomar la misma Acción de forma consecutiva mientras dure el efecto."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-236",
+          "circulo": 2,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 35,
+      "nombre_literal": "Atraer muertos vivientes",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 351,
+        "indice_ultimo_parrafo": 357,
+        "indice_inicio_doc": 21959,
+        "indice_fin_doc": 22327
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: personal",
+        "Duración: 1 Intervalo por Nivel ",
+        "Mientras sigas con vida, todos los no muertos a tu alrededor ignorarán a cualquier criatura excepto a ti. Atacar o perturbar a estos seres romperá el sortilegio.",
+        "Puedes invertir los efectos de este Conjuro para hacerte invisible ante los muertos vivientes."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-1",
+          "circulo": 1,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 36,
+      "nombre_literal": "Atravesar paredes",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 358,
+        "indice_ultimo_parrafo": 363,
+        "indice_inicio_doc": 22328,
+        "indice_fin_doc": 22708
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 10m",
+        "Duración: 3 Intervalos",
+        "Emites una ola de energía arcana que deforma la materia temporalmente. Creas un pasaje de 1d4 * 3 metros de profundidad, 2 metros de altura y 2 metros de diámetro en una pared sólida. Si no hay espacio suficiente o la alteración provocaría un derrumbe, el sortilegio no funcionará (y lo sabrás)."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-43",
+          "circulo": 5,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 37,
+      "nombre_literal": "Aura de espinas",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 364,
+        "indice_ultimo_parrafo": 371,
+        "indice_inicio_doc": 22709,
+        "indice_fin_doc": 23214
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 6 metros alrededor del lanzador",
+        "Duración: 1 Turno por Nivel",
+        "Conjuras una capa de espinas afiladas alrededor de ti y tus aliados dentro del alcance. Durante la duración del conjuro:",
+        "Los ataques cuerpo a cuerpo realizados por los afectados obtienen un +1 al daño.",
+        "Cualquier criatura que cause daño cuerpo a cuerpo a un aliado cubierto por el Aura de Espinas recibe 1d10 puntos de daño perforante, no reducibles por Blindaje ni efectos adicionales."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-170",
+          "circulo": 4,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 38,
+      "nombre_literal": "Aura de invisibilidad",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 372,
+        "indice_ultimo_parrafo": 377,
+        "indice_inicio_doc": 23215,
+        "indice_fin_doc": 23637
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal (aura de 4 metros de radio)",
+        "Duración: 1 Intervalo por nivel",
+        "A tu alrededor surge un domo de energía intangible que aplica los efectos del conjuro Invisibilidad a ti y a todas las criaturas que entren dentro del radio de alcance. El aura se mueve contigo, y será disipada si alguna de las criaturas beneficiadas por su efecto realiza algún acto hostil."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-253",
+          "circulo": 3,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 39,
+      "nombre_literal": "Aura de pestilencia",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 378,
+        "indice_ultimo_parrafo": 383,
+        "indice_inicio_doc": 23638,
+        "indice_fin_doc": 23895
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: personal",
+        "Duración: 1d6 Turnos",
+        "Liberas una repugnante nube gaseosa a tu alrededor. Cualquier criatura viva que finalice su Turno adyacente (2m o menos) a ti, sufre 2d8 puntos de daño por veneno."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-25",
+          "circulo": 3,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 40,
+      "nombre_literal": "Aura de resguardo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 384,
+        "indice_ultimo_parrafo": 389,
+        "indice_inicio_doc": 23896,
+        "indice_fin_doc": 24206
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Divina",
+        "Alcance: 6 metros",
+        "Duración: 1 Turno por Nivel",
+        "Canalizas poder divino en un aliado cercano, creando un vínculo protector entre ambos. Mientras el objetivo permanezca en un radio al alcance del conjuro, obtiene un +2 a las Tiradas para evitar ataques y Blindaje."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-149",
+          "circulo": 2,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 41,
+      "nombre_literal": "Aura de restauración",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 390,
+        "indice_ultimo_parrafo": 396,
+        "indice_inicio_doc": 24207,
+        "indice_fin_doc": 24531
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Divina",
+        "Alcance: 12 metros alrededor del lanzador",
+        "Duración: 1 Turno por Nivel",
+        "Magia curativa",
+        "Irradias una energía divina sanadora que restaura 2 puntos de Salud a todos los aliados dentro del radio de alcance, incluido tú mismo, al comienzo de cada Turno mientras dure el conjuro."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-157",
+          "circulo": 3,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 42,
+      "nombre_literal": "Baile desternillante de Jejas Jajaner",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 398,
+        "indice_ultimo_parrafo": 405,
+        "indice_inicio_doc": 24534,
+        "indice_fin_doc": 25347
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Arcana",
+        "Alcance: 30 metros",
+        "Duración: 1 Turno por Nivel",
+        "El viejo y olvidado Jejas Jajaner, hechicero errante y artista incomprendido, creó este terrible conjuro para vengarse de aquellos que menospreciaron su talento musical. La víctima de este hechizo cae presa de un deseo irrefrenable de bailar de forma alocada y descoordinada, incapaz de realizar ninguna otra acción mientras dure el efecto.",
+        "Quien esté sufriendo este Baile pierde la capacidad de atacar o lanzar conjuros, otorga Ventaja a cualquiera que intente atacarle y no puede realizar Tiradas de Salvación o de Probabilidad si los efectos de éstas están ligados a Fuerza, Agilidad o Resistencia.",
+        "Si intentas afectar a seres con un Nivel superior a ti, deberás superar una Tirada de Conjuro."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-412",
+          "circulo": 7,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 43,
+      "nombre_literal": "Barrera astral: Armamento",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 406,
+        "indice_ultimo_parrafo": 411,
+        "indice_inicio_doc": 25348,
+        "indice_fin_doc": 25672
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "Rodeas al objetivo con una simple, pero resistente barrera arcana que le vuelve inmune a cualquier daño realizado con armas cuerpo a cuerpo comunes mientras dure el efecto. Sólo podrá ser herido con armas mágicas o Conjuros."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-279",
+          "circulo": 4,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 44,
+      "nombre_literal": "Barrera astral: Espejo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 412,
+        "indice_ultimo_parrafo": 417,
+        "indice_inicio_doc": 25673,
+        "indice_fin_doc": 26111
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "Creas un campo reflejante que desvía cualquier Conjuro o habilidad mágica dirigida directamente hacia ti, redirigiéndolos de vuelta al lanzador. Para que el efecto funcione, debes ser el objetivo directo del conjuro o habilidad; los efectos de área o aquellos que te incluyan dentro de su radio de acción te afectarán de manera habitual."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-335",
+          "circulo": 7,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 45,
+      "nombre_literal": "Barrera astral: Muerte",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 418,
+        "indice_ultimo_parrafo": 423,
+        "indice_inicio_doc": 26112,
+        "indice_fin_doc": 26484
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "Bendices a un objetivo con una barrera sagrada que lo protege de los efectos de muerte súbita, maldiciones y habilidades de succión de vida. Mientras dure el conjuro, el objetivo es inmune a estos efectos dañinos, fortaleciendo su resistencia contra fuerzas oscuras y letales."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-198",
+          "circulo": 6,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 46,
+      "nombre_literal": "Barrera astral: Obstáculo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 424,
+        "indice_ultimo_parrafo": 430,
+        "indice_inicio_doc": 26485,
+        "indice_fin_doc": 27064
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 3 metros por Nivel",
+        "Duración: 1 Turno por Nivel o hasta que la Salud llegue a 0",
+        "Conjuras una barrera mística que se interpone entre ti y una criatura al alcance, bloqueando su avance hacia ti. La muralla tiene Blindaje 1d6 y una Salud equivalente a tu valor de Salud actual.",
+        "Mientras esté activa, impedirá que la criatura designada se acerque. Seres que pesen más de una tonelada pueden intentar atravesarla (provocando 5 de daño por Turno), pero se moverán a la mitad de su Movimiento mientras la barrera resista."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-296",
+          "circulo": 5,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 47,
+      "nombre_literal": "Barrera astral: Urdimbre",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 431,
+        "indice_ultimo_parrafo": 439,
+        "indice_inicio_doc": 27065,
+        "indice_fin_doc": 27601
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: 1 Intervalo por Nivel",
+        "Envuelves al objetivo en una compleja barrera arcana que le otorga resistencia contra Conjuros y efectos mágicos. El objetivo recibe una bonificación para sus Tiradas de Atributo al resistir o reducir los efectos de Conjuros, como el daño de una Bola de Fuego. La bonificación depende del Círculo del Conjuro al que se enfrente:",
+        "Conjuros de 1er a 3er Círculo: +6.",
+        "Conjuros de 4to a 6to Círculo: +4.",
+        "Conjuros de 7mo y 8vo Círculo: +2."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-278",
+          "circulo": 4,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 48,
+      "nombre_literal": "Barrera eléctrica",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 440,
+        "indice_ultimo_parrafo": 445,
+        "indice_inicio_doc": 27602,
+        "indice_fin_doc": 27918
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Elemental",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "Rodeas tu cuerpo con una capa de energía relampagueante que inflige 2d6 de daño de relámpago a cualquier criatura que se acerque a ti (a 2m o menos). Además, te otorga resistencia al relámpago  mientras dure el efecto."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-167",
+          "circulo": 4,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 49,
+      "nombre_literal": "Bendición",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 446,
+        "indice_ultimo_parrafo": 452,
+        "indice_inicio_doc": 27919,
+        "indice_fin_doc": 28339
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: 2 Intervalos o hasta que se agoten los Puntos",
+        "Infundes el favor divino a un objetivo humanoide. Este individuo adquiere tantos Puntos de Bendición como 1d6 + tu Nivel.",
+        "Estos PB pueden ser utilizados por el beneficiado en sus Tiradas de Atributo para aumentar el resultado natural del d20. Debe declarar el uso de estos puntos antes de realizar la tirada."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-217",
+          "circulo": 1,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 50,
+      "nombre_literal": "Bendecir el cuerpo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 453,
+        "indice_ultimo_parrafo": 458,
+        "indice_inicio_doc": 28340,
+        "indice_fin_doc": 28688
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "Imbuyes al objetivo con una bendición sagrada que mejora la eficacia de cualquier forma de curación. Mientras dure el conjuro, el objetivo recuperará 1d6 Puntos de Salud adicionales cada vez que sea sanado mediante conjuros, objetos mágicos o habilidades."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-153",
+          "circulo": 3,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    }
+  ]
+}

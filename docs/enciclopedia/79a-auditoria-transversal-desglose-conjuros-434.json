@@ -1,0 +1,14 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "integridad_documental_apta",
+  "rango": [
+    1,
+    434
+  ],
+  "numero_fichas": 434,
+  "fragmentos_literales_validados": 333,
+  "indices_de_parrafos_validados": 619,
+  "errores": 0,
+  "metodo": "Comparación de nombres y ordinales de los 18 lotes de fuente 69a–69r con los 18 desgloses 72a–72r; comprobación de fragmentos literales en 72a–72d y de índices de párrafos en 72e–72r.",
+  "advertencia": "No constituye resolución de ambigüedades ni prueba de funcionamiento del generador de personajes. Google Drive y transcripciones históricas no han cambiado."
+}

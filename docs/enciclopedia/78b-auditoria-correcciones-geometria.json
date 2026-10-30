@@ -1,0 +1,74 @@
+{
+  "fecha": "2026-10-30",
+  "fuentes": [
+    "78a-correcciones-geometria-conjuros-10.json",
+    "69a–69r transcripciones literales"
+  ],
+  "fichas_verificadas": 10,
+  "cambios_no_autorizados": 0,
+  "errores": [],
+  "resultado": "apto",
+  "registros": [
+    {
+      "n": 90,
+      "nombre": "Cúpula antimagia",
+      "resultado": "ok",
+      "errores": []
+    },
+    {
+      "n": 108,
+      "nombre": "Diluvio universal",
+      "resultado": "ok",
+      "errores": []
+    },
+    {
+      "n": 131,
+      "nombre": "Discurso de necios",
+      "resultado": "ok",
+      "errores": []
+    },
+    {
+      "n": 205,
+      "nombre": "Invocar vórtice de energía",
+      "resultado": "ok",
+      "errores": []
+    },
+    {
+      "n": 217,
+      "nombre": "Luna carmesí",
+      "resultado": "ok",
+      "errores": []
+    },
+    {
+      "n": 318,
+      "nombre": "Purga de maldad",
+      "resultado": "ok",
+      "errores": []
+    },
+    {
+      "n": 373,
+      "nombre": "Sello rúnico: Trampa",
+      "resultado": "ok",
+      "errores": []
+    },
+    {
+      "n": 393,
+      "nombre": "Tromba de meteoritos",
+      "resultado": "ok",
+      "errores": []
+    },
+    {
+      "n": 395,
+      "nombre": "Trampa de enredaderas",
+      "resultado": "ok",
+      "errores": []
+    },
+    {
+      "n": 409,
+      "nombre": "Terremoto",
+      "resultado": "ok",
+      "errores": []
+    }
+  ],
+  "nota": "Se ha comprobado sustitución literal única, identidad y conservación de todos los párrafos no modificados. Esta prueba no valida su ejecución en Forja."
+}

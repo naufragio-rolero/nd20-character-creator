@@ -1,0 +1,812 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 15,
+  "indices_tomo": [
+    351,
+    375
+  ],
+  "fuente": {
+    "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "estado": "transcripcion_literal_completa_de_cada_ficha",
+  "registros": [
+    {
+      "numero_tomo": 351,
+      "nombre_literal": "Resistir los elementos",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2580,
+        "indice_ultimo_parrafo": 2587,
+        "indice_inicio_doc": 184371,
+        "indice_fin_doc": 185024
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Elemental",
+        "Alcance: toque",
+        "Duración: 1 Intervalo por Nivel",
+        "Elige uno de los siguientes efectos cuando lances Resistir los elementos:",
+        "Resistir fuego: Vuelves a una criatura muy resistente al fuego. Evitará cualquier penalización por el clima cálido. Además, obtiene el doble de Blindaje y otorga Ventaja en Tiradas para evitar el daño de amenazas vinculadas al fuego.",
+        "Resistir frío: Vuelves a una criatura muy resistente al frío. Evitará cualquier penalización por el clima frío y la lluvia. Además, obtiene el doble de Blindaje y otorga Ventaja en Tiradas para evitar el daño de amenazas vinculadas al frío."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-19",
+          "circulo": 2,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 352,
+      "nombre_literal": "Restablecimiento",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2588,
+        "indice_ultimo_parrafo": 2593,
+        "indice_inicio_doc": 185025,
+        "indice_fin_doc": 185410
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Magia curativa",
+        "Liberas una impresionante luz divina sobre el objetivo, restaurando su energía vital y anulando cualquier merma temporal provocada por efectos mágicos (como el Toque corruptor). Además, si procede, el objetivo recupera 1 Nivel perdido si ésta pérdida ha sido provocada por un efecto distinto a Resurrección."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-392",
+          "circulo": 4,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 353,
+      "nombre_literal": "Restablecimiento magno",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2594,
+        "indice_ultimo_parrafo": 2601,
+        "indice_inicio_doc": 185411,
+        "indice_fin_doc": 186326
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Magia curativa",
+        "Concentras la energía sagrada que recorre tu cuerpo y la canalizas a través de la existencia del objetivo, brindándole una bendición divina que sana tanto su cuerpo como su mente. Este poderoso conjuro elimina todas las penalizaciones o reducciones de una criatura, ya sean temporales o permanentes.",
+        "Restaura todas las puntuaciones perdidas, independientemente de la causa. Sana locura, confusión, debilidad mental y efectos similares; regenera miembros perdidos y recupera todos los Niveles perdidos por el toque de muertos vivientes, incluyendo Puntos de Salud y Talentos de Ocupación, siempre que el conjuro se lance dentro de la semana posterior a la pérdida.",
+        "El Restablecimiento magno no afecta a pérdidas debidas a efectos que trascienden las leyes naturales, como ciertos pactos, sacrificios divinos o contratos infernales."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-413",
+          "circulo": 7,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 354,
+      "nombre_literal": "Resurrección",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2602,
+        "indice_ultimo_parrafo": 2609,
+        "indice_inicio_doc": 186327,
+        "indice_fin_doc": 186825
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Nigromancia",
+        "Lanzamiento: 4 horas",
+        "Alcance: Toque (2m)",
+        "Requisito: El objetivo debe ser un cadáver que no lleve muerto más de 48 horas.",
+        "Devuelve la vida a un cadáver por completo sin ningún tipo de secuelas. Si por cualquier motivo ha perdido partes del cuerpo o es sólo una porción del cuerpo, lo que falte se regenerará en 1d6 semanas.",
+        "El resucitado pierde 1 Nivel tras disfrutar la Resurrección; no se puede traer de vuelta a una criatura de Nivel 0 o inferior."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-62",
+          "circulo": 8,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 355,
+      "nombre_literal": "Revelar ilusiones",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2610,
+        "indice_ultimo_parrafo": 2615,
+        "indice_inicio_doc": 186826,
+        "indice_fin_doc": 187113
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Duración: 2 Turnos + 2 Turnos por Nivel",
+        "Desprendes pequeños hilos arcanos a tu alrededor, sosteniéndolos únicamente con tu aura. Esto te permite detectar las ilusiones en un radio de 4 metros por cada uno de tus Niveles."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-255",
+          "circulo": 3,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 356,
+      "nombre_literal": "Revelar objeto maravilloso",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2616,
+        "indice_ultimo_parrafo": 2622,
+        "indice_inicio_doc": 187114,
+        "indice_fin_doc": 187664
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: toque",
+        "Este sortilegio fue redactado y refinado por un antiguo y poderoso arcanista conocido como Bhaugon el Conocedor, como método de reconocimiento de artefactos mágicos de la Guerra de las Llamas.",
+        "Durante un descanso de ocho horas, entras en un trance para conocer y sintonizar con un objeto mágico. Al finalizar, podrás descubrir una de sus propiedades mágicas. Cabe destacar que los objetos malditos no son identificados como tales mediante este conjuro."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-233",
+          "circulo": 1,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 357,
+      "nombre_literal": "Robar la luz",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2623,
+        "indice_ultimo_parrafo": 2629,
+        "indice_inicio_doc": 187665,
+        "indice_fin_doc": 188126
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Demonología",
+        "Alcance: 20 metros",
+        "Duración: hasta 2 Intervalos",
+        "Magia lunar",
+        "Fijas tu mirada en un punto al alcance del Conjuro y del centro surge una nube de tinieblas incognoscibles, que se extiende hasta cubrir un área de 6m2. Cualquier criatura en el interior de la nube será incapaz de ver nada, como si estuviera en oscuridad absoluta. Eliges la duración del Conjuro cuando lo lanzas y puedes desvanecer la nube a voluntad."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-86",
+          "circulo": 3,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 358,
+      "nombre_literal": "Roce de Nirebia",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2630,
+        "indice_ultimo_parrafo": 2635,
+        "indice_inicio_doc": 188127,
+        "indice_fin_doc": 188565
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Magia curativa",
+        "El toque amable y cálido de Nirebia extiende sus capacidades curativas a tus manos. Impónlas sobre un objetivo y realiza una Tirada de Conjuro: si tienes éxito, podrás eliminar de su organismo una enfermedad que lo aflige, desde dolencias comunes como un constipado o un malestar estomacal, hasta cosas más graves como la malaria, el escorbuto o la licantropía."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-263",
+          "circulo": 3,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 359,
+      "nombre_literal": "Rociada ardiente",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2636,
+        "indice_ultimo_parrafo": 2641,
+        "indice_inicio_doc": 188566,
+        "indice_fin_doc": 188928
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Elemental",
+        "Alcance: personal, un cono de 5 metros frente a ti",
+        "Extiendes tus manos frente a ti y arrojas una llamarada de fuego líquido de forma espontánea, causando 2d10 de daño por fuego a todo lo que se encuentre al alcance del Conjuro.",
+        "Las llamas queman cualquier objeto inflamable que se encuentre dentro del alcance."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-77",
+          "circulo": 2,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 360,
+      "nombre_literal": "Sacrificio santificado",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2643,
+        "indice_ultimo_parrafo": 2648,
+        "indice_inicio_doc": 188931,
+        "indice_fin_doc": 189473
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Te envuelves en fuego dorado que consume tu cuerpo y alma en pos de revigorizar a un aliado. El objetivo recupera todos sus Puntos de Salud y Esfuerzo, pero tú te quedas a 1 Punto de Salud y sufrirás Desventaja hasta que descanses adecuadamente.",
+        "Si utilizas este conjuro de forma reiterada, abusando de sus efectos, tu Espíritu deífico, concepto primordial o deidad te retirará el favor y perderás la capacidad de lanzar conjuros hasta que completes un viaje de redención. "
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-105",
+          "circulo": 5,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 361,
+      "nombre_literal": "Saeta gélida",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2649,
+        "indice_ultimo_parrafo": 2653,
+        "indice_inicio_doc": 189474,
+        "indice_fin_doc": 189780
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Elemental",
+        "Alcance: 10 metros",
+        "Conjuras una esquirla de hielo puro entre tus dedos y la lanzas con velocidad hacia tu objetivo, causando 1d10 puntos de daño por frío. Realiza una Tirada de Conjuro: si impacta, provoca -1 a Movimiento durante tantos Turnos como tu Nivel."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-146",
+          "circulo": 2,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 362,
+      "nombre_literal": "Saliva ácida de Valujna",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2654,
+        "indice_ultimo_parrafo": 2660,
+        "indice_inicio_doc": 189781,
+        "indice_fin_doc": 190275
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 90 metros",
+        "Duración: 1 Turno + 1 Turno adicional por cada 2 Niveles",
+        "Proyectas una flecha mágica de ácido verdoso, similar a la saliva corrosiva de Valujna, que se lanza a toda velocidad hacia el objetivo. Supera una Tirada de Conjuro: si impactas, la flecha inflige 2d4 de daño por ácido de inmediato.",
+        "Por cada 2 Niveles, el ácido persiste 1 Turno adicional, causando 2d4 de daño por ácido al final de cada uno de esos Turnos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-371",
+          "circulo": 2,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 363,
+      "nombre_literal": "Salmo de protección",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2661,
+        "indice_ultimo_parrafo": 2666,
+        "indice_inicio_doc": 190276,
+        "indice_fin_doc": 190608
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Divina",
+        "Alcance: 6 metros",
+        "Duración: 1 Intervalo",
+        "Entonas un cántico en lengua celestial que bendice las armaduras de tus aliados en un radio equivalente al alcance del conjuro. Todas aquellas criaturas que consideres tus aliados obtienen +1 a Blindaje por cada 6 de tus Niveles (mínimo +1)."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-87",
+          "circulo": 3,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 364,
+      "nombre_literal": "Salvaguarda mental",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2667,
+        "indice_ultimo_parrafo": 2672,
+        "indice_inicio_doc": 190609,
+        "indice_fin_doc": 191042
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Divina",
+        "Alcance: 6 metros",
+        "Duración: 1 Turno por Nivel",
+        "Invocas una protección divina que envuelve la mente, creando un escudo intangible contra influencias externas y perturbaciones mentales. El objetivo obtiene Ventaja en las Tiradas de Salvación de Mente, Intuición y Presencia para resistir intentos de posesión, control mental o cualquier otro intento de quitarle el control de su cuerpo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-194",
+          "circulo": 5,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 365,
+      "nombre_literal": "Sangre de Umbrathia",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2673,
+        "indice_ultimo_parrafo": 2679,
+        "indice_inicio_doc": 191043,
+        "indice_fin_doc": 191437
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Demonología",
+        "Alcance: 6m",
+        "Duración: 1d6 Turnos",
+        "Magia de sangre",
+        "De tus muñecas brota una oleada de sangre negra que intenta cegar a una criatura dentro del alcance. Realiza una Tirada de Conjuro: si la superas, el objetivo sufre una Ceguera provocada por la vitae corrupta que le ha envuelto; si no la superas, el objetivo sufre Ceguera durante 1 Turno."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-423",
+          "circulo": 1,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Sangromancia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 366,
+      "nombre_literal": "Sangre hirviente",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2680,
+        "indice_ultimo_parrafo": 2686,
+        "indice_inicio_doc": 191438,
+        "indice_fin_doc": 191951
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 15m",
+        "Magia de sangre",
+        "Conjuras un poder oscuro que extrae la sangre de las criaturas cercanas, formándola en una nube hirviente que estalla en un radio de 6 metros desde un punto que elijas dentro del alcance.",
+        "Realiza una Tirada de Conjuro: si tienes éxito, cada criatura en el área sufre 3d8 puntos de daño por fuego y 3d8 puntos de daño impío mientras la sangre extraída les hierve por dentro. Si fallas, las criaturas reciben la mitad del daño total."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-431",
+          "circulo": 5,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Sangromancia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 367,
+      "nombre_literal": "Santuario sagrado",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2687,
+        "indice_ultimo_parrafo": 2692,
+        "indice_inicio_doc": 191952,
+        "indice_fin_doc": 192404
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Divina",
+        "Alcance: 40 metros",
+        "Duración: permanente",
+        "Estableces una protección divina sobre un área de hasta 18m2, sellándola contra influencias mágicas de transporte y evocación. Nadie puede entrar ni salir del área a través de cambios de plano o teletransporte, ni pueden invocarse criaturas hacia o desde su interior. Ten en cuenta que seres más poderosos que tú pueden anular esta protección con un Disipar magia."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-325",
+          "circulo": 6,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 368,
+      "nombre_literal": "Sellar entrada",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2693,
+        "indice_ultimo_parrafo": 2698,
+        "indice_inicio_doc": 192405,
+        "indice_fin_doc": 192718
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Arcana",
+        "Alcance: 8 metros",
+        "Duración: 2d6 Intervalos por Nivel",
+        "Cierras mágicamente una puerta, portal, ventana u otra entrada como si estuviera cerrada de forma segura mediante medios convencionales. Este Conjuro puede ser anulado con un sortilegio de Disipar magia o Apertura."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-234",
+          "circulo": 1,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 369,
+      "nombre_literal": "Sello rúnico: Explosión",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2699,
+        "indice_ultimo_parrafo": 2706,
+        "indice_inicio_doc": 192719,
+        "indice_fin_doc": 193442
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: toque",
+        "Duración: permanente o hasta que se activa",
+        "Inscribes un sello mágico en un escrito, que permanecerá invisible y latente. Cuando alguien intente leer el texto, de cualquier forma ordinaria, la magia explosiva del sello se activará (realiza una Tirada de Conjuro: si no tienes éxito, las criaturas heridas reciben la mitad de daño) y provocará una deflagración que destruirá el escrito y provocará 2d6 de daño por fuego en un área de 3 metros alrededor del texto.",
+        "La runa se puede detectar usando el conjuro Interpretar inscripciones arcanas o con una Tirada de Probabilidad 17+; personajes arcanistas tienen Ventaja en la tirada."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-257",
+          "circulo": 3,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 370,
+      "nombre_literal": "Sello rúnico: Localización",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2707,
+        "indice_ultimo_parrafo": 2714,
+        "indice_inicio_doc": 193443,
+        "indice_fin_doc": 193957
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: toque",
+        "Duración: permanente",
+        "Inscribes un sello mágico en un objeto que puedas llevar contigo. Entonces, cuando quieras conocer su ubicación, puedes pronunciar el nombre del objeto marcado y concentrarte durante 1 Turno. ",
+        "Si este elemento se encuentra en un lugar que no permita invocaciones, magia rúnica o esté protegido por un sortilegio de mayor poder, no podrás conocer su ubicación aunque el sello siga marcado en él."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-241",
+          "circulo": 2,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 371,
+      "nombre_literal": "Sello rúnico: Marca",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2715,
+        "indice_ultimo_parrafo": 2721,
+        "indice_inicio_doc": 193958,
+        "indice_fin_doc": 194350
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: toque",
+        "Duración: permanente",
+        "Inscribes un sello mágico en un objeto común que puedas llevar contigo. Este objeto parecerá poseer cualidades mágicas ante conjuros como Detectar magia u otros similares. Si se inscribe un objeto con propiedades mágicas, éste parecerá ser un objeto ordinario ante tales Conjuros."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-235",
+          "circulo": 1,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 372,
+      "nombre_literal": "Sello rúnico: Retorno",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2722,
+        "indice_ultimo_parrafo": 2729,
+        "indice_inicio_doc": 194351,
+        "indice_fin_doc": 194903
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: infinito",
+        "Duración: permanente",
+        "Inscribes una runa mágica en un objeto que puedas portar, vinculándolo a ti para que regrese cuando lo llames. En cualquier momento, puedes pronunciar el nombre del objeto y concentrarte durante un Turno para convocarlo a tus manos, sin importar la distancia. ",
+        "Sin embargo, si el objeto se encuentra en un lugar protegido por magia o donde las invocaciones estén restringidas, no podrá acudir a ti, aunque la runa permanecerá grabada."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-336",
+          "circulo": 7,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 373,
+      "nombre_literal": "Sello rúnico: Trampa",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2730,
+        "indice_ultimo_parrafo": 2736,
+        "indice_inicio_doc": 194904,
+        "indice_fin_doc": 195297
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: toque",
+        "Duración: permanente o hasta que se activa",
+        "Inscribes un sello mágico en un objeto que pueda abrirse, como una puerta, caja o armario. Cuando el objeto es abierto, el sello estalla en una explosión arcana, infligiendo 2d6 puntos de daño contundente a todas las criaturas adyacentes en un radio de 3m2."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-148",
+          "circulo": 2,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 374,
+      "nombre_literal": "Sello rúnico: Viaje",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2737,
+        "indice_ultimo_parrafo": 2743,
+        "indice_inicio_doc": 195298,
+        "indice_fin_doc": 195789
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 1d4 Intervalos",
+        "Alcance: toque",
+        "Cronurgia",
+        "Necesitas una Runa de viaje para poder lanzar este conjuro. Mediante un gesto místico, imprimes los datos arcanos de tu localización actual en una Runa de viaje, vinculándola al lugar donde se realiza el sello. Esta runa podrá ser utilizada posteriormente con el conjuro Viaje por la Urdimbre para viajar a este punto específico a través de la malla astral que rodea el Mundo de la Carne."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-202",
+          "circulo": 6,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 375,
+      "nombre_literal": "Sello rúnico: Vigilante",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2744,
+        "indice_ultimo_parrafo": 2751,
+        "indice_inicio_doc": 195790,
+        "indice_fin_doc": 196363
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: toque",
+        "Duración: 1 Intervalo por Nivel desde que se activa",
+        "Inscribes una runa mágica en un objeto que puedas portar. La runa se transfiere a la primera criatura que toque el objeto, siendo indetectable salvo mediante métodos mágicos. ",
+        "Una vez activada, podrás percibir todo lo que la criatura experimente a través de sus sentidos durante la duración del conjuro. Además, tendrás la capacidad de lanzar conjuros a través de la criatura afectada como si fueran tus propios ojos y oídos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-337",
+          "circulo": 7,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    }
+  ]
+}
