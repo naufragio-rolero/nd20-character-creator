@@ -84,6 +84,30 @@
     d.textContent=info.descripcion||
       "La descripción completa todavía no está incorporada al catálogo digital; consulta el manual.";
     c.appendChild(d);
+    /* Las magnitudes se calculan solo cuando conocemos el Nivel del personaje.
+     * Las condiciones y las tiradas de dados NO se ejecutan aquí. */
+    var nivel=Number(elemento.closest(".tarjeta")?.dataset.nivel);
+    if(info.magnitudes&&Number.isSafeInteger(nivel)&&nivel>=1&&root.NaufragioMagnitudes){
+      var calculo=root.NaufragioMagnitudes.evaluar(
+        {registros:[info.magnitudes]},info.magnitudes.id_catalogo,nivel);
+      if(calculo){
+        var subtitulo=document.createElement("h4");
+        subtitulo.textContent="Magnitudes literales · Nivel "+nivel;
+        c.appendChild(subtitulo);
+        var valores=document.createElement("dl");valores.className="info-datos";
+        calculo.magnitudes.forEach(function(m){
+          var dt=document.createElement("dt"),dd=document.createElement("dd");
+          dt.textContent=m.clave.replace(/_/g," ");
+          dd.textContent=String(m.valor)+" "+(m.unidad||"");
+          valores.append(dt,dd);
+        });
+        c.appendChild(valores);
+        var aviso=document.createElement("p");aviso.className="info-descripcion";
+        aviso.textContent="Condiciones de aplicación: "+calculo.condiciones_no_automatizadas+
+          ". Las Tiradas, objetivos y efectos no se ejecutan automáticamente.";
+        c.appendChild(aviso);
+      }
+    }
     var fuente=document.createElement("p");fuente.className="info-fuente";
     fuente.textContent="Fuente: "+(info.fuente_descripcion||info.fuente);
     c.appendChild(fuente);
