@@ -1,0 +1,32 @@
+name: Validar Conjuros y Forja
+
+on:
+  push:
+    branches:
+      - feat/forja-conjuros-fichas-2026-10-30
+  pull_request:
+    paths:
+      - 'data/conjuros-revisados-*.json'
+      - 'assets/tooltips.js'
+      - 'assets/app.js'
+      - 'tests/conjuros.js'
+      - 'tests/smoke.js'
+      - '.github/workflows/validar-conjuros.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+      - name: Comprobar sintaxis
+        run: |
+          node --check assets/app.js
+          node --check assets/tooltips.js
+          node --check tests/conjuros.js
+      - name: Probar generador y los 434 Conjuros
+        run: node tests/smoke.js
