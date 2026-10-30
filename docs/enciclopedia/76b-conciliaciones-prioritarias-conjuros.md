@@ -33,11 +33,11 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 ## D. Estado de verificación
 
 - **434/434** Conjuros transcritos y cotejados contra Google Docs, sin diferencias literales.
-- **325/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72m](72m-desglose-revisado-conjuros-301-325.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) [75e](75e-auditoria-desglose-manual-176-200.json) [75f](75f-auditoria-desglose-manual-201-225.json), [75g](75g-auditoria-desglose-manual-226-250.json) [75h](75h-auditoria-desglose-manual-251-275.json) [75i](75i-auditoria-desglose-manual-276-300.json) y [75j](75j-auditoria-desglose-manual-301-325.json).
-- **109** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
-- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 109 en fichas mecánicamente verificadas.
+- **350/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72n](72n-desglose-revisado-conjuros-326-350.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) [75e](75e-auditoria-desglose-manual-176-200.json) [75f](75f-auditoria-desglose-manual-201-225.json), [75g](75g-auditoria-desglose-manual-226-250.json) [75h](75h-auditoria-desglose-manual-251-275.json) [75i](75i-auditoria-desglose-manual-276-300.json) [75j](75j-auditoria-desglose-manual-301-325.json) y [75k](75k-auditoria-desglose-manual-326-350.json).
+- **84** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
+- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 84 en fichas mecánicamente verificadas.
 
-**Se puede continuar con 326–350 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
+**Se puede continuar con 351–375 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
 
 **Nota de control:** el recuento espacial de la auditoría inicial se corrigió tras detectar que el superíndice ² quedaba fuera del patrón de búsqueda. La [auditoría vigente](77c-resumen-geometria-conjuros.md) registra 65 fichas con magnitudes espaciales y 10 mezclas de radio y superficie.
 
@@ -134,3 +134,14 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 - **Purga de maldad (318):** superficie circular revisada en 78a; incluye posibles pérdidas de Conjuros para aliados, además de los objetivos enemigos.
 
 [Desglose 301–325](72m-desglose-revisado-conjuros-301-325.json) y [auditoría de 62 referencias](75j-auditoria-desglose-manual-301-325.json); no se han editado fuentes ni lógica del generador.
+
+## N. Hallazgos del desglose 326–350
+
+- **CONJ-M39 — Quemadura de maná (328):** la frase principal carece del verbo que determina qué ocurre con «1 Conjuro» del objetivo; tampoco corresponde elegir arbitrariamente entre pérdida de Conjuro, DU o Puntos de Conjuro.
+- **CONJ-M40 — Resguardo reactivo (349):** declara reducción de daño físico sin cantidad; duplica daño por fuego, frío y rayo. No completar la reducción con un valor inventado.
+- **CONJ-M41 — Profecía del tiempo (326):** duplica duración, alcance o efecto de Cronurgia, sin especificar duración propia ni criterio para escoger la magnitud duplicada.
+- **Repulsión: Alimañas (347) y Repulsión: Bestias (348):** la esfera es de **6 metros de diámetro**, no de radio; no duplicar sus dimensiones por error.
+- **Rayo desintegrador (331):** la expresión de volumen «superficie de 3 metros cúbicos» está registrada en 77d como propuesta pendiente.
+- **Rebobinar (336):** solo revierte el último Turno y dispone de Probabilidad 14+ de atraer cronófagos.
+
+[Desglose 326–350](72n-desglose-revisado-conjuros-326-350.json) y [auditoría de 36 referencias](75k-auditoria-desglose-manual-326-350.json).
