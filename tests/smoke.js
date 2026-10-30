@@ -1076,3 +1076,6 @@ assert.ok(appSexo.includes('forja-sexo-pj')&&appSexo.includes('forja-respetar-co
 assert.ok(appSexo.includes('sexoApi.ocuparPermitida'),'Filtrado de Ocupaciones según ajuste');
 assert.ok(appSexo.includes('Sexo:'),'Sexo incluido en ficha exportada');
 console.log('OK · sexo y nombres de personajes, excepciones y configuración editable.');
+
+/* Catálogo revisado del Tomo: integridad y ventanas informativas. */
+require('./conjuros.js');
