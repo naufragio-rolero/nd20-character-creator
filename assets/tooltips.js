@@ -174,6 +174,10 @@
     if(!ind||!nombre)return null;
     var circulo=(String(nombre).match(/\(C([1-8])\)/)||[])[1];
     var limpio=limpiar(nombre),lista=(ind.mapa.get(normalizar(limpio))||[]).slice();
+    if(circulo)lista=lista.filter(function(x){
+      if(x.tipo!=="Conjuro")return true;
+      return x.datos.some(function(d){return d[0]==="Círculo"&&String(d[1])===circulo;});
+    });
     if(!lista.length)return null;
     var tipo=grupo==="talento"?"talento":grupo==="equipo"?"equipo":"poder";
     function puntuacion(x){
