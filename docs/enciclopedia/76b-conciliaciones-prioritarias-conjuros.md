@@ -33,11 +33,11 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 ## D. Estado de verificación
 
 - **434/434** Conjuros transcritos y cotejados contra Google Docs, sin diferencias literales.
-- **225/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72i](72i-desglose-revisado-conjuros-201-225.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) [75e](75e-auditoria-desglose-manual-176-200.json) y [75f](75f-auditoria-desglose-manual-201-225.json).
-- **209** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
-- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 209 en fichas mecánicamente verificadas.
+- **275/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72k](72k-desglose-revisado-conjuros-251-275.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) [75e](75e-auditoria-desglose-manual-176-200.json) [75f](75f-auditoria-desglose-manual-201-225.json), [75g](75g-auditoria-desglose-manual-226-250.json) y [75h](75h-auditoria-desglose-manual-251-275.json).
+- **159** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
+- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 159 en fichas mecánicamente verificadas.
 
-**Se puede continuar con 226–250 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
+**Se puede continuar con 276–300 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
 
 **Nota de control:** el recuento espacial de la auditoría inicial se corrigió tras detectar que el superíndice ² quedaba fuera del patrón de búsqueda. La [auditoría vigente](77c-resumen-geometria-conjuros.md) registra 65 fichas con magnitudes espaciales y 10 mezclas de radio y superficie.
 
@@ -92,3 +92,23 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 - **Lluvia de estrellas (216)**: 12 m² sin forma determinada y resultados distintos en éxito/fallo. **Ídolo guardián de Mulinith (201)**: reducción de 4 por golpe físico y vulnerabilidad doble a efectos de área.
 
 [Desglose 201–225](72i-desglose-revisado-conjuros-201-225.json) y [auditoría de 44 referencias](75f-auditoria-desglose-manual-201-225.json). Sin cambios en las reglas ejecutables de Forja.
+
+## J. Hallazgos del desglose 226–250
+
+- **CONJ-M26 — Maldición de vínculo mortal (227):** no está claro cómo se ordena la aplicación de Blindaje y resistencias ni qué significa «de la primera» cuando la criatura herida puede ser cualquiera de las vinculadas.
+- **CONJ-M27 — Manto del inquebrantable (243):** la descripción precisa proyectiles no mágicos, pero termina hablando de inmunidad a los «ataques mundanos». No extender o restringir esa inmunidad sin decisión.
+- **CONJ-M28 — Muro de huesos (248):** se declara `Nivel × 10` Puntos de Golpe, pero dice que fuego o luz «lo reduce al doble de velocidad» sin una operación mecánica definida.
+- **Geometría declarada:** Muro de fuego (226) tiene altura y longitud, y Muro de fuerza (237) declara las tres dimensiones. Muralla de hielo (239) y Muro de piedra (242) expresan 300 m², pero no grosor.
+- **Mundo onírico (250):** el coma, la permanencia al romper contacto y las Tiradas para entrar y evitar escapar son condiciones distintas; no confundirlas.
+
+[Desglose 226–250](72j-desglose-revisado-conjuros-226-250.json); [auditoría de 38 referencias](75g-auditoria-desglose-manual-226-250.json).
+
+## K. Hallazgos del desglose 251–275
+
+- **CONJ-M29 — Niebla (256):** frase de la descripción truncada, aunque los tres efectos siguientes están explícitos. No introducir una regla supletoria.
+- **CONJ-M30 — Orbe elemental (270):** la zona dañina incluye el interior del orbe y 2 metros a su alrededor, pero la fuente no establece el diámetro del propio orbe; no inferir radio total.
+- **CONJ-M31 — Palabras de Custodia: Corrupción (272), Loriga (273) y Rectitud (274):** bonificaciones fraccionarias por Nivel y sin criterio de redondeo explícito en la ficha.
+- **Geometría ya señalada en 77d:** Niebla carmesí (257), «m² de diámetro», y Nube de aniquilación (259), «m² de radio», permanecen pendientes de aprobación editorial; no alterarlas en la transcripción.
+- **Ojo de la tormenta (262):** expresa 5 km² de alcance, hasta 1 km² por manifestación liberada y 10 m² por impacto de rayo; son cantidades distintas, sin geometría única autorizada.
+
+[Desglose 251–275](72k-desglose-revisado-conjuros-251-275.json); [auditoría de 50 referencias](75h-auditoria-desglose-manual-251-275.json). Fuentes originales y código ejecutable sin modificaciones.
