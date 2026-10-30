@@ -3,13 +3,13 @@
   "resultado": "cobertura_documental_completa_con_revision_manual_y_preindice",
   "conteos": {
     "fichas_con_texto_original": 434,
-    "fichas_revisadas_manual": 225,
+    "fichas_revisadas_manual": 275,
     "fichas_preclasificadas_automatico": 384,
-    "solapadas_manual_y_automatico": 175,
-    "solo_preclasificadas_pendientes_manual": 209,
+    "solapadas_manual_y_automatico": 225,
+    "solo_preclasificadas_pendientes_manual": 159,
     "cobertura_unica": 434
   },
-  "regla_precedencia": "El desglose manual 72a–72i prevalece para su interpretación sobre las pistas lexicales 73a–73h. Ambos son documentales y no constituyen reglas codificadas, pruebas del generador ni cambios en el texto original.",
+  "regla_precedencia": "El desglose manual 72a–72k prevalece para su interpretación sobre las pistas lexicales 73a–73h. Ambos son documentales y no constituyen reglas codificadas, pruebas del generador ni cambios en el texto original.",
   "archivos": [
     {
       "archivo": "72a-desglose-revisado-conjuros-001-025.json",
@@ -63,6 +63,18 @@
       "archivo": "72i-desglose-revisado-conjuros-201-225.json",
       "registros": 25,
       "sha": "f75b21771424319d8d7a12c7d1f8b49ba4589af5",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72j-desglose-revisado-conjuros-226-250.json",
+      "registros": 25,
+      "sha": "aa4699d987027ee07b6da89d2f7ea427dd996c81",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72k-desglose-revisado-conjuros-251-275.json",
+      "registros": 25,
+      "sha": "b54255e1aa5ac2bf057aa39e6488b71633c60a12",
       "estado": "revisado_manual"
     },
     {
@@ -152,6 +164,16 @@
     },
     {
       "archivo": "75f-auditoria-desglose-manual-201-225.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75g-auditoria-desglose-manual-226-250.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75h-auditoria-desglose-manual-251-275.json",
       "resultado": "25_de_25_cotejados",
       "errores": 0
     }
