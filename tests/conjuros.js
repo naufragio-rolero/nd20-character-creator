@@ -7,6 +7,7 @@ const raiz=path.join(__dirname,'..');
 const leer=(p)=>JSON.parse(fs.readFileSync(path.join(raiz,p),'utf8'));
 const indice=leer('docs/enciclopedia/70a-indice-conjuros-434.json');
 const cambios=leer('docs/enciclopedia/78a-correcciones-geometria-conjuros-10.json');
+const decisiones=leer('docs/enciclopedia/82a-correcciones-confirmadas-conjuros.json');
 const catalogo=leer('data/catalogo-poderes.json');
 const fuentes=Array.from({length:18},(_,i)=>{
   const ini=String(i*25+1).padStart(3,'0');
@@ -18,11 +19,12 @@ const revisados=[
   ...leer('data/conjuros-revisados-001-225.json').conjuros,
   ...leer('data/conjuros-revisados-226-434.json').conjuros
 ];
-const porCambio=new Map(cambios.registros.map(x=>[x.numero_tomo,x]));
+const porCambio=new Map([...cambios.registros,...decisiones.registros]
+  .map(x=>[x.numero_tomo,x]));
 assert.equal(fuentes.length,434,'434 fuentes originales');
 assert.equal(indice.registros.length,434,'434 entradas de índice');
 assert.equal(revisados.length,434,'434 textos publicados');
-assert.equal(porCambio.size,10,'10 decisiones editoriales aprobadas');
+assert.equal(porCambio.size,12,'10 ajustes geométricos y 2 decisiones editoriales aprobadas');
 let correcciones=0;
 const ids=new Map(catalogo.conjuros.map(x=>[x.id,x]));
 for(let i=0;i<434;i++){
@@ -52,7 +54,10 @@ for(let i=0;i<434;i++){
   }
   assert.deepEqual(editado.parrafos,esperado,'ningún cambio no autorizado en '+n);
 }
-assert.equal(correcciones,10);
+assert.equal(correcciones,12);
+assert.ok(!catalogo.conjuros.some(x=>x.id==='conjuro-154'),
+  'Ira celestial C3 excluida: DRS y Tomo solo la documentan en C5');
+assert.equal(catalogo.conjuros.length,433);
 assert.equal(new Set(revisados.map(x=>x.id_catalogo)).size,433,
   'Arma elemental está duplicada literalmente en el Tomo');
 assert.equal(revisados[25].id_catalogo,revisados[28].id_catalogo);
@@ -76,11 +81,14 @@ assert.ok(buscar('[C] Glosolalia mayor † (C5) · Grimorio de Tuliëlle').descr
 const iraC5=buscar('[C] Ira celestial (C5) · Nd20');
 const iraC3=buscar('[C] Ira celestial (C3) · Nd20');
 assert.ok(iraC5.descripcion.includes('4d12'),'Círculo 5 usa la ficha del Tomo');
-assert.ok(!iraC3.descripcion.includes('4d12'),'Círculo 3 no recibe reglas ajenas');
-assert.ok(iraC3.datos.some(x=>x[0]==='Círculo'&&x[1]==='3'));
+assert.equal(iraC3,null,'No ofrecer el círculo 3 ausente del DRS');
+assert.equal(revisados[432].parrafos[4].includes('Nivel 13 o superior'),true,
+  'Yugo: daño solo desde nivel 13');
+assert.ok(revisados[355].parrafos[5].includes('A lo largo del descanso, la magia va revelando poco a poco'),
+  'Revelar: lanzamiento y estudio progresivo');
 assert.ok(iraC5.datos.some(x=>x[0]==='Círculo'&&x[1]==='5'));
 assert.ok(buscar('[C] Mano de mago (C1) · Nd20').descripcion.length>50);
-console.log('OK · 434 fichas de Conjuros cotejadas; 10 correcciones y fichas emergentes verificadas.');
+console.log('OK · 434 fichas cotejadas; 12 cambios aprobados y catálogo DRS validado.');
 
 
 /* Pruebas del primer subconjunto de magnitudes mecánicas literales. */
@@ -141,8 +149,8 @@ const glosarioMagnitudes=tooltip.indice({
 });
 assert.ok(tooltip.buscar(glosarioMagnitudes,'[C] Mano de mago (C1) · Nd20','poder','nd20')
   .magnitudes,'Magnitudes integradas en fichas emergentes');
-assert.ok(!tooltip.buscar(glosarioMagnitudes,'[C] Ira celestial (C3) · Nd20','poder','nd20')
-  .magnitudes,'Círculo no documentado permanece sin magnitudes');
+assert.equal(tooltip.buscar(glosarioMagnitudes,'[C] Ira celestial (C3) · Nd20','poder','nd20'),null,
+  'Círculo no documentado no se ofrece');
 const htmlIntegracion=fs.readFileSync(path.join(raiz,'index.html'),'utf8');
 const appIntegracion=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
 const uiIntegracion=fs.readFileSync(path.join(raiz,'assets/tooltip-ui.js'),'utf8');
