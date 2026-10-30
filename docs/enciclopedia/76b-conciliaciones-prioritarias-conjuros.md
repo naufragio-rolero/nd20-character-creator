@@ -33,11 +33,11 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 ## D. Estado de verificación
 
 - **434/434** Conjuros transcritos y cotejados contra Google Docs, sin diferencias literales.
-- **375/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72o](72o-desglose-revisado-conjuros-351-375.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) [75e](75e-auditoria-desglose-manual-176-200.json) [75f](75f-auditoria-desglose-manual-201-225.json), [75g](75g-auditoria-desglose-manual-226-250.json) [75h](75h-auditoria-desglose-manual-251-275.json) [75i](75i-auditoria-desglose-manual-276-300.json) [75j](75j-auditoria-desglose-manual-301-325.json) [75k](75k-auditoria-desglose-manual-326-350.json) y [75l](75l-auditoria-desglose-manual-351-375.json).
-- **59** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
-- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 59 en fichas mecánicamente verificadas.
+- **434/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72r](72r-desglose-revisado-conjuros-426-434.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) [75e](75e-auditoria-desglose-manual-176-200.json) [75f](75f-auditoria-desglose-manual-201-225.json), [75g](75g-auditoria-desglose-manual-226-250.json) [75h](75h-auditoria-desglose-manual-251-275.json) [75i](75i-auditoria-desglose-manual-276-300.json) [75j](75j-auditoria-desglose-manual-301-325.json) [75k](75k-auditoria-desglose-manual-326-350.json) [75l](75l-auditoria-desglose-manual-351-375.json), [75m](75m-auditoria-desglose-manual-376-400.json), [75n](75n-auditoria-desglose-manual-401-425.json) y [75o](75o-auditoria-desglose-manual-426-434.json).
+- **0** Conjuros pendientes de desglose manual. Los lotes automáticos [73a–73h](73a-preindice-mecanico-051-100.json) quedan como evidencia histórica, no como sustituto de revisión.
+- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La revisión manual **no equivale a una validación mecánica ejecutable**. La [auditoría transversal 79a](79a-auditoria-transversal-desglose-conjuros-434.json) coteja 434 fichas con 333 fragmentos literales y 619 referencias, sin errores estructurales.
 
-**Se puede continuar con 376–400 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
+**Desglose documental de los 434 Conjuros completado.** La resolución de ambigüedades editoriales, la codificación y las pruebas de Forja siguen pendientes.
 
 **Nota de control:** el recuento espacial de la auditoría inicial se corrigió tras detectar que el superíndice ² quedaba fuera del patrón de búsqueda. La [auditoría vigente](77c-resumen-geometria-conjuros.md) registra 65 fichas con magnitudes espaciales y 10 mezclas de radio y superficie.
 
@@ -155,3 +155,16 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 - **Sello rúnico: Trampa (373):** conserva la restricción de criaturas adyacentes y la superficie circular de 3 m² ya corregida en 78a.
 
 [Desglose 351–375](72o-desglose-revisado-conjuros-351-375.json) y [auditoría de 39 referencias](75l-auditoria-desglose-manual-351-375.json).
+
+## P–R. Hallazgos de los lotes finales 376–434
+
+- **CONJ-M43 — Surcar la tierra (385):** el ejemplo de pozo aparenta exceder el límite de excavación de 4 metros cúbicos. No cambiar el límite hasta conciliar el ejemplo.
+- **CONJ-M44 — Yugo de la muerte viviente (433):** el Nivel 12 cumple a la vez «12 o inferior» y «12 o superior» para resultados distintos. Es necesario resolver esta intersección.
+- **CONJ-M45 — Sifón de recuerdos (380):** borra un Turno más uno por cada tres Niveles; comprobar la regla de redondeo antes de calcular el máximo.
+- **CONJ-M46 — Telequinesis (406):** un objeto por cada dos Niveles y 100 kg por cada cuatro Niveles sin redondeo propio explícito.
+- **CONJ-M47 — Viaje espaciotemporal (425):** requiere acuerdo de toda la mesa. No activar ni ejecutar su lógica de viaje sin ese requisito.
+- **Silencio (381):** 6 metros de diámetro, no radio. **Tetramageddon (415):** cuatro tipos de daño diferentes por Nivel. **Zona onírica (434):** error geométrico ya registrado en [77d](77d-segunda-pasada-erratas-geométricas.json).
+
+[Desglose 376–400](72p-desglose-revisado-conjuros-376-400.json), [401–425](72q-desglose-revisado-conjuros-401-425.json) y [426–434](72r-desglose-revisado-conjuros-426-434.json). Auditorías correspondientes: [75m](75m-auditoria-desglose-manual-376-400.json), [75n](75n-auditoria-desglose-manual-401-425.json) y [75o](75o-auditoria-desglose-manual-426-434.json).
+
+**Estado final de esta fase:** 434/434 fichas auditadas documentalmente; incidencias editoriales pendientes; ningún cambio en las transcripciones históricas, Google Drive ni las reglas ejecutables de Forja.
