@@ -1,0 +1,275 @@
+{
+  "version": 1,
+  "fecha": "2026-10-30",
+  "estado": "subconjunto_mecanico_parcial_cotejado_sin_mutar_personajes",
+  "alcance": "Magnitudes explícitas sin suponer Tiradas, redondeos, salvaciones ni efectos acumulativos; las condiciones textuales siguen requiriendo aplicación reglamentaria",
+  "registros": [
+    {
+      "id_catalogo": "conjuro-3",
+      "numero_tomo": 64,
+      "nombre_tomo": "Chispa curativa",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Restauras 1d4 de Salud a un objetivo.",
+      "disparador_y_limites": "Objetivo dentro del alcance",
+      "magnitudes": [
+        {
+          "clave": "curacion",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Puntos de Salud"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-4",
+      "numero_tomo": 98,
+      "nombre_tomo": "Dardo ígneo",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 de daño por fuego si superas una Tirada de Conjuro",
+      "disparador_y_limites": "Únicamente si se supera una Tirada de Conjuro",
+      "magnitudes": [
+        {
+          "clave": "danio_fuego",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Daño por fuego"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-2",
+      "numero_tomo": 61,
+      "nombre_tomo": "Caída de pluma",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "sin sufrir daño por caída hasta que aterrice.",
+      "disparador_y_limites": "Durante el descenso hasta tomar tierra",
+      "magnitudes": [
+        {
+          "clave": "alcance_m",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "metros"
+        },
+        {
+          "clave": "prevencion_danio_caida",
+          "tipo": "constante",
+          "valor": true,
+          "unidad": "hasta aterrizar"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-9",
+      "numero_tomo": 222,
+      "nombre_tomo": "Mano de mago",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "4kg por Nivel (máximo 40kg)",
+      "disparador_y_limites": "Solo objetos inanimados; no lanzarlos ni utilizarlos como armas",
+      "magnitudes": [
+        {
+          "clave": "carga_maxima_kg",
+          "tipo": "por_nivel_con_tope",
+          "valor": [
+            4,
+            40
+          ],
+          "unidad": "kilogramos"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-30",
+      "numero_tomo": 294,
+      "nombre_tomo": "Proyectil mágico",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Disparas tantos Proyectiles mágicos como tu Nivel.",
+      "disparador_y_limites": "Los proyectiles no pueden fallar; se pueden distribuir entre objetivos dentro del alcance",
+      "magnitudes": [
+        {
+          "clave": "numero_proyectiles",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "proyectiles"
+        },
+        {
+          "clave": "danio_por_proyectil",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Daño por fuerza"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-11",
+      "numero_tomo": 418,
+      "nombre_tomo": "Valentía",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "un +1 a las Tiradas.",
+      "disparador_y_limites": "Aplica a un objetivo",
+      "magnitudes": [
+        {
+          "clave": "bono_tiradas",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "a las Tiradas"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-186",
+      "numero_tomo": 429,
+      "nombre_tomo": "Vigor de coloso",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "+2 a todas las Tiradas de Fuerza",
+      "disparador_y_limites": "Durante la duración del conjuro",
+      "magnitudes": [
+        {
+          "clave": "bono_fuerza",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Tiradas de Fuerza"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-144",
+      "numero_tomo": 231,
+      "nombre_tomo": "Marcha de araña",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "con tu Movimiento reducido a la mitad.",
+      "disparador_y_limites": "Permite caminar o trepar por superficies incluso contra la gravedad; no se decide redondeo",
+      "magnitudes": [
+        {
+          "clave": "factor_movimiento",
+          "tipo": "constante",
+          "valor": 0.5,
+          "unidad": "multiplicador de Movimiento"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-89",
+      "numero_tomo": 428,
+      "nombre_tomo": "Vigilia de muerte",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "sus Puntos de Salud se ajustan a 1 y el efecto finaliza.",
+      "disparador_y_limites": "Si la criatura llega a Salud 0 o inferior, salvo muerte natural o efectos sobrenaturales superiores",
+      "magnitudes": [
+        {
+          "clave": "salud_tras_activacion",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Puntos de Salud"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-23",
+      "numero_tomo": 29,
+      "nombre_tomo": "Arma elemental",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 de daño adicional, de dicho elemento.",
+      "disparador_y_limites": "Elegir fuego, frío, relámpago o fuerza; el arma se considera mágica; duplicado literal del Tomo",
+      "magnitudes": [
+        {
+          "clave": "danio_adicional",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Daño elemental"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-240",
+      "numero_tomo": 237,
+      "nombre_tomo": "Muro de fuerza",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "6 metros de ancho, 4 metros de altura y 2 metros de grosor.",
+      "disparador_y_limites": "Concentración; criaturas de Nivel 6 o menos no atraviesan el muro; Proyectiles mágicos lo ignoran",
+      "magnitudes": [
+        {
+          "clave": "anchura_maxima_m",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "metros"
+        },
+        {
+          "clave": "altura_maxima_m",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "metros"
+        },
+        {
+          "clave": "grosor_maximo_m",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "metros"
+        },
+        {
+          "clave": "nivel_bloqueado_maximo",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "Nivel"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-8",
+      "numero_tomo": 219,
+      "nombre_tomo": "Luz",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Creas una luz brillante",
+      "disparador_y_limites": "Dos modalidades excluyentes: iluminar objeto inanimado o cegar si supera Tirada de Conjuro",
+      "magnitudes": [
+        {
+          "clave": "alcance_iluminacion_m",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_luz_horas",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "horas"
+        },
+        {
+          "clave": "duracion_ceguera_turnos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    }
+  ]
+}
