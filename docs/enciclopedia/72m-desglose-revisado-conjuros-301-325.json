@@ -1,0 +1,398 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    301,
+    325
+  ],
+  "numero_registros": 25,
+  "metodo": "Lectura manual íntegra, interpretación cautelosa e índices literales cotejados con 69m. Sin modificar reglas en Forja.",
+  "registros": [
+    {
+      "numero_tomo": 301,
+      "nombre_literal": "Paso de la bruma",
+      "lectura_documental_no_oficial": "Teletransporte a posición visible",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "10 metros de distancia como máximo, hasta un punto que puedas ver; no permitir destinos ocultos sin fuente.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2237
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 302,
+      "nombre_literal": "Púa ósea",
+      "lectura_documental_no_oficial": "Varios proyectiles óseos con daño individual",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Un proyectil por cada 2 Niveles, cada uno 1d4+1 de daño impío; redondeo pendiente.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2242
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 303,
+      "nombre_literal": "Plegaria de sosiego",
+      "lectura_documental_no_oficial": "Salvaguarda curativa que salta entre aliados",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Al recibir daño cura 1d10 y pasa a aliado a 4 m; no vuelve al mismo receptor hasta un Intervalo, salvo que no pueda transferirse y finalice tras una segunda curación.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2247
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 304,
+      "nombre_literal": "Presencia de Vaiel",
+      "lectura_documental_no_oficial": "Efecto de terror en radio lineal y empujón",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "Tras Tirada exitosa, empuja 4 m a criaturas en radio de 3 m y las obliga a huir; no se describe Tirada separada por objetivo.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2255
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 305,
+      "nombre_literal": "Profanar",
+      "lectura_documental_no_oficial": "Daño impío y excepción por tipo de objetivo",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "advertencia_de_integracion": "10d8 en éxito o mitad en fallo; inmunidad de muertos vivientes y seres no orgánicos. Ventaja contra criaturas feéricas y Plantas; vegetales comunes se marchitan sin Tirada.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2263
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 306,
+      "nombre_literal": "Penitencia",
+      "lectura_documental_no_oficial": "Curación total o juicio según alianza con gran coste para lanzador",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Aliado: restaura Salud y aflicciones. Enemigo: Tirada con umbral de Nivel 12 y daño 18d6; redacción de condiciones de éxito/fallo requiere aclaración. Siempre deja al lanzador a 1 Salud.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2272
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 307,
+      "nombre_literal": "Punición",
+      "lectura_documental_no_oficial": "Daño radiante a criatura maligna o corrupta condicionado por fe",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "1d4, requiere agua bendita y alineación de fe declarada; no omitir el catalizador.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2280
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 308,
+      "nombre_literal": "Pirotecnia mágica",
+      "lectura_documental_no_oficial": "Manifestaciones visuales y sonoras sin daño",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Una explosión por Nivel, hasta 1 minuto cada una; radio de visibilidad 50 m, no de daño.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2285
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 309,
+      "nombre_literal": "Portal sombrío",
+      "lectura_documental_no_oficial": "Dos portales con restricciones de tránsito",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Alcance 8 m y separación máxima 50 m. No identificar automáticamente nictomante con nigromante; incidencia OCP-17 pendiente.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2291
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 310,
+      "nombre_literal": "Pulso de sanación",
+      "lectura_documental_no_oficial": "Curación de objetivo y segundo aliado cercano",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Principal recupera 1d8 por Nivel; un aliado a 2 m o menos recupera mitad; máximo dos objetivos por lanzamiento.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2299
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 311,
+      "nombre_literal": "Posesión mental",
+      "lectura_documental_no_oficial": "Control corporal con Tirada de mantenimiento cada Turno",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "El cuerpo del lanzador queda inconsciente; fallo de la Tirada de Conjuro al comenzar su Turno deshace la posesión.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2306
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 312,
+      "nombre_literal": "Puerta al Universo",
+      "lectura_documental_no_oficial": "Portal multiversal con riesgo por falta de conocimiento",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6,
+        7
+      ],
+      "advertencia_de_integracion": "Radio de peligro expresado como Probabilidad 10+ de destino nocivo si se desconoce el universo; portal de 5 m de diámetro, 1 hora o hasta que el lanzador cruce.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2314
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 313,
+      "nombre_literal": "Paseo sobre las aguas",
+      "lectura_documental_no_oficial": "Marcha sobre agua y otras superficies líquidas",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "No confiere protección contra sustancias dañinas como lava o ácido; cancelación voluntaria.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2323
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 314,
+      "nombre_literal": "Provocar confusión",
+      "lectura_documental_no_oficial": "Confusión con tabla d8 de resultados",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "advertencia_de_integracion": "La Tirada se realiza al inicio de cada Turno; fallo deja actuar normalmente. Tabla d8 contiene cuatro bandas 1–2, 3–4, 5–6, 7–8. No reinterpretar los pronombres del resultado.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2329
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 315,
+      "nombre_literal": "Purga tóxica",
+      "lectura_documental_no_oficial": "Eliminación de veneno con efecto de resurrección condicionado",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "No sana daño por veneno, pero si se lanza hasta 3 Turnos después de muerte por envenenamiento revive con 1 Salud.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2345
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 316,
+      "nombre_literal": "Prisma del alma",
+      "lectura_documental_no_oficial": "Transferencia de alma a gema con posible posesión",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "advertencia_de_integracion": "Cuerpo original entra en coma y alma reside en gema, alcance de posesión 36 m tras Tirada. No confundir el Alcance 3 m por Nivel con el radio declarado para poseer.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2350
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 317,
+      "nombre_literal": "Provocar confusión en masa",
+      "lectura_documental_no_oficial": "Confusión masiva en superficie de 8 m²",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Conserva reglas del Conjuro Provocar confusión, sin geometría especificada para la superficie.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2360
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 318,
+      "nombre_literal": "Purga de maldad",
+      "lectura_documental_no_oficial": "Purga por criatura y posible penalización para aliados conjuradores",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "10 m² circulares aprobados en 78a; Tirada por enemigo de Categoría y Nivel indicados; aliados conjuradores pueden perder 1d6 Conjuros.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2365
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 319,
+      "nombre_literal": "Plaga de alimañas",
+      "lectura_documental_no_oficial": "Enjambre de insectos con comprobación de Moral",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Radio 10 m, Moral para Nivel 8 o inferior al entrar, Movimiento a mitad y Ventaja contra afectados; requiere concentración.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2372
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 320,
+      "nombre_literal": "Puño mágico de Zurari",
+      "lectura_documental_no_oficial": "Mano arcana de tres funciones excluyentes",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "advertencia_de_integracion": "Puede transportar, agarrar o golpear, una a la vez. Movimiento 9, vuelo a mitad; golpe 1d10 por Nivel, retención favorece ataques.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2380
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 321,
+      "nombre_literal": "Palimpsesto oculto",
+      "lectura_documental_no_oficial": "Camuflaje permanente de documento o inscripción",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "El contenido original se mantiene, indetectable por medios no mágicos; no atribuir destrucción de textos.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2390
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 322,
+      "nombre_literal": "Polimorfia magna",
+      "lectura_documental_no_oficial": "Conversión de objetos y seres con límite de masa",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "No puede superar cuatro veces la masa del original; es permanente y de toque.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2398
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 323,
+      "nombre_literal": "Prisión laberíntica",
+      "lectura_documental_no_oficial": "Confinamiento en laberinto extradimensional",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Se necesita Tirada de Conjuro inicial; duración 1d6 días por Nivel o hasta hallar salida, sin mecánica concreta de búsqueda.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2404
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 324,
+      "nombre_literal": "Putrefacción forzada",
+      "lectura_documental_no_oficial": "Empeoramiento de enfermedades existentes",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "No crea aflicciones nuevas; no se cuantifica progresión ni daño directo.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2411
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 325,
+      "nombre_literal": "Prominencia",
+      "lectura_documental_no_oficial": "Dos discos ígneos dirigibles a uno o dos objetivos",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Cada disco causa 1d10 de fuego por Nivel y mitad si falla. La ficha habla de una Tirada y después de fallo de cada disco: aclarar si se tira individualmente.",
+      "fuente": {
+        "archivo": "69m-conjuros-alfabeticos-301-325.json",
+        "indice_encabezado": 2417
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}
