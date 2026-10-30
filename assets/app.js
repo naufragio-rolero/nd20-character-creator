@@ -546,6 +546,8 @@
       tesauroYlat:'data/tesauro-ylat.json',
       sexoCatalogo:'data/sexo-personajes.json',
       catalogo:'data/catalogo-poderes.json',
+      conjurosUno:'data/conjuros-revisados-001-225.json',
+      conjurosDos:'data/conjuros-revisados-226-434.json',
       progresiones:'data/progresiones-oficiales.json',
       equipoInicial:'data/equipo-inicial.json',
       fichasDocumentales:'data/fichas-documentales.json',
@@ -608,7 +610,8 @@
       var indice=window.NaufragioTooltipIndex.indice({
         fantasia:datos.fantasia,cifi:datos.cifi,nocturna:datos.nocturna,
         catalogo:datos.catalogo,equipo:datos.equipoInicial,
-        descripciones:loaded.fichasDocumentales
+        descripciones:loaded.fichasDocumentales,
+        conjurosRevisados:loaded.conjurosUno.conjuros.concat(loaded.conjurosDos.conjuros)
       });
       infoUI.configurar(indice);
     }
