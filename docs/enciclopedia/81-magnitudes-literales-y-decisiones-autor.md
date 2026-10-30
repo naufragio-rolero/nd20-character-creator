@@ -27,13 +27,13 @@ Estos campos están vinculados mediante el **ID del catálogo** y evidencias tex
 
 ## Decisiones de autor prioritarias
 
-**DEC-CONJ-01 — Yugo de la muerte viviente (433).** El texto divide los resultados en «Nivel 12 o inferior» → destrucción y «Nivel 12 o superior» → 3d6 radiante por Nivel. **El Nivel 12 pertenece a ambas bandas.** Para codificarlo hay que decidir si la destrucción abarca niveles ≤12 y el daño comienza en 13, o la destrucción abarca niveles ≤11 y el daño comienza en 12. No se ha elegido ninguna.
+**DEC-CONJ-01 — RESUELTA — Yugo de la muerte viviente (433).** Decisión aprobada: destrucción hasta Nivel 12 incluido; daño radiante desde Nivel 13. Redacción confirmada en [82a](82a-correcciones-confirmadas-conjuros.json) y aplicada al texto consultable de Forja. No se alteran los requisitos de Tirada.
 
-**DEC-CONJ-02 — Revelar objeto maravilloso (356).** Metadato: «Lanzamiento: 1 Intervalo». Cuerpo: «Durante un descanso de ocho horas, entras en un trance» y revelas una propiedad al finalizar. Hay que decidir si son dos fases diferenciadas (lanzamiento y estudio), si el lanzamiento debe durar ocho horas o si existe otra convención ya definida. No se ha modificado la ficha.
+**DEC-CONJ-02 — RESUELTA EN SU SECUENCIA — Revelar objeto maravilloso (356).** Tras lanzar durante 1 Intervalo, el arcanista estudia el objeto durante un descanso de ocho horas. La información mágica aparece paulatinamente, y al finalizar se identifica una propiedad. Se ha aplicado la redacción en [82a](82a-correcciones-confirmadas-conjuros.json). No se inventan etapas mecánicas intermedias.
 
-**DEC-CONJ-03 — Ira celestial (188).** En el Tomo figura como **Quinto Círculo** y causa 4d12 radiante. El catálogo también presenta una entrada **Tercer Círculo** sin ficha equivalente en el Tomo. La interfaz evita adjudicar los 4d12 a esa entrada. Hay que decidir si el catálogo contiene un error de Círculo, si se trata de dos Conjuros distintos o si existe una fuente adicional para la versión de Tercer Círculo.
+**DEC-CONJ-03 — RESUELTA POR PRIORIDAD DEL DRS — Ira celestial (188).** El DRS confirma **Quinto Círculo**, Escuela Divina y 4d12 radiante. La variante C3 (`conjuro-154`) era una discrepancia de inventario sin respaldo del DRS y se ha retirado del catálogo seleccionable; queda la versión C5 (`conjuro-46`). Ver [82b](82b-conciliacion-drs-ira-celestial-y-surcar-tierra.md).
 
-**DEC-CONJ-04 — Surcar la tierra (385).** Límite reglamentario: hasta **4 m³**. El ejemplo de un pozo de **2 metros de ancho y hasta 12 de profundidad** excede sustancialmente ese volumen. Hay que priorizar el límite o rehacer el ejemplo; no corregir automáticamente.
+**DEC-CONJ-04 — PENDIENTE — Surcar la tierra (385).** Límite de **4 m³** contradice dos ejemplos: el pozo de 2 m de ancho y 12 m de profundidad (~37,7 m³ si fuera cilíndrico y el ancho su diámetro) y la cavidad de casi 4 m de diámetro y 2 m de profundidad (~25,1 m³ tomando diámetro 4 m). Se propone mantener los 4 m³ y reducir los ejemplos, pero falta confirmación del autor. Ver [82b](82b-conciliacion-drs-ira-celestial-y-surcar-tierra.md).
 
 **DEC-CONJ-05 — Fracciones por Nivel.** Varios Conjuros usan «por cada 2», «por cada 3» o «por cada 6 Niveles» sin redondeo explícito. Antes de aplicar magnitudes derivadas a estos casos hay que comprobar si el reglamento general define el redondeo o aprobar una convención editorial. El motor deliberadamente solo usa multiplicaciones y topes inequívocos.
 
@@ -45,4 +45,4 @@ Las seis propuestas espaciales de [77d](77d-segunda-pasada-erratas-geométricas.
 2. Incorporar selección de modalidades y pruebas de condiciones donde el texto sea inequívoco, sin decidir Tiradas por el jugador.
 3. Validar comportamiento de personajes reales, pruebas de regresión y experiencia de interfaz antes de fusionar en `main`.
 
-**Propiedad editorial:** las decisiones propuestas no se han ejecutado. El autor conserva el control sobre las reglas.
+**Propiedad editorial:** las decisiones 01, 02 y 03 han sido aprobadas y trasladadas a la capa funcional de Forja; las decisiones 04 y 05 siguen pendientes. Ninguna de ellas ha modificado los lotes originales ni Drive. La aplicación mecánica completa sigue pendiente.
