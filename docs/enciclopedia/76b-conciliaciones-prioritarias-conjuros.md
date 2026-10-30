@@ -33,11 +33,11 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 ## D. Estado de verificación
 
 - **434/434** Conjuros transcritos y cotejados contra Google Docs, sin diferencias literales.
-- **350/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72n](72n-desglose-revisado-conjuros-326-350.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) [75e](75e-auditoria-desglose-manual-176-200.json) [75f](75f-auditoria-desglose-manual-201-225.json), [75g](75g-auditoria-desglose-manual-226-250.json) [75h](75h-auditoria-desglose-manual-251-275.json) [75i](75i-auditoria-desglose-manual-276-300.json) [75j](75j-auditoria-desglose-manual-301-325.json) y [75k](75k-auditoria-desglose-manual-326-350.json).
-- **84** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
-- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 84 en fichas mecánicamente verificadas.
+- **375/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72o](72o-desglose-revisado-conjuros-351-375.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) [75e](75e-auditoria-desglose-manual-176-200.json) [75f](75f-auditoria-desglose-manual-201-225.json), [75g](75g-auditoria-desglose-manual-226-250.json) [75h](75h-auditoria-desglose-manual-251-275.json) [75i](75i-auditoria-desglose-manual-276-300.json) [75j](75j-auditoria-desglose-manual-301-325.json) [75k](75k-auditoria-desglose-manual-326-350.json) y [75l](75l-auditoria-desglose-manual-351-375.json).
+- **59** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
+- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 59 en fichas mecánicamente verificadas.
 
-**Se puede continuar con 351–375 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
+**Se puede continuar con 376–400 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
 
 **Nota de control:** el recuento espacial de la auditoría inicial se corrigió tras detectar que el superíndice ² quedaba fuera del patrón de búsqueda. La [auditoría vigente](77c-resumen-geometria-conjuros.md) registra 65 fichas con magnitudes espaciales y 10 mezclas de radio y superficie.
 
@@ -145,3 +145,13 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 - **Rebobinar (336):** solo revierte el último Turno y dispone de Probabilidad 14+ de atraer cronófagos.
 
 [Desglose 326–350](72n-desglose-revisado-conjuros-326-350.json) y [auditoría de 36 referencias](75k-auditoria-desglose-manual-326-350.json).
+
+## O. Hallazgos del desglose 351–375
+
+- **CONJ-M42 — Revelar objeto maravilloso (356):** metadato `Lanzamiento: 1 Intervalo` frente a un trance de ocho horas descrito en el texto; requiere conciliación.
+- **Resistir los elementos (351):** se elige una modalidad de fuego o frío; la fuente no describe inmunidad absoluta.
+- **Sangre de Umbrathia (365):** la Ceguera también se aplica al fallar la Tirada, pero solo durante 1 Turno.
+- **Sello rúnico: Explosión (369):** área de 3 metros de distancia alrededor del texto, a diferencia de superficies expresadas en m².
+- **Sello rúnico: Trampa (373):** conserva la restricción de criaturas adyacentes y la superficie circular de 3 m² ya corregida en 78a.
+
+[Desglose 351–375](72o-desglose-revisado-conjuros-351-375.json) y [auditoría de 39 referencias](75l-auditoria-desglose-manual-351-375.json).
