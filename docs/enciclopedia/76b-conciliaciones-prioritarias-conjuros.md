@@ -33,11 +33,11 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 ## D. Estado de verificación
 
 - **434/434** Conjuros transcritos y cotejados contra Google Docs, sin diferencias literales.
-- **200/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72h](72h-desglose-revisado-conjuros-176-200.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) y [75e](75e-auditoria-desglose-manual-176-200.json).
-- **234** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
-- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 234 en fichas mecánicamente verificadas.
+- **225/434** Conjuros desglosados manualmente con fragmentos reglamentarios y advertencias, en [72a–72i](72i-desglose-revisado-conjuros-201-225.json), cotejados en [75a](75a-auditoria-desglose-manual-100.json), [75b](75b-auditoria-desglose-manual-101-125.json) [75c](75c-auditoria-desglose-manual-126-150.json) [75d](75d-auditoria-desglose-manual-151-175.json) [75e](75e-auditoria-desglose-manual-176-200.json) y [75f](75f-auditoria-desglose-manual-201-225.json).
+- **209** Conjuros aún pendientes de desglose manual, pero ya preclasificados en [ocho lotes 73a–73h](73a-preindice-mecanico-051-100.json), [auditados](74a-auditoria-preindice-051-250.json) por referencias y marcas literales.
+- [Cobertura consolidada](76a-cobertura-desglose-conjuros-434.json). La preclasificación por palabras **no** convierte esos 209 en fichas mecánicamente verificadas.
 
-**Se puede continuar con 201–225 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
+**Se puede continuar con 226–250 sin resolver estas cuestiones.** La implementación y sus pruebas en Forja siguen fuera del alcance de esta PR hasta aprobación.
 
 **Nota de control:** el recuento espacial de la auditoría inicial se corrigió tras detectar que el superíndice ² quedaba fuera del patrón de búsqueda. La [auditoría vigente](77c-resumen-geometria-conjuros.md) registra 65 fichas con magnitudes espaciales y 10 mezclas de radio y superficie.
 
@@ -81,3 +81,14 @@ Se mantienen **CONJ-01 a CONJ-06** del [cierre anterior](71-cierre-extraccion-co
 - **Hoja rugiente (185)**: inflige 1d6 adicional incluso si falla el ataque de arma. **Hablar con los muertos (182)**: máximo tres preguntas, excluidos muertos vivientes.
 
 [Desglose 176–200](72h-desglose-revisado-conjuros-176-200.json), [auditoría de 40 referencias](75e-auditoria-desglose-manual-176-200.json). Fuentes literales y funcionamiento de Forja sin modificar.
+
+## I. Hallazgos del desglose 201–225
+
+- **CONJ-M22 — Invocar ejército ilusorio (202)**: las copias soportan `Nivel / 10` impactos, con redondeo no declarado; su daño se deshace al descubrir la ilusión. No atribuirles Salud.
+- **CONJ-M23 — Legado de poder (209)**: préstamo de Conjuros a terceros y bloqueo de Espacios mientras permanezcan sin usar; faltan detalles para representar la reversión al consumirlos.
+- **CONJ-M24 — Invocar elemental mayor (204) y Llamada del lobo espectral (215)**: no ofrecen bloques de estadísticas; no implementar criaturas inventadas. Las restricciones de cantidad e Iniciativa están explícitas.
+- **CONJ-M25 — Marca del dador oscuro (225)**: transfiere como máximo un cuarto del daño recibido en el Turno anterior, sin redondeo especificado.
+- **Aplicación editorial existente:** Invocar vórtice de energía (205) y Luna carmesí (217) ya cuentan con geometría corregida en [78a](78a-correcciones-geometria-conjuros-10.json). Las transcripciones 69i permanecen literales.
+- **Lluvia de estrellas (216)**: 12 m² sin forma determinada y resultados distintos en éxito/fallo. **Ídolo guardián de Mulinith (201)**: reducción de 4 por golpe físico y vulnerabilidad doble a efectos de área.
+
+[Desglose 201–225](72i-desglose-revisado-conjuros-201-225.json) y [auditoría de 44 referencias](75f-auditoria-desglose-manual-201-225.json). Sin cambios en las reglas ejecutables de Forja.
