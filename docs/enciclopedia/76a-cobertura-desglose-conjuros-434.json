@@ -1,15 +1,15 @@
 {
   "fecha": "2026-10-30",
-  "resultado": "cobertura_documental_completa_con_revision_manual_y_preindice",
+  "resultado": "desglose_manual_completo_de_434_pendiente_conciliaciones_y_pruebas",
   "conteos": {
     "fichas_con_texto_original": 434,
-    "fichas_revisadas_manual": 375,
+    "fichas_revisadas_manual": 434,
     "fichas_preclasificadas_automatico": 384,
-    "solapadas_manual_y_automatico": 325,
-    "solo_preclasificadas_pendientes_manual": 59,
+    "solapadas_manual_y_automatico": 384,
+    "solo_preclasificadas_pendientes_manual": 0,
     "cobertura_unica": 434
   },
-  "regla_precedencia": "El desglose manual 72a–72o prevalece para su interpretación sobre las pistas lexicales 73a–73h. Ambos son documentales y no constituyen reglas codificadas, pruebas del generador ni cambios en el texto original.",
+  "regla_precedencia": "El desglose manual 72a–72r prevalece para su interpretación sobre las pistas lexicales 73a–73h. Ambos son documentales y no constituyen reglas codificadas, pruebas del generador ni cambios en el texto original.",
   "archivos": [
     {
       "archivo": "72a-desglose-revisado-conjuros-001-025.json",
@@ -99,6 +99,24 @@
       "archivo": "72o-desglose-revisado-conjuros-351-375.json",
       "registros": 25,
       "sha": "c584b4cba6bfe480412c727f39ba5b57fc1bf565",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72p-desglose-revisado-conjuros-376-400.json",
+      "registros": 25,
+      "sha": "862bc2d49e7dbcac68e021b7fdece610c9e13c23",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72q-desglose-revisado-conjuros-401-425.json",
+      "registros": 25,
+      "sha": "b847dbf24b75f1067325be529dc73a227938e039",
+      "estado": "revisado_manual"
+    },
+    {
+      "archivo": "72r-desglose-revisado-conjuros-426-434.json",
+      "registros": 9,
+      "sha": "6c6b5ea4a698635ededf41c01e8ce17bf704b6b3",
       "estado": "revisado_manual"
     },
     {
@@ -219,6 +237,21 @@
     {
       "archivo": "75l-auditoria-desglose-manual-351-375.json",
       "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75m-auditoria-desglose-manual-376-400.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75n-auditoria-desglose-manual-401-425.json",
+      "resultado": "25_de_25_cotejados",
+      "errores": 0
+    },
+    {
+      "archivo": "75o-auditoria-desglose-manual-426-434.json",
+      "resultado": "9_de_9_cotejados",
       "errores": 0
     }
   ],
