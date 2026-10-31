@@ -56,7 +56,7 @@
     notas.push("Capital inicial CiFi: 4d10 × 100 cr, decisión editorial pendiente de incorporarse al DRS.");
     return {equipo:eq,gastado:gastado,restante:restante,notas:notas};
   }
-  function compraInicial(ocupacion,nombre,juego,catalogo,presupuesto,rng,nivel){
+  function compraInicial(ocupacion,nombre,juego,catalogo,presupuesto,rng,nivel,perfilEspecie){
     rng=rng||Math.random;
     var eq=[],notas=[],gasto=0;
     if(juego==="nd20_cifi")return compraCifi(nombre,catalogo,presupuesto,rng);
@@ -66,6 +66,7 @@
       throw Error("Falta la tabla DRS o el presupuesto inicial documentado.");
     // Competencias desbloqueadas en niveles futuros NO habilitan compras iniciales.
     nivel=Number(nivel)||1;
+    var bajaEstatura=!!(perfilEspecie&&(perfilEspecie.talentos||[]).includes('Baja estatura'));
     var comp=(ocupacion.competencias||[]).filter(function(regla){
       var m=normal(regla).match(/a partir de nivel\s*(\d+)/);
       return !m||nivel>=Number(m[1]);
@@ -146,6 +147,18 @@
           n==="escudo grande"&&/grand/.test(escudo);
       });
     }
+    // DRS / Baja estatura: una categoría ligera no equivale a adaptación.
+    // El catálogo solo podrá declarar apta una pieza con marca explícita.
+    // Hasta entonces no se asignan armas/armaduras de talla desconocida.
+    if(bajaEstatura){
+      var armasAntes=armasPermitidas.length,armadurasAntes=armadurasPermitidas.length;
+      armasPermitidas=armasPermitidas.filter(function(x){return x.adaptada_baja_estatura===true;});
+      armadurasPermitidas=armadurasPermitidas.filter(function(x){return x.adaptada_baja_estatura===true;});
+      escudosPermitidos=escudosPermitidos.filter(function(x){return normal(x.nombre)==='escudo pequeno';});
+      if(armasAntes>armasPermitidas.length||armadurasAntes>armadurasPermitidas.length)
+        notas.push('Baja estatura: armas y armaduras sin adaptación confirmada no se asignan. La compatibilidad debe verificarse antes de equiparlas.');
+      notas.push('Baja estatura: únicamente escudos pequeños; +1 a Tiradas de Esquiva contra ataques a distancia.');
+    }
     function extraer(pool,limite){
       var viable=pool.filter(function(x){return x.precio<=presupuesto-gasto+1e-7&&x.precio<=limite;});
       if(!viable.length)return null;
@@ -170,8 +183,9 @@
       extraer([paquete],presupuesto-gasto);
       eq[eq.length-1]="Paquete "+paquete.nombre+": "+paquete.contenido;
     }
-    if(!arma)notas.push("No se ha asignado arma: no hay una opción inequívocamente competente y asequible en el catálogo DRS.");
-    if(!armadurasPermitidas.length)notas.push("No se ha elegido armadura: competencia de protección ausente o no contrastada.");
+    if(!arma&&!bajaEstatura)notas.push("No se ha asignado arma: no hay una opción inequívocamente competente y asequible en el catálogo DRS.");
+    if(!armadurasPermitidas.length&&!bajaEstatura)
+      notas.push("No se ha elegido armadura: competencia de protección ausente o no contrastada.");
     var restante=Math.round((presupuesto-gasto)*100)/100;
     if(restante<0)throw Error("La compra inicial supera la riqueza.");
     notas.push("Equipo DRS adquirido por "+gasto+" mo; presupuesto "+presupuesto+" mo; saldo "+restante+" mo.");
