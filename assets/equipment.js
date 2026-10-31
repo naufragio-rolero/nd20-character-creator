@@ -208,5 +208,56 @@
     notas.push("Equipo DRS adquirido por "+gasto+" mo; presupuesto "+presupuesto+" mo; saldo "+restante+" mo.");
     return {equipo:eq,gastado:gasto,restante:restante,notas:notas};
   }
-  return {compraInicial:compraInicial};
+  // Consulta exacta del inventario de útiles del DRS, sin alterar la
+  // compra automática existente ni conceder Objetos de forma gratuita.
+  function consultarUtilFantasia(catalogo,id,nivel){
+    if(!catalogo||!catalogo.utiles_fantasia||!id)
+      throw Error("Falta el catálogo de útiles del DRS o el identificador de artículo.");
+    var listas=Object.entries(catalogo.utiles_fantasia);
+    listas.push(["focos",(catalogo.focos_conjuros_con_precio||[])]);
+    var encontrados=[];
+    listas.forEach(function(grupo){
+      (grupo[1]||[]).forEach(function(x){
+        if(x.id===id)encontrados.push({seccion:grupo[0],item:x});
+      });
+    });
+    if(encontrados.length!==1)
+      throw Error(encontrados.length?"Identificador duplicado de útil: "+id:
+        "Útil no documentado en el DRS: "+id);
+    var resultado=encontrados[0],x=resultado.item,precio=x.precio;
+    if(x.precio_por_nivel!==undefined){
+      if(!Number.isInteger(nivel)||nivel<1)
+        throw Error("El artículo "+x.nombre+" requiere un Nivel positivo para calcular su precio.");
+      precio=x.precio_por_nivel*nivel;
+    }
+    if(!Number.isFinite(precio)||precio<0)
+      throw Error("Precio no verificable para el útil "+x.nombre);
+    return {id:x.id,nombre:x.nombre,seccion:resultado.seccion,
+      precio:Math.round(precio*100)/100,
+      nivel:x.precio_por_nivel===undefined?null:nivel,
+      du:x.du||null,detalle:x.detalle||""};
+  }
+  function compraUtilesFantasia(catalogo,presupuesto,seleccion){
+    if(!Number.isFinite(presupuesto)||presupuesto<0||!Array.isArray(seleccion))
+      throw Error("Presupuesto o selección de útiles incorrectos.");
+    var gastado=0,equipo=[],detalles=[];
+    seleccion.forEach(function(s){
+      var cantidad=s.cantidad===undefined?1:s.cantidad;
+      if(!Number.isInteger(cantidad)||cantidad<1)
+        throw Error("Cantidad incorrecta para un artículo del DRS.");
+      var item=consultarUtilFantasia(catalogo,s.id,s.nivel);
+      var subtotal=Math.round(item.precio*cantidad*100)/100;
+      if(Math.round((gastado+subtotal)*100)/100>presupuesto+1e-7)
+        throw Error("Compra de útiles supera el presupuesto disponible.");
+      gastado=Math.round((gastado+subtotal)*100)/100;
+      equipo.push(item.nombre+(item.nivel!==null?" (Nivel "+item.nivel+")":"")+
+        (cantidad>1?" ×"+cantidad:""));
+      detalles.push({id:item.id,nombre:item.nombre,nivel:item.nivel,
+        cantidad:cantidad,precio_unitario:item.precio,subtotal:subtotal});
+    });
+    return {equipo:equipo,detalles:detalles,gastado:gastado,
+      restante:Math.round((presupuesto-gastado)*100)/100};
+  }
+  return {compraInicial:compraInicial,consultarUtilFantasia:consultarUtilFantasia,
+    compraUtilesFantasia:compraUtilesFantasia};
 });
