@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "fecha": "2026-10-31",
   "decision": "DEC-CONJ-06_resuelta_parcialmente_por_autor",
   "fuentes": "fichas revisadas del Tomo",
@@ -39,6 +39,24 @@
       "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional"
     },
     {
+      "numero_tomo": 104,
+      "id_catalogo": "conjuro-101",
+      "nombre_tomo": "Detonación cadavérica",
+      "evidencia_literal": "1d4 de daño contundente e impío por Nivel",
+      "tipos": [
+        "contundente",
+        "impío"
+      ],
+      "dados_base": "1d4",
+      "dados_por_nivel": true,
+      "grupos_de_dados": 1,
+      "regla": "un solo resultado de daño con todos los tipos simultáneos",
+      "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
+      "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
+      "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional",
+      "escalado": "por Nivel"
+    },
+    {
       "numero_tomo": 148,
       "id_catalogo": "conjuro-409",
       "nombre_tomo": "Erupción",
@@ -54,6 +72,42 @@
       "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
       "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
       "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional"
+    },
+    {
+      "numero_tomo": 159,
+      "id_catalogo": "conjuro-163",
+      "nombre_tomo": "Exhalación de la tumba",
+      "evidencia_literal": "2d6 puntos de daño por veneno y ácido",
+      "tipos": [
+        "veneno",
+        "ácido"
+      ],
+      "dados_base": "2d6",
+      "dados_por_nivel": false,
+      "grupos_de_dados": 1,
+      "regla": "un solo resultado de daño con todos los tipos simultáneos",
+      "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
+      "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
+      "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional",
+      "escalado": null
+    },
+    {
+      "numero_tomo": 160,
+      "id_catalogo": "conjuro-83",
+      "nombre_tomo": "Fantasmas aullantes",
+      "evidencia_literal": "1d4 puntos de daño psíquico y contundente por cada 2 de tus Niveles",
+      "tipos": [
+        "psíquico",
+        "contundente"
+      ],
+      "dados_base": "1d4",
+      "dados_por_nivel": true,
+      "grupos_de_dados": 1,
+      "regla": "un solo resultado de daño con todos los tipos simultáneos",
+      "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
+      "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
+      "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional",
+      "escalado": "por cada 2 Niveles, redondeo hacia abajo"
     },
     {
       "numero_tomo": 183,
