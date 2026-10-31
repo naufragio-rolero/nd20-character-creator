@@ -110,15 +110,18 @@
     // reconstruya una ficha personalizada antes de aplicar las subidas.
     var alternativas = config.juego === 'nd20' &&
       Array.isArray(esp.herencia_dual) ? esp.herencia_dual : null;
+    var desarrolloHumano = (esp.talentos || []).includes('Buen desarrollo');
     var herenciaAleatoria = alternativas ? escoger(alternativas, rng) : null;
-    var atributoAleatorio = alternativas ? escoger(ATTR_ND, rng) : null;
+    // Reservar la tirada de Atributo incluso si el humano deja la decisión
+    // pendiente: así el mismo RNG conserva todas las tiradas posteriores.
+    var atributoAleatorio = alternativas || desarrolloHumano ?
+      escoger(ATTR_ND, rng) : null;
     if (config.herenciaDual && (!alternativas ||
         alternativas.indexOf(config.herenciaDual) === -1))
       throw Error('Herencia dual ajena a la Especie o no admitida por el DRS.');
     var herenciaDual = alternativas ?
       (config.herenciaDual || (config.herenciaPendiente === true ? null : herenciaAleatoria)) : null;
     var desarrollo = null;
-    var desarrolloHumano = (esp.talentos || []).includes('Buen desarrollo');
     var tieneDesarrollo = desarrolloHumano || herenciaDual === 'Buen desarrollo';
     // El humano también debe poder escoger el Atributo en modo Personalizado.
     // La ficha provisional espera la elección sin falsear mejoras de Nivel.
@@ -128,8 +131,7 @@
         (!tieneDesarrollo || ATTR_ND.indexOf(config.atributoBuenDesarrollo) === -1))
       throw Error('Atributo no válido para Buen desarrollo.');
     if (tieneDesarrollo) {
-      desarrollo = config.atributoBuenDesarrollo ||
-        (alternativas ? atributoAleatorio : escoger(ATTR_ND, rng));
+      desarrollo = config.atributoBuenDesarrollo || atributoAleatorio;
       at[desarrollo] = clamp(at[desarrollo] + 1, 4, 18);
       detalles.push('Buen desarrollo: +1 VA en ' + desarrollo + ' durante la creación.');
     }
@@ -183,6 +185,8 @@
     var tipo = config.juego === 'nd20_cifi' ? 'Naufragio d20 · CiFi' :
       config.juego === 'nd20_nocturna' ? 'Naufragio d20 · Nocturna' : 'Naufragio d20 · Fantasía';
     var capacidades = (esp.talentos || []).concat(oc.talentos || []);
+    if (desarrolloHumano && config.desarrolloPendiente === true)
+      capacidades = capacidades.filter(function(x){return x !== 'Buen desarrollo';});
     if (herenciaDual && !capacidades.includes(herenciaDual))
       capacidades.push(herenciaDual);
     if (config.juego === 'nd20' && ocupacion === 'Guerrero') {
