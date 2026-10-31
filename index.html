@@ -77,6 +77,7 @@
             <div class="cabecera-dialogo-eleccion"><h3 id="titulo-dialogo-ocupacion">Elegir Ocupación / Clase</h3><button type="button" data-cerrar-selector="ocupacion" class="cerrar-rejilla" aria-label="Cerrar selección">✕</button></div>
             <p class="leyenda-dialogo-eleccion" data-i18n="selector.indicacion">Elige una casilla; «Aleatoria» lo deja al generador.</p>
             <div id="selector-visual-ocupacion" class="selector-visual" role="group" aria-labelledby="titulo-dialogo-ocupacion"></div>
+            <div class="pie-dialogo-eleccion"><p>Marca las opciones que pueden salir. Sin marcas: todas.</p><button type="button" class="principal" data-confirmar-selector="ocupacion">Confirmar</button></div>
           </dialog>
         </div>
         <div class="campo">
@@ -87,6 +88,7 @@
             <div class="cabecera-dialogo-eleccion"><h3 id="titulo-dialogo-especie">Elegir Especie</h3><button type="button" data-cerrar-selector="especie" class="cerrar-rejilla" aria-label="Cerrar selección">✕</button></div>
             <p class="leyenda-dialogo-eleccion" data-i18n="selector.indicacion">Elige una casilla; «Aleatoria» lo deja al generador.</p>
             <div id="selector-visual-especie" class="selector-visual" role="group" aria-labelledby="titulo-dialogo-especie"></div>
+            <div class="pie-dialogo-eleccion"><p>Marca las opciones que pueden salir. Sin marcas: todas.</p><button type="button" class="principal" data-confirmar-selector="especie">Confirmar</button></div>
           </dialog>
         </div>
         <fieldset id="opciones-dh" hidden>
@@ -117,10 +119,10 @@
         <div class="campo" id="opciones-nombres-ylat">
           <label for="modo-nombre">Nombres de Ylat</label>
           <select id="modo-nombre" name="modo-nombre">
-            <option value="historico">Históricos de Ylat</option>
-            <option value="combinado">Variantes de Ylat</option>
-            <option value="documentado">Personajes documentados</option>
-            <option value="especie">Según Especie</option>
+            <option value="historico" data-i18n="nombres.historicos">Históricos de Ylat</option>
+            <option value="combinado" data-i18n="nombres.variantes">Variantes de Ylat</option>
+            <option value="documentado" data-i18n="nombres.documentados">Personajes documentados</option>
+            <option value="especie" data-i18n="nombres.especie">Según Especie</option>
           </select>
           <small data-i18n="ayuda.nombresYlat">Los nombres sugeridos no determinan el origen ni la historia del personaje.</small>
         </div>
