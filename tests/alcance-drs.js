@@ -922,7 +922,7 @@ const utilidadDRS={
     ['Lupa',100],['Símbolo sagrado',5],['Tiza',.01]
   ],
   campamento:[
-    ['Almádena',2],['Manta',.5],['Saco de dormir',1],
+    ['Martillo de campamento',2],['Manta',.5],['Saco de dormir',1],
     ['Tienda de campaña',10],['Ración de alimento',.01],['Yesquero',.5]
   ],
   consumibles:[
@@ -973,9 +973,12 @@ assert.throws(()=>equipamientoDRS.consultarUtilFantasia(
 assert.throws(()=>equipamientoDRS.consultarUtilFantasia(
   catalogoEquipamiento,'objeto-no-existe'),/no documentado en el DRS/);
 const herramienta=equipamientoDRS.consultarUtilFantasia(
-  catalogoEquipamiento,'campamento-almadena');
+  catalogoEquipamiento,'campamento-martillo');
 const armaAlmadena=catalogoEquipamiento.armas.find(x=>x.nombre==='Almádena');
-assert.equal(herramienta.precio,2,'La herramienta Almádena vale 2 mo');
+assert.equal(herramienta.precio,2,'El Martillo de campamento vale 2 mo');
+assert.equal(herramienta.nombre,'Martillo de campamento');
+assert.equal(tablaUtiles.campamento[0].nombre_original_drs,'Almádena',
+  'Se conserva la denominación original de la tabla del DRS');
 assert.equal(armaAlmadena.precio,60,'El arma Almádena vale 60 mo');
 assert.equal(herramienta.seccion,'campamento');
 assert.equal(armaAlmadena.tipo,'dos_manos');
@@ -987,7 +990,7 @@ assert.equal(equipamientoDRS.consultarUtilFantasia(
   catalogoEquipamiento,'foco-orbe-cristal').precio,75);
 const compraHerramientas=equipamientoDRS.compraUtilesFantasia(
   catalogoEquipamiento,300,[
-    {id:'campamento-almadena',cantidad:2},
+    {id:'campamento-martillo',cantidad:2},
     {id:'herramienta-kit-medicina'},
     {id:'consumible-antidoto',nivel:3},
     {id:'aventura-tiza',cantidad:4},
@@ -996,7 +999,7 @@ const compraHerramientas=equipamientoDRS.compraUtilesFantasia(
 assert.equal(compraHerramientas.gastado,184.04);
 assert.equal(compraHerramientas.restante,115.96);
 assert.equal(compraHerramientas.detalles.length,5);
-assert.ok(compraHerramientas.equipo.includes('Almádena ×2'));
+assert.ok(compraHerramientas.equipo.includes('Martillo de campamento ×2'));
 assert.ok(compraHerramientas.equipo.includes('Antídoto (Nivel 3)'));
 assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
   catalogoEquipamiento,1,[{id:'herramienta-kit-medicina'}]),/supera el presupuesto/);
@@ -1004,4 +1007,4 @@ assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
   catalogoEquipamiento,10,[{id:'aventura-tiza',cantidad:0}]),/Cantidad incorrecta/);
 assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
   catalogoEquipamiento,10,[{id:'consumible-veneno'}]),/requiere un Nivel/);
-console.log('OK · 41 útiles DRS y 2 focos: precios, antídoto/veneno por Nivel, Almádenas separadas y compras válidas.');
+console.log('OK · 41 útiles DRS y 2 focos: Martillo de campamento y Almádena separados, compras válidas.');
