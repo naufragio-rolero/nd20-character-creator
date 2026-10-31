@@ -339,9 +339,9 @@ async function probar(nombre,tipo,url){
     assert.equal(await baja.count(),1,nombre+': Baja estatura debe ser consultable');
     await baja.click();
     assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
-      /Solo puedes usar armas y armaduras adaptadas a tu tamaño/);
+      /No puedes usar armas o armaduras que no estén adaptadas a ti/);
     assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
-      /\+1 a las Tiradas de Esquiva contra ataques a distancia/);
+      /\+1 a las Tiradas de esquiva de ataques a distancia/);
     await page.keyboard.press('Escape');
     const salvese=fichaTalentos.locator(
       '.referencia-glosario[data-glosa-nombre="¡Sálvese quien pueda!"]');
@@ -353,13 +353,12 @@ async function probar(nombre,tipo,url){
       '.referencia-glosario[data-glosa-nombre="Recuperación"]');
     await recuperacion.click();
     assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
-      /1 Intervalo para recuperar 1d8 Puntos de Salud/);
+      /pasar un Intervalo recuperándote para restaurar 1d8 Puntos de Salud/);
     // Resumen siempre visible, datos técnicos solo mediante disclosure o preferencia.
     const detalles=page.locator('#ficha-emergente .info-detalles');
     assert.equal(await detalles.count(),1,nombre+': Talento debe poder desplegar detalles');
-    assert.equal(await detalles.evaluate(e=>e.open),false);
-    await detalles.locator('summary').click();
-    assert.equal(await detalles.evaluate(e=>e.open),true);
+    assert.equal(await detalles.isHidden(),true,
+      nombre+': detalles técnicos del Talento DRS ocultos por defecto');
     await page.keyboard.press('Escape');
     await page.locator('#configuracion-avanzada summary').click();
     await page.locator('#informacion-avanzada').check();
