@@ -139,7 +139,7 @@ async function probar(nombre,tipo,url){
     assert.match(await popup.locator('.info-fuente').textContent(),
       /Origen: Naufragio d20 DRS · Fuente: NaufragioD20DRS.docx/);
     assert.equal(await popup.locator('.info-detalles').isHidden(),true);
-    await page.locator('#configuracion-avanzada summary').click();
+    await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=true;});
     await page.locator('#informacion-avanzada').check();
     await page.locator('#e2e-talento').click();
     assert.equal(await popup.locator('.info-detalles').isVisible(),true);
