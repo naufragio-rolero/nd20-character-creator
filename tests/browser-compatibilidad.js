@@ -95,8 +95,11 @@ async function probar(nombre,tipo,url){
       nombre+': magnitudes no visibles en lectura rápida');
     await page.locator('#configuracion-avanzada summary').click();
     await page.locator('#informacion-avanzada').check();
+    // El popup se cierra al salir de él para cambiar ajustes; al
+    // reabrirlo debe respetar inmediatamente la opción avanzada.
+    await page.locator('#e2e-poder').click();
     assert.equal(await detallesPoder.isVisible(),true,
-      nombre+': la preferencia muestra los datos técnicos sin rehacer el Poder');
+      nombre+': la preferencia muestra datos técnicos al reabrir el Poder');
     assert.equal(await detallesPoder.evaluate(x=>x.open),true);
     assert.match(await detallesPoder.innerText(),/Ficha del Tomo\s+101/);
     assert.match(await detallesPoder.innerText(),/Magnitudes literales · Nivel 1/);
