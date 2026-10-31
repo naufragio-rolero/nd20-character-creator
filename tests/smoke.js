@@ -32,6 +32,26 @@ for(const [tipo, data] of [['nd20',fantasia],['nd20_cifi',cifi]]) {
   }
 }
 
+// Multi-select: una ficha recibe una sola Especie/Ocupación del subconjunto.
+for(let k=0;k<10;k++){
+  const p=reglas.crearNd20(fantasia,{
+    juego:'nd20',nivel:1,
+    especiesPermitidas:['Elfo agreste','Humano común'],
+    ocupacionesPermitidas:['Guerrero','Mago']
+  },reglas.aleatorioSemilla('subset-'+k));
+  const [ocupacion,especie]=p.descripcion.split(' · ');
+  assert.ok(['Guerrero','Mago'].includes(ocupacion),'Ocupación del subconjunto');
+  assert.ok(['Elfo agreste','Humano común'].includes(especie),'Especie del subconjunto');
+}
+const clasesPermitidas=Object.keys(dh.classes).slice(0,2);
+for(let k=0;k<5;k++){
+  const p=reglas.eleccionDH(dh,{
+    juego:'dh',nivel:1,origenes:dh.origins.map((_,i)=>i),
+    conEspecie:false,ocupacionesPermitidas:clasesPermitidas
+  },reglas.aleatorioSemilla('subset-dh-'+k));
+  assert.ok(clasesPermitidas.some(x=>p.descripcion.endsWith(dh.classes[x].name)),
+    'Clase de Dungeon Hack dentro del subconjunto');
+}
 for(let n=1;n<=36;n++) {
   const cfg={nivel:n,juego:'dh',origenes:[0,1,2,3,4],conEspecie:true};
   const a=reglas.eleccionDH(dh,cfg,reglas.aleatorioSemilla('dh-'+n));
