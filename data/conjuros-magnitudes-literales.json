@@ -1,8 +1,8 @@
 {
-  "version": 1,
+  "version": 2,
   "fecha": "2026-10-30",
   "estado": "subconjunto_mecanico_parcial_cotejado_sin_mutar_personajes",
-  "alcance": "Magnitudes explícitas sin suponer Tiradas, redondeos, salvaciones ni efectos acumulativos; las condiciones textuales siguen requiriendo aplicación reglamentaria",
+  "alcance": "Magnitudes explícitas sin Tiradas ni redondeos inferidos; datos de daño por Turno o por Nivel expresados, no ejecutados",
   "registros": [
     {
       "id_catalogo": "conjuro-3",
@@ -268,6 +268,740 @@
           "tipo": "constante",
           "valor": 1,
           "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-130",
+      "numero_tomo": 2,
+      "nombre_tomo": "Adarga de hielo",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "+1 Blindaje",
+      "disparador_y_limites": "Escudo mediano. Si sufre daño por fuego o calor, duración reducida en 1d4 Turnos; no se aplica reducción automática.",
+      "magnitudes": [
+        {
+          "clave": "bono_blindaje",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Blindaje"
+        },
+        {
+          "clave": "bono_bloqueo",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Tirada de Bloqueo"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 2,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-157",
+      "numero_tomo": 41,
+      "nombre_tomo": "Aura de restauración",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "restaura 2 puntos de Salud",
+      "disparador_y_limites": "Cada aliado en el radio de alcance, incluido lanzador; la ficha no mantiene un registro de aliados.",
+      "magnitudes": [
+        {
+          "clave": "salud_por_aliado_y_turno",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Salud por aliado al inicio del Turno"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-167",
+      "numero_tomo": 48,
+      "nombre_tomo": "Barrera eléctrica",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "inflige 2d6 de daño de relámpago",
+      "disparador_y_limites": "Afecta a criaturas que se acerquen a 2 metros o menos; resistencia al relámpago declarada sin porcentaje.",
+      "magnitudes": [
+        {
+          "clave": "danio_relatampago",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Daño por relámpago"
+        },
+        {
+          "clave": "distancia_activacion_m",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-120",
+      "numero_tomo": 77,
+      "nombre_tomo": "Convertir agua",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 litro por Nivel",
+      "disparador_y_limites": "Conversión de agua en vino, cerveza, aceite o hielo; el agua debe estar en un recipiente para un resultado óptimo.",
+      "magnitudes": [
+        {
+          "clave": "volumen_maximo_l",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "litros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-214",
+      "numero_tomo": 109,
+      "nombre_tomo": "Destrucción",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d12 de daño mágico por Nivel",
+      "disparador_y_limites": "Solo si Nivel del objetivo es 21 o superior; por debajo de ese umbral se describe desintegración. El motor no aplica desintegración.",
+      "magnitudes": [
+        {
+          "clave": "danio_magico",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            2,
+            12
+          ],
+          "unidad": "Daño mágico por Nivel de lanzador"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-290",
+      "numero_tomo": 120,
+      "nombre_tomo": "Despertar de la vegetación",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "6m2 por cada uno de tus Niveles",
+      "disparador_y_limites": "Solo vegetación; Movimiento según tamaño; no afecta a criaturas Planta, vegetales o feéricas.",
+      "magnitudes": [
+        {
+          "clave": "area_maxima_m2",
+          "tipo": "por_nivel",
+          "valor": 6,
+          "unidad": "m²"
+        },
+        {
+          "clave": "penalizacion_movimiento_normal",
+          "tipo": "constante",
+          "valor": -1,
+          "unidad": "Movimiento"
+        },
+        {
+          "clave": "penalizacion_movimiento_grande",
+          "tipo": "constante",
+          "valor": -2,
+          "unidad": "Movimiento"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-216",
+      "numero_tomo": 139,
+      "nombre_tomo": "Escudo",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "+1 Blindaje",
+      "disparador_y_limites": "Duración alternativa según estar o no en combate. No sumar ambas duraciones.",
+      "magnitudes": [
+        {
+          "clave": "bono_blindaje",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Blindaje"
+        },
+        {
+          "clave": "duracion_intervalos_fuera_combate",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Intervalos"
+        },
+        {
+          "clave": "duracion_turnos_combate",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-72",
+      "numero_tomo": 154,
+      "nombre_tomo": "Explosión sónica",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d8 de daño sónico",
+      "disparador_y_limites": "La penalización solo se aplica si se supera Tirada de Conjuro; no se confunde con el daño declarado.",
+      "magnitudes": [
+        {
+          "clave": "danio_sonico",
+          "tipo": "dado_literal",
+          "valor": "2d8",
+          "unidad": "Daño sónico"
+        },
+        {
+          "clave": "radio_m",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "metros"
+        },
+        {
+          "clave": "penalizacion_ataques",
+          "tipo": "constante",
+          "valor": -1,
+          "unidad": "Ataques del próximo Turno"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-380",
+      "numero_tomo": 169,
+      "nombre_tomo": "Fusión pétrea",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "5d6 de daño mágico contundente",
+      "disparador_y_limites": "Solo al sufrir la roca un daño extremo. Si se destruye por completo, requiere Tirada de Conjuro o muerte.",
+      "magnitudes": [
+        {
+          "clave": "danio_expulsion",
+          "tipo": "dado_literal",
+          "valor": "5d6",
+          "unidad": "Daño mágico contundente"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-94",
+      "numero_tomo": 175,
+      "nombre_tomo": "Golpe de rayo",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "4d8 puntos de daño por rayo",
+      "disparador_y_limites": "Tirada de Conjuro: daño completo con éxito, mitad al fallar; objetos no equipados se prenden fuego.",
+      "magnitudes": [
+        {
+          "clave": "danio_rayo",
+          "tipo": "dado_literal",
+          "valor": "4d8",
+          "unidad": "Daño de rayo"
+        },
+        {
+          "clave": "anchura_m",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "metros"
+        },
+        {
+          "clave": "longitud_m",
+          "tipo": "constante",
+          "valor": 20,
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-175",
+      "numero_tomo": 183,
+      "nombre_tomo": "Hálito de ultratumba",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 de daño por veneno e impío por cada uno de tus Niveles",
+      "disparador_y_limites": "Un único grupo de dados mixto, no dos grupos. Enfermedad solo tras Probabilidad 14+; no resolver automáticamente.",
+      "magnitudes": [
+        {
+          "clave": "danio_mixto",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            6
+          ],
+          "unidad": "Daño mixto veneno e impío"
+        },
+        {
+          "clave": "superficie_cono_m2",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "m²"
+        },
+        {
+          "clave": "umbral_probabilidad_enfermedad",
+          "tipo": "constante",
+          "valor": 14,
+          "unidad": "Probabilidad 14+"
+        },
+        {
+          "clave": "duracion_enfermedad_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-178",
+      "numero_tomo": 206,
+      "nombre_tomo": "Lanza de sombras",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d8 de daño impío por Nivel",
+      "disparador_y_limites": "El texto no declara Tirada de Conjuro explícita. No atribuir automáticamente un resultado de impacto.",
+      "magnitudes": [
+        {
+          "clave": "danio_impio",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            8
+          ],
+          "unidad": "Daño impío"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-339",
+      "numero_tomo": 213,
+      "nombre_tomo": "Lienzo viviente",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "recibes el triple de daño",
+      "disparador_y_limites": "Cuerpo bidimensional. El triple de daño solo aplica mientras dura el Conjuro.",
+      "magnitudes": [
+        {
+          "clave": "multiplicador_danio_recibido",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "multiplicador"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-180",
+      "numero_tomo": 264,
+      "nombre_tomo": "Ola salvaje",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "4d6 de daño por frío",
+      "disparador_y_limites": "Solo criaturas golpeadas por ola. La condición Empapada altera resistencia a fuego y vulnerabilidad a relámpago.",
+      "magnitudes": [
+        {
+          "clave": "danio_frio",
+          "tipo": "dado_literal",
+          "valor": "4d6",
+          "unidad": "Daño por frío"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "m²"
+        },
+        {
+          "clave": "distancia_maxima_ola_m",
+          "tipo": "constante",
+          "valor": 10,
+          "unidad": "metros"
+        },
+        {
+          "clave": "penalizacion_movimiento_empapado",
+          "tipo": "constante",
+          "valor": -2,
+          "unidad": "Movimiento"
+        },
+        {
+          "clave": "duracion_empapado_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-70",
+      "numero_tomo": 300,
+      "nombre_tomo": "Plumaje de Sylestria",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d4 plumas",
+      "disparador_y_limites": "Cada pluma se consume al tocarla. Acumulación limitada a +2 Movimiento.",
+      "magnitudes": [
+        {
+          "clave": "plumas_creadas",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Plumas"
+        },
+        {
+          "clave": "bono_movimiento_por_pluma",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Movimiento"
+        },
+        {
+          "clave": "bono_movimiento_maximo",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Movimiento"
+        },
+        {
+          "clave": "duracion_asaltos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Asaltos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-291",
+      "numero_tomo": 315,
+      "nombre_tomo": "Purga tóxica",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "3 Turnos posteriores a una muerte por envenenamiento",
+      "disparador_y_limites": "Purifica veneno sin restaurar Salud previa. Revivir solo si se lanza dentro de la ventana tras muerte por envenenamiento.",
+      "magnitudes": [
+        {
+          "clave": "ventana_resurreccion_turnos",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "salud_resucitada",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Punto de Salud"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-71",
+      "numero_tomo": 332,
+      "nombre_tomo": "Rayo hielo",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d4 de daño por frío",
+      "disparador_y_limites": "Ralentizado solo con éxito en Tirada de Conjuro; daño declarado se mantiene como dato, sin decidir resultado de fallo.",
+      "magnitudes": [
+        {
+          "clave": "danio_frio",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Daño por frío"
+        },
+        {
+          "clave": "duracion_ralentizado_turnos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-182",
+      "numero_tomo": 341,
+      "nombre_tomo": "Relámpago",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d8 de daño de relámpago por Nivel",
+      "disparador_y_limites": "La fuente ignora resistencias distintas de relámpago; no suprimir esta excepción.",
+      "magnitudes": [
+        {
+          "clave": "danio_relampago",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            8
+          ],
+          "unidad": "Daño de relámpago"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-364",
+      "numero_tomo": 350,
+      "nombre_tomo": "Resistencia al clima",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 24 horas",
+      "disparador_y_limites": "Protección del clima severo. No equivale a inmunidad frente a ataques elementales.",
+      "magnitudes": [
+        {
+          "clave": "duracion_horas",
+          "tipo": "constante",
+          "valor": 24,
+          "unidad": "horas"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-77",
+      "numero_tomo": 359,
+      "nombre_tomo": "Rociada ardiente",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d10 de daño por fuego",
+      "disparador_y_limites": "Cono frontal, combustión de objetos inflamables dentro de alcance.",
+      "magnitudes": [
+        {
+          "clave": "danio_fuego",
+          "tipo": "dado_literal",
+          "valor": "2d10",
+          "unidad": "Daño por fuego"
+        },
+        {
+          "clave": "alcance_cono_m",
+          "tipo": "constante",
+          "valor": 5,
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-431",
+      "numero_tomo": 366,
+      "nombre_tomo": "Sangre hirviente",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "3d8 puntos de daño por fuego y 3d8 puntos de daño impío",
+      "disparador_y_limites": "Dos grupos diferentes de daño; Tirada de Conjuro para daño total o mitad si falla. No duplicar grupos.",
+      "magnitudes": [
+        {
+          "clave": "danio_fuego",
+          "tipo": "dado_literal",
+          "valor": "3d8",
+          "unidad": "Daño por fuego"
+        },
+        {
+          "clave": "danio_impio",
+          "tipo": "dado_literal",
+          "valor": "3d8",
+          "unidad": "Daño impío"
+        },
+        {
+          "clave": "radio_m",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-337",
+      "numero_tomo": 375,
+      "nombre_tomo": "Sello rúnico: Vigilante",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Intervalo por Nivel desde que se activa",
+      "disparador_y_limites": "Runa en objeto: se transfiere a primera criatura que lo toque y a partir de ese momento empieza la duración.",
+      "magnitudes": [
+        {
+          "clave": "duracion_desde_activacion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-20",
+      "numero_tomo": 381,
+      "nombre_tomo": "Silencio",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "6m de diámetro",
+      "disparador_y_limites": "Es una esfera de diámetro 6 m, no radio. Para criatura portadora exige Tirada; el fallo deja el silencio fijo.",
+      "magnitudes": [
+        {
+          "clave": "diametro_m",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 2,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-40",
+      "numero_tomo": 387,
+      "nombre_tomo": "Tentáculos negros",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "3d6 de daño contundente y mágico cada Turno",
+      "disparador_y_limites": "Criatura Agarrada. Requiere Tirada de Conjuro al comienzo de Turno desde el segundo para mantener agarre.",
+      "magnitudes": [
+        {
+          "clave": "danio_por_turno",
+          "tipo": "dado_literal",
+          "valor": "3d6",
+          "unidad": "Daño contundente y mágico"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "2d4",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-88",
+      "numero_tomo": 391,
+      "nombre_tomo": "Tridente flamígero",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Cada uno de ellos causa 3d6 de daño por fuego",
+      "disparador_y_limites": "Una Tirada por objetivo herido, no por rayo. La reducción de Salud máxima es condicional.",
+      "magnitudes": [
+        {
+          "clave": "numero_rayos",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "rayos"
+        },
+        {
+          "clave": "danio_por_rayo",
+          "tipo": "dado_literal",
+          "valor": "3d6",
+          "unidad": "Daño por fuego"
+        },
+        {
+          "clave": "reduccion_salud_maxima",
+          "tipo": "constante",
+          "valor": -4,
+          "unidad": "Salud máxima"
+        },
+        {
+          "clave": "duracion_reduccion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-207",
+      "numero_tomo": 399,
+      "nombre_tomo": "Tempestad vengativa",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "4d6 daño por ácido y 2d6 daño por relámpago cada Turno",
+      "disparador_y_limites": "Daño por Turno a otras criaturas en el área, el lanzador queda exento.",
+      "magnitudes": [
+        {
+          "clave": "danio_acido_por_turno",
+          "tipo": "dado_literal",
+          "valor": "4d6",
+          "unidad": "Daño por ácido"
+        },
+        {
+          "clave": "danio_relampago_por_turno",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Daño por relámpago"
+        },
+        {
+          "clave": "superficie_m2",
+          "tipo": "constante",
+          "valor": 20,
+          "unidad": "m²"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-382",
+      "numero_tomo": 410,
+      "nombre_tomo": "Trampa de fuego",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d10 de daño por fuego + 1 punto de daño contundente por Nivel",
+      "disparador_y_limites": "Solo se activa al abrir sin conocer palabra clave; no añadir daño antes de activación.",
+      "magnitudes": [
+        {
+          "clave": "danio_fuego",
+          "tipo": "dado_literal",
+          "valor": "1d10",
+          "unidad": "Daño por fuego"
+        },
+        {
+          "clave": "danio_contundente",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Daño contundente"
+        },
+        {
+          "clave": "superficie_m2",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "m²"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-425",
+      "numero_tomo": 416,
+      "nombre_tomo": "Tajo carmesí de Nebb",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Sufres 1d8 puntos de daño impío",
+      "disparador_y_limites": "El propio lanzador recibe 1d8 irreducible; objetivo recibe 2d10 con éxito o la mitad al fallar.",
+      "magnitudes": [
+        {
+          "clave": "danio_lanzador_impio",
+          "tipo": "dado_literal",
+          "valor": "1d8",
+          "unidad": "Daño impío irreducible"
+        },
+        {
+          "clave": "danio_objetivo_impio",
+          "tipo": "dado_literal",
+          "valor": "2d10",
+          "unidad": "Daño impío"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-108",
+      "numero_tomo": 422,
+      "nombre_tomo": "Ventisca",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "sufren 10d6 de daño por frío",
+      "disparador_y_limites": "El alcance de 100 metros no es forma de área; no inventar geometría.",
+      "magnitudes": [
+        {
+          "clave": "danio_frio",
+          "tipo": "dado_literal",
+          "valor": "10d6",
+          "unidad": "Daño por frío"
+        },
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "duracion_escarcha_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalos"
         }
       ]
     }
