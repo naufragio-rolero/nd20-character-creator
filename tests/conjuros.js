@@ -515,3 +515,19 @@ assert.equal(fichaLluvia?.magnitudes?.numero_tomo,216);
 assert.ok(fs.readFileSync(path.join(raiz,'assets/tooltip-ui.js'),'utf8')
   .includes('info.danioCompuesto.condicion_activacion'));
 console.log('OK · sexto lote de 50 Conjuros: 170 magnitudes y 10 daños duales cotejados.');
+
+/* Cobertura real sobre entradas únicas seleccionables, no fichas históricas. */
+const catalogoIds=new Set(catalogo.conjuros.map(x=>x.id));
+const coberturaIds=new Set(literales.registros.map(x=>x.id_catalogo));
+assert.equal(catalogoIds.size,433);
+assert.equal(coberturaIds.size,170);
+for(const id of coberturaIds)assert.ok(catalogoIds.has(id),'Magnitud huérfana de catálogo: '+id);
+const faltantesIds=new Set([...catalogoIds].filter(x=>!coberturaIds.has(x)));
+assert.equal(faltantesIds.size,263);
+const porcentajeRestante=(faltantesIds.size/catalogoIds.size)*100;
+assert.ok(porcentajeRestante>60&&porcentajeRestante<61);
+assert.ok(revisados.filter(x=>coberturaIds.has(x.id_catalogo)).length===170,
+  'No hay Conjuros duplicados entre los 170 estructurados');
+console.log('COBERTURA · '+coberturaIds.size+'/'+catalogoIds.size+
+  ' Conjuros únicos con magnitudes; pendientes '+faltantesIds.size+
+  ' ('+porcentajeRestante.toFixed(2)+' %).');
