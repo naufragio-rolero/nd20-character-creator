@@ -108,9 +108,8 @@
     // DRS: Herencia dual es una elección exclusiva de Nivel 1. Reservamos
     // siempre las dos extracciones aleatorias para que la misma semilla
     // reconstruya una ficha personalizada antes de aplicar las subidas.
-    var alternativas = config.juego === 'nd20' ?
-      (especie === 'Semielfo' ? ['Buen desarrollo', 'Linaje feérico'] :
-       especie === 'Semiorco' ? ['Buen desarrollo', 'Ira interna'] : null) : null;
+    var alternativas = config.juego === 'nd20' &&
+      Array.isArray(esp.herencia_dual) ? esp.herencia_dual : null;
     var herenciaAleatoria = alternativas ? escoger(alternativas, rng) : null;
     var atributoAleatorio = alternativas ? escoger(ATTR_ND, rng) : null;
     if (config.herenciaDual && (!alternativas ||
