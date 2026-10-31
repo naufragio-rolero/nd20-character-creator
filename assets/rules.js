@@ -105,11 +105,33 @@
     if (!favorito || ATTR_ND.indexOf(favorito) === -1) throw Error('Ocupación sin Atributo favorito válido');
     at[favorito] = clamp(at[favorito] + 1, 4, 18);
     var detalles = [];
-    if ((esp.talentos || []).indexOf('Buen desarrollo') !== -1) {
-      var desarrollo = escoger(ATTR_ND, rng);
+    // DRS: Herencia dual es una elección exclusiva de Nivel 1. Reservamos
+    // siempre las dos extracciones aleatorias para que la misma semilla
+    // reconstruya una ficha personalizada antes de aplicar las subidas.
+    var alternativas = config.juego === 'nd20' ?
+      (especie === 'Semielfo' ? ['Buen desarrollo', 'Linaje feérico'] :
+       especie === 'Semiorco' ? ['Buen desarrollo', 'Ira interna'] : null) : null;
+    var herenciaAleatoria = alternativas ? escoger(alternativas, rng) : null;
+    var atributoAleatorio = alternativas ? escoger(ATTR_ND, rng) : null;
+    if (config.herenciaDual && (!alternativas ||
+        alternativas.indexOf(config.herenciaDual) === -1))
+      throw Error('Herencia dual ajena a la Especie o no admitida por el DRS.');
+    var herenciaDual = alternativas ?
+      (config.herenciaDual || (config.herenciaPendiente === true ? null : herenciaAleatoria)) : null;
+    var desarrollo = null;
+    var tieneDesarrollo = (esp.talentos || []).includes('Buen desarrollo') ||
+      herenciaDual === 'Buen desarrollo';
+    if (config.atributoBuenDesarrollo &&
+        (!tieneDesarrollo || ATTR_ND.indexOf(config.atributoBuenDesarrollo) === -1))
+      throw Error('Atributo no válido para Buen desarrollo.');
+    if (tieneDesarrollo) {
+      desarrollo = config.atributoBuenDesarrollo ||
+        (alternativas ? atributoAleatorio : escoger(ATTR_ND, rng));
       at[desarrollo] = clamp(at[desarrollo] + 1, 4, 18);
-      detalles.push('Buen desarrollo: +1 en ' + desarrollo + '.');
+      detalles.push('Buen desarrollo: +1 VA en ' + desarrollo + ' durante la creación.');
     }
+    if (herenciaDual)
+      detalles.push('Herencia dual: ' + herenciaDual + '.');
     for (var n = 2; n <= nivel; n++) {
       var candidatos = ATTR_ND.concat([favorito, favorito]);
       var primero = escoger(candidatos, rng);
@@ -158,6 +180,8 @@
     var tipo = config.juego === 'nd20_cifi' ? 'Naufragio d20 · CiFi' :
       config.juego === 'nd20_nocturna' ? 'Naufragio d20 · Nocturna' : 'Naufragio d20 · Fantasía';
     var capacidades = (esp.talentos || []).concat(oc.talentos || []);
+    if (herenciaDual && !capacidades.includes(herenciaDual))
+      capacidades.push(herenciaDual);
     if (config.juego === 'nd20' && ocupacion === 'Guerrero') {
       // El DRS concede Recuperación y obliga a ELEGIR uno de los otros dos Talentos.
       // En la web la elección se aplaza al editor; la API directa elige uno con su RNG.
@@ -218,6 +242,10 @@
         escoger(esp.nombres || [],rng) || 'Sin nombre', sexo:sexo,
       descripcion:ocupacion + ' · ' + especie, nivel:nivel,
       concepto:escoger(conceptos, rng) || 'Aventurero',
+      ...(alternativas ? {
+        herencia_dual: herenciaDual,
+        atributo_buen_desarrollo: desarrollo
+      } : {}),
       atributos:paresAtributos(ATTR_ND.map(function (a) {return at[a];}), ATTR_ND, favorito),
       recursos:[['Salud', salud + ' (d' + dadoSalud + ')'],
         ['Esfuerzo', esfuerzo], ['Movimiento', esp.movimiento]].concat(
