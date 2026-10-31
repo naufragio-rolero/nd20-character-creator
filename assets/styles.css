@@ -78,6 +78,23 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 .bloque-ficha h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#52606a;margin:0 0 .3rem}
 .bloque-ficha ul{margin:.25rem 0 .5rem;padding-left:1rem;font-size:.8rem}
 .bloque-ficha li{padding:.12rem 0;overflow-wrap:anywhere}
+/* Textos de regla: pegados a su sección, no mezclados en Observaciones. */
+.avisos-ficha{margin:.3rem 1.2rem .65rem;padding:.6rem .7rem;background:#e3dccd;
+  border-left:3px solid #967b45;border-radius:3px;font-size:.76rem;line-height:1.45}
+.avisos-ficha h4{margin:0 0 .3rem;color:#394e55;font-size:.72rem;text-transform:uppercase}
+.avisos-ficha ul,.contexto-ficha ul,.otros-avisos ul{margin:.25rem 0;padding-left:1.05rem}
+.avisos-ficha li,.contexto-ficha li,.otros-avisos li{margin:.18rem 0;overflow-wrap:anywhere}
+.avisos-poderes{border-left-color:#a65b46}
+.contexto-ficha,.otros-avisos{margin:.5rem 1.2rem;padding:.5rem .65rem;
+  border:1px solid #cac0af;border-radius:6px;font-size:.75rem;line-height:1.45}
+.contexto-ficha summary,.otros-avisos summary{cursor:pointer;font-weight:700;color:#40555c}
+.contexto-ficha summary:focus-visible,.otros-avisos summary:focus-visible{
+  outline:3px solid #856d37;outline-offset:2px}
+html[data-tema]:not([data-tema=clasico]) .tarjeta .avisos-ficha{
+  background:var(--tema-ficha-head);color:var(--tema-ficha-text)}
+html[data-tema]:not([data-tema=clasico]) .tarjeta :is(.avisos-ficha h4,.contexto-ficha summary,.otros-avisos summary){
+  color:var(--tema-ficha-text)}
+
 .riqueza{margin:.65rem 1.2rem;font-size:.8rem}
 .pie-ficha{display:flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid #d3cbbd;padding:.65rem 1.2rem;margin-top:auto}
 .pie-ficha small{color:#5f686b;font-size:.7rem}
@@ -228,6 +245,9 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
 .referencia-glosario{
   all:unset;cursor:help;display:inline;color:inherit;font:inherit;text-align:left;
   text-decoration:underline dotted;text-underline-offset:3px;text-decoration-color:currentColor;
+}
+.tarjeta .referencia-glosario[data-glosa-grupo="talento"]::after{
+  content:" ⓘ";font-size:.86em;font-weight:750;white-space:nowrap;
 }
 .referencia-glosario:hover,.referencia-glosario:focus-visible{
   color:var(--oro2);text-decoration-style:solid;
