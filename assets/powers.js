@@ -323,6 +323,15 @@
     var rama=juego==="nd20"?"fantasia":juego==="nd20_cifi"?"cifi":"nocturna";
     var p=(progresiones[rama]||{})[ocupacion];
     if(juego==="nd20"){
+      // El DRS permite elegir la Herencia dual. Hasta que la elección y la mejora
+      // de Atributos se integren en el generador, no se conceden ambas opciones.
+      var opcionesHerencia={
+        "Semielfo":"Buen desarrollo o Linaje feérico",
+        "Semiorco":"Buen desarrollo o Ira interna"
+      };
+      if(opcionesHerencia[especie])
+        avisos.push("Herencia dual pendiente de resolver: elegir "+opcionesHerencia[especie]+
+          ". La ficha no aplica automáticamente esa elección.");
       var perfil=datos.ocupaciones[ocupacion]||{};
       if((perfil.talentos_elegir||[]).length){
         pasos.push(nuevo("talento-ocupacion-inicial",
