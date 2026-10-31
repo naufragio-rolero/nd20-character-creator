@@ -345,6 +345,7 @@
         !Number.isFinite(entrada.valor.saldo_mo))
       throw Error('La compra individual solo está disponible en fichas DRS con saldo.');
     compraBorrador={id:entrada.id,seleccion:[]};
+    $('titulo-editor-compras').textContent='Comprar útiles · '+entrada.valor.nombre;
     var select=$('compras-articulo');
     select.textContent='';
     var etiquetas={aventura:'Aventura',campamento:'Campamento',
