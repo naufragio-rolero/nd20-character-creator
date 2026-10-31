@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "fecha": "2026-10-30",
   "estado": "subconjunto_mecanico_parcial_cotejado_sin_mutar_personajes",
   "alcance": "Magnitudes explícitas sin Tiradas ni redondeos inferidos; datos de daño por Turno o por Nivel expresados, no ejecutados",
@@ -4029,8 +4029,878 @@
           "unidad": "Turnos"
         }
       ]
+    },
+    {
+      "id_catalogo": "conjuro-1",
+      "numero_tomo": 35,
+      "nombre_tomo": "Atraer muertos vivientes",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 1 Intervalo por Nivel",
+      "disparador_y_limites": "Dos modos alternativos: atraer la atención de los muertos vivientes o volverse invisible ante ellos. Atacar o perturbar a estas criaturas rompe el efecto. No resolver su comportamiento.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-5",
+      "numero_tomo": 99,
+      "nombre_tomo": "Detectar magia",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "área de 20m a tu alrededor",
+      "disparador_y_limites": "Solo efectos mágicos visibles en línea de visión. No atribuir duración no declarada.",
+      "magnitudes": [
+        {
+          "clave": "alcance_m",
+          "tipo": "constante",
+          "valor": 20,
+          "unidad": "metros alrededor del lanzador"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-13",
+      "numero_tomo": 25,
+      "nombre_tomo": "Apertura arcana",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Nivel igual o inferior al tuyo",
+      "disparador_y_limites": "Cerraduras hasta el Nivel del lanzador se abren; superiores requieren Tirada de Conjuro y Enemigos superiores. No ejecutar apertura.",
+      "magnitudes": [
+        {
+          "clave": "nivel_cerradura_apertura_automatica",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Nivel de cerradura"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-14",
+      "numero_tomo": 68,
+      "nombre_tomo": "Calentar metal",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 6 Turnos",
+      "disparador_y_limites": "La tabla literal declara Turnos 1 y 6 sin daño; Turnos 2 y 5: 1d6; Turnos 3–4: 2d6, si sigue portando metal. No acumular ambas magnitudes.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "danio_turno_2_y_5",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Daño en Turnos 2 y 5"
+        },
+        {
+          "clave": "danio_turnos_3_y_4",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Daño en Turnos 3 y 4"
+        },
+        {
+          "clave": "turno_inicio_inflamables",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "Turno"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-15",
+      "numero_tomo": 69,
+      "nombre_tomo": "Charco de aceite",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 1d6 +1 Turnos",
+      "disparador_y_limites": "Probabilidad al entrar o salir; si cae, gasta Acción en el siguiente Turno para levantarse. La tirada de probabilidad no está automatizada.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d6+1",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "m²"
+        },
+        {
+          "clave": "probabilidad_caida",
+          "tipo": "constante",
+          "valor": 11,
+          "unidad": "Probabilidad 11+"
+        },
+        {
+          "clave": "accion_para_levantarse",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Acción"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-16",
+      "numero_tomo": 70,
+      "nombre_tomo": "Curación",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "restaura 2d6 Puntos de Salud por cada 5 Niveles",
+      "disparador_y_limites": "Cada bloque completo de 5 Niveles aporta 2d6 de Salud. Redondeo hacia abajo conforme a la decisión autoral. Sin mínimo explícito ni aplicación automática de Salud; por debajo de Nivel 5 se representan 0 dados.",
+      "magnitudes": [
+        {
+          "clave": "curacion_salud",
+          "tipo": "dados_por_bloques",
+          "valor": [
+            2,
+            6,
+            5
+          ],
+          "unidad": "Salud (expresión de dados)"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-19",
+      "numero_tomo": 351,
+      "nombre_tomo": "Resistir los elementos",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 1 Intervalo por Nivel",
+      "disparador_y_limites": "Elegir fuego o frío como modalidades excluyentes; doble Blindaje y Ventaja en Tiradas contra amenazas vinculadas al elemento elegido. No aplicar el doble como suma.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        },
+        {
+          "clave": "factor_blindaje_frente_elemento",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "multiplicador"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-21",
+      "numero_tomo": 386,
+      "nombre_tomo": "Toque eléctrico",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d8 de daño por relámpago",
+      "disparador_y_limites": "Ramas alternativas: éxito de Tirada causa 2d8 relámpago, fallo causa 1d6 fuerza. Ventaja ante objetivo con armadura metálica o hecho de metal; no sumar daños.",
+      "magnitudes": [
+        {
+          "clave": "danio_exito_relampago",
+          "tipo": "dado_literal",
+          "valor": "2d8",
+          "unidad": "Daño relámpago"
+        },
+        {
+          "clave": "danio_fallo_fuerza",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Daño fuerza"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-29",
+      "numero_tomo": 293,
+      "nombre_tomo": "Poza hedionda",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Alcance: 10 metros + 2 por cada 5 Niveles",
+      "disparador_y_limites": "Daño cuando criatura entra o comienza su asalto en el área. No resolver recorridos, daño ni muerte de vegetación.",
+      "magnitudes": [
+        {
+          "clave": "alcance_m",
+          "tipo": "base_mas_por_cada_n_niveles",
+          "valor": [
+            10,
+            2,
+            5
+          ],
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d6+2",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "m²"
+        },
+        {
+          "clave": "danio_veneno",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Daño venenoso"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-31",
+      "numero_tomo": 327,
+      "nombre_tomo": "Quitar maldición",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Lanzamiento: 3 Turnos",
+      "disparador_y_limites": "Elimina Condición de maldición de Nivel igual o inferior al lanzador. No borrar estados automáticamente.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "nivel_maximo_maldicion",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Nivel de maldición"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-32",
+      "numero_tomo": 71,
+      "nombre_tomo": "Contrato de fraternidad",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 1d6 Turnos",
+      "disparador_y_limites": "Mitad del daño para cada vinculado; ruptura a distancia superior a 10 m causa 2d10 psíquico a ambos. Falla si no existe criatura aliada cercana.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "fraccion_danio_cada_vinculado",
+          "tipo": "constante",
+          "valor": 0.5,
+          "unidad": "del daño recibido"
+        },
+        {
+          "clave": "distancia_ruptura_m",
+          "tipo": "constante",
+          "valor": 10,
+          "unidad": "metros entre vinculados"
+        },
+        {
+          "clave": "danio_ruptura_cada_uno",
+          "tipo": "dado_literal",
+          "valor": "2d10",
+          "unidad": "Daño psíquico"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-35",
+      "numero_tomo": 179,
+      "nombre_tomo": "Hablar con las plantas",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 1 Turno por Nivel",
+      "disparador_y_limites": "Comunicación con plantas; no obliga a ayudar ni controla su comportamiento.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-37",
+      "numero_tomo": 295,
+      "nombre_tomo": "Piel de piedra",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 1d8 Turnos",
+      "disparador_y_limites": "Modos excluyentes: Blindaje efectivo 1d6 sin armadura, o bonificación +2 si el objetivo ya porta armadura. No sumarlos.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d8",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "blindaje_sin_armadura",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Blindaje efectivo"
+        },
+        {
+          "clave": "bono_con_armadura",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Blindaje adicional"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-38",
+      "numero_tomo": 296,
+      "nombre_tomo": "Polimorfia",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 1 Intervalo por Nivel",
+      "disparador_y_limites": "La forma nueva no supera el Nivel del OBJETIVO, no necesariamente el Nivel del lanzador; valor por Nivel de lanzador no debe interpretarse como umbral efectivo. Se requiere Tirada si la criatura se resiste.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        },
+        {
+          "clave": "nivel_maximo_forma",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Nivel relativo al objetivo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-39",
+      "numero_tomo": 297,
+      "nombre_tomo": "Prelación",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 2 Turnos por Nivel",
+      "disparador_y_limites": "Ignora la penalización de Enemigos superiores al atacar o esquivar cuerpo a cuerpo; no modifica reglas de otros ataques.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 2,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-41",
+      "numero_tomo": 388,
+      "nombre_tomo": "Tormenta de espadas",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d8 de daño mágico y cortante",
+      "disparador_y_limites": "Tirada superada causa 1d8 de un grupo con tipos mágico y cortante; si falla causa mitad. No resolver daño ni resistencias parciales.",
+      "magnitudes": [
+        {
+          "clave": "danio_magico_cortante",
+          "tipo": "dado_literal",
+          "valor": "1d8",
+          "unidad": "Daño simultáneo mágico y cortante"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "m²"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-43",
+      "numero_tomo": 36,
+      "nombre_tomo": "Atravesar paredes",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d4 * 3 metros de profundidad",
+      "disparador_y_limites": "Profundidad literal 1d4 × 3 metros, no se tira automáticamente. Si no hay espacio o provoca derrumbe, falla el Conjuro.",
+      "magnitudes": [
+        {
+          "clave": "factor_profundidad",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "metros por resultado de 1d4"
+        },
+        {
+          "clave": "dados_profundidad",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "resultado a multiplicar por 3"
+        },
+        {
+          "clave": "altura_pasaje_m",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "metros"
+        },
+        {
+          "clave": "diametro_pasaje_m",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-44",
+      "numero_tomo": 72,
+      "nombre_tomo": "Crear muertos vivientes",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Puedes tener tantos muertos vivientes como tu Nivel",
+      "disparador_y_limites": "El texto permite repartir Niveles entre criaturas animadas; NO equivale necesariamente a disponer del mismo número de criaturas. Efecto permanente hasta destrucción.",
+      "magnitudes": [
+        {
+          "clave": "maximo_niveles_total_muertos_vivientes",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Niveles repartidos"
+        },
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-45",
+      "numero_tomo": 164,
+      "nombre_tomo": "Forja arcana",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "otorgándole un aura mágica única durante 3d6 Turnos",
+      "disparador_y_limites": "Escudo, arma, varita y armadura son modalidades excluyentes, no efectos acumulados. Varita eleva en un rango su Dado de daño. «Gastar 1 arma» parece errata original y no se corrige sin autorización.",
+      "magnitudes": [
+        {
+          "clave": "duracion_mesa_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        },
+        {
+          "clave": "duracion_objeto_turnos",
+          "tipo": "dado_literal",
+          "valor": "3d6",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "potencia_arma",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Potencia"
+        },
+        {
+          "clave": "danio_arma_fuerza",
+          "tipo": "dado_literal",
+          "valor": "1d8",
+          "unidad": "Daño adicional por fuerza"
+        },
+        {
+          "clave": "blindaje_escudo",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Blindaje"
+        },
+        {
+          "clave": "blindaje_armadura",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Blindaje"
+        },
+        {
+          "clave": "objetos_mejorados_por_portador",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "objeto"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-48",
+      "numero_tomo": 270,
+      "nombre_tomo": "Orbe elemental",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Cada criatura que entre en contacto",
+      "disparador_y_limites": "Al lanzar, elegir fuego, escarcha o relámpago: son alternativas. Afecta al interior y a 2 m a su alrededor; la esfera mantiene rumbo. No resolver colisiones.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "base_mas_por_cada_n_niveles",
+          "valor": [
+            1,
+            1,
+            1
+          ],
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "movimiento_orbe_m_turno",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "metros por Turno"
+        },
+        {
+          "clave": "zona_alrededor_m",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "metros"
+        },
+        {
+          "clave": "danio_elemental",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            8
+          ],
+          "unidad": "Daño elemental"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-49",
+      "numero_tomo": 389,
+      "nombre_tomo": "Transfusión de dolor",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "última hora",
+      "disparador_y_limites": "Transfiere el daño efectivamente sufrido en la última hora si no recibió sanación. Cantidad variable depende de ficha y estado temporal; no se inventa daño fijo.",
+      "magnitudes": [
+        {
+          "clave": "ventana_danio_previo_minutos",
+          "tipo": "constante",
+          "valor": 60,
+          "unidad": "minutos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-52",
+      "numero_tomo": 298,
+      "nombre_tomo": "Petrificar",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Lanzamiento: 2 Turnos",
+      "disparador_y_limites": "Petrificar o revertir petrificación exige Tirada de Conjuro exitosa. Efecto permanente, sin número fijo de daño.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-53",
+      "numero_tomo": 299,
+      "nombre_tomo": "Protección contra la muerte",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 3 Turnos por Nivel",
+      "disparador_y_limites": "Protege frente a muerte súbita, maldiciones y succión. No convertir inmunidad en una cifra ficticia de Blindaje.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 3,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-54",
+      "numero_tomo": 334,
+      "nombre_tomo": "Rayo solar",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "5d6 de daño por fuego y 5d6 de daño radiante",
+      "disparador_y_limites": "Dos grupos explícitos de dados (5d6 fuego + 5d6 radiante), no un solo grupo de daño dual. Criaturas dentro reciben ambos; adyacentes al finalizar Turno reciben la mitad.",
+      "magnitudes": [
+        {
+          "clave": "danio_fuego",
+          "tipo": "dado_literal",
+          "valor": "5d6",
+          "unidad": "Daño por fuego"
+        },
+        {
+          "clave": "danio_radiante",
+          "tipo": "dado_literal",
+          "valor": "5d6",
+          "unidad": "Daño radiante"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d4+1",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "m²"
+        },
+        {
+          "clave": "fraccion_danio_adyacentes",
+          "tipo": "constante",
+          "valor": 0.5,
+          "unidad": "Daño para adyacentes"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-55",
+      "numero_tomo": 337,
+      "nombre_tomo": "Recuperación divina",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d12 + la ½ de Salud máxima",
+      "disparador_y_limites": "Curación igual a 1d12 más mitad de Salud máxima del objetivo. No calcula mitad hasta conocer Salud máxima; eliminar condiciones sin automatizar.",
+      "magnitudes": [
+        {
+          "clave": "curacion_dado",
+          "tipo": "dado_literal",
+          "valor": "1d12",
+          "unidad": "Salud"
+        },
+        {
+          "clave": "fraccion_salud_maxima",
+          "tipo": "constante",
+          "valor": 0.5,
+          "unidad": "Salud máxima del objetivo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-57",
+      "numero_tomo": 74,
+      "nombre_tomo": "Control climático",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 8d6 horas",
+      "disparador_y_limites": "Condiciones climáticas dentro de los límites declarados; al forzar clima impropio duración a mitad. No transformar km² en radio.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        },
+        {
+          "clave": "duracion_horas",
+          "tipo": "dado_literal",
+          "valor": "8d6",
+          "unidad": "horas"
+        },
+        {
+          "clave": "retardo_cambios_intervalos",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Intervalos"
+        },
+        {
+          "clave": "area_km2",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "km²"
+        },
+        {
+          "clave": "fraccion_duracion_clima_impropio",
+          "tipo": "constante",
+          "valor": 0.5,
+          "unidad": "Duración"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-58",
+      "numero_tomo": 257,
+      "nombre_tomo": "Niebla carmesí",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 2d6 Turnos",
+      "disparador_y_limites": "Texto original habla de «cono, de 10m2 de diámetro»: geometría dimensionalmente ambigua; se conserva literal en ficha, sin interpretar como radio ni área. El lanzador cura la mitad del daño efectivo, no 4d12 adicional.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "danio_impio",
+          "tipo": "dado_literal",
+          "valor": "4d12",
+          "unidad": "Daño impío"
+        },
+        {
+          "clave": "fraccion_curacion_lanzador",
+          "tipo": "constante",
+          "valor": 0.5,
+          "unidad": "Daño realmente causado"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-59",
+      "numero_tomo": 383,
+      "nombre_tomo": "Sino del Segador",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 1d6 meses",
+      "disparador_y_limites": "Solo un Segador activo. Si muere, el lanzador recibe 8d6 impío; perseguir hasta muerte no implica que podamos ejecutar una criatura autónoma.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        },
+        {
+          "clave": "duracion_meses",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "meses"
+        },
+        {
+          "clave": "danio_si_muere_segador",
+          "tipo": "dado_literal",
+          "valor": "8d6",
+          "unidad": "Daño impío"
+        },
+        {
+          "clave": "maximo_segadores_activos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Segador"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-60",
+      "numero_tomo": 10,
+      "nombre_tomo": "Alterar el ser",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "más allá de un 30%",
+      "disparador_y_limites": "Cambios corporales y genéticos permanentes hasta máximo 30% de variación de masa. No modificar Especie ni ficha automáticamente.",
+      "magnitudes": [
+        {
+          "clave": "variacion_masa_maxima_porcentaje",
+          "tipo": "constante",
+          "valor": 30,
+          "unidad": "%"
+        },
+        {
+          "clave": "lanzamiento_intervalos",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-61",
+      "numero_tomo": 285,
+      "nombre_tomo": "Palabra de Poder: Muerte",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Alcance: 1m por Nivel",
+      "disparador_y_limites": "Dos modos excluyentes: una criatura de Nivel inferior al lanzador muere, o todas las de Nivel inferior y Salud actual menor que la mitad de su máximo. No ejecutar muerte instantánea.",
+      "magnitudes": [
+        {
+          "clave": "alcance_m",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "metros"
+        },
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "fraccion_salud_maxima_modo_multiple",
+          "tipo": "constante",
+          "valor": 0.5,
+          "unidad": "Salud máxima"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-62",
+      "numero_tomo": 354,
+      "nombre_tomo": "Resurrección",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "muerto más de 48 horas",
+      "disparador_y_limites": "No puede resucitar Nivel 0 o inferior; el resucitado pierde un Nivel y regenera partes faltantes en 1d6 semanas. No alterar ficha automáticamente.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_horas",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "horas"
+        },
+        {
+          "clave": "antiguedad_cadaver_max_horas",
+          "tipo": "constante",
+          "valor": 48,
+          "unidad": "horas"
+        },
+        {
+          "clave": "regeneracion_partes_semanas",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "semanas"
+        },
+        {
+          "clave": "perdida_niveles",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Nivel"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-63",
+      "numero_tomo": 425,
+      "nombre_tomo": "Viaje espaciotemporal",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "hasta a 4 humanoides más",
+      "disparador_y_limites": "Solo lugares o momentos ya visitados o contemplados; regresar requiere lanzar de nuevo el Conjuro. Uso sujeto al acuerdo de toda la mesa y del Cronista; no simular viajes.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        },
+        {
+          "clave": "alcance_m",
+          "tipo": "constante",
+          "valor": 8,
+          "unidad": "metros"
+        },
+        {
+          "clave": "acompanantes_maximos",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "humanoides adicionales"
+        }
+      ]
     }
   ],
   "criterio_redondeo": "Siempre hacia abajo para divisiones por grupos de Niveles en Conjuros; no sobrescribir excepciones expresas del DRS fuera de este ámbito.",
-  "criterio_dados": "Expresiones con dados d2/d3 y bono entero se conservan sin lanzar; dados por bloques usan redondeo inferior sin inventar mínimos."
+  "criterio_dados": "Expresiones con dados d2/d3 y bono entero se conservan sin lanzar; dados por bloques usan redondeo inferior sin inventar mínimos.",
+  "cobertura_drs": {
+    "conjuros_totales": 64,
+    "conjuros_con_magnitudes": 64,
+    "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+    "fuente_prioritaria": "NaufragioD20DRS.docx",
+    "nota": "No garantiza Conjuros lanzables, ni efectos aplicados, ni Tiradas realizadas."
+  }
 }
