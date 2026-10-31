@@ -1,5 +1,7 @@
 # Forja 1.0 — Auditoría de las cuatro Ocupaciones DRS: progresión y Poderes
 
+> **Actualización posterior (31/10/2026):** la decisión de plazas de Técnica del Ladrón ha quedado **cerrada por el autor**: mantiene su progresión original y podrá cubrir las plazas restantes con futuros suplementos gratuitos, sin importarlos en el DRS básico. Además, las tablas de armas, protecciones y varitas han recibido una auditoría y ampliación contrastada con el manual: véase [informe 94 — equipo y política del Ladrón](94-cierre-parcial-equipo-drs-y-politica-ladron.md). **Sigue pendiente el Círculo canónico de Marca del dador oscuro.**
+
 **Fecha:** 31/10/2026. **Fuente normativa:** `NaufragioD20DRS.docx`, apartados *Clérigo, Guerrero, Mago, Ladrón*, tablas de progreso, *Potencia*, competencias y lista de Conjuros del Clérigo.  
 **Estado:** PR [#4](https://github.com/naufragio-rolero/nd20-character-creator/pull/4), rama `feat/forja-conjuros-fichas-2026-10-30`, **borrador sin fusionar ni desplegar**. La fuente DRS no ha sido modificada.
 
