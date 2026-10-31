@@ -93,6 +93,46 @@ async function probar(nombre,tipo,url){
       nodes=>nodes.map(x=>x.value).filter(Boolean).sort()),
       ['Clérigo','Guerrero','Ladrón','Mago'].sort(),
       nombre+': el cambio de sistema no filtra Ocupaciones DLC');
+    // Probar los nombres de Ylat sobre la distribución física: la opción
+    // de personajes documentados solo existe en la rama de desarrollo.
+    const nombresYlat=await page.evaluate(async()=>{
+      const respuesta=await fetch('data/tesauro-ylat.json');
+      if(!respuesta.ok)throw Error('No se ha podido cargar el tesauro');
+      return respuesta.json();
+    });
+    const combinados=nombresYlat.entradas.filter(x=>x.tipo==='combinado');
+    assert.equal(combinados.length,149);
+    if(process.env.FORJA_PUBLIC_ROOT){
+      assert.equal(nombresYlat.entradas.length,149,
+        nombre+': distribución sin PNJ documentados');
+      assert.equal(await page.locator('#modo-nombre option[value="documentado"]').count(),0);
+    }
+    assert.equal(await page.locator('#modo-nombre').inputValue(),'combinado');
+    assert.equal(await page.locator('#opciones-ambito-nombre').isVisible(),true);
+    await page.selectOption('#ocupacion','Guerrero');
+    await page.selectOption('#especie','Humano común');
+    await page.selectOption('#sexo-pj','femenino');
+    for(const ambito of ['Niguace','Isla Tormenta']){
+      await page.selectOption('#modo-nombre','combinado');
+      await page.selectOption('#ambito-nombre',ambito);
+      await page.fill('#nombre-personaje','');
+      await page.fill('#semilla','Forja-nombre-'+nombre+'-'+ambito);
+      await page.fill('#nivel','1');
+      await page.locator('#generar').click();
+      const tarjeta=page.locator('#fichas .tarjeta').first();
+      await tarjeta.waitFor();
+      const nombreGenerado=await tarjeta.locator('h3').innerText();
+      assert.ok(combinados.some(x=>x.ambito===ambito&&x.nombre===nombreGenerado),
+        nombre+': el nombre '+nombreGenerado+' debe proceder solo de '+ambito);
+      assert.match(await tarjeta.innerText(),/No identifica un personaje canónico/);
+      await page.locator('#borrar').click();
+    }
+    await page.selectOption('#modo-nombre','especie');
+    assert.equal(await page.locator('#opciones-ambito-nombre').isHidden(),true);
+    await page.selectOption('#modo-nombre','combinado');
+    assert.equal(await page.locator('#opciones-ambito-nombre').isVisible(),true);
+    await page.selectOption('#ambito-nombre','todos');
+    await page.selectOption('#sexo-pj','aleatorio');
     await page.selectOption('#ocupacion','Guerrero');
     await page.selectOption('#especie','Humano común');
     await page.fill('#nombre-personaje','Compatibilidad '+nombre);
