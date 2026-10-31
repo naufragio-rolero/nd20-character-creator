@@ -61,6 +61,28 @@ async function probar(nombre,tipo,url){
       assert.equal(await page.locator('#juego').inputValue(),otro,
         nombre+': selector de sistema '+otro);
     }
+    // Comprobar GENERACIÓN, no solo selección, de los tres sistemas que
+    // el empaquetado DRS se ha comprometido a preservar sin modificaciones.
+    for(const otro of ['nd20_cifi','nd20_nocturna','dh']){
+      await page.locator('.juegos-compactos [data-juego="'+otro+'"]').click();
+      const opciones=await page.locator('#ocupacion option').evaluateAll(
+        nodes=>nodes.map(x=>x.value).filter(Boolean));
+      assert.ok(opciones.length>0,nombre+': Ocupaciones disponibles en '+otro);
+      await page.selectOption('#ocupacion',opciones[0]);
+      const razas=await page.locator('#especie option').evaluateAll(
+        nodes=>nodes.map(x=>x.value).filter(Boolean));
+      if(razas.length)await page.selectOption('#especie',razas[0]);
+      await page.fill('#nombre-personaje','Comprobación '+otro);
+      await page.fill('#nivel','1');
+      await page.fill('#cantidad','1');
+      await page.locator('#generar').click();
+      await page.locator('#fichas .tarjeta').first().waitFor();
+      assert.ok((await page.locator('#fichas .tarjeta').first().innerText())
+        .includes('Comprobación '+otro),
+        nombre+': generación de '+otro+' no debe romperse por depurar DLC');
+      await page.locator('#borrar').click();
+      assert.equal(await page.locator('#fichas .tarjeta').count(),0);
+    }
     await page.locator('.juegos-compactos [data-juego="nd20"]').click();
     assert.equal(await page.locator('#juego').inputValue(),'nd20');
     assert.deepEqual(await page.locator('#fuentes-nd20 input').evaluateAll(
