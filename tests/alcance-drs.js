@@ -494,6 +494,7 @@ for(const especie of ['Mediano amable','Gnomo urbano']){
       assert.equal(adaptado.gastado,
         adaptado.equipo.filter(x=>!x.startsWith('Paquete ')).reduce((n,x)=>{
           const todos=[...catalogoEquipamiento.armas,
+            ...catalogoEquipamiento.varitas_defensa,
             ...catalogoEquipamiento.armaduras,...catalogoEquipamiento.escudos,
             ...catalogoEquipamiento.municion];
           const objeto=todos.find(y=>y.nombre===x);
