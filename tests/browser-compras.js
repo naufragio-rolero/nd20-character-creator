@@ -155,12 +155,18 @@ async function main(){
     const especies=await cdp.evalJS("Array.from(document.querySelectorAll('#especie option')).map(x=>x.value).filter(Boolean)");
     assert.equal(especies.length,8,'Solo ocho Especies DRS publicadas');
     assert.equal(await cdp.evalJS("document.querySelector('#modo-nombre').value"),
-      'combinado','Por defecto se ofrecen las 149 variantes de Ylat');
+      'historico','Por defecto se ofrece el banco histórico de 1422 formas Ylat');
     assert.equal(await cdp.evalJS("document.querySelector('#ambito-nombre').value"),
       'todos','Sin procedencia restringida de forma implícita');
     const tesauroPagina=await cdp.evalJS("(async()=>{"+
       "let r=await fetch('data/tesauro-ylat.json');return await r.json()})()");
     assert.equal(tesauroPagina.entradas.filter(x=>x.tipo==='combinado').length,149);
+    const bancoHistorico=await cdp.evalJS("(async()=>{"+
+      "let r=await fetch('data/nombres-historicos-ylat.json');return await r.json()})()");
+    assert.equal(bancoHistorico.total_filas_fuente,1428);
+    assert.equal(new Set(bancoHistorico.entradas.map(x=>x.nombre)).size,1422);
+    assert.equal(bancoHistorico.entradas.length,
+      process.env.FORJA_PUBLIC_ROOT?1422:1428);
     if(process.env.FORJA_PUBLIC_ROOT){
       assert.equal(tesauroPagina.entradas.length,149,
         'Los nombres de 51 PNJ documentados no aparecen en la distribución');
