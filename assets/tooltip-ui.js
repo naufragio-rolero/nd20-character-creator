@@ -108,6 +108,15 @@
         c.appendChild(aviso);
       }
     }
+    if(info.danioCompuesto){
+      var tipo=document.createElement("p");tipo.className="info-descripcion";
+      tipo.textContent="Daño compuesto: un único grupo de dados, tipos "+
+        info.danioCompuesto.tipos.join(" e ")+
+        " simultáneamente. Resistencia a ambos: una única resistencia. "+
+        "Debilidad a cualquiera de los tipos: daño ×2, sin duplicarlo. "+
+        "Resistencia parcial o simultánea con debilidad: resolución del Cronista.";
+      c.appendChild(tipo);
+    }
     var fuente=document.createElement("p");fuente.className="info-fuente";
     fuente.textContent="Fuente: "+(info.fuente_descripcion||info.fuente);
     c.appendChild(fuente);
