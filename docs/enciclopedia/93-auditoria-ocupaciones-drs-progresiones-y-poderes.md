@@ -1,5 +1,7 @@
 # Forja 1.0 — Auditoría de las cuatro Ocupaciones DRS: progresión y Poderes
 
+> **ACTUALIZACIÓN DEFINITIVA DEL AUTOR (31/10/2026):** **Dardo es gratuito (0 mo)** y **Marca del dador oscuro pertenece al Quinto Círculo** porque prevalece su ficha individual. Forja ya permite aprenderlo al Clérigo desde **Nivel 10** y registra **34 Conjuros clericales**. Además se han incluido las **41 entradas de útiles del DRS** y dos focos con precio. Véase [informe 95 — decisiones y equipo](95-decisiones-dardo-marca-y-utiles-drs.md). Los pasajes anteriores que describían Dardo como no disponible, Marca como discrepancia pendiente o el catálogo individual como incompleto **son históricos y quedan sustituidos por esta decisión y sus implementaciones**.
+
 > **Actualización posterior (31/10/2026):** la decisión de plazas de Técnica del Ladrón ha quedado **cerrada por el autor**: mantiene su progresión original y podrá cubrir las plazas restantes con futuros suplementos gratuitos, sin importarlos en el DRS básico. Además, las tablas de armas, protecciones y varitas han recibido una auditoría y ampliación contrastada con el manual: véase [informe 94 — equipo y política del Ladrón](94-cierre-parcial-equipo-drs-y-politica-ladron.md). **Sigue pendiente el Círculo canónico de Marca del dador oscuro.**
 
 **Fecha:** 31/10/2026. **Fuente normativa:** `NaufragioD20DRS.docx`, apartados *Clérigo, Guerrero, Mago, Ladrón*, tablas de progreso, *Potencia*, competencias y lista de Conjuros del Clérigo.  
