@@ -757,6 +757,8 @@ for(const nivel of [24,25,28,29,30]){
     'El DLC debe ampliar, no sustituir, el núcleo DRS');
   assert.equal(drs.avisos.some(x=>x.includes('Faltan ')),
     permitidas>6,'Advertencia solo mientras faltan opciones verificadas');
+  assert.equal(drs.avisos.some(x=>x.includes('suplementos gratuitos')),
+    permitidas>6,'Explicar plazas reservadas a futuros DLC, no aparentar un error');
   assert.ok(!dlc.avisos.some(x=>x.includes('Faltan ')),
     'El futuro DLC cubre las Técnicas sin falsificar el DRS');
 }
