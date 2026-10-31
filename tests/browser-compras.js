@@ -101,20 +101,41 @@ async function main(){
       server.once('error',reject);
       server.listen(0,'127.0.0.1',resolve);
     });
-    chrome=spawn(navegador,['--headless=new','--no-sandbox','--disable-gpu',
-      '--disable-dev-shm-usage','--no-first-run','--no-default-browser-check',
-      '--remote-allow-origins=*','--remote-debugging-port=0',
-      '--user-data-dir='+perfil,'about:blank'],{stdio:'ignore'});
-    const puertoArchivo=path.join(perfil,'DevToolsActivePort');
-    let puerto=0;
-    for(let i=0;i<120;i++){
-      if(chrome.exitCode!==null)throw Error('Chrome terminó prematuramente: '+chrome.exitCode);
-      if(fs.existsSync(puertoArchivo)){
-        puerto=Number(fs.readFileSync(puertoArchivo,'utf8').split('\n')[0]);break;
+    // Los runners compartidos pueden sufrir fallos transitorios al abrir
+    // Chrome. Reintentar SOLO el arranque, nunca repetir una aserción fallida.
+    let puerto=0,diagnosticos=[];
+    for(let intento=1;intento<=2&&!puerto;intento++){
+      const perfilIntento=path.join(perfil,'sesion-'+intento);
+      fs.mkdirSync(perfilIntento,{recursive:true});
+      chrome=spawn(navegador,['--headless=new','--no-sandbox','--disable-gpu',
+        '--disable-background-networking','--disable-dev-shm-usage',
+        '--no-first-run','--no-default-browser-check',
+        '--remote-allow-origins=*','--remote-debugging-port=0',
+        '--user-data-dir='+perfilIntento,'about:blank'],
+        {stdio:['ignore','ignore','pipe']});
+      let erroresChrome='';
+      chrome.stderr.on('data',bloque=>{
+        erroresChrome=(erroresChrome+bloque.toString()).slice(-3500);
+      });
+      const puertoArchivo=path.join(perfilIntento,'DevToolsActivePort');
+      for(let i=0;i<150;i++){
+        if(chrome.exitCode!==null||chrome.signalCode!==null)break;
+        if(fs.existsSync(puertoArchivo)){
+          puerto=Number(fs.readFileSync(puertoArchivo,'utf8').split('\n')[0]);
+          if(puerto)break;
+        }
+        await dormir(100);
       }
-      await dormir(100);
+      if(!puerto){
+        diagnosticos.push('Intento '+intento+
+          ', salida='+chrome.exitCode+', señal='+chrome.signalCode+
+          ', stderr='+erroresChrome);
+        chrome.kill('SIGKILL');
+        await dormir(300);
+      }
     }
-    if(!puerto)throw Error('Chrome no inició su puerto de depuración.');
+    if(!puerto)throw Error('Chrome no inició su puerto de depuración tras dos arranques. '+
+      diagnosticos.join(' / '));
     cdp=await abrirCDP(puerto);
     // Capturar y probar de verdad el escritorio, no el tamaño por defecto
     // de Chrome headless (780 px, que activa el menú de tableta).
