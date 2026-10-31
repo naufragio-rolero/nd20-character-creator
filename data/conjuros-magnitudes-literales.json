@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "fecha": "2026-10-30",
   "estado": "subconjunto_mecanico_parcial_cotejado_sin_mutar_personajes",
   "alcance": "Magnitudes explícitas sin Tiradas ni redondeos inferidos; datos de daño por Turno o por Nivel expresados, no ejecutados",
@@ -2922,6 +2922,1111 @@
           "tipo": "por_nivel",
           "valor": 1,
           "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-403",
+      "numero_tomo": 180,
+      "nombre_tomo": "Hablar con las rocas",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 minuto por Nivel",
+      "disparador_y_limites": "Comunicación con rocas, sin garantizar exactitud temporal de sus recuerdos.",
+      "magnitudes": [
+        {
+          "clave": "duracion_minutos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "minutos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-249",
+      "numero_tomo": 181,
+      "nombre_tomo": "Hablar con los animales",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Turno por Nivel",
+      "disparador_y_limites": "Comprender animales no implica obediencia.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-27",
+      "numero_tomo": 182,
+      "nombre_tomo": "Hablar con los muertos",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "hasta tres preguntas",
+      "disparador_y_limites": "Finaliza al responder las preguntas o agotar el Intervalo; excluye cadáveres transformados en muertos vivientes.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "preguntas_maximas",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "preguntas"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-420",
+      "numero_tomo": 184,
+      "nombre_tomo": "Hambre de Nastala",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Alcance: 50m2",
+      "disparador_y_limites": "El Cronista decide interacción con artefactos poderosos.",
+      "magnitudes": [
+        {
+          "clave": "area_afectada_m2",
+          "tipo": "constante",
+          "valor": 50,
+          "unidad": "m²"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-117",
+      "numero_tomo": 185,
+      "nombre_tomo": "Hoja rugiente",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 de daño sónico",
+      "disparador_y_limites": "Daño adicional incluso cuando falla el ataque cuerpo a cuerpo.",
+      "magnitudes": [
+        {
+          "clave": "danio_sonico_adicional",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Daño sónico"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-203",
+      "numero_tomo": 186,
+      "nombre_tomo": "Huracán",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d6 de daño contundente",
+      "disparador_y_limites": "Avance aleatorio; no se elige trayectoria automáticamente.",
+      "magnitudes": [
+        {
+          "clave": "danio_contundente",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Daño contundente"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 8,
+          "unidad": "m²"
+        },
+        {
+          "clave": "avance_m_turno",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "metros por Turno"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-150",
+      "numero_tomo": 187,
+      "nombre_tomo": "Huracán floral",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 de daño cortante por cada 2 de tus Niveles",
+      "disparador_y_limites": "Daño y Ceguera tras superar Tirada de Conjuro.",
+      "magnitudes": [
+        {
+          "clave": "danio_cortante",
+          "tipo": "dados_por_bloques",
+          "valor": [
+            1,
+            6,
+            2
+          ],
+          "unidad": "Daño cortante"
+        },
+        {
+          "clave": "radio_m",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "metros"
+        },
+        {
+          "clave": "ceguera_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-46",
+      "numero_tomo": 188,
+      "nombre_tomo": "Ira celestial",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "4d12 de daño radiante",
+      "disparador_y_limites": "Solo muerto viviente o ser de las sombras; versión del Quinto Círculo según DRS.",
+      "magnitudes": [
+        {
+          "clave": "danio_radiante",
+          "tipo": "dado_literal",
+          "valor": "4d12",
+          "unidad": "Daño radiante"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-50",
+      "numero_tomo": 189,
+      "nombre_tomo": "Intercambio de almas",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Lanzamiento: 3 Turnos",
+      "disparador_y_limites": "Al menos uno consiente; Tirada si no consienten ambas criaturas.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "numero_almas",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "almas"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-95",
+      "numero_tomo": 190,
+      "nombre_tomo": "Idea devoradora",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "3d4 de daño impío",
+      "disparador_y_limites": "El daño ocurre al comienzo de Turno; no afecta a criaturas sin raciocinio.",
+      "magnitudes": [
+        {
+          "clave": "danio_impio_por_turno",
+          "tipo": "dado_literal",
+          "valor": "3d4",
+          "unidad": "Daño impío"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_cada_n_niveles",
+          "valor": [
+            1,
+            2
+          ],
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-123",
+      "numero_tomo": 191,
+      "nombre_tomo": "Imbecilidad",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "un -1 a las  Tiradas",
+      "disparador_y_limites": "Solo Tiradas para resistir o soportar efectos mágicos.",
+      "magnitudes": [
+        {
+          "clave": "penalizacion_resistencia_magica",
+          "tipo": "constante",
+          "valor": -1,
+          "unidad": "Tiradas"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-18",
+      "numero_tomo": 192,
+      "nombre_tomo": "Ilusión",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "18m + 3m por Nivel",
+      "disparador_y_limites": "Ilusión propia o sonora son alternativas; engaño sonoro exige Tirada de Conjuro.",
+      "magnitudes": [
+        {
+          "clave": "alcance_ilusion_sonora_m",
+          "tipo": "base_mas_por_cada_n_niveles",
+          "valor": [
+            18,
+            3,
+            1
+          ],
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-140",
+      "numero_tomo": 193,
+      "nombre_tomo": "Identificar varitas o pergaminos",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Lanzamiento: 1 Intervalo",
+      "disparador_y_limites": "Solo varitas o pergaminos, creador no debe superar Nivel del lanzador.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-176",
+      "numero_tomo": 194,
+      "nombre_tomo": "Infundir terror",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Probabilidad 15+",
+      "disparador_y_limites": "Aterrorizado solo tras Tirada superada; recuperación al comienzo de Turno y distancia de terminación.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "probabilidad_recuperacion",
+          "tipo": "constante",
+          "valor": 15,
+          "unidad": "Probabilidad 15+"
+        },
+        {
+          "clave": "distancia_fin_m",
+          "tipo": "constante",
+          "valor": 100,
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-177",
+      "numero_tomo": 195,
+      "nombre_tomo": "Invocar elemental menor",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "3 Turnos por Nivel",
+      "disparador_y_limites": "Se escoge fuego, agua, aire o tierra; iniciativa compartida, sin crear criatura en la ficha.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 3,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "maximo_elementales_menores",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "elemental"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-171",
+      "numero_tomo": 196,
+      "nombre_tomo": "Intruso onírico",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Probabilidad 16+",
+      "disparador_y_limites": "Solo persona dormida, conocida e inteligente; una Probabilidad cada minuto, más Tirada al ser detectado.",
+      "magnitudes": [
+        {
+          "clave": "duracion_minutos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "minutos"
+        },
+        {
+          "clave": "probabilidad_ser_detectado",
+          "tipo": "constante",
+          "valor": 16,
+          "unidad": "Probabilidad 16+"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-187",
+      "numero_tomo": 197,
+      "nombre_tomo": "Invocar espíritu de cuchillas",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "10d6 puntos de daño cortante",
+      "disparador_y_limites": "Espíritu ataca indiscriminadamente y prioriza objetivos cercanos.",
+      "magnitudes": [
+        {
+          "clave": "danio_cortante",
+          "tipo": "dado_literal",
+          "valor": "10d6",
+          "unidad": "Daño cortante"
+        },
+        {
+          "clave": "radio_ataque_m",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "metros"
+        },
+        {
+          "clave": "movimiento",
+          "tipo": "constante",
+          "valor": 5,
+          "unidad": "Movimiento"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-224",
+      "numero_tomo": 198,
+      "nombre_tomo": "Interpretar inscripciones arcanas",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d4 textos",
+      "disparador_y_limites": "El conocimiento de cada tipo de escritura leído es permanente; no se resuelve Tirada.",
+      "magnitudes": [
+        {
+          "clave": "textos_interpretables",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "textos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-238",
+      "numero_tomo": 199,
+      "nombre_tomo": "Invisibilidad",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Intervalo por Nivel",
+      "disparador_y_limites": "La invisibilidad puede disiparse por acciones violentas conforme al texto.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-275",
+      "numero_tomo": 200,
+      "nombre_tomo": "Invisibilidad magna",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Intervalo por Nivel",
+      "disparador_y_limites": "Se conserva Invisibilidad magna al hablar o combatir; no se inventa otro beneficio.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-386",
+      "numero_tomo": 201,
+      "nombre_tomo": "Ídolo guardián de Mulinith",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "primeros 4 puntos de daño",
+      "disparador_y_limites": "Solo golpes físicos reducen 4 puntos; ataques de área hacen doble daño; no combinar escudos similares.",
+      "magnitudes": [
+        {
+          "clave": "reduccion_impacto_fisico",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "Daño por impacto"
+        },
+        {
+          "clave": "factor_danio_area",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "multiplicador"
+        },
+        {
+          "clave": "duracion_minutos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "minutos"
+        },
+        {
+          "clave": "distancia_cancelacion_m",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-387",
+      "numero_tomo": 202,
+      "nombre_tomo": "Invocar ejército ilusorio",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "tantos seres como tu Nivel",
+      "disparador_y_limites": "Ilusiones no tienen Salud; mínimo de impactos no declarado. Tirada de Conjuro para mantener engaño al interactuar.",
+      "magnitudes": [
+        {
+          "clave": "ilusiones_maximas",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "ilusiones"
+        },
+        {
+          "clave": "impactos_soportados",
+          "tipo": "por_cada_n_niveles",
+          "valor": [
+            1,
+            10
+          ],
+          "unidad": "impactos"
+        },
+        {
+          "clave": "factor_danio_causado",
+          "tipo": "constante",
+          "valor": 0.5,
+          "unidad": "multiplicador"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-414",
+      "numero_tomo": 203,
+      "nombre_tomo": "Invisibilidad magna en masa",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "área de 8m2",
+      "disparador_y_limites": "Criaturas elegidas reciben Invisibilidad magna. No cambiar geometría del área.",
+      "magnitudes": [
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 8,
+          "unidad": "m²"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-415",
+      "numero_tomo": 204,
+      "nombre_tomo": "Invocar elemental mayor",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Solo puedes mantener un Elemental convocado mayor",
+      "disparador_y_limites": "Un elemental mayor impide invocar menores; solo una invocación mayor activa.",
+      "magnitudes": [
+        {
+          "clave": "maximo_elementales_mayores",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "elemental"
+        },
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-416",
+      "numero_tomo": 205,
+      "nombre_tomo": "Invocar vórtice de energía",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "8d8 puntos de daño por fuerza",
+      "disparador_y_limites": "Se mueve hacia criatura más cercana y daña indistintamente a aliados o enemigos.",
+      "magnitudes": [
+        {
+          "clave": "danio_fuerza_turno",
+          "tipo": "dado_literal",
+          "valor": "8d8",
+          "unidad": "Daño por fuerza"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "m²"
+        },
+        {
+          "clave": "movimiento_m",
+          "tipo": "constante",
+          "valor": 10,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-426",
+      "numero_tomo": 207,
+      "nombre_tomo": "Lanza hemática",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d3 de daño impío por cada uno de tus Niveles",
+      "disparador_y_limites": "Solo si supera Tirada de Conjuro; ignora Blindaje y protecciones.",
+      "magnitudes": [
+        {
+          "clave": "danio_impio",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            3
+          ],
+          "unidad": "Daño impío"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-424",
+      "numero_tomo": 208,
+      "nombre_tomo": "Latido oscuro",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d8 puntos de daño impío",
+      "disparador_y_limites": "El daño es irreducible; si el objetivo no es voluntario exige Tirada de Conjuro.",
+      "magnitudes": [
+        {
+          "clave": "danio_impio",
+          "tipo": "dado_literal",
+          "valor": "1d8",
+          "unidad": "Daño impío irreducible"
+        },
+        {
+          "clave": "bono_movimiento",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Movimiento"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d3",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-333",
+      "numero_tomo": 209,
+      "nombre_tomo": "Legado de poder",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Lanzamiento: 1 Intervalo",
+      "disparador_y_limites": "Conjuros transferidos inaccesibles hasta uso o vencimiento, sin implementar transferencia real.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        },
+        {
+          "clave": "dias_despues_muerte",
+          "tipo": "constante",
+          "valor": 7,
+          "unidad": "días"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-239",
+      "numero_tomo": 210,
+      "nombre_tomo": "Levitación",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "unos 8 metros",
+      "disparador_y_limites": "Concentración, objetivo voluntario o Tirada si resiste.",
+      "magnitudes": [
+        {
+          "clave": "altura_maxima_aproximada_m",
+          "tipo": "constante",
+          "valor": 8,
+          "unidad": "metros aproximados"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-354",
+      "numero_tomo": 211,
+      "nombre_tomo": "Libertad",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "radio de 18 metros",
+      "disparador_y_limites": "Libera restricciones mágicas y sellos; no efectuar disipaciones de manera automática.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "radio_m",
+          "tipo": "constante",
+          "valor": 18,
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-329",
+      "numero_tomo": 212,
+      "nombre_tomo": "Lienzo de la creación",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Turno por Nivel",
+      "disparador_y_limites": "Obra maestra frente a boceto: potencia según texto; no alterar Nivel de criaturas sin especificar excepciones.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "creacion_boceto_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-135",
+      "numero_tomo": 214,
+      "nombre_tomo": "Llamada de auxilio",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "tantos individuos como tu Nivel",
+      "disparador_y_limites": "Solo receptores conocidos en mismo plano.",
+      "magnitudes": [
+        {
+          "clave": "maximo_receptores",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "individuos"
+        },
+        {
+          "clave": "duracion_horas",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "horas"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-160",
+      "numero_tomo": 215,
+      "nombre_tomo": "Llamada del lobo espectral",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2 Turnos por Nivel",
+      "disparador_y_limites": "Un lobo espectral activo; comparte iniciativa y obedece órdenes.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 2,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "maximo_lobos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "lobo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-51",
+      "numero_tomo": 216,
+      "nombre_tomo": "Lluvia de estrellas",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "10d8 de daño radiante y psíquico",
+      "disparador_y_limites": "Éxito y fallo son alternativas: el éxito es daño dual; el fallo solo radiante.",
+      "magnitudes": [
+        {
+          "clave": "danio_exito_radiante_psiquico",
+          "tipo": "dado_literal",
+          "valor": "10d8",
+          "unidad": "Daño radiante y psíquico"
+        },
+        {
+          "clave": "danio_fallo_radiante",
+          "tipo": "dado_literal",
+          "valor": "5d6",
+          "unidad": "Daño radiante"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 12,
+          "unidad": "m²"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-179",
+      "numero_tomo": 218,
+      "nombre_tomo": "Luna nueva",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 minuto por Nivel",
+      "disparador_y_limites": "Solo bajo luz lunar; si deja de haberla, comprobar reglas de terminación en el texto.",
+      "magnitudes": [
+        {
+          "clave": "duracion_minutos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "minutos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-28",
+      "numero_tomo": 220,
+      "nombre_tomo": "Luz de luna",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 adicional de daño radiante y psíquico",
+      "disparador_y_limites": "Finaliza tras un Intervalo o un Combate, lo que suceda antes; arma se considera de plata para teriántropos.",
+      "magnitudes": [
+        {
+          "clave": "danio_adicional_radiante_psiquico",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Daño radiante y psíquico"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-324",
+      "numero_tomo": 221,
+      "nombre_tomo": "Luz del peregrino",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Intervalo por Nivel",
+      "disparador_y_limites": "Orientación hacia destino o desorientación son modalidades diferentes.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-10",
+      "numero_tomo": 223,
+      "nombre_tomo": "Mensaje lejano",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Lanzamiento: 2 Turnos",
+      "disparador_y_limites": "Solo destinatario conocido que también sabe el Conjuro, en el mismo plano; receptor acepta contacto.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-84",
+      "numero_tomo": 224,
+      "nombre_tomo": "Maldición de los elementos",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d4 Turnos",
+      "disparador_y_limites": "Elegir elemento al lanzar; ataques de ese elemento obtienen Ventaja en Tirada de Daño.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-47",
+      "numero_tomo": 225,
+      "nombre_tomo": "Marca del dador oscuro",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2 Turnos por Nivel",
+      "disparador_y_limites": "Transfiere hasta un cuarto del daño recibido en turno previo; redondeo hacia abajo según decisión global.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 2,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-36",
+      "numero_tomo": 226,
+      "nombre_tomo": "Muro de fuego",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d10 de daño por fuego",
+      "disparador_y_limites": "Quien atraviesa o termina Turno adyacente sufre daño; longitud variable en dados, no definida hasta Tirada.",
+      "magnitudes": [
+        {
+          "clave": "danio_fuego",
+          "tipo": "dado_literal",
+          "valor": "1d10",
+          "unidad": "Daño por fuego"
+        },
+        {
+          "clave": "altura_m",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "metros"
+        },
+        {
+          "clave": "longitud_m",
+          "tipo": "dado_literal",
+          "valor": "1d8+2",
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-107",
+      "numero_tomo": 227,
+      "nombre_tomo": "Maldición de vínculo mortal",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d10 Turnos",
+      "disparador_y_limites": "Transferencia de daño y curación requiere aplicar Blindaje y resistencias de la primera criatura.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d10",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "criaturas_vinculadas",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "criaturas"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-124",
+      "numero_tomo": 228,
+      "nombre_tomo": "Marchitar",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "daño impío igual a tu Nivel",
+      "disparador_y_limites": "Daña solo criaturas de Categoría Planta; otras plantas se marchitan sin tirada de daño.",
+      "magnitudes": [
+        {
+          "clave": "danio_impio_a_planta",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Daño impío"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-132",
+      "numero_tomo": 229,
+      "nombre_tomo": "Materializar arma",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Turno por Nivel",
+      "disparador_y_limites": "Arma no puede ser desarmada ni destruida, pero no se considera mágica según reglas.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-141",
+      "numero_tomo": 230,
+      "nombre_tomo": "Mirada paralizante",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Turno por Nivel",
+      "disparador_y_limites": "Parálisis solo sobre Gigante u Humanoide tras Tirada de Conjuro.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-145",
+      "numero_tomo": 232,
+      "nombre_tomo": "Manantial hediondo",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 puntos de daño por veneno",
+      "disparador_y_limites": "Solo a criaturas que entren o comiencen su Turno dentro del área.",
+      "magnitudes": [
+        {
+          "clave": "danio_veneno",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Daño por veneno"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "m²"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-161",
+      "numero_tomo": 233,
+      "nombre_tomo": "Maldición discordante",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Probabilidad 15+",
+      "disparador_y_limites": "Tirada de Conjuro cada Turno; pérdida de Turno con Probabilidad 15+.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "umbral_perder_turno",
+          "tipo": "constante",
+          "valor": 15,
+          "unidad": "Probabilidad 15+"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-162",
+      "numero_tomo": 234,
+      "nombre_tomo": "Mandala hipnótico",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Turno por Nivel",
+      "disparador_y_limites": "Fascinación solo tras Tirada superada cuando criatura mira al lanzador.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-190",
+      "numero_tomo": 235,
+      "nombre_tomo": "Maldición enfermiza",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Turno por Nivel",
+      "disparador_y_limites": "Reduce curación en un tercio; no se altera el valor recibido hasta comprobar cómo se aplican otros efectos.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-205",
+      "numero_tomo": 236,
+      "nombre_tomo": "Maldición de pesadumbre",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d6 de daño adicional",
+      "disparador_y_limites": "Daño adicional al objetivo cuando otra fuente lo hiere.",
+      "magnitudes": [
+        {
+          "clave": "danio_adicional_recibido",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Daño adicional"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 2,
+          "unidad": "Turnos"
         }
       ]
     }
