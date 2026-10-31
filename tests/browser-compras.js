@@ -7,7 +7,7 @@ const os=require('node:os');
 const path=require('node:path');
 const http=require('node:http');
 const {spawn,spawnSync}=require('node:child_process');
-const raiz=path.resolve(__dirname,'..');
+const raiz=path.resolve(process.env.FORJA_PUBLIC_ROOT||path.resolve(__dirname,'..'));
 const dormir=(ms)=>new Promise(resolve=>setTimeout(resolve,ms));
 function comandoChrome(){
   const candidatos=[process.env.CHROME_BIN,'chromium','chromium-browser',
