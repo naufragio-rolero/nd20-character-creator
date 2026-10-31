@@ -611,6 +611,18 @@
       else personaje.poderes.push(nombreEtiquetado(x.tipo,x.etapa,x.nombre)+
         (x.circulo?" (C"+x.circulo+")":"")+origenConjuro(x.tipo,x.etapa,x.origen));
     });
+    // El editor aplica la elección del Guerrero después de crear la ficha.
+    // Recalcular Potencia con el Talento efectivamente escogido; no conceder
+    // la mejora de Brío musculoso a quien elige Sacrificio de escudo.
+    if(personaje.juego==="Naufragio d20 · Fantasía" &&
+        personaje.descripcion.startsWith("Guerrero · ")){
+      var n=Number(personaje.nivel)||1;
+      var brio=personaje.capacidades.includes("Brío musculoso");
+      var potencia=1+(brio?(n>=10?1:0)+(n>=22?1:0):0);
+      var idxPotencia=personaje.recursos.findIndex(function(x){return x[0]==="Potencia";});
+      if(idxPotencia>=0)personaje.recursos[idxPotencia]=["Potencia",potencia];
+      else personaje.recursos.push(["Potencia",potencia]);
+    }
     (plan.recursos||[]).forEach(function(r){
       var idx=personaje.recursos.findIndex(function(v){return v[0]===r[0];});
       if(idx>=0)personaje.recursos[idx]=r;else personaje.recursos.push(r);
