@@ -210,6 +210,7 @@
       }).sort(ordenar),true);
     }
     refrescarTarjetasVisibles();
+    refrescarGenerarFlotante();
   }
   function ordenar(a,b) {return a.nombre.localeCompare(b.nombre, 'es');}
   function dhModo(juego) {
@@ -599,10 +600,12 @@
     borrador=null;
     $('editor-elecciones').hidden=true;
     $('grupos-elecciones').textContent='';
+    refrescarGenerarFlotante();
   }
   function prepararEditor(personaje,plan,rng,origen){
     borrador={personaje:personaje,plan:plan,rng:rng,origen:origen||null};
     $('editor-elecciones').hidden=false;
+    refrescarGenerarFlotante();
     $('editor-titulo').textContent='Personalizar · '+personaje.descripcion;
     $('editor-resumen').textContent='Nivel '+personaje.nivel+
       ' · '+plan.pasos.filter(function(x){return !x.automatico;})
