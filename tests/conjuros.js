@@ -94,9 +94,9 @@ console.log('OK · 434 fichas cotejadas; 12 cambios aprobados y catálogo DRS va
 /* Pruebas del primer subconjunto de magnitudes mecánicas literales. */
 const motorMagnitudes=require('../assets/spell-magnitudes.js');
 const literales=leer('data/conjuros-magnitudes-literales.json');
-assert.equal(literales.registros.length,100,'100 fichas de magnitudes registradas');
-assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,100,
-  'No repetir IDs entre los 100 Conjuros modelados');
+assert.equal(literales.registros.length,120,'120 fichas de magnitudes registradas');
+assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,120,
+  'No repetir IDs entre los 120 Conjuros modelados');
 for(const entrada of literales.registros){
   // Cada magnitud debe conservar evidencia textual y funcionar en varios niveles.
   assert.equal(new Set(entrada.magnitudes.map(x=>x.clave)).size,entrada.magnitudes.length,
@@ -212,7 +212,7 @@ assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',val
   /Dados por Nivel inválidos/);
 assert.throws(()=>magnitudes('Lanza de sombras',0),/Nivel entero positivo/);
 assert.equal(motorMagnitudes.calcular({clave:'dados',tipo:'dados_por_nivel',valor:[2,12]},5),'10d12');
-console.log('OK · 100 Conjuros con magnitudes verificadas en 4 Niveles; sin ejecutar efectos.');
+console.log('OK · 120 Conjuros con magnitudes verificadas en 4 Niveles; sin ejecutar efectos.');
 
 /* Resoluciones editoriales: 4 m³, redondeo inferior y un solo daño de doble tipo. */
 const surcar=revisados.find(x=>x.numero_tomo===385);
@@ -242,8 +242,8 @@ assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'por_cada_n_niveles',
 assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'base_mas_por_cada_n_niveles',valor:[1,1,0]},5),/inválidos/);
 
 const dobles=leer('data/conjuros-danio-compuesto.json');
-assert.equal(dobles.registros.length,5);
-assert.deepEqual(dobles.registros.map(x=>x.numero_tomo),[3,7,148,183,387]);
+assert.equal(dobles.registros.length,8);
+assert.deepEqual(dobles.registros.map(x=>x.numero_tomo),[3,7,104,148,159,160,183,387]);
 for(const p of dobles.registros){
   const ficha=revisados.find(x=>x.numero_tomo===p.numero_tomo);
   assert.ok(ficha);
@@ -279,7 +279,7 @@ const appMecanica=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
 const uiMecanica=fs.readFileSync(path.join(raiz,'assets/tooltip-ui.js'),'utf8');
 assert.ok(appMecanica.includes('data/conjuros-danio-compuesto.json'));
 assert.ok(uiMecanica.includes('info.danioCompuesto'));
-console.log('OK · 4 m³, redondeo inferior por bloques y 5 perfiles de daño doble aprobados.');
+console.log('OK · 4 m³, redondeo inferior por bloques y 8 perfiles de daño doble aprobados.');
 
 
 /* Tercera tanda: 35 Conjuros adicionales, todos referenciados por sus fichas. */
@@ -377,7 +377,7 @@ assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleErupcion,
   ['contundente','fuego'],[]).resistencia_unica,true);
 assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleErupcion,[],
   ['contundente','fuego']).multiplicador_debilidad,2);
-console.log('OK · 100 Conjuros y quinto daño dual, con expresiones verificadas por fuente.');
+console.log('OK · 120 Conjuros y ocho perfiles de daño dual verificados por fuente.');
 
 /* La consulta previa a confirmar una elección usa ID y Nivel del personaje. */
 const indiceCompleto=tooltip.indice({
@@ -425,3 +425,40 @@ assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_bloques',v
 assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dado_literal',valor:'2d7'},8),
   /Expresión de dado no validada/);
 
+
+/* Quinto lote: 20 Conjuros y dados de bloques de Nivel con redondeo inferior. */
+assert.equal(valor(magnitudes('Dormir',5),'puntos_oniricos'),'5d10');
+assert.equal(valor(magnitudes('Dormir',5),'alcance_m'),20);
+assert.equal(valor(magnitudes('Dardo de penumbra',5),'duracion_ceguera_turnos'),'1d2');
+assert.equal(valor(magnitudes('Detonación cadavérica',5),'danio_contundente_impio'),'5d4');
+assert.equal(valor(magnitudes('Destello aural',7),'danio_magico'),'3d6');
+assert.equal(valor(magnitudes('Destello aural',1),'danio_magico'),'0d6');
+assert.equal(valor(magnitudes('Deseo',5),'lanzamiento_intervalos'),'2d6');
+assert.equal(valor(magnitudes('Destello de Kaeduin',7),'duracion_ceguera_turnos'),'1d6+1');
+assert.equal(valor(magnitudes('Descarga ardiente',9),'danio_fuego'),'2d8');
+assert.equal(valor(magnitudes('Detención temporal',7),'duracion_turnos'),'1d4+2');
+assert.equal(valor(magnitudes('Espejo de sombras',7),'umbral_inicial'),11);
+assert.equal(valor(magnitudes('Espía de la Urdimbre',7),'vision_oscuridad_m'),20);
+assert.equal(valor(magnitudes('Estallido de escarcha',7),'danio_frio'),'4d10');
+assert.equal(valor(magnitudes('Exhalación de la tumba',7),'danio_veneno_acido'),'2d6');
+assert.equal(valor(magnitudes('Fantasmas aullantes',5),'danio_psiquico_contundente'),'2d4');
+assert.equal(valor(magnitudes('Floración cinérea',7),'danio_objetivo'),'30d6');
+assert.equal(valor(magnitudes('Floración cinérea',7),'danio_cercanos'),'10d6');
+assert.equal(valor(magnitudes('Fuego feérico',7),'maximo_criaturas'),7);
+assert.equal(valor(magnitudes('Fuego lunar',7),'danio_normal'),'1d8');
+assert.equal(valor(magnitudes('Fuego lunar',7),'danio_noche'),'2d6');
+assert.equal(valor(magnitudes('Fuego purificador',7),'danio_fuego'),'2d8');
+assert.equal(valor(magnitudes('Garra vampírica',7),'danio_impio'),'14d6');
+assert.ok(magnitudes('Garra vampírica',7).condiciones_no_automatizadas.includes('daño efectivo'));
+assert.equal(valor(magnitudes('Glosolalia mayor',7),'duracion_intervalos'),14);
+assert.equal(valor(magnitudes('Glosolalia menor',7),'duracion_intervalos'),7);
+for(const id of [104,159,160]){
+  const perfil=dobles.registros.find(x=>x.numero_tomo===id);
+  assert.ok(perfil,'Daño dual cotejado '+id);
+  assert.equal(perfil.grupos_de_dados,1);
+  assert.equal(motorMagnitudes.clasificarDanioCompuesto(perfil,perfil.tipos,[])
+    .resistencia_unica,true);
+  assert.equal(motorMagnitudes.clasificarDanioCompuesto(perfil,[],perfil.tipos)
+    .multiplicador_debilidad,2);
+}
+console.log('OK · 120 Conjuros con dados especiales y ocho daños duales sin ejecutar Tiradas.');
