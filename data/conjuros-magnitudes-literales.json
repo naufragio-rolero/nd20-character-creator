@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "fecha": "2026-10-30",
   "estado": "subconjunto_mecanico_parcial_cotejado_sin_mutar_personajes",
   "alcance": "Magnitudes explícitas sin Tiradas ni redondeos inferidos; datos de daño por Turno o por Nivel expresados, no ejecutados",
@@ -1968,6 +1968,480 @@
           "tipo": "por_nivel",
           "valor": 1,
           "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-418",
+      "numero_tomo": 95,
+      "nombre_tomo": "Cañón aural",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "15d10 de daño mágico",
+      "disparador_y_limites": "Línea recta desde lanzador; no inventar Tirada adicional.",
+      "magnitudes": [
+        {
+          "clave": "danio_magico",
+          "tipo": "dado_literal",
+          "valor": "15d10",
+          "unidad": "Daño mágico"
+        },
+        {
+          "clave": "anchura_linea_m",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "metros"
+        },
+        {
+          "clave": "longitud_linea_m",
+          "tipo": "constante",
+          "valor": 20,
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-6",
+      "numero_tomo": 100,
+      "nombre_tomo": "Disipar magia",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "área de 6m cúbicos",
+      "disparador_y_limites": "No disipa conjuros de mayor Nivel. Criaturas requieren Tirada de Conjuro; objetos pueden quedar anulados definitivamente.",
+      "magnitudes": [
+        {
+          "clave": "volumen_afectado_m3",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "m³"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-218",
+      "numero_tomo": 110,
+      "nombre_tomo": "Disco celeste de Excelsus",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "unos 300 kg",
+      "disparador_y_limites": "La fuente dice «unos 300 kg» como aproximación a cuatro personas; no usar como límite exacto oficial.",
+      "magnitudes": [
+        {
+          "clave": "carga_maxima_aproximada_kg",
+          "tipo": "constante",
+          "valor": 300,
+          "unidad": "kg aproximados"
+        },
+        {
+          "clave": "altura_maxima_m",
+          "tipo": "constante",
+          "valor": 1.2,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        },
+        {
+          "clave": "duracion_turnos_combate",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-242",
+      "numero_tomo": 113,
+      "nombre_tomo": "Detectar lo invisible",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "5 Turnos por Nivel",
+      "disparador_y_limites": "Solo muestra criaturas y objetos invisibles, no elimina Invisibilidad.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 5,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "alcance_m",
+          "tipo": "por_nivel",
+          "valor": 2,
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-252",
+      "numero_tomo": 115,
+      "nombre_tomo": "Descarga de debilidad",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Turno por Nivel",
+      "disparador_y_limites": "Debilitada solo tras Tirada de Conjuro exitosa. No redondear daño sin más reglas.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "factor_danio_cuerpo_a_cuerpo",
+          "tipo": "constante",
+          "valor": 0.5,
+          "unidad": "multiplicador"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-33",
+      "numero_tomo": 116,
+      "nombre_tomo": "Detectar la mentira",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "sesenta minutos",
+      "disparador_y_limites": "Detecta mentiras deliberadas; no errores involuntarios ni control mental.",
+      "magnitudes": [
+        {
+          "clave": "ventana_declaraciones_min",
+          "tipo": "constante",
+          "valor": 60,
+          "unidad": "minutos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-320",
+      "numero_tomo": 122,
+      "nombre_tomo": "Doble ilusorio",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "3 metros por Nivel",
+      "disparador_y_limites": "El doble desaparece por contacto o impacto cuerpo a cuerpo.",
+      "magnitudes": [
+        {
+          "clave": "alcance_m",
+          "tipo": "por_nivel",
+          "valor": 3,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-365",
+      "numero_tomo": 129,
+      "nombre_tomo": "Detectar trampas",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "10 minutos por Nivel",
+      "disparador_y_limites": "Trampas simples y fosos, no mágicas ni mecanismos complejos.",
+      "magnitudes": [
+        {
+          "clave": "duracion_minutos",
+          "tipo": "por_nivel",
+          "valor": 10,
+          "unidad": "minutos"
+        },
+        {
+          "clave": "largo_busqueda_m",
+          "tipo": "constante",
+          "valor": 15,
+          "unidad": "metros"
+        },
+        {
+          "clave": "ancho_busqueda_m",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "metros"
+        },
+        {
+          "clave": "concentracion_turnos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-338",
+      "numero_tomo": 132,
+      "nombre_tomo": "Eclipse del artefacto",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Lanzamiento: 3 Turnos",
+      "disparador_y_limites": "Objeto recuperado temporalmente; Disipar magia cancela enlace dimensional.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "invocacion_regreso_turnos",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "permanencia_regreso_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-138",
+      "numero_tomo": 134,
+      "nombre_tomo": "Estrépito",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d6 puntos de daño sónico",
+      "disparador_y_limites": "Probabilidad 12+ para Derribado y Ensordecido; tamaño mayor a humanoide inmune a Derribo.",
+      "magnitudes": [
+        {
+          "clave": "danio_sonico",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Daño sónico"
+        },
+        {
+          "clave": "umbral_probabilidad_derribo",
+          "tipo": "constante",
+          "valor": 12,
+          "unidad": "Probabilidad 12+"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-142",
+      "numero_tomo": 135,
+      "nombre_tomo": "Ecos de decadencia",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Turno por Nivel",
+      "disparador_y_limites": "Sordera solo tras Tirada de Conjuro exitosa.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-172",
+      "numero_tomo": 136,
+      "nombre_tomo": "Enjambre voraz",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d10 puntos de daño por veneno",
+      "disparador_y_limites": "El efecto adicional solo tras Tirada de Conjuro exitosa.",
+      "magnitudes": [
+        {
+          "clave": "danio_inicial_veneno",
+          "tipo": "dado_literal",
+          "valor": "2d10",
+          "unidad": "Daño veneno"
+        },
+        {
+          "clave": "danio_adicional_veneno",
+          "tipo": "dado_literal",
+          "valor": "1d8",
+          "unidad": "Daño veneno"
+        },
+        {
+          "clave": "duracion_adicional_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-173",
+      "numero_tomo": 137,
+      "nombre_tomo": "Esfera corrosiva",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "3d12 puntos de daño por ácido",
+      "disparador_y_limites": "Éxito y fallo son mutuamente excluyentes; no sumar ambos.",
+      "magnitudes": [
+        {
+          "clave": "danio_acido_exito",
+          "tipo": "dado_literal",
+          "valor": "3d12",
+          "unidad": "Daño éxito"
+        },
+        {
+          "clave": "danio_acido_fallo",
+          "tipo": "dado_literal",
+          "valor": "3d6",
+          "unidad": "Daño fallo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-222",
+      "numero_tomo": 140,
+      "nombre_tomo": "Encandilamiento",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Nivel 3 o inferior",
+      "disparador_y_limites": "Solo humanoides Nivel 3 o inferior, requiere Tirada de Conjuro; condiciones y control narrativo según fuente.",
+      "magnitudes": [
+        {
+          "clave": "nivel_objetivo_maximo",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "Nivel"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-308",
+      "numero_tomo": 141,
+      "nombre_tomo": "Esfera vital",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "radio de entre 3 y 6 metros",
+      "disparador_y_limites": "El lanzador elige radio dentro de 3 a 6 metros; esfera lo acompaña.",
+      "magnitudes": [
+        {
+          "clave": "radio_minimo_m",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "metros"
+        },
+        {
+          "clave": "radio_maximo_m",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-348",
+      "numero_tomo": 144,
+      "nombre_tomo": "Eternidad arcana",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "envejeces 1d4 años",
+      "disparador_y_limites": "Sacrificio de envejecimiento al volver permanente otro conjuro; no modificar edad de ficha.",
+      "magnitudes": [
+        {
+          "clave": "envejecimiento_costo",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "años"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-395",
+      "numero_tomo": 147,
+      "nombre_tomo": "Explosión arcana",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d10 puntos de daño por fuerza por cada uno de tus Niveles",
+      "disparador_y_limites": "Tirada de Conjuro, daño total o mitad; fuente expresa superficie, no radio.",
+      "magnitudes": [
+        {
+          "clave": "danio_fuerza",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            10
+          ],
+          "unidad": "Daño fuerza"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "m²"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-409",
+      "numero_tomo": 148,
+      "nombre_tomo": "Erupción",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d6 puntos de daño contundente y por fuego por cada uno de tus Niveles",
+      "disparador_y_limites": "Requiere suelo sólido. Un mismo bloque de dados de daño contundente y fuego simultáneo.",
+      "magnitudes": [
+        {
+          "clave": "danio_contundente_fuego",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            2,
+            6
+          ],
+          "unidad": "Daño dual"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 12,
+          "unidad": "m²"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-121",
+      "numero_tomo": 150,
+      "nombre_tomo": "Endeblez",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "un -1 al daño",
+      "disparador_y_limites": "Reduce daño causado por objetivo sin ejecución automática.",
+      "magnitudes": [
+        {
+          "clave": "penalizacion_danio",
+          "tipo": "constante",
+          "valor": -1,
+          "unidad": "Daño"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-67",
+      "numero_tomo": 152,
+      "nombre_tomo": "Embozo de sombras",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Turno + 1 Turno por Nivel",
+      "disparador_y_limites": "Impide lanzar Conjuros curativos; puede terminarse empleando una Acción.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "base_mas_por_cada_n_niveles",
+          "valor": [
+            1,
+            1,
+            1
+          ],
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "danio_extra_conjuros",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Daño"
+        },
+        {
+          "clave": "blindaje_extra",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Blindaje"
         }
       ]
     }
