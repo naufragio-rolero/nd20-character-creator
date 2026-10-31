@@ -148,6 +148,8 @@ async function main(){
     assert.equal(await cdp.evalJS("document.querySelectorAll('.comprar-utiles').length"),2);
     await cdp.evalJS("document.querySelectorAll('.comprar-utiles')[0].click()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').hidden"),false);
+    assert.equal(await cdp.evalJS("document.activeElement.id"),'compras-articulo',
+      'Abrir compras debe situar el foco en el selector de artículos');
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-articulo option').length"),43);
     const nombres=await cdp.evalJS("Array.from(document.querySelectorAll('#compras-articulo option')).map(x=>x.textContent)");
     assert.ok(nombres.some(x=>x.startsWith('Martillo de campamento · 2 mo')));
@@ -163,6 +165,8 @@ async function main(){
       .includes('4.00 mo'));
     await cdp.evalJS("document.querySelector('#compras-cancelar').click()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').hidden"),true);
+    assert.equal(await cdp.evalJS("document.activeElement.classList.contains('comprar-utiles')"),true,
+      'Cancelar devuelve el foco al botón de compras del personaje');
     estado=await cdp.evalJS("Array.from(document.querySelectorAll('#fichas .tarjeta')).map(x=>x.innerHTML)");
     assert.equal(estado[0],primera.html,'Cancelar no modifica la primera ficha');
     assert.equal(estado[1],segunda.html,'Cancelar no modifica la ficha ajena');
@@ -197,6 +201,8 @@ async function main(){
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),2);
     await cdp.evalJS("document.querySelector('#form-compra-utiles').requestSubmit()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').hidden"),true);
+    assert.equal(await cdp.evalJS("document.activeElement.classList.contains('comprar-utiles')"),true,
+      'Confirmar la compra devuelve el foco a la ficha actualizada');
     estado=await cdp.evalJS("Array.from(document.querySelectorAll('#fichas .tarjeta')).map(x=>({"+
       "html:x.innerHTML,riqueza:x.querySelector('.riqueza')?.textContent}))");
     assert.ok(estado[0].html.includes('Martillo de campamento ×2'));
