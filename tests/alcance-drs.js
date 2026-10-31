@@ -692,10 +692,9 @@ for(const ocupacion of ['Clérigo','Guerrero','Mago','Ladrón']){
 console.log('OK · 120 filas de progresión DRS cotejadas; Potencia y 9 Talentos de Ocupación; Técnica DRS estricta.');
 
 /* Conjuros clericales: aprendizaje automático al abrir cada Círculo.
- * La Marca del dador oscuro se excluye por discrepancia entre dos apartados
- * del propio DRS (lista del Clérigo C4 frente a ficha individual C5). */
+ * Decisión autoral: Marca del dador oscuro es de Círculo 5, según su ficha. */
 const conocimientosClerigo=[
-  [1,0],[2,7],[4,13],[6,17],[8,21],[10,25],[12,29],[14,31],[16,33],[30,33]
+  [1,0],[2,7],[4,13],[6,17],[8,21],[9,21],[10,26],[12,30],[14,32],[16,34],[30,34]
 ];
 for(const [nivel,esperados] of conocimientosClerigo){
   const plan=planificadorDRS.planificar({
@@ -707,10 +706,13 @@ for(const [nivel,esperados] of conocimientosClerigo){
   assert.ok(plan.conjuros_automaticos.every(x=>x.origen==='Nd20'));
   assert.equal(new Set(plan.conjuros_automaticos.map(x=>x.id)).size,esperados,
     'No repetir Conjuros conocidos del Clérigo');
-  assert.ok(!plan.conjuros_automaticos.some(x=>x.nombre==='Marca del dador oscuro'),
-    'No resolver la discrepancia de Marca del dador oscuro por inferencia');
-  assert.equal(plan.avisos.some(x=>x.includes('Marca del dador oscuro')),
-    nivel>=8,'Avisar de la discrepancia cuando se abre el Círculo 4');
+  const marca=plan.conjuros_automaticos.filter(x=>x.nombre==='Marca del dador oscuro');
+  assert.equal(marca.length,nivel>=10?1:0,
+    'La Marca del dador oscuro se aprende con el Círculo 5, nunca antes');
+  if(marca.length)assert.equal(marca[0].circulo,5,
+    'El Círculo se toma de la ficha individual del Conjuro');
+  assert.ok(!plan.avisos.some(x=>x.includes('Marca del dador oscuro')),
+    'La errata editorial ya está resuelta; no mostrar advertencias obsoletas');
   const provisional=reglas.crearNd20(fuenteBase,{
     juego:'nd20',ocupacion:'Clérigo',especie:'Humano común',nivel,
     aplazarElecciones:true
@@ -732,7 +734,7 @@ for(const ocupacion of ['Guerrero','Mago','Ladrón']){
   assert.deepEqual(p.conjuros_automaticos,[],
     'El aprendizaje automático de todos los Conjuros solo corresponde al Clérigo');
 }
-console.log('OK · Conjuros del Clérigo: 33 entradas verificadas, desbloqueo y discrepancia C4/C5 documentada.');
+console.log('OK · Conjuros del Clérigo: 34 conocidos; Marca del dador oscuro en Círculo 5 por decisión autoral.');
 
 /* Decisión editorial 31/10/2026: el Ladrón conserva los ocho huecos de
  * progresión, cubribles por futuros suplementos GRATUITOS. El DRS no importa
@@ -764,17 +766,22 @@ for(const nivel of [24,25,28,29,30]){
 }
 console.log('OK · Política editorial del Ladrón: 6 Técnicas DRS, hasta 8 con DLC habilitado sin cambiar progresión.');
 
-/* Catálogo DRS: las tablas oficiales incluyen 38 armas en total;
- * Dardo carece de precio y NO se convierte en un regalo automático.
- * De las otras 37, todas tienen precio documentado. */
-assert.equal(catalogoEquipamiento.armas.length,37,
-  'Todas las armas DRS con precio documentado');
+/* Catálogo DRS: el manual lista 38 armas. El autor fija Dardo a 0 mo,
+ * manteniendo 37 precios literales y una decisión editorial registrada. */
+assert.equal(catalogoEquipamiento.armas.length,38,
+  'Todas las armas DRS, incluido Dardo gratuito por decisión del autor');
 assert.equal(catalogoEquipamiento.armaduras.length,14,
   'Las 14 protecciones corporales del DRS, con categoría y precio');
 assert.equal(catalogoEquipamiento.varitas_defensa.length,4,
   'Las cuatro varitas de defensa oficiales del DRS');
-assert.ok(!catalogoEquipamiento.armas.some(x=>x.nombre==='Dardo'),
-  'Dardo sin precio no se asigna como objeto gratuito por coacción numérica');
+assert.deepEqual(
+  Object.fromEntries(Object.entries(catalogoEquipamiento.armas.find(x=>x.nombre==='Dardo'))
+    .filter(([key])=>['precio','tipo','alcance','dano','penetracion','durabilidad','municion'].includes(key))),
+  {precio:0,tipo:'distancia',alcance:'9 m',dano:'1d4',penetracion:0,
+    durabilidad:'d4',municion:'Dardos'},
+  'Dardo: gratis, conservando todas las características de la tabla DRS');
+assert.equal(catalogoEquipamiento.municion.find(x=>x.nombre==='Dardos').precio,.2,
+  'La gratuidad del Dardo no cambia el precio de su munición');
 const equipoEsperadoDRS={
   'Jabalina':{precio:.5,tipo:'una_mano',dano:'1d6',penetracion:2,durabilidad:'d4'},
   'Lucero del alba':{precio:15,tipo:'una_mano',dano:'1d8',penetracion:2,durabilidad:'d8'},
@@ -841,11 +848,33 @@ for(const [ocupacion,nivel] of [
     const compra=compraNivel(ocupacion,nivel,presupuesto);
     assert.ok(compra.gastado<=presupuesto);
     assert.ok(compra.restante>=0);
-    assert.ok(compra.equipo.every(x=>x!=='Dardo'),
-      'Nunca ofrecer Dardo con precio sin verificar');
+    assert.ok(compra.equipo.every(x=>!x.startsWith('Dardo (') ),
+      'Dardo gratuito: no simular suplementos ni precios adicionales');
   }
 }
-console.log('OK · Equipo oficial: 37 armas con precio, 14 armaduras y 4 varitas; competencia de varitas verificada.');
+
+// Solo Guerrero y Ladrón tienen competencia con el Dardo, y 0 mo
+// no equivale a un precio desconocido, ni permite comprar munición gratis.
+for(const ocupacion of ['Guerrero','Ladrón']){
+  assert.ok(ocupaciones[ocupacion].armas.includes('Dardo'));
+  const soloDardo=structuredClone(catalogoEquipamiento);
+  soloDardo.armas=soloDardo.armas.filter(x=>x.nombre==='Dardo');
+  soloDardo.municion=[]; // la munición no se regala al comprar el arma
+  const gratuito=equipamientoDRS.compraInicial(ocupaciones[ocupacion],ocupacion,
+    'nd20',soloDardo,0,()=>0,1,especies['Humano común']);
+  assert.ok(gratuito.equipo.includes('Dardo'),'Arma gratis se puede comprar con 0 mo');
+  assert.equal(gratuito.gastado,0);
+  assert.equal(gratuito.restante,0);
+}
+for(const ocupacion of ['Mago','Clérigo']){
+  assert.ok(!ocupaciones[ocupacion].armas.includes('Dardo'),
+    'Dardo no debe saltarse las competencias de Ocupación');
+}
+const marcaCatalogo=catalogo.conjuros.find(x=>x.nombre==='Marca del dador oscuro');
+assert.equal(marcaCatalogo.circulo,5,'Ficha del Conjuro es la fuente de Círculo 5');
+assert.ok(!catalogo.listas_drs['Clérigo']['4'].includes(marcaCatalogo.nombre));
+assert.ok(catalogo.listas_drs['Clérigo']['5'].includes(marcaCatalogo.nombre));
+console.log('OK · Equipo oficial: 38 armas (Dardo gratuito), 14 armaduras y 4 varitas; competencias verificadas.');
 
 /* Las listas expresas de equipo no pueden contradecir las Competencias
  * genéricas del DRS: armas romas Clérigo; todo el armamento Guerrero;
