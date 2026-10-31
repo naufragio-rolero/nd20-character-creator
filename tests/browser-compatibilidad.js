@@ -155,6 +155,45 @@ async function probar(nombre,tipo,url){
       assert.match(await tarjeta.innerText(),/No identifica un personaje canónico/);
       await page.locator('#borrar').click();
     }
+    // Caso observado por el autor: Mediano amable + Guerrero.
+    // Los efectos de Talentos deben abrirse JUNTO a su nombre; no quedarse
+    // escondidos entre compras, envejecimiento y avisos al final.
+    await page.selectOption('#modo-nombre','especie');
+    await page.selectOption('#ocupacion','Guerrero');
+    await page.selectOption('#especie','Mediano amable');
+    await page.fill('#nombre-personaje','Prueba de Talentos');
+    await page.fill('#nivel','1');
+    await page.fill('#semilla','Forja-popup-talentos-'+nombre);
+    await page.locator('#generar').click();
+    const fichaTalentos=page.locator('#fichas .tarjeta').first();
+    await fichaTalentos.waitFor();
+    const baja=fichaTalentos.locator('.referencia-glosario[data-glosa-nombre="Baja estatura"]');
+    assert.equal(await baja.count(),1,nombre+': Baja estatura debe ser consultable');
+    await baja.click();
+    assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
+      /Solo puedes usar armas y armaduras adaptadas a tu tamaño/);
+    assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
+      /\+1 a las Tiradas de Esquiva contra ataques a distancia/);
+    await page.keyboard.press('Escape');
+    const salvese=fichaTalentos.locator(
+      '.referencia-glosario[data-glosa-nombre="¡Sálvese quien pueda!"]');
+    await salvese.click();
+    assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
+      /gastar 1 Punto de Esfuerzo y una Acción/);
+    await page.keyboard.press('Escape');
+    const recuperacion=fichaTalentos.locator(
+      '.referencia-glosario[data-glosa-nombre="Recuperación"]');
+    await recuperacion.click();
+    assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
+      /1 Intervalo para recuperar 1d8 Puntos de Salud/);
+    await page.keyboard.press('Escape');
+    assert.equal(await fichaTalentos.locator('.bloque-ficha').filter({hasText:'Observaciones'}).count(),0,
+      nombre+': no duplicar descripciones completas al final en Observaciones');
+    assert.equal(await fichaTalentos.locator('.avisos-talentos').count(),0,
+      nombre+': el DRS sí tiene todos esos textos en sus popups');
+    assert.ok(await fichaTalentos.locator('.avisos-equipo').count()>=1,
+      nombre+': la regla de equipo de Baja estatura se conserva junto al equipo');
+    await page.locator('#borrar').click();
     await page.selectOption('#modo-nombre','especie');
     assert.equal(await page.locator('#opciones-ambito-nombre').isHidden(),true);
     await page.selectOption('#modo-nombre','combinado');
