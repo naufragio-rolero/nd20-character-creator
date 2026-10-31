@@ -2,7 +2,7 @@
   "version": 1,
   "fecha": "2026-10-31",
   "objetivo": "Forja 1.0: núcleo completo de Naufragio d20 Fantasía conforme al DRS",
-  "estado": "desarrollo_y_auditoria_pendientes_no_publicado",
+  "estado": "datos_de_conjuros_drs_integrados_revision_de_mecanicas_pendiente_no_publicado",
   "regla_de_publicacion": "Solo DRS disponible por defecto para Fantasía; ampliaciones retenidas como DLC gratuitos posteriores, sin borrar el trabajo.",
   "fuentes_publicadas_fantasia": [
     "DRS"
@@ -350,11 +350,13 @@
       "especies": 8,
       "ocupaciones": 4,
       "conjuros": 64,
-      "conjuros_magnitudes_verificadas": 32
+      "conjuros_magnitudes_verificadas": 64,
+      "conjuros_magnitudes_pendientes": 0
     },
     "fuente_especies": "NaufragioD20DRS.docx — Especies",
     "fuente_ocupaciones": "NaufragioD20DRS.docx — Ocupaciones",
-    "fuente_conjuros": "NaufragioD20DRS.docx — listas de Conjuros"
+    "fuente_conjuros": "NaufragioD20DRS.docx — listas de Conjuros",
+    "cobertura_mecanica": "64/64 fichas con magnitudes literales verificadas; NO implica lanzamiento, Tiradas, daños, condiciones o recursos automatizados."
   },
   "paquetes_posteriores": [
     {
