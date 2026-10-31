@@ -260,6 +260,8 @@ for(const [especie,alternativa] of [
   ['Semielfo','Linaje feérico'],
   ['Semiorco','Ira interna']
 ]){
+  assert.deepEqual(especies[especie].herencia_dual,['Buen desarrollo',alternativa],
+    'La fuente mecánica de Herencia dual es el catálogo DRS');
   const planPersonal=planificadorDRS.planificar(
     {juego:'nd20',modo:'personalizado',nivel:1,ocupacion:'Mago',especie},
     fuenteBase,catalogo,progresiones);
@@ -358,7 +360,24 @@ for(const [especie,alternativa] of [
   },reglas.aleatorioSemilla('error')),/Herencia dual ajena/,
   'Solo alternativas autorizadas por el DRS');
 }
-console.log('OK · Herencia dual: dos Especies, dos ramas, seis Atributos, cuatro Ocupaciones, Niveles 1/5/12/30.');
+const appHerencia=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
+assert.ok(appHerencia.includes("herenciaPendiente:true"),
+  'El modo Personalizado crea un estado provisional explícito');
+assert.ok(appHerencia.includes("herenciaDual:partesHerencia[0]"),
+  'El editor comunica la alternativa elegida al motor de creación');
+assert.ok(appHerencia.includes("reglas.aleatorioSemilla('forja-herencia:'"),
+  'El modo Personalizado regenera la ficha desde la misma semilla');
+assert.ok(appHerencia.includes("nuevo.descripcion!==personaje.descripcion"),
+  'No cambiar Especie u Ocupación durante la regeneración');
+for(const especie of ['Semielfo','Semiorco']){
+  const cfg={juego:'nd20',nivel:30,ocupacion:'Mago',especie,aplazarElecciones:true};
+  const rapido=reglas.crearNd20(fuenteBase,cfg,reglas.aleatorioSemilla('rapido/'+especie));
+  assert.ok(especies[especie].herencia_dual.includes(rapido.herencia_dual));
+  assert.ok(rapido.capacidades.includes(rapido.herencia_dual),
+    'Rápido resuelve Herencia dual antes de subir 29 Niveles');
+  assert.equal(rapido.atributo_buen_desarrollo===null,rapido.herencia_dual!=='Buen desarrollo');
+}
+console.log('OK · Herencia dual: dos Especies, ambos modos, seis Atributos, cuatro Ocupaciones, Niveles 1/5/12/30.');
 console.log('OK · Auditoría normativa DRS: 8 perfiles de Especie, 4 Ocupaciones y regresiones de elecciones.');
 
 
