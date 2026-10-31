@@ -106,7 +106,7 @@
     $('aviso-alcance-drs').hidden = juego!=='nd20';
     $('opciones-nombres-ylat').hidden = juego!=='nd20';
     $('opciones-ambito-nombre').hidden = juego!=='nd20'||
-      $('modo-nombre').value==='especie';
+      $('modo-nombre').value!=='combinado';
     $('opciones-riqueza-nivel').hidden=dh||juego==='nd20_nocturna';
     $('modos-creacion').hidden = dh;
     $('opciones-contexto-sexo').hidden=dh;
@@ -179,7 +179,8 @@
       sexo:$('sexo-pj').value,
       respetarContextoSexo:$('respetar-contexto-sexo').checked,
       modoNombre:$('modo-nombre').value,
-      ambitoNombre:$('ambito-nombre').value,
+      ambitoNombre:$('modo-nombre').value==='combinado'?
+        $('ambito-nombre').value:'todos',
       riquezaPorNivel:(juego==='nd20'||juego==='nd20_cifi')&&
         $('riqueza-por-nivel').checked};
   }
