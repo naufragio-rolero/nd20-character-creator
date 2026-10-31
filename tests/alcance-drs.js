@@ -908,3 +908,97 @@ assert.ok(!mago.equipo.some(x=>
   catalogoEquipamiento.armaduras.some(y=>y.nombre===x && y.tipo!=='tela')),
   'El Mago conserva la protección exclusivamente de tela');
 console.log('OK · Competencias reales DRS: Clérigo armas romas, Guerrero todas las armas, Ladrón armaduras ligeras y Mago tela.');
+
+/* Tablas de útiles del DRS: cinco bloques completos, 41 registros.
+ * Precios normalizados a mo, sin confundir precios por Nivel ni la
+ * herramienta Almádena de campamento con el arma a dos manos. */
+const utilidadDRS={
+  aventura:[
+    ['Aparejo de poleas',3],['Bolsa de abrojos',1],['Bolsa de canicas',1],
+    ['Cuerda',1],['Cuerda de seda',10],['Espejo de acero',5],['Gancho',2],
+    ['Lupa',100],['Símbolo sagrado',5],['Tiza',.01]
+  ],
+  campamento:[
+    ['Almádena',2],['Manta',.5],['Saco de dormir',1],
+    ['Tienda de campaña',10],['Ración de alimento',.01],['Yesquero',.5]
+  ],
+  consumibles:[
+    ['Aceite animal',.1],['Ácido',25],['Agua bendita',30],
+    ['Antídoto',null],['Fuego alquímico',50],['Poción de curación',40],
+    ['Veneno',null]
+  ],
+  herramientas:[
+    ['Alambique',100],['Caña y aparejos',15],['Catalejo',1000],['Ganzúas',25],
+    ['Kit de cocina',.2],['Kit de escalada',25],['Kit de medicina',5],
+    ['Mortero',.3],['Pala',2],['Pértiga',.05],['Pico de minero',2],
+    ['Piedra de afilar',.01]
+  ],
+  escritura:[
+    ['Lacre',.5],['Libro',25],['Libro de conjuros',50],
+    ['Pergamino',.08],['Sello',5],['Tinta y pluma',10]
+  ]
+};
+const tablaUtiles=catalogoEquipamiento.utiles_fantasia;
+assert.deepEqual(Object.keys(tablaUtiles),Object.keys(utilidadDRS));
+const todosUtiles=Object.values(tablaUtiles).flat();
+assert.equal(todosUtiles.length,41);
+assert.equal(new Set(todosUtiles.map(x=>x.id)).size,41);
+for(const [grupo,esperados] of Object.entries(utilidadDRS)){
+  assert.deepEqual(tablaUtiles[grupo].map(x=>[x.nombre,
+      x.precio===undefined?null:x.precio]),esperados,
+    'Útiles y precios literales de la tabla DRS: '+grupo);
+  assert.ok(tablaUtiles[grupo].every(x=>x.fuente==='DRS'));
+  for(const item of tablaUtiles[grupo]){
+    if(item.precio===undefined)continue;
+    assert.deepEqual(equipamientoDRS.consultarUtilFantasia(
+      catalogoEquipamiento,item.id),
+      {id:item.id,nombre:item.nombre,seccion:grupo,precio:item.precio,
+       nivel:null,du:item.du||null,detalle:item.detalle||''},
+      'Consulta inequívoca por ID de útil '+item.id);
+  }
+}
+assert.equal(tablaUtiles.consumibles.find(x=>x.nombre==='Antídoto').precio_por_nivel,50);
+assert.equal(tablaUtiles.consumibles.find(x=>x.nombre==='Veneno').precio_por_nivel,100);
+assert.equal(equipamientoDRS.consultarUtilFantasia(
+  catalogoEquipamiento,'consumible-antidoto',3).precio,150);
+assert.equal(equipamientoDRS.consultarUtilFantasia(
+  catalogoEquipamiento,'consumible-veneno',2).precio,200);
+assert.throws(()=>equipamientoDRS.consultarUtilFantasia(
+  catalogoEquipamiento,'consumible-veneno'),/requiere un Nivel positivo/);
+assert.throws(()=>equipamientoDRS.consultarUtilFantasia(
+  catalogoEquipamiento,'consumible-antidoto',0),/requiere un Nivel positivo/);
+assert.throws(()=>equipamientoDRS.consultarUtilFantasia(
+  catalogoEquipamiento,'objeto-no-existe'),/no documentado en el DRS/);
+const herramienta=equipamientoDRS.consultarUtilFantasia(
+  catalogoEquipamiento,'campamento-almadena');
+const armaAlmadena=catalogoEquipamiento.armas.find(x=>x.nombre==='Almádena');
+assert.equal(herramienta.precio,2,'La herramienta Almádena vale 2 mo');
+assert.equal(armaAlmadena.precio,60,'El arma Almádena vale 60 mo');
+assert.equal(herramienta.seccion,'campamento');
+assert.equal(armaAlmadena.tipo,'dos_manos');
+assert.deepEqual(catalogoEquipamiento.focos_conjuros_con_precio
+  .map(x=>[x.nombre,x.precio]),[['Tótem',25],['Orbe de cristal',75]]);
+assert.equal(equipamientoDRS.consultarUtilFantasia(
+  catalogoEquipamiento,'foco-totem').precio,25);
+assert.equal(equipamientoDRS.consultarUtilFantasia(
+  catalogoEquipamiento,'foco-orbe-cristal').precio,75);
+const compraHerramientas=equipamientoDRS.compraUtilesFantasia(
+  catalogoEquipamiento,300,[
+    {id:'campamento-almadena',cantidad:2},
+    {id:'herramienta-kit-medicina'},
+    {id:'consumible-antidoto',nivel:3},
+    {id:'aventura-tiza',cantidad:4},
+    {id:'foco-totem'}
+  ]);
+assert.equal(compraHerramientas.gastado,184.04);
+assert.equal(compraHerramientas.restante,115.96);
+assert.equal(compraHerramientas.detalles.length,5);
+assert.ok(compraHerramientas.equipo.includes('Almádena ×2'));
+assert.ok(compraHerramientas.equipo.includes('Antídoto (Nivel 3)'));
+assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
+  catalogoEquipamiento,1,[{id:'herramienta-kit-medicina'}]),/supera el presupuesto/);
+assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
+  catalogoEquipamiento,10,[{id:'aventura-tiza',cantidad:0}]),/Cantidad incorrecta/);
+assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
+  catalogoEquipamiento,10,[{id:'consumible-veneno'}]),/requiere un Nivel/);
+console.log('OK · 41 útiles DRS y 2 focos: precios, antídoto/veneno por Nivel, Almádenas separadas y compras válidas.');
