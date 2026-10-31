@@ -1,0 +1,69 @@
+name: Forja LIVE — publicación segura DRS
+
+# El punto de publicación se conserva en main. El código de Forja se
+# promueve únicamente mediante un SHA revisado y probado: NO se despliega
+# el árbol ni las fuentes inéditas del repositorio.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/forja-live.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: forja-live-pages
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Obtener únicamente la versión 1.1 validada
+        uses: actions/checkout@v4
+        with:
+          ref: 2b1fc1cd24aada9385a96241f37ccd03dc086714
+          persist-credentials: false
+      - name: Comprobar la revisión exacta de la entrega
+        run: |
+          test "$(git rev-parse HEAD)" = "2b1fc1cd24aada9385a96241f37ccd03dc086714"
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Generar solo la carpeta DRS autorizada
+        run: node scripts/crear-paquete-drs.js
+      - name: Detener la publicación ante DLC o sistemas no autorizados
+        run: node scripts/comprobar-publicacion-drs.js dist/public-drs
+      - name: Auditar la distribución y sus textos de reglas
+        run: node tests/paquete-publico-drs.js
+      - name: Verificar interacción real de Chrome
+        env:
+          FORJA_PUBLIC_ROOT: dist/public-drs
+        run: node tests/browser-compras.js
+      - name: Instalar Firefox y WebKit para verificar el sitio real
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps firefox webkit
+      - name: Verificar la distribución en Firefox y WebKit
+        env:
+          FORJA_PUBLIC_ROOT: dist/public-drs
+        run: node tests/browser-compatibilidad.js
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Subir exclusivamente el paquete depurado
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/public-drs
+      - name: Publicar Forja LIVE
+        id: deployment
+        uses: actions/deploy-pages@v4
