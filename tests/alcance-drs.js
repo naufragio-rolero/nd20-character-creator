@@ -461,31 +461,63 @@ for(const especie of ['Mediano amable','Gnomo urbano']){
     catalogoEquipo:catalogoEquipamiento};
   const ficha=reglas.crearNd20(fuenteBase,cfg,
     reglas.aleatorioSemilla('Baja estatura/'+especie));
-  const comprado=([
-    ...catalogoEquipamiento.armas,
-    ...catalogoEquipamiento.armaduras,
-    ...catalogoEquipamiento.escudos
-  ]).map(x=>x.nombre);
-  assert.ok(ficha.equipo.every(x=>!comprado.includes(x)||x==='Escudo pequeño'),
-    'La ficha no compra armamento o armadura sin adaptación verificada');
-  assert.ok(ficha.notas.some(x=>x.includes('adaptación confirmada')),
-    'El usuario debe conocer la restricción de talla');
-  const compra=equipamientoDRS.compraInicial(ocupaciones.Guerrero,'Guerrero','nd20',
-    catalogoEquipamiento,1000,()=>0.999,30,especies[especie]);
+  assert.ok(ficha.notas.some(x=>x.includes('versión adaptada al tamaño')),
+    'La ficha debe aclarar la adaptación editorial del equipo');
+  assert.ok(!ficha.notas.some(x=>x.includes('adaptación confirmada')),
+    'No deben permanecer avisos de falta de adaptación');
+  for(const ocupacion of ['Clérigo','Guerrero','Mago','Ladrón']){
+    for(const nivel of [1,12,30]){
+      // Con las mismas tiradas y la misma Ocupación, Baja estatura no debe
+      // restringir las armas/armaduras del catálogo, solo los escudos.
+      const semilla='Adaptacion/'+ocupacion+'/'+nivel;
+      const origen=equipamientoDRS.compraInicial(ocupaciones[ocupacion],ocupacion,
+        'nd20',catalogoEquipamiento,1000,
+        reglas.aleatorioSemilla(semilla),nivel,especies['Humano común']);
+      const adaptado=equipamientoDRS.compraInicial(ocupaciones[ocupacion],ocupacion,
+        'nd20',catalogoEquipamiento,1000,
+        reglas.aleatorioSemilla(semilla),nivel,especies[especie]);
+      const armasYArmaduras=new Set([
+        ...catalogoEquipamiento.armas,...catalogoEquipamiento.armaduras
+      ].map(x=>x.nombre));
+      assert.deepEqual(
+        adaptado.equipo.filter(x=>armasYArmaduras.has(x)),
+        origen.equipo.filter(x=>armasYArmaduras.has(x)),
+        'Mismas armas y armaduras con igual RNG, Ocupación y presupuesto: '+
+        especie+'/'+ocupacion+'/'+nivel);
+      assert.ok(!adaptado.equipo.some(x=>
+        x==='Escudo mediano'||x==='Escudo grande'),
+        'Baja estatura no permite escudos medianos/grandes: '+
+        especie+'/'+ocupacion+'/'+nivel);
+      if(['Mago','Ladrón'].includes(ocupacion))
+        assert.ok(!adaptado.equipo.some(x=>x.startsWith('Escudo ')),
+          'No conceder competencia de escudo a '+ocupacion);
+      assert.equal(adaptado.gastado,
+        adaptado.equipo.filter(x=>!x.startsWith('Paquete ')).reduce((n,x)=>{
+          const todos=[...catalogoEquipamiento.armas,
+            ...catalogoEquipamiento.armaduras,...catalogoEquipamiento.escudos,
+            ...catalogoEquipamiento.municion];
+          const objeto=todos.find(y=>y.nombre===x);
+          return n+(objeto?objeto.precio:0);
+        },0)+adaptado.equipo.filter(x=>x.startsWith('Paquete ')).reduce((n,x)=>{
+          const paquete=catalogoEquipamiento.paquetes.find(y=>
+            x.startsWith('Paquete '+y.nombre+':'));
+          return n+(paquete?paquete.precio:0);
+        },0),'Sin sobreprecio de adaptación: '+especie+'/'+ocupacion);
+    }
+  }
+  // El Guerrero tiene competencia con todos los escudos, pero solo puede
+  // recibir el pequeño; en el catálogo no hay marcas de adaptación.
+  const compra=equipamientoDRS.compraInicial(ocupaciones.Guerrero,'Guerrero',
+    'nd20',catalogoEquipamiento,1000,()=>0.999,30,especies[especie]);
+  assert.ok(compra.equipo.includes('Escudo pequeño'),
+    'Escudo pequeño disponible para un Guerrero de Baja estatura');
   assert.ok(!compra.equipo.some(x=>['Escudo mediano','Escudo grande'].includes(x)));
-  assert.ok(compra.equipo.includes('Escudo pequeño'),'Solo escudo pequeño permitido');
-  assert.ok(!compra.equipo.some(x=>catalogoEquipamiento.armaduras.some(y=>y.nombre===x)));
-  const catalogoAdaptado=structuredClone(catalogoEquipamiento);
-  catalogoAdaptado.armas.find(x=>x.nombre==='Daga').adaptada_baja_estatura=true;
-  catalogoAdaptado.armaduras.find(x=>x.nombre==='Armadura de tela').adaptada_baja_estatura=true;
-  const verificable=equipamientoDRS.compraInicial(ocupaciones.Guerrero,'Guerrero',
-    'nd20',catalogoAdaptado,1000,()=>0,1,especies[especie]);
-  assert.ok(verificable.equipo.includes('Daga'));
-  assert.ok(verificable.equipo.includes('Armadura de tela'));
-  assert.ok(verificable.equipo.every(x=>
-    !catalogoAdaptado.armas.some(y=>y.nombre===x&&!y.adaptada_baja_estatura)&&
-    !catalogoAdaptado.armaduras.some(y=>y.nombre===x&&!y.adaptada_baja_estatura)),
-    'Solo compras explícitamente adaptadas; nunca inferir adaptación por categoría');
+  const primera=equipamientoDRS.compraInicial(ocupaciones.Guerrero,'Guerrero',
+    'nd20',catalogoEquipamiento,1000,()=>0,1,especies[especie]);
+  assert.ok(primera.equipo.some(x=>catalogoEquipamiento.armas.some(y=>y.nombre===x)),
+    'Baja estatura no bloquea armas disponibles en catálogo');
+  assert.ok(primera.equipo.some(x=>catalogoEquipamiento.armaduras.some(y=>y.nombre===x)),
+    'Baja estatura no bloquea armaduras disponibles en catálogo');
 }
 {
   const modo={juego:'nd20',especie:'Humano común',ocupacion:'Mago',nivel:1,
