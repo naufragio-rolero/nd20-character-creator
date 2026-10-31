@@ -767,7 +767,8 @@
     }
   ],
   "decisiones_editoriales": {
-    "dardo_precio": "El autor fija el precio del Dardo en 0 mo (31/10/2026); el DRS indicaba «—». La munición Dardos conserva su precio y DU del DRS."
+    "dardo_precio": "El autor fija el precio del Dardo en 0 mo (31/10/2026); el DRS indicaba «—». La munición Dardos conserva su precio y DU del DRS.",
+    "martillo_campamento": "Decisión editorial del 31/10/2026: el útil «Almádena» del listado de Campamento pasa a llamarse «Martillo de campamento». Conserva precio 2 mo y uso como Clava. El arma Almádena conserva su nombre y precio 60 mo. Se preserva el nombre literal DRS en nombre_original_drs."
   },
   "utiles_fantasia": {
     "aventura": [
@@ -847,11 +848,12 @@
     ],
     "campamento": [
       {
-        "id": "campamento-almadena",
-        "nombre": "Almádena",
+        "id": "campamento-martillo",
+        "nombre": "Martillo de campamento",
         "precio": 2,
-        "detalle": "Herramienta. Puede usarse como Clava; no es el arma Almádena (60 mo).",
-        "fuente": "DRS"
+        "detalle": "Herramienta de campamento; puede utilizarse como Clava. En el DRS figura como «Almádena». No es el arma Almádena a dos manos (60 mo).",
+        "fuente": "DRS",
+        "nombre_original_drs": "Almádena"
       },
       {
         "id": "campamento-manta",
@@ -1099,5 +1101,5 @@
       "fuente": "DRS"
     }
   ],
-  "notas_equipo_fantasia": "Los precios de los útiles se expresan en monedas de oro (1 mc = 0,01 mo; 1 mp = 0,1 mo). Antídoto y Veneno cuestan por Nivel, nunca se les atribuye precio fijo sin elegirlo. La Almádena de Campamento (2 mo) es distinta del arma Almádena (60 mo). La inclusión en este inventario no concede equipo gratuito ni Competencia por sí misma."
+  "notas_equipo_fantasia": "Los precios de los útiles se expresan en monedas de oro (1 mc = 0,01 mo; 1 mp = 0,1 mo). Antídoto y Veneno cuestan por Nivel, nunca se les atribuye precio fijo sin elegirlo. El Martillo de campamento (2 mo, llamado «Almádena» en el DRS) es distinto del arma Almádena (60 mo). La inclusión en este inventario no concede equipo gratuito ni Competencia por sí misma."
 }
