@@ -133,6 +133,20 @@ async function main(){
       'La interfaz DRS no debe mostrar Ocupaciones DLC');
     const especies=await cdp.evalJS("Array.from(document.querySelectorAll('#especie option')).map(x=>x.value).filter(Boolean)");
     assert.equal(especies.length,8,'Solo ocho Especies DRS publicadas');
+    assert.equal(await cdp.evalJS("document.querySelector('#modo-nombre').value"),
+      'combinado','Por defecto se ofrecen las 149 variantes de Ylat');
+    assert.equal(await cdp.evalJS("document.querySelector('#ambito-nombre').value"),
+      'todos','Sin procedencia restringida de forma implícita');
+    const tesauroPagina=await cdp.evalJS("(async()=>{"+
+      "let r=await fetch('data/tesauro-ylat.json');return await r.json()})()");
+    assert.equal(tesauroPagina.entradas.filter(x=>x.tipo==='combinado').length,149);
+    if(process.env.FORJA_PUBLIC_ROOT){
+      assert.equal(tesauroPagina.entradas.length,149,
+        'Los nombres de 51 PNJ documentados no aparecen en la distribución');
+      assert.equal(await cdp.evalJS(
+        "document.querySelector('#modo-nombre option[value=documentado]')===null"),
+        true,'La opción de PNJ documentados se oculta en la versión pública');
+    }
     await cdp.evalJS("(()=>{"+
       "document.querySelector('#ocupacion').value='Guerrero';"+
       "document.querySelector('#especie').value='Humano común';"+
