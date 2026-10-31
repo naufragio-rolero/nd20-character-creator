@@ -98,6 +98,20 @@ assert.equal(literales.registros.length,41,'41 fichas de magnitudes registradas'
 assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,41,
   'No repetir IDs entre los 41 Conjuros modelados');
 for(const entrada of literales.registros){
+  // Cada magnitud debe conservar evidencia textual y funcionar en varios niveles.
+  assert.equal(new Set(entrada.magnitudes.map(x=>x.clave)).size,entrada.magnitudes.length,
+    'Magnitudes sin claves repetidas: '+entrada.nombre_tomo);
+  for(const nivelPrueba of [1,5,10,30]){
+    const salida=motorMagnitudes.evaluar(literales,entrada.id_catalogo,nivelPrueba);
+    assert.equal(salida.numero_tomo,entrada.numero_tomo);
+    assert.equal(salida.magnitudes.length,entrada.magnitudes.length);
+    for(const campo of salida.magnitudes){
+      assert.ok(typeof campo.valor==='boolean'||
+        (typeof campo.valor==='number'&&Number.isFinite(campo.valor))||
+        (typeof campo.valor==='string'&&/^\\d+d(?:4|6|8|10|12|20|100)$/.test(campo.valor)),
+        'Resultado puramente declarativo: '+entrada.nombre_tomo+'/'+campo.clave);
+    }
+  }
   const ficha=revisados.find(x=>x.numero_tomo===entrada.numero_tomo);
   assert.ok(ficha,'Ficha de Conjuro original '+entrada.numero_tomo);
   assert.equal(entrada.id_catalogo,ficha.id_catalogo,'ID literal '+entrada.nombre_tomo);
