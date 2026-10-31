@@ -84,6 +84,7 @@ const especificas=[
   'data/conjuros-magnitudes-literales.json','data/alcance-drs-y-dlc.json',
   'data/conjuros-danio-compuesto.json','data/progresiones-oficiales.json',
   'data/equipo-inicial.json','data/fichas-documentales.json',
+  'data/talentos-drs-literales.json',
   'data/dungeon-hack.json'
 ];
 const transformaciones={
