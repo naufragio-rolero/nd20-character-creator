@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "fecha": "2026-10-31",
   "decision": "DEC-CONJ-06_resuelta_parcialmente_por_autor",
   "fuentes": "fichas revisadas del Tomo",
@@ -125,6 +125,44 @@
       "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
       "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
       "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional"
+    },
+    {
+      "numero_tomo": 216,
+      "id_catalogo": "conjuro-51",
+      "nombre_tomo": "Lluvia de estrellas",
+      "evidencia_literal": "10d8 de daño radiante y psíquico",
+      "tipos": [
+        "radiante",
+        "psíquico"
+      ],
+      "dados_base": "10d8",
+      "dados_por_nivel": false,
+      "grupos_de_dados": 1,
+      "regla": "un solo resultado de daño con todos los tipos simultáneos",
+      "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
+      "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
+      "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional",
+      "condicion_activacion": "Solo la rama de Tirada de Conjuro superada aplica ambos tipos. Si falla, el daño es 5d6 radiante sin componente psíquico.",
+      "rama": "exito"
+    },
+    {
+      "numero_tomo": 220,
+      "id_catalogo": "conjuro-28",
+      "nombre_tomo": "Luz de luna",
+      "evidencia_literal": "1d6 adicional de daño radiante y psíquico",
+      "tipos": [
+        "radiante",
+        "psíquico"
+      ],
+      "dados_base": "1d6",
+      "dados_por_nivel": false,
+      "grupos_de_dados": 1,
+      "regla": "un solo resultado de daño con todos los tipos simultáneos",
+      "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
+      "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
+      "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional",
+      "condicion_activacion": "El daño adicional del arma afectada es de ambos tipos simultáneamente.",
+      "rama": "siempre"
     },
     {
       "numero_tomo": 387,
