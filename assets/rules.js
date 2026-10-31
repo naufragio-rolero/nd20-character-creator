@@ -211,6 +211,14 @@
       capacidades.push(eleccionOcupacion);
       detalles.push('Talento adicional de Ocupación seleccionado: ' + eleccionOcupacion + '.');
     }
+    // La ficha debe describir los efectos raciales, incluso cuando no existe
+    // un motor de combate/estados que pueda ejecutarlos en una partida.
+    if (config.juego === 'nd20' && esp.talentos_descripcion) {
+      Object.keys(esp.talentos_descripcion).forEach(function(talento){
+        if(capacidades.includes(talento))
+          detalles.push('Talento de Especie — '+talento+': '+esp.talentos_descripcion[talento]);
+      });
+    }
     // Los Talentos oficiales de inicio figuran en oc.talentos, contrastados
     // con el apartado Talentos del manual; no se conceden referencias sueltas.
     var referencias=(oc.talentos_referencia||[]).filter(function(t){
