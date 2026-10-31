@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "fecha": "2026-10-30",
   "estado": "subconjunto_mecanico_parcial_cotejado_sin_mutar_personajes",
   "alcance": "Magnitudes explícitas sin Tiradas ni redondeos inferidos; datos de daño por Turno o por Nivel expresados, no ejecutados",
@@ -1004,6 +1004,121 @@
           "unidad": "Intervalos"
         }
       ]
+    },
+    {
+      "id_catalogo": "conjuro-87",
+      "numero_tomo": 363,
+      "nombre_tomo": "Salmo de protección",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "+1 a Blindaje por cada 6 de tus Niveles (mínimo +1)",
+      "disparador_y_limites": "Aumenta a partir de cada bloque completo de 6 Niveles; mínimo +1 explícito.",
+      "magnitudes": [
+        {
+          "clave": "bono_blindaje",
+          "tipo": "por_cada_n_niveles",
+          "valor": [
+            1,
+            6,
+            1
+          ],
+          "unidad": "Blindaje"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-243",
+      "numero_tomo": 380,
+      "nombre_tomo": "Sifón de recuerdos",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "último Turno +1 Turno hacia atrás por cada 3 de tus Niveles",
+      "disparador_y_limites": "Un Turno base más uno por bloque completo de 3 Niveles. Tirada independiente por cada víctima.",
+      "magnitudes": [
+        {
+          "clave": "turnos_de_memoria",
+          "tipo": "base_mas_por_cada_n_niveles",
+          "valor": [
+            1,
+            1,
+            3
+          ],
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "criaturas_maximas",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "criaturas"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-289",
+      "numero_tomo": 385,
+      "nombre_tomo": "Surcar la tierra",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "hasta 4 metros cúbicos de tierra, barro o arena",
+      "disparador_y_limites": "Volumen máximo de 4 m³; dos ejemplos editoriales aprobados, ambos de 4 m³; no afecta a piedra sólida.",
+      "magnitudes": [
+        {
+          "clave": "volumen_excavacion_max_m3",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "m³"
+        },
+        {
+          "clave": "ejemplo_pozo_m3",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "m³"
+        },
+        {
+          "clave": "ejemplo_cavidad_m3",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "m³"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-297",
+      "numero_tomo": 406,
+      "nombre_tomo": "Telequinesis",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "un objeto por cada 2 de tus Niveles y mover hasta 100 kg. por cada 4 de tus Niveles",
+      "disparador_y_limites": "Redondeos hacia abajo al calcular bloques completos. Concentración como única Acción; Tirada para criaturas no voluntarias.",
+      "magnitudes": [
+        {
+          "clave": "objetos_maximos",
+          "tipo": "por_cada_n_niveles",
+          "valor": [
+            1,
+            2
+          ],
+          "unidad": "objetos"
+        },
+        {
+          "clave": "masa_maxima_kg",
+          "tipo": "por_cada_n_niveles",
+          "valor": [
+            100,
+            4
+          ],
+          "unidad": "kilogramos"
+        },
+        {
+          "clave": "alcance_m",
+          "tipo": "por_nivel",
+          "valor": 3,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
     }
-  ]
+  ],
+  "criterio_redondeo": "Siempre hacia abajo para divisiones por grupos de Niveles en Conjuros; no sobrescribir excepciones expresas del DRS fuera de este ámbito."
 }
