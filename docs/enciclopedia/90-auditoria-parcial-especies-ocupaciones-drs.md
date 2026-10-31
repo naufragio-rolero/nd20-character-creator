@@ -1,5 +1,7 @@
 # Forja 1.0 — Primera auditoría mecánica del núcleo DRS
 
+> **Actualización posterior (31/10/2026):** la incidencia DRS-ESP-02 descrita abajo se ha **resuelto en la generación de fichas**. Consultar [informe 91 — Herencia dual](91-herencia-dual-drs-cierre-implementacion.md). Los apartados que la tratan como pendiente conservan el estado histórico de esta primera auditoría; queda pendiente la ejecución en un futuro motor de partida de efectos como *Ira interna* y *Linaje feérico*.
+
 **Fecha:** 31/10/2026. **Ámbito:** Naufragio d20 Fantasía, edición básica de Forja.  
 **Fuente normativa:** `NaufragioD20DRS.docx`, secciones *Especies*, *Ocupaciones*, *Creación de personaje* y *Equipo*.  
 **Rama:** `feat/forja-conjuros-fichas-2026-10-30`; **PR:** [#4](https://github.com/naufragio-rolero/nd20-character-creator/pull/4), todavía en borrador. **No fusionar ni desplegar.**
