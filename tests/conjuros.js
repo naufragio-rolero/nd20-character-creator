@@ -24,7 +24,7 @@ const porCambio=new Map([...cambios.registros,...decisiones.registros]
 assert.equal(fuentes.length,434,'434 fuentes originales');
 assert.equal(indice.registros.length,434,'434 entradas de índice');
 assert.equal(revisados.length,434,'434 textos publicados');
-assert.equal(porCambio.size,12,'10 ajustes geométricos y 2 decisiones editoriales aprobadas');
+assert.equal(porCambio.size,13,'10 ajustes geométricos y 3 decisiones editoriales aprobadas');
 let correcciones=0;
 const ids=new Map(catalogo.conjuros.map(x=>[x.id,x]));
 for(let i=0;i<434;i++){
@@ -54,7 +54,7 @@ for(let i=0;i<434;i++){
   }
   assert.deepEqual(editado.parrafos,esperado,'ningún cambio no autorizado en '+n);
 }
-assert.equal(correcciones,12);
+assert.equal(correcciones,13);
 assert.ok(!catalogo.conjuros.some(x=>x.id==='conjuro-154'),
   'Ira celestial C3 excluida: DRS y Tomo solo la documentan en C5');
 assert.equal(catalogo.conjuros.length,433);
@@ -94,9 +94,9 @@ console.log('OK · 434 fichas cotejadas; 12 cambios aprobados y catálogo DRS va
 /* Pruebas del primer subconjunto de magnitudes mecánicas literales. */
 const motorMagnitudes=require('../assets/spell-magnitudes.js');
 const literales=leer('data/conjuros-magnitudes-literales.json');
-assert.equal(literales.registros.length,41,'41 fichas de magnitudes registradas');
-assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,41,
-  'No repetir IDs entre los 41 Conjuros modelados');
+assert.equal(literales.registros.length,45,'45 fichas de magnitudes registradas');
+assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,45,
+  'No repetir IDs entre los 45 Conjuros modelados');
 for(const entrada of literales.registros){
   // Cada magnitud debe conservar evidencia textual y funcionar en varios niveles.
   assert.equal(new Set(entrada.magnitudes.map(x=>x.clave)).size,entrada.magnitudes.length,
@@ -212,4 +212,71 @@ assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',val
   /Dados por Nivel inválidos/);
 assert.throws(()=>magnitudes('Lanza de sombras',0),/Nivel entero positivo/);
 assert.equal(motorMagnitudes.calcular({clave:'dados',tipo:'dados_por_nivel',valor:[2,12]},5),'10d12');
-console.log('OK · 41 Conjuros con magnitudes literales calculadas; sin ejecutar daño ni Tiradas.');
+console.log('OK · 45 Conjuros con magnitudes literales, divisiones hacia abajo y daño compuesto.');
+
+/* Resoluciones editoriales: 4 m³, redondeo inferior y un solo daño de doble tipo. */
+const surcar=revisados.find(x=>x.numero_tomo===385);
+assert.ok(surcar.parrafos[3].includes('hasta 4 metros cúbicos'));
+assert.ok(surcar.parrafos[3].includes('1 metro de ancho por 1 metro de largo y 4 metros de profundidad'));
+assert.ok(surcar.parrafos[3].includes('2 metros de ancho por 2 metros de largo y 1 metro de profundidad'));
+assert.ok(!surcar.parrafos[3].includes('12 metros de profundidad'));
+assert.equal(1*1*4,4);
+assert.equal(2*2*1,4);
+assert.equal(valor(magnitudes('Surcar la tierra',8),'volumen_excavacion_max_m3'),4);
+assert.equal(valor(magnitudes('Salmo de protección',1),'bono_blindaje'),1);
+assert.equal(valor(magnitudes('Salmo de protección',5),'bono_blindaje'),1);
+assert.equal(valor(magnitudes('Salmo de protección',6),'bono_blindaje'),1);
+assert.equal(valor(magnitudes('Salmo de protección',11),'bono_blindaje'),1);
+assert.equal(valor(magnitudes('Salmo de protección',12),'bono_blindaje'),2);
+assert.equal(valor(magnitudes('Sifón de recuerdos',1),'turnos_de_memoria'),1);
+assert.equal(valor(magnitudes('Sifón de recuerdos',2),'turnos_de_memoria'),1);
+assert.equal(valor(magnitudes('Sifón de recuerdos',3),'turnos_de_memoria'),2);
+assert.equal(valor(magnitudes('Sifón de recuerdos',8),'turnos_de_memoria'),3);
+assert.equal(valor(magnitudes('Telequinesis',5),'objetos_maximos'),2);
+assert.equal(valor(magnitudes('Telequinesis',5),'masa_maxima_kg'),100);
+assert.equal(valor(magnitudes('Telequinesis',7),'masa_maxima_kg'),100);
+assert.equal(valor(magnitudes('Telequinesis',8),'masa_maxima_kg'),200);
+assert.equal(valor(magnitudes('Telequinesis',12),'objetos_maximos'),6);
+assert.equal(motorMagnitudes.calcular({clave:'x',tipo:'por_cada_n_niveles',valor:[2,3]},5),2);
+assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'por_cada_n_niveles',valor:[1,0]},5),/inválidos/);
+assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'base_mas_por_cada_n_niveles',valor:[1,1,0]},5),/inválidos/);
+
+const dobles=leer('data/conjuros-danio-compuesto.json');
+assert.equal(dobles.registros.length,3);
+assert.deepEqual(dobles.registros.map(x=>x.numero_tomo),[3,183,387]);
+for(const p of dobles.registros){
+  const ficha=revisados.find(x=>x.numero_tomo===p.numero_tomo);
+  assert.ok(ficha);
+  assert.equal(ficha.id_catalogo,p.id_catalogo);
+  assert.ok(ficha.parrafos.join(' ').includes(p.evidencia_literal));
+  assert.equal(p.grupos_de_dados,1);
+  assert.equal(p.tipos.length,2);
+  const sinDefensas=motorMagnitudes.clasificarDanioCompuesto(p,[],[]);
+  assert.equal(sinDefensas.grupos_de_dados,1);
+  assert.equal(sinDefensas.multiplicador_debilidad,1);
+  assert.equal(sinDefensas.resistencia_unica,false);
+  const ambosResisten=motorMagnitudes.clasificarDanioCompuesto(p,p.tipos,[]);
+  assert.equal(ambosResisten.resistencia_unica,true);
+  assert.equal(ambosResisten.grupos_de_dados,1);
+  const soloUnoResiste=motorMagnitudes.clasificarDanioCompuesto(p,[p.tipos[0]],[]);
+  assert.equal(soloUnoResiste.resistencia_parcial_pendiente,true);
+  const unaDebilidad=motorMagnitudes.clasificarDanioCompuesto(p,[],[p.tipos[0]]);
+  const dosDebilidades=motorMagnitudes.clasificarDanioCompuesto(p,[],p.tipos);
+  assert.equal(unaDebilidad.multiplicador_debilidad,2);
+  assert.equal(dosDebilidades.multiplicador_debilidad,2,'doble tipo no cuadruplica daño');
+  assert.equal(dosDebilidades.aplicacion_automatica_completa,false);
+  assert.equal(motorMagnitudes.clasificarDanioCompuesto(p,p.tipos,p.tipos)
+    .conflicto_resistencia_debilidad,true);
+}
+const glosarioDoble=tooltip.indice({catalogo,conjurosRevisados:revisados,danioCompuesto:dobles});
+assert.ok(tooltip.buscar(glosarioDoble,'[C] Aguijón impío (C1) · Nd20','poder','nd20')
+  .danioCompuesto,'Aguijón con daño compuesto consultable');
+assert.ok(tooltip.buscar(glosarioDoble,'[C] Tentáculos negros (C4) · Nd20','poder','nd20')
+  .danioCompuesto,'Tentáculos con daño compuesto consultable');
+assert.equal(tooltip.buscar(glosarioDoble,'[C] Sangre hirviente (C5) · Nd20','poder','nd20')
+  .danioCompuesto,undefined,'Sangre hirviente tiene dos grupos de dados distintos');
+const appMecanica=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
+const uiMecanica=fs.readFileSync(path.join(raiz,'assets/tooltip-ui.js'),'utf8');
+assert.ok(appMecanica.includes('data/conjuros-danio-compuesto.json'));
+assert.ok(uiMecanica.includes('info.danioCompuesto'));
+console.log('OK · 4 m³, redondeo inferior por bloques y 3 perfiles de daño doble aprobados.');
