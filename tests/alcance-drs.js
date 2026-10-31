@@ -732,3 +732,31 @@ for(const ocupacion of ['Guerrero','Mago','Ladrón']){
     'El aprendizaje automático de todos los Conjuros solo corresponde al Clérigo');
 }
 console.log('OK · Conjuros del Clérigo: 33 entradas verificadas, desbloqueo y discrepancia C4/C5 documentada.');
+
+/* Decisión editorial 31/10/2026: el Ladrón conserva los ocho huecos de
+ * progresión, cubribles por futuros suplementos GRATUITOS. El DRS no importa
+ * Técnicas de ampliación mientras su fuente no esté expresamente activada. */
+for(const nivel of [24,25,28,29,30]){
+  const base={juego:'nd20',ocupacion:'Ladrón',especie:'Humano común',nivel};
+  const drs=planificadorDRS.planificar({...base,fuentes:['DRS']},
+    fuenteBase,catalogo,progresiones);
+  const dlc=planificadorDRS.planificar({...base,fuentes:['DRS','Ocupaciones']},
+    fuenteBase,catalogo,progresiones);
+  const permitidas=progresiones.fantasia['Ladrón'].niveles[nivel-1][0];
+  assert.equal(drs.pasos.find(x=>x.id==='tecnicas').cantidad,Math.min(6,permitidas));
+  assert.equal(dlc.pasos.find(x=>x.id==='tecnicas').cantidad,permitidas,
+    'Con suplemento autorizado se completan las plazas de técnica: '+nivel);
+  const drsIds=new Set(drs.pasos.find(x=>x.id==='tecnicas').opciones.map(x=>x.id));
+  assert.ok(dlc.pasos.find(x=>x.id==='tecnicas').opciones.every(x=>
+    catalogo.tecnicas.some(t=>t.id===x.id&&
+      (t.fuente==='Naufragio d20 DRS'||t.fuente==='Naufragio d20 Ocupaciones'))),
+    'Solo Técnicas DRS y del suplemento habilitado');
+  assert.ok([...drsIds].every(id=>
+    dlc.pasos.find(x=>x.id==='tecnicas').opciones.some(x=>x.id===id)),
+    'El DLC debe ampliar, no sustituir, el núcleo DRS');
+  assert.equal(drs.avisos.some(x=>x.includes('Faltan ')),
+    permitidas>6,'Advertencia solo mientras faltan opciones verificadas');
+  assert.ok(!dlc.avisos.some(x=>x.includes('Faltan ')),
+    'El futuro DLC cubre las Técnicas sin falsificar el DRS');
+}
+console.log('OK · Política editorial del Ladrón: 6 Técnicas DRS, hasta 8 con DLC habilitado sin cambiar progresión.');
