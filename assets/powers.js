@@ -10,7 +10,8 @@
   function opcionesConjuros(catalogo,lista,circulo){
     var nombres=(lista||[]).reduce(function(a,x){return a.concat(x);},[]);
     return catalogo.conjuros.filter(function(s){
-      return s.circulo<=circulo && nombres.indexOf(s.nombre)!==-1;
+      return s.origen==="Nd20" && s.circulo<=circulo &&
+        nombres.indexOf(s.nombre)!==-1;
     }).map(function(x){return {id:x.id,nombre:x.nombre,circulo:x.circulo,escuelas:x.escuelas,origen:x.origen};});
   }
   function habilidadesNocturna(arr,especie){
@@ -81,7 +82,9 @@
     var habilitadas=Array.isArray(categorias)&&categorias.length?categorias:null;
     return catalogo.tecnicas.filter(function(t){
       if(habilitadas&&habilitadas.indexOf(t.categoria)<0)return false;
-      if(juego==="nd20" && /CiFi$/.test(t.fuente))return false;
+      // Forja 1.0 publica únicamente las Técnicas de la fuente DRS.
+      // Un suplemento no debe entrar por compartir categoría con el DRS.
+      if(juego==="nd20" && t.fuente!=="Naufragio d20 DRS")return false;
       if(juego==="nd20_cifi" && /Ocupaciones$/.test(t.fuente))return false;
       // Los requisitos de Atributo y equipo son para el uso; una Ocupación específica sí restringe.
       var req=t.requisito||"";
