@@ -24,6 +24,46 @@ h1{font-family:Georgia,serif;font-size:clamp(2.3rem,5vw,4.2rem);letter-spacing:-
 .panel h2{font-family:Georgia,serif;font-size:1.5rem;font-weight:500;margin-bottom:1.5rem}
 .campo{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
 .campo>label{font-size:.88rem;font-weight:700;color:var(--texto)}
+/* Forja 1.1: tarjetas sin dependencias gráficas, con selección accesible. */
+.selector-visual{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.45rem;margin:.2rem 0 .45rem}
+.selector-visual[hidden]{display:none!important}
+.opcion-visual{min-width:0;min-height:80px;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;gap:.3rem;padding:.65rem .45rem;
+  border:1px solid var(--borde);border-radius:9px;background:var(--superficie2);
+  color:var(--texto);text-align:center;line-height:1.2}
+.opcion-visual:hover:not(:disabled){background:var(--superficie);border-color:var(--oro)}
+.opcion-visual.seleccionada{border:2px solid var(--oro);background:var(--oscuro);
+  box-shadow:inset 0 0 0 1px var(--oro)}
+.icono-eleccion{display:block;width:31px;height:31px;flex:none;color:var(--oro)}
+.icono-azar{display:grid;place-items:center;font-size:1.7rem;font-weight:600;
+  line-height:31px;height:31px;color:var(--oro)}
+.opcion-nombre{display:block;font-size:.77rem;font-weight:700;overflow-wrap:anywhere}
+select.selector-alternativo{font-size:.72rem;min-height:35px;opacity:.8;
+  border-style:dashed}
+.configuracion-avanzada{margin:.7rem 0 1rem;padding:.85rem;
+  border:1px solid var(--borde);border-radius:9px;font-size:.8rem}
+.configuracion-avanzada summary{font-weight:750;cursor:pointer}
+.configuracion-avanzada .casilla{margin:.9rem 0 .5rem}
+.configuracion-avanzada small{color:var(--secundario);line-height:1.5}
+.generar-flotante{position:fixed;z-index:100;right:max(1rem,env(safe-area-inset-right));
+  bottom:max(1rem,env(safe-area-inset-bottom));
+  min-height:52px;padding:.85rem 1.35rem;border-radius:999px;
+  color:var(--oscuro);background:var(--oro);border:2px solid var(--oro);
+  box-shadow:0 8px 28px #0008;font-weight:850}
+.generar-flotante:hover:not(:disabled){background:#ffe3a5;color:#091923}
+.generar-flotante:disabled{opacity:.65}
+.generar-flotante[hidden]{display:none!important}
+@media(max-width:830px){
+  .generar-flotante{left:max(1rem,env(safe-area-inset-left));
+    right:max(1rem,env(safe-area-inset-right));bottom:max(.75rem,env(safe-area-inset-bottom));
+    width:auto;border-radius:12px}
+  .disposicion{padding-bottom:6rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  button{transition:none}
+}
 .campo label span{font-size:.76rem;color:var(--secundario);font-weight:400;float:right}
 .campo small,.herramientas small{display:block;color:var(--secundario);font-size:.75rem;line-height:1.5}
 select,input[type=number],input[type=text]{display:block;width:100%;min-height:42px;padding:.55rem .8rem;border:1px solid #61737a;background:#0c1c26;color:var(--texto);border-radius:6px}
@@ -280,6 +320,15 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
 .info-datos dt{color:#b5c9cf;font-weight:600}
 .info-datos dd{margin:0;overflow-wrap:anywhere}
 .info-descripcion{white-space:pre-line;overflow-wrap:anywhere;margin:.65rem 0 .8rem}
+.info-detalles{margin:.7rem 0;border:1px solid #3e6472;border-radius:7px;
+  background:#152d38;overflow:hidden}
+.info-detalles summary{cursor:pointer;list-style:auto;padding:.65rem .8rem;
+  font-size:.78rem;font-weight:750;color:#f6e3ae}
+.info-detalles summary:focus-visible{outline:3px solid #93d4e4;outline-offset:-3px}
+.info-detalles .info-avanzada{padding:.15rem .7rem .7rem}
+.info-detalles .info-datos{margin:.3rem 0 .7rem}
+.info-detalles .info-descripcion:last-child{margin-bottom:.3rem}
+.ficha-emergente .info-descripcion{line-height:1.55}
 .info-fuente{font-size:.71rem;color:#b8ced2;border-top:1px solid #355660;
   padding-top:.6rem;margin:0;overflow-wrap:anywhere}
 @media(max-width:600px){
