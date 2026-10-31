@@ -300,12 +300,26 @@
       p.juego.includes('Nocturna')?'nd20_nocturna':
       p.juego.includes('Fantasía')?'nd20':'dh';
   }
-  function htmlLista(titulo, valores, grupo, sistema) {
+  function htmlLista(titulo, valores, grupo, sistema, personaje) {
     if (!valores || !valores.length) return '';
     return '<section class="bloque-ficha"><h4>' + esc(titulo) + '</h4>' +
       (grupo==='talento'?'<p class="pista-talentos">Pulsa un Talento ⓘ para consultar su efecto.</p>':'') +
       '<ul>' + valores.map(function (v) {
-        var item=grupo&&infoUI?infoUI.etiqueta(v,grupo,sistema):esc(v);
+        var fuentePreferida='';
+        if(grupo==='talento'&&sistema==='nd20'&&personaje){
+          var partes=personaje.descripcion.split(' · ');
+          var registros=datos.talentosDRS?.registros||[];
+          var especie=registros.find(function(r){
+            return r.tipo_origen==='Especie'&&r.propietario===partes[1]&&r.nombre===v;
+          });
+          var ocupacion=registros.find(function(r){
+            return r.tipo_origen==='Ocupación'&&r.propietario===partes[0]&&r.nombre===v;
+          });
+          if(especie)fuentePreferida='Especie: '+especie.propietario;
+          else if(ocupacion)fuentePreferida='Ocupación: '+ocupacion.propietario;
+        }
+        var item=grupo&&infoUI?
+          infoUI.etiqueta(v,grupo,sistema,fuentePreferida):esc(v);
         return '<li>' + item + '</li>';
       }).join('') + '</ul></section>';
   }
@@ -393,7 +407,8 @@
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
       htmlContexto(notas.contexto) +
       '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos) +
-      htmlLista('Talentos y capacidades',personaje.capacidades,'talento',sistemaFicha(personaje)) +
+      htmlLista('Talentos y capacidades',personaje.capacidades,'talento',
+        sistemaFicha(personaje),personaje) +
       htmlAvisos('Detalles sin ficha emergente',notas.talentos,'avisos-talentos') +
       htmlLista('Conjuros y Poderes conocidos',personaje.poderes,'poder',sistemaFicha(personaje)) +
       htmlLista('Conjuros preparados',personaje.conjuros_preparados,'poder',sistemaFicha(personaje)) +
@@ -1022,6 +1037,7 @@
       progresiones:'data/progresiones-oficiales.json',
       equipoInicial:'data/equipo-inicial.json',
       fichasDocumentales:'data/fichas-documentales.json',
+      talentosDRS:'data/talentos-drs-literales.json',
       dungeon:'data/dungeon-hack.json'
     };
     var elementos=await Promise.all(Object.entries(archivos).map(async function(par){
@@ -1075,6 +1091,7 @@
     datos.fantasiaAmpliadas=extra.fantasia.ocupaciones;
     datos.alcanceDRS=loaded.alcanceDRS;
     datos.catalogo=loaded.catalogo;
+    datos.talentosDRS=loaded.talentosDRS;
     datos.tesauroYlat=loaded.tesauroYlat;
     datos.nombresHistoricosYlat=loaded.nombresHistoricosYlat;
     datos.sexo=loaded.sexoCatalogo;
@@ -1086,6 +1103,7 @@
         catalogo:datos.catalogo,equipo:datos.equipoInicial,
         alcanceDRS:datos.alcanceDRS,
         descripciones:loaded.fichasDocumentales,
+        talentosDRS:loaded.talentosDRS,
         conjurosRevisados:loaded.conjurosUno.conjuros.concat(loaded.conjurosDos.conjuros),
         magnitudes:loaded.magnitudes,
         danioCompuesto:loaded.danioCompuesto

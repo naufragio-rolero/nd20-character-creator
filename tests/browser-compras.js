@@ -208,7 +208,7 @@ async function main(){
       'El Talento Recuperación debe ser una referencia consultable');
     assert.equal(infoRecuperacion.visible,true,
       'El popup del Talento debe abrirse con pulsación');
-    assert.match(infoRecuperacion.texto,/1 Intervalo para recuperar 1d8 Puntos de Salud/);
+    assert.match(infoRecuperacion.texto,/pasar un Intervalo recuperándote para restaurar 1d8 Puntos de Salud/);
     assert.equal(await cdp.evalJS(
       "document.querySelector('#ficha-emergente .info-detalles')?.open"),false,
       'Los detalles técnicos deben permanecer cerrados inicialmente');

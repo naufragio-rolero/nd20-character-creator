@@ -116,6 +116,62 @@ async function probar(nombre,tipo,url){
     await page.locator('#e2e-poder').click();
     assert.equal(await popup.locator('.info-detalles').isHidden(),true);
     await page.keyboard.press('Escape');
+    // Talentos del DRS: texto íntegro, activación literal, fuente y homónimos.
+    await page.evaluate(()=>{
+      const b=document.createElement('button');
+      b.id='e2e-talento';b.type='button';b.textContent='Consultar Talento';
+      b.className='referencia-glosario';
+      b.dataset.glosaId='talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes';
+      b.dataset.glosaGrupo='talento';b.dataset.glosaSistema='nd20';
+      document.body.appendChild(b);
+    });
+    await page.locator('#e2e-talento').click();
+    assert.equal(await popup.locator('.info-tipo').textContent(),'Talento');
+    assert.equal(await popup.locator('h3').textContent(),'Expulsar muertos vivientes');
+    assert.equal(await popup.locator('.info-clasificacion').textContent(),
+      'Ocupación · Clérigo');
+    assert.deepEqual(await popup.locator('.info-primarios dt').allTextContents(),
+      ['Activación:','Atributo:','Coste:']);
+    assert.deepEqual(await popup.locator('.info-primarios dd').allTextContents(),
+      ['Acción','Intuición','1 Punto de Esfuerzo']);
+    assert.match(await popup.locator('.info-descripcion').textContent(),
+      /Todos aquellos que sean de un Nivel igual o inferior al tuyo/);
+    assert.match(await popup.locator('.info-fuente').textContent(),
+      /Origen: Naufragio d20 DRS · Fuente: NaufragioD20DRS.docx/);
+    assert.equal(await popup.locator('.info-detalles').isHidden(),true);
+    await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=true;});
+    await page.locator('#informacion-avanzada').check();
+    await page.locator('#e2e-talento').click();
+    assert.equal(await popup.locator('.info-detalles').isVisible(),true);
+    assert.match(await popup.locator('.info-detalles').textContent(),
+      /Párrafos del DRS/);
+    await page.locator('#informacion-avanzada').uncheck();
+    await page.locator('#e2e-talento').evaluate(x=>{
+      x.dataset.glosaId='talento-drs-especie-semielfo-herencia-dual-se';
+    });
+    await page.locator('#e2e-talento').click();
+    assert.equal(await popup.locator('h3').textContent(),'Herencia dual');
+    assert.equal(await popup.locator('.info-clasificacion').textContent(),
+      'Especie · Semielfo');
+    assert.match(await popup.locator('.info-descripcion').textContent(),/Linaje feérico/);
+    assert.equal(await popup.locator('.info-primarios dt').count(),0,
+      'No inventar activación o coste para los Talentos de Especie');
+    await page.locator('#e2e-talento').evaluate(x=>{
+      x.dataset.glosaId='talento-drs-especie-semiorco-herencia-dual-so';
+    });
+    await page.locator('#e2e-talento').click();
+    assert.equal(await popup.locator('.info-clasificacion').textContent(),
+      'Especie · Semiorco');
+    assert.match(await popup.locator('.info-descripcion').textContent(),/Ira interna/);
+    await page.locator('#e2e-talento').evaluate(x=>{
+      x.dataset.glosaId='talento-drs-especie-gnomo-urbano-vision-en-la-oscuridad';
+    });
+    await page.locator('#e2e-talento').click();
+    assert.match(await popup.locator('.info-descripcion').textContent(),/alrrededor/,
+      'El texto cotejado de Gnomo conserva incluso la errata de la fuente');
+    await page.keyboard.press('Escape');
+    await page.locator('#e2e-talento').evaluate(x=>x.remove());
+    await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=false;});
     // Restaurar el estado original para las pruebas de Talentos que siguen.
     await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=false;});
     await page.locator('#e2e-poder').evaluate(x=>x.remove());
@@ -283,9 +339,9 @@ async function probar(nombre,tipo,url){
     assert.equal(await baja.count(),1,nombre+': Baja estatura debe ser consultable');
     await baja.click();
     assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
-      /Solo puedes usar armas y armaduras adaptadas a tu tamaño/);
+      /No puedes usar armas o armaduras que no estén adaptadas a ti/);
     assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
-      /\+1 a las Tiradas de Esquiva contra ataques a distancia/);
+      /\+1 a las Tiradas de esquiva de ataques a distancia/);
     await page.keyboard.press('Escape');
     const salvese=fichaTalentos.locator(
       '.referencia-glosario[data-glosa-nombre="¡Sálvese quien pueda!"]');
@@ -297,13 +353,12 @@ async function probar(nombre,tipo,url){
       '.referencia-glosario[data-glosa-nombre="Recuperación"]');
     await recuperacion.click();
     assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
-      /1 Intervalo para recuperar 1d8 Puntos de Salud/);
+      /pasar un Intervalo recuperándote para restaurar 1d8 Puntos de Salud/);
     // Resumen siempre visible, datos técnicos solo mediante disclosure o preferencia.
     const detalles=page.locator('#ficha-emergente .info-detalles');
     assert.equal(await detalles.count(),1,nombre+': Talento debe poder desplegar detalles');
-    assert.equal(await detalles.evaluate(e=>e.open),false);
-    await detalles.locator('summary').click();
-    assert.equal(await detalles.evaluate(e=>e.open),true);
+    assert.equal(await detalles.isHidden(),true,
+      nombre+': detalles técnicos del Talento DRS ocultos por defecto');
     await page.keyboard.press('Escape');
     await page.locator('#configuracion-avanzada summary').click();
     await page.locator('#informacion-avanzada').check();

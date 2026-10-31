@@ -39,7 +39,8 @@ const requeridos=[
   'data/conjuros-magnitudes-literales.json',
   'data/alcance-drs-y-dlc.json','data/conjuros-danio-compuesto.json',
   'data/progresiones-oficiales.json','data/equipo-inicial.json',
-  'data/fichas-documentales.json','data/dungeon-hack.json'
+  'data/fichas-documentales.json','data/talentos-drs-literales.json',
+  'data/dungeon-hack.json'
 ];
 for(const ruta of requeridos)
   if(!fs.existsSync(path.join(raiz,ruta)))

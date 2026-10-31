@@ -75,6 +75,8 @@ total+=2;
 console.log('OK · '+total+' comprobaciones de generación superadas.');
 
 
+require('./talentos-drs.js');
+
 /* Validación de contenido ampliado procedente de la Biblioteca de Naufragio d20. */
 const catalogo = leer('catalogo-ampliado.json');
 const expandir = (base, nuevos) => ({
@@ -907,7 +909,8 @@ for(const token of ['assets/tooltips.js','assets/tooltip-ui.js'])
   assert.ok(htmlTooltips.includes(token),'Dependencia cargada '+token);
 assert.ok(appTooltips.includes('data/fichas-documentales.json'));
 assert.ok(appTooltips.includes('infoUI.configurar(indice)'));
-assert.ok(appTooltips.includes('infoUI.etiqueta(v,grupo,sistema)'));
+assert.ok(appTooltips.includes('infoUI.etiqueta(v,grupo,sistema,fuentePreferida)'),
+  'La ficha conserva la procedencia para distinguir Talentos homónimos');
 assert.ok(appTooltips.includes('consultar-ficha-eleccion'));
 assert.ok(stylesTooltips.includes('.ficha-emergente'));
 assert.ok(stylesTooltips.includes(':focus-visible'));

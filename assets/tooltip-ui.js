@@ -17,23 +17,27 @@
       var detalles=card.querySelector('.info-detalles');
       if(detalles){
         detalles.open=avanzada;
-        if(ancla?.dataset.glosaGrupo==="poder")detalles.hidden=!avanzada;
+        if(ancla?.dataset.glosaGrupo==="poder"||
+           ancla?.dataset.glosaGrupo==="talento"&&
+           card?.dataset.talentoDrs==="true")detalles.hidden=!avanzada;
       }
       posicionar();
     }
   }
-  function consulta(nombre,grupo,sistema){
-    return root.NaufragioTooltipIndex?.buscar(glosario,nombre,grupo,sistema)||null;
+  function consulta(nombre,grupo,sistema,fuentePreferida){
+    return root.NaufragioTooltipIndex?.buscar(glosario,nombre,grupo,sistema,
+      fuentePreferida)||null;
   }
   function consultaPorId(id,grupo,sistema){
     return root.NaufragioTooltipIndex?.buscarPorId(glosario,id,grupo,sistema)||null;
   }
-  function etiqueta(t,grupo,sistema){
-    var dato=consulta(t,grupo,sistema);
+  function etiqueta(t,grupo,sistema,fuentePreferida){
+    var dato=consulta(t,grupo,sistema,fuentePreferida);
     if(!dato)return esc(t);
     return '<button type="button" class="referencia-glosario" data-glosa-nombre="'+
       esc(t)+'" data-glosa-grupo="'+esc(grupo)+'" data-glosa-sistema="'+
-      esc(sistema)+'" aria-label="Ver ficha: '+esc(t)+'">'+esc(t)+'</button>';
+      esc(sistema)+'"'+(fuentePreferida?' data-glosa-fuente="'+esc(fuentePreferida)+'"':'')+
+      ' aria-label="Ver ficha: '+esc(t)+'">'+esc(t)+'</button>';
   }
   function crearElemento(){
     if(card)return card;
@@ -87,7 +91,7 @@
       consultaPorId(elemento.dataset.glosaId,elemento.dataset.glosaGrupo,
         elemento.dataset.glosaSistema):
       consulta(elemento.dataset.glosaNombre,elemento.dataset.glosaGrupo,
-        elemento.dataset.glosaSistema);
+        elemento.dataset.glosaSistema,elemento.dataset.glosaFuente);
     if(!info)return;
     limpiarTemporizador();
     if(ancla&&ancla!==elemento)ancla.removeAttribute("aria-describedby");
@@ -99,34 +103,39 @@
     else c.removeAttribute('aria-label');
     var poder=elemento.dataset.glosaGrupo==="poder"?
       root.NaufragioTooltipIndex?.presentarPoder?.(info):null;
+    var talento=elemento.dataset.glosaGrupo==="talento"?
+      root.NaufragioTooltipIndex?.presentarTalento?.(info):null;
+    var presentacion=poder||talento;
+    c.dataset.talentoDrs=String(!!talento);
     var tecnicos=document.createElement('div');
     tecnicos.className='info-avanzada';
     var cabecera=document.createElement('div');
     cabecera.className='info-cabecera';
     var marca=document.createElement("p");marca.className="info-tipo";
-    marca.textContent=info.tipo||"Ficha";
+    marca.textContent=presentacion?.tipo||info.tipo||"Ficha";
     cabecera.appendChild(marca);
-    if(poder&&poder.clasificacion){
+    if(presentacion&&presentacion.clasificacion){
       var clase=document.createElement('p');
       clase.className='info-clasificacion';
-      clase.textContent=poder.clasificacion;
+      clase.textContent=presentacion.clasificacion;
       cabecera.appendChild(clase);
     }
-    var titulo=document.createElement("h3");titulo.textContent=info.nombre;
+    var titulo=document.createElement("h3");
+    titulo.textContent=presentacion?.nombre||info.nombre;
     c.append(cabecera,titulo);
     // En Poderes, lo necesario en mesa va siempre antes de la descripción.
     // Conservar las fórmulas literales, sin reemplazarlas por un valor por Nivel.
-    if(poder&&poder.primarios.length){
+    if(presentacion&&presentacion.primarios.length){
       var principales=document.createElement('dl');
       principales.className='info-primarios';
-      poder.primarios.forEach(function(p){
+      presentacion.primarios.forEach(function(p){
         var dt=document.createElement('dt'),dd=document.createElement('dd');
         dt.textContent=p[0]+':';dd.textContent=p[1];
         principales.append(dt,dd);
       });
       c.appendChild(principales);
     }
-    var datosTecnicos=poder?poder.tecnicos:(info.datos||[]);
+    var datosTecnicos=presentacion?presentacion.tecnicos:(info.datos||[]);
     if(datosTecnicos.length){
       var tabla=document.createElement("dl");tabla.className="info-datos";
       datosTecnicos.forEach(function(p){
@@ -182,9 +191,9 @@
         var detalles=document.createElement('details');
         detalles.className='info-detalles';
         detalles.open=avanzada;
-        // La preferencia global controla si se muestra el bloque técnico
-        // de Poderes; Talentos mantienen su interacción anterior.
-        if(poder)detalles.hidden=!avanzada;
+        // Los Talentos DRS cotejados utilizan la misma lectura rápida.
+        // Los suplementos no validados mantienen su presentación anterior.
+        if(presentacion)detalles.hidden=!avanzada;
         var resumen=document.createElement('summary');
         resumen.textContent='Detalles técnicos';
         detalles.append(resumen,tecnicos);
@@ -195,8 +204,8 @@
       }
     }
     var fuente=document.createElement("p");fuente.className="info-fuente";
-    fuente.textContent=poder?
-      "Origen: "+poder.origen+" · Fuente: "+poder.fuente:
+    fuente.textContent=presentacion?
+      "Origen: "+presentacion.origen+" · Fuente: "+presentacion.fuente:
       "Fuente: "+(info.fuente_descripcion||info.fuente);
     c.appendChild(fuente);
     c.hidden=false;elemento.setAttribute("aria-describedby",c.id);
