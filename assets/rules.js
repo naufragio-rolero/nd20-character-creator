@@ -246,16 +246,30 @@
         (nivel >= 10 ? 1 : 0) + (nivel >= 22 ? 1 : 0) : 0) : null;
     var riqueza = esFantasia ? compra.restante+' mo restantes / '+presupuesto+' mo iniciales' :
       esCifi ? compra.restante+' cr restantes / '+presupuesto+' cr iniciales' : '';
+    // El ámbito procede del corpus; no existe una equivalencia documentada
+    // con Especies. No se asigna ninguna Especie a Niguace/Isla Tormenta.
+    var ambitoNombres=['Niguace','Isla Tormenta'].includes(config.ambitoNombre)?
+      config.ambitoNombre:null;
     var poolNombres=(config.tesauroYlat && config.juego==='nd20' &&
       config.modoNombre!=='especie') ?
       config.tesauroYlat.entradas.filter(function(item) {
-        return item.tipo===(config.modoNombre==='documentado'?'documentado':'combinado');
+        return item.tipo===(config.modoNombre==='documentado'?'documentado':'combinado')&&
+          (!ambitoNombres||item.ambito===ambitoNombres);
       }) : [];
     var nombreYlat=escoger(poolNombres,rng);
     var nombreConSexo=sexoFuente&&sexoApi?
       sexoApi.elegirNombre(config,especie,esp.nombres||[],poolNombres,sexo,sexoFuente,rng):null;
     if(nombreConSexo&&nombreConSexo.nota&&nombreConSexo.nota!=='Nombre elegido manualmente.')
       detalles.push(nombreConSexo.nota);
+    var nombreDefinitivo=(nombreConSexo&&nombreConSexo.nombre)||
+      config.nombre || (nombreYlat&&nombreYlat.nombre) ||
+      escoger(esp.nombres || [],rng) || 'Sin nombre';
+    var registroNombre=!config.nombre&&poolNombres.find(function(item){
+      return item.nombre===nombreDefinitivo;
+    });
+    if(registroNombre&&registroNombre.tipo==='combinado')
+      detalles.push('Nombre propuesto a partir de elementos de Ylat ('+
+        registroNombre.ambito+'). No identifica un personaje canónico.');
     if(sexoFuente&&coherencia&&sexo==='masculino'&&
       sexoFuente.especies_preferencia_femenino?.[especie])
       detalles.push('Varón excepcional de '+especie+
@@ -265,9 +279,7 @@
       detalles.push('Excepción narrativa elegida: '+ocupacion+
         ' se describe en femenino, pero el manual no declara prohibición mecánica.');
     return {
-      juego:tipo, nombre:(nombreConSexo&&nombreConSexo.nombre)||
-        config.nombre || (nombreYlat&&nombreYlat.nombre) ||
-        escoger(esp.nombres || [],rng) || 'Sin nombre', sexo:sexo,
+      juego:tipo, nombre:nombreDefinitivo, sexo:sexo,
       descripcion:ocupacion + ' · ' + especie, nivel:nivel,
       concepto:escoger(conceptos, rng) || 'Aventurero',
       ...((alternativas||desarrolloHumano) ? {
