@@ -158,8 +158,18 @@
     var tipo = config.juego === 'nd20_cifi' ? 'Naufragio d20 · CiFi' :
       config.juego === 'nd20_nocturna' ? 'Naufragio d20 · Nocturna' : 'Naufragio d20 · Fantasía';
     var capacidades = (esp.talentos || []).concat(oc.talentos || []);
-    if (config.aplazarElecciones && config.juego === 'nd20' && ocupacion === 'Guerrero')
-      capacidades = capacidades.filter(function(x){return x !== 'Brío musculoso' && x !== 'Sacrificio de escudo';});
+    if (config.juego === 'nd20' && ocupacion === 'Guerrero') {
+      // El DRS concede Recuperación y obliga a ELEGIR uno de los otros dos Talentos.
+      // En la web la elección se aplaza al editor; la API directa elige uno con su RNG.
+      capacidades = capacidades.filter(function(x){
+        return x !== 'Brío musculoso' && x !== 'Sacrificio de escudo';
+      });
+      if (!config.aplazarElecciones) {
+        var talentoGuerrero = escoger(['Brío musculoso', 'Sacrificio de escudo'], rng);
+        capacidades.push(talentoGuerrero);
+        detalles.push('Talento de Guerrero elegido: ' + talentoGuerrero + '.');
+      }
+    }
     if (!config.aplazarElecciones && (esp.talentos_elegir || []).length) {
       var eleccionEspecie = escoger(esp.talentos_elegir, rng);
       capacidades.push(eleccionEspecie);
