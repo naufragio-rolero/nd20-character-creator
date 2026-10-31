@@ -99,8 +99,23 @@ const fichas=leer(salida,'fichas-documentales.json');
 assert.ok(Object.values(fichas).every(x=>x.sistema!=='nd20'||
   (x.fuente||'').includes('NaufragioD20DRS')),
   'No hay documentación de Talentos de Ocupaciones Fantasy futuras');
-assert.equal(leer(salida,'tesauro-ylat.json').entradas.length,0,
-  'El repertorio Ylat externo al DRS requiere decisión de publicación separada');
+// El autor ha autorizado las 149 combinaciones como nombres posibles,
+ // pero los 51 personajes documentados NO forman parte de la distribución.
+const onomastico=leer(salida,'tesauro-ylat.json');
+const onomasticoOriginal=leer(raiz,'tesauro-ylat.json');
+const combinaciones=onomasticoOriginal.entradas.filter(x=>x.tipo==='combinado');
+const documentados=onomasticoOriginal.entradas.filter(x=>x.tipo==='documentado');
+assert.equal(combinaciones.length,149);
+assert.equal(documentados.length,51);
+assert.deepEqual(onomastico.entradas,combinaciones,
+  'Se publica el conjunto de 149 combinaciones exactas, sin inventar ni alterar nombres');
+assert.equal(new Set(onomastico.entradas.map(x=>x.nombre)).size,149);
+assert.equal(onomastico.entradas.filter(x=>x.ambito==='Niguace').length,116);
+assert.equal(onomastico.entradas.filter(x=>x.ambito==='Isla Tormenta').length,33);
+assert.ok(onomastico.entradas.every(x=>x.tipo==='combinado'));
+assert.ok(!onomastico.entradas.some(x=>
+  documentados.some(y=>y.nombre===x.nombre)),
+  'Ningún personaje documentado puede convertirse en un nombre aleatorio público');
 assert.equal(leer(salida,'alcance-drs-y-dlc.json').paquetes_posteriores,undefined,
   'No se distribuye información interna de paquetes suplementarios');
 const equipo=leer(salida,'equipo-inicial.json');
@@ -113,8 +128,15 @@ assert.ok(core.listas_drs.Clérigo['5'].includes(marca.nombre));
 assert.ok(!core.listas_drs.Clérigo['4'].includes(marca.nombre));
 const html=fs.readFileSync(path.join(salida,'index.html'),'utf8');
 assert.ok(!html.includes('Doncella de la Espada'));
-assert.ok(!html.includes('Variantes inspiradas en Ylat'));
+assert.ok(html.includes('Variantes inspiradas en Ylat (149)'));
 assert.ok(html.includes('Repertorio propio de la Especie'));
+assert.ok(!html.includes('value="documentado"'),
+  'El paquete no debe permitir seleccionar personajes documentados');
+assert.ok(!html.includes('Personajes documentados (51)'),
+  'No mostrar los 51 nombres de PNJ en el selector público');
+assert.ok(html.includes('id="ambito-nombre"'));
+assert.ok(html.includes('Niguace (116 combinaciones)'));
+assert.ok(html.includes('Isla Tormenta (33 combinaciones)'));
 const rutaData=path.join(salida,'data');
 const contenidos=new Set(fs.readdirSync(rutaData));
 const esperados=new Set([
