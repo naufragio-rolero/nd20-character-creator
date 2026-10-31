@@ -22,7 +22,7 @@ Esta clasificación sirve solo a la arquitectura de datos, **no altera las Escue
 
 ## Hallazgo editorial nuevo: doble tipo de daño
 
-**DEC-CONJ-06 — Pendiente de criterio autoral para automatización de resistencias y daño.**
+**DEC-CONJ-06 — Resuelta en lo expresamente aprobado: un grupo de dados con ambos tipos simultáneos.**
 
 Algunos Conjuros contienen un **único grupo numérico de dados** acompañado de dos tipos de daño, por ejemplo:
 
@@ -32,13 +32,13 @@ Algunos Conjuros contienen un **único grupo numérico de dados** acompañado de
 
 En cambio, **Sangre hirviente (366)** declara explícitamente «3d8 ... por fuego **y** 3d8 ... impío», con **dos grupos numéricos distintos**, que se han representado por separado.
 
-La lectura prudente para los primeros es **conservar literalmente un único bloque expresado de dados**, pero **sin decidir** si el daño se considera simultáneamente de ambos tipos, cómo se aplican resistencias o si debe dividirse. Esto **no equivale a aprobar una regla de daño compuesto**. El autor ha de fijar el criterio antes de programar la resolución de daño y resistencias.
+**Decisión autoral posterior:** los dos tipos se aplican **simultáneamente al mismo y único resultado de dados**. Si se resisten ambos tipos, la resistencia se aplica **una sola vez**; cualquier debilidad que duplique el daño lo hace **×2 una sola vez**, no ×4. Solo quedan sin resolución automática las resistencias a un único tipo y las combinaciones de resistencia con debilidad. [Datos aprobados](../../data/conjuros-danio-compuesto.json) y [evaluador](../../assets/spell-magnitudes.js).
 
 ## Decisiones que permanecen pendientes
 
-- [DEC-CONJ-04: Surcar la tierra](82b-conciliacion-drs-ira-celestial-y-surcar-tierra.md): límite 4 m³ frente a dos ejemplos volumétricamente incompatibles.
-- DEC-CONJ-05: redondeos en expresiones «cada 2/3/6 Niveles» que no declaran redondeo propio.
-- DEC-CONJ-06: tipos de daño combinados sobre un grupo de dados.
+- DEC-CONJ-04 **resuelta**: *Surcar la tierra* mantiene 4 m³ con dos ejemplos corregidos.
+- DEC-CONJ-05 **resuelta para Conjuros**: divisiones redondeadas hacia abajo.
+- DEC-CONJ-06 **resuelta parcialmente**: daño dual simultáneo, resistencia única si ambos tipos se resisten y debilidad ×2 única. Pendientes únicamente los cruces de resistencia parcial y debilidad simultánea.
 - Las seis erratas espaciales aún no aprobadas [77d](77d-segunda-pasada-erratas-geométricas.json).
 
 No se han reescrito las fuentes 69a–69r, ni Google Drive, ni se han fusionado cambios a `main`. La PR continúa en borrador.
