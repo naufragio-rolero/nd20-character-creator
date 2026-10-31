@@ -677,6 +677,28 @@ for(let nivel=1;nivel<=30;nivel++){
     Math.min(8,1+Math.floor((nivel-1)/4))
   ],'Tabla oficial de Técnicas del Ladrón al Nivel '+nivel);
 }
+// Los Talentos documentados deben abrir fichas útiles, no el mensaje
+// «consulta el manual» mientras su efecto yace en Observaciones.
+const indiceGlosasDRS=require('../assets/tooltips.js').indice({
+  fantasia:{especies,ocupaciones},catalogo:{},equipo:{}
+});
+for(const [especie,perfil] of Object.entries(especies)){
+  for(const talento of perfil.talentos||[]){
+    const glosa=require('../assets/tooltips.js')
+      .buscar(indiceGlosasDRS,talento,'talento','nd20');
+    assert.ok(glosa,'Falta el popup de '+especie+': '+talento);
+    assert.equal(glosa.descripcion,perfil.talentos_descripcion?.[talento],
+      'El popup debe mostrar el efecto literal del Talento de '+especie+': '+talento);
+  }
+}
+for(const [ocupacion,perfil] of Object.entries(ocupaciones)){
+  for(const talento of perfil.talentos||[]){
+    const glosa=require('../assets/tooltips.js')
+      .buscar(indiceGlosasDRS,talento,'talento','nd20');
+    assert.equal(glosa?.descripcion,perfil.talentos_descripcion?.[talento],
+      'El popup debe mostrar el efecto literal del Talento de '+ocupacion+': '+talento);
+  }
+}
 const talentosOcupacionDRS={
   'Clérigo':['Expulsar muertos vivientes','Fortaleza piadosa'],
   'Guerrero':['Recuperación','Brío musculoso','Sacrificio de escudo'],
