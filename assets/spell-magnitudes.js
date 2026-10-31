@@ -13,7 +13,7 @@
       return valor;
     }
     if(tipo==="dado_literal"){
-      if(typeof valor!=="string"||!/^[1-9]\d*d(?:4|6|8|10|12|20|100)$/.test(valor))
+      if(typeof valor!=="string"||!/^[1-9]\d*d(?:2|3|4|6|8|10|12|20|100)(?:[+]\d+)?$/.test(valor))
         throw Error("Expresión de dado no validada");
       return valor; // Expresión, no resultado ni lanzamiento aleatorio.
     }
@@ -24,11 +24,22 @@
     if(tipo==="dados_por_nivel"){
       if(!Array.isArray(valor)||valor.length!==2||
          !Number.isSafeInteger(valor[0])||valor[0]<1||
-         ![4,6,8,10,12,20,100].includes(valor[1]))
+         ![2,3,4,6,8,10,12,20,100].includes(valor[1]))
         throw Error("Dados por Nivel inválidos");
       var cantidad=valor[0]*nivel;
       if(!Number.isSafeInteger(cantidad))throw Error("Demasiados dados");
       return cantidad+"d"+valor[1]; // No tirar dados ni resolver efectos.
+    }
+    if(tipo==="dados_por_bloques"){
+      if(!Array.isArray(valor)||valor.length!==3||
+        !Number.isSafeInteger(valor[0])||valor[0]<1||
+        ![2,3,4,6,8,10,12,20,100].includes(valor[1])||
+        !Number.isSafeInteger(valor[2])||valor[2]<1)
+        throw Error("Dados por bloques de Nivel inválidos");
+      var cantidad=Math.floor(nivel/valor[2])*valor[0];
+      if(!Number.isSafeInteger(cantidad))throw Error("Demasiados dados");
+      // Cero dados bajo el primer bloque: no inventar un mínimo.
+      return cantidad+"d"+valor[1];
     }
     if(tipo==="por_nivel_con_tope"){
       if(!Array.isArray(valor)||valor.length!==2||
