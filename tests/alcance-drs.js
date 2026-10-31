@@ -844,3 +844,36 @@ for(const [ocupacion,nivel] of [
   }
 }
 console.log('OK · Equipo oficial: 37 armas con precio, 14 armaduras y 4 varitas; competencia de varitas verificada.');
+
+/* Las listas expresas de equipo no pueden contradecir las Competencias
+ * genéricas del DRS: armas romas Clérigo; todo el armamento Guerrero;
+ * toda armadura ligera Ladrón. */
+for(const arma of ['Martillo de guerra','Almádena']){
+  assert.ok(ocupaciones['Clérigo'].armas.includes(arma),
+    'Arma roma DRS disponible al Clérigo: '+arma);
+}
+assert.ok(ocupaciones.Guerrero.armas.includes('Almádena'),
+  'El Guerrero puede equipar Almádena al ser competente con toda arma');
+const catalogoTodasArmas=new Set(catalogoEquipamiento.armas.map(x=>x.nombre));
+assert.ok([...catalogoTodasArmas].every(x=>ocupaciones.Guerrero.armas.includes(x)),
+  'La lista concreta del Guerrero cubre todas las armas con precio del DRS');
+const armaduraLigera=catalogoEquipamiento.armaduras
+  .filter(x=>x.tipo==='ligera').map(x=>x.nombre);
+assert.ok(armaduraLigera.every(x=>ocupaciones['Ladrón'].armaduras.includes(x)),
+  'El Ladrón puede equipar todas las armaduras ligeras, incluido Cuero tachonado');
+assert.ok(ocupaciones['Ladrón'].competencias.some(x=>x.includes('armaduras ligeras')),
+  'La habilitación es una Competencia normativa, no excepción inventada');
+const compraPorNombre=(oc,budget=1000)=>equipamientoDRS.compraInicial(
+  ocupaciones[oc],oc,'nd20',catalogoEquipamiento,
+  budget,()=>0.999,12,especies['Humano común']);
+const clero=compraPorNombre('Clérigo');
+assert.ok(!clero.equipo.some(x=>['Daga','Espada corta','Jabalina','Arco largo'].includes(x)),
+  'El Clérigo no compra armas de filo, arrojadizas ni a distancia');
+const ladron=compraPorNombre('Ladrón');
+assert.ok(!ladron.equipo.some(x=>['Almádena','Espadón','Gran hacha'].includes(x)),
+  'El Ladrón no adquiere armas a dos manos');
+const mago=compraPorNombre('Mago');
+assert.ok(!mago.equipo.some(x=>
+  catalogoEquipamiento.armaduras.some(y=>y.nombre===x && y.tipo!=='tela')),
+  'El Mago conserva la protección exclusivamente de tela');
+console.log('OK · Competencias reales DRS: Clérigo armas romas, Guerrero todas las armas, Ladrón armaduras ligeras y Mago tela.');
