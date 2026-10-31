@@ -67,3 +67,30 @@ jobs:
       - name: Publicar Forja LIVE
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verificar el sitio público tras el despliegue
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$PAGE_URL"
+          echo "Comprobando que Pages sirve la versión 1.1 depurada"
+          correcto=false
+          for intento in $(seq 1 16); do
+            if curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-live.html &&
+               grep -Fq 'id="selector-visual-especie"' /tmp/forja-live.html &&
+               grep -Fq 'id="generar-flotante"' /tmp/forja-live.html &&
+               grep -Fq 'id="informacion-avanzada"' /tmp/forja-live.html; then
+              correcto=true
+              break
+            fi
+            sleep 5
+          done
+          test "$correcto" = true
+          ! grep -Fq 'data-juego="nd20_cifi"' /tmp/forja-live.html
+          ! grep -Fq 'data-juego="nd20_nocturna"' /tmp/forja-live.html
+          curl -fsSL "${PAGE_URL%/}/assets/icons-forja.svg" -o /tmp/forja-icons.svg
+          test "$(grep -c '<symbol id=' /tmp/forja-icons.svg)" -eq 12
+          curl -fsSL "${PAGE_URL%/}/data/especies.json" -o /tmp/forja-especies.json
+          node -e "const e=require('/tmp/forja-especies.json');if(Object.keys(e).length!==8)process.exit(1)"
+          echo "OK: web en vivo, 8 Especies DRS, 12 SVG y CiFi/Nocturna ocultos."
