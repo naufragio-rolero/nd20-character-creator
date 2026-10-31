@@ -1,0 +1,818 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 1,
+  "indices_tomo": [
+    1,
+    25
+  ],
+  "fuente": {
+    "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "estado": "transcripcion_literal_completa_de_cada_ficha",
+  "registros": [
+    {
+      "numero_tomo": 1,
+      "nombre_literal": "Acelerar",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 109,
+        "indice_ultimo_parrafo": 116,
+        "indice_inicio_doc": 6898,
+        "indice_fin_doc": 7292
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 8 metros",
+        "Duración: 1 Turno por cada 2 Niveles",
+        "Cronurgia",
+        "Manipulas los hilos invisibles del tiempo, reduciendo la fricción de la realidad sobre un objetivo. Le otorgas 1 acción adicional por Turno (atacar o moverse) en Combate; duplicas su Movimiento fuera de Combate. ",
+        "Un objetivo solo puede beneficiarse de un efecto de Acelerar al mismo tiempo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-199",
+          "circulo": 6,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 2,
+      "nombre_literal": "Adarga de hielo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 117,
+        "indice_ultimo_parrafo": 123,
+        "indice_inicio_doc": 7293,
+        "indice_fin_doc": 7749
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Elemental",
+        "Alcance: personal",
+        "Duración: 2 Turnos por Nivel",
+        "De tu brazo surge una adarga gélida que actúa como un Escudo mediano, y que puedes blandir con facilidad aunque no tengas competencia con escudos. Te proporciona +1 Blindaje y te otorga un +2 a la Tirada cuando elijas la maniobra de Bloqueo a la hora de Evitar un ataque.",
+        "Si sufres cualquier daño de tipo fuego o calor, se reducirá en 1d4 Turnos su duración."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-130",
+          "circulo": 2,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 3,
+      "nombre_literal": "Aguijón impío",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 124,
+        "indice_ultimo_parrafo": 128,
+        "indice_inicio_doc": 7750,
+        "indice_fin_doc": 7943
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 20m",
+        "Lanzas una púa venenosa y putrefacta hacia un objetivo, que causa 1d6 de daño por veneno e impío si superas una Tirada de Conjuro."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-0",
+          "circulo": 1,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 4,
+      "nombre_literal": "Agujero negro",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 129,
+        "indice_ultimo_parrafo": 135,
+        "indice_inicio_doc": 7944,
+        "indice_fin_doc": 8399
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 12 metros",
+        "Duración: 2 Turnos por cada 5 Niveles",
+        "Creas una esfera de vacío negro en el punto elegido, que absorbe la materia. Cada criatura de tamaño similar a un humano en un radio de 4 metros alrededor del Agujero negro es arrastrada 2 metros hacia él y sufre 1d6 de daño mágico por Nivel. ",
+        "Cuando agota su duración, estalla causando 1d8 de daño mágico por Nivel a todas las criaturas a su alrededor."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-98",
+          "circulo": 5,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 5,
+      "nombre_literal": "Ajuar codicioso de Penderthorn",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 136,
+        "indice_ultimo_parrafo": 141,
+        "indice_inicio_doc": 8400,
+        "indice_fin_doc": 8897
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: 1 hora por Nivel",
+        "Gamellus Penderthorn era un viejo gnomo sylestri obsesionado con sus riquezas, y dedicó buena parte de su vida a perfeccionar este conjuro, con el único fin de proteger sus preciadas posesiones. Tocas una pila de tesoros y proyectas una ilusión mágica que duplica su tamaño y apariencia. Las criaturas que vean el tesoro tienen una Probabilidad 6 + tu Nivel de darse cuenta que es una ilusión."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-378",
+          "circulo": 3,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 6,
+      "nombre_literal": "Albor de la vida",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 142,
+        "indice_ultimo_parrafo": 151,
+        "indice_inicio_doc": 8898,
+        "indice_fin_doc": 9597
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Naturaleza",
+        "Lanzamiento: 4 Turnos",
+        "Alcance: toque",
+        "Duración: 8 horas",
+        "Infundes energía natural y sanadora en una criatura que está en proceso de dar a luz. Este conjuro alivia completamente el dolor del parto, reduciendo el estrés físico y emocional de la madre mientras garantiza un nacimiento seguro para el bebé.",
+        "El parto ocurre sin dolor ni complicaciones para la madre o el bebé.",
+        "Si la parturienta sufre de alguna condición mágica o enfermedad que pudiera complicar el parto, el conjuro otorga una Probabilidad 10+ de neutralizarla temporalmente durante la duración del alumbramiento.",
+        "Puede ser usado en criaturas de tipo Gigante, Bestia, Humanoide o Fata."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-375",
+          "circulo": 2,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 7,
+      "nombre_literal": "Aliento de agonía",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 152,
+        "indice_ultimo_parrafo": 156,
+        "indice_inicio_doc": 9598,
+        "indice_fin_doc": 9780
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 6 metros",
+        "Una ráfaga de aire gélido y maldito surge bajo el objetivo, provocándole 2d6 puntos de daño por frío e impío."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-147",
+          "circulo": 2,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 8,
+      "nombre_literal": "Aliento de Lenseng",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 157,
+        "indice_ultimo_parrafo": 162,
+        "indice_inicio_doc": 9781,
+        "indice_fin_doc": 10183
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: toque",
+        "Duración: 10 Turnos por Nivel",
+        "Hilos de algas surgen de tus dedos y acarician la piel del objetivo. En un instante, se hunden en su carne y provocan la aparición de branquias mágicas en su cuello, de forma que pueda respirar bajo el agua. No obstante, mientras dure el efecto, la criatura será incapaz de respirar con normalidad aire."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-272",
+          "circulo": 3,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 9,
+      "nombre_literal": "Alivio pasajero",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 163,
+        "indice_ultimo_parrafo": 169,
+        "indice_inicio_doc": 10184,
+        "indice_fin_doc": 10555
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: 1d8 horas",
+        "Magia curativa",
+        "Canalizas una energía benévola que mitiga los síntomas de una enfermedad común en una criatura que toques. Este conjuro no elimina la dolencia, pero permite al objetivo disfrutar de un período libre de molestias como dolores de cabeza, fiebre, náuseas u otras incomodidades."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-369",
+          "circulo": 1,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 10,
+      "nombre_literal": "Alterar el ser",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 170,
+        "indice_ultimo_parrafo": 176,
+        "indice_inicio_doc": 10556,
+        "indice_fin_doc": 10983
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Demonología",
+        "Lanzamiento: 3 Intervalos",
+        "Alcance: toque",
+        "Duración: permanente",
+        "Modificas el cuerpo y la genética del objetivo a tu gusto, transgrediendo las reglas del universo. Puedes crear aberraciones, modificar la especie, otorgar órganos que la criatura no tenía y cualquier otro tipo de cambios corporales que se te ocurran. No puedes añadir o quitar masa al objetivo más allá de un 30%."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-60",
+          "circulo": 8,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 11,
+      "nombre_literal": "Alzar brezo espinoso",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 177,
+        "indice_ultimo_parrafo": 183,
+        "indice_inicio_doc": 10984,
+        "indice_fin_doc": 11367
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 2 metros",
+        "Duración: 1 Turno por Nivel",
+        "Invocación",
+        "Conjuras un brezo espinoso animado que surge del suelo en un espacio dentro del alcance. Este brezo actúa de forma autónoma, atacando a los enemigos más cercanos al final de cada Ronda. Solo puedes tener un Brezo espinoso a tu servicio mientras éste Conjuro esté activo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-128",
+          "circulo": 1,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 12,
+      "nombre_literal": "Alzar cráneo reptante",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 184,
+        "indice_ultimo_parrafo": 191,
+        "indice_inicio_doc": 11368,
+        "indice_fin_doc": 11800
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: toque",
+        "Duración: 1d2 Intervalos",
+        "Invocación",
+        "Necesitas el cráneo de una criatura muerta para poder lanzar este Conjuro. Evocas una pizca de energía corrupta para infestar con probóscides sombrías los huesos de la víctima, que se levantará al siguiente Turno como un Cráneo reptante.",
+        "Sólo puedes tener un Cráneo reptante a tu servicio mientras éste Conjuro esté activo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-64",
+          "circulo": 1,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 13,
+      "nombre_literal": "Alzar esqueleto secuaz",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 192,
+        "indice_ultimo_parrafo": 199,
+        "indice_inicio_doc": 11801,
+        "indice_fin_doc": 12300
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 10 metros",
+        "Duración: 1 Turno por Nivel",
+        "Invocación",
+        "Con un gesto oscuro y palabras arcanas, convocas un esqueleto debilitado que surge del suelo o de restos cercanos. Estos huesos, aunque frágiles, actúan como tu leal servidor durante la duración del conjuro, asistiendo en tareas simples según tus órdenes.",
+        "Puedes tener tantos esqueletos secuaces como la mitad de tu Nivel (mínimo 1) a tu servicio mientras éste Conjuro esté activo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-374",
+          "circulo": 2,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 14,
+      "nombre_literal": "Alzar goblin de lodo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 200,
+        "indice_ultimo_parrafo": 207,
+        "indice_inicio_doc": 12301,
+        "indice_fin_doc": 12936
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 4 metros",
+        "Duración: 1 Turno por Nivel",
+        "Invocación",
+        "Extiendes tus manos hacia el suelo y ordenas a la tierra y el agua que tomen forma. De la mezcla surge un goblin de lodo, una criatura grotesca pero leal que actúa bajo tus órdenes, compartiendo tu Iniciativa. El goblin posee fuerza bruta y una astucia primitiva, atacando con sus garras enfangadas y dejando tras de sí una estela resbaladiza. Explotará en un charco de lodo cuando su Salud llegue a 0 o la duración del Conjuro finalice.",
+        "Solo puedes tener un Goblin de lodo a tu servicio mientras éste Conjuro esté activo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-174",
+          "circulo": 4,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 15,
+      "nombre_literal": "Alzar gólem de carne",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 208,
+        "indice_ultimo_parrafo": 216,
+        "indice_inicio_doc": 12937,
+        "indice_fin_doc": 13603
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Nigromancia",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: 5 metros",
+        "Duración: 1 Intervalo por nivel",
+        "Invocación",
+        "Proyectas energía negativa sobre una pila de cuerpos sin vida, obligando a sus huesos y sus músculos a entrelazarse entre sí para crear una abominación muerta viviente. Este gólem de carne, de horrenda forma humana, obedecerá cualquier orden que le des, incluso si es una orden suicida.",
+        "Si gastas 1 Punto de Esfuerzo puedes hacer que explote, causando 1d10 de daño por Nivel a todas las criaturas en un radio de 4 metros alrededor del gólem. Sólo puedes tener un Gólem de carne a tu servicio mientras éste Conjuro esté activo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-90",
+          "circulo": 4,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 16,
+      "nombre_literal": "Alzar gólem de sangre",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 217,
+        "indice_ultimo_parrafo": 226,
+        "indice_inicio_doc": 13604,
+        "indice_fin_doc": 14044
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: 3m",
+        "Duración: 1 Intervalo por nivel",
+        "Magia de sangre",
+        "Invocación",
+        "Realizas un sacrificio a los demonios de la destrucción en forma de tu propia sangre. Del charco corrupto e impío surgirá una criatura humanoide hecha de sangre, completamente doblegada ante tu voluntad.",
+        "Sólo puedes tener un Gólem de sangre a tu servicio mientras éste Conjuro esté activo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-430",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Sangromancia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 17,
+      "nombre_literal": "Alzar hombre corrupto",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 227,
+        "indice_ultimo_parrafo": 234,
+        "indice_inicio_doc": 14045,
+        "indice_fin_doc": 14441
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: toque",
+        "Duración: 1d4 Intervalos",
+        "Invocación",
+        "Necesitas el cuerpo de una criatura malvada para poder lanzar este Conjuro. Conjuras huesos malditos que se clavan en el interior de la víctima, levantándose al siguiente Turno como un Hombre corrupto.",
+        "Sólo puedes tener un Hombre corrupto a tu servicio mientras éste Conjuro esté activo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-22",
+          "circulo": 3,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 18,
+      "nombre_literal": "Alzar maldito",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 235,
+        "indice_ultimo_parrafo": 242,
+        "indice_inicio_doc": 14442,
+        "indice_fin_doc": 14811
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: toque",
+        "Duración: 1d4 Intervalos",
+        "Invocación",
+        "Necesitas el cuerpo de una criatura malvada para poder lanzar este Conjuro. Conjuras huesos malditos que se clavan en el cráneo del objetivo, levantándose al siguiente Turno como un Maldito.",
+        "Sólo puedes tener un Maldito a tu servicio mientras éste Conjuro esté activo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-42",
+          "circulo": 5,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 19,
+      "nombre_literal": "Alzar treante",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 243,
+        "indice_ultimo_parrafo": 250,
+        "indice_inicio_doc": 14812,
+        "indice_fin_doc": 15416
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: toque",
+        "Duración: 1 hora por Nivel",
+        "Invocación",
+        "Necesitas un bastón de madera para lanzar este Conjuro; transformas el bastón en 1d4 treantes animados, plantas animadas con la ira del bosque, de características similares a un verdadero treante. Aunque no puede convocar a otros seres del bosque ni animar árboles, combatirá con su fuerza y obedecerá todas tus órdenes hasta ser destruido o hasta que termine la duración del conjuro. Comparte tu Iniciativa.",
+        "Solo puedes tener hasta 4 treantes animados a tu servicio mientras éste Conjuro esté activo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-411",
+          "circulo": 7,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 20,
+      "nombre_literal": "Amistad animal",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 251,
+        "indice_ultimo_parrafo": 256,
+        "indice_inicio_doc": 15417,
+        "indice_fin_doc": 15733
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 4m",
+        "Duración: 1d4 Intervalos",
+        "Conviertes a un animal no inteligente en tu amigo; podrás darle órdenes sencillas que no pongan en peligro su vida ni las de aquellos que considere familia y/o amigos. Si la bestia era hostil debes superar una Tirada de Conjuro."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-12",
+          "circulo": 2,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 21,
+      "nombre_literal": "Amparo contra el veneno",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 257,
+        "indice_ultimo_parrafo": 262,
+        "indice_inicio_doc": 15734,
+        "indice_fin_doc": 16107
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "Invocas energía divina para purificar el cuerpo y el aura de tu objetivo, otorgándole protección contra toxinas y venenos. Durante la duración del conjuro, el objetivo tiene Ventaja en las Tiradas de Salvación contra efectos de veneno y reduce a la mitad el daño por veneno."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-134",
+          "circulo": 2,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 22,
+      "nombre_literal": "Ancla sombría",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 263,
+        "indice_ultimo_parrafo": 269,
+        "indice_inicio_doc": 16108,
+        "indice_fin_doc": 16658
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 10 metros",
+        "Duración: 1 Turno por Nivel",
+        "Creas una pesada ancla de sombras sobre el cuello del objetivo, atrapando su cuerpo en el Mundo de la carne mientras espectros oscuros se alimentan de su esencia. Realiza una Tirada de Conjuro: si tienes éxito, causas 1d8 de daño impío por Nivel y la criatura queda Paralizada durante la duración del conjuro.",
+        "El daño se provoca en el primer Turno. Sólo puedes tener un Ancla sombría activa; lanzar este conjuro otra vez, anulará el efecto del primero. "
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-156",
+          "circulo": 3,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 23,
+      "nombre_literal": "Antídoto natural",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 270,
+        "indice_ultimo_parrafo": 274,
+        "indice_inicio_doc": 16659,
+        "indice_fin_doc": 16926
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Lanza este sortilegio sobre una criatura que haya sido envenenada durante las últimas 12 horas y haya fallado la Tirada de Resistencia para soportar los efectos del veneno; puede volver a tirar de nuevo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-248",
+          "circulo": 2,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 24,
+      "nombre_literal": "Apagallamas",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 275,
+        "indice_ultimo_parrafo": 280,
+        "indice_inicio_doc": 16927,
+        "indice_fin_doc": 17436
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 50 metros",
+        "Extingues cualquier fuego no mágico en un área de 15m2 centrada en un punto que determines. También puedes apagar fuego mágico creado por un único objeto o disipar los efectos de conjuros basados en fuego presentes en el área. Para disipar conjuros, debes superar una Tirada de Conjuro, aplicando Ventaja o Desventaja según el Nivel del lanzador original.",
+        "Las criaturas de fuego dentro del área, como elementales, sufren 1d4 de daño por Nivel."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-379",
+          "circulo": 3,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 25,
+      "nombre_literal": "Apertura arcana",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 281,
+        "indice_ultimo_parrafo": 285,
+        "indice_inicio_doc": 17437,
+        "indice_fin_doc": 17777
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Retuerces las hebras místicas de la realidad para abrir cualquier tipo de cerradura. Aquellas de un Nivel igual o inferior al tuyo se abren automáticamente, mientras que para las de Nivel superior has de superar una Tirada de Conjuro; se aplica la regla de Enemigos superiores."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-13",
+          "circulo": 2,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    }
+  ]
+}

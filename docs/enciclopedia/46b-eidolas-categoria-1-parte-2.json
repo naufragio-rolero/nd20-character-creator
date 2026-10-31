@@ -1,0 +1,65 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "seccion": "Eidolas",
+  "categoria": 1,
+  "estado": "efectos_literales_sin_transcripcion_de_lore",
+  "registros": [
+    {
+      "nombre": "Sel-Line",
+      "parrafos": [
+        1518,
+        1524
+      ],
+      "afinidad_ficha": "Oscuridad",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el sigilo de Sel-Line para obtener Ventaja en todas las tiradas de Agilidad para moverte sigilosamente o esconderte durante 1d6 Turnos.",
+        "Canalizar": "Canalizar: Bufido aterrador. Sel-Line aparece detrás del invocador, sobresaltada por la situación, y lanza un terrible bufido en una línea de 21 metros frente a ella. Todas las criaturas afectadas por el bufido sufren 7d3 de daño sónico y caen derribadas al suelo.",
+        "Materializar": "Materializar: Salud 4/1d4/1, Ataque 2d3, Blindaje d3. Sel-Line aparecerá envuelta en sombras a tu lado y actuará la última durante el Combate. Tendrá Ventaja para esquivar cualquier ataque y será inmune a cualquier conjuro, pero se marchará de tu realidad pasados 2d3 Turnos."
+      }
+    },
+    {
+      "nombre": "Sheólidas",
+      "parrafos": [
+        1525,
+        1531
+      ],
+      "afinidad_ficha": "ninguno",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la insistencia de Sheólidas para obtener la capacidad de repetir una acción —si no te gusta el resultado del d20— con un -2 a la siguiente tirada durante 1d3 Turnos.",
+        "Canalizar": "Canalizar: Maullido acaramelado. Sheólidas aparece en mitad del campo de batalla, frotándose con aliados y enemigos por igual, maullando dulcemente. 1d5 criaturas (elegidas al azar) en un radio de 18 metros de la invocación quedarán impregnadas de su encanto, sufriendo 5d5 de daño psíquico no letal.",
+        "Materializar": "Materializar: Salud 5/1d5/1, Ataque 1d5, Blindaje d5. Shéolidas te ayudará durante 5 Turnos por cada nivel de invocador que tengas, pero no se separará de ti y atacará a las mismas criaturas que tú ataques."
+      }
+    },
+    {
+      "nombre": "Tal-lu-reihm",
+      "parrafos": [
+        1533,
+        1540
+      ],
+      "afinidad_ficha": "Fuego",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la piel de Tal-lu-reihm para obtener su escudo obsidiana durante 1d6 Turnos. Cada vez que seas impactado por un ataque físico —cuerpo a cuerpo o a distancia—, el enemigo arderá con las llamas del lago de fuego y sufrirá 6 puntos de daño.",
+        "Canalizar": "Canalizar: Fuego del recuerdo. En el punto de invocación comienza a brotar lava ardiente hasta que se forma un agujero de 2 metros del que surge Tal-lu-reihm. Tras observar a los enemigos, envía una onda de energía ardiente circular a su alrededor, abrasando a todos las criaturas en un radio de 6 metros alrededor de dónde ha surgido. Cada criatura herida por las llamas sufre 6d5 de daño por fuego.",
+        "Materializar": "Materializar: Salud 5/1d5/1, Ataque d6, Blindaje d6. Tal-lu-reihm peleará contra aquellos enemigos visiblemente más poderosos durante 2d6 Turnos, momento en el que desaparecerá en un estallido de llamas."
+      }
+    },
+    {
+      "nombre": "Velunion",
+      "parrafos": [
+        1541,
+        1548
+      ],
+      "afinidad_ficha": "Ninguno",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe las herramientas de Velunion para armarte con una caña de pescar hecha de hielo durante 1d8 Turnos. Podrás atacar a tus oponentes con este arma legendaria, que tiene un alcance de 5 metros y, tras superar una tirada de Fuerza, puedes arrastrar a cualquier oponente que no sea de un Tamaño mayor al tuyo, a un ritmo de 2 metros por Turno.",
+        "Canalizar": "Canalizar: Calma tempestuosa. Del diagrama de invocación surge un torrente de agua que empapa a cualquiera que esté a 3 metros o menos; cuando desaparece el agua, un pescador avejentado, con boina, pantalones y jersey, rodeado por un aura azulada, da un par de pasos frente a él, observando la situación. Tras intercambiar una mirada con su invocador, Velunion libera un suspiro que permite a todos aquellos que sean considerados aliados por él recuperar 1d4 puntos de Salud y, si están afligidos por una Condición o Enfermedad, repetir de nuevo la tirada de salvación.",
+        "Materializar": "Materializar: Salud 7/1d7/1, Ataque d8, Blindaje d4. Velunion intentará proteger a aquellos aliados más débiles durante 3d4 Turnos con su caña de hielo y sus aparejos; en el momento de desaparecer, una niebla reconfortante con olor a mar impregnará el lugar."
+      }
+    }
+  ],
+  "alertas": [
+    "OCP-21: Velunion tiene afinidad Ninguno en ficha, Agua en tabla; mantener ambas fuentes hasta resolución.",
+    "Sheólidas aparece escrito Shéolidas en la frase de Materializar; se conserva literalmente."
+  ],
+  "nota": "Sólo efectos literales de las 3 modalidades; descripciones literarias y exigencias de ofrenda pendientes de transcripción."
+}

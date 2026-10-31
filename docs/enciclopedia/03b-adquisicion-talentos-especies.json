@@ -1,0 +1,243 @@
+{
+  "fecha": "2026-10-28",
+  "proposito": "Documentar adquisición de Talentos opcionales Hyrule y elegibles Nocturna; no ejecutar cambios en Forja",
+  "hyrule": {
+    "fuente": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+    "total": 14,
+    "notas": [
+      "Cada opción condiciona la Ocupación y permite sustituir un Talento durante la Creación de personaje, excluyendo lo que define la Ocupación.",
+      "La expresión «Ocupación derivada» requiere criterio de correspondencia en Forja; no se infiere una lista desde el nombre."
+    ],
+    "registros": [
+      {
+        "id_documental": "talento-especie:ampliadas:deku:bombardero-deku",
+        "especie": "Deku",
+        "talento": "Bombardero deku",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Deku de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Deku",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:deku:tirano-del-bosque",
+        "especie": "Deku",
+        "talento": "Tirano del bosque",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Deku de la Ocupación Clérigo, o cualquier Ocupación derivada de ésta.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Deku",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:deku:semilladora",
+        "especie": "Deku",
+        "talento": "Semilladora",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Deku de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Deku",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:goron:aplomo-goron",
+        "especie": "Goron",
+        "talento": "Aplomo goron",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Goron de la Ocupación Guerrero, o cualquier Ocupación derivada de ésta.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Goron",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:goron:reposo-del-heroe",
+        "especie": "Goron",
+        "talento": "Reposo del héroe",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Goron de las Ocupaciones Guerrero o Clérigo, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Goron",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:goron:perdicion-del-dodongo",
+        "especie": "Goron",
+        "talento": "Perdición del dodongo",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Goron de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Goron",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:zora:aletas-del-ciclon",
+        "especie": "Zora",
+        "talento": "Aletas del ciclón",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Zora de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Zora",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:zora:morador-de-las-profundidades",
+        "especie": "Zora",
+        "talento": "Morador de las profundidades",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Zora de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Zora",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:kokiri:sabiduria-de-las-hadas",
+        "especie": "Kokiri",
+        "talento": "Sabiduría de las hadas",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Kokiri de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Kokiri",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:kokiri:tacticas-de-las-hadas",
+        "especie": "Kokiri",
+        "talento": "Tácticas de las hadas",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Kokiri de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Kokiri",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:orni:afinidad-aerea",
+        "especie": "Orni",
+        "talento": "Afinidad aérea",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Orni de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Orni",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:orni:surcavientos",
+        "especie": "Orni",
+        "talento": "Surcavientos",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para los Orni de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Orni",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:gerudo:castigo-del-reino-sombrio",
+        "especie": "Gerudo",
+        "talento": "Castigo del Reino Sombrío",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para las Gerudo de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Gerudo",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "id_documental": "talento-especie:ampliadas:gerudo:entereza-del-desierto",
+        "especie": "Gerudo",
+        "talento": "Entereza del desierto",
+        "condicion_ocupacion_literal": "Este Talento sólo está disponible para las Gerudo de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+        "procedimiento_adquisicion_literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+        "origen_seccion": "Talentos opcionales Gerudo",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      }
+    ]
+  },
+  "nocturna": {
+    "fuente": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+    "total_especies": 8,
+    "regla_intro": "A diferencia de otras iteraciones, en Nocturna el peso de la Especie es más importante que otras elecciones del personaje; cada Especie trae consigo un Talento fijo, el don inmutable que marca su existencia, un Talento adicional a elegir entre tres opciones, para dar forma a la manera en que el personaje interactúa con su legado",
+    "registros": [
+      {
+        "especie": "Humano natural",
+        "talento_fijo": "Buen desarrollo",
+        "talentos_a_elegir": [
+          "Adaptación",
+          "Fuerza de voluntad",
+          "Red de contactos"
+        ],
+        "regla_generica_fuente": "un Talento adicional a elegir entre tres opciones",
+        "fuente": "NaufragioD20Nocturna · Especies · Cómo leer el perfil de Especie · introducción a Especies",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "especie": "Humano arcano",
+        "talento_fijo": "Vestigios de hechicería",
+        "talentos_a_elegir": [
+          "Resistencia mágica",
+          "Ojos de Murati",
+          "Aliados en las sombras"
+        ],
+        "regla_generica_fuente": "un Talento adicional a elegir entre tres opciones",
+        "fuente": "NaufragioD20Nocturna · Especies · Cómo leer el perfil de Especie · introducción a Especies",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "especie": "Strigoi",
+        "talento_fijo": "Sino de los condenados",
+        "talentos_a_elegir": [
+          "Depredador depravado",
+          "Fascinación",
+          "Sombra siniestra"
+        ],
+        "regla_generica_fuente": "un Talento adicional a elegir entre tres opciones",
+        "fuente": "NaufragioD20Nocturna · Especies · Cómo leer el perfil de Especie · introducción a Especies",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "especie": "Jiangshi",
+        "talento_fijo": "Ladrón de almas",
+        "talentos_a_elegir": [
+          "Carne cadavérica",
+          "Chillido de ultratumba",
+          "Salto sobrenatural"
+        ],
+        "regla_generica_fuente": "un Talento adicional a elegir entre tres opciones",
+        "fuente": "NaufragioD20Nocturna · Especies · Cómo leer el perfil de Especie · introducción a Especies",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "especie": "Hombre lobo",
+        "talento_fijo": "Licantropía",
+        "talentos_a_elegir": [
+          "Incansable",
+          "Rabia brutal",
+          "Zancada salvaje"
+        ],
+        "regla_generica_fuente": "un Talento adicional a elegir entre tres opciones",
+        "fuente": "NaufragioD20Nocturna · Especies · Cómo leer el perfil de Especie · introducción a Especies",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "especie": "Hombre cuervo",
+        "talento_fijo": "Corantropía",
+        "talentos_a_elegir": [
+          "Memoria eidética",
+          "Sombra aérea",
+          "Ventriloquía"
+        ],
+        "regla_generica_fuente": "un Talento adicional a elegir entre tres opciones",
+        "fuente": "NaufragioD20Nocturna · Especies · Cómo leer el perfil de Especie · introducción a Especies",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "especie": "Sidhe",
+        "talento_fijo": "Vestigios de Sylestria",
+        "talentos_a_elegir": [
+          "Corazón ardiente",
+          "Ecos de Sylestria",
+          "Fulgor irreal"
+        ],
+        "regla_generica_fuente": "un Talento adicional a elegir entre tres opciones",
+        "fuente": "NaufragioD20Nocturna · Especies · Cómo leer el perfil de Especie · introducción a Especies",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      },
+      {
+        "especie": "Ceniciento",
+        "talento_fijo": "Naturaleza mutable",
+        "talentos_a_elegir": [
+          "Doble reflejo",
+          "Ecos de los demás",
+          "Retoño del caos"
+        ],
+        "regla_generica_fuente": "un Talento adicional a elegir entre tres opciones",
+        "fuente": "NaufragioD20Nocturna · Especies · Cómo leer el perfil de Especie · introducción a Especies",
+        "estado": "regla_de_acceso_extraida_pendiente_validacion"
+      }
+    ]
+  }
+}

@@ -1,0 +1,380 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    201,
+    225
+  ],
+  "numero_registros": 25,
+  "metodo": "Lectura de las fichas completas, cotejo de índices con 69i y registro de cautelas mecánicas. No constituye cambios en Forja.",
+  "registros": [
+    {
+      "numero_tomo": 201,
+      "nombre_literal": "Ídolo guardián de Mulinith",
+      "lectura_documental_no_oficial": "Reducción de daño físico por impacto con vulnerabilidad a áreas",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Anula primeros 4 de cada impacto físico; ataques de área causan doble daño. Termina si el ídolo se separa más de 4 metros.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1525
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 202,
+      "nombre_literal": "Invocar ejército ilusorio",
+      "lectura_documental_no_oficial": "Ejército ilusorio con número y resistencia escalada",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6,
+        7
+      ],
+      "advertencia_de_integracion": "Hasta Nivel ilusiones de Nivel inferior; cada una aguanta Nivel/10 impactos y causa mitad del daño aparente. Redondeo no declarado; la Tirada se activa con interacción.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1532
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 203,
+      "nombre_literal": "Invisibilidad magna en masa",
+      "lectura_documental_no_oficial": "Aplicación colectiva de Invisibilidad magna en superficie de 8 m²",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Se eligen objetivos dentro del área; hereda reglas de Invisibilidad magna. No se precisa forma de los 8 m² ni una duración independiente.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1541
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 204,
+      "nombre_literal": "Invocar elemental mayor",
+      "lectura_documental_no_oficial": "Elemental mayor de cuatro tipos con restricciones de invocación",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6,
+        7
+      ],
+      "advertencia_de_integracion": "Comparte Iniciativa, obedece, límite de uno; impide invocar menores. No consta bloque de estadísticas ni una mecánica para posible desobediencia posterior.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1546
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 205,
+      "nombre_literal": "Invocar vórtice de energía",
+      "lectura_documental_no_oficial": "Vórtice autónomo y dañino en superficie circular aprobada",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Área de 4 m² circular en 78a; 8d8 al comienzo del Turno de criaturas dentro; vórtice se mueve 10 m hacia la más próxima al comienzo de Ronda.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1556
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 206,
+      "nombre_literal": "Lanza de sombras",
+      "lectura_documental_no_oficial": "Proyectil de sombras con daño escalado por Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "1d8 impío por Nivel, alcance 10 m; sin Tirada de Conjuro explícita en la ficha.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1565
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 207,
+      "nombre_literal": "Lanza hemática",
+      "lectura_documental_no_oficial": "Lanza hemática que ignora Blindaje con Tirada previa",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Éxito causa 1d3 impío por Nivel y atraviesa protección. La ficha no adjudica daño en fallo.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1571
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 208,
+      "nombre_literal": "Latido oscuro",
+      "lectura_documental_no_oficial": "Daño impío inevitable y aumento de Movimiento",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "1d8 impío no reducible y Movimiento +1; Tirada solo si el objetivo no es voluntario.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1577
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 209,
+      "nombre_literal": "Legado de poder",
+      "lectura_documental_no_oficial": "Préstamo temporal de Conjuros y bloqueo de Espacios",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "El beneficiario usa su Nivel y Mente; los Espacios transferidos permanecen inaccesibles al lanzador mientras no se usen. No detalla devolución tras uso ni límite numérico.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1584
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 210,
+      "nombre_literal": "Levitación",
+      "lectura_documental_no_oficial": "Levitación hasta 8 m con concentración y resistencia",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Duración permanente hasta perder concentración; Tirada de Conjuro solo si el objetivo se resiste.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1591
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 211,
+      "nombre_literal": "Libertad",
+      "lectura_documental_no_oficial": "Eliminación de barreras y restricciones mágicas en radio de 18 m",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "La fuente dice eliminación sin excepción, con ejemplos; no incorporar Tirada de disipación genérica no declarada.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1597
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 212,
+      "nombre_literal": "Lienzo de la creación",
+      "lectura_documental_no_oficial": "Manifestación temporal de objeto o criatura representada en arte",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Nivel completo, mitad o cuarto según calidad y tiempo del dibujo. Al terminar el efecto se desintegra la obra; consultar al Cronista para criterios de calidad.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1603
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 213,
+      "nombre_literal": "Lienzo viviente",
+      "lectura_documental_no_oficial": "Cuerpo bidimensional y mayor vulnerabilidad",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "No puede atacarse por flancos y recibe triple daño; la descripción no altera Salud máxima.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1611
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 214,
+      "nombre_literal": "Llamada de auxilio",
+      "lectura_documental_no_oficial": "Llamada de socorro a conocidos del mismo plano",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Hasta Nivel destinatarios, 1d4 horas y alcance infinito condicionado al mismo plano.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1617
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 215,
+      "nombre_literal": "Llamada del lobo espectral",
+      "lectura_documental_no_oficial": "Invocación de lobo espectral fiel y limitado a uno",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Aparece adyacente y comparte Iniciativa. No hay bloque de estadísticas en la descripción.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1623
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 216,
+      "nombre_literal": "Lluvia de estrellas",
+      "lectura_documental_no_oficial": "Lluvia estelar de superficie 12 m² con dos resultados de daño",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Éxito 10d8 radiante y psíquico; fallo 5d6 radiante. La forma de los 12 m² no está fijada; «radio de efecto» no aporta medida lineal.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1630
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 217,
+      "nombre_literal": "Luna carmesí",
+      "lectura_documental_no_oficial": "Luna carmesí que altera criaturas malignas bajo luna llena",
+      "indices_de_parrafos_reglamentarios": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "advertencia_de_integracion": "Superficie circular de 20 km² aprobada en 78a; Nivel 20 o inferior y final al amanecer. No modificar control mental ni el riesgo narrativo.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1638
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 218,
+      "nombre_literal": "Luna nueva",
+      "lectura_documental_no_oficial": "Invisibilidad ligada a exposición lunar",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Funciona bajo luz lunar pese a movimiento y ataques; el texto declara resistencia a detección mágica o sentidos extraordinarios.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1653
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 219,
+      "nombre_literal": "Luz",
+      "lectura_documental_no_oficial": "Dos usos alternativos de Luz con duración diferente",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Iluminación de objeto inanimado durante 1 hora o Ceguera 1 Turno si se supera Tirada de Conjuro.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1661
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 220,
+      "nombre_literal": "Luz de luna",
+      "lectura_documental_no_oficial": "Encantamiento lunar de arma",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "1d6 adicional radiante y psíquico y consideración de plata frente a teriántropos; no duplicar automáticamente el dado por tipo de daño.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1669
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 221,
+      "nombre_literal": "Luz del peregrino",
+      "lectura_documental_no_oficial": "Orientación divina hacia destino o desorientación",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Dos modalidades y duración de 1 Intervalo por Nivel; no se especifica Tirada para forzar la desorientación.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1676
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 222,
+      "nombre_literal": "Mano de mago",
+      "lectura_documental_no_oficial": "Telequinesis de objetos inanimados con carga máxima",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "4 kg por Nivel, hasta 40 kg; no puede usarse como arma ni lanzarse. El literal contiene frase incompleta «durante».",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1683
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 223,
+      "nombre_literal": "Mensaje lejano",
+      "lectura_documental_no_oficial": "Comunicación telepática bilateral aceptada por destinatario",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Requiere que el receptor conozca el conjuro y esté en mismo plano; duración de hasta 10 minutos tras lanzar, aceptación voluntaria.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1689
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 224,
+      "nombre_literal": "Maldición de los elementos",
+      "lectura_documental_no_oficial": "Maldición que facilita daño elemental recibido",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Afecta un elemento concreto y concede Ventaja en la Tirada de Daño a los ataques contra el objetivo; no aplicar Ventaja a impacto.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1696
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 225,
+      "nombre_literal": "Marca del dador oscuro",
+      "lectura_documental_no_oficial": "Transferencia retardada parcial del daño recibido",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Hasta 1/4 de daño del Turno anterior, aplicado al comenzar el propio Turno; cura 1d6 si el marcado muere. Redondeo de cuartos no indicado.",
+      "fuente": {
+        "archivo": "69i-conjuros-alfabeticos-201-225.json",
+        "indice_encabezado": 1703
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}

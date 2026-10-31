@@ -1,0 +1,32 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "familia": "Eidolas",
+  "categoria": 2,
+  "estado": "modalidades_literales",
+  "registros": [
+    {
+      "nombre": "Talisa",
+      "categoria": 2,
+      "elemento_afin": "Hielo",
+      "parrafos": [
+        1582,
+        1589
+      ],
+      "encarnar_literal": "Encarnar: recibe la Determinación de Talisa, obteniendo 2d6 puntos de Blindaje adicionales contra daño físico y de hielo, junto con Ventaja en Tiradas de Fuerza para acciones de combate durante 1d6 Turnos. Las criaturas cercanas, a menos de 3 metros, ven su velocidad reducida en 2 debido al frío extremo.",
+      "canalizar_literal": "Canalizar: Ventisca irredenta. Se desata una tormenta devastadora de nieve y vientos helados en un radio de 18 metros desde el diagrama de invocación. Talisa aparece controlando una ventisca terrible, que hiela y paraliza sus objetivos. Las criaturas atrapadas en el área sufren 10d8 de daño por hielo y tienen una Probabilidad 14+ de quedar congeladas en su lugar durante 1d4 Turnos.",
+      "materializar_literal": "Materializar: Salud 10/d10/2, Ataque d8, Blindaje d8. Talisa aparece junto a su invocador, luchando con su alabarda de hielo durante 2d8 Turnos. Ralentiza a los enemigos cercanos, reduciendo su velocidad a la mitad, y puede proteger a los aliados con su escudo de hielo, reduciendo el daño que reciban en d6."
+    },
+    {
+      "nombre": "Varlyna",
+      "categoria": 2,
+      "elemento_afin": "Rayo",
+      "parrafos": [
+        1590,
+        1597
+      ],
+      "encarnar_literal": "Encarnar: recibe el ingenio de Varlyna para obtener Ventaja en todas las tiradas de Mente para resolver acertijos o problemas durante 1d4 Turnos.",
+      "canalizar_literal": "Canalizar: Tormenta eléctrica. Una hondonada de nubes grises cubren por completo el cielo o el techo, soltando chispas y calambres; de repente, un cúmulo nuboso empieza a girar sobre sí mismo y se disipa, dejando ver la figura chisporroteante de Varlyna, que libera una descarga eléctrica impresionante sobre un área de 18 metros frente a ella. Cada criatura herida por la tormenta sufre 12d6 de daño por relámpago y tiene una posibilidad 12+ de quedar Paralizada.",
+      "materializar_literal": "Materializar: Salud 8/1d8/1, Ataque d8, Blindaje d6. Varlyna aparecerá con su forma humana relampagueante para luchar codo a codo contigo durante 2d6 Turnos."
+    }
+  ]
+}

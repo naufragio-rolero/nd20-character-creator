@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "25_de_25_cotejados",
+  "fichas": 25,
+  "parrafos_referenciados": 68,
+  "errores": [],
+  "fuentes": [
+    {
+      "archivo": "69e-conjuros-alfabeticos-101-125.json",
+      "sha": "05516774d931c0245fd673c85506fd35e5e394a4"
+    },
+    {
+      "archivo": "72e-desglose-revisado-conjuros-101-125.json",
+      "sha": "8c2927c7918cbe18647b307d0c7f34316dbc3b79"
+    }
+  ],
+  "nota": "Comprobación de identidad e índices de párrafos. No valida la interpretación de reglas en Forja."
+}

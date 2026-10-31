@@ -1,0 +1,231 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 3,
+  "criterio": "Cotejo de texto y efecto con párrafos de DOCX originales; erratas preservadas como incidencias; sin implementación",
+  "registros_validados": 14,
+  "total_validados_acumulado": 28,
+  "pendientes": 87,
+  "registros": [
+    {
+      "id_documental": "talento-especie:drs:enano-montanes:vision-en-la-oscuridad",
+      "sistema": "DRS",
+      "especie": "Enano montañés",
+      "talento": "Visión en la oscuridad",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 122
+      },
+      "propiedades_verificadas": [
+        "Visión hasta 30 metros en oscuridad absoluta",
+        "Visión en blanco y negro y detalles poco definidos"
+      ],
+      "observaciones": "Errata literal «Puedes en distinguir» en fuente original",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:mediano-amable:baja-estatura",
+      "sistema": "DRS",
+      "especie": "Mediano amable",
+      "talento": "Baja estatura",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 139
+      },
+      "propiedades_verificadas": [
+        "Movimiento -1 ya calculado",
+        "Solo armas y armaduras adaptadas y escudos pequeños",
+        "+1 a esquiva de ataques a distancia"
+      ],
+      "observaciones": "",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:gnomo-urbano:baja-estatura",
+      "sistema": "DRS",
+      "especie": "Gnomo urbano",
+      "talento": "Baja estatura",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 151
+      },
+      "propiedades_verificadas": [
+        "Movimiento -1 ya calculado",
+        "Solo armas y armaduras adaptadas y escudos pequeños",
+        "+1 a esquiva de ataques a distancia"
+      ],
+      "observaciones": "",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:gnomo-urbano:vision-en-la-oscuridad",
+      "sistema": "DRS",
+      "especie": "Gnomo urbano",
+      "talento": "Visión en la oscuridad",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 153
+      },
+      "propiedades_verificadas": [
+        "Visión hasta 30 metros en oscuridad absoluta",
+        "Visión en blanco y negro y detalles poco definidos"
+      ],
+      "observaciones": "Erratas literales «Puedes en distinguir» y «alrrededor»",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:drs:semiorco:sed-de-sangre",
+      "sistema": "DRS",
+      "especie": "Semiorco",
+      "talento": "Sed de sangre",
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "parrafo_docx": 180
+      },
+      "propiedades_verificadas": [
+        "Declarar antes de Tirada de Ataque cuerpo a cuerpo",
+        "-2 Tirada de Ataque y +1 Penetración del arma"
+      ],
+      "observaciones": "",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:cifi:humano-natural:buen-desarrollo",
+      "sistema": "CIFI",
+      "especie": "Humano natural",
+      "talento": "Buen desarrollo",
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "parrafo_docx": 60
+      },
+      "propiedades_verificadas": [
+        "+1 a un Atributo durante creación de PJ"
+      ],
+      "observaciones": "",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:cifi:humano-aumentado:tolerancia-a-la-mejora",
+      "sistema": "CIFI",
+      "especie": "Humano aumentado",
+      "talento": "Tolerancia a la mejora",
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "parrafo_docx": 69
+      },
+      "propiedades_verificadas": [
+        "Ventaja en Tirada de Esencia por colocarse un Implante"
+      ],
+      "observaciones": "",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-bruto:corpulencia",
+      "sistema": "CIFI",
+      "especie": "Gruul bruto",
+      "talento": "Corpulencia",
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "parrafo_docx": 82
+      },
+      "propiedades_verificadas": [
+        "Movimiento -1 ya calculado",
+        "1 Esfuerzo para repetir Tirada de Blindaje contra daño físico"
+      ],
+      "observaciones": "",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-bruto:sana-primitiva",
+      "sistema": "CIFI",
+      "especie": "Gruul bruto",
+      "talento": "Saña primitiva",
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "parrafo_docx": 84
+      },
+      "propiedades_verificadas": [
+        "+1 Tirada de Daño con arma cuerpo a cuerpo"
+      ],
+      "observaciones": "",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-zangano:sinapsis-perladas",
+      "sistema": "CIFI",
+      "especie": "Gruul zángano",
+      "talento": "Sinapsis perladas",
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "parrafo_docx": 93
+      },
+      "propiedades_verificadas": [
+        "+2 a Tiradas de Atributo para resistir o esquivar efectos de Poderes Psiónicos"
+      ],
+      "observaciones": "",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-zangano:rapidez",
+      "sistema": "CIFI",
+      "especie": "Gruul zángano",
+      "talento": "Rapidez",
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "parrafo_docx": 95
+      },
+      "propiedades_verificadas": [
+        "Movimiento +1 ya calculado"
+      ],
+      "observaciones": "",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-mindari:vision-en-la-oscuridad",
+      "sistema": "CIFI",
+      "especie": "Sylph mindari",
+      "talento": "Visión en la oscuridad",
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "parrafo_docx": 111
+      },
+      "propiedades_verificadas": [
+        "Visión hasta 30 metros en oscuridad absoluta",
+        "Visión en blanco y negro y detalles poco definidos"
+      ],
+      "observaciones": "Errata literal «Puedes en distinguir»",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-zanshi:animo",
+      "sistema": "CIFI",
+      "especie": "Sylph zanshi",
+      "talento": "Ánimo",
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "parrafo_docx": 121
+      },
+      "propiedades_verificadas": [
+        "Una vez al día +2 a Tirada de Atributo de aliado que pueda escuchar",
+        "Declarar antes de la tirada"
+      ],
+      "observaciones": "",
+      "estado": "validado_documentalmente_sin_integracion"
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-zanshi:sangre-del-cosmos",
+      "sistema": "CIFI",
+      "especie": "Sylph zanshi",
+      "talento": "Sangre del cosmos",
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "parrafo_docx": 123
+      },
+      "propiedades_verificadas": [
+        "Inmunidad a Enfermedad",
+        "Ventaja en Tiradas de Atributo para resistir Escrutar pensamientos y Manipular la memoria"
+      ],
+      "observaciones": "",
+      "estado": "validado_documentalmente_sin_integracion"
+    }
+  ]
+}

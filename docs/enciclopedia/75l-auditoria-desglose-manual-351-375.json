@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "25_de_25_cotejados",
+  "fichas": 25,
+  "parrafos_referenciados": 39,
+  "errores": [],
+  "fuentes": [
+    {
+      "archivo": "69o-conjuros-alfabeticos-351-375.json",
+      "sha": "7026831a157d3f00a890d1eabe659c3acd39e584"
+    },
+    {
+      "archivo": "72o-desglose-revisado-conjuros-351-375.json",
+      "sha": "c584b4cba6bfe480412c727f39ba5b57fc1bf565"
+    }
+  ],
+  "nota": "Verificación literal de índices e identidad, no de mecánica."
+}

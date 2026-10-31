@@ -1,0 +1,35 @@
+name: Forja - compatibilidad Firefox y WebKit
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compatibilidad:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Instalar Playwright temporalmente (sin dependencia de la web)
+        run: npm install --no-save --no-package-lock playwright@1.56.1
+      - name: Preparar motores Firefox y WebKit
+        run: npx playwright install --with-deps firefox webkit
+      - name: Probar Forja en Gecko y WebKit
+        run: node tests/browser-compatibilidad.js
+      - name: Adjuntar capturas de compatibilidad
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forja-compatibilidad-firefox-webkit
+          path: tests/capturas-compatibilidad/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,148 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "fecha": "2026-10-29",
+  "lote": 5,
+  "ocupaciones": [
+    "Bárbaro",
+    "Bardo",
+    "Belisario"
+  ],
+  "registros": [
+    {
+      "ocupacion": "Bárbaro",
+      "talento": "Brutalidad",
+      "activacion": "Reacción",
+      "texto_literal": "Reacción\nCuando falles una tirada de Fuerza para causar daño a una criatura, puedes destruir completamente el arma que estés blandiendo —sin importar su condición— para causar daño con ella automáticamente. Debes declarar el uso de esta habilidad justo después de fallar.",
+      "fuente_parrafos": [
+        773,
+        775
+      ]
+    },
+    {
+      "ocupacion": "Bárbaro",
+      "talento": "Cólera",
+      "activacion": "Acción",
+      "texto_literal": "Acción\nCoste: variable (ver descripción)\nTe dejas llevar por la ira para entrar en un estado de cólera furiosa que te vuelve muy peligroso.\nCuando estás rabiando, obtienes Ventaja en las Tiradas de ataque cuerpo a cuerpo y causas 1d4 de daño adicional cuerpo a cuerpo. Este daño aumenta según tu Nivel: d6 a partir del Nivel 6, a d8 a partir del Nivel 12, a d10 a partir del Nivel 18  y a d12 a partir del Nivel 24.\nSi realizas una Maniobra de Carga mientras estás en cólera contra una criatura, recibes +1 a la Potencia del ataque cuerpo a cuerpo que realices contra ella.\nMientras estés rabioso, sufres Desventaja para Evitar ataques a distancia y resistir efectos de conjuros.\nEres capaz de entrar en cólera una vez al día sin necesidad de esforzarte. No obstante, puedes gastar 1 Punto de Esfuerzo para forzar encolerizarte una vez más.",
+      "fuente_parrafos": [
+        776,
+        783
+      ]
+    },
+    {
+      "ocupacion": "Bárbaro",
+      "talento": "Energúmeno",
+      "activacion": "Pasiva",
+      "texto_literal": "Pasiva\nTienes Ventaja en las Tiradas de Fuerza para romper objetos. Además, tu Potencia aumenta en 1 en Nivel 10 y en Nivel 22, hasta un total de Potencia 3 de forma natural.",
+      "fuente_parrafos": [
+        785,
+        787
+      ]
+    },
+    {
+      "ocupacion": "Bárbaro",
+      "talento": "Receloso",
+      "activacion": "Pasiva",
+      "texto_literal": "Pasiva\nTienes Ventaja en las Tiradas de Intuición realizadas para detectar trampas, engaños mágicos o intentos sobrenaturales de alterar tu percepción de la realidad. No es que comprendas lo que sucede, si no que más bien sientes algo en tu interior que te lleva a desconfiar.",
+      "fuente_parrafos": [
+        788,
+        790
+      ]
+    },
+    {
+      "ocupacion": "Bardo",
+      "talento": "Cultura del viajero",
+      "activacion": "Acción",
+      "texto_literal": "Acción\nUna vez al día, cuando debas realizar una Tirada de Atributo relacionada con conocer un dato, buscar en un lugar, reconocer a alguien o interrogar a un individuo, puedes declarar que algo sabías de ello y obtener un +2 a esa Tirada (bajo aprobación del Cronista).",
+      "fuente_parrafos": [
+        814,
+        816
+      ]
+    },
+    {
+      "ocupacion": "Bardo",
+      "talento": "Entusiasmo",
+      "activacion": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Esfuerzo\nInspiras, ya sea mediante unas palabras de ánimo, un chascarrillo divertido o un grito de esperanza, a un objetivo ubicado a 18 metros o menos de ti, otorgándole un Dado de Entusiasmo (DE) durante tantos Turnos como tu Nivel.\nSolo puedes otorgar un DE a un único objetivo y éste sólo puede beneficiarse de un único DE. Si le das el DE a otro objetivo, el primero lo pierde irremediablemente.\nEl objetivo puede usar el DE para sumar el resultado de la tirada a uno de sus Atributos. Una vez utilizado el DE, se consume.",
+      "fuente_parrafos": [
+        817,
+        822
+      ]
+    },
+    {
+      "ocupacion": "Belisario",
+      "talento": "Apariencia intimidante",
+      "activacion": "Reacción",
+      "texto_literal": "Reacción\nCoste: 1 Esfuerzo\nCuando una unidad aliada falle un chequeo de Moral o una unidad enemiga supere un chequeo de Moral, puedes cambiar el resultado a uno favorable para tu equipo.",
+      "fuente_parrafos": [
+        847,
+        850
+      ]
+    },
+    {
+      "ocupacion": "Belisario",
+      "talento": "Estratega avezado",
+      "activacion": "Pasiva",
+      "texto_literal": "Pasiva\nEres un experimentado combatiente, que ha adquirido gran destreza a la hora de dirigir grupos de soldados. Te sabes adelantar a tu enemigo y pensar en cómo cubrir los puntos débiles de tu compañía.\nPor lo tanto, tienes Ventaja en las Tiradas de Mente para reconocer puntos débiles en tus enemigos y en las Tiradas de Presencia para asegurar y/o reforzar la lealtad de tus seguidores.",
+      "fuente_parrafos": [
+        851,
+        854
+      ]
+    },
+    {
+      "ocupacion": "Belisario",
+      "talento": "Preparación",
+      "activacion": "Pasiva",
+      "texto_literal": "Pasiva\nTienes Ventaja en la Tirada de Iniciativa si vas a participar en el combate activamente.",
+      "fuente_parrafos": [
+        855,
+        857
+      ]
+    }
+  ],
+  "dependencias": [
+    {
+      "ocupacion": "Bárbaro",
+      "fijos": [
+        "Brutalidad",
+        "Cólera"
+      ],
+      "eleccion_exclusiva": [
+        "Energúmeno",
+        "Receloso"
+      ],
+      "parrafo": 772
+    },
+    {
+      "ocupacion": "Bardo",
+      "recursos_separados": [
+        "Dado de Entusiasmo",
+        "Canciones",
+        "Conjuros",
+        "Técnicas"
+      ]
+    },
+    {
+      "ocupacion": "Belisario",
+      "recursos_separados": [
+        "Técnicas",
+        "Órdenes de batalla"
+      ],
+      "notas": "Órdenes requieren sacrificar el Turno, según fuente."
+    }
+  ],
+  "alertas": [
+    {
+      "id": "OCP-08",
+      "ocupacion": "Bárbaro",
+      "talento": "Cólera",
+      "detalle": "Texto: d8 desde Nv12. Tabla 20: d8 en Nv11-12. No elegir versión."
+    },
+    {
+      "id": "OCP-09",
+      "ocupacion": "Bárbaro",
+      "talento": "Energúmeno",
+      "detalle": "Texto: Potencia +1 en Nv10 y Nv22; tabla 20 indica +1 en Nv10 y Nv20. No elegir versión."
+    }
+  ],
+  "forja_modificada": false
+}

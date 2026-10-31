@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "25_de_25_cotejados",
+  "fichas": 25,
+  "parrafos_referenciados": 36,
+  "errores": [],
+  "fuentes": [
+    {
+      "archivo": "69p-conjuros-alfabeticos-376-400.json",
+      "sha": "946052fc29b016a489bba6e8b4bb9f80f23b5d2a"
+    },
+    {
+      "archivo": "72p-desglose-revisado-conjuros-376-400.json",
+      "sha": "862bc2d49e7dbcac68e021b7fdece610c9e13c23"
+    }
+  ],
+  "nota": "Identidad y referencias cotejadas; no es una validación de efectos en Forja."
+}

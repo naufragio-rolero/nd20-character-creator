@@ -1,0 +1,386 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    251,
+    275
+  ],
+  "numero_registros": 25,
+  "metodo": "Revisión manual de texto completo y cotejo de índices. Mantener fuente histórica.",
+  "registros": [
+    {
+      "numero_tomo": 251,
+      "nombre_literal": "Manto encarnado de sangre",
+      "lectura_documental_no_oficial": "Protección reactiva, resistencia y Ventaja",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "advertencia_de_integracion": "La reacción de 1d8 corresponde a un ataque cuerpo a cuerpo; no a cualquier daño.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1882
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 252,
+      "nombre_literal": "Maldición de vínculo sanguíneo",
+      "lectura_documental_no_oficial": "Vínculo de daño recíproco y rastreo",
+      "indices_de_parrafos_reglamentarios": [
+        6,
+        7
+      ],
+      "advertencia_de_integracion": "1d8 al objetivo y 1d4 irreducible al lanzador al recibir ataque; permite cambiar objetivo al morir.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1892
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 253,
+      "nombre_literal": "Maldición de debilidad",
+      "lectura_documental_no_oficial": "Reducción de daño causado por ataques",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "La mitad se aplica a ataques, no a cualquier efecto de daño.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1901
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 254,
+      "nombre_literal": "Maldición del caos",
+      "lectura_documental_no_oficial": "Penalización condicionada sobre acciones hostiles",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "Requiere Tirada de Conjuro en cada acción hostil; Desventaja o Ventaja según corresponda.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1908
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 255,
+      "nombre_literal": "Neblinificación",
+      "lectura_documental_no_oficial": "Forma gaseosa con movimiento limitado",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Movimiento 3 y sin capacidad de conjurar; el Alcance dice toque aunque describe al lanzador.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1916
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 256,
+      "nombre_literal": "Niebla",
+      "lectura_documental_no_oficial": "Niebla móvil y opaca",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "advertencia_de_integracion": "8 m²; Desventaja visual y protección frente a ataques a distancia; frase fuente truncada.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1922
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 257,
+      "nombre_literal": "Niebla carmesí",
+      "lectura_documental_no_oficial": "Cono de niebla inmóvil",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Daño 4d12 impío, recuperación de mitad del daño; «m² de diámetro» pendiente en 77d.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1931
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 258,
+      "nombre_literal": "Nimbo humeante",
+      "lectura_documental_no_oficial": "Nimbo móvil bajo concentración",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Se desplaza 3 m cada Turno; Tirada por criatura y daño 10d12 o mitad.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1938
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 259,
+      "nombre_literal": "Nube de aniquilación",
+      "lectura_documental_no_oficial": "Nube de efecto letal por Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Afecta a criaturas de Nivel 8 o inferior al inicio de su Turno; «m² de radio» pendiente en 77d.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1945
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 260,
+      "nombre_literal": "Nube de polen somnífero",
+      "lectura_documental_no_oficial": "Área de polen somnífero",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Área 6 m² de forma no declarada; Tirada por objetivo y finaliza el sueño con daño.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1951
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 261,
+      "nombre_literal": "Nube tóxica",
+      "lectura_documental_no_oficial": "Niebla nauseabunda con volumen explícito",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "6 m³; Tirada por criatura, náuseas persisten 2d4 Turnos tras salir.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1957
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 262,
+      "nombre_literal": "Ojo de la tormenta",
+      "lectura_documental_no_oficial": "Clima alterado con varias manifestaciones",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "advertencia_de_integracion": "5 km² de alcance, hasta 1 km² por liberación, 1d6 usos; no convertir superficies en radios.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1965
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 263,
+      "nombre_literal": "Ojo de Taiuhn",
+      "lectura_documental_no_oficial": "Reproducción de Conjuro observado",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Debe haberse visto y oído y exige pagar coste correspondiente.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1977
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 264,
+      "nombre_literal": "Ola salvaje",
+      "lectura_documental_no_oficial": "Ola móvil con Empapada",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Área adyacente 4 m² y avance 10 m; daño 4d6 y estado Empapada.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1985
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 265,
+      "nombre_literal": "Oleada aérea",
+      "lectura_documental_no_oficial": "Oleada de viento sin daño cuantificado",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Extingue pequeñas llamas y detiene movimiento según tamaño; no añadir daño.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1991
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 266,
+      "nombre_literal": "Olvido",
+      "lectura_documental_no_oficial": "Alteración de recuerdos",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Con Tirada no superada el recuerdo puede recuperarse; no asumir permanencia.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 1996
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 267,
+      "nombre_literal": "Onda atronadora",
+      "lectura_documental_no_oficial": "Onda sonora con empuje",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Alcance 2 m, empuje 4 m, objetos 6 m; sonido audible 45 m no es radio dañino.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 2003
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 268,
+      "nombre_literal": "Orbe devoramagia mayor",
+      "lectura_documental_no_oficial": "Protección arcana estática mayor",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Radio 6 m y anula Conjuros hasta Quinto Círculo; puede disiparse.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 2009
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 269,
+      "nombre_literal": "Orbe devoramagia menor",
+      "lectura_documental_no_oficial": "Protección arcana estática menor",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Radio 4 m y anula Conjuros hasta Tercer Círculo; puede disiparse.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 2016
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 270,
+      "nombre_literal": "Orbe elemental",
+      "lectura_documental_no_oficial": "Orbe elemental de trayectoria fija",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Desplazamiento 2 m, daño 1d8 por Nivel; falta diámetro propio del orbe.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 2023
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 271,
+      "nombre_literal": "Orbe tenebroso",
+      "lectura_documental_no_oficial": "Ceguera sujeta a Tirada",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Se aplica durante 1 Turno por Nivel si se supera Tirada de Conjuro.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 2030
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 272,
+      "nombre_literal": "Palabra de Custodia: Corrupción",
+      "lectura_documental_no_oficial": "Resistencia frente a lo Corrupto",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Mitad de Nivel como bonificación, excluidas las Tiradas de Blindaje y Daño; falta redondeo.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 2037
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 273,
+      "nombre_literal": "Palabra de Custodia: Loriga",
+      "lectura_documental_no_oficial": "Ropaje con Blindaje no acumulable",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "+1 por cada 4 Niveles, máximo +5, no acumulable; redondeo pendiente.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 2044
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 274,
+      "nombre_literal": "Palabra de Custodia: Rectitud",
+      "lectura_documental_no_oficial": "Resistencia frente a lo Sagrado",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Mitad de Nivel como bonificación, excluidas las Tiradas de Blindaje y Daño; falta redondeo.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 2051
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 275,
+      "nombre_literal": "Palabra de Custodia: Retorno",
+      "lectura_documental_no_oficial": "Traslado al lugar de memorización",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "No puede llevar a otras criaturas, sí a su equipo.",
+      "fuente": {
+        "archivo": "69k-conjuros-alfabeticos-251-275.json",
+        "indice_encabezado": 2058
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}

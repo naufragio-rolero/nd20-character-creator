@@ -1,0 +1,814 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 12,
+  "indices_tomo": [
+    276,
+    300
+  ],
+  "fuente": {
+    "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "estado": "transcripcion_literal_completa_de_cada_ficha",
+  "registros": [
+    {
+      "numero_tomo": 276,
+      "nombre_literal": "Palabra de Custodia: Sosiego",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2064,
+        "indice_ultimo_parrafo": 2069,
+        "indice_inicio_doc": 145691,
+        "indice_fin_doc": 146121
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: 2 Turnos por Nivel o hasta que el usuario realice una acción violenta",
+        "Levantas una barrera aural de pura paz concentrada alrededor del objetivo: mientras dure esta tranquilidad, toda criatura que intente realizar una acción agresiva contra el objetivo tiene una Probabilidad de 8+ de no hacer nada ese Turno, en lugar de llevar a cabo su acción."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-229",
+          "circulo": 1,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 277,
+      "nombre_literal": "Palabra de Poder: Atracción",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2070,
+        "indice_ultimo_parrafo": 2075,
+        "indice_inicio_doc": 146122,
+        "indice_fin_doc": 146467
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 4 metros por Nivel",
+        "Duración: permanente o hasta que ocurra",
+        "Lanzas los efectos de la Palabra de Poder: Sugestión a todos los seres con los que estés conversando. Sin embargo, la sugestión debe ser la misma para todas ellas y debes superar una Tirada de Conjuro por cada una."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-323",
+          "circulo": 6,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 278,
+      "nombre_literal": "Palabra de Poder: Aturdimiento",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2076,
+        "indice_ultimo_parrafo": 2083,
+        "indice_inicio_doc": 146468,
+        "indice_fin_doc": 147063
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Demonología",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: 1 metro por Nivel",
+        "Duración: 2d8 Turnos si la criatura tiene 30 puntos de Salud o menos, 1d6 Turnos si su Salud actual es mayor",
+        "Pronuncias una palabra cargada de poder profano que aturde al instante a una criatura dentro del alcance. Mientras dure el efecto, la criatura no puede atacar, su Movimiento se reduce a la mitad, y todos los ataques dirigidos hacia ella se realizan con Ventaja.",
+        "Las criaturas con una Salud actual superior a 70 puntos son inmunes a los efectos de esta Palabra de Poder."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-340",
+          "circulo": 7,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 279,
+      "nombre_literal": "Palabra de Poder: Detención",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2084,
+        "indice_ultimo_parrafo": 2090,
+        "indice_inicio_doc": 147064,
+        "indice_fin_doc": 147559
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Demonología",
+        "Alcance: 25 metros",
+        "Duración: 2 Turnos por Nivel",
+        "De tu voz emerge una orden digna de los generales de Rasmalk: ¡detente! Lanza este conjuro sobre 1d4 criaturas humanoides —que no sean inmunes a la parálisis ni de un Nivel superior a ti— que estén al alcance.",
+        "Realiza una Tirada de Conjuro por cada criatura viva objetivo: si tienes éxito, lo paralizas, evitando incluso que hable. Cualquier daño que sufra anula la Palabra de Poder."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-260",
+          "circulo": 3,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 280,
+      "nombre_literal": "Palabra de Poder: Discurso",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2091,
+        "indice_ultimo_parrafo": 2097,
+        "indice_inicio_doc": 147560,
+        "indice_fin_doc": 148163
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Divina",
+        "Alcance: 40 metros",
+        "Duración: hasta que dejes de hablar, no intereses ya al público o éste sea herido de cualquier forma.",
+        "Tus cuerdas vocales son rodeadas por energía divina, y tus palabras son capaces de atrapar la atención de cualquier criatura no hostil que te pueda entender en un área dentro del alcance del Conjuro.",
+        "Puedes influir sobre tus oyentes, no obstante, si les urges a hacer algo contrario a sus creencias, valores o naturaleza, tendrás que superar una Tirada de Conjuro. Equivocarte con esto puede traer consecuencias muy graves."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-247",
+          "circulo": 2,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 281,
+      "nombre_literal": "Palabra de Poder: Encomienda",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2098,
+        "indice_ultimo_parrafo": 2104,
+        "indice_inicio_doc": 148164,
+        "indice_fin_doc": 148846
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Demonología",
+        "Alcance: toque",
+        "Duración: hasta que se complete la encomienda",
+        "Al pronunciar la Palabra de Poder, obligas a una criatura a cumplir una tarea encargada por ti. Esta puede ser cualquier cosa, desde realizar un acto sencillo hasta emprender una misión extraordinaria, como recuperar las lágrimas del sol u obtener la risa de un seísmo.",
+        "Si la criatura se resiste a la encomienda, debes superar una Tirada de Conjuro. En caso de éxito, una Maldición de tu elección recaerá sobre ella, permaneciendo activa hasta que la tarea sea cumplida. Una vez completada, todos los efectos de la Palabra de Poder: Encomienda se disiparán."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-322",
+          "circulo": 6,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 282,
+      "nombre_literal": "Palabra de Poder: Estulticia",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2105,
+        "indice_ultimo_parrafo": 2111,
+        "indice_inicio_doc": 148847,
+        "indice_fin_doc": 149274
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 30 metros",
+        "Duración: permanente",
+        "Si superas una Tirada de Conjuro, nublas por completo la mente de la criatura, dejándola en un estado de incapacidad mental. Si fallas la Tirada, otorgas al objetivo los efectos de Prisa durante un Turno por 1 de tus Niveles. ",
+        "Los efectos de este Conjuro sólo pueden revertirse mediante Disipar magia o Eliminar maldición."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-302",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 283,
+      "nombre_literal": "Palabra de Poder: Exigencia",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2112,
+        "indice_ultimo_parrafo": 2116,
+        "indice_inicio_doc": 149275,
+        "indice_fin_doc": 149685
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Demonología",
+        "Alcance: infinito",
+        "Pronuncias una palabra cargada de poder corrupto que establece una conexión mental con el dueño de un objeto personal o fragmento corporal que poseas. Si superas una tirada de conjuro, puedes enviarle un mensaje directo o imponerle el efecto de la Palabra de Poder: Sugestión, moldeando su voluntad con la fuerza de tu palabra."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-350",
+          "circulo": 7,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 284,
+      "nombre_literal": "Palabra de Poder: Hemorragia",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2117,
+        "indice_ultimo_parrafo": 2124,
+        "indice_inicio_doc": 149686,
+        "indice_fin_doc": 150382
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Demonología",
+        "Alcance: 18 metros",
+        "Duración: 2 Turnos",
+        "Magia de sangre",
+        "Pronuncias una palabra blasfemo cargada de energía demoníaca que congela la sangre de una criatura dentro del alcance, sumiéndola en un estado de agonía total. Realiza una Tirada de Conjuro: si tienes éxito, la víctima queda Paralizada y se vuelve vulnerable a todo tipo de daño, mientras empieza a sangrar por cada recoveco de su cuerpo. Perderá 1d8 Puntos de Salud por la h emorragia, y perderá cualquier inmunidad a tipos de daño que posea durante este tiempo.",
+        "Si fallas, el conjuro no tiene efecto. Este conjuro no afecta a criaturas inmunes a ser hechizadas o encantadas."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-433",
+          "circulo": 7,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Sangromancia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 285,
+      "nombre_literal": "Palabra de Poder: Muerte",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2125,
+        "indice_ultimo_parrafo": 2132,
+        "indice_inicio_doc": 150383,
+        "indice_fin_doc": 150889
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Divina",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: 1m por Nivel",
+        "Hablas con la voz de las deidades, pronunciando la palabra que fulmina la existencia de los mortales. Elige una de las siguientes resoluciones para saber qué sucede con quienes te escuchan.",
+        "Una criatura de un Nivel inferior a ti: la matas automáticamente.",
+        "Todas las criaturas con una Salud inferior a la ½ de su máximo, de un Nivel inferior a ti y dentro del alcance del sortilegio mueren instantáneamente."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-61",
+          "circulo": 8,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 286,
+      "nombre_literal": "Palabra de Poder: Obediencia",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2133,
+        "indice_ultimo_parrafo": 2139,
+        "indice_inicio_doc": 150890,
+        "indice_fin_doc": 151327
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Divina",
+        "Alcance: 10 metros",
+        "Duración: 1 Turno",
+        "Pronuncias con la voz de un Espíritu deífico una orden simple a una criatura de Nivel 5 o inferior; ésta debe obedecerla dentro de sus posibilidades. Pedirle que se muera lo deja inconsciente hasta que finalice la duración del Conjuro.",
+        "Si usas esta Palabra de Poder contra seres de Nivel 6 o superior, deberás superar una Tirada de Conjuro."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-230",
+          "circulo": 1,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 287,
+      "nombre_literal": "Palabra de Poder: Óbito",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2140,
+        "indice_ultimo_parrafo": 2144,
+        "indice_inicio_doc": 151328,
+        "indice_fin_doc": 151724
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 4 metros por Nivel",
+        "Pronuncias una Palabra de Poder blasfema y corrupta, que invoca la muerte inmediata sobre una criatura viva. Si superas una Tirada de Conjuro, la criatura perece al instante de un ataque al corazón. Por razones obvias, este Conjuro no afecta a Autómatas, Muertos vivientes, o criaturas de Nivel 10 o superior."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-328",
+          "circulo": 6,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 288,
+      "nombre_literal": "Palabra de Poder: Sagrado",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2145,
+        "indice_ultimo_parrafo": 2151,
+        "indice_inicio_doc": 151725,
+        "indice_fin_doc": 152373
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Divina",
+        "Alcance: personal",
+        "Invocas el verdadero nombre de tu Espíritu deífico, deidad o representación abstracta con poder divino, desatando un poder sagrado que expulsa a las criaturas invasoras de vuelta a sus planos de origen. Además, todas las criaturas en un radio de 18 metros que no sean celestiales, sacerdotes, clérigos o fieles devotos de tu deidad sufrirán los siguientes efectos:",
+        "Si tienen un Nivel inferior a 12, morirán instantáneamente.",
+        "Si tienen Nivel 12 o superior, quedarán ensordecidas durante 1d4 Turnos, sufrirán Desventaja en sus ataques y su Movimiento se reducirá a la mitad."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-342",
+          "circulo": 7,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 289,
+      "nombre_literal": "Palabra de Poder: Sugestión",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2152,
+        "indice_ultimo_parrafo": 2158,
+        "indice_inicio_doc": 152374,
+        "indice_fin_doc": 153076
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Demonología",
+        "Alcance: 25 metros",
+        "Duración: permanente o hasta que ocurra",
+        "Endulzas tu lengua con las energías siniestras del rey opresor para introducir de forma subrepticia una orden en el interior de la mente de tu objetivo. Realiza una Tirada de Conjuro: si tienes éxito, esa criatura llevará a cabo lo que le hayas dicho cuando pase algo que tú especifiques. ",
+        "El ser afectado por esta Palabra de Poder no será consciente de lo que sucede, y la propia orden puede alterar su comportamiento, personalidad, valores o creencias. No obstante, los arcanistas y miembros del clero pueden notar ciertas trazas de magia maligna en sí mismos si son afectados."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-261",
+          "circulo": 3,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 290,
+      "nombre_literal": "Purificar alimento",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2159,
+        "indice_ultimo_parrafo": 2163,
+        "indice_inicio_doc": 153077,
+        "indice_fin_doc": 153377
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 8 metros",
+        "Mediante hebras mágicas, arrastras toda la putrefacción, venenos, suciedad y microbios presentes en la comida y/o agua dentro del radio de Alcance. Se puede purificar tanto sustento como el que pueden consumir 2d6 + 2 criaturas."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-231",
+          "circulo": 1,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 291,
+      "nombre_literal": "Presagio",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2164,
+        "indice_ultimo_parrafo": 2178,
+        "indice_inicio_doc": 153378,
+        "indice_fin_doc": 154455
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Divina",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: personal",
+        "Entras en comunión con tu Espíritu deífico o deidad abstracta, para hilar de forma metafórica los trazos del destino y conocer las consecuencias de una acción. Prepara un lugar tranquilo, purificado y celebra el rito como te exige tu fe: en ese momento, formula una pregunta concreta.",
+        "«¿Si vendo esta joya mágica al mercader mago, estaré cometiendo un error?»",
+        "«La propuesta del vizconde es arriesgada, ¿me traicionará en el futuro?»",
+        "Las señas resultantes de tu rito tendrán una Probabilidad 15+ de ser malinterpretadas; sin embargo, el Cronista realizará su tirada en privado y te indicará cómo lo interpretas.",
+        "Una decisión acertada y carente de peligro (fortuna).",
+        "El camino hacia tus objetivos debe ser superado mediante esta acción (fortuna).",
+        "A pesar del riesgo, la recompensa merecerá la pena (fortuna).",
+        "Los peligros devorarán el éxito y serás marcado (infortunio).",
+        "¿Merece la pena enterrarse hasta las rodillas en peligro? (infortunio)",
+        "Ese no es el sendero que debes recorrer (infortunio)."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-244",
+          "circulo": 2,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 292,
+      "nombre_literal": "Prisa",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2179,
+        "indice_ultimo_parrafo": 2186,
+        "indice_inicio_doc": 154456,
+        "indice_fin_doc": 154904
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Arcana",
+        "Alcance: 15 metros",
+        "Duración: 1 Turno por Nivel",
+        "Cronurgia",
+        "Alteras la fina capa de taquiones que rodean a las criaturas vivas para acelerar sus procesos cognitivos. Un objetivo afectado por Prisa obtiene +2 Movimiento, puede realizar una acción adicional durante su Turno y, si debe tirar Iniciativa, la gana directamente.",
+        "Si este Conjuro se lanza sobre una criatura afectada por Freno, ambos efectos se cancelan."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-254",
+          "circulo": 3,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 293,
+      "nombre_literal": "Poza hedionda",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2187,
+        "indice_ultimo_parrafo": 2192,
+        "indice_inicio_doc": 154909,
+        "indice_fin_doc": 155328
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 10 metros + 2 por cada 5 Niveles",
+        "Duración: 1d6 +2 Turnos",
+        "Liberas una niebla repugnante y blasfema, que infecta la tierra y marchita la vida, cubriendo un área de 4m2. Cualquier criatura que entre en el área o comience su asalto en su interior, sufre 1d4 puntos de daño venenoso, y toda la vida vegetal que entre en contacto con la Poza muere irremediablemente."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-29",
+          "circulo": 3,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 294,
+      "nombre_literal": "Proyectil mágico",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2193,
+        "indice_ultimo_parrafo": 2198,
+        "indice_inicio_doc": 155329,
+        "indice_fin_doc": 155754
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Arcana",
+        "Alcance: 30m",
+        "Varios haces de energía arcana salen disparados de tus dedos en dirección al objetivo, ignorando obstáculos u otros objetivos. Este Conjuro no puede errar una vez ha sido lanzado, y causa 1d6 de daño por fuerza.",
+        "Disparas tantos Proyectiles mágicos como tu Nivel. Puedes elegir varios objetivos al alcance o centrar la batería en un único objetivo, como tú quieras."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-30",
+          "circulo": 3,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 295,
+      "nombre_literal": "Piel de piedra",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2199,
+        "indice_ultimo_parrafo": 2204,
+        "indice_inicio_doc": 155755,
+        "indice_fin_doc": 156024
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 10m",
+        "Duración: 1d8 Turnos",
+        "La piel del objetivo se endurece como si fuese la corteza de un árbol antiguo o una roca milenaria; esto otorga un Blindaje efectivo de 1d6 o un +2 si el objetivo ya lleva una armadura."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-37",
+          "circulo": 4,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 296,
+      "nombre_literal": "Polimorfia",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2205,
+        "indice_ultimo_parrafo": 2211,
+        "indice_inicio_doc": 156025,
+        "indice_fin_doc": 156582
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 8m",
+        "Duración: 1 Intervalo por Nivel",
+        "Transformas a una criatura viva en otra distinta (por ejemplo, a un soldado en una oveja). No puedes copiar una identidad, pero sí elegir el tipo de criatura; ésta no ha de superar el Nivel que ya tenga el objetivo. Si el objetivo se resiste, deberás superar una Tirada de Conjuro. ",
+        "El objetivo conserva sus Atributos mentales (Mente, Intuición y Presencia), además de sus Puntos de Salud, pero sus Atributos y habilidades físicas cambian a los de la nueva criatura."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-38",
+          "circulo": 4,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 297,
+      "nombre_literal": "Prelación",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2212,
+        "indice_ultimo_parrafo": 2217,
+        "indice_inicio_doc": 156583,
+        "indice_fin_doc": 156929
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Divina",
+        "Alcance: personal",
+        "Duración: 2 Turnos por Nivel",
+        "Recibes un mensaje sagrado del origen de tu fe. Este aviso te permite prever los movimientos del enemigo y adelantarte a sus acciones: ignoras las penalizaciones provocadas por la regla de Enemigos superiores a la hora de atacar y/o esquivar cuerpo a cuerpo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-39",
+          "circulo": 4,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 298,
+      "nombre_literal": "Petrificar",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2218,
+        "indice_ultimo_parrafo": 2224,
+        "indice_inicio_doc": 156930,
+        "indice_fin_doc": 157204
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Naturaleza",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: 30m",
+        "Duración: permanente",
+        "Realiza una Tirada de Conjuro: si tienes éxito, conviertes a una criatura viva en una estatua de piedra. También puedes usar este sortilegio para lograr el efecto contrario."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-52",
+          "circulo": 6,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 299,
+      "nombre_literal": "Protección contra la muerte",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2225,
+        "indice_ultimo_parrafo": 2230,
+        "indice_inicio_doc": 157205,
+        "indice_fin_doc": 157435
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Divina",
+        "Alcance: 10 m",
+        "Duración: 3 Turnos por Nivel",
+        "Envuelves al objetivo en un aura sagrada de fuerza celeste, volviéndolo inmune a efectos de muerte súbita, maldiciones y succión."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-53",
+          "circulo": 6,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 300,
+      "nombre_literal": "Plumaje de Sylestria",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2231,
+        "indice_ultimo_parrafo": 2236,
+        "indice_inicio_doc": 157436,
+        "indice_fin_doc": 157882
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Divina",
+        "Alcance: 4 metros + 1 metro por Nivel",
+        "Dejas caer 1d4 plumas, al alcance del conjuro, procedentes de una realidad circundante. Estas preciosas plumas pueden acelerar el paso de aquel que las toca.",
+        "Cuando una criatura toca una de esas plumas, ésta se desvanece en polvo dorado y otorga durante 1 Asalto +1 de Movimiento adicional; este beneficio se puede acumular hasta un total de +2 Movimiento."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-70",
+          "circulo": 1,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    }
+  ]
+}

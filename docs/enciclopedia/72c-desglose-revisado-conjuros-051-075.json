@@ -1,0 +1,526 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    51,
+    75
+  ],
+  "numero_registros": 25,
+  "fragmentos_comprobados": 93,
+  "alcance": "Conjuros 51–75 revisados manualmente; textos íntegros en lote 69c, sin redefinir la fuente",
+  "aclaraciones": [
+    "Calentar metal incluye una tabla de Turnos y daño, no un único valor.",
+    "Contrato de fraternidad no indica Círculo en el Tomo; se preserva la discrepancia con el catálogo.",
+    "Los avisos son cautelas de integración, no soluciones editoriales."
+  ],
+  "registros": [
+    {
+      "numero_tomo": 51,
+      "nombre": "Bendición del Crecio",
+      "tipo_analitico_no_oficial": "restauración y protección de cultivos",
+      "fragmentos_reglamentarios_literales": [
+        "Alcance: 20m2",
+        "Duración: 1 semana por Nivel",
+        "protección mágica contra climas extremos",
+        "no se verán afectadas por lluvias torrenciales"
+      ],
+      "advertencias_de_integracion": [
+        "20m2 es superficie, no radio lineal.",
+        "No afecta automáticamente a personas o criaturas."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 51,
+        "indice_encabezado": 459
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 52,
+      "nombre": "Boca mágica",
+      "tipo_analitico_no_oficial": "mensaje condicionado a un suceso",
+      "fragmentos_reglamentarios_literales": [
+        "Duración: permanente o hasta que el mensaje sea transmitido",
+        "Establece unas condiciones concretas",
+        "cuando se cumplan, una boca aparecerá y transmitirá tu mensaje"
+      ],
+      "advertencias_de_integracion": [
+        "Condiciones fijadas al conjurar, no detección libre posterior."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 52,
+        "indice_encabezado": 466
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 53,
+      "nombre": "Bola de fuego",
+      "tipo_analitico_no_oficial": "daño en área con fallo mitigado",
+      "fragmentos_reglamentarios_literales": [
+        "Realiza una Tirada de Conjuro",
+        "1d6 de daño fuego por Nivel",
+        "la mitad si no superas una Tirada de Conjuro",
+        "radio de 6 metros"
+      ],
+      "advertencias_de_integracion": [
+        "El fallo causa mitad del daño, no daño cero.",
+        "No exigir una segunda Tirada: la frase menciona la Tirada dos veces en el mismo efecto."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 53,
+        "indice_encabezado": 472
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 54,
+      "nombre": "Bomba ácida",
+      "tipo_analitico_no_oficial": "bomba retardada que puede detonar antes",
+      "fragmentos_reglamentarios_literales": [
+        "Duración: 1d4 Turnos",
+        "estallará cuando finalice su duración",
+        "1d6 de daño ácido por Nivel",
+        "radio de 6 metros",
+        "explote antes de tiempo"
+      ],
+      "advertencias_de_integracion": [
+        "Disparador temporal y disparador por golpe son alternativos; no duplicar daño."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 54,
+        "indice_encabezado": 477
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 55,
+      "nombre": "Bomba escarlata",
+      "tipo_analitico_no_oficial": "trampa de área con exclusiones de activación",
+      "fragmentos_reglamentarios_literales": [
+        "Duración: 3 Intervalos",
+        "distinta a ti o a las designadas por ti",
+        "radio de 5 metros",
+        "4d10 puntos de daño impío",
+        "Si fallas, las criaturas en el radio reciben la mitad del daño"
+      ],
+      "advertencias_de_integracion": [
+        "La excepción de personajes designados concierne a activar la bomba; el texto no les concede expresamente inmunidad al daño.",
+        "No causar daño al colocarla."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 55,
+        "indice_encabezado": 483
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 56,
+      "nombre": "Bravura",
+      "tipo_analitico_no_oficial": "Salud máxima temporal, curación y Ventaja",
+      "fragmentos_reglamentarios_literales": [
+        "Salud máxima aumenta en 1d6",
+        "se sana dicha cantidad",
+        "obtiene Ventaja en todas las Tiradas"
+      ],
+      "advertencias_de_integracion": [
+        "La duración del aumento está vinculada al Conjuro; no convertirlo en Salud máxima permanente."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 56,
+        "indice_encabezado": 491
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 57,
+      "nombre": "Burla cruel",
+      "tipo_analitico_no_oficial": "daño psíquico con éxito en Tirada",
+      "fragmentos_reglamentarios_literales": [
+        "Magia bárdica",
+        "1d6 de daño psíquico",
+        "si superas una Tirada de Conjuro"
+      ],
+      "advertencias_de_integracion": [
+        "La etiqueta Magia bárdica figura como línea independiente."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 57,
+        "indice_encabezado": 497
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 58,
+      "nombre": "Cabaña acogedora de Tuliëlle",
+      "tipo_analitico_no_oficial": "refugio invocado con protecciones dependientes",
+      "fragmentos_reglamentarios_literales": [
+        "refugio de 10m2",
+        "Sellar entrada",
+        "Espía de la Urdimbre",
+        "aunque no puede combatir"
+      ],
+      "advertencias_de_integracion": [
+        "Requiere consultar los Conjuros citados para resolver sus efectos; no copiarlos como reglas nuevas.",
+        "El sirviente no combate."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 58,
+        "indice_encabezado": 504
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 59,
+      "nombre": "Cadena de relámpagos",
+      "tipo_analitico_no_oficial": "descarga inicial y salto múltiple",
+      "fragmentos_reglamentarios_literales": [
+        "1d8 de daño de rayo por Nivel",
+        "tira 1d4",
+        "causando la mitad de daño en cada salto"
+      ],
+      "advertencias_de_integracion": [
+        "El texto no aclara si «mitad de daño en cada salto» significa la mitad del daño inicial o reducción acumulativa salto a salto.",
+        "No hacer una Tirada de ataque por salto sin indicación."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 59,
+        "indice_encabezado": 514
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 60,
+      "nombre": "Caer hacia arriba",
+      "tipo_analitico_no_oficial": "inversión gravitatoria de área",
+      "fragmentos_reglamentarios_literales": [
+        "Alcance: 2 metros por Nivel",
+        "área de 10 metros cuadrados",
+        "altura de 12 metros",
+        "caigan de nuevo hacia el suelo"
+      ],
+      "advertencias_de_integracion": [
+        "Separar alcance al centro del efecto de la superficie afectada.",
+        "El texto no cuantifica daño por colisión o caída; aplicar sólo las reglas existentes que procedan."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 60,
+        "indice_encabezado": 519
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 61,
+      "nombre": "Caída de pluma",
+      "tipo_analitico_no_oficial": "anulación de daño por caída",
+      "fragmentos_reglamentarios_literales": [
+        "Duración: hasta que tomes tierra",
+        "sin sufrir daño por caída"
+      ],
+      "advertencias_de_integracion": [
+        "No concede vuelo ni ingravidez persistente tras aterrizar."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 61,
+        "indice_encabezado": 526
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 62,
+      "nombre": "Controlar los vientos",
+      "tipo_analitico_no_oficial": "control de viento y discrecionalidad del Cronista",
+      "fragmentos_reglamentarios_literales": [
+        "esfera de 30 metros de diámetro",
+        "un nivel por cada tres Niveles",
+        "a discreción del Cronista"
+      ],
+      "advertencias_de_integracion": [
+        "El original no establece cómo redondear el Nivel/3.",
+        "No convertir los efectos meteorológicos en derribo automático universal."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 62,
+        "indice_encabezado": 532
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 63,
+      "nombre": "Corteza de roble",
+      "tipo_analitico_no_oficial": "elección entre protección y forma inmóvil",
+      "fragmentos_reglamentarios_literales": [
+        "puedes elegir uno de ellos",
+        "bonificador de +2 a Blindaje",
+        "+3 a Nivel 6 y +4 a Nivel 12",
+        "no puede moverse",
+        "Blindaje natural de d10",
+        "puede revertirse en cualquier momento"
+      ],
+      "advertencias_de_integracion": [
+        "Los dos modos son excluyentes por lanzamiento, no acumulables.",
+        "La forma arbórea permite escuchar, oler y hablar pese a inmovilidad."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 63,
+        "indice_encabezado": 539
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 64,
+      "nombre": "Chispa curativa",
+      "tipo_analitico_no_oficial": "recuperación directa de Salud",
+      "fragmentos_reglamentarios_literales": [
+        "Restauras 1d4 de Salud a un objetivo"
+      ],
+      "advertencias_de_integracion": [
+        "No confundir con aumento de Salud máxima."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 64,
+        "indice_encabezado": 548
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 65,
+      "nombre": "Corona de Ylathia",
+      "tipo_analitico_no_oficial": "daño radiante inicial y periódico",
+      "fragmentos_reglamentarios_literales": [
+        "1d12 de daño radiante por cada 5 de tus Niveles",
+        "1d4 de daño radiante al comienzo de su Turno",
+        "durante 1d4 Turnos"
+      ],
+      "advertencias_de_integracion": [
+        "El original no da mínimo para la fórmula por cada 5 Niveles.",
+        "No calcular daño periódico en el Turno del lanzador por defecto."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 65,
+        "indice_encabezado": 553
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 66,
+      "nombre": "Coraza de huesos",
+      "tipo_analitico_no_oficial": "Blindaje y Dado de Uso condicionados por equipo",
+      "fragmentos_reglamentarios_literales": [
+        "Debes aplastar un hueso de una criatura inocente",
+        "Blindaje de d8 y un DU de d6",
+        "Si ya llevas una armadura",
+        "no surte efecto"
+      ],
+      "advertencias_de_integracion": [
+        "El requisito material no es una pérdida de Salud.",
+        "La ficha no describe aquí cuándo se consume el DU; remitirse a las reglas del DRS."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 66,
+        "indice_encabezado": 560
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 67,
+      "nombre": "Corromper conjuro elemental",
+      "tipo_analitico_no_oficial": "Reacción que modifica otro Conjuro",
+      "fragmentos_reglamentarios_literales": [
+        "Reacción",
+        "al mismo tiempo que lanzas otro conjuro",
+        "daño impío o de veneno",
+        "1d8 por cada 3 de tus Niveles"
+      ],
+      "advertencias_de_integracion": [
+        "No interpretar como ataque independiente.",
+        "El original no fija mínimo de dados ni explica interacción con un gasto de recursos adicional."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 67,
+        "indice_encabezado": 566
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 68,
+      "nombre": "Calentar metal",
+      "tipo_analitico_no_oficial": "daño por turnos según tabla incrustada",
+      "fragmentos_reglamentarios_literales": [
+        "Duración: 6 Turnos",
+        "daño que provoca este Conjuro se causa si el objetivo aún porta las piezas de metal",
+        "Temperatura",
+        "1d6",
+        "2d6"
+      ],
+      "advertencias_de_integracion": [
+        "No tratar todos los Turnos como 2d6: la tabla distingue 1 (sin daño), 2 (1d6), 3–4 (2d6), 5 (1d6), 6 (sin daño).",
+        "La inflamación de materiales está prevista a partir del tercer Turno."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 68,
+        "indice_encabezado": 572
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 69,
+      "nombre": "Charco de aceite",
+      "tipo_analitico_no_oficial": "superficie resbaladiza con entradas y salidas",
+      "fragmentos_reglamentarios_literales": [
+        "área de 6m2",
+        "Probabilidad de 11+ de caer al suelo",
+        "gastar una acción en el siguiente Turno",
+        "Salir del área afectada provoca la misma Tirada"
+      ],
+      "advertencias_de_integracion": [
+        "6m2 es área, no radio.",
+        "No aplicar la Tirada cada Turno de permanencia: el texto menciona entrada y salida."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 69,
+        "indice_encabezado": 597
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 70,
+      "nombre": "Curación",
+      "tipo_analitico_no_oficial": "recuperación escalada de Salud",
+      "fragmentos_reglamentarios_literales": [
+        "2d6 Puntos de Salud por cada 5 Niveles"
+      ],
+      "advertencias_de_integracion": [
+        "No se indica mínimo de grupos de 5 Niveles; no truncar a cero sin decisión o norma explícita."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 70,
+        "indice_encabezado": 603
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 71,
+      "nombre": "Contrato de fraternidad",
+      "tipo_analitico_no_oficial": "vínculo de daño compartido y ruptura",
+      "fragmentos_reglamentarios_literales": [
+        "Duración: 1d6 Turnos",
+        "recibirá la mitad",
+        "aliado vinculado se llevará la otra mitad de daño",
+        "más de 10 metros",
+        "2d10 de daño psíquico",
+        "este conjuro fallará"
+      ],
+      "advertencias_de_integracion": [
+        "El Círculo está ausente en el Tomo, aunque el catálogo indica Cuarto.",
+        "No decidir redondeo de mitades de daño ni si los dos afectados aplican Blindaje independientemente."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 71,
+        "indice_encabezado": 608
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 72,
+      "nombre": "Crear muertos vivientes",
+      "tipo_analitico_no_oficial": "invocación permanente limitada por Nivel",
+      "fragmentos_reglamentarios_literales": [
+        "Lanzamiento: 2 Turnos",
+        "Duración: permanente",
+        "tantos muertos vivientes como tu Nivel",
+        "puedes repartir estos Niveles",
+        "Comprueba el Bestiario"
+      ],
+      "advertencias_de_integracion": [
+        "La mención de repartir Niveles necesita revisión: puede significar presupuesto de Niveles y no número simple de criaturas.",
+        "No generar fichas de muertos vivientes que no consten en el Bestiario."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 72,
+        "indice_encabezado": 614
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 73,
+      "nombre": "Cimitarra arcana",
+      "tipo_analitico_no_oficial": "arma invocada y ataque adicional",
+      "fragmentos_reglamentarios_literales": [
+        "un ataque adicional cuerpo a cuerpo",
+        "utiliza tu Mente",
+        "2d6 de daño cortante",
+        "Crítico sacar un 19 o 20 natural"
+      ],
+      "advertencias_de_integracion": [
+        "Esta Cimitarra es un efecto de Conjuro con ataque adicional, no un objeto permanente de inventario."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 73,
+        "indice_encabezado": 623
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 74,
+      "nombre": "Control climático",
+      "tipo_analitico_no_oficial": "alteración climática de área con retraso",
+      "fragmentos_reglamentarios_literales": [
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: 1km2",
+        "Duración: 8d6 horas",
+        "1d4 Intervalos",
+        "se reduce a la mitad"
+      ],
+      "advertencias_de_integracion": [
+        "El Alcance usa superficie de 1km2 y no radio.",
+        "No decidir automáticamente un daño del clima ni permitir condiciones físicamente imposibles."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 74,
+        "indice_encabezado": 630
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 75,
+      "nombre": "Coraza",
+      "tipo_analitico_no_oficial": "bonificación temporal de Blindaje",
+      "fragmentos_reglamentarios_literales": [
+        "+1 a Blindaje",
+        "Duración: 1 Intervalo"
+      ],
+      "advertencias_de_integracion": [
+        "No acumular permanentemente."
+      ],
+      "fuente": {
+        "archivo": "69c-conjuros-alfabeticos-051-075.json",
+        "indice": 75,
+        "indice_encabezado": 638
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Objetos mágicos.docx (original adjunto)",
+  "seccion": "Emporio de cajas de Feanaro & Furia",
+  "estado": "extraccion_literal",
+  "reglas_comunes": {
+    "parrafos_fuente": [
+      138,
+      142
+    ],
+    "texto_original": [
+      "Estas reglas se aplican a todas las cajas del Emporio de cajas de Feanaro & Furia.",
+      "El interior es un lugar oscuro, en el que no puede penetrar la luz, y las paredes parecen ser muros translúcidos.",
+      "Cualquier líquido derramado en su interior se evapora pasados unos minutos, sin dejar rastro. Por esto, se aconseja guardar las bebidas embotelladas.",
+      "No se puede respirar en el interior. Cualquier ser vivo sufrirá los efectos de estar asfixiándose al momento de entrar en dicha dimensión.",
+      "Si se intenta llenar más de lo que puede mantener, los objetos sobrantes serán expulsados con violencia por una fuerza invisible."
+    ],
+    "aplicacion_documental_razonada": [
+      "Arqueta de roble efímero",
+      "Baúl seguro de Feanaro",
+      "Joyero de nogal grabado"
+    ],
+    "excepcion": "Gema cristalina onírica se indexa en la sección pero es Foco de conjuros, no una caja; no aplicarle reglas de interior dimensional."
+  },
+  "registros": [
+    {
+      "nombre": "Arqueta de roble efímero",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos_fuente": [
+        143,
+        147
+      ],
+      "texto_original": [
+        "Este cofre ha sido elaborado a partir de madera efímera, una materia prima esquiva y complicada de obtener, extraída directamente de los bosques de la Península de Erklan. La experiencia de Feanaro como ebanista se hace latente en la perfección de los cortes y la decoración de los grabados.",
+        "El largo de la arqueta es de 100 cm por 40 cm, con un fondo de 60 cm; al otro lado hay espacio suficiente como para guardar unos 8m2 de objetos inanimados, siempre y cuando éstos puedan entrar por la abertura."
+      ]
+    },
+    {
+      "nombre": "Baúl seguro de Feanaro",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Legendaria",
+      "parrafos_fuente": [
+        148,
+        152
+      ],
+      "texto_original": [
+        "Este precioso baúl creado con madera negra de pinumbrío, un árbol extremadamente raro que sólo crece en El Erial, es la obra magna del carpintero Feanaro Vardamir. Con rebordes de platino y resaltes de rubí, este enorme baúl tiene un largo de unos 2 metros, un ancho de unos 80 cm y un fondo de 1,2 metros. Pesa 30 kilos y fue premiado, cuando su versión de Ylat aún existía, como el cofre más bello de todo Shadaleen.",
+        "Al otro lado hay espacio suficiente como para guardar unos 18m2 de objetos inanimados, siempre y cuando éstos puedan entrar por la abertura."
+      ]
+    },
+    {
+      "nombre": "Gema cristalina onírica",
+      "tipo_literal": "Tipo: Foco de conjuros",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos_fuente": [
+        153,
+        157
+      ],
+      "texto_original": [
+        "La hermana de Furia poseía poderes psíquicos excepcionales, pero llevar a cabo estas proezas mentales acababa con su resistencia, ya reducida por una enfermedad que marchitaba su cuerpo desde la adolescencia. A partir de la habilidad del iblisio para manipular las energías del espacio y el talento para tallar de su colega Feanaro, crearon esta joya a partir de un pedazo de cristal arrancado del Reino onírico.",
+        "Si un psion canaliza sus poderes a través de esta gema con forma de dodecaedro, obtendrá un +1 a la Tirada de Activación. Además, podrá almacenar hasta 2 puntos de Ímpetu en el núcleo de la joya, concentrando su aura en el cristal, y utilizarlos en otro momento o día."
+      ]
+    },
+    {
+      "nombre": "Joyero de nogal grabado",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        158,
+        162
+      ],
+      "texto_original": [
+        "Uno de los primeros trabajos de Belegur Sigvald como ebanista arcano, esta cajita tallada, de unos 20cm2, está interconectada con una dimensión alterna. En la tapa está grabada con polvo de plata la frase «RELICARIO DE BRANWEN».",
+        "Al otro lado hay espacio suficiente como para guardar unos 2m2 de objetos inanimados, siempre y cuando éstos puedan entrar por la abertura."
+      ]
+    }
+  ],
+  "ejemplo_apendice": {
+    "nombre": "Elixir de esfuerzo",
+    "tipo_literal": "Tipo: Sustancia",
+    "rareza_literal": "Rareza: Épica",
+    "parrafos_fuente": [
+      189,
+      192
+    ],
+    "texto_original": [
+      "Al destapar el recipiente, un fuerte olor a hierba machacada y a humedad asalta tus fosas nasales. Si gastas una acción para beber el elixir, recuperas un punto de energía. Si consumes más de un elixir de esfuerzo antes de realizar un descanso, recibirás tantos d6 de daño como tu nivel."
+    ],
+    "no_contabilizar_en_28": true,
+    "correccion_editorial_aprobada": {
+      "fecha": "2026-10-29",
+      "aprobacion": "Autor, conversación de proyecto",
+      "sustitucion": "recuperas un punto de energía → recuperas 1 punto de Esfuerzo",
+      "efecto_vigente_literal": "Al destapar el recipiente, un fuerte olor a hierba machacada y a humedad asalta tus fosas nasales. Si gastas una acción para beber el elixir, recuperas 1 punto de Esfuerzo. Si consumes más de un elixir de esfuerzo antes de realizar un descanso, recibirás tantos d6 de daño como tu nivel.",
+      "regla": "Prevalece la lectura corregida para nuevas fichas y futura integración. texto_original queda intacto para el cotejo histórico."
+    }
+  },
+  "alertas": [
+    {
+      "id": "OCP-MAG-01",
+      "descripcion": "Capacidades 2m2, 8m2 y 18m2 en el original, no suponer m³."
+    },
+    {
+      "id": "OCP-MAG-02",
+      "descripcion": "Elixir de esfuerzo recupera un «punto de energía», término literal; requiere cotejo terminológico antes de atribuirlo a Esfuerzo."
+    }
+  ]
+}

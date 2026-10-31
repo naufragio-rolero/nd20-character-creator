@@ -22,6 +22,7 @@
   <script defer src="assets/sex.js"></script>
   <script defer src="assets/rules.js"></script>
   <script defer src="assets/powers.js"></script>
+  <script defer src="assets/spell-magnitudes.js"></script>
   <script defer src="assets/tooltips.js"></script>
   <script defer src="assets/tooltip-ui.js"></script>
   <script defer src="assets/app.js"></script>
@@ -50,27 +51,6 @@
         <button type="button" id="tab-personajes" role="tab" aria-controls="panel-personajes" aria-selected="true" class="activa">Personajes</button>
         <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false">Herramientas</button>
       </div>
-      <p id="sistema-actual" class="sistema-actual" aria-live="polite">Naufragio d20 · Fantasía</p>
-      <div id="panel-personajes" role="tabpanel" aria-labelledby="tab-personajes">
-        <form id="configuracion">
-          <div id="generacion-rapida" class="generacion-rapida">
-            <div class="campos-rapidos">
-        <div class="campo">
-          <label for="nivel">Nivel <span id="rango-nivel">1–30</span></label>
-          <input id="nivel" name="nivel" type="number" value="1" min="1" max="30" step="1" required>
-        </div>
-        <div class="campo">
-          <label for="cantidad">Cuántas fichas</label>
-          <input id="cantidad" type="number" min="1" max="12" value="1" required>
-        </div>
-            </div>
-            <button class="principal" id="generar" type="submit">Generar personajes</button>
-          </div>
-        </form>
-      </div>
-      <details id="opciones-avanzadas" class="opciones-avanzadas">
-        <summary>Opciones avanzadas <span aria-hidden="true" class="flecha-avanzada">⌄</span></summary>
-        <div class="opciones-avanzadas-contenido">
       <div class="campo campo-sistema-global">
           <label id="etiqueta-sistema" for="juego">Sistema</label>
           <div class="juegos-compactos" role="group" aria-labelledby="etiqueta-sistema">
@@ -86,13 +66,20 @@
             <option value="dh">Dungeon Hack</option>
           </select>
         </div>
-          <div id="opciones-avanzadas-personajes">
+      <div id="panel-personajes" role="tabpanel" aria-labelledby="tab-personajes">
+      <form id="configuracion">
         <div class="campo">
-          <label for="ocupacion">Ocupación / Clase</label>
+          <label for="nivel">Nivel <span id="rango-nivel">1–30</span></label>
+          <input id="nivel" name="nivel" type="number" value="1" min="1" max="30" step="1" required>
+        </div>
+        <div class="campo">
+          <label id="etiqueta-ocupacion" for="ocupacion">Ocupación / Clase</label>
+          <div id="selector-visual-ocupacion" class="selector-visual" role="group" aria-labelledby="etiqueta-ocupacion" hidden></div>
           <select id="ocupacion" name="ocupacion"><option value="">Aleatoria</option></select>
         </div>
         <div class="campo">
-          <label for="especie">Especie</label>
+          <label id="etiqueta-especie" for="especie">Especie</label>
+          <div id="selector-visual-especie" class="selector-visual" role="group" aria-labelledby="etiqueta-especie" hidden></div>
           <select id="especie" name="especie"><option value="">Aleatoria</option></select>
         </div>
         <fieldset id="opciones-dh" hidden>
@@ -104,6 +91,7 @@
         <fieldset id="opciones-fuentes" hidden>
           <legend>Fuentes permitidas · Naufragio d20</legend>
           <p class="ayuda">Las fuentes marcadas determinan qué Ocupaciones y Especies entran en la generación.</p>
+          <p class="ayuda" id="aviso-alcance-drs" hidden>Edición básica en desarrollo: solo contenido del DRS. Las Especies, Ocupaciones y Conjuros ampliados se publicarán después como DLC gratuitos, tras su revisión.</p>
           <div id="fuentes-nd20" class="origenes"></div>
         </fieldset>
         <div class="campo" id="opciones-sexo">
@@ -126,11 +114,21 @@
         <div class="campo" id="opciones-nombres-ylat">
           <label for="modo-nombre">Nombres de Ylat</label>
           <select id="modo-nombre" name="modo-nombre">
+            <option value="historico">Banco histórico de nombres de Ylat (1422)</option>
             <option value="combinado">Variantes inspiradas en Ylat (149)</option>
             <option value="documentado">Personajes documentados (51)</option>
             <option value="especie">Repertorio propio de la Especie</option>
           </select>
-          <small>200 entradas basadas en tres documentos de Ylat. Las combinaciones nuevas no son personajes canónicos.</small>
+          <small>Banco histórico autorizado: 1428 registros originales, 1422 formas únicas tras eliminar el sesgo de seis duplicados. Son propuestas sin atribución documental de sexo, Especie, cultura ni linaje. Hay también 149 combinaciones inspiradas en Ylat; las 51 identidades de personajes documentados se reservan a revisión editorial.</small>
+        </div>
+        <div class="campo" id="opciones-ambito-nombre">
+          <label for="ambito-nombre">Corpus de referencia de Ylat</label>
+          <select id="ambito-nombre" name="ambito-nombre">
+            <option value="todos">Todo el corpus (149 combinaciones)</option>
+            <option value="Niguace">Documentos de Niguace (116 combinaciones)</option>
+            <option value="Isla Tormenta">Relato de Isla Tormenta (33 combinaciones)</option>
+          </select>
+          <small>Este filtro indica en qué documentos se basan las combinaciones; no es el lugar de nacimiento ni la cultura del personaje. No implica pertenencia a una Especie ni carácter canónico.</small>
         </div>
         <div class="campo">
           <label for="nombre-personaje">Nombre del personaje (opcional)</label>
@@ -154,9 +152,21 @@
             Sumar 4d10 mo/cr por cada Nivel ganado después del primero</label>
           <small>Se añade al capital inicial. Equipo aleatorio y comprado; no se concede equipo básico gratuito. No se aplica a Nocturna ni a Dungeon Hack.</small>
         </fieldset>
-          </div>
+        <div class="campo">
+          <label for="cantidad">Cuántas fichas</label>
+          <input id="cantidad" type="number" min="1" max="12" value="1" required>
         </div>
-      </details>
+        <details id="configuracion-avanzada" class="configuracion-avanzada">
+          <summary>Configuración avanzada</summary>
+          <label class="casilla" for="informacion-avanzada">
+            <input id="informacion-avanzada" type="checkbox">
+            Mostrar detalles técnicos
+          </label>
+          <small>Por defecto, las fichas emergentes muestran el efecto y la fuente. Los metadatos, las magnitudes y las condiciones técnicas se pueden desplegar cuando hagan falta.</small>
+        </details>
+        <button class="principal" id="generar" type="submit" disabled>Generar personajes</button>
+      </form>
+      </div>
       <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
         <h3>Herramientas del Cronista</h3>
         <div class="botonera">
@@ -191,6 +201,35 @@
           </div>
         </form>
       </section>
+      <section id="editor-compras" class="editor-elecciones" hidden aria-labelledby="titulo-editor-compras">
+        <h3 id="titulo-editor-compras">Comprar útiles del DRS</h3>
+        <p id="resumen-compras" class="muted" aria-live="polite"></p>
+        <form id="form-compra-utiles">
+          <div class="campo">
+            <label for="compras-articulo">Artículo</label>
+            <select id="compras-articulo" required></select>
+          </div>
+          <div class="campos-compra">
+            <div class="campo">
+              <label for="compras-cantidad">Cantidad</label>
+              <input id="compras-cantidad" type="number" min="1" max="99" step="1" value="1" required>
+            </div>
+            <div class="campo" id="compras-campo-nivel" hidden>
+              <label for="compras-nivel">Nivel del Antídoto o Veneno</label>
+              <input id="compras-nivel" type="number" min="1" max="30" step="1" value="1">
+            </div>
+          </div>
+          <p id="compras-detalle" class="ayuda" aria-live="polite"></p>
+          <button type="button" id="compras-anadir">Añadir a la compra</button>
+          <h4>Artículos seleccionados</h4>
+          <ul id="compras-lista" class="lista-compra"></ul>
+          <p id="compras-total" aria-live="polite"></p>
+          <div class="botonera">
+            <button id="compras-confirmar" type="submit" class="principal" disabled>Confirmar compra</button>
+            <button id="compras-cancelar" type="button">Cancelar</button>
+          </div>
+        </form>
+      </section>
       <div id="fichas" class="fichas" aria-live="off">
         <div class="vacio" id="vacio">
           <span class="emblema" aria-hidden="true">◇</span>
@@ -201,7 +240,7 @@
       <footer class="pie">Creado para la mesa de juego. Datos y reglas originales de sus respectivos proyectos. <a href="https://naufragio.net/" target="_blank" rel="noopener noreferrer">El Naufragio</a>.</footer>
     </section>
   </main>
-  <button id="generar-flotante" class="generar-flotante" type="button" hidden
-    aria-label="Generar personajes con la configuración actual">Generar personajes</button>
+  <button id="generar-flotante" class="generar-flotante" type="button" disabled hidden
+    aria-controls="configuracion">Generar personaje <span aria-hidden="true">↗</span></button>
 </body>
 </html>

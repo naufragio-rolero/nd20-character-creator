@@ -1,0 +1,42 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "seccion": "Conjuros nuevos",
+  "escuela": "Demonología",
+  "registros": [
+    {
+      "nombre": "Dardo de penumbra",
+      "circulo": 1,
+      "escuela": "Demonología",
+      "alcance_literal": "15m",
+      "etiqueta": "Nictomancia",
+      "parrafos": [
+        1334,
+        1339
+      ],
+      "texto_literal": "Concentras un pedazo de energía nocturna en tu dedo y lo liberas a toda velocidad contra el rostro de una criatura objetivo que pueda ver; si superas una Tirada de Conjuro, causas 1d6 de daño impío y tienes una Probabilidad 10+ de dejarla ciega durante 1d2 Turnos: una criatura ciega provoca Ventaja a la hora de atacarla a distancia y para esquivar sus ataques, además de moverse con dificultad."
+    },
+    {
+      "nombre": "Portal sombrío",
+      "circulo": 3,
+      "escuela": "Demonología",
+      "alcance_literal": "8m (50m entre portales)",
+      "duracion_literal": "1 Intervalo o 6 Turnos en combate",
+      "etiqueta": "Nictomancia",
+      "parrafos": [
+        1340,
+        1347
+      ],
+      "texto_literal": "Arrancas un pedazo de oscuridad y lo moldeas para crear un agujero de gusano en la Urdimbre negra entre dos lugares distintos. Mientras el efecto esté activo, cualquier nictomante puede atravesar el portal para viajar entre los dos.\nCualquier criatura que no sea un nigromante y pretenda atravesar el portal sufrirá 1d4 de daño impío por cada uno de tus Niveles."
+    }
+  ],
+  "incidencias": [
+    {
+      "id": "OCP-18",
+      "nombre": "Portal sombrío",
+      "estado": "pendiente_editorial",
+      "descripcion": "El texto dice que «cualquier nictomante» atraviesa el portal, pero exime del daño a quien sea «un nigromante». No equiparar nictomante y nigromante sin decisión del autor."
+    }
+  ],
+  "nota": "No duplicar si el inventario general de Conjuros ya recoge estos nombres; comprobar claves de normalización."
+}

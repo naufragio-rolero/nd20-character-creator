@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "25_de_25_cotejados",
+  "fichas": 25,
+  "parrafos_referenciados": 50,
+  "errores": [],
+  "fuentes": [
+    {
+      "archivo": "69l-conjuros-alfabeticos-276-300.json",
+      "sha": "ddf0a16a82e81fd16a6be06f962d02b04be6546c"
+    },
+    {
+      "archivo": "72l-desglose-revisado-conjuros-276-300.json",
+      "sha": "2a977e68d730aa76ef9ab5c4596b094db42e31a7"
+    }
+  ],
+  "nota": "Verificación documental de nombres e índices. Sin ejecución mecánica."
+}

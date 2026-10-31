@@ -1,0 +1,375 @@
+{
+  "fecha": "2026-10-29",
+  "tanda": 2,
+  "lote": 2,
+  "registros_extraidos": 11,
+  "ocupaciones": 5,
+  "registros": [
+    {
+      "id_documental": "talento-ocupacion:ampliadas:dinamitero:experto-en-bombas",
+      "ocupacion": "Dinamitero",
+      "talento": "Experto en bombas",
+      "activacion_literal": "Pasiva",
+      "texto_literal": "Pasiva\nTienes Ventaja en las Tiradas de Mente relacionadas con explosivos y su uso. Además, tienes un conocimiento en profundidad de las bombas y sus componentes, lo que te permite identificarlas y manipularlas con mayor rapidez y eficacia.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 205,
+        "parrafo_fin": 207
+      },
+      "estado": "extraido_literal_pendiente_conciliacion_de_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:dinamitero:ingenieria-explosiva",
+      "ocupacion": "Dinamitero",
+      "talento": "Ingeniería explosiva",
+      "activacion_literal": "Acción",
+      "texto_literal": "Acción\nTu asombrosa inventiva y conocimiento sobre las sustancias explosivas te permiten crear tus propias bombas y explosivos.\nDispones de un Recurso denominado Pólvora, que comienza con un DU máximo de d6 y aumenta en un rango cada 10 Niveles.\nSi empleas 1 Intervalo trabajando con tus cachivaches, puedes crear 1 explosivo de la Lista de Explosivos del Dinamitero tras usar tu DU de Pólvora.\nPuedes portar tantos Explosivos como tu Nivel; si creas más de los que puedes llevar, el nuevo sustituirá a los que ya tenías, tomando preferencia el más antiguo (que se estropeará).\nPuedes aumentar tu DU de Pólvora gastando 100 mo por Nivel en un mercado o tienda bien provisto.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 208,
+        "parrafo_fin": 214
+      },
+      "estado": "extraido_literal_pendiente_conciliacion_de_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:marginado:estulticia",
+      "ocupacion": "Marginado",
+      "talento": "Estulticia",
+      "activacion_literal": "Pasiva",
+      "texto_literal": "Pasiva\nNo se te da nada bien cualquier tarea: no es que tengas falta de talento, es que tienes un absoluto desinterés en aprender y en descubrir nuevas cosas. Como resultado, no puedes tener Ventaja en ninguna Tirada de forma natural (mediante el uso de herramientas, la ayuda de otros, etc), salvo que uses Esfuerzo o sea una Tirada de ataque.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 238,
+        "parrafo_fin": 240
+      },
+      "estado": "extraido_literal_pendiente_conciliacion_de_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:marginado:golpe-desesperado",
+      "ocupacion": "Marginado",
+      "talento": "Golpe desesperado",
+      "activacion_literal": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Esfuerzo\nPuedes dar un golpe desesperado a una criatura, dejándote llevar por tus deseos más primitivos. Éste ataque no puede ser bloqueado ni esquivado, se considera un ataque cuerpo a cuerpo, y causa tanto daño como tu Nivel + 1d6.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 241,
+        "parrafo_fin": 244
+      },
+      "estado": "extraido_literal_pendiente_conciliacion_de_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:marginado:infeliz",
+      "ocupacion": "Marginado",
+      "talento": "Infeliz",
+      "activacion_literal": "Pasiva",
+      "texto_literal": "Pasiva\nEres tan miserable que tu presencia es insignificante incluso para aquellos que son conscientes de que estás ahí. Tienes un +2 a las Tiradas de Agilidad para pasar desapercibido, pero un -2 a las Tiradas de Presencia a la hora de relacionarte con alguien.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 245,
+        "parrafo_fin": 247
+      },
+      "estado": "extraido_literal_pendiente_conciliacion_de_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:doncella-de-la-espada:esplendor",
+      "ocupacion": "Doncella de la Espada",
+      "talento": "Esplendor",
+      "activacion_literal": "Reacción",
+      "texto_literal": "Reacción\nIrradias un aura de magnético dominio de la batalla y tus oponentes son conscientes de ello. Cuando realices un ataque cuerpo a cuerpo exitoso, puedes usar tu porte para atemorizar al objetivo.\nSólo puedes tener activo un efecto de Esplendor sobre un único objetivo al mismo tiempo. El efecto de tu Esplendor varía según tu Nivel; ten en cuenta que en Niveles superiores también recibes el efecto de los anteriores:\nNivel 1-10, Gloriosa situación: El objetivo sufrirá Desventaja al atacar a cualquier objetivo que no seas tú durante su próximo Turno.\nNivel 11-20, No lo creerías: El objetivo tendrá una Probabilidad 12+ de retroceder hasta 2 metros tras recibir o esquivar tu ataque.\nNivel 21-30, Rendición inclemente: Obtienes Potencia +1 para tus ataques con arma contra el objetivo.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 268,
+        "parrafo_fin": 274
+      },
+      "estado": "extraido_literal_pendiente_conciliacion_de_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:doncella-de-la-espada:oleada-extensiva",
+      "ocupacion": "Doncella de la Espada",
+      "talento": "Oleada extensiva",
+      "activacion_literal": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Esfuerzo\nTus extraordinarias habilidades de combate te permiten realizar un ataque cuerpo a cuerpo o una Técnica sobre un grupo de enemigos que estén cerca. Esto convierte un ataque o Técnica de objetivo único en un ataque que tiene como objetivo a todas las criaturas en un área de 4 metros a tu alrededor.\nTen en cuenta que aquellas Técnicas que ya afectan a múltiples objetivos solo se verán modificadas si su alcance es más limitado que un área de 4 metros a tu alrededor.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 275,
+        "parrafo_fin": 279
+      },
+      "estado": "extraido_literal_pendiente_conciliacion_de_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:valquiria:alas-de-la-libertad",
+      "ocupacion": "Valquiria",
+      "talento": "Alas de la libertad",
+      "activacion_literal": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Esfuerzo\nHaces surgir unas alas plateadas hechas de pura luz que te permiten volar libremente durante 6 Turnos (o 1 minuto fuera de combate). Obtienes Ventaja en todas las Tiradas de Agilidad relacionadas con el vuelo, además de resistir todos los efectos del viento y otras molestias meteorológicas.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 299,
+        "parrafo_fin": 302
+      },
+      "estado": "extraido_literal_pendiente_conciliacion_de_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:valquiria:poderio-de-la-reina",
+      "ocupacion": "Valquiria",
+      "talento": "Poderío de la Reina",
+      "activacion_literal": "Acción",
+      "texto_literal": "Acción\nCoste: 2 Esfuerzo\nCanaliza la energía ancestral que corre por tus venas para transformar tu cuerpo en un avatar viviente de la Reina de las Valquirias. Durante 1d6 Turnos, obtendrás los siguientes beneficios:\nTus ataques se consideran mágicos a la hora de resolver el daño contra oponentes que resisten el daño ordinario de las armas.\nObtienes Ventaja en todas las Tiradas de Fuerza y Agilidad para atacar a tus oponentes.\nRecuperas 1d4 Puntos de Salud al final de tu Turno.\nEres inmune a todos los Estados alterados nocivos; si antes de activar el Poderío de la Reina, ya estabsa afligida por un Estado alterado, éste se sana en el momento en el que activas este Talento.\nEn los Niveles 6, 12, 18, 24 y 30, adquieres un dado más para la duración y para la Salud que recuperas. Sin embargo, cuando el efecto finalice, tu Salud se reducirá a la mitad y sufrirás Desventaja en todas las Tiradas durante 1 Intervalo. Materializar el Poderío de la Reina tiene un agotamiento espectacular en tu cuerpo.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 304,
+        "parrafo_fin": 312
+      },
+      "estado": "extraido_literal_pendiente_conciliacion_de_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:huri:encanto",
+      "ocupacion": "Hurí",
+      "talento": "Encanto",
+      "activacion_literal": "Acción",
+      "texto_literal": "Acción\nSi la criatura a la que intentas engatusar es atraída sexualmente por ti, obtienes Ventaja en la Tirada. Si tienes éxito, te obedecerá y satisfará durante 1d3 Intervalos. No hará nada que entre en conflicto con sus propios principios y no puede realizar actos que te pongan en peligro.\nEsto es un arma de doble filo, pues si empleas tu Encanto con la misma criatura una vez acabe el efecto, te provocará Desventaja a la próxima Tirada de Encanto que hagas si no le has satisfecho.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 331,
+        "parrafo_fin": 334
+      },
+      "estado": "extraido_literal_pendiente_conciliacion_de_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:huri:defensa-sin-armadura",
+      "ocupacion": "Hurí",
+      "talento": "Defensa sin armadura",
+      "activacion_literal": "Pasiva",
+      "texto_literal": "Pasiva\nGracias a un entrenamiento físico excepcional, eres capaz de encajar mejor los golpes. Cuando no llevas ropa o llevas equipada una armadura de tela, se considera que tu Blindaje es d6/d6. El Dado de Blindaje mejora en 1 en los Niveles 12 y 18.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 335,
+        "parrafo_fin": 337
+      },
+      "estado": "extraido_literal_pendiente_conciliacion_de_progresion"
+    }
+  ],
+  "tablas_progreso": [
+    {
+      "ocupacion": "Dinamitero",
+      "tabla_word": 4,
+      "encabezados": [
+        "Nivel",
+        "Pólvora máxima",
+        "Nivel Explosivos",
+        "Técnicas"
+      ],
+      "filas": [
+        [
+          "1 - 5",
+          "d6",
+          "1",
+          "1"
+        ],
+        [
+          "6 - 10",
+          "d6",
+          "1",
+          "2"
+        ],
+        [
+          "11 - 15",
+          "d8",
+          "2",
+          "3"
+        ],
+        [
+          "16 - 20",
+          "d8",
+          "2",
+          "4"
+        ],
+        [
+          "21 - 25",
+          "d10",
+          "3",
+          "5"
+        ],
+        [
+          "26 - 30",
+          "d10",
+          "3",
+          "6"
+        ]
+      ]
+    },
+    {
+      "ocupacion": "Marginado",
+      "tabla_word": 5,
+      "encabezados": [
+        "Nivel",
+        "Técnicas"
+      ],
+      "filas": [
+        [
+          "1 - 11",
+          "0"
+        ],
+        [
+          "12 - 23",
+          "1"
+        ],
+        [
+          "24 - 30",
+          "2"
+        ]
+      ]
+    },
+    {
+      "ocupacion": "Doncella de la Espada",
+      "tabla_word": 6,
+      "encabezados": [
+        "Nivel",
+        "Técnicas",
+        "Esplendor"
+      ],
+      "filas": [
+        [
+          "1 - 5",
+          "2",
+          "Gloriosa situación"
+        ],
+        [
+          "6 - 10",
+          "3",
+          "Gloriosa situación"
+        ],
+        [
+          "11 - 15",
+          "4",
+          "Gloriosa situación, No lo creerías"
+        ],
+        [
+          "16 - 20",
+          "6",
+          "Gloriosa situación, No lo creerías"
+        ],
+        [
+          "21 - 25",
+          "7",
+          "Gloriosa situación, No lo creerías, Rendición inclemente"
+        ],
+        [
+          "26 - 30",
+          "8",
+          "Gloriosa situación, No lo creerías, Rendición inclemente"
+        ]
+      ]
+    },
+    {
+      "ocupacion": "Valquiria",
+      "tabla_word": 7,
+      "encabezados": [
+        "Nivel",
+        "Técnicas",
+        "Duración Poderío de la Reina",
+        "Salud Poderío de la Reina"
+      ],
+      "filas": [
+        [
+          "1 - 5",
+          "1",
+          "1d6",
+          "1d4"
+        ],
+        [
+          "6 - 10",
+          "2",
+          "2d6",
+          "2d4"
+        ],
+        [
+          "11 - 15",
+          "3",
+          "3d6",
+          "3d4"
+        ],
+        [
+          "16 - 20",
+          "4",
+          "4d6",
+          "4d4"
+        ],
+        [
+          "21 - 25",
+          "5",
+          "5d6",
+          "5d4"
+        ],
+        [
+          "26 - 30",
+          "6",
+          "6d6",
+          "6d4"
+        ]
+      ]
+    },
+    {
+      "ocupacion": "Hurí",
+      "tabla_word": 8,
+      "encabezados": [
+        "Nivel",
+        "Magia tántrica",
+        "Defensa sin armadura"
+      ],
+      "filas": [
+        [
+          "1 - 5",
+          "1",
+          "d6/d6"
+        ],
+        [
+          "6 - 11",
+          "2",
+          "d6/d6"
+        ],
+        [
+          "12 - 17",
+          "3",
+          "d8/d6"
+        ],
+        [
+          "18 - 30",
+          "4",
+          "d10/d6"
+        ]
+      ]
+    }
+  ],
+  "incidencias": [
+    {
+      "id": "OCP-01",
+      "estado": "requiere_decision_autor",
+      "ocupacion": "Valquiria",
+      "talento": "Poderío de la Reina",
+      "texto_niveles": [
+        6,
+        12,
+        18,
+        24,
+        30
+      ],
+      "tabla_niveles": [
+        6,
+        11,
+        16,
+        21,
+        26
+      ],
+      "nota": "Progresión incompatible: no automatizar ni escoger una versión sin aprobación."
+    },
+    {
+      "id": "OCP-02",
+      "estado": "errata_textual",
+      "ocupacion": "Valquiria",
+      "talento": "Poderío de la Reina",
+      "texto": "ya estabsa afligida",
+      "nota": "Conservar fuente y proponer corrección editorial."
+    }
+  ]
+}

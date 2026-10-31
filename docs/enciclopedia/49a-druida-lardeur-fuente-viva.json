@@ -1,0 +1,164 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "titulo": "NaufragioD20 — Ocupaciones",
+    "document_id": "1Zx60pJI_ETuyXvoiATUQk__E2-WUAjAnMbVBzsocIrc",
+    "url": "https://docs.google.com/document/d/1Zx60pJI_ETuyXvoiATUQk__E2-WUAjAnMbVBzsocIrc/edit",
+    "revision": "AHj4eMT2rOoSo0UavC-SPB-x2KuJ7Qp82ILoADuTR84JXsV6lS2MtAx5evc6pBzac_KCDoW2Wm8QmGvjp73j_g",
+    "nota": "Estos Talentos NO están en la copia DOCX local; se extrajeron del documento Google Docs vigente. Índices ordinales de párrafos, no índices Word."
+  },
+  "registros": [
+    {
+      "ocupacion": "Druida",
+      "talento": "Forma salvaje",
+      "parrafos_fuente": [
+        1674,
+        1678
+      ],
+      "activacion": "Acción",
+      "coste": "Coste: 1 Esfuerzo",
+      "texto_literal": "Gracias a tu conexión preternatural con la naturaleza, eres capaz de transformar y retorcer tu cuerpo para adoptar la forma de una criatura catalogada como Alimaña o Bestia durante 1 Intervalo por Nivel; la criatura seleccionada debe ser de un Nivel inferior al tuyo, o la transformación no funcionará. El proceso es algo doloroso, pero una vez lo completas obtienes todas las habilidades y capacidades de la criatura seleccionada, conservando tu raciocinio y personalidad.\nMientras estés convertido en una Alimaña o Bestia, no podrás lanzar Conjuros, pero sí revertir la forma cuando quieras. A la hora de combatir, usas tus Atributos de forma normal, pero negocia con el Cronista las posibles bonificaciones o Ventajas que puedas tener según la criatura que hayas elegido. Un Conjuro de Disipar Magia o cualquier hechicería similar pueden anular tu Forma salvaje, al igual que ser afligido por Parálisis o caer derrotado."
+    },
+    {
+      "ocupacion": "Druida",
+      "talento": "Sendero de la naturaleza",
+      "parrafos_fuente": [
+        1679,
+        1681
+      ],
+      "activacion": "Pasiva",
+      "texto_literal": "Obtienes Ventaja en las Tiradas de Intuición relacionadas con moverte y orientarte por entornos naturales, como bosques, ciénagas, pantanos, llanuras o páramos."
+    },
+    {
+      "ocupacion": "Lardeur",
+      "talento": "Cata magistral",
+      "parrafos_fuente": [
+        1985,
+        1988
+      ],
+      "activacion": "Pasiva",
+      "texto_literal": "Tu paladar y tu olfato están más allá de lo humano. Puedes identificar si una sustancia, criatura o compuesto es comestible con una Tirada de Mente. Además, si eres el Cocinero cuando acampes, la comida que prepares restaurará 1d4 Salud, o 1 Punto de Esfuerzo, u otorgará un +1 a la próxima Tirada realizada. Éste efecto se aplica a cada uno de los comensales que atiendas.\nEn los Niveles 12, 18, 24 y 30 el beneficio aumenta en 1, hasta un máximo de +5."
+    },
+    {
+      "ocupacion": "Lardeur",
+      "talento": "Haute cuisine",
+      "parrafos_fuente": [
+        1989,
+        2037
+      ],
+      "activacion": "Acción",
+      "coste": "Coste: 1 Esfuerzo",
+      "texto_literal": "Necesitas un Kit de cocina. Tu talento traspasa las fronteras del buen gusto. Puedes cocinar con ingredientes en mal estado, repugnantes o prohibidos —cadáveres, veneno, podredumbre—, generando tantas Raciones como tu Nivel durante 1 Intervalo de trabajo.\nQuien consuma tus creaciones debe superar una Tirada de Resistencia o sufrir Enfermedad o Veneno equivalente a tu Nivel. Si lo logra, se ve beneficiado con un efecto extraordinario (consulta en la Tabla). Es repulsivo. Es brillante."
+    },
+    {
+      "ocupacion": "Lardeur",
+      "talento": "Mise en place",
+      "parrafos_fuente": [
+        2038,
+        2040
+      ],
+      "activacion": "Pasiva",
+      "texto_literal": "Sabes exactamente qué cortar, cuándo y con qué filo. Obtienes +1d2 Raciones adicionales al Cazar o Pescar."
+    }
+  ],
+  "haute_cuisine_tabla": {
+    "encabezados": [
+      "d10",
+      "Nvl mínimo",
+      "Efecto",
+      "Duración"
+    ],
+    "filas": [
+      [
+        "1",
+        "1",
+        "+1 a todas las Tiradas de Resistencia",
+        "1 Intervalo"
+      ],
+      [
+        "2",
+        "1",
+        "Ventaja en Tiradas de salvación contra el miedo",
+        "1 Intervalo"
+      ],
+      [
+        "3",
+        "3",
+        "Visión en la oscuridad",
+        "1 Intervalo"
+      ],
+      [
+        "4",
+        "3",
+        "+1d6 de Salud máxima",
+        "Hasta próximo descanso"
+      ],
+      [
+        "5",
+        "6",
+        "+1 a todas las Tiradas de Orientación",
+        "1 día"
+      ],
+      [
+        "6",
+        "6",
+        "El personaje no necesita comer en 24h",
+        "1 día"
+      ],
+      [
+        "7",
+        "9",
+        "Restauras 1 Punto de Esfuerzo",
+        "Inmediata"
+      ],
+      [
+        "8",
+        "9",
+        "Ventaja en Tiradas de Mente, Intuición y Presencia",
+        "1 Intervalo"
+      ],
+      [
+        "9",
+        "12",
+        "Puede ignorar el primer fallo de Salvación del día",
+        "1 día"
+      ],
+      [
+        "10",
+        "12",
+        "Ventaja en todas las Tiradas de viaje",
+        "1 día"
+      ]
+    ]
+  },
+  "cata_magistral_tabla": {
+    "encabezados": [
+      "Nivel",
+      "Cata magistral"
+    ],
+    "filas": [
+      [
+        "1 - 11",
+        "1d4 / +1"
+      ],
+      [
+        "12 - 17",
+        "2d4 / +2"
+      ],
+      [
+        "18 - 23",
+        "3d4 / +3"
+      ],
+      [
+        "24 - 29",
+        "4d4 / +4"
+      ],
+      [
+        "30",
+        "5d4 / +5"
+      ]
+    ]
+  },
+  "alerta": "No reemplazar las instantáneas históricas del DOCX; reconocer esta fuente viva por separado."
+}

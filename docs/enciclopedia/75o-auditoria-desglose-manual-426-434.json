@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "9_de_9_cotejados",
+  "fichas": 9,
+  "parrafos_referenciados": 11,
+  "errores": [],
+  "fuentes": [
+    {
+      "archivo": "69r-conjuros-alfabeticos-426-434.json",
+      "sha": "2aa02bdaf507f45272c22e5303cd9d08289893e1"
+    },
+    {
+      "archivo": "72r-desglose-revisado-conjuros-426-434.json",
+      "sha": "6c6b5ea4a698635ededf41c01e8ce17bf704b6b3"
+    }
+  ],
+  "nota": "Verificación de identidad y párrafos, sin pruebas de ejecución."
+}

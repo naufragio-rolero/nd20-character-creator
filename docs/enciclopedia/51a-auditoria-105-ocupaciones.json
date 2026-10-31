@@ -1,0 +1,430 @@
+{
+  "fecha": "2026-10-29",
+  "fuente_inventario": "01b-talentos-ocupaciones.csv",
+  "relaciones_historicas": 163,
+  "reclasificadas_a_poderes": [
+    "Gladiador | Estilos de gladiatoria"
+  ],
+  "relaciones_talento_provisionales": 162,
+  "identidades_transcritas": 105,
+  "identidades_transcritas_en_este_avance": [
+    {
+      "ocupacion": "Druida",
+      "talento": "Forma salvaje",
+      "archivo": "49a-druida-lardeur-fuente-viva.json"
+    },
+    {
+      "ocupacion": "Druida",
+      "talento": "Sendero de la naturaleza",
+      "archivo": "49a-druida-lardeur-fuente-viva.json"
+    },
+    {
+      "ocupacion": "Lardeur",
+      "talento": "Cata magistral",
+      "archivo": "49a-druida-lardeur-fuente-viva.json"
+    },
+    {
+      "ocupacion": "Lardeur",
+      "talento": "Haute cuisine",
+      "archivo": "49a-druida-lardeur-fuente-viva.json"
+    },
+    {
+      "ocupacion": "Lardeur",
+      "talento": "Mise en place",
+      "archivo": "49a-druida-lardeur-fuente-viva.json"
+    },
+    {
+      "ocupacion": "Derviche",
+      "talento": "Danza de las dos hojas",
+      "archivo": "49b-derviche-fuente-viva.json"
+    },
+    {
+      "ocupacion": "Derviche",
+      "talento": "Defensa sin armadura",
+      "archivo": "49b-derviche-fuente-viva.json"
+    },
+    {
+      "ocupacion": "Derviche",
+      "talento": "Maniobra letal",
+      "archivo": "49b-derviche-fuente-viva.json"
+    },
+    {
+      "ocupacion": "Derviche",
+      "talento": "Oleada extensiva",
+      "archivo": "49b-derviche-fuente-viva.json"
+    },
+    {
+      "ocupacion": "Clérigo",
+      "talento": "Expulsar muertos vivientes",
+      "archivo": "50a-talentos-drs-literal.json"
+    },
+    {
+      "ocupacion": "Clérigo",
+      "talento": "Fortaleza piadosa",
+      "archivo": "50a-talentos-drs-literal.json"
+    },
+    {
+      "ocupacion": "Guerrero",
+      "talento": "Recuperación",
+      "archivo": "50a-talentos-drs-literal.json"
+    },
+    {
+      "ocupacion": "Guerrero",
+      "talento": "Brío musculoso",
+      "archivo": "50a-talentos-drs-literal.json"
+    },
+    {
+      "ocupacion": "Guerrero",
+      "talento": "Sacrificio de escudo",
+      "archivo": "50a-talentos-drs-literal.json"
+    },
+    {
+      "ocupacion": "Mago",
+      "talento": "Bagaje de arcanista",
+      "archivo": "50a-talentos-drs-literal.json"
+    },
+    {
+      "ocupacion": "Mago",
+      "talento": "Meditación",
+      "archivo": "50a-talentos-drs-literal.json"
+    },
+    {
+      "ocupacion": "Ladrón",
+      "talento": "Preparación",
+      "archivo": "50a-talentos-drs-literal.json"
+    },
+    {
+      "ocupacion": "Ladrón",
+      "talento": "Sutileza",
+      "archivo": "50a-talentos-drs-literal.json"
+    },
+    {
+      "ocupacion": "Diplomático",
+      "talento": "Oratoria exquisita",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Diplomático",
+      "talento": "Preparación",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Diplomático",
+      "talento": "Séquito personal",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Eudemonista",
+      "talento": "Armamento filosofal",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Eudemonista",
+      "talento": "Entelequia",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Eudemonista",
+      "talento": "Estoicismo",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Forajido",
+      "talento": "Pasado turbulento",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Forajido",
+      "talento": "Suerte del tonto",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Psion",
+      "talento": "Entereza mental",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Psion",
+      "talento": "Someter el cuerpo",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Soldado",
+      "talento": "Especialista en armamento",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Soldado",
+      "talento": "Llamada del deber",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Soldado",
+      "talento": "Tiempo bala",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Tecnópata",
+      "talento": "Hacker",
+      "archivo": "50b-talentos-cifi-literal.json"
+    },
+    {
+      "ocupacion": "Tecnópata",
+      "talento": "Unión cibernética",
+      "archivo": "50b-talentos-cifi-literal.json"
+    }
+  ],
+  "registros_transcritos_sin_correspondencia": [],
+  "pendientes_de_transcripcion": [
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Conducto arcano"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Puntos de Gnosis"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Biblioteca ambulante"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Canal de las sombras"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Caos esotérico"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Estallido arcano"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Sacrificio vital"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Voluntad indómita"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Ojo del cazador"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Aceptación"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Alquimia limitada"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Cazador letal"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Instintos sobrenaturales"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Reflejos de la noche"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Soy lo que cazo"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Instintos de los bajos fondos"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Arrancar información"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "El jeta de Wall Street"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Facha de hampón"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Maestro en allanamientos"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Rutas de entrada y salida"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Señor del crimen"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Voz de ultratumba"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Cadena de los hados"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Destino entrelazado"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Hebras de la Urdimbre"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Ligadura espiritual"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Paso espectral"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Premonición"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Perspicacia de sabueso"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Cazarreliquias"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Diletante místico"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Erudición sobrenatural"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Instintos del morador nocturno"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Saqueador de tumbas"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Sospechosos habituales"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Arte de la guerra"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "¡Estáis encerrados conmigo!"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Adrenalina"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "En racha"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Frenesí sanguinario"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Imparable"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Plan de batalla"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Cerebro cibernético"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Homebrew"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Interacción remota"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Presencia fantasma"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Ojos en la red"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Sabotaje electromagnético"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Tecnomante"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Lengua de serpiente"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Artimañas legales"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "El precio justo"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Estafador experto"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Maestro del espectáculo"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Rostro cambiante"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Zorro astuto"
+    }
+  ],
+  "pending_por_sistema": {
+    "Nocturna": 57
+  },
+  "cobertura_por_sistema": {
+    "Ampliadas": {
+      "total": 81,
+      "transcritas": 81
+    },
+    "DRS": {
+      "total": 9,
+      "transcritas": 9
+    },
+    "CiFi": {
+      "total": 15,
+      "transcritas": 15
+    },
+    "Nocturna": {
+      "total": 57,
+      "transcritas": 0
+    }
+  },
+  "nota": "La conciliación compara identidades ocupación-talento, no valida los cálculos de efectos ni las elecciones automáticas de Forja."
+}

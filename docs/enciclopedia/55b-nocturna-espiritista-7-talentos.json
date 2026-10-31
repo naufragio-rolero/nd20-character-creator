@@ -1,0 +1,115 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "id": "15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28",
+    "tipo": "Google Docs vigente",
+    "revision": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ"
+  },
+  "ocupacion": "Espiritista",
+  "registros": [
+    {
+      "talento": "Voz de ultratumba",
+      "activacion": "Especial",
+      "parrafos_fuente": [
+        813,
+        817
+      ],
+      "coste_literal": null,
+      "texto_literal": "Estás en sintonía permanente con el reino de los espíritus. Percibes la presencia de entidades incorpóreas o restos espectrales en tu entorno: notas escalofríos, susurros o visiones fugaces cuando hay fantasmas, espectros o maldiciones cerca.\nAdemás, una vez al día puedes conducir una sesión de espiritismo: durante 1 Intervalo, entras en trance e invocas a un espíritu específico para hacerle una pregunta. La respuesta llegará en forma de susurros velados, visiones simbólicas o por boca del Cronista (quien interpretará al espíritu).\nA partir de Nivel 6, puedes hacer dos preguntas en cada sesión; a Nivel 12, tres; y así sucesivamente, hasta un máximo de 5 preguntas al día en Nivel 24. Ten en cuenta que los espíritus no lo saben todo ni están obligados a decirte la verdad completa, pero generalmente ofrecerán alguna pista útil."
+    },
+    {
+      "talento": "Cadena de los hados",
+      "activacion": "Reacción",
+      "parrafos_fuente": [
+        824,
+        828
+      ],
+      "coste_literal": "Coste: 3 Puntos de Destino",
+      "texto_literal": "Cuando un aliado, a quien puedas ver y esté en un radio igual o inferior a 10m2 de ti, fuese a caer a 0 Puntos de Salud, puedes intervenir hilando su destino al tuyo. Esa persona se queda en 1 Punto de Salud en lugar de caer, pero tú absorbes el daño restante en forma de fatiga vital: sufres tantos d4 de daño como su Nivel en forma de heridas espirituales que ignoran tu Blindaje (moretones, hemorragias internas) por forzar tu propia esencia.\nSi no te quedan Puntos de Destino, puedes agotar tu propia energía vital y quedarte a 1 Punto de Salud para que tenga efecto."
+    },
+    {
+      "talento": "Destino entrelazado",
+      "activacion": "Reacción",
+      "parrafos_fuente": [
+        829,
+        833
+      ],
+      "coste_literal": "Coste: 2 Puntos de Destino",
+      "texto_literal": "Ves los hilos invisibles que conectan a las personas y los eventos. Una vez por Escena, si tú o un aliado en un radio de 10m2 de ti falláis una tirada crucial, puedes declarar que «así no debía ocurrir». Inmediatamente, una coincidencia milagrosa o un pequeño cambio en la realidad altera el resultado: permites repetir la tirada con Ventaja.\nSi usas esto para ayudar a un aliado, ambos sentís un mareo mientras la realidad se reajusta a la nueva posibilidad, por lo que tendréis que superar una Tirada de Resistencia o perder el próximo Turno. Este poder para torcer el destino no puede usarse dos veces sobre la misma situación."
+    },
+    {
+      "talento": "Hebras de la Urdimbre",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        834,
+        837
+      ],
+      "coste_literal": null,
+      "texto_literal": "Tus dones oraculares te permiten conjurar con instinto más que con estudio. Elige un Conjuro de Primer Círculo que conozcas; puedes lanzarlo sin gastar PD una vez por día, como si fuera una visión espontánea que canalizas.\nSi tomas este Talento en Nivel 9 en lugar de Nivel 1, puedes elegir en su lugar un Conjuro de hasta Segundo Círculo para usar con este beneficio. Ten en cuenta que cada vez que lanzas el conjuro de este modo, algún rasgo fantasmal te rodea momentáneamente (susurros, luces ectoplásmicas), delatando tu naturaleza sobrenatural ante ojos atentos."
+    },
+    {
+      "talento": "Ligadura espiritual",
+      "activacion": "Acción",
+      "parrafos_fuente": [
+        838,
+        844
+      ],
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "texto_literal": "Celebras un ritual de vinculación breve durante 1 Intervalo, solicitando auxilio a algún espíritu protector que conozcas. Recuerda que los muertos siempre piden algo a cambio de su ayuda y su influencia en el Mundo de la Carne: atarás un espíritu menor a tu existencia para que te asista brevemente. Escoge uno de los siguientes efectos cuando uses este Talento.\nEspectro vengativo: Convocas brevemente la imagen terrorífica de un fallecido para amedrentar a un enemigo. Realiza una Tirada de Presencia: si tienes éxito, una criatura objetivo que pueda verte quedará Asustada durante 1d4 Turnos.\nMano del más allá: Un espectro manipula el entorno por ti. Puedes mover un objeto a distancia como si tuvieras Telequinesis básica, o hacer resonar una voz incorpórea en un punto cercano. El efecto dura hasta 1d6 Turnos.\nPoltergeist protector: Un ente invisible te rodea y desvía peligros. Obtienes +2 a tu Blindaje contra ataques físicos y Ventaja en Tiradas de Resistencia para soportar efectos nocivos durante 1d6 Turnos."
+    },
+    {
+      "talento": "Paso espectral",
+      "activacion": "Acción",
+      "parrafos_fuente": [
+        845,
+        849
+      ],
+      "coste_literal": null,
+      "texto_literal": "Desvaneces tu forma física temporalmente al adentrarte en el mundo de los espíritus. Te vuelves semitransparente e incorpóreo durante tantos Turnos como la mitad de tu Nivel (redondeando hacia abajo). En este estado, puedes atravesar obstáculos físicos sólidos (muros, puertas cerradas, etc.) y eres inmune al daño físico convencional (balas, cuchillos y golpes atraviesan tu cuerpo etéreo).\nSin embargo, sigues pudiendo sufrir daño de fuentes místicas o ataques de otras entidades espectrales. Tampoco puedes interactuar físicamente con el mundo material mientras dure el efecto: no puedes atacar ni manipular objetos. Puedes finalizar este estado antes de tiempo de forma voluntaria, reapareciendo en la realidad."
+    },
+    {
+      "talento": "Premonición",
+      "activacion": "Reacción",
+      "parrafos_fuente": [
+        850,
+        853
+      ],
+      "coste_literal": null,
+      "texto_literal": "Un escalofrío repentino o una voz inaudible te advierte justo a tiempo. Puedes usar este Talento una vez cada 24 horas, cuando vayas a ser sorprendido por un peligro o justo antes de tirar Iniciativa. Actívalo para actuar como si no pudieras ser sorprendido, o para ganar Ventaja en tu tirada de Iniciativa.\nAdemás, en ese primer instante de peligro inminente, tienes una breve visión del peor resultado posible, lo que te permite alertar a tus aliados (quienes también ganan +2 a su Iniciativa gracias a tu advertencia). En los Niveles 12 y 24 aumentas en 1 las veces que puedes usar la Premonición al día."
+    }
+  ],
+  "recurso": {
+    "nombre": "Puntos de Destino",
+    "parrafos": [
+      818,
+      821
+    ],
+    "texto_fuente": "Posees un recurso denominado Puntos de Destino (PD), que consumes para lanzar Conjuros. Debes consumir tantos PD como Círculo del Conjuro que quieras lanzar. Tus PD también se podrán usar para ciertos Talentos de tu Ocupación, consulta cada uno de ellos para saber más.\nComienzas a Nivel 1 con 3 PD, y aumentas en 2 tus PD máximos por cada Nivel adicional hasta Nivel 12; a partir de ahí, obtienes 1 PD por Nivel.\nPara recuperar tus Puntos de Destino, debes entrar en contacto con el Otro Lado durante 1d2 Intervalos, sumiéndote en un trance espiritual. Puedes hacer ésto mientras disfrutas de un descanso.",
+    "nota": "Puntos de Destino figura como sección de recurso aparte; no se añadió un octavo Talento no inventariado."
+  },
+  "adquisicion": {
+    "fijo": "Voz de ultratumba",
+    "opcionales": [
+      "Cadena de los hados",
+      "Destino entrelazado",
+      "Hebras de la Urdimbre",
+      "Ligadura espiritual",
+      "Paso espectral",
+      "Premonición"
+    ],
+    "niveles": [
+      1,
+      9
+    ]
+  },
+  "incidencias": [
+    {
+      "id": "OCP-24",
+      "descripcion": "Cadena de los hados y Destino entrelazado emplean «radio de 10m2», sin forma geométrica ni equivalencia a 10m lineales. No reinterpretar sin acuerdo."
+    },
+    {
+      "id": "OCP-25",
+      "descripcion": "La introducción de Poderes y de Talentos seleccionables usa «Médium» (párrafos 811, 823), aunque la Ocupación se denomina «Espiritista» en el inventario. Posible nombre antiguo; mantener relación del inventario hasta aclaración."
+    }
+  ]
+}

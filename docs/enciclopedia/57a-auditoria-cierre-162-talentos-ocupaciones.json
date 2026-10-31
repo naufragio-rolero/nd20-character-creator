@@ -1,0 +1,221 @@
+{
+  "fecha": "2026-10-29",
+  "fuente_inventario": "01b-talentos-ocupaciones.csv",
+  "total_historico": 163,
+  "exclusion_canonica": [
+    {
+      "ocupacion": "Gladiador",
+      "nombre": "Estilos de gladiatoria",
+      "tipo_nuevo": "Poder",
+      "acuerdo": "OCP-05, autor"
+    }
+  ],
+  "total_provisional_talentos": 162,
+  "total_transcritos": 162,
+  "pendientes_identidad_y_transcripcion": 0,
+  "detalle_por_sistema": {
+    "Ampliadas": {
+      "total": 81,
+      "transcritos": 81,
+      "pendientes": 0
+    },
+    "DRS": {
+      "total": 9,
+      "transcritos": 9,
+      "pendientes": 0
+    },
+    "CiFi": {
+      "total": 15,
+      "transcritos": 15,
+      "pendientes": 0
+    },
+    "Nocturna": {
+      "total": 57,
+      "transcritos": 57,
+      "pendientes": 0
+    }
+  },
+  "ultima_conciliacion": {
+    "talentos_previamente_cotejados": 120,
+    "registros_añadidos": [
+      {
+        "key": "Delincuente|Instintos de los bajos fondos",
+        "archivo": "55a-nocturna-delincuente-7-talentos.json"
+      },
+      {
+        "key": "Delincuente|Arrancar información",
+        "archivo": "55a-nocturna-delincuente-7-talentos.json"
+      },
+      {
+        "key": "Delincuente|El jeta de Wall Street",
+        "archivo": "55a-nocturna-delincuente-7-talentos.json"
+      },
+      {
+        "key": "Delincuente|Facha de hampón",
+        "archivo": "55a-nocturna-delincuente-7-talentos.json"
+      },
+      {
+        "key": "Delincuente|Maestro en allanamientos",
+        "archivo": "55a-nocturna-delincuente-7-talentos.json"
+      },
+      {
+        "key": "Delincuente|Rutas de entrada y salida",
+        "archivo": "55a-nocturna-delincuente-7-talentos.json"
+      },
+      {
+        "key": "Delincuente|Señor del crimen",
+        "archivo": "55a-nocturna-delincuente-7-talentos.json"
+      },
+      {
+        "key": "Espiritista|Voz de ultratumba",
+        "archivo": "55b-nocturna-espiritista-7-talentos.json"
+      },
+      {
+        "key": "Espiritista|Cadena de los hados",
+        "archivo": "55b-nocturna-espiritista-7-talentos.json"
+      },
+      {
+        "key": "Espiritista|Destino entrelazado",
+        "archivo": "55b-nocturna-espiritista-7-talentos.json"
+      },
+      {
+        "key": "Espiritista|Hebras de la Urdimbre",
+        "archivo": "55b-nocturna-espiritista-7-talentos.json"
+      },
+      {
+        "key": "Espiritista|Ligadura espiritual",
+        "archivo": "55b-nocturna-espiritista-7-talentos.json"
+      },
+      {
+        "key": "Espiritista|Paso espectral",
+        "archivo": "55b-nocturna-espiritista-7-talentos.json"
+      },
+      {
+        "key": "Espiritista|Premonición",
+        "archivo": "55b-nocturna-espiritista-7-talentos.json"
+      },
+      {
+        "key": "Investigador|Perspicacia de sabueso",
+        "archivo": "56a-nocturna-investigador-7-talentos.json"
+      },
+      {
+        "key": "Investigador|Cazarreliquias",
+        "archivo": "56a-nocturna-investigador-7-talentos.json"
+      },
+      {
+        "key": "Investigador|Diletante místico",
+        "archivo": "56a-nocturna-investigador-7-talentos.json"
+      },
+      {
+        "key": "Investigador|Erudición sobrenatural",
+        "archivo": "56a-nocturna-investigador-7-talentos.json"
+      },
+      {
+        "key": "Investigador|Instintos del morador nocturno",
+        "archivo": "56a-nocturna-investigador-7-talentos.json"
+      },
+      {
+        "key": "Investigador|Saqueador de tumbas",
+        "archivo": "56a-nocturna-investigador-7-talentos.json"
+      },
+      {
+        "key": "Investigador|Sospechosos habituales",
+        "archivo": "56a-nocturna-investigador-7-talentos.json"
+      },
+      {
+        "key": "Mercenario|Arte de la guerra",
+        "archivo": "56b-nocturna-mercenario-7-talentos.json"
+      },
+      {
+        "key": "Mercenario|¡Estáis encerrados conmigo!",
+        "archivo": "56b-nocturna-mercenario-7-talentos.json"
+      },
+      {
+        "key": "Mercenario|Adrenalina",
+        "archivo": "56b-nocturna-mercenario-7-talentos.json"
+      },
+      {
+        "key": "Mercenario|En racha",
+        "archivo": "56b-nocturna-mercenario-7-talentos.json"
+      },
+      {
+        "key": "Mercenario|Frenesí sanguinario",
+        "archivo": "56b-nocturna-mercenario-7-talentos.json"
+      },
+      {
+        "key": "Mercenario|Imparable",
+        "archivo": "56b-nocturna-mercenario-7-talentos.json"
+      },
+      {
+        "key": "Mercenario|Plan de batalla",
+        "archivo": "56b-nocturna-mercenario-7-talentos.json"
+      },
+      {
+        "key": "Operador|Cerebro cibernético",
+        "archivo": "56c-nocturna-operador-7-talentos.json"
+      },
+      {
+        "key": "Operador|Homebrew",
+        "archivo": "56c-nocturna-operador-7-talentos.json"
+      },
+      {
+        "key": "Operador|Interacción remota",
+        "archivo": "56c-nocturna-operador-7-talentos.json"
+      },
+      {
+        "key": "Operador|Presencia fantasma",
+        "archivo": "56c-nocturna-operador-7-talentos.json"
+      },
+      {
+        "key": "Operador|Ojos en la red",
+        "archivo": "56c-nocturna-operador-7-talentos.json"
+      },
+      {
+        "key": "Operador|Sabotaje electromagnético",
+        "archivo": "56c-nocturna-operador-7-talentos.json"
+      },
+      {
+        "key": "Operador|Tecnomante",
+        "archivo": "56c-nocturna-operador-7-talentos.json"
+      },
+      {
+        "key": "Pícaro|Lengua de serpiente",
+        "archivo": "56d-nocturna-picaro-7-talentos.json"
+      },
+      {
+        "key": "Pícaro|Artimañas legales",
+        "archivo": "56d-nocturna-picaro-7-talentos.json"
+      },
+      {
+        "key": "Pícaro|El precio justo",
+        "archivo": "56d-nocturna-picaro-7-talentos.json"
+      },
+      {
+        "key": "Pícaro|Estafador experto",
+        "archivo": "56d-nocturna-picaro-7-talentos.json"
+      },
+      {
+        "key": "Pícaro|Maestro del espectáculo",
+        "archivo": "56d-nocturna-picaro-7-talentos.json"
+      },
+      {
+        "key": "Pícaro|Rostro cambiante",
+        "archivo": "56d-nocturna-picaro-7-talentos.json"
+      },
+      {
+        "key": "Pícaro|Zorro astuto",
+        "archivo": "56d-nocturna-picaro-7-talentos.json"
+      }
+    ],
+    "registros_nuevos": 42,
+    "duplicados": [],
+    "sin_correspondencia": [],
+    "pendientes": []
+  },
+  "alcance_de_la_validacion": "Cotejo de identidad exacta Ocupación|Talento contra CSV y confirmación de existencia de transcripción en archivos versionados. NO equivale a validación mecánica del efecto, progresiones ni comportamiento de la Forja.",
+  "proximas_tareas": [
+    "Verificar efectos contra fuentes originales cuando se integren a Forja.",
+    "Completar el catálogo de 16 Eidolas de categorías 3 y 4 y narrativas/ofrendas de las 32.",
+    "Conciliar erratas editoriales OCP y terminar inventarios de Técnicas, Poderes, Conjuros, Equipo y Objetos mágicos."
+  ]
+}

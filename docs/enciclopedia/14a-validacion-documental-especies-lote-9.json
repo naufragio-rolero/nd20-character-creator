@@ -1,0 +1,47 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 9,
+  "registros_validados": 1,
+  "total_validados_acumulado": 115,
+  "pendientes": 0,
+  "registros": [
+    {
+      "id_documental": "talento-especie:ampliadas:zora:aletas-del-ciclon",
+      "sistema": "Ampliadas",
+      "especie": "Zora",
+      "talento": "Aletas del ciclón",
+      "tipo": "opcional",
+      "texto_literal_vigente": "Este Talento sólo está disponible para los Zora de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos. Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.\nPasiva\nTus aletas cubitales están hechas de un material similar al cartílago, resistente pero muy afilado. Puedes emplearlas como armas ligeras cuerpo a cuerpo, proporcionándote la posibilidad de estar armado en todo momento. Trata a tus aletas como si estuvieses armado en cada mano.\nA partir de Nivel 6 puedes lanzarlas como si fuesen armas arrojadizas, y tras impactar o llegar a su alcance máximo, regresarán a ti de forma natural.\nArma | Alcance | Daño | Penetración | Durabilidad\nAletas del ciclón | - | 1d6 | 1 | d6\nAletas arrojadizas | 12 m | 2d4 | 1 | d4\nSi se agota la Durabilidad de una de tus aletas, perderás ⅛ de tu Salud máxima por las heridas y podrás regenerarlas tras descansar adecuadamente.",
+      "fuente": {
+        "documento_url": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision_documento": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "tab_id": "t.0",
+        "indice_inicio": 12095,
+        "indice_fin": 13071
+      },
+      "estado": "validado_documentalmente_sin_integracion",
+      "metodo": "Reconstrucción exacta de tabla 3x5 a partir de celdas de Google Docs, conservando orden de filas y columnas",
+      "restricciones": [
+        "Zora Guerrero o Ladrón, incluidas Ocupaciones derivadas",
+        "Sustitución de un Talento durante la creación, excepto el que define la Ocupación"
+      ],
+      "tabla_arma": [
+        {
+          "arma": "Aletas del ciclón",
+          "alcance": "-",
+          "dano": "1d6",
+          "penetracion": "1",
+          "durabilidad": "d6"
+        },
+        {
+          "arma": "Aletas arrojadizas",
+          "alcance": "12 m",
+          "dano": "2d4",
+          "penetracion": "1",
+          "durabilidad": "d4"
+        }
+      ],
+      "observaciones": "La definición de Ocupación derivada y Talento que define la Ocupación debe conciliarse para implementar el selector."
+    }
+  ]
+}

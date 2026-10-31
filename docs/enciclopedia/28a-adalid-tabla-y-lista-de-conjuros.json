@@ -1,0 +1,351 @@
+{
+  "fecha": "2026-10-29",
+  "ocupacion": "Adalid",
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "tabla": {
+    "indice_word": 19,
+    "encabezados_originales": [
+      "Nivel",
+      "Técnicas",
+      "Círculo de Conjuros 1",
+      "Círculo de Conjuros 2",
+      "Círculo de Conjuros 3",
+      "Círculo de Conjuros 4"
+    ],
+    "filas": [
+      [
+        "1",
+        "1",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "2",
+        "1",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "3",
+        "1",
+        "1",
+        "",
+        "",
+        ""
+      ],
+      [
+        "4",
+        "2",
+        "1",
+        "",
+        "",
+        ""
+      ],
+      [
+        "5",
+        "2",
+        "2",
+        "1",
+        "",
+        ""
+      ],
+      [
+        "6",
+        "2",
+        "2",
+        "1",
+        "",
+        ""
+      ],
+      [
+        "7",
+        "3",
+        "3",
+        "2",
+        "1",
+        ""
+      ],
+      [
+        "8",
+        "3",
+        "3",
+        "2",
+        "1",
+        ""
+      ],
+      [
+        "9",
+        "3",
+        "4",
+        "3",
+        "2",
+        "1"
+      ],
+      [
+        "10",
+        "4",
+        "4",
+        "3",
+        "2",
+        "1"
+      ],
+      [
+        "11",
+        "4",
+        "4",
+        "4",
+        "3",
+        "2"
+      ],
+      [
+        "12",
+        "4",
+        "4",
+        "4",
+        "3",
+        "2"
+      ],
+      [
+        "13",
+        "5",
+        "4",
+        "4",
+        "4",
+        "3"
+      ],
+      [
+        "14",
+        "5",
+        "4",
+        "4",
+        "4",
+        "3"
+      ],
+      [
+        "15",
+        "5",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "16",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "17",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "18",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "19",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "20",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "21",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "22",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "23",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "24",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "25",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "26",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "27",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "28",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "29",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      [
+        "30",
+        "6",
+        "4",
+        "4",
+        "4",
+        "4"
+      ]
+    ],
+    "numero_filas": 30,
+    "aplicacion_condicional": "Columnas de Conjuros sólo para Compromisos que otorgan competencia con Conjuros."
+  },
+  "lista_conjuros": {
+    "titulo_original": "Lista de Conjuros del Adalid",
+    "parrafos": {
+      "1": [
+        724,
+        732
+      ],
+      "2": [
+        733,
+        739
+      ],
+      "3": [
+        740,
+        746
+      ],
+      "4": [
+        747,
+        753
+      ]
+    },
+    "circulos": {
+      "1": [
+        "Bendición",
+        "Detectar el Mal",
+        "Escudo",
+        "Orden",
+        "Protección contra el Mal",
+        "Purificar sustento",
+        "Remendar",
+        "Santuario"
+      ],
+      "2": [
+        "Heroísmo",
+        "Predicar",
+        "Resistir el frío",
+        "Resistir el fuego",
+        "Fuego purificador",
+        "Obstáculo"
+      ],
+      "3": [
+        "Controlar enfermedades",
+        "Detectar ilusión",
+        "Disipar magia",
+        "Eliminar maldición",
+        "Guerrero legendario",
+        "Ropa sagrada"
+      ],
+      "4": [
+        "Discernir mentiras",
+        "Lugar sagrado",
+        "Neutralizar veneno",
+        "Protección contra conjuros",
+        "Protección contra las armas",
+        "Sacrificio santificado"
+      ]
+    },
+    "numero_conjuros": 26
+  },
+  "notas_fuente": [
+    {
+      "parrafo": 720,
+      "texto_literal": "Conjuros: Requiere tener competencia con Conjuros, que se otorga según elección de «Compromiso del adalid». Cada 2 niveles, se abre un nuevo Círculo. Cada 2 niveles, se obtiene un Espacio de Conjuro adicional por Círculo. Se comienza en Nivel 3."
+    },
+    {
+      "parrafos": [
+        703,
+        704
+      ],
+      "acuerdo": "Juramento sagrado: Escuela Divina hasta Cuarto Círculo, remite a Lista de Conjuros del Juramento sagrado."
+    },
+    {
+      "parrafos": [
+        705,
+        707
+      ],
+      "acuerdo": "Endecha de los condenados: Escuelas Arcana, Demonología y Nigromancia hasta Cuarto Círculo, remite a Lista de Conjuros de la Endecha de los condenados."
+    }
+  ],
+  "incidencias": [
+    {
+      "id": "OCP-06",
+      "estado": "pendiente_decision",
+      "observacion": "El texto de Compromiso remite a dos listas específicas, pero sólo se localiza en esta sección la lista genérica titulada Lista de Conjuros del Adalid. No atribuir automáticamente sus 26 entradas a ambos Compromisos."
+    },
+    {
+      "id": "OCP-07",
+      "estado": "corrigendum_inventario",
+      "observacion": "La anotación de progreso de 26a señala que se comienza con 1 Espacio en el Primer Círculo, mientras el texto fuente dice Se comienza en Nivel 3. La tabla indica Nv1-2 sin Espacios y Nv3 un Espacio de Círculo 1; prevalecen texto y tabla del manual sobre la anotación previa."
+    }
+  ],
+  "alteraciones_forja": false
+}

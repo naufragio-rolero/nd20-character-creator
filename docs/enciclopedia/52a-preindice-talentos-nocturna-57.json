@@ -1,0 +1,503 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "titulo": "NaufragioD20Nocturna",
+    "id": "15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28",
+    "url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+    "revision": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ"
+  },
+  "categoria": "Ocupaciones–Talentos de Nocturna",
+  "estado": "preindexado; sin efectos literales ni progresiones validadas",
+  "registros": [
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Conducto arcano",
+      "coincidencias_titulo": [
+        553
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Puntos de Gnosis",
+      "coincidencias_titulo": [
+        559
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Biblioteca ambulante",
+      "coincidencias_titulo": [
+        570
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Canal de las sombras",
+      "coincidencias_titulo": [
+        573
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Caos esotérico",
+      "coincidencias_titulo": [
+        576
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Estallido arcano",
+      "coincidencias_titulo": [
+        579
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Sacrificio vital",
+      "coincidencias_titulo": [
+        582
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Arcanista",
+      "talento": "Voluntad indómita",
+      "coincidencias_titulo": [
+        585
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Ojo del cazador",
+      "coincidencias_titulo": [
+        644
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Aceptación",
+      "coincidencias_titulo": [
+        654
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Alquimia limitada",
+      "coincidencias_titulo": [
+        659
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Cazador letal",
+      "coincidencias_titulo": [
+        666
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Instintos sobrenaturales",
+      "coincidencias_titulo": [
+        670
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Reflejos de la noche",
+      "coincidencias_titulo": [
+        673
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Cazador de monstruos",
+      "talento": "Soy lo que cazo",
+      "coincidencias_titulo": [
+        676
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Instintos de los bajos fondos",
+      "coincidencias_titulo": [
+        728,
+        770
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Arrancar información",
+      "coincidencias_titulo": [
+        735
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "El jeta de Wall Street",
+      "coincidencias_titulo": [
+        739
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Facha de hampón",
+      "coincidencias_titulo": [
+        743
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Maestro en allanamientos",
+      "coincidencias_titulo": [
+        747
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Rutas de entrada y salida",
+      "coincidencias_titulo": [
+        753
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Señor del crimen",
+      "coincidencias_titulo": [
+        758
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Voz de ultratumba",
+      "coincidencias_titulo": [
+        813
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Cadena de los hados",
+      "coincidencias_titulo": [
+        824
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Destino entrelazado",
+      "coincidencias_titulo": [
+        829
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Hebras de la Urdimbre",
+      "coincidencias_titulo": [
+        834
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Ligadura espiritual",
+      "coincidencias_titulo": [
+        838
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Paso espectral",
+      "coincidencias_titulo": [
+        845
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Espiritista",
+      "talento": "Premonición",
+      "coincidencias_titulo": [
+        850
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Perspicacia de sabueso",
+      "coincidencias_titulo": [
+        1028
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Cazarreliquias",
+      "coincidencias_titulo": [
+        1037
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Diletante místico",
+      "coincidencias_titulo": [
+        1041
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Erudición sobrenatural",
+      "coincidencias_titulo": [
+        1047
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Instintos del morador nocturno",
+      "coincidencias_titulo": [
+        1052
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Saqueador de tumbas",
+      "coincidencias_titulo": [
+        1055
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Investigador",
+      "talento": "Sospechosos habituales",
+      "coincidencias_titulo": [
+        1059
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Arte de la guerra",
+      "coincidencias_titulo": [
+        1116
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "¡Estáis encerrados conmigo!",
+      "coincidencias_titulo": [
+        1125
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Adrenalina",
+      "coincidencias_titulo": [
+        1129
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "En racha",
+      "coincidencias_titulo": [
+        1133
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Frenesí sanguinario",
+      "coincidencias_titulo": [
+        1137
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Imparable",
+      "coincidencias_titulo": [
+        1142
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Mercenario",
+      "talento": "Plan de batalla",
+      "coincidencias_titulo": [
+        1146
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Cerebro cibernético",
+      "coincidencias_titulo": [
+        1210,
+        1249
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Homebrew",
+      "coincidencias_titulo": [
+        1218
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Interacción remota",
+      "coincidencias_titulo": [
+        1224
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Presencia fantasma",
+      "coincidencias_titulo": [
+        1229
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Ojos en la red",
+      "coincidencias_titulo": [
+        1234
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Sabotaje electromagnético",
+      "coincidencias_titulo": [
+        1237
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Tecnomante",
+      "coincidencias_titulo": [
+        1241
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Lengua de serpiente",
+      "coincidencias_titulo": [
+        1293,
+        1327
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Artimañas legales",
+      "coincidencias_titulo": [
+        1303
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "El precio justo",
+      "coincidencias_titulo": [
+        1307
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Estafador experto",
+      "coincidencias_titulo": [
+        1311
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Maestro del espectáculo",
+      "coincidencias_titulo": [
+        1314
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Rostro cambiante",
+      "coincidencias_titulo": [
+        1319
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Zorro astuto",
+      "coincidencias_titulo": [
+        1323
+      ],
+      "estado": "preindexado_sin_transcribir"
+    }
+  ],
+  "coincidencias_repetidas": [
+    {
+      "ocupacion": "Delincuente",
+      "talento": "Instintos de los bajos fondos",
+      "coincidencias_titulo": [
+        728,
+        770
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Operador",
+      "talento": "Cerebro cibernético",
+      "coincidencias_titulo": [
+        1210,
+        1249
+      ],
+      "estado": "preindexado_sin_transcribir"
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Lengua de serpiente",
+      "coincidencias_titulo": [
+        1293,
+        1327
+      ],
+      "estado": "preindexado_sin_transcribir"
+    }
+  ],
+  "no_inferir": "Los índices son posiciones en el array de párrafos normalizados de Google Docs, no índices Word ni identificadores persistentes. Antes de extraer literalmente, identificar el bloque correcto de Ocupación para los títulos repetidos."
+}

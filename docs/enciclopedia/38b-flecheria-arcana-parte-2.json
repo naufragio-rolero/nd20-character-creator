@@ -1,0 +1,77 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "ocupacion": "Celador",
+  "categoria": "Poderes",
+  "familia": "Flechería arcana",
+  "estado": "extraccion_literal",
+  "registros": [
+    {
+      "nombre": "Guardián",
+      "requisito_literal": "Requisito: Nivel 5",
+      "texto_literal": "Disparas el proyectil hacia el cielo o el techo y queda flotando a gran velocidad en una órbita de 3 metros a tu alrededor. No necesitas tirada para activarlo. En el momento en el que una criatura realice un ataque cuerpo a cuerpo contra ti, realiza una tirada de Intuición: si la superas, el proyectil se abalanza sobre tu agresor, le causa daño con Penetración +1 y lo aparta 2 metros de ti si es posible.",
+      "parrafos": [
+        1246,
+        1248
+      ]
+    },
+    {
+      "nombre": "Ineludible",
+      "requisito_literal": "Requisito: Nivel 5",
+      "texto_literal": "El proyectil impacta automáticamente al objetivo sin realizar tirada de ataque, siempre y cuando el objetivo esté al alcance del arma.",
+      "parrafos": [
+        1249,
+        1251
+      ]
+    },
+    {
+      "nombre": "Intangible",
+      "requisito_literal": "Requisito: Nivel 3",
+      "texto_literal": "El proyectil impacta aunque el objetivo esté bajo cobertura. El tirador debe poder ver al objetivo, aunque sea una parte del cuerpo.",
+      "parrafos": [
+        1252,
+        1254
+      ]
+    },
+    {
+      "nombre": "Invernal",
+      "requisito_literal": "Requisito: Nivel 8",
+      "texto_literal": "Cuando el proyectil impacta, libera los efectos del conjuro Ventisca sobre la criatura objetivo.",
+      "parrafos": [
+        1255,
+        1257
+      ]
+    },
+    {
+      "nombre": "Mortífero",
+      "requisito_literal": "Requisito: Nivel 10",
+      "texto_literal": "Si la criatura objetivo es de un nivel inferior al tuyo, muere instantáneamente. En caso contrario, recibe el doble de daño.",
+      "parrafos": [
+        1258,
+        1260
+      ]
+    },
+    {
+      "nombre": "Ofidio",
+      "requisito_literal": "Requisito: Nivel 1",
+      "texto_literal": "Realiza una tirada de Intuición si el proyectil impacta: si tienes éxito, la criatura sufrirá 1d4 de daño cada Turno hasta que muera.",
+      "parrafos": [
+        1261,
+        1263
+      ]
+    },
+    {
+      "nombre": "Penetrante",
+      "requisito_literal": "Requisito: Nivel 3",
+      "texto_literal": "Reduce en 1d4 el Blindaje del objetivo durante 1d4 Turnos.",
+      "parrafos": [
+        1264,
+        1266
+      ]
+    }
+  ],
+  "dependencias": [
+    "Deflagrador remite a Bola de fuego; Fulminante a Golpe de rayo; Invernal a Ventisca. Comprobar efectos contra Tomo de Magia sin reescribir este texto.",
+    "Guardián activa un proyectil en respuesta a ataque cuerpo a cuerpo, sin tirada para preparar órbita.",
+    "Los 14 Poderes pertenecen a Flechería arcana, no son Talentos."
+  ]
+}

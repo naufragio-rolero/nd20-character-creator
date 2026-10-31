@@ -1,0 +1,827 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 13,
+  "indices_tomo": [
+    301,
+    325
+  ],
+  "fuente": {
+    "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "estado": "transcripcion_literal_completa_de_cada_ficha",
+  "registros": [
+    {
+      "numero_tomo": 301,
+      "nombre_literal": "Paso de la bruma",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2237,
+        "indice_ultimo_parrafo": 2241,
+        "indice_inicio_doc": 157883,
+        "indice_fin_doc": 158139
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Demonología",
+        "Alcance: 10 metros",
+        "Realizas un rápido gesto con la mano y rasgas la Urdimbre a tu alrededor, moviéndote hacia un punto a 10 metros de ti que puedas ver. Este movimiento se considera un «teletransporte»."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-74",
+          "circulo": 2,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 302,
+      "nombre_literal": "Púa ósea",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2242,
+        "indice_ultimo_parrafo": 2246,
+        "indice_inicio_doc": 158140,
+        "indice_fin_doc": 158404
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 6 metros + 1 metro por Nivel",
+        "Haces levitar un hueso maldito carmesí y lo arrojas a gran velocidad hacia una criatura. Puedes lanzar un proyectil por cada 2 de tus Niveles y cada uno causa 1d4 +1 de daño impío."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-75",
+          "circulo": 2,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 303,
+      "nombre_literal": "Plegaria de sosiego",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2247,
+        "indice_ultimo_parrafo": 2254,
+        "indice_inicio_doc": 158405,
+        "indice_fin_doc": 159273
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Divina",
+        "Alcance: 8 metros",
+        "Duración: 1 Turno + 1 Turno por Nivel",
+        "Magia curativa",
+        "Concentras energía positiva alrededor de una criatura. Dicho milagro viajará de una criatura aliada a otra hasta desvanecerse en luz celestial. Colocas una salvaguarda divina en la criatura objetivo; dicha salvaguarda durará hasta que se agote la duración o hasta que la criatura sea dañada, lo que ocurra antes.",
+        "Una criatura rodeada por la Plegaria de sosiego recupera 1d10 Puntos de Salud de forma inmediata cuando es dañada, y la salvaguarda se transfiere a otra criatura, aliada de esta última, a 4 metros o menos de ella. Una criatura afectada por la Plegaria de sosiego no puede volver a ser afectada por ella hasta que pase un Intervalo, a no ser que no pueda transferirla a otra, en cuyo caso se sanará una vez más y se acabará el efecto."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-85",
+          "circulo": 3,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 304,
+      "nombre_literal": "Presencia de Vaiel",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2255,
+        "indice_ultimo_parrafo": 2262,
+        "indice_inicio_doc": 159274,
+        "indice_fin_doc": 160144
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: personal",
+        "Duración: 1d4 + 2 Turnos",
+        "Magia lunar",
+        "La Niebla de las Sombras permanece omnipresente en los cielos ylatíes cuando la noche cae, vigilando desde su prisión con desdén y odio hacia toda forma de vida. Las enloquecidas cábalas que rinden pleitesía a este Espíritu deífico son capaces de manifestar su presencia con súplicas y rezos sombríos, repletos de retazos de la Lengua de los antiguos.",
+        "Extiendes ambos brazos, colocando las palmas hacia arriba, y de tu mismo ser aparece un fragmento de la nefasta existencia de Vaiel, aterrorizando a todos aquellos que te rodean. Realiza una Tirada de Conjuro: si la superas, empujas hasta 4 metros lejos de ti a todas las criaturas que estén en un radio de 3 metros a tu alrededor. Además, quien sea empujado deberá huir de ti durante la duración del efecto."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-103",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 305,
+      "nombre_literal": "Profanar",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2263,
+        "indice_ultimo_parrafo": 2271,
+        "indice_inicio_doc": 160145,
+        "indice_fin_doc": 160938
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 10 metros",
+        "Un aura de energía pestilente y verdosa surge de tu brazo, envolviendo al objetivo con putrefacción y maldad. Su vida se consume mientras la magia nigromántica aniquila su carne y emponzoña su espíritu. ",
+        "Realiza una Tirada de Conjuro: si la superas, causas 10d8 puntos de daño impío y sino, la mitad. Este Conjuro no tiene efecto sobre muertos vivientes o criaturas no orgánicas, como los gólems o los autómatas.",
+        "Si el objetivo es un ser feérico o considerado una planta, tienes Ventaja en la Tirada de Conjuro.",
+        "Si el objetivo es una planta no considerada una criatura, como un árbol o arbusto, no es necesario que hagas la tirada: simplemente se marchita y muere. ",
+        "Un ser que muera víctima de Profanar queda reseco y cadavérico."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-104",
+          "circulo": 5,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 306,
+      "nombre_literal": "Penitencia",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2272,
+        "indice_ultimo_parrafo": 2279,
+        "indice_inicio_doc": 160939,
+        "indice_fin_doc": 161786
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Divina",
+        "Alcance: 4 metros",
+        "Todo tu cuerpo se rodea de luz divina, purificando el terreno a tu alrededor. Una vez has sido imbuido por la fuerza santificada de tu Espíritu deífico, la liberas sobre un objetivo, que recibe todo el poder en bruto de la luz sagrada.",
+        "Si es un aliado para ti: recupera todos sus Puntos de Salud y es sanado automáticamente de cualquier aflicción (mágica o no) que le esté afectando.",
+        "Si es un enemigo para ti: realiza una Tirada de Conjuro: si la superas, es destruido automáticamente si es de Nivel 12 o inferior; si no es así, recibe 18d6 puntos de daño radiante o la mitad si no la superas.",
+        "Tenga éxito el sortilegio o no, tus Puntos de Salud serán reducidos a 1 y sufrirás Desventaja en todas las tiradas hasta que reposes adecuadamente y te purifiques para con tu Espíritu deífico."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-111",
+          "circulo": 7,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 307,
+      "nombre_literal": "Punición",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2280,
+        "indice_ultimo_parrafo": 2284,
+        "indice_inicio_doc": 161787,
+        "indice_fin_doc": 162139
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Divina",
+        "Alcance: 10 metros",
+        "Invocas un juicio divino contra un enemigo, desatando un rayo de energía sagrada que inflige 1d4 de daño radiante a una criatura maligna o corrupta. El lanzador debe ser practicante de una fe alineada con la bondad o valores conservadores, y la Punición requiere agua bendita como catalizador."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-118",
+          "circulo": 1,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 308,
+      "nombre_literal": "Pirotecnia mágica",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2285,
+        "indice_ultimo_parrafo": 2290,
+        "indice_inicio_doc": 162140,
+        "indice_fin_doc": 162599
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Elemental",
+        "Alcance: 30 metros",
+        "Duración: hasta 1 minuto por explosión",
+        "Conjuras una serie de explosiones inofensivas de luz, color y sonido, tantas como tu Nivel. Estas manifestaciones son visibles en un radio de 50 metros y pueden usarse para crear distracciones o para fines lúdicos y espectáculos. Puedes ajustar la duración de cada explosión, acelerándolas o prolongándolas hasta un máximo de 1 minuto por explosión."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-125",
+          "circulo": 1,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 309,
+      "nombre_literal": "Portal sombrío",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2291,
+        "indice_ultimo_parrafo": 2298,
+        "indice_inicio_doc": 162600,
+        "indice_fin_doc": 163103
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Demonología",
+        "Alcance: 8m (50m entre portales)",
+        "Duración: 1 Intervalo o 6 Turnos en combate",
+        "Nictomancia",
+        "Arrancas un pedazo de oscuridad y lo moldeas para crear un agujero de gusano en la Urdimbre negra entre dos lugares distintos. Mientras el efecto esté activo, cualquier nictomante puede atravesar el portal para viajar entre los dos. ",
+        "Cualquier criatura que no sea un nigromante y pretenda atravesar el portal sufrirá 1d4 de daño impío por cada uno de tus Niveles."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-151",
+          "circulo": 3,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 310,
+      "nombre_literal": "Pulso de sanación",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2299,
+        "indice_ultimo_parrafo": 2305,
+        "indice_inicio_doc": 163104,
+        "indice_fin_doc": 163597
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Divina",
+        "Alcance: 8 metros",
+        "Magia curativa",
+        "Canalizas una energía celestial que irradia luz sanadora sobre un aliado dentro del alcance. Este pulso divino restaura 1d8 Puntos de Salud por Nivel al objetivo principal y, si hay otro aliado a 2 metros o menos del objetivo, este también recupera la mitad de la cantidad recuperada. ",
+        "Cada lanzamiento del conjuro sólo puede beneficiar a dos aliados, y la energía no se puede dividir entre múltiples objetivos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-181",
+          "circulo": 4,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 311,
+      "nombre_literal": "Posesión mental",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2306,
+        "indice_ultimo_parrafo": 2313,
+        "indice_inicio_doc": 163598,
+        "indice_fin_doc": 164219
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 10 metros",
+        "Duración: 1 Turno por Nivel",
+        "Magia de sangre",
+        "Desprendes tu esencia de tu cuerpo, invadiendo la mente del objetivo y reclamando el control absoluto de su voluntad. Durante la duración del conjuro, puedes controlar al objetivo, utilizando todas sus capacidades físicas y habilidades mientras tu propio cuerpo permanece inconsciente.",
+        "Cada vez que comiences tu Turno en posesión del cuerpo del objetivo, debes superar una Tirada de Conjuro; si no logras superarla, tu esencia regresa a tu cuerpo, rompiendo el vínculo y devolviendo el control al objetivo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-193",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 312,
+      "nombre_literal": "Puerta al Universo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2314,
+        "indice_ultimo_parrafo": 2322,
+        "indice_inicio_doc": 164220,
+        "indice_fin_doc": 165441
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 3 Turnos",
+        "Alcance: personal",
+        "Duración: 1 hora o hasta cruzar el umbral",
+        "Con el poder del tejido arcano, abres un portal a los infinitos universos paralelos que coexisten con el tuyo. Este conjuro te permite viajar entre realidades, escogiendo conscientemente el punto de destino dentro del multiverso según tu voluntad. Tienes que conocer, al menos de forma tangencial, el lugar al que vas. Si abres un portal a un universo del que no sabes nada, tienes una Probabilidad 10+ de abrir un portal a una realidad peligrosa y nociva.",
+        "La puerta de acceso es translúcida, de 5 metros de diámetro, y estará abierta durante 1 hora o hasta que lo atravieses. Sólo las criaturas y objetos que decidas pueden cruzarlo. Tú y cualquier entidad que atraviese el portal conservaréis vuestros recuerdos, pero cualquier cambio realizado en ese universo permanecerá allí, sin afectar al original. Una vez atravesado, el portal se cierra tras de ti. Regresar requiere lanzar nuevamente este conjuro desde la nueva realidad.",
+        "No necesitas ningún elemento o aparato para poder lanzar este sortilegio, nada más que tu propia voluntad y poder, y el conocimiento del universo de destino."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-215",
+          "circulo": 8,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 313,
+      "nombre_literal": "Paseo sobre las aguas",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2323,
+        "indice_ultimo_parrafo": 2328,
+        "indice_inicio_doc": 165442,
+        "indice_fin_doc": 165786
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: toque",
+        "Duración: 1 Intervalo por Nivel",
+        "Encantas las plantas de los pies del objetivo para que pueda caminar por el líquido elemento. No evita el daño de pantanos venenosos, pozas de ácido, lagos de lava u otro tipo de terrenos nocivos. Cuando tú quieras, puedes anular el efecto."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-270",
+          "circulo": 3,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 314,
+      "nombre_literal": "Provocar confusión",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2329,
+        "indice_ultimo_parrafo": 2344,
+        "indice_inicio_doc": 165787,
+        "indice_fin_doc": 166472
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 30 metros",
+        "Duración: 1 Turno por Nivel",
+        "Emites una onda desquiciante que retumba en el interior de la mente de la criatura objetivo, provocándole una terrible confusión. Al inicio de su Turno, realiza una Tirada de Conjuro: si no la superas, la criatura actúa con total normalidad, mientras que si tienes éxito, se comportará según la siguiente tabla.",
+        "d8",
+        "Efecto",
+        "1-2",
+        "Elige como objetivo a tus aliados o a ti.",
+        "3-4",
+        "Elige como objetivo a sus aliados o a sí misma.",
+        "5-6",
+        "Camina hacia un punto en concreto, envuelta en confusión.",
+        "7-8",
+        "Elige como objetivo la criatura más cercana, sin importar si es aliada o enemiga."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-282",
+          "circulo": 4,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 315,
+      "nombre_literal": "Purga tóxica",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2345,
+        "indice_ultimo_parrafo": 2349,
+        "indice_inicio_doc": 166474,
+        "indice_fin_doc": 166801
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: toque",
+        "Remueves de inmediato cualquier veneno de una criatura u objeto. Aunque este Conjuro no recupera la Salud perdida por el veneno, puedes lanzarlo en los 3 Turnos posteriores a una muerte por envenenamiento para devolver a la criatura a la vida con 1 Punto de Salud."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-291",
+          "circulo": 4,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 316,
+      "nombre_literal": "Prisma del alma",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2350,
+        "indice_ultimo_parrafo": 2359,
+        "indice_inicio_doc": 166802,
+        "indice_fin_doc": 167701
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 3 metros por Nivel",
+        "Duración: permanente (o hasta que regreses a tu cuerpo)",
+        "Transfieres tu alma a una joya, dejando tu cuerpo en estado de coma. Desde el Prisma del Alma, puedes intentar poseer a una criatura viva dentro de un radio de hasta 36 metros, tras superar una Tirada de Conjuro. Al hacerlo, tomas las características físicas del nuevo cuerpo, pero mantienes tus propias habilidades mentales y sociales. Ten en cuenta lo siguiente:",
+        "La criatura poseída tendrá su alma almacenada en la joya. ",
+        "Puedes ser expulsado del cuerpo que ocupas con Disipar Magia. Si el cuerpo poseído es destruido, tu alma regresará a la joya. ",
+        "Si destruyen tanto tu cuerpo en coma como la joya, morirás. ",
+        "Si solo tu cuerpo original es destruido y la joya permanece intacta, podrás esperar en ella hasta que una nueva criatura entre en el rango para ser poseída."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-295",
+          "circulo": 5,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 317,
+      "nombre_literal": "Provocar confusión en masa",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2360,
+        "indice_ultimo_parrafo": 2364,
+        "indice_inicio_doc": 167702,
+        "indice_fin_doc": 167972
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 40 metros",
+        "Liberas una oleada de energía corrupta y rojiza, en un área de 8m2 alrededor de un punto al alcance, que causa los efectos de Provocar confusión a todas las criaturas presentes en el área."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-301",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 318,
+      "nombre_literal": "Purga de maldad",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2365,
+        "indice_ultimo_parrafo": 2371,
+        "indice_inicio_doc": 167973,
+        "indice_fin_doc": 168651
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Divina",
+        "Alcance: personal",
+        "Invocas una fuerza sagrada para expulsar o destruir presencias malignas a tu alrededor. Por cada criatura de tipo Demonio, Elemental o Muerto viviente de Nivel inferior a 10 en un radio de 10m2 a tu alrededor, realiza una Tirada de Conjuro; si tienes éxito, destruyes a la criatura.",
+        "Adicionalmente, cada aliado que esté en el área de efecto y sea capaz de lanzar Conjuros, debe superar una Tirada de Conjuro o perder 1d6 Conjuros de repente (o un equivalente en Recurso).",
+        "Si una criatura logra resistir tu Purga, obtienes Ventaja en tus Tiradas para Evitar ataques de dicha criatura durante los próximos 5 Turnos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-304",
+          "circulo": 5,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 319,
+      "nombre_literal": "Plaga de alimañas",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2372,
+        "indice_ultimo_parrafo": 2379,
+        "indice_inicio_doc": 168652,
+        "indice_fin_doc": 169258
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 100 metros",
+        "Duración: 1 Intervalo por Nivel",
+        "Invocación",
+        "Invocas una nube de insectos voraces —moscas, langostas o cucarachas— que responden a tu voluntad. El enjambre cubre un área de 10 metros de radio, y cualquier criatura de Nivel 8 o inferior que entre en la Plaga de alimañas debe superar un chequeo de Moral o huir. ",
+        "Las criaturas que permanezcan en el área verán su Movimiento reducido a la mitad, y cualquier ataque dirigido contra ellas se realiza con Ventaja. Necesitas concentrarte para que el enjambre permanezca cohesionado y activo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-310",
+          "circulo": 5,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 320,
+      "nombre_literal": "Puño mágico de Zurari",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2380,
+        "indice_ultimo_parrafo": 2389,
+        "indice_inicio_doc": 169259,
+        "indice_fin_doc": 170193
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Arcana",
+        "Alcance: 4 metros por Nivel",
+        "Duración: 1 Turno por Nivel",
+        "Invocación",
+        "Invocas una imponente mano etérea de 3 metros de largo por 2 metros de ancho, que se manifiesta como una extensión de tu voluntad. El Puño mágico de Zurari puede ser utilizado para desplazarte encima de él, usarlo para agarrar a una criatura de un tamaño similar a un humanoide o para golpear a una criatura al alcance. Sin embargo, sólo puede realizar una de estas acciones a la vez y actúa al mismo tiempo que tú.",
+        "Tiene Movimiento 9. Puede volar sin problema a la mitad de su Movimiento, y desplazarse verticalmente.",
+        "Si atrapa a un enemigo, lo retiene mientras dure el Conjuro. Todos los ataques se harán con Ventaja hacia esa criatura, y los proyectiles y armas atravesarán el Puño mágico sin problema.",
+        "Su golpe / tortazo arcano es poderoso: causa 1d10 de daño mágico y contundente por cada uno de tus Niveles."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-332",
+          "circulo": 7,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 321,
+      "nombre_literal": "Palimpsesto oculto",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2390,
+        "indice_ultimo_parrafo": 2397,
+        "indice_inicio_doc": 170194,
+        "indice_fin_doc": 170734
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: permanente",
+        "Magia lunar",
+        "Envuelves una página, inscripción, lápida, pintura u objeto similar en un intrincado encantamiento ilusorio bañado por la luz lunar, ocultando su contenido original a todos excepto a ti. Este sortilegio convierte la superficie en apariencia banal o irrelevante, mientras mantiene el contenido original intacto y protegido. ",
+        "El Palimpsesto oculto permanece indetectable por medios no mágicos, resguardando tus secretos de miradas no deseadas."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-347",
+          "circulo": 7,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 322,
+      "nombre_literal": "Polimorfia magna",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2398,
+        "indice_ultimo_parrafo": 2403,
+        "indice_inicio_doc": 170735,
+        "indice_fin_doc": 171133
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Demonología",
+        "Alcance: toque",
+        "Duración: permanente",
+        "La experimentación con la alteración de la carne fue llevada a cabo por los más corruptos Kultstein. Esta versión de Polimorfia es mucho más potente, permitiéndote transformar objetos no vivos en seres vivos y viceversa. Existe una limitación, no obstante: no puedes superar el cuádruple de la masa original."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-349",
+          "circulo": 7,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 323,
+      "nombre_literal": "Prisión laberíntica",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2404,
+        "indice_ultimo_parrafo": 2410,
+        "indice_inicio_doc": 171134,
+        "indice_fin_doc": 171859
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Demonología",
+        "Alcance: 4 metros por Nivel",
+        "Duración: 1d6 días por Nivel",
+        "Con un gesto cargado de poder arcano, destierras a tu objetivo a un intrincado laberinto mágico fuera de este plano. Si superas una Tirada de Conjuro, la víctima queda atrapada en la Prisión del laberinto eterno, obligada a vagar sin rumbo por un entramado ilusorio, incapaz de interactuar con el mundo real.",
+        "El objetivo permanece en el laberinto durante la duración del conjuro o hasta que consiga encontrar una salida, algo que solo una fuerza de voluntad extraordinaria puede lograr. Mientras esté encerrado en el laberinto, no necesitará comer, beber o dormir, pero las ansias de hacerlo llegarán igualmente."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-351",
+          "circulo": 8,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 324,
+      "nombre_literal": "Putrefacción forzada",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2411,
+        "indice_ultimo_parrafo": 2416,
+        "indice_inicio_doc": 171860,
+        "indice_fin_doc": 172373
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: toque",
+        "Imbuyes un aura de energía corrupta que penetra en el cuerpo del objetivo y exacerba cualquier enfermedad o aflicción que ya padezca, acelerándola hacia su siguiente estadio de gravedad. ",
+        "El objetivo siente un aumento inmediato de los síntomas: fiebre intensa, dolores insoportables o un deterioro físico evidente, dependiendo de la naturaleza de la enfermedad. Este conjuro no crea enfermedades nuevas, pero intensifica las que ya existen."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-376",
+          "circulo": 2,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 325,
+      "nombre_literal": "Prominencia",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2417,
+        "indice_ultimo_parrafo": 2422,
+        "indice_inicio_doc": 172374,
+        "indice_fin_doc": 172937
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Elemental",
+        "Alcance: 30 metros",
+        "Canalizas energía ardiente en dos discos de fuego fulgurante que lanzas hacia uno o dos objetivos dentro del alcance. Los discos se desplazan con precisión devastadora, dejando un rastro de calor abrasador.",
+        "Realiza una Tirada de Conjuro: cada disco inflige 1d10 puntos de daño por fuego por Nivel al impactar. Puedes dirigir ambos discos hacia el mismo objetivo o dividirlos para atacar a dos objetivos diferentes. Si un disco falla, el calor residual todavía inflige la mitad del daño al objetivo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-399",
+          "circulo": 5,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    }
+  ]
+}

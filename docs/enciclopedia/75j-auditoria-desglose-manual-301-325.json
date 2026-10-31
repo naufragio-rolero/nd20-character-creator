@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "25_de_25_cotejados",
+  "fichas": 25,
+  "parrafos_referenciados": 62,
+  "errores": [],
+  "fuentes": [
+    {
+      "archivo": "69m-conjuros-alfabeticos-301-325.json",
+      "sha": "b3a7ec6eb841ef36d520915f99ba84f286dcbc54"
+    },
+    {
+      "archivo": "72m-desglose-revisado-conjuros-301-325.json",
+      "sha": "4fe1303fd85af01e4a8b89afe4504a8ee99326d4"
+    }
+  ],
+  "nota": "Auditoría de fuente e índices, sin validación de ejecución en Forja."
+}

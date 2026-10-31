@@ -1,0 +1,395 @@
+{
+  "version": 1,
+  "fecha": "2026-10-31",
+  "objetivo": "Forja 1.0: núcleo completo de Naufragio d20 Fantasía conforme al DRS",
+  "estado": "datos_de_conjuros_drs_integrados_revision_de_mecanicas_pendiente_no_publicado",
+  "regla_de_publicacion": "Solo DRS disponible por defecto para Fantasía; ampliaciones retenidas como DLC gratuitos posteriores, sin borrar el trabajo.",
+  "fuentes_publicadas_fantasia": [
+    "DRS"
+  ],
+  "drs": {
+    "especies": [
+      "Elfo agreste",
+      "Enano montañés",
+      "Humano común",
+      "Mediano amable",
+      "Gnomo urbano",
+      "Semielfo",
+      "Orco común",
+      "Semiorco"
+    ],
+    "ocupaciones": [
+      "Clérigo",
+      "Guerrero",
+      "Mago",
+      "Ladrón"
+    ],
+    "conjuros": [
+      {
+        "id": "conjuro-0",
+        "nombre": "Aguijón impío",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-1",
+        "nombre": "Atraer muertos vivientes",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-2",
+        "nombre": "Caída de pluma",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-3",
+        "nombre": "Chispa curativa",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-4",
+        "nombre": "Dardo ígneo",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-5",
+        "nombre": "Detectar magia",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-6",
+        "nombre": "Disipar magia",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-7",
+        "nombre": "Dormir",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-8",
+        "nombre": "Luz",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-9",
+        "nombre": "Mano de mago",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-10",
+        "nombre": "Mensaje lejano",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-11",
+        "nombre": "Valentía",
+        "circulo": 1
+      },
+      {
+        "id": "conjuro-12",
+        "nombre": "Amistad animal",
+        "circulo": 2
+      },
+      {
+        "id": "conjuro-13",
+        "nombre": "Apertura arcana",
+        "circulo": 2
+      },
+      {
+        "id": "conjuro-14",
+        "nombre": "Calentar metal",
+        "circulo": 2
+      },
+      {
+        "id": "conjuro-15",
+        "nombre": "Charco de aceite",
+        "circulo": 2
+      },
+      {
+        "id": "conjuro-16",
+        "nombre": "Curación",
+        "circulo": 2
+      },
+      {
+        "id": "conjuro-17",
+        "nombre": "Fuego lunar",
+        "circulo": 2
+      },
+      {
+        "id": "conjuro-18",
+        "nombre": "Ilusión",
+        "circulo": 2
+      },
+      {
+        "id": "conjuro-19",
+        "nombre": "Resistir los elementos",
+        "circulo": 2
+      },
+      {
+        "id": "conjuro-20",
+        "nombre": "Silencio",
+        "circulo": 2
+      },
+      {
+        "id": "conjuro-21",
+        "nombre": "Toque eléctrico",
+        "circulo": 2
+      },
+      {
+        "id": "conjuro-22",
+        "nombre": "Alzar hombre corrupto",
+        "circulo": 3
+      },
+      {
+        "id": "conjuro-23",
+        "nombre": "Arma elemental",
+        "circulo": 3
+      },
+      {
+        "id": "conjuro-24",
+        "nombre": "Armadura de maná",
+        "circulo": 3
+      },
+      {
+        "id": "conjuro-25",
+        "nombre": "Aura de pestilencia",
+        "circulo": 3
+      },
+      {
+        "id": "conjuro-26",
+        "nombre": "Bola de fuego",
+        "circulo": 3
+      },
+      {
+        "id": "conjuro-27",
+        "nombre": "Hablar con los muertos",
+        "circulo": 3
+      },
+      {
+        "id": "conjuro-28",
+        "nombre": "Luz de luna",
+        "circulo": 3
+      },
+      {
+        "id": "conjuro-29",
+        "nombre": "Poza hedionda",
+        "circulo": 3
+      },
+      {
+        "id": "conjuro-30",
+        "nombre": "Proyectil mágico",
+        "circulo": 3
+      },
+      {
+        "id": "conjuro-31",
+        "nombre": "Quitar maldición",
+        "circulo": 3
+      },
+      {
+        "id": "conjuro-32",
+        "nombre": "Contrato de fraternidad",
+        "circulo": 4
+      },
+      {
+        "id": "conjuro-33",
+        "nombre": "Detectar la mentira",
+        "circulo": 4
+      },
+      {
+        "id": "conjuro-34",
+        "nombre": "Espejo de sombras",
+        "circulo": 4
+      },
+      {
+        "id": "conjuro-35",
+        "nombre": "Hablar con las plantas",
+        "circulo": 4
+      },
+      {
+        "id": "conjuro-36",
+        "nombre": "Muro de fuego",
+        "circulo": 4
+      },
+      {
+        "id": "conjuro-37",
+        "nombre": "Piel de piedra",
+        "circulo": 4
+      },
+      {
+        "id": "conjuro-38",
+        "nombre": "Polimorfia",
+        "circulo": 4
+      },
+      {
+        "id": "conjuro-39",
+        "nombre": "Prelación",
+        "circulo": 4
+      },
+      {
+        "id": "conjuro-40",
+        "nombre": "Tentáculos negros",
+        "circulo": 4
+      },
+      {
+        "id": "conjuro-41",
+        "nombre": "Tormenta de espadas",
+        "circulo": 4
+      },
+      {
+        "id": "conjuro-42",
+        "nombre": "Alzar maldito",
+        "circulo": 5
+      },
+      {
+        "id": "conjuro-43",
+        "nombre": "Atravesar paredes",
+        "circulo": 5
+      },
+      {
+        "id": "conjuro-44",
+        "nombre": "Crear muertos vivientes",
+        "circulo": 5
+      },
+      {
+        "id": "conjuro-45",
+        "nombre": "Forja arcana",
+        "circulo": 5
+      },
+      {
+        "id": "conjuro-46",
+        "nombre": "Ira celestial",
+        "circulo": 5
+      },
+      {
+        "id": "conjuro-47",
+        "nombre": "Marca del dador oscuro",
+        "circulo": 5
+      },
+      {
+        "id": "conjuro-48",
+        "nombre": "Orbe elemental",
+        "circulo": 5
+      },
+      {
+        "id": "conjuro-49",
+        "nombre": "Transfusión de dolor",
+        "circulo": 5
+      },
+      {
+        "id": "conjuro-50",
+        "nombre": "Intercambio de almas",
+        "circulo": 6
+      },
+      {
+        "id": "conjuro-51",
+        "nombre": "Lluvia de estrellas",
+        "circulo": 6
+      },
+      {
+        "id": "conjuro-52",
+        "nombre": "Petrificar",
+        "circulo": 6
+      },
+      {
+        "id": "conjuro-53",
+        "nombre": "Protección contra la muerte",
+        "circulo": 6
+      },
+      {
+        "id": "conjuro-54",
+        "nombre": "Rayo solar",
+        "circulo": 6
+      },
+      {
+        "id": "conjuro-55",
+        "nombre": "Recuperación divina",
+        "circulo": 6
+      },
+      {
+        "id": "conjuro-56",
+        "nombre": "Cimitarra arcana",
+        "circulo": 7
+      },
+      {
+        "id": "conjuro-57",
+        "nombre": "Control climático",
+        "circulo": 7
+      },
+      {
+        "id": "conjuro-58",
+        "nombre": "Niebla carmesí",
+        "circulo": 7
+      },
+      {
+        "id": "conjuro-59",
+        "nombre": "Sino del Segador",
+        "circulo": 7
+      },
+      {
+        "id": "conjuro-60",
+        "nombre": "Alterar el ser",
+        "circulo": 8
+      },
+      {
+        "id": "conjuro-61",
+        "nombre": "Palabra de Poder: Muerte",
+        "circulo": 8
+      },
+      {
+        "id": "conjuro-62",
+        "nombre": "Resurrección",
+        "circulo": 8
+      },
+      {
+        "id": "conjuro-63",
+        "nombre": "Viaje espaciotemporal",
+        "circulo": 8
+      }
+    ],
+    "recuentos": {
+      "especies": 8,
+      "ocupaciones": 4,
+      "conjuros": 64,
+      "conjuros_magnitudes_verificadas": 64,
+      "conjuros_magnitudes_pendientes": 0
+    },
+    "fuente_especies": "NaufragioD20DRS.docx — Especies",
+    "fuente_ocupaciones": "NaufragioD20DRS.docx — Ocupaciones",
+    "fuente_conjuros": "NaufragioD20DRS.docx — listas de Conjuros",
+    "cobertura_mecanica": "64/64 fichas con magnitudes literales verificadas; NO implica lanzamiento, Tiradas, daños, condiciones o recursos automatizados."
+  },
+  "paquetes_posteriores": [
+    {
+      "id": "especies_fantasia",
+      "tipo": "Especies",
+      "precio": "gratuito",
+      "estado": "pendiente_de_auditoria_y_publicacion",
+      "fuente": "NaufragioD20 — Especies",
+      "registros_disponibles": 22
+    },
+    {
+      "id": "ocupaciones_fantasia",
+      "tipo": "Ocupaciones",
+      "precio": "gratuito",
+      "estado": "pendiente_de_auditoria_y_publicacion",
+      "fuentes": [
+        "Nuevas Ocupaciones",
+        "Ylat"
+      ],
+      "registros_disponibles": 33
+    },
+    {
+      "id": "magia_ampliada",
+      "tipo": "Conjuros",
+      "precio": "gratuito",
+      "estado": "pendiente_de_auditoria_y_publicacion",
+      "registros_unicos_catalogo": 369
+    }
+  ],
+  "no_altera": [
+    "Naufragio d20 CiFi",
+    "Naufragio d20 Nocturna",
+    "Dungeon Hack"
+  ],
+  "criterio_aceptacion": "Tener una entrada en el catálogo no demuestra que reglas de Especie, Ocupación ni Conjuro estén implementadas al 100%; validar sus mecánicas y la creación por Nivel antes de publicar."
+}

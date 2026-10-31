@@ -1,0 +1,80 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "ocupacion": "Celador",
+  "categoria": "Poderes",
+  "familia": "Flechería arcana",
+  "estado": "extraccion_literal",
+  "reglas_generales": {
+    "parrafos": [
+      1220,
+      1224
+    ],
+    "texto_literal": "El arte de la flechería arcana es un secreto guardado entre generaciones de tribus de elfos agrestes y celestiales. En un principio surgió como una reacción natural ante un peligro inminente, pero con el paso de las eras ha sido perfeccionada por sus descubridores.\nEl flechero arcano es capaz de preparar munición especial o imbuir armas arrojadizas con magia extraída de la urdimbre.\nComo flechero arcano, puedes preparar un proyectil especial si te concentras durante un Intervalo y gastas 1 Punto de Esfuerzo; estos proyectiles tienen una vida útil de un año desde que son creados, ya que son atados a espíritus menores. Solo funcionan con tu Arma de celador: para otro individuo serán versiones normales de flechas o armas arrojadizas.\nNo debes ser interrumpido mientras dura la preparación, debes cumplir sus requisitos y superar una tirada de Intuición por cada uno. Consulta la tabla de progreso del Celador para ver cuantos proyectiles de Flechería arcana puedes transportar a la vez; si intentas crear más habiendo alcanzado el máximo, el más viejo perderá sus propiedades para dejar espacio al nuevo.\nToda arma arrojadiza o flecha preparada de este modo se considera mágica a efectos de reglas además del efecto que posea."
+  },
+  "registros": [
+    {
+      "nombre": "Deflagrador",
+      "requisito_literal": "Requisito: Nivel 8",
+      "texto_literal": "Cuando el proyectil impacta, libera los efectos del conjuro Bola de fuego sobre la criatura objetivo. Emplea tu Nivel para calcular el daño de la explosión.",
+      "parrafos": [
+        1225,
+        1227
+      ]
+    },
+    {
+      "nombre": "Distante",
+      "requisito_literal": "Requisito: Nivel 3",
+      "texto_literal": "El alcance del arma aumenta en 15 metros por cada 10 de tus Niveles.",
+      "parrafos": [
+        1228,
+        1230
+      ]
+    },
+    {
+      "nombre": "Elemental",
+      "requisito_literal": "Requisito: Nivel 1",
+      "texto_literal": "Elige uno de los siguientes elementos cuando prepares esta munición: fuego, escarcha o electricidad. El proyectil causará daño del tipo elegido cuando impacte.",
+      "parrafos": [
+        1231,
+        1233
+      ]
+    },
+    {
+      "nombre": "Enraizador",
+      "requisito_literal": "Requisito: Nivel 1",
+      "texto_literal": "Reduce a la mitad el movimiento de la criatura afectada por el proyectil.",
+      "parrafos": [
+        1234,
+        1236
+      ]
+    },
+    {
+      "nombre": "Extendido",
+      "requisito_literal": "Requisito: Nivel 10",
+      "texto_literal": "El proyectil se divide en tantos proyectiles como criaturas enemigas estén al alcance de tu arma. Realizas una única tirada de ataque y de daño, pero el dado de daño de tu arma se reduce un rango en esta ocasión.",
+      "parrafos": [
+        1237,
+        1239
+      ]
+    },
+    {
+      "nombre": "Fulminante",
+      "requisito_literal": "Requisito: Nivel 8",
+      "texto_literal": "En lugar de una tirada de ataque, realiza una tirada de Intuición. La superes o no, libera los efectos del conjuro Golpe de rayo en la dirección en la que arrojas o disparas el proyectil, teniendo en cuenta el resultado de la tirada como si fuese una tirada de conjuro.",
+      "parrafos": [
+        1240,
+        1242
+      ]
+    },
+    {
+      "nombre": "Gemelo",
+      "requisito_literal": "Requisito: Nivel 3",
+      "texto_literal": "Tras impactar a una criatura, el proyectil sale disparado hacia otra criatura enemiga al alcance, causando el mismo daño. A partir del Nivel 6, el proyectil se divide en dos en lugar de uno y, a partir del Nivel 12, el proyectil se divide en tres en lugar de dos.",
+      "parrafos": [
+        1243,
+        1245
+      ]
+    }
+  ],
+  "advertencia": "No contabilizar como Talentos de Ocupación; cada proyectil tiene requisito de Nivel y preparación."
+}

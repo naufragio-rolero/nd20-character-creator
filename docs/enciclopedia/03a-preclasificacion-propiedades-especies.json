@@ -1,0 +1,5347 @@
+{
+  "fecha": "2026-10-28",
+  "version_esquema": 1,
+  "alcance": "115 Talentos de Especies",
+  "procedimiento": "Fragmentos exactos, con posición de origen y etiquetas de búsqueda. Las categorías no certifican una regla y pueden coexistir sobre la misma frase. No hay valores normalizados hasta la validación.",
+  "criterios": "null en campos normalizados indica NO EVALUADO, nunca ausencia de coste o requisito. Las etiquetas explícitas no se interpretan como acciones si no aparecen rotuladas.",
+  "estadisticas": {
+    "gasto_o_recurso": 39,
+    "tiempo_y_recuperacion": 38,
+    "distancia_y_area": 27,
+    "nivel_y_magnitudes": 28,
+    "acceso_y_eleccion": 25,
+    "condiciones_y_prohibiciones": 77,
+    "tiradas_y_dados": 64
+  },
+  "registros": [
+    {
+      "id_documental": "talento-especie:drs:elfo-agreste:linaje-feerico",
+      "sistema": "DRS",
+      "especie": "Elfo agreste",
+      "talento": "Linaje feérico",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "tienes Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir.",
+          "origen": "texto_literal",
+          "inicio": 33,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:elfo-agreste:rapidez",
+      "sistema": "DRS",
+      "especie": "Elfo agreste",
+      "talento": "Rapidez",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Aumenta tu Movimiento en 1 (ya calculado).",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "nivel_y_magnitudes"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:enano-montanes:corpulencia",
+      "sistema": "DRS",
+      "especie": "Enano montañés",
+      "talento": "Corpulencia",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Cuando realices una Tirada de Blindaje para reducir daño físico sufrido, puedes gastar 1 Punto de Esfuerzo para repetir la tirada.",
+          "origen": "texto_literal",
+          "inicio": 45,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:enano-montanes:vision-en-la-oscuridad",
+      "sistema": "DRS",
+      "especie": "Enano montañés",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Puedes en distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad;",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:humano-comun:buen-desarrollo",
+      "sistema": "DRS",
+      "especie": "Humano común",
+      "talento": "Buen desarrollo",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "acceso_y_eleccion"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:mediano-amable:baja-estatura",
+      "sistema": "DRS",
+      "especie": "Mediano amable",
+      "talento": "Baja estatura",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "No puedes usar armas o armaduras que no estén adaptadas a ti.",
+          "origen": "texto_literal",
+          "inicio": 97,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Sólo puedes llevar escudos pequeños.",
+          "origen": "texto_literal",
+          "inicio": 159,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+          "origen": "texto_literal",
+          "inicio": 196,
+          "etiquetas": [
+            "distancia_y_area",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:mediano-amable:salvese-quien-pueda",
+      "sistema": "DRS",
+      "especie": "Mediano amable",
+      "talento": "¡Sálvese quien pueda!",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Cuando estés afectado por un Estado de Parálisis o Miedo, puedes gastar 1 Punto de Esfuerzo y una Acción para liberarte del efecto sin necesidad de tirada.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:gnomo-urbano:baja-estatura",
+      "sistema": "DRS",
+      "especie": "Gnomo urbano",
+      "talento": "Baja estatura",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "No puedes usar armas o armaduras que no estén adaptadas a ti.",
+          "origen": "texto_literal",
+          "inicio": 97,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Sólo puedes llevar escudos pequeños.",
+          "origen": "texto_literal",
+          "inicio": 159,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+          "origen": "texto_literal",
+          "inicio": 196,
+          "etiquetas": [
+            "distancia_y_area",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:gnomo-urbano:vision-en-la-oscuridad",
+      "sistema": "DRS",
+      "especie": "Gnomo urbano",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Puedes en distinguir el entorno a tu alrrededor hasta 30 metros en áreas de absoluta oscuridad;",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:orco-comun:ira-interna",
+      "sistema": "DRS",
+      "especie": "Orco común",
+      "talento": "Ira interna",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Si tus Puntos de Salud son reducidos a 0 o menos, puedes gastar 1 Punto de Esfuerzo para ajustarlos a 1 y seguir luchando.",
+          "origen": "texto_literal",
+          "inicio": 87,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:orco-comun:sana-primitiva",
+      "sistema": "DRS",
+      "especie": "Orco común",
+      "talento": "Saña primitiva",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Obtienes +1 a la Tirada de Daño si atacas con un arma cuerpo a cuerpo.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:semielfo:animo",
+      "sistema": "DRS",
+      "especie": "Semielfo",
+      "talento": "Ánimo",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Una vez al día, puedes dar un +2 a la Tirada de Atributo de uno de tus aliados.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Éste debe ser capaz de escucharte y has de declarar el uso de este Talento antes de que tire.",
+          "origen": "texto_literal",
+          "inicio": 80,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:semielfo:herencia-dual",
+      "sistema": "DRS",
+      "especie": "Semielfo",
+      "talento": "Herencia dual",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:semiorco:sed-de-sangre",
+      "sistema": "DRS",
+      "especie": "Semiorco",
+      "talento": "Sed de sangre",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Antes de realizar una Tirada de Ataque con un arma cuerpo a cuerpo, puedes declarar que tu embate será brutal: sufres un -2 a la Tirada de Ataque y un +1 a la Penetración del arma.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:drs:semiorco:herencia-dual",
+      "sistema": "DRS",
+      "especie": "Semiorco",
+      "talento": "Herencia dual",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:cifi:humano-natural:buen-desarrollo",
+      "sistema": "CiFi",
+      "especie": "Humano natural",
+      "talento": "Buen desarrollo",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "acceso_y_eleccion"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:cifi:humano-aumentado:tolerancia-a-la-mejora",
+      "sistema": "CiFi",
+      "especie": "Humano aumentado",
+      "talento": "Tolerancia a la mejora",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Tienes Ventaja a la hora de realizar una Tirada de Esencia por colocarte un Implante.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-bruto:corpulencia",
+      "sistema": "CiFi",
+      "especie": "Gruul bruto",
+      "talento": "Corpulencia",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Cuando realices una Tirada de Blindaje para reducir daño físico sufrido, puedes gastar 1 Punto de Esfuerzo para repetir la tirada.",
+          "origen": "texto_literal",
+          "inicio": 45,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-bruto:sana-primitiva",
+      "sistema": "CiFi",
+      "especie": "Gruul bruto",
+      "talento": "Saña primitiva",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Obtienes +1 a la Tirada de Daño si atacas con un arma cuerpo a cuerpo.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-zangano:sinapsis-perladas",
+      "sistema": "CiFi",
+      "especie": "Gruul zángano",
+      "talento": "Sinapsis perladas",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Tienes un +2 a las Tiradas de Atributo para resistir o esquivar efectos de los Poderes Psiónicos.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-zangano:rapidez",
+      "sistema": "CiFi",
+      "especie": "Gruul zángano",
+      "talento": "Rapidez",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Aumenta tu Movimiento en 1 (ya calculado).",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "nivel_y_magnitudes"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-mindari:vinculo-psionico",
+      "sistema": "CiFi",
+      "especie": "Sylph mindari",
+      "talento": "Vínculo psiónico",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento funciona de forma diferente según si perteneces a la ocupación Psion o no.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Otra ocupación: Elige un Poder Psiónico de la lista;",
+          "origen": "texto_literal",
+          "inicio": 134,
+          "etiquetas": [
+            "acceso_y_eleccion"
+          ]
+        },
+        {
+          "literal": "puedes lanzarlo como si fueses un Psion si gastas 1 Punto de Esfuerzo.",
+          "origen": "texto_literal",
+          "inicio": 187,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-mindari:vision-en-la-oscuridad",
+      "sistema": "CiFi",
+      "especie": "Sylph mindari",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Puedes en distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad;",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-zanshi:animo",
+      "sistema": "CiFi",
+      "especie": "Sylph zanshi",
+      "talento": "Ánimo",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Una vez al día, puedes dar un +2 a la Tirada de Atributo de uno de tus aliados.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Éste debe ser capaz de escucharte y has de declarar el uso de este Talento antes de que tire.",
+          "origen": "texto_literal",
+          "inicio": 80,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-zanshi:sangre-del-cosmos",
+      "sistema": "CiFi",
+      "especie": "Sylph zanshi",
+      "talento": "Sangre del cosmos",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "tienes Ventaja en las Tiradas de Atributo para resistir los Poderes Psiónicos «Escrutar pensamientos» y «Manipular la memoria».",
+          "origen": "texto_literal",
+          "inicio": 34,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02a-extraccion-especies-drs-cifi.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:draconido:estirpe-dragontina",
+      "sistema": "Ampliadas",
+      "especie": "Dracónido",
+      "talento": "Estirpe dragontina",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Durante la creación de personaje, elige uno de los siguientes elementos: fuego, frío, rayo, corrupción, veneno o sonido.",
+          "origen": "texto_literal",
+          "inicio": 137,
+          "etiquetas": [
+            "acceso_y_eleccion"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:draconido:halito-de-energia",
+      "sistema": "Ampliadas",
+      "especie": "Dracónido",
+      "talento": "Hálito de energía",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Acción",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Exhalas un ataque energético que cubre un cono de 6 metros frente a ti y afecta a todas las criaturas al alcance;",
+          "origen": "texto_literal",
+          "inicio": 25,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        },
+        {
+          "literal": "cada una de ellas debe realizar una Tirada de Agilidad / Tirada de Probabilidad 12+ para intentar eludir el ataque y recibir la mitad de daño.",
+          "origen": "texto_literal",
+          "inicio": 139,
+          "etiquetas": [
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Este ataque causa 1d4 de daño por cada 6 de tus Niveles.",
+          "origen": "texto_literal",
+          "inicio": 282,
+          "etiquetas": [
+            "nivel_y_magnitudes",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-blanco:linaje-feerico",
+      "sistema": "Ampliadas",
+      "especie": "Elfo blanco",
+      "talento": "Linaje feérico",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "tienes Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir.",
+          "origen": "texto_literal",
+          "inicio": 40,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-blanco:vision-en-la-oscuridad",
+      "sistema": "Ampliadas",
+      "especie": "Elfo blanco",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Puedes en distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad;",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-celestial:fuente-de-mana",
+      "sistema": "Ampliadas",
+      "especie": "Elfo celestial",
+      "talento": "Fuente de maná",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento tiene un efecto distinto si eres lanzador de conjuros o no.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "De una forma u otra, debes dormir al menos ocho horas para recuperar el uso de la Fuente de maná.",
+          "origen": "texto_literal",
+          "inicio": 73,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si eres lanzador de conjuros: una vez al día, puedes extraer una pizca de poder de la Urdimbre para alimentar tu capacidad de lanzamiento de conjuros.",
+          "origen": "texto_literal",
+          "inicio": 171,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si meditas durante un Intervalo, recuperas el uso de uno de tus Conjuros de Nivel más bajo;",
+          "origen": "texto_literal",
+          "inicio": 322,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "si perteneces a una Ocupación que no memoriza los Conjuros, recuperarás 1d4 Puntos de Recurso o aumentarás en un rango tu DU de Conjuros.",
+          "origen": "texto_literal",
+          "inicio": 414,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Si no eres lanzador de conjuros: elige un Conjuro de Nivel 1 de la lista disponible para el Mago.",
+          "origen": "texto_literal",
+          "inicio": 552,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes lanzar este Conjuro una vez al día, como si fueras un arcanista;",
+          "origen": "texto_literal",
+          "inicio": 650,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-celestial:linaje-feerico",
+      "sistema": "Ampliadas",
+      "especie": "Elfo celestial",
+      "talento": "Linaje feérico",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "tienes Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir.",
+          "origen": "texto_literal",
+          "inicio": 40,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-nerai:linaje-feerico",
+      "sistema": "Ampliadas",
+      "especie": "Elfo nerai",
+      "talento": "Linaje feérico",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "tienes Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir.",
+          "origen": "texto_literal",
+          "inicio": 40,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:elfo-nerai:morador-pelagico",
+      "sistema": "Ampliadas",
+      "especie": "Elfo nerai",
+      "talento": "Morador pelágico",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "No necesitas respirar cuando estás bajo el agua y duplicas tu Movimiento cuando estás nadando, en lugar de reducirlo a la mitad.",
+          "origen": "texto_literal",
+          "inicio": 66,
+          "etiquetas": [
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Además, puedes distinguir el entorno a tu alrededor hasta 30 metros cuando te encuentres bajo el agua y no exista ninguna fuente de iluminación;",
+          "origen": "texto_literal",
+          "inicio": 195,
+          "etiquetas": [
+            "distancia_y_area",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:enano-selvatico:corpulencia",
+      "sistema": "Ampliadas",
+      "especie": "Enano selvático",
+      "talento": "Corpulencia",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Reacción",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 9
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 9,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Cuando realices una Tirada de Blindaje para reducir daño físico sufrido, puedes gastar 1 Punto de Esfuerzo para repetir la tirada.",
+          "origen": "texto_literal",
+          "inicio": 72,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:enano-selvatico:hambre-canibal",
+      "sistema": "Ampliadas",
+      "especie": "Enano selvático",
+      "talento": "Hambre caníbal",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:pelaje-silvestre:musculatura-felina",
+      "sistema": "Ampliadas",
+      "especie": "Pelaje silvestre",
+      "talento": "Musculatura felina",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Aumenta tu Movimiento en 1 (ya calculado).",
+          "origen": "texto_literal",
+          "inicio": 59,
+          "etiquetas": [
+            "nivel_y_magnitudes"
+          ]
+        },
+        {
+          "literal": "No puedes usar armas o armaduras que no estén adaptadas a ti.",
+          "origen": "texto_literal",
+          "inicio": 102,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Sólo puedes llevar escudos pequeños.",
+          "origen": "texto_literal",
+          "inicio": 164,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:pelaje-silvestre:vision-en-la-oscuridad",
+      "sistema": "Ampliadas",
+      "especie": "Pelaje silvestre",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Puedes en distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad;",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:pelaje-urbanita:estallido-de-velocidad",
+      "sistema": "Ampliadas",
+      "especie": "Pelaje urbanita",
+      "talento": "Estallido de velocidad",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Acción",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Tomas impulso gracias a tus poderosos músculos de gato y triplicas tu velocidad de Movimiento durante 1d4 Turnos;",
+          "origen": "texto_literal",
+          "inicio": 25,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "durante éste Estallido de velocidad, puedes caminar por las paredes durante 1 Turno máximo, teniendo que finalizar tu movimiento en el suelo.",
+          "origen": "texto_literal",
+          "inicio": 139,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:pelaje-urbanita:musculatura-felina",
+      "sistema": "Ampliadas",
+      "especie": "Pelaje urbanita",
+      "talento": "Musculatura felina",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Aumenta tu Movimiento en 1 (ya calculado).",
+          "origen": "texto_literal",
+          "inicio": 59,
+          "etiquetas": [
+            "nivel_y_magnitudes"
+          ]
+        },
+        {
+          "literal": "No puedes usar armas o armaduras que no estén adaptadas a ti.",
+          "origen": "texto_literal",
+          "inicio": 102,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Sólo puedes llevar escudos pequeños.",
+          "origen": "texto_literal",
+          "inicio": 164,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gnomo-sylestri:baja-estatura",
+      "sistema": "Ampliadas",
+      "especie": "Gnomo sylestri",
+      "talento": "Baja estatura",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "No puedes usar armas o armaduras que no estén adaptadas a ti.",
+          "origen": "texto_literal",
+          "inicio": 104,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Sólo puedes llevar escudos pequeños.",
+          "origen": "texto_literal",
+          "inicio": 166,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gnomo-sylestri:fuente-de-mana",
+      "sistema": "Ampliadas",
+      "especie": "Gnomo sylestri",
+      "talento": "Fuente de maná",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento tiene un efecto distinto si eres lanzador de conjuros o no.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "De una forma u otra, debes dormir al menos ocho horas para recuperar el uso de la Fuente de maná.",
+          "origen": "texto_literal",
+          "inicio": 73,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si eres lanzador de conjuros: una vez al día, puedes extraer una pizca de poder de la Urdimbre para alimentar tu capacidad de lanzamiento de conjuros.",
+          "origen": "texto_literal",
+          "inicio": 171,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si meditas durante un Intervalo, recuperas el uso de uno de tus Conjuros de Nivel más bajo;",
+          "origen": "texto_literal",
+          "inicio": 322,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "si perteneces a una Ocupación que no memoriza los Conjuros, recuperarás 1d4 Puntos de Recurso o aumentarás en un rango tu DU de Conjuros.",
+          "origen": "texto_literal",
+          "inicio": 414,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Si no eres lanzador de conjuros: elige un Conjuro de Nivel 1 de la lista disponible para el Mago.",
+          "origen": "texto_literal",
+          "inicio": 552,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes lanzar este Conjuro una vez al día, como si fueras un arcanista;",
+          "origen": "texto_literal",
+          "inicio": 650,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:humano-malasthino:adaptacion",
+      "sistema": "Ampliadas",
+      "especie": "Humano malasthino",
+      "talento": "Adaptación",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "En el supuesto que sufras Desventaja en una Tirada de tu Atributo favorito, obtienes un +2 al resultado final.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:humano-ujibo:diplomacia",
+      "sistema": "Ampliadas",
+      "especie": "Humano ujibo",
+      "talento": "Diplomacia",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Reacción",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Cuando tengas que tirar el DU de tu Reputación con otra Facción, puedes decidir tener Ventaja o Desventaja en la Tirada según te beneficie.",
+          "origen": "texto_literal",
+          "inicio": 9,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:iblisio:aguante-igneo",
+      "sistema": "Ampliadas",
+      "especie": "Iblisio",
+      "talento": "Aguante ígneo",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:iblisio:labia-infernal",
+      "sistema": "Ampliadas",
+      "especie": "Iblisio",
+      "talento": "Labia infernal",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Cuando quieres, eres especialmente convincente.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si argumentas de forma lógica y coherente, puedes obtener un +2 a una Tirada de Presencia para engañar, embaucar o convencer a alguien.",
+          "origen": "texto_literal",
+          "inicio": 55,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:mediano-jobito:baja-estatura",
+      "sistema": "Ampliadas",
+      "especie": "Mediano jóbito",
+      "talento": "Baja estatura",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "No puedes usar armas o armaduras que no estén adaptadas a ti.",
+          "origen": "texto_literal",
+          "inicio": 104,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Sólo puedes llevar escudos pequeños.",
+          "origen": "texto_literal",
+          "inicio": 166,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:mediano-jobito:buena-suerte",
+      "sistema": "Ampliadas",
+      "especie": "Mediano jóbito",
+      "talento": "Buena suerte",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Reacción",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 9
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 9,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "cuando obtengas un 1 como resultado en una Tirada de Atributo, puedes repetir dicha tirada y quedarte con el nuevo resultado (aunque sea otro 1).",
+          "origen": "texto_literal",
+          "inicio": 59,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:semitrol:sed-de-sangre",
+      "sistema": "Ampliadas",
+      "especie": "Semitrol",
+      "talento": "Sed de sangre",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Reacción",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Antes de realizar una Tirada de Ataque con un arma cuerpo a cuerpo, puedes declarar que tu embate será brutal: sufres un -2 a la Tirada de Ataque y un +1 a la Penetración del arma.",
+          "origen": "texto_literal",
+          "inicio": 9,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:semitrol:regeneracion-de-trol",
+      "sistema": "Ampliadas",
+      "especie": "Semitrol",
+      "talento": "Regeneración de trol",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Recuperas 1 Punto de Salud al finalizar tu Turno siempre y cuando no hayas recibido daño de fuego o ácido durante dicho Turno.",
+          "origen": "texto_literal",
+          "inicio": 75,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:redivivo:existencia-blasfema",
+      "sistema": "Ampliadas",
+      "especie": "Redivivo",
+      "talento": "Existencia blasfema",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Eres un no-muerto a efectos de reglas: no necesitas comer ni dormir y tu cuerpo no puede ser sanado por curación tradicional, aunque sí mediante la magia.",
+          "origen": "texto_literal",
+          "inicio": 25,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Reduces a la mitad el tiempo necesario para disfrutar de un descanso completo y, si eres afectado por una enfermedad o veneno, puedes gastar Esfuerzo para resistir dicho efecto pernicioso.",
+          "origen": "texto_literal",
+          "inicio": 180,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:redivivo:marcha-de-la-tumba",
+      "sistema": "Ampliadas",
+      "especie": "Redivivo",
+      "talento": "Marcha de la tumba",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:rusalka-costero:legado-del-oceano",
+      "sistema": "Ampliadas",
+      "especie": "Rusalka costero",
+      "talento": "Legado del océano",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Especial",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 9
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 9,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Esta elección te permitirá tener algún beneficio en el agua a cambio de gastar Esfuerzo, como por ejemplo:",
+          "origen": "texto_literal",
+          "inicio": 210,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Un impulso temporal, utilizable cada Intervalo, que duplica tu Movimiento mientras estás nadando.",
+          "origen": "texto_literal",
+          "inicio": 317,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Un arma natural, equivalente a un arma a distancia, que puedes disparar haciendo fuerza con tus músculos (por ejemplo, espinas o escupitajos ácidos).",
+          "origen": "texto_literal",
+          "inicio": 415,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        },
+        {
+          "literal": "El cartílago disparado se regenera tras 8 horas.",
+          "origen": "texto_literal",
+          "inicio": 565,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Una parte de tu cuerpo que se ilumina como una antorcha, incluso debajo del agua, durante 1 Intervalo.",
+          "origen": "texto_literal",
+          "inicio": 614,
+          "etiquetas": [
+            "tiempo_y_recuperacion"
+          ]
+        },
+        {
+          "literal": "Unas aletas en brazos y piernas que te permiten emerger del agua a gran velocidad y planear durante 1 Turno.",
+          "origen": "texto_literal",
+          "inicio": 899,
+          "etiquetas": [
+            "tiempo_y_recuperacion"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:rusalka-costero:vision-en-la-oscuridad",
+      "sistema": "Ampliadas",
+      "especie": "Rusalka costero",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Puedes en distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad;",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:pequeno",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Pequeño",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "No puedes usar armas o armaduras que no estén adaptadas a ti.",
+          "origen": "texto_literal",
+          "inicio": 52,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Sólo puedes llevar escudos pequeños.",
+          "origen": "texto_literal",
+          "inicio": 114,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+          "origen": "texto_literal",
+          "inicio": 151,
+          "etiquetas": [
+            "distancia_y_area",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:planta-feerica",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Planta feérica",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Eres inmune al estado Parálisis y al estado Dormido, y tienes Ventaja en las Tiradas de salvación contra el estado Veneno.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Aumenta tu Movimiento en 1 (ya calculado);",
+          "origen": "texto_literal",
+          "inicio": 130,
+          "etiquetas": [
+            "nivel_y_magnitudes"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:petaleteo",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Pétaleteo",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Acción",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Provocas el florecimiento a la fuerza de tus pétalos craneales y te elevas 1d6 * 2 metros, generando una pequeña corriente de aire vertical.",
+          "origen": "texto_literal",
+          "inicio": 25,
+          "etiquetas": [
+            "distancia_y_area",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Durante 2 Turnos, puedes volar a la mitad de tu Movimiento, aunque sólo puedes realizar ataques a distancia.",
+          "origen": "texto_literal",
+          "inicio": 166,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "distancia_y_area",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Cuando finalice el efecto, descenderás lentamente hasta tocar tierra.",
+          "origen": "texto_literal",
+          "inicio": 275,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si eres dañado cuando estás flotando, debes superar una Tirada de Agilidad o caer de golpe al suelo (aplica Daño por caída si procede).",
+          "origen": "texto_literal",
+          "inicio": 345,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:bombardero-deku",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Bombardero deku",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Acción",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Este Talento sólo está disponible para los Deku de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 25,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 156,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Adquieres la capacidad de expulsar Nueces Deku, unos explosivos vegetales que expeles cuando usas tu capacidad de Pétaleteo.",
+          "origen": "texto_literal",
+          "inicio": 295,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Mientras estés volando gracias a tus pétalos, puedes arrojar una Nuez Deku, que caerá de forma inmediata al espacio que tengas debajo de ti.",
+          "origen": "texto_literal",
+          "inicio": 420,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Ésta nuez liberará una explosión cinética que provocará 1d6 de daño contundente por Nivel a todas las criaturas en un radio de 4 metros alrededor del punto de explosión;",
+          "origen": "texto_literal",
+          "inicio": 561,
+          "etiquetas": [
+            "distancia_y_area",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "debes tener cuidado, pues puedes ser afectado por tu propia detonación.",
+          "origen": "texto_literal",
+          "inicio": 731,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:tirano-del-bosque",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Tirano del bosque",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Acción",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Este Talento sólo está disponible para los Deku de la Ocupación Clérigo, o cualquier Ocupación derivada de ésta.",
+          "origen": "texto_literal",
+          "inicio": 25,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 138,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Emites una onda de energía que perturba a las criaturas de la categoría Vegetal en un radio de 18 metros a tu alrededor.",
+          "origen": "texto_literal",
+          "inicio": 277,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        },
+        {
+          "literal": "Todas aquellas que sean de un Nivel igual o inferior al tuyo tienen una Probabilidad 15+ de ser marchitadas.",
+          "origen": "texto_literal",
+          "inicio": 398,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Si soportan esta perturbación, deberán marcharse lo más lejos de ti durante 1 Intervalo o 6 Turnos, o hasta que dejes de estar a su vista, lo que ocurra antes.",
+          "origen": "texto_literal",
+          "inicio": 507,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:semilladora",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Semilladora",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para los Deku de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 138,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Adquieres la capacidad de escupir Semillas Deku, unas pepitas naturales que genera tu cuerpo y que puedes usar como arma a distancia.",
+          "origen": "texto_literal",
+          "inicio": 277,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        },
+        {
+          "literal": "Considera que tienen un DU d8, que podrás recargar al máximo una vez al día, tras descansar;",
+          "origen": "texto_literal",
+          "inicio": 411,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "tienen las mismas características que un Arco corto y tienes un +2 a las Tiradas de ataque realizadas con ellas.",
+          "origen": "texto_literal",
+          "inicio": 504,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:goron:gorologia",
+      "sistema": "Ampliadas",
+      "especie": "Goron",
+      "talento": "Gorología",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "no puedes comer algo que sea mágico: te sabrá tan asqueroso que te provocará el vómito.",
+          "origen": "texto_literal",
+          "inicio": 132,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:goron:carga-punzante",
+      "sistema": "Ampliadas",
+      "especie": "Goron",
+      "talento": "Carga punzante",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Acción",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Puedes enrollarte como si fueras una bola de pinchos, y usar la fricción para impulsarte a gran velocidad hacia tus enemigos u obstáculos.",
+          "origen": "texto_literal",
+          "inicio": 25,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Cuando utilices la Maniobra «Cargar», puedes activar tu Carga punzante: considera que tu Movimiento se multiplica por dos y causas 1d4 de daño adicional por Nivel con tu ataque.",
+          "origen": "texto_literal",
+          "inicio": 164,
+          "etiquetas": [
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Ten en cuenta que, cuando te mueves, haces daño a todo lo que intente tocarte o rozarte.",
+          "origen": "texto_literal",
+          "inicio": 342,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:goron:aplomo-goron",
+      "sistema": "Ampliadas",
+      "especie": "Goron",
+      "talento": "Aplomo goron",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para los Goron de la Ocupación Guerrero, o cualquier Ocupación derivada de ésta.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 122,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Causas el doble de daño cuando utilizas la Maniobra «Aplastar».",
+          "origen": "texto_literal",
+          "inicio": 261,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Además, una vez por Combate, cuando utilices una de las Maniobras «Posición defensiva», «Proteger» o «Escudo humano», recuperas tanta Salud como tu Nivel.",
+          "origen": "texto_literal",
+          "inicio": 325,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:goron:reposo-del-heroe",
+      "sistema": "Ampliadas",
+      "especie": "Goron",
+      "talento": "Reposo del héroe",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 272
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para los Goron de las Ocupaciones Guerrero o Clérigo, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 133,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Una vez al día y tras un Combate en el que hayas gastado al menos 1 Punto de Esfuerzo, puedes enrollarte sobre ti mismo y descansar durante 1 Intervalo.",
+          "origen": "texto_literal",
+          "inicio": 279,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si lo haces, recuperas 1 Punto de Esfuerzo al finalizar el reposo.",
+          "origen": "texto_literal",
+          "inicio": 432,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:goron:perdicion-del-dodongo",
+      "sistema": "Ampliadas",
+      "especie": "Goron",
+      "talento": "Perdición del dodongo",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para los Goron de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 139,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Tienes Ventaja cuando debas realizar Tiradas para arrojar o manipular objetos explosivos (como granadas, bombas, dinamitas, etc.",
+          "origen": "texto_literal",
+          "inicio": 278,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora:herencia-zora",
+      "sistema": "Ampliadas",
+      "especie": "Zora",
+      "talento": "Herencia zora",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Además, no necesitas respirar cuando estás bajo el agua y duplicas tu Movimiento cuando estás nadando, en lugar de reducirlo a la mitad.",
+          "origen": "texto_literal",
+          "inicio": 121,
+          "etiquetas": [
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora:escudo-electrico",
+      "sistema": "Ampliadas",
+      "especie": "Zora",
+      "talento": "Escudo eléctrico",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Reacción",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 9
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 9,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Cuando seas herido por un ataque cuerpo a cuerpo, puedes activar la bioelectricidad natural en tu cuerpo para lanzar una terrible descarga a tu alrededor.",
+          "origen": "texto_literal",
+          "inicio": 27,
+          "etiquetas": [
+            "distancia_y_area",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Realiza una Tirada de Resistencia: si tienes éxito, causas 1d10 de daño de relámpago por cada uno de tus Niveles a todas las criaturas en un radio de 4m2 a tu alrededor;",
+          "origen": "texto_literal",
+          "inicio": 182,
+          "etiquetas": [
+            "distancia_y_area",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "la mitad si no la superas.",
+          "origen": "texto_literal",
+          "inicio": 352,
+          "etiquetas": [
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora-linaje-olardiente:herencia-olardiente",
+      "sistema": "Ampliadas",
+      "especie": "Zora (linaje olardiente)",
+      "talento": "Herencia olardiente",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Además, no necesitas respirar cuando estás bajo el agua y duplicas tu Movimiento cuando estás nadando, en lugar de reducirlo a la mitad.",
+          "origen": "texto_literal",
+          "inicio": 122,
+          "etiquetas": [
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora-linaje-olardiente:estallido-escupefuego",
+      "sistema": "Ampliadas",
+      "especie": "Zora (linaje olardiente)",
+      "talento": "Estallido escupefuego",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Acción",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Es tu forma favorita de cazar presas, pues una vez han sido quemadas, son fáciles de devorar y digerir.",
+          "origen": "texto_literal",
+          "inicio": 100,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Este vómito tiene un alcance de 12 metros.",
+          "origen": "texto_literal",
+          "inicio": 204,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        },
+        {
+          "literal": "Realiza una Tirada de Agilidad: si tienes éxito, causas 1d8 de daño por fuego por cada uno de tus Niveles a todas las criaturas en un radio de 2m2 alrededor del punto de impacto, la mitad si no la superas.",
+          "origen": "texto_literal",
+          "inicio": 247,
+          "etiquetas": [
+            "distancia_y_area",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora:aletas-del-ciclon",
+      "sistema": "Ampliadas",
+      "especie": "Zora",
+      "talento": "Aletas del ciclón",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 270
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para los Zora de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 131,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Trata a tus aletas como si estuvieses armado en cada mano.",
+          "origen": "texto_literal",
+          "inicio": 496,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "A partir de Nivel 6 puedes lanzarlas como si fuesen armas arrojadizas, y tras impactar o llegar a su alcance máximo, regresarán a ti de forma natural.",
+          "origen": "texto_literal",
+          "inicio": 555,
+          "etiquetas": [
+            "distancia_y_area",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Arma | Alcance | Daño | Penetración | Durabilidad",
+          "origen": "texto_literal",
+          "inicio": 706,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        },
+        {
+          "literal": "Aletas del ciclón | - | 1d6 | 1 | d6",
+          "origen": "texto_literal",
+          "inicio": 756,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Aletas arrojadizas | 12 m | 2d4 | 1 | d4",
+          "origen": "texto_literal",
+          "inicio": 793,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Si se agota la Durabilidad de una de tus aletas, perderás ⅛ de tu Salud máxima por las heridas y podrás regenerarlas tras descansar adecuadamente.",
+          "origen": "texto_literal",
+          "inicio": 834,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:zora:morador-de-las-profundidades",
+      "sistema": "Ampliadas",
+      "especie": "Zora",
+      "talento": "Morador de las profundidades",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 267
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para los Zora de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 128,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Cuando estás bajo el agua, puedes en distinguir el entorno a tu alrededor hasta 100 metros en áreas de absoluta oscuridad;",
+          "origen": "texto_literal",
+          "inicio": 419,
+          "etiquetas": [
+            "distancia_y_area",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Además, puedes emplear tu Talento Escudo eléctrico / Estallido escupefuego para iluminar tu piel y dar luz como una Antorcha durante 2 Intervalos.",
+          "origen": "texto_literal",
+          "inicio": 617,
+          "etiquetas": [
+            "tiempo_y_recuperacion"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:kokiri:pequeno",
+      "sistema": "Ampliadas",
+      "especie": "Kokiri",
+      "talento": "Pequeño",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "No puedes usar armas o armaduras que no estén adaptadas a ti.",
+          "origen": "texto_literal",
+          "inicio": 59,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Sólo puedes llevar escudos pequeños.",
+          "origen": "texto_literal",
+          "inicio": 121,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+          "origen": "texto_literal",
+          "inicio": 158,
+          "etiquetas": [
+            "distancia_y_area",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:kokiri:companera-feerica",
+      "sistema": "Ampliadas",
+      "especie": "Kokiri",
+      "talento": "Compañera feérica",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Especial",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "sólo los sortilegios oscuros más poderosos pueden hacer mella en tu hada, y simplemente la obligarían a abandonar el lugar.",
+          "origen": "texto_literal",
+          "inicio": 573,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si tu mueres, tu hada se desvanecerá en polvo feérico.",
+          "origen": "texto_literal",
+          "inicio": 697,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:kokiri:retono-de-la-foresta",
+      "sistema": "Ampliadas",
+      "especie": "Kokiri",
+      "talento": "Retoño de la foresta",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Eres inmune al estado Dormido, y tienes Ventaja en las Tiradas de salvación contra el estado Parálisis.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Cuando te mueves por terreno considerado difícil y éste es de origen natural o vegetal (como un camino lleno de zarzas y espinos, o repleto de follaje) no sufres ninguna reducción a tu Movimiento.",
+          "origen": "texto_literal",
+          "inicio": 111,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:kokiri:sabiduria-de-las-hadas",
+      "sistema": "Ampliadas",
+      "especie": "Kokiri",
+      "talento": "Sabiduría de las hadas",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Acción",
+          "origen": "texto_literal",
+          "inicio": 269
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 276
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para los Kokiri de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 130,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 276,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Tras recibir esta «sabiduría», que durará 1d4 Intervalos, puedes realizar Tiradas de Mente o Intuición para discernir, averiguar o entender algo que, de otra forma, no podrías saber.",
+          "origen": "texto_literal",
+          "inicio": 430,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Deberás esperar un día completo antes de volver a pedir la Sabiduría de las hadas.",
+          "origen": "texto_literal",
+          "inicio": 613,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:kokiri:tacticas-de-las-hadas",
+      "sistema": "Ampliadas",
+      "especie": "Kokiri",
+      "talento": "Tácticas de las hadas",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Acción",
+          "origen": "texto_literal",
+          "inicio": 272
+        },
+        {
+          "rotulo": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 279
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para los Kokiri de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 133,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Coste: 1 Esfuerzo",
+          "origen": "texto_literal",
+          "inicio": 279,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Elige a una criatura que consideres un enemigo, puedas ver y reconocer, y esté a 20 metros o menos de ti;",
+          "origen": "texto_literal",
+          "inicio": 501,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        },
+        {
+          "literal": "durante 1d6 Turnos, tú y todos tus aliados tendréis Ventaja en las Tiradas de Ataque y Daño realizadas con armas contra esa criatura.",
+          "origen": "texto_literal",
+          "inicio": 607,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Deberás esperar un día completo antes de volver a pedir las Tácticas de las hadas.",
+          "origen": "texto_literal",
+          "inicio": 741,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:orni:vuelo",
+      "sistema": "Ampliadas",
+      "especie": "Orni",
+      "talento": "Vuelo",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Acción",
+          "origen": "texto_literal",
+          "inicio": 0
+        },
+        {
+          "rotulo": "Coste: especial",
+          "origen": "texto_literal",
+          "inicio": 7
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Coste: especial",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Puedes volar gracias a tus alas: necesitas un lugar alto desde el que poder despegar y corrientes de aire para poder desplazarte;",
+          "origen": "texto_literal",
+          "inicio": 23,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "te mueves tu Movimiento * 2 mientras estás en el aire.",
+          "origen": "texto_literal",
+          "inicio": 153,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "De otra forma, puedes pegar un salto e impulsarte gracias a tu aleteo, pero hacer esto te cuesta 1 Punto de Esfuerzo.",
+          "origen": "texto_literal",
+          "inicio": 208,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "No puedes emprender el vuelo si llevas una armadura intermedia o pesada, o si llevas equipada un arma cuerpo a cuerpo a dos manos.",
+          "origen": "texto_literal",
+          "inicio": 326,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Mientras estás volando, no puedes lanzar Conjuros que tengan un Lanzamiento superior a 1 Turno.",
+          "origen": "texto_literal",
+          "inicio": 457,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "En combate, puedes sostener un arco o ballesta con tus garras, ya que debes usar las alas para maniobrar y mantenerte en el aire.",
+          "origen": "texto_literal",
+          "inicio": 553,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes mover la mitad de tu Movimiento en combate, y cambiar tu verticalidad a ¼ de tu Movimiento.",
+          "origen": "texto_literal",
+          "inicio": 683,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes"
+          ]
+        },
+        {
+          "literal": "Mantener el Vuelo en cada Turno requiere superar una Tirada de Resistencia al final de tu Turno o el gasto adicional de 1 Punto de Esfuerzo;",
+          "origen": "texto_literal",
+          "inicio": 782,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "si no tienes éxito, tus alas se habrán cansado y caerás de forma torpe hacia el suelo el próximo Turno.",
+          "origen": "texto_literal",
+          "inicio": 923,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:orni:favor-del-espiritu-orni",
+      "sistema": "Ampliadas",
+      "especie": "Orni",
+      "talento": "Favor del espíritu orni",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Eres competente con los arcos cortos y arcos largos, aunque tu Ocupación no te permita utilizarlos.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "acceso_y_eleccion"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:orni:afinidad-aerea",
+      "sistema": "Ampliadas",
+      "especie": "Orni",
+      "talento": "Afinidad aérea",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para los Orni de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 135,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Cuando canalizas la Urdimbre para lanzar un Conjuro relacionado con el aire, viento o el movimiento, y éste requiera una Tirada de lanzamiento, obtienes Ventaja.",
+          "origen": "texto_literal",
+          "inicio": 274,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:orni:surcavientos",
+      "sistema": "Ampliadas",
+      "especie": "Orni",
+      "talento": "Surcavientos",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para los Orni de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 138,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Cuando vuelas, te desplazas tu Movimiento * 4 fuera de combate, tu Movimiento completo en combate y la ½ de tu Movimiento a la hora de cambiar tu verticalidad en combate.",
+          "origen": "texto_literal",
+          "inicio": 386,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gerudo:armas-de-los-ancestros-gerudo",
+      "sistema": "Ampliadas",
+      "especie": "Gerudo",
+      "talento": "Armas de los ancestros gerudo",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Eres competente con las cimitarras, las lanzas, las gujas y el arco corto, aunque tu Ocupación no te permita utilizarlos.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "acceso_y_eleccion"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gerudo:vitalidad-de-la-arena",
+      "sistema": "Ampliadas",
+      "especie": "Gerudo",
+      "talento": "Vitalidad de la arena",
+      "tipo": "fijo",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Tienes Ventaja en todas las Tiradas de Resistencia que realices mientras estás en un desierto o en un páramo.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gerudo:castigo-del-reino-sombrio",
+      "sistema": "Ampliadas",
+      "especie": "Gerudo",
+      "talento": "Castigo del Reino Sombrío",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Pasiva",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para las Gerudo de las Ocupaciones Clérigo o Mago, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 7,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 137,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "A cambio, pierdes 1 Punto de Salud cada vez que lanzas un Conjuro.",
+          "origen": "texto_literal",
+          "inicio": 366,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gerudo:entereza-del-desierto",
+      "sistema": "Ampliadas",
+      "especie": "Gerudo",
+      "talento": "Entereza del desierto",
+      "tipo": "opcional",
+      "rotulos_explicitos": [
+        {
+          "rotulo": "Reacción",
+          "origen": "texto_literal",
+          "inicio": 0
+        }
+      ],
+      "evidencias_literales": [
+        {
+          "literal": "Este Talento sólo está disponible para las Gerudo de las Ocupaciones Guerrero o Ladrón, o cualquier Ocupación derivada de estas dos.",
+          "origen": "texto_literal",
+          "inicio": 9,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar uno de tus Talentos durante la Creación de personaje (siempre y cuando no sea lo que define la Ocupación) por este Talento.",
+          "origen": "texto_literal",
+          "inicio": 142,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si eres el blanco de un Conjuro que cause un efecto o daño impío o sagrado, puedes evocar tu Entereza del desierto para reducir a la mitad el daño que te hubiese causado.",
+          "origen": "texto_literal",
+          "inicio": 355,
+          "etiquetas": [
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Una vez has usado este Talento, debes descansar mínimo 8 horas para volverlo a utilizar.",
+          "origen": "texto_literal",
+          "inicio": 526,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02b-extraccion-especies-ylat-hyrule.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-natural:buen-desarrollo",
+      "sistema": "Nocturna",
+      "especie": "Humano natural",
+      "talento": "Buen desarrollo",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "acceso_y_eleccion"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-natural:adaptacion",
+      "sistema": "Nocturna",
+      "especie": "Humano natural",
+      "talento": "Adaptación",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Si sufres Desventaja en una Tirada de tu Atributo favorito, obtienes un +2 al resultado final.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-natural:fuerza-de-voluntad",
+      "sistema": "Nocturna",
+      "especie": "Humano natural",
+      "talento": "Fuerza de voluntad",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Obtienes +1 en las Tiradas de Salvación de los Atributos Mente, Intuición y Presencia.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-natural:red-de-contactos",
+      "sistema": "Nocturna",
+      "especie": "Humano natural",
+      "talento": "Red de contactos",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-arcano:vestigios-de-hechiceria",
+      "sistema": "Nocturna",
+      "especie": "Humano arcano",
+      "talento": "Vestigios de hechicería",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Eres capaz de reconocer la magia de tan sólo un vistazo;",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "además, elige 3 Conjuros de Primer Círculo de la Escuela Arcana: si gastas 1 Punto de Esfuerzo, puedes lanzar uno de ellos aunque tu Ocupación no te permita lanzar magia.",
+          "origen": "texto_literal",
+          "inicio": 57,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-arcano:resistencia-magica",
+      "sistema": "Nocturna",
+      "especie": "Humano arcano",
+      "talento": "Resistencia mágica",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Obtienes un +1 a las Tiradas de Salvación para resistir efectos de Conjuros.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-arcano:ojos-de-murati",
+      "sistema": "Nocturna",
+      "especie": "Humano arcano",
+      "talento": "Ojos de Murati",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Si te concentras durante un Asalto, podrás ver durante un Intervalo el mundo tal y como es, sin el velo que lo sobrenatural lanza en la realidad para proteger a los mortales.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Por ejemplo, cualquier entidad que se esté ocultando a plena vista de la humanidad será visible en su auténtica forma para ti.",
+          "origen": "texto_literal",
+          "inicio": 175,
+          "etiquetas": [
+            "distancia_y_area"
+          ]
+        },
+        {
+          "literal": "Una vez finalice el efecto, deberás hacer una Tirada de Esencia.",
+          "origen": "texto_literal",
+          "inicio": 302,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:humano-arcano:aliados-en-las-sombras",
+      "sistema": "Nocturna",
+      "especie": "Humano arcano",
+      "talento": "Aliados en las sombras",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "No siempre responde, pero cuando lo hace, puede marcar la diferencia.",
+          "origen": "texto_literal",
+          "inicio": 85,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Sólo para aquellos Humanos arcanos que hayan seleccionado «Aliados en las sombras» como Talento.",
+          "origen": "texto_ampliacion_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "acceso_y_eleccion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "cualquier daño que reciba se dividirá, sufriendo la mitad como daño Psíquico sobre ti.",
+          "origen": "texto_ampliacion_literal",
+          "inicio": 281,
+          "etiquetas": [
+            "nivel_y_magnitudes"
+          ]
+        },
+        {
+          "literal": "Si este daño lo reduce a 0, regresará a su plano y no podrá manifestarse nuevamente hasta después de un descanso de 24 horas.",
+          "origen": "texto_ampliacion_literal",
+          "inicio": 368,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Adquieres un Recurso llamado Dado de Aliado (DAL), que empieza en d8;",
+          "origen": "texto_ampliacion_literal",
+          "inicio": 496,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "deberás tirar cada vez que solicites tu ayuda y el Cronista interpretará cómo te ayuda.",
+          "origen": "texto_ampliacion_literal",
+          "inicio": 566,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si se agota, tendrás que dejarlo descansar durante al menos 24 horas para que regrese a d8.",
+          "origen": "texto_ampliacion_literal",
+          "inicio": 654,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Elige uno de los siguientes tipos o inventa uno junto con el Cronista:",
+          "origen": "texto_ampliacion_literal",
+          "inicio": 746,
+          "etiquetas": [
+            "acceso_y_eleccion"
+          ]
+        },
+        {
+          "literal": "Su verdadera naturaleza está sellada tras secretos enterrados, que pueden desbloquearse a un alto coste.",
+          "origen": "texto_ampliacion_literal",
+          "inicio": 1245,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Mientras tanto, puede proporcionar pistas enigmáticas o señales cuando se encuentra cerca de eventos o entidades sobrenaturales.",
+          "origen": "texto_ampliacion_literal",
+          "inicio": 1350,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:strigoi:sino-de-los-condenados",
+      "sistema": "Nocturna",
+      "especie": "Strigoi",
+      "talento": "Sino de los condenados",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Si pierdes extremidades, o el cuerpo, no lo podrás regenerar, pero todo lo que quede conectado a tu cabeza quedará en un estado de muerte en vida.",
+          "origen": "texto_literal",
+          "inicio": 51,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Dispones de un Recurso denominado «Dado de Sangre», que comienza en d6 y tiene un máximo de d12.",
+          "origen": "texto_literal",
+          "inicio": 198,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "nivel_y_magnitudes",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Debes chupar la sangre de seres vivos con tus colmillos: cada vez que lo hagas, podrás realizar una Tirada del Dado de Sangre: si sacas el máximo o el nº directamente inferior (5 y 6 en d6, por ejemplo), aumentarás en 1 rango el Dado.",
+          "origen": "texto_literal",
+          "inicio": 295,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Los seres humanos te dan Ventaja en la Tirada, mientras que los animales provocan Desventaja;",
+          "origen": "texto_literal",
+          "inicio": 530,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "igualmente, ambas presas cuentan como “alimentarte” aunque no aumentes el rango del Dado.",
+          "origen": "texto_literal",
+          "inicio": 624,
+          "etiquetas": [
+            "nivel_y_magnitudes",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Chupar sangre se considerada una Tirada de Ataque: si la víctima no se da cuenta de lo que vas a hacer, tienes éxito de forma automática.",
+          "origen": "texto_literal",
+          "inicio": 714,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "De otra forma, deberás tratarlo como una Tirada de ataque cuerpo a cuerpo, y superar la Tirada cada Turno que estés chupando sangre.",
+          "origen": "texto_literal",
+          "inicio": 852,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Provocas 1d6 de daño perforante e impío por cada Turno que absorbas sangre (necesitas 1 Turno de absorber sangre cada día).",
+          "origen": "texto_literal",
+          "inicio": 985,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Cada noche que te despiertes, debes realizar una Tirada del Dado de Sangre, con un -1 a la Tirada por cada noche que hayas pasado sin alimentarte;",
+          "origen": "texto_literal",
+          "inicio": 1109,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "si éste Dado se agota, pierdes el control de tu personaje y éste se convertirá en un depredador enloquecido que hará lo que sea por consumir sangre.",
+          "origen": "texto_literal",
+          "inicio": 1256,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Cuando la masacre haya pasado, tu Dado de Sangre se ajustará en d6 y tendrás que realizar una Tirada de Esencia con Desventaja.",
+          "origen": "texto_literal",
+          "inicio": 1405,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Una vez por Intervalo, puedes realizar una Tirada de Dado de Sangre para recuperar 1d6 Puntos de Salud gracias a la fuerza de la sangre.",
+          "origen": "texto_literal",
+          "inicio": 1533,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Comienzas con 2 poderes vampíricos, y aprendes uno nuevo cada Nivel múltiplo de 3, hasta un máximo de 12.",
+          "origen": "texto_literal",
+          "inicio": 1754,
+          "etiquetas": [
+            "nivel_y_magnitudes"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:strigoi:depredador-depravado",
+      "sistema": "Nocturna",
+      "especie": "Strigoi",
+      "talento": "Depredador depravado",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Consume toda la sangre de una víctima humana e inocente para recuperar todos tus Puntos de Salud por completo y aumentar directamente en 1 rango tu Dado de Sangre;",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "sin embargo, deberás realizar una Tirada de Esencia al finalizar.",
+          "origen": "texto_literal",
+          "inicio": 164,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:strigoi:fascinacion",
+      "sistema": "Nocturna",
+      "especie": "Strigoi",
+      "talento": "Fascinación",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Puedes gastar 1 Punto de Esfuerzo para que un mortal de un Nivel inferior a ti quede Fascinado durante 1d4 Intervalos.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Mientras dure el efecto, no podrá atacarte y obedecerá órdenes simples.",
+          "origen": "texto_literal",
+          "inicio": 119,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:strigoi:sombra-siniestra",
+      "sistema": "Nocturna",
+      "especie": "Strigoi",
+      "talento": "Sombra siniestra",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Tu ropa y accesorios tampoco, es como si tu cuerpo maldito absorbiese la esencia de esos objetos;",
+          "origen": "texto_literal",
+          "inicio": 86,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "además, obtienes un +2 en las Tiradas de Agilidad a la hora de moverte sigilosamente.",
+          "origen": "texto_literal",
+          "inicio": 184,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:jiangshi:ladron-de-almas",
+      "sistema": "Nocturna",
+      "especie": "Jiangshi",
+      "talento": "Ladrón de almas",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Debes absorber la esencia vital de los vivos para mantenerte en movimiento.",
+          "origen": "texto_literal",
+          "inicio": 169,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Dispones de un Recurso denominado «Dado de Almas», que comienza en d6 y tiene un máximo de d12.",
+          "origen": "texto_literal",
+          "inicio": 245,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "nivel_y_magnitudes",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Debes consumir la esencia de un humano mortal con tus manos: cada vez que lo hagas, podrás realizar una Tirada del Dado de Almas: si sacas el máximo o el nº directamente inferior (5 y 6 en d6, por ejemplo), aumentarás en 1 rango el Dado.",
+          "origen": "texto_literal",
+          "inicio": 341,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Consumir el alma se considera una Tirada de Ataque: si la víctima no se da cuenta de lo que vas a hacer, tienes éxito de forma automática.",
+          "origen": "texto_literal",
+          "inicio": 579,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "De otra forma, deberás tratarlo como una Tirada de ataque cuerpo a cuerpo, y superar la Tirada cada Turno que estés devorando su alma.",
+          "origen": "texto_literal",
+          "inicio": 718,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Provocas 2d6 de daño impío por cada Turno que (necesitas 1 Turno de consumir almas cada día).",
+          "origen": "texto_literal",
+          "inicio": 853,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Recuperas 1d6 de Salud por cada Turno devorando un alma, no te puedes curar de otra forma, ni siquiera por medios mágicos.",
+          "origen": "texto_literal",
+          "inicio": 947,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Si devoras por completo el alma de un humano mortal, podrás ignorar tu Debilidad durante 1d4 Intervalos, pero deberás realizar una Tirada de Esencia.",
+          "origen": "texto_literal",
+          "inicio": 1070,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Cada día que pase, debes realizar una Tirada del Dado de Almas, con un -1 a la Tirada por cada día sin disfrutar del alma de un mortal;",
+          "origen": "texto_literal",
+          "inicio": 1220,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "si éste Dado se agota, caerás en el Sopor del Jiangshi, un estado de muerte en vida en el que estarás paralizado y plenamente consciente de lo que sucede a tu alrededor, de forma permanente hasta que un brujo lance el conjuro «Reanimar Jiangshi» sobre ti.",
+          "origen": "texto_literal",
+          "inicio": 1356,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "distancia_y_area",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Comienzas con 1 poder vampírico, y aprendes uno nuevo cada Nivel múltiplo de 2, hasta un máximo de 10.",
+          "origen": "texto_literal",
+          "inicio": 1696,
+          "etiquetas": [
+            "nivel_y_magnitudes"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:jiangshi:carne-cadaverica",
+      "sistema": "Nocturna",
+      "especie": "Jiangshi",
+      "talento": "Carne cadavérica",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:jiangshi:chillido-de-ultratumba",
+      "sistema": "Nocturna",
+      "especie": "Jiangshi",
+      "talento": "Chillido de ultratumba",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Puedes gastar 1 Punto de Esfuerzo para liberar un grito aterrador que afecta a todas las criaturas en un radio de 10m, que deberán superar una Tirada de Resistencia o quedarán paralizadas durante 1d4 Turnos.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "distancia_y_area",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:jiangshi:salto-sobrenatural",
+      "sistema": "Nocturna",
+      "especie": "Jiangshi",
+      "talento": "Salto sobrenatural",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Obtienes +2 a las Tiradas de Agilidad para esquivar ataques cuerpo a cuerpo o a distancia, y puedes saltar hasta 10m en línea recta sin necesidad de una Tirada.",
+          "origen": "texto_literal",
+          "inicio": 73,
+          "etiquetas": [
+            "distancia_y_area",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-lobo:licantropia",
+      "sistema": "Nocturna",
+      "especie": "Hombre lobo",
+      "talento": "Licantropía",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Cambiar de una forma a otra requiere que gastes 1 Turno mientras tu carne, huesos y órganos se recomponen, retuercen y adquieren un aspecto diferente.",
+          "origen": "texto_literal",
+          "inicio": 100,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si naciste como humano, tu Debilidad no se aplica en esta forma.",
+          "origen": "texto_literal",
+          "inicio": 390,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Forma de Lobo: No puedes hablar ni manipular herramientas complejas.",
+          "origen": "texto_literal",
+          "inicio": 455,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Reduces tu Tamaño en 1 (pasas a ser Pequeño), obtienes +2 Movimiento y obtienes Ventaja en Tiradas de Intuición que empleen tus sentidos del oído y del olfato.",
+          "origen": "texto_literal",
+          "inicio": 524,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Obtienes un ataque de mordisco que causa d8 de daño y tiene Potencia 1.",
+          "origen": "texto_literal",
+          "inicio": 684,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Si naciste como lobo, tu Debilidad no se aplica en esta forma.",
+          "origen": "texto_literal",
+          "inicio": 756,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Aumentas tu Tamaño en 1 (pasas a ser Grande), obtienes +1 Movimiento, obtienes Ventaja en las Tiradas de Fuerza y Resistencia, y Desventaja en las Tiradas de Mesura, y no puedes hablar más allá de frases cortas y directas.",
+          "origen": "texto_literal",
+          "inicio": 905,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Obtienes un ataque de mordisco que causa d8 de daño y tiene Potencia 1, y un ataque de garras que causa 2d6 de daño y tiene Potencia 1.",
+          "origen": "texto_literal",
+          "inicio": 1128,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "De igual forma, regeneras 1d8 Puntos de Salud por cada Intervalo que pases en una Forma que no sea tu original (Lobo y Bestia en el caso de humanos, Humano y Bestia en el caso de lobos).",
+          "origen": "texto_literal",
+          "inicio": 1264,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Dado de mesura",
+          "origen": "texto_literal",
+          "inicio": 1451,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Además, tienes un nuevo Recurso llamado «Dado de Mesura», que comienza en d10 y tiene un máximo de d10.",
+          "origen": "texto_literal",
+          "inicio": 1466,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "nivel_y_magnitudes",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Cada vez que cambies a la forma de Bestia, realiza una Tirada del Dado de Mesura (no apliques la Desventaja provocada por esta Forma para el Dado de Mesura).",
+          "origen": "texto_literal",
+          "inicio": 1570,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Cada vez que te enfrentes a algo que te frustre, te humille o ponga a prueba tu paciencia, debes realizar una Tirada del Dado de Mesura.",
+          "origen": "texto_literal",
+          "inicio": 1728,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "En las noches de Luna Llena, tiras con Desventaja el Dado de Mesura, y además el Cronista podrá exigirte tirar por nimiedades, ya que estás vinculado con la luna.",
+          "origen": "texto_literal",
+          "inicio": 1865,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Puedes relajarte cada noche, meditando en silencio y volviéndote uno con el momento (Tirada de Mente) durante 1 Intervalo.",
+          "origen": "texto_literal",
+          "inicio": 2028,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Esto te permitirá realizar una Tirada del Dado de Mesura y, si sacas los 2 números más altos (5 y 6 en un d6, por ejemplo) podrás aumentarlo en un un rango.",
+          "origen": "texto_literal",
+          "inicio": 2151,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Si tu Dado de Mesura se agota, pasarás inmediatamente a Forma de Bestia y comenzarás a romper y a destruir todo, y a todos, durante 1d4 Intervalos.",
+          "origen": "texto_literal",
+          "inicio": 2308,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Cuando pase todo esto, pasarás a tu forma original y te quedarás inconsciente otro Intervalo más, momento en el que tu Dado de Mesura se ajustará a d6 y tendrás que realizar una Tirada de Esencia cuando despiertes.",
+          "origen": "texto_literal",
+          "inicio": 2456,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-lobo:incansable",
+      "sistema": "Nocturna",
+      "especie": "Hombre lobo",
+      "talento": "Incansable",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Obtienes Ventaja en las Tiradas de Resistencia para recuperar Esfuerzo.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-lobo:rabia-brutal",
+      "sistema": "Nocturna",
+      "especie": "Hombre lobo",
+      "talento": "Rabia brutal",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Obtienes un +2 a las Tiradas de Ataque y Daño en tu Forma de Bestia.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-lobo:zancada-salvaje",
+      "sistema": "Nocturna",
+      "especie": "Hombre lobo",
+      "talento": "Zancada salvaje",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-cuervo:corantropia",
+      "sistema": "Nocturna",
+      "especie": "Hombre cuervo",
+      "talento": "Corantropía",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Cambiar de una forma a otra requiere que gastes 1 Turno, mientras tus huesos se aligeran o endurecen, tu piel se oscurece y tus sentidos se ajustan a la nueva forma.",
+          "origen": "texto_literal",
+          "inicio": 108,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Forma de Cuervo: No puedes hablar ni manipular herramientas complejas.",
+          "origen": "texto_literal",
+          "inicio": 389,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes volar, y mientras vuelas duplicas tu Movimiento.",
+          "origen": "texto_literal",
+          "inicio": 460,
+          "etiquetas": [
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Reduces tu Tamaño en 1 (pasas a ser Pequeño, por lo que serás un cuervo corpulento), y obtienes Ventaja en Tiradas de Intuición que empleen tus sentidos del oído y de la visión.",
+          "origen": "texto_literal",
+          "inicio": 516,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Obtienes un ataque de picotazo que causa d4 de daño y tiene Potencia 1.",
+          "origen": "texto_literal",
+          "inicio": 694,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Puedes volar durante 3 Turnos, y luego puedes descender planeando.",
+          "origen": "texto_literal",
+          "inicio": 925,
+          "etiquetas": [
+            "tiempo_y_recuperacion"
+          ]
+        },
+        {
+          "literal": "Ignoras el daño por caída, puedes ver en completa oscuridad, y obtienes Ventaja en las Tiradas de Agilidad.",
+          "origen": "texto_literal",
+          "inicio": 992,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Obtienes un ataque de picotazo que causa d4 de daño y tiene Potencia 2, y un ataque de garras que causa d8 de daño y tiene Potencia 1.",
+          "origen": "texto_literal",
+          "inicio": 1100,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "A pesar de estas ventajas, los Hombres cuervo ODIAN adoptar esta Forma y sólo lo harán si es estrictamente necesario.",
+          "origen": "texto_literal",
+          "inicio": 1235,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "De igual forma, regeneras 1d6 Puntos de Salud por cada Intervalo que pases en una Forma que no sea tu original (Cuervo y Rara Avis en el caso de humanos, Humano y Rara Avis en el caso de cuervos).",
+          "origen": "texto_literal",
+          "inicio": 1353,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "No tienes un Dado de Mesura como los Hombres lobo;",
+          "origen": "texto_literal",
+          "inicio": 1550,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Sin embargo, cuando seas expuesto a un secreto del que no sepas todo, tendrás que hacer una Tirada de Presencia para resistir la curiosidad o empezar a indagar y a husmear todo lo posible para enterarte.",
+          "origen": "texto_literal",
+          "inicio": 1643,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-cuervo:memoria-eidetica",
+      "sistema": "Nocturna",
+      "especie": "Hombre cuervo",
+      "talento": "Memoria eidética",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Puedes memorizar detalles exactos de cualquier cosa que hayas visto en la última semana.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "tiempo_y_recuperacion"
+          ]
+        },
+        {
+          "literal": "Si tú no lo recuerdas como jugador, el Cronista puede ayudarte a recordarlo.",
+          "origen": "texto_literal",
+          "inicio": 89,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-cuervo:sombra-aerea",
+      "sistema": "Nocturna",
+      "especie": "Hombre cuervo",
+      "talento": "Sombra aérea",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:hombre-cuervo:ventriloquia",
+      "sistema": "Nocturna",
+      "especie": "Hombre cuervo",
+      "talento": "Ventriloquía",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Si gastas 1 Punto de Esfuerzo, puedes imitar cualquier voz o sonido (que hayas escuchado al menos una vez en las últimas 24 horas) durante 1 Intervalo.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:sidhe:vestigios-de-sylestria",
+      "sistema": "Nocturna",
+      "especie": "Sidhe",
+      "talento": "Vestigios de Sylestria",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Eres inmune a la vejez y a los efectos del tiempo mientras estés vinculado a tu reino natal.",
+          "origen": "texto_literal",
+          "inicio": 100,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes alterar sutilmente tu apariencia (cambiar el color de tus ojos, alargar tu cabello, suavizar rasgos), pero no puedes disfrazarte por completo sin magia.",
+          "origen": "texto_literal",
+          "inicio": 193,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Estos cambios tardan 1d2 Intervalos en materializarse.",
+          "origen": "texto_literal",
+          "inicio": 353,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "No puedes mentir de forma directa.",
+          "origen": "texto_literal",
+          "inicio": 408,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Si intentas decir una mentira consciente, las palabras se atascarán en tu boca o se distorsionarán en frases ambiguas.",
+          "origen": "texto_literal",
+          "inicio": 443,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Esto te provocará una Tirada de Esencia.",
+          "origen": "texto_literal",
+          "inicio": 562,
+          "etiquetas": [
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Si alguno de vosotros lo incumple CONSCIENTEMENTE, perderá 1d4 Puntos de Salud de forma permanente y el pacto se romperá.",
+          "origen": "texto_literal",
+          "inicio": 821,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Completar y respetar un pacto te permitirá obtener, de forma permanente, 1d4 Puntos de Glamour máximos.",
+          "origen": "texto_literal",
+          "inicio": 1020,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "De forma adicional, tu existencia está ligada a un recurso denominado «Puntos de Glamour»;",
+          "origen": "texto_literal",
+          "inicio": 1124,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "comienzas con 10 Puntos de Glamour máximos, y aumentas en 1d6 esta cantidad cada Nivel.",
+          "origen": "texto_literal",
+          "inicio": 1215,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Dependencia del Glamour: Cada día que te despiertes debes consumir tantos Puntos de Glamour como tu Nivel: si éstos llegan a 0, comenzarás a marchitarte y a debilitarte hasta que puedas recuperarlos.",
+          "origen": "texto_literal",
+          "inicio": 1303,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Recuperar Glamour: Debes inspirarte de los mortales para recargar tu Glamour.",
+          "origen": "texto_literal",
+          "inicio": 1503,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "En términos de mecánicas, asume que, tras 1 Intervalo «inspirándote», recuperas 2d4 Puntos de Glamour.",
+          "origen": "texto_literal",
+          "inicio": 1935,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Muerte lenta: Si estás más de un mes con tus Puntos de Glamour a 0, empezarás a envejecer 10 años por cada mes subsiguiente al primero, hasta que mueras de vejez: poco a poco, tu vínculo con Sylestria se irá debilitando hasta desvanecerse por completo.",
+          "origen": "texto_literal",
+          "inicio": 2038,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "nivel_y_magnitudes",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Sin embargo, este proceso se puede detener (pero no revertir) si vuelves a recuperar Glamour.",
+          "origen": "texto_literal",
+          "inicio": 2291,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:sidhe:corazon-ardiente",
+      "sistema": "Nocturna",
+      "especie": "Sidhe",
+      "talento": "Corazón ardiente",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Obtienes 2 Puntos de Glamour adicionales cuando los recuperes, pero pierdes 1 adicional cuando éstos se consuman.",
+          "origen": "texto_literal",
+          "inicio": 37,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:sidhe:ecos-de-sylestria",
+      "sistema": "Nocturna",
+      "especie": "Sidhe",
+      "talento": "Ecos de Sylestria",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Si gastas 1 Punto de Esfuerzo, puedes lanzar cualquier Conjuro del Primer Círculo de las Escuelas Arcana o Naturaleza.",
+          "origen": "texto_literal",
+          "inicio": 54,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:sidhe:fulgor-irreal",
+      "sistema": "Nocturna",
+      "especie": "Sidhe",
+      "talento": "Fulgor irreal",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Obtienes Ventaja en Tiradas de Presencia cuando intentas seducir, manipular o confundir a un mortal que no sea consciente de tu naturaleza feérica.",
+          "origen": "texto_literal",
+          "inicio": 56,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:ceniciento:naturaleza-mutable",
+      "sistema": "Nocturna",
+      "especie": "Ceniciento",
+      "talento": "Naturaleza mutable",
+      "tipo": "fijo",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "No envejeces mientras tengas al menos 1 Punto de Glamour.",
+          "origen": "texto_literal",
+          "inicio": 149,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Puedes cambiar rasgos de tu cuerpo de forma gradual, durante un Intervalo en el que te observarás en el espejo con la mirada perdida y la expresión desencajada.",
+          "origen": "texto_literal",
+          "inicio": 207,
+          "etiquetas": [
+            "tiempo_y_recuperacion"
+          ]
+        },
+        {
+          "literal": "Puedes parecer ligeramente diferente de un día para otro.",
+          "origen": "texto_literal",
+          "inicio": 543,
+          "etiquetas": [
+            "tiempo_y_recuperacion"
+          ]
+        },
+        {
+          "literal": "Puedes percibir la presencia de Sidhes y otros Cenicientos mediante una Tirada de Intuición, sintiendo su aura incluso si intentan ocultarse.",
+          "origen": "texto_literal",
+          "inicio": 601,
+          "etiquetas": [
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Tardarás 1 Turno en darte cuenta de que hay otros como tú.",
+          "origen": "texto_literal",
+          "inicio": 743,
+          "etiquetas": [
+            "tiempo_y_recuperacion"
+          ]
+        },
+        {
+          "literal": "Si pasas un mes sin consumir Glamour, comienzas a envejecer a un ritmo acelerado (1 año por semana).",
+          "origen": "texto_literal",
+          "inicio": 855,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Cuando recuperes el Glamour, dejarás de envejecer, pero no habrá vuelta atrás.",
+          "origen": "texto_literal",
+          "inicio": 956,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Además, posees un Recurso llamado «Puntos de Glamour», que comienzas con 6 Puntos de Glamour máximos y aumentas en 1d4 cada Nivel.",
+          "origen": "texto_literal",
+          "inicio": 1035,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Dependencia del Glamour: Cada día que pase sin que absorbas Glamour de los mortales, pierdes tantos Puntos de Glamour como tu Nivel.",
+          "origen": "texto_literal",
+          "inicio": 1166,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion"
+          ]
+        },
+        {
+          "literal": "Pérdida de identidad: Si tus Puntos de Glamour llegan a 0, tu esencia se desmorona, y debes superar una Tirada de Presencia cada día que estés sin Glamour.",
+          "origen": "texto_literal",
+          "inicio": 1299,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        },
+        {
+          "literal": "Si fallas, comenzarás a perder memoria, olvidando tu identidad y propósito poco a poco.",
+          "origen": "texto_literal",
+          "inicio": 1455,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Tras 3 fallos seguidos, ya no quedará nada de ti y dejarás de ser un Personaje Jugador, pasando a ser un PNJ bajo el control del Cronista.",
+          "origen": "texto_literal",
+          "inicio": 1543,
+          "etiquetas": [
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "Recuperar Glamour: Los Cenicientos obtienen Glamour de la interacción con los mortales, pero a diferencia de los Sidhe, no se nutren de la inspiración, sino de las emociones intensas.",
+          "origen": "texto_literal",
+          "inicio": 1682,
+          "etiquetas": [
+            "tiempo_y_recuperacion"
+          ]
+        },
+        {
+          "literal": "Puedes recuperar Glamour al provocar emociones fuertes en los demás (amor, odio, desesperación, euforia).",
+          "origen": "texto_literal",
+          "inicio": 1866,
+          "etiquetas": [
+            "tiempo_y_recuperacion"
+          ]
+        },
+        {
+          "literal": "En términos mecánicos, si logras experimentar una emoción intensa durante 1 Intervalo, recuperas 1d10 Puntos de Glamour.",
+          "origen": "texto_literal",
+          "inicio": 2146,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones",
+            "tiradas_y_dados"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:ceniciento:doble-reflejo",
+      "sistema": "Nocturna",
+      "especie": "Ceniciento",
+      "talento": "Doble reflejo",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:ceniciento:ecos-de-los-demas",
+      "sistema": "Nocturna",
+      "especie": "Ceniciento",
+      "talento": "Ecos de los demás",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Tu naturaleza tan ligada a algo tan visceral como la envidia te permite copiar capacidades que hayas visto en otros: si gastas 1 Punto de Esfuerzo, puedes replicar cualquier Talento que hayas visto en las últimas 12 horas;",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "gasto_o_recurso",
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        },
+        {
+          "literal": "el efecto dura 1 Intervalo y sólo lo puedes hacer una vez cada 24 horas.",
+          "origen": "texto_literal",
+          "inicio": 223,
+          "etiquetas": [
+            "tiempo_y_recuperacion",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    },
+    {
+      "id_documental": "talento-especie:nocturna:ceniciento:retono-del-caos",
+      "sistema": "Nocturna",
+      "especie": "Ceniciento",
+      "talento": "Retoño del caos",
+      "tipo": "elegible",
+      "rotulos_explicitos": [],
+      "evidencias_literales": [
+        {
+          "literal": "Tu personalidad es una amalgama de muchas vidas, y aunque ahora seas un lienzo nuevo, puedes gastar 1 Punto de Esfuerzo para rememorar fragmentos de una de ellas y recibir información útil por parte del Cronista.",
+          "origen": "texto_literal",
+          "inicio": 0,
+          "etiquetas": [
+            "gasto_o_recurso"
+          ]
+        },
+        {
+          "literal": "Consulta con el Cronista el alcance y contenido de este Talento antes de elegirlo y/o usarlo.",
+          "origen": "texto_literal",
+          "inicio": 213,
+          "etiquetas": [
+            "distancia_y_area",
+            "condiciones_y_prohibiciones"
+          ]
+        }
+      ],
+      "costes_normalizados": null,
+      "duraciones_normalizadas": null,
+      "alcances_normalizados": null,
+      "requisitos_normalizados": null,
+      "activacion_normalizada": null,
+      "escalado_normalizado": null,
+      "estado": "preclasificacion_pendiente_validacion",
+      "fuente_extracto": "02c-extraccion-especies-nocturna.json"
+    }
+  ]
+}

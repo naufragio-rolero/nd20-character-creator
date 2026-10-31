@@ -1,0 +1,33 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "categoria": "Poderes",
+  "familia": "Privilegios",
+  "ocupacion": "Forense",
+  "registros": [
+    {
+      "nombre": "Llamada a la turba",
+      "parrafos": [
+        1279,
+        1282
+      ],
+      "texto_literal": "Requisito: Nivel 6\nTus contactos y reputación te permiten azuzar a una turba de plebeyos contra un objetivo en concreto, acusado de un crimen gravísimo por tu parte. La turba estará formada por un total de 3d6 + 4 plebeyos de Nivel 0, armados con palos, horcas, martillos y armas similares, y se organizarán en una hora para buscar por toda la ciudad al acusado. En las siguientes 3 horas a la formación de la turba, 1d6 plebeyos de Nivel 0 se unirán a la turba.\nSi tras 5 horas desde la formación de la turba no se ha hallado al acusado, ésta empezará a disolverse, a un ritmo de 2d6 miembros por hora hasta que todos hayan abandonado la búsqueda. La Llamada a la turba sólo se puede usar una vez al día, y se debe emplear con cautela. Acusar falsamente a un inocente puede poner en jaque la vida del Forense."
+    },
+    {
+      "nombre": "Red de contactos",
+      "parrafos": [
+        1283,
+        1285
+      ],
+      "texto_literal": "Has adquirido tu posición tras ganarte la confianza del gobierno; sin embargo, durante la travesía has conocido a mucha gente: algunos podrías decir que son buenos, mientras que los demás son seres despreciables y malévolos. Suerte que sepas cosas sobre ellos y puedas usar eso a tu favor.\nSi adquieres este Privilegio, obtienes 1d4 contactos de una reputación similar a la tuya. Quizás son nobles que te deben favores, viejos amigos de la escuela o profesores reputados. Una vez por semana, puedes solicitar un favor para ayudarte en una investigación. El Cronista definirá los límites que tendrá el alcance de este Privilegio, pero puede dar lugar a escenas muy interesantes y ampliar la ambientación en la que se desarrolle la aventura."
+    },
+    {
+      "nombre": "Representante de la justicia",
+      "parrafos": [
+        1286,
+        1288
+      ],
+      "texto_literal": "Requisito: Nivel 6\nEstás autorizado para arbitrar disputas, levantar actas como un notario y desempeñar otras funciones legales. Tus decisiones son vinculantes para cualquier ciudadano excepto para miembros del clero o caballeros de un Nivel superior a ti."
+    }
+  ],
+  "estado": "extraccion_literal_completa_6_privilegios_entre_dos_archivos"
+}

@@ -1,0 +1,107 @@
+{
+  "fecha": "2026-10-29",
+  "tanda": 2,
+  "lote": 3,
+  "estado": "transcripcion_literal",
+  "registros": [
+    {
+      "ocupacion": "Marionetista",
+      "talento": "Dominio de las marionetas",
+      "activacion": "Especial",
+      "texto_literal": "Especial\nHas fabricado unas marionetas que se han convertido en tus esbirros, y las empleas para llevar a cabo tus actividades como aventurero, ya sea cometiendo fechorías o explorando viejas ruinas en busca de tesoro.\nTrata a tus marionetas como si fuesen Seguidores. Consulta las reglas de Seguidores en el DRS de Naufragio d20 y las Reglas de marionetas más adelante para definir junto con el Cronista qué clase de criaturas representan y cuáles son sus habilidades. Puedes controlar hasta 2 marionetas a la vez, cantidad que aumentará en 1 en los Niveles 6, 12, 18 y 24, hasta un total de 6 marionetas.\nPuedes hacer que tus marionetas actúen como si fueran un personaje más durante tu turno, ya que comparten iniciativa contigo, siempre y cuando estén a 10 metros o menos de ti. Cuando controlas a tus marionetas, sólo puedes moverte, ya que necesitas toda tu atención para darles órdenes y mover sus hilos y cuerdas; si no puedes encargarte de ellas, obviamente se quedarán quietas.\nEn caso de que una de tus marionetas sea destruida, podrás crear una nueva tras 3 días de trabajo y un desembolso en oro equivalente a su Nivel * 100. Si por cualquier motivo habías desarrollado un vínculo emocional con tu marioneta, es posible que el Cronista te aplique penalizaciones temporales por la pérdida.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 357,
+        "parrafo_fin": 362
+      }
+    },
+    {
+      "ocupacion": "Marionetista",
+      "talento": "Solidez ligna",
+      "activacion": "Reacción",
+      "texto_literal": "Reacción\nCoste: 1 Esfuerzo\nA pesar del mimo que presentas hacia tus creaciones, eres consciente de que tu supervivencia es mucho más importante. De todas formas, cualquiera de ellas daría su vida por ti. Cuando seas el blanco de un ataque o Conjuro y vayas a sufrir daño, puedes activar la «Solidez ligna» de tus marionetas para que una de ellas se lleve el golpe por ti.\nSin embargo, este sacrificio provocará que sufra el doble de daño de lo que fueses a sufrir tú.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 363,
+        "parrafo_fin": 367
+      }
+    },
+    {
+      "ocupacion": "Vikingo",
+      "talento": "Corazón de escarcha",
+      "activacion": "Pasiva",
+      "texto_literal": "Pasiva\nTu entereza ante las temperaturas gélidas es legendaria. Obtienes Ventaja en las Tiradas de Resistencia realizadas para soportar los efectos del frío extremo o Conjuros vinculados al hielo.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 388,
+        "parrafo_fin": 390
+      }
+    },
+    {
+      "ocupacion": "Vikingo",
+      "talento": "Pillaje voraz",
+      "activacion": "Acción",
+      "texto_literal": "Acción\nA la hora de saquear, no hay quien te gane. Si dedicas al menos 1 Intervalo a estudiar un lugar, averiguarás dónde pueden estar los objetos de mayor valor de forma instantánea. Si éstos elementos están protegidos por sortilegios, el Cronista podrá exigir una Tirada de Intuición.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 391,
+        "parrafo_fin": 393
+      }
+    },
+    {
+      "ocupacion": "Vikingo",
+      "talento": "Ira del rayo",
+      "activacion": "Reacción",
+      "texto_literal": "Reacción\nCoste: 1 Esfuerzo\nCuando eres herido por un enemigo, la fuerza del Rey del Trueno borbotea por tus venas. Tus ojos brillan con electricidad azulada y las nubes se arremolinan sobre tu oponente, augurando una descarga mortífera.\nSi tu agresor está a 20 metros o menos de ti y estás bajo cielo abierto, puedes canalizar un rayo y castigarlo de forma instantánea, causando 1d6 puntos de daño por relámpago. Este daño aumenta su Potencia en 1 en los Niveles 7, 13, 19 y 25, hasta un total de 5d6 de daño.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 394,
+        "parrafo_fin": 398
+      }
+    },
+    {
+      "ocupacion": "Gladiador",
+      "talento": "Protecciones cómodas",
+      "activacion": "Pasiva",
+      "texto_literal": "Pasiva\nHas aprendido tras un largo entrenamiento a acomodar las armaduras que debes vestir en la arena. Trata el Blindaje de tu armadura como un Rango superior (d8 en lugar de d6); sin embargo, estos cambios que haces sobre tu protección hacen que su Durabilidad sea de un Rango inferior (d4 en lugar de d6, por ejemplo).",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 458,
+        "parrafo_fin": 460
+      }
+    },
+    {
+      "ocupacion": "Arlequín",
+      "talento": "Mímica",
+      "activacion": "Reacción",
+      "texto_literal": "Reacción\nCoste: 1 Esfuerzo\nElige a un aliado que puedas ver en un radio de 5m2 a tu alrededor y que haya actuado ya esta Ronda. Repite la acción de este aliado, empleando tus Atributos, bonificaciones y penalizaciones para resolver la Tirada, sea una Acción o un Poder, sin importar si no lo puedes realizar per se.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 480,
+        "parrafo_fin": 483
+      }
+    },
+    {
+      "ocupacion": "Arlequín",
+      "talento": "Ridículo",
+      "activacion": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Esfuerzo\nRealizas una actuación tan divertida que los oponentes cercanos quedan desconcertados de forma momentánea. Necesitas unos Bolos de Malabarismo para llevar a cabo esta acción.\n1d6 criaturas (que te puedan ver y escuchar, no es necesario que te entiendan. No te entiendes ni tú) que se encuentren 10m2 a tu alrededor sufrirán una penalización -2 a todas sus Tiradas durante 1d6 Turnos (o 1 Intervalo si estás fuera de combate). En los Niveles 12 y 24 el dado aumenta en 1 rango (1d6 a 1d8, 1d8 a 1d10).",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 484,
+        "parrafo_fin": 488
+      }
+    }
+  ],
+  "exclusiones": [
+    {
+      "nombre": "Estilos de gladiatoria",
+      "razon": "Poder por decisión del autor; consultar 22-conciliaciones-lote-3.md"
+    }
+  ],
+  "pendientes_lote": [
+    "Aterrorizar",
+    "Decapitación",
+    "Torturar"
+  ]
+}

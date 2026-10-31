@@ -1,0 +1,261 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    251,
+    434
+  ],
+  "fichas": 184,
+  "resultado": "integridad_documental_correcta",
+  "errores": [],
+  "frecuencia_marcadores_fichas": {
+    "dano": 70,
+    "ventaja": 13,
+    "condicion_o_disparador": 123,
+    "tirada_conjuro": 63,
+    "desventaja": 9,
+    "tirada_atributo_o_salvacion": 7,
+    "probabilidad": 13,
+    "salud": 20,
+    "radio_o_area": 19,
+    "movimiento": 14,
+    "blindaje": 7,
+    "nivel": 18,
+    "estados_mencionados": 4,
+    "magia_invocacion_mencionada": 5,
+    "esfuerzo": 1,
+    "limite_simultaneo": 2
+  },
+  "prioridad_revision_manual": [
+    {
+      "numero_tomo": 320,
+      "nombre": "Puño mágico de Zurari",
+      "score": 6,
+      "tipo_marcadores": [
+        "dano",
+        "ventaja",
+        "movimiento",
+        "nivel",
+        "condicion_o_disparador",
+        "magia_invocacion_mencionada"
+      ]
+    },
+    {
+      "numero_tomo": 284,
+      "nombre": "Palabra de Poder: Hemorragia",
+      "score": 5,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "salud",
+        "estados_mencionados",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 306,
+      "nombre": "Penitencia",
+      "score": 5,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "salud",
+        "desventaja",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 369,
+      "nombre": "Sello rúnico: Explosión",
+      "score": 5,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "probabilidad",
+        "dano",
+        "ventaja",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 395,
+      "nombre": "Trampa de enredaderas",
+      "score": 5,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "salud",
+        "radio_o_area",
+        "condicion_o_disparador",
+        "magia_invocacion_mencionada"
+      ]
+    },
+    {
+      "numero_tomo": 254,
+      "nombre": "Maldición del caos",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "ventaja",
+        "desventaja",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 256,
+      "nombre": "Niebla",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_atributo_o_salvacion",
+        "probabilidad",
+        "desventaja",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 258,
+      "nombre": "Nimbo humeante",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "radio_o_area",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 262,
+      "nombre": "Ojo de la tormenta",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_atributo_o_salvacion",
+        "probabilidad",
+        "dano",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 278,
+      "nombre": "Palabra de Poder: Aturdimiento",
+      "score": 4,
+      "tipo_marcadores": [
+        "salud",
+        "ventaja",
+        "movimiento",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 279,
+      "nombre": "Palabra de Poder: Detención",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "estados_mencionados",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 288,
+      "nombre": "Palabra de Poder: Sagrado",
+      "score": 4,
+      "tipo_marcadores": [
+        "desventaja",
+        "movimiento",
+        "radio_o_area",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 305,
+      "nombre": "Profanar",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "ventaja",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 318,
+      "nombre": "Purga de maldad",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "ventaja",
+        "radio_o_area",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 319,
+      "nombre": "Plaga de alimañas",
+      "score": 4,
+      "tipo_marcadores": [
+        "ventaja",
+        "movimiento",
+        "radio_o_area",
+        "magia_invocacion_mencionada"
+      ]
+    },
+    {
+      "numero_tomo": 329,
+      "nombre": "Ráfaga de burbujas",
+      "score": 4,
+      "tipo_marcadores": [
+        "dano",
+        "movimiento",
+        "nivel",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 351,
+      "nombre": "Resistir los elementos",
+      "score": 4,
+      "tipo_marcadores": [
+        "dano",
+        "blindaje",
+        "ventaja",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 360,
+      "nombre": "Sacrificio santificado",
+      "score": 4,
+      "tipo_marcadores": [
+        "esfuerzo",
+        "salud",
+        "desventaja",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 361,
+      "nombre": "Saeta gélida",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "movimiento",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 362,
+      "nombre": "Saliva ácida de Valujna",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "nivel",
+        "condicion_o_disparador"
+      ]
+    }
+  ],
+  "metodo": "Comprobación automatizada de identidad, Círculo, Escuela, archivo e índices de párrafos; cada marcador se recalculó sobre la ficha original. Dados y distancias se verificaron como fragmentos literales.",
+  "limitaciones": [
+    "Las marcas son pistas lexicales, no efectos implementables ni validación reglamentaria.",
+    "La prioridad refleja densidad de expresiones reglamentarias; no significa mayor dificultad o peligrosidad."
+  ]
+}

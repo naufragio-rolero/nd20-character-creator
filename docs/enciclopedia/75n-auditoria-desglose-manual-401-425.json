@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "25_de_25_cotejados",
+  "fichas": 25,
+  "parrafos_referenciados": 49,
+  "errores": [],
+  "fuentes": [
+    {
+      "archivo": "69q-conjuros-alfabeticos-401-425.json",
+      "sha": "efaceaafe19965a1fb83fe041e642d0fcc4cd543"
+    },
+    {
+      "archivo": "72q-desglose-revisado-conjuros-401-425.json",
+      "sha": "b847dbf24b75f1067325be529dc73a227938e039"
+    }
+  ],
+  "nota": "Verificación documental; no certifica el estado de Forja."
+}

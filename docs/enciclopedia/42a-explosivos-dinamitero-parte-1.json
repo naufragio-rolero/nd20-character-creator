@@ -1,0 +1,138 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "tabla_word": 40,
+  "categoria": "Poderes > Explosivos",
+  "ocupacion": "Dinamitero",
+  "columnas": [
+    "Explosivo",
+    "Intensidad",
+    "Daño",
+    "Radio",
+    "Efecto"
+  ],
+  "filas_originales": [
+    [
+      "Bomba de escarcha",
+      1,
+      "1d6",
+      "6m",
+      "Causa daño de frío y empuja a todas las criaturas 2m hacia atrás si no superan una Tirada de Fuerza."
+    ],
+    [
+      "Carga de grafiti",
+      1,
+      "0",
+      "10m",
+      "Crea un estallido de pintura y confeti que mancha toda el área."
+    ],
+    [
+      "Carga de viento",
+      1,
+      "1d4",
+      "10m",
+      "Provoca un estallido de aire. Apaga antorchas y otros fuegos endebles."
+    ],
+    [
+      "Dinamita",
+      1,
+      "2d6",
+      "12m",
+      "Causa daño explosivo."
+    ],
+    [
+      "Flashbang",
+      1,
+      "0",
+      "6m",
+      "Causa el Estado Ceguera y Sordera durante 1d2 Turnos a todas las criaturas en el radio."
+    ],
+    [
+      "Granada ácida",
+      1,
+      "2d4",
+      "8m",
+      "Causa daño ácido."
+    ],
+    [
+      "Granada de humo",
+      1,
+      "0",
+      "8m",
+      "Crea una humareda espesa que otorga cobertura y ocultación durante 1d4 Turnos."
+    ],
+    [
+      "Granada gélida",
+      1,
+      "2d4",
+      "8m",
+      "Causa daño de frío."
+    ],
+    [
+      "Granada ígnea",
+      1,
+      "2d4",
+      "8m",
+      "Causa daño de fuego."
+    ],
+    [
+      "Obús relámpago",
+      1,
+      "1d8",
+      "4m",
+      "Causa daño de rayo."
+    ],
+    [
+      "Bomba chillona",
+      2,
+      "0",
+      "10m",
+      "Provoca una sinfonía de gritos desgarradores que acongojan el corazón de quien lo escuche."
+    ],
+    [
+      "Bomba de confusión",
+      2,
+      "2d4",
+      "14m",
+      "Causa el Estado Confusión a todas las criaturas en el radio."
+    ],
+    [
+      "Bomba de niebla",
+      2,
+      "0",
+      "16m",
+      "Crea una niebla espesa que otorga cobertura y ocultación durante 2d4 Turnos."
+    ],
+    [
+      "Bombarda de nubes tóxicas ",
+      2,
+      "1d6",
+      "14m",
+      "Causa daño venenoso y crea una nube tóxica que se mantiene durante 1d6 Turnos, causando daño a todo aquel que finalice su Turno dentro del radio."
+    ],
+    [
+      "Carga de reloj",
+      2,
+      "2d4",
+      "12m",
+      "Causa daño y ralentiza el tiempo (Freno) durante 2 Turnos a todas las criaturas en el área."
+    ],
+    [
+      "Granada de arena",
+      2,
+      "1d3",
+      "20m",
+      "Causa daño y crea una nube de arena que se mantiene durante 1d4 Turnos, obstaculizando la visión y causando daño cada Turno."
+    ]
+  ],
+  "filas_de_tabla": [
+    1,
+    16
+  ],
+  "reglas_generales": {
+    "parrafos": [
+      1289,
+      1297
+    ],
+    "texto_literal": "Estos consumibles pueden ser elaborados por un Dinamitero dedicado; solo pueden ser usados por un miembro de esta Ocupación: el uso por parte de otra Ocupación provoca Desventaja en la Tirada (si corresponde).\nEstos Explosivos tienen 3 Niveles de intensidad, vinculado al Nivel del personaje de la siguiente forma:\nIntensidad 1: Niveles 1-10\nIntensidad 2: Niveles 11-20\nIntensidad 3: Niveles 21-30\nLos Explosivos se pueden utilizar de dos formas:\nComo arma arrojadiza: tienen un alcance efectivo de 10m; se ha de superar una Tirada de Agilidad para acertar en el blanco elegido, y explotan en cuanto tocan un sólido.\nComo bomba de tiempo: requiere 1 Turno para dejar el Explosivo preparado, que explotará en tantos Turnos (o Intervalos) como desee el Dinamitero. Desactivar un Explosivo en modo bomba de tiempo requiere 2 Turnos de trabajo y superar una Tirada de Mente."
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    226,
+    250
+  ],
+  "numero_registros": 25,
+  "metodo": "Lectura manual de las fichas íntegras, identificadores y referencias contrastadas con 69j. Sin cambiar reglas ejecutables.",
+  "registros": [
+    {
+      "numero_tomo": 226,
+      "nombre_literal": "Muro de fuego",
+      "lectura_documental_no_oficial": "Muro de fuego de geometría configurable",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "2 m de alto, longitud 1d8+2 m, duración 1d6 Turnos; 1d10 por cruzar o terminar Turno adyacente. No duplicar automáticamente daño si ambas condiciones coinciden.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1710
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 227,
+      "nombre_literal": "Maldición de vínculo mortal",
+      "lectura_documental_no_oficial": "Vínculo de daño y curación entre dos criaturas",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "El texto dice aplicar Blindaje y resistencias de la primera. Falta determinar el orden exacto y la referencia cuando el daño afecta a cualquiera de los dos.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1716
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 228,
+      "nombre_literal": "Marchitar",
+      "lectura_documental_no_oficial": "Marchitamiento con efecto diferencial sobre criaturas Planta",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Daño impío igual al Nivel del lanzador solo cuando el objetivo es una criatura de Categoría Planta; el efecto general sobre vegetación no declara daño en puntos.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1723
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 229,
+      "nombre_literal": "Materializar arma",
+      "lectura_documental_no_oficial": "Arma conjurada indestructible pero no mágica a efectos de reglas",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Requiere competencia con el arma elegida y permanece 1 Turno por Nivel; no conceder propiedades mágicas por su apariencia etérea.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1728
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 230,
+      "nombre_literal": "Mirada paralizante",
+      "lectura_documental_no_oficial": "Parálisis de criatura Gigante o Humanoide sujeta a Tirada",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Una Tirada de Conjuro inicial; no afecta a otras Categorías salvo revisión editorial.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1734
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 231,
+      "nombre_literal": "Marcha de araña",
+      "lectura_documental_no_oficial": "Desplazamiento por superficies y paredes",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Permite incluso caminar contra gravedad; reduce el Movimiento a la mitad durante 1 Turno por Nivel.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1741
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 232,
+      "nombre_literal": "Manantial hediondo",
+      "lectura_documental_no_oficial": "Niebla pestilente de 4 m² con daño por entrada o inicio de Turno",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "1d6 veneno y vegetación marchita. Forma de 4 m² no declarada; no automatizar radio circular.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1747
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 233,
+      "nombre_literal": "Maldición discordante",
+      "lectura_documental_no_oficial": "Maldición con Tirada al inicio de cada Turno y Probabilidad posterior",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "Tras éxito en Tirada de Conjuro, Probabilidad 15+ de perder Turno. No tratarla como pérdida automática.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1753
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 234,
+      "nombre_literal": "Mandala hipnótico",
+      "lectura_documental_no_oficial": "Fascinación por observar al lanzador",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Afecta indiscriminadamente a quien mire; Tirada de Conjuro por desencadenante y Fascinación por ese Turno; cancelación voluntaria.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1760
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 235,
+      "nombre_literal": "Maldición enfermiza",
+      "lectura_documental_no_oficial": "Reducción de curación recibida por un tercio",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "No es daño adicional; exige redondeo para valores no divisibles por tres, pendiente de regla general.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1767
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 236,
+      "nombre_literal": "Maldición de pesadumbre",
+      "lectura_documental_no_oficial": "Maldición que aumenta cualquier daño recibido",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "Añade 2d6 por cada fuente de daño que hiera al objetivo; no limitar automáticamente al daño de ataques.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1775
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 237,
+      "nombre_literal": "Muro de fuerza",
+      "lectura_documental_no_oficial": "Muro de fuerza dimensional y mantenido por concentración",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Máximo 6 m ancho × 4 m alto × 2 m grosor; bloquea Nivel 6 o inferior y ataques mágicos, excepción de Proyectiles mágicos. No añadir Salud.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1782
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 238,
+      "nombre_literal": "Múltiples brazos de Khalakk",
+      "lectura_documental_no_oficial": "Ataques a cada objetivo al alcance cuando el beneficiario no se mueve",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Se activa por Turno de inmovilidad; no es una cantidad fija de brazos ni ataques sin límite de objetivos alcanzables.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1789
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 239,
+      "nombre_literal": "Muralla de hielo",
+      "lectura_documental_no_oficial": "Muro de hielo moldeable de hasta 300 m²",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "No se especifica grosor. Bloquea criaturas de Nivel 3 o menos; 2d6 de frío al atravesar y doble a criaturas de fuego o adaptadas al calor.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1796
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 240,
+      "nombre_literal": "Mirada de la verdad",
+      "lectura_documental_no_oficial": "Visión verdadera para detectar ilusiones y transformaciones",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Permite percibir puertas secretas, invisibilidad y oscuridad sin Tirada adicional especificada.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1803
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 241,
+      "nombre_literal": "Mandato divino",
+      "lectura_documental_no_oficial": "Mandato con Maldición al resistirse",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Si se resiste requiere Tirada de Conjuro; la Maldición permanece hasta cumplir la tarea. No interpretar como una tirada obligatoria si acepta.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1809
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 242,
+      "nombre_literal": "Muro de piedra",
+      "lectura_documental_no_oficial": "Muro sólido permanente con superficie moldeable 300 m²",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "El espacio de aparición debe quedar libre de criaturas y objetos; el texto no determina grosor del muro.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1815
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 243,
+      "nombre_literal": "Manto del inquebrantable",
+      "lectura_documental_no_oficial": "Defensa contra proyectiles mundanos no mágicos",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "El texto ejemplifica saetas, flechas y virotes pero cierra con «inmune a los ataques mundanos», más amplio. Registrar ambigüedad de alcance de inmunidad.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1822
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 244,
+      "nombre_literal": "Muro de espinas férreas",
+      "lectura_documental_no_oficial": "Muro de espinas en línea o anillo con daño por intento de cruce",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Línea 6 m por Nivel o anillo de radio 2 m por cada 2 Niveles; altura hasta 8 m. Daño 1d6 por Nivel con mitad en fallo; revisar redondeo del anillo.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1828
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 245,
+      "nombre_literal": "Metamorfosis suprema",
+      "lectura_documental_no_oficial": "Metamorfosis voluntaria con exclusiones y cambio por Turno",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Conserva Salud y mente, adopta rasgos físicos y ataques; puede cambiar de forma una vez por Turno. No copiar saberes mentales.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1836
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 246,
+      "nombre_literal": "Mordida de dragón",
+      "lectura_documental_no_oficial": "Mordida elemental con Tirada y daño por bloques de Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "En éxito 1d6 por cada 3 Niveles; elige elemento antes de lanzar. No inferir daño al fallar ni redondear sin fuente.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1843
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 247,
+      "nombre_literal": "Maldición permanente",
+      "lectura_documental_no_oficial": "Permanencia de una Maldición preexistente",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Éxito vuelve permanente una Maldición elegida; fallo no altera la maldición previa. El párrafo final comienza «fallas,» sin «Si», errata literal.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1848
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 248,
+      "nombre_literal": "Muro de huesos",
+      "lectura_documental_no_oficial": "Muro de huesos con daño al cruzar, Salud del muro y aura",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "advertencia_de_integracion": "Hasta 6 m de largo por Nivel, alto 3 m, grosor 1 m o anillo radio 3 m. Tiene Puntos de Golpe Nivel×10; daño por fuego o luz ambiguamente «lo reduce al doble de velocidad».",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1856
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 249,
+      "nombre_literal": "Maldición de sanación",
+      "lectura_documental_no_oficial": "Maldición que transforma sanaciones en daño",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "Solo conjuros y efectos de sanación; no curación natural ni regeneración innata.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1865
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 250,
+      "nombre_literal": "Mundo onírico",
+      "lectura_documental_no_oficial": "Coma onírico con Tiradas y contacto para interacción",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "advertencia_de_integracion": "La primera Tirada provoca coma; recibir daño obliga otra Tirada para sostenerlo; el contacto solo es necesario para entrar e interactuar en el sueño, no para conservar el coma.",
+      "fuente": {
+        "archivo": "69j-conjuros-alfabeticos-226-250.json",
+        "indice_encabezado": 1872
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}

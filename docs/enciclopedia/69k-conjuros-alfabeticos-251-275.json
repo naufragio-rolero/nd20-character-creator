@@ -1,0 +1,820 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 11,
+  "indices_tomo": [
+    251,
+    275
+  ],
+  "fuente": {
+    "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "estado": "transcripcion_literal_completa_de_cada_ficha",
+  "registros": [
+    {
+      "numero_tomo": 251,
+      "nombre_literal": "Manto encarnado de sangre",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1882,
+        "indice_ultimo_parrafo": 1891,
+        "indice_inicio_doc": 131785,
+        "indice_fin_doc": 132416
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "Magia de sangre",
+        "Invocas un manto espectral de sangre que emana de la esencia vital de los seres a tu alrededor, envolviéndote en una capa de energía carmesí. Mientras el conjuro esté activo, obtienes los siguientes beneficios:",
+        "Cada vez que una criatura te hiera con un ataque cuerpo a cuerpo, puedes desprender parte de tu Manto para causar 1d8 de daño impío de forma automática.",
+        "Eres resistente al daño impío.",
+        "Obtienes Ventaja en aquellas Tiradas contra efectos que intenten dañarte mentalmente o interrumpir tus acciones."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-428",
+          "circulo": 3,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Sangromancia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 252,
+      "nombre_literal": "Maldición de vínculo sanguíneo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1892,
+        "indice_ultimo_parrafo": 1900,
+        "indice_inicio_doc": 132417,
+        "indice_fin_doc": 133183
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 18m",
+        "Duración: 1 hora",
+        "Magia de sangre",
+        "Maldición",
+        "Creas un vínculo macabro entre tu sangre y la de una criatura que puedas ver dentro del alcance. Mientras el conjuro esté activo, el objetivo sufre 1d8 puntos de daño impío adicional cada vez que sea golpeado por un ataque. Sin embargo, cada vez que esto ocurre, tú también recibes 1d4 puntos de daño impío, que no puede ser reducido de ninguna forma.",
+        "Mientras estés vinculado al objetivo, eres consciente de su localización en todo momento y tienes Ventaja en cualquier Tirada que realices con el fin de encontrarlo. Si el objetivo muere antes de que termine el conjuro, puedes transferir la maldición a una nueva criatura dentro del alcance."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-429",
+          "circulo": 4,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Sangromancia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 253,
+      "nombre_literal": "Maldición de debilidad",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1901,
+        "indice_ultimo_parrafo": 1907,
+        "indice_inicio_doc": 133184,
+        "indice_fin_doc": 133455
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 10 metros",
+        "Duración: 1d4 Turnos",
+        "Maldición",
+        "Hebras de energía demoníaca rodean la personalidad de la criatura objetivo, debilitando su cuerpo y su mente, haciendo que cause la mitad de daño con sus ataques."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-102",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 254,
+      "nombre_literal": "Maldición del caos",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1908,
+        "indice_ultimo_parrafo": 1914,
+        "indice_inicio_doc": 133456,
+        "indice_fin_doc": 133885
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 10 metros",
+        "Duración: 1d4 Turnos",
+        "Maldición",
+        "Proyectas tu poder mágico sobre la personalidad del objetivo, infundiendo pensamientos ficticios de inutilidad y desesperación. Cuando el objetivo realice una acción hostil contra otra criatura, realiza una Tirada de Conjuro: si tienes éxito, el objetivo realiza la tirada con Desventaja u otorga Ventaja, según corresponda."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-96",
+          "circulo": 4,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 255,
+      "nombre_literal": "Neblinificación",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1916,
+        "indice_ultimo_parrafo": 1921,
+        "indice_inicio_doc": 133888,
+        "indice_fin_doc": 134348
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Demonología",
+        "Alcance: toque",
+        "Duración: 1 Intervalo por Nivel",
+        "Tu cuerpo se deshace en un gas translúcido, pesado y húmedo, consciente de sí mismo. Mientras estés en esta forma, tu Movimento se ajusta a 3 y puedes atravesar puertas, ventanas, rejas o aberturas en las paredes. Sin embargo, no eres tangible ni puedes lanzar conjuros mientras estés en esta forma, y eres susceptible a corrientes de aire o ráfagas climáticas."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-259",
+          "circulo": 3,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 256,
+      "nombre_literal": "Niebla",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1922,
+        "indice_ultimo_parrafo": 1930,
+        "indice_inicio_doc": 134349,
+        "indice_fin_doc": 135106
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "Invocas una niebla espesa y gris que envuelve el área a tu alrededor, dificultando la percepción y protegiendo a quienes se encuentran en su interior. Esta nube de niebla pesada y opaca ocupa un área equivalente a 8m2 a tu alrededor. Mientras dure el conjuro.",
+        "Todas las Tiradas de Intuición relacionadas con la vista sufren Desventaja.",
+        "Los ataques a distancia realizados desde fuera hacia el interior del área fallan inmediatamente, a no ser que sean proyectiles explosivos como bombas o morteros, cuyo efecto tendrá una Probabilidad 11+ de fallar.",
+        "La niebla se desplaza lentamente con el viento y contigo, pero su densidad permanece constante mientras dure el conjuro."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-191",
+          "circulo": 5,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 257,
+      "nombre_literal": "Niebla carmesí",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1931,
+        "indice_ultimo_parrafo": 1937,
+        "indice_inicio_doc": 135107,
+        "indice_fin_doc": 135652
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 12m",
+        "Duración: 2d6 Turnos",
+        "Generas en tus pulmones un gas maligno procedente de un plano letal. Vomitas un cono, de 10m2 de diámetro, de niebla rojiza que quema la piel y consume el espíritu. Esta área no se moverá y permanecerá latente durante la duración del sortilegio.",
+        "Todo aquel que entre en —o permanezca en el interior de— la zona neblinosa sufrirá 4d12 de daño impío y tú recuperarás la mitad de daño causado como Puntos de Salud. Eres inmune a los efectos de la Niebla carmesí."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-58",
+          "circulo": 7,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 258,
+      "nombre_literal": "Nimbo humeante",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1938,
+        "indice_ultimo_parrafo": 1944,
+        "indice_inicio_doc": 135653,
+        "indice_fin_doc": 136276
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 8 metros a tu alrededor",
+        "Duración: Concentración, hasta un Intervalo",
+        "Creas una turbulenta nube asfixiante de humo y ceniza que abrasa el aire a tu alrededor. Este nimbo tóxico se va moviendo 3 metros en la dirección que elijas cada Turno que mantengas la concentración, quemando a todo aquel que se encuentra en el radio de acción. Se disipará si así lo deseas mediante una acción o si se encuentra con un viento fuerte.",
+        "Realiza una Tirada de Conjuro por cada objetivo engullido por el Nimbo humeante: causas 10d12 de daño por fuego si la superas o la mitad si no."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-110",
+          "circulo": 7,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 259,
+      "nombre_literal": "Nube de aniquilación",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1945,
+        "indice_ultimo_parrafo": 1950,
+        "indice_inicio_doc": 136277,
+        "indice_fin_doc": 136704
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 10 metros",
+        "Duración: 1 Turno por Nivel",
+        "Transformas el aire a tu alrededor en una nube tóxica de 3m2 de radio que puedes desplazar 3 metros cada Turno en la dirección que desees, aunque no podrás realizar otras acciones mientras la controlas. Cualquier criatura de Nivel 8 o inferior que se encuentre dentro de la Nube de aniquilación al inicio de su Turno perece."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-309",
+          "circulo": 5,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 260,
+      "nombre_literal": "Nube de polen somnífero",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1951,
+        "indice_ultimo_parrafo": 1956,
+        "indice_inicio_doc": 136705,
+        "indice_fin_doc": 137168
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 18 metros",
+        "Duración: 1 Turno por Nivel",
+        "Conjuras una nube de polen que cubre un área de 6m2 alrededor del punto de impacto, adormeciendo a todas las criaturas alrededor. Realiza una Tirada de Conjuro por cada una de las criaturas en el área de efecto: si tienes éxito, cae dormida durante la duración del conjuro. Las criaturas dormidas no pueden realizar acciones y se despiertan si reciben daño."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-152",
+          "circulo": 3,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 261,
+      "nombre_literal": "Nube tóxica",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1957,
+        "indice_ultimo_parrafo": 1963,
+        "indice_inicio_doc": 137169,
+        "indice_fin_doc": 137632
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 10 metros",
+        "Duración: 1 Turno por Nivel",
+        "Del suelo de un punto al alcance surge un banco de niebla repugnante de unos 6m3. Cualquier ser vivo que se halle dentro de la nube sufre terribles náuseas: realiza una Tirada de Conjuro por víctima, y si tienes éxito no pueden hacer nada salvo toser, vomitar y/o arrastrarse fuera de ahí. ",
+        "Las náuseas continuarán 2d4 Turnos adicionales tras abandonar la Nube tóxica."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-250",
+          "circulo": 2,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 262,
+      "nombre_literal": "Ojo de la tormenta",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1965,
+        "indice_ultimo_parrafo": 1976,
+        "indice_inicio_doc": 137635,
+        "indice_fin_doc": 139274
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Elemental",
+        "Lanzamiento: 2 Intervalos",
+        "Alcance: 5km2 alrededor del lanzador",
+        "Duración: 1 día por Nivel",
+        "Canalizas el poder de los elementos para dominar completamente el clima en un área a tu alrededor. Todos los efectos climáticos son absorbidos y anulados, creando un estado de calma absoluta: el viento se detiene, la temperatura se estabiliza, el cielo queda despejado y no hay precipitaciones de ningún tipo.",
+        "Puedes liberar partes del clima almacenado (viento, lluvia, tormentas eléctricas, calor extremo, etc.) en cualquier momento gastando una acción, provocando manifestaciones climatológicas violentas en un área de hasta 1km2 dentro de la zona afectada. Puedes elegir cualquiera de estas manifestaciones un total de 1d6 veces mientras el efecto del Ojo de la tormenta esté activo.",
+        "Viento huracanado: las criaturas con un tamaño igual o inferior a un bovino grande deben superar una Tirada de Fuerza (o Probabilidad 15+) o ser derribadas.",
+        "Tormenta de lluvia y relámpagos: provocas que caigan 1d4 rayos que infligen 10d10 de daño por relámpago a todas las criaturas en un área de 10m2 alrededor del impacto.",
+        "Frío extremo o calor abrasador: todas las criaturas sufren 14d6 de daño por frío o fuego al comienzo de cada Turno mientras permanezcan en el área.",
+        "Los efectos liberados duran hasta que el conjuro termine o el lanzador decida cancelarlos. Este poder puede alterar dramáticamente los ecosistemas locales, atrayendo la atención de entidades naturales o divinas. Usar este conjuro para desatar el caos climático puede generar consecuencias irreversibles, tanto políticas como ambientales."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-213",
+          "circulo": 8,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 263,
+      "nombre_literal": "Ojo de Taiuhn",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1977,
+        "indice_ultimo_parrafo": 1984,
+        "indice_inicio_doc": 139275,
+        "indice_fin_doc": 139947
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "A través de un profundo rito, proyectas tu mente hacia la Urdimbre arcana que envuelve el mundo, observando y comprendiendo los secretos de los conjuros lanzados a tu alrededor. Al finalizar el ritual, puedes replicar cualquier conjuro que hayas visto y escuchado lanzar, al mismo Nivel que fue utilizado, pagando el coste correspondiente.",
+        "Ejemplo: Durante un combate, un enemigo lanza Cadena de relámpagos del Sexto Círculo. Si has presenciado el lanzamiento y comprendes su funcionamiento, puedes usar este conjuro para replicarlo, lanzándolo al mismo nivel."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-200",
+          "circulo": 6,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 264,
+      "nombre_literal": "Ola salvaje",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1985,
+        "indice_ultimo_parrafo": 1990,
+        "indice_inicio_doc": 139948,
+        "indice_fin_doc": 140491
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Elemental",
+        "Alcance: hasta 10 metros",
+        "Un torrente de agua marina emerge con fuerza frente a ti, ocupando un área de 4m² adyacente. La ola se desplaza con violencia, avanzando hasta 10 metros (4 casillas) en línea recta, arrasando todo lo que encuentra a su paso.",
+        "Cada criatura golpeada por la ola sufre 4d6 de daño por frío y queda Empapada (-2 Movimiento, resiste daño por fuego, débil a daño por relámpago) durante 1 Intervalo. Todo fuego sofocable por agua en el trayecto de la ola se extingue de inmediato."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-180",
+          "circulo": 4,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 265,
+      "nombre_literal": "Oleada aérea",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1991,
+        "indice_ultimo_parrafo": 1995,
+        "indice_inicio_doc": 140492,
+        "indice_fin_doc": 140737
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 3 metros por Nivel",
+        "Convocas una ventolera poderosa que extingue llamas pequeñas, arrastra animales desprevenidos y detiene, en seco, el movimiento de criaturas de tamaño Humano o inferior."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-271",
+          "circulo": 3,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 266,
+      "nombre_literal": "Olvido",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1996,
+        "indice_ultimo_parrafo": 2002,
+        "indice_inicio_doc": 140738,
+        "indice_fin_doc": 141347
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: toque",
+        "Nictomancia",
+        "Con tu presencia blasfema, te adentras en la psique del objetivo, explorando sus recuerdos como quien recorre una biblioteca polvorienta. Realiza una Tirada de Conjuro: al encontrar el recuerdo deseado, puedes borrarlo por completo de su memoria, sumiéndolo en un olvido absoluto.",
+        "Sin embargo, el recuerdo no se pierde para siempre. Si no has superado la Tirada, podrá recuperarlo gradualmente con el tiempo, como fragmentos de un sueño distante. Otros métodos curativos y mágicos, como la Recuperación divina, pueden anular estos efectos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-192",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 267,
+      "nombre_literal": "Onda atronadora",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2003,
+        "indice_ultimo_parrafo": 2008,
+        "indice_inicio_doc": 141348,
+        "indice_fin_doc": 141802
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Elemental",
+        "Alcance: 2m alrededor de ti",
+        "Pisoteas el suelo con fuerza y una onda de energía sónica surge del impacto. Si superas una Tirada de Conjuro, causas 1d8 de daño sónico y empujas a cualquier criatura de tamaño similar a un humano 4 metros lejos de ti.",
+        "Los objetos no sujetos dentro del alcance del conjuro son empujados 6 metros y el ruido provocado por la Onda atronadora se escucha en un área de 45 metros."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-69",
+          "circulo": 1,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 268,
+      "nombre_literal": "Orbe devoramagia mayor",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2009,
+        "indice_ultimo_parrafo": 2015,
+        "indice_inicio_doc": 141803,
+        "indice_fin_doc": 142379
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "Invocas una esfera luminosa de energía arcana inversa con un radio de 6 metros a tu alrededor, que anula cualquier sortilegio del Quinto Círculo o inferior dirigido hacia ti o hacia las criaturas dentro del orbe. Los conjuros absorbidos por el Orbe devoramagia mayor se desintegran, dejando tras de sí un rastro de polvo etéreo.",
+        "El orbe permanece estático en el lugar donde fue conjurado y no se mueve contigo. A pesar de su potencia, puede ser disipado mediante Disipar Magia."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-317",
+          "circulo": 6,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 269,
+      "nombre_literal": "Orbe devoramagia menor",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2016,
+        "indice_ultimo_parrafo": 2022,
+        "indice_inicio_doc": 142380,
+        "indice_fin_doc": 142904
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "Generas una esfera de energía arcana inversa que absorbe cualquier traza de sortilegio en un radio de 4 metros a tu alrededor. Cualquier hechizo, del Tercer Círculo o inferior, lanzado hacia ti o cualquier criatura que esté en el interior del Orbe devoramagia, será desintegrado y convertido en polvo translúcido.",
+        "No puedes mover el Orbe y, a pesar de sus cualidades para absorber magia, puede ser anulado con Disipar magia."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-274",
+          "circulo": 4,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 270,
+      "nombre_literal": "Orbe elemental",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2023,
+        "indice_ultimo_parrafo": 2029,
+        "indice_inicio_doc": 142905,
+        "indice_fin_doc": 143514
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Elemental",
+        "Alcance: 4 metros",
+        "Duración: 1 Turno + 1 Turno por Nivel",
+        "Conjuras una esfera de fuego ardiente, escarcha gélida o rayos electrizantes —debes elegir su elemento en el momento de lanzarlo— en un punto dentro del alcance. Este orbe comenzará a girar sobre sí mismo y a moverse 2 metros en una dirección que elijas (adelante, atrás, derecha o izquierda). Mantendrá el rumbo hasta que el conjuro finalice o sea disipado.",
+        "Cada criatura que entre en contacto con el área de efecto del orbe —su interior y 2 metros a su alrededor— sufre 1d8 de daño elemental por Nivel."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-48",
+          "circulo": 5,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 271,
+      "nombre_literal": "Orbe tenebroso",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2030,
+        "indice_ultimo_parrafo": 2035,
+        "indice_inicio_doc": 143515,
+        "indice_fin_doc": 143835
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 10 metros",
+        "Duración: 1 Turno por Nivel",
+        "Conjuras una nube oscura y ominosa que envuelve la vista del objetivo, sumiéndolo en una ceguera total. Realiza una Tirada de Conjuro: si tienes éxito, el objetivo queda Cegado, incapaz de percibir su entorno visualmente."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-143",
+          "circulo": 2,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 272,
+      "nombre_literal": "Palabra de Custodia: Corrupción",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2037,
+        "indice_ultimo_parrafo": 2043,
+        "indice_inicio_doc": 143838,
+        "indice_fin_doc": 144366
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Demonología",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "De las profundidades corruptas de Rasmalk extraes un pedazo de oración blasfema y la cristalizas en el interior de una criatura viva. Esta astilla simbólica le volverá resistente —una bonificación a las Tiradas equivalente a la mitad de tu Nivel— a las criaturas vinculadas a lo «Corrupto», como los Demonios o los Muertos vivientes. ",
+        "Esta bonificación no se aplica a las Tiradas de Blindaje ni a las Tiradas de Daño."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-227",
+          "circulo": 1,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 273,
+      "nombre_literal": "Palabra de Custodia: Loriga",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2044,
+        "indice_ultimo_parrafo": 2050,
+        "indice_inicio_doc": 144367,
+        "indice_fin_doc": 144830
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: 1 Intervalo por Nivel",
+        "Observas unos ropajes y, mediante la voz de lo divino, obligas a esos retales y tejidos a endurecerse por orden celestial. La ropa que hayas elegido obtiene +1 Blindaje por cada 4 de tus Niveles, hasta un máximo de +5.",
+        "Esta bonificación no se acumula con ninguna otra fuente de Blindaje, como armaduras, escudos, objetos mágicos u otros efectos de conjuros."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-267",
+          "circulo": 3,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 274,
+      "nombre_literal": "Palabra de Custodia: Rectitud",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2051,
+        "indice_ultimo_parrafo": 2057,
+        "indice_inicio_doc": 144831,
+        "indice_fin_doc": 145307
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "Alojas en el interior de una criatura viva una pizca de la voz celestial de tu Espíritu deífico. Este fragmento simbólico le volverá resistente —una bonificación a las Tiradas equivalente a la mitad de tu Nivel— a las criaturas vinculadas a lo «Sagrado», como los Celestiales y las Fatas. ",
+        "Esta bonificación no se aplica a las Tiradas de Blindaje ni a las Tiradas de Daño."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-228",
+          "circulo": 1,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 275,
+      "nombre_literal": "Palabra de Custodia: Retorno",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2058,
+        "indice_ultimo_parrafo": 2063,
+        "indice_inicio_doc": 145308,
+        "indice_fin_doc": 145690
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: personal",
+        "Cuando memorizas este Conjuro, grabas una impronta arcana en el lugar dónde lo haces. Al momento de lanzarlo y liberar su energía a la Urdimbre, eres absorbido por un túnel cuántico que te devuelve de nuevo a aquel sitio. No puedes llevar a nadie contigo, salvo tus objetos y equipo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-319",
+          "circulo": 6,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    }
+  ]
+}

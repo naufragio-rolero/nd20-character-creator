@@ -1,0 +1,215 @@
+{
+  "id": "OCP-01",
+  "estado": "aprobado_por_autor_pendiente_actualizacion_manual_fuente",
+  "fecha": "2026-10-29",
+  "ocupacion": "Valquiria",
+  "talento": "Poderío de la Reina",
+  "decision": "Prevalece el texto literal del Talento frente a la tabla histórica",
+  "niveles_mejora": [
+    6,
+    12,
+    18,
+    24,
+    30
+  ],
+  "nivel_base": 1,
+  "duracion_base": "1d6 Turnos",
+  "recuperacion_base": "1d4 Puntos de Salud al final del Turno",
+  "regla": "En cada nivel de mejora se añade un dado a duración (d6) y a Salud recuperada (d4).",
+  "fuente_historica": {
+    "archivo": "NaufragioD20 — Ocupaciones.docx",
+    "parrafo_talento": 312,
+    "tabla_word": 7,
+    "umbrales_incorrectos": [
+      6,
+      11,
+      16,
+      21,
+      26
+    ]
+  },
+  "preservar": "Columna Técnicas original; no editar otros efectos, costes, condiciones ni consecuencias",
+  "tabla_corregida_por_nivel": [
+    {
+      "nivel": 1,
+      "tecnicas": 1,
+      "duracion_poderio": "1d6",
+      "salud_poderio": "1d4"
+    },
+    {
+      "nivel": 2,
+      "tecnicas": 1,
+      "duracion_poderio": "1d6",
+      "salud_poderio": "1d4"
+    },
+    {
+      "nivel": 3,
+      "tecnicas": 1,
+      "duracion_poderio": "1d6",
+      "salud_poderio": "1d4"
+    },
+    {
+      "nivel": 4,
+      "tecnicas": 1,
+      "duracion_poderio": "1d6",
+      "salud_poderio": "1d4"
+    },
+    {
+      "nivel": 5,
+      "tecnicas": 1,
+      "duracion_poderio": "1d6",
+      "salud_poderio": "1d4"
+    },
+    {
+      "nivel": 6,
+      "tecnicas": 2,
+      "duracion_poderio": "2d6",
+      "salud_poderio": "2d4"
+    },
+    {
+      "nivel": 7,
+      "tecnicas": 2,
+      "duracion_poderio": "2d6",
+      "salud_poderio": "2d4"
+    },
+    {
+      "nivel": 8,
+      "tecnicas": 2,
+      "duracion_poderio": "2d6",
+      "salud_poderio": "2d4"
+    },
+    {
+      "nivel": 9,
+      "tecnicas": 2,
+      "duracion_poderio": "2d6",
+      "salud_poderio": "2d4"
+    },
+    {
+      "nivel": 10,
+      "tecnicas": 2,
+      "duracion_poderio": "2d6",
+      "salud_poderio": "2d4"
+    },
+    {
+      "nivel": 11,
+      "tecnicas": 3,
+      "duracion_poderio": "2d6",
+      "salud_poderio": "2d4"
+    },
+    {
+      "nivel": 12,
+      "tecnicas": 3,
+      "duracion_poderio": "3d6",
+      "salud_poderio": "3d4"
+    },
+    {
+      "nivel": 13,
+      "tecnicas": 3,
+      "duracion_poderio": "3d6",
+      "salud_poderio": "3d4"
+    },
+    {
+      "nivel": 14,
+      "tecnicas": 3,
+      "duracion_poderio": "3d6",
+      "salud_poderio": "3d4"
+    },
+    {
+      "nivel": 15,
+      "tecnicas": 3,
+      "duracion_poderio": "3d6",
+      "salud_poderio": "3d4"
+    },
+    {
+      "nivel": 16,
+      "tecnicas": 4,
+      "duracion_poderio": "3d6",
+      "salud_poderio": "3d4"
+    },
+    {
+      "nivel": 17,
+      "tecnicas": 4,
+      "duracion_poderio": "3d6",
+      "salud_poderio": "3d4"
+    },
+    {
+      "nivel": 18,
+      "tecnicas": 4,
+      "duracion_poderio": "4d6",
+      "salud_poderio": "4d4"
+    },
+    {
+      "nivel": 19,
+      "tecnicas": 4,
+      "duracion_poderio": "4d6",
+      "salud_poderio": "4d4"
+    },
+    {
+      "nivel": 20,
+      "tecnicas": 4,
+      "duracion_poderio": "4d6",
+      "salud_poderio": "4d4"
+    },
+    {
+      "nivel": 21,
+      "tecnicas": 5,
+      "duracion_poderio": "4d6",
+      "salud_poderio": "4d4"
+    },
+    {
+      "nivel": 22,
+      "tecnicas": 5,
+      "duracion_poderio": "4d6",
+      "salud_poderio": "4d4"
+    },
+    {
+      "nivel": 23,
+      "tecnicas": 5,
+      "duracion_poderio": "4d6",
+      "salud_poderio": "4d4"
+    },
+    {
+      "nivel": 24,
+      "tecnicas": 5,
+      "duracion_poderio": "5d6",
+      "salud_poderio": "5d4"
+    },
+    {
+      "nivel": 25,
+      "tecnicas": 5,
+      "duracion_poderio": "5d6",
+      "salud_poderio": "5d4"
+    },
+    {
+      "nivel": 26,
+      "tecnicas": 6,
+      "duracion_poderio": "5d6",
+      "salud_poderio": "5d4"
+    },
+    {
+      "nivel": 27,
+      "tecnicas": 6,
+      "duracion_poderio": "5d6",
+      "salud_poderio": "5d4"
+    },
+    {
+      "nivel": 28,
+      "tecnicas": 6,
+      "duracion_poderio": "5d6",
+      "salud_poderio": "5d4"
+    },
+    {
+      "nivel": 29,
+      "tecnicas": 6,
+      "duracion_poderio": "5d6",
+      "salud_poderio": "5d4"
+    },
+    {
+      "nivel": 30,
+      "tecnicas": 6,
+      "duracion_poderio": "6d6",
+      "salud_poderio": "6d4"
+    }
+  ],
+  "advertencia": "La tabla original permanece en 19a-extraccion-ocupaciones-lote-2.json. Este archivo registra la versión aprobada; no implica modificación del DOCX original ni del código de Forja."
+}

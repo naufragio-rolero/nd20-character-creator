@@ -1,0 +1,485 @@
+{
+  "fecha": "2026-10-30",
+  "alcance": "Desglose mecánico documental de los Conjuros 1–25. Las categorías analíticas no son nuevos términos del juego.",
+  "regla_de_lectura": "Las citas son fragmentos literales localizados y validados; los avisos no reemplazan al texto completo ni establecen reglas nuevas.",
+  "numero_registros": 25,
+  "numero_fragmentos": 75,
+  "registros": [
+    {
+      "numero_tomo": 1,
+      "nombre": "Acelerar",
+      "tipo_analitico_no_oficial": "mejora temporal de acciones y movimiento",
+      "fragmentos_reglamentarios_literales": [
+        "1 acción adicional por Turno (atacar o moverse)",
+        "duplicas su Movimiento fuera de Combate",
+        "solo puede beneficiarse de un efecto de Acelerar al mismo tiempo"
+      ],
+      "advertencias_de_integracion": [
+        "No asignar dos acciones extra al acumular el Conjuro."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 1,
+        "indice_encabezado": 109
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 2,
+      "nombre": "Adarga de hielo",
+      "tipo_analitico_no_oficial": "escudo y Blindaje temporal",
+      "fragmentos_reglamentarios_literales": [
+        "Escudo mediano",
+        "aunque no tengas competencia con escudos",
+        "+1 Blindaje",
+        "+2 a la Tirada",
+        "se reducirá en 1d4 Turnos su duración"
+      ],
+      "advertencias_de_integracion": [
+        "La pérdida de duración depende de sufrir daño de fuego o calor; no es una pérdida general."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 2,
+        "indice_encabezado": 117
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 3,
+      "nombre": "Aguijón impío",
+      "tipo_analitico_no_oficial": "daño condicionado por Tirada",
+      "fragmentos_reglamentarios_literales": [
+        "1d6 de daño por veneno e impío",
+        "si superas una Tirada de Conjuro"
+      ],
+      "advertencias_de_integracion": [
+        "El texto no separa 1d6 para cada tipo de daño."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 3,
+        "indice_encabezado": 124
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 4,
+      "nombre": "Agujero negro",
+      "tipo_analitico_no_oficial": "área, desplazamiento y daño al finalizar",
+      "fragmentos_reglamentarios_literales": [
+        "radio de 4 metros",
+        "arrastrada 2 metros",
+        "1d6 de daño mágico por Nivel",
+        "Cuando agota su duración",
+        "1d8 de daño mágico por Nivel"
+      ],
+      "advertencias_de_integracion": [
+        "El radio del estallido final no se cifra separadamente: no asignar automáticamente otro valor."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 4,
+        "indice_encabezado": 129
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 5,
+      "nombre": "Ajuar codicioso de Penderthorn",
+      "tipo_analitico_no_oficial": "ilusión de tesoros y detección probabilística",
+      "fragmentos_reglamentarios_literales": [
+        "ilusión mágica que duplica su tamaño y apariencia",
+        "Probabilidad 6 + tu Nivel"
+      ],
+      "advertencias_de_integracion": [
+        "Mantener Probabilidad 6 + tu Nivel como fórmula literal; no inferir límite máximo."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 5,
+        "indice_encabezado": 136
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 6,
+      "nombre": "Albor de la vida",
+      "tipo_analitico_no_oficial": "asistencia al parto y neutralización temporal",
+      "fragmentos_reglamentarios_literales": [
+        "Lanzamiento: 4 Turnos",
+        "Probabilidad 10+",
+        "neutralizarla temporalmente",
+        "Gigante, Bestia, Humanoide o Fata"
+      ],
+      "advertencias_de_integracion": [
+        "No convertir el efecto en curación general, ni en eliminación definitiva de dolencias."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 6,
+        "indice_encabezado": 142
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 7,
+      "nombre": "Aliento de agonía",
+      "tipo_analitico_no_oficial": "daño de frío e impío",
+      "fragmentos_reglamentarios_literales": [
+        "2d6 puntos de daño por frío e impío"
+      ],
+      "advertencias_de_integracion": [
+        "No consta Tirada de Salvación adicional; no inventarla."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 7,
+        "indice_encabezado": 152
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 8,
+      "nombre": "Aliento de Lenseng",
+      "tipo_analitico_no_oficial": "respiración acuática con incompatibilidad",
+      "fragmentos_reglamentarios_literales": [
+        "pueda respirar bajo el agua",
+        "incapaz de respirar con normalidad aire"
+      ],
+      "advertencias_de_integracion": [
+        "Registrar ambos efectos, no sólo el positivo."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 8,
+        "indice_encabezado": 157
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 9,
+      "nombre": "Alivio pasajero",
+      "tipo_analitico_no_oficial": "alivio temporal de síntomas",
+      "fragmentos_reglamentarios_literales": [
+        "Este conjuro no elimina la dolencia",
+        "un período libre de molestias"
+      ],
+      "advertencias_de_integracion": [
+        "No atribuir curación de la enfermedad."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 9,
+        "indice_encabezado": 163
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 10,
+      "nombre": "Alterar el ser",
+      "tipo_analitico_no_oficial": "transformación corporal permanente",
+      "fragmentos_reglamentarios_literales": [
+        "Duración: permanente",
+        "No puedes añadir o quitar masa al objetivo más allá de un 30%"
+      ],
+      "advertencias_de_integracion": [
+        "El alcance de posibles modificaciones es abierto y requiere criterio del Cronista antes de automatizar."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 10,
+        "indice_encabezado": 170
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 11,
+      "nombre": "Alzar brezo espinoso",
+      "tipo_analitico_no_oficial": "invocación autónoma",
+      "fragmentos_reglamentarios_literales": [
+        "atacando a los enemigos más cercanos al final de cada Ronda",
+        "Solo puedes tener un Brezo espinoso"
+      ],
+      "advertencias_de_integracion": [
+        "No inventar estadísticas del Brezo; consultar Bestiario."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 11,
+        "indice_encabezado": 177
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 12,
+      "nombre": "Alzar cráneo reptante",
+      "tipo_analitico_no_oficial": "animación de restos, recurso material y límite",
+      "fragmentos_reglamentarios_literales": [
+        "Necesitas el cráneo de una criatura muerta",
+        "se levantará al siguiente Turno",
+        "Sólo puedes tener un Cráneo reptante"
+      ],
+      "advertencias_de_integracion": [
+        "El requisito material no es un coste monetario."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 12,
+        "indice_encabezado": 184
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 13,
+      "nombre": "Alzar esqueleto secuaz",
+      "tipo_analitico_no_oficial": "invocación con máximo escalado",
+      "fragmentos_reglamentarios_literales": [
+        "tantos esqueletos secuaces como la mitad de tu Nivel (mínimo 1)"
+      ],
+      "advertencias_de_integracion": [
+        "El texto no especifica redondeo de la mitad del Nivel."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 13,
+        "indice_encabezado": 192
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 14,
+      "nombre": "Alzar goblin de lodo",
+      "tipo_analitico_no_oficial": "invocación y subordinación a Iniciativa",
+      "fragmentos_reglamentarios_literales": [
+        "compartiendo tu Iniciativa",
+        "Explotará en un charco de lodo",
+        "Solo puedes tener un Goblin de lodo"
+      ],
+      "advertencias_de_integracion": [
+        "«Explota» en charco de lodo no especifica daño; no inventarlo."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 14,
+        "indice_encabezado": 200
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 15,
+      "nombre": "Alzar gólem de carne",
+      "tipo_analitico_no_oficial": "invocación y explosión opcional con coste",
+      "fragmentos_reglamentarios_literales": [
+        "Lanzamiento: 2 Turnos",
+        "Si gastas 1 Punto de Esfuerzo",
+        "1d10 de daño por Nivel",
+        "radio de 4 metros",
+        "Sólo puedes tener un Gólem de carne"
+      ],
+      "advertencias_de_integracion": [
+        "El 1 Punto de Esfuerzo se refiere a provocar la explosión, no necesariamente al lanzamiento."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 15,
+        "indice_encabezado": 208
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 16,
+      "nombre": "Alzar gólem de sangre",
+      "tipo_analitico_no_oficial": "invocación con sacrificio narrativo",
+      "fragmentos_reglamentarios_literales": [
+        "sacrificio a los demonios de la destrucción en forma de tu propia sangre",
+        "Sólo puedes tener un Gólem de sangre"
+      ],
+      "advertencias_de_integracion": [
+        "El texto no cuantifica pérdida de Salud por el sacrificio."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 16,
+        "indice_encabezado": 217
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 17,
+      "nombre": "Alzar hombre corrupto",
+      "tipo_analitico_no_oficial": "animación de cadáver maligno",
+      "fragmentos_reglamentarios_literales": [
+        "Necesitas el cuerpo de una criatura malvada",
+        "levantándose al siguiente Turno",
+        "Sólo puedes tener un Hombre corrupto"
+      ],
+      "advertencias_de_integracion": [
+        "Exige cadáver con atributo narrativo; no asignar una Tirada no descrita."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 17,
+        "indice_encabezado": 227
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 18,
+      "nombre": "Alzar maldito",
+      "tipo_analitico_no_oficial": "animación de cadáver maligno",
+      "fragmentos_reglamentarios_literales": [
+        "Necesitas el cuerpo de una criatura malvada",
+        "levantándose al siguiente Turno",
+        "Sólo puedes tener un Maldito"
+      ],
+      "advertencias_de_integracion": [
+        "No unificar el efecto con Alzar hombre corrupto: son criaturas distintas."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 18,
+        "indice_encabezado": 235
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 19,
+      "nombre": "Alzar treante",
+      "tipo_analitico_no_oficial": "invocación múltiple y límite simultáneo",
+      "fragmentos_reglamentarios_literales": [
+        "Necesitas un bastón de madera",
+        "1d4 treantes animados",
+        "Comparte tu Iniciativa",
+        "hasta 4 treantes animados"
+      ],
+      "advertencias_de_integracion": [
+        "No confundir el resultado de 1d4 con un límite de 1d4: máximo expresado es 4."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 19,
+        "indice_encabezado": 243
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 20,
+      "nombre": "Amistad animal",
+      "tipo_analitico_no_oficial": "control de animal y condición de Tirada",
+      "fragmentos_reglamentarios_literales": [
+        "animal no inteligente",
+        "órdenes sencillas que no pongan en peligro su vida",
+        "Si la bestia era hostil debes superar una Tirada de Conjuro"
+      ],
+      "advertencias_de_integracion": [
+        "La Tirada está condicionada a hostilidad, no es universal."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 20,
+        "indice_encabezado": 251
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 21,
+      "nombre": "Amparo contra el veneno",
+      "tipo_analitico_no_oficial": "resistencia al veneno",
+      "fragmentos_reglamentarios_literales": [
+        "Ventaja en las Tiradas de Salvación",
+        "reduce a la mitad el daño por veneno"
+      ],
+      "advertencias_de_integracion": [
+        "No equivale a inmunidad al veneno."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 21,
+        "indice_encabezado": 257
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 22,
+      "nombre": "Ancla sombría",
+      "tipo_analitico_no_oficial": "daño inicial y Parálisis",
+      "fragmentos_reglamentarios_literales": [
+        "si tienes éxito",
+        "1d8 de daño impío por Nivel",
+        "queda Paralizada",
+        "El daño se provoca en el primer Turno",
+        "Sólo puedes tener un Ancla sombría activa"
+      ],
+      "advertencias_de_integracion": [
+        "El daño no se repite cada Turno; el texto lo sitúa en el primero."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 22,
+        "indice_encabezado": 263
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 23,
+      "nombre": "Antídoto natural",
+      "tipo_analitico_no_oficial": "segunda oportunidad para soportar veneno",
+      "fragmentos_reglamentarios_literales": [
+        "envenenada durante las últimas 12 horas",
+        "haya fallado la Tirada de Resistencia",
+        "puede volver a tirar de nuevo"
+      ],
+      "advertencias_de_integracion": [
+        "No elimina automáticamente el Veneno."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 23,
+        "indice_encabezado": 270
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 24,
+      "nombre": "Apagallamas",
+      "tipo_analitico_no_oficial": "supresión de fuego y daño a criaturas de fuego",
+      "fragmentos_reglamentarios_literales": [
+        "área de 15m2",
+        "cualquier fuego no mágico",
+        "fuego mágico creado por un único objeto",
+        "debes superar una Tirada de Conjuro",
+        "1d4 de daño por Nivel"
+      ],
+      "advertencias_de_integracion": [
+        "No transformar «15m2» en radio de 15 metros; no presupone forma geométrica.",
+        "La Tirada de Conjuro es para disipar Conjuros de fuego, no para apagar todo fuego no mágico."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 24,
+        "indice_encabezado": 275
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    },
+    {
+      "numero_tomo": 25,
+      "nombre": "Apertura arcana",
+      "tipo_analitico_no_oficial": "apertura de cerraduras según Nivel",
+      "fragmentos_reglamentarios_literales": [
+        "Nivel igual o inferior al tuyo se abren automáticamente",
+        "para las de Nivel superior has de superar una Tirada de Conjuro",
+        "regla de Enemigos superiores"
+      ],
+      "advertencias_de_integracion": [
+        "No extrapolar tipos de dificultad o nivel de cerradura que no constan en el texto."
+      ],
+      "fuente": {
+        "archivo": "69a-conjuros-alfabeticos-001-025.json",
+        "indice": 25,
+        "indice_encabezado": 281
+      },
+      "estado": "desglose_manual_cotejado_con_evidencia"
+    }
+  ]
+}

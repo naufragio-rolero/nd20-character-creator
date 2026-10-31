@@ -1,0 +1,104 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "id": "15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28",
+    "revision": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ"
+  },
+  "ocupacion": "Cazador de monstruos",
+  "registros": [
+    {
+      "talento": "Ojo del cazador",
+      "activacion": "Especial",
+      "parrafos_fuente": [
+        644,
+        651
+      ],
+      "texto_literal": "Durante muchos años, has perfeccionado tu habilidad para cazar lo sobrenatural. Monstruos, vampiros, demonios, te da igual, todos tienen una debilidad concreta que sabes explotar.\nEres capaz de identificar marcas, manchas, olores y restos de criaturas sobrenaturales que hayas estudiado en el pasado, y serás capaz de dar una descripción detallada sobre sus habilidades y costumbres. Para ello, siempre que te encuentres con un rastro de una posible criatura sobrenatural, realiza una Tirada de Intuición.\nSi tienes éxito, podrás beneficiarte del Ojo del cazador y ese ser en concreto se considerará «identificado». Cuando identificas a un ser, lo haces para esa «especie» en concreto, hasta que neutralices la amenaza. Podrás identificar a otros seres entre tanto, no «olvidarás» la información importante.\nSi no tienes éxito, sabrás que algo ha ido mal y, aunque no puedes volver a repetir la Tirada con el rastro que acabas de investigar, podrás hacerlo más adelante si encuentras otro rastro distinto, pero de la misma criatura.\nObtienes un +1 a las Tiradas de ataque y daño contra seres sobrenaturales que hayas identificado.\nCualquier ser sobrenatural que hayas identificado no te puede Sorprender y puedes emplear tus Puntos de Esfuerzo para obtener en Ventaja en Tiradas provocadas por dicho ser aunque no puedas hacerlo por reglas."
+    },
+    {
+      "talento": "Aceptación",
+      "activacion": "Reacción",
+      "parrafos_fuente": [
+        654,
+        658
+      ],
+      "texto_literal": "Te ves como un monstruo, una aberración que no debería existir, pero has hecho las paces contigo mismo y con lo que eres. Cuando vayas a sufrir alguna penalización o pérdida de control porque tu Dado de Uso de Especie se haya agotado (Sangre, Almas, Mesura, etc.), puedes resistirte a la tentación de dejarte ir y mantener ese Recurso en d4 o 1, según lo que sea. Sin embargo, la próxima vez no será tan fácil y sufrirás Desventaja.",
+      "coste": "Coste: 1 Punto de Esfuerzo",
+      "requisito": "Requisito: Vampiro o Teriántropo"
+    },
+    {
+      "talento": "Alquimia limitada",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        659,
+        665
+      ],
+      "texto_literal": "Conoces la preparación de aceites alquímicos especializados. Durante un Intervalo de preparación, puedes consumir 1d10 * 100 maravs fabricar una dosis de un aceite de tu elección.\nAceite de plata: Convierte un arma cuerpo a cuerpo en un arma de plata durante 1 Combate.\nAceite de llamas: Añade 1d10 de daño por fuego adicional a tu arma durante 1 Combate.\nAceite purificador: Baña tu armadura en aceite sagrado para protegerte contra efectos de Maldición o posesión durante 1 Intervalo.\nProyectiles fantasmales: Crea 1d4 munición fantasmal (adaptada al arma que elijas, como arco, ballesta, pistola, etc.), con la capacidad de herir a espectros y otros seres incorpóreos."
+    },
+    {
+      "talento": "Cazador letal",
+      "activacion": "Acción",
+      "parrafos_fuente": [
+        666,
+        669
+      ],
+      "texto_literal": "Sabes dónde hay que pinchar para que esas abominaciones sangren. Cuando hieras a una criatura sobrenatural que hayas «identificado», puedes infligirle tanto daño adicional como tu Nivel * 2. Después de resolver este ataque, tendrás que realizar una Tirada de Esencia.",
+      "coste": "Coste: 1 Punto de Esfuerzo"
+    },
+    {
+      "talento": "Instintos sobrenaturales",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        670,
+        672
+      ],
+      "texto_literal": "Cuando una criatura sobrenatural te hiere en un Combate, queriendo hacerte daño, obtienes Ventaja en tu siguiente Tirada de ataque o esquiva contra ese enemigo."
+    },
+    {
+      "talento": "Reflejos de la noche",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        673,
+        675
+      ],
+      "texto_literal": "Aumentas en 1 tu Movimiento durante la noche o en lugares subterráneos."
+    },
+    {
+      "talento": "Soy lo que cazo",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        676,
+        682
+      ],
+      "texto_literal": "Cuando derrotas a una criatura sobrenatural, puedes absorber una pequeña porción de su espíritu para replicar sus habilidades durante 1 Intervalo. Sin duda, esta habilidad incomoda a las criaturas del Otro Lado, pero es muy útil.\nVampiro: Obtienes Blindaje 5 y tu piel se vuelve grisácea, casi muerta. No sientes cansancio, ni necesitas comer, beber o respirar mientras dure el efecto.\nHombre lobo: Obtienes +2 Movimiento y causas 1d6 de daño adicional con tus ataques cuerpo a cuerpo. También recuperas 1 Punto de Esfuerzo y tendrás Ventaja en todas las Tiradas de Resistencia mientras dure el efecto.\nOtros seres sobrenaturales: Consulta con el Cronista y echad un vistazo al Bestiario para ver qué se os puede ocurrir.",
+      "requisito": "Requisito: Humano o Hada"
+    }
+  ],
+  "adquisicion": {
+    "fijo": "Ojo del cazador",
+    "opcionales": [
+      "Aceptación",
+      "Alquimia limitada",
+      "Cazador letal",
+      "Instintos sobrenaturales",
+      "Reflejos de la noche",
+      "Soy lo que cazo"
+    ],
+    "selecciones": [
+      {
+        "nivel": 1,
+        "cantidad": 1
+      },
+      {
+        "nivel": 9,
+        "cantidad": 1
+      }
+    ]
+  },
+  "notas": [
+    "«Aceptación» requiere Vampiro o Teriántropo; «Soy lo que cazo» requiere Humano o Hada; no conceder automáticamente ambas.",
+    "«Cazador letal» depende de que la criatura haya sido identificada por Ojo del cazador.",
+    "«Alquimia limitada» ofrece cuatro tipos de consumibles, pero son opciones internas del mismo Talento."
+  ]
+}

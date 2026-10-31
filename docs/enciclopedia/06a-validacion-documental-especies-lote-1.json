@@ -1,0 +1,122 @@
+{
+  "fecha": "2026-10-28",
+  "lote": 1,
+  "criterio": "validación documental de efectos explícitos en fuente viva; no supone implementación ni pruebas del generador",
+  "total_relaciones_especie_talento": 115,
+  "registros_validados": 6,
+  "registros": [
+    {
+      "id_documental": "talento-especie:ampliadas:gnomo-sylestri:baja-estatura",
+      "sistema": "Ampliadas",
+      "especie": "Gnomo sylestri",
+      "talento": "Baja estatura",
+      "activacion_rotulada": "Pasiva",
+      "propiedades_verificadas": [
+        "Movimiento reducido en 1 (ya calculado)",
+        "Armas y armaduras adaptadas al tamaño; únicamente escudos pequeños",
+        "+1 a las Tiradas de esquiva de ataques a distancia"
+      ],
+      "texto_literal_vigente": "Pasiva\nEres más pequeño que un Elfo, un Enano o un Humano. Tu Movimiento se reduce en 1 (ya calculado). No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños. Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+      "estado": "validado_documentalmente_sin_integracion",
+      "evidencias": [
+        "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "Naufragio d20 DRS: Baja estatura (Mediano amable y Gnomo urbano)"
+      ]
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:mediano-jobito:baja-estatura",
+      "sistema": "Ampliadas",
+      "especie": "Mediano jóbito",
+      "talento": "Baja estatura",
+      "activacion_rotulada": "Pasiva",
+      "propiedades_verificadas": [
+        "Movimiento reducido en 1 (ya calculado)",
+        "Armas y armaduras adaptadas al tamaño; únicamente escudos pequeños",
+        "+1 a las Tiradas de esquiva de ataques a distancia"
+      ],
+      "texto_literal_vigente": "Pasiva\nEres más pequeño que un Elfo, un Enano o un Humano. Tu Movimiento se reduce en 1 (ya calculado). No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños. Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+      "estado": "validado_documentalmente_sin_integracion",
+      "evidencias": [
+        "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "Naufragio d20 DRS: Baja estatura (Mediano amable y Gnomo urbano)"
+      ]
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:deku:pequeno",
+      "sistema": "Ampliadas",
+      "especie": "Deku",
+      "talento": "Pequeño",
+      "activacion_rotulada": null,
+      "propiedades_verificadas": [
+        "No presenta reducción del Movimiento",
+        "Armas y armaduras adaptadas al tamaño; únicamente escudos pequeños",
+        "+1 a las Tiradas de esquiva de ataques a distancia"
+      ],
+      "texto_literal_vigente": "Eres más pequeño que un Elfo, un Enano o un Humano. No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños. Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+      "estado": "validado_documentalmente_sin_integracion",
+      "evidencias": [
+        "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit"
+      ]
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:kokiri:pequeno",
+      "sistema": "Ampliadas",
+      "especie": "Kokiri",
+      "talento": "Pequeño",
+      "activacion_rotulada": "Pasiva",
+      "propiedades_verificadas": [
+        "No presenta reducción del Movimiento",
+        "Armas y armaduras adaptadas al tamaño; únicamente escudos pequeños",
+        "+1 a las Tiradas de esquiva de ataques a distancia"
+      ],
+      "texto_literal_vigente": "Pasiva\nEres más pequeño que un Elfo, un Enano o un Humano. No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños. Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+      "estado": "validado_documentalmente_sin_integracion",
+      "evidencias": [
+        "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit"
+      ]
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:enano-selvatico:hambre-canibal",
+      "sistema": "Ampliadas",
+      "especie": "Enano selvático",
+      "talento": "Hambre caníbal",
+      "activacion_rotulada": null,
+      "propiedades_verificadas": [
+        "Puede comer cualquier carne, independientemente de su estado",
+        "1 kilogramo de carne cruda se considera una ración de alimento",
+        "Inmune al estado Enfermedad"
+      ],
+      "texto_literal_vigente": "Puedes comer cualquier tipo de carne —sin importar en qué estado esté— para alimentarte. De hecho, es muy posible que le hayas cogido gusto a las vísceras, cuanto más podridas mejor. Consideras un kilo de carne cruda como una ración de alimento y eres inmune al estado Enfermedad.",
+      "estado": "validado_documentalmente_sin_integracion",
+      "evidencias": [
+        "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit"
+      ]
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:humano-malasthino:adaptacion",
+      "sistema": "Ampliadas",
+      "especie": "Humano malasthino",
+      "talento": "Adaptación",
+      "activacion_rotulada": "Pasiva",
+      "propiedades_verificadas": [
+        "Si sufre Desventaja en una Tirada de su Atributo favorito, +2 al resultado final"
+      ],
+      "texto_literal_vigente": "Pasiva\nEn el supuesto que sufras Desventaja en una Tirada de tu Atributo favorito, obtienes un +2 al resultado final.",
+      "estado": "validado_documentalmente_sin_integracion",
+      "evidencias": [
+        "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit"
+      ]
+    }
+  ],
+  "otras_verificaciones": [
+    {
+      "talento": "Herencia dual",
+      "especies": [
+        "Semielfo",
+        "Semiorco"
+      ],
+      "estado": "identidad_contextual_confirmada; herencias deben mantenerse diferenciadas",
+      "validacion_mecanica_completa": false
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "ocupacion": "Dinamitero",
+  "categoria": "Equipo, Explosivos consumibles",
+  "tabla_word": 40,
+  "reglas_fuente": {
+    "parrafos": [
+      1289,
+      1297
+    ],
+    "intensidad": [
+      {
+        "intensidad": 1,
+        "nivel": "1–10"
+      },
+      {
+        "intensidad": 2,
+        "nivel": "11–20"
+      },
+      {
+        "intensidad": 3,
+        "nivel": "21–30"
+      }
+    ],
+    "arma_arrojadiza": "Alcance 10m; Tirada de Agilidad para impactar; detona al tocar un sólido",
+    "bomba_tiempo": "Un Turno para preparar, detonación en el número de Turnos o Intervalos elegido; desactivar requiere 2 Turnos y Tirada de Mente",
+    "uso": "Dinamitero; otra Ocupación sufre Desventaja en la Tirada si corresponde"
+  },
+  "registros": [
+    {
+      "nombre": "Bomba de escarcha",
+      "intensidad": 1,
+      "daño": "1d6",
+      "radio": "6m",
+      "efecto_literal": "Causa daño de frío y empuja a todas las criaturas 2m hacia atrás si no superan una Tirada de Fuerza."
+    },
+    {
+      "nombre": "Carga de grafiti",
+      "intensidad": 1,
+      "daño": "0",
+      "radio": "10m",
+      "efecto_literal": "Crea un estallido de pintura y confeti que mancha toda el área."
+    },
+    {
+      "nombre": "Carga de viento",
+      "intensidad": 1,
+      "daño": "1d4",
+      "radio": "10m",
+      "efecto_literal": "Provoca un estallido de aire. Apaga antorchas y otros fuegos endebles."
+    },
+    {
+      "nombre": "Dinamita",
+      "intensidad": 1,
+      "daño": "2d6",
+      "radio": "12m",
+      "efecto_literal": "Causa daño explosivo."
+    },
+    {
+      "nombre": "Flashbang",
+      "intensidad": 1,
+      "daño": "0",
+      "radio": "6m",
+      "efecto_literal": "Causa el Estado Ceguera y Sordera durante 1d2 Turnos a todas las criaturas en el radio."
+    },
+    {
+      "nombre": "Granada ácida",
+      "intensidad": 1,
+      "daño": "2d4",
+      "radio": "8m",
+      "efecto_literal": "Causa daño ácido."
+    },
+    {
+      "nombre": "Granada de humo",
+      "intensidad": 1,
+      "daño": "0",
+      "radio": "8m",
+      "efecto_literal": "Crea una humareda espesa que otorga cobertura y ocultación durante 1d4 Turnos."
+    },
+    {
+      "nombre": "Granada gélida",
+      "intensidad": 1,
+      "daño": "2d4",
+      "radio": "8m",
+      "efecto_literal": "Causa daño de frío."
+    },
+    {
+      "nombre": "Granada ígnea",
+      "intensidad": 1,
+      "daño": "2d4",
+      "radio": "8m",
+      "efecto_literal": "Causa daño de fuego."
+    },
+    {
+      "nombre": "Obús relámpago",
+      "intensidad": 1,
+      "daño": "1d8",
+      "radio": "4m",
+      "efecto_literal": "Causa daño de rayo."
+    },
+    {
+      "nombre": "Bomba chillona",
+      "intensidad": 2,
+      "daño": "0",
+      "radio": "10m",
+      "efecto_literal": "Provoca una sinfonía de gritos desgarradores que acongojan el corazón de quien lo escuche."
+    },
+    {
+      "nombre": "Bomba de confusión",
+      "intensidad": 2,
+      "daño": "2d4",
+      "radio": "14m",
+      "efecto_literal": "Causa el Estado Confusión a todas las criaturas en el radio."
+    },
+    {
+      "nombre": "Bomba de niebla",
+      "intensidad": 2,
+      "daño": "0",
+      "radio": "16m",
+      "efecto_literal": "Crea una niebla espesa que otorga cobertura y ocultación durante 2d4 Turnos."
+    },
+    {
+      "nombre": "Bombarda de nubes tóxicas",
+      "intensidad": 2,
+      "daño": "1d6",
+      "radio": "14m",
+      "efecto_literal": "Causa daño venenoso y crea una nube tóxica que se mantiene durante 1d6 Turnos, causando daño a todo aquel que finalice su Turno dentro del radio."
+    },
+    {
+      "nombre": "Carga de reloj",
+      "intensidad": 2,
+      "daño": "2d4",
+      "radio": "12m",
+      "efecto_literal": "Causa daño y ralentiza el tiempo (Freno) durante 2 Turnos a todas las criaturas en el área."
+    },
+    {
+      "nombre": "Granada de arena",
+      "intensidad": 2,
+      "daño": "1d3",
+      "radio": "20m",
+      "efecto_literal": "Causa daño y crea una nube de arena que se mantiene durante 1d4 Turnos, obstaculizando la visión y causando daño cada Turno."
+    },
+    {
+      "nombre": "Granada de calor",
+      "intensidad": 2,
+      "daño": "2d8",
+      "radio": "12m",
+      "efecto_literal": "Causa daño de fuego y libera una oleada de calor que sube la temperatura 2d4 grados centígrados durante 1d4 Turnos."
+    },
+    {
+      "nombre": "Granada de pánico",
+      "intensidad": 2,
+      "daño": "0",
+      "radio": "10m",
+      "efecto_literal": "Crea un estallido de sangre, vísceras y restos humanos que manchan todo el área. Todo es falso, es pintura o material de goma."
+    },
+    {
+      "nombre": "Granada de piedras",
+      "intensidad": 2,
+      "daño": "2d6",
+      "radio": "6m",
+      "efecto_literal": "Causa daño de tierra. La metralla de la explosión es un montón de piedras."
+    },
+    {
+      "nombre": "Granada de viento",
+      "intensidad": 2,
+      "daño": "2d4",
+      "radio": "10m",
+      "efecto_literal": "Provoca un torbellino de aire. Apaga antorchas y otros fuegos endebles, además de tirar al suelo cualquier objeto no agarrado."
+    },
+    {
+      "nombre": "Granada glacial",
+      "intensidad": 2,
+      "daño": "2d8",
+      "radio": "12m",
+      "efecto_literal": "Causa daño de frío y libera una ola gélida que baja la temperatura 2d6 grados centígrados durante 1d6 Turnos."
+    },
+    {
+      "nombre": "Granada luminosa",
+      "intensidad": 2,
+      "daño": "1d10",
+      "radio": "8m",
+      "efecto_literal": "Causa daño radiante y, además, el Estado Ceguera y Sordera durante 1d4 Turnos a todas las criaturas en el radio."
+    },
+    {
+      "nombre": "Bomba de rayo fulminante",
+      "intensidad": 3,
+      "daño": "4d6",
+      "radio": "6m",
+      "efecto_literal": "Causa daño de rayo y empuja a todas las criaturas 6m hacia atrás si no superan una Tirada de Fuerza."
+    },
+    {
+      "nombre": "Bombarda de humo podrido",
+      "intensidad": 3,
+      "daño": "2d12",
+      "radio": "14m",
+      "efecto_literal": "Causa daño venenoso y crea una nube tóxica que se mantiene durante 1d6 Turnos, otorga cobertura, ocultación y causando daño a todo aquel que finalice su Turno dentro del radio."
+    },
+    {
+      "nombre": "Carga de cielo azul",
+      "intensidad": 3,
+      "daño": "3d6",
+      "radio": "20m",
+      "efecto_literal": "Causa daño radiante y de agua."
+    },
+    {
+      "nombre": "Carga de fuego de dragón",
+      "intensidad": 3,
+      "daño": "3d6",
+      "radio": "20m",
+      "efecto_literal": "Causa daño de fuego."
+    },
+    {
+      "nombre": "Carga de icor maligno",
+      "intensidad": 3,
+      "daño": "5d4",
+      "radio": "8m",
+      "efecto_literal": "Causa daño ácido."
+    },
+    {
+      "nombre": "Petardo sísmico",
+      "intensidad": 3,
+      "daño": "3d6",
+      "radio": "20m",
+      "efecto_literal": "Causa daño de tierra. Provoca un pequeño terremoto, por lo que causará destrucción estructural."
+    },
+    {
+      "nombre": "Dinamita sónica",
+      "intensidad": 3,
+      "daño": "4d6",
+      "radio": "12m",
+      "efecto_literal": "Causa daño explosivo y Sordera durante 1d6 Turnos."
+    },
+    {
+      "nombre": "Granada sombría",
+      "intensidad": 3,
+      "daño": "2d8",
+      "radio": "8m",
+      "efecto_literal": "Causa daño de oscuridad y crea una zona sombría que otorga cobertura y ocultación durante 1d6 Turnos."
+    },
+    {
+      "nombre": "Maniquí astral",
+      "intensidad": 3,
+      "daño": "0",
+      "radio": "10m",
+      "efecto_literal": "Tiene forma de ser humano. Camina 1d4 * 2m antes de caer al suelo, gritar de forma que hiela la sangre y 1 Turno después, explotar en una supernova de vísceras y restos sanguinolentos."
+    },
+    {
+      "nombre": "Obús ralentizador",
+      "intensidad": 3,
+      "daño": "1d12",
+      "radio": "14m",
+      "efecto_literal": "Causa daño y ralentiza el tiempo (Freno) durante 1d6 Turnos a todas las criaturas en el área."
+    }
+  ],
+  "notas": [
+    "No confundir radio de explosión con alcance de lanzamiento de 10 m.",
+    "Los efectos que el original describe sólo narrativamente no implican automáticamente Estados alterados ni daño.",
+    "El inventario pertenece a Equipo, no a Talentos ni Poderes individuales."
+  ]
+}

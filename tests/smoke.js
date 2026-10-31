@@ -105,7 +105,7 @@ console.log('OK · '+ampliadas+' fichas adicionales con material documental.');
 const poderes=require('../assets/powers.js');
 const catalogoPoderes=leer('catalogo-poderes.json');
 const progresiones=leer('progresiones-oficiales.json');
-assert.equal(catalogoPoderes.conjuros.length,434,'Conjuros extraídos del Tomo');
+assert.equal(catalogoPoderes.conjuros.length,433,'433 Conjuros únicos del Tomo; Arma elemental aparece dos veces');
 assert.equal(catalogoPoderes.poderes_psionicos.length,20,'Tabla psiónica d20');
 assert.equal(catalogoPoderes.scripts.length,10,'Scripts CiFi');
 assert.equal(new Set(catalogoPoderes.tecnicas.map(t=>t.id)).size,catalogoPoderes.tecnicas.length,'IDs únicos de Técnicas');
@@ -390,9 +390,9 @@ for(const [origen,cantidad] of Object.entries(origenesConjuros))
   assert.equal(catalogoPoderes.conjuros.filter(x=>x.origen===origen).length,cantidad,
     'Origen documentado: '+origen);
 const pendientesOrigen=catalogoPoderes.conjuros.filter(x=>!x.origen);
-assert.equal(pendientesOrigen.length,1,'Única discrepancia sin atribuir falsamente');
-assert.equal(pendientesOrigen[0].nombre,'Ira celestial');
-assert.equal(pendientesOrigen[0].circulo,3);
+assert.equal(pendientesOrigen.length,0,'Sin discrepancias de origen tras cotejo con DRS');
+assert.ok(!catalogoPoderes.conjuros.some(x=>x.nombre==='Ira celestial'&&x.circulo===3),
+  'No ofrecer Ira celestial C3, ausente del DRS');
 assert.equal(catalogoPoderes.conjuros.find(x=>x.nombre==='Ira celestial'&&x.circulo===5).origen,
   'Nd20','Atribución contrastada de Ira celestial del Círculo 5');
 assert.equal(poderes.origenConjuro('conjuro_conocido','Aprender Conjuros','Nd20'),
@@ -421,8 +421,8 @@ const controlConjuro=inventarioEditorial.find(x=>x.tipo==='Conjuro'&&x.nombre===
 assert.equal(controlConjuro.fuente,'Nd20','Origen correcto en control editorial');
 const controlPendiente=inventarioEditorial.find(x=>x.tipo==='Conjuro'&&
   x.nombre==='Ira celestial'&&x.detalle.includes('Círculo 3'));
-assert.equal(controlPendiente.fuente,'Origen sin verificar');
-console.log('OK · 433 orígenes de Conjuros documentados y una discrepancia identificada.');
+assert.equal(controlPendiente,undefined,'No queda un Conjuro inventado de Círculo 3');
+console.log('OK · 433 Conjuros únicos con origen verificado y DRS como autoridad.');
 
 
 /* Revisión por lotes confirmados: publicación sí, pruebas independientes. */
@@ -910,10 +910,8 @@ const tab=htmlTemas.indexOf('id="tab-herramientas"');
 const system=htmlTemas.indexOf('id="etiqueta-sistema"');
 const panel=htmlTemas.indexOf('id="panel-personajes"');
 const tools=htmlTemas.indexOf('id="panel-herramientas"');
-assert.ok(tab>=0&&tab<panel&&panel<system&&system<tools &&
-  htmlTemas.indexOf('id="opciones-avanzadas"')<system &&
-  htmlTemas.indexOf('id="opciones-avanzadas-personajes"')>system,
-  'Sistema permanece en las opciones globales, accesible desde ambas pestañas');
+assert.ok(tab>=0&&tab<system&&system<panel&&panel<tools,
+  'Sistema queda visible en ambas pestañas del menú');
 assert.ok(appTemas.includes("marcarPanel('herramientas')"));
 assert.ok(!/refrescarSelectores\(\);\s*marcarPanel\('personajes'\)/.test(appTemas),
   'Cambiar sistema no debe expulsar al usuario de Herramientas');
@@ -1079,63 +1077,8 @@ assert.ok(appSexo.includes('sexoApi.ocuparPermitida'),'Filtrado de Ocupaciones s
 assert.ok(appSexo.includes('Sexo:'),'Sexo incluido en ficha exportada');
 console.log('OK · sexo y nombres de personajes, excepciones y configuración editable.');
 
+/* Catálogo revisado del Tomo: integridad y ventanas informativas. */
+require('./conjuros.js');
 
-/* UI: generación rápida, ajustes avanzados plegables y acceso flotante. */
-const nuevaForja=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
-const nuevaInterfaz=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
-const estilosNuevos=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'utf8');
-function indiceHtml(fragmento){
-  const idx=nuevaForja.indexOf(fragmento);
-  assert.ok(idx>=0,'Debe existir: '+fragmento);
-  return idx;
-}
-const panelPersonajes=indiceHtml('id="panel-personajes"');
-const formulario=indiceHtml('id="configuracion"');
-const campoNivel=indiceHtml('id="nivel"');
-const campoCantidad=indiceHtml('id="cantidad"');
-const accionGenerar=indiceHtml('id="generar"');
-const detalles=indiceHtml('id="opciones-avanzadas"');
-const sistema=indiceHtml('id="juego"');
-const herramientas=indiceHtml('id="panel-herramientas"');
-assert.ok(panelPersonajes<formulario&&formulario<campoNivel&&
-  campoNivel<campoCantidad&&campoCantidad<accionGenerar&&
-  accionGenerar<detalles&&detalles<sistema&&sistema<herramientas,
-  'Primero Nivel/Cantidad/Generar; después opciones avanzadas con Sistema; luego Herramientas');
-for(const nombre of [
-  'ocupacion','especie','opciones-dh','opciones-fuentes','sexo-pj',
-  'respetar-contexto-sexo','modo-nombre','nombre-personaje','semilla',
-  'modos-creacion','opciones-riqueza-nivel']){
-  const i=indiceHtml('id="'+nombre+'"');
-  assert.ok(i>detalles&&i<herramientas,
-    'La opción secundaria está dentro del submenú avanzado: '+nombre);
-}
-assert.equal((nuevaForja.match(/id="generar"/g)||[]).length,1,
-  'Un solo botón principal para evitar generaciones dobles');
-assert.ok(nuevaForja.includes('<details id="opciones-avanzadas"'));
-assert.ok(!nuevaForja.includes('<details id="opciones-avanzadas" open'),
-  'Los ajustes avanzados empiezan plegados');
-assert.ok(nuevaForja.includes('id="opciones-avanzadas-personajes"'),
-  'Separar opciones generales de las propias de los personajes');
-assert.ok(nuevaInterfaz.includes("$('opciones-avanzadas-personajes').hidden=tools"),
-  'En Herramientas, seguir pudiendo cambiar el Sistema');
-assert.ok(nuevaInterfaz.includes('function actualizarGenerarFlotante()'));
-assert.ok(nuevaInterfaz.includes("window.addEventListener('scroll',actualizarGenerarFlotante"));
-assert.ok(nuevaInterfaz.includes("window.addEventListener('resize',actualizarGenerarFlotante"));
-assert.ok(nuevaInterfaz.includes("$('configuracion').requestSubmit($('generar'))"),
-  'La generación flotante reutiliza validación y evento del formulario real');
-assert.ok(nuevaInterfaz.includes('!!borrador'),
-  'El botón flotante desaparece cuando hay elecciones de personaje pendientes');
-assert.ok(nuevaInterfaz.includes("avanzadas.addEventListener('toggle'"),
-  'El estado desplegado controla el posicionamiento del panel');
-assert.ok(nuevaForja.includes('id="generar-flotante"')&&
-  nuevaForja.includes('id="sistema-actual"'),
-  'Acceso flotante y sistema activo identificables');
-assert.ok(estilosNuevos.includes('.generacion-rapida')&&
-  estilosNuevos.includes('.campos-rapidos')&&
-  estilosNuevos.includes('.opciones-avanzadas>summary')&&
-  estilosNuevos.includes('.panel.panel-con-avanzadas')&&
-  estilosNuevos.includes('.generar-flotante'),
-  'Estilos de interacción y adaptación a pantallas móviles');
-assert.ok(estilosNuevos.includes('env(safe-area-inset-bottom'),
-  'Botón flotante respeta la zona segura del móvil');
-console.log('OK · Generación inmediata, opciones avanzadas y flotante responsive validados.');
+/* Manifiesto de la entrega base y compatibilidad de las futuras ampliaciones. */
+require('./alcance-drs.js');

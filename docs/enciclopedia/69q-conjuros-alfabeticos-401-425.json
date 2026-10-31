@@ -1,0 +1,815 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 17,
+  "indices_tomo": [
+    401,
+    425
+  ],
+  "fuente": {
+    "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "estado": "transcripcion_literal_completa_de_cada_ficha",
+  "registros": [
+    {
+      "numero_tomo": 401,
+      "nombre_literal": "Trocar tamaño",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2914,
+        "indice_ultimo_parrafo": 2920,
+        "indice_inicio_doc": 207150,
+        "indice_fin_doc": 207763
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Arcana",
+        "Alcance: 2 metros por Nivel",
+        "Duración: 1 Turno por Nivel",
+        "Mediante una sutil alteración de la Urdimbre a su alrededor, puedes aumentar o reducir el Tamaño de una criatura un 20% por Nivel hasta un límite de 3 veces su Tamaño original. Éste cambio conlleva una modificación de su Fuerza, peso y daño en el mismo porcentaje. Si la criatura no está dispuesta a aceptar tu magia, debes superar una Tirada de Conjuro.",
+        "También puedes afectar el Tamaño de objetos no mágicos que puedas ver; sin embargo, estás limitado a un 10% por Nivel y hasta el doble de su Tamaño original."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-226",
+          "circulo": 1,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 402,
+      "nombre_literal": "Toque de abnegación",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2921,
+        "indice_ultimo_parrafo": 2926,
+        "indice_inicio_doc": 207764,
+        "indice_fin_doc": 208016
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Magia curativa",
+        "Con lazos arcanos, arrancas parte de tu energía vital y se la infundes a otro aliado. Pierde tantos Puntos de Salud como desees, y el objetivo recupera esa misma cantidad."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-268",
+          "circulo": 3,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 403,
+      "nombre_literal": "Teletransporte forzoso",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2927,
+        "indice_ultimo_parrafo": 2931,
+        "indice_inicio_doc": 208017,
+        "indice_fin_doc": 208387
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 4 m",
+        "Lanzas un microagujero negro sobre una criatura al alcance, absorbiéndola y teleportándola lejos, a una distancia máxima de 100 metros. Si el objetivo se resiste, deberás superar una Tirada de Conjuro; hay una Probabilidad 18+ de que el área de destino esté ocupada. Si está ocupada, el conjuro fallará."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-280",
+          "circulo": 4,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 404,
+      "nombre_literal": "Transmutación artesana",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2932,
+        "indice_ultimo_parrafo": 2938,
+        "indice_inicio_doc": 208388,
+        "indice_fin_doc": 208714
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Divina",
+        "Lanzamiento: 1d4 Turnos",
+        "Alcance: personal",
+        "Duración: permanente",
+        "Transformas un fragmento de materia vegetal o inorgánica en un arma o herramienta útil. El tamaño del objeto no puede exceder 30 cm por cada uno de tus Niveles, y será del mismo material que la pieza original."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-285",
+          "circulo": 4,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 405,
+      "nombre_literal": "Terreno consagrado",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2939,
+        "indice_ultimo_parrafo": 2944,
+        "indice_inicio_doc": 208715,
+        "indice_fin_doc": 209151
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Divina",
+        "Alcance: 60 metros",
+        "Duración: 1 Turno por Nivel",
+        "Creas una zona protectora circular de 6 metros de radio en un punto a tu alcance. Las criaturas dentro de esta área obtienen una  bonificación a sus Tiradas de Atributo igual a la mitad de tu Nivel para resistir los efectos y ataques de criaturas que tú consideres malvadas. La bonificación no se aplica a las Tiradas de Daño y/o Blindaje."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-286",
+          "circulo": 4,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 406,
+      "nombre_literal": "Telequinesis",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2945,
+        "indice_ultimo_parrafo": 2951,
+        "indice_inicio_doc": 209152,
+        "indice_fin_doc": 209598
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 3 metros por Nivel",
+        "Duración: 1 Turno por Nivel",
+        "Varias hebras arcanas invisibles salen de tu mente, haciendo que puedas manipular objetos y criaturas con sólo tu pensamiento, concentrándote en ellos como tu única acción. Puedes agarrar un objeto por cada 2 de tus Niveles y mover hasta 100 kg. por cada 4 de tus Niveles.",
+        "Para mover criaturas no voluntarias, debes superar una Tirada de Conjuro."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-297",
+          "circulo": 5,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 407,
+      "nombre_literal": "Teletransporte",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2952,
+        "indice_ultimo_parrafo": 2957,
+        "indice_inicio_doc": 209599,
+        "indice_fin_doc": 210371
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Abres un portal dimensional ligero a tu alrededor, lanzándote hacia la Urdimbre con el fin de viajar hasta un lugar distante, hasta un máximo de 100 km por cada 1 de tus Niveles. Puedes llevar contigo hasta dos criaturas del tamaño de un humano, junto con lo que puedan cargar. Si alguna criatura no es voluntaria, debes superar una Tirada de Conjuro para llevarla contigo. ",
+        "Si intentas teletransportarte a un lugar que no conoces, existe una Probabilidad 15+ de que aparezcas en un destino desconocido y aleatorio decidido por el Cronista. En tal caso, deberás recomponer de nuevo los conocimientos que tienes sobre este Conjuro, dando lugar a una aventura más para recuperar la capacidad de teletransportarte."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-298",
+          "circulo": 5,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 408,
+      "nombre_literal": "Trance celestial",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2958,
+        "indice_ultimo_parrafo": 2966,
+        "indice_inicio_doc": 210372,
+        "indice_fin_doc": 211417
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Divina",
+        "Alcance: personal",
+        "Duración: 1 Intervalo",
+        "Te alineas profundamente con la voluntad de tu Espíritu deífico o con tus creencias; llevar a cabo este rito es muy peligroso, ya que se pone a prueba tu verdadera fe. ",
+        "Si el Cronista considera que tus acciones no han sido fieles a tu fe, deberás superar una Tirada de Conjuro. Fallarla resultará en que tu espíritu sea arrojado a un purgatorio para herejes y apóstatas; no obtendrás ningún beneficio del conjuro y, al regresar, habrás envejecido 1d10 años.",
+        "Si has sido fiel o superas la tirada, accederás a los planos tangenciales divinos, dónde residen los trazos de tu Espíritu deífico y donde el conocimiento es absoluto. Allí, podrás formular tres preguntas cuya respuesta será \"sí\" o \"no\". ",
+        "Si intentas utilizar este conjuro nuevamente en menos de una semana, harás la Tirada de conjuro con desventaja, incluso si eres devoto. Si fallas en este segundo intento, tu espíritu permanecerá en el paraíso, un lugar tan perfecto que jamás desearás regresar."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-305",
+          "circulo": 5,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 409,
+      "nombre_literal": "Terremoto",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2967,
+        "indice_ultimo_parrafo": 2975,
+        "indice_inicio_doc": 211418,
+        "indice_fin_doc": 212399
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 60 metros",
+        "Duración: 3d4 +1 Turnos",
+        "Conjuras un poderoso seísmo que afecta un área con un radio de 2m2 por cada Nivel que poseas. Las criaturas dentro del área de efecto quedan tambaleándose, incapaces de moverse, atacar o lanzar conjuros durante la duración. Dependiendo del terreno, Terremoto puede tener efectos adicionales:",
+        "Terreno rígido o rocoso: Grandes fisuras se abren, dividiendo el suelo y haciendo que las criaturas que caigan dentro sufran 1d6 de daño contundente por cada Nivel. Las fisuras permanecen como obstáculos permanentes.",
+        "Terreno blando o arenoso: El suelo se licua temporalmente, atrapando a las criaturas como si estuvieran en arenas movedizas. Tienen una Probabilidad 13+ de escapar o, si fallan,  quedan inmovilizadas hasta que termine el efecto.",
+        "Zonas urbanas: Los edificios y estructuras cercanas colapsan, causando 2d6 de dañocontundente por cada Nivel a las criaturas atrapadas bajo los escombros."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-345",
+          "circulo": 7,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 410,
+      "nombre_literal": "Trampa de fuego",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2976,
+        "indice_ultimo_parrafo": 2982,
+        "indice_inicio_doc": 212400,
+        "indice_fin_doc": 212927
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Elemental",
+        "Alcance: toque",
+        "Duración: hasta que se active",
+        "Creas una trampa de fuego mágico sobre un objeto susceptible de ser cerrado, como una puerta, cofre o botella. La trampa se desencadena cuando el objeto es abierto por una criatura que no conoce la palabra clave que desactiva el efecto.",
+        "Al activarse, la trampa genera una explosión de fuego en un área de 2m2 alrededor del objeto. Todas las criaturas en el área sufren 1d10 de daño por fuego + 1 punto de daño contundente por Nivel."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-382",
+          "circulo": 3,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 411,
+      "nombre_literal": "Trampa ilusoria",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2983,
+        "indice_ultimo_parrafo": 2989,
+        "indice_inicio_doc": 212928,
+        "indice_fin_doc": 213526
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Arcana",
+        "Alcance: 15 metros",
+        "Duración: 1 minuto por Nivel",
+        "Envuelves un objeto de hasta 8 metros cúbicos con un velo mágico, haciéndolo parecer protegido por una trampa. Cualquier criatura que inspeccione el objeto en busca de trampas mediante métodos no mágicos percibirá una trampa presente. ",
+        "Si la criatura es de Nivel igual o superior al tuyo, tendrás que realizar una Tirada de Conjuro para evitar que detecte la ilusión. Intentar desactivar o activar esta ilusión la disipa. Conjuros como Detectar trampas no revelarán la presencia de esta trampa ilusoria."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-383",
+          "circulo": 3,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 412,
+      "nombre_literal": "Terreno espinoso",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2990,
+        "indice_ultimo_parrafo": 2996,
+        "indice_inicio_doc": 213527,
+        "indice_fin_doc": 213991
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: 50 metros",
+        "Duración: 1 Intervalo por Nivel",
+        "Transformas el suelo o las paredes en un área de 6m2 por Nivel en una superficie cubierta de puntas rocosas ocultas. Estas puntas permanecen invisibles hasta que una criatura ajena a ti intente atravesar el área, momento en el que se revelan y causan daño.",
+        "Las criaturas que se muevan por el área afectada reciben 1d8 de daño perforante por cada metro avanzado."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-388",
+          "circulo": 4,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 413,
+      "nombre_literal": "Terreno ilusorio",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 2997,
+        "indice_ultimo_parrafo": 3003,
+        "indice_inicio_doc": 213992,
+        "indice_fin_doc": 214600
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Arcana",
+        "Alcance: 40 metros",
+        "Duración: hasta que sea disipado",
+        "Creas una ilusión que altera la apariencia de un área de terreno de hasta 4m2 por Nivel, transformándola visualmente en otro tipo de terreno. Puedes cubrir una colina rocosa con hierba, ocultar un barranco bajo la apariencia de suelo llano, o camuflar un camino con nieve.",
+        "La ilusión no afecta a criaturas ni objetos que estén sobre el terreno enmascarado. Las criaturas inteligentes que interactúen con el área tienen una Probabilidad 11+ de detectar el engaño. El conjuro finaliza si es disipado por magia."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-393",
+          "circulo": 4,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 414,
+      "nombre_literal": "Toque de Z'Thur",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3004,
+        "indice_ultimo_parrafo": 3015,
+        "indice_inicio_doc": 214601,
+        "indice_fin_doc": 215727
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Nigromancia",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: toque",
+        "Duración: permanente",
+        "Infundes un lugar con la esencia oscura de Z'Thur, transformándolo en un nexo espiritual entre el Mundo de la Carne y El Erial. Este conjuro marca una tumba, cripta o lugar de descanso como un punto de tránsito para los espíritus y un hogar de paz para la muerte, creando una conexión poderosa con la energía nigromántica.",
+        "Zona de tránsito espiritual: Las almas errantes o convocadas pueden usar el lugar como un paso entre planos o como santuario.",
+        "Vínculo con Viaje sepulcral: Las tumbas marcadas con este conjuro pueden ser utilizadas como puntos de origen o destino para el conjuro Viaje sepulcral.",
+        "Aura de muerte: El lugar marcado emite un aura que desalienta la purificación divina, dificultando intentos de consagración o purga. Los conjuros divinos para purificar el área requieren una Tirada de Conjuro.",
+        "Solo puedes tener marcadas tantas zonas de tránsito como tu Nivel dividido entre 3 (redondeando hacia abajo).",
+        "Una vez marcada, la zona permanece activa hasta que sea purificada o destruida físicamente."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-398",
+          "circulo": 5,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 415,
+      "nombre_literal": "Tetramageddon",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3016,
+        "indice_ultimo_parrafo": 3021,
+        "indice_inicio_doc": 215728,
+        "indice_fin_doc": 216523
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Elemental",
+        "Alcance: 30 metros",
+        "Invocas el poder devastador de los cuatro elementos para desatar un cataclismo en un área de 20m2 centrada en un punto dentro del alcance. Este desastre elemental combina fuego abrasador, frío glacial, rayos fulminantes y oleadas de ácido telúrico, arrasando todo lo que se encuentre en la zona.",
+        "Realiza una Tirada de Conjuro: si tienes éxito, todas las criaturas y objetos en el área sufren 1d12 puntos de daño por fuego, 1d10 puntos de daño por frío, 1d8 puntos de daño por relámpago y 1d6 puntos de daño por ácido por cada uno de tus Niveles. Si fallas, el daño total se reduce a la mitad. De una forma u otra, la devastación que provocas en el área derriba edificios, aniquila animales y ganado, y desintegrará a inocentes."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-417",
+          "circulo": 7,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 416,
+      "nombre_literal": "Tajo carmesí de Nebb",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3022,
+        "indice_ultimo_parrafo": 3027,
+        "indice_inicio_doc": 216524,
+        "indice_fin_doc": 216991
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 5m",
+        "Magia de sangre",
+        "Canalizas tu propia sangre en un tajo mágico que se expande en un cono frente a ti, impregnando a las criaturas al alcance con energía necrótica. Sufres 1d8 puntos de daño impío, que no se pueden reducir de ninguna forma, y realiza una Tirada de Conjuro: si tienes éxito, cada criatura en el área sufre 2d10 puntos de daño impío; si fallas, las criaturas reciben la mitad del daño."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-425",
+          "circulo": 2,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Sangromancia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 417,
+      "nombre_literal": "Umbral etéreo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3029,
+        "indice_ultimo_parrafo": 3034,
+        "indice_inicio_doc": 216994,
+        "indice_fin_doc": 217398
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: 1 Intervalo cada 2 Niveles",
+        "Creas un pasadizo etéreo e invisible para cruzar obstáculos o barreras, con una profundidad de 10 metros, una anchura de 2 metros y una altura de 1,5 metros. Si lo deseas, puedes permitir que un acompañante utilice el Umbral etéreo junto a ti. Este pasadizo no puede ser creado sobre superficies metálicas."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-334",
+          "circulo": 7,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 418,
+      "nombre_literal": "Valentía",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3036,
+        "indice_ultimo_parrafo": 3041,
+        "indice_inicio_doc": 217401,
+        "indice_fin_doc": 217516
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Divina",
+        "Alcance: 8m",
+        "Duración: 1d6 Turnos",
+        "Otorgas a un objetivo un +1 a las Tiradas."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-11",
+          "circulo": 1,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 419,
+      "nombre_literal": "Velo de la mente",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3042,
+        "indice_ultimo_parrafo": 3047,
+        "indice_inicio_doc": 217517,
+        "indice_fin_doc": 217944
+      },
+      "parrafos_literal": [
+        "Séptimo Círculo",
+        "Escuela: Arcana",
+        "Alcance: 10 metros",
+        "Duración: 1 Intervalo por Nivel",
+        "Cubres tu mente, o la de un objetivo, con un velo arcano impenetrable. Mientras dure el conjuro, el objetivo queda protegido contra cualquier intento de detección, lectura mental, manipulación emocional o influencia en sus pensamientos. El Velo de la mente actúa como una barrera absoluta contra la intrusión mágica o psíquica."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-346",
+          "circulo": 7,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 420,
+      "nombre_literal": "Velo ilusorio profano",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3048,
+        "indice_ultimo_parrafo": 3054,
+        "indice_inicio_doc": 217945,
+        "indice_fin_doc": 218439
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Demonología",
+        "Alcance: toque",
+        "Duración: 2 Turnos por Nivel",
+        "Proyectas una imagen ilusoria de ti mismo sobre el cuerpo de otra criatura viva, haciendo que esta imite tus movimientos de manera sobrenatural. Un soldado podría parecer que lanza un conjuro mientras ataca, o un ladrón podría parecer que reza plegarias mientras se mueve con sigilo.",
+        "Las criaturas que interactúan con la ilusión pueden percibir el engaño si no superas una Tirada de Conjuro."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-372",
+          "circulo": 2,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 421,
+      "nombre_literal": "Ventana mágica",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3055,
+        "indice_ultimo_parrafo": 3061,
+        "indice_inicio_doc": 218440,
+        "indice_fin_doc": 218964
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "Creas una ventana mágica invisible de 1 metro de diámetro en una pared u otra superficie sólida, permitiéndote observar y escuchar al otro lado sin ser detectado. Puedes gastar un Turno para trasladar la Ventana mágica a otra ubicación dentro de tu alcance; puedes dejar que otras criaturas utilicen la ventana para observar, pero sólo uno de vosotros podrá utilizarla a la vez. ",
+        "No puedes crear varias Ventanas mágicas al mismo tiempo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-318",
+          "circulo": 6,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 422,
+      "nombre_literal": "Ventisca",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3062,
+        "indice_ultimo_parrafo": 3067,
+        "indice_inicio_doc": 218965,
+        "indice_fin_doc": 219314
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Elemental",
+        "Alcance: 100 metros",
+        "Lanzamiento: 2 Turnos",
+        "Formas una nube de hielo mágico que cubre toda el área al alcance del conjuro. Una terrible lluvia de granizo gélido cae sobre todos los objetivos, que sufren 10d6 de daño por frío. El área queda cubierta por escarcha que estorba el movimiento durante un Intervalo."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-108",
+          "circulo": 6,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 423,
+      "nombre_literal": "Ventura arcana",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3068,
+        "indice_ultimo_parrafo": 3074,
+        "indice_inicio_doc": 219315,
+        "indice_fin_doc": 219950
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Duración: hasta que se dispare el Conjuro almacenado o vuelvas a lanzar Ventura arcana",
+        "Envuelves tu propio aura con un Conjuro de alcance Personal. Es decir, lanzas el Conjuro, pero lo almacenas dentro de tí mismo para que se libere bajo una circunstancia que tú decidas, en lugar de liberarse inmediatamente.",
+        "Debes ser muy específico con las instrucciones, o el Conjuro no podrá liberarse. Por ejemplo «la próxima vez que pierda Puntos de Salud» es una instrucción clara. Una vez activado, o si vuelves a lanzar Ventura arcana, el Conjuro almacenado anterior se disipará."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-314",
+          "circulo": 6,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 424,
+      "nombre_literal": "Viaje arbóreo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3075,
+        "indice_ultimo_parrafo": 3081,
+        "indice_inicio_doc": 219951,
+        "indice_fin_doc": 220567
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Naturaleza",
+        "Lanzamiento: 3 Turnos",
+        "Alcance: toque",
+        "Te fusionas con un árbol vivo de tamaño grande y utilizas su esencia para transportarte instantáneamente a otro árbol de la misma especie y tamaño, sin importar la distancia que los separe.",
+        "Tanto el árbol de origen como el de destino deben estar vivos y ser lo suficientemente grandes como para alojarte. Si no conoces el destino de primera mano, debes indicar una dirección y una distancia máxima. En este caso, el conjuro te llevará al árbol adecuado más cercano al destino indicado. Este conjuro no permite viajes entre planos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-397",
+          "circulo": 5,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 425,
+      "nombre_literal": "Viaje espaciotemporal",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 3082,
+        "indice_ultimo_parrafo": 3089,
+        "indice_inicio_doc": 220568,
+        "indice_fin_doc": 221364
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Arcana",
+        "Lanzamiento: 1 Intervalo",
+        "Alcance: 8m",
+        "Cronurgia",
+        "Generas una grieta en la realidad, alterando la línea espaciotemporal. Viajas a cualquier momento en el tiempo o a cualquier lugar en los planos tangenciales de existencia, siempre y cuando hayas estado o contemplado de alguna forma esos sitios. Puedes llevarte contigo hasta a 4 humanoides más (u objetos que equivalgan en masa) que estén dentro del alcance. Una vez haces el viaje, la única forma de regresar es lanzando de nuevo este Conjuro.",
+        "AVISO: Este sortilegio es muy poderoso y sus efectos pueden alterar campañas de juego. Consulta con el Cronista las posibilidades y las consecuencias, y sólo se ha de poder utilizar bajo absoluto acuerdo entre Cronista, jugador y el resto de la mesa."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-63",
+          "circulo": 8,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    }
+  ]
+}

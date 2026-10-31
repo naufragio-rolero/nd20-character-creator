@@ -1,0 +1,372 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    376,
+    400
+  ],
+  "numero_registros": 25,
+  "metodo": "Lectura manual del texto íntegro de 69p, cotejo de referencias y registro de reglas/ambigüedades sin implementación.",
+  "registros": [
+    {
+      "numero_tomo": 376,
+      "nombre_literal": "Senda oculta",
+      "lectura_documental_no_oficial": "Ocultación de rastros del caminante",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Impide dejar huellas visibles y rastros olfativos, no concede Invisibilidad literal.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2752
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 377,
+      "nombre_literal": "Sentir el norte",
+      "lectura_documental_no_oficial": "Orientación innata hacia el norte",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Concede conocimiento direccional por 24 horas; señales posteriores permiten prolongar orientación mundana.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2758
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 378,
+      "nombre_literal": "Sentidos puros",
+      "lectura_documental_no_oficial": "Mejora de todas las Tiradas de Intuición",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Bonificación +2 durante 1 Turno por Nivel; no extender a otros Atributos.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2764
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 379,
+      "nombre_literal": "Séquito infernal",
+      "lectura_documental_no_oficial": "Invocación defensiva de 1d6 diablillos",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Tirada por enemigo que se aproxime a 2 m, 1d6 fuego y perforante por Nivel; diablillos no pueden dañarse con armas y pueden disiparse.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2770
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 380,
+      "nombre_literal": "Sifón de recuerdos",
+      "lectura_documental_no_oficial": "Sustracción de recuerdos de hasta cuatro criaturas",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Tirada por objetivo, Desventaja si afecta a más de uno a la vez; alcance 30 pies (9 m), borrado retrocede un Turno por cada 3 Niveles.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2778
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 381,
+      "nombre_literal": "Silencio",
+      "lectura_documental_no_oficial": "Burbuja de silencio móvil o fija",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Esfera de 6 m de diámetro, no radio. Si se dirige a criatura y falla Tirada, el silencio no la acompaña, pero queda estático.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2785
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 382,
+      "nombre_literal": "Silencio nocturno",
+      "lectura_documental_no_oficial": "Mudez con posibilidad de disipación por Probabilidad",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Probabilidad 13+ para liberarse al finalizar Turno; no equivale a concentración del lanzador.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2792
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 383,
+      "nombre_literal": "Sino del Segador",
+      "lectura_documental_no_oficial": "Invocación de Segador con limitación de uno activo",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Conserva duración de 1d6 meses y daño al lanzador si el Segador es derrotado; no dispone de estadísticas en la ficha.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2800
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 384,
+      "nombre_literal": "Suplicio mental",
+      "lectura_documental_no_oficial": "Daño psíquico y modificador posterior a esquiva",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "En éxito, 1d6 por cada 6 Niveles y +2 a la siguiente Tirada de Esquivar que provoque. No tiene efecto en criaturas sin raciocinio.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2809
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 385,
+      "nombre_literal": "Surcar la tierra",
+      "lectura_documental_no_oficial": "Excavación de tierra de volumen definido",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Límite 4 m³, pero el ejemplo de pozo de 2 m ancho y 12 m profundidad parece superar el volumen máximo; no ampliar 4 m³ sin aprobación.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2815
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 386,
+      "nombre_literal": "Toque eléctrico",
+      "lectura_documental_no_oficial": "Toque de relámpago con daño incluso al fallar",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Tirada con Ventaja contra metal; éxito 2d8 relámpago, fallo 1d6 fuerza.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2821
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 387,
+      "nombre_literal": "Tentáculos negros",
+      "lectura_documental_no_oficial": "Agarrar y dañar mediante tentáculos con mantenimiento",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "3d6 por Turno atrapado; desde segundo Turno Tirada al comienzo para mantener agarre.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2826
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 388,
+      "nombre_literal": "Tormenta de espadas",
+      "lectura_documental_no_oficial": "Área de espadas de 4 m² con daño en éxito y fallo",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Centrada en punto dentro del alcance; 1d8 cortante y mágico o mitad; forma geométrica no explicitada.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2832
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 389,
+      "nombre_literal": "Transfusión de dolor",
+      "lectura_documental_no_oficial": "Transferencia de daño reciente mediante contacto",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Requiere haber sufrido daño dentro de la última hora sin recibir sanación; Tirada si la criatura se resiste.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2838
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 390,
+      "nombre_literal": "Toque narcótico",
+      "lectura_documental_no_oficial": "Somnolencia de objetivo que respira",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Tirada inicial para inducir sueño; criaturas que no respiran son inmunes.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2844
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 391,
+      "nombre_literal": "Tridente flamígero",
+      "lectura_documental_no_oficial": "Tres rayos con penalización posterior en Salud máxima",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Cada rayo 3d6 fuego; una Tirada de Conjuro por objetivo alcanzado para reducir Salud máxima en 4 durante 1d4 Turnos, no por cada rayo.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2851
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 392,
+      "nombre_literal": "Trance iracundo",
+      "lectura_documental_no_oficial": "Furia de aliados con ventajas y desventajas",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Ventaja para atacar, +1d6 de daño cuerpo a cuerpo y Desventaja para evitar ataques. Duración 2 Turnos por cada 5 Niveles; redondeo pendiente.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2856
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 393,
+      "nombre_literal": "Tromba de meteoritos",
+      "lectura_documental_no_oficial": "Cuatro impactos meteóricos con Tiradas independientes",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "30d10 o mitad por meteorito; solo un impacto puede afectar a una criatura a la vez; superficie circular de 20 m² ya aprobada en 78a y alcance «2km2» sigue ambiguo.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2862
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 394,
+      "nombre_literal": "Torpeza",
+      "lectura_documental_no_oficial": "Penalización a evitar ataques",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "-1 a todas las Tiradas para Evitar ataques durante 1 Turno por Nivel.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2867
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 395,
+      "nombre_literal": "Trampa de enredaderas",
+      "lectura_documental_no_oficial": "Enredaderas de retención en superficie circular",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "3 m² circulares en 78a y un lanzamiento contra todos los objetivos dentro; incluye aliados, Salud de enredaderas 10 y vulnerabilidad al fuego.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2873
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 396,
+      "nombre_literal": "Torbellino de arena",
+      "lectura_documental_no_oficial": "Torbellino móvil con caída opcional",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "3d6 contundente y Probabilidad 14+ de Derribo al contacto; «4m2 metros» sigue registrado como errata sin aprobación en 77d.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2881
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 397,
+      "nombre_literal": "Tornado",
+      "lectura_documental_no_oficial": "Tornado de trayectoria aleatoria",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Área 4 m² sin forma declarada, desplaza 6 metros aleatoriamente por Turno, 2d10 contundente por entrar o cruzar.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2887
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 398,
+      "nombre_literal": "Toque vampírico",
+      "lectura_documental_no_oficial": "Toque de daño y recuperación vinculada",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "En éxito 1d6 impío por Nivel y Salud recuperada igual al daño causado; no aplicar en fallo sin fuente.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2893
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 399,
+      "nombre_literal": "Tempestad vengativa",
+      "lectura_documental_no_oficial": "Tempestad de daño compuesto por Turno",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Área de 20 m² alrededor del lanzador, inmune el propio lanzador; resto sufre 4d6 ácido más 2d6 relámpago cada Turno.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2899
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 400,
+      "nombre_literal": "Tomo parlante de Tuliëlle",
+      "lectura_documental_no_oficial": "Libro parlante que responde solo al lanzador",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Una pregunta por Turno según el contenido escrito; a otras personas responde con sonidos incongruentes.",
+      "fuente": {
+        "archivo": "69p-conjuros-alfabeticos-376-400.json",
+        "indice_encabezado": 2907
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}

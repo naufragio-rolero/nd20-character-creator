@@ -1,0 +1,266 @@
+{
+  "fecha": "2026-10-29",
+  "alcance": "Extracción de ofrendas, pactos, pruebas y gestos que figuran en la narrativa; no nuevas reglas",
+  "criterio": "Conservar el pasaje original íntegro; los campos resumen/tipo/momento son clasificación documental y no sustituyen texto original.",
+  "fuente": "NaufragioD20 — Ocupaciones; Google Docs vigente recuperado en fichas 59c y 59d",
+  "total": 16,
+  "registros": [
+    {
+      "eidolon": "Kayulio",
+      "categoria": 1,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ofrenda_material",
+      "resumen_no_literal": "carne",
+      "momento_no_literal": "contraprestación por sus servicios",
+      "pasaje_original_integro": "Los gatónidos del Valle de los maullidos cuentan una historia a sus pequeños, las peripecias de Kayulio el gato más metomentodo y más temerario de toda la región. Se cuenta que se infiltró en una tribu de troblins para rescatar a su hermana de las garras del cacique y esto le hizo ganarse su título. Exige por sus servicios un generoso trozo de carne, si está cocinada mucho mejor.",
+      "indice_parrafo_narrativo": 0,
+      "fuente_ficha": "59c-eidolas-categoria-1-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4856,
+        4862
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Lonian",
+      "categoria": 1,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ritual_posterior",
+      "resumen_no_literal": "himno al Señor de las Mareas",
+      "momento_no_literal": "próximo amanecer después de invocarlo",
+      "pasaje_original_integro": "Este pequeño perro acompañó a su dueño durante la Guerra de las Llamas, volviéndose más duro a medida que se enfrentaba a monstruos primitivos y salvajes. En su último viaje, dueño y can plantaron cara a un ejército de demonios acuáticos que amenazaban con destruir una aldea costera. Aunque perecieron, el espíritu de ambos se transformó en un Éidolon gracias a la magia deífica de Lenseng. Lonian solicita, cada vez que es invocado, que se cante un himno al Señor de las Mareas durante el próximo amanecer.",
+      "indice_parrafo_narrativo": 0,
+      "fuente_ficha": "59c-eidolas-categoria-1-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4863,
+        4869
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Rufushia",
+      "categoria": 1,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ritual_posterior",
+      "resumen_no_literal": "dos velas encendidas sobre techo o viga",
+      "momento_no_literal": "durante una noche tras la invocación",
+      "pasaje_original_integro": "Los ratones son una de las especies animales más comunes en la civilización. Cuenta la fábula que Rufushia fue un ratón muy pequeño, de pelaje negro y ojos brillantes, llenos de curiosidad, que dominó la magia para iluminar las noches oscuras a sus allegados. Aunque dicha proeza le llevó a ser el conejillo de indias de un arcanista sin escrúpulos, la esencia de Ylathia permeó a través de la Urdimbre y le ofreció una existencia como la representación más pura del hogar. Es por esto que Rufushia exige que se enciendan dos velas y se dejen en el techo o en una viga durante una noche tras invocarle.",
+      "indice_parrafo_narrativo": 0,
+      "fuente_ficha": "59c-eidolas-categoria-1-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4870,
+        4876
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Schoff",
+      "categoria": 1,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ofrenda_material",
+      "resumen_no_literal": "mendrugo de pan",
+      "momento_no_literal": "contraprestación por servicios",
+      "pasaje_original_integro": "La leyenda cuenta que este perro legendario fue uno de los borregueros de Shadel cuando levantó los cimientos de lo que llegaría a ser la capital del reino. Su presencia recorre las Llanuras Vertenia en busca de shadalenses que requieran ayuda. Schoff requiere por sus servicios un buen mendrugo de pan.",
+      "indice_parrafo_narrativo": 0,
+      "fuente_ficha": "59c-eidolas-categoria-1-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4877,
+        4883
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Sel-Line",
+      "categoria": 1,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ofrenda_material",
+      "resumen_no_literal": "comida, posiblemente galletas o dulces",
+      "momento_no_literal": "petición sutil",
+      "pasaje_original_integro": "Esta temerosa gatónida fue la fiel compañera del Cacique Kayulio y del Embaucador Sheólidas, que se mantuvo con ellos a pesar de las temerarias decisiones que tomaban. Silenciosa y asustadiza, Sel-Line hizo de sus defectos una virtud y pasó a la historia como una de las acechadoras más letales del Valle de los Maullidos. A cambio de sus ayuda, pedirá de forma sutil a su invocador algo de comida, posiblemente galletas u otros elaborados dulces.",
+      "indice_parrafo_narrativo": 0,
+      "fuente_ficha": "59c-eidolas-categoria-1-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4884,
+        4890
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Sheólidas",
+      "categoria": 1,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "gesto_posterior",
+      "resumen_no_literal": "acurrucarse con el invocador",
+      "momento_no_literal": "tras la invocación",
+      "pasaje_original_integro": "Antiguo compañero de aventuras del Cacique Kayulio, Sheólidas pasó a la historia como uno de los felinos más pesados e insistentes de la realidad. Aunque ahora su espíritu mora en el plano astral, la fuerza de voluntad de éste Éidolon es tal que puede afectar el Mundo de la carne. Tras invocarlo, querrá acurrucarse un rato con su invocador, para disfrutar del calor de un ser vivo una vez más.",
+      "indice_parrafo_narrativo": 0,
+      "fuente_ficha": "59c-eidolas-categoria-1-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4891,
+        4897
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Tal-lu-reihm",
+      "categoria": 1,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "prueba_posterior",
+      "resumen_no_literal": "meditar sobre piedras ardientes",
+      "momento_no_literal": "semana posterior a la invocación",
+      "pasaje_original_integro": "Ambos Espíritus deíficos se apiadaron, secando su prisión de fuego y liberándola. Pero lo que quedaba de Tal-lu-reihm no era más que un esqueleto carbonizado: la buena voluntad de estos seres preternaturales le permitieron vivir una vez más, recobrando su carne perdida. Aún con el tono de piel calcinado, comenzó a vagar por los planos tangenciales en busca de su hermano, al que aún creía vivo. Tal-lu-reihm exige a su invocador que medite encima de piedras ardientes en la semana próxima a invocarla.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59c-eidolas-categoria-1-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4898,
+        4905
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Velunion",
+      "categoria": 1,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ofrenda_material_posterior",
+      "resumen_no_literal": "alimento procedente del mar o río, depositado en orilla",
+      "momento_no_literal": "semana posterior a la invocación",
+      "pasaje_original_integro": "Velunion fue uno de esos héroes, armado con sus aparejos y su barca, alimentó a dos generaciones de su familia, echándose a la mar sin pensar en el peligro. Los espíritus del agua le transformaron en un ancestro protector cuando pereció, víctima de una enfermedad, en el lecho de muerte en su hogar. A cambio de su ayuda, el pescador requiere una ofrenda de alimento obtenido en el mar o en los ríos, que deberá ser depositada en la orilla de una playa o un lago durante la próxima semana a su invocación.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59c-eidolas-categoria-1-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4906,
+        4913
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Arkonis",
+      "categoria": 2,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ritual_material",
+      "resumen_no_literal": "enterrar joya sin valor en barro",
+      "momento_no_literal": "ciclo lunar completo, para conseguir favor",
+      "pasaje_original_integro": "Arkonis fue un sabio arcanista de la materia y sanador en tiempos remotos, un maestro bendecido por Mulinith y los elementos físicos. Actuaba como chamán en las montañas más altas y en los reinos más profundos, reconciliando a los espíritus de la tierra con los mortales. Al final de su vida, se fusionó con la tierra misma, convirtiéndose en el protector del conocimiento telúrico. Para conseguir su favor, el invocador debe enterrar una joya sin valor en el barro durante un ciclo lunar completo, simbolizando la paciencia y la transformación.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59d-eidolas-categoria-2-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4915,
+        4922
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Goralax",
+      "categoria": 2,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ritual_material",
+      "resumen_no_literal": "quemar hojarasca, madera e incienso",
+      "momento_no_literal": "cuando se le convoca fuera de sus llanuras",
+      "pasaje_original_integro": "Goralax fue una de las monturas de los héroes durante el enfrentamiento contra los diablos y ha sobrevivido hasta estos días como testimonio silencioso de las eras olvidadas. Exige a quien lo arrastre fuera de sus llanuras que queme hasta las cenizas una ofrenda hecha de hojarasca, madera e incienso.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59d-eidolas-categoria-2-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4923,
+        4930
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Maia",
+      "categoria": 2,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ofrenda_material",
+      "resumen_no_literal": "pluma de ave recolectada durante el Vero",
+      "momento_no_literal": "símbolo de respeto",
+      "pasaje_original_integro": "Se dice que Maia es la encarnación de los suaves vientos que preceden al Crecio. Su brisa trae consigo el aroma del Vero y la promesa de cielos despejados y días cálidos. Los agricultores de antaño esperaban su llegada como señal de una temporada fértil, mientras que los viajeros dependían de sus vientos para viajes tranquilos y seguros. Maia ofrece su poder a aquellos que la invocan con respeto por la naturaleza, y solo pide una pluma de ave recolectada durante el Vero como símbolo de respeto a su legado.",
+      "indice_parrafo_narrativo": 0,
+      "fuente_ficha": "59d-eidolas-categoria-2-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4931,
+        4937
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Opharis",
+      "categoria": 2,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "gesto_creativo",
+      "resumen_no_literal": "obra artística o texto en su honor",
+      "momento_no_literal": "ofrenda simbólica",
+      "pasaje_original_integro": "Opharis fue un antiguo regente de las artes y ciencias, conocido por su profundo conocimiento alquímico. Tras la caída de su reino, se transformó en un espíritu de luz, que ofrece sabiduría y sanación a quienes lo invocan. Exige como ofrenda un gesto simbólico de creatividad: una obra de arte o un texto escrito en su honor.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59d-eidolas-categoria-2-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4938,
+        4946
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Talisa",
+      "categoria": 2,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ritual_material",
+      "resumen_no_literal": "objeto metálico de batalla a la intemperie hasta cubrirse de hielo",
+      "momento_no_literal": "para convocarla",
+      "pasaje_original_integro": "Talisa fue una legendaria comandante de los ejércitos del norte, cuya frialdad y estrategia la convirtieron en una líder imparable en el campo de batalla. Después de su muerte, ascendió como un Eidolon, infundiendo su espíritu en el hielo eterno de las montañas más altas. Para convocarla, el invocador debe ofrecer un objeto metálico de batalla, dejándolo a la intemperie para que se cubra de hielo, simbolizando la pureza y la letalidad del frío.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59d-eidolas-categoria-2-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4947,
+        4954
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Varlyna",
+      "categoria": 2,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ofrenda_ambigua",
+      "resumen_no_literal": "atisbo de tecnología del mundo, papel o historia según original",
+      "momento_no_literal": "contraprestación por manifestarse",
+      "pasaje_original_integro": "Sin embargo, halló la muerte en un experimento que fusionaría de forma natural la vida humana y las hebras de la Urdimbre. Los registros históricos han olvidado si fue una maniobra de sus rivales o si la mano de Nastala quiso interrumpir semejante herejía. De una forma u otra, Varlyna se recompuso en El Erial como una entidad eléctrica, compuesta de pura energía, capaz de manifestarse como un Eidolon a cambio de un atisbo de tecnología del mundo, ya sea un papel o una historia.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59d-eidolas-categoria-2-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4955,
+        4962
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Warnok",
+      "categoria": 2,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "ofrenda_material",
+      "resumen_no_literal": "amuleto de hojas, lianas y huesos",
+      "momento_no_literal": "señal de respeto",
+      "pasaje_original_integro": "Warnok es la encarnación de la ferocidad y los peligros de las junglas más inhóspitas. Se cuenta que este cocodrilo ancestral acecha en los pantanos más profundos, donde la vegetación es tan densa que apenas permite la entrada de luz. Es el guardián de los secretos de la naturaleza salvaje, y su poder está vinculado a la fuerza indomable de la selva. Solo aquellos que respeten la jungla y sus habitantes pueden llamar a Warnok, y exige que le ofrezcan un pequeño amuleto hecho de hojas, lianas y huesos como señal de respeto.",
+      "indice_parrafo_narrativo": 0,
+      "fuente_ficha": "59d-eidolas-categoria-2-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4963,
+        4969
+      ],
+      "requisito_mecanico_confirmado": null
+    },
+    {
+      "eidolon": "Xalanth",
+      "categoria": 2,
+      "estado": "mencion_narrativa_explicita",
+      "tipo_analitico": "sacrificio_narrativo",
+      "resumen_no_literal": "alma inocente",
+      "momento_no_literal": "antes de cumplir su cometido",
+      "pasaje_original_integro": "Los humanos se quedaron con su cuerpo, que fue aprovechado hasta la última brizna de piel. Xalanth se reformó en una de las provincias más remotas del Mundo onírico, consternado por lo que había sucedido. Su deceso había atraído a El Infante, que empleó sus malévolos poderes para transformarlo en un Eidolon y vincularlo al elemento más puro de sus dominios: la Oscuridad. Xalanth exige a sus invocadores el sacrificio de un alma inocente antes de cumplir su cometido.",
+      "indice_parrafo_narrativo": 1,
+      "fuente_ficha": "59d-eidolas-categoria-2-fichas-vigentes-completas.json",
+      "fuente_parrafos": [
+        4970,
+        4977
+      ],
+      "requisito_mecanico_confirmado": null
+    }
+  ],
+  "criterio_mecanico": "No se infiere obligatoriedad, momento de comprobación, pérdida de recursos ni bloqueo de la invocación a partir del texto narrativo; la condición de activación deberá derivarse de una regla explícita o decisión editorial."
+}

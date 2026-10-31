@@ -1,0 +1,63 @@
+{
+  "fecha": "2026-10-29",
+  "resultado": "sin_incidentes_en_controles_aplicados",
+  "registros_nuevos": 22,
+  "por_tabla": {
+    "35": 6,
+    "36": 6,
+    "37": 1,
+    "38": 9
+  },
+  "control_de_duplicidad": {
+    "metodo": "Igualdad de nombre normalizado (minúsculas, sin acentos ni puntuación). No detecta equivalencias semánticas o variantes de nombre.",
+    "fuentes_contrastadas": [
+      "data/equipo-inicial.json",
+      "data/catalogo-ampliado.json"
+    ],
+    "registros_existentes_con_nombre_recorridos": 84,
+    "coincidencias_de_nombre": [],
+    "duplicados_internos": []
+  },
+  "completitud": {
+    "errores": [],
+    "marcas_nota_puño": 2,
+    "marcas_nota_arrojadiza": 3
+  },
+  "calidad": [
+    {
+      "id": "OCP-EQ-01",
+      "original": "Compleja herramientas",
+      "equipo": "Microscopio",
+      "estado": "errata_literal_preservada"
+    },
+    {
+      "id": "OCP-EQ-02",
+      "original": "gastando 1 de Esfuerzo",
+      "equipo": "Cometa",
+      "estado": "redaccion_original_preservada"
+    }
+  ],
+  "limites": [
+    "El cotejo solo cubre equipo-inicial.json y catalogo-ampliado.json, no todos los manuales o catálogos.",
+    "No se ha probado asignación ni precios en Forja.",
+    "Los datos siguen documentales; no integrar automáticamente en el generador."
+  ],
+  "fuentes": [
+    {
+      "path": "docs/enciclopedia/62a-equipo-armas-ocupaciones.json",
+      "sha": "e116f2b9faf5d9dc2702bfa8d71b3bd50eb26f0d"
+    },
+    {
+      "path": "docs/enciclopedia/62b-equipo-herramientas-ocupaciones.json",
+      "sha": "9035a7ff119ee515f1c03989ab1e69e879354e41"
+    },
+    {
+      "path": "data/equipo-inicial.json",
+      "sha": "7a672b39f5598b162b24b61555b51aac312caf2d"
+    },
+    {
+      "path": "data/catalogo-ampliado.json",
+      "sha": "e7f451fd087f4148334f28633813988094d32ee2"
+    }
+  ]
+}

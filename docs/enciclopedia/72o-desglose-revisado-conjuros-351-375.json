@@ -1,0 +1,375 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    351,
+    375
+  ],
+  "numero_registros": 25,
+  "metodo": "Lectura manual de fichas íntegras y cotejo de referencias. Interpretaciones para revisión previa a Forja.",
+  "registros": [
+    {
+      "numero_tomo": 351,
+      "nombre_literal": "Resistir los elementos",
+      "lectura_documental_no_oficial": "Protección alternativa frente a fuego o frío",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Se elige un solo efecto, doble Blindaje y Ventaja ante amenazas vinculadas al elemento; no confundir con inmunidad completa.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2580
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 352,
+      "nombre_literal": "Restablecimiento",
+      "lectura_documental_no_oficial": "Restauración de merma mágica temporal y un Nivel perdido",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Nivel recuperable solo si la pérdida no fue debida a Resurrección; no restituye automáticamente varios Niveles.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2588
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 353,
+      "nombre_literal": "Restablecimiento magno",
+      "lectura_documental_no_oficial": "Restablecimiento de penalizaciones y pérdidas permanentes",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Restaura Niveles, Salud y Talentos perdidos por toque de muertos vivientes dentro de una semana; excluye pactos o sacrificios trascendentes.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2594
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 354,
+      "nombre_literal": "Resurrección",
+      "lectura_documental_no_oficial": "Resurrección de fallecido reciente sin secuelas salvo Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Muerte hace 48 horas o menos, pierde 1 Nivel y no admite Nivel 0 o inferior; las partes regeneran en 1d6 semanas.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2602
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 355,
+      "nombre_literal": "Revelar ilusiones",
+      "lectura_documental_no_oficial": "Detección de ilusiones en radio creciente",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Radio de 4 metros por Nivel; duración 2 Turnos más 2 por Nivel, no superficie de 4 m².",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2610
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 356,
+      "nombre_literal": "Revelar objeto maravilloso",
+      "lectura_documental_no_oficial": "Identificación de una propiedad de objeto mágico",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "La ficha menciona Lanzamiento 1 Intervalo y trance durante descanso de 8 horas; discrepancia temporal a conciliar. No detecta maldiciones.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2616
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 357,
+      "nombre_literal": "Robar la luz",
+      "lectura_documental_no_oficial": "Oscuridad creada en superficie 6 m²",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "Zona cubre 6 m² desde un punto al alcance, sin forma declarada; duración elegida hasta 2 Intervalos y cancelable.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2623
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 358,
+      "nombre_literal": "Roce de Nirebia",
+      "lectura_documental_no_oficial": "Eliminación de enfermedad mediante Tirada",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Una Tirada de Conjuro de éxito elimina una enfermedad, con ejemplos que incluyen licantropía; no añade curación de Salud.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2630
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 359,
+      "nombre_literal": "Rociada ardiente",
+      "lectura_documental_no_oficial": "Cono ígneo de alcance lineal 5 m",
+      "indices_de_parrafos_reglamentarios": [
+        2,
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "2d10 por fuego a los afectados y prende objetos inflamables; no declara Tirada previa.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2636
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 360,
+      "nombre_literal": "Sacrificio santificado",
+      "lectura_documental_no_oficial": "Curación total de Salud y Esfuerzo a costa del lanzador",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Lanzador queda a 1 Salud y Desventaja hasta descansar; el castigo por reiteración queda narrativamente condicionado.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2643
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 361,
+      "nombre_literal": "Saeta gélida",
+      "lectura_documental_no_oficial": "Rayo gélido con ralentización condicionada",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "1d10 de frío; Tras Tirada exitosa aplica -1 Movimiento por Nivel Turnos; el verbo «impacta» puede requerir cotejo con Tirada de Conjuro.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2649
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 362,
+      "nombre_literal": "Saliva ácida de Valujna",
+      "lectura_documental_no_oficial": "Flecha ácida con daño inmediato y persistente",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Éxito: 2d4 de ácido; daño posterior 2d4 al fin de cada Turno adicional por cada 2 Niveles. No añadir daño en fallo.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2654
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 363,
+      "nombre_literal": "Salmo de protección",
+      "lectura_documental_no_oficial": "Blindaje para aliados en radio de 6 m",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Bonificación +1 por cada 6 Niveles con mínimo +1; no extender a enemigos o a otras defensas.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2661
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 364,
+      "nombre_literal": "Salvaguarda mental",
+      "lectura_documental_no_oficial": "Ventaja contra amenazas mentales específicas",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Incluye Tiradas de Salvación de Mente, Intuición y Presencia para resistir posesión o control; no confundir con inmunidad.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2667
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 365,
+      "nombre_literal": "Sangre de Umbrathia",
+      "lectura_documental_no_oficial": "Ceguera con distinto resultado según Tirada",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Éxito aplica Ceguera durante duración del Conjuro 1d6 Turnos; fallo aplica Ceguera durante 1 Turno, según literal.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2673
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 366,
+      "nombre_literal": "Sangre hirviente",
+      "lectura_documental_no_oficial": "Explosión sanguínea radial con daño conjunto",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Radio 6 m centrado en punto al alcance, 3d8 fuego más 3d8 impío en éxito o mitad del total en fallo.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2680
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 367,
+      "nombre_literal": "Santuario sagrado",
+      "lectura_documental_no_oficial": "Santuario de bloqueo planar y de teletransporte",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "18 m² permanentes sin geometría definida; entidades más poderosas pueden Disipar magia.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2687
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 368,
+      "nombre_literal": "Sellar entrada",
+      "lectura_documental_no_oficial": "Cierre mágico de entrada con contramedidas",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Duración 2d6 Intervalos por Nivel, se disipa con Disipar magia o Apertura.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2693
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 369,
+      "nombre_literal": "Sello rúnico: Explosión",
+      "lectura_documental_no_oficial": "Runa explosiva activada al leer y detectable por medios específicos",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Área a 3 m alrededor del escrito; 2d6 fuego o mitad si falla Tirada; Probabilidad 17+ para detección y Ventaja de arcanistas.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2699
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 370,
+      "nombre_literal": "Sello rúnico: Localización",
+      "lectura_documental_no_oficial": "Runa de rastreo con contramedidas contra localización",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Concentración 1 Turno y pronunciar nombre; protecciones de magia rúnica o invocaciones bloquean rastreo.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2707
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 371,
+      "nombre_literal": "Sello rúnico: Marca",
+      "lectura_documental_no_oficial": "Marca rúnica para falsear percepción de magia",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "Objetos mundanos parecen mágicos y objetos mágicos parecen mundanos; no concede ni elimina poderes reales.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2715
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 372,
+      "nombre_literal": "Sello rúnico: Retorno",
+      "lectura_documental_no_oficial": "Retorno de objeto marcado a cualquier distancia",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Concentración 1 Turno; áreas que restringen invocaciones impiden retorno sin borrar runa.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2722
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 373,
+      "nombre_literal": "Sello rúnico: Trampa",
+      "lectura_documental_no_oficial": "Runa trampa detonada al abrir objeto",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "2d6 contundente a criaturas adyacentes; superficie circular de 3 m² aprobada en 78a, sin convertir a radio.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2730
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 374,
+      "nombre_literal": "Sello rúnico: Viaje",
+      "lectura_documental_no_oficial": "Inscripción de Runa de viaje que registra ubicación",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Requiere Runa de viaje y conjuro Viaje por la Urdimbre para utilizarla; no es teletransporte autónomo.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2737
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 375,
+      "nombre_literal": "Sello rúnico: Vigilante",
+      "lectura_documental_no_oficial": "Runa de vigilancia transferida al tocar el objeto",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Duración desde activación, comparte sentidos y permite lanzar Conjuros a través del afectado; no se declara control de conducta.",
+      "fuente": {
+        "archivo": "69o-conjuros-alfabeticos-351-375.json",
+        "indice_encabezado": 2744
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "ocupacion": "Bardo",
+  "categoria": "Poderes",
+  "familia": "Canciones",
+  "reglas_generales": {
+    "parrafos": [
+      1411,
+      1422
+    ],
+    "texto_literal": "Las Canciones son interpretaciones mágicas de música que proporcionan estados beneficiosos o perniciosos a aquellos que la escuchan. Suelen ser tocadas por bardos, trovadores y goliardos, artistas e intérpretes que a través de su arte efímero logran proezas intangibles.\nLas Canciones se almacenan en un Libro de partituras, similar al Tomo de conjuros de un arcanista. El artista no necesita estudiarlas cada día, aunque sí practicarlas una vez a la semana por lo menos (esta regla es más interpretativa que nada).\nSi pierde el Libro de partituras, podrá obtener otro por el precio de un Tomo de conjuros y pasar 1 Intervalo escribiendo de nuevo los acordes; lo más probable es que las Canciones rememoradas de esta forma tengan ligeras variaciones producto de la memoria del artista.\nCada vez que quieras tocar una Canción, debes emplear una Acción, gastar 1 Punto de Esfuerzo y realizar una Tirada de Presencia; si tienes éxito, recuperas el Esfuerzo consumido. Has de tocar un instrumento o cantar para que la magia se haga latente.\nCada Turno siguiente debes continuar tocando, ya sea gastando toda tu Acción o realizando una nueva tirada de Presencia; si no la superas o no gastas la Acción, la canción finaliza. De este modo, puedes moverte, atacar o hacer otra cosa además de proporcionar beneficios con tu música.\nSi sufres daño mientras estás tocando, debes superar una Tirada de Resistencia: si no la superas, pierdes el ritmo y el efecto de la canción finaliza.\nCada Canción otorga un efecto distinto a los aliados o a los oponentes del músico, afectando a todos aquellos en un área de 12 metros alrededor del músico. Las Canciones están divididas en cuatro grados de complejidad:\nSencilla (1): Melodías muy fáciles de tocar, con efectos leves.\nIntrincadas (2): Piezas con algo más de complejidad y efectos moderados.\nMaestras (3): Temas difíciles, de tonalidades variadas y con efectos importantes.\nMítica (4): Sonidos extremadamente arduos, con ritmos muy elaborados, que provocan efectos increíbles.\nA partir del Nivel 12 puedes mezclar 2 Canciones en una gastando 1 Punto de Esfuerzo adicional: esto te permite aplicar el efecto de distintas melodías en una única improvisación bárdica."
+  },
+  "registros": [
+    {
+      "grado": "Sencillas",
+      "complejidad": 1,
+      "nombre": "Arrullo pacificador",
+      "parrafos": [
+        1424,
+        1425
+      ],
+      "texto_literal": "Los oponentes otorgan +1 a las Tiradas para evitar sus ataques."
+    },
+    {
+      "grado": "Sencillas",
+      "complejidad": 1,
+      "nombre": "Cantata de ánimo",
+      "parrafos": [
+        1426,
+        1427
+      ],
+      "texto_literal": "Los aliados reciben +1 a sus Tiradas de ataque cuerpo a cuerpo y/o a distancia."
+    },
+    {
+      "grado": "Sencillas",
+      "complejidad": 1,
+      "nombre": "Fuga crepuscular",
+      "parrafos": [
+        1428,
+        1429
+      ],
+      "texto_literal": "Los aliados reciben +1 a sus Tiradas de Atributo para esquivar o resistir daño de conjuros y/o efectos mágicos."
+    },
+    {
+      "grado": "Sencillas",
+      "complejidad": 1,
+      "nombre": "Minueto borrascoso",
+      "parrafos": [
+        1430,
+        1431
+      ],
+      "texto_literal": "Los aliados reciben +1 a sus Tiradas para recuperar salud."
+    },
+    {
+      "grado": "Sencillas",
+      "complejidad": 1,
+      "nombre": "Preludio arcano",
+      "parrafos": [
+        1432,
+        1433
+      ],
+      "texto_literal": "Los aliados reciben +1 a sus Tiradas de lanzamiento de conjuros."
+    },
+    {
+      "grado": "Sencillas",
+      "complejidad": 1,
+      "nombre": "Serenata del vigor",
+      "parrafos": [
+        1434,
+        1435
+      ],
+      "texto_literal": "Los aliados reciben +1 a sus Tiradas de Atributo para resistir daño de armas o trampas."
+    },
+    {
+      "grado": "Intrincadas",
+      "complejidad": 2,
+      "nombre": "Bolero fogoso",
+      "parrafos": [
+        1437,
+        1438
+      ],
+      "texto_literal": "Los aliados reciben +1 a sus Tiradas de ataque cuerpo a cuerpo y/o a distancia, y los oponentes otorgan +1 a las Tiradas para evitar sus ataques."
+    },
+    {
+      "grado": "Intrincadas",
+      "complejidad": 2,
+      "nombre": "Coro de alianzas",
+      "parrafos": [
+        1439,
+        1441
+      ],
+      "texto_literal": "Los aliados comparten el daño sufrido si están al alcance del Coro. El daño se divide entre todos los participantes, dividiendo hacia arriba.\nEjemplo: Si un PJ recibe 4 puntos de daño y tiene 3 aliados, él y sus compañeros recibirán 1 daño sin posibilidad de reducirlo."
+    },
+    {
+      "grado": "Intrincadas",
+      "complejidad": 2,
+      "nombre": "Ecos de discordia",
+      "parrafos": [
+        1442,
+        1443
+      ],
+      "texto_literal": "Los adversarios sufren 2 puntos de daño adicional de los ataques que sufran."
+    },
+    {
+      "grado": "Intrincadas",
+      "complejidad": 2,
+      "nombre": "Himno de la tierra",
+      "parrafos": [
+        1444,
+        1445
+      ],
+      "texto_literal": "El terreno alrededor del músico se estabiliza mágicamente, eliminando cualquier impedimento para el movimiento."
+    },
+    {
+      "grado": "Intrincadas",
+      "complejidad": 2,
+      "nombre": "Nocturno celestial",
+      "parrafos": [
+        1446,
+        1447
+      ],
+      "texto_literal": "Los adversarios considerados demonios o diablos otorgan +2 a las tiradas para resistir efectos de sus habilidades especiales."
+    },
+    {
+      "grado": "Intrincadas",
+      "complejidad": 2,
+      "nombre": "Sinfonía valerosa",
+      "parrafos": [
+        1448,
+        1449
+      ],
+      "texto_literal": "Los aliados son considerados de un rango superior a la hora de aplicar la regla de Enemigos superiores."
+    }
+  ],
+  "nota": "Primeras 12 Canciones de 24, la segunda parte incluye Maestras y Míticas. Las Canciones no son Conjuros ni Talentos."
+}

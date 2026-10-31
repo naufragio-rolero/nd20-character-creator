@@ -1,0 +1,59 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Objetos mágicos.docx (original adjunto)",
+  "seccion": "Carreta de los Salvadores de Nasbel",
+  "estado": "efectos_y_narrativa_transcritos_literalmente",
+  "registros": [
+    {
+      "nombre": "Manto de Vagryen",
+      "tipo_literal": "Tipo: Túnica",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        7,
+        10
+      ],
+      "texto_original": [
+        "Una túnica de seda, ribeteada con acabados en oro, que se entrega a cualquier estudiante que haya superado las pruebas de acceso para la Orden de arcanistas de Shadaleen. Fue bautizada en nombre del fundador de la Orden, Vagryen Shadelgast, y proporciona +1 Blindaje a quien la lleve puesta, no lleve equipada una armadura y sea capaz de lanzar conjuros. Sus efectos se acumulan con hechizos como Armadura arcana o similares."
+      ]
+    },
+    {
+      "nombre": "Peto refulgente de maná",
+      "tipo_literal": "Tipo: Armadura de cuero",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        11,
+        15
+      ],
+      "texto_original": [
+        "Cuando un grupo de aventureros se animó a saquear el Templo de Y’Tum, uno de los lugares más sagrados de la región de Idum Dael, encontraron esta maravilla de la artesanía gnómica expuesta en una de las salas. ",
+        "Es capaz de adaptarse al cuerpo de su portador, ya que es especialmente elástica, y proporciona +1 Blindaje para resistir cualquier daño de fuentes mágicas. "
+      ]
+    },
+    {
+      "nombre": "Sello de guarda arcana",
+      "tipo_literal": "Tipo: Anillo",
+      "rareza_literal": "Rareza: Épico",
+      "parrafos_fuente": [
+        16,
+        19
+      ],
+      "texto_original": [
+        "La gema azulada que decora este anillo ha sido tallada con artesanía arcana en la Torre de arcanistas de Shadaleen. Cuando un arcanista lanza el conjuro Armadura arcana portando este anillo, el valor de Blindaje que recibe es d6 en lugar de d4."
+      ]
+    },
+    {
+      "nombre": "Susurro de marfil gramarán",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Épico",
+      "parrafos_fuente": [
+        20,
+        24
+      ],
+      "texto_original": [
+        "Una preciosa armónica tallada en hueso de alguna criatura extinta. Cuando se tocan melodías con ella, las notas fluyen con facilidad, sonando con un precioso tono melancólico. Tiene las palabras «Viento pequeño, deseos intermitentes» grabadas a mano, en gramarán, en la parte superior.",
+        "Si un bardo interpreta sus Canciones mágicas con esta armónica, obtiene +1 a su Tirada de Presencia para activar los efectos."
+      ]
+    }
+  ],
+  "alerta_integracion": "No otorgar bonificaciones si no se cumplen condiciones textuales: Manto exige lanzar Conjuros y no vestir armadura; Sello exige Armadura arcana; Susurro exige Canciones mágicas."
+}

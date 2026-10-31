@@ -1,0 +1,95 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "titulo": "NaufragioD20 — Ocupaciones",
+    "document_id": "1Zx60pJI_ETuyXvoiATUQk__E2-WUAjAnMbVBzsocIrc",
+    "revision": "AHj4eMT2rOoSo0UavC-SPB-x2KuJ7Qp82ILoADuTR84JXsV6lS2MtAx5evc6pBzac_KCDoW2Wm8QmGvjp73j_g"
+  },
+  "ocupacion": "Derviche",
+  "registros": [
+    {
+      "talento": "Danza de las dos hojas",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        2073,
+        2078
+      ],
+      "texto_literal": "Has aprendido a combatir mediante un movimiento continuo en el que cada paso prepara el siguiente golpe.\nCuando estés combatiendo con dos armas ligeras cuerpo a cuerpo con filo, tus ataques básicos cuerpo a cuerpo golpean 2 veces. El segundo impacto causa ¼ del daño.\nAdemás, puedes dividir tu Movimiento durante tu Turno, desplazándote antes y después de realizar el ataque, siempre que la distancia total recorrida no supere tu Movimiento.\nNo puedes beneficiarte de este Talento si llevas equipada una armadura superior a tela."
+    },
+    {
+      "talento": "Defensa sin armadura",
+      "activacion": "Pasiva",
+      "parrafos_fuente": [
+        2079,
+        2082
+      ],
+      "texto_literal": "Gracias a un entrenamiento físico excepcional, eres capaz de encajar mejor los golpes. Cuando no llevas ropa o llevas equipada una armadura de tela, se considera que tu Blindaje es d6/d6.\nEl Dado de Blindaje mejora en 1 en los Niveles 12 y 18."
+    },
+    {
+      "talento": "Maniobra letal",
+      "activacion": "Reacción",
+      "coste": "Coste: 1 Esfuerzo",
+      "parrafos_fuente": [
+        2083,
+        2087
+      ],
+      "texto_literal": "Cuando un enemigo falla un ataque cuerpo a cuerpo contra ti, puedes reaccionar de forma instantánea y realizar un contraataque con tu arma.\nDebes tener un arma equipada y declarar tu «Maniobra letal» antes de que finalice el Turno del oponente: realizas un ataque cuerpo a cuerpo —no puedes usar una Técnica— contra tu atacante."
+    },
+    {
+      "talento": "Oleada extensiva",
+      "activacion": "Acción",
+      "coste": "Coste: 1 Esfuerzo",
+      "parrafos_fuente": [
+        2088,
+        2093
+      ],
+      "texto_literal": "Tus extraordinarias habilidades de combate te permiten realizar un ataque cuerpo a cuerpo o una Técnica sobre un grupo de enemigos que estén cerca.\nEsto convierte un ataque o Técnica de objetivo único en un ataque que tiene como objetivo a todas las criaturas en un área de 4 metros a tu alrededor.\nTen en cuenta que aquellas Técnicas que ya afectan a múltiples objetivos solo se verán modificadas si su alcance es más limitado que un área de 4 metros a tu alrededor."
+    }
+  ],
+  "progresion_tecnicas": {
+    "encabezados": [
+      "Nivel",
+      "Técnicas"
+    ],
+    "filas": [
+      [
+        "1 - 4",
+        "1"
+      ],
+      [
+        "5 - 8",
+        "2"
+      ],
+      [
+        "9 - 12",
+        "3"
+      ],
+      [
+        "13 - 16",
+        "4"
+      ],
+      [
+        "17 - 20",
+        "5"
+      ],
+      [
+        "21 - 24",
+        "6"
+      ],
+      [
+        "25 - 28",
+        "7"
+      ],
+      [
+        "29 - 30",
+        "8"
+      ]
+    ]
+  },
+  "observaciones": [
+    "Tres Talentos coinciden nominalmente con otros de Ocupaciones ampliadas, pero se conserva su propia fuente textual y la asociación a Derviche.",
+    "No conceder Técnicas de batalla fuera de Disciplina y Preternatural; consultar competencias de la Ocupación.",
+    "La copia DOCX no contiene esta ficha; mantener extracción vigente separada."
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    51,
+    250
+  ],
+  "fichas": 200,
+  "resultado": "integridad_documental_correcta",
+  "errores": [],
+  "frecuencia_marcadores_fichas": {
+    "condicion_o_disparador": 130,
+    "tirada_conjuro": 59,
+    "dano": 81,
+    "radio_o_area": 25,
+    "salud": 16,
+    "ventaja": 6,
+    "nivel": 22,
+    "blindaje": 9,
+    "probabilidad": 13,
+    "magia_invocacion_mencionada": 17,
+    "movimiento": 11,
+    "tirada_atributo_o_salvacion": 1,
+    "desventaja": 5,
+    "estados_mencionados": 5,
+    "limite_simultaneo": 3,
+    "esfuerzo": 1
+  },
+  "prioridad_revision_manual": [
+    {
+      "numero_tomo": 102,
+      "nombre": "Dardo de penumbra",
+      "score": 6,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "probabilidad",
+        "dano",
+        "ventaja",
+        "estados_mencionados",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 187,
+      "nombre": "Huracán floral",
+      "score": 6,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "radio_o_area",
+        "nivel",
+        "condicion_o_disparador",
+        "magia_invocacion_mencionada"
+      ]
+    },
+    {
+      "numero_tomo": 244,
+      "nombre": "Muro de espinas férreas",
+      "score": 6,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "ventaja",
+        "radio_o_area",
+        "nivel",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 83,
+      "nombre": "Crecimiento primordial",
+      "score": 5,
+      "tipo_marcadores": [
+        "probabilidad",
+        "dano",
+        "movimiento",
+        "condicion_o_disparador",
+        "magia_invocacion_mencionada"
+      ]
+    },
+    {
+      "numero_tomo": 202,
+      "nombre": "Invocar ejército ilusorio",
+      "score": 5,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "salud",
+        "condicion_o_disparador",
+        "magia_invocacion_mencionada"
+      ]
+    },
+    {
+      "numero_tomo": 207,
+      "nombre": "Lanza hemática",
+      "score": 5,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "blindaje",
+        "nivel",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 53,
+      "nombre": "Bola de fuego",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "radio_o_area",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 55,
+      "nombre": "Bomba escarlata",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "radio_o_area",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 84,
+      "nombre": "Cataclismo tenebroso",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "tirada_atributo_o_salvacion",
+        "dano",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 86,
+      "nombre": "Cólera de Nirebia",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "nivel",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 93,
+      "nombre": "Carcajadas infames de Hstet",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "desventaja",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 96,
+      "nombre": "Convergencia vital de Olphegor",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "salud",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 117,
+      "nombre": "Descarga ardiente",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "nivel",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 124,
+      "nombre": "Descarga de caos",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "nivel",
+        "estados_mencionados"
+      ]
+    },
+    {
+      "numero_tomo": 147,
+      "nombre": "Explosión arcana",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "nivel",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 152,
+      "nombre": "Embozo de sombras",
+      "score": 4,
+      "tipo_marcadores": [
+        "dano",
+        "salud",
+        "blindaje",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 154,
+      "nombre": "Explosión sónica",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "radio_o_area",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 156,
+      "nombre": "Espinas psíquicas",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "nivel",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 158,
+      "nombre": "Estrella divina",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "radio_o_area",
+        "condicion_o_disparador"
+      ]
+    },
+    {
+      "numero_tomo": 159,
+      "nombre": "Exhalación de la tumba",
+      "score": 4,
+      "tipo_marcadores": [
+        "tirada_conjuro",
+        "dano",
+        "radio_o_area",
+        "condicion_o_disparador"
+      ]
+    }
+  ],
+  "metodo": "Comprobación automatizada de identidad, Círculo, Escuela, archivo e índices de párrafos; cada marcador se ha recalculado sobre la ficha original. Los dados y distancias se verifican como fragmentos literales.",
+  "limitaciones": [
+    "Las marcas son pistas lexicales, no efectos implementables ni validación reglamentaria.",
+    "La prioridad refleja densidad de expresiones reglamentarias; no significa mayor dificultad o peligrosidad."
+  ]
+}

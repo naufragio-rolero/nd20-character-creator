@@ -1,0 +1,88 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Objetos mágicos.docx, original adjunto",
+  "seccion": "Alijo de contrabando dupoviano",
+  "estado": "transcripcion_literal",
+  "registros": [
+    {
+      "nombre": "Celada del rompecráneos",
+      "tipo_literal": "Tipo: Casco",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        103,
+        107
+      ],
+      "texto_original": [
+        "Una púa afilada decora la punta de este estrafalario casco cerrado. Su interior está acolchado con tela carmesí, de tacto suave y pulsante. Se cree que pertenecía a una colección privada de instrumentos de tortura, pero en la práctica se ha descubierto que este artefacto se utilizaba para… pegar cabezazos.",
+        "Cuando el usuario se coloca esta celada, adquiere la capacidad de pegar cabezazos indoloros —para sí mismo—. Se ha de tratar semejante agresión como un arma cuerpo a cuerpo ligera, que causa d6 de daño, tiene Potencia 1 y que es considerada una acción «menor»: es decir, el portador puede atacar cuerpo a cuerpo con su arma y, aparte, pegarle un cabezazo al mismo objetivo. O pegar dos cabezazos a objetivos diferentes, ya como desee el portador. Lo que está claro es que, tras el impacto, no podrá moverse en el mismo Turno."
+      ]
+    },
+    {
+      "nombre": "Higa de la serenidad",
+      "tipo_literal": "Tipo: Amuleto",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos_fuente": [
+        108,
+        112
+      ],
+      "texto_original": [
+        "Una higa es un amuleto de origen primitivo con la forma de un puño que muestra el dedo pulgar entre el índice y el corazón. Se cree que es para alejar los embrujos y el mal de ojo.",
+        "De una forma u otra, estos amuletos fueron elaborados a partir de los huesos de un dragón que amenazaba la provincia de Shadaleen durante el primer reinado de Shadel. Si uno acaricia este amuleto mientras descansa, obtiene un +1 a las Tiradas de Resistencia para recuperar Esfuerzo."
+      ]
+    },
+    {
+      "nombre": "Hilo de brillo dorado",
+      "tipo_literal": "Tipo: Objeto maravilloso",
+      "rareza_literal": "Rareza: Legendaria",
+      "parrafos_fuente": [
+        113,
+        118
+      ],
+      "texto_original": [
+        "Oscuras leyendas rodean a este precioso carrete de plata, con incrustaciones de esmeraldas y relieves en sus bordes. Guarda en su interior unos 30 cm de hilo de oro, que puede ser utilizado (posee un DU de d6) mediante dos acciones para remendar cualquier objeto estropeado, incluso seres vivos que lleven muertos menos de un Intervalo. ",
+        "Tras aplicar el hilo, en un Turno el objeto se reparará o la criatura volverá a la vida; el hilo desaparecerá por arte de magia. Lamentablemente, una maldición ignota recae sobre el usuario del «Hilo de brillo dorado»: se cuenta que, si se agota tras aprovecharse de su magia, el alma de aquel que lo use pasará a pertenecer a un terrible demonio rasmálico.",
+        "Una de las miles de historias relata cómo unos padres utilizaron una reliquia muy parecida para coser de nuevo la cabeza cercenada de su hijo. Semejante magia no procede de lugares ordinarios, si no de los cabellos fulgurantes de un diablo desterrado, que se aprovecha de la debilidad mortal para apoderarse de las almas de los incautos."
+      ]
+    },
+    {
+      "nombre": "Mantón del clérigo decepcionado",
+      "tipo_literal": "Tipo: Capa",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        119,
+        123
+      ],
+      "texto_original": [
+        "Esta bella pieza de artesanía ujiba representa un puesto de importancia en su clero. Sus telas suelen estar bendecidas por el coro sacerdotal de Yuseth, pero esta pieza concreta ha sido manchada por la corrupción y la ignominia.",
+        "El portador reduce hasta 5 puntos el daño sufrido de tipo sagrado y/o radiante, pero sufre 5 puntos de daño adicional de ataques o conjuros de tipo sombrío y/o impío."
+      ]
+    },
+    {
+      "nombre": "Uña de Mogg-Shattoth",
+      "tipo_literal": "Tipo: Tridente",
+      "rareza_literal": "Rareza: Épica",
+      "parrafos_fuente": [
+        124,
+        128
+      ],
+      "texto_original": [
+        "El aspecto de este arma se asemeja a un hueso fino del que cuelgan tendones y venas marcadas. Acaba en tres garras afiladas, cada una de un tono lactescente distinto; desprende un olor nauseabundo, similar al de las entrañas de un animal recién sacrificado.",
+        "Cuando el usuario hiere a un objetivo cuerpo a cuerpo con la «Uña de Mogg-Shattoth», el dolor y la sangre de su víctima se transforman en vitalidad para él: recupera ⅛ del daño causado (mínimo 1) de forma instantánea."
+      ]
+    },
+    {
+      "nombre": "Virotes ávidos de carne",
+      "tipo_literal": "Tipo: Munición (virotes)",
+      "rareza_literal": "Rareza: Rara",
+      "parrafos_fuente": [
+        129,
+        133
+      ],
+      "texto_original": [
+        "La supervivencia en las regiones salvajes de Vilennea puede llegar a ser muy dura, es por ello que los chamanes goblinoides elaboraron un ritual para dotar a los proyectiles de sus cazadores la capacidad de perseguir a su presa, empleando las energías del viento para orientarse.",
+        "Estos virotes otorgan un +1 al daño cuando son empleados como munición, y un +2 a la tirada de Caza si son utilizados para cazar presas. Tienen un DU de d8."
+      ]
+    }
+  ],
+  "advertencia": "El Hilo de brillo dorado tiene maldición descrita narrativamente; no convertir la entrega del alma en mecánica automática sin decisión editorial."
+}

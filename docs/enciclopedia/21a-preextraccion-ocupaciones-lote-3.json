@@ -1,0 +1,122 @@
+{
+  "fecha": "2026-10-29",
+  "tanda": 2,
+  "lote": 3,
+  "estado": "indexado_y_preextraido_pendiente_transcripcion_literal",
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "registros": [
+    {
+      "ocupacion": "Marionetista",
+      "talento": "Dominio de las marionetas",
+      "parrafo_inicio": 357,
+      "parrafo_fin": 362,
+      "activacion": "Especial",
+      "resumen_de_trabajo_no_literal": "Marionetas como Seguidores; 2 iniciales, +1 en Niveles 6/12/18/24, máximo 6; reconstrucción 3 días y Nivel × 100 mo."
+    },
+    {
+      "ocupacion": "Marionetista",
+      "talento": "Solidez ligna",
+      "parrafo_inicio": 363,
+      "parrafo_fin": 367,
+      "activacion": "Reacción",
+      "resumen_de_trabajo_no_literal": "1 Esfuerzo; una marioneta recibe el doble del daño que iba a sufrir el personaje."
+    },
+    {
+      "ocupacion": "Vikingo",
+      "talento": "Corazón de escarcha",
+      "parrafo_inicio": 388,
+      "parrafo_fin": 390,
+      "activacion": "Pasiva",
+      "resumen_de_trabajo_no_literal": "Ventaja en Resistencia contra frío extremo o Conjuros de hielo."
+    },
+    {
+      "ocupacion": "Vikingo",
+      "talento": "Pillaje voraz",
+      "parrafo_inicio": 391,
+      "parrafo_fin": 393,
+      "activacion": "Acción",
+      "resumen_de_trabajo_no_literal": "1 Intervalo de estudio localiza objetos valiosos; posible Intuición si hay protección mágica."
+    },
+    {
+      "ocupacion": "Vikingo",
+      "talento": "Ira del rayo",
+      "parrafo_inicio": 394,
+      "parrafo_fin": 398,
+      "activacion": "Reacción",
+      "resumen_de_trabajo_no_literal": "1 Esfuerzo; herida recibida, cielo abierto, atacante ≤20 m; 1d6 y aumentos de Potencia en 7/13/19/25."
+    },
+    {
+      "ocupacion": "Verdugo",
+      "talento": "Aterrorizar",
+      "parrafo_inicio": 420,
+      "parrafo_fin": 422,
+      "activacion": "Acción",
+      "resumen_de_trabajo_no_literal": "Una vez al día; humanoides, cantidad Nivel/2 mínimo 1; reducción Nivel 1d6, +1 dado en 12/24/30."
+    },
+    {
+      "ocupacion": "Verdugo",
+      "talento": "Decapitación",
+      "parrafo_inicio": 423,
+      "parrafo_fin": 425,
+      "activacion": "Especial",
+      "resumen_de_trabajo_no_literal": "Criatura tumbada e indefensa, Nivel inferior, Tamaño ≤ propio; hacha de verdugo equipada."
+    },
+    {
+      "ocupacion": "Verdugo",
+      "talento": "Torturar",
+      "parrafo_inicio": 426,
+      "parrafo_fin": 429,
+      "activacion": "Acción",
+      "resumen_de_trabajo_no_literal": "4 Intervalos y Fuerza; mitad de Salud actual sin matar; pregunta sí/no condicionada por Nivel."
+    },
+    {
+      "ocupacion": "Gladiador",
+      "talento": "Estilos de gladiatoria",
+      "parrafo_inicio": 449,
+      "parrafo_fin": 457,
+      "activacion": "Pasiva",
+      "resumen_de_trabajo_no_literal": "Seis estilos excluyentes en combate; uno en creación, adicionales en 12 y 24."
+    },
+    {
+      "ocupacion": "Gladiador",
+      "talento": "Protecciones cómodas",
+      "parrafo_inicio": 458,
+      "parrafo_fin": 460,
+      "activacion": "Pasiva",
+      "resumen_de_trabajo_no_literal": "Blindaje +1 Rango y Durabilidad -1 Rango."
+    },
+    {
+      "ocupacion": "Arlequín",
+      "talento": "Mímica",
+      "parrafo_inicio": 480,
+      "parrafo_fin": 483,
+      "activacion": "Reacción",
+      "resumen_de_trabajo_no_literal": "1 Esfuerzo; imita acción de aliado que ya actuó, radio literal 5m2."
+    },
+    {
+      "ocupacion": "Arlequín",
+      "talento": "Ridículo",
+      "parrafo_inicio": 484,
+      "parrafo_fin": 488,
+      "activacion": "Acción",
+      "resumen_de_trabajo_no_literal": "1 Esfuerzo, Bolos de Malabarismo, área literal 10m2; penalización -2 y mejora de dado en 12 y 24."
+    }
+  ],
+  "alertas": [
+    {
+      "id": "OCP-03",
+      "talento": "Ira del rayo",
+      "descripcion": "El texto dice que aumenta su Potencia en 1 y concluye «hasta un total de 5d6 de daño». Comprobar si Potencia significa dados adicionales o una regla diferente antes de estructurar."
+    },
+    {
+      "id": "OCP-04",
+      "talento": "Mímica y Ridículo",
+      "descripcion": "Unidades originales 5m2 y 10m2; no transformar en radios de 5 m o 10 m sin autorización."
+    },
+    {
+      "id": "OCP-05",
+      "talento": "Estilos de gladiatoria",
+      "descripcion": "Seis subopciones y sólo una activa durante combate; distinguir selección permanente y activación."
+    }
+  ]
+}

@@ -1702,7 +1702,8 @@
           }
         ],
         "talentos": [
-          "Linaje feérico"
+          "Linaje feérico",
+          "Fuente de maná"
         ],
         "nombres": [
           "Aelvian",
@@ -1801,7 +1802,8 @@
           }
         ],
         "talentos": [
-          "Corpulencia"
+          "Corpulencia",
+          "Hambre caníbal"
         ],
         "nombres": [
           "Kuvrak",
@@ -1958,7 +1960,8 @@
           }
         ],
         "talentos": [
-          "Baja estatura"
+          "Baja estatura",
+          "Fuente de maná"
         ],
         "nombres": [
           "Mirelda",
@@ -2001,7 +2004,9 @@
         "salud": "d6",
         "movimiento": 6,
         "requisitos": [],
-        "talentos": [],
+        "talentos": [
+          "Adaptación"
+        ],
         "nombres": [
           "Alvero",
           "Mirvane",
@@ -2143,7 +2148,8 @@
         "movimiento": 5,
         "requisitos": [],
         "talentos": [
-          "Buena suerte"
+          "Buena suerte",
+          "Baja estatura"
         ],
         "nombres": [
           "Pernico",
@@ -2355,7 +2361,8 @@
         ],
         "talentos": [
           "Planta feérica",
-          "Pétaleteo"
+          "Pétaleteo",
+          "Pequeño"
         ],
         "nombres": [
           "Barlot",
@@ -2550,7 +2557,8 @@
         "requisitos": [],
         "talentos": [
           "Compañera feérica",
-          "Retoño de la foresta"
+          "Retoño de la foresta",
+          "Pequeño"
         ],
         "nombres": [
           "Nimu",

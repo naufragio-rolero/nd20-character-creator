@@ -1,0 +1,125 @@
+{
+  "fecha": "2026-10-29",
+  "tanda": 2,
+  "lote": 1,
+  "alcance": "Transcripción literal íntegra de 9 Talentos de 4 Ocupaciones; falta conciliación de adquisición por nivel con tablas de progreso",
+  "registros": [
+    {
+      "id_documental": "talento-ocupacion:ampliadas:forense:hallar-la-verdad",
+      "ocupacion": "Forense",
+      "talento": "Hallar la verdad",
+      "activacion_literal": "Acción",
+      "texto_literal": "Acción\nAtributo: Intuición\nCoste: 1 Esfuerzo\nEres muy hábil a la hora de reconocer mentiras mediante la observación de tics y coletillas. Si haces una pregunta a un PNJ y recibes una respuesta, puedes conocer si te ha dicho la verdad.\nEl PNJ debe mentir deliberadamente para que este Talento pueda dar sus frutos; ten en cuenta que el Cronista no tiene por qué darte detalles, solo afirmar si la respuesta es una verdad o una mentira.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 71,
+        "parrafo_fin": 76
+      },
+      "estado": "extraido_literal_pendiente_validacion_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:forense:olfato-deductivo",
+      "ocupacion": "Forense",
+      "talento": "Olfato deductivo",
+      "activacion_literal": "Pasiva",
+      "texto_literal": "Pasiva\nCuando investigas un sujeto o un escenario del crimen, localizas pruebas e información con especial facilidad. Si debes realizar una Tirada de Intuición mientras buscas detalles o pruebas durante un Intervalo, obtienes un +2 al resultado; a partir del Nivel 12, obtienes Ventaja.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 77,
+        "parrafo_fin": 79
+      },
+      "estado": "extraido_literal_pendiente_validacion_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:truhan:cotilla",
+      "ocupacion": "Truhán",
+      "talento": "Cotilla",
+      "activacion_literal": "Pasiva",
+      "texto_literal": "Pasiva\nTienes Ventaja en las Tiradas de Intuición para escuchar a través de puertas, paredes endebles y leer los labios.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 101,
+        "parrafo_fin": 103
+      },
+      "estado": "extraido_literal_pendiente_validacion_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:truhan:fullerias",
+      "ocupacion": "Truhán",
+      "talento": "Fullerías",
+      "activacion_literal": "Pasiva",
+      "texto_literal": "Pasiva\nTienes Ventaja en las Tiradas de Agilidad y/o Presencia relacionadas con el juego de manos, como hacer trampas en las cartas, robar carteras o bolsillos, engañar o estafar.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 104,
+        "parrafo_fin": 106
+      },
+      "estado": "extraido_literal_pendiente_validacion_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:acrobata:equilibrio-perfecto",
+      "ocupacion": "Acróbata",
+      "talento": "Equilibrio perfecto",
+      "activacion_literal": "Pasiva",
+      "texto_literal": "Pasiva\nTienes Ventaja en las Tiradas de Agilidad realizadas para mantener el equilibrio en una soga, hacer malabares o juegos de manos con objetos, trepar por lianas o escaleras de mano o moverte de forma vertical, agarrado a salientes o por una pared de roca.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 130,
+        "parrafo_fin": 132
+      },
+      "estado": "extraido_literal_pendiente_validacion_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:acrobata:frustracion-canalizada",
+      "ocupacion": "Acróbata",
+      "talento": "Frustración canalizada",
+      "activacion_literal": "Reacción",
+      "texto_literal": "Reacción\nHas entrenado de forma concienzuda, y sabes cómo redirigir la frustración cuando cometes un error. Cuando falles una Tirada de Agilidad o Resistencia, puedes realizar una tirada d20 como reacción: tienes una Probabilidad 16+ de recuperar 1 Punto de Esfuerzo; esta Probabilidad baja a 14+ a partir de Nivel 9, a 12+ a partir de Nivel 17 y a 10+ a partir de Nivel 25.\nPuedes utilizar este Talento una vez al día.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 133,
+        "parrafo_fin": 136
+      },
+      "estado": "extraido_literal_pendiente_validacion_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:acrobata:maniobra-letal",
+      "ocupacion": "Acróbata",
+      "talento": "Maniobra letal",
+      "activacion_literal": "Reacción",
+      "texto_literal": "Reacción\nCoste: 1 Esfuerzo\nCuando un enemigo falla un ataque cuerpo a cuerpo contra ti, puedes reaccionar de forma instantánea y realizar un contraataque con tu arma; debes tener un arma equipada y declarar tu Maniobra letal antes de que finalice el Turno del oponente: realizas un ataque cuerpo a cuerpo (no puedes usar una Técnica) contra tu atacante.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 137,
+        "parrafo_fin": 140
+      },
+      "estado": "extraido_literal_pendiente_validacion_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:astrologo:cauce-astral",
+      "ocupacion": "Astrólogo",
+      "talento": "Cauce astral",
+      "activacion_literal": "Reacción",
+      "texto_literal": "Reacción\nCoste: 1 Esfuerzo\nEres capaz de reconducir las energías arcanas si estas proveen de las energías más puras. Cuando lances un Conjuro de la Escuela Arcana y falles una Tirada de lanzamiento de conjuro, puedes canalizar la energía resultante para lograr lanzarlo de forma instantánea.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 162,
+        "parrafo_fin": 165
+      },
+      "estado": "extraido_literal_pendiente_validacion_progresion"
+    },
+    {
+      "id_documental": "talento-ocupacion:ampliadas:astrologo:premonicion-estelar",
+      "ocupacion": "Astrólogo",
+      "talento": "Premonición estelar",
+      "activacion_literal": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Esfuerzo\nNecesitas un Astrolabio, estar en el exterior y que sea de noche para utilizar este talento. Solo funciona en tu mundo natal; deberás consultar con el Cronista si el hecho de visitar otros planetas o realidades altera tu capacidad de consultar las estrellas.\nIntentas ver el futuro de una persona, un lugar o un evento en particular en lo más profundo del cielo nocturno. Tras 1 Intervalo de estudio, puedes hacer una pregunta específica al Cronista acerca de algo que ocurrirá en el futuro: recibirás una respuesta en forma de una palabra, concepto o galimatías; no tiene por qué darte detalles, solo una respuesta si tu pregunta es específica.",
+      "fuente": {
+        "archivo": "NaufragioD20 — Ocupaciones.docx",
+        "parrafo_inicio": 166,
+        "parrafo_fin": 170
+      },
+      "estado": "extraido_literal_pendiente_validacion_progresion"
+    }
+  ]
+}

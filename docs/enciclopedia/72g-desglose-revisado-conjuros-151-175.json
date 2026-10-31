@@ -1,0 +1,386 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    151,
+    175
+  ],
+  "numero_registros": 25,
+  "metodo": "Lectura manual íntegra de 25 Conjuros y cotejo de párrafos sobre la transcripción literal 69g; no constituye mecánica implementada.",
+  "registros": [
+    {
+      "numero_tomo": 151,
+      "nombre_literal": "Espejo de sombras",
+      "lectura_documental_no_oficial": "Ilusiones protectoras y Probabilidad creciente de fallo del atacante",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Probabilidad inicial 11+; aumenta en 1 por cada ataque que haya fallado gracias a esa protección. No convertirla en una bonificación fija de Esquiva.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1184
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 152,
+      "nombre_literal": "Embozo de sombras",
+      "lectura_documental_no_oficial": "Manto que mejora daño mágico y Blindaje pero prohíbe curación",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "1d4 de daño adicional en Conjuros dañinos, 1d4 de Blindaje, prohibición de lanzar Conjuros sanadores y cancelación voluntaria con una acción.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1190
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 153,
+      "nombre_literal": "Explosión sobrenatural",
+      "lectura_documental_no_oficial": "Ataque arcano de daño condicionado a Tirada",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "1d6 de daño mágico solo si se supera la Tirada de Conjuro; no inferir mitad del daño al fallar.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1197
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 154,
+      "nombre_literal": "Explosión sónica",
+      "lectura_documental_no_oficial": "Explosión sónica a 4 m de radio y penalización al ataque en éxito",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Cada criatura afectada sufre 2d8; solo si la Tirada tiene éxito se aplica -1 al ataque el siguiente Turno. La desintegración afecta a criaturas inorgánicas derrotadas.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1202
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 155,
+      "nombre_literal": "Espía de la Urdimbre",
+      "lectura_documental_no_oficial": "Explorador translúcido con visión y desplazamiento propios",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Visión compartida, 20 m en oscuridad y Movimiento 5; no atraviesa paredes sólidas. No se describen Salud ni ataques.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1208
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 156,
+      "nombre_literal": "Espinas psíquicas",
+      "lectura_documental_no_oficial": "Tres Tiradas de Conjuro con daño acumulado por éxitos",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Si las tres fallan no hay efecto; cada éxito causa 1d10 por cada 6 Niveles. No convertirlas en tres objetivos distintos ni en una sola tirada.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1215
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 157,
+      "nombre_literal": "Estallido de escarcha",
+      "lectura_documental_no_oficial": "Cono de escarcha con daño completo o medio",
+      "indices_de_parrafos_reglamentarios": [
+        2,
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "El Alcance dice «cono de 20» sin unidad ni especificación adicional. No asumir 20 metros ni convertirlo a un círculo hasta decisión editorial.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1221
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 158,
+      "nombre_literal": "Estrella divina",
+      "lectura_documental_no_oficial": "Orbe creado en 2 m² con radio dañino de 2 m y posible mantenimiento",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "El espacio ocupado por el orbe (2 m²) y el radio de daño (2 metros) son magnitudes diferentes y no se deben igualar. Continuidad mediante Tirada en siguiente asalto; desplazamiento exige no moverse.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1227
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 159,
+      "nombre_literal": "Exhalación de la tumba",
+      "lectura_documental_no_oficial": "Nube cadavérica con daño y Enfermedad condicionada",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Exige cadáver, causa 2d6 de veneno y ácido en radio de 2 m; Enfermedad depende de superar Tirada de Conjuro.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1235
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 160,
+      "nombre_literal": "Fantasmas aullantes",
+      "lectura_documental_no_oficial": "Espíritus protectores que reaccionan a hostiles detectados",
+      "indices_de_parrafos_reglamentarios": [
+        2,
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Daño solo a quien entra en área y el lanzador reconoce como hostil; se disipa tras 1 Intervalo o al alejarse 20 m. No causa daño indiscriminadamente.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1242
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 161,
+      "nombre_literal": "Flecha mágica",
+      "lectura_documental_no_oficial": "Proyectil que no falla y cuyo daño escala por Niveles",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "1d3 de fuerza por cada 2 Niveles, sin Tirada de ataque; conservar interacción declarada con obstáculos y objetivos intermedios.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1249
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 162,
+      "nombre_literal": "Floración cinérea",
+      "lectura_documental_no_oficial": "Semilla con detonación retardada y detonación anticipada condicionada",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Objetivo sufre 30d6 y criaturas a 8 m 10d6; la Tirada sirve para forzar la detonación antes de tiempo, no para el daño básico.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1254
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 163,
+      "nombre_literal": "Florecimiento",
+      "lectura_documental_no_oficial": "Crecimiento vegetal o curación de criatura por Nivel",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "4 m² de vegetación; sobre criatura restaura ½ Salud por Nivel de la criatura (mínimo 1). Falta criterio de redondeo explícito para medios puntos.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1262
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 164,
+      "nombre_literal": "Forja arcana",
+      "lectura_documental_no_oficial": "Mesa arcana que mejora una pieza equipada según su tipo",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "advertencia_de_integracion": "La fuente dice literalmente «gastar 1 arma imbuyendo un arma...»; es una expresión anómala sin significado claro. No convertirla en hora, acción ni recurso inventado. Hay un límite de una pieza mejorada por individuo.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1268
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 165,
+      "nombre_literal": "Freno",
+      "lectura_documental_no_oficial": "Ralentización cognitiva, de Movimiento y de ataques",
+      "indices_de_parrafos_reglamentarios": [
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "-1 Movimiento, mitad de ataques e Iniciativa perdida; si el objetivo está bajo Prisa ambos efectos se cancelan. No fijar redondeo sin regla general.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1279
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 166,
+      "nombre_literal": "Fuego feérico",
+      "lectura_documental_no_oficial": "Llamas feéricas que facilitan atacar varios objetivos",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Hasta tantos objetivos como Nivel dentro de 14 m alrededor del lanzador; bonificación +2 a los ataques contra ellos, no al daño.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1287
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 167,
+      "nombre_literal": "Fuego lunar",
+      "lectura_documental_no_oficial": "Daño de fuego lunar con variante nocturna",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "1d8 de daño mágico de día; 2d6 de noche, además de la etiqueta Magia lunar. No sumar ambas tiradas.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1295
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 168,
+      "nombre_literal": "Fuego purificador",
+      "lectura_documental_no_oficial": "Purificación con daño de fuego y eliminación de aflicciones",
+      "indices_de_parrafos_reglamentarios": [
+        2,
+        3
+      ],
+      "advertencia_de_integracion": "2d8 de fuego y eliminación de Enfermedad/Veneno; Tirada de Conjuro solo si el objetivo se resiste, según texto.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1301
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 169,
+      "nombre_literal": "Fusión pétrea",
+      "lectura_documental_no_oficial": "Fusión con formación rocosa y riesgo de expulsión o muerte",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5
+      ],
+      "advertencia_de_integracion": "Escucha pero no ve y puede conjurar; daño extremo expulsa con 5d6, destrucción completa exige Tirada o muerte.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1306
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 170,
+      "nombre_literal": "Galerna",
+      "lectura_documental_no_oficial": "Temporal de frío, humedad y viento con desventaja costera",
+      "indices_de_parrafos_reglamentarios": [
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "La primera frase se interrumpe en «impede a todos aquellos ubicados en el área de efecto» sin especificar qué se impide. No inventar una penalización. En costa se declara Desventaja.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1314
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 171,
+      "nombre_literal": "Garra vampírica",
+      "lectura_documental_no_oficial": "Daño impío por Nivel y sanación igual al daño provocado",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "2d6 impío por Nivel; Salud restaurada igual al daño causado, con etiqueta Magia de sangre y su coste según reglas de etiqueta.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1321
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 172,
+      "nombre_literal": "Glorioso orbe protector de Excelsus",
+      "lectura_documental_no_oficial": "Esfera inmóvil con daño acumulativo y Probabilidad de anulación",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Daño crece 1d6, 2d6, 3d6 por intentos; el texto no fija inequívocamente cuándo se hace la Tirada de Conjuro que permitiría daño a la mitad. Mantener Probabilidad 14+ como mecanismo separado.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1327
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 173,
+      "nombre_literal": "Glosolalia mayor",
+      "lectura_documental_no_oficial": "Comprensión de todos los idiomas del mundo natal",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Comprende lenguas habladas y escritas, pero no puede hablarlas ni escribirlas. No ampliar a otros mundos.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1335
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 174,
+      "nombre_literal": "Glosolalia menor",
+      "lectura_documental_no_oficial": "Comprensión de un idioma corriente",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "Comprende oral y escrito, pero no permite expresión; no equiparar con Glosolalia mayor.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1341
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 175,
+      "nombre_literal": "Golpe de rayo",
+      "lectura_documental_no_oficial": "Rayo rectilíneo de 20 m de longitud y 2 m de anchura",
+      "indices_de_parrafos_reglamentarios": [
+        2,
+        3,
+        4
+      ],
+      "advertencia_de_integracion": "Área rectangular por línea; 4d8 por rayo al superar Tirada, mitad al fallar. Efectos sobre objetos no equipados no deben aplicarse a equipo llevado.",
+      "fuente": {
+        "archivo": "69g-conjuros-alfabeticos-151-175.json",
+        "indice_encabezado": 1347
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}

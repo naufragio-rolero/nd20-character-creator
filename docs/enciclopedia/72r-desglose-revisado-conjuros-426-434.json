@@ -1,0 +1,139 @@
+{
+  "fecha": "2026-10-30",
+  "rango": [
+    426,
+    434
+  ],
+  "numero_registros": 9,
+  "metodo": "Revisión manual de las nueve últimas fichas del Tomo con índices y cautelas de integración.",
+  "registros": [
+    {
+      "numero_tomo": 426,
+      "nombre_literal": "Viaje por la Urdimbre",
+      "lectura_documental_no_oficial": "Portal conectado a Runa de viaje pregrabada",
+      "indices_de_parrafos_reglamentarios": [
+        5
+      ],
+      "advertencia_de_integracion": "Requiere Sello rúnico: Viaje previo; traslada lanzador y hasta Nivel criaturas adicionales, todas adyacentes a la runa.",
+      "fuente": {
+        "archivo": "69r-conjuros-alfabeticos-426-434.json",
+        "indice_encabezado": 3090
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 427,
+      "nombre_literal": "Viaje sepulcral",
+      "lectura_documental_no_oficial": "Viaje entre tumbas preparadas del mismo plano",
+      "indices_de_parrafos_reglamentarios": [
+        4,
+        5,
+        6
+      ],
+      "advertencia_de_integracion": "Ambas tumbas han de estar intactas y vinculadas; destino destruido o purificado provoca fallo y 4d6 impío al lanzador.",
+      "fuente": {
+        "archivo": "69r-conjuros-alfabeticos-426-434.json",
+        "indice_encabezado": 3098
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 428,
+      "nombre_literal": "Vigilia de muerte",
+      "lectura_documental_no_oficial": "Protección única contra reducción de Salud a cero",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Al ocurrir ajusta Salud a 1 y termina; no protege ante muerte natural o efectos sobrenaturales de mayor Nivel.",
+      "fuente": {
+        "archivo": "69r-conjuros-alfabeticos-426-434.json",
+        "indice_encabezado": 3106
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 429,
+      "nombre_literal": "Vigor de coloso",
+      "lectura_documental_no_oficial": "Mejora de pruebas físicas",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Bonificación +2 a Tiradas de Fuerza durante 1 Turno por Nivel, sin aumentar Atributo de Fuerza permanentemente.",
+      "fuente": {
+        "archivo": "69r-conjuros-alfabeticos-426-434.json",
+        "indice_encabezado": 3112
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 430,
+      "nombre_literal": "Visión de Nastala",
+      "lectura_documental_no_oficial": "Observación remota limitada a lugar conocido o visible",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Alcance ilimitado sujeto a condición de familiaridad/visión; solo información perceptible por observador mortal.",
+      "fuente": {
+        "archivo": "69r-conjuros-alfabeticos-426-434.json",
+        "indice_encabezado": 3118
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 431,
+      "nombre_literal": "Vitalidad quimérica",
+      "lectura_documental_no_oficial": "Puntos de Salud temporales no acumulables",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "1d6 de Salud temporal consumida antes de Salud ordinaria y puede superar máximo; un solo efecto de esta ficha a la vez.",
+      "fuente": {
+        "archivo": "69r-conjuros-alfabeticos-426-434.json",
+        "indice_encabezado": 3124
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 432,
+      "nombre_literal": "Vuelo",
+      "lectura_documental_no_oficial": "Vuelo con movimiento y pruebas de maniobra",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Hasta 30 m por Turno; Tiradas de Agilidad para maniobras complejas, Desventaja a todas las Tiradas si va sobrecargado.",
+      "fuente": {
+        "archivo": "69r-conjuros-alfabeticos-426-434.json",
+        "indice_encabezado": 3131
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 433,
+      "nombre_literal": "Yugo de la muerte viviente",
+      "lectura_documental_no_oficial": "Efecto distinto por Nivel del muerto viviente",
+      "indices_de_parrafos_reglamentarios": [
+        4
+      ],
+      "advertencia_de_integracion": "La ficha solapa Nivel 12 entre «Nivel 12 o inferior» y «Nivel 12 o superior»; decidir el tratamiento del Nivel 12 antes de codificar.",
+      "fuente": {
+        "archivo": "69r-conjuros-alfabeticos-426-434.json",
+        "indice_encabezado": 3138
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    },
+    {
+      "numero_tomo": 434,
+      "nombre_literal": "Zona onírica",
+      "lectura_documental_no_oficial": "Escenario ilusorio de área con dimensiones ambiguas",
+      "indices_de_parrafos_reglamentarios": [
+        3
+      ],
+      "advertencia_de_integracion": "Área expresada como «4m2 por Nivel de diámetro»; errata geométrica registrada en 77d, sin alterar el valor ni presumir radio.",
+      "fuente": {
+        "archivo": "69r-conjuros-alfabeticos-426-434.json",
+        "indice_encabezado": 3145
+      },
+      "estado": "desglose_manual_cotejado_con_indices"
+    }
+  ]
+}

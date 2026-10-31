@@ -1,0 +1,813 @@
+{
+  "fecha": "2026-10-29",
+  "lote": 10,
+  "indices_tomo": [
+    226,
+    250
+  ],
+  "fuente": {
+    "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+    "url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+    "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q"
+  },
+  "estado": "transcripcion_literal_completa_de_cada_ficha",
+  "registros": [
+    {
+      "numero_tomo": 226,
+      "nombre_literal": "Muro de fuego",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1710,
+        "indice_ultimo_parrafo": 1715,
+        "indice_inicio_doc": 118773,
+        "indice_fin_doc": 119226
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Elemental",
+        "Alcance: 10m",
+        "Duración: 1d6 Turnos",
+        "Evocas una muralla de fuego místico que causa 1d10 de daño por fuego a quien finalice su Turno adyacente a ella o la atraviese. El muro mide 2 metros de altura y tiene una longitud de 1d8 + 2 metros. Además de darle el color de las llamas que quieras, puedes distribuir la forma del Muro para que forme una figura geométrica, siempre y cuando sus partes estén adyacentes."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-36",
+          "circulo": 4,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Nd20"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 227,
+      "nombre_literal": "Maldición de vínculo mortal",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1716,
+        "indice_ultimo_parrafo": 1722,
+        "indice_inicio_doc": 119227,
+        "indice_fin_doc": 119584
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 10 metros",
+        "Duración: 1d10 Turnos",
+        "Maldición",
+        "Unes los espíritus de dos criaturas distintas al alcance mediante hebras de magia plateada. Mientras dure el efecto, si una de las criaturas recibe daño o curación, la otra recibirá lo mismo tras aplicar Blindaje y resistencias de la primera."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-107",
+          "circulo": 6,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Tomo de Magia"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 228,
+      "nombre_literal": "Marchitar",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1723,
+        "indice_ultimo_parrafo": 1727,
+        "indice_inicio_doc": 119585,
+        "indice_fin_doc": 119850
+      },
+      "parrafos_literal": [
+        "Primer Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 10 metros",
+        "Secas y marchitas cualquier planta dentro del alcance del conjuro, reduciéndola a un estado de mustia decadencia. Si el objetivo es una criatura de categoría Planta, sufre daño impío igual a tu Nivel."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-124",
+          "circulo": 1,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 229,
+      "nombre_literal": "Materializar arma",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1728,
+        "indice_ultimo_parrafo": 1733,
+        "indice_inicio_doc": 119851,
+        "indice_fin_doc": 120337
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "Conjuras un arma etérea en tus manos, eligiendo su forma al lanzarlo (espada, lanza, arco, etc.); debes ser competente con ella. Este arma existe mientras dure el conjuro y puede utilizarse como si fuera un arma normal, aunque no puede ser desarmada ni destruida, aunque no es considerada mágica a efectos de reglas. Al final de la duración, el arma desaparece en un destello de luz arcana."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-132",
+          "circulo": 2,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 230,
+      "nombre_literal": "Mirada paralizante",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1734,
+        "indice_ultimo_parrafo": 1740,
+        "indice_inicio_doc": 120338,
+        "indice_fin_doc": 120738
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Demonología",
+        "Alcance: 6 metros",
+        "Duración: 1 Turno por Nivel",
+        "Requisito: el objetivo debe ser una criatura de Categoría Gigante o Humanoide",
+        "Clavas una mirada cargada de energía infernal en tu víctima, acompañada de un cántico del submundo. Realiza una Tirada de Conjuro: si tienes éxito, el objetivo queda completamente Paralizado, incapaz de moverse o actuar."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-141",
+          "circulo": 2,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 231,
+      "nombre_literal": "Marcha de araña",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1741,
+        "indice_ultimo_parrafo": 1746,
+        "indice_inicio_doc": 120739,
+        "indice_fin_doc": 121030
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Naturaleza",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "Conjuras ventosas invisibles en tus manos y pies, otorgándote la capacidad de caminar o trepar por cualquier superficie, incluso en contra de la gravedad, con tu Movimiento reducido a la mitad."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-144",
+          "circulo": 2,
+          "escuelas": [
+            "Naturaleza"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 232,
+      "nombre_literal": "Manantial hediondo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1747,
+        "indice_ultimo_parrafo": 1752,
+        "indice_inicio_doc": 121031,
+        "indice_fin_doc": 121401
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 10 metros",
+        "Duración: 1 Turno por Nivel",
+        "Desatas una niebla maldita y pestilente que infecta la tierra, cubriendo un área de 4m2. Esta corrupción sobrenatural marchita toda vegetación al instante. Cualquier criatura que entre en el área o comience su turno dentro de ella sufre 1d6 puntos de daño por veneno."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-145",
+          "circulo": 2,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 233,
+      "nombre_literal": "Maldición discordante",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1753,
+        "indice_ultimo_parrafo": 1759,
+        "indice_inicio_doc": 121402,
+        "indice_fin_doc": 121824
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Demonología",
+        "Alcance: 6 metros",
+        "Duración: 1 Turno por Nivel",
+        "Maldición",
+        "Invocas una maldición que siembra duda y ansiedad en la mente del objetivo, esclavizando su personalidad momentáneamente. Realiza una Tirada de Conjuro cada vez que la criatura comience su Turno: si tienes éxito, la víctima tendrá una Probabilidad 15+ de perder el Turno balbuceando y haciendo incoherencias."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-161",
+          "circulo": 3,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 234,
+      "nombre_literal": "Mandala hipnótico",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1760,
+        "indice_ultimo_parrafo": 1766,
+        "indice_inicio_doc": 121825,
+        "indice_fin_doc": 122369
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Demonología",
+        "Alcance: personal",
+        "Duración: 1 Turno por Nivel",
+        "Conjuras chispas demoníacas en tu mano, dibujando un intrincado patrón hipnótico en el aire que embelesa y distrae a aquellos que fijan su mirada en ti. Durante la duración del conjuro, si cualquier criatura te mira, debes realizar una Tirada de Conjuro; si tienes éxito, queda bajo el estado de Fascinación hacia ti durante ese Turno.",
+        "No puedes elegir a quién afecta el Mandala hipnótico, pero puedes finalizar el conjuro en cualquier momento."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-162",
+          "circulo": 3,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 235,
+      "nombre_literal": "Maldición enfermiza",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1767,
+        "indice_ultimo_parrafo": 1774,
+        "indice_inicio_doc": 122370,
+        "indice_fin_doc": 122909
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 10 metros",
+        "Duración: 1 Turno por Nivel",
+        "Maldición",
+        "Infectas la esencia del objetivo con un maleficio insidioso, saturando su mente con ilusiones de heridas supurantes y enfermedades retorcidas. Cada vez que el objetivo reciba una curación, deberá sustraer ⅓ de Puntos de Salud de la cantidad restaurada, como si su cuerpo rechazara la sanación.",
+        "La marca demoníaca permanece visible como una neblina oscura que rodea al afectado, señalándolo como maldito ante cualquier sanador."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-190",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 236,
+      "nombre_literal": "Maldición de pesadumbre",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1775,
+        "indice_ultimo_parrafo": 1781,
+        "indice_inicio_doc": 122910,
+        "indice_fin_doc": 123262
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 6 metros",
+        "Duración: 2 Turnos por Nivel",
+        "Maldición",
+        "Pronuncias una letanía de insultos y herejías en un idioma blasfemo, quebrantando la voluntad del objetivo con el peso de tu maldición. Bajo este efecto, el objetivo recibe 2d6 de daño adicional de cualquier fuente de daño que lo hiera."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-205",
+          "circulo": 6,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Slat-Deanaich"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 237,
+      "nombre_literal": "Muro de fuerza",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1782,
+        "indice_ultimo_parrafo": 1788,
+        "indice_inicio_doc": 123263,
+        "indice_fin_doc": 123774
+      },
+      "parrafos_literal": [
+        "Segundo Círculo",
+        "Escuela: Arcana",
+        "Alcance: 40 metros",
+        "Duración: 1 Intervalo por Nivel o hasta que decidas desactivarlo",
+        "De las puntas de tus dedos surge una oleada de fuerza translúcida que cubre un espacio máximo de 6 metros de ancho, 4 metros de altura y 2 metros de grosor. Mientras conjuras este muro místico, debes concentrarte en mantener su forma.",
+        "Ninguna criatura de Nivel 6 o inferior puede atravesarlo, ni sus ataques mágicos. Sin embargo, los Proyectiles mágicos ignoran el Muro de fuerza."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-240",
+          "circulo": 2,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 238,
+      "nombre_literal": "Múltiples brazos de Khalakk",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1789,
+        "indice_ultimo_parrafo": 1795,
+        "indice_inicio_doc": 123775,
+        "indice_fin_doc": 124505
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "El legendario aventurero Khalakk logró conquistar el Monte del Fin del Mundo gracias a la asistencia divina de Xelastris. Poco después, dejó grabado en piedra el secreto para aprovecharse de los brazos astrales del Hijo del Sol.",
+        "El objetivo de este Conjuro se convierte, temporalmente, en un avatar menor de Khalakk. Cada Turno que decida no moverse y mantener la posición, podrá realizar un ataque cuerpo a cuerpo a cada uno de los objetivos que tenga a su alcance, sin penalización alguna: una figura espectral surgirá de su esencia para atacar a sus enemigos, replicando las hazañas del héroe de leyenda en su última ordalía."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-265",
+          "circulo": 3,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 239,
+      "nombre_literal": "Muralla de hielo",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1796,
+        "indice_ultimo_parrafo": 1802,
+        "indice_inicio_doc": 124506,
+        "indice_fin_doc": 124900
+      },
+      "parrafos_literal": [
+        "Cuarto Círculo",
+        "Escuela: Elemental",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: 30 metros",
+        "Duración: 1 Intervalo o 10 Turnos (en Combate)",
+        "Conjuras un muro de hielo de hasta 300 m2, moldeado a tu gusto. La pared es infranqueable para criaturas de Nivel 3 o inferior. Aquellas que logren cruzarlo sufren 2d6 puntos de daño por frío, que se duplica si son criaturas de fuego o adaptadas al calor."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-288",
+          "circulo": 4,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 240,
+      "nombre_literal": "Mirada de la verdad",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1803,
+        "indice_ultimo_parrafo": 1808,
+        "indice_inicio_doc": 124901,
+        "indice_fin_doc": 125294
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "Concedes al objetivo la capacidad de ver más allá de las ilusiones y sombras: puede atravesar la oscuridad, ya sea natural o mágica, percibir puertas secretas, reconocer criaturas invisibles, y discernir la forma auténtica de cualquier ser u objeto que haya sido polimorfado, alterado o transmutado."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-299",
+          "circulo": 5,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 241,
+      "nombre_literal": "Mandato divino",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1809,
+        "indice_ultimo_parrafo": 1814,
+        "indice_inicio_doc": 125295,
+        "indice_fin_doc": 125760
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Divina",
+        "Alcance: toque",
+        "Duración: hasta que se complete la tarea",
+        "Invocas un mandato sagrado que obliga a una criatura a cumplir una tarea en tu nombre. Si la criatura se resiste a tu encargo, debes superar una Tirada de Conjuro; al hacerlo, una Maldición de tu elección recaerá sobre ella, persiguiéndola hasta que cumpla con éxito la misión encomendada. Al completar la tarea, todos los efectos del Mandato Divino se disiparán."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-306",
+          "circulo": 5,
+          "escuelas": [
+            "Divina"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 242,
+      "nombre_literal": "Muro de piedra",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1815,
+        "indice_ultimo_parrafo": 1821,
+        "indice_inicio_doc": 125761,
+        "indice_fin_doc": 126169
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Elemental",
+        "Lanzamiento: 3 Turnos",
+        "Alcance: 50 metros",
+        "Duración: permanente",
+        "Conjuras una sólida muralla de piedra de hasta 300m2, dándole la forma que desees. Para que el Muro de piedra se materialice correctamente, el área debe estar libre de criaturas y objetos. Mientras construyes el Muro, puedes decidir su material y aspecto (arenisca, roca desnuda, ladrillos, etc.)."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-307",
+          "circulo": 5,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 243,
+      "nombre_literal": "Manto del inquebrantable",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1822,
+        "indice_ultimo_parrafo": 1827,
+        "indice_inicio_doc": 126170,
+        "indice_fin_doc": 126532
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Arcana",
+        "Alcance: toque",
+        "Duración: 1 Turno por Nivel",
+        "Envuelves a una criatura en una capa arcana que desvía y anula el daño de proyectiles no mágicos, como saetas, flechas o virotes. Bajo la protección del Manto del inquebrantable, el objetivo se moverá con una confianza impenetrable, inmune a los ataques mundanos."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-311",
+          "circulo": 5,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 244,
+      "nombre_literal": "Muro de espinas férreas",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1828,
+        "indice_ultimo_parrafo": 1835,
+        "indice_inicio_doc": 126533,
+        "indice_fin_doc": 127348
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Elemental",
+        "Lanzamiento: 2 Turnos",
+        "Alcance: 15 metros",
+        "Duración: 3 Turnos por Nivel",
+        "Conjuras una pared de zarzas metálicas que se extiende hasta 6 metros de largo por Nivel o forma un anillo a tu alrededor con un radio de 2 metros por cada 2 Niveles. La altura máxima de la barrera es de 8 metros.",
+        "Cuando una criatura intente atravesar el Muro de espinas férreas, realiza una Tirada de Conjuro; si la superas, recibe 1d6 puntos de daño perforante por cada Nivel que poseas; la mitad si fallas. Si  el Muro aparece en un lugar ocupado por criaturas, estas deben moverse fuera de la zona inmediatamente o sufrir el daño como si intentaran cruzarla. Los ataques realizados a través del muro tienen Desventajas , mientras que esquivar ataques desde el interior otorga ventaja."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-313",
+          "circulo": 6,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 245,
+      "nombre_literal": "Metamorfosis suprema",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1836,
+        "indice_ultimo_parrafo": 1842,
+        "indice_inicio_doc": 127349,
+        "indice_fin_doc": 127957
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Arcana",
+        "Alcance: personal",
+        "Duración: 1 Intervalo por Nivel",
+        "Te transformas en cualquier criatura de tu elección, excluyendo inmortales, Espíritus deíficos, semidioses, deidades, conceptos abstractos o demonios mayores. Conservas tu Salud original, pero adquieres todos los rasgos físicos, ataques y habilidades especiales de la forma elegida.",
+        "Aunque tu cuerpo cambia, tu mente permanece intacta, por lo que no obtienes los conocimientos, recuerdos o habilidades mentales de la criatura. Mientras dure el conjuro, puedes adoptar una forma diferente una vez por Turno."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-353",
+          "circulo": 8,
+          "escuelas": [
+            "Arcana"
+          ],
+          "origen": "Grimorio de Tuliëlle"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 246,
+      "nombre_literal": "Mordida de dragón",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1843,
+        "indice_ultimo_parrafo": 1847,
+        "indice_inicio_doc": 127958,
+        "indice_fin_doc": 128391
+      },
+      "parrafos_literal": [
+        "Tercer Círculo",
+        "Escuela: Elemental",
+        "Alcance: 8 metros",
+        "Invocas la apariencia de un pequeño dragón elemental que surge para arremeter y morder a tu objetivo. Realiza una Tirada de Conjuro: si tienes éxito, causas 1d6 de daño elemental por cada 3 de tus Niveles (elige el tipo de daño entre fuego, frío, relámpago o ácido antes de lanzar el conjuro). La ilusión elemental desaparece de inmediato tras resolver el ataque."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-381",
+          "circulo": 3,
+          "escuelas": [
+            "Elemental"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 247,
+      "nombre_literal": "Maldición permanente",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1848,
+        "indice_ultimo_parrafo": 1855,
+        "indice_inicio_doc": 128392,
+        "indice_fin_doc": 129117
+      },
+      "parrafos_literal": [
+        "Quinto Círculo",
+        "Escuela: Demonología",
+        "Alcance: 15 metros",
+        "Requisito: el objetivo ha de estar afligido por un efecto de Maldición",
+        "Maldición",
+        "Canalizas la oscuridad absoluta para reforzar una Maldición activa en una criatura, anclándola profundamente en su esencia. Realiza una Tirada de Conjuro: si tienes éxito, la Maldición en el objetivo se convierte en permanente, haciendo que solo pueda ser retirada mediante conjuros poderosos como Disipar Magia, Quitar Maldición o rituales curativos excepcionales.",
+        "fallas, el conjuro no tiene efecto, pero la Maldición activa no se ve alterada. Si el objetivo está afligido por varias Maldiciones a la vez, podrás elegir cual de ellas quieres convertir en Permanente."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-400",
+          "circulo": 5,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 248,
+      "nombre_literal": "Muro de huesos",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1856,
+        "indice_ultimo_parrafo": 1864,
+        "indice_inicio_doc": 129118,
+        "indice_fin_doc": 129984
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 30 metros",
+        "Duración: 1 Turno por Nivel",
+        "Conjuras una grotesca barrera hecha de huesos retorcidos y cráneos que emana un aura de muerte y desolación. El muro puede alcanzar hasta 6 metros de largo por Nivel, con una altura de 3 metros y un grosor de 1 metro. Puedes moldearlo en líneas rectas o en anillos cerrados con un radio de hasta 3 metros.",
+        "Obstrucción: Criaturas que intenten atravesarlo sufren 2d6 puntos de daño perforante por los fragmentos de hueso afilados que rasgan su carne.",
+        "Resistencia: Sus Puntos de Golpe equivalen a tu Nivel * 10. Los ataques mágicos lo dañan normalmente, pero el daño por fuego o luz lo reduce al doble de velocidad.",
+        "Aura de muerte: Todas las criaturas vivas que terminen su Turno adyacentes al Muro de huesos sienten su energía vital drenada, sufriendo 1d10 de daño impío."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-406",
+          "circulo": 6,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 249,
+      "nombre_literal": "Maldición de sanación",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1865,
+        "indice_ultimo_parrafo": 1871,
+        "indice_inicio_doc": 129985,
+        "indice_fin_doc": 130358
+      },
+      "parrafos_literal": [
+        "Sexto Círculo",
+        "Escuela: Nigromancia",
+        "Alcance: 15 metros",
+        "Duración: 1 Turno por Nivel",
+        "Maldición",
+        "Infestas a una criatura con una maldición oscura que invierte los efectos de la magia curativa: cualquier conjuro o efecto de sanación que reciba le infligirá daño equivalente al que habría sanado. No afecta a curaciones naturales ni a la regeneración innata."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-407",
+          "circulo": 6,
+          "escuelas": [
+            "Nigromancia"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    },
+    {
+      "numero_tomo": 250,
+      "nombre_literal": "Mundo onírico",
+      "proveniencia": {
+        "documento": "NaufragioD20 — Tomo de Magia [Orden alfabético]",
+        "fuente_url": "https://docs.google.com/document/d/19hwP2K85Fo-HfThA9CBLQwCXxrl9ye0krcVLexLs5iM/edit",
+        "revision": "AHj4eMSakAdRcSROgewlZQPBtL1DsHjLCh3EMptd-2mmMR4RGtTttzPMCMDUVf5e4d-TM40FEZU85zoScJEE3Q",
+        "indice_encabezado": 1872,
+        "indice_ultimo_parrafo": 1881,
+        "indice_inicio_doc": 130359,
+        "indice_fin_doc": 131784
+      },
+      "parrafos_literal": [
+        "Octavo Círculo",
+        "Escuela: Demonología",
+        "Alcance: toque",
+        "Duración: 1 minuto por Nivel",
+        "Nictomancia",
+        "Con este conjuro, infundes un estado de coma similar al trance onírico en la criatura tocada. Al entrar en este estado, el cuerpo de la víctima queda inmóvil mientras su mente es atrapada en un mundo de sueños que percibe como real.",
+        "Realiza una Tirada de Conjuro: si tienes éxito, la víctima permanece en coma hasta que el conjuro termine o sea despertada al recibir daño. Si esto ocurre, debes realizar otra Tirada de Conjuro para evitar que escape del sueño.",
+        "Mientras toques a la víctima, puedes entrar en su mundo onírico, interactuando con ella como si estuvieras en el mundo real. Puedes lanzar conjuros contra ella o atacarla mentalmente, quien tiene derecho a realizar las Tiradas habituales, tanto para Evitar ataques como tus Tiradas de Conjuros; sin embargo, tienes Ventaja en las Tiradas de Conjuro en sortilegios que sean utilizados para extraer información.",
+        "La víctima no puede atacarte directamente dentro del sueño, pero el Cronista puede permitir intentos narrativos para expulsarte. Si interrumpes el contacto con la víctima, permanece en coma hasta el final del conjuro o hasta que despierte por medios externos. La interacción dentro del sueño debe ser coherente con las reglas del juego y con la narración, aunque puedes presentar situaciones surrealistas y carentes de sentido dentro de la ficción."
+      ],
+      "identidades_posibles_catalogo": [
+        {
+          "id": "conjuro-421",
+          "circulo": 8,
+          "escuelas": [
+            "Demonología"
+          ],
+          "origen": "Pergaminos de Excelsus"
+        }
+      ],
+      "estado": "extraido_literal_no_validado_mecanicamente"
+    }
+  ]
+}

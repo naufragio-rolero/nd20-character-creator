@@ -1,0 +1,61 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "seccion": "Eidolas",
+  "categoria": 2,
+  "estado": "efectos_literales_sin_lore",
+  "registros": [
+    {
+      "nombre": "Talisa",
+      "parrafos": [
+        1582,
+        1589
+      ],
+      "afinidad_ficha": "Hielo",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la Determinación de Talisa, obteniendo 2d6 puntos de Blindaje adicionales contra daño físico y de hielo, junto con Ventaja en Tiradas de Fuerza para acciones de combate durante 1d6 Turnos. Las criaturas cercanas, a menos de 3 metros, ven su velocidad reducida en 2 debido al frío extremo.",
+        "Canalizar": "Canalizar: Ventisca irredenta. Se desata una tormenta devastadora de nieve y vientos helados en un radio de 18 metros desde el diagrama de invocación. Talisa aparece controlando una ventisca terrible, que hiela y paraliza sus objetivos. Las criaturas atrapadas en el área sufren 10d8 de daño por hielo y tienen una Probabilidad 14+ de quedar congeladas en su lugar durante 1d4 Turnos.",
+        "Materializar": "Materializar: Salud 10/d10/2, Ataque d8, Blindaje d8. Talisa aparece junto a su invocador, luchando con su alabarda de hielo durante 2d8 Turnos. Ralentiza a los enemigos cercanos, reduciendo su velocidad a la mitad, y puede proteger a los aliados con su escudo de hielo, reduciendo el daño que reciban en d6."
+      }
+    },
+    {
+      "nombre": "Varlyna",
+      "parrafos": [
+        1590,
+        1597
+      ],
+      "afinidad_ficha": "Rayo",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe el ingenio de Varlyna para obtener Ventaja en todas las tiradas de Mente para resolver acertijos o problemas durante 1d4 Turnos.",
+        "Canalizar": "Canalizar: Tormenta eléctrica. Una hondonada de nubes grises cubren por completo el cielo o el techo, soltando chispas y calambres; de repente, un cúmulo nuboso empieza a girar sobre sí mismo y se disipa, dejando ver la figura chisporroteante de Varlyna, que libera una descarga eléctrica impresionante sobre un área de 18 metros frente a ella. Cada criatura herida por la tormenta sufre 12d6 de daño por relámpago y tiene una posibilidad 12+ de quedar Paralizada.",
+        "Materializar": "Materializar: Salud 8/1d8/1, Ataque d8, Blindaje d6. Varlyna aparecerá con su forma humana relampagueante para luchar codo a codo contigo durante 2d6 Turnos."
+      }
+    },
+    {
+      "nombre": "Warnok",
+      "parrafos": [
+        1598,
+        1604
+      ],
+      "afinidad_ficha": "Naturaleza",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la furia de Warnok durante 1d8 Turnos para obtener un ataque de mordisco adicional y 2d6 de daño adicional cuerpo a cuerpo.",
+        "Canalizar": "Canalizar: Emboscada de la selva. De repente, surge un montón de vegetación y lianas desde el diagrama de invocación, y después va la brutal forma de Warnok, trayendo consigo la furia de la naturaleza salvaje. Una horda de raíces y lianas brotan desde el suelo en un área de 10 metros alrededor del invocador, atrapando a todas las criaturas a su alcance. Cada ser atrapado queda Paralizado durante 1d4 Turnos y sufrirá 5d6 de daño contundente al inicio de cada uno de sus Turnos. Tiene una Probabilidad 11+ de liberarse, pero si intenta escapar sin éxito, sufre 2d6 de daño adicional por la presión de las lianas.",
+        "Materializar": "Materializar: Salud 7/1d7/2, Ataque d12, Blindaje d6. Warnok aparece como un cocodrilo gigantesco de escamas verdosas y ojos amarillentos brillantes. Durante 2d8 Turnos, atacará con su mandíbula feroz y su cola, ayudando a mantener a raya a los enemigos y protegiendo al invocador."
+      }
+    },
+    {
+      "nombre": "Xalanth",
+      "parrafos": [
+        1605,
+        1612
+      ],
+      "afinidad_ficha": "Oscuridad",
+      "modalidades": {
+        "Encarnar": "Encarnar: recibe la presencia terrible de Xalanth para adquirir unas escamas negras que recorren toda tu piel, otorgándote d10 de Blindaje e inmunidad al daño por ácido y veneno durante 1d6 Turnos.",
+        "Canalizar": "Canalizar: Aniquilación dracónica. Un enorme agujero se abre de repente en el suelo y de ahí surge Xalanth a toda velocidad. Tras aterrizar de forma brusca, carga su arma de aliento y exhala un cono de 21 metros frente a él. Cada criatura herida por el hálito sufre 6d8 de daño por ácido, 6d6 de daño por veneno y tiene una posibilidad 12+ de quedar Envenenada con un veneno igual al Nivel del invocador.",
+        "Materializar": "Materializar: Salud 10/1d10/2, Ataque 2d6, Blindaje d8. Xalanth se materializa con una versión más pequeña de sí mismo y luchará a tu lado hasta que finalice el enfrentamiento o su salud sea agotada."
+      }
+    }
+  ],
+  "advertencia": "Con estas fichas, todas las modalidades de Categorías 1 y 2 están transcritas; faltan las descripciones literarias y ofrendas, y las Categorías 3 y 4."
+}

@@ -1,0 +1,168 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": {
+    "tipo": "Google Docs vigente",
+    "document_id": "15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28",
+    "url": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+    "revision": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ"
+  },
+  "ocupacion": "Pícaro",
+  "estado": "transcripcion_literal_del_documento_vigente",
+  "registros": [
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Lengua de serpiente",
+      "activacion_literal": "Especial",
+      "parrafos_fuente": [
+        1293,
+        1300
+      ],
+      "parrafos_literales": [
+        "Lengua de serpiente",
+        "Especial",
+        "Eres un auténtico maestro y pérfido manipulador; para ti, soltar mentiras es más que un arte, es tu estilo de vida. Tus historias son narradas con tal naturalidad que incluso los más perspicaces dudan de sus propios sentidos.",
+        "Obtienes un +2 en las Tiradas de Presencia para intentar convencer, manipular o embaucar a alguien.",
+        "Una vez al día, puedes obligar a un PNJ a creer una mentira absurda durante al menos 1d4 Turnos, siempre que tengas al menos un minuto para hablar con él y que no haya pruebas inmediatas que contradigan tu historia.",
+        "En los Niveles 6, 12, 18 y 24, aumentas la duración de la mentira en un rango (hasta d12) y las veces que puedes utilizarlo en 1 (hasta un total de 5 veces al día).",
+        "Si fallas una Tirada de Presencia y la situación se vuelve en tu contra, puedes gastar 1 Punto de Esfuerzo para retomar el control de la conversación y hacer un nuevo intento con Ventaja; eso sí, tendrás que justificar muy bien tus palabras con el Cronista.",
+        "Tu Lengua de serpiente te permite mentir y salir indemne de situaciones, pero has de ser consciente de que sólo funciona en el ahora, y que en el futuro tendrás que rendir cuentas si lo que has contado ha terminado explotándote en la cara."
+      ],
+      "texto_literal": "Lengua de serpiente\nEspecial\nEres un auténtico maestro y pérfido manipulador; para ti, soltar mentiras es más que un arte, es tu estilo de vida. Tus historias son narradas con tal naturalidad que incluso los más perspicaces dudan de sus propios sentidos.\nObtienes un +2 en las Tiradas de Presencia para intentar convencer, manipular o embaucar a alguien.\nUna vez al día, puedes obligar a un PNJ a creer una mentira absurda durante al menos 1d4 Turnos, siempre que tengas al menos un minuto para hablar con él y que no haya pruebas inmediatas que contradigan tu historia.\nEn los Niveles 6, 12, 18 y 24, aumentas la duración de la mentira en un rango (hasta d12) y las veces que puedes utilizarlo en 1 (hasta un total de 5 veces al día).\nSi fallas una Tirada de Presencia y la situación se vuelve en tu contra, puedes gastar 1 Punto de Esfuerzo para retomar el control de la conversación y hacer un nuevo intento con Ventaja; eso sí, tendrás que justificar muy bien tus palabras con el Cronista.\nTu Lengua de serpiente te permite mentir y salir indemne de situaciones, pero has de ser consciente de que sólo funciona en el ahora, y que en el futuro tendrás que rendir cuentas si lo que has contado ha terminado explotándote en la cara.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Artimañas legales",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1303,
+        1306
+      ],
+      "parrafos_literales": [
+        "Artimañas legales",
+        "Pasiva",
+        "Has estudiado hasta el último recoveco de leyes, proyectos de ley, normativas, legislación y cualquier cháchara corporativa que exista en el mundo. Cuando debas realizar una Tirada de Mente o Intuición para enterarte de alguna artimaña legal que te pueda afectar a ti o a tus aliados (por ejemplo, a la hora de firmar un contrato abusivo), tienes Ventaja de forma automática y, aunque no superes la Tirada, el Cronista te dirá que sientes que hay algo que no está bien.",
+        "Igualmente, puedes usar este Talento para todo lo contrario: encontrar huecos en las leyes o aprovecharte de normativas poco elaboradas para lograr lo que quieras; el Cronista te podrá indicar qué puedes hacer al respecto."
+      ],
+      "texto_literal": "Artimañas legales\nPasiva\nHas estudiado hasta el último recoveco de leyes, proyectos de ley, normativas, legislación y cualquier cháchara corporativa que exista en el mundo. Cuando debas realizar una Tirada de Mente o Intuición para enterarte de alguna artimaña legal que te pueda afectar a ti o a tus aliados (por ejemplo, a la hora de firmar un contrato abusivo), tienes Ventaja de forma automática y, aunque no superes la Tirada, el Cronista te dirá que sientes que hay algo que no está bien.\nIgualmente, puedes usar este Talento para todo lo contrario: encontrar huecos en las leyes o aprovecharte de normativas poco elaboradas para lograr lo que quieras; el Cronista te podrá indicar qué puedes hacer al respecto.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "El precio justo",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1307,
+        1310
+      ],
+      "parrafos_literales": [
+        "El precio justo",
+        "Pasiva",
+        "Coste: 1 Punto de Esfuerzo",
+        "Desde muy joven, se te ha dado genial el arte de negociar, regatear y entender cómo funcionan los mercados. Esto te ha vuelto un auténtico águila para los negocios: si usas este Talento, puedes realizar compras a un 90% de su precio final y vender cualquier cosa un 25% más caro. Obviamente, necesitarás la aprobación del Cronista y de cualquier PNJ envuelto en la transacción, momento en el que describirás cómo diste “gato por liebre”."
+      ],
+      "texto_literal": "El precio justo\nPasiva\nCoste: 1 Punto de Esfuerzo\nDesde muy joven, se te ha dado genial el arte de negociar, regatear y entender cómo funcionan los mercados. Esto te ha vuelto un auténtico águila para los negocios: si usas este Talento, puedes realizar compras a un 90% de su precio final y vender cualquier cosa un 25% más caro. Obviamente, necesitarás la aprobación del Cronista y de cualquier PNJ envuelto en la transacción, momento en el que describirás cómo diste “gato por liebre”.",
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Estafador experto",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1311,
+        1313
+      ],
+      "parrafos_literales": [
+        "Estafador experto",
+        "Pasiva",
+        "Sabes que puedes vender arena en el desierto y nieve a un esquimal. Cuando intentes engañar a algún PNJ sobre algo en que crea parcialmente, obtienes Ventaja en la Tirada de Presencia para afianzar la mentira. No sólo eso, si no que dicho PNJ no se cuestionará la veracidad de tu afirmación hasta que se le presenten pruebas contundentes (e incluso así, la sombra de la duda no lo abandonará)."
+      ],
+      "texto_literal": "Estafador experto\nPasiva\nSabes que puedes vender arena en el desierto y nieve a un esquimal. Cuando intentes engañar a algún PNJ sobre algo en que crea parcialmente, obtienes Ventaja en la Tirada de Presencia para afianzar la mentira. No sólo eso, si no que dicho PNJ no se cuestionará la veracidad de tu afirmación hasta que se le presenten pruebas contundentes (e incluso así, la sombra de la duda no lo abandonará).",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Maestro del espectáculo",
+      "activacion_literal": "Acción",
+      "parrafos_fuente": [
+        1314,
+        1318
+      ],
+      "parrafos_literales": [
+        "Maestro del espectáculo",
+        "Acción",
+        "Coste: 1 Punto de Esfuerzo",
+        "Puedes realizar una actuación pública impresionante (como un monólogo político, un truco de magia, una revelación «mística» o una historia lacrimógena) que fascinará a un grupo de máximo 40 personas. Los espectadores se distraerán completamente durante 2d6 + 6 minutos y estarán predispuestos a creerte, siempre y cuando no haya algo que interrumpa tu actuación, como una trifulca, una explosión o algo que ponga en peligro sus vidas.",
+        "Debes tener en cuenta que necesitas un sitio dónde se te escuche y que la situación de a que puedas dar un soliloquio frente a una multitud. Si no es así, no podrás usar este Talento."
+      ],
+      "texto_literal": "Maestro del espectáculo\nAcción\nCoste: 1 Punto de Esfuerzo\nPuedes realizar una actuación pública impresionante (como un monólogo político, un truco de magia, una revelación «mística» o una historia lacrimógena) que fascinará a un grupo de máximo 40 personas. Los espectadores se distraerán completamente durante 2d6 + 6 minutos y estarán predispuestos a creerte, siempre y cuando no haya algo que interrumpa tu actuación, como una trifulca, una explosión o algo que ponga en peligro sus vidas.\nDebes tener en cuenta que necesitas un sitio dónde se te escuche y que la situación de a que puedas dar un soliloquio frente a una multitud. Si no es así, no podrás usar este Talento.",
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Rostro cambiante",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1319,
+        1322
+      ],
+      "parrafos_literales": [
+        "Rostro cambiante",
+        "Pasiva",
+        "Puedes alterar tu apariencia con increíble facilidad. Con un par de gestos, un cambio en tu postura o tu forma de hablar, puedes hacerte pasar por otra persona. Con al menos 5 Turnos de preparación y un disfraz adecuado, tienes Ventaja en las Tiradas de Presencia cuando te haces pasar por alguien más.",
+        "Ten en cuenta que este Talento te permite usar tus dotes de actuación y para mentir, pero no es un disfraz sobrenatural. Ni tu aura ni tu Nombre Verdadero ‡ son alterados, y cualquier con capacidades para percibirlos se dará cuenta de tu charada."
+      ],
+      "texto_literal": "Rostro cambiante\nPasiva\nPuedes alterar tu apariencia con increíble facilidad. Con un par de gestos, un cambio en tu postura o tu forma de hablar, puedes hacerte pasar por otra persona. Con al menos 5 Turnos de preparación y un disfraz adecuado, tienes Ventaja en las Tiradas de Presencia cuando te haces pasar por alguien más.\nTen en cuenta que este Talento te permite usar tus dotes de actuación y para mentir, pero no es un disfraz sobrenatural. Ni tu aura ni tu Nombre Verdadero ‡ son alterados, y cualquier con capacidades para percibirlos se dará cuenta de tu charada.",
+      "coste_literal": null,
+      "requisito_literal": null
+    },
+    {
+      "ocupacion": "Pícaro",
+      "talento": "Zorro astuto",
+      "activacion_literal": "Pasiva",
+      "parrafos_fuente": [
+        1323,
+        1325
+      ],
+      "parrafos_literales": [
+        "Zorro astuto",
+        "Pasiva",
+        "Eres increíblemente difícil de leer. Cuando alguien intenta detectar si estás mintiendo, tiene Desventaja en su Tirada de Intuición."
+      ],
+      "texto_literal": "Zorro astuto\nPasiva\nEres increíblemente difícil de leer. Cuando alguien intenta detectar si estás mintiendo, tiene Desventaja en su Tirada de Intuición.",
+      "coste_literal": null,
+      "requisito_literal": null
+    }
+  ],
+  "adquisicion": {
+    "fijo": "Lengua de serpiente",
+    "opcionales": [
+      "Artimañas legales",
+      "El precio justo",
+      "Estafador experto",
+      "Maestro del espectáculo",
+      "Rostro cambiante",
+      "Zorro astuto"
+    ],
+    "niveles_de_eleccion": [
+      1,
+      9
+    ],
+    "instruccion_literal": "Como Pícaro, puedes tomar uno de los siguientes Talentos a Nivel 1 y otro a Nivel 9."
+  },
+  "incidencias": [
+    {
+      "id": "OCP-27",
+      "descripcion": "El precio justo aparece como «Pasiva» pero también «Coste: 1 Punto de Esfuerzo». Mantener ambos campos hasta decidir cómo modelar su activación; no ignorar el coste."
+    }
+  ],
+  "notas": [
+    "Los textos se han extraído del bloque de Talentos, no de las cabeceras homónimas de tablas de progresión.",
+    "Los índices de párrafo son ordinales de Google Docs, no índices Word."
+  ]
+}

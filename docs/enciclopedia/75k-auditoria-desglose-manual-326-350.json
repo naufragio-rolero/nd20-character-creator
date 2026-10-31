@@ -1,0 +1,18 @@
+{
+  "fecha": "2026-10-30",
+  "resultado": "25_de_25_cotejados",
+  "fichas": 25,
+  "parrafos_referenciados": 36,
+  "errores": [],
+  "fuentes": [
+    {
+      "archivo": "69n-conjuros-alfabeticos-326-350.json",
+      "sha": "22ac762932bf8fdee72bd3af752d2a5131ea21ca"
+    },
+    {
+      "archivo": "72n-desglose-revisado-conjuros-326-350.json",
+      "sha": "ee9ec39e69632637cd89f6bd8f4a12cfd2789ac9"
+    }
+  ],
+  "nota": "Comprueba identidades e índices, no mecánica de Forja."
+}

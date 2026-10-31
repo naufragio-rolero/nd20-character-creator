@@ -1,0 +1,53 @@
+{
+  "fecha": "2026-10-28",
+  "objetivo": "Correcciones editoriales aprobadas por el autor con prioridad sobre las instantáneas históricas 02*, a efectos de futura revisión e integración. No modifica el generador.",
+  "registros": [
+    {
+      "id_documental": "talento-especie:nocturna:jiangshi:chillido-de-ultratumba",
+      "sistema": "Nocturna",
+      "especie": "Jiangshi",
+      "talento": "Chillido de ultratumba",
+      "tipo": "elegible",
+      "texto_aprobado": "Puedes gastar 1 Punto de Esfuerzo para liberar un grito aterrador que afecta a todas las criaturas en un radio de 10m. Tienes una Probabilidad 11+ de que queden paralizadas durante 1d4 Turnos.",
+      "regla_confirmada": {
+        "activacion": "No rotulada en fuente",
+        "coste_literal": "1 Punto de Esfuerzo",
+        "radio_literal": "10m",
+        "probabilidad_literal": "11+",
+        "duracion_literal": "1d4 Turnos"
+      },
+      "fuente": {
+        "documento": "https://docs.google.com/document/d/15_9raDHK4Cr_LC4YPAmTTYm3K27V06-2-gF8FrmHm28/edit",
+        "revision": "AHj4eMTIosLoAoEWfqF52jfQ0htBqFIYajWWR-er1-8RUlPv9JANGBTZk3lrj5fLuBLBWS5fXuHRbw4jBkmbKQ",
+        "seccion": "Jiangshi · Talentos a elegir"
+      },
+      "estado": "aprobado_por_autor_verificado_en_fuente"
+    },
+    {
+      "id_documental": "talento-especie:ampliadas:gerudo:castigo-del-reino-sombrio",
+      "sistema": "Ampliadas",
+      "especie": "Gerudo",
+      "talento": "Castigo del Reino Sombrío",
+      "tipo": "opcional",
+      "texto_aprobado": "Tus Conjuros de las Escuelas Demonología y Nigromancia tienen un +2 al daño. Si tienen Duración: X Turnos, aumentas su Duración en 2 Turnos. A cambio, pierdes 1 Punto de Salud cada vez que lanzas un Conjuro.",
+      "regla_confirmada": {
+        "activacion": "Pasiva",
+        "escuelas": [
+          "Demonología",
+          "Nigromancia"
+        ],
+        "bono_danio_literal": "+2",
+        "condicion_duracion_literal": "Duración: X Turnos",
+        "bono_duracion_literal": "+2 Turnos",
+        "contrapartida_literal": "pierdes 1 Punto de Salud cada vez que lanzas un Conjuro"
+      },
+      "fuente": {
+        "documento": "https://docs.google.com/document/d/1XmjW6AUwt8Yyl3ZpXp7u73DE5j7jxDxf2rcMVRc8V3s/edit",
+        "revision": "AHj4eMTR5y9FXVUGUeiln1cvFuYcjZbX-suxAvNtVufbofznjYCjPvTVBmpS7NF-1HkeLJGdmtZdElLpRU1NzA",
+        "seccion": "The Legend of Zelda · Gerudo · Castigo del Reino Sombrío",
+        "hoja_talentos": "Talentos!H138"
+      },
+      "estado": "aprobado_por_autor_verificado_en_fuente"
+    }
+  ]
+}

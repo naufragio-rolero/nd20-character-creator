@@ -1,0 +1,84 @@
+{
+  "fecha": "2026-10-29",
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "lote": 5,
+  "ocupaciones": [
+    "Brujo",
+    "Cazador"
+  ],
+  "registros": [
+    {
+      "ocupacion": "Brujo",
+      "talento": "Esbirro familiar",
+      "activacion": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Punto de Esfuerzo\nAdemás de tus poderes arcanos, tu Patrón te ha otorgado una criatura mágica que actúa como tu secuaz. Elige qué tipo de ser es (un diablillo, una mota de tierra y viento o un hada sombría) para que el Cronista pueda interpretarlo como un personaje más de tu historia.\nTu familiar es capaz de flotar a voluntad, tiene la mitad de Salud que tú y se puede mover libremente o a tus órdenes en tu Turno. Durante el combate, puedes gastar Esfuerzo para lanzar un Conjuro desde la ubicación en la que se encuentra tu familiar en lugar de lanzarlo desde tu ubicación.\nSi muere, resucitará en dos días si sacrificas 1d4 puntos de Resistencia o Presencia a tu Patrón mediante un ritual privado y blasfemo. Carecer de familiar te provoca Desventaja en todas las Tiradas de lanzamiento de Conjuros.",
+      "fuente_parrafos": [
+        880,
+        885
+      ]
+    },
+    {
+      "ocupacion": "Brujo",
+      "talento": "Puntos de Brujería",
+      "activacion": "Especial",
+      "texto_literal": "Especial\nPosees un recurso denominado Puntos de Brujería (PB), que consumes para lanzar Conjuros. Debes consumir tantos PB como Círculo del Conjuro que quieras lanzar; recuperas todos tus PB gastados tras descansar adecuadamente durante ocho horas.\nDe igual forma, tus Atributos para lanzar Conjuros cambian según la Escuela de éstos:\nTu Atributo para lanzar Conjuros de las Escuelas Arcana, Demonología o Nigromancia es Resistencia.\nTu Atributo para lanzar Conjuros de las Escuelas Divina, Elemental o Naturaleza es Presencia.",
+      "fuente_parrafos": [
+        886,
+        891
+      ]
+    },
+    {
+      "ocupacion": "Brujo",
+      "talento": "Rebote arcano",
+      "activacion": "Reacción",
+      "texto_literal": "Reacción\nCoste: 1 Punto de Esfuerzo\nSi fallas una Tirada de lanzamiento de Conjuros, puedes volver a repetirla y quedarte con el resultado que más te convenga. No puedes usar tu Rebote arcano más de una vez por Turno.",
+      "fuente_parrafos": [
+        892,
+        895
+      ]
+    },
+    {
+      "ocupacion": "Cazador",
+      "talento": "Compañero animal",
+      "activacion": "Especial",
+      "texto_literal": "Especial\nUna bestia te acompaña desde que era prácticamente un cachorro. Decide qué clase de criatura es junto al Cronista y qué motivos os lleva a compartir una amistad tan especial. Tu compañero tiene el mismo Nivel que tú y, dependiendo de su especie, tendrá unos Puntos de Salud y causará un daño concreto.\nPuedes hacer que tu compañero actúe como si fuese un personaje más durante tu turno, ya que comparte iniciativa contigo, siempre y cuando estéis a 20 metros o menos el uno del otro. Si no puedes darle órdenes, tu compañero usará su acción para acercarse lo más posible a ti. Tu compañero animal utiliza tu puntuación de Intuición para realizar ataques, y puedes gastar 1 Punto de Esfuerzo para que active una habilidad especial.\nEn caso de que tu compañero fallezca, deberás guardar luto durante una semana (tu Presencia se reducirá en 1 punto) y, después podrás comenzar a buscar un nuevo aliado. El Cronista te indicará cuanto tiempo necesitarás y, quizás, pueda dar lugar a una aventura interesante.",
+      "fuente_parrafos": [
+        932,
+        936
+      ]
+    },
+    {
+      "ocupacion": "Cazador",
+      "talento": "Marca del cazador",
+      "activacion": "Acción",
+      "texto_literal": "Acción\nCoste: 1 Esfuerzo\nPuedes designar como tu presa a un objetivo que puedas ver y se encuentre a 30 metros o menos de ti. Mientras esa criatura sea tu presa, todos los ataques que realices contra tú o tu Compañero animal aumentarán su Penetración en 1 y causarán 1d6 de daño adicional.\nA partir de Nivel 10, la Penetración aumenta a +2 y el daño aumenta a 2d6.\nA partir de Nivel 20, la Penetración aumenta a +3 y el daño aumenta a 3d6.\nEn el Nivel 30, la Penetración aumenta a +4 y el daño aumenta a 4d6.\nLa marca se disipará cuando el objetivo sea derrotado, tus Puntos de Salud se reduzcan a 0 o menos, alguno de los dos se aleje del otro 90 metros o anules la marca de forma voluntaria.",
+      "fuente_parrafos": [
+        937,
+        944
+      ]
+    }
+  ],
+  "dependencias": [
+    {
+      "ocupacion": "Brujo",
+      "recurso": "Puntos de Brujería",
+      "costo_conjuros": "PB igual al Círculo",
+      "recuperacion": "descanso adecuado durante 8 horas",
+      "patron": "Patrón da acceso a dos Escuelas y modifica Tiradas de lanzamiento +1/-1",
+      "aquelarre": "Alternativa al Patrón individual; pierde elección de Esbirro familiar, que indica el Aquelarre. Referencia párrafos 903–911 y tablas Word 24–25."
+    },
+    {
+      "ocupacion": "Cazador",
+      "dependencia": "Compañero animal trata criatura como aliado ligado al personaje; Marca del cazador interactúa con ambos."
+    }
+  ],
+  "alertas": [
+    {
+      "id": "OCP-10",
+      "ocupacion": "Cazador",
+      "talento": "Marca del cazador",
+      "detalle": "Original dice 'todos los ataques que realices contra tú o tu Compañero animal', sintaxis ambigua. No invertir objetivo/beneficiario hasta resolución editorial."
+    }
+  ],
+  "forja_modificada": false
+}

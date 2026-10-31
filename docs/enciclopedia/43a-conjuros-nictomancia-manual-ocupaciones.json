@@ -1,0 +1,40 @@
+{
+  "fuente": "NaufragioD20 — Ocupaciones.docx",
+  "categoria": "Conjuros",
+  "ubicacion": "Sección Conjuros, Demonología",
+  "registros": [
+    {
+      "nombre": "Dardo de penumbra",
+      "parrafos": [
+        1334,
+        1339
+      ],
+      "circulo": "Primer Círculo",
+      "escuela": "Demonología",
+      "alcance": "15m",
+      "etiqueta": "Nictomancia",
+      "texto_literal": "Concentras un pedazo de energía nocturna en tu dedo y lo liberas a toda velocidad contra el rostro de una criatura objetivo que pueda ver; si superas una Tirada de Conjuro, causas 1d6 de daño impío y tienes una Probabilidad 10+ de dejarla ciega durante 1d2 Turnos: una criatura ciega provoca Ventaja a la hora de atacarla a distancia y para esquivar sus ataques, además de moverse con dificultad."
+    },
+    {
+      "nombre": "Portal sombrío",
+      "parrafos": [
+        1340,
+        1347
+      ],
+      "circulo": "Tercer Círculo",
+      "escuela": "Demonología",
+      "alcance": "8m (50m entre portales)",
+      "duracion": "1 Intervalo o 6 Turnos en combate",
+      "etiqueta": "Nictomancia",
+      "texto_literal": "Arrancas un pedazo de oscuridad y lo moldeas para crear un agujero de gusano en la Urdimbre negra entre dos lugares distintos. Mientras el efecto esté activo, cualquier nictomante puede atravesar el portal para viajar entre los dos.\nCualquier criatura que no sea un nigromante y pretenda atravesar el portal sufrirá 1d4 de daño impío por cada uno de tus Niveles."
+    }
+  ],
+  "incidencias": [
+    {
+      "id": "OCP-17",
+      "conjuro": "Portal sombrío",
+      "observacion": "La primera frase mecánica permite cruzar sin perjuicio a cualquier 'nictomante'; la segunda dice que cualquier criatura que no sea un 'nigromante' sufrirá daño. No son categorías necesariamente equivalentes; no resolver sin decisión."
+    }
+  ],
+  "advertencia": "No se ha comprobado si estos Conjuros ya están presentes en el Tomo de Magia; conciliar antes de añadir al catálogo principal."
+}

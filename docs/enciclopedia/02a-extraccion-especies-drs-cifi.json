@@ -1,0 +1,532 @@
+{
+  "fecha": "2026-10-28",
+  "proposito": "Extracción literal preliminar del texto de Talentos de Especies; sin validación editorial",
+  "origen": "DOCX adjuntos; lectura de párrafos bajo sus encabezados de Talento",
+  "registros": [
+    {
+      "id_documental": "talento-especie:drs:elfo-agreste:linaje-feerico",
+      "sistema": "DRS",
+      "especie": "Elfo agreste",
+      "talento": "Linaje feérico",
+      "tipo": "fijo",
+      "texto_literal": "Eres inmune al estado Parálisis; tienes Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Elfo agreste",
+        "talento_encabezado": "Linaje feérico",
+        "parrafo_docx": 109
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:elfo-agreste:rapidez",
+      "sistema": "DRS",
+      "especie": "Elfo agreste",
+      "talento": "Rapidez",
+      "tipo": "fijo",
+      "texto_literal": "Aumenta tu Movimiento en 1 (ya calculado).",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Elfo agreste",
+        "talento_encabezado": "Rapidez",
+        "parrafo_docx": 111
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:enano-montanes:corpulencia",
+      "sistema": "DRS",
+      "especie": "Enano montañés",
+      "talento": "Corpulencia",
+      "tipo": "fijo",
+      "texto_literal": "Tu Movimiento se reduce en 1 (ya calculado). Cuando realices una Tirada de Blindaje para reducir daño físico sufrido, puedes gastar 1 Punto de Esfuerzo para repetir la tirada.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Enano montañés",
+        "talento_encabezado": "Corpulencia",
+        "parrafo_docx": 120
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:enano-montanes:vision-en-la-oscuridad",
+      "sistema": "DRS",
+      "especie": "Enano montañés",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "texto_literal": "Puedes en distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Enano montañés",
+        "talento_encabezado": "Visión en la oscuridad",
+        "parrafo_docx": 122
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:humano-comun:buen-desarrollo",
+      "sistema": "DRS",
+      "especie": "Humano común",
+      "talento": "Buen desarrollo",
+      "tipo": "fijo",
+      "texto_literal": "Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Humano común",
+        "talento_encabezado": "Buen desarrollo",
+        "parrafo_docx": 130
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:mediano-amable:baja-estatura",
+      "sistema": "DRS",
+      "especie": "Mediano amable",
+      "talento": "Baja estatura",
+      "tipo": "fijo",
+      "texto_literal": "Eres más pequeño que un Elfo, un Enano o un Humano. Tu Movimiento se reduce en 1 (ya calculado). No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños. Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Mediano amable",
+        "talento_encabezado": "Baja estatura",
+        "parrafo_docx": 139
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:mediano-amable:salvese-quien-pueda",
+      "sistema": "DRS",
+      "especie": "Mediano amable",
+      "talento": "¡Sálvese quien pueda!",
+      "tipo": "fijo",
+      "texto_literal": "Cuando estés afectado por un Estado de Parálisis o Miedo, puedes gastar 1 Punto de Esfuerzo y una Acción para liberarte del efecto sin necesidad de tirada.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Mediano amable",
+        "talento_encabezado": "¡Sálvese quien pueda!",
+        "parrafo_docx": 141
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:gnomo-urbano:baja-estatura",
+      "sistema": "DRS",
+      "especie": "Gnomo urbano",
+      "talento": "Baja estatura",
+      "tipo": "fijo",
+      "texto_literal": "Eres más pequeño que un Elfo, un Enano o un Humano. Tu Movimiento se reduce en 1 (ya calculado). No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños. Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Gnomo urbano",
+        "talento_encabezado": "Baja estatura",
+        "parrafo_docx": 151
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:gnomo-urbano:vision-en-la-oscuridad",
+      "sistema": "DRS",
+      "especie": "Gnomo urbano",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "texto_literal": "Puedes en distinguir el entorno a tu alrrededor hasta 30 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Gnomo urbano",
+        "talento_encabezado": "Visión en la oscuridad",
+        "parrafo_docx": 153
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:orco-comun:ira-interna",
+      "sistema": "DRS",
+      "especie": "Orco común",
+      "talento": "Ira interna",
+      "tipo": "fijo",
+      "texto_literal": "Tu cólera desatada te permite seguir combatiendo aunque tu cuerpo haya sido derrotado. Si tus Puntos de Salud son reducidos a 0 o menos, puedes gastar 1 Punto de Esfuerzo para ajustarlos a 1 y seguir luchando.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Orco común",
+        "talento_encabezado": "Ira interna",
+        "parrafo_docx": 162
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:orco-comun:sana-primitiva",
+      "sistema": "DRS",
+      "especie": "Orco común",
+      "talento": "Saña primitiva",
+      "tipo": "fijo",
+      "texto_literal": "Obtienes +1 a la Tirada de Daño si atacas con un arma cuerpo a cuerpo.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Orco común",
+        "talento_encabezado": "Saña primitiva",
+        "parrafo_docx": 164
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:semielfo:animo",
+      "sistema": "DRS",
+      "especie": "Semielfo",
+      "talento": "Ánimo",
+      "tipo": "fijo",
+      "texto_literal": "Una vez al día, puedes dar un +2 a la Tirada de Atributo de uno de tus aliados. Éste debe ser capaz de escucharte y has de declarar el uso de este Talento antes de que tire.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Semielfo",
+        "talento_encabezado": "Ánimo",
+        "parrafo_docx": 172
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:semielfo:herencia-dual",
+      "sistema": "DRS",
+      "especie": "Semielfo",
+      "talento": "Herencia dual",
+      "tipo": "fijo",
+      "texto_literal": "Elige Buen desarrollo de los humanos o el Linaje feérico de los elfos.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Semielfo",
+        "talento_encabezado": "Herencia dual",
+        "parrafo_docx": 174
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": "La variante se conserva separada por Especie; Forja usa un alias contextual"
+    },
+    {
+      "id_documental": "talento-especie:drs:semiorco:sed-de-sangre",
+      "sistema": "DRS",
+      "especie": "Semiorco",
+      "talento": "Sed de sangre",
+      "tipo": "fijo",
+      "texto_literal": "Antes de realizar una Tirada de Ataque con un arma cuerpo a cuerpo, puedes declarar que tu embate será brutal: sufres un -2 a la Tirada de Ataque y un +1 a la Penetración del arma.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Semiorco",
+        "talento_encabezado": "Sed de sangre",
+        "parrafo_docx": 180
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:drs:semiorco:herencia-dual",
+      "sistema": "DRS",
+      "especie": "Semiorco",
+      "talento": "Herencia dual",
+      "tipo": "fijo",
+      "texto_literal": "Elige el Buen desarrollo de los humanos o la Ira interna de los orcos.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20DRS.docx",
+        "seccion": "Especies",
+        "especie": "Semiorco",
+        "talento_encabezado": "Herencia dual",
+        "parrafo_docx": 182
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": "La variante se conserva separada por Especie; Forja usa un alias contextual"
+    },
+    {
+      "id_documental": "talento-especie:cifi:humano-natural:buen-desarrollo",
+      "sistema": "CiFi",
+      "especie": "Humano natural",
+      "talento": "Buen desarrollo",
+      "tipo": "fijo",
+      "texto_literal": "Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "seccion": "Especies",
+        "especie": "Humano natural",
+        "talento_encabezado": "Buen desarrollo",
+        "parrafo_docx": 60
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:cifi:humano-aumentado:tolerancia-a-la-mejora",
+      "sistema": "CiFi",
+      "especie": "Humano aumentado",
+      "talento": "Tolerancia a la mejora",
+      "tipo": "fijo",
+      "texto_literal": "Tienes Ventaja a la hora de realizar una Tirada de Esencia por colocarte un Implante.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "seccion": "Especies",
+        "especie": "Humano aumentado",
+        "talento_encabezado": "Tolerancia a la mejora",
+        "parrafo_docx": 69
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-bruto:corpulencia",
+      "sistema": "CiFi",
+      "especie": "Gruul bruto",
+      "talento": "Corpulencia",
+      "tipo": "fijo",
+      "texto_literal": "Tu Movimiento se reduce en 1 (ya calculado). Cuando realices una Tirada de Blindaje para reducir daño físico sufrido, puedes gastar 1 Punto de Esfuerzo para repetir la tirada.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "seccion": "Especies",
+        "especie": "Gruul bruto",
+        "talento_encabezado": "Corpulencia",
+        "parrafo_docx": 82
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-bruto:sana-primitiva",
+      "sistema": "CiFi",
+      "especie": "Gruul bruto",
+      "talento": "Saña primitiva",
+      "tipo": "fijo",
+      "texto_literal": "Obtienes +1 a la Tirada de Daño si atacas con un arma cuerpo a cuerpo.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "seccion": "Especies",
+        "especie": "Gruul bruto",
+        "talento_encabezado": "Saña primitiva",
+        "parrafo_docx": 84
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-zangano:sinapsis-perladas",
+      "sistema": "CiFi",
+      "especie": "Gruul zángano",
+      "talento": "Sinapsis perladas",
+      "tipo": "fijo",
+      "texto_literal": "Tienes un +2 a las Tiradas de Atributo para resistir o esquivar efectos de los Poderes Psiónicos.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "seccion": "Especies",
+        "especie": "Gruul zángano",
+        "talento_encabezado": "Sinapsis perladas",
+        "parrafo_docx": 93
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:cifi:gruul-zangano:rapidez",
+      "sistema": "CiFi",
+      "especie": "Gruul zángano",
+      "talento": "Rapidez",
+      "tipo": "fijo",
+      "texto_literal": "Aumenta tu Movimiento en 1 (ya calculado).",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "seccion": "Especies",
+        "especie": "Gruul zángano",
+        "talento_encabezado": "Rapidez",
+        "parrafo_docx": 95
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-mindari:vinculo-psionico",
+      "sistema": "CiFi",
+      "especie": "Sylph mindari",
+      "talento": "Vínculo psiónico",
+      "tipo": "fijo",
+      "texto_literal": "Este Talento funciona de forma diferente según si perteneces a la ocupación Psion o no.\nPsion: Tienes 2 Puntos de Ímpetu adicionales.\nOtra ocupación: Elige un Poder Psiónico de la lista; puedes lanzarlo como si fueses un Psion si gastas 1 Punto de Esfuerzo.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "seccion": "Especies",
+        "especie": "Sylph mindari",
+        "talento_encabezado": "Vínculo psiónico",
+        "parrafo_docx": 107
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-mindari:vision-en-la-oscuridad",
+      "sistema": "CiFi",
+      "especie": "Sylph mindari",
+      "talento": "Visión en la oscuridad",
+      "tipo": "fijo",
+      "texto_literal": "Puedes en distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "seccion": "Especies",
+        "especie": "Sylph mindari",
+        "talento_encabezado": "Visión en la oscuridad",
+        "parrafo_docx": 111
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-zanshi:animo",
+      "sistema": "CiFi",
+      "especie": "Sylph zanshi",
+      "talento": "Ánimo",
+      "tipo": "fijo",
+      "texto_literal": "Una vez al día, puedes dar un +2 a la Tirada de Atributo de uno de tus aliados. Éste debe ser capaz de escucharte y has de declarar el uso de este Talento antes de que tire.",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "seccion": "Especies",
+        "especie": "Sylph zanshi",
+        "talento_encabezado": "Ánimo",
+        "parrafo_docx": 121
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    },
+    {
+      "id_documental": "talento-especie:cifi:sylph-zanshi:sangre-del-cosmos",
+      "sistema": "CiFi",
+      "especie": "Sylph zanshi",
+      "talento": "Sangre del cosmos",
+      "tipo": "fijo",
+      "texto_literal": "Eres inmune al estado Enfermedad; tienes Ventaja en las Tiradas de Atributo para resistir los Poderes Psiónicos «Escrutar pensamientos» y «Manipular la memoria».",
+      "activacion_literal": null,
+      "coste_literal": null,
+      "requisitos_literal": null,
+      "escalado_literal": null,
+      "fuente": {
+        "archivo": "NaufragioD20CiFi.docx",
+        "seccion": "Especies",
+        "especie": "Sylph zanshi",
+        "talento_encabezado": "Sangre del cosmos",
+        "parrafo_docx": 123
+      },
+      "estado": "extraido_pendiente_validacion",
+      "observaciones": ""
+    }
+  ]
+}
