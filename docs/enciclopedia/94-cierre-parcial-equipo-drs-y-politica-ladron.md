@@ -1,5 +1,7 @@
 # Forja 1.0 — Equipo contrastado con tablas DRS y decisión del Ladrón
 
+> **ACTUALIZACIÓN DEFINITIVA DEL AUTOR (31/10/2026):** **Dardo es gratuito (0 mo)** y **Marca del dador oscuro pertenece al Quinto Círculo** porque prevalece su ficha individual. Forja ya permite aprenderlo al Clérigo desde **Nivel 10** y registra **34 Conjuros clericales**. Además se han incluido las **41 entradas de útiles del DRS** y dos focos con precio. Véase [informe 95 — decisiones y equipo](95-decisiones-dardo-marca-y-utiles-drs.md). Los pasajes anteriores que describían Dardo como no disponible, Marca como discrepancia pendiente o el catálogo individual como incompleto **son históricos y quedan sustituidos por esta decisión y sus implementaciones**.
+
 **Fecha:** 31/10/2026. **Rama:** `feat/forja-conjuros-fichas-2026-10-30` · **PR #4:** borrador, **no fusionar ni desplegar**.  
 **Fuente:** `NaufragioD20DRS.docx`, secciones *Ocupaciones*, *Equipo*, *Listas de equipo* (tablas *Armas cuerpo a cuerpo*, *Armas a distancia*, *Varitas de defensa*, *Escudos* y *Protecciones corporales*). El DRS es la fuente normativa; las decisiones editoriales sobre Forja se identifican aparte.
 
