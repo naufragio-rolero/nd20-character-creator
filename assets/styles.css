@@ -120,6 +120,9 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 .editor-elecciones .muted{margin:0 0 1.25rem}
 .campos-compra{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
 .lista-compra{margin:.3rem 0 1rem;padding-left:1.5rem;line-height:1.7}
+.lista-compra li{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;padding:.35rem 0}
+.lista-compra li span{min-width:0;overflow-wrap:anywhere}
+.lista-compra .compras-quitar-linea{font-size:.76rem;padding:.3rem .55rem}
 #compras-total{padding:.6rem .8rem;border:1px solid var(--borde);border-radius:6px;font-weight:700}
 #compras-anadir{border-color:var(--oro2)}
 .pie-ficha{flex-wrap:wrap}
