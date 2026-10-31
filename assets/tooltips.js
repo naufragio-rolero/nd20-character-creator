@@ -210,9 +210,9 @@
       destino.datos=[];
       if(ficha.activacion_literal)destino.datos.push(['Activación',ficha.activacion_literal]);
       if(ficha.atributo_literal)destino.datos.push(['Atributo',
-        ficha.atributo_literal.replace(/^Atributo:\\s*/,'')]);
+        ficha.atributo_literal.replace(/^Atributo:\s*/,'')]);
       if(ficha.coste_literal)destino.datos.push(['Coste',
-        ficha.coste_literal.replace(/^Coste:\\s*/,'')]);
+        ficha.coste_literal.replace(/^Coste:\s*/,'')]);
       destino.talento_drs_publico=true;
       destino.procedencia_tipo=ficha.tipo_origen;
       destino.procedencia_nombre=ficha.propietario;
