@@ -107,7 +107,35 @@ async function probar(nombre,tipo,url){
         nombre+': distribución sin PNJ documentados');
       assert.equal(await page.locator('#modo-nombre option[value="documentado"]').count(),0);
     }
-    assert.equal(await page.locator('#modo-nombre').inputValue(),'combinado');
+    assert.equal(await page.locator('#modo-nombre').inputValue(),'historico');
+    assert.equal(await page.locator('#opciones-ambito-nombre').isHidden(),true);
+    const bancoHistorico=await page.evaluate(async()=>{
+      const respuesta=await fetch('data/nombres-historicos-ylat.json');
+      if(!respuesta.ok)throw Error('Banco de nombres de Ylat inaccesible');
+      return respuesta.json();
+    });
+    assert.equal(bancoHistorico.total_filas_fuente,1428);
+    assert.equal(new Set(bancoHistorico.entradas.map(x=>x.nombre)).size,1422);
+    assert.equal(bancoHistorico.entradas.length,
+      process.env.FORJA_PUBLIC_ROOT?1422:1428);
+    await page.selectOption('#ocupacion','Guerrero');
+    await page.selectOption('#especie','Humano común');
+    for(const sexoHistorico of ['masculino','femenino']){
+      await page.selectOption('#sexo-pj',sexoHistorico);
+      await page.fill('#nombre-personaje','');
+      await page.fill('#nivel','1');
+      await page.fill('#semilla','Forja-historica-'+nombre+'-'+sexoHistorico);
+      await page.locator('#generar').click();
+      const tarjeta=page.locator('#fichas .tarjeta').first();
+      await tarjeta.waitFor();
+      const elegido=await tarjeta.locator('h3').innerText();
+      assert.ok(bancoHistorico.entradas.some(x=>x.nombre===elegido),
+        nombre+': nombre histórico no reconocido: '+elegido);
+      assert.match(await tarjeta.innerText(),/Forma del generador histórico/);
+      assert.match(await tarjeta.innerText(),/sin clasificación documental de sexo/);
+      await page.locator('#borrar').click();
+    }
+    await page.selectOption('#modo-nombre','combinado');
     assert.equal(await page.locator('#opciones-ambito-nombre').isVisible(),true);
     await page.selectOption('#ocupacion','Guerrero');
     await page.selectOption('#especie','Humano común');
