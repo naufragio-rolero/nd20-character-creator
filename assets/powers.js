@@ -326,8 +326,11 @@
       // La generación rápida resuelve Herencia dual en las reglas; en el
       // editor cada alternativa de Buen desarrollo especifica su Atributo,
       // para recalcular la progresión completa desde Nivel 1.
-      var herenciaAlternativa=especie==="Semielfo"?"Linaje feérico":
-        especie==="Semiorco"?"Ira interna":null;
+      var perfilEspecie=datos.especies[especie]||{};
+      var alternativas=Array.isArray(perfilEspecie.herencia_dual)?
+        perfilEspecie.herencia_dual:null;
+      var herenciaAlternativa=alternativas?
+        alternativas.find(function(t){return t!=="Buen desarrollo";}):null;
       if(herenciaAlternativa && config.modo==="personalizado"){
         var opcionesHerencia=[{id:herenciaAlternativa,nombre:herenciaAlternativa}];
         ["Fuerza","Agilidad","Resistencia","Mente","Intuición","Presencia"]
