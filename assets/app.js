@@ -412,10 +412,20 @@
       datos.equipoInicial,entrada.valor.saldo_mo,compraBorrador.seleccion);
     var lista=$('compras-lista');
     lista.textContent='';
-    actual.detalles.forEach(function(x){
+    actual.detalles.forEach(function(x,indice){
       var li=document.createElement('li');
-      li.textContent=x.nombre+(x.nivel!==null?' (Nivel '+x.nivel+')':'')+
+      var descripcion=document.createElement('span');
+      descripcion.textContent=x.nombre+(x.nivel!==null?' (Nivel '+x.nivel+')':'')+
         ' ×'+x.cantidad+' · '+x.subtotal.toFixed(2)+' mo';
+      li.appendChild(descripcion);
+      var quitar=document.createElement('button');
+      quitar.type='button';
+      quitar.className='compras-quitar-linea';
+      quitar.dataset.indice=String(indice);
+      quitar.textContent='Quitar';
+      quitar.setAttribute('aria-label','Quitar '+x.nombre+
+        ' de la compra (línea '+(indice+1)+')');
+      li.appendChild(quitar);
       lista.appendChild(li);
     });
     $('compras-total').textContent='Seleccionados: '+actual.gastado.toFixed(2)+
@@ -684,6 +694,24 @@
     $('compras-articulo').addEventListener('change',refrescarCompra);
     $('compras-cantidad').addEventListener('input',refrescarCompra);
     $('compras-nivel').addEventListener('input',refrescarCompra);
+    $('compras-lista').addEventListener('click',function(event){
+      var boton=event.target.closest('.compras-quitar-linea');
+      if(!boton)return;
+      conControl(function(){
+        entradaCompra();
+        var indice=Number(boton.dataset.indice);
+        if(!Number.isInteger(indice)||indice<0||
+            indice>=compraBorrador.seleccion.length)
+          throw Error('La línea de compra ya no existe.');
+        compraBorrador.seleccion.splice(indice,1);
+        refrescarCompra();
+        // Tras redibujar, mantener el foco en la siguiente línea, si existe.
+        var botones=$('compras-lista').querySelectorAll('.compras-quitar-linea');
+        if(botones.length)botones[Math.min(indice,botones.length-1)]
+          .focus({preventScroll:true});
+        else $('compras-articulo').focus({preventScroll:true});
+      });
+    });
     $('compras-anadir').addEventListener('click',function(){
       conControl(function(){
         var entrada=entradaCompra(),linea=lineaCompra();
