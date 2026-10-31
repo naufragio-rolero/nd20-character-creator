@@ -1,5 +1,7 @@
 # Forja 1.0 — Primer paquete estático candidato DRS, separado de los DLC
 
+> **Revisión cerrada (31/10/2026):** la [auditoría literal del informe 101](101-fidelidad-literal-64-conjuros-drs.md) ya ha cotejado las **64 fichas** con el DOCX original. Se restaura «Forja arcana» al texto DRS, se unifica un duplicado idéntico de «Arma elemental» y se verifican 64 huellas SHA-256 por ficha. El contenido anterior que habla de cotejo de Conjuros «pendiente» refleja el estado histórico previo y queda sustituido por esta comprobación.
+
 **Fecha:** 31/10/2026. **PR #4:** borrador; **sin fusionar ni desplegar**.  
 **Reglas:** `NaufragioD20DRS.docx` y decisiones editoriales ya documentadas sobre Dardo, Marca del dador oscuro, Ladrón y Martillo de campamento.  
 **Ámbito:** solo **Fantasía DRS** se depura; **CiFi, Nocturna y Dungeon Hack** se conservan. No se han creado reglas nuevas.
