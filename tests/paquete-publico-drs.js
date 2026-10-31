@@ -137,5 +137,35 @@ for(const directorio of ['data','assets','.']){
   assert.notEqual(resultado.status,0,
     'El generador jamás debe poder limpiar '+directorio);
 }
+// El guardia debe rechazar no solo DLC externos: también una ficha DRS
+// modificada después de construir y un duplicado introducido en el ZIP.
+const temporal=fs.mkdtempSync(
+  path.join(require('node:os').tmpdir(),'forja-paquete-falsificado-'));
+try{
+  fs.cpSync(salida,temporal,{recursive:true});
+  const scriptGuardia=path.join(raiz,'scripts','comprobar-publicacion-drs.js');
+  const archivoUno=path.join(temporal,'data','conjuros-revisados-001-225.json');
+  const originalUno=fs.readFileSync(archivoUno,'utf8');
+  const mutado=JSON.parse(originalUno);
+  const editar=mutado.conjuros.find(x=>x.id_catalogo==='conjuro-45')||
+    mutado.conjuros.find(x=>x.id_catalogo==='conjuro-14');
+  assert.ok(editar,'La prueba de falsificación requiere un Conjuro DRS');
+  editar.parrafos[editar.parrafos.length-1]+=' CAMBIO NO AUTORIZADO';
+  fs.writeFileSync(archivoUno,JSON.stringify(mutado));
+  const alterado=spawnSync(process.execPath,[scriptGuardia,temporal],
+    {encoding:'utf8'});
+  assert.equal(alterado.status,1,'Una ficha editada invalida el paquete');
+  assert.match(alterado.stderr,/Ficha no literal respecto al DOCX DRS/);
+  fs.writeFileSync(archivoUno,originalUno);
+  const duplicado=JSON.parse(originalUno);
+  duplicado.conjuros.push(structuredClone(duplicado.conjuros[0]));
+  fs.writeFileSync(archivoUno,JSON.stringify(duplicado));
+  const repetido=spawnSync(process.execPath,[scriptGuardia,temporal],
+    {encoding:'utf8'});
+  assert.equal(repetido.status,1,'Un duplicado invalida el paquete');
+  assert.match(repetido.stderr,/Ficha duplicada del DRS/);
+}finally{
+  fs.rmSync(temporal,{recursive:true,force:true});
+}
 console.log('OK · Paquete público DRS: 64 Conjuros/10 Técnicas básicas, 4 CiFi, Nocturna y DH preservados.');
 console.log('OK · DLC Fantasía ausentes físicamente; índice y catálogos, reglas y seguridad de salida verificados.');
