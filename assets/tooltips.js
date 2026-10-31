@@ -75,13 +75,20 @@
         var detalles=[];
         if(x.circulo)detalles.push(["Círculo",String(x.circulo)]);
         if(x.escuelas&&x.escuelas.length)detalles.push(["Escuelas",x.escuelas.join(", ")]);
-        if(x.categoria)detalles.push(["Categoría",x.categoria]);
+        if(x.categoria)detalles.push(["Categoría",String(x.categoria)]);
+        if(x.impetu!=null)detalles.push(["Ímpetu",String(x.impetu)]);
+        if(x.atributo)detalles.push(["Atributo",String(x.atributo)]);
+        if(x.complejidad!=null)detalles.push(["Complejidad",String(x.complejidad)]);
+        if(x.nivel!=null)detalles.push(["Nivel",String(x.nivel)]);
         if(x.requisito)detalles.push(["Requisito",x.requisito]);
         if(x.coste)detalles.push(["Coste",x.coste]);
         if(x.min_nivel)detalles.push(["Nivel mínimo",String(x.min_nivel)]);
         if(x.origen)detalles.push(["Origen",x.origen]);
         anotar(x.nombre,tipo,sistema,x.fuente,{id:x.id||null,datos:detalles,
-          descripcion:x.descripcion||x.efecto||"",grupo:tipo==="Talento"?"talento":"poder"});
+          descripcion:x.descripcion||x.efecto||"",grupo:tipo==="Talento"?"talento":"poder",
+          drs_publico:(tipo==="Conjuro"&&fuentes.alcanceDRS?.drs?.conjuros?.some(function(y){
+            return y.id===x.id;
+          }))||x.fuente==="Naufragio d20 DRS"});
       });
     }
     function equipo(lista,sistema,moneda,fuente,tipo){
@@ -188,6 +195,43 @@
     });
     return {mapa:mapa,porId:porId,total:total};
   }
+  /* Presentación editorial de Poderes. Nunca deduce Tiradas ni asigna
+   * DRS a todo Nd20: las fichas y el manifiesto autorizan cada dato.
+   * Mantener las cadenas originales de Alcance/Duración sin reemplazarlas
+   * por magnitudes de un Nivel concreto. */
+  function presentarPoder(info){
+    if(!info||info.grupo!=="poder")return null;
+    var campos=(info.datos||[]).map(function(p){return [String(p[0]),String(p[1])];});
+    function valor(nombre){
+      var par=campos.find(function(p){return p[0]===nombre;});
+      return par?par[1]:"";
+    }
+    var detallesCabecera=[];
+    if(info.tipo==="Conjuro"){
+      if(valor("Escuelas"))detallesCabecera.push(valor("Escuelas"));
+      var circulo=valor("Círculo");
+      if(circulo)detallesCabecera.push(circulo+".º Círculo");
+    }else{
+      if(valor("Categoría"))detallesCabecera.push(valor("Categoría"));
+      if(valor("Ímpetu"))detallesCabecera.push("Ímpetu "+valor("Ímpetu"));
+      if(valor("Complejidad"))detallesCabecera.push("Complejidad "+valor("Complejidad"));
+    }
+    var destacados=["Alcance","Duración","Tirada","Lanzamiento","Atributo",
+      "Activación","Coste","Requisito","Nivel mínimo","Nivel"];
+    var primarios=campos.filter(function(p){return destacados.includes(p[0]);});
+    var usados=new Set(["Círculo","Escuelas","Categoría","Ímpetu","Complejidad",
+      "Origen"].concat(destacados));
+    var tecnicos=campos.filter(function(p){return !usados.has(p[0]);});
+    var origen=info.sistema==="nd20"?
+      (info.drs_publico?"Naufragio d20 DRS":"Naufragio d20"):
+      info.sistema==="nd20_cifi"?"Naufragio d20 CiFi":
+      info.sistema==="nd20_nocturna"?"Naufragio d20 Nocturna":
+      info.sistema==="dh"?"Dungeon Hack":
+      valor("Origen")||info.sistema||"Origen no documentado";
+    return {tipo:info.tipo,nombre:info.nombre,clasificacion:detallesCabecera.join(" · "),
+      primarios:primarios,tecnicos:tecnicos,origen:origen,
+      fuente:info.fuente_descripcion||info.fuente};
+  }
   function buscar(ind,nombre,grupo,sistema){
     if(!ind||!nombre)return null;
     var circulo=(String(nombre).match(/\(C([1-8])\)/)||[])[1];
@@ -227,5 +271,5 @@
     return lista.length===1?lista[0]:null; // No adivinar entre coincidencias.
   }
   return {indice:indice,buscar:buscar,buscarPorId:buscarPorId,
-    limpiar:limpiar,normalizar:normalizar};
+    presentarPoder:presentarPoder,limpiar:limpiar,normalizar:normalizar};
 });
