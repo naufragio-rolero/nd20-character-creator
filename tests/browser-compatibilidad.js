@@ -374,6 +374,42 @@ async function probar(nombre,tipo,url){
     assert.ok(await fichaTalentos.locator('.avisos-equipo').count()>=1,
       nombre+': la regla de equipo de Baja estatura se conserva junto al equipo');
     await page.locator('#borrar').click();
+    // Una vía de adquisición no sustituye el origen literal del Talento.
+    // Probar ambos mestizos con el modo rápido y semilla reproducible.
+    await page.locator('input[name="modo-creacion"][value="rapido"]').check();
+    for(const especie of ['Semielfo','Semiorco']){
+      await page.selectOption('#ocupacion','Mago');
+      await page.selectOption('#especie',especie);
+      await page.fill('#nivel','1');
+      await page.fill('#nombre-personaje','Herencia '+especie);
+      await page.fill('#semilla','forja-adquisicion-'+especie);
+      await page.locator('#generar').click();
+      const fichaHeredada=page.locator('#fichas .tarjeta').first();
+      await fichaHeredada.waitFor();
+      const alternativas=especie==='Semielfo'?
+        {'Buen desarrollo':'Humano común','Linaje feérico':'Elfo agreste'}:
+        {'Buen desarrollo':'Humano común','Ira interna':'Orco común'};
+      const marcadas=[];
+      for(const [talento,fuente] of Object.entries(alternativas)){
+        const referencia=fichaHeredada.locator('.referencia-glosario')
+          .filter({hasText:talento});
+        if(await referencia.count()!==1)continue;
+        marcadas.push(talento);
+        assert.equal(await referencia.getAttribute('data-glosa-fuente'),
+          'Especie: '+fuente,nombre+': origen literal de '+talento);
+        assert.equal(await referencia.getAttribute('data-glosa-adquisicion'),
+          'Herencia dual · '+especie,nombre+': adquisición de '+talento);
+        await referencia.click();
+        assert.equal(await page.locator('#ficha-emergente .info-clasificacion').textContent(),
+          'Especie · '+fuente);
+        assert.equal(await page.locator('#ficha-emergente .info-adquisicion').textContent(),
+          'Adquisición: Herencia dual · '+especie);
+        await page.keyboard.press('Escape');
+      }
+      assert.equal(marcadas.length,1,
+        nombre+': debe seleccionarse una sola herencia, '+especie);
+      await page.locator('#borrar').click();
+    }
     await page.selectOption('#modo-nombre','especie');
     assert.equal(await page.locator('#opciones-ambito-nombre').isHidden(),true);
     await page.selectOption('#modo-nombre','combinado');

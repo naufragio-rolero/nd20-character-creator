@@ -8,6 +8,11 @@ const read=name=>JSON.parse(fs.readFileSync(path.join(root,'data',name),'utf8'))
 const base={especies:read('especies.json'),ocupaciones:read('ocupaciones.json')};
 const canon=read('talentos-drs-literales.json');
 const indice=require('../assets/tooltips.js');
+const crypto=require('node:crypto');
+const huellas=JSON.parse(fs.readFileSync(
+  path.join(root,'docs/enciclopedia/109a-huellas-talentos-drs.json'),'utf8'));
+assert.equal(huellas.fuente,'NaufragioD20DRS.docx');
+assert.equal(Object.keys(huellas.huellas).length,24);
 assert.equal(canon.fuente,'NaufragioD20DRS.docx');
 assert.equal(canon.registros.length,24);
 assert.equal(new Set(canon.registros.map(x=>x.id)).size,24);
@@ -15,6 +20,11 @@ assert.equal(canon.registros.filter(x=>x.tipo_origen==='Especie').length,15);
 assert.equal(canon.registros.filter(x=>x.tipo_origen==='Ocupación').length,9);
 for(const r of canon.registros){
   assert.equal(r.estado,'cotejado_literal_DRS');
+  const clave=r.propietario+'|'+r.nombre;
+  const huella=crypto.createHash('sha256')
+    .update(r.efecto_literal,'utf8').digest('hex');
+  assert.equal(huella,huellas.huellas[clave],
+    clave+': texto diferente al cotejado directamente en DOCX');
   assert.ok(r.efecto_literal.trim()&&r.parrafos_documento.length);
   const lista=r.tipo_origen==='Especie'?base.especies:base.ocupaciones;
   assert.ok(lista[r.propietario],r.id+' sin propietario DRS');

@@ -300,26 +300,44 @@
       p.juego.includes('Nocturna')?'nd20_nocturna':
       p.juego.includes('Fantasía')?'nd20':'dh';
   }
+  // Procedencia literal frente a adquisición del personaje. Herencia dual
+  // no cambia el origen de Buen desarrollo, Linaje feérico ni Ira interna.
+  function procedenciaTalentoDRS(personaje,nombre){
+    if(!personaje||sistemaFicha(personaje)!=='nd20')
+      return {fuente:'',adquisicion:''};
+    var partes=personaje.descripcion.split(' · ');
+    var ocupacion=partes[0],especie=partes.slice(1).join(' · ');
+    var registros=datos.talentosDRS?.registros||[];
+    function existe(tipo,propietario){
+      return registros.some(function(r){
+        return r.tipo_origen===tipo&&r.propietario===propietario&&r.nombre===nombre;
+      });
+    }
+    if(existe('Especie',especie))
+      return {fuente:'Especie: '+especie,adquisicion:''};
+    if(existe('Ocupación',ocupacion))
+      return {fuente:'Ocupación: '+ocupacion,adquisicion:''};
+    // Únicamente las alternativas expresas del DRS, nunca parentescos
+    // deducidos por el nombre de la Especie.
+    var heredados={
+      'Semielfo':{'Buen desarrollo':'Humano común','Linaje feérico':'Elfo agreste'},
+      'Semiorco':{'Buen desarrollo':'Humano común','Ira interna':'Orco común'}
+    };
+    var fuente=heredados[especie]?.[nombre];
+    if(personaje.herencia_dual===nombre&&fuente&&existe('Especie',fuente))
+      return {fuente:'Especie: '+fuente,adquisicion:'Herencia dual · '+especie};
+    return {fuente:'',adquisicion:''};
+  }
   function htmlLista(titulo, valores, grupo, sistema, personaje) {
     if (!valores || !valores.length) return '';
     return '<section class="bloque-ficha"><h4>' + esc(titulo) + '</h4>' +
       (grupo==='talento'?'<p class="pista-talentos">Pulsa un Talento ⓘ para consultar su efecto.</p>':'') +
       '<ul>' + valores.map(function (v) {
-        var fuentePreferida='';
-        if(grupo==='talento'&&sistema==='nd20'&&personaje){
-          var partes=personaje.descripcion.split(' · ');
-          var registros=datos.talentosDRS?.registros||[];
-          var especie=registros.find(function(r){
-            return r.tipo_origen==='Especie'&&r.propietario===partes[1]&&r.nombre===v;
-          });
-          var ocupacion=registros.find(function(r){
-            return r.tipo_origen==='Ocupación'&&r.propietario===partes[0]&&r.nombre===v;
-          });
-          if(especie)fuentePreferida='Especie: '+especie.propietario;
-          else if(ocupacion)fuentePreferida='Ocupación: '+ocupacion.propietario;
-        }
+        var procedencia=grupo==='talento'?
+          procedenciaTalentoDRS(personaje,v):{fuente:'',adquisicion:''};
         var item=grupo&&infoUI?
-          infoUI.etiqueta(v,grupo,sistema,fuentePreferida):esc(v);
+          infoUI.etiqueta(v,grupo,sistema,
+            procedencia.fuente,procedencia.adquisicion):esc(v);
         return '<li>' + item + '</li>';
       }).join('') + '</ul></section>';
   }
@@ -334,7 +352,9 @@
       var talento=literal.match(/^Talento de (?:Especie|Ocupación) — (.+?): /);
       if(talento){
         var asociado=(personaje.capacidades||[]).includes(talento[1]);
-        var descripcion=infoUI?.consulta(talento[1],'talento',sistema)?.descripcion;
+        var procedencia=procedenciaTalentoDRS(personaje,talento[1]);
+        var descripcion=infoUI?.consulta(talento[1],'talento',sistema,
+          procedencia.fuente)?.descripcion;
         if(asociado&&descripcion)return; // Texto completo disponible en popup.
         grupos.talentos.push(literal); // Nunca ocultar una regla sin ficha.
         return;
