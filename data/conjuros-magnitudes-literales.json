@@ -4448,8 +4448,14 @@
       "nombre_tomo": "Crear muertos vivientes",
       "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
       "evidencia_literal": "Puedes tener tantos muertos vivientes como tu Nivel",
-      "disparador_y_limites": "El texto permite repartir Niveles entre criaturas animadas; NO equivale necesariamente a disponer del mismo número de criaturas. Efecto permanente hasta destrucción.",
+      "disparador_y_limites": "El DRS declara tanto un máximo de muertos vivientes igual al Nivel como reparto de esos Niveles entre aberraciones. Son dos magnitudes conceptualmente distintas, no se puede asignar un total de Niveles a una criatura sin su ficha del Bestiario. Lanzamiento 2 Turnos; animados hasta destrucción.",
       "magnitudes": [
+        {
+          "clave": "numero_maximo_muertos_vivientes",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "criaturas"
+        },
         {
           "clave": "maximo_niveles_total_muertos_vivientes",
           "tipo": "por_nivel",
