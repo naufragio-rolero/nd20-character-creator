@@ -355,11 +355,25 @@ cuando existen. En el editor Personalizado, el botón «Ver ficha» permite
 consultar la opción seleccionada (los elementos de un selector nativo no
 ofrecen hover fiable en todos los navegadores).
 
-Se incorpora el archivo data/fichas-documentales.json con una primera
+**Corrección de consulta (31/10/2026):** los Talentos de Especie y
+Ocupación toman ahora **su efecto completo de `talentos_descripcion`**
+en los catálogos de origen, sin depender de que exista una glosa abreviada
+adicional. Por ejemplo, «Baja estatura», «¡Sálvese quien pueda!» y
+«Recuperación» se consultan pulsando su nombre y el icono ⓘ en la tarjeta.
+La ficha coloca las condiciones de Técnicas junto a Poderes, las
+advertencias de equipo junto al equipo y el contexto de nombre y
+envejecimiento en un apartado plegable. Las descripciones accesibles en
+el popup ya no se **repiten al final**; si una Habilidad no tiene ficha
+documental, se conserva su texto en la tarjeta, sin inventar efectos.
+El modelo de personaje y la exportación de texto conservan todas las
+observaciones originales.
+
+Se incorpora el archivo `data/fichas-documentales.json` con una primera
 selección de descripciones contrastadas en los manuales del proyecto.
 Cuando falte una descripción, se indica expresamente y no se improvisan
-efectos. El índice se genera en assets/tooltips.js y la interfaz se controla
-en assets/tooltip-ui.js. Ninguna ficha requiere una consulta a red externa.
+efectos. El índice se genera en `assets/tooltips.js` y la interfaz se
+controla en `assets/tooltip-ui.js`. Ninguna ficha requiere una consulta
+a red externa.
 
 
 ### Sexo y coherencia narrativa del personaje
