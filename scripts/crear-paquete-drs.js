@@ -76,7 +76,8 @@ const especificas=[
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js',
   'data/especies.json','data/ocupaciones.json','data/especies_cifi.json',
   'data/ocupaciones_cifi.json','data/catalogo-ampliado.json',
-  'data/tesauro-ylat.json','data/sexo-personajes.json',
+  'data/tesauro-ylat.json','data/nombres-historicos-ylat.json',
+  'data/sexo-personajes.json',
   'data/catalogo-poderes.json','data/conjuros-revisados-001-225.json',
   'data/conjuros-revisados-226-434.json',
   'data/conjuros-magnitudes-literales.json','data/alcance-drs-y-dlc.json',
@@ -159,6 +160,24 @@ const transformaciones={
     d.politica='149 nombres combinados: propuestas para nuevos personajes, no personajes canónicos. Los 51 nombres documentados permanecen solo en desarrollo.';
     return d;
   },
+  'data/nombres-historicos-ylat.json'(d){
+    // El autor ha autorizado el generador antiguo como fuente. Preservar
+    // todas sus filas en desarrollo, usar una vez cada forma en el público
+    // para que los seis duplicados no tengan el doble de probabilidad.
+    if(d.entradas.length!==1428||d.total_filas_fuente!==1428||
+       new Set(d.entradas.map(x=>x.id)).size!==1428)
+      throw Error('El generador de Ylat ha cambiado: auditar sus 1428 registros.');
+    const vistos=new Set();
+    d.entradas=d.entradas.filter(x=>{
+      if(vistos.has(x.nombre))return false;
+      vistos.add(x.nombre);
+      return true;
+    });
+    if(d.entradas.length!==1422||vistos.size!==1422)
+      throw Error('El generador histórico debe aportar 1422 formas únicas.');
+    d.politica='1422 formas únicas autorizadas por el autor. No implican personajes canónicos ni adscripción documentada de sexo, Especie, cultura o linaje.';
+    return d;
+  },
   'data/alcance-drs-y-dlc.json'(d){
     delete d.paquetes_posteriores;
     d.estado='paquete_publico_drs_generado_no_desplegado';
@@ -193,11 +212,11 @@ for(const ruta of especificas){
     if(!html.includes(opcionDocumentada))
       throw Error('El selector documental ha cambiado: revisar su exclusión.');
     html=html.replace(opcionDocumentada,'');
-    const ayudaVieja='200 entradas basadas en tres documentos de Ylat. Las combinaciones nuevas no son personajes canónicos. En las 149 combinaciones hay 27 nombres de pila sin clasificación de sexo, que se muestran sin atribuírsela.';
+    const ayudaVieja='Banco histórico autorizado: 1428 registros originales, 1422 formas únicas tras eliminar el sesgo de seis duplicados. Son propuestas sin atribución documental de sexo, Especie, cultura ni linaje. Hay también 149 combinaciones inspiradas en Ylat; las 51 identidades de personajes documentados se reservan a revisión editorial.';
     if(!html.includes(ayudaVieja))
       throw Error('La ayuda de nombres de Ylat ha cambiado.');
     html=html.replace(ayudaVieja,
-      '149 propuestas combinadas (116 de Niguace y 33 de Isla Tormenta), no personajes canónicos. 27 nombres de pila no tienen sexo documentado; no se les atribuye. Las 51 identidades documentadas no se incluyen.');
+      '1422 formas únicas del generador histórico autorizado y 149 combinaciones inspiradas en Ylat (116 del corpus de Niguace y 33 de Isla Tormenta). No atribuyen sexo, cultura, Especie ni linaje; no identifican personajes canónicos. Se excluyen las 51 identidades documentadas.');
 
     escribir(ruta,html);
   }else{
