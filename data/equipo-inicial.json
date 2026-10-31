@@ -253,6 +253,16 @@
       "alcance": "75 m",
       "municion": "Flechas",
       "no_mover_y_disparar": true
+    },
+    {
+      "nombre": "Dardo",
+      "precio": 0,
+      "tipo": "distancia",
+      "alcance": "9 m",
+      "dano": "1d4",
+      "penetracion": 0,
+      "durabilidad": "d4",
+      "municion": "Dardos"
     }
   ],
   "municion": [
@@ -756,5 +766,7 @@
       "precio": 1500
     }
   ],
-  "nota_catalogo_sin_precio": "Dardo: aparece en la tabla de armas a distancia del DRS sin precio (—); no se ofrece a compra automática sin valoración editorial."
+  "decisiones_editoriales": {
+    "dardo_precio": "El autor fija el precio del Dardo en 0 mo (31/10/2026); el DRS indicaba «—». La munición Dardos conserva su precio y DU del DRS."
+  }
 }
