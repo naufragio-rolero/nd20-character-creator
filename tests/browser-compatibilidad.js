@@ -120,29 +120,33 @@ async function probar(nombre,tipo,url){
     await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=false;});
     await page.locator('#e2e-poder').evaluate(x=>x.remove());
     await page.locator('#abrir-selector-ocupacion').click();
-    assert.equal(await page.locator('#dialogo-ocupacion').evaluate(x=>x.open),true,
-      nombre+': el selector compacto abre una ventana');
+    assert.equal(await page.locator('#dialogo-ocupacion').evaluate(x=>x.open),true);
     const opcionMago=page.locator('#selector-visual-ocupacion button[data-valor="Mago"]');
     await opcionMago.click();
-    assert.equal(await page.locator('#ocupacion').inputValue(),'Mago');
     assert.equal(await opcionMago.getAttribute('aria-pressed'),'true');
-    assert.equal(await page.locator('#dialogo-ocupacion').evaluate(x=>x.open),false);
+    assert.equal(await page.locator('#dialogo-ocupacion').evaluate(x=>x.open),true,
+      nombre+': una casilla marcada no cierra el multiselector');
+    await page.locator('[data-confirmar-selector="ocupacion"]').click();
+    assert.equal(await page.locator('#ocupacion').inputValue(),'Mago');
     assert.equal(await page.locator('#valor-elegido-ocupacion').textContent(),'Mago (DRS)');
+    assert.equal(await page.locator('#dialogo-ocupacion').evaluate(x=>x.open),false);
     await page.locator('#abrir-selector-especie').click();
     const opcionElfo=page.locator('#selector-visual-especie button[data-valor="Elfo agreste"]');
-    await opcionElfo.focus();
-    await page.keyboard.press('Enter');
-    assert.equal(await page.locator('#especie').inputValue(),'Elfo agreste');
-    assert.equal(await opcionElfo.getAttribute('aria-pressed'),'true');
-    assert.equal(await page.locator('#dialogo-especie').evaluate(x=>x.open),false);
-    assert.equal(await page.locator('#abrir-selector-especie').evaluate(e=>document.activeElement===e),true,
-      nombre+': el teclado devuelve el foco al botón compacto');
+    await opcionElfo.focus();await page.keyboard.press('Enter');
+    await page.locator('#selector-visual-especie button[data-valor="Mediano amable"]').click();
+    assert.equal(await page.locator('#selector-visual-especie button[data-valor="Mediano amable"]').getAttribute('aria-pressed'),'true');
+    await page.locator('[data-confirmar-selector="especie"]').click();
+    assert.equal(await page.locator('#especie').inputValue(),'');
+    assert.equal(await page.locator('#valor-elegido-especie').textContent(),'2 opciones');
+    assert.equal(await page.locator('#abrir-selector-especie').evaluate(x=>document.activeElement===x),true,
+      nombre+': foco devuelto después de confirmar multiselección');
     await page.locator('#abrir-selector-especie').click();
     await page.keyboard.press('Escape');
-    assert.equal(await page.locator('#dialogo-especie').evaluate(x=>x.open),false,
-      nombre+': Escape cierra la rejilla');
+    assert.equal(await page.locator('#dialogo-especie').evaluate(x=>x.open),false);
+    await page.locator('#abrir-selector-especie').click();
+    await page.locator('#selector-visual-especie button[data-valor=""]').click();
+    await page.locator('[data-confirmar-selector="especie"]').click();
     await page.selectOption('#ocupacion','');
-    await page.selectOption('#especie','');
     assert.equal(await page.locator('#selector-visual-especie button[data-valor=""]').getAttribute('aria-pressed'),'true');
     assert.equal(await page.locator('#generar-flotante').isEnabled(),true);
     assert.equal(await page.locator('#informacion-avanzada').isChecked(),false);
