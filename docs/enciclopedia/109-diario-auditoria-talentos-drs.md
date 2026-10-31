@@ -21,7 +21,9 @@
 | A09 | Añadir controles de huellas a la suite Node | `tests/talentos-drs.js`, commit `3d355ef7`. Detecta cambios al texto original frente a instantánea independiente. |
 | A10 | Actualizar prueba de integración y estilo contextual | `tests/smoke.js`, `assets/styles.css`, commits `7272d95f` y `ba889c20`. |
 | A11 | Crear pruebas de navegador sobre adquisición heredada | `tests/browser-compatibilidad.js`, commit `b463f90b`. Prueba ambos mestizos con generación real DRS. |
-| A12 | Ejecutar las cuatro suites de CI y la comprobación pública | Pendiente de registrar al cerrar este lote. |
+| A12 | Ejecutar las cuatro suites de CI | **4/4 exitosas** en PR #9: [motor y Conjuros](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41253842408), [Chrome](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41253842275), [Firefox/WebKit](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41253842240), [candidato DRS público](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41253842317). |
+| A13 | Fusionar la PR #9 tras validar las cuatro suites | Fusionada en `main`, merge SHA `1314ef3ec058432a1612f0cfaad08873934fe088`. [Ver PR #9](https://github.com/naufragio-rolero/nd20-character-creator/pull/9). |
+| A14 | Promover la revisión validada al despliegue LIVE | Pendiente de promoción y comprobación pública posterior a la fusión. |
 
 ## Decisiones editoriales
 
@@ -41,9 +43,10 @@
 - [x] Auditoría directa de 24 efectos contra el original proporcionado.
 - [x] Registrar hashes independientes del DOCX fuente.
 - [x] Implementar diferencia entre origen y adquisición heredada.
-- [ ] Demostrar cuatro suites de CI en verde después de los cambios.
-- [ ] Confirmar que la edición pública depurada no incorpora contenido adicional.
-- [ ] Fusionar PR y publicar solo una revisión previamente validada.
+- [x] Demostrar cuatro suites de CI en verde después de los cambios.
+- [x] Confirmar que el paquete candidato DRS depurado no incorpora contenido adicional.
+- [x] Fusionar PR sobre una revisión previamente validada.
+- [ ] Publicar la revisión exacta en LIVE y comprobar la URL.
 
 ## Límites
 
