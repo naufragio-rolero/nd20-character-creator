@@ -2,6 +2,7 @@
 /* Prueba del CONTENIDO REAL del paquete candidato, nunca solo de la UI. */
 const fs=require('node:fs');
 const path=require('node:path');
+const crypto=require('node:crypto');
 const assert=require('node:assert/strict');
 const raiz=path.resolve(__dirname,'..');
 const salida=path.join(raiz,'dist','public-drs');
@@ -49,6 +50,39 @@ for(const archivo of ['conjuros-revisados-001-225.json',
   assert.ok(contenido.conjuros.every(x=>ids.has(x.id_catalogo)),
     'No hay fichas de Conjuros ampliados en '+archivo);
 }
+// Las huellas se calcularon directamente a partir del DOCX DRS de 2026-10-31:
+ // cada ficha incluye todas las líneas de su bloque, y Calentar metal añade
+ // las 18 celdas de la tabla oficial en orden por filas.
+const origenLiteral=leer(raiz,'huellas-conjuros-drs.json');
+assert.equal(Object.keys(origenLiteral.huellas).length,64);
+const revisadosCotejados=['conjuros-revisados-001-225.json',
+  'conjuros-revisados-226-434.json']
+  .flatMap(archivo=>leer(salida,archivo).conjuros);
+assert.equal(revisadosCotejados.length,64,
+  'Una y solo una ficha textual por cada Conjuro DRS');
+assert.equal(new Set(revisadosCotejados.map(x=>x.id_catalogo)).size,64);
+for(const ficha of revisadosCotejados){
+  const huella=crypto.createHash('sha256')
+    .update(JSON.stringify(ficha.parrafos.map(x=>x.trim())),'utf8')
+    .digest('hex');
+  assert.equal(huella,origenLiteral.huellas[ficha.id_catalogo],
+    'Fidelidad literal DRS: '+ficha.nombre_tomo);
+}
+const forja=revisadosCotejados.find(x=>x.id_catalogo==='conjuro-45');
+assert.ok(forja.parrafos.some(x=>x.includes('ese objeto obtiene:')));
+assert.ok(!forja.parrafos.some(x=>x.includes('ese objeto mundano obtiene:')),
+  'Forja arcana no añade una restricción a objetos mundanos ajena al DRS');
+const originalForja=['conjuros-revisados-001-225.json',
+  'conjuros-revisados-226-434.json']
+  .flatMap(archivo=>leer(raiz,archivo).conjuros)
+  .find(x=>x.id_catalogo==='conjuro-45');
+assert.ok(originalForja.parrafos.some(x=>x.includes('ese objeto mundano obtiene:')),
+  'El Tomo de trabajo debe permanecer intacto en el repositorio de desarrollo');
+const calentar=revisadosCotejados.find(x=>x.id_catalogo==='conjuro-14');
+assert.deepEqual(calentar.parrafos.slice(-18),
+  ['Turno','Temperatura','Daño','1','Templada','-','2','Caliente','1d6',
+    '3-4','Ardiente','2d6','5','Caliente','1d6','6','Templada','-'],
+  'La tabla de Calentar metal forma parte del DRS aunque no sea párrafo de Word');
 for(const archivo of ['conjuros-magnitudes-literales.json','conjuros-danio-compuesto.json']){
   const contenido=leer(salida,archivo);
   assert.ok(contenido.registros.every(x=>ids.has(x.id_catalogo)),
