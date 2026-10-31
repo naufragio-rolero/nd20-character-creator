@@ -95,7 +95,8 @@ console.log('OK · 434 fichas cotejadas; 12 cambios aprobados y catálogo DRS va
 const motorMagnitudes=require('../assets/spell-magnitudes.js');
 const literales=leer('data/conjuros-magnitudes-literales.json');
 assert.equal(literales.registros.length,41,'41 fichas de magnitudes registradas');
-assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,12);
+assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,41,
+  'No repetir IDs entre los 41 Conjuros modelados');
 for(const entrada of literales.registros){
   const ficha=revisados.find(x=>x.numero_tomo===entrada.numero_tomo);
   assert.ok(ficha,'Ficha de Conjuro original '+entrada.numero_tomo);
