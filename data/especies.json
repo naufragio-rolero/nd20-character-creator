@@ -100,6 +100,7 @@
 	"Gnomo urbano": {
 		"atributo_requisito": "Intuición",
 		"atributo_valor": 7,
+		"requisitos": [{"atributo": "Mente", "minimo": 7}],
 		"talentos": ["Baja estatura", "Visión en la oscuridad"],
 		"conceptos": [
 			"Ingeniero brillante", "Inventor de artilugios", "Explorador de alcantarillas",
