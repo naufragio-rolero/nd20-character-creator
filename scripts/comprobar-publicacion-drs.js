@@ -27,7 +27,7 @@ function afirmar(condicion,mensaje){
 const requeridos=[
   'index.html','assets/styles.css','assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/powers.js','assets/spell-magnitudes.js',
-  'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js',
+  'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/favicon.svg',
   'data/especies.json','data/ocupaciones.json',
   'data/especies_cifi.json','data/ocupaciones_cifi.json',
   'data/catalogo-ampliado.json','data/tesauro-ylat.json',
@@ -89,11 +89,44 @@ const meta=dato('data/sexo-personajes.json');
 if(meta){
   const basicas=new Set(['Elfo agreste','Enano montañés','Humano común',
     'Mediano amable','Gnomo urbano','Semielfo','Orco común','Semiorco']);
+  const cifi=dato('data/especies_cifi.json')||{};
+  const otras=(extras?.nocturna?.especies)||{};
+  for(const nombre of [...Object.keys(cifi),...Object.keys(otras)])
+    basicas.add(nombre);
   const ajenas=Object.keys(meta.femeninos_por_especie||{})
     .filter(x=>!basicas.has(x));
   afirmar(ajenas.length>0,'data/sexo-personajes.json expone nombres '+
-    'clasificados de '+ajenas.length+' Especies no incluidas en el DRS.');
+    'clasificados de '+ajenas.length+' Especies de Fantasía no publicadas.');
+  const neutrales=(meta.sexo_por_especie_neutral||[]).filter(x=>!basicas.has(x));
+  afirmar(neutrales.length>0,'data/sexo-personajes.json incluye '+
+    neutrales.length+' Especies suplementarias en sexo_por_especie_neutral.');
+  const femeninas=Object.keys(meta.ocupaciones_contexto_femenino||{});
+  afirmar(femeninas.length>0,'data/sexo-personajes.json expone Ocupaciones '+
+    'de Fantasía suplementaria: '+femeninas.length+'.');
 }
+const magnitudes=dato('data/conjuros-magnitudes-literales.json');
+if(magnitudes){
+  const extras= (magnitudes.registros||[]).filter(x=>!drsIds.has(x.id_catalogo));
+  afirmar(extras.length>0,'data/conjuros-magnitudes-literales.json incluye '+
+    extras.length+' magnitudes de Conjuros de suplementos.');
+}
+const danio=dato('data/conjuros-danio-compuesto.json');
+if(danio){
+  const extras=(danio.registros||[]).filter(x=>!drsIds.has(x.id_catalogo));
+  afirmar(extras.length>0,'data/conjuros-danio-compuesto.json incluye '+
+    extras.length+' fichas de daño de Conjuros suplementarios.');
+}
+const ficha=dato('data/fichas-documentales.json');
+if(ficha){
+  const extras=Object.values(ficha).filter(x=>
+    x.sistema==='nd20'&&!(x.fuente||'').includes('NaufragioD20DRS'));
+  afirmar(extras.length>0,'data/fichas-documentales.json contiene '+
+    extras.length+' fichas de Fantasía de suplementos no publicados.');
+}
+const nombresYlat=dato('data/tesauro-ylat.json');
+afirmar((nombresYlat?.entradas||[]).length>0,
+  'data/tesauro-ylat.json incluye '+(nombresYlat?.entradas||[]).length+
+  ' personajes/nombres de documentación de ambientación ajena al DRS.');
 if(alertas.length){
   console.error('RIESGO DE PUBLICACIÓN: la selección visual DRS NO aísla estos datos.');
   alertas.forEach((a,i)=>console.error('  '+(i+1)+'. '+a));
