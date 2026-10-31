@@ -526,8 +526,9 @@ const faltantesIds=new Set([...catalogoIds].filter(x=>!coberturaIds.has(x)));
 assert.equal(faltantesIds.size,263);
 const porcentajeRestante=(faltantesIds.size/catalogoIds.size)*100;
 assert.ok(porcentajeRestante>60&&porcentajeRestante<61);
-assert.ok(revisados.filter(x=>coberturaIds.has(x.id_catalogo)).length===170,
-  'No hay Conjuros duplicados entre los 170 estructurados');
+assert.equal(new Set(revisados.filter(x=>coberturaIds.has(x.id_catalogo))
+  .map(x=>x.id_catalogo)).size,170,
+  'La duplicidad literal de Arma elemental no infla la cobertura');
 console.log('COBERTURA · '+coberturaIds.size+'/'+catalogoIds.size+
   ' Conjuros únicos con magnitudes; pendientes '+faltantesIds.size+
   ' ('+porcentajeRestante.toFixed(2)+' %).');
