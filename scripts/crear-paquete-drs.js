@@ -207,10 +207,10 @@ for(const ruta of especificas){
       throw Error('No se encuentra el selector visual de sistemas.');
     html=html.replace('class="juegos-compactos"','class="juegos-compactos juegos-publicos"');
     // Nunca distribuir opciones de PNJ documentados del tesauro interno.
-    if(!html.includes('<option value="documentado">'))
+    if(!/<option value="documentado"(?:\s[^>]*)?>/.test(html))
       throw Error('Falta la opción documental que debe excluirse.');
-    html=html.replace(/^[^\n]*<option value="documentado">[^\n]*\n/m,'');
-    if(html.includes('<option value="documentado">'))
+    html=html.replace(/^[^\n]*<option value="documentado"(?:\s[^>]*)?>[^\n]*\n/m,'');
+    if(/<option value="documentado"(?:\s[^>]*)?>/.test(html))
       throw Error('La opción documental sigue visible.');
     escribir(ruta,html);
   }else{
