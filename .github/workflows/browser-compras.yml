@@ -1,0 +1,34 @@
+name: Forja - E2E navegador (compras DRS)
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'feat/forja-conjuros-fichas-2026-10-30'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  chromium-compras:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Comprobar Chromium o Chrome disponible
+        run: |
+          command -v google-chrome || command -v google-chrome-stable || command -v chromium
+      - name: Recorrido E2E de Forja en navegador real
+        run: node tests/browser-compras.js
+      - name: Conservar capturas de escritorio y móvil
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forja-compras-capturas
+          path: tests/capturas-e2e/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1754,17 +1754,6 @@
       "origen": "Slat-Deanaich"
     },
     {
-      "id": "conjuro-154",
-      "nombre": "Ira celestial",
-      "circulo": 3,
-      "escuelas": [
-        "Divina"
-      ],
-      "etiquetas": [],
-      "fuente": "Tomo de Magia",
-      "origen": null
-    },
-    {
       "id": "conjuro-155",
       "nombre": "Carne cambiante",
       "circulo": 3,
@@ -5382,6 +5371,7 @@
         "Atravesar paredes",
         "Crear muertos vivientes",
         "Ira celestial",
+        "Marca del dador oscuro",
         "Transfusión de dolor"
       ],
       "6": [

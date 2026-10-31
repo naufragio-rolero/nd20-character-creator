@@ -1,0 +1,36 @@
+{
+  "fecha": "2026-10-30",
+  "estado": "aprobado_por_autor",
+  "tipo": "ajustes_reglamentarios_confirmados",
+  "no_modifica_fuentes_originales": true,
+  "registros": [
+    {
+      "numero_tomo": 356,
+      "nombre_literal": "Revelar objeto maravilloso",
+      "parrafo_editado": 5,
+      "texto_corregido": "Tras dedicar 1 Intervalo a lanzar el conjuro, entras en un trance de estudio durante un descanso de ocho horas para conocer y sintonizar con un objeto mágico. A lo largo del descanso, la magia va revelando poco a poco información sobre el objeto; al finalizar puedes descubrir una de sus propiedades mágicas. Los objetos malditos no son identificados como tales mediante este conjuro.",
+      "decision": "Dos fases: lanzamiento de 1 Intervalo y estudio de ocho horas. Revelación progresiva narrativa, una propiedad identificable al terminar. Sin etapas cuantificadas.",
+      "texto_original": "Durante un descanso de ocho horas, entras en un trance para conocer y sintonizar con un objeto mágico. Al finalizar, podrás descubrir una de sus propiedades mágicas. Cabe destacar que los objetos malditos no son identificados como tales mediante este conjuro.",
+      "archivo_fuente": "69o-conjuros-alfabeticos-351-375.json"
+    },
+    {
+      "numero_tomo": 433,
+      "nombre_literal": "Yugo de la muerte viviente",
+      "parrafo_editado": 4,
+      "texto_corregido": "Canalizas el juicio de tu fe divina a través de tus manos, desatando un poder que busca purgar la abominación de la no muerte. Realiza una Tirada de Conjuro: si tienes éxito y la criatura es de Nivel 12 o inferior, es destruída por completo, reducida a cenizas por el juicio divino;  por otra parte, si es de Nivel 13 o superior, sufre 3d6 puntos de daño radiante por Nivel.",
+      "decision": "Destrucción para Nivel 12 o inferior; daño para Nivel 13 o superior. No se altera la regla sobre Tirada de Conjuro.",
+      "texto_original": "Canalizas el juicio de tu fe divina a través de tus manos, desatando un poder que busca purgar la abominación de la no muerte. Realiza una Tirada de Conjuro: si tienes éxito y la criatura es de Nivel 12 o inferior, es destruída por completo, reducida a cenizas por el juicio divino;  por otra parte, si es de Nivel 12 o superior, sufre 3d6 puntos de daño radiante por Nivel.",
+      "archivo_fuente": "69r-conjuros-alfabeticos-426-434.json"
+    },
+    {
+      "numero_tomo": 385,
+      "nombre_literal": "Surcar la tierra",
+      "parrafo_editado": 3,
+      "texto_original": "Remueves o excavas hasta 4 metros cúbicos de tierra, barro o arena, desplazando el material sobrante al borde del área excavada. No afecta a la piedra sólida. Puedes dar forma al área excavada según necesites, desde un pozo de 2 metros de ancho y hasta 12 metros de profundidad (capaz de hacer caer a una criatura de tamaño humano), hasta una cavidad superficial de 2 metros de profundidad y casi 4 metros de diámetro.",
+      "texto_corregido": "Remueves o excavas hasta 4 metros cúbicos de tierra, barro o arena, desplazando el material sobrante al borde del área excavada. No afecta a la piedra sólida. Puedes dar forma al área excavada según necesites, por ejemplo, un pozo de 1 metro de ancho por 1 metro de largo y 4 metros de profundidad, o una cavidad superficial de 2 metros de ancho por 2 metros de largo y 1 metro de profundidad. En ambos casos, el volumen excavado es de 4 metros cúbicos.",
+      "decision": "Mantener el máximo de 4 m³; sustituir ambos ejemplos contradictorios por excavaciones de prisma rectangular de 4 m³, sin alterar material permitido ni Alcance.",
+      "archivo_fuente": "69p-conjuros-alfabeticos-376-400.json",
+      "estado": "redaccion_editorial_aprobada_por_autor_sin_cambiar_fuente"
+    }
+  ]
+}

@@ -13,6 +13,9 @@
   function consulta(nombre,grupo,sistema){
     return root.NaufragioTooltipIndex?.buscar(glosario,nombre,grupo,sistema)||null;
   }
+  function consultaPorId(id,grupo,sistema){
+    return root.NaufragioTooltipIndex?.buscarPorId(glosario,id,grupo,sistema)||null;
+  }
   function etiqueta(t,grupo,sistema){
     var dato=consulta(t,grupo,sistema);
     if(!dato)return esc(t);
@@ -59,8 +62,11 @@
   }
   function mostrar(elemento,anclado){
     if(!glosario||!elemento)return;
-    var info=consulta(elemento.dataset.glosaNombre,elemento.dataset.glosaGrupo,
-      elemento.dataset.glosaSistema);
+    var info=elemento.dataset.glosaId?
+      consultaPorId(elemento.dataset.glosaId,elemento.dataset.glosaGrupo,
+        elemento.dataset.glosaSistema):
+      consulta(elemento.dataset.glosaNombre,elemento.dataset.glosaGrupo,
+        elemento.dataset.glosaSistema);
     if(!info)return;
     limpiarTemporizador();
     if(ancla&&ancla!==elemento)ancla.removeAttribute("aria-describedby");
@@ -84,6 +90,43 @@
     d.textContent=info.descripcion||
       "La descripción completa todavía no está incorporada al catálogo digital; consulta el manual.";
     c.appendChild(d);
+    /* Las magnitudes se calculan solo cuando conocemos el Nivel del personaje.
+     * Las condiciones y las tiradas de dados NO se ejecutan aquí. */
+    var nivelTexto=elemento.dataset.glosaNivel||
+      elemento.closest(".tarjeta")?.dataset.nivel;
+    var nivel=Number(nivelTexto);
+    if(info.magnitudes&&Number.isSafeInteger(nivel)&&nivel>=1&&root.NaufragioMagnitudes){
+      var calculo=root.NaufragioMagnitudes.evaluar(
+        {registros:[info.magnitudes]},info.magnitudes.id_catalogo,nivel);
+      if(calculo){
+        var subtitulo=document.createElement("h4");
+        subtitulo.textContent="Magnitudes literales · Nivel "+nivel;
+        c.appendChild(subtitulo);
+        var valores=document.createElement("dl");valores.className="info-datos";
+        calculo.magnitudes.forEach(function(m){
+          var dt=document.createElement("dt"),dd=document.createElement("dd");
+          dt.textContent=m.clave.replace(/_/g," ");
+          dd.textContent=String(m.valor)+" "+(m.unidad||"");
+          valores.append(dt,dd);
+        });
+        c.appendChild(valores);
+        var aviso=document.createElement("p");aviso.className="info-descripcion";
+        aviso.textContent="Condiciones de aplicación: "+calculo.condiciones_no_automatizadas+
+          ". Las Tiradas, objetivos y efectos no se ejecutan automáticamente.";
+        c.appendChild(aviso);
+      }
+    }
+    if(info.danioCompuesto){
+      var tipo=document.createElement("p");tipo.className="info-descripcion";
+      tipo.textContent="Daño compuesto: un único grupo de dados, tipos "+
+        info.danioCompuesto.tipos.join(" e ")+
+        " simultáneamente. Resistencia a ambos: una única resistencia. "+
+        "Debilidad a cualquiera de los tipos: daño ×2, sin duplicarlo. "+
+        "Resistencia parcial o simultánea con debilidad: resolución del Cronista."+
+        (info.danioCompuesto.condicion_activacion?
+          " Aplicación: "+info.danioCompuesto.condicion_activacion:"");
+      c.appendChild(tipo);
+    }
     var fuente=document.createElement("p");fuente.className="info-fuente";
     fuente.textContent="Fuente: "+(info.fuente_descripcion||info.fuente);
     c.appendChild(fuente);
@@ -125,5 +168,6 @@
     root.addEventListener("resize",posicionar);
     root.addEventListener("scroll",posicionar,{passive:true,capture:true});
   }
-  return {configurar:configurar,etiqueta:etiqueta,consulta:consulta,cerrar:cerrar};
+  return {configurar:configurar,etiqueta:etiqueta,consulta:consulta,
+    consultaPorId:consultaPorId,cerrar:cerrar};
 });

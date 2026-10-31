@@ -56,7 +56,7 @@
     notas.push("Capital inicial CiFi: 4d10 × 100 cr, decisión editorial pendiente de incorporarse al DRS.");
     return {equipo:eq,gastado:gastado,restante:restante,notas:notas};
   }
-  function compraInicial(ocupacion,nombre,juego,catalogo,presupuesto,rng,nivel){
+  function compraInicial(ocupacion,nombre,juego,catalogo,presupuesto,rng,nivel,perfilEspecie){
     rng=rng||Math.random;
     var eq=[],notas=[],gasto=0;
     if(juego==="nd20_cifi")return compraCifi(nombre,catalogo,presupuesto,rng);
@@ -66,6 +66,7 @@
       throw Error("Falta la tabla DRS o el presupuesto inicial documentado.");
     // Competencias desbloqueadas en niveles futuros NO habilitan compras iniciales.
     nivel=Number(nivel)||1;
+    var bajaEstatura=!!(perfilEspecie&&(perfilEspecie.talentos||[]).includes('Baja estatura'));
     var comp=(ocupacion.competencias||[]).filter(function(regla){
       var m=normal(regla).match(/a partir de nivel\s*(\d+)/);
       return !m||nivel>=Number(m[1]);
@@ -106,6 +107,17 @@
         return plurales[n]&&plurales[n].test(a);
       });
     }
+    // Varitas de defensa: el DRS las considera una excepción explícita
+    // incluso para quien es competente con cualquier arma (Guerrero).
+    // Solo se ofrecen si la Ocupación declara la competencia, como el Mago,
+    // o la desbloquea a partir de Nivel 6, como el Ladrón.
+    var varitasHabilitadas=comp.some(function(regla){
+      return /varitas/i.test(regla)&&
+        !/no puedes|no puede|no es competente/i.test(regla);
+    });
+    if(varitasHabilitadas){
+      armasPermitidas=armasPermitidas.concat(catalogo.varitas_defensa||[]);
+    }
     var armadurasExplicitas=(ocupacion.armaduras||[]).map(normal);
     if(armadurasExplicitas.length){
       armadurasPermitidas=catalogo.armaduras.filter(function(x){return armadurasExplicitas.includes(normal(x.nombre));});
@@ -124,6 +136,18 @@
       });
       if(!armadurasPermitidas.length&&lig)armadurasPermitidas=catalogo.armaduras.filter(x=>x.tipo==="ligera");
     }
+    // Algunas Ocupaciones base usan una lista inicial y desbloquean
+    // protecciones adicionales por Nivel (Clérigo: pesadas a Nivel 12).
+    // Se amplía la lista solo cuando una Competencia documentada ya está activa.
+    var armorProgreso=normal(comp.filter(function(v){
+      return /armadura/i.test(v)&&!/no puedes equipar|no puedes usar|no puede equipar/i.test(v);
+    }).join(" "));
+    if(/armaduras pesadas/.test(armorProgreso)){
+      catalogo.armaduras.filter(function(x){return x.tipo==="pesada";}).forEach(function(x){
+        if(!armadurasPermitidas.some(function(y){return y.nombre===x.nombre;}))
+          armadurasPermitidas.push(x);
+      });
+    }
     var escudo=normal(comp.filter(function(v){return /escudo/i.test(v)&&!/no puedes|no puede|no puedes usar/i.test(v);}).join(" "));
     if(escudo){
       escudosPermitidos=catalogo.escudos.filter(function(x){
@@ -134,6 +158,16 @@
           n==="escudo grande"&&/grand/.test(escudo);
       });
     }
+    // DRS / Baja estatura: decisión editorial de Forja (31/10/2026).
+    // Las armas y armaduras del catálogo se ofrecen adaptadas a medianos y
+    // gnomos sin modificar precio ni características. Siguen vigentes las
+    // Competencias de Ocupación y la restricción de escudos pequeños.
+    if(bajaEstatura){
+      escudosPermitidos=escudosPermitidos.filter(function(x){
+        return normal(x.nombre)==='escudo pequeno';
+      });
+      notas.push('Baja estatura: armas y armaduras del catálogo en versión adaptada al tamaño, sin modificar precio ni características; únicamente escudos pequeños; +1 a Tiradas de Esquiva contra ataques a distancia.');
+    }
     function extraer(pool,limite){
       var viable=pool.filter(function(x){return x.precio<=presupuesto-gasto+1e-7&&x.precio<=limite;});
       if(!viable.length)return null;
@@ -142,11 +176,21 @@
       eq.push(elegido.nombre);
       return elegido;
     }
-    var arma=extraer(armasPermitidas,Math.min(presupuesto*.4,60));
+    // La propuesta automática para armas ordinarias mantenía un tope de
+    // 60 mo. Las varitas oficiales cuestan 100 mo o más, así que cuando
+    // estén autorizadas se amplía ese tope sin saltarse el 40% del capital.
+    var arma=extraer(armasPermitidas,
+      Math.min(presupuesto*.4,varitasHabilitadas?presupuesto:60));
+    if(arma&&arma.tipo==="varita")
+      notas.push("Varita de defensa: "+arma.nombre+
+        " (Munición: DU "+arma.municion_du+
+        "). Los ataques requieren una Tirada de Mente.");
     extraer(armadurasPermitidas,Math.min(presupuesto*.35,100));
     if(arma&&arma.municion){
       var municion=catalogo.municion.find(function(x){return x.nombre===arma.municion;});
-      if(municion)extraer([municion],presupuesto-gasto);
+      if(!municion||!extraer([municion],presupuesto-gasto))
+        notas.push("Arma a distancia sin munición comprada: "+arma.nombre+
+          " requiere "+arma.municion+". Comprobar suministro antes de utilizarla.");
     }
     extraer(escudosPermitidos,Math.min(presupuesto*.2,15));
     var etiqueta=nombre==="Clérigo"?"Especial devotos":
@@ -159,11 +203,63 @@
       eq[eq.length-1]="Paquete "+paquete.nombre+": "+paquete.contenido;
     }
     if(!arma)notas.push("No se ha asignado arma: no hay una opción inequívocamente competente y asequible en el catálogo DRS.");
-    if(!armadurasPermitidas.length)notas.push("No se ha elegido armadura: competencia de protección ausente o no contrastada.");
+    if(!armadurasPermitidas.length)
+      notas.push("No se ha elegido armadura: competencia de protección ausente o no contrastada.");
     var restante=Math.round((presupuesto-gasto)*100)/100;
     if(restante<0)throw Error("La compra inicial supera la riqueza.");
     notas.push("Equipo DRS adquirido por "+gasto+" mo; presupuesto "+presupuesto+" mo; saldo "+restante+" mo.");
     return {equipo:eq,gastado:gasto,restante:restante,notas:notas};
   }
-  return {compraInicial:compraInicial};
+  // Consulta exacta del inventario de útiles del DRS, sin alterar la
+  // compra automática existente ni conceder Objetos de forma gratuita.
+  function consultarUtilFantasia(catalogo,id,nivel){
+    if(!catalogo||!catalogo.utiles_fantasia||!id)
+      throw Error("Falta el catálogo de útiles del DRS o el identificador de artículo.");
+    var listas=Object.entries(catalogo.utiles_fantasia);
+    listas.push(["focos",(catalogo.focos_conjuros_con_precio||[])]);
+    var encontrados=[];
+    listas.forEach(function(grupo){
+      (grupo[1]||[]).forEach(function(x){
+        if(x.id===id)encontrados.push({seccion:grupo[0],item:x});
+      });
+    });
+    if(encontrados.length!==1)
+      throw Error(encontrados.length?"Identificador duplicado de útil: "+id:
+        "Útil no documentado en el DRS: "+id);
+    var resultado=encontrados[0],x=resultado.item,precio=x.precio;
+    if(x.precio_por_nivel!==undefined){
+      if(!Number.isInteger(nivel)||nivel<1)
+        throw Error("El artículo "+x.nombre+" requiere un Nivel positivo para calcular su precio.");
+      precio=x.precio_por_nivel*nivel;
+    }
+    if(!Number.isFinite(precio)||precio<0)
+      throw Error("Precio no verificable para el útil "+x.nombre);
+    return {id:x.id,nombre:x.nombre,seccion:resultado.seccion,
+      precio:Math.round(precio*100)/100,
+      nivel:x.precio_por_nivel===undefined?null:nivel,
+      du:x.du||null,detalle:x.detalle||""};
+  }
+  function compraUtilesFantasia(catalogo,presupuesto,seleccion){
+    if(!Number.isFinite(presupuesto)||presupuesto<0||!Array.isArray(seleccion))
+      throw Error("Presupuesto o selección de útiles incorrectos.");
+    var gastado=0,equipo=[],detalles=[];
+    seleccion.forEach(function(s){
+      var cantidad=s.cantidad===undefined?1:s.cantidad;
+      if(!Number.isInteger(cantidad)||cantidad<1)
+        throw Error("Cantidad incorrecta para un artículo del DRS.");
+      var item=consultarUtilFantasia(catalogo,s.id,s.nivel);
+      var subtotal=Math.round(item.precio*cantidad*100)/100;
+      if(Math.round((gastado+subtotal)*100)/100>presupuesto+1e-7)
+        throw Error("Compra de útiles supera el presupuesto disponible.");
+      gastado=Math.round((gastado+subtotal)*100)/100;
+      equipo.push(item.nombre+(item.nivel!==null?" (Nivel "+item.nivel+")":"")+
+        (cantidad>1?" ×"+cantidad:""));
+      detalles.push({id:item.id,nombre:item.nombre,nivel:item.nivel,
+        cantidad:cantidad,precio_unitario:item.precio,subtotal:subtotal});
+    });
+    return {equipo:equipo,detalles:detalles,gastado:gastado,
+      restante:Math.round((presupuesto-gastado)*100)/100};
+  }
+  return {compraInicial:compraInicial,consultarUtilFantasia:consultarUtilFantasia,
+    compraUtilesFantasia:compraUtilesFantasia};
 });
