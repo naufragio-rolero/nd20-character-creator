@@ -203,9 +203,15 @@ const adalidVerificado=poderes.planificar({juego:'nd20',nivel:30,ocupacion:'Adal
 assert.ok(adalidVerificado.avisos.some(x=>x.includes('correspondencia de Escuelas')),
   'Adalid: tabla verificada, Conjuros ambiguos no inventados');
 const documento=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
-for(const tag of ['data-juego="nd20"','data-juego="nd20_cifi"','data-juego="nd20_nocturna"',
- 'data-juego="dh"','tab-herramientas','selector-tema'])
+for(const tag of ['data-juego="nd20"','data-juego="dh"','tab-herramientas','selector-tema'])
  assert.ok(documento.includes(tag),'Menú contiene '+tag);
+assert.ok(!/data-juego="nd20_(cifi|nocturna)"/.test(documento),
+  'CiFi y Nocturna no se ofrecen en el selector');
+assert.ok(documento.includes('id="dialogo-especie"')&&
+  documento.includes('id="dialogo-ocupacion"'),
+  'Ambos selectores abren un diálogo con rejilla');
+assert.ok(documento.includes('assets/i18n.js'),
+  'La interfaz carga el sistema de traducciones');
 const estilos=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'utf8');
 for(const tema of ['ebano','ceruleo','obsidiana'])
  assert.ok(estilos.includes('data-tema='+tema),'Tema '+tema);
@@ -595,7 +601,10 @@ for(const [nombre,ocupacion] of Object.entries(fantasiaExtendida.ocupaciones)){
     const gasto=Number(nota.match(/por ([\d.]+) mo/)[1]);
     assert.ok(gasto>=0&&saldo>=0&&Math.abs((gasto+saldo)-presupuesto)<0.001,
       'Presupuesto sin rebasar: '+nombre+'/'+nivel);
-    assert.ok(uno.equipo.some(x=>x.startsWith('Paquete ')),'Provisiones básicas: '+nombre+'/'+nivel);
+    assert.ok(uno.equipo.some(x=>['Mochila','Bolsa de cuero'].includes(x)),
+      'Objetos de provisiones individuales: '+nombre+'/'+nivel);
+    assert.ok(!uno.equipo.some(x=>x.startsWith('Paquete ')),
+      'El paquete adquirido nunca aparece como una sola entrada');
     pruebasEquipo++;
   }
 }
