@@ -1,5 +1,7 @@
 # Forja 1.0 — Pruebas de navegador real para las compras DRS
 
+> **Ampliación de cobertura (31/10/2026):** la prueba E2E incluye eliminación de líneas del carrito, prevención de confirmaciones accidentales por Intro, escritorio real a 1440 px, emulación móvil con editor abierto y capturas PNG descargables desde GitHub Actions. Se ha realizado una inspección visual puntual de las capturas. Véase [informe 98 — revisión visual y navegación del carrito](98-revision-visual-carrito-y-navegacion.md). Las descripciones de alcance y límites previas se conservan como historial.
+
 **Fecha:** 31/10/2026. **Ámbito:** editor de compras individuales de útiles y focos; nombre *Martillo de campamento*.  
 **Rama:** `feat/forja-conjuros-fichas-2026-10-30` · **PR #4:** borrador, sin fusionar ni desplegar.  
 **Referencia funcional:** [informe 96](96-martillo-campamento-y-compra-utiles.md). Las reglas mecánicas y precios continúan procediendo del DRS o de las decisiones editoriales consignadas en los informes 94–96.
