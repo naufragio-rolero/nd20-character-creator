@@ -118,7 +118,11 @@ async function main(){
     cdp=await abrirCDP(puerto);
     const base='http://127.0.0.1:'+server.address().port+'/index.html';
     await cdp.enviar('Page.navigate',{url:base});
-    await cdp.esperar("document.querySelector('#generar')?.disabled===false",
+    // El botón de Generar está habilitado en el HTML antes de que arranque
+    // la aplicación. Esperar su mensaje de datos listos evita una carrera real.
+    await cdp.esperar("document.querySelector('#estado')?.textContent.includes('Datos listos')"+
+      " && document.querySelector('#generar')?.disabled===false"+
+      " && document.querySelectorAll('#fuentes-nd20 input:checked').length===1",
       'carga inicial de JSON y controles de Forja');
     const fuentes=await cdp.evalJS("Array.from(document.querySelectorAll('#ocupacion option')).map(x=>x.value).filter(Boolean)");
     assert.deepEqual(fuentes.sort(),['Clérigo','Guerrero','Ladrón','Mago'].sort(),
