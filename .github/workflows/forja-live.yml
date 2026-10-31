@@ -1,0 +1,96 @@
+name: Forja LIVE — publicación segura DRS
+
+# El punto de publicación se conserva en main. El código de Forja se
+# promueve únicamente mediante un SHA revisado y probado: NO se despliega
+# el árbol ni las fuentes inéditas del repositorio.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/forja-live.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Obtener únicamente la versión 1.1 validada
+        uses: actions/checkout@v4
+        with:
+          ref: 3bccd69103ca267471e08b5fedfc5e6f02033dce
+          persist-credentials: false
+      - name: Comprobar la revisión exacta de la entrega
+        run: |
+          test "$(git rev-parse HEAD)" = "3bccd69103ca267471e08b5fedfc5e6f02033dce"
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Generar solo la carpeta DRS autorizada
+        run: node scripts/crear-paquete-drs.js
+      - name: Detener la publicación ante DLC o sistemas no autorizados
+        run: node scripts/comprobar-publicacion-drs.js dist/public-drs
+      - name: Auditar la distribución y sus textos de reglas
+        run: node tests/paquete-publico-drs.js
+      - name: Verificar interacción real de Chrome
+        env:
+          FORJA_PUBLIC_ROOT: dist/public-drs
+        run: node tests/browser-compras.js
+      - name: Instalar Firefox y WebKit para verificar el sitio real
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps firefox webkit
+      - name: Verificar la distribución en Firefox y WebKit
+        env:
+          FORJA_PUBLIC_ROOT: dist/public-drs
+        run: node tests/browser-compatibilidad.js
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Subir exclusivamente el paquete depurado
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/public-drs
+      - name: Publicar Forja LIVE
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verificar el sitio público tras el despliegue
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$PAGE_URL"
+          echo "Comprobando que Pages sirve la versión 1.1 depurada"
+          correcto=false
+          for intento in $(seq 1 16); do
+            if curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-live.html &&
+               grep -Fq 'id="selector-visual-especie"' /tmp/forja-live.html &&
+               grep -Fq 'id="generar-flotante"' /tmp/forja-live.html &&
+               grep -Fq 'id="informacion-avanzada"' /tmp/forja-live.html; then
+              correcto=true
+              break
+            fi
+            sleep 5
+          done
+          test "$correcto" = true
+          ! grep -Fq 'data-juego="nd20_cifi"' /tmp/forja-live.html
+          ! grep -Fq 'data-juego="nd20_nocturna"' /tmp/forja-live.html
+          curl -fsSL "${PAGE_URL%/}/assets/icons-forja.svg" -o /tmp/forja-icons.svg
+          test "$(grep -c '<symbol id=' /tmp/forja-icons.svg)" -eq 12
+          curl -fsSL "${PAGE_URL%/}/data/especies.json" -o /tmp/forja-especies.json
+          node -e "const e=require('/tmp/forja-especies.json');if(Object.keys(e).length!==8)process.exit(1)"
+          echo "OK: web en vivo, 8 Especies DRS, 12 SVG y CiFi/Nocturna ocultos."
