@@ -1,5 +1,7 @@
 # Forja 1.0 — Decisiones autorales sobre Dardo y Marca del dador oscuro; cierre de datos de útiles DRS
 
+> **Actualización editorial y técnica (31/10/2026):** la herramienta que este informe todavía denomina «Almádena» se ha **renombrado a «Martillo de campamento» (2 mo)** por decisión del autor; el arma **Almádena (60 mo)** conserva su nombre. El nuevo ID es `campamento-martillo` y se almacena el nombre literal del DRS. Además, el [informe 96](96-martillo-campamento-y-compra-utiles.md) documenta la integración en Forja del **editor visual de compras de útiles**, que no existía al redactar este informe. Las referencias anteriores conservan su valor histórico.
+
 **Fecha:** 31/10/2026. **Ámbito:** núcleo de Fantasía del Documento de Referencia del Sistema (DRS).  
 **Fuente cotejada:** `NaufragioD20DRS.docx`, lista de Conjuros del Clérigo, ficha individual de *Marca del dador oscuro* y tablas de Equipo (armas a distancia; aventura, campamento, consumibles, herramientas, escritura y focos).  
 **Rama:** `feat/forja-conjuros-fichas-2026-10-30`. **PR #4:** borrador; **sin fusionar ni desplegar**.
