@@ -1,5 +1,6 @@
 {
 	"Elfo agreste": {
+		"envejecimiento": "nunca envejecen",
 		"atributo_requisito": "Agilidad",
 		"atributo_valor": 7,
 		"talentos": ["Linaje feérico", "Rapidez"],
@@ -26,6 +27,7 @@
 		]
 	},
 	"Enano montañés": {
+		"envejecimiento": "desde los 280 años",
 		"atributo_requisito": "Resistencia",
 		"atributo_valor": 7,
 		"talentos": ["Corpulencia", "Visión en la oscuridad"],
@@ -52,6 +54,7 @@
 		]
 	},
 	"Humano común": {
+		"envejecimiento": "desde los 50 años",
 		"talentos": ["Buen desarrollo"],
 		"talentos_descripcion": {"Buen desarrollo":"Mejora uno de tus Atributos en 1 punto durante la Creación de PJ."},
 		"conceptos": [
@@ -76,6 +79,7 @@
 		]
 	},
 	"Mediano amable": {
+		"envejecimiento": "desde los 70 años",
 		"atributo_requisito": "Presencia",
 		"atributo_valor": 7,
 		"talentos": ["Baja estatura", "¡Sálvese quien pueda!"],
@@ -102,6 +106,7 @@
 		]
 	},
 	"Gnomo urbano": {
+		"envejecimiento": "desde los 350 años",
 		"atributo_requisito": "Intuición",
 		"atributo_valor": 7,
 		"requisitos": [{"atributo": "Mente", "minimo": 7}],
@@ -130,6 +135,7 @@
 
 	},
 	"Semielfo": {
+		"envejecimiento": "desde los 100 años",
 		"talentos": ["Ánimo", "Herencia dual (SE)"],
 		"talentos_descripcion": {"Ánimo":"Una vez al día, antes de la tirada, puedes otorgar +2 a la Tirada de Atributo de un aliado que pueda escucharte.","Buen desarrollo":"Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.","Linaje feérico":"Inmunidad al estado Parálisis y Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir."},
 		"herencia_dual": ["Buen desarrollo","Linaje feérico"],
@@ -155,6 +161,7 @@
 		]
 	},
 	"Orco común": {
+		"envejecimiento": "desde los 35 años",
 		"atributo_requisito": "Fuerza",
 		"atributo_valor": 7,
 		"talentos": ["Ira interna", "Saña primitiva"],
@@ -181,6 +188,7 @@
 		]
 	},
 	"Semiorco": {
+		"envejecimiento": "desde los 45 años",
 		"talentos": ["Sed de sangre", "Herencia dual (SO)"],
 		"talentos_descripcion": {"Sed de sangre":"Antes de una Tirada de Ataque cuerpo a cuerpo puedes declarar un embate brutal: -2 a la Tirada de Ataque y +1 a la Penetración del arma.","Buen desarrollo":"Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.","Ira interna":"Si tus Puntos de Salud llegan a 0 o menos, puedes gastar 1 Punto de Esfuerzo para ajustarlos a 1 y seguir combatiendo."},
 		"herencia_dual": ["Buen desarrollo","Ira interna"],
