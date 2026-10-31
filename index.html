@@ -18,6 +18,7 @@
   </script>
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <script defer src="assets/i18n.js"></script>
   <script defer src="assets/equipment.js"></script>
   <script defer src="assets/sex.js"></script>
   <script defer src="assets/rules.js"></script>
@@ -55,14 +56,10 @@
           <label id="etiqueta-sistema" for="juego">Sistema</label>
           <div class="juegos-compactos" role="group" aria-labelledby="etiqueta-sistema">
             <button type="button" data-juego="nd20" class="sistema-activo" aria-pressed="true" title="Naufragio d20 Fantasía"><span aria-hidden="true">⚔</span><strong>Nd20F</strong></button>
-            <button type="button" data-juego="nd20_cifi" aria-pressed="false" title="Naufragio d20 CiFi"><span aria-hidden="true">✦</span><strong>Nd20C</strong></button>
-            <button type="button" data-juego="nd20_nocturna" aria-pressed="false" title="Naufragio d20 Nocturna"><span aria-hidden="true">☾</span><strong>Nd20N</strong></button>
             <button type="button" data-juego="dh" aria-pressed="false" title="Dungeon Hack"><span aria-hidden="true">◇</span><strong>DH</strong></button>
           </div>
           <select id="juego" name="juego" class="sr-only" tabindex="-1" aria-hidden="true">
             <option value="nd20">Naufragio d20 · Fantasía</option>
-            <option value="nd20_cifi">Naufragio d20 · CiFi</option>
-            <option value="nd20_nocturna">Naufragio d20 · Nocturna</option>
             <option value="dh">Dungeon Hack</option>
           </select>
         </div>
@@ -74,13 +71,23 @@
         </div>
         <div class="campo">
           <label id="etiqueta-ocupacion" for="ocupacion">Ocupación / Clase</label>
-          <div id="selector-visual-ocupacion" class="selector-visual" role="group" aria-labelledby="etiqueta-ocupacion" hidden></div>
+          <button type="button" id="abrir-selector-ocupacion" class="abrir-rejilla" aria-haspopup="dialog" aria-controls="dialogo-ocupacion"><span class="simbolo-rejilla" aria-hidden="true">▦</span><span id="valor-elegido-ocupacion">Aleatoria</span><span class="flecha-rejilla" aria-hidden="true">▾</span></button>
           <select id="ocupacion" name="ocupacion"><option value="">Aleatoria</option></select>
+          <dialog id="dialogo-ocupacion" class="dialogo-eleccion" aria-labelledby="titulo-dialogo-ocupacion">
+            <div class="cabecera-dialogo-eleccion"><h3 id="titulo-dialogo-ocupacion">Elegir Ocupación / Clase</h3><button type="button" data-cerrar-selector="ocupacion" class="cerrar-rejilla" aria-label="Cerrar selección">✕</button></div>
+            <p class="leyenda-dialogo-eleccion" data-i18n="selector.indicacion">Elige una casilla; «Aleatoria» lo deja al generador.</p>
+            <div id="selector-visual-ocupacion" class="selector-visual" role="group" aria-labelledby="titulo-dialogo-ocupacion"></div>
+          </dialog>
         </div>
         <div class="campo">
           <label id="etiqueta-especie" for="especie">Especie</label>
-          <div id="selector-visual-especie" class="selector-visual" role="group" aria-labelledby="etiqueta-especie" hidden></div>
+          <button type="button" id="abrir-selector-especie" class="abrir-rejilla" aria-haspopup="dialog" aria-controls="dialogo-especie"><span class="simbolo-rejilla" aria-hidden="true">▦</span><span id="valor-elegido-especie">Aleatoria</span><span class="flecha-rejilla" aria-hidden="true">▾</span></button>
           <select id="especie" name="especie"><option value="">Aleatoria</option></select>
+          <dialog id="dialogo-especie" class="dialogo-eleccion" aria-labelledby="titulo-dialogo-especie">
+            <div class="cabecera-dialogo-eleccion"><h3 id="titulo-dialogo-especie">Elegir Especie</h3><button type="button" data-cerrar-selector="especie" class="cerrar-rejilla" aria-label="Cerrar selección">✕</button></div>
+            <p class="leyenda-dialogo-eleccion" data-i18n="selector.indicacion">Elige una casilla; «Aleatoria» lo deja al generador.</p>
+            <div id="selector-visual-especie" class="selector-visual" role="group" aria-labelledby="titulo-dialogo-especie"></div>
+          </dialog>
         </div>
         <fieldset id="opciones-dh" hidden>
           <legend>Opciones de Dungeon Hack</legend>
@@ -90,8 +97,7 @@
         </fieldset>
         <fieldset id="opciones-fuentes" hidden>
           <legend>Fuentes permitidas · Naufragio d20</legend>
-          <p class="ayuda">Las fuentes marcadas determinan qué Ocupaciones y Especies entran en la generación.</p>
-          <p class="ayuda" id="aviso-alcance-drs" hidden>Edición básica en desarrollo: solo contenido del DRS. Las Especies, Ocupaciones y Conjuros ampliados se publicarán después como DLC gratuitos, tras su revisión.</p>
+          <p class="ayuda" id="aviso-alcance-drs" hidden>Solo DRS. Suplementos en revisión.</p>
           <div id="fuentes-nd20" class="origenes"></div>
         </fieldset>
         <div class="campo" id="opciones-sexo">
@@ -101,56 +107,48 @@
             <option value="femenino">Femenino</option>
             <option value="masculino">Masculino</option>
           </select>
-          <small>El nombre generado sigue la elección cuando existe un repertorio clasificado.</small>
         </div>
         <fieldset id="opciones-contexto-sexo">
           <legend>Coherencia narrativa de Ocupaciones</legend>
           <label class="casilla"><input id="respetar-contexto-sexo" type="checkbox" checked>
             Respetar el trasfondo femenino de ciertas Ocupaciones</label>
-          <small>Activado: Doncella de la Espada, Valquiria e Invocadora se generan en femenino.
-          Desactívalo para permitir personajes excepcionales. No es una prohibición mecánica del DRS.
-          Los varones Gerudo son posibles, aunque excepcionales.</small>
+          <small data-i18n="ayuda.coherencia">Respeta las excepciones narrativas documentadas, sin añadir restricciones mecánicas.</small>
         </fieldset>
         <div class="campo" id="opciones-nombres-ylat">
           <label for="modo-nombre">Nombres de Ylat</label>
           <select id="modo-nombre" name="modo-nombre">
-            <option value="historico">Banco histórico de nombres de Ylat (1422)</option>
-            <option value="combinado">Variantes inspiradas en Ylat (149)</option>
-            <option value="documentado">Personajes documentados (51)</option>
-            <option value="especie">Repertorio propio de la Especie</option>
+            <option value="historico">Históricos de Ylat</option>
+            <option value="combinado">Variantes de Ylat</option>
+            <option value="documentado">Personajes documentados</option>
+            <option value="especie">Según Especie</option>
           </select>
-          <small>Banco histórico autorizado: 1428 registros originales, 1422 formas únicas tras eliminar el sesgo de seis duplicados. Son propuestas sin atribución documental de sexo, Especie, cultura ni linaje. Hay también 149 combinaciones inspiradas en Ylat; las 51 identidades de personajes documentados se reservan a revisión editorial.</small>
+          <small data-i18n="ayuda.nombresYlat">Los nombres sugeridos no determinan el origen ni la historia del personaje.</small>
         </div>
         <div class="campo" id="opciones-ambito-nombre">
-          <label for="ambito-nombre">Corpus de referencia de Ylat</label>
+          <label for="ambito-nombre">Origen de las variantes</label>
           <select id="ambito-nombre" name="ambito-nombre">
-            <option value="todos">Todo el corpus (149 combinaciones)</option>
-            <option value="Niguace">Documentos de Niguace (116 combinaciones)</option>
-            <option value="Isla Tormenta">Relato de Isla Tormenta (33 combinaciones)</option>
+            <option value="todos">Todos</option>
+            <option value="Niguace">Niguace</option>
+            <option value="Isla Tormenta">Isla Tormenta</option>
           </select>
-          <small>Este filtro indica en qué documentos se basan las combinaciones; no es el lugar de nacimiento ni la cultura del personaje. No implica pertenencia a una Especie ni carácter canónico.</small>
         </div>
         <div class="campo">
           <label for="nombre-personaje">Nombre del personaje (opcional)</label>
           <input id="nombre-personaje" name="nombre-personaje" type="text" maxlength="90" placeholder="Si quieres elegirlo tú">
-          <small>Para especies sin un repertorio de nombres documentado, puedes introducir uno aquí.</small>
         </div>
         <div class="campo">
           <label for="semilla">Semilla opcional</label>
           <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Para repetir resultados">
-          <small>Con la misma semilla y configuración obtendrás los mismos personajes.</small>
         </div>
         <fieldset id="modos-creacion">
           <legend>Modo de creación · Naufragio d20</legend>
           <label class="casilla"><input type="radio" name="modo-creacion" value="rapido" checked> <strong>Rápido:</strong> elecciones automáticas reglamentarias</label>
           <label class="casilla"><input type="radio" name="modo-creacion" value="personalizado"> <strong>Personalizado:</strong> elegir Talentos y Poderes paso a paso</label>
-          <small>Las progresiones pendientes de validar se señalan; nunca se asignan Poderes inventados. El Psion tira 1d20 en ambos modos.</small>
         </fieldset>
         <fieldset id="opciones-riqueza-nivel">
           <legend>Riqueza adicional (opcional)</legend>
           <label class="casilla"><input type="checkbox" id="riqueza-por-nivel">
             Sumar 4d10 mo/cr por cada Nivel ganado después del primero</label>
-          <small>Se añade al capital inicial. Equipo aleatorio y comprado; no se concede equipo básico gratuito. No se aplica a Nocturna ni a Dungeon Hack.</small>
         </fieldset>
         <div class="campo">
           <label for="cantidad">Cuántas fichas</label>
