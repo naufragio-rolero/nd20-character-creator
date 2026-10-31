@@ -168,10 +168,10 @@ assert.ok(!html.includes('value="documentado"'),
 assert.ok(!html.includes('Personajes documentados (51)'),
   'No mostrar los 51 nombres de PNJ en el selector público');
 assert.ok(html.includes('id="ambito-nombre"'));
-assert.ok(html.includes('Documentos de Niguace (116 combinaciones)'));
-assert.ok(html.includes('Relato de Isla Tormenta (33 combinaciones)'));
-assert.ok(html.includes('Corpus de referencia de Ylat'));
-assert.ok(html.includes('no es el lugar de nacimiento ni la cultura del personaje'));
+assert.ok(html.includes('<option value="Niguace">Niguace</option>'));
+assert.ok(html.includes('<option value="Isla Tormenta">Isla Tormenta</option>'));
+assert.ok(html.includes('Origen de las variantes'));
+assert.ok(html.includes('Los nombres sugeridos no determinan el origen ni la historia del personaje.'));
 assert.ok(!html.includes('Procedencia del nombre de Ylat'),
   'No presentar agrupaciones documentales como culturas de nacimiento');
 const rutaData=path.join(salida,'data');
