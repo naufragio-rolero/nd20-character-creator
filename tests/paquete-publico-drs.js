@@ -186,6 +186,25 @@ try{
     {encoding:'utf8'});
   assert.equal(repetido.status,1,'Un duplicado invalida el paquete');
   assert.match(repetido.stderr,/Ficha duplicada del DRS/);
+  // Tampoco se puede publicar una identidad documental entre los nombres
+  // propuestos o sustituir arbitrariamente uno de los 149 autorizados.
+  const archivoYlat=path.join(temporal,'data','tesauro-ylat.json');
+  const originalYlat=fs.readFileSync(archivoYlat,'utf8');
+  const colado=JSON.parse(originalYlat);
+  colado.entradas.push(documentados[0]);
+  fs.writeFileSync(archivoYlat,JSON.stringify(colado));
+  const publicoColado=spawnSync(process.execPath,[scriptGuardia,temporal],
+    {encoding:'utf8'});
+  assert.equal(publicoColado.status,1,'Un PNJ documentado invalida el paquete');
+  assert.match(publicoColado.stderr,/nombres de personajes documentados/);
+  fs.writeFileSync(archivoYlat,originalYlat);
+  const cambiado=JSON.parse(originalYlat);
+  cambiado.entradas[0].nombre='Nombre inventado no aprobado';
+  fs.writeFileSync(archivoYlat,JSON.stringify(cambiado));
+  const nombreDistinto=spawnSync(process.execPath,[scriptGuardia,temporal],
+    {encoding:'utf8'});
+  assert.equal(nombreDistinto.status,1,'Un cambio no autorizado en nombres invalida el paquete');
+  assert.match(nombreDistinto.stderr,/149 combinaciones originales autorizadas/);
 }finally{
   fs.rmSync(temporal,{recursive:true,force:true});
 }
