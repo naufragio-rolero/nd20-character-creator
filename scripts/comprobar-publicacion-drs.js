@@ -45,6 +45,19 @@ for(const ruta of requeridos)
   if(!fs.existsSync(path.join(raiz,ruta)))
     alertas.push('Falta archivo requerido por el arranque de Forja: '+ruta+
       '. No declarar publicable un paquete incompleto.');
+// El lanzamiento público habilita exclusivamente Fantasía DRS y Dungeon Hack.
+// No basta ocultar botones por CSS: tampoco deben existir opciones nativas.
+const indexHtml=fs.existsSync(path.join(raiz,'index.html'))?
+  fs.readFileSync(path.join(raiz,'index.html'),'utf8'):'';
+if(indexHtml){
+  const botones=[...indexHtml.matchAll(/data-juego="([^"]+)"/g)].map(m=>m[1]);
+  const opciones=[...indexHtml.matchAll(/<option value="(nd20(?:_cifi|_nocturna)?|dh)">/g)]
+    .map(m=>m[1]);
+  afirmar(JSON.stringify(botones)!==JSON.stringify(['nd20','dh']),
+    'La selección pública debe mostrar únicamente Fantasía DRS y Dungeon Hack.');
+  afirmar(JSON.stringify(opciones)!==JSON.stringify(['nd20','dh']),
+    'La selección nativa pública no debe ofrecer CiFi ni Nocturna.');
+}
 const extras=dato('data/catalogo-ampliado.json');
 if(extras){
   const especies=Object.keys(extras.fantasia?.especies||{});
