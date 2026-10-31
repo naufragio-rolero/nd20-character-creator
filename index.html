@@ -73,11 +73,13 @@
           <input id="nivel" name="nivel" type="number" value="1" min="1" max="30" step="1" required>
         </div>
         <div class="campo">
-          <label for="ocupacion">Ocupación / Clase</label>
+          <label id="etiqueta-ocupacion" for="ocupacion">Ocupación / Clase</label>
+          <div id="selector-visual-ocupacion" class="selector-visual" role="group" aria-labelledby="etiqueta-ocupacion" hidden></div>
           <select id="ocupacion" name="ocupacion"><option value="">Aleatoria</option></select>
         </div>
         <div class="campo">
-          <label for="especie">Especie</label>
+          <label id="etiqueta-especie" for="especie">Especie</label>
+          <div id="selector-visual-especie" class="selector-visual" role="group" aria-labelledby="etiqueta-especie" hidden></div>
           <select id="especie" name="especie"><option value="">Aleatoria</option></select>
         </div>
         <fieldset id="opciones-dh" hidden>
@@ -154,6 +156,14 @@
           <label for="cantidad">Cuántas fichas</label>
           <input id="cantidad" type="number" min="1" max="12" value="1" required>
         </div>
+        <details id="configuracion-avanzada" class="configuracion-avanzada">
+          <summary>Configuración avanzada</summary>
+          <label class="casilla" for="informacion-avanzada">
+            <input id="informacion-avanzada" type="checkbox">
+            Mostrar información avanzada de Poderes y Talentos
+          </label>
+          <small>Por defecto, las fichas emergentes muestran el efecto y la fuente. Los metadatos, las magnitudes y las condiciones técnicas se pueden desplegar cuando hagan falta.</small>
+        </details>
         <button class="principal" id="generar" type="submit" disabled>Generar personajes</button>
       </form>
       </div>
@@ -230,5 +240,7 @@
       <footer class="pie">Creado para la mesa de juego. Datos y reglas originales de sus respectivos proyectos. <a href="https://naufragio.net/" target="_blank" rel="noopener noreferrer">El Naufragio</a>.</footer>
     </section>
   </main>
+  <button id="generar-flotante" class="generar-flotante" type="button" disabled hidden
+    aria-controls="configuracion">Generar personaje <span aria-hidden="true">↗</span></button>
 </body>
 </html>
