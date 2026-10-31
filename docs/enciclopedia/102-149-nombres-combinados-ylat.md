@@ -1,5 +1,7 @@
 # Forja 1.0 — 149 nombres combinados de Ylat autorizados para la distribución DRS
 
+> **Corrección de interpretación documental (31/10/2026):** tras consultar los tres PDF de la Biblioteca exacta **/Ylat**, se confirma que «Niguace» e «Isla Tormenta» son **corpus narrativos de referencia, no procedencias culturales**. Sus personajes vienen de Piave, Gadir, Qelasthavia, Fanghis, Aermont, etc. El selector se ha renombrado **«Corpus de referencia de Ylat»** sin cambiar los 149 nombres. Véase [informe 103](103-auditoria-onomastica-biblioteca-ylat.md). Las expresiones anteriores de «procedencia» describen el estado histórico y no deben interpretarse como cultura u origen del personaje.
+
 **Fecha:** 31/10/2026 · **PR #4:** borrador, sin fusionar ni desplegar.  
 **Decisión del autor:** incorporar **149 nombres combinados** y **no incluir los 51 nombres documentados de personajes** como opciones de generación en el paquete público.  
 **Fuente:** `data/tesauro-ylat.json` del repositorio de trabajo, elaborado a partir de documentos seleccionados de Ylat. Véanse [informe 100](100-paquete-publico-drs-candidato.md) e [informe 101](101-fidelidad-literal-64-conjuros-drs.md).
