@@ -865,6 +865,9 @@ for(const ocupacion of ['Guerrero','Ladrón']){
   assert.ok(gratuito.equipo.includes('Dardo'),'Arma gratis se puede comprar con 0 mo');
   assert.equal(gratuito.gastado,0);
   assert.equal(gratuito.restante,0);
+  assert.ok(gratuito.notas.some(x=>x.includes('sin munición comprada')&&
+    x.includes('Dardo')&&x.includes('Dardos')),
+    'Dardo gratuito no implica munición gratuita: debe avisar');
 }
 for(const ocupacion of ['Mago','Clérigo']){
   assert.ok(!ocupaciones[ocupacion].armas.includes('Dardo'),
