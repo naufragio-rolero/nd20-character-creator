@@ -87,11 +87,29 @@ En la raíz actual este comando **debe fallar** y explicar los catálogos
 expuestos. Se puede ejecutar con `--report` para inventariar las alertas
 sin bloquear otras pruebas; eso **no certifica** que la carpeta sea publicable.
 
-Para desbloquear la versión pública hará falta un paquete estático
-preparado específicamente para el núcleo DRS, retirando de **todos los
-JSON servidos** el material fantástico no publicado y asegurando que la
-aplicación funcione sin consultarlo. Ese paquete requerirá pruebas E2E y
-revisión editorial. **No se ha desplegado ni habilitado Pages.**
+Ya existe un **primer paquete candidato**, generado mediante una lista
+blanca sin eliminar nada del repositorio de trabajo:
+
+    node scripts/crear-paquete-drs.js
+    node scripts/comprobar-publicacion-drs.js dist/public-drs
+    node tests/paquete-publico-drs.js
+
+La salida se guarda en `dist/public-drs/`; **no es un despliegue** ni
+una autorización para habilitar Pages. El workflow
+`paquete-publico-drs.yml` prueba exactamente esos archivos en **Chrome,
+Firefox y WebKit** y adjunta el paquete candidato como artefacto de
+GitHub Actions durante siete días cuando supera las pruebas.
+
+Para esta distribución conservadora se dejan fuera los **nombres
+documentales de Ylat**, procedentes de archivos de ambientación ajenos
+al DRS; el nombre manual y el repertorio de la Especie permanecen.
+Las fichas adicionales procedentes del Tomo de Magia se filtran por los
+64 identificadores de Conjuros DRS, pero antes del lanzamiento debe
+confirmarse editorialmente que su redacción coincide con el manual
+básico, o sustituirlas por las fichas literales DRS.
+
+**No se ha desplegado ni habilitado Pages.** Véase
+`docs/enciclopedia/100-paquete-publico-drs-candidato.md`.
 
 Dirección prevista cuando se autorice la publicación:
 https://naufragio-rolero.github.io/nd20-character-creator/
