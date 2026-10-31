@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "fecha": "2026-10-30",
   "estado": "subconjunto_mecanico_parcial_cotejado_sin_mutar_personajes",
   "alcance": "Magnitudes explícitas sin Tiradas ni redondeos inferidos; datos de daño por Turno o por Nivel expresados, no ejecutados",
@@ -1116,6 +1116,858 @@
           "tipo": "por_nivel",
           "valor": 1,
           "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-199",
+      "numero_tomo": 1,
+      "nombre_tomo": "Acelerar",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 acción adicional",
+      "disparador_y_limites": "Una sola aceleración por objetivo; acción extra de atacar o moverse.",
+      "magnitudes": [
+        {
+          "clave": "acciones_extra_turno",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "acción"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_cada_n_niveles",
+          "valor": [
+            1,
+            2
+          ],
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "movimiento_fuera_combate_factor",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "multiplicador"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-0",
+      "numero_tomo": 3,
+      "nombre_tomo": "Aguijón impío",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 de daño por veneno e impío",
+      "disparador_y_limites": "Solo con Tirada de Conjuro superada; ambos tipos simultáneos.",
+      "magnitudes": [
+        {
+          "clave": "danio_veneno_impio",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Daño mixto"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-375",
+      "numero_tomo": 6,
+      "nombre_tomo": "Albor de la vida",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Lanzamiento: 4 Turnos",
+      "disparador_y_limites": "Durante el parto; probabilidad solo ante condiciones mágicas o enfermedades.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "duracion_horas",
+          "tipo": "constante",
+          "valor": 8,
+          "unidad": "horas"
+        },
+        {
+          "clave": "umbral_probabilidad",
+          "tipo": "constante",
+          "valor": 10,
+          "unidad": "Probabilidad 10+"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-147",
+      "numero_tomo": 7,
+      "nombre_tomo": "Aliento de agonía",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d6 puntos de daño por frío e impío",
+      "disparador_y_limites": "Un grupo de daño con los dos tipos simultáneos.",
+      "magnitudes": [
+        {
+          "clave": "danio_frio_impio",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Daño frío e impío"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-272",
+      "numero_tomo": 8,
+      "nombre_tomo": "Aliento de Lenseng",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "10 Turnos por Nivel",
+      "disparador_y_limites": "Permite respirar bajo el agua, impide respirar aire normalmente.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 10,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-369",
+      "numero_tomo": 9,
+      "nombre_tomo": "Alivio pasajero",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d8 horas",
+      "disparador_y_limites": "Alivia síntomas, no cura enfermedades.",
+      "magnitudes": [
+        {
+          "clave": "duracion_horas",
+          "tipo": "dado_literal",
+          "valor": "1d8",
+          "unidad": "horas"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-128",
+      "numero_tomo": 11,
+      "nombre_tomo": "Alzar brezo espinoso",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "un Brezo espinoso a tu servicio",
+      "disparador_y_limites": "Brezo autónomo, solo uno activo.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "maximo_brezos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Brezo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-374",
+      "numero_tomo": 13,
+      "nombre_tomo": "Alzar esqueleto secuaz",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "mitad de tu Nivel (mínimo 1)",
+      "disparador_y_limites": "La mitad se redondea hacia abajo, mínimo 1.",
+      "magnitudes": [
+        {
+          "clave": "maximo_esqueletos",
+          "tipo": "por_cada_n_niveles",
+          "valor": [
+            1,
+            2,
+            1
+          ],
+          "unidad": "Esqueletos"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-174",
+      "numero_tomo": 14,
+      "nombre_tomo": "Alzar goblin de lodo",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "un Goblin de lodo a tu servicio",
+      "disparador_y_limites": "Comparte Iniciativa y desaparece al llegar a Salud cero o agotarse duración.",
+      "magnitudes": [
+        {
+          "clave": "maximo_goblins",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Goblin"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-90",
+      "numero_tomo": 15,
+      "nombre_tomo": "Alzar gólem de carne",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d10 de daño por Nivel",
+      "disparador_y_limites": "La explosión voluntaria exige gasto de Esfuerzo; un Gólem activo.",
+      "magnitudes": [
+        {
+          "clave": "danio_explosion",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            10
+          ],
+          "unidad": "Daño"
+        },
+        {
+          "clave": "esfuerzo_explosion",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Punto de Esfuerzo"
+        },
+        {
+          "clave": "radio_explosion_m",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "metros"
+        },
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-430",
+      "numero_tomo": 16,
+      "nombre_tomo": "Alzar gólem de sangre",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "un Gólem de sangre a tu servicio",
+      "disparador_y_limites": "Solo un Gólem de sangre; no inventar coste numérico del sacrificio.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        },
+        {
+          "clave": "maximo_golems",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Gólem"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-22",
+      "numero_tomo": 17,
+      "nombre_tomo": "Alzar hombre corrupto",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d4 Intervalos",
+      "disparador_y_limites": "Necesita cuerpo de criatura malvada; se levanta en siguiente Turno.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Intervalos"
+        },
+        {
+          "clave": "maximo_hombres_corruptos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Hombre corrupto"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-42",
+      "numero_tomo": 18,
+      "nombre_tomo": "Alzar maldito",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d4 Intervalos",
+      "disparador_y_limites": "Necesita cuerpo de criatura malvada; se levanta en siguiente Turno.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Intervalos"
+        },
+        {
+          "clave": "maximo_malditos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Maldito"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-411",
+      "numero_tomo": 19,
+      "nombre_tomo": "Alzar treante",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d4 treantes animados",
+      "disparador_y_limites": "Requiere bastón de madera; máximo cuatro treantes.",
+      "magnitudes": [
+        {
+          "clave": "treantes_convocados",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Treantes"
+        },
+        {
+          "clave": "maximo_treantes",
+          "tipo": "constante",
+          "valor": 4,
+          "unidad": "Treantes"
+        },
+        {
+          "clave": "duracion_horas",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "horas"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-12",
+      "numero_tomo": 20,
+      "nombre_tomo": "Amistad animal",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d4 Intervalos",
+      "disparador_y_limites": "Bestia hostil requiere Tirada; no forzar órdenes peligrosas.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-156",
+      "numero_tomo": 22,
+      "nombre_tomo": "Ancla sombría",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d8 de daño impío por Nivel",
+      "disparador_y_limites": "Tirada de Conjuro exigida; daño en primer Turno, una Ancla activa.",
+      "magnitudes": [
+        {
+          "clave": "danio_impio",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            8
+          ],
+          "unidad": "Daño"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "anclas_activas",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Ancla"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-379",
+      "numero_tomo": 24,
+      "nombre_tomo": "Apagallamas",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "15m2",
+      "disparador_y_limites": "Fuego ordinario se extingue; magia requiere Tirada para disipar.",
+      "magnitudes": [
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 15,
+          "unidad": "m²"
+        },
+        {
+          "clave": "danio_criaturas_fuego",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            4
+          ],
+          "unidad": "Daño"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-24",
+      "numero_tomo": 30,
+      "nombre_tomo": "Armadura de maná",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "+1d4 Blindaje",
+      "disparador_y_limites": "Bonificación aleatoria, no valor fijo.",
+      "magnitudes": [
+        {
+          "clave": "bono_blindaje",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Blindaje"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-137",
+      "numero_tomo": 31,
+      "nombre_tomo": "Armadura ígnea",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "daño por fuego equivalente a tu Nivel",
+      "disparador_y_limites": "Solo al recibir ataques cuerpo a cuerpo.",
+      "magnitudes": [
+        {
+          "clave": "danio_reflejado_fuego",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Daño"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-236",
+      "numero_tomo": 34,
+      "nombre_tomo": "Atormentar",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 Turnos",
+      "disparador_y_limites": "Prohibición de repetir Acción solo tras Tirada exitosa.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-170",
+      "numero_tomo": 37,
+      "nombre_tomo": "Aura de espinas",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "+1 al daño",
+      "disparador_y_limites": "Daño reflejado solo si el aliado afectado recibe daño cuerpo a cuerpo; no reducible.",
+      "magnitudes": [
+        {
+          "clave": "bono_danio_cac",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Daño"
+        },
+        {
+          "clave": "danio_reflejado",
+          "tipo": "dado_literal",
+          "valor": "1d10",
+          "unidad": "Daño perforante"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-25",
+      "numero_tomo": 39,
+      "nombre_tomo": "Aura de pestilencia",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d8 puntos de daño por veneno",
+      "disparador_y_limites": "Solo criaturas vivas que terminan Turno adyacentes.",
+      "magnitudes": [
+        {
+          "clave": "danio_veneno",
+          "tipo": "dado_literal",
+          "valor": "2d8",
+          "unidad": "Daño"
+        },
+        {
+          "clave": "adyacencia_max_m",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-153",
+      "numero_tomo": 50,
+      "nombre_tomo": "Bendecir el cuerpo",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 Puntos de Salud adicionales",
+      "disparador_y_limites": "Añadido a curación de Conjuros, objetos mágicos o habilidades.",
+      "magnitudes": [
+        {
+          "clave": "curacion_extra",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Salud"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-26",
+      "numero_tomo": 53,
+      "nombre_tomo": "Bola de fuego",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 de daño fuego por Nivel",
+      "disparador_y_limites": "Tirada exitosa causa daño entero; falla mitad, no resolver automáticamente.",
+      "magnitudes": [
+        {
+          "clave": "danio_fuego",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            6
+          ],
+          "unidad": "Daño"
+        },
+        {
+          "clave": "radio_m",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-99",
+      "numero_tomo": 54,
+      "nombre_tomo": "Bomba ácida",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 de daño ácido por Nivel",
+      "disparador_y_limites": "Detona al concluir duración o antes si es golpeada.",
+      "magnitudes": [
+        {
+          "clave": "danio_acido",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            6
+          ],
+          "unidad": "Daño"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "radio_m",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-245",
+      "numero_tomo": 56,
+      "nombre_tomo": "Bravura",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Salud máxima aumenta en 1d6",
+      "disparador_y_limites": "El aumento y la curación emplean la misma cantidad, no tirar dos veces.",
+      "magnitudes": [
+        {
+          "clave": "salud_maxima_extra",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Salud"
+        },
+        {
+          "clave": "curacion_misma_tirada",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Misma tirada"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-65",
+      "numero_tomo": 57,
+      "nombre_tomo": "Burla cruel",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 de daño psíquico",
+      "disparador_y_limites": "Requiere Tirada de Conjuro superada.",
+      "magnitudes": [
+        {
+          "clave": "danio_psiquico",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Daño"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-390",
+      "numero_tomo": 58,
+      "nombre_tomo": "Cabaña acogedora de Tuliëlle",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2 horas por Nivel",
+      "disparador_y_limites": "Refugio sujeto a materiales; Sellar entrada, alarma y sirviente como se describen.",
+      "magnitudes": [
+        {
+          "clave": "duracion_horas",
+          "tipo": "por_nivel",
+          "valor": 2,
+          "unidad": "horas"
+        },
+        {
+          "clave": "superficie_m2",
+          "tipo": "constante",
+          "valor": 10,
+          "unidad": "m²"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-106",
+      "numero_tomo": 59,
+      "nombre_tomo": "Cadena de relámpagos",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d8 de daño de rayo por Nivel",
+      "disparador_y_limites": "Cada salto causa mitad del daño; no realizar divisiones ni Tiradas.",
+      "magnitudes": [
+        {
+          "clave": "danio_principal_rayo",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            8
+          ],
+          "unidad": "Daño"
+        },
+        {
+          "clave": "objetivos_adicionales",
+          "tipo": "dado_literal",
+          "valor": "1d4",
+          "unidad": "Objetivos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-396",
+      "numero_tomo": 62,
+      "nombre_tomo": "Controlar los vientos",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "un nivel por cada tres Niveles",
+      "disparador_y_limites": "Intensidad dentro de categorías de viento; el Cronista determina consecuencias.",
+      "magnitudes": [
+        {
+          "clave": "intensidad_cambio",
+          "tipo": "por_cada_n_niveles",
+          "valor": [
+            1,
+            3
+          ],
+          "unidad": "niveles de viento"
+        },
+        {
+          "clave": "diametro_esfera_m",
+          "tipo": "constante",
+          "valor": 30,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-56",
+      "numero_tomo": 73,
+      "nombre_tomo": "Cimitarra arcana",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d6 de daño cortante",
+      "disparador_y_limites": "El ataque usa Mente; Crítico 19 o 20 natural.",
+      "magnitudes": [
+        {
+          "clave": "danio_cortante",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Daño"
+        },
+        {
+          "clave": "ataques_adicionales",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Ataque"
+        },
+        {
+          "clave": "critico_natural_desde",
+          "tipo": "constante",
+          "valor": 19,
+          "unidad": "d20"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-66",
+      "numero_tomo": 75,
+      "nombre_tomo": "Coraza",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "+1 a Blindaje",
+      "disparador_y_limites": "Solo un objetivo durante 1 Intervalo.",
+      "magnitudes": [
+        {
+          "clave": "bono_blindaje",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Blindaje"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-133",
+      "numero_tomo": 79,
+      "nombre_tomo": "Caminar de los vientos",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "+1 Movimiento",
+      "disparador_y_limites": "No permite ignorar terreno difícil.",
+      "magnitudes": [
+        {
+          "clave": "bono_movimiento",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Movimiento"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-358",
+      "numero_tomo": 85,
+      "nombre_tomo": "Calma silvestre",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 minuto por Nivel",
+      "disparador_y_limites": "Bestias Nivel 3 o menos; criaturas excepcionales requieren Tirada.",
+      "magnitudes": [
+        {
+          "clave": "duracion_minutos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "minutos"
+        },
+        {
+          "clave": "nivel_bestia_auto",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "Nivel"
+        },
+        {
+          "clave": "area_m2",
+          "tipo": "constante",
+          "valor": 10,
+          "unidad": "m²"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-316",
+      "numero_tomo": 90,
+      "nombre_tomo": "Cúpula antimagia",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "superficie circular de 3 m²",
+      "disparador_y_limites": "Cúpula permanece fija en lugar de lanzamiento.",
+      "magnitudes": [
+        {
+          "clave": "superficie_m2",
+          "tipo": "constante",
+          "valor": 3,
+          "unidad": "m²"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
         }
       ]
     }
