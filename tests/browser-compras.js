@@ -183,6 +183,22 @@ async function main(){
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),2);
     assert.ok((await cdp.evalJS("document.querySelector('#compras-total').textContent"))
       .includes('4.03 mo'));
+    // Quitar una línea no debe borrar la compra ni tocar la ficha.
+    await cdp.evalJS("document.querySelectorAll('.compras-quitar-linea')[1].click()");
+    assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),1);
+    assert.ok((await cdp.evalJS("document.querySelector('#compras-total').textContent"))
+      .includes('4.00 mo'));
+    assert.equal(await cdp.evalJS("document.activeElement.classList.contains('compras-quitar-linea')"),true,
+      'Quitar una línea mantiene el foco dentro del carrito');
+    assert.equal(await cdp.evalJS("document.querySelectorAll('#fichas .tarjeta')[0].innerHTML"),
+      primera.html,'Editar el carrito no altera la ficha antes de confirmar');
+    await cdp.evalJS("(()=>{var s=document.querySelector('#compras-articulo');"+
+      "s.value='aventura-tiza';s.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "document.querySelector('#compras-cantidad').value='3';"+
+      "document.querySelector('#compras-anadir').click();})()");
+    assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),2);
+    assert.ok((await cdp.evalJS("document.querySelector('#compras-total').textContent"))
+      .includes('4.03 mo'));
     await cdp.evalJS("(()=>{var s=document.querySelector('#compras-articulo');"+
       "s.value='consumible-antidoto';s.dispatchEvent(new Event('change',{bubbles:true}));"+
       "document.querySelector('#compras-cantidad').value='1';"+
