@@ -26,7 +26,7 @@ function afirmar(condicion,mensaje){
 // Evitar el falso positivo de una carpeta «segura» porque solo contiene
 // index.html y faltan todos los archivos que la aplicación necesita cargar.
 const requeridos=[
-  'index.html','assets/styles.css','assets/equipment.js','assets/sex.js',
+  'index.html','assets/styles.css','assets/icons-forja.svg','assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/favicon.svg',
   'data/especies.json','data/ocupaciones.json',
