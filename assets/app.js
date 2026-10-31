@@ -699,6 +699,13 @@
         personaje.saldo_mo=compra.restante;
         personaje.riqueza=compra.restante+' mo restantes / '+
           personaje.capital_inicial_mo+' mo iniciales';
+        // Conservar el apunte de la compra inicial como histórico: su
+        // saldo no debe confundirse con el saldo actual tras comprar útiles.
+        personaje.notas=personaje.notas.map(function(n){
+          return n.startsWith('Equipo DRS adquirido por ')?
+            n.replace('Equipo DRS adquirido por ','Equipo DRS inicial adquirido por ')
+              .replace('; saldo ','; saldo tras creación '):n;
+        });
         personaje.notas.push('Compra adicional de útiles: '+compra.gastado+
           ' mo; saldo actual '+compra.restante+' mo.');
         cerrarCompra();
