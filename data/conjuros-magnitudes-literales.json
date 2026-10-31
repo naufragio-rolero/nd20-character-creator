@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "fecha": "2026-10-30",
   "estado": "subconjunto_mecanico_parcial_cotejado_sin_mutar_personajes",
   "alcance": "Magnitudes explícitas sin Tiradas ni redondeos inferidos; datos de daño por Turno o por Nivel expresados, no ejecutados",
@@ -2444,7 +2444,488 @@
           "unidad": "Blindaje"
         }
       ]
+    },
+    {
+      "id_catalogo": "conjuro-7",
+      "numero_tomo": 101,
+      "nombre_tomo": "Dormir",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "reserva de 5d10 Puntos Oníricos",
+      "disparador_y_limites": "Solo duerme a criaturas si los Puntos Oníricos cubren todos los Puntos de Salud actuales.",
+      "magnitudes": [
+        {
+          "clave": "puntos_oniricos",
+          "tipo": "dado_literal",
+          "valor": "5d10",
+          "unidad": "Puntos Oníricos"
+        },
+        {
+          "clave": "alcance_m",
+          "tipo": "base_mas_por_cada_n_niveles",
+          "valor": [
+            10,
+            2,
+            1
+          ],
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-114",
+      "numero_tomo": 102,
+      "nombre_tomo": "Dardo de penumbra",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 de daño impío",
+      "disparador_y_limites": "Requiere éxito en Tirada de Conjuro; Ceguera además Probabilidad 10+.",
+      "magnitudes": [
+        {
+          "clave": "danio_impio",
+          "tipo": "dado_literal",
+          "valor": "1d6",
+          "unidad": "Daño impío"
+        },
+        {
+          "clave": "umbral_ceguera",
+          "tipo": "constante",
+          "valor": 10,
+          "unidad": "Probabilidad 10+"
+        },
+        {
+          "clave": "duracion_ceguera_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d2",
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-101",
+      "numero_tomo": 104,
+      "nombre_tomo": "Detonación cadavérica",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d4 de daño contundente e impío por Nivel",
+      "disparador_y_limites": "Cadáver de criatura viva requerido; ambos tipos de daño simultáneos.",
+      "magnitudes": [
+        {
+          "clave": "danio_contundente_impio",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            1,
+            4
+          ],
+          "unidad": "Daño dual"
+        },
+        {
+          "clave": "radio_m",
+          "tipo": "constante",
+          "valor": 6,
+          "unidad": "metros"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-188",
+      "numero_tomo": 106,
+      "nombre_tomo": "Destello aural",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 de daño mágico por cada 2 de tus Niveles",
+      "disparador_y_limites": "Ignora resistencia e inmunidad; se cuentan bloques completos de 2 Niveles.",
+      "magnitudes": [
+        {
+          "clave": "danio_magico",
+          "tipo": "dados_por_bloques",
+          "valor": [
+            1,
+            6,
+            2
+          ],
+          "unidad": "Daño mágico"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-209",
+      "numero_tomo": 107,
+      "nombre_tomo": "Deseo",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Lanzamiento: 2d6 Intervalos",
+      "disparador_y_limites": "El Cronista determina sacrificios y consecuencias, que no se automatizan.",
+      "magnitudes": [
+        {
+          "clave": "lanzamiento_intervalos",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-246",
+      "numero_tomo": 114,
+      "nombre_tomo": "Destello de Kaeduin",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d6 +1 Turnos",
+      "disparador_y_limites": "Ceguera e iluminación son modalidades distintas; Ceguera requiere Tirada.",
+      "magnitudes": [
+        {
+          "clave": "duracion_ceguera_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d6+1",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "duracion_luz_dias",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "día"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-269",
+      "numero_tomo": 117,
+      "nombre_tomo": "Descarga ardiente",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d8 de daño por fuego por cada 4 de tus Niveles",
+      "disparador_y_limites": "Daño completo si Tirada de Conjuro exitosa, mitad si falla. No inventar mínimo.",
+      "magnitudes": [
+        {
+          "clave": "danio_fuego",
+          "tipo": "dados_por_bloques",
+          "valor": [
+            1,
+            8,
+            4
+          ],
+          "unidad": "Daño fuego"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-355",
+      "numero_tomo": 127,
+      "nombre_tomo": "Detención temporal",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Duración: 1d4 +2 Turnos",
+      "disparador_y_limites": "Tiempo detenido salvo para lanzador. Repetición puede atraer cronófagos.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d4+2",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "lanzamiento_turnos",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-34",
+      "numero_tomo": 151,
+      "nombre_tomo": "Espejo de sombras",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Probabilidad 11+ de fallar",
+      "disparador_y_limites": "El umbral aumenta si la ilusión provoca fallar un ataque, no tras cualquier fallo.",
+      "magnitudes": [
+        {
+          "clave": "duracion_turnos",
+          "tipo": "dado_literal",
+          "valor": "1d8",
+          "unidad": "Turnos"
+        },
+        {
+          "clave": "umbral_inicial",
+          "tipo": "constante",
+          "valor": 11,
+          "unidad": "Probabilidad 11+"
+        },
+        {
+          "clave": "incremento_umbral",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "punto"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-277",
+      "numero_tomo": 155,
+      "nombre_tomo": "Espía de la Urdimbre",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "Movimiento de 5 por Turno",
+      "disparador_y_limites": "No atraviesa muros. Comparte visión y pasa por rejas y aberturas.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        },
+        {
+          "clave": "movimiento_turno",
+          "tipo": "constante",
+          "valor": 5,
+          "unidad": "Movimiento"
+        },
+        {
+          "clave": "vision_oscuridad_m",
+          "tipo": "constante",
+          "valor": 20,
+          "unidad": "metros"
+        },
+        {
+          "clave": "altura_aproximada_cm",
+          "tipo": "constante",
+          "valor": 25,
+          "unidad": "cm aproximados"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-92",
+      "numero_tomo": 157,
+      "nombre_tomo": "Estallido de escarcha",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "4d10 puntos de daño por frío",
+      "disparador_y_limites": "Tirada superada: daño entero, fallo: mitad. No se calculan impactos.",
+      "magnitudes": [
+        {
+          "clave": "danio_frio",
+          "tipo": "dado_literal",
+          "valor": "4d10",
+          "unidad": "Daño frío"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-163",
+      "numero_tomo": 159,
+      "nombre_tomo": "Exhalación de la tumba",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d6 puntos de daño por veneno y ácido",
+      "disparador_y_limites": "Necesita cadáver. Enfermedad exige Tirada exitosa; daño de ambos tipos simultáneos.",
+      "magnitudes": [
+        {
+          "clave": "danio_veneno_acido",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Daño dual"
+        },
+        {
+          "clave": "radio_m",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-83",
+      "numero_tomo": 160,
+      "nombre_tomo": "Fantasmas aullantes",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1d4 puntos de daño psíquico y contundente por cada 2 de tus Niveles",
+      "disparador_y_limites": "Se activa ante criatura hostil percibida; un grupo de dados de dos tipos.",
+      "magnitudes": [
+        {
+          "clave": "danio_psiquico_contundente",
+          "tipo": "dados_por_bloques",
+          "valor": [
+            1,
+            4,
+            2
+          ],
+          "unidad": "Daño dual"
+        },
+        {
+          "clave": "radio_m",
+          "tipo": "constante",
+          "valor": 5,
+          "unidad": "metros"
+        },
+        {
+          "clave": "alejamiento_disipacion_m",
+          "tipo": "constante",
+          "valor": 20,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-206",
+      "numero_tomo": 162,
+      "nombre_tomo": "Floración cinérea",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "30d6 de daño por fuego",
+      "disparador_y_limites": "El objetivo y criaturas próximas sufren cantidades diferentes. Detonación anticipada requiere Tirada.",
+      "magnitudes": [
+        {
+          "clave": "danio_objetivo",
+          "tipo": "dado_literal",
+          "valor": "30d6",
+          "unidad": "Daño fuego"
+        },
+        {
+          "clave": "danio_cercanos",
+          "tipo": "dado_literal",
+          "valor": "10d6",
+          "unidad": "Daño fuego"
+        },
+        {
+          "clave": "radio_m",
+          "tipo": "constante",
+          "valor": 8,
+          "unidad": "metros"
+        },
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "constante",
+          "valor": 1,
+          "unidad": "Intervalo"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-223",
+      "numero_tomo": 166,
+      "nombre_tomo": "Fuego feérico",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "bonificación +2 a cualquier ataque",
+      "disparador_y_limites": "La bonificación favorece ataques contra criaturas afectadas; no altera su defensa permanentemente.",
+      "magnitudes": [
+        {
+          "clave": "bono_ataque",
+          "tipo": "constante",
+          "valor": 2,
+          "unidad": "Tiradas de ataque"
+        },
+        {
+          "clave": "maximo_criaturas",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "criaturas"
+        },
+        {
+          "clave": "duracion_turnos",
+          "tipo": "por_nivel",
+          "valor": 2,
+          "unidad": "Turnos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-17",
+      "numero_tomo": 167,
+      "nombre_tomo": "Fuego lunar",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "causándole 1d8 de daño mágico",
+      "disparador_y_limites": "Modalidades según día o noche, nunca sumar ambos.",
+      "magnitudes": [
+        {
+          "clave": "danio_normal",
+          "tipo": "dado_literal",
+          "valor": "1d8",
+          "unidad": "Daño mágico"
+        },
+        {
+          "clave": "danio_noche",
+          "tipo": "dado_literal",
+          "valor": "2d6",
+          "unidad": "Daño mágico"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-73",
+      "numero_tomo": 168,
+      "nombre_tomo": "Fuego purificador",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d8 de daño por fuego",
+      "disparador_y_limites": "Elimina Enfermedad o Veneno; objetivo resistente exige Tirada de Conjuro.",
+      "magnitudes": [
+        {
+          "clave": "danio_fuego",
+          "tipo": "dado_literal",
+          "valor": "2d8",
+          "unidad": "Daño fuego"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-201",
+      "numero_tomo": 171,
+      "nombre_tomo": "Garra vampírica",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2d6 de daño impío por Nivel",
+      "disparador_y_limites": "Lanzador sana Salud igual al daño efectivo causado; no tirar sanación por separado.",
+      "magnitudes": [
+        {
+          "clave": "danio_impio",
+          "tipo": "dados_por_nivel",
+          "valor": [
+            2,
+            6
+          ],
+          "unidad": "Daño impío"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-292",
+      "numero_tomo": 173,
+      "nombre_tomo": "Glosolalia mayor",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "2 Intervalos por Nivel",
+      "disparador_y_limites": "Comprende idiomas hablados y escritos, pero no puede hablarlos ni escribirlos.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 2,
+          "unidad": "Intervalos"
+        }
+      ]
+    },
+    {
+      "id_catalogo": "conjuro-221",
+      "numero_tomo": 174,
+      "nombre_tomo": "Glosolalia menor",
+      "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
+      "evidencia_literal": "1 Intervalo por Nivel",
+      "disparador_y_limites": "Comprende un idioma común; no puede hablarlo ni escribirlo.",
+      "magnitudes": [
+        {
+          "clave": "duracion_intervalos",
+          "tipo": "por_nivel",
+          "valor": 1,
+          "unidad": "Intervalos"
+        }
+      ]
     }
   ],
-  "criterio_redondeo": "Siempre hacia abajo para divisiones por grupos de Niveles en Conjuros; no sobrescribir excepciones expresas del DRS fuera de este ámbito."
+  "criterio_redondeo": "Siempre hacia abajo para divisiones por grupos de Niveles en Conjuros; no sobrescribir excepciones expresas del DRS fuera de este ámbito.",
+  "criterio_dados": "Expresiones con dados d2/d3 y bono entero se conservan sin lanzar; dados por bloques usan redondeo inferior sin inventar mínimos."
 }
