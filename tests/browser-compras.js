@@ -177,6 +177,8 @@ async function main(){
       .includes('4.03 mo'));
     await cdp.evalJS("(()=>{var s=document.querySelector('#compras-articulo');"+
       "s.value='consumible-antidoto';s.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "document.querySelector('#compras-cantidad').value='1';"+
+      "document.querySelector('#compras-cantidad').dispatchEvent(new Event('input',{bubbles:true}));"+
       "document.querySelector('#compras-nivel').value='3';"+
       "document.querySelector('#compras-nivel').dispatchEvent(new Event('input',{bubbles:true}));})()");
     assert.equal(await cdp.evalJS("document.querySelector('#compras-campo-nivel').hidden"),false);
