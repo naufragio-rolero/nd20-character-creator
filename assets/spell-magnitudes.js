@@ -21,6 +21,15 @@
       if(!Number.isFinite(valor)||valor<0)throw Error("Factor inválido");
       return valor*nivel;
     }
+    if(tipo==="dados_por_nivel"){
+      if(!Array.isArray(valor)||valor.length!==2||
+         !Number.isSafeInteger(valor[0])||valor[0]<1||
+         ![4,6,8,10,12,20,100].includes(valor[1]))
+        throw Error("Dados por Nivel inválidos");
+      var cantidad=valor[0]*nivel;
+      if(!Number.isSafeInteger(cantidad))throw Error("Demasiados dados");
+      return cantidad+"d"+valor[1]; // No tirar dados ni resolver efectos.
+    }
     if(tipo==="por_nivel_con_tope"){
       if(!Array.isArray(valor)||valor.length!==2||
          !valor.every(function(n){return Number.isFinite(n)&&n>=0;}))
