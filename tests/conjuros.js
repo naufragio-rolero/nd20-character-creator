@@ -335,6 +335,6 @@ assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleFrio,['frío','impío
   .resistencia_unica,true);
 assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleFrio,[],['frío','impío'])
   .multiplicador_debilidad,2);
-assert.equal(tooltip.buscar(glosarioDoble,'[C] Aliento de agonía (C1) · Nd20',
+assert.equal(tooltip.buscar(glosarioDoble,'[C] Aliento de agonía (C2) · Slat-Deanaich',
   'poder','nd20')?.danioCompuesto?.numero_tomo,7);
 console.log('OK · tercer lote de 35 Conjuros adicionales y cuarto daño dual validado.');
