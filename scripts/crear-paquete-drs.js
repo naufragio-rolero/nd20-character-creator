@@ -31,6 +31,7 @@ const huellas=JSON.parse(fs.readFileSync(
 if(Object.keys(huellas).length!==64||
    [...idsDRS].some(id=>!Object.hasOwn(huellas,id)))
   throw Error('Las 64 huellas de Conjuros DRS no cubren el catálogo íntegro.');
+const conjurosCotejados=new Map();
 function revisarLiteralConjuro(ficha){
   // La única diferencia sustantiva detectada entre el Tomo de trabajo
   // y el DRS es «ese objeto mundano obtiene» en Forja arcana.
@@ -49,6 +50,18 @@ function revisarLiteralConjuro(ficha){
   if(valor!==huellas[ficha.id_catalogo])
     throw Error('El texto de '+ficha.nombre_tomo+' ('+ficha.id_catalogo+
       ') difiere de la ficha literal del DRS. Publicación interrumpida.');
+  const anterior=conjurosCotejados.get(ficha.id_catalogo);
+  if(anterior){
+    if(JSON.stringify(anterior.parrafos)!==JSON.stringify(ficha.parrafos)||
+       anterior.nombre_tomo!==ficha.nombre_tomo||
+       anterior.circulo_tomo!==ficha.circulo_tomo)
+      throw Error('Duplicado contradictorio de '+ficha.id_catalogo+
+        ': requiere decisión editorial.');
+    // «Arma elemental» aparece dos veces en el Tomo original (26 y 29),
+    // pero representa un solo Conjuro y una ficha literal del DRS.
+    return null;
+  }
+  conjurosCotejados.set(ficha.id_catalogo,ficha);
   return ficha;
 }
 const especiesAdmitidas=new Set([
@@ -89,13 +102,13 @@ const transformaciones={
   },
   'data/conjuros-revisados-001-225.json'(d){
     d.conjuros=d.conjuros.filter(x=>idsDRS.has(x.id_catalogo))
-      .map(revisarLiteralConjuro);
+      .map(revisarLiteralConjuro).filter(Boolean);
     d.criterio='Texto cotejado contra las 64 fichas literales del DRS, incluidos los valores de la tabla Calentar metal.';
     return d;
   },
   'data/conjuros-revisados-226-434.json'(d){
     d.conjuros=d.conjuros.filter(x=>idsDRS.has(x.id_catalogo))
-      .map(revisarLiteralConjuro);
+      .map(revisarLiteralConjuro).filter(Boolean);
     d.criterio='Texto cotejado contra las 64 fichas literales del DRS, incluidos los valores de la tabla Calentar metal.';
     return d;
   },
@@ -189,8 +202,9 @@ for(const ruta of especificas){
 const revisados=['data/conjuros-revisados-001-225.json',
   'data/conjuros-revisados-226-434.json']
   .flatMap(ruta=>JSON.parse(fs.readFileSync(path.join(destino,ruta))).conjuros);
-if(!revisados.length||revisados.some(x=>!idsDRS.has(x.id_catalogo)))
-  throw Error('Fichas suplementarias detectadas o faltan fichas contrastadas del DRS.');
+if(revisados.length!==64||conjurosCotejados.size!==64||
+   revisados.some(x=>!idsDRS.has(x.id_catalogo)))
+  throw Error('Se requieren 64 fichas DRS únicas, literales y sin extras.');
 const visibles=JSON.parse(fs.readFileSync(path.join(destino,'data/catalogo-poderes.json')));
 if(visibles.conjuros.length!==64||visibles.tecnicas.length!==14)
   throw Error('Filtrado de Conjuros/Técnicas inesperado.');
