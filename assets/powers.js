@@ -455,7 +455,10 @@
         var poolTec=tecnicas(catalogo,p.categorias,juego,ocupacion,config.fuentes);
         if(count>poolTec.length)avisos.push(
           "La progresión permite "+count+" Técnicas, pero el catálogo compatible contiene "+
-          poolTec.length+". Faltan "+(count-poolTec.length)+" opciones; no se inventan.");
+          poolTec.length+". Faltan "+(count-poolTec.length)+" opciones; no se inventan."+
+          (juego==="nd20"&&ocupacion==="Ladrón"?
+            " Esas plazas podrán cubrirse con Técnicas de suplementos gratuitos"+
+            " cuando sus fuentes se publiquen y habiliten.":""));
         if(poolTec.length)pasos.push(nuevo("tecnicas","Técnicas conocidas","tecnica",
           Math.min(count,poolTec.length),poolTec));
       }
