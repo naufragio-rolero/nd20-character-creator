@@ -330,7 +330,7 @@
       "disparador_y_limites": "Afecta a criaturas que se acerquen a 2 metros o menos; resistencia al relámpago declarada sin porcentaje.",
       "magnitudes": [
         {
-          "clave": "danio_relatampago",
+          "clave": "danio_relampago",
           "tipo": "dado_literal",
           "valor": "2d6",
           "unidad": "Daño por relámpago"
