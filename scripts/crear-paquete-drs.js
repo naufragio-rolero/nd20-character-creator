@@ -145,10 +145,18 @@ const transformaciones={
     ));
   },
   'data/tesauro-ylat.json'(d){
-    // El repertorio de PNJ de Ylat procede de documentación de ambientación
-    // externa al DRS. No incluirlo sin una publicación propia aprobada.
-    d.entradas=[];
-    d.politica='Sin personajes ni nombres documentales de Ylat en la distribución DRS.';
+    // Aprobación del autor (31/10/2026): publicar exclusivamente las 149
+    // COMBINACIONES, no las 51 identidades de PNJ documentados.
+    // Mantener los ámbitos ya atribuidos por el tesauro; nunca inventar
+    // una correspondencia ámbito <-> Especie.
+    const combinados=d.entradas.filter(x=>x.tipo==='combinado');
+    if(combinados.length!==149||
+       new Set(combinados.map(x=>x.id)).size!==149||
+       new Set(combinados.map(x=>x.nombre)).size!==149)
+      throw Error('El tesauro publicado exige exactamente 149 combinaciones únicas.');
+    d.entradas=combinados;
+    d.contexto='Variantes onomásticas creadas a partir de elementos documentales de Ylat.';
+    d.politica='149 nombres combinados: propuestas para nuevos personajes, no personajes canónicos. Los 51 nombres documentados permanecen solo en desarrollo.';
     return d;
   },
   'data/alcance-drs-y-dlc.json'(d){
@@ -179,15 +187,18 @@ for(const ruta of especificas){
       '          Desactívalo para permitir personajes excepcionales. No es una prohibición mecánica del DRS.\n'+
       '          Los varones Gerudo son posibles, aunque excepcionales.',
       'La opción se aplica a las Ocupaciones publicadas de cada sistema.');
-    html=html.replace(
-      '<option value="combinado">Variantes inspiradas en Ylat (149)</option>\n'+
-      '            <option value="documentado">Personajes documentados (51)</option>\n'+
-      '            <option value="especie">Repertorio propio de la Especie</option>',
-      '<option value="especie">Repertorio propio de la Especie</option>');
-    html=html.replace(
-      '<small>200 entradas basadas en tres documentos de Ylat. Las combinaciones nuevas no son personajes canónicos.</small>',
-      '<small>Utiliza los nombres documentados de cada Especie del DRS.</small>');
-    html=html.replace('Nombres de Ylat</label>','Nombres de la Especie</label>');
+    // El formulario de desarrollo conserva 51 registros documentados
+    // para consulta interna. Solo la distribución pública retira su opción.
+    const opcionDocumentada='<option value="documentado">Personajes documentados (51)</option>';
+    if(!html.includes(opcionDocumentada))
+      throw Error('El selector documental ha cambiado: revisar su exclusión.');
+    html=html.replace(opcionDocumentada,'');
+    const ayudaVieja='200 entradas basadas en tres documentos de Ylat. Las combinaciones nuevas no son personajes canónicos.';
+    if(!html.includes(ayudaVieja))
+      throw Error('La ayuda de nombres de Ylat ha cambiado.');
+    html=html.replace(ayudaVieja,
+      '149 propuestas combinadas (116 de Niguace y 33 de Isla Tormenta). No son personajes canónicos. Las 51 identidades documentadas no se incluyen.');
+
     escribir(ruta,html);
   }else{
     fs.mkdirSync(path.dirname(path.join(destino,ruta)),{recursive:true});
