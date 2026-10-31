@@ -193,12 +193,56 @@
         (corregido?" (corrección editorial aprobada)":" (texto cotejado)");
       idRevisados.add(ficha.id_catalogo);
     });
+    // Solo los 24 vínculos base cotejados con NaufragioD20DRS.docx.
+    // Se reemplaza la glosa resumida, no se altera el motor de juego.
+    // Propietario imprescindible: dos Especies pueden compartir nombre.
+    (fuentes.talentosDRS?.registros||[]).forEach(function(ficha){
+      var fuente=ficha.tipo_origen+': '+ficha.propietario;
+      var coincidentes=(mapa.get(normalizar(ficha.nombre))||[]).filter(function(x){
+        return x.grupo==='talento'&&x.sistema==='nd20'&&x.fuente===fuente;
+      });
+      if(coincidentes.length!==1)
+        throw Error('Talento DRS sin identidad inequívoca: '+fuente+' / '+ficha.nombre);
+      var destino=coincidentes[0];
+      destino.id=ficha.id;
+      destino.titulo_literal=ficha.titulo||ficha.nombre;
+      destino.descripcion=ficha.efecto_literal;
+      destino.datos=[];
+      if(ficha.activacion_literal)destino.datos.push(['Activación',ficha.activacion_literal]);
+      if(ficha.atributo_literal)destino.datos.push(['Atributo',
+        ficha.atributo_literal.replace(/^Atributo:\\s*/,'')]);
+      if(ficha.coste_literal)destino.datos.push(['Coste',
+        ficha.coste_literal.replace(/^Coste:\\s*/,'')]);
+      destino.talento_drs_publico=true;
+      destino.procedencia_tipo=ficha.tipo_origen;
+      destino.procedencia_nombre=ficha.propietario;
+      destino.referencia_documental=ficha.parrafos_documento.slice();
+      destino.fuente_descripcion='NaufragioD20DRS.docx · '+
+        ficha.tipo_origen+' '+ficha.propietario+' (texto cotejado)';
+      if(!porId.has(ficha.id))porId.set(ficha.id,[]);
+      porId.get(ficha.id).push(destino);
+    });
     return {mapa:mapa,porId:porId,total:total};
   }
   /* Presentación editorial de Poderes. Nunca deduce Tiradas ni asigna
    * DRS a todo Nd20: las fichas y el manifiesto autorizan cada dato.
    * Mantener las cadenas originales de Alcance/Duración sin reemplazarlas
    * por magnitudes de un Nivel concreto. */
+  /* Talentos DRS: datos explícitos arriba y texto fuente íntegro.
+   * Las palabras de los efectos no se interpretan como campos mecánicos. */
+  function presentarTalento(info){
+    if(!info||info.grupo!=='talento'||!info.talento_drs_publico)return null;
+    var campos=(info.datos||[]).filter(function(par){
+      return ['Activación','Atributo','Coste','Requisito','Nivel'].includes(par[0]);
+    });
+    var procedencia=info.procedencia_tipo+' · '+info.procedencia_nombre;
+    var referencia=info.referencia_documental||[];
+    return {tipo:'Talento',nombre:info.titulo_literal||info.nombre,
+      clasificacion:procedencia,primarios:campos,tecnicos:referencia.length?
+        [['Párrafos del DRS',referencia.join('–')]]:[],
+      origen:'Naufragio d20 DRS',
+      fuente:info.fuente_descripcion||info.fuente};
+  }
   function presentarPoder(info){
     if(!info||info.grupo!=="poder")return null;
     var entradas=(info.datos||[]).map(function(p){return [String(p[0]),String(p[1])];});
@@ -241,7 +285,7 @@
       primarios:primarios,tecnicos:tecnicos,origen:origen,
       fuente:info.fuente_descripcion||info.fuente};
   }
-  function buscar(ind,nombre,grupo,sistema){
+  function buscar(ind,nombre,grupo,sistema,fuentePreferida){
     if(!ind||!nombre)return null;
     var circulo=(String(nombre).match(/\(C([1-8])\)/)||[])[1];
     var limpio=limpiar(nombre),lista=(ind.mapa.get(normalizar(limpio))||[]).slice();
@@ -249,6 +293,10 @@
       if(x.tipo!=="Conjuro")return true;
       return x.datos.some(function(d){return d[0]==="Círculo"&&String(d[1])===circulo;});
     });
+    if(fuentePreferida){
+      // Una procedencia explícita nunca se resuelve con otro homónimo.
+      lista=lista.filter(function(x){return x.fuente===fuentePreferida;});
+    }
     if(!lista.length)return null;
     var tipo=grupo==="talento"?"talento":grupo==="equipo"?"equipo":"poder";
     function puntuacion(x){
@@ -280,5 +328,6 @@
     return lista.length===1?lista[0]:null; // No adivinar entre coincidencias.
   }
   return {indice:indice,buscar:buscar,buscarPorId:buscarPorId,
-    presentarPoder:presentarPoder,limpiar:limpiar,normalizar:normalizar};
+    presentarPoder:presentarPoder,presentarTalento:presentarTalento,
+    limpiar:limpiar,normalizar:normalizar};
 });
