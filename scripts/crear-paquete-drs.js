@@ -8,10 +8,13 @@
 const fs=require('node:fs');
 const path=require('node:path');
 const raiz=path.resolve(__dirname,'..');
-const destino=path.resolve(process.argv[2]||path.join(raiz,'dist','public-drs'));
-if(destino===raiz||raiz.startsWith(destino+path.sep)||
-   !destino.startsWith(raiz+path.sep))
-  throw Error('La salida debe estar en una subcarpeta del repositorio, nunca sobre el origen.');
+const carpetaDist=path.join(raiz,'dist');
+const destino=path.resolve(process.argv[2]||path.join(carpetaDist,'public-drs'));
+// Seguridad: el borrado recursivo NUNCA debe admitir assets/, data/, raíz,
+// otra carpeta del repositorio, ni archivos del equipo fuera de dist/.
+if(!destino.startsWith(carpetaDist+path.sep)||
+   raiz.startsWith(destino+path.sep))
+  throw Error('La salida debe ser exclusivamente una subcarpeta de dist/. No se toca el origen.');
 const baseEspecies=JSON.parse(fs.readFileSync(path.join(raiz,'data/especies.json')));
 const especiesCifi=JSON.parse(fs.readFileSync(path.join(raiz,'data/especies_cifi.json')));
 const ampliado=JSON.parse(fs.readFileSync(path.join(raiz,'data/catalogo-ampliado.json')));
