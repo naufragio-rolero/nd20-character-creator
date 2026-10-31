@@ -323,15 +323,21 @@
     var rama=juego==="nd20"?"fantasia":juego==="nd20_cifi"?"cifi":"nocturna";
     var p=(progresiones[rama]||{})[ocupacion];
     if(juego==="nd20"){
-      // El DRS permite elegir la Herencia dual. Hasta que la elección y la mejora
-      // de Atributos se integren en el generador, no se conceden ambas opciones.
-      var opcionesHerencia={
-        "Semielfo":"Buen desarrollo o Linaje feérico",
-        "Semiorco":"Buen desarrollo o Ira interna"
-      };
-      if(opcionesHerencia[especie])
-        avisos.push("Herencia dual pendiente de resolver: elegir "+opcionesHerencia[especie]+
-          ". La ficha no aplica automáticamente esa elección.");
+      // La generación rápida resuelve Herencia dual en las reglas; en el
+      // editor cada alternativa de Buen desarrollo especifica su Atributo,
+      // para recalcular la progresión completa desde Nivel 1.
+      var herenciaAlternativa=especie==="Semielfo"?"Linaje feérico":
+        especie==="Semiorco"?"Ira interna":null;
+      if(herenciaAlternativa && config.modo==="personalizado"){
+        var opcionesHerencia=[{id:herenciaAlternativa,nombre:herenciaAlternativa}];
+        ["Fuerza","Agilidad","Resistencia","Mente","Intuición","Presencia"]
+          .forEach(function(attr){
+            opcionesHerencia.push({id:"Buen desarrollo:"+attr,
+              nombre:"Buen desarrollo (+1 VA en "+attr+")"});
+          });
+        pasos.push(nuevo("herencia-dual","Herencia dual · Nivel 1",
+          "herencia_dual",1,opcionesHerencia));
+      }
       var perfil=datos.ocupaciones[ocupacion]||{};
       if((perfil.talentos_elegir||[]).length){
         pasos.push(nuevo("talento-ocupacion-inicial",
@@ -558,7 +564,14 @@
               return a.atributo+" VA "+a.requerido+"+ (actual VA "+a.va+")";
             }).join("; ")+".");
       }
-      if(x.tipo==="talento"){
+      if(x.tipo==="herencia_dual"){
+        var parte=x.id.split(":");
+        var talento=parte[0],atributo=parte.length===2?parte[1]:null;
+        if(personaje.herencia_dual!==talento ||
+            (talento==="Buen desarrollo"&&personaje.atributo_buen_desarrollo!==atributo))
+          throw Error("Herencia dual: se debe reconstruir la ficha desde Nivel 1 antes de aplicar Poderes.");
+        // El motor de creación ya ha incluido el Talento y la mejora de VA.
+      }else if(x.tipo==="talento"){
         if(!personaje.capacidades.includes(x.nombre))personaje.capacidades.push(x.nombre);
       }else if(x.tipo==="talento_ajeno"){
         personaje.capacidades.push(x.nombre+" (Diletante; "+x.info+")");
