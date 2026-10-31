@@ -694,6 +694,14 @@
     $('compras-articulo').addEventListener('change',refrescarCompra);
     $('compras-cantidad').addEventListener('input',refrescarCompra);
     $('compras-nivel').addEventListener('input',refrescarCompra);
+    // Intro al editar un campo no debe confirmar por accidente el carrito.
+    // Su acción natural es añadir la línea activa (Confirmar exige su botón).
+    $('form-compra-utiles').addEventListener('keydown',function(event){
+      if(event.key!=='Enter'||!event.target.matches(
+        '#compras-articulo, #compras-cantidad, #compras-nivel'))return;
+      event.preventDefault();
+      if(!event.repeat)$('compras-anadir').click();
+    });
     $('compras-lista').addEventListener('click',function(event){
       var boton=event.target.closest('.compras-quitar-linea');
       if(!boton)return;
