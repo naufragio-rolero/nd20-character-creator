@@ -421,11 +421,19 @@
         var grupo=['talento','talento_ajeno','estilo_gladiatoria'].includes(paso.tipo)?
           'talento':paso.tipo==='competencias_diletante'?'': 'poder';
         var tipo=sistemaFicha(borrador.personaje);
-        ver.hidden=!(elegida&&grupo&&infoUI?.consulta(elegida.nombre,grupo,tipo));
+        var porId=elegida&&grupo&&infoUI?.consultaPorId?.(elegida.id,grupo,tipo);
+        var fichaElegida=porId||(elegida&&grupo&&infoUI?.consulta(elegida.nombre,grupo,tipo));
+        ver.hidden=!fichaElegida;
         if(!ver.hidden){
           ver.dataset.glosaNombre=elegida.nombre;
           ver.dataset.glosaGrupo=grupo;
           ver.dataset.glosaSistema=tipo;
+          ver.dataset.glosaNivel=String(borrador.personaje.nivel);
+          if(porId)ver.dataset.glosaId=elegida.id;
+          else delete ver.dataset.glosaId;
+        }else{
+          delete ver.dataset.glosaId;
+          delete ver.dataset.glosaNivel;
         }
       }
     });
