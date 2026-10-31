@@ -230,6 +230,8 @@
       detalles.push('Talentos pendientes de verificación o elección: '+referencias.join(', ')+'.');
     if(oc.talentos_documentacion&&oc.talentos_documentacion.condiciones)
       detalles.push(oc.talentos_documentacion.condiciones+'.');
+    if (config.juego === 'nd20' && esp.envejecimiento)
+      detalles.push('Envejecimiento de Especie: ' + esp.envejecimiento + '.');
     if (esp.debilidad) detalles.push('Debilidad de Especie: ' + esp.debilidad);
     var riqueza = esFantasia ? compra.restante+' mo restantes / '+presupuesto+' mo iniciales' :
       esCifi ? compra.restante+' cr restantes / '+presupuesto+' cr iniciales' : '';
