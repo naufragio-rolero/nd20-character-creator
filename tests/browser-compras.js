@@ -116,6 +116,10 @@ async function main(){
     }
     if(!puerto)throw Error('Chrome no inició su puerto de depuración.');
     cdp=await abrirCDP(puerto);
+    // Capturar y probar de verdad el escritorio, no el tamaño por defecto
+    // de Chrome headless (780 px, que activa el menú de tableta).
+    await cdp.enviar('Emulation.setDeviceMetricsOverride',{
+      width:1440,height:900,deviceScaleFactor:1,mobile:false});
     const base='http://127.0.0.1:'+server.address().port+'/index.html';
     await cdp.enviar('Page.navigate',{url:base});
     // La aplicación solo habilita Generar al terminar de cargar los datos.
@@ -215,6 +219,15 @@ async function main(){
     // Evidencia visual reproducible: escritorio con carrito abierto.
     const capturas=path.join(raiz,'tests','capturas-e2e');
     fs.mkdirSync(capturas,{recursive:true});
+    await cdp.evalJS("document.querySelector('#editor-compras').scrollIntoView({block:'start',behavior:'instant'})");
+    const vistaDesktop=await cdp.evalJS("({ancho:window.innerWidth,"+
+      "editor:document.querySelector('#editor-compras').getBoundingClientRect().width,"+
+      "panel:document.querySelector('#panel-forja').getBoundingClientRect().width,"+
+      "scroll:document.documentElement.scrollWidth})");
+    assert.equal(vistaDesktop.ancho,1440,'La prueba de escritorio utiliza 1440 px reales');
+    assert.ok(vistaDesktop.panel>200,'El panel lateral de escritorio está visible');
+    assert.ok(vistaDesktop.editor>500,'El editor de escritorio tiene anchura usable');
+    assert.ok(vistaDesktop.scroll<=1442,'No hay desbordamiento en escritorio');
     const imagenDesktop=await cdp.enviar('Page.captureScreenshot',{
       format:'png',captureBeyondViewport:false});
     fs.writeFileSync(path.join(capturas,'compras-escritorio.png'),
