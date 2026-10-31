@@ -170,6 +170,7 @@ html[data-tema]:not([data-tema=clasico]) .tarjeta :is(.avisos-ficha h4,.contexto
 .pestanas-panel button{border-radius:7px;padding:.55rem .45rem}
 .pestanas-panel button.activa{background:var(--oro);color:var(--oscuro);border-color:var(--oro)}
 .juegos-compactos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.35rem}
+.juegos-compactos.juegos-publicos{grid-template-columns:repeat(2,minmax(0,1fr))}
 .juegos-compactos button{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:62px;padding:.3rem .1rem;border:1px solid var(--borde);line-height:1.2;border-radius:8px;font-size:.68rem}
 .juegos-compactos button span{font-size:1.5rem;line-height:1.25}
 .juegos-compactos .sistema-activo{background:var(--oro);color:var(--oscuro);border-color:var(--oro);box-shadow:inset 0 -3px 0 var(--oro2)}
