@@ -186,6 +186,24 @@ async function main(){
       "})()");
     await cdp.esperar("document.querySelectorAll('#fichas .tarjeta').length===2",
       'generación de dos fichas');
+    // Confirmar el caso de uso principal: popup visible con el efecto
+    // completo de Recuperación, no solo la etiqueta del Talento.
+    const infoRecuperacion=await cdp.evalJS("(()=>{"+
+      "let b=document.querySelector('#fichas .tarjeta .referencia-glosario[data-glosa-nombre=\"Recuperación\"]');"+
+      "if(!b)return {enlace:false};b.click();"+
+      "let c=document.querySelector('#ficha-emergente');"+
+      "return {enlace:true,visible:!!c&&!c.hidden,texto:c?.querySelector('.info-descripcion')?.textContent||''}"+
+      "})()");
+    assert.equal(infoRecuperacion.enlace,true,
+      'El Talento Recuperación debe ser una referencia consultable');
+    assert.equal(infoRecuperacion.visible,true,
+      'El popup del Talento debe abrirse con pulsación');
+    assert.match(infoRecuperacion.texto,/1 Intervalo para recuperar 1d8 Puntos de Salud/);
+    assert.ok(await cdp.evalJS(
+      "document.querySelector('#fichas .tarjeta .otros-avisos')?.textContent?.includes('Talento de Ocupación — Recuperación:')!==true"),
+      'La ficha no duplica el efecto de Recuperación al final');
+    await cdp.evalJS("window.NaufragioInfoUI.cerrar()");
+
     let estado=await cdp.evalJS("Array.from(document.querySelectorAll('#fichas .tarjeta')).map(x=>({"+
       "id:x.dataset.id,html:x.innerHTML,riqueza:x.querySelector('.riqueza')?.textContent}))");
     const primera=estado[0],segunda=estado[1];
