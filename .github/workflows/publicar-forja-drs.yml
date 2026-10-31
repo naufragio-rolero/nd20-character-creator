@@ -23,13 +23,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  publicar:
+  validar-paquete:
     if: github.ref == 'refs/heads/feat/forja-conjuros-fichas-2026-10-30'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Leer fuentes sin exponer la raiz
         uses: actions/checkout@v4
@@ -61,6 +58,14 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist/public-drs
+  desplegar:
+    needs: validar-paquete
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Publicar artefacto depurado
         id: deployment
         uses: actions/deploy-pages@v4
