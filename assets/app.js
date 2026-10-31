@@ -188,6 +188,7 @@
     if (cfg.juego === 'dh') return reglas.eleccionDH(datos.dh,cfg,rng);
     return reglas.crearNd20(datosJuego(cfg.juego),
       Object.assign({},cfg,{aplazarElecciones:true,tesauroYlat:datos.tesauroYlat,
+        nombresHistoricosYlat:datos.nombresHistoricosYlat,
         catalogoEquipo:datos.equipoInicial,catalogoSexo:datos.sexo}),rng);
   }
   function fuentesFicha(personaje){
@@ -800,6 +801,7 @@
       especiesCifi:'data/especies_cifi.json',ocupacionesCifi:'data/ocupaciones_cifi.json',
       ampliado:'data/catalogo-ampliado.json',
       tesauroYlat:'data/tesauro-ylat.json',
+      nombresHistoricosYlat:'data/nombres-historicos-ylat.json',
       sexoCatalogo:'data/sexo-personajes.json',
       catalogo:'data/catalogo-poderes.json',
       conjurosUno:'data/conjuros-revisados-001-225.json',
@@ -863,6 +865,7 @@
     datos.alcanceDRS=loaded.alcanceDRS;
     datos.catalogo=loaded.catalogo;
     datos.tesauroYlat=loaded.tesauroYlat;
+    datos.nombresHistoricosYlat=loaded.nombresHistoricosYlat;
     datos.sexo=loaded.sexoCatalogo;
     datos.progresiones=loaded.progresiones;
     datos.equipoInicial=loaded.equipoInicial;
