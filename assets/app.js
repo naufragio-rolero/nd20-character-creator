@@ -212,8 +212,9 @@
   }
   function htmlLista(titulo, valores, grupo, sistema) {
     if (!valores || !valores.length) return '';
-    return '<section class="bloque-ficha"><h4>' + esc(titulo) + '</h4><ul>' +
-      valores.map(function (v) {
+    return '<section class="bloque-ficha"><h4>' + esc(titulo) + '</h4>' +
+      (grupo==='talento'?'<p class="pista-talentos">Pulsa un Talento ⓘ para consultar su efecto.</p>':'') +
+      '<ul>' + valores.map(function (v) {
         var item=grupo&&infoUI?infoUI.etiqueta(v,grupo,sistema):esc(v);
         return '<li>' + item + '</li>';
       }).join('') + '</ul></section>';
