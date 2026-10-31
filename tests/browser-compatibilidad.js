@@ -72,6 +72,8 @@ async function probar(nombre,tipo,url){
     await page.keyboard.press('Enter');
     assert.equal(await page.locator('#especie').inputValue(),'Elfo agreste');
     assert.equal(await opcionElfo.getAttribute('aria-pressed'),'true');
+    assert.equal(await opcionElfo.evaluate(e=>document.activeElement===e),true,
+      nombre+': el teclado conserva el foco tras seleccionar una Especie');
     await page.selectOption('#ocupacion','');
     await page.selectOption('#especie','');
     assert.equal(await page.locator('#selector-visual-especie button[data-valor=""]').getAttribute('aria-pressed'),'true');
