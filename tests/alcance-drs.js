@@ -156,6 +156,7 @@ assert.equal(magnitud(38,11,'nivel_maximo_forma'),undefined,
 assert.equal(magnitud(39,11,'duracion_turnos'),22);
 assert.equal(magnitud(41,11,'danio_magico_cortante'),'1d8');
 assert.equal(magnitud(43,11,'factor_profundidad'),3);
+assert.equal(magnitud(44,11,'numero_maximo_muertos_vivientes'),11);
 assert.equal(magnitud(44,11,'maximo_niveles_total_muertos_vivientes'),11);
 assert.equal(magnitud(45,11,'duracion_objeto_turnos'),'3d6');
 assert.equal(magnitud(48,11,'danio_elemental'),'11d8');
