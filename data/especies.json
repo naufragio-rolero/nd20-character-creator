@@ -3,6 +3,7 @@
 		"atributo_requisito": "Agilidad",
 		"atributo_valor": 7,
 		"talentos": ["Linaje feérico", "Rapidez"],
+		"talentos_descripcion": {"Linaje feérico":"Inmunidad al estado Parálisis y Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir.","Rapidez":"Movimiento +1 (ya incluido en el Movimiento de la Especie)."},
 		"conceptos": [
 			"Guardián del bosque", "Cazador de criaturas mágicas", "Embajador feérico",
 			"Maestro arquero", "Guardián de secretos antiguos", "Explorador de bosques encantados",
@@ -28,6 +29,7 @@
 		"atributo_requisito": "Resistencia",
 		"atributo_valor": 7,
 		"talentos": ["Corpulencia", "Visión en la oscuridad"],
+		"talentos_descripcion": {"Corpulencia":"Movimiento -1 (ya incluido). Puedes gastar 1 Punto de Esfuerzo para repetir una Tirada de Blindaje para reducir daño físico.","Visión en la oscuridad":"Distingues el entorno hasta 30 metros en oscuridad absoluta, en blanco y negro y con formas y detalles poco definidos."},
 		"conceptos": [
 			"Forjador de las profundidades", "Explorador de las montañas", "Defensor de las rutas comerciales",
 			"Rey bajo la montaña", "Minero intrépido", "Constructor de fortalezas",
@@ -51,6 +53,7 @@
 	},
 	"Humano común": {
 		"talentos": ["Buen desarrollo"],
+		"talentos_descripcion": {"Buen desarrollo":"Mejora uno de tus Atributos en 1 punto durante la Creación de PJ."},
 		"conceptos": [
 			"Héroe del pueblo", "Aventurero sin igual", "Guardián de la aldea",
 			"Caballero noble", "Comerciante próspero", "Intrépido viajero",
@@ -76,6 +79,7 @@
 		"atributo_requisito": "Presencia",
 		"atributo_valor": 7,
 		"talentos": ["Baja estatura", "¡Sálvese quien pueda!"],
+		"talentos_descripcion": {"Baja estatura":"Movimiento -1 (ya incluido). Solo puedes usar armas y armaduras adaptadas a tu tamaño, y escudos pequeños. Obtienes +1 a las Tiradas de Esquiva contra ataques a distancia.","¡Sálvese quien pueda!":"Si sufres Parálisis o Miedo, puedes gastar 1 Punto de Esfuerzo y una Acción para liberarte sin tirada."},
 		"conceptos": [
 			"Cocinero extraordinario", "Guardián de la despensa", "Narrador de cuentos",
 			"Héroe del jardín", "Maestro de las festividades", "Defensor de la paz",
@@ -102,6 +106,7 @@
 		"atributo_valor": 7,
 		"requisitos": [{"atributo": "Mente", "minimo": 7}],
 		"talentos": ["Baja estatura", "Visión en la oscuridad"],
+		"talentos_descripcion": {"Baja estatura":"Movimiento -1 (ya incluido). Solo puedes usar armas y armaduras adaptadas a tu tamaño, y escudos pequeños. Obtienes +1 a las Tiradas de Esquiva contra ataques a distancia.","Visión en la oscuridad":"Distingues el entorno hasta 30 metros en oscuridad absoluta, en blanco y negro y con formas y detalles poco definidos."},
 		"conceptos": [
 			"Ingeniero brillante", "Inventor de artilugios", "Explorador de alcantarillas",
 			"Maestro relojero", "Conocedor de máquinas", "Sabio de la ciudad",
@@ -126,6 +131,7 @@
 	},
 	"Semielfo": {
 		"talentos": ["Ánimo", "Herencia dual (SE)"],
+		"talentos_descripcion": {"Ánimo":"Una vez al día, antes de la tirada, puedes otorgar +2 a la Tirada de Atributo de un aliado que pueda escucharte.","Buen desarrollo":"Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.","Linaje feérico":"Inmunidad al estado Parálisis y Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir."},
 		"herencia_dual": ["Buen desarrollo","Linaje feérico"],
 		"conceptos": [
 			"Diplomático de dos mundos", "Explorador de fronteras", "Buscador de respuestas",
@@ -152,6 +158,7 @@
 		"atributo_requisito": "Fuerza",
 		"atributo_valor": 7,
 		"talentos": ["Ira interna", "Saña primitiva"],
+		"talentos_descripcion": {"Ira interna":"Si tus Puntos de Salud llegan a 0 o menos, puedes gastar 1 Punto de Esfuerzo para ajustarlos a 1 y seguir combatiendo.","Saña primitiva":"Obtienes +1 a la Tirada de Daño con armas cuerpo a cuerpo."},
 		"conceptos": [
 			"Guerrero de la tribu", "Cazador de bestias", "Devastador en batalla",
 			"Campeón de la arena", "Líder de la horda", "Conquistador brutal",
@@ -175,6 +182,7 @@
 	},
 	"Semiorco": {
 		"talentos": ["Sed de sangre", "Herencia dual (SO)"],
+		"talentos_descripcion": {"Sed de sangre":"Antes de una Tirada de Ataque cuerpo a cuerpo puedes declarar un embate brutal: -2 a la Tirada de Ataque y +1 a la Penetración del arma.","Buen desarrollo":"Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.","Ira interna":"Si tus Puntos de Salud llegan a 0 o menos, puedes gastar 1 Punto de Esfuerzo para ajustarlos a 1 y seguir combatiendo."},
 		"herencia_dual": ["Buen desarrollo","Ira interna"],
 		"conceptos": [
 			"Campeón de la lucha libre", "Merodeador solitario", "Guardián de las ruinas",
