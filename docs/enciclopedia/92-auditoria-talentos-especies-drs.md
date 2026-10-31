@@ -26,15 +26,17 @@ Los **11 Talentos raciales diferentes** disponen ahora de una glosa de reglas en
 
 **Situación anterior:** `assets/equipment.js` filtraba equipamiento principalmente por las Competencias de Ocupación. Podía proponer a un Mediano o Gnomo equipo que no acreditase adaptación, e incluso escudos medianos o grandes en Ocupaciones autorizadas a usarlos. El catálogo `data/equipo-inicial.json` **no contiene metadatos de adaptación** en armas o armaduras; el DRS no proporciona en esa sección una tabla exhaustiva de piezas adaptadas.
 
-**Solución aplicada, conservadora y comprobable:**
+**Decisión editorial posterior (31/10/2026):** El autor establece que **todas las armas y armaduras del catálogo de Forja se ofrecen en versiones adaptadas al tamaño de medianos y gnomos, sin variar sus precios ni características**. Esta decisión operativa no reescribe el DRS; resuelve cómo interpretar la oferta de compras para personajes con *Baja estatura*. La etapa anterior de bloqueo preventivo queda **sustituida**.
 
-1. La compra recibe el perfil de Especie y detecta el Talento *Baja estatura*.
-2. Para estas dos Especies, **no asigna automáticamente armas ni armaduras sin marca expresa** `adaptada_baja_estatura: true`. Esto **no** afirma que sean incompatibles: su compatibilidad es **desconocida** hasta documentarla.
-3. Filtra los escudos a **Escudo pequeño**, conservando las restricciones de Ocupación y el presupuesto.
-4. Añade notas expresas sobre equipo no asignado por falta de verificación, el límite de escudos y el +1 de Esquiva a distancia. Los paquetes de útiles normales se mantienen: no son una declaración de que sus componentes tengan armadura o armas adaptadas.
-5. La compatibilidad de un elemento marcado explícitamente queda sometida **también** al filtro previo de Competencias de Ocupación.
+**Comportamiento definitivo de la compra automática:**
 
-**Decisión editorial pendiente:** qué armas y armaduras del catálogo están adaptadas al tamaño de Medianos y Gnomos, y si existen condiciones/precios especiales. No aparece una equivalencia que permita deducir de forma automática «arma ligera = arma adaptada». **No se ha inventado ninguna lista ni modificado ningún precio.** Hasta ese inventario, las fichas de esas Especies pueden carecer de compra automática de arma o armadura. Su selección y validación manual deberán contrastarse con el Cronista.
+1. `assets/equipment.js` detecta *Baja estatura* en los perfiles de Mediano amable y Gnomo urbano.
+2. Las armas y armaduras del catálogo mantienen su elegibilidad por **Competencias de Ocupación, Nivel y presupuesto**; ya no necesitan el campo `adaptada_baja_estatura: true`. Sus precios y características permanecen intactos: se consideran versiones adaptadas para la Especie que las compra.
+3. Los escudos se restringen **exclusivamente al Escudo pequeño**, incluso si la Ocupación permite escudos medianos o grandes. La Ocupación debe seguir teniendo competencia con escudos.
+4. La ficha explica la política de adaptación y recuerda el **+1 a la Tirada de Esquiva contra ataques a distancia**, sin sumar otra vez la penalización de Movimiento ya incluida.
+5. `data/equipo-inicial.json` declara la decisión en `politica_talla`, para distinguir la norma original del DRS de esta interpretación editorial aplicada a Forja.
+
+**Consecuencia:** se elimina la necesidad de catalogar manualmente las adaptaciones para los objetos ya ofrecidos. El catálogo puede seguir incompleto por otras causas (armas, varitas, etc.), pero *Baja estatura* ya **no bloquea las compras automáticas**.
 
 ## Hallazgo DRS-ESP-04 — Buen desarrollo del Humano común
 
@@ -58,7 +60,7 @@ En `data/especies.json` se han incorporado las ocho pautas del DRS: Elfo agreste
 - Identidad exacta de los Talentos iniciales de las ocho Especies y cobertura de sus glosas.
 - Que las Observaciones reflejen las capacidades realmente concedidas, incluida solo la rama escogida de *Herencia dual*.
 - Que Movimiento conserve el valor **ya corregido por los Talentos** sin sumas o restas duplicadas.
-- En Mediano y Gnomo: ausencia de compra automática de armas/armaduras sin adaptación confirmada; prohibición de escudo mediano/grande; autorización del pequeño solo si la Ocupación permite escudos; posibilidad futura de comprar piezas **expresamente** marcadas como adaptadas.
+- En Mediano y Gnomo: compra de armas y armaduras equivalentes a las de un personaje de talla normal, con las **mismas Competencias, Nivel y precios**, considerando los objetos adaptados por decisión editorial; prohibición de escudo mediano/grande; autorización del pequeño solo si la Ocupación permite escudos.
 - En Humano: seis variantes de *Buen desarrollo*, ficha provisional, aplicación exclusiva desde Nivel 1, determinismo, Niveles 1/5/12/30 y coherencia del editor.
 - En las ocho Especies: envejecimiento cotejado y presente en la ficha.
 
@@ -66,6 +68,6 @@ En `data/especies.json` se han incorporado las ocho pautas del DRS: Elfo agreste
 
 ## Próxima prioridad
 
-Las ocho Especies ya tienen perfiles y Talentos documentados, elecciones iniciales y restricciones de compra contrastadas **hasta el límite del catálogo disponible**. Para la publicación base quedan: **catalogar equipos adaptados**, validar la UX en navegador y después auditar íntegramente las **cuatro Ocupaciones DRS** (Talentos, Competencias, Progresiones 1–30 y Poderes).
+Las ocho Especies ya tienen perfiles y Talentos documentados, elecciones iniciales y restricciones de compra contrastadas **hasta el límite del catálogo disponible**. La adaptación de armas y armaduras de Medianos y Gnomos está resuelta por decisión editorial, sin tarifas ni reglas nuevas. Para la publicación base quedan: validar la UX en navegador, completar otros huecos del catálogo y auditar íntegramente las **cuatro Ocupaciones DRS** (Talentos, Competencias, Progresiones 1–30 y Poderes).
 
 **PR #4 permanece en borrador, sin fusionar ni desplegar.**
