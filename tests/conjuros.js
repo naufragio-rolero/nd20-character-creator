@@ -108,7 +108,7 @@ for(const entrada of literales.registros){
     for(const campo of salida.magnitudes){
       assert.ok(typeof campo.valor==='boolean'||
         (typeof campo.valor==='number'&&Number.isFinite(campo.valor))||
-        (typeof campo.valor==='string'&&/^\\d+d(?:4|6|8|10|12|20|100)$/.test(campo.valor)),
+        (typeof campo.valor==='string'&&/^\d+d(?:4|6|8|10|12|20|100)$/.test(campo.valor)),
         'Resultado puramente declarativo: '+entrada.nombre_tomo+'/'+campo.clave);
     }
   }
