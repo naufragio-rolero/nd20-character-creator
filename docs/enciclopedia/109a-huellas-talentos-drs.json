@@ -1,0 +1,32 @@
+{
+  "fuente": "NaufragioD20DRS.docx",
+  "huella_documento_sha256": "2f3447300e58139ce20c8449e12e5b8d3cd3e7435b2995677ed97c6602a23df8",
+  "fecha_auditoria": "2026-11-01",
+  "nota": "Huellas SHA-256 calculadas directamente de los párrafos del DOCX de la fuente del proyecto. No se corrigen erratas de forma tácita.",
+  "huellas": {
+    "Elfo agreste|Linaje feérico": "f7724cad97af33b033d300593fb28c345135a46a5764ffc07b63cadf2aa96ffd",
+    "Elfo agreste|Rapidez": "353b8a7fefc8628d85a750d4db40152e6f78b4c88532fd5c682de1e445f621bf",
+    "Enano montañés|Corpulencia": "ac00246983cad87f71b0e133c5c7ca12eab4c0eb0d1fe6dcd73c183a51581d8b",
+    "Enano montañés|Visión en la oscuridad": "d7f0126f28149d1c455dc8ed39e4f8b22bf14074340d7461d0de46d5d87a86b5",
+    "Humano común|Buen desarrollo": "ae8e98234ede4fc133bb507306cc088664ea392453d8bc21ef1d7f92374588d7",
+    "Mediano amable|Baja estatura": "9a0f092c0d847ced83a092b85f7671400cdfe01f902b8d50638cec0534589d4f",
+    "Mediano amable|¡Sálvese quien pueda!": "935f54c8c38d464c26d1d4b56bc626b49206e1c54f5ae3e56956efd716c618dc",
+    "Gnomo urbano|Baja estatura": "9a0f092c0d847ced83a092b85f7671400cdfe01f902b8d50638cec0534589d4f",
+    "Gnomo urbano|Visión en la oscuridad": "ea106d573fe23449fd20a8b8950231600925457a4a6e64f3a7d7e7bc57ad45d3",
+    "Semielfo|Ánimo": "6c7c6325daa993a67ed9848072b5ac464e3f1f2f11230bbeb700c72fe1518cab",
+    "Semielfo|Herencia dual (SE)": "a80e659c5fcc5a439b0b0fd2a91a7624d2e8bd4ea8db1df3c51cd6f264213b03",
+    "Orco común|Ira interna": "fca7cee8a5378b14325df00d81d71d5acef0cf046a52b8097d9d9030f36f16e7",
+    "Orco común|Saña primitiva": "3ff4d7d2c9c5312a4240a935f6410b168d99184e42541d3768f68fd95e2f29de",
+    "Semiorco|Sed de sangre": "1ba5ed118654ecc6b36e4cdb7abe510c385700eaedeb9b68b1cd934a32e204f6",
+    "Semiorco|Herencia dual (SO)": "a72ce7d18bcb12cd577fbb17df2da8595b31eb6da1351979e79bed294801cc36",
+    "Clérigo|Expulsar muertos vivientes": "4579bedb13a8cbdbe0637afc7ca0d87584bcf93ac65a942d6323f93870fef281",
+    "Clérigo|Fortaleza piadosa": "d3f706209cfb6db99337c76aecaaa0cb266c06323e762557a4ab9554b68d7005",
+    "Guerrero|Recuperación": "78dee9e905ae3488111806b90feeccdc031bb4aa30435b18a4a4e2c50fd1767f",
+    "Guerrero|Brío musculoso": "3852d34b264daf47bd28a14a227f81dde44e99071c437acc0ea946b1c531cfab",
+    "Guerrero|Sacrificio de escudo": "a4ba01958e95b1c579bf488c3df5fcd4805fe4661e0e1f7e6a9716c4b77ebc98",
+    "Mago|Bagaje de arcanista": "8578a34c5d7e88e985c23e4828db6a793a3c146289970859f9c2a585ca24759c",
+    "Mago|Meditación": "69cb3e1b9d428564589f559be03c6173a8f7a6a3d3109dfff0139f1fe6b6c7b3",
+    "Ladrón|Preparación": "1d6f119d8f7a3a4442f0c93741cc271c3943242759b278bfcbec163fcaa6631e",
+    "Ladrón|Sutileza": "b614ec6dd60628a93447aa4743279b2bc44c8c0c17bedb9cfc3c789d2b3c155f"
+  }
+}
