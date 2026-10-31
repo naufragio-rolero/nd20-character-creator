@@ -156,9 +156,24 @@ if(ficha){
     extras.length+' fichas de Fantasía de suplementos no publicados.');
 }
 const nombresYlat=dato('data/tesauro-ylat.json');
-afirmar((nombresYlat?.entradas||[]).length>0,
-  'data/tesauro-ylat.json incluye '+(nombresYlat?.entradas||[]).length+
-  ' personajes/nombres de documentación de ambientación ajena al DRS.');
+// Los 149 nombres combinados han sido autorizados expresamente;
+// las 51 identidades documentadas continúan vetadas en el paquete público.
+if(nombresYlat){
+  const nombres=nombresYlat.entradas||[];
+  const ids=new Set(nombres.map(x=>x.id));
+  const literales=new Set(nombres.map(x=>x.nombre));
+  afirmar(nombres.length!==149||ids.size!==149||literales.size!==149,
+    'data/tesauro-ylat.json debe contener exactamente 149 nombres únicos.');
+  const originales=nombres.filter(x=>x.tipo!=='combinado');
+  afirmar(originales.length>0,'data/tesauro-ylat.json expone '+
+    originales.length+' nombres de personajes documentados o de tipo no autorizado.');
+  const sinAmbito=nombres.filter(x=>!['Niguace','Isla Tormenta'].includes(x.ambito));
+  afirmar(sinAmbito.length>0,'data/tesauro-ylat.json incluye '+
+    sinAmbito.length+' combinaciones sin ámbito documentado.');
+  const porAmbito=nombres.reduce((r,x)=>(r[x.ambito]=(r[x.ambito]||0)+1,r),{});
+  afirmar(porAmbito.Niguace!==116||porAmbito['Isla Tormenta']!==33,
+    'data/tesauro-ylat.json debe preservar 116 combinaciones de Niguace y 33 de Isla Tormenta.');
+}
 if(alertas.length){
   console.error('RIESGO DE PUBLICACIÓN: la selección visual DRS NO aísla estos datos.');
   alertas.forEach((a,i)=>console.error('  '+(i+1)+'. '+a));
