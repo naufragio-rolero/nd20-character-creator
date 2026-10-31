@@ -689,3 +689,46 @@ for(const ocupacion of ['Clérigo','Guerrero','Mago','Ladrón']){
   }
 }
 console.log('OK · 120 filas de progresión DRS cotejadas; Potencia y 9 Talentos de Ocupación; Técnica DRS estricta.');
+
+/* Conjuros clericales: aprendizaje automático al abrir cada Círculo.
+ * La Marca del dador oscuro se excluye por discrepancia entre dos apartados
+ * del propio DRS (lista del Clérigo C4 frente a ficha individual C5). */
+const conocimientosClerigo=[
+  [1,0],[2,7],[4,13],[6,17],[8,21],[10,25],[12,29],[14,31],[16,33],[30,33]
+];
+for(const [nivel,esperados] of conocimientosClerigo){
+  const plan=planificadorDRS.planificar({
+    juego:'nd20',ocupacion:'Clérigo',especie:'Humano común',nivel,
+    fuentes:['DRS']
+  },fuenteBase,catalogo,progresiones);
+  assert.equal(plan.conjuros_automaticos.length,esperados,
+    'Todos los Conjuros del Clérigo conocidos al desbloquear Círculo en Nivel '+nivel);
+  assert.ok(plan.conjuros_automaticos.every(x=>x.origen==='Nd20'));
+  assert.equal(new Set(plan.conjuros_automaticos.map(x=>x.id)).size,esperados,
+    'No repetir Conjuros conocidos del Clérigo');
+  assert.ok(!plan.conjuros_automaticos.some(x=>x.nombre==='Marca del dador oscuro'),
+    'No resolver la discrepancia de Marca del dador oscuro por inferencia');
+  assert.equal(plan.avisos.some(x=>x.includes('Marca del dador oscuro')),
+    nivel>=8,'Avisar de la discrepancia cuando se abre el Círculo 4');
+  const provisional=reglas.crearNd20(fuenteBase,{
+    juego:'nd20',ocupacion:'Clérigo',especie:'Humano común',nivel,
+    aplazarElecciones:true
+  },reglas.aleatorioSemilla('Clerigo conocimientos/'+nivel));
+  const terminado=planificadorDRS.aplicar(provisional,plan,{
+    elementos:[],decisiones:{}
+  });
+  assert.equal(terminado.poderes.length,esperados,
+    'La ficha muestra todos los Conjuros conocidos (distintos de preparados)');
+  assert.ok(terminado.poderes.every(x=>x.startsWith('[C] ')&&x.includes(' · Nd20')),
+    'Conjuros documentados en ficha con origen DRS');
+  assert.deepEqual(terminado.conjuros_preparados,[],
+    'Los conocidos no ocupan automáticamente Espacios preparados');
+}
+for(const ocupacion of ['Guerrero','Mago','Ladrón']){
+  const p=planificadorDRS.planificar({
+    juego:'nd20',ocupacion,especie:'Humano común',nivel:30,fuentes:['DRS']
+  },fuenteBase,catalogo,progresiones);
+  assert.deepEqual(p.conjuros_automaticos,[],
+    'El aprendizaje automático de todos los Conjuros solo corresponde al Clérigo');
+}
+console.log('OK · Conjuros del Clérigo: 33 entradas verificadas, desbloqueo y discrepancia C4/C5 documentada.');
