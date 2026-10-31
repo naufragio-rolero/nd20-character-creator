@@ -254,16 +254,111 @@ for(const nivel of [1,12,30]){
     'La web debe reservar esa elección para el editor');
 }
 const planificadorDRS=require('../assets/powers.js');
-for(const [especie,opciones] of [
-  ['Semielfo','Buen desarrollo o Linaje feérico'],
-  ['Semiorco','Buen desarrollo o Ira interna']
+// Herencia dual: dos opciones excluyentes; Buen desarrollo permite elegir
+// cualquiera de los seis Atributos y se aplica ANTES de subir de Nivel.
+for(const [especie,alternativa] of [
+  ['Semielfo','Linaje feérico'],
+  ['Semiorco','Ira interna']
 ]){
-  const plan=planificadorDRS.planificar(
-    {juego:'nd20',nivel:1,ocupacion:'Mago',especie},
+  const planPersonal=planificadorDRS.planificar(
+    {juego:'nd20',modo:'personalizado',nivel:1,ocupacion:'Mago',especie},
     fuenteBase,catalogo,progresiones);
-  assert.ok(plan.avisos.some(x=>x.includes('Herencia dual')&&x.includes(opciones)),
-    'La Herencia dual no puede darse por aplicada: '+especie);
+  const paso=planPersonal.pasos.find(x=>x.id==='herencia-dual');
+  assert.ok(paso,'Elección explícita de Herencia dual: '+especie);
+  assert.equal(paso.tipo,'herencia_dual');
+  assert.deepEqual(paso.opciones.map(x=>x.id),[
+    alternativa,
+    ...['Fuerza','Agilidad','Resistencia','Mente','Intuición','Presencia']
+      .map(x=>'Buen desarrollo:'+x)
+  ],'Alternativa DRS + seis Atributos posibles: '+especie);
+  const planRapido=planificadorDRS.planificar(
+    {juego:'nd20',modo:'rapido',nivel:1,ocupacion:'Mago',especie},
+    fuenteBase,catalogo,progresiones);
+  assert.ok(!planRapido.pasos.some(x=>x.id==='herencia-dual'),
+    'En Rápido la elección se resuelve durante la creación: '+especie);
+
+  // Las dos ramas comparten toda la creación previa a la elección.
+  const base=reglas.crearNd20(fuenteBase,{
+    juego:'nd20',nivel:1,ocupacion:'Mago',especie,
+    aplazarElecciones:true,herenciaPendiente:true
+  },reglas.aleatorioSemilla('Herencia DRS/'+especie+'/1'));
+  assert.equal(base.herencia_dual,null,'Editor pendiente de elección');
+  assert.ok(!base.capacidades.includes(alternativa)&&
+    !base.capacidades.includes('Buen desarrollo'));
+  for(const atributo of ['Fuerza','Agilidad','Resistencia','Mente','Intuición','Presencia']){
+    const elegido=reglas.crearNd20(fuenteBase,{
+      juego:'nd20',nivel:1,ocupacion:'Mago',especie,
+      aplazarElecciones:true,herenciaDual:'Buen desarrollo',
+      atributoBuenDesarrollo:atributo
+    },reglas.aleatorioSemilla('Herencia DRS/'+especie+'/1'));
+    assert.equal(elegido.herencia_dual,'Buen desarrollo');
+    assert.equal(elegido.atributo_buen_desarrollo,atributo);
+    assert.ok(elegido.capacidades.includes('Buen desarrollo'));
+    assert.ok(!elegido.capacidades.includes(alternativa));
+    for(const actual of elegido.atributos)
+      assert.equal(actual.valor-base.atributos.find(x=>x.nombre===actual.nombre).valor,
+        actual.nombre===atributo?1:0,
+        'Buen desarrollo modifica solo su VA elegido antes de progresión: '+especie);
+    assert.equal(elegido.nombre,base.nombre,'No modificar identidad al elegir');
+  }
+  for(const nivel of [1,5,12,30]){
+    for(const ocupacion of ['Clérigo','Guerrero','Mago','Ladrón']){
+      const semilla='Herencia DRS/'+especie+'/'+ocupacion+'/'+nivel;
+      const config={juego:'nd20',nivel,ocupacion,especie,aplazarElecciones:true};
+      const pendiente=reglas.crearNd20(fuenteBase,{
+        ...config,herenciaPendiente:true
+      },reglas.aleatorioSemilla(semilla));
+      for(const [eleccion,atributo] of [[alternativa,null],['Buen desarrollo','Mente']]){
+        const cfg={...config,herenciaDual:eleccion,atributoBuenDesarrollo:atributo};
+        const personaje=reglas.crearNd20(fuenteBase,cfg,reglas.aleatorioSemilla(semilla));
+        const repetido=reglas.crearNd20(fuenteBase,cfg,reglas.aleatorioSemilla(semilla));
+        assert.deepEqual(personaje,repetido,'Semilla estable '+semilla);
+        assert.equal(personaje.descripcion,pendiente.descripcion,'Especie/Ocupación intactas');
+        assert.equal(personaje.herencia_dual,eleccion);
+        assert.ok(personaje.capacidades.includes(eleccion));
+        assert.ok(!personaje.capacidades.includes(
+          eleccion==='Buen desarrollo'?alternativa:'Buen desarrollo'),
+          'No se deben conceder ambas alternativas de Herencia dual');
+        assert.equal(personaje.atributo_buen_desarrollo,atributo);
+        assert.ok(personaje.atributos.every(x=>x.valor>=4&&x.valor<=18&&x.valor+x.dificultad===20));
+      }
+    }
+  }
+  const sinResolver=reglas.crearNd20(fuenteBase,{
+    juego:'nd20',nivel:1,ocupacion:'Mago',especie,
+    aplazarElecciones:true,herenciaPendiente:true
+  },reglas.aleatorioSemilla('Herencia DRS/'+especie+'/1'));
+  const elegido=planPersonal.pasos.find(x=>x.id==='herencia-dual');
+  const seleccion={};
+  for(const paso of planPersonal.pasos){
+    seleccion[paso.id]=[];
+    for(let i=0;i<paso.cantidad;i++)
+      seleccion[paso.id].push(paso.opciones[i%paso.opciones.length].id);
+  }
+  seleccion[elegido.id]=['Buen desarrollo:Mente'];
+  // Usar solo un paso en este test evita mezclar Conjuros ya documentados.
+  const planSolo={pasos:[elegido],avisos:[],recursos:[]};
+  const resultado=planificadorDRS.resolver(planSolo,{
+    'herencia-dual':['Buen desarrollo:Mente']},reglas.aleatorioSemilla('resultado'));
+  assert.throws(()=>planificadorDRS.aplicar(sinResolver,planSolo,resultado),
+    /reconstruir la ficha desde Nivel 1/,
+    'Impedir ajustes falsos de VA al final de la ficha');
+  const reconstruido=reglas.crearNd20(fuenteBase,{
+    juego:'nd20',nivel:1,ocupacion:'Mago',especie,
+    aplazarElecciones:true,herenciaDual:'Buen desarrollo',
+    atributoBuenDesarrollo:'Mente'
+  },reglas.aleatorioSemilla('Herencia DRS/'+especie+'/1'));
+  assert.ok(planificadorDRS.aplicar(reconstruido,planSolo,resultado)
+    .capacidades.includes('Buen desarrollo'));
+  assert.throws(()=>planificadorDRS.resolver(planSolo,{
+    'herencia-dual':['Buen desarrollo:Carisma']},()=>0.3),/fuera de catálogo/,
+    'No inventar Atributos');
+  assert.throws(()=>reglas.crearNd20(fuenteBase,{
+    juego:'nd20',especie,ocupacion:'Mago',herenciaDual:'Saña primitiva'
+  },reglas.aleatorioSemilla('error')),/Herencia dual ajena/,
+  'Solo alternativas autorizadas por el DRS');
 }
+console.log('OK · Herencia dual: dos Especies, dos ramas, seis Atributos, cuatro Ocupaciones, Niveles 1/5/12/30.');
 console.log('OK · Auditoría normativa DRS: 8 perfiles de Especie, 4 Ocupaciones y regresiones de elecciones.');
 
 
