@@ -281,6 +281,8 @@
           esp.esencia ? [['Esencia', esp.esencia]] : []),
       capacidades:capacidades,
       competencias:(oc.competencias || []).slice(), equipo:equipo, origen:tipo,
+      ...(esFantasia?{saldo_mo:Number(compra.restante),
+        capital_inicial_mo:presupuesto}:{}),
       procedenciaOcupacion:(fuentes.ocupaciones||{})[ocupacion]||tipo,
       procedenciaEspecie:(fuentes.especies||{})[especie]||tipo,
       riqueza:riqueza,
