@@ -677,6 +677,61 @@ for(let nivel=1;nivel<=30;nivel++){
     Math.min(8,1+Math.floor((nivel-1)/4))
   ],'Tabla oficial de Técnicas del Ladrón al Nivel '+nivel);
 }
+// Presentación de TODOS los Poderes en su forma documental: no se
+// confunde Lanzamiento (tiempo) con Tirada ni se etiqueta DLC como DRS.
+const presentador=require('../assets/tooltips.js');
+const auditoriaPoderes=presentador.indice({
+  catalogo,alcanceDRS:manifest,
+  conjurosRevisados:leer('conjuros-revisados-001-225.json').conjuros.concat(
+    leer('conjuros-revisados-226-434.json').conjuros),
+  magnitudes
+});
+for(const ficha of manifest.drs.conjuros){
+  const original=presentador.buscarPorId(auditoriaPoderes,ficha.id,'poder','nd20');
+  const visual=presentador.presentarPoder(original);
+  assert.ok(visual,'Conjuro DRS presentable: '+ficha.nombre);
+  assert.equal(visual.origen,'Naufragio d20 DRS');
+  assert.ok(visual.clasificacion.includes('Círculo'),
+    'El Círculo de '+ficha.nombre+' debe verse en cabecera');
+  assert.ok(!visual.tecnicos.some(x=>['Escuelas','Círculo','Origen'].includes(x[0])));
+  assert.ok(visual.fuente.includes('Tomo de Magia'));
+}
+const dormirPresentacion=presentador.presentarPoder(
+  presentador.buscarPorId(auditoriaPoderes,'conjuro-7','poder','nd20'));
+assert.deepEqual(dormirPresentacion.primarios,[
+  ['Alcance','10m + 2m por Nivel'],['Duración','1d6 Intervalos']
+]);
+assert.equal(dormirPresentacion.clasificacion,'Arcana · 1.er Círculo');
+assert.ok(!dormirPresentacion.primarios.some(x=>x[0]==='Tirada'),
+  'No inventar Tirada de lanzamiento para Dormir');
+assert.ok(dormirPresentacion.tecnicos.some(x=>
+  x[0]==='Ficha del Tomo'&&x[1]==='101'));
+const baluartePresentacion=presentador.presentarPoder(
+  presentador.buscarPorId(auditoriaPoderes,'tecnica-02','poder','nd20'));
+assert.equal(baluartePresentacion.clasificacion,'Disciplina');
+assert.equal(baluartePresentacion.origen,'Naufragio d20 DRS');
+assert.ok(baluartePresentacion.primarios.some(x=>
+  x[0]==='Coste'&&x[1]==='1 punto de Esfuerzo'));
+assert.ok(baluartePresentacion.primarios.some(x=>x[0]==='Requisito'));
+const psiPresentacion=presentador.presentarPoder(
+  presentador.buscarPorId(auditoriaPoderes,'psionico-1','poder','nd20_cifi'));
+assert.equal(psiPresentacion.clasificacion,'Ímpetu 1');
+assert.equal(psiPresentacion.origen,'Naufragio d20 CiFi');
+assert.ok(psiPresentacion.primarios.some(x=>
+  x[0]==='Atributo'&&x[1]==='Presencia'));
+const scriptPresentacion=presentador.presentarPoder(
+  presentador.buscarPorId(auditoriaPoderes,'script-1','poder','nd20_cifi'));
+assert.equal(scriptPresentacion.origen,'Naufragio d20 CiFi');
+assert.equal(scriptPresentacion.primarios.length,0);
+const cantoPresentacion=presentador.presentarPoder(
+  presentador.buscarPorId(auditoriaPoderes,'cancion-1','poder','nd20'));
+assert.ok(cantoPresentacion.clasificacion.includes('Complejidad 1'));
+assert.ok(cantoPresentacion.clasificacion.includes('Sencillas'));
+const extraConjuro=catalogo.conjuros.find(x=>x.origen!=='Nd20');
+assert.ok(extraConjuro);
+assert.equal(presentador.presentarPoder(
+  presentador.buscarPorId(auditoriaPoderes,extraConjuro.id,'poder','nd20')).origen,
+  'Naufragio d20','No llamar DRS a un Conjuro suplementario');
 // Los Talentos documentados deben abrir fichas útiles, no el mensaje
 // «consulta el manual» mientras su efecto yace en Observaciones.
 const indiceGlosasDRS=require('../assets/tooltips.js').indice({
