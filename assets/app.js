@@ -36,6 +36,77 @@
     });
     if (elementos.some(function (x) {return x.key === previo;})) sel.value = previo;
   }
+  // El <select> original continúa siendo la fuente de verdad y opción
+  // accesible de respaldo; las tarjetas solo cambian su valor.
+  var pictogramas={
+    ocupacion:{'Clérigo':'ocu-clerigo','Guerrero':'ocu-guerrero',
+      'Mago':'ocu-mago','Ladrón':'ocu-ladron'},
+    especie:{'Elfo agreste':'esp-elfo','Enano montañés':'esp-enano',
+      'Humano común':'esp-humano','Mediano amable':'esp-mediano',
+      'Gnomo urbano':'esp-gnomo','Semielfo':'esp-semielfo',
+      'Orco común':'esp-orco','Semiorco':'esp-semiorco'}
+  };
+  function refrescarTarjetas(tipo){
+    var select=$(tipo),contenedor=$('selector-visual-'+tipo);
+    var visual=$('juego').value==='nd20'&&!!datos.dh;
+    contenedor.hidden=!visual;
+    select.classList.toggle('selector-alternativo',visual);
+    if(!visual){contenedor.replaceChildren();return;}
+    var actual=select.value;
+    contenedor.replaceChildren();
+    Array.from(select.options).forEach(function(op){
+      var key=pictogramas[tipo][op.value];
+      var boton=document.createElement('button');
+      boton.type='button';boton.className='opcion-visual';
+      boton.dataset.valor=op.value;
+      boton.setAttribute('aria-pressed',String(op.value===actual));
+      boton.classList.toggle('seleccionada',op.value===actual);
+      boton.disabled=op.disabled;
+      var nombre=op.value?op.value:'Aleatoria';
+      boton.setAttribute('aria-label',tipo+': '+nombre+
+        (op.value===actual?', seleccionada':''));
+      var dibujo;
+      if(key){
+        dibujo=document.createElementNS('http://www.w3.org/2000/svg','svg');
+        dibujo.classList.add('icono-eleccion');
+        dibujo.setAttribute('aria-hidden','true');
+        var use=document.createElementNS('http://www.w3.org/2000/svg','use');
+        use.setAttribute('href','assets/icons-forja.svg#'+key);
+        dibujo.appendChild(use);
+      }else{
+        dibujo=document.createElement('span');
+        dibujo.className='icono-azar';dibujo.textContent='?';
+        dibujo.setAttribute('aria-hidden','true');
+      }
+      var etiqueta=document.createElement('span');
+      etiqueta.className='opcion-nombre';etiqueta.textContent=nombre;
+      boton.append(dibujo,etiqueta);
+      contenedor.appendChild(boton);
+    });
+  }
+  function marcarTarjetasSeleccionadas(tipo){
+    // No reconstruir el DOM al pulsar una tarjeta: teclado y lectores
+    // de pantalla conservan el foco sobre la opción recién seleccionada.
+    var actual=$(tipo).value;
+    $('selector-visual-'+tipo).querySelectorAll('button.opcion-visual')
+      .forEach(function(boton){
+        var selected=boton.dataset.valor===actual;
+        boton.classList.toggle('seleccionada',selected);
+        boton.setAttribute('aria-pressed',String(selected));
+        boton.setAttribute('aria-label',tipo+': '+
+          (boton.dataset.valor||'Aleatoria')+(selected?', seleccionada':''));
+      });
+  }
+  function refrescarTarjetasVisibles(){
+    refrescarTarjetas('ocupacion');
+    refrescarTarjetas('especie');
+  }
+  function refrescarGenerarFlotante(){
+    var boton=$('generar-flotante');
+    boton.hidden=$('panel-personajes').hidden;
+    boton.disabled=$('generar').disabled||!!borrador;
+    boton.textContent=Number($('cantidad').value)>1?'Generar personajes':'Generar personaje';
+  }
   function origenesActivos() {
     return Array.from(document.querySelectorAll('#origenes input:checked')).map(function (e) {
       return Number(e.value);
@@ -53,6 +124,7 @@
     var tools=nombre==='herramientas';
     $('panel-personajes').hidden=tools;
     $('panel-herramientas').hidden=!tools;
+    refrescarGenerarFlotante();
     ['personajes','herramientas'].forEach(function(key){
       var button=$('tab-'+key),selected=key===nombre;
       button.classList.toggle('activa',selected);
@@ -150,6 +222,8 @@
         return {key:key,nombre:key+' ('+d.fuentes.especies[key]+')'};
       }).sort(ordenar),true);
     }
+    refrescarTarjetasVisibles();
+    refrescarGenerarFlotante();
   }
   function ordenar(a,b) {return a.nombre.localeCompare(b.nombre, 'es');}
   function dhModo(juego) {
@@ -539,10 +613,12 @@
     borrador=null;
     $('editor-elecciones').hidden=true;
     $('grupos-elecciones').textContent='';
+    refrescarGenerarFlotante();
   }
   function prepararEditor(personaje,plan,rng,origen){
     borrador={personaje:personaje,plan:plan,rng:rng,origen:origen||null};
     $('editor-elecciones').hidden=false;
+    refrescarGenerarFlotante();
     $('editor-titulo').textContent='Personalizar · '+personaje.descripcion;
     $('editor-resumen').textContent='Nivel '+personaje.nivel+
       ' · '+plan.pasos.filter(function(x){return !x.automatico;})
@@ -643,6 +719,33 @@
     });
   }
   function vincular() {
+    ['ocupacion','especie'].forEach(function(tipo){
+      $('selector-visual-'+tipo).addEventListener('click',function(event){
+        var boton=event.target.closest('button.opcion-visual');
+        if(!boton||boton.disabled)return;
+        $(tipo).value=boton.dataset.valor;
+        $(tipo).dispatchEvent(new Event('change',{bubbles:true}));
+      });
+      $(tipo).addEventListener('change',function(){
+        marcarTarjetasSeleccionadas(tipo);
+      });
+    });
+    $('generar-flotante').addEventListener('click',function(){
+      if($('generar-flotante').disabled)return;
+      marcarPanel('personajes');
+      // Mantiene validación nativa y el mismo flujo que el formulario.
+      $('configuracion').requestSubmit($('generar'));
+    });
+    $('cantidad').addEventListener('input',refrescarGenerarFlotante);
+    var avanzada=$('informacion-avanzada');
+    try{avanzada.checked=localStorage.getItem('forja-informacion-avanzada')==='true';}
+    catch(error){avanzada.checked=false;}
+    infoUI?.configurarAvanzado?.(avanzada.checked);
+    avanzada.addEventListener('change',function(){
+      infoUI?.configurarAvanzado?.(avanzada.checked);
+      try{localStorage.setItem('forja-informacion-avanzada',String(avanzada.checked));}
+      catch(error){}
+    });
     $('alternar-menu').addEventListener('click',function(){
       alternarMenu(!$('panel-forja').classList.contains('panel-abierto'));
     });
@@ -938,6 +1041,7 @@
       var indice=window.NaufragioTooltipIndex.indice({
         fantasia:datos.fantasia,cifi:datos.cifi,nocturna:datos.nocturna,
         catalogo:datos.catalogo,equipo:datos.equipoInicial,
+        alcanceDRS:datos.alcanceDRS,
         descripciones:loaded.fichasDocumentales,
         conjurosRevisados:loaded.conjurosUno.conjuros.concat(loaded.conjurosDos.conjuros),
         magnitudes:loaded.magnitudes,
@@ -965,6 +1069,7 @@
     }catch(error){ /* El formulario funciona sin almacenamiento. */ }
     vincular();refrescarSelectores();dibujar();
     $('generar').disabled=false;
+    refrescarGenerarFlotante();
     aviso('Datos listos. Puedes empezar a generar personajes.');
   }
   $('generar').disabled=true;

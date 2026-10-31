@@ -71,7 +71,7 @@ const especiesAdmitidas=new Set([
 ]);
 const especificas=[
   'index.html',
-  'assets/styles.css','assets/favicon.svg','assets/equipment.js','assets/sex.js',
+  'assets/styles.css','assets/favicon.svg','assets/icons-forja.svg','assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js',
   'data/especies.json','data/ocupaciones.json','data/especies_cifi.json',

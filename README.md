@@ -70,71 +70,43 @@ Los modos **Rápido** y **Personalizado** aplican las nuevas progresiones cuando
 - Varias tarjetas simultáneas, copia al portapapeles y exportación general a texto.
 - Semilla opcional reproducible.
 
-## Publicar en GitHub Pages — BLOQUEADO para la edición DRS 1.0
+## GitHub Pages — publicación segura, exclusivamente DRS
 
-**No actives todavía «Deploy from a branch → main → /(root)».** La
-rama de desarrollo contiene los catálogos de los futuros suplementos de
-Fantasía. Aunque los selectores de Forja 1.0 solo muestran el DRS,
-`index.html` solicita hoy archivos JSON que **incluyen registros de DLC**.
-En GitHub Pages, un JSON servido es descargable aunque su contenido esté
-oculto en los formularios. Publicar la raíz filtraría estos datos.
+La Forja completa de desarrollo contiene material adicional de Fantasía, CiFi y
+Nocturna, además de Dungeon Hack y documentación editorial. **No publicar jamás
+la raíz del repositorio, ni activar «Deploy from a branch» hacia /(root).**
+Los archivos JSON de desarrollo contienen material que no está autorizado para
+publicación.
 
-**Control de seguridad** (tiene que terminar sin errores **sobre el paquete
-final que se vaya a desplegar**, no sobre el repositorio de trabajo):
+La **única publicación LIVE autorizada** se gestiona desde
+`.github/workflows/forja-live.yml` en `main`: fija un SHA validado,
+construye `dist/public-drs` mediante `scripts/crear-paquete-drs.js`,
+comprueba la exclusión física de los suplementos y ejecuta las pruebas de
+regresión antes de subir exclusivamente el paquete depurado a Pages.
+El workflow no despliega la raíz, y las PR no alteran automáticamente el SHA
+público.
 
-    node scripts/comprobar-publicacion-drs.js CARPETA_PUBLICA
-
-En la raíz actual este comando **debe fallar** y explicar los catálogos
-expuestos. Se puede ejecutar con `--report` para inventariar las alertas
-sin bloquear otras pruebas; eso **no certifica** que la carpeta sea publicable.
-
-Ya existe un **primer paquete candidato**, generado mediante una lista
-blanca sin eliminar nada del repositorio de trabajo:
+Comprobación local del paquete DRS (Node.js 24):
 
     node scripts/crear-paquete-drs.js
     node scripts/comprobar-publicacion-drs.js dist/public-drs
     node tests/paquete-publico-drs.js
+    node tests/alcance-drs.js
+    node tests/smoke.js
 
-La salida se guarda en `dist/public-drs/`; **no es un despliegue** ni
-una autorización para habilitar Pages. El workflow
-`paquete-publico-drs.yml` prueba exactamente esos archivos en **Chrome,
-Firefox y WebKit** y adjunta el paquete candidato como artefacto de
-GitHub Actions durante siete días cuando supera las pruebas.
+Los 64 Conjuros DRS se contrastan con sus huellas literales; las fichas
+adicionales quedan fuera del paquete. La versión de desarrollo nunca debe
+servirse como web pública. Los workflows de pruebas verifican también el
+comportamiento en Chrome, Firefox y WebKit; solo las verificaciones y la
+promoción expresa de un SHA autorizan un nuevo despliegue.
 
-**Nueva decisión editorial (31/10/2026):** el candidato público incluye
-**1422 formas únicas del generador histórico de Ylat** (1428 filas en
-la fuente original), además de las **149 combinaciones** previamente
-autorizadas. Solo estas últimas admiten filtrado por corpus: Niguace
-(116) o Isla Tormenta (33). Las **51 identidades de PNJ documentados**
-siguen excluidas físicamente del paquete público. Ni las formas
-históricas ni las combinaciones atribuyen sexo, cultura, Especie o
-linaje sin respaldo documental; el nombre manual conserva prioridad.
-Véanse `docs/enciclopedia/102-149-nombres-combinados-ylat.md`
-y `docs/enciclopedia/105-generador-historico-nombres-ylat.md`.
-
-**Para probar la versión sin despliegue:** descargar el artefacto ZIP
-`forja-drs-candidato-no-publicado` del último workflow
-`paquete-publico-drs.yml` completado en verde, descomprimirlo y
-servirlo con `py -m http.server 8765` desde esa carpeta (en Windows,
-con Python instalado). Abrir `http://localhost:8765`. No abrir
-directamente `index.html` como `file://`, pues necesita cargar JSON.
-Las fichas de los **64 Conjuros del DRS** han sido **cotejadas
-literalmente con el DOCX original**, incluidos los datos de la tabla
-de Calentar metal. El paquete básico elimina el duplicado de Arma
-elemental y restituye la redacción DRS de Forja arcana, **sin modificar
-el Tomo de Magia de desarrollo**. Un registro de 64 huellas SHA-256
-bloquea cualquier divergencia textual futura durante la construcción
-y al validar el paquete. Véase
-`docs/enciclopedia/101-fidelidad-literal-64-conjuros-drs.md`.
-
-**No se ha desplegado ni habilitado Pages.** Véase
-`docs/enciclopedia/100-paquete-publico-drs-candidato.md`.
-
-Dirección prevista cuando se autorice la publicación:
+URL de la publicación DRS:
 https://naufragio-rolero.github.io/nd20-character-creator/
 
-Los recursos usan rutas relativas, por lo que una futura distribución
-depurada podrá funcionar bajo el subdirectorio de Pages.
+Las **1422 formas únicas del repertorio histórico Ylat** y las
+**149 combinaciones autorizadas** pueden utilizarse en el paquete DRS,
+pero las 51 identidades documentales de PNJ siguen excluidas, de acuerdo
+con los informes 102–105 de `docs/enciclopedia`.
 
 ### Probar en local
 
@@ -150,7 +122,7 @@ Con Node.js instalado, ejecuta:
 
     node tests/smoke.js
 
-No hay dependencias de npm ni flujos de GitHub Actions asociados a estas pruebas.
+La web no requiere dependencias npm en tiempo de ejecución; los workflows de GitHub Actions validan el motor, la interfaz y el paquete público.
 
 ## Archivos
 
@@ -165,7 +137,7 @@ No hay dependencias de npm ni flujos de GitHub Actions asociados a estas pruebas
 
 ## Límites y decisiones de diseño
 
-- **Conjuros, Técnicas y otros Poderes:** se muestran las referencias almacenadas, pero sus tablas de progreso y elecciones no están implementadas. No se inventan Poderes.
+- **Conjuros, Técnicas y otros Poderes:** existen selecciones y progresiones documentadas; las capacidades no verificadas siguen identificadas como pendientes y no se inventan efectos ni reglas.
 - **Nd20 CiFi:** la riqueza inicial en créditos queda pendiente de una regla confirmada; se señala en la ficha.
 - **Nd20 Nocturna:** el manual consultado está en versión de trabajo. Se generan sus ocho especies y ocho ocupaciones efectivamente desarrolladas, sin inventar las dos restantes mencionadas en el texto introductorio. Solo se aplica automáticamente la elección de Talento inicial; otras elecciones por Nivel y Poderes deben consultarse en el documento.
 - **Ampliación Fantasía:** los Talentos enumerados se ofrecen como referencias documentales, no todos como concesiones automáticas de Nivel 1. Sus requisitos, tiempos y tablas de progreso deben comprobarse en el manual. No se inventan nombres culturales, equipamiento inicial ni Poderes para las entradas nuevas.
@@ -178,7 +150,17 @@ No hay dependencias de npm ni flujos de GitHub Actions asociados a estas pruebas
 
 ## Código heredado
 
-**app.py**, **create_char.py**, **templates/**, **static/** y **requirements.txt** se conservan temporalmente para no destruir la aplicación Flask anterior. **GitHub Pages no los ejecuta:** el nuevo index.html es completamente independiente. Una limpieza futura puede trasladarlos a una rama de archivo.
+El generador Flask anterior (`app.py`, `create_char.py`,
+`templates/`, `static/` y `requirements.txt`) fue retirado del
+árbol activo el 31/10/2026 tras verificar que la Forja funciona
+íntegramente con JavaScript estático. Se conserva en el historial de Git
+para consulta o recuperación; no es una dependencia de la web.
+
+Los scripts de `scripts/` y las suites de `tests/` son componentes
+**vigentes**, necesarios para preparar y verificar distribuciones seguras.
+La herramienta `control.html` y sus archivos `assets/control-*`
+siguen siendo parte del entorno editorial, aunque no se distribuyen en
+el paquete público DRS.
 
 ## Autoría y licencias
 
@@ -344,7 +326,7 @@ completa de accesibilidad.
 Véanse `docs/enciclopedia/97-pruebas-navegador-compras-drs.md` y
 `docs/enciclopedia/99-compatibilidad-y-seguridad-publicacion-drs.md`.
 **Los tres motores funcionando no autoriza a publicar la raíz**: consultar
-el bloqueo de seguridad de la sección «Publicar en GitHub Pages».
+las restricciones de seguridad de la sección «GitHub Pages — publicación segura».
 
 ### Fichas emergentes (Talentos, Poderes y Objetos)
 

@@ -148,6 +148,14 @@ assert.ok(!html.includes('data-juego="nd20_nocturna"'));
 assert.ok(!html.includes('<option value="nd20_cifi">'));
 assert.ok(!html.includes('<option value="nd20_nocturna">'));
 assert.ok(html.includes('Banco histórico de nombres de Ylat (1422)'));
+assert.ok(html.includes('id="selector-visual-especie"'));
+assert.ok(html.includes('id="selector-visual-ocupacion"'));
+assert.ok(html.includes('id="generar-flotante"'));
+assert.ok(html.includes('id="informacion-avanzada"'));
+assert.ok(fs.existsSync(path.join(salida,'assets','icons-forja.svg')));
+assert.equal((fs.readFileSync(path.join(salida,'assets','icons-forja.svg'),'utf8')
+  .match(/<symbol id=/g)||[]).length,12,
+  'Se distribuyen exactamente 8 pictogramas de Especie y 4 de Ocupación');
 assert.ok(html.indexOf('value="historico"')<html.indexOf('value="combinado"'),
   'El banco histórico debe ser el modo predeterminado en la distribución');
 assert.ok(html.includes('Variantes inspiradas en Ylat (149)'));

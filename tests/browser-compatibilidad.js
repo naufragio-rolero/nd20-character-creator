@@ -50,6 +50,91 @@ async function probar(nombre,tipo,url){
       nombre+': la edición Fantasía solo publica Ocupaciones DRS');
     assert.equal(await page.locator('#especie option').count(),9,
       nombre+': 8 Especies DRS más selección aleatoria');
+    // Forja 1.1: selector visual DRS y fallback nativo sincronizados.
+    assert.equal(await page.locator('#selector-visual-especie button').count(),9,
+      nombre+': 8 Especies con pictograma + aleatoria');
+    assert.equal(await page.locator('#selector-visual-ocupacion button').count(),5,
+      nombre+': 4 Ocupaciones con pictograma + aleatoria');
+    assert.equal(await page.locator('#selector-visual-especie svg use').count(),8);
+    assert.equal(await page.locator('#selector-visual-ocupacion svg use').count(),4);
+    const iconos=await page.evaluate(async()=>{
+      const r=await fetch('assets/icons-forja.svg');
+      return {status:r.status,contenido:await r.text()};
+    });
+    assert.equal(iconos.status,200);
+    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,12);
+    // Popup de Poderes: uso inmediato de Dormir según el Tomo cotejado,
+    // opción avanzada y comprobación de otra familia (Técnicas). No depende
+    // de que la ficha aleatoria haya aprendido un Conjuro concreto.
+    await page.evaluate(()=>{
+      const b=document.createElement('button');
+      b.id='e2e-poder';b.type='button';b.textContent='Consultar Poder';
+      b.className='referencia-glosario';
+      b.dataset.glosaId='conjuro-7';
+      b.dataset.glosaGrupo='poder';
+      b.dataset.glosaSistema='nd20';
+      b.dataset.glosaNivel='1';
+      document.body.appendChild(b);
+    });
+    await page.locator('#e2e-poder').click();
+    const popup=page.locator('#ficha-emergente');
+    assert.equal(await popup.locator('.info-tipo').textContent(),'Conjuro');
+    assert.equal(await popup.locator('h3').textContent(),'Dormir');
+    assert.equal(await popup.locator('.info-clasificacion').textContent(),
+      'Arcana · 1.er Círculo');
+    assert.deepEqual(await popup.locator('.info-primarios dt').allTextContents(),
+      ['Alcance:','Duración:']);
+    assert.deepEqual(await popup.locator('.info-primarios dd').allTextContents(),
+      ['10m + 2m por Nivel','1d6 Intervalos']);
+    assert.match(await popup.locator('.info-descripcion').first().textContent(),
+      /reserva de 5d10 Puntos Oníricos/);
+    assert.match(await popup.locator('.info-fuente').textContent(),
+      /Origen: Naufragio d20 DRS · Fuente: NaufragioD20 — Tomo de Magia/);
+    const detallesPoder=popup.locator('.info-detalles');
+    assert.equal(await detallesPoder.isHidden(),true,
+      nombre+': magnitudes no visibles en lectura rápida');
+    await page.locator('#configuracion-avanzada summary').click();
+    await page.locator('#informacion-avanzada').check();
+    // El popup se cierra al salir de él para cambiar ajustes; al
+    // reabrirlo debe respetar inmediatamente la opción avanzada.
+    await page.locator('#e2e-poder').click();
+    assert.equal(await detallesPoder.isVisible(),true,
+      nombre+': la preferencia muestra datos técnicos al reabrir el Poder');
+    assert.equal(await detallesPoder.evaluate(x=>x.open),true);
+    assert.match(await detallesPoder.innerText(),/Ficha del Tomo\s+101/);
+    assert.match(await detallesPoder.innerText(),/Magnitudes literales · Nivel 1/);
+    assert.match(await detallesPoder.innerText(),/12 metros/);
+    assert.match(await detallesPoder.innerText(),/1d6 Intervalos/);
+    await page.locator('#e2e-poder').evaluate(x=>{x.dataset.glosaId='tecnica-02';});
+    await page.locator('#e2e-poder').click();
+    assert.equal(await popup.locator('.info-tipo').textContent(),'Técnica');
+    assert.equal(await popup.locator('.info-clasificacion').textContent(),'Disciplina');
+    assert.match(await popup.locator('.info-primarios').textContent(),
+      /Coste:\s*1 punto de Esfuerzo/);
+    assert.match(await popup.locator('.info-primarios').textContent(),/Requisito:/);
+    await page.locator('#informacion-avanzada').uncheck();
+    await page.locator('#e2e-poder').click();
+    assert.equal(await popup.locator('.info-detalles').isHidden(),true);
+    await page.keyboard.press('Escape');
+    // Restaurar el estado original para las pruebas de Talentos que siguen.
+    await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=false;});
+    await page.locator('#e2e-poder').evaluate(x=>x.remove());
+    const opcionMago=page.locator('#selector-visual-ocupacion button[data-valor="Mago"]');
+    await opcionMago.click();
+    assert.equal(await page.locator('#ocupacion').inputValue(),'Mago');
+    assert.equal(await opcionMago.getAttribute('aria-pressed'),'true');
+    const opcionElfo=page.locator('#selector-visual-especie button[data-valor="Elfo agreste"]');
+    await opcionElfo.focus();
+    await page.keyboard.press('Enter');
+    assert.equal(await page.locator('#especie').inputValue(),'Elfo agreste');
+    assert.equal(await opcionElfo.getAttribute('aria-pressed'),'true');
+    assert.equal(await opcionElfo.evaluate(e=>document.activeElement===e),true,
+      nombre+': el teclado conserva el foco tras seleccionar una Especie');
+    await page.selectOption('#ocupacion','');
+    await page.selectOption('#especie','');
+    assert.equal(await page.locator('#selector-visual-especie button[data-valor=""]').getAttribute('aria-pressed'),'true');
+    assert.equal(await page.locator('#generar-flotante').isEnabled(),true);
+    assert.equal(await page.locator('#informacion-avanzada').isChecked(),false);
     const fuentes=await page.locator('#fuentes-nd20 input').evaluateAll(
       nodes=>nodes.map(x=>({nombre:x.value,checked:x.checked})));
     assert.deepEqual(fuentes,[{nombre:'DRS',checked:true}],
@@ -199,7 +284,20 @@ async function probar(nombre,tipo,url){
     await recuperacion.click();
     assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
       /1 Intervalo para recuperar 1d8 Puntos de Salud/);
+    // Resumen siempre visible, datos técnicos solo mediante disclosure o preferencia.
+    const detalles=page.locator('#ficha-emergente .info-detalles');
+    assert.equal(await detalles.count(),1,nombre+': Talento debe poder desplegar detalles');
+    assert.equal(await detalles.evaluate(e=>e.open),false);
+    await detalles.locator('summary').click();
+    assert.equal(await detalles.evaluate(e=>e.open),true);
     await page.keyboard.press('Escape');
+    await page.locator('#configuracion-avanzada summary').click();
+    await page.locator('#informacion-avanzada').check();
+    await recuperacion.click();
+    assert.equal(await page.locator('#ficha-emergente .info-detalles').evaluate(e=>e.open),true,
+      nombre+': preferencia avanzada despliega los detalles al abrir');
+    await page.keyboard.press('Escape');
+    await page.locator('#informacion-avanzada').uncheck();
     assert.equal(await fichaTalentos.locator('.bloque-ficha').filter({hasText:'Observaciones'}).count(),0,
       nombre+': no duplicar descripciones completas al final en Observaciones');
     assert.equal(await fichaTalentos.locator('.avisos-talentos').count(),0,
