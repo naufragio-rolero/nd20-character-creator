@@ -222,7 +222,7 @@ async function main(){
     await cdp.evalJS("(async()=>{"+
       "document.documentElement.style.scrollBehavior='auto';"+
       "var panel=document.querySelector('#editor-compras');"+
-      "window.scrollTo({top:Math.max(0,panel.getBoundingClientRect().top+window.scrollY-16),"+
+      "window.scrollTo({top:Math.max(0,panel.getBoundingClientRect().top+window.scrollY-160),"+
       "behavior:'instant'});"+
       "await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));"+
       "})()");
