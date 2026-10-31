@@ -1,0 +1,11 @@
+{
+  "ayuda.nombresYlat": "Los nombres sugeridos no determinan el origen ni la historia del personaje.",
+  "ayuda.coherencia": "Respeta las excepciones narrativas documentadas, sin añadir restricciones mecánicas.",
+  "selector.indicacion": "Elige una casilla; «Aleatoria» lo deja al generador.",
+  "selector.tituloOcupacion": "Elegir Ocupación",
+  "selector.tituloEspecie": "Elegir Especie",
+  "nombres.historicos": "Históricos de Ylat",
+  "nombres.variantes": "Variantes de Ylat",
+  "nombres.documentados": "Personajes documentados",
+  "nombres.especie": "Según Especie"
+}

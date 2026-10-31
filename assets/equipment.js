@@ -199,8 +199,10 @@
       /Cazador|Celador|Druida|Bárbaro/.test(nombre)?"Especial exploración":"Especial mazmorras";
     var paquete=catalogo.paquetes.find(function(x){return x.nombre===etiqueta;});
     if(paquete&&paquete.precio<=presupuesto-gasto){
-      extraer([paquete],presupuesto-gasto);
-      eq[eq.length-1]="Paquete "+paquete.nombre+": "+paquete.contenido;
+      // Una compra, un único precio; la ficha recibe cada objeto por separado.
+      gasto=Math.round((gasto+paquete.precio)*100)/100;
+      paquete.contenido.split(';').map(function(x){return x.trim();})
+        .filter(Boolean).forEach(function(objeto){eq.push(objeto);});
     }
     if(!arma)notas.push("No se ha asignado arma: no hay una opción inequívocamente competente y asequible en el catálogo DRS.");
     if(!armadurasPermitidas.length)

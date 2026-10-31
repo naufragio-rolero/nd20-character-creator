@@ -62,8 +62,14 @@
     function permitida(tipo,key){
       return !permitidas||permitidas.indexOf((fuentes[tipo]||{})[key]||'DRS')!==-1;
     }
-    var esps=Object.keys(especies).filter(function(key){return permitida('especies',key);});
-    var ocs=Object.keys(ocupaciones).filter(function(key){return permitida('ocupaciones',key);});
+    var poolEsp=Array.isArray(config.especiesPermitidas)?config.especiesPermitidas:[];
+    var poolOc=Array.isArray(config.ocupacionesPermitidas)?config.ocupacionesPermitidas:[];
+    var esps=Object.keys(especies).filter(function(key){
+      return permitida('especies',key)&&(!poolEsp.length||poolEsp.includes(key));
+    });
+    var ocs=Object.keys(ocupaciones).filter(function(key){
+      return permitida('ocupaciones',key)&&(!poolOc.length||poolOc.includes(key));
+    });
     if (!esps.length || !ocs.length)
       throw Error('No hay Ocupaciones o Especies disponibles con las fuentes seleccionadas.');
     if(config.especie&&esps.indexOf(config.especie)===-1)
@@ -181,7 +187,7 @@
     var equipo = compra.equipo.slice();
     detalles = detalles.concat(compra.notas);
     var recuerdo = escoger(esp.objetos_emocionales || [], rng);
-    if (recuerdo) equipo.push(recuerdo + ' (recuerdo personal; sin precio de compra)');
+    if (recuerdo) equipo.push('Recuerdo: '+recuerdo);
     var tipo = config.juego === 'nd20_cifi' ? 'Naufragio d20 · CiFi' :
       config.juego === 'nd20_nocturna' ? 'Naufragio d20 · Nocturna' : 'Naufragio d20 · Fantasía';
     var capacidades = (esp.talentos || []).concat(oc.talentos || []);
@@ -349,8 +355,12 @@
     if(config.ocupacion&&clases[config.ocupacion]&&origenes&&
       origenes.indexOf(Number(clases[config.ocupacion].origin))===-1)
       throw Error('La Clase elegida no pertenece a las procedencias permitidas.');
+    var poolOc=Array.isArray(config.ocupacionesPermitidas)?config.ocupacionesPermitidas:[];
+    var candidatas=Object.fromEntries(Object.entries(clases).filter(function(par){
+      return !poolOc.length||poolOc.includes(par[0]);
+    }));
     var claseKey = config.ocupacion && clases[config.ocupacion] ?
-      config.ocupacion : escogerEntradaPorOrigen(clases, origenes, rng);
+      config.ocupacion : escogerEntradaPorOrigen(candidatas, origenes, rng);
     var clase = clases[claseKey], nivel = clamp(Math.floor(Number(config.nivel) || 1), 1, 36);
     var favor = escoger(clase.attr, rng);
     var atributos = ATTR_DH.map(function(){return dificultadDH(rng);});
@@ -359,7 +369,9 @@
     if (tieneRaza) {
       var razas = Object.keys(datos.races).filter(function (k) {
         var r = datos.races[k];
+        var permitidas=Array.isArray(config.especiesPermitidas)?config.especiesPermitidas:[];
         return (!config.especie || k === config.especie) &&
+          (!permitidas.length||permitidas.includes(k)) &&
           (!origenes||origenes.indexOf(Number(r.origin))!==-1) &&
           (r.req || []).every(function (x) { return atributos[x[0]] <= x[1]; });
       });

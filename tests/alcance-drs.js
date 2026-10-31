@@ -179,7 +179,7 @@ assert.ok(app.includes("if(juego==='nd20')"),
   'Otras líneas de juego conservan sus selector de fuentes actual');
 const html=fs.readFileSync(path.join(raiz,'index.html'),'utf8');
 assert.ok(html.includes('id="aviso-alcance-drs"'));
-assert.ok(html.includes('DLC gratuitos'));
+assert.ok(html.includes('Solo DRS. Suplementos en revisión.'));
 assert.ok(app.includes("$('aviso-alcance-drs').hidden = juego!=='nd20'"));
 console.log('OK · Núcleo DRS: 8 Especies, 4 Ocupaciones, 64 Conjuros; 96 generaciones combinadas; DLC separados.');
 
@@ -580,19 +580,23 @@ for(const especie of ['Mediano amable','Gnomo urbano']){
       if(['Mago','Ladrón'].includes(ocupacion))
         assert.ok(!adaptado.equipo.some(x=>x.startsWith('Escudo ')),
           'No conceder competencia de escudo a '+ocupacion);
-      assert.equal(adaptado.gastado,
-        adaptado.equipo.filter(x=>!x.startsWith('Paquete ')).reduce((n,x)=>{
-          const todos=[...catalogoEquipamiento.armas,
-            ...catalogoEquipamiento.varitas_defensa,
-            ...catalogoEquipamiento.armaduras,...catalogoEquipamiento.escudos,
-            ...catalogoEquipamiento.municion];
-          const objeto=todos.find(y=>y.nombre===x);
-          return n+(objeto?objeto.precio:0);
-        },0)+adaptado.equipo.filter(x=>x.startsWith('Paquete ')).reduce((n,x)=>{
-          const paquete=catalogoEquipamiento.paquetes.find(y=>
-            x.startsWith('Paquete '+y.nombre+':'));
-          return n+(paquete?paquete.precio:0);
-        },0),'Sin sobreprecio de adaptación: '+especie+'/'+ocupacion);
+      const precioArticulos=adaptado.equipo.reduce((total,nombreItem)=>{
+        const todos=[...catalogoEquipamiento.armas,
+          ...catalogoEquipamiento.varitas_defensa,
+          ...catalogoEquipamiento.armaduras,...catalogoEquipamiento.escudos,
+          ...catalogoEquipamiento.municion];
+        const articulo=todos.find(x=>x.nombre===nombreItem);
+        return total+(articulo?articulo.precio:0);
+      },0);
+      const paqueteNombre=ocupacion==='Clérigo'?'Especial devotos':
+        ocupacion==='Mago'?'Especial arcanistas':
+        ocupacion==='Ladrón'?'Especial criminales':'Especial mazmorras';
+      const precioPaquete=catalogoEquipamiento.paquetes.find(x=>x.nombre===paqueteNombre).precio;
+      assert.ok(Math.abs(adaptado.gastado-precioArticulos-precioPaquete)<0.001,
+        'Sin sobreprecio de adaptación y cada paquete se cobra exactamente una vez: '+
+        especie+'/'+ocupacion);
+      assert.ok(!adaptado.equipo.some(x=>x.startsWith('Paquete ')),
+        'El inventario contiene los objetos, no la agrupación comercial');
     }
   }
   // El Guerrero tiene competencia con todos los escudos, pero solo puede

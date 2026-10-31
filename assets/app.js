@@ -46,25 +46,40 @@
       'Gnomo urbano':'esp-gnomo','Semielfo':'esp-semielfo',
       'Orco común':'esp-orco','Semiorco':'esp-semiorco'}
   };
+  // Selector de una sola opción, estilo rejilla de personajes de lucha.
+  // El select nativo conserva el estado de reglas y es respaldo accesible.
+  // Varias candidatas permitidas, una sola Especie/Ocupación por personaje.
+  // Ninguna marca significa aleatorio entre todas las disponibles.
+  var candidatosSelector={ocupacion:[],especie:[]};
+  var borradorSelector={ocupacion:[],especie:[]};
+  function marcarCeldas(tipo,seleccion){
+    $('selector-visual-'+tipo).querySelectorAll('button.opcion-visual')
+      .forEach(function(boton){
+        var elegido=boton.dataset.valor?
+          seleccion.includes(boton.dataset.valor):seleccion.length===0;
+        boton.classList.toggle('seleccionada',elegido);
+        boton.setAttribute('aria-pressed',String(elegido));
+      });
+  }
   function refrescarTarjetas(tipo){
     var select=$(tipo),contenedor=$('selector-visual-'+tipo);
-    var visual=$('juego').value==='nd20'&&!!datos.dh;
-    contenedor.hidden=!visual;
+    var abrir=$('abrir-selector-'+tipo),visual=!!datos.dh;
+    abrir.hidden=!visual;abrir.disabled=select.disabled;
     select.classList.toggle('selector-alternativo',visual);
     if(!visual){contenedor.replaceChildren();return;}
-    var actual=select.value;
+    var disponibles=Array.from(select.options).map(function(x){return x.value;});
+    candidatosSelector[tipo]=candidatosSelector[tipo].filter(function(x){
+      return disponibles.includes(x);
+    });
     contenedor.replaceChildren();
     Array.from(select.options).forEach(function(op){
       var key=pictogramas[tipo][op.value];
       var boton=document.createElement('button');
       boton.type='button';boton.className='opcion-visual';
       boton.dataset.valor=op.value;
-      boton.setAttribute('aria-pressed',String(op.value===actual));
-      boton.classList.toggle('seleccionada',op.value===actual);
-      boton.disabled=op.disabled;
-      var nombre=op.value?op.value:'Aleatoria';
-      boton.setAttribute('aria-label',tipo+': '+nombre+
-        (op.value===actual?', seleccionada':''));
+      boton.disabled=op.disabled||select.disabled;
+      var nombre=op.textContent||'Aleatoria';
+      boton.setAttribute('aria-label',tipo+': '+nombre);
       var dibujo;
       if(key){
         dibujo=document.createElementNS('http://www.w3.org/2000/svg','svg');
@@ -75,7 +90,8 @@
         dibujo.appendChild(use);
       }else{
         dibujo=document.createElement('span');
-        dibujo.className='icono-azar';dibujo.textContent='?';
+        dibujo.className='icono-azar';
+        dibujo.textContent=op.value?nombre.trim().slice(0,2).toUpperCase():'?';
         dibujo.setAttribute('aria-hidden','true');
       }
       var etiqueta=document.createElement('span');
@@ -83,19 +99,16 @@
       boton.append(dibujo,etiqueta);
       contenedor.appendChild(boton);
     });
+    marcarTarjetasSeleccionadas(tipo);
   }
   function marcarTarjetasSeleccionadas(tipo){
-    // No reconstruir el DOM al pulsar una tarjeta: teclado y lectores
-    // de pantalla conservan el foco sobre la opción recién seleccionada.
-    var actual=$(tipo).value;
-    $('selector-visual-'+tipo).querySelectorAll('button.opcion-visual')
-      .forEach(function(boton){
-        var selected=boton.dataset.valor===actual;
-        boton.classList.toggle('seleccionada',selected);
-        boton.setAttribute('aria-pressed',String(selected));
-        boton.setAttribute('aria-label',tipo+': '+
-          (boton.dataset.valor||'Aleatoria')+(selected?', seleccionada':''));
-      });
+    var pool=candidatosSelector[tipo],select=$(tipo);
+    var nombres=pool.map(function(k){
+      return Array.from(select.options).find(function(op){return op.value===k;})?.textContent||k;
+    });
+    $('valor-elegido-'+tipo).textContent=!pool.length?'Aleatoria':
+      pool.length===1?nombres[0]:pool.length+' opciones';
+    marcarCeldas(tipo,pool);
   }
   function refrescarTarjetasVisibles(){
     refrescarTarjetas('ocupacion');
@@ -171,6 +184,7 @@
   }
   function refrescarSelectores() {
     if (!datos.dh) return;
+    if(!['nd20','dh'].includes($('juego').value))$('juego').value='nd20';
     var juego = $('juego').value, dh = juego === 'dh';
     refrescarBotonesSistema();
     $('opciones-dh').hidden = !dh;
@@ -248,6 +262,8 @@
       throw Error('El modo Personalizado crea una ficha por vez. Selecciona cantidad 1.');
     return {juego:juego, nivel:nivel, cantidad:cantidad, modo:modo,
       ocupacion:$('ocupacion').value, especie:$('especie').value,
+      ocupacionesPermitidas:candidatosSelector.ocupacion.slice(),
+      especiesPermitidas:candidatosSelector.especie.slice(),
       conEspecie:$('con-especie').checked, origenes:origenes, fuentes:fuentes,
       nombre:$('nombre-personaje').value.trim(),
       sexo:$('sexo-pj').value,
@@ -720,13 +736,39 @@
   }
   function vincular() {
     ['ocupacion','especie'].forEach(function(tipo){
+      var dialogo=$('dialogo-'+tipo),abrir=$('abrir-selector-'+tipo);
+      abrir.addEventListener('click',function(){
+        if(abrir.disabled)return;
+        borradorSelector[tipo]=candidatosSelector[tipo].slice();
+        marcarCeldas(tipo,borradorSelector[tipo]);
+        dialogo.showModal();
+        (dialogo.querySelector('button.opcion-visual.seleccionada')||
+         dialogo.querySelector('button.opcion-visual'))?.focus();
+      });
       $('selector-visual-'+tipo).addEventListener('click',function(event){
         var boton=event.target.closest('button.opcion-visual');
         if(!boton||boton.disabled)return;
-        $(tipo).value=boton.dataset.valor;
-        $(tipo).dispatchEvent(new Event('change',{bubbles:true}));
+        var valor=boton.dataset.valor;
+        if(!valor)borradorSelector[tipo]=[];
+        else if(borradorSelector[tipo].includes(valor))
+          borradorSelector[tipo]=borradorSelector[tipo].filter(function(x){return x!==valor;});
+        else borradorSelector[tipo].push(valor);
+        marcarCeldas(tipo,borradorSelector[tipo]);
+      });
+      dialogo.querySelector('[data-confirmar-selector]').addEventListener('click',function(){
+        candidatosSelector[tipo]=borradorSelector[tipo].slice();
+        $(tipo).value=candidatosSelector[tipo].length===1?candidatosSelector[tipo][0]:'';
+        marcarTarjetasSeleccionadas(tipo);
+        dialogo.close();abrir.focus();
+      });
+      dialogo.querySelector('[data-cerrar-selector]').addEventListener('click',function(){
+        dialogo.close();abrir.focus();
+      });
+      dialogo.addEventListener('click',function(event){
+        if(event.target===dialogo){dialogo.close();abrir.focus();}
       });
       $(tipo).addEventListener('change',function(){
+        candidatosSelector[tipo]=$(tipo).value?[$(tipo).value]:[];
         marcarTarjetasSeleccionadas(tipo);
       });
     });
@@ -988,6 +1030,7 @@
       return [par[0],await response.json()];
     }));
     var loaded=Object.fromEntries(elementos);
+    window.NaufragioI18n?.cargar?.('es').catch(function(){ /* Texto español de respaldo. */ });
     var extra=loaded.ampliado;
     datos.fantasia={
       especies:Object.assign({},loaded.especies,extra.fantasia.especies),
