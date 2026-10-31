@@ -7,6 +7,7 @@
  */
 const fs=require('node:fs');
 const path=require('node:path');
+const crypto=require('node:crypto');
 const raiz=path.resolve(__dirname,'..');
 const carpetaDist=path.join(raiz,'dist');
 const destino=path.resolve(process.argv[2]||path.join(carpetaDist,'public-drs'));
@@ -25,7 +26,31 @@ if(drsPoderes.length!==64||new Set(drsPoderes.map(x=>x.id)).size!==64||
    Object.keys(baseEspecies).length!==8||Object.keys(baseOcupaciones).length!==4)
   throw Error('Los recuentos y las identidades del DRS ya no coinciden: detener la distribución.');
 const idsDRS=new Set(drsPoderes.map(x=>x.id));
-const nombresConjuros=new Set(drsPoderes.map(x=>x.nombre));
+const huellas=JSON.parse(fs.readFileSync(
+  path.join(raiz,'data/huellas-conjuros-drs.json'),'utf8')).huellas;
+if(Object.keys(huellas).length!==64||
+   [...idsDRS].some(id=>!Object.hasOwn(huellas,id)))
+  throw Error('Las 64 huellas de Conjuros DRS no cubren el catálogo íntegro.');
+function revisarLiteralConjuro(ficha){
+  // La única diferencia sustantiva detectada entre el Tomo de trabajo
+  // y el DRS es «ese objeto mundano obtiene» en Forja arcana.
+  // El paquete básico respeta la frase original del DRS.
+  if(ficha.id_catalogo==='conjuro-45'){
+    const coincidencias=ficha.parrafos.filter(x=>
+      x.includes('ese objeto mundano obtiene:'));
+    if(coincidencias.length!==1)
+      throw Error('Forja arcana: versión del Tomo distinta de la auditada.');
+    ficha.parrafos=ficha.parrafos.map(x=>
+      x.replace('ese objeto mundano obtiene:','ese objeto obtiene:'));
+  }
+  ficha.parrafos=ficha.parrafos.map(x=>x.trim());
+  const valor=crypto.createHash('sha256')
+    .update(JSON.stringify(ficha.parrafos),'utf8').digest('hex');
+  if(valor!==huellas[ficha.id_catalogo])
+    throw Error('El texto de '+ficha.nombre_tomo+' ('+ficha.id_catalogo+
+      ') difiere de la ficha literal del DRS. Publicación interrumpida.');
+  return ficha;
+}
 const especiesAdmitidas=new Set([
   ...Object.keys(baseEspecies),
   ...Object.keys(especiesCifi),
@@ -63,13 +88,15 @@ const transformaciones={
     return d;
   },
   'data/conjuros-revisados-001-225.json'(d){
-    d.conjuros=d.conjuros.filter(x=>idsDRS.has(x.id_catalogo));
-    d.criterio='Extractos exclusivamente de Conjuros identificados en el DRS; consultar ficha DRS como fuente normativa.';
+    d.conjuros=d.conjuros.filter(x=>idsDRS.has(x.id_catalogo))
+      .map(revisarLiteralConjuro);
+    d.criterio='Texto cotejado contra las 64 fichas literales del DRS, incluidos los valores de la tabla Calentar metal.';
     return d;
   },
   'data/conjuros-revisados-226-434.json'(d){
-    d.conjuros=d.conjuros.filter(x=>idsDRS.has(x.id_catalogo));
-    d.criterio='Extractos exclusivamente de Conjuros identificados en el DRS; consultar ficha DRS como fuente normativa.';
+    d.conjuros=d.conjuros.filter(x=>idsDRS.has(x.id_catalogo))
+      .map(revisarLiteralConjuro);
+    d.criterio='Texto cotejado contra las 64 fichas literales del DRS, incluidos los valores de la tabla Calentar metal.';
     return d;
   },
   'data/conjuros-magnitudes-literales.json'(d){
