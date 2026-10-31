@@ -20,7 +20,7 @@
       .replace(/^Paquete\s+/i,"").trim();
   }
   function indice(fuentes){
-    var mapa=new Map(),total=0;
+    var mapa=new Map(),porId=new Map(),total=0;
     function incluir(entry){
       if(!entry||!entry.nombre)return;
       var key=normalizar(entry.nombre);
@@ -30,6 +30,10 @@
       if(lista.some(function(x){return x.id&&entry.id?x.id===entry.id:
         x.tipo===entry.tipo&&x.sistema===entry.sistema&&x.fuente===entry.fuente;}))return;
       lista.push(entry);total++;
+      if(entry.id){
+        if(!porId.has(entry.id))porId.set(entry.id,[]);
+        porId.get(entry.id).push(entry);
+      }
     }
     function anotar(n,tipo,sistema,fuente,datos){
       incluir(Object.assign({nombre:n,tipo:tipo,sistema:sistema,
@@ -170,7 +174,7 @@
         (corregido?" (corrección editorial aprobada)":" (texto cotejado)");
       idRevisados.add(ficha.id_catalogo);
     });
-    return {mapa:mapa,total:total};
+    return {mapa:mapa,porId:porId,total:total};
   }
   function buscar(ind,nombre,grupo,sistema){
     if(!ind||!nombre)return null;
@@ -200,5 +204,16 @@
     lista.sort(function(a,b){return puntuacion(b)-puntuacion(a);});
     return lista[0];
   }
-  return {indice:indice,buscar:buscar,limpiar:limpiar,normalizar:normalizar};
+  /* La selección de Conjuros usa su ID exacto, no el nombre visible,
+   * para evitar fichas cruzadas entre variantes homónimas. */
+  function buscarPorId(ind,id,grupo,sistema){
+    if(!ind||typeof id!=="string"||!id.trim())return null;
+    var lista=(ind.porId?.get(id)||[]).filter(function(x){
+      return (!sistema||x.sistema===sistema)&&
+        (!grupo||x.grupo===grupo);
+    });
+    return lista.length===1?lista[0]:null; // No adivinar entre coincidencias.
+  }
+  return {indice:indice,buscar:buscar,buscarPorId:buscarPorId,
+    limpiar:limpiar,normalizar:normalizar};
 });
