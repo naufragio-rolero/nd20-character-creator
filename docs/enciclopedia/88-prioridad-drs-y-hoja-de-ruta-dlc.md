@@ -10,9 +10,9 @@ El primer objetivo de publicación son **las reglas íntegramente verificadas** 
 |---|---:|---:|---|
 | **Especies** | **8** | **8/8** nombres y perfiles en `data/especies.json` | Auditoría exhaustiva de requisitos, Salud, Movimiento, Talentos, restricciones y resultados reales en ficha |
 | **Ocupaciones** | **4** | **4/4** nombres y perfiles en `data/ocupaciones.json`; cuatro progresiones con **30 Niveles** cada una | Validación de todas las elecciones, Talentos, competencias, equipo, progresiones, Conjuros y recursos, no solo presencia de la tabla |
-| **Conjuros** | **64** con origen `Nd20` en `data/catalogo-poderes.json` | **64/64** consultables; **32/64** con magnitudes estructuradas | Completar las 32 fichas mecánicas pendientes y verificar preparación, lanzamiento y resolución de efectos permitidos por el DRS |
+| **Conjuros** | **64** con origen `Nd20` en `data/catalogo-poderes.json` | **64/64** consultables y **64/64** con magnitudes estructuradas (100 % de cobertura documental de magnitudes) | Cerrada la etapa de magnitudes; verificar preparación, lanzamiento y resolución de efectos permitidos por el DRS |
 
-**La presencia en un catálogo NO es un indicador de cobertura mecánica completa.** No debe comunicarse que Especies u Ocupaciones están «al 100 %» solo porque sus ocho y cuatro registros existen. Del mismo modo, las 32 magnitudes de Conjuros no equivalen a 32 Conjuros lanzables automáticamente.
+**La presencia en un catálogo NO es un indicador de cobertura mecánica completa.** No debe comunicarse que Especies u Ocupaciones están «al 100 %» solo porque sus ocho y cuatro registros existen. Del mismo modo, las 64 fichas de magnitudes de Conjuros no equivalen a 64 Conjuros lanzables automáticamente.
 
 El DRS es la autoridad para Alcances, Círculos, listas de Ocupación y reglas conflictivas. Solo cuando sea silencioso se utiliza material documental suplementario, **sin convertirlo automáticamente en regla básica**.
 
@@ -52,10 +52,13 @@ No se ha fijado número de entregas ni fechas: saldrán cuando estén revisadas 
 
 ## 5. Qué ha cambiado y qué queda
 
+**Actualización de cierre:** las 32 fichas mecánicas del DRS antes pendientes se han incorporado; los **64 Conjuros básicos** tienen ahora magnitudes documentales verificadas. La etapa de magnitudes está cerrada, pero la de lanzamiento y resolución íntegra sigue abierta. Véase [89](89-cierre-magnitudes-64-conjuros-drs.md).
+
+
 - Manifiesto versionable en `data/alcance-drs-y-dlc.json`, con **8 Especies + 4 Ocupaciones + 64 Conjuros**.
 - Selección de Fantasía filtrada a DRS, incluidos resultados aleatorios; la generación desde la interfaz no ofrece fuentes de DLC.
 - CI con prueba de integridad de la base y 96 combinaciones de personajes.
 - La **PR #4 permanece en borrador** y conserva los avances suplementarios para una posterior separación de entregables. **No fusionar como lanzamiento 1.0 en su estado actual**.
-- Siguientes labores prioritarias: terminar los **32 Conjuros del DRS todavía sin magnitudes**, auditoría mecánica Especies 8/8 y Ocupaciones 4/4 y conciliación de publicación de archivos estáticos.
+- Siguientes labores prioritarias: auditar mecánicas de Especies 8/8 y Ocupaciones 4/4, abordar por separado la ejecución de Conjuros y conciliar los archivos estáticos de publicación.
 
 **Regla editorial:** no volver a aumentar la cantidad de Conjuros, Especies u Ocupaciones de suplementos durante el cierre del núcleo DRS. Los datos existentes no se destruyen y serán reutilizables cuando se aprueben DLC gratuitos.
