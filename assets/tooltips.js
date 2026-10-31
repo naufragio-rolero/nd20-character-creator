@@ -139,6 +139,7 @@
     /* Integración informativa del Tomo auditado. Nunca ejecuta efectos. */
     var conjurosPorId=new Map((catalogo.conjuros||[]).map(function(x){return [x.id,x];}));
     var magnitudesPorId=new Map((fuentes.magnitudes?.registros||[]).map(function(x){return [x.id_catalogo,x];}));
+    var danioPorId=new Map((fuentes.danioCompuesto?.registros||[]).map(function(x){return [x.id_catalogo,x];}));
     var idRevisados=new Set();
     (fuentes.conjurosRevisados||[]).forEach(function(ficha){
       if(!ficha||!ficha.id_catalogo||idRevisados.has(ficha.id_catalogo))return;
@@ -150,6 +151,7 @@
       });
       if(!destino)return;
       if(magnitudesPorId.has(destino.id))destino.magnitudes=magnitudesPorId.get(destino.id);
+      if(danioPorId.has(destino.id))destino.danioCompuesto=danioPorId.get(destino.id);
       var cuerpo=(ficha.parrafos||[]).filter(function(parrafo){
         return !/^(?:Primer|Segundo|Tercer|Cuarto|Quinto|Sexto|Séptimo|Octavo) Círculo$/i.test(parrafo)
           && !/^(?:Escuela|Alcance|Duración|Lanzamiento|Requisito):/i.test(parrafo);
