@@ -181,6 +181,35 @@
           </div>
         </form>
       </section>
+      <section id="editor-compras" class="editor-elecciones" hidden aria-labelledby="titulo-editor-compras">
+        <h3 id="titulo-editor-compras">Comprar útiles del DRS</h3>
+        <p id="resumen-compras" class="muted" aria-live="polite"></p>
+        <form id="form-compra-utiles">
+          <div class="campo">
+            <label for="compras-articulo">Artículo</label>
+            <select id="compras-articulo" required></select>
+          </div>
+          <div class="campos-compra">
+            <div class="campo">
+              <label for="compras-cantidad">Cantidad</label>
+              <input id="compras-cantidad" type="number" min="1" max="99" step="1" value="1" required>
+            </div>
+            <div class="campo" id="compras-campo-nivel" hidden>
+              <label for="compras-nivel">Nivel del Antídoto o Veneno</label>
+              <input id="compras-nivel" type="number" min="1" max="30" step="1" value="1">
+            </div>
+          </div>
+          <p id="compras-detalle" class="ayuda" aria-live="polite"></p>
+          <button type="button" id="compras-anadir">Añadir a la compra</button>
+          <h4>Artículos seleccionados</h4>
+          <ul id="compras-lista" class="lista-compra"></ul>
+          <p id="compras-total" aria-live="polite"></p>
+          <div class="botonera">
+            <button id="compras-confirmar" type="submit" class="principal" disabled>Confirmar compra</button>
+            <button id="compras-cancelar" type="button">Cancelar</button>
+          </div>
+        </form>
+      </section>
       <div id="fichas" class="fichas" aria-live="off">
         <div class="vacio" id="vacio">
           <span class="emblema" aria-hidden="true">◇</span>
