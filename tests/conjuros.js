@@ -108,7 +108,7 @@ for(const entrada of literales.registros){
     for(const campo of salida.magnitudes){
       assert.ok(typeof campo.valor==='boolean'||
         (typeof campo.valor==='number'&&Number.isFinite(campo.valor))||
-        (typeof campo.valor==='string'&&/^\d+d(?:4|6|8|10|12|20|100)$/.test(campo.valor)),
+        (typeof campo.valor==='string'&&/^\d+d(?:2|3|4|6|8|10|12|20|100)(?:[+]\d+)?$/.test(campo.valor)),
         'Resultado puramente declarativo: '+entrada.nombre_tomo+'/'+campo.clave);
     }
   }
@@ -412,3 +412,16 @@ assert.ok(appConjuros.includes('esConjuro?null:'),
 assert.ok(interfazConjuros.includes('elemento.dataset.glosaId?'));
 assert.ok(interfazConjuros.includes('elemento.dataset.glosaNivel||'));
 console.log('OK · Consulta de Conjuros por ID exacto y Nivel en el editor de elecciones.');
+/* Dados especiales documentados: no se lanzan ni se inventan mínimos. */
+assert.equal(motorMagnitudes.calcular({clave:'x',tipo:'dado_literal',valor:'1d2'},8),'1d2');
+assert.equal(motorMagnitudes.calcular({clave:'x',tipo:'dado_literal',valor:'1d3'},8),'1d3');
+assert.equal(motorMagnitudes.calcular({clave:'x',tipo:'dado_literal',valor:'1d6+1'},8),'1d6+1');
+assert.equal(motorMagnitudes.calcular({clave:'x',tipo:'dado_literal',valor:'1d4+2'},8),'1d4+2');
+assert.equal(motorMagnitudes.calcular({clave:'x',tipo:'dados_por_bloques',valor:[1,6,2]},7),'3d6');
+assert.equal(motorMagnitudes.calcular({clave:'x',tipo:'dados_por_bloques',valor:[1,8,4]},8),'2d8');
+assert.equal(motorMagnitudes.calcular({clave:'x',tipo:'dados_por_bloques',valor:[1,8,4]},3),'0d8');
+assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_bloques',valor:[1,8,0]},8),
+  /Dados por bloques de Nivel inválidos/);
+assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dado_literal',valor:'2d7'},8),
+  /Expresión de dado no validada/);
+
