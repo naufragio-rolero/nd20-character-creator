@@ -13,6 +13,9 @@
   function consulta(nombre,grupo,sistema){
     return root.NaufragioTooltipIndex?.buscar(glosario,nombre,grupo,sistema)||null;
   }
+  function consultaPorId(id,grupo,sistema){
+    return root.NaufragioTooltipIndex?.buscarPorId(glosario,id,grupo,sistema)||null;
+  }
   function etiqueta(t,grupo,sistema){
     var dato=consulta(t,grupo,sistema);
     if(!dato)return esc(t);
@@ -59,8 +62,11 @@
   }
   function mostrar(elemento,anclado){
     if(!glosario||!elemento)return;
-    var info=consulta(elemento.dataset.glosaNombre,elemento.dataset.glosaGrupo,
-      elemento.dataset.glosaSistema);
+    var info=elemento.dataset.glosaId?
+      consultaPorId(elemento.dataset.glosaId,elemento.dataset.glosaGrupo,
+        elemento.dataset.glosaSistema):
+      consulta(elemento.dataset.glosaNombre,elemento.dataset.glosaGrupo,
+        elemento.dataset.glosaSistema);
     if(!info)return;
     limpiarTemporizador();
     if(ancla&&ancla!==elemento)ancla.removeAttribute("aria-describedby");
@@ -86,7 +92,9 @@
     c.appendChild(d);
     /* Las magnitudes se calculan solo cuando conocemos el Nivel del personaje.
      * Las condiciones y las tiradas de dados NO se ejecutan aquí. */
-    var nivel=Number(elemento.closest(".tarjeta")?.dataset.nivel);
+    var nivelTexto=elemento.dataset.glosaNivel||
+      elemento.closest(".tarjeta")?.dataset.nivel;
+    var nivel=Number(nivelTexto);
     if(info.magnitudes&&Number.isSafeInteger(nivel)&&nivel>=1&&root.NaufragioMagnitudes){
       var calculo=root.NaufragioMagnitudes.evaluar(
         {registros:[info.magnitudes]},info.magnitudes.id_catalogo,nivel);
@@ -158,5 +166,6 @@
     root.addEventListener("resize",posicionar);
     root.addEventListener("scroll",posicionar,{passive:true,capture:true});
   }
-  return {configurar:configurar,etiqueta:etiqueta,consulta:consulta,cerrar:cerrar};
+  return {configurar:configurar,etiqueta:etiqueta,consulta:consulta,
+    consultaPorId:consultaPorId,cerrar:cerrar};
 });
