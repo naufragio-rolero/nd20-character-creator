@@ -411,6 +411,19 @@ for(const ocupacion of ['Mago','Ladrón'])
 console.log('OK · Compra inicial DRS: competencias de 4 Ocupaciones, escudos y protección por Nivel.');
 
 /* Auditoría DRS por Talento: efecto en ficha, selección y límites de tamaño. */
+const envejecimientoDRS={
+  'Elfo agreste':'nunca envejecen',
+  'Enano montañés':'desde los 280 años',
+  'Humano común':'desde los 50 años',
+  'Mediano amable':'desde los 70 años',
+  'Gnomo urbano':'desde los 350 años',
+  'Semielfo':'desde los 100 años',
+  'Orco común':'desde los 35 años',
+  'Semiorco':'desde los 45 años'
+};
+for(const [especie,edad] of Object.entries(envejecimientoDRS))
+  assert.equal(especies[especie].envejecimiento,edad,
+    'Edad de envejecimiento acreditada DRS: '+especie);
 const talentosFijosDRS={
   'Elfo agreste':['Linaje feérico','Rapidez'],
   'Enano montañés':['Corpulencia','Visión en la oscuridad'],
@@ -440,6 +453,8 @@ for(const [especie,fijos] of Object.entries(talentosFijosDRS)){
       personaje.herencia_dual===nombre,'Solo describir rama elegida: '+especie);
   assert.equal(personaje.recursos.find(x=>x[0]==='Movimiento')[1],
     perfil.movimiento,'El Movimiento corregido por Talento no se aplica dos veces: '+especie);
+  assert.ok(personaje.notas.includes('Envejecimiento de Especie: '+
+    envejecimientoDRS[especie]+'.'),'El envejecimiento figura en la ficha');
 }
 for(const especie of ['Mediano amable','Gnomo urbano']){
   const cfg={juego:'nd20',nivel:1,ocupacion:'Guerrero',especie,aplazarElecciones:true,
