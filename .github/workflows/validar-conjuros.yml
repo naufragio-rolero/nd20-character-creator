@@ -8,6 +8,10 @@ on:
     paths:
       - 'data/conjuros-revisados-*.json'
       - 'data/conjuros-magnitudes-literales.json'
+      - 'data/conjuros-danio-compuesto.json'
+      - 'data/catalogo-poderes.json'
+      - 'docs/enciclopedia/78a-correcciones-geometria-conjuros-10.json'
+      - 'docs/enciclopedia/82a-correcciones-confirmadas-conjuros.json'
       - 'assets/tooltips.js'
       - 'assets/tooltip-ui.js'
       - 'assets/spell-magnitudes.js'
