@@ -63,6 +63,56 @@ async function probar(nombre,tipo,url){
     });
     assert.equal(iconos.status,200);
     assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,12);
+    // Popup de Poderes: uso inmediato de Dormir según el Tomo cotejado,
+    // opción avanzada y comprobación de otra familia (Técnicas). No depende
+    // de que la ficha aleatoria haya aprendido un Conjuro concreto.
+    await page.evaluate(()=>{
+      const b=document.createElement('button');
+      b.id='e2e-poder';b.type='button';b.textContent='Consultar Poder';
+      b.className='referencia-glosario';
+      b.dataset.glosaId='conjuro-7';
+      b.dataset.glosaGrupo='poder';
+      b.dataset.glosaSistema='nd20';
+      b.dataset.glosaNivel='1';
+      document.body.appendChild(b);
+    });
+    await page.locator('#e2e-poder').click();
+    const popup=page.locator('#ficha-emergente');
+    assert.equal(await popup.locator('.info-tipo').textContent(),'Conjuro');
+    assert.equal(await popup.locator('h3').textContent(),'Dormir');
+    assert.equal(await popup.locator('.info-clasificacion').textContent(),
+      'Arcana · 1.er Círculo');
+    assert.deepEqual(await popup.locator('.info-primarios dt').allTextContents(),
+      ['Alcance:','Duración:']);
+    assert.deepEqual(await popup.locator('.info-primarios dd').allTextContents(),
+      ['10m + 2m por Nivel','1d6 Intervalos']);
+    assert.match(await popup.locator('.info-descripcion').first().textContent(),
+      /reserva de 5d10 Puntos Oníricos/);
+    assert.match(await popup.locator('.info-fuente').textContent(),
+      /Origen: Naufragio d20 DRS · Fuente: NaufragioD20 — Tomo de Magia/);
+    const detallesPoder=popup.locator('.info-detalles');
+    assert.equal(await detallesPoder.isHidden(),true,
+      nombre+': magnitudes no visibles en lectura rápida');
+    await page.locator('#configuracion-avanzada summary').click();
+    await page.locator('#informacion-avanzada').check();
+    assert.equal(await detallesPoder.isVisible(),true,
+      nombre+': la preferencia muestra los datos técnicos sin rehacer el Poder');
+    assert.equal(await detallesPoder.evaluate(x=>x.open),true);
+    assert.match(await detallesPoder.innerText(),/Ficha del Tomo\s+101/);
+    assert.match(await detallesPoder.innerText(),/Magnitudes literales · Nivel 1/);
+    assert.match(await detallesPoder.innerText(),/12 metros/);
+    assert.match(await detallesPoder.innerText(),/1d6 Intervalos/);
+    await page.locator('#e2e-poder').evaluate(x=>{x.dataset.glosaId='tecnica-02';});
+    await page.locator('#e2e-poder').click();
+    assert.equal(await popup.locator('.info-tipo').textContent(),'Técnica');
+    assert.equal(await popup.locator('.info-clasificacion').textContent(),'Disciplina');
+    assert.match(await popup.locator('.info-primarios').textContent(),
+      /Coste:\s*1 punto de Esfuerzo/);
+    assert.match(await popup.locator('.info-primarios').textContent(),/Requisito:/);
+    await page.locator('#informacion-avanzada').uncheck();
+    assert.equal(await popup.locator('.info-detalles').isHidden(),true);
+    await page.keyboard.press('Escape');
+    await page.locator('#e2e-poder').evaluate(x=>x.remove());
     const opcionMago=page.locator('#selector-visual-ocupacion button[data-valor="Mago"]');
     await opcionMago.click();
     assert.equal(await page.locator('#ocupacion').inputValue(),'Mago');
