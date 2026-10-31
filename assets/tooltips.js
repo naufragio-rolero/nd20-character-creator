@@ -43,10 +43,12 @@
       Object.entries(grupo||{}).forEach(function(par){
         var obj=par[1];
         (obj.talentos||[]).forEach(function(n){
-          anotar(n,"Talento",sistema,"Especie: "+par[0],{grupo:"talento"});
+          anotar(n,"Talento",sistema,"Especie: "+par[0],
+            {grupo:"talento",descripcion:obj.talentos_descripcion?.[n]||""});
         });
         (obj.talentos_elegir||[]).forEach(function(n){
-          anotar(n,"Talento",sistema,"Especie: "+par[0],{grupo:"talento"});
+          anotar(n,"Talento",sistema,"Especie: "+par[0],
+            {grupo:"talento",descripcion:obj.talentos_descripcion?.[n]||""});
         });
         (obj.objetos_emocionales||[]).forEach(function(n){
           anotar(n,"Objeto",sistema,"Objeto emocional de "+par[0],{grupo:"equipo",
@@ -58,7 +60,8 @@
       Object.entries(grupo||{}).forEach(function(par){
         var obj=par[1],talentos=(obj.talentos||[]).concat(obj.talentos_elegir||[]);
         talentos.concat(obj.talentos_referencia||[]).forEach(function(n){
-          anotar(n,"Talento",sistema,"Ocupación: "+par[0],{grupo:"talento"});
+          anotar(n,"Talento",sistema,"Ocupación: "+par[0],
+            {grupo:"talento",descripcion:obj.talentos_descripcion?.[n]||""});
         });
         (obj.armas||[]).concat(obj.armaduras||[]).forEach(function(n){
           anotar(n,"Objeto",sistema,"Equipo de Ocupación: "+par[0],
@@ -135,13 +138,18 @@
       entries.forEach(function(e){
         // Detalles transcritos y contrastados con el manual; nunca conjeturas.
         if(par[1].sistema&&par[1].sistema!==e.sistema)return;
-        e.descripcion=par[1].descripcion;
+        // Los campos talentos_descripcion proceden del perfil de Especie
+        // u Ocupación y son más completos que algunas glosas abreviadas.
+        // No sustituir el texto original si ya existe.
+        if(!e.descripcion)e.descripcion=par[1].descripcion;
         if(par[1].tipo)e.tipo=par[1].tipo;
         if(par[1].activacion)e.datos.unshift(["Activación",par[1].activacion]);
         if(par[1].atributo)e.datos.push(["Atributo",par[1].atributo]);
         if(par[1].coste)e.datos.push(["Coste",par[1].coste]);
         if(par[1].alcance)e.datos.push(["Alcance",par[1].alcance]);
-        e.fuente_descripcion=par[1].fuente;
+        if(!e.fuente_descripcion&&!e.fuente.startsWith("Especie: ")&&
+           !e.fuente.startsWith("Ocupación: "))
+          e.fuente_descripcion=par[1].fuente;
       });
     });
     /* Integración informativa del Tomo auditado. Nunca ejecuta efectos. */
