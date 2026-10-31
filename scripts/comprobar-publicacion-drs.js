@@ -22,8 +22,27 @@ function dato(ruta){
 function afirmar(condicion,mensaje){
   if(condicion)alertas.push(mensaje);
 }
-if(!fs.existsSync(path.join(raiz,'index.html')))
-  alertas.push('No existe index.html en la raíz del directorio de publicación: '+raiz);
+// Evitar el falso positivo de una carpeta «segura» porque solo contiene
+// index.html y faltan todos los archivos que la aplicación necesita cargar.
+const requeridos=[
+  'index.html','assets/styles.css','assets/equipment.js','assets/sex.js',
+  'assets/rules.js','assets/powers.js','assets/spell-magnitudes.js',
+  'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js',
+  'data/especies.json','data/ocupaciones.json',
+  'data/especies_cifi.json','data/ocupaciones_cifi.json',
+  'data/catalogo-ampliado.json','data/tesauro-ylat.json',
+  'data/sexo-personajes.json','data/catalogo-poderes.json',
+  'data/conjuros-revisados-001-225.json',
+  'data/conjuros-revisados-226-434.json',
+  'data/conjuros-magnitudes-literales.json',
+  'data/alcance-drs-y-dlc.json','data/conjuros-danio-compuesto.json',
+  'data/progresiones-oficiales.json','data/equipo-inicial.json',
+  'data/fichas-documentales.json','data/dungeon-hack.json'
+];
+for(const ruta of requeridos)
+  if(!fs.existsSync(path.join(raiz,ruta)))
+    alertas.push('Falta archivo requerido por el arranque de Forja: '+ruta+
+      '. No declarar publicable un paquete incompleto.');
 const extras=dato('data/catalogo-ampliado.json');
 if(extras){
   const especies=Object.keys(extras.fantasia?.especies||{});
