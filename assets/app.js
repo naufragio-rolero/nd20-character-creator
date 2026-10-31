@@ -694,11 +694,11 @@
     $('compras-articulo').addEventListener('change',refrescarCompra);
     $('compras-cantidad').addEventListener('input',refrescarCompra);
     $('compras-nivel').addEventListener('input',refrescarCompra);
-    // Intro al editar un campo no debe confirmar por accidente el carrito.
-    // Su acción natural es añadir la línea activa (Confirmar exige su botón).
+    // Intro en Cantidad o Nivel añade la línea, nunca confirma el carrito.
+    // Dejar el selector Artículo con sus teclas nativas (abrir/seleccionar).
     $('form-compra-utiles').addEventListener('keydown',function(event){
       if(event.key!=='Enter'||!event.target.matches(
-        '#compras-articulo, #compras-cantidad, #compras-nivel'))return;
+        '#compras-cantidad, #compras-nivel'))return;
       event.preventDefault();
       if(!event.repeat)$('compras-anadir').click();
     });
