@@ -259,6 +259,29 @@ por decisión expresa del autor; no debe deducirse que estén pendientes
 de incorporarse por analogía con otros sistemas.
 
 
+### Compras individuales del DRS y prueba real en navegador
+
+Las fichas de **Naufragio d20 Fantasía** con capital disponible
+permiten comprar individualmente los **41 útiles y 2 focos** del DRS.
+El editor muestra el precio unitario, la cantidad, el Nivel de
+Antídoto/Veneno, el importe del carrito y el saldo restante.
+**Cancelar no modifica la ficha**; **Confirmar** comprueba el
+presupuesto y actualiza el inventario, el saldo, la copia de la
+ficha y su exportación.
+
+Por decisión editorial, el útil «Almádena» de 2 mo se presenta como
+**Martillo de campamento** y conserva su uso como Clava. La
+**Almádena** de 60 mo sigue siendo el arma a dos manos.
+
+El flujo se verifica automáticamente en **Google Chrome real**, mediante
+`node tests/browser-compras.js`, además de las pruebas unitarias de
+Node. La ejecución en GitHub Actions comprueba generación, compra y
+cancelación, protección frente a sobrepresupuestos, independencia de
+fichas, copia/exportación, foco del teclado y ancho móvil. La prueba
+no sustituye una revisión visual manual ni una auditoría de
+accesibilidad. Véase
+`docs/enciclopedia/97-pruebas-navegador-compras-drs.md`.
+
 ### Fichas emergentes (Talentos, Poderes y Objetos)
 
 Los nombres consultables aparecen subrayados en las fichas. Al situar el
