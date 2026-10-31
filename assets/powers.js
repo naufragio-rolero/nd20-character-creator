@@ -443,7 +443,10 @@
       avisos.push("Psion: el manual exige aprender mediante 1d20. El modo Personalizado respeta esta tirada.");
     }
     if(p.tipo==="sequito")avisos.push("Diplomático: sus Asistentes y Guardaespaldas siguen la tabla de progreso; no son Poderes seleccionables.");
-    return {pasos:pasos,avisos:avisos,recursos:recursos,fuente:progresiones.fuentes[rama]};
+    return {pasos:pasos,avisos:avisos,recursos:recursos,
+      fuente:progresiones.fuentes[rama],
+      talentos_ocupacion: juego==="nd20" ?
+        (datos.ocupaciones[ocupacion]?.talentos_descripcion||{}) : {}};
   }
   function disponibles(paso,selecciones){
     var lista=paso.opciones||[];
@@ -614,6 +617,16 @@
       else personaje.poderes.push(nombreEtiquetado(x.tipo,x.etapa,x.nombre)+
         (x.circulo?" (C"+x.circulo+")":"")+origenConjuro(x.tipo,x.etapa,x.origen));
     });
+    // Los Talentos concedidos después de la creación provisional también
+    // necesitan una descripción documental, no solo su nombre en la ficha.
+    if(personaje.juego==="Naufragio d20 · Fantasía"&&plan.talentos_ocupacion){
+      Object.keys(plan.talentos_ocupacion).forEach(function(talento){
+        var encabezado='Talento de Ocupación — '+talento+': ';
+        if(personaje.capacidades.includes(talento)&&
+            !personaje.notas.some(function(n){return n.startsWith(encabezado);}))
+          personaje.notas.push(encabezado+plan.talentos_ocupacion[talento]);
+      });
+    }
     // El editor aplica la elección del Guerrero después de crear la ficha.
     // Recalcular Potencia con el Talento efectivamente escogido; no conceder
     // la mejora de Brío musculoso a quien elige Sacrificio de escudo.
