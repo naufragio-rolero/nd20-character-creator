@@ -3,8 +3,23 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
+const {spawnSync}=require('node:child_process');
 const reglas=require('../assets/rules.js');
 const raiz=path.join(__dirname,'..');
+// El material de DLC que conserva la rama de desarrollo nunca puede
+// publicarse accidentalmente como «núcleo DRS» en Pages /(root).
+const guardia=path.join(raiz,'scripts','comprobar-publicacion-drs.js');
+const inseguro=spawnSync(process.execPath,[guardia,raiz],{encoding:'utf8'});
+assert.equal(inseguro.status,1,
+  'El guardia de publicación debe impedir desplegar la raíz actual');
+assert.match(inseguro.stderr,/RIESGO DE PUBLICACIÓN/);
+assert.match(inseguro.stderr,/Conjuros ajenos al DRS/);
+assert.match(inseguro.stderr,/Especies suplementarias/);
+const informeGuardia=spawnSync(process.execPath,[guardia,raiz,'--report'],
+  {encoding:'utf8'});
+assert.equal(informeGuardia.status,0,
+  'El informe de riesgos es consultivo; no certifica que pueda publicarse');
+assert.match(informeGuardia.stderr,/No desplegar la raíz/);
 const leer=(nombre)=>JSON.parse(fs.readFileSync(path.join(raiz,'data',nombre),'utf8'));
 const manifest=leer('alcance-drs-y-dlc.json');
 const especies=leer('especies.json');
