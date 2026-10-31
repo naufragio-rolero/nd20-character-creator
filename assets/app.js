@@ -102,6 +102,7 @@
     refrescarBotonesSistema();
     $('opciones-dh').hidden = !dh;
     $('opciones-fuentes').hidden = dh;
+    $('aviso-alcance-drs').hidden = juego!=='nd20';
     $('opciones-nombres-ylat').hidden = juego!=='nd20';
     $('opciones-riqueza-nivel').hidden=dh||juego==='nd20_nocturna';
     $('modos-creacion').hidden = dh;
