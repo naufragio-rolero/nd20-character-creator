@@ -422,7 +422,10 @@
           'talento':paso.tipo==='competencias_diletante'?'': 'poder';
         var tipo=sistemaFicha(borrador.personaje);
         var porId=elegida&&grupo&&infoUI?.consultaPorId?.(elegida.id,grupo,tipo);
-        var fichaElegida=porId||(elegida&&grupo&&infoUI?.consulta(elegida.nombre,grupo,tipo));
+        var esConjuro=elegida&&/^conjuro-/.test(elegida.id||"");
+        // Conjuros: nunca elegir otra versión con el mismo nombre si falla su ID.
+        var fichaElegida=porId||(esConjuro?null:
+          (elegida&&grupo&&infoUI?.consulta(elegida.nombre,grupo,tipo)));
         ver.hidden=!fichaElegida;
         if(!ver.hidden){
           ver.dataset.glosaNombre=elegida.nombre;
