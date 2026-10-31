@@ -188,7 +188,9 @@
     extraer(armadurasPermitidas,Math.min(presupuesto*.35,100));
     if(arma&&arma.municion){
       var municion=catalogo.municion.find(function(x){return x.nombre===arma.municion;});
-      if(municion)extraer([municion],presupuesto-gasto);
+      if(!municion||!extraer([municion],presupuesto-gasto))
+        notas.push("Arma a distancia sin munición comprada: "+arma.nombre+
+          " requiere "+arma.municion+". Comprobar suministro antes de utilizarla.");
     }
     extraer(escudosPermitidos,Math.min(presupuesto*.2,15));
     var etiqueta=nombre==="Clérigo"?"Especial devotos":
