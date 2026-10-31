@@ -1008,3 +1008,57 @@ assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
 assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
   catalogoEquipamiento,10,[{id:'consumible-veneno'}]),/requiere un Nivel/);
 console.log('OK · 41 útiles DRS y 2 focos: Martillo de campamento y Almádena separados, compras válidas.');
+
+/* Integración del editor de compras por personaje (DRS).
+ * La compra es transaccional: previsualizar NO debe modificar la ficha. */
+const fichaCompraDRS=reglas.crearNd20(fuenteBase,{
+  juego:'nd20',ocupacion:'Guerrero',especie:'Humano común',nivel:1,
+  catalogoEquipo:catalogoEquipamiento
+},reglas.aleatorioSemilla('Forja editor compras 2026'));
+assert.equal(typeof fichaCompraDRS.saldo_mo,'number');
+assert.equal(typeof fichaCompraDRS.capital_inicial_mo,'number');
+assert.ok(fichaCompraDRS.saldo_mo>=0);
+assert.ok(fichaCompraDRS.capital_inicial_mo>=fichaCompraDRS.saldo_mo);
+assert.ok(fichaCompraDRS.riqueza.startsWith(fichaCompraDRS.saldo_mo+' mo restantes'));
+const estadoAntes=JSON.stringify(fichaCompraDRS);
+const carritoInicial=[
+  {id:'campamento-martillo',cantidad:2},
+  {id:'aventura-tiza',cantidad:3}
+];
+const simulacion=equipamientoDRS.compraUtilesFantasia(
+  catalogoEquipamiento,fichaCompraDRS.saldo_mo,carritoInicial);
+assert.equal(simulacion.gastado,4.03);
+assert.deepEqual(simulacion.equipo,['Martillo de campamento ×2','Tiza ×3']);
+assert.equal(JSON.stringify(fichaCompraDRS),estadoAntes,
+  'La previsualización del carrito nunca muta el inventario o saldo');
+const saldoAntes=fichaCompraDRS.saldo_mo;
+fichaCompraDRS.equipo.push(...simulacion.equipo);
+fichaCompraDRS.saldo_mo=simulacion.restante;
+fichaCompraDRS.riqueza=simulacion.restante+' mo restantes / '+
+  fichaCompraDRS.capital_inicial_mo+' mo iniciales';
+assert.equal(Math.round((saldoAntes-fichaCompraDRS.saldo_mo)*100)/100,4.03);
+assert.ok(fichaCompraDRS.equipo.includes('Martillo de campamento ×2'));
+assert.ok(!fichaCompraDRS.equipo.includes('Almádena ×2'));
+const carritosInmutables=[{id:'campamento-martillo',cantidad:1}];
+assert.throws(()=>equipamientoDRS.compraUtilesFantasia(catalogoEquipamiento,
+  2,carritosInmutables.concat([{id:'consumible-veneno',nivel:1}])),
+  /supera el presupuesto/);
+assert.deepEqual(carritosInmutables,[{id:'campamento-martillo',cantidad:1}],
+  'Un fallo de compra no modifica la selección preexistente');
+const comprasHtml=fs.readFileSync(path.join(raiz,'index.html'),'utf8');
+const comprasApp=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
+const estilosCompra=fs.readFileSync(path.join(raiz,'assets/styles.css'),'utf8');
+for(const id of ['editor-compras','titulo-editor-compras','form-compra-utiles',
+  'compras-articulo','compras-cantidad','compras-nivel','compras-campo-nivel',
+  'compras-anadir','compras-lista','compras-total','compras-confirmar','compras-cancelar']){
+  assert.ok(comprasHtml.includes('id="'+id+'"'),'Elemento visible de compra: '+id);
+  assert.ok(comprasApp.includes("$('"+id+"')"),'Elemento de compra conectado a JS: '+id);
+}
+assert.ok(comprasApp.includes('class="comprar-utiles"'));
+assert.ok(comprasApp.includes("personaje.saldo_mo=compra.restante"));
+assert.ok(comprasApp.includes("personaje.riqueza=compra.restante"));
+assert.ok(comprasApp.includes("cerrarCompra();"));
+assert.ok(comprasApp.includes("entrada.valor.saldo_mo,compraBorrador.seleccion.concat([linea])"));
+assert.ok(comprasApp.includes("personaje.equipo.push.apply(personaje.equipo,compra.equipo)"));
+assert.ok(estilosCompra.includes('.campos-compra{display:grid'));
+console.log('OK · Martillo de campamento editorial y editor de compra por ficha con saldo, transacción y controles conectados.');
