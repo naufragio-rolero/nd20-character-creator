@@ -135,8 +135,8 @@ assert.ok(!html.includes('value="documentado"'),
 assert.ok(!html.includes('Personajes documentados (51)'),
   'No mostrar los 51 nombres de PNJ en el selector público');
 assert.ok(html.includes('id="ambito-nombre"'));
-assert.ok(html.includes('Niguace (116 combinaciones)'));
-assert.ok(html.includes('Isla Tormenta (33 combinaciones)'));
+assert.ok(html.includes('Documentos de Niguace (116 combinaciones)'));
+assert.ok(html.includes('Relato de Isla Tormenta (33 combinaciones)'));
 const rutaData=path.join(salida,'data');
 const contenidos=new Set(fs.readdirSync(rutaData));
 const esperados=new Set([
