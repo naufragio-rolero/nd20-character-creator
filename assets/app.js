@@ -76,6 +76,12 @@
       if(b==='DRS')return 1;
       return a.localeCompare(b,'es');
     });
+    // Forja 1.0: las fuentes de los DLC de Fantasía no están publicadas.
+    // No borramos sus datos: el manifiesto podrá habilitarlas en futuras versiones.
+    if(juego==='nd20'){
+      var publicadas=datos.alcanceDRS?.fuentes_publicadas_fantasia||['DRS'];
+      nombres=nombres.filter(function(nombre){return publicadas.includes(nombre);});
+    }
     var previas=fuentesGuardadas[juego];
     cont.textContent='';
     nombres.forEach(function(nombre){
@@ -560,6 +566,7 @@
       conjurosUno:'data/conjuros-revisados-001-225.json',
       conjurosDos:'data/conjuros-revisados-226-434.json',
       magnitudes:'data/conjuros-magnitudes-literales.json',
+      alcanceDRS:'data/alcance-drs-y-dlc.json',
       danioCompuesto:'data/conjuros-danio-compuesto.json',
       progresiones:'data/progresiones-oficiales.json',
       equipoInicial:'data/equipo-inicial.json',
@@ -614,6 +621,7 @@
       }))
     };
     datos.fantasiaAmpliadas=extra.fantasia.ocupaciones;
+    datos.alcanceDRS=loaded.alcanceDRS;
     datos.catalogo=loaded.catalogo;
     datos.tesauroYlat=loaded.tesauroYlat;
     datos.sexo=loaded.sexoCatalogo;
