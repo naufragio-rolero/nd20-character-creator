@@ -1,6 +1,6 @@
 # Forja 1.0 — Primera auditoría mecánica del núcleo DRS
 
-> **Actualización posterior (31/10/2026):** la incidencia DRS-ESP-02 descrita abajo se ha **resuelto en la generación de fichas**. Consultar [informe 91 — Herencia dual](91-herencia-dual-drs-cierre-implementacion.md). Los apartados que la tratan como pendiente conservan el estado histórico de esta primera auditoría; queda pendiente la ejecución en un futuro motor de partida de efectos como *Ira interna* y *Linaje feérico*.
+> **Actualizaciones posteriores (31/10/2026):** la incidencia DRS-ESP-02 se ha **resuelto en la generación de fichas**; consultar [informe 91 — Herencia dual](91-herencia-dual-drs-cierre-implementacion.md). La [auditoría 92 — Talentos de Especies](92-auditoria-talentos-especies-drs.md) resuelve el Atributo elegido del Humano, impide compras de equipo de talla desconocida para Medianos y Gnomos y documenta Talentos y envejecimiento. Los apartados que los marcan pendientes conservan el estado histórico de esta primera auditoría. **Sigue pendiente ejecutar efectos durante una partida y completar el catálogo de adaptaciones.**
 
 **Fecha:** 31/10/2026. **Ámbito:** Naufragio d20 Fantasía, edición básica de Forja.  
 **Fuente normativa:** `NaufragioD20DRS.docx`, secciones *Especies*, *Ocupaciones*, *Creación de personaje* y *Equipo*.  
