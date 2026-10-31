@@ -8,7 +8,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const http=require('node:http');
 
-const raiz=path.resolve(__dirname,'..');
+const raiz=path.resolve(process.env.FORJA_PUBLIC_ROOT||path.resolve(__dirname,'..'));
 const tipos={'.html':'text/html','.js':'text/javascript','.css':'text/css',
   '.json':'application/json','.svg':'image/svg+xml','.txt':'text/plain'};
 const server=http.createServer((req,res)=>{
