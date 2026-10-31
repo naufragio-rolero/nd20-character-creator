@@ -1,5 +1,7 @@
 # Forja 1.0 — Compatibilidad de navegadores y bloqueo de publicación insegura
 
+> **Actualización editorial (31/10/2026):** el filtro de publicación se ha adaptado a la autorización de **149 nombres combinados de Ylat** y excluye los **51 nombres de personajes documentados**. La versión candidata permite ambas procedencias declaradas (Niguace e Isla Tormenta), sin añadir catálogos de Fantasía DLC. Véase [informe 102](102-149-nombres-combinados-ylat.md).
+
 **Fecha:** 31/10/2026 · **PR:** [#4](https://github.com/naufragio-rolero/nd20-character-creator/pull/4), **draft**, sin fusionar ni desplegar.  
 **Alcance normativo:** Núcleo Fantasía DRS; no se modifican reglas, precios, Competencias ni progresiones.  
 **Antecedentes:** [informe 97](97-pruebas-navegador-compras-drs.md) y [98](98-revision-visual-carrito-y-navegacion.md).
