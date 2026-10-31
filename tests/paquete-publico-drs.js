@@ -147,8 +147,11 @@ assert.ok(!html.includes('data-juego="nd20_cifi"'));
 assert.ok(!html.includes('data-juego="nd20_nocturna"'));
 assert.ok(!html.includes('<option value="nd20_cifi">'));
 assert.ok(!html.includes('<option value="nd20_nocturna">'));
-assert.ok(html.includes('Banco histórico de nombres de Ylat (1422)'));
+assert.ok(html.includes('Históricos de Ylat'));
 assert.ok(html.includes('id="selector-visual-especie"'));
+assert.ok(html.includes('id="dialogo-especie"'));
+assert.ok(html.includes('assets/i18n.js'));
+assert.ok(fs.existsSync(path.join(salida,'locales','es.json')));
 assert.ok(html.includes('id="selector-visual-ocupacion"'));
 assert.ok(html.includes('id="generar-flotante"'));
 assert.ok(html.includes('id="informacion-avanzada"'));
@@ -158,8 +161,8 @@ assert.equal((fs.readFileSync(path.join(salida,'assets','icons-forja.svg'),'utf8
   'Se distribuyen exactamente 8 pictogramas de Especie y 4 de Ocupación');
 assert.ok(html.indexOf('value="historico"')<html.indexOf('value="combinado"'),
   'El banco histórico debe ser el modo predeterminado en la distribución');
-assert.ok(html.includes('Variantes inspiradas en Ylat (149)'));
-assert.ok(html.includes('Repertorio propio de la Especie'));
+assert.ok(html.includes('Variantes de Ylat'));
+assert.ok(html.includes('Según Especie'));
 assert.ok(!html.includes('value="documentado"'),
   'El paquete no debe permitir seleccionar personajes documentados');
 assert.ok(!html.includes('Personajes documentados (51)'),
