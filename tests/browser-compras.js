@@ -118,8 +118,8 @@ async function main(){
     cdp=await abrirCDP(puerto);
     const base='http://127.0.0.1:'+server.address().port+'/index.html';
     await cdp.enviar('Page.navigate',{url:base});
-    // El botón de Generar está habilitado en el HTML antes de que arranque
-    // la aplicación. Esperar su mensaje de datos listos evita una carrera real.
+    // La aplicación solo habilita Generar al terminar de cargar los datos.
+    // Esperar el mensaje real de carga evita carreras en la comprobación.
     await cdp.esperar("document.querySelector('#estado')?.textContent.includes('Datos listos')"+
       " && document.querySelector('#generar')?.disabled===false"+
       " && document.querySelectorAll('#fuentes-nd20 input:checked').length===1",
@@ -163,6 +163,19 @@ async function main(){
       "document.querySelector('#compras-anadir').click();})()");
     assert.ok((await cdp.evalJS("document.querySelector('#compras-total').textContent"))
       .includes('4.00 mo'));
+    // Pulsar Intro en cantidad no debe confirmar una compra con carrito
+    // pendiente. Su efecto es añadir esa línea, como el botón Añadir.
+    await cdp.evalJS("document.querySelector('#compras-cantidad').focus()");
+    await cdp.enviar('Input.dispatchKeyEvent',{
+      type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+    await cdp.enviar('Input.dispatchKeyEvent',{
+      type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').hidden"),false,
+      'Intro en cantidad no confirma accidentalmente el carrito');
+    assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),2,
+      'Intro en cantidad añade otra línea al carrito');
+    assert.ok((await cdp.evalJS("document.querySelector('#compras-total').textContent"))
+      .includes('8.00 mo'));
     await cdp.evalJS("document.querySelector('#compras-cancelar').click()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').hidden"),true);
     assert.equal(await cdp.evalJS("document.activeElement.classList.contains('comprar-utiles')"),true,
@@ -199,6 +212,13 @@ async function main(){
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),2);
     assert.ok((await cdp.evalJS("document.querySelector('#compras-total').textContent"))
       .includes('4.03 mo'));
+    // Evidencia visual reproducible: escritorio con carrito abierto.
+    const capturas=path.join(raiz,'tests','capturas-e2e');
+    fs.mkdirSync(capturas,{recursive:true});
+    const imagenDesktop=await cdp.enviar('Page.captureScreenshot',{
+      format:'png',captureBeyondViewport:false});
+    fs.writeFileSync(path.join(capturas,'compras-escritorio.png'),
+      Buffer.from(imagenDesktop.data,'base64'));
     await cdp.evalJS("(()=>{var s=document.querySelector('#compras-articulo');"+
       "s.value='consumible-antidoto';s.dispatchEvent(new Event('change',{bubbles:true}));"+
       "document.querySelector('#compras-cantidad').value='1';"+
@@ -259,6 +279,19 @@ async function main(){
       "ventana:window.innerWidth,botones:document.querySelectorAll('.comprar-utiles').length})");
     assert.ok(movil.ancho<=movil.ventana+2,'La página no debe desbordar horizontalmente en móvil');
     assert.equal(movil.botones,1);
+    await cdp.evalJS("document.querySelector('.comprar-utiles').click()");
+    const movilEditor=await cdp.evalJS("({ancho:document.documentElement.scrollWidth,"+
+      "ventana:window.innerWidth,visible:!document.querySelector('#editor-compras').hidden,"+
+      "campo:document.querySelector('#compras-articulo').getBoundingClientRect().width})");
+    assert.ok(movilEditor.visible,'El editor puede abrirse en móvil');
+    assert.ok(movilEditor.ancho<=movilEditor.ventana+2,
+      'El editor abierto tampoco debe desbordarse horizontalmente');
+    assert.ok(movilEditor.campo>100,'El selector de útiles conserva anchura usable');
+    const imagenMovil=await cdp.enviar('Page.captureScreenshot',{
+      format:'png',captureBeyondViewport:false});
+    fs.writeFileSync(path.join(capturas,'compras-movil.png'),
+      Buffer.from(imagenMovil.data,'base64'));
+    await cdp.evalJS("document.querySelector('#compras-cancelar').click()");
     assert.deepEqual(cdp.errores,[],'El navegador no debe lanzar errores JS');
     console.log('OK · Chromium real: datos DRS, dos fichas, cancelar, importe 4,03 mo,'+
       ' Antídoto por Nivel, sobrepresupuesto, copiar, exportar, borrar y móvil.');
