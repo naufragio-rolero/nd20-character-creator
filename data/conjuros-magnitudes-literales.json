@@ -4354,19 +4354,13 @@
       "nombre_tomo": "Polimorfia",
       "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
       "evidencia_literal": "Duración: 1 Intervalo por Nivel",
-      "disparador_y_limites": "La forma nueva no supera el Nivel del OBJETIVO, no necesariamente el Nivel del lanzador; valor por Nivel de lanzador no debe interpretarse como umbral efectivo. Se requiere Tirada si la criatura se resiste.",
+      "disparador_y_limites": "La forma elegida no puede superar el Nivel del OBJETIVO (no del lanzador). La duración sí escala con el Nivel del lanzador. No se calcula el Nivel máximo de la forma sin conocer el objetivo. Tirada de Conjuro si se resiste.",
       "magnitudes": [
         {
           "clave": "duracion_intervalos",
           "tipo": "por_nivel",
           "valor": 1,
           "unidad": "Intervalos"
-        },
-        {
-          "clave": "nivel_maximo_forma",
-          "tipo": "por_nivel",
-          "valor": 1,
-          "unidad": "Nivel relativo al objetivo"
         }
       ]
     },
