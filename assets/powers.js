@@ -331,6 +331,12 @@
         perfilEspecie.herencia_dual:null;
       var herenciaAlternativa=alternativas?
         alternativas.find(function(t){return t!=="Buen desarrollo";}):null;
+      if(especie==="Humano común" && config.modo==="personalizado"){
+        pasos.push(nuevo("buen-desarrollo","Buen desarrollo · Nivel 1",
+          "buen_desarrollo",1,
+          ["Fuerza","Agilidad","Resistencia","Mente","Intuición","Presencia"]
+            .map(function(attr){return {id:attr,nombre:"+1 VA en "+attr};})));
+      }
       if(herenciaAlternativa && config.modo==="personalizado"){
         var opcionesHerencia=[{id:herenciaAlternativa,nombre:herenciaAlternativa}];
         ["Fuerza","Agilidad","Resistencia","Mente","Intuición","Presencia"]
@@ -567,7 +573,10 @@
               return a.atributo+" VA "+a.requerido+"+ (actual VA "+a.va+")";
             }).join("; ")+".");
       }
-      if(x.tipo==="herencia_dual"){
+      if(x.tipo==="buen_desarrollo"){
+        if(personaje.atributo_buen_desarrollo!==x.id)
+          throw Error("Buen desarrollo: se debe reconstruir la ficha desde Nivel 1 antes de aplicar Poderes.");
+      }else if(x.tipo==="herencia_dual"){
         var parte=x.id.split(":");
         var talento=parte[0],atributo=parte.length===2?parte[1]:null;
         if(personaje.herencia_dual!==talento ||
