@@ -116,6 +116,18 @@ assert.ok(onomastico.entradas.every(x=>x.tipo==='combinado'));
 assert.ok(!onomastico.entradas.some(x=>
   documentados.some(y=>y.nombre===x.nombre)),
   'Ningún personaje documentado puede convertirse en un nombre aleatorio público');
+const historicosDev=leer(raiz,'nombres-historicos-ylat.json');
+const historicosPublico=leer(salida,'nombres-historicos-ylat.json');
+const vistosHistoricos=new Set();
+const historicosAutorizados=historicosDev.entradas.filter(x=>{
+  if(vistosHistoricos.has(x.nombre))return false;
+  vistosHistoricos.add(x.nombre);return true;
+});
+assert.equal(historicosDev.entradas.length,1428);
+assert.equal(historicosAutorizados.length,1422);
+assert.deepEqual(historicosPublico.entradas,historicosAutorizados,
+  'El paquete contiene exactamente las 1422 formas históricas autorizadas, sin duplicados');
+assert.equal(new Set(historicosPublico.entradas.map(x=>x.nombre)).size,1422);
 assert.equal(leer(salida,'alcance-drs-y-dlc.json').paquetes_posteriores,undefined,
   'No se distribuye información interna de paquetes suplementarios');
 const equipo=leer(salida,'equipo-inicial.json');
@@ -128,6 +140,9 @@ assert.ok(core.listas_drs.Clérigo['5'].includes(marca.nombre));
 assert.ok(!core.listas_drs.Clérigo['4'].includes(marca.nombre));
 const html=fs.readFileSync(path.join(salida,'index.html'),'utf8');
 assert.ok(!html.includes('Doncella de la Espada'));
+assert.ok(html.includes('Banco histórico de nombres de Ylat (1422)'));
+assert.ok(html.indexOf('value="historico"')<html.indexOf('value="combinado"'),
+  'El banco histórico debe ser el modo predeterminado en la distribución');
 assert.ok(html.includes('Variantes inspiradas en Ylat (149)'));
 assert.ok(html.includes('Repertorio propio de la Especie'));
 assert.ok(!html.includes('value="documentado"'),
@@ -145,7 +160,8 @@ const rutaData=path.join(salida,'data');
 const contenidos=new Set(fs.readdirSync(rutaData));
 const esperados=new Set([
   'especies.json','ocupaciones.json','especies_cifi.json','ocupaciones_cifi.json',
-  'catalogo-ampliado.json','tesauro-ylat.json','sexo-personajes.json',
+  'catalogo-ampliado.json','tesauro-ylat.json','nombres-historicos-ylat.json',
+  'sexo-personajes.json',
   'catalogo-poderes.json','conjuros-revisados-001-225.json',
   'conjuros-revisados-226-434.json','conjuros-magnitudes-literales.json',
   'alcance-drs-y-dlc.json','conjuros-danio-compuesto.json',
@@ -209,6 +225,16 @@ try{
     {encoding:'utf8'});
   assert.equal(nombreDistinto.status,1,'Un cambio no autorizado en nombres invalida el paquete');
   assert.match(nombreDistinto.stderr,/149 combinaciones originales autorizadas/);
+  const archivoHistorico=path.join(temporal,'data','nombres-historicos-ylat.json');
+  const originalHistorico=fs.readFileSync(archivoHistorico,'utf8');
+  const falso=JSON.parse(originalHistorico);
+  falso.entradas[0].nombre='Forma no autorizada';
+  fs.writeFileSync(archivoHistorico,JSON.stringify(falso));
+  const respuesta=spawnSync(process.execPath,[scriptGuardia,temporal],
+    {encoding:'utf8'});
+  assert.equal(respuesta.status,1,'Una forma histórica alterada invalida el paquete');
+  assert.match(respuesta.stderr,/difiere de las formas autorizadas/);
+  fs.writeFileSync(archivoHistorico,originalHistorico);
 }finally{
   fs.rmSync(temporal,{recursive:true,force:true});
 }
