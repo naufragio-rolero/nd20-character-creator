@@ -50,12 +50,21 @@
   function posicionar(){
     if(!ancla||!card||card.hidden)return;
     var b=ancla.getBoundingClientRect();
-    var w=Math.min(440,innerWidth-24),h=card.offsetHeight;
-    var x=Math.max(12,Math.min(b.left,innerWidth-w-12));
-    var abajo=b.bottom+9,arriba=b.top-h-9;
-    var y=abajo+h>innerHeight-12 && arriba>12?arriba:abajo;
-    y=Math.max(12,Math.min(y,innerHeight-h-12));
-    card.style.width=w+"px";card.style.left=x+"px";card.style.top=y+"px";
+    var margen=12,separacion=9,w=Math.min(440,innerWidth-margen*2);
+    card.style.width=w+"px";
+    var huecoAbajo=Math.max(0,innerHeight-b.bottom-separacion-margen);
+    var huecoArriba=Math.max(0,b.top-separacion-margen);
+    // Evitar que un popup alto tape la referencia que lo abrió.
+    // Si no cabe entero en ningún lado, reducir su altura y permitir scroll.
+    card.style.maxHeight=Math.min(520,innerHeight*.68)+"px";
+    var prefiereArriba=card.offsetHeight>huecoAbajo&&huecoArriba>huecoAbajo;
+    var hueco=prefiereArriba?huecoArriba:huecoAbajo;
+    card.style.maxHeight=Math.max(90,Math.min(520,innerHeight*.68,hueco))+"px";
+    var h=card.offsetHeight;
+    var x=Math.max(margen,Math.min(b.left,innerWidth-w-margen));
+    var y=prefiereArriba?b.top-h-separacion:b.bottom+separacion;
+    y=Math.max(margen,Math.min(y,innerHeight-h-margen));
+    card.style.left=x+"px";card.style.top=y+"px";
   }
   function limpiarTemporizador(){if(cierre){clearTimeout(cierre);cierre=null;}}
   function cancelarCierre(){limpiarTemporizador();}
