@@ -411,6 +411,25 @@
       return {pasos:pasos,avisos:avisos,recursos:recursos,fuente:"Naufragio d20 · Suplementos"};
     }
     var f=fila(p,nivel);
+    var conjurosAutomaticos=[];
+    if(juego==="nd20"&&ocupacion==="Clérigo"){
+      // El DRS concede automáticamente todos los Conjuros del Círculo
+      // desbloqueado al Clérigo, aunque prepare solamente sus Espacios.
+      for(var cCl=1;cCl<=8;cCl++){
+        if(!f[cCl-1])continue;
+        conjurosAutomaticos=conjurosAutomaticos.concat(
+          opcionesConjuros(catalogo,
+            [catalogo.listas_drs["Clérigo"]?.[cCl]||[]],cCl)
+            .filter(function(x){return x.circulo===cCl;})
+        );
+      }
+      // Contradicción del DRS: lista clerical, C4; descripción propia, C5.
+      // No adscribir Marca del dador oscuro a un Círculo por inferencia.
+      if(nivel>=8)avisos.push(
+        "DRS: Marca del dador oscuro aparece en Círculo 4 en la lista del Clérigo,"+
+        " pero su descripción lo declara de Quinto Círculo."+
+        " Pendiente de decisión editorial; no se aprende automáticamente.");
+    }
     if(juego==="nd20"&&ocupacion==="Guerrero"){
       pasos.push(nuevo("talento-guerrero","Talento de Guerrero · Nivel 1","talento",1,
         [{id:"Brío musculoso",nombre:"Brío musculoso"},{id:"Sacrificio de escudo",nombre:"Sacrificio de escudo"}]));
@@ -454,6 +473,7 @@
     if(p.tipo==="sequito")avisos.push("Diplomático: sus Asistentes y Guardaespaldas siguen la tabla de progreso; no son Poderes seleccionables.");
     return {pasos:pasos,avisos:avisos,recursos:recursos,
       fuente:progresiones.fuentes[rama],
+      conjuros_automaticos:conjurosAutomaticos,
       talentos_ocupacion: juego==="nd20" ?
         (datos.ocupaciones[ocupacion]?.talentos_descripcion||{}) : {}};
   }
@@ -575,7 +595,11 @@
   function aplicar(personaje,plan,resultado){
     personaje.capacidades=personaje.capacidades||[];
     personaje.notas=personaje.notas||[];
-    personaje.poderes=[];
+    personaje.poderes=(plan.conjuros_automaticos||[]).map(function(x){
+      return nombreEtiquetado("conjuro_conocido","Conjuros del Clérigo",x.nombre)+
+        " (C"+x.circulo+")"+origenConjuro("conjuro_conocido",
+          "Conjuros del Clérigo",x.origen);
+    });
     personaje.conjuros_preparados=[];
     resultado.elementos.forEach(function(x){
       var esTecnica=x.tipo==="tecnica"||
