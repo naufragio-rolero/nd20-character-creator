@@ -267,7 +267,9 @@ El editor muestra el precio unitario, la cantidad, el Nivel de
 Antídoto/Veneno, el importe del carrito y el saldo restante.
 **Cancelar no modifica la ficha**; **Confirmar** comprueba el
 presupuesto y actualiza el inventario, el saldo, la copia de la
-ficha y su exportación.
+ficha y su exportación. Cada línea dispone del botón **Quitar**
+para corregir el carrito sin rehacerlo. Pulsar Intro en Cantidad o
+Nivel añade el artículo, sin confirmar accidentalmente la compra.
 
 Por decisión editorial, el útil «Almádena» de 2 mo se presenta como
 **Martillo de campamento** y conserva su uso como Clava. La
