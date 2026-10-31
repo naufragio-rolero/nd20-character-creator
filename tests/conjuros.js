@@ -94,7 +94,7 @@ console.log('OK · 434 fichas cotejadas; 12 cambios aprobados y catálogo DRS va
 /* Pruebas del primer subconjunto de magnitudes mecánicas literales. */
 const motorMagnitudes=require('../assets/spell-magnitudes.js');
 const literales=leer('data/conjuros-magnitudes-literales.json');
-assert.equal(literales.registros.length,12,'12 fichas de magnitudes registradas');
+assert.equal(literales.registros.length,41,'41 fichas de magnitudes registradas');
 assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,12);
 for(const entrada of literales.registros){
   const ficha=revisados.find(x=>x.numero_tomo===entrada.numero_tomo);
@@ -158,4 +158,43 @@ assert.ok(htmlIntegracion.includes('assets/spell-magnitudes.js'));
 assert.ok(appIntegracion.includes('data/conjuros-magnitudes-literales.json'));
 assert.ok(appIntegracion.includes('data-nivel='));
 assert.ok(uiIntegracion.includes('NaufragioMagnitudes.evaluar'));
-console.log('OK · 12 Conjuros con magnitudes literales calculadas; sin ejecutar daño ni Tiradas.');
+/* Segundo lote: dado multiplicado por Nivel, formas de área y efectos condicionados. */
+assert.equal(valor(magnitudes('Destrucción',1),'danio_magico'),'2d12');
+assert.equal(valor(magnitudes('Destrucción',21),'danio_magico'),'42d12');
+assert.equal(valor(magnitudes('Hálito de ultratumba',7),'danio_mixto'),'7d6');
+assert.equal(valor(magnitudes('Hálito de ultratumba',7),'superficie_cono_m2'),6);
+assert.equal(valor(magnitudes('Lanza de sombras',9),'danio_impio'),'9d8');
+assert.equal(valor(magnitudes('Relámpago',13),'danio_relampago'),'13d8');
+assert.equal(valor(magnitudes('Adarga de hielo',4),'duracion_turnos'),8);
+assert.equal(valor(magnitudes('Adarga de hielo',4),'bono_bloqueo'),2);
+assert.equal(valor(magnitudes('Barrera eléctrica',4),'danio_relampago'),'2d6');
+assert.equal(valor(magnitudes('Aura de restauración',4),'salud_por_aliado_y_turno'),2);
+assert.equal(valor(magnitudes('Convertir agua',8),'volumen_maximo_l'),8);
+assert.equal(valor(magnitudes('Despertar de la vegetación',8),'area_maxima_m2'),48);
+assert.equal(valor(magnitudes('Escudo',8),'duracion_turnos_combate'),6);
+assert.equal(valor(magnitudes('Explosión sónica',8),'radio_m'),4);
+assert.equal(valor(magnitudes('Golpe de rayo',8),'anchura_m'),2);
+assert.equal(valor(magnitudes('Golpe de rayo',8),'longitud_m'),20);
+assert.equal(valor(magnitudes('Lienzo viviente',8),'multiplicador_danio_recibido'),3);
+assert.equal(valor(magnitudes('Ola salvaje',8),'penalizacion_movimiento_empapado'),-2);
+assert.equal(valor(magnitudes('Plumaje de Sylestria',8),'plumas_creadas'),'1d4');
+assert.equal(valor(magnitudes('Purga tóxica',8),'ventana_resurreccion_turnos'),3);
+assert.equal(valor(magnitudes('Resistencia al clima',8),'duracion_horas'),24);
+assert.equal(valor(magnitudes('Sangre hirviente',8),'danio_fuego'),'3d8');
+assert.equal(valor(magnitudes('Sangre hirviente',8),'danio_impio'),'3d8');
+assert.equal(valor(magnitudes('Sello rúnico: Vigilante',8),'duracion_desde_activacion_intervalos'),8);
+assert.equal(valor(magnitudes('Silencio',8),'diametro_m'),6);
+assert.equal(valor(magnitudes('Silencio',8),'duracion_turnos'),16);
+assert.equal(valor(magnitudes('Tentáculos negros',8),'duracion_turnos'),'2d4');
+assert.equal(valor(magnitudes('Tridente flamígero',8),'numero_rayos'),3);
+assert.equal(valor(magnitudes('Tempestad vengativa',8),'superficie_m2'),20);
+assert.equal(valor(magnitudes('Trampa de fuego',8),'danio_contundente'),8);
+assert.equal(valor(magnitudes('Tajo carmesí de Nebb',8),'danio_lanzador_impio'),'1d8');
+assert.equal(valor(magnitudes('Ventisca',8),'lanzamiento_turnos'),2);
+assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',valor:[0,6]},3),
+  /Dados por Nivel inválidos/);
+assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',valor:[1,3]},3),
+  /Dados por Nivel inválidos/);
+assert.throws(()=>magnitudes('Lanza de sombras',0),/Nivel entero positivo/);
+assert.equal(motorMagnitudes.calcular({clave:'dados',tipo:'dados_por_nivel',valor:[2,12]},5),'10d12');
+console.log('OK · 41 Conjuros con magnitudes literales calculadas; sin ejecutar daño ni Tiradas.');
