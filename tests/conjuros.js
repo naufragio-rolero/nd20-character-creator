@@ -378,3 +378,37 @@ assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleErupcion,
 assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleErupcion,[],
   ['contundente','fuego']).multiplicador_debilidad,2);
 console.log('OK · 100 Conjuros y quinto daño dual, con expresiones verificadas por fuente.');
+
+/* La consulta previa a confirmar una elección usa ID y Nivel del personaje. */
+const indiceCompleto=tooltip.indice({
+  catalogo,conjurosRevisados:revisados,magnitudes:literales,danioCompuesto:dobles
+});
+const manoId=revisados.find(x=>x.numero_tomo===222).id_catalogo;
+const manoExacta=tooltip.buscarPorId(indiceCompleto,manoId,'poder','nd20');
+assert.equal(manoExacta.nombre,'Mano de mago');
+assert.equal(manoExacta.id,manoId);
+assert.equal(manoExacta.magnitudes.numero_tomo,222);
+assert.equal(motorMagnitudes.evaluar(literales,manoExacta.id,7)
+  .magnitudes.find(x=>x.clave==='carga_maxima_kg').valor,28);
+assert.equal(tooltip.buscarPorId(indiceCompleto,manoId,'equipo','nd20'),null);
+assert.equal(tooltip.buscarPorId(indiceCompleto,'conjuro-no-existe','poder','nd20'),null);
+assert.equal(tooltip.buscarPorId(indiceCompleto,'conjuro-154','poder','nd20'),null,
+  'No resucitar Ira celestial de Círculo 3, ausente del DRS');
+const glosolaliaId=revisados.find(x=>x.numero_tomo===173).id_catalogo;
+assert.equal(tooltip.buscarPorId(indiceCompleto,glosolaliaId,'poder','nd20').id,glosolaliaId);
+const Ui=require('../assets/tooltip-ui.js');
+Ui.configurar(indiceCompleto);
+assert.equal(Ui.consultaPorId(manoId,'poder','nd20').id,manoId);
+assert.equal(Ui.consultaPorId(manoId,'equipo','nd20'),null);
+assert.equal(Ui.consultaPorId('conjuro-154','poder','nd20'),null);
+const appConjuros=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
+const interfazConjuros=fs.readFileSync(path.join(raiz,'assets/tooltip-ui.js'),'utf8');
+assert.ok(appConjuros.includes('infoUI?.consultaPorId?.(elegida.id,grupo,tipo)'),
+  'El selector usa el ID exacto de la opción elegida');
+assert.ok(appConjuros.includes('ver.dataset.glosaNivel=String(borrador.personaje.nivel)'),
+  'Nivel del personaje disponible antes de confirmar su generación');
+assert.ok(appConjuros.includes('esConjuro?null:'),
+  'No seleccionar variantes distintas por la coincidencia de nombre');
+assert.ok(interfazConjuros.includes('elemento.dataset.glosaId?'));
+assert.ok(interfazConjuros.includes('elemento.dataset.glosaNivel||'));
+console.log('OK · Consulta de Conjuros por ID exacto y Nivel en el editor de elecciones.');
