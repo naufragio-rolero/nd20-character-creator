@@ -1,0 +1,56 @@
+name: Forja - candidato publico DRS (sin despliegue)
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'feat/forja-conjuros-fichas-2026-10-30'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  paquete-drs:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Construir paquete de lista blanca
+        run: node scripts/crear-paquete-drs.js
+      - name: Comprobar físicamente la ausencia de DLC
+        run: node scripts/comprobar-publicacion-drs.js dist/public-drs
+      - name: Comparar DRS y preservar CiFi, Nocturna y Dungeon Hack
+        run: node tests/paquete-publico-drs.js
+      - name: Recorrido de Chrome sobre los archivos PUBLICOS, no la raiz
+        env:
+          FORJA_PUBLIC_ROOT: dist/public-drs
+        run: node tests/browser-compras.js
+      - name: Instalar motores de compatibilidad solo en CI
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps firefox webkit
+      - name: Probar los archivos PUBLICOS en Firefox y WebKit
+        env:
+          FORJA_PUBLIC_ROOT: dist/public-drs
+        run: node tests/browser-compatibilidad.js
+      - name: Conservar paquete candidato, nunca desplegar
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forja-drs-candidato-no-publicado
+          path: dist/public-drs/
+          retention-days: 7
+      - name: Evidencias E2E del paquete candidato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forja-drs-e2e-candidato
+          path: |
+            dist/public-drs/tests/capturas-e2e/
+            dist/public-drs/tests/capturas-compatibilidad/
+          if-no-files-found: ignore
+          retention-days: 7
