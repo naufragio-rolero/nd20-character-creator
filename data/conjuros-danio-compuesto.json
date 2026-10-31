@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "fecha": "2026-10-31",
+  "decision": "DEC-CONJ-06_resuelta_parcialmente_por_autor",
+  "fuentes": "fichas revisadas del Tomo",
+  "registros": [
+    {
+      "numero_tomo": 3,
+      "id_catalogo": "conjuro-0",
+      "nombre_tomo": "Aguijón impío",
+      "evidencia_literal": "1d6 de daño por veneno e impío",
+      "tipos": [
+        "veneno",
+        "impío"
+      ],
+      "dados_base": "1d6",
+      "dados_por_nivel": false,
+      "grupos_de_dados": 1,
+      "regla": "un solo resultado de daño con todos los tipos simultáneos",
+      "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
+      "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
+      "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional"
+    },
+    {
+      "numero_tomo": 183,
+      "id_catalogo": "conjuro-175",
+      "nombre_tomo": "Hálito de ultratumba",
+      "evidencia_literal": "1d6 de daño por veneno e impío por cada uno de tus Niveles",
+      "tipos": [
+        "veneno",
+        "impío"
+      ],
+      "dados_base": "1d6",
+      "dados_por_nivel": true,
+      "grupos_de_dados": 1,
+      "regla": "un solo resultado de daño con todos los tipos simultáneos",
+      "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
+      "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
+      "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional"
+    },
+    {
+      "numero_tomo": 387,
+      "id_catalogo": "conjuro-40",
+      "nombre_tomo": "Tentáculos negros",
+      "evidencia_literal": "3d6 de daño contundente y mágico cada Turno",
+      "tipos": [
+        "contundente",
+        "mágico"
+      ],
+      "dados_base": "3d6",
+      "dados_por_nivel": false,
+      "grupos_de_dados": 1,
+      "regla": "un solo resultado de daño con todos los tipos simultáneos",
+      "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
+      "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
+      "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional"
+    }
+  ],
+  "control": "Sangre hirviente (366) tiene dos grupos explícitos 3d8 fuego y 3d8 impío; no es daño compuesto de grupo único."
+}
