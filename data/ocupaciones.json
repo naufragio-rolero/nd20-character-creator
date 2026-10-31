@@ -11,7 +11,7 @@
 		"competencias": ["Puedes equipar cualquier arma cuerpo a cuerpo roma y cualquier tipo de escudo.","No puedes equipar armas a distancia, armas arrojadizas o armas cuerpo a cuerpo con filo.","Puedes equipar armaduras ligeras y armaduras intermedias.","A partir de Nivel 12 puedes equipar armaduras pesadas.","Eres competente con el Kit de medicina, con el Kit de cocina y con la Tinta y Pluma."],
 		"salud": 0,
 		"esfuerzo": 3,
-		"armas": ["Bastón", "Clava", "Martillo ligero", "Mayal", "Maza", "Porra", "Garrote", "Lucero del alba", "Gran clava"],
+		"armas": ["Bastón","Clava","Martillo ligero","Mayal","Maza","Porra","Garrote","Lucero del alba","Gran clava","Martillo de guerra","Almádena"],
 		"armaduras": ["Pechera de algodón", "Armadura de tela", "Armadura acolchada", "Armadura de cuero", "Cuero tachonado", "Armadura de pieles", "Camisote de mallas", "Cota de anillas", "Cota de escamas", "Coraza"],
 		"poderes": []
 	},
@@ -27,7 +27,7 @@
 		"competencias": ["Puedes equipar cualquier tipo de arma.","Puedes equipar cualquier tipo de escudo.","Puedes equipar cualquier tipo de armadura.","Eres competente con el Kit de cocina y la Piedra de afilar."],
 		"salud": 1,
 		"esfuerzo": 4,
-		"armas": ["Cimitarra", "Clava", "Daga", "Espada corta", "Hacha de mano", "Hoz", "Martillo ligero", "Bastón", "Espada larga", "Espada ropera", "Guantelete armado", "Hacha de batalla", "Jabalina", "Lanza", "Látigo", "Lucero del alba", "Martillo de guerra", "Mayal", "Maza", "Alabarda", "Espadón", "Gran clava", "Gran hacha", "Guadaña", "Guja", "Lanza de caballería", "Tridente", "Arco corto", "Arco largo", "Ballesta de mano", "Ballesta de repetición", "Ballesta ligera", "Ballesta pesada", "Cerbatana", "Dardo", "Honda", "Yumi"],
+		"armas": ["Cimitarra","Clava","Daga","Espada corta","Hacha de mano","Hoz","Martillo ligero","Bastón","Espada larga","Espada ropera","Guantelete armado","Hacha de batalla","Jabalina","Lanza","Látigo","Lucero del alba","Martillo de guerra","Mayal","Maza","Alabarda","Espadón","Gran clava","Gran hacha","Guadaña","Guja","Lanza de caballería","Tridente","Arco corto","Arco largo","Ballesta de mano","Ballesta de repetición","Ballesta ligera","Ballesta pesada","Cerbatana","Dardo","Honda","Yumi","Almádena"],
 		"armaduras": ["Pechera de algodón", "Armadura de tela", "Armadura acolchada", "Armadura de cuero", "Cuero tachonado", "Armadura de pieles", "Camisote de mallas", "Cota de anillas", "Cota de escamas", "Coraza", "Cota de mallas", "Armadura de bandas", "Armadura parcial de placas", "Armadura completa de placas"],
 		"poderes": []
 		
@@ -61,7 +61,7 @@
 		"salud": -1,
 		"esfuerzo": 4,
 		"armas": ["Cimitarra", "Clava", "Daga", "Espada corta", "Hacha de mano", "Hoz", "Martillo ligero", "Bastón", "Espada larga", "Espada ropera", "Guantelete armado", "Hacha de batalla", "Jabalina", "Lanza", "Látigo", "Lucero del alba", "Martillo de guerra", "Mayal", "Maza", "Arco corto", "Arco largo", "Ballesta de mano", "Ballesta de repetición", "Ballesta ligera", "Ballesta pesada", "Cerbatana", "Dardo", "Honda", "Yumi"],
-		"armaduras": ["Pechera de algodón", "Armadura de tela", "Armadura acolchada", "Armadura de cuero"],
+		"armaduras": ["Pechera de algodón","Armadura de tela","Armadura acolchada","Armadura de cuero","Cuero tachonado"],
 		"poderes": []
 	}
 }
