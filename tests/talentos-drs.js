@@ -34,8 +34,8 @@ for(const r of canon.registros){
   assert.equal(pres.clasificacion,r.tipo_origen+' · '+r.propietario);
   assert.equal(pres.fuente.includes('NaufragioD20DRS.docx'),true);
   const expected=[['Activación',r.activacion_literal],
-    ['Atributo',(r.atributo_literal||'').replace(/^Atributo:\\s*/,'')],
-    ['Coste',(r.coste_literal||'').replace(/^Coste:\\s*/,'')]]
+    ['Atributo',(r.atributo_literal||'').replace(/^Atributo:\s*/,'')],
+    ['Coste',(r.coste_literal||'').replace(/^Coste:\s*/,'')]]
     .filter(x=>x[1]);
   assert.deepEqual(pres.primarios,expected,r.id+' campos fuente explícitos');
   assert.equal(indice.buscarPorId(idx,r.id,'talento','nd20'),x);
