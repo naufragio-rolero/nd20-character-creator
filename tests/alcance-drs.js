@@ -409,3 +409,111 @@ for(const ocupacion of ['Mago','Ladrón'])
   assert.ok(!comprarDRS(ocupacion,12).some(x=>/^Escudo /.test(x)),
     'Mago y Ladrón no pueden equipar escudos: '+ocupacion);
 console.log('OK · Compra inicial DRS: competencias de 4 Ocupaciones, escudos y protección por Nivel.');
+
+/* Auditoría DRS por Talento: efecto en ficha, selección y límites de tamaño. */
+const talentosFijosDRS={
+  'Elfo agreste':['Linaje feérico','Rapidez'],
+  'Enano montañés':['Corpulencia','Visión en la oscuridad'],
+  'Humano común':['Buen desarrollo'],
+  'Mediano amable':['Baja estatura','¡Sálvese quien pueda!'],
+  'Gnomo urbano':['Baja estatura','Visión en la oscuridad'],
+  'Semielfo':['Ánimo','Herencia dual (SE)'],
+  'Orco común':['Ira interna','Saña primitiva'],
+  'Semiorco':['Sed de sangre','Herencia dual (SO)']
+};
+for(const [especie,fijos] of Object.entries(talentosFijosDRS)){
+  assert.deepEqual(especies[especie].talentos,fijos,
+    'Talentos raciales exactos según DRS: '+especie);
+  const perfil=especies[especie];
+  const cubiertos=fijos.filter(x=>!x.startsWith('Herencia dual')).concat(perfil.herencia_dual||[]);
+  assert.deepEqual(Object.keys(perfil.talentos_descripcion).sort(),cubiertos.sort(),
+    'Ningún Talento DRS sin descripción en la ficha: '+especie);
+  const personaje=reglas.crearNd20(fuenteBase,{
+    juego:'nd20',especie,ocupacion:'Guerrero',nivel:1,aplazarElecciones:true,
+    catalogoEquipo:catalogoEquipamiento
+  },reglas.aleatorioSemilla('Talentos-especie/'+especie));
+  for(const talento of fijos.filter(x=>!x.startsWith('Herencia dual')))
+    assert.ok(personaje.notas.some(n=>n.includes('Talento de Especie — '+talento+': ')),
+      'La ficha exportada documenta '+talento+' ('+especie+')');
+  for(const nombre of perfil.herencia_dual||[])
+    assert.equal(personaje.notas.some(n=>n.includes('Talento de Especie — '+nombre+': ')),
+      personaje.herencia_dual===nombre,'Solo describir rama elegida: '+especie);
+  assert.equal(personaje.recursos.find(x=>x[0]==='Movimiento')[1],
+    perfil.movimiento,'El Movimiento corregido por Talento no se aplica dos veces: '+especie);
+}
+for(const especie of ['Mediano amable','Gnomo urbano']){
+  const cfg={juego:'nd20',nivel:1,ocupacion:'Guerrero',especie,aplazarElecciones:true,
+    catalogoEquipo:catalogoEquipamiento};
+  const ficha=reglas.crearNd20(fuenteBase,cfg,
+    reglas.aleatorioSemilla('Baja estatura/'+especie));
+  const comprado=([
+    ...catalogoEquipamiento.armas,
+    ...catalogoEquipamiento.armaduras,
+    ...catalogoEquipamiento.escudos
+  ]).map(x=>x.nombre);
+  assert.ok(ficha.equipo.every(x=>!comprado.includes(x)||x==='Escudo pequeño'),
+    'La ficha no compra armamento o armadura sin adaptación verificada');
+  assert.ok(ficha.notas.some(x=>x.includes('adaptación confirmada')),
+    'El usuario debe conocer la restricción de talla');
+  const compra=equipamientoDRS.compraInicial(ocupaciones.Guerrero,'Guerrero','nd20',
+    catalogoEquipamiento,1000,()=>0.999,30,especies[especie]);
+  assert.ok(!compra.equipo.some(x=>['Escudo mediano','Escudo grande'].includes(x)));
+  assert.ok(compra.equipo.includes('Escudo pequeño'),'Solo escudo pequeño permitido');
+  assert.ok(!compra.equipo.some(x=>catalogoEquipamiento.armaduras.some(y=>y.nombre===x)));
+  const catalogoAdaptado=structuredClone(catalogoEquipamiento);
+  catalogoAdaptado.armas.find(x=>x.nombre==='Daga').adaptada_baja_estatura=true;
+  catalogoAdaptado.armaduras.find(x=>x.nombre==='Armadura de tela').adaptada_baja_estatura=true;
+  const verificable=equipamientoDRS.compraInicial(ocupaciones.Guerrero,'Guerrero',
+    'nd20',catalogoAdaptado,1000,()=>0,1,especies[especie]);
+  assert.ok(verificable.equipo.includes('Daga'));
+  assert.ok(verificable.equipo.includes('Armadura de tela'));
+  assert.ok(verificable.equipo.every(x=>
+    !catalogoAdaptado.armas.some(y=>y.nombre===x&&!y.adaptada_baja_estatura)&&
+    !catalogoAdaptado.armaduras.some(y=>y.nombre===x&&!y.adaptada_baja_estatura)),
+    'Solo compras explícitamente adaptadas; nunca inferir adaptación por categoría');
+}
+{
+  const modo={juego:'nd20',especie:'Humano común',ocupacion:'Mago',nivel:1,
+    aplazarElecciones:true};
+  const plan=planificadorDRS.planificar({...modo,modo:'personalizado'},
+    fuenteBase,catalogo,progresiones);
+  const paso=plan.pasos.find(x=>x.id==='buen-desarrollo');
+  const seis=['Fuerza','Agilidad','Resistencia','Mente','Intuición','Presencia'];
+  assert.deepEqual(paso.opciones.map(x=>x.id),seis,
+    'El Humano elige uno de los seis Atributos, no una opción automática');
+  const rapido=planificadorDRS.planificar({...modo,modo:'rapido'},
+    fuenteBase,catalogo,progresiones);
+  assert.ok(!rapido.pasos.some(x=>x.id==='buen-desarrollo'));
+  const pendiente=reglas.crearNd20(fuenteBase,{...modo,desarrolloPendiente:true},
+    reglas.aleatorioSemilla('Humano desarrollo'));
+  assert.equal(pendiente.atributo_buen_desarrollo,null);
+  assert.ok(!pendiente.capacidades.includes('Buen desarrollo'),
+    'No conceder beneficio antes de elegir');
+  const decision=planificadorDRS.resolver({pasos:[paso],avisos:[],recursos:[]},
+    {'buen-desarrollo':['Resistencia']},()=>0.2);
+  assert.throws(()=>planificadorDRS.aplicar(pendiente,
+    {pasos:[paso],avisos:[],recursos:[]},decision),/reconstruir la ficha desde Nivel 1/);
+  for(const atributo of seis){
+    const final=reglas.crearNd20(fuenteBase,{...modo,atributoBuenDesarrollo:atributo},
+      reglas.aleatorioSemilla('Humano desarrollo'));
+    assert.equal(final.atributo_buen_desarrollo,atributo);
+    assert.ok(final.capacidades.includes('Buen desarrollo'));
+    assert.equal(final.nombre,pendiente.nombre,'La semilla conserva identidad');
+    for(const x of final.atributos)
+      assert.equal(x.valor-pendiente.atributos.find(y=>y.nombre===x.nombre).valor,
+        x.nombre===atributo?1:0,'Aplicación inicial, sin modificar otro VA');
+  }
+  for(const nivel of [5,12,30])
+    for(const atributo of seis){
+      const conf={...modo,nivel,atributoBuenDesarrollo:atributo};
+      const pj=reglas.crearNd20(fuenteBase,conf,
+        reglas.aleatorioSemilla('Humano '+nivel+' '+atributo));
+      assert.equal(pj.atributo_buen_desarrollo,atributo);
+      assert.ok(pj.atributos.every(x=>x.valor>=4&&x.valor<=18));
+    }
+  const app=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
+  assert.ok(app.includes('desarrolloPendiente:true'));
+  assert.ok(app.includes("e['buen-desarrollo']"));
+  assert.ok(app.includes('desarrolloHumano||'));
+}
+console.log('OK · Talentos de las 8 Especies, talla de 2 Especies y Buen desarrollo del Humano en ambos modos.');
