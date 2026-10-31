@@ -201,7 +201,13 @@
    * por magnitudes de un Nivel concreto. */
   function presentarPoder(info){
     if(!info||info.grupo!=="poder")return null;
-    var campos=(info.datos||[]).map(function(p){return [String(p[0]),String(p[1])];});
+    var entradas=(info.datos||[]).map(function(p){return [String(p[0]),String(p[1])];});
+    var clavesVistas=new Set();
+    var campos=entradas.filter(function(p){
+      var clave=p[0]+"\u0000"+p[1];
+      if(clavesVistas.has(clave))return false;
+      clavesVistas.add(clave);return true;
+    });
     function valor(nombre){
       var par=campos.find(function(p){return p[0]===nombre;});
       return par?par[1]:"";
@@ -210,7 +216,10 @@
     if(info.tipo==="Conjuro"){
       if(valor("Escuelas"))detallesCabecera.push(valor("Escuelas"));
       var circulo=valor("Círculo");
-      if(circulo)detallesCabecera.push(circulo+".º Círculo");
+      if(circulo){
+        var ordinal=(circulo==="1"||circulo==="3")?circulo+".er":circulo+".º";
+        detallesCabecera.push(ordinal+" Círculo");
+      }
     }else{
       if(valor("Categoría"))detallesCabecera.push(valor("Categoría"));
       if(valor("Ímpetu"))detallesCabecera.push("Ímpetu "+valor("Ímpetu"));
