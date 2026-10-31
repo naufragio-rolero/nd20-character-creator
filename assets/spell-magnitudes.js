@@ -36,6 +36,18 @@
         throw Error("Factor y tope inválidos");
       return Math.min(valor[0]*nivel,valor[1]);
     }
+    if(tipo==="por_cada_n_niveles"){
+      if(!Array.isArray(valor)||(valor.length!==2&&valor.length!==3)||
+        valor.some(function(x){return !Number.isSafeInteger(x)||x<0;})||
+        valor[1]<1)throw Error("Bloques de Niveles inválidos");
+      return Math.max(valor[2]||0,Math.floor(nivel/valor[1])*valor[0]);
+    }
+    if(tipo==="base_mas_por_cada_n_niveles"){
+      if(!Array.isArray(valor)||valor.length!==3||
+        valor.some(function(x){return !Number.isSafeInteger(x)||x<0;})||
+        valor[2]<1)throw Error("Base y bloques de Niveles inválidos");
+      return valor[0]+Math.floor(nivel/valor[2])*valor[1];
+    }
     throw Error("Operación desconocida: "+tipo);
   }
   function evaluar(catalogo,id,nivel){
@@ -52,5 +64,27 @@
       })
     };
   }
-  return {calcular:calcular,evaluar:evaluar};
+  /* Un solo bloque de daño con varios tipos: evitar resistencias y debilidades duplicadas.
+   * El motor no presupone cómo se trata la resistencia a un único tipo. */
+  function clasificarDanioCompuesto(perfil,resistencias,vulnerabilidades){
+    if(!perfil||!Array.isArray(perfil.tipos)||perfil.tipos.length<2||
+      new Set(perfil.tipos).size!==perfil.tipos.length)throw Error("Perfil de daño compuesto inválido");
+    var tipos=perfil.tipos;
+    function filtrados(lista){
+      if(!Array.isArray(lista)||lista.some(function(x){return typeof x!=="string";}))
+        throw Error("Tipos de defensa inválidos");
+      return new Set(lista.filter(function(x){return tipos.includes(x);}));
+    }
+    var res=filtrados(resistencias||[]),vul=filtrados(vulnerabilidades||[]);
+    return {
+      tipos:tipos.slice(),
+      grupos_de_dados:1,
+      resistencia_unica:res.size===tipos.length,
+      resistencia_parcial_pendiente:res.size>0&&res.size<tipos.length,
+      multiplicador_debilidad:vul.size>0?2:1,
+      conflicto_resistencia_debilidad:res.size>0&&vul.size>0,
+      aplicacion_automatica_completa:false
+    };
+  }
+  return {calcular:calcular,evaluar:evaluar,clasificarDanioCompuesto:clasificarDanioCompuesto};
 });
