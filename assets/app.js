@@ -549,6 +549,7 @@
       conjurosUno:'data/conjuros-revisados-001-225.json',
       conjurosDos:'data/conjuros-revisados-226-434.json',
       magnitudes:'data/conjuros-magnitudes-literales.json',
+      danioCompuesto:'data/conjuros-danio-compuesto.json',
       progresiones:'data/progresiones-oficiales.json',
       equipoInicial:'data/equipo-inicial.json',
       fichasDocumentales:'data/fichas-documentales.json',
@@ -613,7 +614,8 @@
         catalogo:datos.catalogo,equipo:datos.equipoInicial,
         descripciones:loaded.fichasDocumentales,
         conjurosRevisados:loaded.conjurosUno.conjuros.concat(loaded.conjurosDos.conjuros),
-        magnitudes:loaded.magnitudes
+        magnitudes:loaded.magnitudes,
+        danioCompuesto:loaded.danioCompuesto
       });
       infoUI.configurar(indice);
     }
