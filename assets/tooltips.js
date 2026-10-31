@@ -99,10 +99,14 @@
     ocupaciones(fuentes.cifi?.ocupaciones,"nd20_cifi");
     especies(fuentes.nocturna?.especies,"nd20_nocturna");
     ocupaciones(fuentes.nocturna?.ocupaciones,"nd20_nocturna");
-    ["Cestus","Dimacaero","Murmillo","Retiario","Secutor","Veles"].forEach(function(n){
-      anotar(n,"Estilo de gladiatoria","nd20","NaufragioD20 — Ocupaciones · Gladiador",
-        {grupo:"talento",datos:[["Obtención","Nivel 1, 12 o 24"]]});
-    });
+    // Los Estilos de gladiatoria pertenecen a un suplemento: no incluir
+    // ni sus fichas emergentes cuando el catálogo público solo contiene DRS.
+    if(fuentes.fantasia?.ocupaciones?.Gladiador){
+      ["Cestus","Dimacaero","Murmillo","Retiario","Secutor","Veles"].forEach(function(n){
+        anotar(n,"Estilo de gladiatoria","nd20","NaufragioD20 — Ocupaciones · Gladiador",
+          {grupo:"talento",datos:[["Obtención","Nivel 1, 12 o 24"]]});
+      });
+    }
     var catalogo=fuentes.catalogo||{};
     elementos(catalogo.conjuros,"Conjuro","nd20");
     elementos(catalogo.tecnicas,"Técnica","nd20");
