@@ -113,8 +113,11 @@ async function probar(nombre,tipo,url){
       /Coste:\s*1 punto de Esfuerzo/);
     assert.match(await popup.locator('.info-primarios').textContent(),/Requisito:/);
     await page.locator('#informacion-avanzada').uncheck();
+    await page.locator('#e2e-poder').click();
     assert.equal(await popup.locator('.info-detalles').isHidden(),true);
     await page.keyboard.press('Escape');
+    // Restaurar el estado original para las pruebas de Talentos que siguen.
+    await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=false;});
     await page.locator('#e2e-poder').evaluate(x=>x.remove());
     const opcionMago=page.locator('#selector-visual-ocupacion button[data-valor="Mago"]');
     await opcionMago.click();
