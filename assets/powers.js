@@ -423,12 +423,8 @@
             .filter(function(x){return x.circulo===cCl;})
         );
       }
-      // Contradicción del DRS: lista clerical, C4; descripción propia, C5.
-      // No adscribir Marca del dador oscuro a un Círculo por inferencia.
-      if(nivel>=8)avisos.push(
-        "DRS: Marca del dador oscuro aparece en Círculo 4 en la lista del Clérigo,"+
-        " pero su descripción lo declara de Quinto Círculo."+
-        " Pendiente de decisión editorial; no se aprende automáticamente.");
+      // Marca del dador oscuro: se adopta Círculo 5 por decisión del autor,
+      // siguiendo su ficha individual en el DRS, no el índice clerical C4.
     }
     if(juego==="nd20"&&ocupacion==="Guerrero"){
       pasos.push(nuevo("talento-guerrero","Talento de Guerrero · Nivel 1","talento",1,
