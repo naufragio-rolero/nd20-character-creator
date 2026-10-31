@@ -140,6 +140,13 @@ assert.ok(core.listas_drs.Clérigo['5'].includes(marca.nombre));
 assert.ok(!core.listas_drs.Clérigo['4'].includes(marca.nombre));
 const html=fs.readFileSync(path.join(salida,'index.html'),'utf8');
 assert.ok(!html.includes('Doncella de la Espada'));
+assert.ok(html.includes('class="juegos-compactos juegos-publicos"'));
+assert.ok(html.includes('data-juego="nd20"'));
+assert.ok(html.includes('data-juego="dh"'));
+assert.ok(!html.includes('data-juego="nd20_cifi"'));
+assert.ok(!html.includes('data-juego="nd20_nocturna"'));
+assert.ok(!html.includes('<option value="nd20_cifi">'));
+assert.ok(!html.includes('<option value="nd20_nocturna">'));
 assert.ok(html.includes('Banco histórico de nombres de Ylat (1422)'));
 assert.ok(html.indexOf('value="historico"')<html.indexOf('value="combinado"'),
   'El banco histórico debe ser el modo predeterminado en la distribución');
