@@ -346,8 +346,8 @@
     $('editor-elecciones').hidden=true;
     $('grupos-elecciones').textContent='';
   }
-  function prepararEditor(personaje,plan,rng){
-    borrador={personaje:personaje,plan:plan,rng:rng};
+  function prepararEditor(personaje,plan,rng,origen){
+    borrador={personaje:personaje,plan:plan,rng:rng,origen:origen||null};
     $('editor-elecciones').hidden=false;
     $('editor-titulo').textContent='Personalizar · '+personaje.descripcion;
     $('editor-resumen').textContent='Nivel '+personaje.nivel+
@@ -489,7 +489,17 @@
       conControl(function () {
         var c=config(),createRng=rngUnico(),items=[];
         for(var i=0;i<c.cantidad;i++){
-          var r=createRng(i),personaje=crearFicha(c,r);
+          var r=createRng(i),semillaPersonaje=null;
+          // La elección de Herencia dual modifica un VA antes de subir Niveles.
+          // Guardamos la semilla para reconstruir exactamente la misma creación
+          // con la alternativa definitiva, sin parchear atributos al final.
+          if(c.juego==='nd20' && c.modo==='personalizado'){
+            semillaPersonaje=Math.floor(r()*4294967296);
+            r=reglas.aleatorioSemilla('forja-herencia:'+semillaPersonaje);
+          }
+          var configFicha=semillaPersonaje===null?c:
+            Object.assign({},c,{herenciaPendiente:true});
+          var personaje=crearFicha(configFicha,r);
           if(c.juego==='dh'){items.push(personaje);continue;}
           var partes=personaje.descripcion.split(' · ');
           var opciones=Object.assign({},c,{ocupacion:partes[0],especie:partes.slice(1).join(' · ')});
@@ -498,7 +508,8 @@
           var plan=poderes.planificar(opciones,juegoDatos,datos.catalogo,datos.progresiones);
           if(c.modo==='personalizado'&&plan.pasos.some(function(x){return !x.automatico;})){
             cerrarMenuMovil();
-            prepararEditor(personaje,plan,r);return;
+            prepararEditor(personaje,plan,r,
+              {config:c,semillaPersonaje:semillaPersonaje});return;
           }
           items.push(poderes.aplicar(personaje,plan,poderes.resolver(plan,null,r)));
         }
@@ -512,7 +523,22 @@
         if(!borrador)throw Error('No existe un personaje pendiente.');
         var e=leerElecciones();
         var resultado=poderes.resolver(borrador.plan,e,borrador.rng);
-        agregar('ficha',poderes.aplicar(borrador.personaje,borrador.plan,resultado));
+        var personaje=borrador.personaje;
+        var herencia=(e['herencia-dual']||[])[0];
+        if(herencia){
+          if(!borrador.origen || borrador.origen.semillaPersonaje===null)
+            throw Error('No se puede reconstruir la elección de Herencia dual.');
+          var partesHerencia=herencia.split(':');
+          var nuevo=crearFicha(Object.assign({},borrador.origen.config,{
+            herenciaDual:partesHerencia[0],
+            atributoBuenDesarrollo:partesHerencia.length===2?partesHerencia[1]:null
+          }),reglas.aleatorioSemilla('forja-herencia:'+
+            borrador.origen.semillaPersonaje));
+          if(nuevo.descripcion!==personaje.descripcion || nuevo.sexo!==personaje.sexo)
+            throw Error('La reconstrucción alteró la identidad del personaje.');
+          personaje=nuevo;
+        }
+        agregar('ficha',poderes.aplicar(personaje,borrador.plan,resultado));
         cerrarEditor();
       });
     });
