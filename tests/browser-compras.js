@@ -219,7 +219,13 @@ async function main(){
     // Evidencia visual reproducible: escritorio con carrito abierto.
     const capturas=path.join(raiz,'tests','capturas-e2e');
     fs.mkdirSync(capturas,{recursive:true});
-    await cdp.evalJS("document.querySelector('#editor-compras').scrollIntoView({block:'start',behavior:'instant'})");
+    await cdp.evalJS("(async()=>{"+
+      "document.documentElement.style.scrollBehavior='auto';"+
+      "var panel=document.querySelector('#editor-compras');"+
+      "window.scrollTo({top:Math.max(0,panel.getBoundingClientRect().top+window.scrollY-16),"+
+      "behavior:'instant'});"+
+      "await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));"+
+      "})()");
     const vistaDesktop=await cdp.evalJS("({ancho:window.innerWidth,"+
       "editor:document.querySelector('#editor-compras').getBoundingClientRect().width,"+
       "panel:document.querySelector('#panel-forja').getBoundingClientRect().width,"+
@@ -300,6 +306,13 @@ async function main(){
     assert.ok(movilEditor.ancho<=movilEditor.ventana+2,
       'El editor abierto tampoco debe desbordarse horizontalmente');
     assert.ok(movilEditor.campo>100,'El selector de útiles conserva anchura usable');
+    await cdp.evalJS("(async()=>{"+
+      "document.documentElement.style.scrollBehavior='auto';"+
+      "var panel=document.querySelector('#editor-compras');"+
+      "window.scrollTo({top:Math.max(0,panel.getBoundingClientRect().top+window.scrollY-16),"+
+      "behavior:'instant'});"+
+      "await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));"+
+      "})()");
     const imagenMovil=await cdp.enviar('Page.captureScreenshot',{
       format:'png',captureBeyondViewport:false});
     fs.writeFileSync(path.join(capturas,'compras-movil.png'),
