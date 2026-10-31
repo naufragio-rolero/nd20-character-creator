@@ -154,6 +154,16 @@ async function main(){
       'La interfaz DRS no debe mostrar Ocupaciones DLC');
     const especies=await cdp.evalJS("Array.from(document.querySelectorAll('#especie option')).map(x=>x.value).filter(Boolean)");
     assert.equal(especies.length,8,'Solo ocho Especies DRS publicadas');
+    const controlesVisuales=await cdp.evalJS("({"+
+      "especies:document.querySelectorAll('#selector-visual-especie button').length,"+
+      "ocupaciones:document.querySelectorAll('#selector-visual-ocupacion button').length,"+
+      "iconos:document.querySelectorAll('.selector-visual svg use').length,"+
+      "flotante:!document.querySelector('#generar-flotante').disabled,"+
+      "avanzada:document.querySelector('#informacion-avanzada').checked"+
+      "})");
+    assert.deepEqual(controlesVisuales,{
+      especies:9,ocupaciones:5,iconos:12,flotante:true,avanzada:false
+    },'12 SVG, opciones aleatorias, flotante y vista compacta predeterminada');
     assert.equal(await cdp.evalJS("document.querySelector('#modo-nombre').value"),
       'historico','Por defecto se ofrece el banco histórico de 1422 formas Ylat');
     assert.equal(await cdp.evalJS("document.querySelector('#ambito-nombre').value"),
@@ -182,7 +192,7 @@ async function main(){
       "document.querySelector('#cantidad').value='2';"+
       "document.querySelector('#nombre-personaje').value='Control E2E';"+
       "document.querySelector('#semilla').value='E2E-compras-saldos';"+
-      "document.querySelector('#configuracion').requestSubmit();"+
+      "document.querySelector('#generar-flotante').click();"+
       "})()");
     await cdp.esperar("document.querySelectorAll('#fichas .tarjeta').length===2",
       'generación de dos fichas');
@@ -199,6 +209,17 @@ async function main(){
     assert.equal(infoRecuperacion.visible,true,
       'El popup del Talento debe abrirse con pulsación');
     assert.match(infoRecuperacion.texto,/1 Intervalo para recuperar 1d8 Puntos de Salud/);
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#ficha-emergente .info-detalles')?.open"),false,
+      'Los detalles técnicos deben permanecer cerrados inicialmente');
+    await cdp.evalJS("(()=>{"+
+      "document.querySelector('#configuracion-avanzada').open=true;"+
+      "let c=document.querySelector('#informacion-avanzada');c.checked=true;"+
+      "c.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "})()");
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#ficha-emergente .info-detalles')?.open"),true,
+      'La configuración avanzada también actualiza el popup abierto');
     assert.ok(await cdp.evalJS(
       "document.querySelector('#fichas .tarjeta .otros-avisos')?.textContent?.includes('Talento de Ocupación — Recuperación:')!==true"),
       'La ficha no duplica el efecto de Recuperación al final');
