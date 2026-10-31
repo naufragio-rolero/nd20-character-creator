@@ -7,8 +7,8 @@ Generador estático para **Naufragio d20 (Fantasía, CiFi y Nocturna)** y **Dung
 - `data/tesauro-ylat.json` contiene **200 nombres únicos** obtenidos exclusivamente a partir de tres documentos seleccionados de la Biblioteca `/Ylat`: *Personages Niguaze.pdf*, *Cronicas de Niguaze  .pdf* y *Hilo Isla Tormenta 2019.pdf*.
 - **51 nombres documentados** indican el archivo y la página en que aparecen; son nombres de personajes existentes en esos textos.
 - **149 nombres combinados** reutilizan nombres y apellidos documentados para sugerir personajes nuevos. **No son personajes canónicos ni atribuciones de culturas o especies**.
-- En la **rama de desarrollo**, Nd20 Fantasía permite elegir **variantes inspiradas** (por defecto), **nombres documentados** (para revisión interna) o el **repertorio de la Especie**. En el **paquete candidato público** solo aparecen las **149 variantes combinadas** y el repertorio de Especie; los 51 nombres documentados no se sirven ni se pueden seleccionar. Un segundo selector agrupa las variantes por **corpus documental**: documentos de **Niguace (116)** o relato de **Isla Tormenta (33)**. Esas etiquetas indican dónde se encontraron los componentes de los nombres, **no su origen cultural o geográfico**, y no se relacionan automáticamente con Especies. El nombre manual sigue teniendo prioridad; los demás sistemas conservan sus repertorios. **27 nombres de pila combinados carecen de clasificación documental de sexo**: se permiten sin atribuirles ninguna y se señala en la ficha.
-- **Auditoría de fuentes Ylat:** además de los tres PDF de la Biblioteca `/Ylat` (133 páginas), se han consultado los **Google Docs conectados** de Zonas, Lenguas, Biografías, Historia de Shadaleen y Enciclopedia, y se ha inspeccionado el generador histórico Excel de Ylat (**1428 registros; 1422 valores distintos**). Niguace e Isla Tormenta indican **corpus narrativos**, no lugares de nacimiento de todos los personajes. El generador conserva únicamente los **149 nombres combinados previamente autorizados**: los nombres históricos del Excel necesitan cotejo documental y editorial antes de publicar. [Informe 103](docs/enciclopedia/103-auditoria-onomastica-biblioteca-ylat.md) e [informe 104](docs/enciclopedia/104-fuentes-google-docs-y-generador-historico-ylat.md).
+- Nd20 Fantasía ofrece ahora por defecto el **banco histórico de 1422 formas únicas de Ylat** (1428 filas originales con seis duplicaciones), autorizado por el autor. También permite elegir las **149 combinaciones inspiradas**, el **repertorio de la Especie** y, solo en desarrollo, los **51 nombres documentados** para revisión interna. El paquete público **no contiene los 51 PNJ documentados**. El selector del **corpus de referencia** (Niguace, 116; Isla Tormenta, 33) se aplica exclusivamente a las combinaciones, **nunca al banco histórico**, que no atribuye cultura, sexo, linaje ni Especie. El nombre manual conserva prioridad. Véase [informe 105](docs/enciclopedia/105-generador-historico-nombres-ylat.md).
+- **Auditoría de fuentes Ylat:** además de los tres PDF de la Biblioteca `/Ylat` (133 páginas), se han consultado los **Google Docs conectados** de Zonas, Lenguas, Biografías, Historia de Shadaleen y Enciclopedia, y se ha inspeccionado el generador histórico Excel de Ylat (**1428 registros; 1422 valores distintos**). Niguace e Isla Tormenta indican **corpus narrativos**, no lugares de nacimiento de todos los personajes. Por autorización expresa del autor, el generador **también incorpora las 1428 filas históricas del Excel** en desarrollo y **1422 formas únicas en el paquete público**; todavía no las clasifica culturalmente ni por sexo. [Informe 103](docs/enciclopedia/103-auditoria-onomastica-biblioteca-ylat.md) e [informe 104](docs/enciclopedia/104-fuentes-google-docs-y-generador-historico-ylat.md).
 - Los Talentos documentados de las ocupaciones ampliadas se muestran ahora en **Talentos y capacidades** en vez de Observaciones. Si la adquisición depende del Nivel o de una elección todavía no automatizada, aparece indicado para evitar otorgar capacidades indebidamente.
 - **Hurí:** Encanto y Defensa sin armadura aparecen como Talentos; la progresión de Magia tántrica se representa por cantidad de artes conocidas (1 en niveles 1–5, 2 en 6–11, 3 en 12–17 y 4 desde 18), junto con su Blindaje sin armadura. El documento de Ocupaciones **no proporciona nombres ni efectos de las artes tántricas**; el generador las identifica como pendientes, sin inventarlas.
 
@@ -101,16 +101,23 @@ una autorización para habilitar Pages. El workflow
 Firefox y WebKit** y adjunta el paquete candidato como artefacto de
 GitHub Actions durante siete días cuando supera las pruebas.
 
-**Decisión editorial (31/10/2026):** el candidato público incluye los
-**149 nombres combinados de Ylat**, y excluye físicamente las **51
-identidades de personajes documentados** (conservadas solo en el repositorio
-de trabajo). Las combinaciones se presentan como propuestas no canónicas,
-con filtro por sus ámbitos existentes: Niguace (116), Isla Tormenta (33)
-o ambos. **27 combinaciones carecen de clasificación de sexo**; pueden
-seleccionarse sin inventarla y la ficha lo advierte. La clasificación por
-ámbito no equivale a una pertenencia a una Especie. El nombre manual y
-los repertorios por Especie permanecen intactos. Ver
-`docs/enciclopedia/102-149-nombres-combinados-ylat.md`.
+**Nueva decisión editorial (31/10/2026):** el candidato público incluye
+**1422 formas únicas del generador histórico de Ylat** (1428 filas en
+la fuente original), además de las **149 combinaciones** previamente
+autorizadas. Solo estas últimas admiten filtrado por corpus: Niguace
+(116) o Isla Tormenta (33). Las **51 identidades de PNJ documentados**
+siguen excluidas físicamente del paquete público. Ni las formas
+históricas ni las combinaciones atribuyen sexo, cultura, Especie o
+linaje sin respaldo documental; el nombre manual conserva prioridad.
+Véanse `docs/enciclopedia/102-149-nombres-combinados-ylat.md`
+y `docs/enciclopedia/105-generador-historico-nombres-ylat.md`.
+
+**Para probar la versión sin despliegue:** descargar el artefacto ZIP
+`forja-drs-candidato-no-publicado` del último workflow
+`paquete-publico-drs.yml` completado en verde, descomprimirlo y
+servirlo con `py -m http.server 8765` desde esa carpeta (en Windows,
+con Python instalado). Abrir `http://localhost:8765`. No abrir
+directamente `index.html` como `file://`, pues necesita cargar JSON.
 Las fichas de los **64 Conjuros del DRS** han sido **cotejadas
 literalmente con el DOCX original**, incluidos los datos de la tabla
 de Calentar metal. El paquete básico elimina el duplicado de Arma
