@@ -73,7 +73,8 @@ const especificas=[
   'index.html',
   'assets/styles.css','assets/favicon.svg','assets/icons-forja.svg','assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/powers.js','assets/spell-magnitudes.js',
-  'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js',
+  'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/i18n.js',
+  'locales/es.json',
   'data/especies.json','data/ocupaciones.json','data/especies_cifi.json',
   'data/ocupaciones_cifi.json','data/catalogo-ampliado.json',
   'data/tesauro-ylat.json','data/nombres-historicos-ylat.json',
@@ -199,44 +200,18 @@ for(const ruta of especificas){
     escribir(ruta,JSON.stringify(dato,null,2)+'\n');
   }else if(ruta==='index.html'){
     let html=fs.readFileSync(origen,'utf8');
-    // Evitar referencias narrativas al contenido Fantasía suplementario
-    // que no entra en la distribución física.
-    html=html.replace(
-      'Activado: Doncella de la Espada, Valquiria e Invocadora se generan en femenino.\n'+
-      '          Desactívalo para permitir personajes excepcionales. No es una prohibición mecánica del DRS.\n'+
-      '          Los varones Gerudo son posibles, aunque excepcionales.',
-      'La opción se aplica a las Ocupaciones publicadas de cada sistema.');
-    // CiFi y Nocturna permanecen disponibles y probables en desarrollo,
-    // pero se retiran (no se ocultan con CSS) de la navegación pública
-    // hasta completar la revisión editorial de ambas ediciones.
-    const botonesNoPublicados=[
-      '            <button type="button" data-juego="nd20_cifi" aria-pressed="false" title="Naufragio d20 CiFi"><span aria-hidden="true">✦</span><strong>Nd20C</strong></button>',
-      '            <button type="button" data-juego="nd20_nocturna" aria-pressed="false" title="Naufragio d20 Nocturna"><span aria-hidden="true">☾</span><strong>Nd20N</strong></button>'
-    ];
-    const opcionesNoPublicadas=[
-      '            <option value="nd20_cifi">Naufragio d20 · CiFi</option>',
-      '            <option value="nd20_nocturna">Naufragio d20 · Nocturna</option>'
-    ];
-    for(const fragmento of botonesNoPublicados.concat(opcionesNoPublicadas)){
-      if(!html.includes(fragmento))
-        throw Error('La selección pública ha cambiado: revisar ocultación de CiFi y Nocturna.');
-      html=html.replace(fragmento,'');
-    }
+    // Los sistemas pendientes no deben figurar ni en el HTML original.
+    if(/data-juego="nd20_(?:cifi|nocturna)"|<option value="nd20_(?:cifi|nocturna)">/.test(html))
+      throw Error('Los selectores contienen CiFi/Nocturna no publicados.');
     if(!html.includes('class="juegos-compactos"'))
       throw Error('No se encuentra el selector visual de sistemas.');
     html=html.replace('class="juegos-compactos"','class="juegos-compactos juegos-publicos"');
-    // El formulario de desarrollo conserva 51 registros documentados
-    // para consulta interna. Solo la distribución pública retira su opción.
-    const opcionDocumentada='<option value="documentado">Personajes documentados (51)</option>';
-    if(!html.includes(opcionDocumentada))
-      throw Error('El selector documental ha cambiado: revisar su exclusión.');
-    html=html.replace(opcionDocumentada,'');
-    const ayudaVieja='Banco histórico autorizado: 1428 registros originales, 1422 formas únicas tras eliminar el sesgo de seis duplicados. Son propuestas sin atribución documental de sexo, Especie, cultura ni linaje. Hay también 149 combinaciones inspiradas en Ylat; las 51 identidades de personajes documentados se reservan a revisión editorial.';
-    if(!html.includes(ayudaVieja))
-      throw Error('La ayuda de nombres de Ylat ha cambiado.');
-    html=html.replace(ayudaVieja,
-      '1422 formas únicas del generador histórico autorizado y 149 combinaciones inspiradas en Ylat (116 del corpus de Niguace y 33 de Isla Tormenta). No atribuyen sexo, cultura, Especie ni linaje; no identifican personajes canónicos. Se excluyen las 51 identidades documentadas.');
-
+    // Nunca distribuir opciones de PNJ documentados del tesauro interno.
+    if(!html.includes('<option value="documentado">'))
+      throw Error('Falta la opción documental que debe excluirse.');
+    html=html.replace(/^[^\n]*<option value="documentado">[^\n]*\n/m,'');
+    if(html.includes('<option value="documentado">'))
+      throw Error('La opción documental sigue visible.');
     escribir(ruta,html);
   }else{
     fs.mkdirSync(path.dirname(path.join(destino,ruta)),{recursive:true});
