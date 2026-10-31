@@ -67,6 +67,14 @@
   function elegirNombre(config,especie,nombres,entradas,sexo,datos,rng){
     if(config.nombre)return {nombre:config.nombre,nota:"Nombre elegido manualmente."};
     rng=rng||Math.random;
+    if(config.modoNombre==='historico'&&config.juego==='nd20'){
+      // La lista de 1422 formas no contiene atribuciones documentadas
+      // de sexo, cultura ni linaje. Se usa sin asignarlas por analogía.
+      var historicos=(entradas||[]).filter(function(e){return e.tipo==='historico';});
+      if(historicos.length)
+        return {nombre:historicos[Math.floor(rng()*historicos.length)].nombre,
+          nota:'Nombre del banco histórico sin clasificación documental de sexo; no se le atribuye una.'};
+    }
     var ylat=(entradas||[]).filter(function(e){
       return e.tipo===(config.modoNombre==="documentado"?"documentado":"combinado");
     });
