@@ -10,7 +10,7 @@ La fuente «NaufragioD20DRS.docx», sección de Conjuros, incluye **Ira celestia
 
 **Resolución aplicada en rama de integración:** se elimina `conjuro-154` de los Conjuros seleccionables; se mantiene `conjuro-46` como única versión canónica. El catálogo queda en **433 entradas únicas**; el Tomo mantiene **434 fichas documentales**, porque «Arma elemental» está transcrito dos veces. Los lotes históricos 69 y los maestros de Drive no se reescriben. Las pruebas de Forja protegen la ausencia de Ira celestial C3.
 
-## Surcar la tierra — pendiente de autorización
+## Surcar la tierra — resolución aprobada y aplicada en Forja
 
 Texto del Tomo, ordinal 385: «Remueves o excavas hasta **4 metros cúbicos** de tierra, barro o arena», pero proporciona ejemplos con profundidades y anchuras que exceden ese límite.
 
@@ -20,7 +20,7 @@ Para verificar el orden de magnitud, **si se interpretan como excavaciones cilí
 
 La fuente dice «2 metros de ancho» para el primer ejemplo; tomarlo como diámetro de pozo circular es una **hipótesis geométrica explicativa**, no una precisión explícita del reglamento.
 
-**Propuesta editorial aún sin aprobar:** conservar el límite de 4 m³ y revisar los ejemplos para que sean volumétricamente compatibles. Alternativamente, si se desea respetar las dimensiones de los ejemplos, modificar expresamente el límite reglamentario. **Ninguna de las dos opciones se ha aplicado.**
+**Resolución editorial aprobada el 31/10/2026:** conservar el límite de **4 m³** y sustituir los dos ejemplos incompatibles por un pozo de **1 × 1 × 4 m** y una cavidad de **2 × 2 × 1 m**. Ambos volúmenes son exactamente **4 m³**. Se ha aplicado únicamente al texto de consulta de Forja. Véase [82a](82a-correcciones-confirmadas-conjuros.json).
 
 ## Dos resoluciones adicionales aprobadas
 
