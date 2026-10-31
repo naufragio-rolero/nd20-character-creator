@@ -31,12 +31,13 @@
   function consultaPorId(id,grupo,sistema){
     return root.NaufragioTooltipIndex?.buscarPorId(glosario,id,grupo,sistema)||null;
   }
-  function etiqueta(t,grupo,sistema,fuentePreferida){
+  function etiqueta(t,grupo,sistema,fuentePreferida,adquisicion){
     var dato=consulta(t,grupo,sistema,fuentePreferida);
     if(!dato)return esc(t);
     return '<button type="button" class="referencia-glosario" data-glosa-nombre="'+
       esc(t)+'" data-glosa-grupo="'+esc(grupo)+'" data-glosa-sistema="'+
       esc(sistema)+'"'+(fuentePreferida?' data-glosa-fuente="'+esc(fuentePreferida)+'"':'')+
+      (adquisicion?' data-glosa-adquisicion="'+esc(adquisicion)+'"':'')+
       ' aria-label="Ver ficha: '+esc(t)+'">'+esc(t)+'</button>';
   }
   function crearElemento(){
@@ -123,6 +124,14 @@
     var titulo=document.createElement("h3");
     titulo.textContent=presentacion?.nombre||info.nombre;
     c.append(cabecera,titulo);
+    // El origen reglamentario del Talento y la vía de adquisición del PJ
+    // pueden ser distintos (Herencia dual). No cambiar el texto fuente.
+    if(talento&&elemento.dataset.glosaAdquisicion){
+      var adquirido=document.createElement('p');
+      adquirido.className='info-adquisicion';
+      adquirido.textContent='Adquisición: '+elemento.dataset.glosaAdquisicion;
+      c.appendChild(adquirido);
+    }
     // En Poderes, lo necesario en mesa va siempre antes de la descripción.
     // Conservar las fórmulas literales, sin reemplazarlas por un valor por Nivel.
     if(presentacion&&presentacion.primarios.length){
