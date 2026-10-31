@@ -5,7 +5,7 @@
 ## Implementación de este lote
 - [x] Ocultar en el selector Nd20 CiFi y Nd20 Nocturna, conservando sus documentos y datos.
 - [x] Reemplazar las tarjetas gigantes por un botón compacto y un diálogo de selección con rejilla, inspirado en los selectores de personajes de Soul Calibur.
-- [x] Mantener exactamente una Especie y una Ocupación, sin alterar reglas ni fusionar clases; «multiselect» significa elegir entre múltiples opciones.
+- [x] Multiselección de candidatas en la rejilla: el generador elige una Especie y una Ocupación entre las marcadas. Sin marcas, todas. No combina Especies ni Ocupaciones en una misma ficha.
 - [x] Desglosar los paquetes de equipo en objetos de inventario sin duplicar su coste.
 - [x] Reducir los recuerdos personales a nombres descriptivos extraídos de las listas de Especies.
 - [x] Reducir rótulos y ayudas largas del formulario y README.
