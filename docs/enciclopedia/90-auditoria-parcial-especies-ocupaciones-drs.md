@@ -2,6 +2,8 @@
 
 > **Actualizaciones posteriores (31/10/2026):** la incidencia DRS-ESP-02 se ha **resuelto en la generación de fichas**; consultar [informe 91 — Herencia dual](91-herencia-dual-drs-cierre-implementacion.md). La [auditoría 92 — Talentos de Especies](92-auditoria-talentos-especies-drs.md) resuelve el Atributo elegido del Humano y documenta Talentos y envejecimiento. Tras una **decisión editorial posterior del 31/10/2026**, el equipamiento del catálogo se ofrece a Medianos y Gnomos en versiones adaptadas **sin alterar precios ni características**, manteniendo **solo escudos pequeños**: ya no quedan bloqueadas sus compras por falta de marcas de adaptación. Los apartados anteriores conservan su estado histórico. **Sigue pendiente ejecutar efectos durante una partida y completar otros huecos del catálogo general.**
 
+> **Actualización de Ocupaciones (31/10/2026):** se han contrastado las **120 filas** del Clérigo, Guerrero, Mago y Ladrón; corregido el cálculo de Potencia y la selección exclusiva DRS de Técnicas; documentados los nueve Talentos y concedidos los Conjuros conocidos del Clérigo. Consulte el [informe 93 — auditoría de Ocupaciones](93-auditoria-ocupaciones-drs-progresiones-y-poderes.md), que registra además las discrepancias *Marca del dador oscuro* (Círculo 4/5) y plazas de Técnica del Ladrón en altos Niveles.
+
 **Fecha:** 31/10/2026. **Ámbito:** Naufragio d20 Fantasía, edición básica de Forja.  
 **Fuente normativa:** `NaufragioD20DRS.docx`, secciones *Especies*, *Ocupaciones*, *Creación de personaje* y *Equipo*.  
 **Rama:** `feat/forja-conjuros-fichas-2026-10-30`; **PR:** [#4](https://github.com/naufragio-rolero/nd20-character-creator/pull/4), todavía en borrador. **No fusionar ni desplegar.**
