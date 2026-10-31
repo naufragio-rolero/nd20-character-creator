@@ -498,7 +498,7 @@
             r=reglas.aleatorioSemilla('forja-herencia:'+semillaPersonaje);
           }
           var configFicha=semillaPersonaje===null?c:
-            Object.assign({},c,{herenciaPendiente:true});
+            Object.assign({},c,{herenciaPendiente:true,desarrolloPendiente:true});
           var personaje=crearFicha(configFicha,r);
           if(c.juego==='dh'){items.push(personaje);continue;}
           var partes=personaje.descripcion.split(' · ');
@@ -525,13 +525,15 @@
         var resultado=poderes.resolver(borrador.plan,e,borrador.rng);
         var personaje=borrador.personaje;
         var herencia=(e['herencia-dual']||[])[0];
-        if(herencia){
+        var desarrolloHumano=(e['buen-desarrollo']||[])[0];
+        if(herencia||desarrolloHumano){
           if(!borrador.origen || borrador.origen.semillaPersonaje===null)
             throw Error('No se puede reconstruir la elección de Herencia dual.');
-          var partesHerencia=herencia.split(':');
+          var partesHerencia=herencia?herencia.split(':'):[];
           var nuevo=crearFicha(Object.assign({},borrador.origen.config,{
-            herenciaDual:partesHerencia[0],
-            atributoBuenDesarrollo:partesHerencia.length===2?partesHerencia[1]:null
+            herenciaDual:partesHerencia[0]||null,
+            atributoBuenDesarrollo:desarrolloHumano||
+              (partesHerencia.length===2?partesHerencia[1]:null)
           }),reglas.aleatorioSemilla('forja-herencia:'+
             borrador.origen.semillaPersonaje));
           if(nuevo.descripcion!==personaje.descripcion || nuevo.sexo!==personaje.sexo)
