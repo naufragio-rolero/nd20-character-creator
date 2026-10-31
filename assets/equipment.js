@@ -107,6 +107,17 @@
         return plurales[n]&&plurales[n].test(a);
       });
     }
+    // Varitas de defensa: el DRS las considera una excepción explícita
+    // incluso para quien es competente con cualquier arma (Guerrero).
+    // Solo se ofrecen si la Ocupación declara la competencia, como el Mago,
+    // o la desbloquea a partir de Nivel 6, como el Ladrón.
+    var varitasHabilitadas=comp.some(function(regla){
+      return /varitas/i.test(regla)&&
+        !/no puedes|no puede|no es competente/i.test(regla);
+    });
+    if(varitasHabilitadas){
+      armasPermitidas=armasPermitidas.concat(catalogo.varitas_defensa||[]);
+    }
     var armadurasExplicitas=(ocupacion.armaduras||[]).map(normal);
     if(armadurasExplicitas.length){
       armadurasPermitidas=catalogo.armaduras.filter(function(x){return armadurasExplicitas.includes(normal(x.nombre));});
@@ -165,7 +176,15 @@
       eq.push(elegido.nombre);
       return elegido;
     }
-    var arma=extraer(armasPermitidas,Math.min(presupuesto*.4,60));
+    // La propuesta automática para armas ordinarias mantenía un tope de
+    // 60 mo. Las varitas oficiales cuestan 100 mo o más, así que cuando
+    // estén autorizadas se amplía ese tope sin saltarse el 40% del capital.
+    var arma=extraer(armasPermitidas,
+      Math.min(presupuesto*.4,varitasHabilitadas?presupuesto:60));
+    if(arma&&arma.tipo==="varita")
+      notas.push("Varita de defensa: "+arma.nombre+
+        " (Munición: DU "+arma.municion_du+
+        "). Los ataques requieren una Tirada de Mente.");
     extraer(armadurasPermitidas,Math.min(presupuesto*.35,100));
     if(arma&&arma.municion){
       var municion=catalogo.municion.find(function(x){return x.nombre===arma.municion;});
