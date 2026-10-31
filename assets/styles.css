@@ -76,6 +76,9 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 .recursos strong{font-size:.82rem}
 .bloque-ficha{padding:.8rem 1.2rem .2rem}
 .bloque-ficha h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#52606a;margin:0 0 .3rem}
+.pista-talentos{color:#51616a;font-size:.69rem;margin:.13rem 0 .28rem;line-height:1.35}
+html[data-tema]:not([data-tema=clasico]) .tarjeta .pista-talentos{
+  color:var(--tema-ficha-text);opacity:.8}
 .bloque-ficha ul{margin:.25rem 0 .5rem;padding-left:1rem;font-size:.8rem}
 .bloque-ficha li{padding:.12rem 0;overflow-wrap:anywhere}
 /* Textos de regla: pegados a su sección, no mezclados en Observaciones. */
