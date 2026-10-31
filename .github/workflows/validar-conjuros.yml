@@ -3,7 +3,7 @@ name: Validar Conjuros y Forja
 on:
   push:
     branches:
-      - feat/forja-conjuros-fichas-2026-10-30
+      - main
   pull_request:
     paths:
       - 'data/conjuros-revisados-*.json'

@@ -310,10 +310,32 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
   box-shadow:0 15px 40px #0009;max-height:min(68vh,520px);overflow-y:auto;
   overscroll-behavior:contain;font-size:.88rem;line-height:1.45;
 }
+/* La vista previa al pasar el ratón nunca debe cubrir o interceptar
+   el clic en su propia referencia; con pulsación se vuelve interactiva. */
+.ficha-emergente[role="tooltip"]{pointer-events:none}
+.ficha-emergente[role="dialog"]{pointer-events:auto}
 .ficha-emergente[hidden],.consultar-ficha-eleccion[hidden]{display:none!important}
 .ficha-emergente h3{font:600 1.28rem/1.2 Georgia,serif;color:#fce4a8;margin:.2rem 0 .8rem}
 .info-tipo{margin:0;color:#bfd4dd;font-size:.67rem;text-transform:uppercase;
   letter-spacing:.16em;font-weight:700}
+/* Poderes: jerarquía de lectura para uso en mesa, sin ficha técnica visible
+   por defecto. Los Talentos conservan su diseño hasta su propio sprint. */
+.info-cabecera{display:flex;align-items:baseline;justify-content:space-between;
+  flex-wrap:wrap;column-gap:1rem;row-gap:.2rem;margin-bottom:.22rem}
+.info-cabecera .info-tipo{flex:0 0 auto}
+.info-clasificacion{color:#e0cf9d;font-size:.73rem;line-height:1.25;
+  margin:0;font-weight:700;text-align:right}
+.info-primarios{display:grid;grid-template-columns:max-content minmax(0,1fr);
+  column-gap:.45rem;row-gap:.2rem;margin:0 0 .9rem;font-size:.8rem;line-height:1.5}
+.info-primarios dt{font-weight:700;color:#bfdae0}
+.info-primarios dd{margin:0;overflow-wrap:anywhere}
+.ficha-emergente .info-cabecera+h3{margin:.12rem 0 .6rem}
+.ficha-emergente .info-primarios+.info-descripcion{margin:.65rem 0 1.05rem}
+.ficha-emergente .info-detalles[hidden]{display:none!important}
+.ficha-emergente .info-avanzada .info-datos{background:transparent;padding:.2rem .2rem .65rem;
+  margin:0;grid-template-columns:minmax(0,auto) minmax(0,1fr)}
+.ficha-emergente .info-avanzada h4{font-size:.77rem;color:#efd7a5;margin:.7rem 0 .35rem}
+
 .info-datos{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:.75rem;
   row-gap:.4rem;background:#193440;border-radius:7px;padding:.7rem .75rem;margin:0 0 .85rem;
   font-size:.8rem}
@@ -335,4 +357,9 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
   .ficha-emergente{max-height:min(65vh,480px);padding:.85rem}
   .info-datos{grid-template-columns:1fr;row-gap:.15rem}
   .info-datos dd{margin-bottom:.45rem}
+  .info-cabecera{align-items:flex-start}
+  .info-clasificacion{text-align:left}
+  .info-primarios{grid-template-columns:1fr;row-gap:0}
+  .info-primarios dd{margin:0 0 .38rem .3rem}
+  .ficha-emergente .info-avanzada .info-datos{grid-template-columns:1fr;row-gap:0}
 }

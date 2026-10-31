@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - 'feat/forja-conjuros-fichas-2026-10-30'
+      - 'main'
   workflow_dispatch:
 
 permissions:

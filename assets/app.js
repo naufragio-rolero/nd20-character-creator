@@ -1041,6 +1041,7 @@
       var indice=window.NaufragioTooltipIndex.indice({
         fantasia:datos.fantasia,cifi:datos.cifi,nocturna:datos.nocturna,
         catalogo:datos.catalogo,equipo:datos.equipoInicial,
+        alcanceDRS:datos.alcanceDRS,
         descripciones:loaded.fichasDocumentales,
         conjurosRevisados:loaded.conjurosUno.conjuros.concat(loaded.conjurosDos.conjuros),
         magnitudes:loaded.magnitudes,

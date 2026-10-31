@@ -15,7 +15,10 @@
     avanzada=!!valor;
     if(card&&!card.hidden){
       var detalles=card.querySelector('.info-detalles');
-      if(detalles)detalles.open=avanzada;
+      if(detalles){
+        detalles.open=avanzada;
+        if(ancla?.dataset.glosaGrupo==="poder")detalles.hidden=!avanzada;
+      }
       posicionar();
     }
   }
@@ -47,12 +50,21 @@
   function posicionar(){
     if(!ancla||!card||card.hidden)return;
     var b=ancla.getBoundingClientRect();
-    var w=Math.min(440,innerWidth-24),h=card.offsetHeight;
-    var x=Math.max(12,Math.min(b.left,innerWidth-w-12));
-    var abajo=b.bottom+9,arriba=b.top-h-9;
-    var y=abajo+h>innerHeight-12 && arriba>12?arriba:abajo;
-    y=Math.max(12,Math.min(y,innerHeight-h-12));
-    card.style.width=w+"px";card.style.left=x+"px";card.style.top=y+"px";
+    var margen=12,separacion=9,w=Math.min(440,innerWidth-margen*2);
+    card.style.width=w+"px";
+    var huecoAbajo=Math.max(0,innerHeight-b.bottom-separacion-margen);
+    var huecoArriba=Math.max(0,b.top-separacion-margen);
+    // Evitar que un popup alto tape la referencia que lo abrió.
+    // Si no cabe entero en ningún lado, reducir su altura y permitir scroll.
+    card.style.maxHeight=Math.min(520,innerHeight*.68)+"px";
+    var prefiereArriba=card.offsetHeight>huecoAbajo&&huecoArriba>huecoAbajo;
+    var hueco=prefiereArriba?huecoArriba:huecoAbajo;
+    card.style.maxHeight=Math.max(90,Math.min(520,innerHeight*.68,hueco))+"px";
+    var h=card.offsetHeight;
+    var x=Math.max(margen,Math.min(b.left,innerWidth-w-margen));
+    var y=prefiereArriba?b.top-h-separacion:b.bottom+separacion;
+    y=Math.max(margen,Math.min(y,innerHeight-h-margen));
+    card.style.left=x+"px";card.style.top=y+"px";
   }
   function limpiarTemporizador(){if(cierre){clearTimeout(cierre);cierre=null;}}
   function cancelarCierre(){limpiarTemporizador();}
@@ -85,15 +97,39 @@
     c.setAttribute('role',fija?'dialog':'tooltip');
     if(fija)c.setAttribute('aria-label','Consulta de ficha');
     else c.removeAttribute('aria-label');
+    var poder=elemento.dataset.glosaGrupo==="poder"?
+      root.NaufragioTooltipIndex?.presentarPoder?.(info):null;
     var tecnicos=document.createElement('div');
     tecnicos.className='info-avanzada';
+    var cabecera=document.createElement('div');
+    cabecera.className='info-cabecera';
     var marca=document.createElement("p");marca.className="info-tipo";
     marca.textContent=info.tipo||"Ficha";
+    cabecera.appendChild(marca);
+    if(poder&&poder.clasificacion){
+      var clase=document.createElement('p');
+      clase.className='info-clasificacion';
+      clase.textContent=poder.clasificacion;
+      cabecera.appendChild(clase);
+    }
     var titulo=document.createElement("h3");titulo.textContent=info.nombre;
-    c.append(marca,titulo);
-    if(info.datos&&info.datos.length){
+    c.append(cabecera,titulo);
+    // En Poderes, lo necesario en mesa va siempre antes de la descripción.
+    // Conservar las fórmulas literales, sin reemplazarlas por un valor por Nivel.
+    if(poder&&poder.primarios.length){
+      var principales=document.createElement('dl');
+      principales.className='info-primarios';
+      poder.primarios.forEach(function(p){
+        var dt=document.createElement('dt'),dd=document.createElement('dd');
+        dt.textContent=p[0]+':';dd.textContent=p[1];
+        principales.append(dt,dd);
+      });
+      c.appendChild(principales);
+    }
+    var datosTecnicos=poder?poder.tecnicos:(info.datos||[]);
+    if(datosTecnicos.length){
       var tabla=document.createElement("dl");tabla.className="info-datos";
-      info.datos.forEach(function(p){
+      datosTecnicos.forEach(function(p){
         var dt=document.createElement("dt"),dd=document.createElement("dd");
         dt.textContent=p[0];dd.textContent=p[1];
         tabla.append(dt,dd);
@@ -146,6 +182,9 @@
         var detalles=document.createElement('details');
         detalles.className='info-detalles';
         detalles.open=avanzada;
+        // La preferencia global controla si se muestra el bloque técnico
+        // de Poderes; Talentos mantienen su interacción anterior.
+        if(poder)detalles.hidden=!avanzada;
         var resumen=document.createElement('summary');
         resumen.textContent='Detalles técnicos';
         detalles.append(resumen,tecnicos);
@@ -156,7 +195,9 @@
       }
     }
     var fuente=document.createElement("p");fuente.className="info-fuente";
-    fuente.textContent="Fuente: "+(info.fuente_descripcion||info.fuente);
+    fuente.textContent=poder?
+      "Origen: "+poder.origen+" · Fuente: "+poder.fuente:
+      "Fuente: "+(info.fuente_descripcion||info.fuente);
     c.appendChild(fuente);
     c.hidden=false;elemento.setAttribute("aria-describedby",c.id);
     elemento.setAttribute("aria-expanded",String(fija));
