@@ -124,6 +124,18 @@
       });
       if(!armadurasPermitidas.length&&lig)armadurasPermitidas=catalogo.armaduras.filter(x=>x.tipo==="ligera");
     }
+    // Algunas Ocupaciones base usan una lista inicial y desbloquean
+    // protecciones adicionales por Nivel (Clérigo: pesadas a Nivel 12).
+    // Se amplía la lista solo cuando una Competencia documentada ya está activa.
+    var armorProgreso=normal(comp.filter(function(v){
+      return /armadura/i.test(v)&&!/no puedes equipar|no puedes usar|no puede equipar/i.test(v);
+    }).join(" "));
+    if(/armaduras pesadas/.test(armorProgreso)){
+      catalogo.armaduras.filter(function(x){return x.tipo==="pesada";}).forEach(function(x){
+        if(!armadurasPermitidas.some(function(y){return y.nombre===x.nombre;}))
+          armadurasPermitidas.push(x);
+      });
+    }
     var escudo=normal(comp.filter(function(v){return /escudo/i.test(v)&&!/no puedes|no puede|no puedes usar/i.test(v);}).join(" "));
     if(escudo){
       escudosPermitidos=catalogo.escudos.filter(function(x){
