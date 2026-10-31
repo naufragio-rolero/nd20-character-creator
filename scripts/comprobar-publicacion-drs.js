@@ -173,6 +173,11 @@ if(nombresYlat){
   const porAmbito=nombres.reduce((r,x)=>(r[x.ambito]=(r[x.ambito]||0)+1,r),{});
   afirmar(porAmbito.Niguace!==116||porAmbito['Isla Tormenta']!==33,
     'data/tesauro-ylat.json debe preservar 116 combinaciones de Niguace y 33 de Isla Tormenta.');
+  const tesauroMaestro=JSON.parse(fs.readFileSync(
+    path.join(__dirname,'..','data','tesauro-ylat.json'),'utf8'));
+  const autorizados=tesauroMaestro.entradas.filter(x=>x.tipo==='combinado');
+  afirmar(JSON.stringify(nombres)!==JSON.stringify(autorizados),
+    'Los nombres publicados difieren de las 149 combinaciones originales autorizadas.');
 }
 if(alertas.length){
   console.error('RIESGO DE PUBLICACIÓN: la selección visual DRS NO aísla estos datos.');
