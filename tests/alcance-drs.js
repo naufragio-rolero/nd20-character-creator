@@ -92,6 +92,25 @@ const fuenteBase={especies,ocupaciones,fuentes:origenes};
 // solo las 149 COMBINACIONES están aprobadas para el paquete público.
 const tesauroYlat=leer('tesauro-ylat.json');
 const nombresSexo=leer('sexo-personajes.json');
+// La fuente histórica tiene 1428 testimonios, seis formas repetidas.
+// Solo las 1422 formas distintas deben tener peso aleatorio individual.
+const nombresHistoricos=leer('nombres-historicos-ylat.json');
+assert.equal(nombresHistoricos.entradas.length,1428);
+assert.equal(new Set(nombresHistoricos.entradas.map(x=>x.id)).size,1428);
+assert.equal(new Set(nombresHistoricos.entradas.map(x=>x.nombre)).size,1422);
+const opcionesHistoricas=new Set(nombresHistoricos.entradas.map(x=>x.nombre));
+for(const sexoElegido of ['masculino','femenino']){
+  const personaje=reglas.crearNd20(fuenteBase,{
+    juego:'nd20',ocupacion:'Guerrero',especie:'Humano común',nivel:1,
+    fuentes:['DRS'],sexo:sexoElegido,modoNombre:'historico',
+    nombresHistoricosYlat:nombresHistoricos,catalogoSexo:nombresSexo
+  },reglas.aleatorioSemilla('Banco-historico-'+sexoElegido));
+  assert.ok(opcionesHistoricas.has(personaje.nombre));
+  assert.ok(personaje.notas.some(x=>
+    x.includes('No implica personaje canónico, sexo documental, Especie, cultura ni linaje.')));
+  assert.ok(personaje.notas.some(x=>
+    x.includes('sin clasificación documental de sexo')));
+}
 const sexoNombres=require('../assets/sex.js');
 const combinados=tesauroYlat.entradas.filter(x=>x.tipo==='combinado');
 const documentados=tesauroYlat.entradas.filter(x=>x.tipo==='documentado');
