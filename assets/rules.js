@@ -246,8 +246,9 @@
         (nivel >= 10 ? 1 : 0) + (nivel >= 22 ? 1 : 0) : 0) : null;
     var riqueza = esFantasia ? compra.restante+' mo restantes / '+presupuesto+' mo iniciales' :
       esCifi ? compra.restante+' cr restantes / '+presupuesto+' cr iniciales' : '';
-    // El ámbito procede del corpus; no existe una equivalencia documentada
-    // con Especies. No se asigna ninguna Especie a Niguace/Isla Tormenta.
+    // Los valores de ámbito agrupan documentos de origen, NO culturas:
+    // Isla Tormenta reúne PJ de múltiples regiones y Niguace es una academia.
+    // No se asigna procedencia cultural ni Especie a partir del corpus.
     var ambitoNombres=config.modoNombre==='combinado'&&
       ['Niguace','Isla Tormenta'].includes(config.ambitoNombre)?
       config.ambitoNombre:null;
@@ -269,7 +270,7 @@
       return item.nombre===nombreDefinitivo;
     });
     if(registroNombre&&registroNombre.tipo==='combinado')
-      detalles.push('Nombre propuesto a partir de elementos de Ylat ('+
+      detalles.push('Nombre propuesto con elementos de Ylat (corpus de referencia: '+
         registroNombre.ambito+'). No identifica un personaje canónico.');
     if(sexoFuente&&coherencia&&sexo==='masculino'&&
       sexoFuente.especies_preferencia_femenino?.[especie])
