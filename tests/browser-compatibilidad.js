@@ -54,16 +54,26 @@ async function probar(nombre,tipo,url){
       nodes=>nodes.map(x=>({nombre:x.value,checked:x.checked})));
     assert.deepEqual(fuentes,[{nombre:'DRS',checked:true}],
       nombre+': no ofrecer suplementos ocultos en versión DRS');
-    // Alternar sistemas no puede recuperar opciones suplementarias ocultas
-    // ni dejar un filtro antiguo activo sobre Fantasía.
-    for(const otro of ['nd20_cifi','nd20_nocturna','dh']){
+    // La distribución pública muestra solo Fantasía DRS y Dungeon Hack.
+    // Los otros motores permanecen comprobables en desarrollo.
+    const sistemasVisibles=process.env.FORJA_PUBLIC_ROOT?
+      ['dh']:['nd20_cifi','nd20_nocturna','dh'];
+    const idsVisibles=await page.locator('.juegos-compactos [data-juego]')
+      .evaluateAll(nodes=>nodes.map(n=>n.dataset.juego));
+    assert.deepEqual(idsVisibles,['nd20',...sistemasVisibles],
+      nombre+': solo se muestran sistemas aprobados en el selector');
+    const opcionesSistema=await page.locator('#juego option')
+      .evaluateAll(nodes=>nodes.map(n=>n.value));
+    assert.deepEqual(opcionesSistema,['nd20',...sistemasVisibles],
+      nombre+': el selector nativo tampoco contiene CiFi/Nocturna públicos');
+    // Alternar sistemas no puede recuperar opciones suplementarias ocultas.
+    for(const otro of sistemasVisibles){
       await page.locator('.juegos-compactos [data-juego="'+otro+'"]').click();
       assert.equal(await page.locator('#juego').inputValue(),otro,
         nombre+': selector de sistema '+otro);
     }
-    // Comprobar GENERACIÓN, no solo selección, de los tres sistemas que
-    // el empaquetado DRS se ha comprometido a preservar sin modificaciones.
-    for(const otro of ['nd20_cifi','nd20_nocturna','dh']){
+    // Comprobar generación real de todos los sistemas visibles.
+    for(const otro of sistemasVisibles){
       await page.locator('.juegos-compactos [data-juego="'+otro+'"]').click();
       const opciones=await page.locator('#ocupacion option').evaluateAll(
         nodes=>nodes.map(x=>x.value).filter(Boolean));
