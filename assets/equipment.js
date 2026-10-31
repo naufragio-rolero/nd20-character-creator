@@ -147,17 +147,15 @@
           n==="escudo grande"&&/grand/.test(escudo);
       });
     }
-    // DRS / Baja estatura: una categoría ligera no equivale a adaptación.
-    // El catálogo solo podrá declarar apta una pieza con marca explícita.
-    // Hasta entonces no se asignan armas/armaduras de talla desconocida.
+    // DRS / Baja estatura: decisión editorial de Forja (31/10/2026).
+    // Las armas y armaduras del catálogo se ofrecen adaptadas a medianos y
+    // gnomos sin modificar precio ni características. Siguen vigentes las
+    // Competencias de Ocupación y la restricción de escudos pequeños.
     if(bajaEstatura){
-      var armasAntes=armasPermitidas.length,armadurasAntes=armadurasPermitidas.length;
-      armasPermitidas=armasPermitidas.filter(function(x){return x.adaptada_baja_estatura===true;});
-      armadurasPermitidas=armadurasPermitidas.filter(function(x){return x.adaptada_baja_estatura===true;});
-      escudosPermitidos=escudosPermitidos.filter(function(x){return normal(x.nombre)==='escudo pequeno';});
-      if(armasAntes>armasPermitidas.length||armadurasAntes>armadurasPermitidas.length)
-        notas.push('Baja estatura: armas y armaduras sin adaptación confirmada no se asignan. La compatibilidad debe verificarse antes de equiparlas.');
-      notas.push('Baja estatura: únicamente escudos pequeños; +1 a Tiradas de Esquiva contra ataques a distancia.');
+      escudosPermitidos=escudosPermitidos.filter(function(x){
+        return normal(x.nombre)==='escudo pequeno';
+      });
+      notas.push('Baja estatura: armas y armaduras del catálogo en versión adaptada al tamaño, sin modificar precio ni características; únicamente escudos pequeños; +1 a Tiradas de Esquiva contra ataques a distancia.');
     }
     function extraer(pool,limite){
       var viable=pool.filter(function(x){return x.precio<=presupuesto-gasto+1e-7&&x.precio<=limite;});
@@ -183,8 +181,8 @@
       extraer([paquete],presupuesto-gasto);
       eq[eq.length-1]="Paquete "+paquete.nombre+": "+paquete.contenido;
     }
-    if(!arma&&!bajaEstatura)notas.push("No se ha asignado arma: no hay una opción inequívocamente competente y asequible en el catálogo DRS.");
-    if(!armadurasPermitidas.length&&!bajaEstatura)
+    if(!arma)notas.push("No se ha asignado arma: no hay una opción inequívocamente competente y asequible en el catálogo DRS.");
+    if(!armadurasPermitidas.length)
       notas.push("No se ha elegido armadura: competencia de protección ausente o no contrastada.");
     var restante=Math.round((presupuesto-gasto)*100)/100;
     if(restante<0)throw Error("La compra inicial supera la riqueza.");
