@@ -138,6 +138,17 @@ const marca=core.conjuros.find(x=>x.nombre==='Marca del dador oscuro');
 assert.equal(marca.circulo,5);
 assert.ok(core.listas_drs.Clérigo['5'].includes(marca.nombre));
 assert.ok(!core.listas_drs.Clérigo['4'].includes(marca.nombre));
+const talentosPublicos=leer(salida,'talentos-drs-literales.json');
+const talentosDev=leer(raiz,'talentos-drs-literales.json');
+assert.deepEqual(talentosPublicos,talentosDev,
+  'El catálogo público conserva exactamente el texto del DRS sin suplementos.');
+assert.equal(talentosPublicos.registros.length,24);
+assert.equal(talentosPublicos.registros.filter(x=>x.tipo_origen==='Especie').length,15);
+assert.equal(talentosPublicos.registros.filter(x=>x.tipo_origen==='Ocupación').length,9);
+assert.equal(new Set(talentosPublicos.registros.map(x=>x.id)).size,24);
+assert.ok(talentosPublicos.registros.every(x=>
+  x.estado==='cotejado_literal_DRS'&&x.efecto_literal&&
+  x.id.startsWith('talento-drs-')&&x.parrafos_documento.length));
 const html=fs.readFileSync(path.join(salida,'index.html'),'utf8');
 assert.ok(!html.includes('Doncella de la Espada'));
 assert.ok(html.includes('class="juegos-compactos juegos-publicos"'));
@@ -184,6 +195,7 @@ const esperados=new Set([
   'conjuros-revisados-226-434.json','conjuros-magnitudes-literales.json',
   'alcance-drs-y-dlc.json','conjuros-danio-compuesto.json',
   'progresiones-oficiales.json','equipo-inicial.json','fichas-documentales.json',
+  'talentos-drs-literales.json',
   'dungeon-hack.json'
 ]);
 assert.deepEqual(contenidos,esperados,
