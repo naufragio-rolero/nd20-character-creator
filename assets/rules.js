@@ -233,6 +233,11 @@
     if (config.juego === 'nd20' && esp.envejecimiento)
       detalles.push('Envejecimiento de Especie: ' + esp.envejecimiento + '.');
     if (esp.debilidad) detalles.push('Debilidad de Especie: ' + esp.debilidad);
+    // El DRS define Potencia 1 para todos los PJ. Brío musculoso es una
+    // elección exclusiva del Guerrero y eleva su valor en Nv 10 y Nv 22.
+    var potenciaDRS = esFantasia ?
+      1 + (ocupacion === 'Guerrero' && capacidades.includes('Brío musculoso') ?
+        (nivel >= 10 ? 1 : 0) + (nivel >= 22 ? 1 : 0) : 0) : null;
     var riqueza = esFantasia ? compra.restante+' mo restantes / '+presupuesto+' mo iniciales' :
       esCifi ? compra.restante+' cr restantes / '+presupuesto+' cr iniciales' : '';
     var poolNombres=(config.tesauroYlat && config.juego==='nd20' &&
@@ -266,6 +271,7 @@
       atributos:paresAtributos(ATTR_ND.map(function (a) {return at[a];}), ATTR_ND, favorito),
       recursos:[['Salud', salud + ' (d' + dadoSalud + ')'],
         ['Esfuerzo', esfuerzo], ['Movimiento', esp.movimiento]].concat(
+          esFantasia ? [['Potencia', potenciaDRS]] : [],
           esp.esencia ? [['Esencia', esp.esencia]] : []),
       capacidades:capacidades,
       competencias:(oc.competencias || []).slice(), equipo:equipo, origen:tipo,
