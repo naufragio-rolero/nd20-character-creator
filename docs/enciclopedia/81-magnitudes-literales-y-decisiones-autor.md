@@ -33,9 +33,9 @@ Estos campos están vinculados mediante el **ID del catálogo** y evidencias tex
 
 **DEC-CONJ-03 — RESUELTA POR PRIORIDAD DEL DRS — Ira celestial (188).** El DRS confirma **Quinto Círculo**, Escuela Divina y 4d12 radiante. La variante C3 (`conjuro-154`) era una discrepancia de inventario sin respaldo del DRS y se ha retirado del catálogo seleccionable; queda la versión C5 (`conjuro-46`). Ver [82b](82b-conciliacion-drs-ira-celestial-y-surcar-tierra.md).
 
-**DEC-CONJ-04 — PENDIENTE — Surcar la tierra (385).** Límite de **4 m³** contradice dos ejemplos: el pozo de 2 m de ancho y 12 m de profundidad (~37,7 m³ si fuera cilíndrico y el ancho su diámetro) y la cavidad de casi 4 m de diámetro y 2 m de profundidad (~25,1 m³ tomando diámetro 4 m). Se propone mantener los 4 m³ y reducir los ejemplos, pero falta confirmación del autor. Ver [82b](82b-conciliacion-drs-ira-celestial-y-surcar-tierra.md).
+**DEC-CONJ-04 — RESUELTA — Surcar la tierra (385).** Se conserva el máximo de **4 m³** y se sustituyen los ejemplos incompatibles por un pozo rectangular de **1 × 1 × 4 m** y una cavidad de **2 × 2 × 1 m**. La corrección consta en [82a](82a-correcciones-confirmadas-conjuros.json) y se aplica solo a la ficha revisada.
 
-**DEC-CONJ-05 — Fracciones por Nivel.** Varios Conjuros usan «por cada 2», «por cada 3» o «por cada 6 Niveles» sin redondeo explícito. Antes de aplicar magnitudes derivadas a estos casos hay que comprobar si el reglamento general define el redondeo o aprobar una convención editorial. El motor deliberadamente solo usa multiplicaciones y topes inequívocos.
+**DEC-CONJ-05 — RESUELTA PARA CONJUROS — Fracciones por Nivel.** Por decisión del autor se redondea siempre **hacia abajo** en grupos completos de Niveles. La regla ya se emplea en las fichas de Telequinesis, Salmo de protección (respetando su mínimo +1) y Sifón de recuerdos. No se reescriben las excepciones expresas del DRS ajenas a esta integración.
 
 Las seis propuestas espaciales de [77d](77d-segunda-pasada-erratas-geométricas.json) siguen en estado no aprobado, separadas de las diez correcciones aprobadas de 78a.
 
@@ -45,4 +45,4 @@ Las seis propuestas espaciales de [77d](77d-segunda-pasada-erratas-geométricas.
 2. Incorporar selección de modalidades y pruebas de condiciones donde el texto sea inequívoco, sin decidir Tiradas por el jugador.
 3. Validar comportamiento de personajes reales, pruebas de regresión y experiencia de interfaz antes de fusionar en `main`.
 
-**Propiedad editorial:** las decisiones 01, 02 y 03 han sido aprobadas y trasladadas a la capa funcional de Forja; las decisiones 04 y 05 siguen pendientes. Ninguna de ellas ha modificado los lotes originales ni Drive. La aplicación mecánica completa sigue pendiente.
+**Propiedad editorial:** las decisiones 01–06 se han registrado en la capa funcional de Forja con los límites descritos en [84](84-resoluciones-mecanicas-conjuros.md). 04 (excavación) y 05 (redondeo) están aprobadas; la parte clara de 06 (tipos simultáneos, resistencia conjunta y debilidad ×2 única) también. Siguen pendientes las interacciones de resistencia parcial y resistencia + debilidad. Los lotes originales y Drive continúan intactos.
