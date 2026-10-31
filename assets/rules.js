@@ -118,8 +118,12 @@
     var herenciaDual = alternativas ?
       (config.herenciaDual || (config.herenciaPendiente === true ? null : herenciaAleatoria)) : null;
     var desarrollo = null;
-    var tieneDesarrollo = (esp.talentos || []).includes('Buen desarrollo') ||
-      herenciaDual === 'Buen desarrollo';
+    var desarrolloHumano = (esp.talentos || []).includes('Buen desarrollo');
+    var tieneDesarrollo = desarrolloHumano || herenciaDual === 'Buen desarrollo';
+    // El humano también debe poder escoger el Atributo en modo Personalizado.
+    // La ficha provisional espera la elección sin falsear mejoras de Nivel.
+    if (desarrolloHumano && config.desarrolloPendiente === true)
+      tieneDesarrollo = false;
     if (config.atributoBuenDesarrollo &&
         (!tieneDesarrollo || ATTR_ND.indexOf(config.atributoBuenDesarrollo) === -1))
       throw Error('Atributo no válido para Buen desarrollo.');
@@ -168,7 +172,7 @@
     }
     var presupuesto=presupuestoBase===null?null:presupuestoBase+riquezaAdicional;
     var compra = equipoApi && config.catalogoEquipo ?
-      equipoApi.compraInicial(oc, ocupacion, config.juego, config.catalogoEquipo, presupuesto, rng, nivel) :
+      equipoApi.compraInicial(oc, ocupacion, config.juego, config.catalogoEquipo, presupuesto, rng, nivel, esp) :
       {equipo:[],restante:presupuesto,notas:[
         'El inventario inicial requiere el catálogo de equipo contrastado.'
       ]};
@@ -241,7 +245,7 @@
         escoger(esp.nombres || [],rng) || 'Sin nombre', sexo:sexo,
       descripcion:ocupacion + ' · ' + especie, nivel:nivel,
       concepto:escoger(conceptos, rng) || 'Aventurero',
-      ...(alternativas ? {
+      ...((alternativas||desarrolloHumano) ? {
         herencia_dual: herenciaDual,
         atributo_buen_desarrollo: desarrollo
       } : {}),
