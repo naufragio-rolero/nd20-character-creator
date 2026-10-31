@@ -219,6 +219,12 @@
           detalles.push('Talento de Especie — '+talento+': '+esp.talentos_descripcion[talento]);
       });
     }
+    if (config.juego === 'nd20' && oc.talentos_descripcion) {
+      Object.keys(oc.talentos_descripcion).forEach(function(talento){
+        if(capacidades.includes(talento))
+          detalles.push('Talento de Ocupación — '+talento+': '+oc.talentos_descripcion[talento]);
+      });
+    }
     // Los Talentos oficiales de inicio figuran en oc.talentos, contrastados
     // con el apartado Talentos del manual; no se conceden referencias sueltas.
     var referencias=(oc.talentos_referencia||[]).filter(function(t){
