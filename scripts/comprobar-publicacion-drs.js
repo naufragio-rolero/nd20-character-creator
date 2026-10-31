@@ -1,0 +1,87 @@
+'use strict';
+/* Guardia de publicación estática de Forja Fantasía DRS.
+ * Examina los archivos realmente disponibles en el directorio que se
+ * pretende publicar. No inspecciona solo el selector visual.
+ *
+ * node scripts/comprobar-publicacion-drs.js [DIRECTORIO]
+ * node scripts/comprobar-publicacion-drs.js [DIRECTORIO] --report
+ *
+ * Sin --report, termina con error si hay DLC de Fantasía expuestos.
+ */
+const fs=require('node:fs');
+const path=require('node:path');
+const args=process.argv.slice(2),report=args.includes('--report');
+const argumento=args.find(x=>!x.startsWith('--'));
+const raiz=path.resolve(argumento||path.join(__dirname,'..'));
+const alertas=[];
+function dato(ruta){
+  const archivo=path.join(raiz,ruta);
+  if(!fs.existsSync(archivo))return null;
+  return JSON.parse(fs.readFileSync(archivo,'utf8'));
+}
+function afirmar(condicion,mensaje){
+  if(condicion)alertas.push(mensaje);
+}
+if(!fs.existsSync(path.join(raiz,'index.html')))
+  alertas.push('No existe index.html en la raíz del directorio de publicación: '+raiz);
+const extras=dato('data/catalogo-ampliado.json');
+if(extras){
+  const especies=Object.keys(extras.fantasia?.especies||{});
+  const ocupaciones=Object.keys(extras.fantasia?.ocupaciones||{});
+  afirmar(especies.length>0,'data/catalogo-ampliado.json incluye '+especies.length+
+    ' Especies suplementarias de Fantasía accesibles como JSON.');
+  afirmar(ocupaciones.length>0,'data/catalogo-ampliado.json incluye '+ocupaciones.length+
+    ' Ocupaciones suplementarias de Fantasía accesibles como JSON.');
+}
+const catalogo=dato('data/catalogo-poderes.json');
+const drsIds=new Set((catalogo?.conjuros||[])
+  .filter(c=>c.origen==='Nd20').map(c=>c.id));
+if(catalogo){
+  const noDRS=(catalogo.conjuros||[]).filter(c=>c.origen!=='Nd20');
+  afirmar(noDRS.length>0,'data/catalogo-poderes.json incorpora '+
+    noDRS.length+' Conjuros ajenos al DRS, aunque el selector oculte DLC.');
+  const tecnicas=(catalogo.tecnicas||[]).filter(t=>
+    t.fuente==='Naufragio d20 Ocupaciones');
+  afirmar(tecnicas.length>0,'data/catalogo-poderes.json incluye '+
+    tecnicas.length+' Técnicas del suplemento de Ocupaciones.');
+  const especiales=Object.keys(catalogo.especiales||{})
+    .filter(k=>!['version','fuente'].includes(k));
+  afirmar(especiales.length>0,'data/catalogo-poderes.json expone bloques '+
+    'de Poderes especiales no clasificados por fuente DRS: '+especiales.join(', ')+
+    '. Auditoría manual necesaria antes de distribuir.');
+}
+const revisados=['data/conjuros-revisados-001-225.json',
+  'data/conjuros-revisados-226-434.json'];
+for(const ruta of revisados){
+  const d=dato(ruta);
+  if(!d)continue;
+  const fuera=(d.conjuros||[]).filter(c=>!drsIds.has(c.id_catalogo));
+  afirmar(fuera.length>0,ruta+' contiene '+fuera.length+
+    ' fichas de Conjuros que no pertenecen al catálogo de 64 del DRS.');
+}
+const prog=dato('data/progresiones-oficiales.json');
+if(prog){
+  const fantasia=prog.ampliadas?.fantasia;
+  if(fantasia&&typeof fantasia==='object')
+    afirmar(Object.keys(fantasia).length>0,'data/progresiones-oficiales.json '+
+      'incluye progresiones suplementarias de Fantasía.');
+}
+const meta=dato('data/sexo-personajes.json');
+if(meta){
+  const basicas=new Set(['Elfo agreste','Enano montañés','Humano común',
+    'Mediano amable','Gnomo urbano','Semielfo','Orco común','Semiorco']);
+  const ajenas=Object.keys(meta.femeninos_por_especie||{})
+    .filter(x=>!basicas.has(x));
+  afirmar(ajenas.length>0,'data/sexo-personajes.json expone nombres '+
+    'clasificados de '+ajenas.length+' Especies no incluidas en el DRS.');
+}
+if(alertas.length){
+  console.error('RIESGO DE PUBLICACIÓN: la selección visual DRS NO aísla estos datos.');
+  alertas.forEach((a,i)=>console.error('  '+(i+1)+'. '+a));
+  console.error('No desplegar la raíz. Construir y comprobar antes un paquete '+
+    'público depurado. Las fuentes privadas permanecen en el repositorio de trabajo.');
+  if(!report)process.exitCode=1;
+}else{
+  console.log('No se detectaron las filtraciones conocidas de DLC Fantasía en: '+raiz);
+  console.log('AVISO: este control no sustituye una auditoría de todos los archivos distribuidos.');
+}
