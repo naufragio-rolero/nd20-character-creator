@@ -23,7 +23,7 @@
 | A11 | Crear pruebas de navegador sobre adquisición heredada | `tests/browser-compatibilidad.js`, commit `b463f90b`. Prueba ambos mestizos con generación real DRS. |
 | A12 | Ejecutar las cuatro suites de CI | **4/4 exitosas** en PR #9: [motor y Conjuros](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41253842408), [Chrome](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41253842275), [Firefox/WebKit](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41253842240), [candidato DRS público](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41253842317). |
 | A13 | Fusionar la PR #9 tras validar las cuatro suites | Fusionada en `main`, merge SHA `1314ef3ec058432a1612f0cfaad08873934fe088`. [Ver PR #9](https://github.com/naufragio-rolero/nd20-character-creator/pull/9). |
-| A14 | Promover la revisión validada al despliegue LIVE | Pendiente de promoción y comprobación pública posterior a la fusión. |
+| A14 | Promover la revisión validada al despliegue LIVE | Publicación 1.3.1 fijada al merge `1314ef3ec058432a1612f0cfaad08873934fe088`; workflow en `main` actualizado mediante commit `18d98a902f8f4ecb581807288b8951a29055bde1`. [GitHub Actions 41254029496](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41254029496): **success**, paquete DRS autorizado, Chrome, Firefox/WebKit, GitHub Pages y HTTP público. |
 
 ## Decisiones editoriales
 
@@ -46,7 +46,7 @@
 - [x] Demostrar cuatro suites de CI en verde después de los cambios.
 - [x] Confirmar que el paquete candidato DRS depurado no incorpora contenido adicional.
 - [x] Fusionar PR sobre una revisión previamente validada.
-- [ ] Publicar la revisión exacta en LIVE y comprobar la URL.
+- [x] Publicar la revisión exacta en LIVE y comprobar la URL.
 
 ## Límites
 
