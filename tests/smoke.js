@@ -1079,3 +1079,6 @@ console.log('OK · sexo y nombres de personajes, excepciones y configuración ed
 
 /* Catálogo revisado del Tomo: integridad y ventanas informativas. */
 require('./conjuros.js');
+
+/* Manifiesto de la entrega base y compatibilidad de las futuras ampliaciones. */
+require('./alcance-drs.js');
