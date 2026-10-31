@@ -94,9 +94,9 @@ console.log('OK · 434 fichas cotejadas; 12 cambios aprobados y catálogo DRS va
 /* Pruebas del primer subconjunto de magnitudes mecánicas literales. */
 const motorMagnitudes=require('../assets/spell-magnitudes.js');
 const literales=leer('data/conjuros-magnitudes-literales.json');
-assert.equal(literales.registros.length,45,'45 fichas de magnitudes registradas');
-assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,45,
-  'No repetir IDs entre los 45 Conjuros modelados');
+assert.equal(literales.registros.length,80,'80 fichas de magnitudes registradas');
+assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,80,
+  'No repetir IDs entre los 80 Conjuros modelados');
 for(const entrada of literales.registros){
   // Cada magnitud debe conservar evidencia textual y funcionar en varios niveles.
   assert.equal(new Set(entrada.magnitudes.map(x=>x.clave)).size,entrada.magnitudes.length,
@@ -212,7 +212,7 @@ assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',val
   /Dados por Nivel inválidos/);
 assert.throws(()=>magnitudes('Lanza de sombras',0),/Nivel entero positivo/);
 assert.equal(motorMagnitudes.calcular({clave:'dados',tipo:'dados_por_nivel',valor:[2,12]},5),'10d12');
-console.log('OK · 45 Conjuros con magnitudes literales, divisiones hacia abajo y daño compuesto.');
+console.log('OK · 80 Conjuros con magnitudes verificadas en 4 Niveles; sin ejecutar efectos.');
 
 /* Resoluciones editoriales: 4 m³, redondeo inferior y un solo daño de doble tipo. */
 const surcar=revisados.find(x=>x.numero_tomo===385);
@@ -242,8 +242,8 @@ assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'por_cada_n_niveles',
 assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'base_mas_por_cada_n_niveles',valor:[1,1,0]},5),/inválidos/);
 
 const dobles=leer('data/conjuros-danio-compuesto.json');
-assert.equal(dobles.registros.length,3);
-assert.deepEqual(dobles.registros.map(x=>x.numero_tomo),[3,183,387]);
+assert.equal(dobles.registros.length,4);
+assert.deepEqual(dobles.registros.map(x=>x.numero_tomo),[3,7,183,387]);
 for(const p of dobles.registros){
   const ficha=revisados.find(x=>x.numero_tomo===p.numero_tomo);
   assert.ok(ficha);
@@ -279,4 +279,62 @@ const appMecanica=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
 const uiMecanica=fs.readFileSync(path.join(raiz,'assets/tooltip-ui.js'),'utf8');
 assert.ok(appMecanica.includes('data/conjuros-danio-compuesto.json'));
 assert.ok(uiMecanica.includes('info.danioCompuesto'));
-console.log('OK · 4 m³, redondeo inferior por bloques y 3 perfiles de daño doble aprobados.');
+console.log('OK · 4 m³, redondeo inferior por bloques y 4 perfiles de daño doble aprobados.');
+
+
+/* Tercera tanda: 35 Conjuros adicionales, todos referenciados por sus fichas. */
+assert.equal(valor(magnitudes('Acelerar',5),'duracion_turnos'),2);
+assert.equal(valor(magnitudes('Acelerar',6),'duracion_turnos'),3);
+assert.equal(valor(magnitudes('Acelerar',6),'acciones_extra_turno'),1);
+assert.equal(valor(magnitudes('Aguijón impío',7),'danio_veneno_impio'),'1d6');
+assert.equal(valor(magnitudes('Albor de la vida',7),'lanzamiento_turnos'),4);
+assert.equal(valor(magnitudes('Aliento de agonía',7),'danio_frio_impio'),'2d6');
+assert.equal(valor(magnitudes('Aliento de Lenseng',7),'duracion_turnos'),70);
+assert.equal(valor(magnitudes('Alivio pasajero',7),'duracion_horas'),'1d8');
+assert.equal(valor(magnitudes('Alzar brezo espinoso',8),'maximo_brezos'),1);
+assert.equal(valor(magnitudes('Alzar esqueleto secuaz',1),'maximo_esqueletos'),1);
+assert.equal(valor(magnitudes('Alzar esqueleto secuaz',7),'maximo_esqueletos'),3);
+assert.equal(valor(magnitudes('Alzar esqueleto secuaz',8),'maximo_esqueletos'),4);
+assert.equal(valor(magnitudes('Alzar goblin de lodo',8),'maximo_goblins'),1);
+assert.equal(valor(magnitudes('Alzar gólem de carne',8),'danio_explosion'),'8d10');
+assert.equal(valor(magnitudes('Alzar gólem de carne',8),'esfuerzo_explosion'),1);
+assert.equal(valor(magnitudes('Alzar gólem de sangre',8),'duracion_intervalos'),8);
+assert.equal(valor(magnitudes('Alzar hombre corrupto',8),'duracion_intervalos'),'1d4');
+assert.equal(valor(magnitudes('Alzar maldito',8),'maximo_malditos'),1);
+assert.equal(valor(magnitudes('Alzar treante',8),'treantes_convocados'),'1d4');
+assert.equal(valor(magnitudes('Alzar treante',8),'maximo_treantes'),4);
+assert.equal(valor(magnitudes('Amistad animal',8),'duracion_intervalos'),'1d4');
+assert.equal(valor(magnitudes('Ancla sombría',8),'danio_impio'),'8d8');
+assert.equal(valor(magnitudes('Apagallamas',8),'area_m2'),15);
+assert.equal(valor(magnitudes('Armadura de maná',8),'bono_blindaje'),'1d4');
+assert.equal(valor(magnitudes('Armadura ígnea',8),'danio_reflejado_fuego'),8);
+assert.equal(valor(magnitudes('Atormentar',8),'duracion_turnos'),'1d6');
+assert.equal(valor(magnitudes('Aura de espinas',8),'bono_danio_cac'),1);
+assert.equal(valor(magnitudes('Aura de pestilencia',8),'adyacencia_max_m'),2);
+assert.equal(valor(magnitudes('Bendecir el cuerpo',8),'curacion_extra'),'1d6');
+assert.equal(valor(magnitudes('Bola de fuego',8),'danio_fuego'),'8d6');
+assert.equal(valor(magnitudes('Bomba ácida',8),'radio_m'),6);
+assert.equal(valor(magnitudes('Bravura',8),'salud_maxima_extra'),'1d6');
+assert.equal(valor(magnitudes('Bravura',8),'curacion_misma_tirada'),'1d6');
+assert.ok(magnitudes('Bravura',8).condiciones_no_automatizadas.includes('misma cantidad'),
+  'El mismo d6 se usa para curar y aumentar Salud, sin duplicar la tirada');
+assert.equal(valor(magnitudes('Burla cruel',8),'danio_psiquico'),'1d6');
+assert.equal(valor(magnitudes('Cabaña acogedora de Tuliëlle',8),'superficie_m2'),10);
+assert.equal(valor(magnitudes('Cadena de relámpagos',8),'objetivos_adicionales'),'1d4');
+assert.equal(valor(magnitudes('Controlar los vientos',2),'intensidad_cambio'),0);
+assert.equal(valor(magnitudes('Controlar los vientos',8),'intensidad_cambio'),2);
+assert.equal(valor(magnitudes('Cimitarra arcana',8),'critico_natural_desde'),19);
+assert.equal(valor(magnitudes('Coraza',8),'bono_blindaje'),1);
+assert.equal(valor(magnitudes('Caminar de los vientos',8),'bono_movimiento'),1);
+assert.equal(valor(magnitudes('Calma silvestre',8),'nivel_bestia_auto'),3);
+assert.equal(valor(magnitudes('Cúpula antimagia',8),'superficie_m2'),3);
+assert.equal(valor(magnitudes('Cúpula antimagia',8),'duracion_intervalos'),8);
+const dobleFrio=dobles.registros.find(x=>x.numero_tomo===7);
+assert.deepEqual(dobleFrio.tipos,['frío','impío']);
+assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleFrio,['frío','impío'],[])
+  .resistencia_unica,true);
+assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleFrio,[],['frío','impío'])
+  .multiplicador_debilidad,2);
+assert.equal(tooltip.buscar(glosarioDoble,'[C] Aliento de agonía (C1) · Nd20',
+  'poder','nd20')?.danioCompuesto?.numero_tomo,7);
+console.log('OK · tercer lote de 35 Conjuros adicionales y cuarto daño dual validado.');
