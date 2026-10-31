@@ -9,6 +9,7 @@
   var entradas = [];
   var correlativo = 0;
   var borrador = null;
+  var compraBorrador = null;
   var fuentesGuardadas = {};
   var $ = function (id) {return document.getElementById(id);};
   function aviso(mensaje, esError) {
@@ -244,7 +245,10 @@
       (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
       htmlLista('Observaciones',personaje.notas) +
       '<div class="pie-ficha"><small>' + esc(fuentesFicha(personaje)) +
-      '</small><button type="button" class="copiar-ficha" data-id="' + id +
+      '</small>' +
+      (personaje.juego==='Naufragio d20 · Fantasía'&&Number.isFinite(personaje.saldo_mo)?
+        '<button type="button" class="comprar-utiles" data-id="'+id+'">Comprar útiles</button>':'')+
+      '<button type="button" class="copiar-ficha" data-id="' + id +
       '">Copiar ficha</button></div></article>';
   }
   var tiles = {wall:['#172d39','Muro'],tile:['#d9d3bd','Suelo'],col:['#a7af9e','Columna'],
@@ -317,6 +321,108 @@
   function agregar(tipo,valor) {
     entradas.unshift({tipo:tipo,valor:valor,id:++correlativo});
     dibujar();
+  }
+  // Compras de útiles: la selección se valida con el motor antes de tocar
+  // el inventario. Cada editor se vincula al ID único de una ficha DRS.
+  function cerrarCompra(){
+    compraBorrador=null;
+    $('editor-compras').hidden=true;
+  }
+  function entradaCompra(){
+    if(!compraBorrador)throw Error('No hay una compra de útiles activa.');
+    var entrada=entradas.find(function(x){return x.id===compraBorrador.id;});
+    if(!entrada||entrada.tipo!=='ficha'||
+        entrada.valor.juego!=='Naufragio d20 · Fantasía')
+      throw Error('La ficha de compra ya no está disponible.');
+    if(!Number.isFinite(entrada.valor.saldo_mo))
+      throw Error('La ficha no conserva un saldo numérico verificable.');
+    return entrada;
+  }
+  function abrirCompra(entrada){
+    if(!window.NaufragioEquipment?.compraUtilesFantasia)
+      throw Error('El motor de compras de útiles no está cargado.');
+    if(entrada.tipo!=='ficha'||entrada.valor.juego!=='Naufragio d20 · Fantasía'||
+        !Number.isFinite(entrada.valor.saldo_mo))
+      throw Error('La compra individual solo está disponible en fichas DRS con saldo.');
+    compraBorrador={id:entrada.id,seleccion:[]};
+    var select=$('compras-articulo');
+    select.textContent='';
+    var etiquetas={aventura:'Aventura',campamento:'Campamento',
+      consumibles:'Consumibles',herramientas:'Herramientas',
+      escritura:'Escritura',focos:'Focos de Conjuros'};
+    var grupos=Object.entries(datos.equipoInicial.utiles_fantasia||{});
+    grupos.push(['focos',datos.equipoInicial.focos_conjuros_con_precio||[]]);
+    grupos.forEach(function(par){
+      var grupo=document.createElement('optgroup');
+      grupo.label=etiquetas[par[0]]||par[0];
+      par[1].forEach(function(item){
+        var opt=document.createElement('option');
+        opt.value=item.id;
+        opt.textContent=item.nombre+
+          ' · '+(item.precio_por_nivel!==undefined?
+            item.precio_por_nivel+' mo/Nivel':item.precio+' mo');
+        grupo.appendChild(opt);
+      });
+      select.appendChild(grupo);
+    });
+    $('compras-cantidad').value='1';
+    $('compras-nivel').value='1';
+    $('editor-compras').hidden=false;
+    refrescarCompra();
+    $('editor-compras').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function articuloCompra(){
+    var id=$('compras-articulo').value;
+    return Object.values(datos.equipoInicial.utiles_fantasia||{}).flat()
+      .concat(datos.equipoInicial.focos_conjuros_con_precio||[])
+      .find(function(x){return x.id===id;});
+  }
+  function lineaCompra(){
+    var item=articuloCompra();
+    if(!item)throw Error('Elige un artículo documentado del DRS.');
+    var cantidad=Number($('compras-cantidad').value);
+    if(!Number.isInteger(cantidad)||cantidad<1||cantidad>99)
+      throw Error('La cantidad debe ser un entero entre 1 y 99.');
+    var linea={id:item.id,cantidad:cantidad};
+    if(item.precio_por_nivel!==undefined){
+      var nivel=Number($('compras-nivel').value);
+      if(!Number.isInteger(nivel)||nivel<1||nivel>30)
+        throw Error('El Nivel de Antídoto o Veneno debe estar entre 1 y 30.');
+      linea.nivel=nivel;
+    }
+    return linea;
+  }
+  function refrescarCompra(){
+    if(!compraBorrador)return;
+    var entrada=entradaCompra(),item=articuloCompra();
+    var requiereNivel=!!item&&item.precio_por_nivel!==undefined;
+    $('compras-campo-nivel').hidden=!requiereNivel;
+    $('compras-nivel').required=requiereNivel;
+    $('resumen-compras').textContent='Personaje: '+entrada.valor.nombre+
+      ' · Saldo disponible: '+entrada.valor.saldo_mo.toFixed(2)+' mo';
+    var actual=window.NaufragioEquipment.compraUtilesFantasia(
+      datos.equipoInicial,entrada.valor.saldo_mo,compraBorrador.seleccion);
+    var lista=$('compras-lista');
+    lista.textContent='';
+    actual.detalles.forEach(function(x){
+      var li=document.createElement('li');
+      li.textContent=x.nombre+(x.nivel!==null?' (Nivel '+x.nivel+')':'')+
+        ' ×'+x.cantidad+' · '+x.subtotal.toFixed(2)+' mo';
+      lista.appendChild(li);
+    });
+    $('compras-total').textContent='Seleccionados: '+actual.gastado.toFixed(2)+
+      ' mo · Saldo tras compra: '+actual.restante.toFixed(2)+' mo';
+    $('compras-confirmar').disabled=!compraBorrador.seleccion.length;
+    try{
+      var nueva=lineaCompra(),consulta=window.NaufragioEquipment.consultarUtilFantasia(
+        datos.equipoInicial,nueva.id,nueva.nivel);
+      var subtotal=Math.round(consulta.precio*nueva.cantidad*100)/100;
+      $('compras-detalle').textContent=(consulta.detalle?consulta.detalle+' · ':'')+
+        (consulta.du?'DU '+consulta.du+' · ':'')+
+        'Precio del lote: '+subtotal.toFixed(2)+' mo';
+    }catch(error){
+      $('compras-detalle').textContent=error.message;
+    }
   }
   function conControl(fn) {
     try { fn(); aviso(''); } catch(e) {aviso(e.message || 'No ha sido posible generar el resultado.',true);}
@@ -567,9 +673,51 @@
     $('generar-mazmorra').addEventListener('click',function(){
       conControl(function(){agregar('mazmorra',reglas.mazmorra({ancho:6,alto:6},rngUnico()(correlativo)));});
     });
+    $('compras-articulo').addEventListener('change',refrescarCompra);
+    $('compras-cantidad').addEventListener('input',refrescarCompra);
+    $('compras-nivel').addEventListener('input',refrescarCompra);
+    $('compras-anadir').addEventListener('click',function(){
+      conControl(function(){
+        var entrada=entradaCompra(),linea=lineaCompra();
+        window.NaufragioEquipment.compraUtilesFantasia(datos.equipoInicial,
+          entrada.valor.saldo_mo,compraBorrador.seleccion.concat([linea]));
+        compraBorrador.seleccion.push(linea);
+        refrescarCompra();
+      });
+    });
+    $('form-compra-utiles').addEventListener('submit',function(e){
+      e.preventDefault();
+      conControl(function(){
+        var entrada=entradaCompra(),personaje=entrada.valor;
+        if(!compraBorrador.seleccion.length)
+          throw Error('Añade al menos un artículo antes de confirmar la compra.');
+        var compra=window.NaufragioEquipment.compraUtilesFantasia(
+          datos.equipoInicial,personaje.saldo_mo,compraBorrador.seleccion);
+        // Todas las validaciones se realizan ANTES de modificar la ficha.
+        personaje.equipo.push.apply(personaje.equipo,compra.equipo);
+        personaje.saldo_mo=compra.restante;
+        personaje.riqueza=compra.restante+' mo restantes / '+
+          personaje.capital_inicial_mo+' mo iniciales';
+        personaje.notas.push('Compra adicional de útiles: '+compra.gastado+
+          ' mo; saldo actual '+compra.restante+' mo.');
+        cerrarCompra();
+        dibujar();
+      });
+    });
+    $('compras-cancelar').addEventListener('click',cerrarCompra);
     $('fichas').addEventListener('click',function(e){
+      var comprar=e.target.closest('.comprar-utiles');
+      if(comprar){
+        conControl(function(){
+          var entrada=entradas.find(function(x){return String(x.id)===comprar.dataset.id;});
+          if(!entrada)throw Error('Ficha no encontrada para comprar útiles.');
+          abrirCompra(entrada);
+        });return;
+      }
       var del=e.target.closest('.eliminar-ficha');
       if(del){
+        if(compraBorrador&&String(compraBorrador.id)===del.dataset.id)
+          cerrarCompra();
         entradas=entradas.filter(function(x){return String(x.id)!==del.dataset.id;});
         dibujar();return;
       }
@@ -579,7 +727,9 @@
         if(found)copiar(obtenerTexto(found));
       }
     });
-    $('borrar').addEventListener('click',function(){entradas=[];dibujar();aviso('Mesa despejada.');});
+    $('borrar').addEventListener('click',function(){
+      cerrarCompra();entradas=[];dibujar();aviso('Mesa despejada.');
+    });
     $('exportar').addEventListener('click',function(){
       descargar('el-naufragio-fichas.txt',entradas.map(obtenerTexto).join('\n\n'+('=').repeat(60)+'\n\n'));
     });
