@@ -31,11 +31,11 @@ jobs:
       - name: Obtener únicamente la versión 1.1 validada
         uses: actions/checkout@v4
         with:
-          ref: 3bccd69103ca267471e08b5fedfc5e6f02033dce
+          ref: f2089821c5cddbf0295e2a74398c0a854ffa4f3a
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "3bccd69103ca267471e08b5fedfc5e6f02033dce"
+          test "$(git rev-parse HEAD)" = "f2089821c5cddbf0295e2a74398c0a854ffa4f3a"
       - name: Preparar Node
         uses: actions/setup-node@v4
         with:
