@@ -24,3 +24,11 @@ jobs:
           command -v google-chrome || command -v google-chrome-stable || command -v chromium
       - name: Recorrido E2E de Forja en navegador real
         run: node tests/browser-compras.js
+      - name: Conservar capturas de escritorio y móvil
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forja-compras-capturas
+          path: tests/capturas-e2e/
+          if-no-files-found: warn
+          retention-days: 14
