@@ -208,8 +208,9 @@ assert.equal(valor(magnitudes('Tajo carmesí de Nebb',8),'danio_lanzador_impio')
 assert.equal(valor(magnitudes('Ventisca',8),'lanzamiento_turnos'),2);
 assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',valor:[0,6]},3),
   /Dados por Nivel inválidos/);
-assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',valor:[1,3]},3),
+assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',valor:[1,7]},3),
   /Dados por Nivel inválidos/);
+assert.equal(motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',valor:[1,3]},3),'3d3');
 assert.throws(()=>magnitudes('Lanza de sombras',0),/Nivel entero positivo/);
 assert.equal(motorMagnitudes.calcular({clave:'dados',tipo:'dados_por_nivel',valor:[2,12]},5),'10d12');
 console.log('OK · 120 Conjuros con magnitudes verificadas en 4 Niveles; sin ejecutar efectos.');
