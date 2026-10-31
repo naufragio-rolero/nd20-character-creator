@@ -137,6 +137,10 @@ assert.ok(!html.includes('Personajes documentados (51)'),
 assert.ok(html.includes('id="ambito-nombre"'));
 assert.ok(html.includes('Documentos de Niguace (116 combinaciones)'));
 assert.ok(html.includes('Relato de Isla Tormenta (33 combinaciones)'));
+assert.ok(html.includes('Corpus de referencia de Ylat'));
+assert.ok(html.includes('no es el lugar de nacimiento ni la cultura del personaje'));
+assert.ok(!html.includes('Procedencia del nombre de Ylat'),
+  'No presentar agrupaciones documentales como culturas de nacimiento');
 const rutaData=path.join(salida,'data');
 const contenidos=new Set(fs.readdirSync(rutaData));
 const esperados=new Set([
