@@ -9,6 +9,7 @@
   var entradas = [];
   var correlativo = 0;
   var borrador = null;
+  var compraBorrador = null;
   var fuentesGuardadas = {};
   var $ = function (id) {return document.getElementById(id);};
   function aviso(mensaje, esError) {
@@ -35,6 +36,77 @@
     });
     if (elementos.some(function (x) {return x.key === previo;})) sel.value = previo;
   }
+  // El <select> original continúa siendo la fuente de verdad y opción
+  // accesible de respaldo; las tarjetas solo cambian su valor.
+  var pictogramas={
+    ocupacion:{'Clérigo':'ocu-clerigo','Guerrero':'ocu-guerrero',
+      'Mago':'ocu-mago','Ladrón':'ocu-ladron'},
+    especie:{'Elfo agreste':'esp-elfo','Enano montañés':'esp-enano',
+      'Humano común':'esp-humano','Mediano amable':'esp-mediano',
+      'Gnomo urbano':'esp-gnomo','Semielfo':'esp-semielfo',
+      'Orco común':'esp-orco','Semiorco':'esp-semiorco'}
+  };
+  function refrescarTarjetas(tipo){
+    var select=$(tipo),contenedor=$('selector-visual-'+tipo);
+    var visual=$('juego').value==='nd20'&&!!datos.dh;
+    contenedor.hidden=!visual;
+    select.classList.toggle('selector-alternativo',visual);
+    if(!visual){contenedor.replaceChildren();return;}
+    var actual=select.value;
+    contenedor.replaceChildren();
+    Array.from(select.options).forEach(function(op){
+      var key=pictogramas[tipo][op.value];
+      var boton=document.createElement('button');
+      boton.type='button';boton.className='opcion-visual';
+      boton.dataset.valor=op.value;
+      boton.setAttribute('aria-pressed',String(op.value===actual));
+      boton.classList.toggle('seleccionada',op.value===actual);
+      boton.disabled=op.disabled;
+      var nombre=op.value?op.value:'Aleatoria';
+      boton.setAttribute('aria-label',tipo+': '+nombre+
+        (op.value===actual?', seleccionada':''));
+      var dibujo;
+      if(key){
+        dibujo=document.createElementNS('http://www.w3.org/2000/svg','svg');
+        dibujo.classList.add('icono-eleccion');
+        dibujo.setAttribute('aria-hidden','true');
+        var use=document.createElementNS('http://www.w3.org/2000/svg','use');
+        use.setAttribute('href','assets/icons-forja.svg#'+key);
+        dibujo.appendChild(use);
+      }else{
+        dibujo=document.createElement('span');
+        dibujo.className='icono-azar';dibujo.textContent='?';
+        dibujo.setAttribute('aria-hidden','true');
+      }
+      var etiqueta=document.createElement('span');
+      etiqueta.className='opcion-nombre';etiqueta.textContent=nombre;
+      boton.append(dibujo,etiqueta);
+      contenedor.appendChild(boton);
+    });
+  }
+  function marcarTarjetasSeleccionadas(tipo){
+    // No reconstruir el DOM al pulsar una tarjeta: teclado y lectores
+    // de pantalla conservan el foco sobre la opción recién seleccionada.
+    var actual=$(tipo).value;
+    $('selector-visual-'+tipo).querySelectorAll('button.opcion-visual')
+      .forEach(function(boton){
+        var selected=boton.dataset.valor===actual;
+        boton.classList.toggle('seleccionada',selected);
+        boton.setAttribute('aria-pressed',String(selected));
+        boton.setAttribute('aria-label',tipo+': '+
+          (boton.dataset.valor||'Aleatoria')+(selected?', seleccionada':''));
+      });
+  }
+  function refrescarTarjetasVisibles(){
+    refrescarTarjetas('ocupacion');
+    refrescarTarjetas('especie');
+  }
+  function refrescarGenerarFlotante(){
+    var boton=$('generar-flotante');
+    boton.hidden=$('panel-personajes').hidden;
+    boton.disabled=$('generar').disabled||!!borrador;
+    boton.textContent=Number($('cantidad').value)>1?'Generar personajes':'Generar personaje';
+  }
   function origenesActivos() {
     return Array.from(document.querySelectorAll('#origenes input:checked')).map(function (e) {
       return Number(e.value);
@@ -52,6 +124,7 @@
     var tools=nombre==='herramientas';
     $('panel-personajes').hidden=tools;
     $('panel-herramientas').hidden=!tools;
+    refrescarGenerarFlotante();
     ['personajes','herramientas'].forEach(function(key){
       var button=$('tab-'+key),selected=key===nombre;
       button.classList.toggle('activa',selected);
@@ -76,6 +149,12 @@
       if(b==='DRS')return 1;
       return a.localeCompare(b,'es');
     });
+    // Forja 1.0: las fuentes de los DLC de Fantasía no están publicadas.
+    // No borramos sus datos: el manifiesto podrá habilitarlas en futuras versiones.
+    if(juego==='nd20'){
+      var publicadas=datos.alcanceDRS?.fuentes_publicadas_fantasia||['DRS'];
+      nombres=nombres.filter(function(nombre){return publicadas.includes(nombre);});
+    }
     var previas=fuentesGuardadas[juego];
     cont.textContent='';
     nombres.forEach(function(nombre){
@@ -96,7 +175,10 @@
     refrescarBotonesSistema();
     $('opciones-dh').hidden = !dh;
     $('opciones-fuentes').hidden = dh;
+    $('aviso-alcance-drs').hidden = juego!=='nd20';
     $('opciones-nombres-ylat').hidden = juego!=='nd20';
+    $('opciones-ambito-nombre').hidden = juego!=='nd20'||
+      $('modo-nombre').value!=='combinado';
     $('opciones-riqueza-nivel').hidden=dh||juego==='nd20_nocturna';
     $('modos-creacion').hidden = dh;
     $('opciones-contexto-sexo').hidden=dh;
@@ -140,6 +222,8 @@
         return {key:key,nombre:key+' ('+d.fuentes.especies[key]+')'};
       }).sort(ordenar),true);
     }
+    refrescarTarjetasVisibles();
+    refrescarGenerarFlotante();
   }
   function ordenar(a,b) {return a.nombre.localeCompare(b.nombre, 'es');}
   function dhModo(juego) {
@@ -169,6 +253,8 @@
       sexo:$('sexo-pj').value,
       respetarContextoSexo:$('respetar-contexto-sexo').checked,
       modoNombre:$('modo-nombre').value,
+      ambitoNombre:$('modo-nombre').value==='combinado'?
+        $('ambito-nombre').value:'todos',
       riquezaPorNivel:(juego==='nd20'||juego==='nd20_cifi')&&
         $('riqueza-por-nivel').checked};
   }
@@ -176,6 +262,7 @@
     if (cfg.juego === 'dh') return reglas.eleccionDH(datos.dh,cfg,rng);
     return reglas.crearNd20(datosJuego(cfg.juego),
       Object.assign({},cfg,{aplazarElecciones:true,tesauroYlat:datos.tesauroYlat,
+        nombresHistoricosYlat:datos.nombresHistoricosYlat,
         catalogoEquipo:datos.equipoInicial,catalogoSexo:datos.sexo}),rng);
   }
   function fuentesFicha(personaje){
@@ -199,11 +286,70 @@
   }
   function htmlLista(titulo, valores, grupo, sistema) {
     if (!valores || !valores.length) return '';
-    return '<section class="bloque-ficha"><h4>' + esc(titulo) + '</h4><ul>' +
-      valores.map(function (v) {
+    return '<section class="bloque-ficha"><h4>' + esc(titulo) + '</h4>' +
+      (grupo==='talento'?'<p class="pista-talentos">Pulsa un Talento ⓘ para consultar su efecto.</p>':'') +
+      '<ul>' + valores.map(function (v) {
         var item=grupo&&infoUI?infoUI.etiqueta(v,grupo,sistema):esc(v);
         return '<li>' + item + '</li>';
       }).join('') + '</ul></section>';
+  }
+  // Las reglas de los Talentos se consultan junto al nombre, no al
+  // final de una lista de observaciones. Los textos siguen intactos
+  // en el modelo y al copiar/exportar la ficha.
+  function organizarObservaciones(personaje){
+    var grupos={contexto:[],talentos:[],poderes:[],equipo:[],riqueza:[],otras:[]};
+    var sistema=sistemaFicha(personaje);
+    (personaje.notas||[]).forEach(function(nota){
+      var literal=String(nota);
+      var talento=literal.match(/^Talento de (?:Especie|Ocupación) — (.+?): /);
+      if(talento){
+        var asociado=(personaje.capacidades||[]).includes(talento[1]);
+        var descripcion=infoUI?.consulta(talento[1],'talento',sistema)?.descripcion;
+        if(asociado&&descripcion)return; // Texto completo disponible en popup.
+        grupos.talentos.push(literal); // Nunca ocultar una regla sin ficha.
+        return;
+      }
+      var elegido=literal.match(/^Talento (?:de Guerrero elegido|adicional de (?:Especie|Ocupación) seleccionado): (.+?)\.$/);
+      if(elegido&&(personaje.capacidades||[]).includes(elegido[1]))return;
+      if(/^Nombre del banco histórico |^Forma del generador histórico |^Nombre propuesto con elementos de Ylat/.test(literal)||
+         /^Envejecimiento de Especie:/.test(literal)){
+        grupos.contexto.push(literal);return;
+      }
+      if(/^Técnica aprendida, pendiente de uso:/.test(literal)){
+        grupos.poderes.push(literal);return;
+      }
+      if(/^Baja estatura: armas y armaduras |^Equipo DRS adquirido por/.test(literal)){
+        grupos.equipo.push(literal);return;
+      }
+      if(/^Riqueza adicional opcional:/.test(literal)){
+        // La nota de 0 Niveles no aporta información útil a la ficha.
+        if(/^Riqueza adicional opcional: 0 Niveles ×/.test(literal))return;
+        grupos.riqueza.push(literal);return;
+      }
+      grupos.otras.push(literal);
+    });
+    return grupos;
+  }
+  function htmlAvisos(titulo,notas,clase){
+    if(!notas||!notas.length)return '';
+    return '<section class="avisos-ficha '+esc(clase||'')+'"><h4>'+
+      esc(titulo)+'</h4><ul>'+notas.map(function(n){
+        return '<li>'+esc(n)+'</li>';
+      }).join('')+'</ul></section>';
+  }
+  function htmlContexto(notas){
+    if(!notas||!notas.length)return '';
+    return '<details class="contexto-ficha"><summary>Contexto del personaje ('+
+      notas.length+')</summary><ul>'+notas.map(function(n){
+        return '<li>'+esc(n)+'</li>';
+      }).join('')+'</ul></details>';
+  }
+  function htmlOtrosAvisos(notas){
+    if(!notas||!notas.length)return '';
+    return '<details class="otros-avisos"><summary>Otros avisos ('+
+      notas.length+')</summary><ul>'+notas.map(function(n){
+        return '<li>'+esc(n)+'</li>';
+      }).join('')+'</ul></details>';
   }
   function htmlRecursos(pares) {
     return '<div class="recursos">' + (pares || []).map(function (p) {
@@ -211,6 +357,7 @@
     }).join('') + '</div>';
   }
   function fichaHTML(personaje, id) {
+    var notas=organizarObservaciones(personaje);
     var esDungeonHack = personaje.juego.indexOf('Dungeon Hack') === 0;
     var attrs = personaje.atributos.map(function (a) {
       var cifra = esDungeonHack ?
@@ -220,7 +367,7 @@
         (a.favorito ? ' <span title="Atributo favorito" aria-label="Favorito">★</span>' : '') +
         '</span><span>' + cifra + '</span></div>';
     }).join('');
-    return '<article class="tarjeta" data-id="' + id + '">' +
+    return '<article class="tarjeta" data-id="' + id + '" data-nivel="' + esc(personaje.nivel) + '">' +
       '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(personaje.juego) +
       ' · Nivel ' + esc(personaje.nivel) +
       (personaje.sexo?' · '+esc(personaje.sexo==='femenino'?'Femenino':'Masculino'):'') +
@@ -228,16 +375,24 @@
       '</h3><p>' + esc(personaje.descripcion) + '</p></div>' +
       '<button class="icon-btn eliminar-ficha" data-id="' + id + '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div>' +
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
+      htmlContexto(notas.contexto) +
       '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos) +
       htmlLista('Talentos y capacidades',personaje.capacidades,'talento',sistemaFicha(personaje)) +
+      htmlAvisos('Detalles sin ficha emergente',notas.talentos,'avisos-talentos') +
       htmlLista('Conjuros y Poderes conocidos',personaje.poderes,'poder',sistemaFicha(personaje)) +
       htmlLista('Conjuros preparados',personaje.conjuros_preparados,'poder',sistemaFicha(personaje)) +
+      htmlAvisos('Condiciones de uso',notas.poderes,'avisos-poderes') +
       htmlLista('Competencias',personaje.competencias) +
       htmlLista('Equipo',personaje.equipo,'equipo',sistemaFicha(personaje)) +
+      htmlAvisos('Reglas y compras de equipo',notas.equipo,'avisos-equipo') +
       (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
-      htmlLista('Observaciones',personaje.notas) +
+      htmlAvisos('Riqueza adicional',notas.riqueza,'avisos-riqueza') +
+      htmlOtrosAvisos(notas.otras) +
       '<div class="pie-ficha"><small>' + esc(fuentesFicha(personaje)) +
-      '</small><button type="button" class="copiar-ficha" data-id="' + id +
+      '</small>' +
+      (personaje.juego==='Naufragio d20 · Fantasía'&&Number.isFinite(personaje.saldo_mo)?
+        '<button type="button" class="comprar-utiles" data-id="'+id+'">Comprar útiles</button>':'')+
+      '<button type="button" class="copiar-ficha" data-id="' + id +
       '">Copiar ficha</button></div></article>';
   }
   var tiles = {wall:['#172d39','Muro'],tile:['#d9d3bd','Suelo'],col:['#a7af9e','Columna'],
@@ -311,6 +466,126 @@
     entradas.unshift({tipo:tipo,valor:valor,id:++correlativo});
     dibujar();
   }
+  // Compras de útiles: la selección se valida con el motor antes de tocar
+  // el inventario. Cada editor se vincula al ID único de una ficha DRS.
+  function cerrarCompra(){
+    var id=compraBorrador&&compraBorrador.id;
+    compraBorrador=null;
+    $('editor-compras').hidden=true;
+    // El teclado vuelve a la ficha que abrió el editor, si sigue presente.
+    if(id!==null&&id!==undefined){
+      var retorno=$('fichas').querySelector('.comprar-utiles[data-id="'+id+'"]');
+      if(retorno)retorno.focus({preventScroll:true});
+    }
+  }
+  function entradaCompra(){
+    if(!compraBorrador)throw Error('No hay una compra de útiles activa.');
+    var entrada=entradas.find(function(x){return x.id===compraBorrador.id;});
+    if(!entrada||entrada.tipo!=='ficha'||
+        entrada.valor.juego!=='Naufragio d20 · Fantasía')
+      throw Error('La ficha de compra ya no está disponible.');
+    if(!Number.isFinite(entrada.valor.saldo_mo))
+      throw Error('La ficha no conserva un saldo numérico verificable.');
+    return entrada;
+  }
+  function abrirCompra(entrada){
+    if(!window.NaufragioEquipment?.compraUtilesFantasia)
+      throw Error('El motor de compras de útiles no está cargado.');
+    if(entrada.tipo!=='ficha'||entrada.valor.juego!=='Naufragio d20 · Fantasía'||
+        !Number.isFinite(entrada.valor.saldo_mo))
+      throw Error('La compra individual solo está disponible en fichas DRS con saldo.');
+    compraBorrador={id:entrada.id,seleccion:[]};
+    $('titulo-editor-compras').textContent='Comprar útiles · '+entrada.valor.nombre;
+    var select=$('compras-articulo');
+    select.textContent='';
+    var etiquetas={aventura:'Aventura',campamento:'Campamento',
+      consumibles:'Consumibles',herramientas:'Herramientas',
+      escritura:'Escritura',focos:'Focos de Conjuros'};
+    var grupos=Object.entries(datos.equipoInicial.utiles_fantasia||{});
+    grupos.push(['focos',datos.equipoInicial.focos_conjuros_con_precio||[]]);
+    grupos.forEach(function(par){
+      var grupo=document.createElement('optgroup');
+      grupo.label=etiquetas[par[0]]||par[0];
+      par[1].forEach(function(item){
+        var opt=document.createElement('option');
+        opt.value=item.id;
+        opt.textContent=item.nombre+
+          ' · '+(item.precio_por_nivel!==undefined?
+            item.precio_por_nivel+' mo/Nivel':item.precio+' mo');
+        grupo.appendChild(opt);
+      });
+      select.appendChild(grupo);
+    });
+    $('compras-cantidad').value='1';
+    $('compras-nivel').value='1';
+    $('editor-compras').hidden=false;
+    refrescarCompra();
+    select.focus({preventScroll:true});
+    $('editor-compras').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function articuloCompra(){
+    var id=$('compras-articulo').value;
+    return Object.values(datos.equipoInicial.utiles_fantasia||{}).flat()
+      .concat(datos.equipoInicial.focos_conjuros_con_precio||[])
+      .find(function(x){return x.id===id;});
+  }
+  function lineaCompra(){
+    var item=articuloCompra();
+    if(!item)throw Error('Elige un artículo documentado del DRS.');
+    var cantidad=Number($('compras-cantidad').value);
+    if(!Number.isInteger(cantidad)||cantidad<1||cantidad>99)
+      throw Error('La cantidad debe ser un entero entre 1 y 99.');
+    var linea={id:item.id,cantidad:cantidad};
+    if(item.precio_por_nivel!==undefined){
+      var nivel=Number($('compras-nivel').value);
+      if(!Number.isInteger(nivel)||nivel<1||nivel>30)
+        throw Error('El Nivel de Antídoto o Veneno debe estar entre 1 y 30.');
+      linea.nivel=nivel;
+    }
+    return linea;
+  }
+  function refrescarCompra(){
+    if(!compraBorrador)return;
+    var entrada=entradaCompra(),item=articuloCompra();
+    var requiereNivel=!!item&&item.precio_por_nivel!==undefined;
+    $('compras-campo-nivel').hidden=!requiereNivel;
+    $('compras-nivel').required=requiereNivel;
+    $('resumen-compras').textContent='Personaje: '+entrada.valor.nombre+
+      ' · Saldo disponible: '+entrada.valor.saldo_mo.toFixed(2)+' mo';
+    var actual=window.NaufragioEquipment.compraUtilesFantasia(
+      datos.equipoInicial,entrada.valor.saldo_mo,compraBorrador.seleccion);
+    var lista=$('compras-lista');
+    lista.textContent='';
+    actual.detalles.forEach(function(x,indice){
+      var li=document.createElement('li');
+      var descripcion=document.createElement('span');
+      descripcion.textContent=x.nombre+(x.nivel!==null?' (Nivel '+x.nivel+')':'')+
+        ' ×'+x.cantidad+' · '+x.subtotal.toFixed(2)+' mo';
+      li.appendChild(descripcion);
+      var quitar=document.createElement('button');
+      quitar.type='button';
+      quitar.className='compras-quitar-linea';
+      quitar.dataset.indice=String(indice);
+      quitar.textContent='Quitar';
+      quitar.setAttribute('aria-label','Quitar '+x.nombre+
+        ' de la compra (línea '+(indice+1)+')');
+      li.appendChild(quitar);
+      lista.appendChild(li);
+    });
+    $('compras-total').textContent='Seleccionados: '+actual.gastado.toFixed(2)+
+      ' mo · Saldo tras compra: '+actual.restante.toFixed(2)+' mo';
+    $('compras-confirmar').disabled=!compraBorrador.seleccion.length;
+    try{
+      var nueva=lineaCompra(),consulta=window.NaufragioEquipment.consultarUtilFantasia(
+        datos.equipoInicial,nueva.id,nueva.nivel);
+      var subtotal=Math.round(consulta.precio*nueva.cantidad*100)/100;
+      $('compras-detalle').textContent=(consulta.detalle?consulta.detalle+' · ':'')+
+        (consulta.du?'DU '+consulta.du+' · ':'')+
+        'Precio del lote: '+subtotal.toFixed(2)+' mo';
+    }catch(error){
+      $('compras-detalle').textContent=error.message;
+    }
+  }
   function conControl(fn) {
     try { fn(); aviso(''); } catch(e) {aviso(e.message || 'No ha sido posible generar el resultado.',true);}
   }
@@ -338,10 +613,12 @@
     borrador=null;
     $('editor-elecciones').hidden=true;
     $('grupos-elecciones').textContent='';
+    refrescarGenerarFlotante();
   }
-  function prepararEditor(personaje,plan,rng){
-    borrador={personaje:personaje,plan:plan,rng:rng};
+  function prepararEditor(personaje,plan,rng,origen){
+    borrador={personaje:personaje,plan:plan,rng:rng,origen:origen||null};
     $('editor-elecciones').hidden=false;
+    refrescarGenerarFlotante();
     $('editor-titulo').textContent='Personalizar · '+personaje.descripcion;
     $('editor-resumen').textContent='Nivel '+personaje.nivel+
       ' · '+plan.pasos.filter(function(x){return !x.automatico;})
@@ -421,16 +698,54 @@
         var grupo=['talento','talento_ajeno','estilo_gladiatoria'].includes(paso.tipo)?
           'talento':paso.tipo==='competencias_diletante'?'': 'poder';
         var tipo=sistemaFicha(borrador.personaje);
-        ver.hidden=!(elegida&&grupo&&infoUI?.consulta(elegida.nombre,grupo,tipo));
+        var porId=elegida&&grupo&&infoUI?.consultaPorId?.(elegida.id,grupo,tipo);
+        var esConjuro=elegida&&/^conjuro-/.test(elegida.id||"");
+        // Conjuros: nunca elegir otra versión con el mismo nombre si falla su ID.
+        var fichaElegida=porId||(esConjuro?null:
+          (elegida&&grupo&&infoUI?.consulta(elegida.nombre,grupo,tipo)));
+        ver.hidden=!fichaElegida;
         if(!ver.hidden){
           ver.dataset.glosaNombre=elegida.nombre;
           ver.dataset.glosaGrupo=grupo;
           ver.dataset.glosaSistema=tipo;
+          ver.dataset.glosaNivel=String(borrador.personaje.nivel);
+          if(porId)ver.dataset.glosaId=elegida.id;
+          else delete ver.dataset.glosaId;
+        }else{
+          delete ver.dataset.glosaId;
+          delete ver.dataset.glosaNivel;
         }
       }
     });
   }
   function vincular() {
+    ['ocupacion','especie'].forEach(function(tipo){
+      $('selector-visual-'+tipo).addEventListener('click',function(event){
+        var boton=event.target.closest('button.opcion-visual');
+        if(!boton||boton.disabled)return;
+        $(tipo).value=boton.dataset.valor;
+        $(tipo).dispatchEvent(new Event('change',{bubbles:true}));
+      });
+      $(tipo).addEventListener('change',function(){
+        marcarTarjetasSeleccionadas(tipo);
+      });
+    });
+    $('generar-flotante').addEventListener('click',function(){
+      if($('generar-flotante').disabled)return;
+      marcarPanel('personajes');
+      // Mantiene validación nativa y el mismo flujo que el formulario.
+      $('configuracion').requestSubmit($('generar'));
+    });
+    $('cantidad').addEventListener('input',refrescarGenerarFlotante);
+    var avanzada=$('informacion-avanzada');
+    try{avanzada.checked=localStorage.getItem('forja-informacion-avanzada')==='true';}
+    catch(error){avanzada.checked=false;}
+    infoUI?.configurarAvanzado?.(avanzada.checked);
+    avanzada.addEventListener('change',function(){
+      infoUI?.configurarAvanzado?.(avanzada.checked);
+      try{localStorage.setItem('forja-informacion-avanzada',String(avanzada.checked));}
+      catch(error){}
+    });
     $('alternar-menu').addEventListener('click',function(){
       alternarMenu(!$('panel-forja').classList.contains('panel-abierto'));
     });
@@ -451,6 +766,7 @@
       try{localStorage.setItem('forja-tema',tema.value);}catch(error){}
     });
     $('juego').addEventListener('change',refrescarSelectores);
+    $('modo-nombre').addEventListener('change',refrescarSelectores);
     $('sexo-pj').addEventListener('change',function(){
       try{localStorage.setItem('forja-sexo-pj',$('sexo-pj').value);}catch(error){}
       refrescarSelectores();
@@ -471,7 +787,17 @@
       conControl(function () {
         var c=config(),createRng=rngUnico(),items=[];
         for(var i=0;i<c.cantidad;i++){
-          var r=createRng(i),personaje=crearFicha(c,r);
+          var r=createRng(i),semillaPersonaje=null;
+          // La elección de Herencia dual modifica un VA antes de subir Niveles.
+          // Guardamos la semilla para reconstruir exactamente la misma creación
+          // con la alternativa definitiva, sin parchear atributos al final.
+          if(c.juego==='nd20' && c.modo==='personalizado'){
+            semillaPersonaje=Math.floor(r()*4294967296);
+            r=reglas.aleatorioSemilla('forja-herencia:'+semillaPersonaje);
+          }
+          var configFicha=semillaPersonaje===null?c:
+            Object.assign({},c,{herenciaPendiente:true,desarrolloPendiente:true});
+          var personaje=crearFicha(configFicha,r);
           if(c.juego==='dh'){items.push(personaje);continue;}
           var partes=personaje.descripcion.split(' · ');
           var opciones=Object.assign({},c,{ocupacion:partes[0],especie:partes.slice(1).join(' · ')});
@@ -480,7 +806,8 @@
           var plan=poderes.planificar(opciones,juegoDatos,datos.catalogo,datos.progresiones);
           if(c.modo==='personalizado'&&plan.pasos.some(function(x){return !x.automatico;})){
             cerrarMenuMovil();
-            prepararEditor(personaje,plan,r);return;
+            prepararEditor(personaje,plan,r,
+              {config:c,semillaPersonaje:semillaPersonaje});return;
           }
           items.push(poderes.aplicar(personaje,plan,poderes.resolver(plan,null,r)));
         }
@@ -494,7 +821,24 @@
         if(!borrador)throw Error('No existe un personaje pendiente.');
         var e=leerElecciones();
         var resultado=poderes.resolver(borrador.plan,e,borrador.rng);
-        agregar('ficha',poderes.aplicar(borrador.personaje,borrador.plan,resultado));
+        var personaje=borrador.personaje;
+        var herencia=(e['herencia-dual']||[])[0];
+        var desarrolloHumano=(e['buen-desarrollo']||[])[0];
+        if(herencia||desarrolloHumano){
+          if(!borrador.origen || borrador.origen.semillaPersonaje===null)
+            throw Error('No se puede reconstruir la elección de Herencia dual.');
+          var partesHerencia=herencia?herencia.split(':'):[];
+          var nuevo=crearFicha(Object.assign({},borrador.origen.config,{
+            herenciaDual:partesHerencia[0]||null,
+            atributoBuenDesarrollo:desarrolloHumano||
+              (partesHerencia.length===2?partesHerencia[1]:null)
+          }),reglas.aleatorioSemilla('forja-herencia:'+
+            borrador.origen.semillaPersonaje));
+          if(nuevo.descripcion!==personaje.descripcion || nuevo.sexo!==personaje.sexo)
+            throw Error('La reconstrucción alteró la identidad del personaje.');
+          personaje=nuevo;
+        }
+        agregar('ficha',poderes.aplicar(personaje,borrador.plan,resultado));
         cerrarEditor();
       });
     });
@@ -521,9 +865,88 @@
     $('generar-mazmorra').addEventListener('click',function(){
       conControl(function(){agregar('mazmorra',reglas.mazmorra({ancho:6,alto:6},rngUnico()(correlativo)));});
     });
+    $('compras-articulo').addEventListener('change',refrescarCompra);
+    $('compras-cantidad').addEventListener('input',refrescarCompra);
+    $('compras-nivel').addEventListener('input',refrescarCompra);
+    // Intro en Cantidad o Nivel añade la línea, nunca confirma el carrito.
+    // Dejar el selector Artículo con sus teclas nativas (abrir/seleccionar).
+    $('form-compra-utiles').addEventListener('keydown',function(event){
+      if(event.key!=='Enter'||!event.target.matches(
+        '#compras-cantidad, #compras-nivel'))return;
+      event.preventDefault();
+      if(!event.repeat)$('compras-anadir').click();
+    });
+    $('compras-lista').addEventListener('click',function(event){
+      var boton=event.target.closest('.compras-quitar-linea');
+      if(!boton)return;
+      conControl(function(){
+        entradaCompra();
+        var indice=Number(boton.dataset.indice);
+        if(!Number.isInteger(indice)||indice<0||
+            indice>=compraBorrador.seleccion.length)
+          throw Error('La línea de compra ya no existe.');
+        compraBorrador.seleccion.splice(indice,1);
+        refrescarCompra();
+        // Tras redibujar, mantener el foco en la siguiente línea, si existe.
+        var botones=$('compras-lista').querySelectorAll('.compras-quitar-linea');
+        if(botones.length)botones[Math.min(indice,botones.length-1)]
+          .focus({preventScroll:true});
+        else $('compras-articulo').focus({preventScroll:true});
+      });
+    });
+    $('compras-anadir').addEventListener('click',function(){
+      conControl(function(){
+        var entrada=entradaCompra(),linea=lineaCompra();
+        window.NaufragioEquipment.compraUtilesFantasia(datos.equipoInicial,
+          entrada.valor.saldo_mo,compraBorrador.seleccion.concat([linea]));
+        compraBorrador.seleccion.push(linea);
+        refrescarCompra();
+      });
+    });
+    $('form-compra-utiles').addEventListener('submit',function(e){
+      e.preventDefault();
+      conControl(function(){
+        var entrada=entradaCompra(),personaje=entrada.valor;
+        if(!compraBorrador.seleccion.length)
+          throw Error('Añade al menos un artículo antes de confirmar la compra.');
+        var compra=window.NaufragioEquipment.compraUtilesFantasia(
+          datos.equipoInicial,personaje.saldo_mo,compraBorrador.seleccion);
+        // Todas las validaciones se realizan ANTES de modificar la ficha.
+        personaje.equipo.push.apply(personaje.equipo,compra.equipo);
+        personaje.saldo_mo=compra.restante;
+        personaje.riqueza=compra.restante+' mo restantes / '+
+          personaje.capital_inicial_mo+' mo iniciales';
+        // Conservar el apunte de la compra inicial como histórico: su
+        // saldo no debe confundirse con el saldo actual tras comprar útiles.
+        personaje.notas=personaje.notas.map(function(n){
+          return n.startsWith('Equipo DRS adquirido por ')?
+            n.replace('Equipo DRS adquirido por ','Equipo DRS inicial adquirido por ')
+              .replace('; saldo ','; saldo tras creación '):n;
+        });
+        personaje.notas.push('Compra adicional de útiles: '+compra.gastado+
+          ' mo; saldo actual '+compra.restante+' mo.');
+        var idComprador=entrada.id;
+        cerrarCompra();
+        dibujar();
+        var boton=$('fichas').querySelector(
+          '.comprar-utiles[data-id="'+idComprador+'"]');
+        if(boton)boton.focus({preventScroll:true});
+      });
+    });
+    $('compras-cancelar').addEventListener('click',cerrarCompra);
     $('fichas').addEventListener('click',function(e){
+      var comprar=e.target.closest('.comprar-utiles');
+      if(comprar){
+        conControl(function(){
+          var entrada=entradas.find(function(x){return String(x.id)===comprar.dataset.id;});
+          if(!entrada)throw Error('Ficha no encontrada para comprar útiles.');
+          abrirCompra(entrada);
+        });return;
+      }
       var del=e.target.closest('.eliminar-ficha');
       if(del){
+        if(compraBorrador&&String(compraBorrador.id)===del.dataset.id)
+          cerrarCompra();
         entradas=entradas.filter(function(x){return String(x.id)!==del.dataset.id;});
         dibujar();return;
       }
@@ -533,7 +956,9 @@
         if(found)copiar(obtenerTexto(found));
       }
     });
-    $('borrar').addEventListener('click',function(){entradas=[];dibujar();aviso('Mesa despejada.');});
+    $('borrar').addEventListener('click',function(){
+      cerrarCompra();entradas=[];dibujar();aviso('Mesa despejada.');
+    });
     $('exportar').addEventListener('click',function(){
       descargar('el-naufragio-fichas.txt',entradas.map(obtenerTexto).join('\n\n'+('=').repeat(60)+'\n\n'));
     });
@@ -544,8 +969,14 @@
       especiesCifi:'data/especies_cifi.json',ocupacionesCifi:'data/ocupaciones_cifi.json',
       ampliado:'data/catalogo-ampliado.json',
       tesauroYlat:'data/tesauro-ylat.json',
+      nombresHistoricosYlat:'data/nombres-historicos-ylat.json',
       sexoCatalogo:'data/sexo-personajes.json',
       catalogo:'data/catalogo-poderes.json',
+      conjurosUno:'data/conjuros-revisados-001-225.json',
+      conjurosDos:'data/conjuros-revisados-226-434.json',
+      magnitudes:'data/conjuros-magnitudes-literales.json',
+      alcanceDRS:'data/alcance-drs-y-dlc.json',
+      danioCompuesto:'data/conjuros-danio-compuesto.json',
       progresiones:'data/progresiones-oficiales.json',
       equipoInicial:'data/equipo-inicial.json',
       fichasDocumentales:'data/fichas-documentales.json',
@@ -599,8 +1030,10 @@
       }))
     };
     datos.fantasiaAmpliadas=extra.fantasia.ocupaciones;
+    datos.alcanceDRS=loaded.alcanceDRS;
     datos.catalogo=loaded.catalogo;
     datos.tesauroYlat=loaded.tesauroYlat;
+    datos.nombresHistoricosYlat=loaded.nombresHistoricosYlat;
     datos.sexo=loaded.sexoCatalogo;
     datos.progresiones=loaded.progresiones;
     datos.equipoInicial=loaded.equipoInicial;
@@ -608,7 +1041,11 @@
       var indice=window.NaufragioTooltipIndex.indice({
         fantasia:datos.fantasia,cifi:datos.cifi,nocturna:datos.nocturna,
         catalogo:datos.catalogo,equipo:datos.equipoInicial,
-        descripciones:loaded.fichasDocumentales
+        alcanceDRS:datos.alcanceDRS,
+        descripciones:loaded.fichasDocumentales,
+        conjurosRevisados:loaded.conjurosUno.conjuros.concat(loaded.conjurosDos.conjuros),
+        magnitudes:loaded.magnitudes,
+        danioCompuesto:loaded.danioCompuesto
       });
       infoUI.configurar(indice);
     }
@@ -632,6 +1069,7 @@
     }catch(error){ /* El formulario funciona sin almacenamiento. */ }
     vincular();refrescarSelectores();dibujar();
     $('generar').disabled=false;
+    refrescarGenerarFlotante();
     aviso('Datos listos. Puedes empezar a generar personajes.');
   }
   $('generar').disabled=true;

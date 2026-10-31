@@ -38,11 +38,14 @@
     var s=String(texto||"").trim();
     return s.replace(/^(Sor|Sra|Dña)\s+/i,"").split(/\s+/)[0];
   }
-  function nombresDocumentados(entradas,sexo,datos){
+  function nombresDocumentados(entradas,sexo,datos,admitirSinClasificar){
     var fem=new Set((datos?.nombres_generales_femeninos||[]).map(normal));
     var masc=new Set((datos?.nombres_generales_masculinos||[]).map(normal));
     return (entradas||[]).filter(function(e){
       var n=normal(primerNombre(e.nombre));
+      // Una propuesta sin clasificación documental de sexo puede usarse,
+      // pero nunca se etiqueta automáticamente como masculina o femenina.
+      if(admitirSinClasificar&&!fem.has(n)&&!masc.has(n))return true;
       return sexo==="femenino"?fem.has(n):masc.has(n);
     });
   }
@@ -64,12 +67,30 @@
   function elegirNombre(config,especie,nombres,entradas,sexo,datos,rng){
     if(config.nombre)return {nombre:config.nombre,nota:"Nombre elegido manualmente."};
     rng=rng||Math.random;
+    if(config.modoNombre==='historico'&&config.juego==='nd20'){
+      // La lista de 1422 formas no contiene atribuciones documentadas
+      // de sexo, cultura ni linaje. Se usa sin asignarlas por analogía.
+      var historicos=(entradas||[]).filter(function(e){return e.tipo==='historico';});
+      if(historicos.length)
+        return {nombre:historicos[Math.floor(rng()*historicos.length)].nombre,
+          nota:'Nombre del banco histórico sin clasificación documental de sexo; no se le atribuye una.'};
+    }
     var ylat=(entradas||[]).filter(function(e){
       return e.tipo===(config.modoNombre==="documentado"?"documentado":"combinado");
     });
     if(config.modoNombre!=="especie"&&config.juego==="nd20"){
-      var filtrados=nombresDocumentados(ylat,sexo,datos);
-      if(filtrados.length)return {nombre:filtrados[Math.floor(rng()*filtrados.length)].nombre};
+      var filtrados=nombresDocumentados(ylat,sexo,datos,
+        config.modoNombre==="combinado");
+      if(filtrados.length){
+        var elegido=filtrados[Math.floor(rng()*filtrados.length)];
+        var sinClasificar=!datos?.nombres_generales_femeninos?.some(function(n){
+          return normal(n)===normal(primerNombre(elegido.nombre));
+        })&&!datos?.nombres_generales_masculinos?.some(function(n){
+          return normal(n)===normal(primerNombre(elegido.nombre));
+        });
+        return {nombre:elegido.nombre,
+          nota:sinClasificar?'Nombre combinado sin clasificación documental de sexo; no se le atribuye una.':''};
+      }
     }
     var es=nombresEspecie(nombres,especie,sexo,datos);
     if(es.opciones.length){

@@ -105,11 +105,38 @@
     if (!favorito || ATTR_ND.indexOf(favorito) === -1) throw Error('Ocupación sin Atributo favorito válido');
     at[favorito] = clamp(at[favorito] + 1, 4, 18);
     var detalles = [];
-    if ((esp.talentos || []).indexOf('Buen desarrollo') !== -1) {
-      var desarrollo = escoger(ATTR_ND, rng);
+    // DRS: Herencia dual es una elección exclusiva de Nivel 1. Reservamos
+    // siempre las dos extracciones aleatorias para que la misma semilla
+    // reconstruya una ficha personalizada antes de aplicar las subidas.
+    var alternativas = config.juego === 'nd20' &&
+      Array.isArray(esp.herencia_dual) ? esp.herencia_dual : null;
+    var desarrolloHumano = (esp.talentos || []).includes('Buen desarrollo');
+    var herenciaAleatoria = alternativas ? escoger(alternativas, rng) : null;
+    // Reservar la tirada de Atributo incluso si el humano deja la decisión
+    // pendiente: así el mismo RNG conserva todas las tiradas posteriores.
+    var atributoAleatorio = alternativas || desarrolloHumano ?
+      escoger(ATTR_ND, rng) : null;
+    if (config.herenciaDual && (!alternativas ||
+        alternativas.indexOf(config.herenciaDual) === -1))
+      throw Error('Herencia dual ajena a la Especie o no admitida por el DRS.');
+    var herenciaDual = alternativas ?
+      (config.herenciaDual || (config.herenciaPendiente === true ? null : herenciaAleatoria)) : null;
+    var desarrollo = null;
+    var tieneDesarrollo = desarrolloHumano || herenciaDual === 'Buen desarrollo';
+    // El humano también debe poder escoger el Atributo en modo Personalizado.
+    // La ficha provisional espera la elección sin falsear mejoras de Nivel.
+    if (desarrolloHumano && config.desarrolloPendiente === true)
+      tieneDesarrollo = false;
+    if (config.atributoBuenDesarrollo &&
+        (!tieneDesarrollo || ATTR_ND.indexOf(config.atributoBuenDesarrollo) === -1))
+      throw Error('Atributo no válido para Buen desarrollo.');
+    if (tieneDesarrollo) {
+      desarrollo = config.atributoBuenDesarrollo || atributoAleatorio;
       at[desarrollo] = clamp(at[desarrollo] + 1, 4, 18);
-      detalles.push('Buen desarrollo: +1 en ' + desarrollo + '.');
+      detalles.push('Buen desarrollo: +1 VA en ' + desarrollo + ' durante la creación.');
     }
+    if (herenciaDual)
+      detalles.push('Herencia dual: ' + herenciaDual + '.');
     for (var n = 2; n <= nivel; n++) {
       var candidatos = ATTR_ND.concat([favorito, favorito]);
       var primero = escoger(candidatos, rng);
@@ -147,7 +174,7 @@
     }
     var presupuesto=presupuestoBase===null?null:presupuestoBase+riquezaAdicional;
     var compra = equipoApi && config.catalogoEquipo ?
-      equipoApi.compraInicial(oc, ocupacion, config.juego, config.catalogoEquipo, presupuesto, rng, nivel) :
+      equipoApi.compraInicial(oc, ocupacion, config.juego, config.catalogoEquipo, presupuesto, rng, nivel, esp) :
       {equipo:[],restante:presupuesto,notas:[
         'El inventario inicial requiere el catálogo de equipo contrastado.'
       ]};
@@ -158,8 +185,22 @@
     var tipo = config.juego === 'nd20_cifi' ? 'Naufragio d20 · CiFi' :
       config.juego === 'nd20_nocturna' ? 'Naufragio d20 · Nocturna' : 'Naufragio d20 · Fantasía';
     var capacidades = (esp.talentos || []).concat(oc.talentos || []);
-    if (config.aplazarElecciones && config.juego === 'nd20' && ocupacion === 'Guerrero')
-      capacidades = capacidades.filter(function(x){return x !== 'Brío musculoso' && x !== 'Sacrificio de escudo';});
+    if (desarrolloHumano && config.desarrolloPendiente === true)
+      capacidades = capacidades.filter(function(x){return x !== 'Buen desarrollo';});
+    if (herenciaDual && !capacidades.includes(herenciaDual))
+      capacidades.push(herenciaDual);
+    if (config.juego === 'nd20' && ocupacion === 'Guerrero') {
+      // El DRS concede Recuperación y obliga a ELEGIR uno de los otros dos Talentos.
+      // En la web la elección se aplaza al editor; la API directa elige uno con su RNG.
+      capacidades = capacidades.filter(function(x){
+        return x !== 'Brío musculoso' && x !== 'Sacrificio de escudo';
+      });
+      if (!config.aplazarElecciones) {
+        var talentoGuerrero = escoger(['Brío musculoso', 'Sacrificio de escudo'], rng);
+        capacidades.push(talentoGuerrero);
+        detalles.push('Talento de Guerrero elegido: ' + talentoGuerrero + '.');
+      }
+    }
     if (!config.aplazarElecciones && (esp.talentos_elegir || []).length) {
       var eleccionEspecie = escoger(esp.talentos_elegir, rng);
       capacidades.push(eleccionEspecie);
@@ -169,6 +210,20 @@
       var eleccionOcupacion = escoger(oc.talentos_elegir, rng);
       capacidades.push(eleccionOcupacion);
       detalles.push('Talento adicional de Ocupación seleccionado: ' + eleccionOcupacion + '.');
+    }
+    // La ficha debe describir los efectos raciales, incluso cuando no existe
+    // un motor de combate/estados que pueda ejecutarlos en una partida.
+    if (config.juego === 'nd20' && esp.talentos_descripcion) {
+      Object.keys(esp.talentos_descripcion).forEach(function(talento){
+        if(capacidades.includes(talento))
+          detalles.push('Talento de Especie — '+talento+': '+esp.talentos_descripcion[talento]);
+      });
+    }
+    if (config.juego === 'nd20' && oc.talentos_descripcion) {
+      Object.keys(oc.talentos_descripcion).forEach(function(talento){
+        if(capacidades.includes(talento))
+          detalles.push('Talento de Ocupación — '+talento+': '+oc.talentos_descripcion[talento]);
+      });
     }
     // Los Talentos oficiales de inicio figuran en oc.talentos, contrastados
     // con el apartado Talentos del manual; no se conceden referencias sueltas.
@@ -181,19 +236,59 @@
       detalles.push('Talentos pendientes de verificación o elección: '+referencias.join(', ')+'.');
     if(oc.talentos_documentacion&&oc.talentos_documentacion.condiciones)
       detalles.push(oc.talentos_documentacion.condiciones+'.');
+    if (config.juego === 'nd20' && esp.envejecimiento)
+      detalles.push('Envejecimiento de Especie: ' + esp.envejecimiento + '.');
     if (esp.debilidad) detalles.push('Debilidad de Especie: ' + esp.debilidad);
+    // El DRS define Potencia 1 para todos los PJ. Brío musculoso es una
+    // elección exclusiva del Guerrero y eleva su valor en Nv 10 y Nv 22.
+    var potenciaDRS = esFantasia ?
+      1 + (ocupacion === 'Guerrero' && capacidades.includes('Brío musculoso') ?
+        (nivel >= 10 ? 1 : 0) + (nivel >= 22 ? 1 : 0) : 0) : null;
     var riqueza = esFantasia ? compra.restante+' mo restantes / '+presupuesto+' mo iniciales' :
       esCifi ? compra.restante+' cr restantes / '+presupuesto+' cr iniciales' : '';
-    var poolNombres=(config.tesauroYlat && config.juego==='nd20' &&
-      config.modoNombre!=='especie') ?
-      config.tesauroYlat.entradas.filter(function(item) {
-        return item.tipo===(config.modoNombre==='documentado'?'documentado':'combinado');
-      }) : [];
+    // Los valores de ámbito agrupan documentos de origen, NO culturas:
+    // Isla Tormenta reúne PJ de múltiples regiones y Niguace es una academia.
+    // No se asigna procedencia cultural ni Especie a partir del corpus.
+    var ambitoNombres=config.modoNombre==='combinado'&&
+      ['Niguace','Isla Tormenta'].includes(config.ambitoNombre)?
+      config.ambitoNombre:null;
+    var poolNombres=[];
+    if(config.juego==='nd20'&&config.modoNombre==='historico'){
+      // 1428 testimonios de la fuente original, seis repeticiones;
+      // el azar elige entre 1422 FORMAS únicas para no sesgar la frecuencia.
+      var vistosHistoricos=new Set();
+      poolNombres=((config.nombresHistoricosYlat||{}).entradas||[])
+        .filter(function(item){
+          if(vistosHistoricos.has(item.nombre))return false;
+          vistosHistoricos.add(item.nombre);
+          return true;
+        }).map(function(item){
+          return {id:item.id,nombre:item.nombre,tipo:'historico'};
+        });
+    }else if(config.juego==='nd20'&&config.modoNombre!=='especie'&&
+             config.tesauroYlat){
+      poolNombres=config.tesauroYlat.entradas.filter(function(item){
+        return item.tipo===(config.modoNombre==='documentado'?'documentado':'combinado')&&
+          (!ambitoNombres||item.ambito===ambitoNombres);
+      });
+    }
     var nombreYlat=escoger(poolNombres,rng);
     var nombreConSexo=sexoFuente&&sexoApi?
       sexoApi.elegirNombre(config,especie,esp.nombres||[],poolNombres,sexo,sexoFuente,rng):null;
     if(nombreConSexo&&nombreConSexo.nota&&nombreConSexo.nota!=='Nombre elegido manualmente.')
       detalles.push(nombreConSexo.nota);
+    var nombreDefinitivo=(nombreConSexo&&nombreConSexo.nombre)||
+      config.nombre || (nombreYlat&&nombreYlat.nombre) ||
+      escoger(esp.nombres || [],rng) || 'Sin nombre';
+    var registroNombre=!config.nombre&&poolNombres.find(function(item){
+      return item.nombre===nombreDefinitivo;
+    });
+    if(registroNombre&&registroNombre.tipo==='combinado')
+      detalles.push('Nombre propuesto con elementos de Ylat (corpus de referencia: '+
+        registroNombre.ambito+'). No identifica un personaje canónico.');
+    if(registroNombre&&registroNombre.tipo==='historico')
+      detalles.push('Forma del generador histórico de nombres de Ylat. '+
+        'No implica personaje canónico, sexo documental, Especie, cultura ni linaje.');
     if(sexoFuente&&coherencia&&sexo==='masculino'&&
       sexoFuente.especies_preferencia_femenino?.[especie])
       detalles.push('Varón excepcional de '+especie+
@@ -203,17 +298,22 @@
       detalles.push('Excepción narrativa elegida: '+ocupacion+
         ' se describe en femenino, pero el manual no declara prohibición mecánica.');
     return {
-      juego:tipo, nombre:(nombreConSexo&&nombreConSexo.nombre)||
-        config.nombre || (nombreYlat&&nombreYlat.nombre) ||
-        escoger(esp.nombres || [],rng) || 'Sin nombre', sexo:sexo,
+      juego:tipo, nombre:nombreDefinitivo, sexo:sexo,
       descripcion:ocupacion + ' · ' + especie, nivel:nivel,
       concepto:escoger(conceptos, rng) || 'Aventurero',
+      ...((alternativas||desarrolloHumano) ? {
+        herencia_dual: herenciaDual,
+        atributo_buen_desarrollo: desarrollo
+      } : {}),
       atributos:paresAtributos(ATTR_ND.map(function (a) {return at[a];}), ATTR_ND, favorito),
       recursos:[['Salud', salud + ' (d' + dadoSalud + ')'],
         ['Esfuerzo', esfuerzo], ['Movimiento', esp.movimiento]].concat(
+          esFantasia ? [['Potencia', potenciaDRS]] : [],
           esp.esencia ? [['Esencia', esp.esencia]] : []),
       capacidades:capacidades,
       competencias:(oc.competencias || []).slice(), equipo:equipo, origen:tipo,
+      ...(esFantasia?{saldo_mo:Number(compra.restante),
+        capital_inicial_mo:presupuesto}:{}),
       procedenciaOcupacion:(fuentes.ocupaciones||{})[ocupacion]||tipo,
       procedenciaEspecie:(fuentes.especies||{})[especie]||tipo,
       riqueza:riqueza,

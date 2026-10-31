@@ -1,0 +1,46 @@
+name: Validar Conjuros y Forja
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'data/conjuros-revisados-*.json'
+      - 'data/conjuros-magnitudes-literales.json'
+      - 'data/conjuros-danio-compuesto.json'
+      - 'data/catalogo-poderes.json'
+      - 'data/alcance-drs-y-dlc.json'
+      - 'data/especies.json'
+      - 'data/ocupaciones.json'
+      - 'docs/enciclopedia/78a-correcciones-geometria-conjuros-10.json'
+      - 'docs/enciclopedia/82a-correcciones-confirmadas-conjuros.json'
+      - 'assets/tooltips.js'
+      - 'assets/tooltip-ui.js'
+      - 'assets/spell-magnitudes.js'
+      - 'assets/app.js'
+      - 'tests/conjuros.js'
+      - 'tests/alcance-drs.js'
+      - 'tests/smoke.js'
+      - '.github/workflows/validar-conjuros.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+      - name: Comprobar sintaxis
+        run: |
+          node --check assets/app.js
+          node --check assets/tooltips.js
+          node --check assets/tooltip-ui.js
+          node --check assets/spell-magnitudes.js
+          node --check tests/conjuros.js
+          node --check tests/alcance-drs.js
+      - name: Probar generador y los 434 Conjuros
+        run: node tests/smoke.js

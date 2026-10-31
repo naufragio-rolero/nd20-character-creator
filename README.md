@@ -7,7 +7,8 @@ Generador estático para **Naufragio d20 (Fantasía, CiFi y Nocturna)** y **Dung
 - `data/tesauro-ylat.json` contiene **200 nombres únicos** obtenidos exclusivamente a partir de tres documentos seleccionados de la Biblioteca `/Ylat`: *Personages Niguaze.pdf*, *Cronicas de Niguaze  .pdf* y *Hilo Isla Tormenta 2019.pdf*.
 - **51 nombres documentados** indican el archivo y la página en que aparecen; son nombres de personajes existentes en esos textos.
 - **149 nombres combinados** reutilizan nombres y apellidos documentados para sugerir personajes nuevos. **No son personajes canónicos ni atribuciones de culturas o especies**.
-- En Nd20 Fantasía hay un selector para optar por **variantes inspiradas** (por defecto), **nombres documentados** o el **repertorio de la Especie**. El campo de nombre manual sigue teniendo prioridad. Otros sistemas conservan sus propios repertorios.
+- Nd20 Fantasía ofrece ahora por defecto el **banco histórico de 1422 formas únicas de Ylat** (1428 filas originales con seis duplicaciones), autorizado por el autor. También permite elegir las **149 combinaciones inspiradas**, el **repertorio de la Especie** y, solo en desarrollo, los **51 nombres documentados** para revisión interna. El paquete público **no contiene los 51 PNJ documentados**. El selector del **corpus de referencia** (Niguace, 116; Isla Tormenta, 33) se aplica exclusivamente a las combinaciones, **nunca al banco histórico**, que no atribuye cultura, sexo, linaje ni Especie. El nombre manual conserva prioridad. Véase [informe 105](docs/enciclopedia/105-generador-historico-nombres-ylat.md).
+- **Auditoría de fuentes Ylat:** además de los tres PDF de la Biblioteca `/Ylat` (133 páginas), se han consultado los **Google Docs conectados** de Zonas, Lenguas, Biografías, Historia de Shadaleen y Enciclopedia, y se ha inspeccionado el generador histórico Excel de Ylat (**1428 registros; 1422 valores distintos**). Niguace e Isla Tormenta indican **corpus narrativos**, no lugares de nacimiento de todos los personajes. Por autorización expresa del autor, el generador **también incorpora las 1428 filas históricas del Excel** en desarrollo y **1422 formas únicas en el paquete público**; todavía no las clasifica culturalmente ni por sexo. [Informe 103](docs/enciclopedia/103-auditoria-onomastica-biblioteca-ylat.md) e [informe 104](docs/enciclopedia/104-fuentes-google-docs-y-generador-historico-ylat.md).
 - Los Talentos documentados de las ocupaciones ampliadas se muestran ahora en **Talentos y capacidades** en vez de Observaciones. Si la adquisición depende del Nivel o de una elección todavía no automatizada, aparece indicado para evitar otorgar capacidades indebidamente.
 - **Hurí:** Encanto y Defensa sin armadura aparecen como Talentos; la progresión de Magia tántrica se representa por cantidad de artes conocidas (1 en niveles 1–5, 2 en 6–11, 3 en 12–17 y 4 desde 18), junto con su Blindaje sin armadura. El documento de Ocupaciones **no proporciona nombres ni efectos de las artes tántricas**; el generador las identifica como pendientes, sin inventarlas.
 
@@ -69,17 +70,43 @@ Los modos **Rápido** y **Personalizado** aplican las nuevas progresiones cuando
 - Varias tarjetas simultáneas, copia al portapapeles y exportación general a texto.
 - Semilla opcional reproducible.
 
-## Publicar en GitHub Pages
+## GitHub Pages — publicación segura, exclusivamente DRS
 
-1. Integra la rama de la web en la rama principal (**main**).
-2. Abre **Settings → Pages** en GitHub.
-3. En **Build and deployment**, elige **Deploy from a branch**.
-4. Selecciona **main** y la carpeta **/(root)** y guarda.
+La Forja completa de desarrollo contiene material adicional de Fantasía, CiFi y
+Nocturna, además de Dungeon Hack y documentación editorial. **No publicar jamás
+la raíz del repositorio, ni activar «Deploy from a branch» hacia /(root).**
+Los archivos JSON de desarrollo contienen material que no está autorizado para
+publicación.
 
-Dirección prevista tras habilitar Pages:
+La **única publicación LIVE autorizada** se gestiona desde
+`.github/workflows/forja-live.yml` en `main`: fija un SHA validado,
+construye `dist/public-drs` mediante `scripts/crear-paquete-drs.js`,
+comprueba la exclusión física de los suplementos y ejecuta las pruebas de
+regresión antes de subir exclusivamente el paquete depurado a Pages.
+El workflow no despliega la raíz, y las PR no alteran automáticamente el SHA
+público.
+
+Comprobación local del paquete DRS (Node.js 24):
+
+    node scripts/crear-paquete-drs.js
+    node scripts/comprobar-publicacion-drs.js dist/public-drs
+    node tests/paquete-publico-drs.js
+    node tests/alcance-drs.js
+    node tests/smoke.js
+
+Los 64 Conjuros DRS se contrastan con sus huellas literales; las fichas
+adicionales quedan fuera del paquete. La versión de desarrollo nunca debe
+servirse como web pública. Los workflows de pruebas verifican también el
+comportamiento en Chrome, Firefox y WebKit; solo las verificaciones y la
+promoción expresa de un SHA autorizan un nuevo despliegue.
+
+URL de la publicación DRS:
 https://naufragio-rolero.github.io/nd20-character-creator/
 
-El punto de entrada es **index.html** en la raíz del repositorio. Los recursos se solicitan con rutas relativas, por lo que también funciona bajo el subdirectorio de Pages.
+Las **1422 formas únicas del repertorio histórico Ylat** y las
+**149 combinaciones autorizadas** pueden utilizarse en el paquete DRS,
+pero las 51 identidades documentales de PNJ siguen excluidas, de acuerdo
+con los informes 102–105 de `docs/enciclopedia`.
 
 ### Probar en local
 
@@ -95,7 +122,7 @@ Con Node.js instalado, ejecuta:
 
     node tests/smoke.js
 
-No hay dependencias de npm ni flujos de GitHub Actions asociados a estas pruebas.
+La web no requiere dependencias npm en tiempo de ejecución; los workflows de GitHub Actions validan el motor, la interfaz y el paquete público.
 
 ## Archivos
 
@@ -110,7 +137,7 @@ No hay dependencias de npm ni flujos de GitHub Actions asociados a estas pruebas
 
 ## Límites y decisiones de diseño
 
-- **Conjuros, Técnicas y otros Poderes:** se muestran las referencias almacenadas, pero sus tablas de progreso y elecciones no están implementadas. No se inventan Poderes.
+- **Conjuros, Técnicas y otros Poderes:** existen selecciones y progresiones documentadas; las capacidades no verificadas siguen identificadas como pendientes y no se inventan efectos ni reglas.
 - **Nd20 CiFi:** la riqueza inicial en créditos queda pendiente de una regla confirmada; se señala en la ficha.
 - **Nd20 Nocturna:** el manual consultado está en versión de trabajo. Se generan sus ocho especies y ocho ocupaciones efectivamente desarrolladas, sin inventar las dos restantes mencionadas en el texto introductorio. Solo se aplica automáticamente la elección de Talento inicial; otras elecciones por Nivel y Poderes deben consultarse en el documento.
 - **Ampliación Fantasía:** los Talentos enumerados se ofrecen como referencias documentales, no todos como concesiones automáticas de Nivel 1. Sus requisitos, tiempos y tablas de progreso deben comprobarse en el manual. No se inventan nombres culturales, equipamiento inicial ni Poderes para las entradas nuevas.
@@ -123,7 +150,17 @@ No hay dependencias de npm ni flujos de GitHub Actions asociados a estas pruebas
 
 ## Código heredado
 
-**app.py**, **create_char.py**, **templates/**, **static/** y **requirements.txt** se conservan temporalmente para no destruir la aplicación Flask anterior. **GitHub Pages no los ejecuta:** el nuevo index.html es completamente independiente. Una limpieza futura puede trasladarlos a una rama de archivo.
+El generador Flask anterior (`app.py`, `create_char.py`,
+`templates/`, `static/` y `requirements.txt`) fue retirado del
+árbol activo el 31/10/2026 tras verificar que la Forja funciona
+íntegramente con JavaScript estático. Se conserva en el historial de Git
+para consulta o recuperación; no es una dependencia de la web.
+
+Los scripts de `scripts/` y las suites de `tests/` son componentes
+**vigentes**, necesarios para preparar y verificar distribuciones seguras.
+La herramienta `control.html` y sus archivos `assets/control-*`
+siguen siendo parte del entorno editorial, aunque no se distribuyen en
+el paquete público DRS.
 
 ## Autoría y licencias
 
@@ -259,6 +296,38 @@ por decisión expresa del autor; no debe deducirse que estén pendientes
 de incorporarse por analogía con otros sistemas.
 
 
+### Compras individuales del DRS y prueba real en navegador
+
+Las fichas de **Naufragio d20 Fantasía** con capital disponible
+permiten comprar individualmente los **41 útiles y 2 focos** del DRS.
+El editor muestra el precio unitario, la cantidad, el Nivel de
+Antídoto/Veneno, el importe del carrito y el saldo restante.
+**Cancelar no modifica la ficha**; **Confirmar** comprueba el
+presupuesto y actualiza el inventario, el saldo, la copia de la
+ficha y su exportación. Cada línea dispone del botón **Quitar**
+para corregir el carrito sin rehacerlo. Pulsar Intro en Cantidad o
+Nivel añade el artículo, sin confirmar accidentalmente la compra.
+
+Por decisión editorial, el útil «Almádena» de 2 mo se presenta como
+**Martillo de campamento** y conserva su uso como Clava. La
+**Almádena** de 60 mo sigue siendo el arma a dos manos.
+
+El flujo se verifica automáticamente en **Google Chrome real**, mediante
+`node tests/browser-compras.js`, además de las pruebas unitarias de
+Node. La ejecución en GitHub Actions comprueba generación, compra y
+cancelación, protección frente a sobrepresupuestos, independencia de
+fichas, copia/exportación, foco del teclado y ancho móvil. También se
+prueban **Firefox (Gecko)** y **WebKit** mediante
+`tests/browser-compatibilidad.js`: Playwright solo se instala en el
+entorno de CI, no en la aplicación. WebKit no equivale a probar Safari
+directamente en macOS o iOS. Estas pruebas no sustituyen una auditoría
+completa de accesibilidad.
+
+Véanse `docs/enciclopedia/97-pruebas-navegador-compras-drs.md` y
+`docs/enciclopedia/99-compatibilidad-y-seguridad-publicacion-drs.md`.
+**Los tres motores funcionando no autoriza a publicar la raíz**: consultar
+las restricciones de seguridad de la sección «GitHub Pages — publicación segura».
+
 ### Fichas emergentes (Talentos, Poderes y Objetos)
 
 Los nombres consultables aparecen subrayados en las fichas. Al situar el
@@ -268,11 +337,25 @@ cuando existen. En el editor Personalizado, el botón «Ver ficha» permite
 consultar la opción seleccionada (los elementos de un selector nativo no
 ofrecen hover fiable en todos los navegadores).
 
-Se incorpora el archivo data/fichas-documentales.json con una primera
+**Corrección de consulta (31/10/2026):** los Talentos de Especie y
+Ocupación toman ahora **su efecto completo de `talentos_descripcion`**
+en los catálogos de origen, sin depender de que exista una glosa abreviada
+adicional. Por ejemplo, «Baja estatura», «¡Sálvese quien pueda!» y
+«Recuperación» se consultan pulsando su nombre y el icono ⓘ en la tarjeta.
+La ficha coloca las condiciones de Técnicas junto a Poderes, las
+advertencias de equipo junto al equipo y el contexto de nombre y
+envejecimiento en un apartado plegable. Las descripciones accesibles en
+el popup ya no se **repiten al final**; si una Habilidad no tiene ficha
+documental, se conserva su texto en la tarjeta, sin inventar efectos.
+El modelo de personaje y la exportación de texto conservan todas las
+observaciones originales.
+
+Se incorpora el archivo `data/fichas-documentales.json` con una primera
 selección de descripciones contrastadas en los manuales del proyecto.
 Cuando falte una descripción, se indica expresamente y no se improvisan
-efectos. El índice se genera en assets/tooltips.js y la interfaz se controla
-en assets/tooltip-ui.js. Ninguna ficha requiere una consulta a red externa.
+efectos. El índice se genera en `assets/tooltips.js` y la interfaz se
+controla en `assets/tooltip-ui.js`. Ninguna ficha requiere una consulta
+a red externa.
 
 
 ### Sexo y coherencia narrativa del personaje

@@ -10,7 +10,8 @@
   function opcionesConjuros(catalogo,lista,circulo){
     var nombres=(lista||[]).reduce(function(a,x){return a.concat(x);},[]);
     return catalogo.conjuros.filter(function(s){
-      return s.circulo<=circulo && nombres.indexOf(s.nombre)!==-1;
+      return s.origen==="Nd20" && s.circulo<=circulo &&
+        nombres.indexOf(s.nombre)!==-1;
     }).map(function(x){return {id:x.id,nombre:x.nombre,circulo:x.circulo,escuelas:x.escuelas,origen:x.origen};});
   }
   function habilidadesNocturna(arr,especie){
@@ -76,12 +77,23 @@
     }
     return {comprobados:comprobados,faltantes:faltantes};
   }
-  function tecnicas(catalogo,categorias,juego,ocupacion){
+  function tecnicas(catalogo,categorias,juego,ocupacion,fuentes){
     // Sin categorías restrictivas declaradas: todas las Técnicas del sistema.
     var habilitadas=Array.isArray(categorias)&&categorias.length?categorias:null;
+    // Sin selección expresa, las cuatro Ocupaciones DRS solo acceden al
+    // catálogo DRS; las ampliaciones conservan sus propias Técnicas para
+    // pruebas y futuros DLC. En la web Forja 1.0 envía fuentes:['DRS'].
+    var basicas=['Clérigo','Guerrero','Mago','Ladrón'];
+    var habilitarAmpliacion=Array.isArray(fuentes)?
+      fuentes.some(function(f){return f!=='DRS';}):
+      !basicas.includes(ocupacion);
     return catalogo.tecnicas.filter(function(t){
       if(habilitadas&&habilitadas.indexOf(t.categoria)<0)return false;
-      if(juego==="nd20" && /CiFi$/.test(t.fuente))return false;
+      // Un suplemento no debe entrar por compartir categoría con el DRS;
+      // las Ocupaciones ampliadas sí lo necesitan en sus propias pruebas.
+      if(juego==="nd20" && t.fuente!=="Naufragio d20 DRS" &&
+          !(habilitarAmpliacion&&t.fuente==="Naufragio d20 Ocupaciones"))
+        return false;
       if(juego==="nd20_cifi" && /Ocupaciones$/.test(t.fuente))return false;
       // Los requisitos de Atributo y equipo son para el uso; una Ocupación específica sí restringe.
       var req=t.requisito||"";
@@ -157,7 +169,7 @@
     if(tecnica && nombre!=="Diletante"){
       var categorias=nombre==="Adalid"?
         ["Disciplina","Fuerza bruta","Preternatural"]:tabla.categorias||[];
-      var pool=tecnicas(catalogo,categorias,config.juego,nombre);
+      var pool=tecnicas(catalogo,categorias,config.juego,nombre,config.fuentes);
       if(nombre==="Pugilista")
         pool=pool.filter(function(t){return !/arma\s+(?:a distancia|cuerpo a cuerpo)|escudo|arrojadiza/i.test(t.requisito||"");});
       if(nombre==="Celador")
@@ -323,6 +335,30 @@
     var rama=juego==="nd20"?"fantasia":juego==="nd20_cifi"?"cifi":"nocturna";
     var p=(progresiones[rama]||{})[ocupacion];
     if(juego==="nd20"){
+      // La generación rápida resuelve Herencia dual en las reglas; en el
+      // editor cada alternativa de Buen desarrollo especifica su Atributo,
+      // para recalcular la progresión completa desde Nivel 1.
+      var perfilEspecie=datos.especies[especie]||{};
+      var alternativas=Array.isArray(perfilEspecie.herencia_dual)?
+        perfilEspecie.herencia_dual:null;
+      var herenciaAlternativa=alternativas?
+        alternativas.find(function(t){return t!=="Buen desarrollo";}):null;
+      if(especie==="Humano común" && config.modo==="personalizado"){
+        pasos.push(nuevo("buen-desarrollo","Buen desarrollo · Nivel 1",
+          "buen_desarrollo",1,
+          ["Fuerza","Agilidad","Resistencia","Mente","Intuición","Presencia"]
+            .map(function(attr){return {id:attr,nombre:"+1 VA en "+attr};})));
+      }
+      if(herenciaAlternativa && config.modo==="personalizado"){
+        var opcionesHerencia=[{id:herenciaAlternativa,nombre:herenciaAlternativa}];
+        ["Fuerza","Agilidad","Resistencia","Mente","Intuición","Presencia"]
+          .forEach(function(attr){
+            opcionesHerencia.push({id:"Buen desarrollo:"+attr,
+              nombre:"Buen desarrollo (+1 VA en "+attr+")"});
+          });
+        pasos.push(nuevo("herencia-dual","Herencia dual · Nivel 1",
+          "herencia_dual",1,opcionesHerencia));
+      }
       var perfil=datos.ocupaciones[ocupacion]||{};
       if((perfil.talentos_elegir||[]).length){
         pasos.push(nuevo("talento-ocupacion-inicial",
@@ -375,6 +411,21 @@
       return {pasos:pasos,avisos:avisos,recursos:recursos,fuente:"Naufragio d20 · Suplementos"};
     }
     var f=fila(p,nivel);
+    var conjurosAutomaticos=[];
+    if(juego==="nd20"&&ocupacion==="Clérigo"){
+      // El DRS concede automáticamente todos los Conjuros del Círculo
+      // desbloqueado al Clérigo, aunque prepare solamente sus Espacios.
+      for(var cCl=1;cCl<=8;cCl++){
+        if(!f[cCl-1])continue;
+        conjurosAutomaticos=conjurosAutomaticos.concat(
+          opcionesConjuros(catalogo,
+            [catalogo.listas_drs["Clérigo"]?.[cCl]||[]],cCl)
+            .filter(function(x){return x.circulo===cCl;})
+        );
+      }
+      // Marca del dador oscuro: se adopta Círculo 5 por decisión del autor,
+      // siguiendo su ficha individual en el DRS, no el índice clerical C4.
+    }
     if(juego==="nd20"&&ocupacion==="Guerrero"){
       pasos.push(nuevo("talento-guerrero","Talento de Guerrero · Nivel 1","talento",1,
         [{id:"Brío musculoso",nombre:"Brío musculoso"},{id:"Sacrificio de escudo",nombre:"Sacrificio de escudo"}]));
@@ -397,10 +448,13 @@
     if(p.tipo==="tecnicas"||p.tipo==="argucias_y_tecnicas"||p.tipo==="scripts_y_tecnicas"){
       var count=p.tipo==="tecnicas"?(ocupacion==="Eudemonista"?Number(f[2]):Number(f[0])):Number(f[0]);
       if(count>0){
-        var poolTec=tecnicas(catalogo,p.categorias,juego,ocupacion);
+        var poolTec=tecnicas(catalogo,p.categorias,juego,ocupacion,config.fuentes);
         if(count>poolTec.length)avisos.push(
           "La progresión permite "+count+" Técnicas, pero el catálogo compatible contiene "+
-          poolTec.length+". Faltan "+(count-poolTec.length)+" opciones; no se inventan.");
+          poolTec.length+". Faltan "+(count-poolTec.length)+" opciones; no se inventan."+
+          (juego==="nd20"&&ocupacion==="Ladrón"?
+            " Esas plazas podrán cubrirse con Técnicas de suplementos gratuitos"+
+            " cuando sus fuentes se publiquen y habiliten.":""));
         if(poolTec.length)pasos.push(nuevo("tecnicas","Técnicas conocidas","tecnica",
           Math.min(count,poolTec.length),poolTec));
       }
@@ -416,7 +470,11 @@
       avisos.push("Psion: el manual exige aprender mediante 1d20. El modo Personalizado respeta esta tirada.");
     }
     if(p.tipo==="sequito")avisos.push("Diplomático: sus Asistentes y Guardaespaldas siguen la tabla de progreso; no son Poderes seleccionables.");
-    return {pasos:pasos,avisos:avisos,recursos:recursos,fuente:progresiones.fuentes[rama]};
+    return {pasos:pasos,avisos:avisos,recursos:recursos,
+      fuente:progresiones.fuentes[rama],
+      conjuros_automaticos:conjurosAutomaticos,
+      talentos_ocupacion: juego==="nd20" ?
+        (datos.ocupaciones[ocupacion]?.talentos_descripcion||{}) : {}};
   }
   function disponibles(paso,selecciones){
     var lista=paso.opciones||[];
@@ -536,7 +594,11 @@
   function aplicar(personaje,plan,resultado){
     personaje.capacidades=personaje.capacidades||[];
     personaje.notas=personaje.notas||[];
-    personaje.poderes=[];
+    personaje.poderes=(plan.conjuros_automaticos||[]).map(function(x){
+      return nombreEtiquetado("conjuro_conocido","Conjuros del Clérigo",x.nombre)+
+        " (C"+x.circulo+")"+origenConjuro("conjuro_conocido",
+          "Conjuros del Clérigo",x.origen);
+    });
     personaje.conjuros_preparados=[];
     resultado.elementos.forEach(function(x){
       var esTecnica=x.tipo==="tecnica"||
@@ -549,7 +611,17 @@
               return a.atributo+" VA "+a.requerido+"+ (actual VA "+a.va+")";
             }).join("; ")+".");
       }
-      if(x.tipo==="talento"){
+      if(x.tipo==="buen_desarrollo"){
+        if(personaje.atributo_buen_desarrollo!==x.id)
+          throw Error("Buen desarrollo: se debe reconstruir la ficha desde Nivel 1 antes de aplicar Poderes.");
+      }else if(x.tipo==="herencia_dual"){
+        var parte=x.id.split(":");
+        var talento=parte[0],atributo=parte.length===2?parte[1]:null;
+        if(personaje.herencia_dual!==talento ||
+            (talento==="Buen desarrollo"&&personaje.atributo_buen_desarrollo!==atributo))
+          throw Error("Herencia dual: se debe reconstruir la ficha desde Nivel 1 antes de aplicar Poderes.");
+        // El motor de creación ya ha incluido el Talento y la mejora de VA.
+      }else if(x.tipo==="talento"){
         if(!personaje.capacidades.includes(x.nombre))personaje.capacidades.push(x.nombre);
       }else if(x.tipo==="talento_ajeno"){
         personaje.capacidades.push(x.nombre+" (Diletante; "+x.info+")");
@@ -577,6 +649,28 @@
       else personaje.poderes.push(nombreEtiquetado(x.tipo,x.etapa,x.nombre)+
         (x.circulo?" (C"+x.circulo+")":"")+origenConjuro(x.tipo,x.etapa,x.origen));
     });
+    // Los Talentos concedidos después de la creación provisional también
+    // necesitan una descripción documental, no solo su nombre en la ficha.
+    if(personaje.juego==="Naufragio d20 · Fantasía"&&plan.talentos_ocupacion){
+      Object.keys(plan.talentos_ocupacion).forEach(function(talento){
+        var encabezado='Talento de Ocupación — '+talento+': ';
+        if(personaje.capacidades.includes(talento)&&
+            !personaje.notas.some(function(n){return n.startsWith(encabezado);}))
+          personaje.notas.push(encabezado+plan.talentos_ocupacion[talento]);
+      });
+    }
+    // El editor aplica la elección del Guerrero después de crear la ficha.
+    // Recalcular Potencia con el Talento efectivamente escogido; no conceder
+    // la mejora de Brío musculoso a quien elige Sacrificio de escudo.
+    if(personaje.juego==="Naufragio d20 · Fantasía" &&
+        personaje.descripcion.startsWith("Guerrero · ")){
+      var n=Number(personaje.nivel)||1;
+      var brio=personaje.capacidades.includes("Brío musculoso");
+      var potencia=1+(brio?(n>=10?1:0)+(n>=22?1:0):0);
+      var idxPotencia=personaje.recursos.findIndex(function(x){return x[0]==="Potencia";});
+      if(idxPotencia>=0)personaje.recursos[idxPotencia]=["Potencia",potencia];
+      else personaje.recursos.push(["Potencia",potencia]);
+    }
     (plan.recursos||[]).forEach(function(r){
       var idx=personaje.recursos.findIndex(function(v){return v[0]===r[0];});
       if(idx>=0)personaje.recursos[idx]=r;else personaje.recursos.push(r);

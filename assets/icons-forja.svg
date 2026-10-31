@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Forja 1.1: iconos originales monocromos, geometría 24x24, sin fuentes ni dependencias. -->
+  <symbol id="esp-elfo" viewBox="0 0 24 24">
+    <path d="M12 21c0-7 4-13 9-18-11 1-18 8-17 15 1 5 6 5 8 3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="m5 19 12-12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="esp-enano" viewBox="0 0 24 24">
+    <path d="M4 10h16l-2 9H6l-2-9Zm3 0 1-5h8l1 5M10 14h4M9 19l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="esp-humano" viewBox="0 0 24 24">
+    <circle cx="12" cy="7.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <path d="M4.5 21v-2.5a7.5 7.5 0 0 1 15 0V21H4.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="esp-mediano" viewBox="0 0 24 24">
+    <path d="M4 14 12 6l8 8v7H4v-7ZM9 21v-6h6v6M3 14l9-9 9 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="esp-gnomo" viewBox="0 0 24 24">
+    <path d="M5 11a7 7 0 0 1 14 0H5ZM9 11v9h6v-9M12 4V2M5 20h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="esp-semielfo" viewBox="0 0 24 24">
+    <path d="M12 21V4M12 14c-5 0-8-4-8-9 5 0 8 3 8 9ZM12 18c5 0 8-4 8-9-5 0-8 3-8 9Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="esp-orco" viewBox="0 0 24 24">
+    <path d="M4 7 12 3l8 4v7l-8 7-8-7V7ZM8 12l2 2 2-2 2 2 2-2M8 8h.01M16 8h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="esp-semiorco" viewBox="0 0 24 24">
+    <path d="M12 3 4 7v7l8 7 8-7V7l-8-4ZM12 3v18M7 11l2 2 2-2M14 11l2 2 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ocu-clerigo" viewBox="0 0 24 24">
+    <path d="M12 3 4 7v5c0 5 4 8 8 10 4-2 8-5 8-10V7l-8-4ZM12 8v10M8 12h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ocu-guerrero" viewBox="0 0 24 24">
+    <path d="m6 4 14 14-2 2L4 6l2-2ZM12 10l-3 3M5 18l3 3M4 20l3-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="ocu-mago" viewBox="0 0 24 24">
+    <path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2ZM5 5h.01M19 5h.01M5 19h.01M19 19h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="ocu-ladron" viewBox="0 0 24 24">
+    <circle cx="8" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <path d="m11 11 10 10m-5-5 3-3m0 6 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
