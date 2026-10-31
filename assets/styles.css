@@ -64,6 +64,12 @@ select.selector-alternativo{position:absolute;width:1px;height:1px;
   clip-path:inset(50%);overflow:hidden;white-space:nowrap}
 @media(max-width:600px){.selector-visual{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:360px){.selector-visual{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pie-dialogo-eleccion{display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;position:sticky;bottom:-1.4rem;background:var(--fondo2);
+  border-top:1px solid var(--borde);padding:1rem 0 .4rem;margin-top:1rem}
+.pie-dialogo-eleccion p{font-size:.8rem;color:var(--secundario);margin:0}
+.pie-dialogo-eleccion button{min-height:42px}
+@media(max-width:500px){.pie-dialogo-eleccion{flex-direction:column;align-items:stretch}}
 .configuracion-avanzada{margin:.7rem 0 1rem;padding:.85rem;
   border:1px solid var(--borde);border-radius:9px;font-size:.8rem}
 .configuracion-avanzada summary{font-weight:750;cursor:pointer}
