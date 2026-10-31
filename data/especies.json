@@ -126,6 +126,7 @@
 	},
 	"Semielfo": {
 		"talentos": ["Ánimo", "Herencia dual (SE)"],
+		"herencia_dual": ["Buen desarrollo","Linaje feérico"],
 		"conceptos": [
 			"Diplomático de dos mundos", "Explorador de fronteras", "Buscador de respuestas",
 			"Elegido de dos razas", "Guardián de la paz", "Defensor de la armonía",
@@ -174,6 +175,7 @@
 	},
 	"Semiorco": {
 		"talentos": ["Sed de sangre", "Herencia dual (SO)"],
+		"herencia_dual": ["Buen desarrollo","Ira interna"],
 		"conceptos": [
 			"Campeón de la lucha libre", "Merodeador solitario", "Guardián de las ruinas",
 			"Jefe de la manada", "Ladrón de tesoros", "Cazador de monstruos",
