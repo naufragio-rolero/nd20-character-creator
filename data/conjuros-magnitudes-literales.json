@@ -524,7 +524,7 @@
       "nombre_tomo": "Hálito de ultratumba",
       "estado": "magnitudes_literales_verificadas_no_ejecucion_completa",
       "evidencia_literal": "1d6 de daño por veneno e impío por cada uno de tus Niveles",
-      "disparador_y_limites": "Un único grupo de dados mixto, no dos grupos. Enfermedad solo tras Probabilidad 14+; no resolver automáticamente.",
+      "disparador_y_limites": "La fuente dice 1d6 por Nivel «por veneno e impío». No se decide si ambos tipos comparten la misma tirada ni cómo aplicar resistencias. Enfermedad solo tras Probabilidad 14+; no resolver automáticamente.",
       "magnitudes": [
         {
           "clave": "danio_mixto",
@@ -533,7 +533,7 @@
             1,
             6
           ],
-          "unidad": "Daño mixto veneno e impío"
+          "unidad": "Expresión de daño por veneno e impío; distribución pendiente"
         },
         {
           "clave": "superficie_cono_m2",
