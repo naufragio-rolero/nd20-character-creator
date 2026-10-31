@@ -69,17 +69,35 @@ Los modos **Rápido** y **Personalizado** aplican las nuevas progresiones cuando
 - Varias tarjetas simultáneas, copia al portapapeles y exportación general a texto.
 - Semilla opcional reproducible.
 
-## Publicar en GitHub Pages
+## Publicar en GitHub Pages — BLOQUEADO para la edición DRS 1.0
 
-1. Integra la rama de la web en la rama principal (**main**).
-2. Abre **Settings → Pages** en GitHub.
-3. En **Build and deployment**, elige **Deploy from a branch**.
-4. Selecciona **main** y la carpeta **/(root)** y guarda.
+**No actives todavía «Deploy from a branch → main → /(root)».** La
+rama de desarrollo contiene los catálogos de los futuros suplementos de
+Fantasía. Aunque los selectores de Forja 1.0 solo muestran el DRS,
+`index.html` solicita hoy archivos JSON que **incluyen registros de DLC**.
+En GitHub Pages, un JSON servido es descargable aunque su contenido esté
+oculto en los formularios. Publicar la raíz filtraría estos datos.
 
-Dirección prevista tras habilitar Pages:
+**Control de seguridad** (tiene que terminar sin errores **sobre el paquete
+final que se vaya a desplegar**, no sobre el repositorio de trabajo):
+
+    node scripts/comprobar-publicacion-drs.js CARPETA_PUBLICA
+
+En la raíz actual este comando **debe fallar** y explicar los catálogos
+expuestos. Se puede ejecutar con `--report` para inventariar las alertas
+sin bloquear otras pruebas; eso **no certifica** que la carpeta sea publicable.
+
+Para desbloquear la versión pública hará falta un paquete estático
+preparado específicamente para el núcleo DRS, retirando de **todos los
+JSON servidos** el material fantástico no publicado y asegurando que la
+aplicación funcione sin consultarlo. Ese paquete requerirá pruebas E2E y
+revisión editorial. **No se ha desplegado ni habilitado Pages.**
+
+Dirección prevista cuando se autorice la publicación:
 https://naufragio-rolero.github.io/nd20-character-creator/
 
-El punto de entrada es **index.html** en la raíz del repositorio. Los recursos se solicitan con rutas relativas, por lo que también funciona bajo el subdirectorio de Pages.
+Los recursos usan rutas relativas, por lo que una futura distribución
+depurada podrá funcionar bajo el subdirectorio de Pages.
 
 ### Probar en local
 
