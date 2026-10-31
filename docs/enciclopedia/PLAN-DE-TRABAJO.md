@@ -1,5 +1,7 @@
 # Enciclopedia de Talentos, Poderes y Objetos — Plan de trabajo
 
+> **Estado vigente (01/11/2026):** PR #3 y las sucesivas de Forja 1.1–1.3 ya fueron fusionadas. Los **24 vínculos DRS** (15 Especies, 9 Ocupaciones) disponen de ventanas compactas y textos literales publicados en Forja 1.3. La [PR #9](https://github.com/naufragio-rolero/nd20-character-creator/pull/9) de auditoría y procedencia de Herencia dual está fusionada y cuenta con cuatro suites de CI satisfactorias; su promoción pública se gestiona por separado. Véanse [diario de auditoría](109-diario-auditoria-talentos-drs.md), [huellas fuente](109a-huellas-talentos-drs.json) y [cotejador reproducible](../../scripts/cotejar-talentos-drs.py). Las menciones inferiores a «PR abierta» y «Forja sin cambios» son **instantáneas históricas de octubre**, no estado actual. La validación documental **no equivale** a automatizar mecánicamente cada Talento.
+
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-10-29.  
 **Estado global:** Talentos de Especies: **115/115 relaciones cotejadas documentalmente**; Talentos de Ocupaciones: **162/162 transcritos** (CSV histórico de 163 conservado; «Estilos de gladiatoria» reclasificado como Poder). Nocturna: **57/57 textos de Talentos cotejados literalmente**. Eidolas: **32/32 fichas vigentes, 96 modalidades de efecto**. Quedan discrepancias editoriales, progresiones, normalización mecánica e integración. **PR abierta, sin fusionar; Forja sin cambios de lógica.**  
