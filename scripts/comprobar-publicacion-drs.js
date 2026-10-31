@@ -32,6 +32,7 @@ const requeridos=[
   'data/especies.json','data/ocupaciones.json',
   'data/especies_cifi.json','data/ocupaciones_cifi.json',
   'data/catalogo-ampliado.json','data/tesauro-ylat.json',
+  'data/nombres-historicos-ylat.json',
   'data/sexo-personajes.json','data/catalogo-poderes.json',
   'data/conjuros-revisados-001-225.json',
   'data/conjuros-revisados-226-434.json',
@@ -178,6 +179,29 @@ if(nombresYlat){
   const autorizados=tesauroMaestro.entradas.filter(x=>x.tipo==='combinado');
   afirmar(JSON.stringify(nombres)!==JSON.stringify(autorizados),
     'Los nombres publicados difieren de las 149 combinaciones originales autorizadas.');
+}
+// El repertorio histórico es una fuente editorial expresamente autorizada,
+// pero el candidato solo sirve 1422 formas únicas (1428 filas en origen).
+// Una copia de un archivo incorrecto no puede pasar por una lista aprobada.
+const historicos=dato('data/nombres-historicos-ylat.json');
+if(historicos){
+  const registros=historicos.entradas||[];
+  const original=JSON.parse(fs.readFileSync(
+    path.join(__dirname,'..','data','nombres-historicos-ylat.json'),'utf8'));
+  const vistos=new Set();
+  const esperados=original.entradas.filter(x=>{
+    if(vistos.has(x.nombre))return false;
+    vistos.add(x.nombre);
+    return true;
+  });
+  afirmar(original.entradas.length!==1428||esperados.length!==1422,
+    'La fuente histórica de Ylat requiere 1428 filas y 1422 formas únicas.');
+  afirmar(registros.length!==1422||
+    new Set(registros.map(x=>x.id)).size!==1422||
+    new Set(registros.map(x=>x.nombre)).size!==1422,
+    'El banco histórico público debe contener 1422 formas/identificadores únicos.');
+  afirmar(JSON.stringify(registros)!==JSON.stringify(esperados),
+    'El banco histórico público difiere de las formas autorizadas en la fuente original.');
 }
 if(alertas.length){
   console.error('RIESGO DE PUBLICACIÓN: la selección visual DRS NO aísla estos datos.');
