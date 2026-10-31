@@ -265,3 +265,33 @@ for(const [especie,opciones] of [
     'La Herencia dual no puede darse por aplicada: '+especie);
 }
 console.log('OK · Auditoría normativa DRS: 8 perfiles de Especie, 4 Ocupaciones y regresiones de elecciones.');
+
+
+/* Compras por Competencia del DRS: escudos y armadura pesada del Clérigo. */
+const equipamientoDRS=require('../assets/equipment.js');
+const catalogoEquipamiento=leer('equipo-inicial.json');
+for(const ocupacion of manifest.drs.ocupaciones){
+  assert.ok(Array.isArray(ocupaciones[ocupacion].competencias)&&
+    ocupaciones[ocupacion].competencias.length>0,
+    'Las Competencias deben constar literalmente en ficha: '+ocupacion);
+  const pj=reglas.crearNd20(fuenteBase,{
+    juego:'nd20',nivel:1,ocupacion,especie:'Humano común',
+    aplazarElecciones:true},reglas.aleatorioSemilla('Competencias/'+ocupacion));
+  assert.deepEqual(pj.competencias,ocupaciones[ocupacion].competencias,
+    'Las Competencias se exponen en ficha: '+ocupacion);
+}
+const comprarDRS=(ocupacion,nivel)=>equipamientoDRS.compraInicial(
+  ocupaciones[ocupacion],ocupacion,'nd20',catalogoEquipamiento,1000,()=>0.999,nivel).equipo;
+const clérigoNv11=comprarDRS('Clérigo',11);
+const clérigoNv12=comprarDRS('Clérigo',12);
+assert.ok(!clérigoNv11.includes('Cota de mallas'),
+  'No comprar armadura pesada antes del Nivel 12');
+assert.ok(clérigoNv12.includes('Cota de mallas'),
+  'Clérigo desbloquea las armaduras pesadas desde Nivel 12');
+for(const ocupacion of ['Clérigo','Guerrero'])
+  assert.ok(comprarDRS(ocupacion,12).some(x=>/^Escudo /.test(x)),
+    'Competencia con escudos del DRS: '+ocupacion);
+for(const ocupacion of ['Mago','Ladrón'])
+  assert.ok(!comprarDRS(ocupacion,12).some(x=>/^Escudo /.test(x)),
+    'Mago y Ladrón no pueden equipar escudos: '+ocupacion);
+console.log('OK · Compra inicial DRS: competencias de 4 Ocupaciones, escudos y protección por Nivel.');
