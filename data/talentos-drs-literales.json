@@ -1,0 +1,386 @@
+{
+  "version": "1.0",
+  "fuente": "NaufragioD20DRS.docx",
+  "estado": "transcripción cotejada, presentación exclusivamente informativa; sin automatizar efectos",
+  "recuento": {
+    "especies": 15,
+    "ocupaciones": 9,
+    "total": 24
+  },
+  "notas": [
+    "Las dos Herencia dual conservan propietario y texto distintos.",
+    "Los textos incluyen erratas presentes en el documento original y no se corrigen silenciosamente.",
+    "Brío musculoso y Sacrificio de escudo son alternativas exclusivas; el selector sigue resolviéndolas con las reglas existentes."
+  ],
+  "registros": [
+    {
+      "id": "talento-drs-especie-elfo-agreste-linaje-feerico",
+      "tipo_origen": "Especie",
+      "propietario": "Elfo agreste",
+      "nombre": "Linaje feérico",
+      "titulo": "Linaje feérico",
+      "efecto_literal": "Eres inmune al estado Parálisis; tienes Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        109
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-elfo-agreste-rapidez",
+      "tipo_origen": "Especie",
+      "propietario": "Elfo agreste",
+      "nombre": "Rapidez",
+      "titulo": "Rapidez",
+      "efecto_literal": "Aumenta tu Movimiento en 1 (ya calculado).",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        111
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-enano-montanes-corpulencia",
+      "tipo_origen": "Especie",
+      "propietario": "Enano montañés",
+      "nombre": "Corpulencia",
+      "titulo": "Corpulencia",
+      "efecto_literal": "Tu Movimiento se reduce en 1 (ya calculado). Cuando realices una Tirada de Blindaje para reducir daño físico sufrido, puedes gastar 1 Punto de Esfuerzo para repetir la tirada.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        120
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-enano-montanes-vision-en-la-oscuridad",
+      "tipo_origen": "Especie",
+      "propietario": "Enano montañés",
+      "nombre": "Visión en la oscuridad",
+      "titulo": "Visión en la oscuridad",
+      "efecto_literal": "Puedes en distinguir el entorno a tu alrededor hasta 30 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        122
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-humano-comun-buen-desarrollo",
+      "tipo_origen": "Especie",
+      "propietario": "Humano común",
+      "nombre": "Buen desarrollo",
+      "titulo": "Buen desarrollo",
+      "efecto_literal": "Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        130
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-mediano-amable-baja-estatura",
+      "tipo_origen": "Especie",
+      "propietario": "Mediano amable",
+      "nombre": "Baja estatura",
+      "titulo": "Baja estatura",
+      "efecto_literal": "Eres más pequeño que un Elfo, un Enano o un Humano. Tu Movimiento se reduce en 1 (ya calculado). No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños. Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        139
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-mediano-amable-salvese-quien-pueda",
+      "tipo_origen": "Especie",
+      "propietario": "Mediano amable",
+      "nombre": "¡Sálvese quien pueda!",
+      "titulo": "¡Sálvese quien pueda!",
+      "efecto_literal": "Cuando estés afectado por un Estado de Parálisis o Miedo, puedes gastar 1 Punto de Esfuerzo y una Acción para liberarte del efecto sin necesidad de tirada.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        141
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-gnomo-urbano-baja-estatura",
+      "tipo_origen": "Especie",
+      "propietario": "Gnomo urbano",
+      "nombre": "Baja estatura",
+      "titulo": "Baja estatura",
+      "efecto_literal": "Eres más pequeño que un Elfo, un Enano o un Humano. Tu Movimiento se reduce en 1 (ya calculado). No puedes usar armas o armaduras que no estén adaptadas a ti. Sólo puedes llevar escudos pequeños. Obtienes un +1 a las Tiradas de esquiva de ataques a distancia.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        151
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-gnomo-urbano-vision-en-la-oscuridad",
+      "tipo_origen": "Especie",
+      "propietario": "Gnomo urbano",
+      "nombre": "Visión en la oscuridad",
+      "titulo": "Visión en la oscuridad",
+      "efecto_literal": "Puedes en distinguir el entorno a tu alrrededor hasta 30 metros en áreas de absoluta oscuridad; no obstante, verás en blanco y negro con formas y detalles poco definidos.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        153
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-semielfo-animo",
+      "tipo_origen": "Especie",
+      "propietario": "Semielfo",
+      "nombre": "Ánimo",
+      "titulo": "Ánimo",
+      "efecto_literal": "Una vez al día, puedes dar un +2 a la Tirada de Atributo de uno de tus aliados. Éste debe ser capaz de escucharte y has de declarar el uso de este Talento antes de que tire.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        172
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-semielfo-herencia-dual-se",
+      "tipo_origen": "Especie",
+      "propietario": "Semielfo",
+      "nombre": "Herencia dual (SE)",
+      "titulo": "Herencia dual",
+      "efecto_literal": "Elige Buen desarrollo de los humanos o el Linaje feérico de los elfos.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        174
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-orco-comun-ira-interna",
+      "tipo_origen": "Especie",
+      "propietario": "Orco común",
+      "nombre": "Ira interna",
+      "titulo": "Ira interna",
+      "efecto_literal": "Tu cólera desatada te permite seguir combatiendo aunque tu cuerpo haya sido derrotado. Si tus Puntos de Salud son reducidos a 0 o menos, puedes gastar 1 Punto de Esfuerzo para ajustarlos a 1 y seguir luchando.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        162
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-orco-comun-sana-primitiva",
+      "tipo_origen": "Especie",
+      "propietario": "Orco común",
+      "nombre": "Saña primitiva",
+      "titulo": "Saña primitiva",
+      "efecto_literal": "Obtienes +1 a la Tirada de Daño si atacas con un arma cuerpo a cuerpo.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        164
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-semiorco-sed-de-sangre",
+      "tipo_origen": "Especie",
+      "propietario": "Semiorco",
+      "nombre": "Sed de sangre",
+      "titulo": "Sed de sangre",
+      "efecto_literal": "Antes de realizar una Tirada de Ataque con un arma cuerpo a cuerpo, puedes declarar que tu embate será brutal: sufres un -2 a la Tirada de Ataque y un +1 a la Penetración del arma.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        180
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-especie-semiorco-herencia-dual-so",
+      "tipo_origen": "Especie",
+      "propietario": "Semiorco",
+      "nombre": "Herencia dual (SO)",
+      "titulo": "Herencia dual",
+      "efecto_literal": "Elige el Buen desarrollo de los humanos o la Ira interna de los orcos.",
+      "activacion_literal": null,
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        182
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes",
+      "tipo_origen": "Ocupación",
+      "propietario": "Clérigo",
+      "nombre": "Expulsar muertos vivientes",
+      "titulo": "Expulsar muertos vivientes",
+      "efecto_literal": "Emites una onda de energía que perturba a los muertos vivientes en un radio de 18 metros a tu alrededor. Todos aquellos que sean de un Nivel igual o inferior al tuyo tienen una Probabilidad 15+ de ser destruídos. Si soportan la expulsión, deberán marcharse lo más lejos de ti durante 1 Intervalo o 6 Turnos, o hasta que dejes de estar a su vista, lo que ocurra antes.",
+      "activacion_literal": "Acción",
+      "atributo_literal": "Atributo: Intuición",
+      "coste_literal": "Coste: 1 Punto de Esfuerzo",
+      "parrafos_documento": [
+        208,
+        212
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-ocupacion-clerigo-fortaleza-piadosa",
+      "tipo_origen": "Ocupación",
+      "propietario": "Clérigo",
+      "nombre": "Fortaleza piadosa",
+      "titulo": "Fortaleza piadosa",
+      "efecto_literal": "Tienes Ventaja a la hora de realizar una Tirada de Resistencia para soportar los Estados Parálisis o Veneno.",
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        213,
+        215
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-ocupacion-guerrero-recuperacion",
+      "tipo_origen": "Ocupación",
+      "propietario": "Guerrero",
+      "nombre": "Recuperación",
+      "titulo": "Recuperación",
+      "efecto_literal": "Tras un combate, puedes gastar 1 Punto de Esfuerzo y pasar un Intervalo recuperándote para restaurar 1d8 Puntos de Salud. Además, tienes Ventaja en las Tiradas de Resistencia para regenerar tu Esfuerzo gastado.",
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        284,
+        286
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-ocupacion-guerrero-brio-musculoso",
+      "tipo_origen": "Ocupación",
+      "propietario": "Guerrero",
+      "nombre": "Brío musculoso",
+      "titulo": "Brío musculoso",
+      "efecto_literal": "Tienes Ventaja en las Tiradas de Fuerza para derribar puertas, barricadas y cualquier obstáculo similar. Además, tu Potencia aumenta en 1 en Nivel 10 y en Nivel 22, hasta un total de Potencia 3 de forma natural.",
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        288,
+        290
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-ocupacion-guerrero-sacrificio-de-escudo",
+      "tipo_origen": "Ocupación",
+      "propietario": "Guerrero",
+      "nombre": "Sacrificio de escudo",
+      "titulo": "Sacrificio de escudo",
+      "efecto_literal": "Cuando falles una Tirada de Bloqueo o Esquiva, puedes romper tu escudo en lugar de realizar la Tirada de Blindaje; esto te permite evitar todo el daño, como si hubieses tenido éxito en la Tirada de Bloqueo o Esquiva. Obviamente, debes tener un escudo equipado y éste queda destruído por completo tras resolver la situación (salvo que sea mágico, en ese caso su Durabilidad quedará reducida a 0).",
+      "activacion_literal": "Reacción",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        292,
+        294
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-ocupacion-mago-bagaje-de-arcanista",
+      "tipo_origen": "Ocupación",
+      "propietario": "Mago",
+      "nombre": "Bagaje de arcanista",
+      "titulo": "Bagaje de arcanista",
+      "efecto_literal": "Tienes Ventaja cuando debas realizar una Tirada de Mente para identificar a una criatura sobrenatural o para descifrar un lenguaje que te parezca desconocido.",
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        313,
+        315
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-ocupacion-mago-meditacion",
+      "tipo_origen": "Ocupación",
+      "propietario": "Mago",
+      "nombre": "Meditación",
+      "titulo": "Meditación",
+      "efecto_literal": "Si puedes concentrarte durante un Intervalo, sin molestia alguna, y gastas 1 Punto de Esfuerzo, recuperas un Conjuro que ya hayas lanzado durante el día.",
+      "activacion_literal": "Acción",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        316,
+        318
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-ocupacion-ladron-preparacion",
+      "tipo_origen": "Ocupación",
+      "propietario": "Ladrón",
+      "nombre": "Preparación",
+      "titulo": "Preparación",
+      "efecto_literal": "Tienes Ventaja en la Tirada de Iniciativa si vas a participar en el combate activamente.",
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        393,
+        395
+      ],
+      "estado": "cotejado_literal_DRS"
+    },
+    {
+      "id": "talento-drs-ocupacion-ladron-sutileza",
+      "tipo_origen": "Ocupación",
+      "propietario": "Ladrón",
+      "nombre": "Sutileza",
+      "titulo": "Sutileza",
+      "efecto_literal": "Tienes Ventaja en las Tiradas de Agilidad que impliquen abrir cerraduras con ganzúas, desactivar trampas y trepar por superficies verticales.",
+      "activacion_literal": "Pasiva",
+      "atributo_literal": null,
+      "coste_literal": null,
+      "parrafos_documento": [
+        396,
+        398
+      ],
+      "estado": "cotejado_literal_DRS"
+    }
+  ]
+}
