@@ -181,7 +181,7 @@
     var equipo = compra.equipo.slice();
     detalles = detalles.concat(compra.notas);
     var recuerdo = escoger(esp.objetos_emocionales || [], rng);
-    if (recuerdo) equipo.push(recuerdo + ' (recuerdo personal; sin precio de compra)');
+    if (recuerdo) equipo.push('Recuerdo: '+recuerdo);
     var tipo = config.juego === 'nd20_cifi' ? 'Naufragio d20 · CiFi' :
       config.juego === 'nd20_nocturna' ? 'Naufragio d20 · Nocturna' : 'Naufragio d20 · Fantasía';
     var capacidades = (esp.talentos || []).concat(oc.talentos || []);
