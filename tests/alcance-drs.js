@@ -20,6 +20,20 @@ const informeGuardia=spawnSync(process.execPath,[guardia,raiz,'--report'],
 assert.equal(informeGuardia.status,0,
   'El informe de riesgos es consultivo; no certifica que pueda publicarse');
 assert.match(informeGuardia.stderr,/No desplegar la raíz/);
+// Una carpeta con solo index.html tampoco es un paquete distribuible.
+const carpetaIncompleta=fs.mkdtempSync(
+  path.join(require('node:os').tmpdir(),'forja-publicacion-incompleta-'));
+try{
+  fs.writeFileSync(path.join(carpetaIncompleta,'index.html'),'<!doctype html>');
+  const incompleta=spawnSync(process.execPath,
+    [guardia,carpetaIncompleta],{encoding:'utf8'});
+  assert.equal(incompleta.status,1,
+    'Un falso paquete sin JSON no puede superar el guardia por accidente');
+  assert.match(incompleta.stderr,/Falta archivo requerido por el arranque/);
+  assert.match(incompleta.stderr,/data\/catalogo-poderes.json/);
+}finally{
+  fs.rmSync(carpetaIncompleta,{recursive:true,force:true});
+}
 const leer=(nombre)=>JSON.parse(fs.readFileSync(path.join(raiz,'data',nombre),'utf8'));
 const manifest=leer('alcance-drs-y-dlc.json');
 const especies=leer('especies.json');
