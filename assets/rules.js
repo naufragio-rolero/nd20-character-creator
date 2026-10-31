@@ -252,12 +252,26 @@
     var ambitoNombres=config.modoNombre==='combinado'&&
       ['Niguace','Isla Tormenta'].includes(config.ambitoNombre)?
       config.ambitoNombre:null;
-    var poolNombres=(config.tesauroYlat && config.juego==='nd20' &&
-      config.modoNombre!=='especie') ?
-      config.tesauroYlat.entradas.filter(function(item) {
+    var poolNombres=[];
+    if(config.juego==='nd20'&&config.modoNombre==='historico'){
+      // 1428 testimonios de la fuente original, seis repeticiones;
+      // el azar elige entre 1422 FORMAS únicas para no sesgar la frecuencia.
+      var vistosHistoricos=new Set();
+      poolNombres=((config.nombresHistoricosYlat||{}).entradas||[])
+        .filter(function(item){
+          if(vistosHistoricos.has(item.nombre))return false;
+          vistosHistoricos.add(item.nombre);
+          return true;
+        }).map(function(item){
+          return {id:item.id,nombre:item.nombre,tipo:'historico'};
+        });
+    }else if(config.juego==='nd20'&&config.modoNombre!=='especie'&&
+             config.tesauroYlat){
+      poolNombres=config.tesauroYlat.entradas.filter(function(item){
         return item.tipo===(config.modoNombre==='documentado'?'documentado':'combinado')&&
           (!ambitoNombres||item.ambito===ambitoNombres);
-      }) : [];
+      });
+    }
     var nombreYlat=escoger(poolNombres,rng);
     var nombreConSexo=sexoFuente&&sexoApi?
       sexoApi.elegirNombre(config,especie,esp.nombres||[],poolNombres,sexo,sexoFuente,rng):null;
@@ -272,6 +286,9 @@
     if(registroNombre&&registroNombre.tipo==='combinado')
       detalles.push('Nombre propuesto con elementos de Ylat (corpus de referencia: '+
         registroNombre.ambito+'). No identifica un personaje canónico.');
+    if(registroNombre&&registroNombre.tipo==='historico')
+      detalles.push('Forma del generador histórico de nombres de Ylat. '+
+        'No implica personaje canónico, sexo documental, Especie, cultura ni linaje.');
     if(sexoFuente&&coherencia&&sexo==='masculino'&&
       sexoFuente.especies_preferencia_femenino?.[especie])
       detalles.push('Varón excepcional de '+especie+
