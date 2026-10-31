@@ -122,7 +122,9 @@
         info.danioCompuesto.tipos.join(" e ")+
         " simultáneamente. Resistencia a ambos: una única resistencia. "+
         "Debilidad a cualquiera de los tipos: daño ×2, sin duplicarlo. "+
-        "Resistencia parcial o simultánea con debilidad: resolución del Cronista.";
+        "Resistencia parcial o simultánea con debilidad: resolución del Cronista."+
+        (info.danioCompuesto.condicion_activacion?
+          " Aplicación: "+info.danioCompuesto.condicion_activacion:"");
       c.appendChild(tipo);
     }
     var fuente=document.createElement("p");fuente.className="info-fuente";
