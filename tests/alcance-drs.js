@@ -687,8 +687,11 @@ for(const [especie,perfil] of Object.entries(especies)){
     const glosa=require('../assets/tooltips.js')
       .buscar(indiceGlosasDRS,talento,'talento','nd20');
     assert.ok(glosa,'Falta el popup de '+especie+': '+talento);
-    assert.equal(glosa.descripcion,perfil.talentos_descripcion?.[talento],
-      'El popup debe mostrar el efecto literal del Talento de '+especie+': '+talento);
+    if(perfil.talentos_descripcion?.[talento])
+      assert.equal(glosa.descripcion,perfil.talentos_descripcion[talento],
+        'El popup debe mostrar el efecto literal del Talento de '+especie+': '+talento);
+    // Herencia dual (SE/SO) no tiene una glosa literal en este catálogo;
+    // no fabricar efectos para rellenar su popup.
   }
 }
 for(const [ocupacion,perfil] of Object.entries(ocupaciones)){
