@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "fecha": "2026-10-31",
   "decision": "DEC-CONJ-06_resuelta_parcialmente_por_autor",
   "fuentes": "fichas revisadas del Tomo",
@@ -180,6 +180,24 @@
       "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
       "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
       "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional"
+    },
+    {
+      "numero_tomo": 388,
+      "id_catalogo": "conjuro-41",
+      "nombre_tomo": "Tormenta de espadas",
+      "evidencia_literal": "1d8 de daño mágico y cortante",
+      "tipos": [
+        "mágico",
+        "cortante"
+      ],
+      "dados_base": "1d8",
+      "dados_por_nivel": false,
+      "grupos_de_dados": 1,
+      "regla": "un solo resultado de daño con todos los tipos simultáneos",
+      "resistencia": "si se resisten ambos tipos, aplicar una sola resistencia",
+      "debilidad": "si es vulnerable a uno o ambos tipos, daño ×2 una sola vez",
+      "interacciones_pendientes": "resistencia parcial a solo uno de los tipos; combinación de resistencia y vulnerabilidad simultáneas; no resolver automáticamente sin criterio adicional",
+      "condicion_activacion": "Tirada de Conjuro superada: daño pleno de ambos tipos; si falla, mitad del mismo resultado. No se aplica dos veces el daño."
     }
   ],
   "control": "Sangre hirviente (366) tiene dos grupos explícitos 3d8 fuego y 3d8 impío; no es daño compuesto de grupo único."
