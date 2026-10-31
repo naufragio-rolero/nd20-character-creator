@@ -768,5 +768,336 @@
   ],
   "decisiones_editoriales": {
     "dardo_precio": "El autor fija el precio del Dardo en 0 mo (31/10/2026); el DRS indicaba «—». La munición Dardos conserva su precio y DU del DRS."
-  }
+  },
+  "utiles_fantasia": {
+    "aventura": [
+      {
+        "id": "aventura-aparejo-poleas",
+        "nombre": "Aparejo de poleas",
+        "precio": 3,
+        "detalle": "Se fija en un punto para usar la polea.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-bolsa-abrojos",
+        "nombre": "Bolsa de abrojos",
+        "precio": 1,
+        "detalle": "Pinchos que causan 1 de daño al pisar.",
+        "du": "d6",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-bolsa-canicas",
+        "nombre": "Bolsa de canicas",
+        "precio": 1,
+        "detalle": "Esferas para esparcir por el suelo.",
+        "du": "d6",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-cuerda",
+        "nombre": "Cuerda",
+        "precio": 1,
+        "detalle": "15 metros de cuerda de esparto.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-cuerda-seda",
+        "nombre": "Cuerda de seda",
+        "precio": 10,
+        "detalle": "15 metros de cuerda resistente de seda.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-espejo-acero",
+        "nombre": "Espejo de acero",
+        "precio": 5,
+        "detalle": "Superficie reflectante.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-gancho",
+        "nombre": "Gancho",
+        "precio": 2,
+        "detalle": "De tres puntas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-lupa",
+        "nombre": "Lupa",
+        "precio": 100,
+        "detalle": "No más grande que una mano.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-simbolo-sagrado",
+        "nombre": "Símbolo sagrado",
+        "precio": 5,
+        "detalle": "De un Espíritu deífico concreto.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-tiza",
+        "nombre": "Tiza",
+        "precio": 0.01,
+        "detalle": "Color blanco.",
+        "du": "d6",
+        "fuente": "DRS"
+      }
+    ],
+    "campamento": [
+      {
+        "id": "campamento-almadena",
+        "nombre": "Almádena",
+        "precio": 2,
+        "detalle": "Herramienta. Puede usarse como Clava; no es el arma Almádena (60 mo).",
+        "fuente": "DRS"
+      },
+      {
+        "id": "campamento-manta",
+        "nombre": "Manta",
+        "precio": 0.5,
+        "detalle": "Unipersonal.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "campamento-saco-dormir",
+        "nombre": "Saco de dormir",
+        "precio": 1,
+        "detalle": "No soporta temperaturas extremas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "campamento-tienda",
+        "nombre": "Tienda de campaña",
+        "precio": 10,
+        "detalle": "Espacio para dos personas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "campamento-racion",
+        "nombre": "Ración de alimento",
+        "precio": 0.01,
+        "detalle": "Carne o fruta seca al sol.",
+        "du": "d6",
+        "fuente": "DRS"
+      },
+      {
+        "id": "campamento-yesquero",
+        "nombre": "Yesquero",
+        "precio": 0.5,
+        "detalle": "Para encender fuego.",
+        "fuente": "DRS"
+      }
+    ],
+    "consumibles": [
+      {
+        "id": "consumible-aceite-animal",
+        "nombre": "Aceite animal",
+        "precio": 0.1,
+        "detalle": "Grasa de animal para alimentar lámparas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-acido",
+        "nombre": "Ácido",
+        "precio": 25,
+        "detalle": "Ataque arrojadizo con alcance de 6 metros; 2d6 de daño.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-agua-bendita",
+        "nombre": "Agua bendita",
+        "precio": 30,
+        "detalle": "Ataque arrojadizo con alcance de 6 metros; 2d8 de daño a diablos y muertos vivientes.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-antidoto",
+        "nombre": "Antídoto",
+        "precio_por_nivel": 50,
+        "detalle": "Elimina un veneno de igual o menor Nivel si se toma a tiempo.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-fuego-alquimico",
+        "nombre": "Fuego alquímico",
+        "precio": 50,
+        "detalle": "Ataque arrojadizo con alcance de 6 metros; 2d6 de daño cada Turno durante 1d4 Turnos.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-pocion-curacion",
+        "nombre": "Poción de curación",
+        "precio": 40,
+        "detalle": "Recupera 1d8 de Salud al beberla; requiere una Acción.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-veneno",
+        "nombre": "Veneno",
+        "precio_por_nivel": 100,
+        "detalle": "Puede aplicarse en un arma, alimento o bebida. Su Nivel modifica precio y efectos.",
+        "fuente": "DRS"
+      }
+    ],
+    "herramientas": [
+      {
+        "id": "herramienta-alambique",
+        "nombre": "Alambique",
+        "precio": 100,
+        "detalle": "Pequeño laboratorio alquímico portátil.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-cana-aparejos",
+        "nombre": "Caña y aparejos",
+        "precio": 15,
+        "detalle": "Permite pescar en ríos o mares.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-catalejo",
+        "nombre": "Catalejo",
+        "precio": 1000,
+        "detalle": "Permite ver a lo lejos; 3 aumentos.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-ganzuas",
+        "nombre": "Ganzúas",
+        "precio": 25,
+        "detalle": "Lo necesario para forzar cerraduras.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-kit-cocina",
+        "nombre": "Kit de cocina",
+        "precio": 0.2,
+        "detalle": "Cubiertos varios, una sartén y una rejilla.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-kit-escalada",
+        "nombre": "Kit de escalada",
+        "precio": 25,
+        "detalle": "Alcayatas, un garfio, cuerdas y un arnés.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-kit-medicina",
+        "nombre": "Kit de medicina",
+        "precio": 5,
+        "detalle": "Gasas, alcohol, torniquetes y pinzas.",
+        "du": "d6",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-mortero",
+        "nombre": "Mortero",
+        "precio": 0.3,
+        "detalle": "Para moler hierbas e ingredientes.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-pala",
+        "nombre": "Pala",
+        "precio": 2,
+        "detalle": "Se puede usar como Gran clava.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-pertiga",
+        "nombre": "Pértiga",
+        "precio": 0.05,
+        "detalle": "Palo flexible de 3 metros de longitud.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-pico-minero",
+        "nombre": "Pico de minero",
+        "precio": 2,
+        "detalle": "Se puede usar como Hacha de mano.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-piedra-afilar",
+        "nombre": "Piedra de afilar",
+        "precio": 0.01,
+        "detalle": "+1 daño a arma de filo durante 1 Intervalo.",
+        "du": "d6",
+        "fuente": "DRS"
+      }
+    ],
+    "escritura": [
+      {
+        "id": "escritura-lacre",
+        "nombre": "Lacre",
+        "precio": 0.5,
+        "detalle": "Varios colores.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "escritura-libro",
+        "nombre": "Libro",
+        "precio": 25,
+        "detalle": "En blanco; tomo de 180 páginas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "escritura-libro-conjuros",
+        "nombre": "Libro de conjuros",
+        "precio": 50,
+        "detalle": "En blanco, desprende una pizca de poder.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "escritura-pergamino",
+        "nombre": "Pergamino",
+        "precio": 0.08,
+        "detalle": "En blanco, desprende una pizca de poder.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "escritura-sello",
+        "nombre": "Sello",
+        "precio": 5,
+        "detalle": "Personalizable.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "escritura-tinta-pluma",
+        "nombre": "Tinta y pluma",
+        "precio": 10,
+        "detalle": "Preparados para escribir.",
+        "du": "d6",
+        "fuente": "DRS"
+      }
+    ]
+  },
+  "focos_conjuros_con_precio": [
+    {
+      "id": "foco-totem",
+      "nombre": "Tótem",
+      "precio": 25,
+      "escuelas": [
+        "Elemental",
+        "Naturaleza"
+      ],
+      "detalle": "Hecho de hueso, madera o piedra.",
+      "fuente": "DRS"
+    },
+    {
+      "id": "foco-orbe-cristal",
+      "nombre": "Orbe de cristal",
+      "precio": 75,
+      "escuelas": [
+        "Arcana",
+        "Demonología"
+      ],
+      "detalle": "Utilizado por adivinos.",
+      "fuente": "DRS"
+    }
+  ],
+  "notas_equipo_fantasia": "Los precios de los útiles se expresan en monedas de oro (1 mc = 0,01 mo; 1 mp = 0,1 mo). Antídoto y Veneno cuestan por Nivel, nunca se les atribuye precio fijo sin elegirlo. La Almádena de Campamento (2 mo) es distinta del arma Almádena (60 mo). La inclusión en este inventario no concede equipo gratuito ni Competencia por sí misma."
 }
