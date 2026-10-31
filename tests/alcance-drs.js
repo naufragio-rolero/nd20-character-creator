@@ -183,3 +183,85 @@ assert.equal(motor.clasificarDanioCompuesto(tormenta,[],tormenta.tipos)
 assert.ok(!dual.some(x=>x.id_catalogo==='conjuro-54'),
   'Rayo solar son dos grupos 5d6, no daño dual de un solo grupo');
 console.log('OK · 64/64 Conjuros DRS: magnitudes cotejadas y calculadas sin Tiradas.');
+
+
+/* Auditoría normativa de Especies del DRS v1.1.12: no basta comprobar su presencia. */
+const perfilesEspecieDRS={
+  'Elfo agreste':{salud:'d8',movimiento:7,requisitos:{Agilidad:7}},
+  'Enano montañés':{salud:'d10',movimiento:5,requisitos:{Resistencia:7}},
+  'Humano común':{salud:'d6',movimiento:6,requisitos:{}},
+  'Mediano amable':{salud:'d4',movimiento:5,requisitos:{Presencia:7}},
+  'Gnomo urbano':{salud:'d4',movimiento:5,requisitos:{Mente:7,Intuición:7}},
+  'Semielfo':{salud:'d6',movimiento:6,requisitos:{}},
+  'Orco común':{salud:'d10',movimiento:6,requisitos:{Fuerza:7}},
+  'Semiorco':{salud:'d8',movimiento:6,requisitos:{}}
+};
+for(const [nombre,esperado] of Object.entries(perfilesEspecieDRS)){
+  const perfil=especies[nombre];
+  assert.ok(perfil,'Especie DRS: '+nombre);
+  assert.equal(perfil.salud,esperado.salud,'Dado Salud DRS: '+nombre);
+  assert.equal(perfil.movimiento,esperado.movimiento,'Movimiento DRS: '+nombre);
+  const requisitos={};
+  if(perfil.atributo_requisito)
+    requisitos[perfil.atributo_requisito]=perfil.atributo_valor;
+  for(const req of perfil.requisitos||[]){
+    assert.ok(!Object.hasOwn(requisitos,req.atributo),
+      'Requisito duplicado en '+nombre+': '+req.atributo);
+    requisitos[req.atributo]=req.minimo;
+  }
+  assert.deepEqual(requisitos,esperado.requisitos,'Requisitos VA del DRS: '+nombre);
+}
+const ocupacionesDRSNormativas={
+  'Clérigo':{favoritos:['Intuición'],salud:0,esfuerzo:3},
+  'Guerrero':{favoritos:['Fuerza','Agilidad','Resistencia'],salud:1,esfuerzo:4},
+  'Mago':{favoritos:['Mente'],salud:-1,esfuerzo:2},
+  'Ladrón':{favoritos:['Agilidad'],salud:-1,esfuerzo:4}
+};
+for(const [nombre,esperado] of Object.entries(ocupacionesDRSNormativas)){
+  const perfil=ocupaciones[nombre];
+  assert.ok(perfil,'Ocupación DRS: '+nombre);
+  assert.deepEqual(perfil.atributo_favorito,esperado.favoritos,'Favoritos DRS: '+nombre);
+  assert.equal(perfil.salud,esperado.salud,'Modificador Salud DRS: '+nombre);
+  assert.equal(perfil.esfuerzo,esperado.esfuerzo,'Esfuerzo DRS: '+nombre);
+}
+// La selección de Especie precede al Atributo favorito de Ocupación.
+// Un Gnomo con Intuición suficiente pero Mente insuficiente no es elegible.
+const rngAtributos=(valores)=>{let i=0;return ()=>valores[(i++)%valores.length];};
+assert.throws(()=>reglas.crearNd20(fuenteBase,
+  {juego:'nd20',nivel:1,especie:'Gnomo urbano',ocupacion:'Mago'},
+  rngAtributos([0,0,0,0,0.6,0])),/No se cumplen los requisitos/,
+  'El Mago no puede habilitar Mente 7+ con su +1 favorito después de elegir la Especie');
+const gnomoValido=reglas.crearNd20(fuenteBase,
+  {juego:'nd20',nivel:1,especie:'Gnomo urbano',ocupacion:'Mago'},
+  rngAtributos([0,0,0,0.6,0.6,0]));
+assert.ok(['Mente','Intuición'].every(nombre=>
+  gnomoValido.atributos.find(x=>x.nombre===nombre).valor>=7),
+  'El Gnomo urbano respeta los dos requisitos VA');
+for(const nivel of [1,12,30]){
+  const pj=reglas.crearNd20(fuenteBase,
+    {juego:'nd20',nivel,especie:'Humano común',ocupacion:'Guerrero'},
+    reglas.aleatorioSemilla('Guerrero DRS/'+nivel));
+  assert.ok(pj.capacidades.includes('Recuperación'),'Recuperación es un Talento fijo');
+  assert.equal(['Brío musculoso','Sacrificio de escudo'].filter(t=>
+    pj.capacidades.includes(t)).length,1,
+    'Guerrero debe elegir EXACTAMENTE un Talento opcional (API directa)');
+  const sinElegir=reglas.crearNd20(fuenteBase,
+    {juego:'nd20',nivel,especie:'Humano común',ocupacion:'Guerrero',
+      aplazarElecciones:true},
+    reglas.aleatorioSemilla('Guerrero DRS/'+nivel));
+  assert.equal(['Brío musculoso','Sacrificio de escudo'].filter(t=>
+    sinElegir.capacidades.includes(t)).length,0,
+    'La web debe reservar esa elección para el editor');
+}
+const planificadorDRS=require('../assets/powers.js');
+for(const [especie,opciones] of [
+  ['Semielfo','Buen desarrollo o Linaje feérico'],
+  ['Semiorco','Buen desarrollo o Ira interna']
+]){
+  const plan=planificadorDRS.planificar(
+    {juego:'nd20',nivel:1,ocupacion:'Mago',especie},
+    fuenteBase,catalogo,progresiones);
+  assert.ok(plan.avisos.some(x=>x.includes('Herencia dual')&&x.includes(opciones)),
+    'La Herencia dual no puede darse por aplicada: '+especie);
+}
+console.log('OK · Auditoría normativa DRS: 8 perfiles de Especie, 4 Ocupaciones y regresiones de elecciones.');
