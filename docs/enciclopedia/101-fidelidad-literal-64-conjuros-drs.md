@@ -1,5 +1,7 @@
 # Forja 1.0 — Auditoría literal de los 64 Conjuros del DRS y correcciones del paquete público
 
+> **Actualización editorial (31/10/2026):** la exclusión de nombres Ylat indicada en el cierre se ha sustituido por una autorización restringida a **149 combinaciones no canónicas**; los 51 PNJ documentados siguen excluidos. Este cambio no afecta a la literalidad de los 64 Conjuros. Véase [informe 102](102-149-nombres-combinados-ylat.md).
+
 **Fecha:** 31/10/2026 · **PR #4:** borrador, sin fusionar ni desplegar.  
 **Fuente principal inspeccionada:** archivo de proyecto `NaufragioD20DRS.docx`, apartado **Conjuros (Círculos 1–8)**, párrafos 877–1320 y tabla oficial de «Calentar metal».  
 **Fuente contrastada:** los dos JSON `data/conjuros-revisados-001-225.json` y `data/conjuros-revisados-226-434.json`, originados en el *Tomo de Magia* y presentes en el candidato de distribución del [informe 100](100-paquete-publico-drs-candidato.md).
