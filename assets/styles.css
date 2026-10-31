@@ -118,6 +118,12 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 .editor-elecciones{margin:0 0 1.5rem;padding:1.3rem;border:1px solid var(--oro2);border-radius:14px;background:linear-gradient(135deg,#213e48,#122b38)}
 .editor-elecciones h3{margin:.1rem 0 .5rem;color:var(--oro);font-size:1.3rem}
 .editor-elecciones .muted{margin:0 0 1.25rem}
+.campos-compra{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+.lista-compra{margin:.3rem 0 1rem;padding-left:1.5rem;line-height:1.7}
+#compras-total{padding:.6rem .8rem;border:1px solid var(--borde);border-radius:6px;font-weight:700}
+#compras-anadir{border-color:var(--oro2)}
+.pie-ficha{flex-wrap:wrap}
+@media(max-width:600px){.campos-compra{grid-template-columns:1fr}}
 .grupo-poderes{border:1px solid var(--borde);border-radius:9px;margin:0 0 .85rem;padding:.8rem 1rem;display:grid;gap:.5rem}
 .grupo-poderes legend{font-weight:700;color:var(--texto);padding:0 .3rem}
 .eleccion-poder{display:flex;flex-direction:column;gap:.25rem;color:var(--secundario);font-size:.9rem}
