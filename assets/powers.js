@@ -77,14 +77,23 @@
     }
     return {comprobados:comprobados,faltantes:faltantes};
   }
-  function tecnicas(catalogo,categorias,juego,ocupacion){
+  function tecnicas(catalogo,categorias,juego,ocupacion,fuentes){
     // Sin categorías restrictivas declaradas: todas las Técnicas del sistema.
     var habilitadas=Array.isArray(categorias)&&categorias.length?categorias:null;
+    // Sin selección expresa, las cuatro Ocupaciones DRS solo acceden al
+    // catálogo DRS; las ampliaciones conservan sus propias Técnicas para
+    // pruebas y futuros DLC. En la web Forja 1.0 envía fuentes:['DRS'].
+    var basicas=['Clérigo','Guerrero','Mago','Ladrón'];
+    var habilitarAmpliacion=Array.isArray(fuentes)?
+      fuentes.some(function(f){return f!=='DRS';}):
+      !basicas.includes(ocupacion);
     return catalogo.tecnicas.filter(function(t){
       if(habilitadas&&habilitadas.indexOf(t.categoria)<0)return false;
-      // Forja 1.0 publica únicamente las Técnicas de la fuente DRS.
-      // Un suplemento no debe entrar por compartir categoría con el DRS.
-      if(juego==="nd20" && t.fuente!=="Naufragio d20 DRS")return false;
+      // Un suplemento no debe entrar por compartir categoría con el DRS;
+      // las Ocupaciones ampliadas sí lo necesitan en sus propias pruebas.
+      if(juego==="nd20" && t.fuente!=="Naufragio d20 DRS" &&
+          !(habilitarAmpliacion&&t.fuente==="Naufragio d20 Ocupaciones"))
+        return false;
       if(juego==="nd20_cifi" && /Ocupaciones$/.test(t.fuente))return false;
       // Los requisitos de Atributo y equipo son para el uso; una Ocupación específica sí restringe.
       var req=t.requisito||"";
@@ -160,7 +169,7 @@
     if(tecnica && nombre!=="Diletante"){
       var categorias=nombre==="Adalid"?
         ["Disciplina","Fuerza bruta","Preternatural"]:tabla.categorias||[];
-      var pool=tecnicas(catalogo,categorias,config.juego,nombre);
+      var pool=tecnicas(catalogo,categorias,config.juego,nombre,config.fuentes);
       if(nombre==="Pugilista")
         pool=pool.filter(function(t){return !/arma\s+(?:a distancia|cuerpo a cuerpo)|escudo|arrojadiza/i.test(t.requisito||"");});
       if(nombre==="Celador")
@@ -424,7 +433,7 @@
     if(p.tipo==="tecnicas"||p.tipo==="argucias_y_tecnicas"||p.tipo==="scripts_y_tecnicas"){
       var count=p.tipo==="tecnicas"?(ocupacion==="Eudemonista"?Number(f[2]):Number(f[0])):Number(f[0]);
       if(count>0){
-        var poolTec=tecnicas(catalogo,p.categorias,juego,ocupacion);
+        var poolTec=tecnicas(catalogo,p.categorias,juego,ocupacion,config.fuentes);
         if(count>poolTec.length)avisos.push(
           "La progresión permite "+count+" Técnicas, pero el catálogo compatible contiene "+
           poolTec.length+". Faltan "+(count-poolTec.length)+" opciones; no se inventan.");
