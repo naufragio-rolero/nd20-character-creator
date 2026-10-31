@@ -248,7 +248,8 @@
       esCifi ? compra.restante+' cr restantes / '+presupuesto+' cr iniciales' : '';
     // El ámbito procede del corpus; no existe una equivalencia documentada
     // con Especies. No se asigna ninguna Especie a Niguace/Isla Tormenta.
-    var ambitoNombres=['Niguace','Isla Tormenta'].includes(config.ambitoNombre)?
+    var ambitoNombres=config.modoNombre==='combinado'&&
+      ['Niguace','Isla Tormenta'].includes(config.ambitoNombre)?
       config.ambitoNombre:null;
     var poolNombres=(config.tesauroYlat && config.juego==='nd20' &&
       config.modoNombre!=='especie') ?
