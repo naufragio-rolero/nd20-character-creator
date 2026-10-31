@@ -218,12 +218,71 @@
         return '<li>' + item + '</li>';
       }).join('') + '</ul></section>';
   }
+  // Las reglas de los Talentos se consultan junto al nombre, no al
+  // final de una lista de observaciones. Los textos siguen intactos
+  // en el modelo y al copiar/exportar la ficha.
+  function organizarObservaciones(personaje){
+    var grupos={contexto:[],talentos:[],poderes:[],equipo:[],riqueza:[],otras:[]};
+    var sistema=sistemaFicha(personaje);
+    (personaje.notas||[]).forEach(function(nota){
+      var literal=String(nota);
+      var talento=literal.match(/^Talento de (?:Especie|Ocupación) — (.+?): /);
+      if(talento){
+        var asociado=(personaje.capacidades||[]).includes(talento[1]);
+        var descripcion=infoUI?.consulta(talento[1],'talento',sistema)?.descripcion;
+        if(asociado&&descripcion)return; // Texto completo disponible en popup.
+        grupos.talentos.push(literal); // Nunca ocultar una regla sin ficha.
+        return;
+      }
+      var elegido=literal.match(/^Talento (?:de Guerrero elegido|adicional de (?:Especie|Ocupación) seleccionado): (.+?)\.$/);
+      if(elegido&&(personaje.capacidades||[]).includes(elegido[1]))return;
+      if(/^Nombre del banco histórico |^Forma del generador histórico |^Nombre propuesto con elementos de Ylat/.test(literal)||
+         /^Envejecimiento de Especie:/.test(literal)){
+        grupos.contexto.push(literal);return;
+      }
+      if(/^Técnica aprendida, pendiente de uso:/.test(literal)){
+        grupos.poderes.push(literal);return;
+      }
+      if(/^Baja estatura: armas y armaduras |^Equipo DRS adquirido por/.test(literal)){
+        grupos.equipo.push(literal);return;
+      }
+      if(/^Riqueza adicional opcional:/.test(literal)){
+        // La nota de 0 Niveles no aporta información útil a la ficha.
+        if(/^Riqueza adicional opcional: 0 Niveles ×/.test(literal))return;
+        grupos.riqueza.push(literal);return;
+      }
+      grupos.otras.push(literal);
+    });
+    return grupos;
+  }
+  function htmlAvisos(titulo,notas,clase){
+    if(!notas||!notas.length)return '';
+    return '<section class="avisos-ficha '+esc(clase||'')+'"><h4>'+
+      esc(titulo)+'</h4><ul>'+notas.map(function(n){
+        return '<li>'+esc(n)+'</li>';
+      }).join('')+'</ul></section>';
+  }
+  function htmlContexto(notas){
+    if(!notas||!notas.length)return '';
+    return '<details class="contexto-ficha"><summary>Contexto del personaje ('+
+      notas.length+')</summary><ul>'+notas.map(function(n){
+        return '<li>'+esc(n)+'</li>';
+      }).join('')+'</ul></details>';
+  }
+  function htmlOtrosAvisos(notas){
+    if(!notas||!notas.length)return '';
+    return '<details class="otros-avisos"><summary>Otros avisos ('+
+      notas.length+')</summary><ul>'+notas.map(function(n){
+        return '<li>'+esc(n)+'</li>';
+      }).join('')+'</ul></details>';
+  }
   function htmlRecursos(pares) {
     return '<div class="recursos">' + (pares || []).map(function (p) {
       return '<div><span>' + esc(p[0]) + '</span><strong>' + esc(p[1]) + '</strong></div>';
     }).join('') + '</div>';
   }
   function fichaHTML(personaje, id) {
+    var notas=organizarObservaciones(personaje);
     var esDungeonHack = personaje.juego.indexOf('Dungeon Hack') === 0;
     var attrs = personaje.atributos.map(function (a) {
       var cifra = esDungeonHack ?
@@ -241,14 +300,19 @@
       '</h3><p>' + esc(personaje.descripcion) + '</p></div>' +
       '<button class="icon-btn eliminar-ficha" data-id="' + id + '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div>' +
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
+      htmlContexto(notas.contexto) +
       '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos) +
       htmlLista('Talentos y capacidades',personaje.capacidades,'talento',sistemaFicha(personaje)) +
+      htmlAvisos('Detalles sin ficha emergente',notas.talentos,'avisos-talentos') +
       htmlLista('Conjuros y Poderes conocidos',personaje.poderes,'poder',sistemaFicha(personaje)) +
       htmlLista('Conjuros preparados',personaje.conjuros_preparados,'poder',sistemaFicha(personaje)) +
+      htmlAvisos('Condiciones de uso',notas.poderes,'avisos-poderes') +
       htmlLista('Competencias',personaje.competencias) +
       htmlLista('Equipo',personaje.equipo,'equipo',sistemaFicha(personaje)) +
+      htmlAvisos('Reglas y compras de equipo',notas.equipo,'avisos-equipo') +
       (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
-      htmlLista('Observaciones',personaje.notas) +
+      htmlAvisos('Riqueza adicional',notas.riqueza,'avisos-riqueza') +
+      htmlOtrosAvisos(notas.otras) +
       '<div class="pie-ficha"><small>' + esc(fuentesFicha(personaje)) +
       '</small>' +
       (personaje.juego==='Naufragio d20 · Fantasía'&&Number.isFinite(personaje.saldo_mo)?
