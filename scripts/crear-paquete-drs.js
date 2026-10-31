@@ -193,11 +193,11 @@ for(const ruta of especificas){
     if(!html.includes(opcionDocumentada))
       throw Error('El selector documental ha cambiado: revisar su exclusión.');
     html=html.replace(opcionDocumentada,'');
-    const ayudaVieja='200 entradas basadas en tres documentos de Ylat. Las combinaciones nuevas no son personajes canónicos.';
+    const ayudaVieja='200 entradas basadas en tres documentos de Ylat. Las combinaciones nuevas no son personajes canónicos. En las 149 combinaciones hay 27 nombres de pila sin clasificación de sexo, que se muestran sin atribuírsela.';
     if(!html.includes(ayudaVieja))
       throw Error('La ayuda de nombres de Ylat ha cambiado.');
     html=html.replace(ayudaVieja,
-      '149 propuestas combinadas (116 de Niguace y 33 de Isla Tormenta). No son personajes canónicos. Las 51 identidades documentadas no se incluyen.');
+      '149 propuestas combinadas (116 de Niguace y 33 de Isla Tormenta), no personajes canónicos. 27 nombres de pila no tienen sexo documentado; no se les atribuye. Las 51 identidades documentadas no se incluyen.');
 
     escribir(ruta,html);
   }else{
