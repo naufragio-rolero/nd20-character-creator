@@ -6,9 +6,18 @@
 })(typeof globalThis!=="undefined"?globalThis:this,function(root){
   "use strict";
   var glosario=null,card=null,ancla=null,fija=false,cierre=null,escuchando=false;
+  var avanzada=false;
   function esc(t){
     return String(t==null?"":t).replace(/&/g,"&amp;").replace(/</g,"&lt;")
       .replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+  }
+  function configurarAvanzado(valor){
+    avanzada=!!valor;
+    if(card&&!card.hidden){
+      var detalles=card.querySelector('.info-detalles');
+      if(detalles)detalles.open=avanzada;
+      posicionar();
+    }
   }
   function consulta(nombre,grupo,sistema){
     return root.NaufragioTooltipIndex?.buscar(glosario,nombre,grupo,sistema)||null;
@@ -73,6 +82,11 @@
     ancla=elemento;fija=!!anclado;
     var c=crearElemento();
     c.replaceChildren();
+    c.setAttribute('role',fija?'dialog':'tooltip');
+    if(fija)c.setAttribute('aria-label','Consulta de ficha');
+    else c.removeAttribute('aria-label');
+    var tecnicos=document.createElement('div');
+    tecnicos.className='info-avanzada';
     var marca=document.createElement("p");marca.className="info-tipo";
     marca.textContent=info.tipo||"Ficha";
     var titulo=document.createElement("h3");titulo.textContent=info.nombre;
@@ -84,7 +98,7 @@
         dt.textContent=p[0];dd.textContent=p[1];
         tabla.append(dt,dd);
       });
-      c.appendChild(tabla);
+      tecnicos.appendChild(tabla);
     }
     var d=document.createElement("p");d.className="info-descripcion";
     d.textContent=info.descripcion||
@@ -101,7 +115,7 @@
       if(calculo){
         var subtitulo=document.createElement("h4");
         subtitulo.textContent="Magnitudes literales · Nivel "+nivel;
-        c.appendChild(subtitulo);
+        tecnicos.appendChild(subtitulo);
         var valores=document.createElement("dl");valores.className="info-datos";
         calculo.magnitudes.forEach(function(m){
           var dt=document.createElement("dt"),dd=document.createElement("dd");
@@ -109,11 +123,11 @@
           dd.textContent=String(m.valor)+" "+(m.unidad||"");
           valores.append(dt,dd);
         });
-        c.appendChild(valores);
+        tecnicos.appendChild(valores);
         var aviso=document.createElement("p");aviso.className="info-descripcion";
         aviso.textContent="Condiciones de aplicación: "+calculo.condiciones_no_automatizadas+
           ". Las Tiradas, objetivos y efectos no se ejecutan automáticamente.";
-        c.appendChild(aviso);
+        tecnicos.appendChild(aviso);
       }
     }
     if(info.danioCompuesto){
@@ -125,7 +139,21 @@
         "Resistencia parcial o simultánea con debilidad: resolución del Cronista."+
         (info.danioCompuesto.condicion_activacion?
           " Aplicación: "+info.danioCompuesto.condicion_activacion:"");
-      c.appendChild(tipo);
+      tecnicos.appendChild(tipo);
+    }
+    if(tecnicos.childNodes.length){
+      if(['talento','poder'].includes(elemento.dataset.glosaGrupo)){
+        var detalles=document.createElement('details');
+        detalles.className='info-detalles';
+        detalles.open=avanzada;
+        var resumen=document.createElement('summary');
+        resumen.textContent='Detalles técnicos';
+        detalles.append(resumen,tecnicos);
+        detalles.addEventListener('toggle',posicionar);
+        c.appendChild(detalles);
+      }else{
+        c.appendChild(tecnicos);
+      }
     }
     var fuente=document.createElement("p");fuente.className="info-fuente";
     fuente.textContent="Fuente: "+(info.fuente_descripcion||info.fuente);
@@ -168,6 +196,7 @@
     root.addEventListener("resize",posicionar);
     root.addEventListener("scroll",posicionar,{passive:true,capture:true});
   }
-  return {configurar:configurar,etiqueta:etiqueta,consulta:consulta,
+  return {configurar:configurar,configurarAvanzado:configurarAvanzado,
+    etiqueta:etiqueta,consulta:consulta,
     consultaPorId:consultaPorId,cerrar:cerrar};
 });
