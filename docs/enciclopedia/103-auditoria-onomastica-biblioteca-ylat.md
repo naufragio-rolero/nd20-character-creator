@@ -1,5 +1,7 @@
 # Forja 1.0 — Auditoría de fuentes de la Biblioteca /Ylat y procedencia real de los nombres
 
+> **Ampliación solicitada (31/10/2026):** este informe solo inventariaba los PDF disponibles en la Biblioteca de ChatGPT `/Ylat`. **No era un inventario de Google Drive.** Ya se ha consultado también el Drive conectado y cinco Google Docs de Ylat —Zonas, Lenguas, Biografías, Historia de Shadaleen y Enciclopedia—, además del generador histórico Excel con **1428 entradas** de Ylat (1422 valores distintos). La documentación y los límites de interpretación figuran en el [informe 104](104-fuentes-google-docs-y-generador-historico-ylat.md). Los 149 nombres públicos permanecen sin cambios hasta cotejar el corpus ampliado.
+
 **Fecha:** 31/10/2026. **Estado:** inventario documental inicial, no canon nuevo. **PR #4:** borrador; sin fusión ni despliegue.
 
 ## Decisión de enfoque
