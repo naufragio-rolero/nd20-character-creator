@@ -88,15 +88,15 @@ assert.ok(revisados[355].parrafos[5].includes('A lo largo del descanso, la magia
   'Revelar: lanzamiento y estudio progresivo');
 assert.ok(iraC5.datos.some(x=>x[0]==='Círculo'&&x[1]==='5'));
 assert.ok(buscar('[C] Mano de mago (C1) · Nd20').descripcion.length>50);
-console.log('OK · 434 fichas cotejadas; 12 cambios aprobados y catálogo DRS validado.');
+console.log('OK · 434 fichas cotejadas; 13 cambios aprobados y catálogo DRS validado.');
 
 
 /* Pruebas del primer subconjunto de magnitudes mecánicas literales. */
 const motorMagnitudes=require('../assets/spell-magnitudes.js');
 const literales=leer('data/conjuros-magnitudes-literales.json');
-assert.equal(literales.registros.length,120,'120 fichas de magnitudes registradas');
-assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,120,
-  'No repetir IDs entre los 120 Conjuros modelados');
+assert.equal(literales.registros.length,170,'170 fichas de magnitudes registradas');
+assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,170,
+  'No repetir IDs entre los 170 Conjuros modelados');
 for(const entrada of literales.registros){
   // Cada magnitud debe conservar evidencia textual y funcionar en varios niveles.
   assert.equal(new Set(entrada.magnitudes.map(x=>x.clave)).size,entrada.magnitudes.length,
@@ -213,7 +213,7 @@ assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',val
 assert.equal(motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',valor:[1,3]},3),'3d3');
 assert.throws(()=>magnitudes('Lanza de sombras',0),/Nivel entero positivo/);
 assert.equal(motorMagnitudes.calcular({clave:'dados',tipo:'dados_por_nivel',valor:[2,12]},5),'10d12');
-console.log('OK · 120 Conjuros con magnitudes verificadas en 4 Niveles; sin ejecutar efectos.');
+console.log('OK · 170 Conjuros con magnitudes verificadas en 4 Niveles; sin ejecutar efectos.');
 
 /* Resoluciones editoriales: 4 m³, redondeo inferior y un solo daño de doble tipo. */
 const surcar=revisados.find(x=>x.numero_tomo===385);
@@ -243,8 +243,8 @@ assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'por_cada_n_niveles',
 assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'base_mas_por_cada_n_niveles',valor:[1,1,0]},5),/inválidos/);
 
 const dobles=leer('data/conjuros-danio-compuesto.json');
-assert.equal(dobles.registros.length,8);
-assert.deepEqual(dobles.registros.map(x=>x.numero_tomo),[3,7,104,148,159,160,183,387]);
+assert.equal(dobles.registros.length,10);
+assert.deepEqual(dobles.registros.map(x=>x.numero_tomo),[3,7,104,148,159,160,183,216,220,387]);
 for(const p of dobles.registros){
   const ficha=revisados.find(x=>x.numero_tomo===p.numero_tomo);
   assert.ok(ficha);
@@ -378,7 +378,7 @@ assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleErupcion,
   ['contundente','fuego'],[]).resistencia_unica,true);
 assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleErupcion,[],
   ['contundente','fuego']).multiplicador_debilidad,2);
-console.log('OK · 120 Conjuros y ocho perfiles de daño dual verificados por fuente.');
+console.log('OK · 170 Conjuros y diez perfiles de daño dual verificados por fuente.');
 
 /* La consulta previa a confirmar una elección usa ID y Nivel del personaje. */
 const indiceCompleto=tooltip.indice({
@@ -462,4 +462,56 @@ for(const id of [104,159,160]){
   assert.equal(motorMagnitudes.clasificarDanioCompuesto(perfil,[],perfil.tipos)
     .multiplicador_debilidad,2);
 }
-console.log('OK · 120 Conjuros con dados especiales y ocho daños duales sin ejecutar Tiradas.');
+console.log('OK · 170 Conjuros con dados especiales y diez daños duales sin ejecutar Tiradas.');
+
+/* Sexto lote: 50 nuevas fichas cotejadas con la fuente y por ID. */
+const nuevas=[180,181,182,184,185,186,187,188,189,190,191,192,193,194,
+ 195,196,197,198,199,200,201,202,203,204,205,207,208,209,210,211,212,
+ 214,215,216,218,220,221,223,224,225,226,227,228,229,230,232,233,234,235,236];
+assert.equal(nuevas.length,50);
+for(const num of nuevas){
+  const original=revisados.find(x=>x.numero_tomo===num);
+  const dato=literales.registros.find(x=>x.numero_tomo===num);
+  assert.ok(original&&dato,'Nueva ficha '+num);
+  assert.equal(dato.id_catalogo,original.id_catalogo);
+  assert.ok(original.parrafos.join(' ').includes(dato.evidencia_literal));
+}
+assert.equal(valor(magnitudes('Ira celestial',8),'danio_radiante'),'4d12');
+assert.equal(valor(magnitudes('Idea devoradora',7),'duracion_turnos'),3);
+assert.equal(valor(magnitudes('Ilusión',8),'alcance_ilusion_sonora_m'),42);
+assert.equal(valor(magnitudes('Invocar elemental menor',8),'duracion_turnos'),24);
+assert.equal(valor(magnitudes('Ídolo guardián de Mulinith',8),'reduccion_impacto_fisico'),4);
+assert.equal(valor(magnitudes('Ídolo guardián de Mulinith',8),'factor_danio_area'),2);
+assert.equal(valor(magnitudes('Invocar ejército ilusorio',8),'impactos_soportados'),0,
+  'Nivel inferior a 10 sin mínimo inventado');
+assert.equal(valor(magnitudes('Invocar ejército ilusorio',25),'impactos_soportados'),2);
+assert.equal(valor(magnitudes('Lanza hemática',9),'danio_impio'),'9d3');
+assert.equal(valor(magnitudes('Llamada de auxilio',9),'maximo_receptores'),9);
+assert.equal(valor(magnitudes('Lluvia de estrellas',9),'danio_exito_radiante_psiquico'),'10d8');
+assert.equal(valor(magnitudes('Lluvia de estrellas',9),'danio_fallo_radiante'),'5d6');
+assert.equal(valor(magnitudes('Muro de fuego',9),'longitud_m'),'1d8+2');
+assert.equal(valor(magnitudes('Marchitar',9),'danio_impio_a_planta'),9);
+assert.equal(valor(magnitudes('Maldición de pesadumbre',9),'danio_adicional_recibido'),'2d6');
+const dobleLluvia=dobles.registros.find(x=>x.numero_tomo===216);
+const dobleLuna=dobles.registros.find(x=>x.numero_tomo===220);
+assert.ok(dobleLluvia&&dobleLuna);
+assert.deepEqual(dobleLluvia.tipos,['radiante','psíquico']);
+assert.equal(dobleLluvia.rama,'exito');
+assert.ok(dobleLluvia.condicion_activacion.includes('5d6 radiante'),
+  'La rama de fallo no tiene daño psíquico');
+assert.equal(dobleLuna.rama,'siempre');
+for(const perfil of [dobleLluvia,dobleLuna]){
+  assert.equal(perfil.grupos_de_dados,1);
+  assert.equal(motorMagnitudes.clasificarDanioCompuesto(perfil,perfil.tipos,[])
+    .resistencia_unica,true);
+  assert.equal(motorMagnitudes.clasificarDanioCompuesto(perfil,[],perfil.tipos)
+    .multiplicador_debilidad,2);
+}
+const visorCondicional=tooltip.indice({catalogo,conjurosRevisados:revisados,
+  magnitudes:literales,danioCompuesto:dobles});
+const fichaLluvia=tooltip.buscarPorId(visorCondicional,dobleLluvia.id_catalogo,'poder','nd20');
+assert.ok(fichaLluvia?.danioCompuesto?.condicion_activacion.includes('Solo la rama'));
+assert.equal(fichaLluvia?.magnitudes?.numero_tomo,216);
+assert.ok(fs.readFileSync(path.join(raiz,'assets/tooltip-ui.js'),'utf8')
+  .includes('info.danioCompuesto.condicion_activacion'));
+console.log('OK · sexto lote de 50 Conjuros: 170 magnitudes y 10 daños duales cotejados.');
