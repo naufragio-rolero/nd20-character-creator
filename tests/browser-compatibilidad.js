@@ -131,8 +131,10 @@ async function probar(nombre,tipo,url){
       const elegido=await tarjeta.locator('h3').innerText();
       assert.ok(bancoHistorico.entradas.some(x=>x.nombre===elegido),
         nombre+': nombre histórico no reconocido: '+elegido);
-      assert.match(await tarjeta.innerText(),/Forma del generador histórico/);
-      assert.match(await tarjeta.innerText(),/sin clasificación documental de sexo/);
+      assert.match(await tarjeta.locator('.contexto-ficha').textContent(),
+        /Forma del generador histórico/);
+      assert.match(await tarjeta.locator('.contexto-ficha').textContent(),
+        /sin clasificación documental de sexo/);
       await page.locator('#borrar').click();
     }
     await page.selectOption('#modo-nombre','combinado');
@@ -152,7 +154,8 @@ async function probar(nombre,tipo,url){
       const nombreGenerado=await tarjeta.locator('h3').innerText();
       assert.ok(combinados.some(x=>x.ambito===ambito&&x.nombre===nombreGenerado),
         nombre+': el nombre '+nombreGenerado+' debe proceder solo de '+ambito);
-      assert.match(await tarjeta.innerText(),/No identifica un personaje canónico/);
+      assert.match(await tarjeta.locator('.contexto-ficha').textContent(),
+        /No identifica un personaje canónico/);
       await page.locator('#borrar').click();
     }
     // Caso observado por el autor: Mediano amable + Guerrero.
