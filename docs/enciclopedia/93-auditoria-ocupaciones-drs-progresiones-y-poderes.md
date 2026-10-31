@@ -46,7 +46,9 @@ La tabla de progreso del Ladrón exige:
 - **Niveles 25–28:** 7 Técnicas, pero solo 6 opciones distintas compatibles: **falta 1**.
 - **Niveles 29–30:** 8 Técnicas, pero solo 6: **faltan 2**.
 
-La implementación **no importa contenido de suplementos** para rellenar los huecos ni permite repeticiones no autorizadas: concede las seis opciones verificadas y añade un aviso de insuficiencia. **Decisión de publicación pendiente:** aceptar explícitamente la limitación en altos Niveles o ampliar el material de reglas mediante una decisión del autor; no se ha hecho ninguna de esas dos cosas.
+La implementación **no importa contenido de suplementos** para rellenar los huecos ni permite repeticiones no autorizadas: concede las seis opciones verificadas y añade un aviso de insuficiencia.
+
+**Decisión editorial aceptada (31/10/2026):** **mantener la progresión de 7 y 8 Técnicas del Ladrón sin cambios**. En la edición básica DRS aprenderá únicamente las seis Técnicas distintas disponibles en sus categorías; las restantes plazas se podrán ocupar **cuando se publiquen nuevos suplementos gratuitos con Técnicas compatibles**. El generador conserva el aviso, pero no inventa, repite ni concede Técnicas de un suplemento que no esté activado. Se han añadido pruebas de la misma Ocupación con `fuentes:['DRS']` frente a `fuentes:['DRS','Ocupaciones']` para verificar la ampliación futura.
 
 ### DRS-OCP-06 — Conjuros conocidos del Clérigo
 
@@ -81,6 +83,6 @@ En `tests/alcance-drs.js` se han incorporado aserciones para:
 ## Siguientes decisiones y pasos
 
 1. **Editorial:** fijar el Círculo canónico de *Marca del dador oscuro* y su presencia en el repertorio clerical.
-2. **Editorial / publicación:** decidir cómo resolver las dos plazas de Técnica de Ladrón de Niveles 29–30 (y la de Niveles 25–28) **sin introducir DLC en el DRS**.
+2. **Resuelto editorialmente:** las plazas adicionales de Técnica de Ladrón se cubrirán con suplementos futuros, cuando sus fuentes se habiliten. **No bloquea la versión DRS básica.**
 3. **Técnico:** profundizar en competencias de equipo, restricciones y progresión de Técnicas y Conjuros; probar compra completa y navegador.
 4. **Edición 1.0:** mantener el filtro DRS, no fusionar ni desplegar PR #4 hasta que los criterios de publicación se cumplan.
