@@ -760,3 +760,86 @@ for(const nivel of [24,25,28,29,30]){
     'El futuro DLC cubre las Técnicas sin falsificar el DRS');
 }
 console.log('OK · Política editorial del Ladrón: 6 Técnicas DRS, hasta 8 con DLC habilitado sin cambiar progresión.');
+
+/* Catálogo DRS: las tablas oficiales incluyen 38 armas en total;
+ * Dardo carece de precio y NO se convierte en un regalo automático.
+ * De las otras 37, todas tienen precio documentado. */
+assert.equal(catalogoEquipamiento.armas.length,37,
+  'Todas las armas DRS con precio documentado');
+assert.equal(catalogoEquipamiento.armaduras.length,14,
+  'Las 14 protecciones corporales del DRS, con categoría y precio');
+assert.equal(catalogoEquipamiento.varitas_defensa.length,4,
+  'Las cuatro varitas de defensa oficiales del DRS');
+assert.ok(!catalogoEquipamiento.armas.some(x=>x.nombre==='Dardo'),
+  'Dardo sin precio no se asigna como objeto gratuito por coacción numérica');
+const equipoEsperadoDRS={
+  'Jabalina':{precio:.5,tipo:'una_mano',dano:'1d6',penetracion:2,durabilidad:'d4'},
+  'Lucero del alba':{precio:15,tipo:'una_mano',dano:'1d8',penetracion:2,durabilidad:'d8'},
+  'Alabarda':{precio:20,tipo:'dos_manos',dano:'1d10',penetracion:1,durabilidad:'d10'},
+  'Almádena':{precio:60,tipo:'dos_manos',dano:'1d10',penetracion:3,durabilidad:'d8'},
+  'Gran hacha':{precio:30,tipo:'dos_manos',dano:'1d12',penetracion:1,durabilidad:'d12'},
+  'Guja':{precio:20,tipo:'dos_manos',dano:'1d10',penetracion:2,durabilidad:'d8'},
+  'Lanza de caballería':{precio:10,tipo:'dos_manos',dano:'1d12',penetracion:3,durabilidad:'d6'},
+  'Ballesta de repetición':{precio:150,tipo:'distancia',dano:'1d6',penetracion:1,durabilidad:'d6'},
+  'Ballesta pesada':{precio:100,tipo:'distancia',dano:'1d10',penetracion:2,durabilidad:'d8'},
+  'Yumi':{precio:200,tipo:'distancia',dano:'1d12',penetracion:2,durabilidad:'d6'}
+};
+for(const [nombre,esperado] of Object.entries(equipoEsperadoDRS)){
+  const encontrado=catalogoEquipamiento.armas.find(x=>x.nombre===nombre);
+  assert.ok(encontrado,'Arma DRS antes ausente: '+nombre);
+  for(const [k,v] of Object.entries(esperado))
+    assert.equal(encontrado[k],v,nombre+' / '+k);
+}
+const armorDRS={
+ 'Pechera de algodón':{precio:.5,tipo:'tela',blindaje:1},
+ 'Cota de escamas':{precio:70,tipo:'intermedia',blindaje:'d8',durabilidad:'d10'},
+ 'Armadura de bandas':{precio:200,tipo:'pesada',blindaje:'d10',durabilidad:'d10'},
+ 'Armadura parcial de placas':{precio:300,tipo:'pesada',blindaje:'d10',durabilidad:'d12'},
+ 'Armadura completa de placas':{precio:1000,tipo:'pesada',blindaje:'d12',durabilidad:'d12'}
+};
+for(const [nombre,esperado] of Object.entries(armorDRS)){
+  const item=catalogoEquipamiento.armaduras.find(x=>x.nombre===nombre);
+  assert.ok(item,'Protección documentada ausente: '+nombre);
+  for(const [k,v] of Object.entries(esperado))
+    assert.equal(item[k],v,nombre+' / '+k);
+}
+assert.deepEqual(catalogoEquipamiento.varitas_defensa.map(x=>x.nombre),[
+  'Varita de cerezo','Rama de cristal','Cetro de dracólita','Esceptro de sangreluna'
+]);
+assert.deepEqual(catalogoEquipamiento.varitas_defensa.map(x=>x.precio),
+  [100,350,700,1500]);
+assert.deepEqual(catalogoEquipamiento.varitas_defensa.map(x=>x.municion_du),
+  ['d6','d8','d8','d6']);
+assert.ok(catalogoEquipamiento.varitas_defensa.every(x=>
+  x.tipo==='varita'&&Number.isInteger(x.penetracion)&&x.durabilidad&&x.dano));
+const compraNivel=(ocupacion,nivel,presupuesto=400)=>equipamientoDRS.compraInicial(
+  ocupaciones[ocupacion],ocupacion,'nd20',catalogoEquipamiento,
+  presupuesto,()=>0.999,nivel,especies['Humano común']);
+const magoVarita=compraNivel('Mago',1);
+assert.ok(magoVarita.equipo.includes('Varita de cerezo'),
+  'El Mago puede comprar la varita de 100 mo, si su capital alcanza');
+assert.ok(magoVarita.notas.some(x=>x.includes('Munición: DU d6')&&x.includes('Tirada de Mente')),
+  'Documentar munición y el Atributo correcto de una varita de defensa');
+assert.ok(!compraNivel('Guerrero',1).equipo.some(x=>
+  catalogoEquipamiento.varitas_defensa.some(y=>x===y.nombre)),
+  'Guerrero: competente con cualquier arma NO implica varitas de defensa');
+assert.ok(!compraNivel('Ladrón',5).equipo.some(x=>
+  catalogoEquipamiento.varitas_defensa.some(y=>x===y.nombre)),
+  'Ladrón no usa varitas antes del Nivel 6');
+assert.ok(compraNivel('Ladrón',6).equipo.includes('Varita de cerezo'),
+  'Ladrón puede usar varitas desde Nivel 6 como Mago 5 niveles inferior');
+assert.ok(!compraNivel('Clérigo',1).equipo.some(x=>
+  catalogoEquipamiento.varitas_defensa.some(y=>x===y.nombre)),
+  'Clérigo no gana competencia con varitas de defensa por sus Conjuros');
+for(const [ocupacion,nivel] of [
+  ['Guerrero',1],['Clérigo',11],['Clérigo',12],['Mago',1],['Ladrón',6]
+]){
+  for(const presupuesto of [40,400,1000]){
+    const compra=compraNivel(ocupacion,nivel,presupuesto);
+    assert.ok(compra.gastado<=presupuesto);
+    assert.ok(compra.restante>=0);
+    assert.ok(compra.equipo.every(x=>x!=='Dardo'),
+      'Nunca ofrecer Dardo con precio sin verificar');
+  }
+}
+console.log('OK · Equipo oficial: 37 armas con precio, 14 armaduras y 4 varitas; competencia de varitas verificada.');
