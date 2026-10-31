@@ -103,10 +103,14 @@ GitHub Actions durante siete días cuando supera las pruebas.
 Para esta distribución conservadora se dejan fuera los **nombres
 documentales de Ylat**, procedentes de archivos de ambientación ajenos
 al DRS; el nombre manual y el repertorio de la Especie permanecen.
-Las fichas adicionales procedentes del Tomo de Magia se filtran por los
-64 identificadores de Conjuros DRS, pero antes del lanzamiento debe
-confirmarse editorialmente que su redacción coincide con el manual
-básico, o sustituirlas por las fichas literales DRS.
+Las fichas de los **64 Conjuros del DRS** han sido **cotejadas
+literalmente con el DOCX original**, incluidos los datos de la tabla
+de Calentar metal. El paquete básico elimina el duplicado de Arma
+elemental y restituye la redacción DRS de Forja arcana, **sin modificar
+el Tomo de Magia de desarrollo**. Un registro de 64 huellas SHA-256
+bloquea cualquier divergencia textual futura durante la construcción
+y al validar el paquete. Véase
+`docs/enciclopedia/101-fidelidad-literal-64-conjuros-drs.md`.
 
 **No se ha desplegado ni habilitado Pages.** Véase
 `docs/enciclopedia/100-paquete-publico-drs-candidato.md`.
