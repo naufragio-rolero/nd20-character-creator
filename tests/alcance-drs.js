@@ -1046,6 +1046,8 @@ assert.throws(()=>equipamientoDRS.compraUtilesFantasia(catalogoEquipamiento,
 assert.deepEqual(carritosInmutables,[{id:'campamento-martillo',cantidad:1}],
   'Un fallo de compra no modifica la selección preexistente');
 const comprasHtml=fs.readFileSync(path.join(raiz,'index.html'),'utf8');
+assert.match(comprasHtml,/<button[^>]*id="generar"[^>]*disabled/,
+  'El botón Generar permanece inhabilitado hasta cargar los catálogos DRS');
 const comprasApp=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
 const estilosCompra=fs.readFileSync(path.join(raiz,'assets/styles.css'),'utf8');
 for(const id of ['editor-compras','titulo-editor-compras','form-compra-utiles',
