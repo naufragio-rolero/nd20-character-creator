@@ -7,7 +7,7 @@ Generador estático para **Naufragio d20 (Fantasía, CiFi y Nocturna)** y **Dung
 - `data/tesauro-ylat.json` contiene **200 nombres únicos** obtenidos exclusivamente a partir de tres documentos seleccionados de la Biblioteca `/Ylat`: *Personages Niguaze.pdf*, *Cronicas de Niguaze  .pdf* y *Hilo Isla Tormenta 2019.pdf*.
 - **51 nombres documentados** indican el archivo y la página en que aparecen; son nombres de personajes existentes en esos textos.
 - **149 nombres combinados** reutilizan nombres y apellidos documentados para sugerir personajes nuevos. **No son personajes canónicos ni atribuciones de culturas o especies**.
-- En Nd20 Fantasía hay un selector para optar por **variantes inspiradas** (por defecto), **nombres documentados** o el **repertorio de la Especie**. El campo de nombre manual sigue teniendo prioridad. Otros sistemas conservan sus propios repertorios.
+- En la **rama de desarrollo**, Nd20 Fantasía permite elegir **variantes inspiradas** (por defecto), **nombres documentados** (para revisión interna) o el **repertorio de la Especie**. En el **paquete candidato público** solo aparecen las **149 variantes combinadas** y el repertorio de Especie; los 51 nombres documentados no se sirven ni se pueden seleccionar. Un segundo selector filtra las variantes por **Niguace (116)** o **Isla Tormenta (33)**, sin relacionarlas artificialmente con Especies. El nombre manual sigue teniendo prioridad; los demás sistemas conservan sus repertorios. **27 nombres de pila combinados carecen de clasificación documental de sexo**: se permiten sin atribuirles ninguna y se señala en la ficha.
 - Los Talentos documentados de las ocupaciones ampliadas se muestran ahora en **Talentos y capacidades** en vez de Observaciones. Si la adquisición depende del Nivel o de una elección todavía no automatizada, aparece indicado para evitar otorgar capacidades indebidamente.
 - **Hurí:** Encanto y Defensa sin armadura aparecen como Talentos; la progresión de Magia tántrica se representa por cantidad de artes conocidas (1 en niveles 1–5, 2 en 6–11, 3 en 12–17 y 4 desde 18), junto con su Blindaje sin armadura. El documento de Ocupaciones **no proporciona nombres ni efectos de las artes tántricas**; el generador las identifica como pendientes, sin inventarlas.
 
@@ -100,9 +100,16 @@ una autorización para habilitar Pages. El workflow
 Firefox y WebKit** y adjunta el paquete candidato como artefacto de
 GitHub Actions durante siete días cuando supera las pruebas.
 
-Para esta distribución conservadora se dejan fuera los **nombres
-documentales de Ylat**, procedentes de archivos de ambientación ajenos
-al DRS; el nombre manual y el repertorio de la Especie permanecen.
+**Decisión editorial (31/10/2026):** el candidato público incluye los
+**149 nombres combinados de Ylat**, y excluye físicamente las **51
+identidades de personajes documentados** (conservadas solo en el repositorio
+de trabajo). Las combinaciones se presentan como propuestas no canónicas,
+con filtro por sus ámbitos existentes: Niguace (116), Isla Tormenta (33)
+o ambos. **27 combinaciones carecen de clasificación de sexo**; pueden
+seleccionarse sin inventarla y la ficha lo advierte. La clasificación por
+ámbito no equivale a una pertenencia a una Especie. El nombre manual y
+los repertorios por Especie permanecen intactos. Ver
+`docs/enciclopedia/102-149-nombres-combinados-ylat.md`.
 Las fichas de los **64 Conjuros del DRS** han sido **cotejadas
 literalmente con el DOCX original**, incluidos los datos de la tabla
 de Calentar metal. El paquete básico elimina el duplicado de Arma
