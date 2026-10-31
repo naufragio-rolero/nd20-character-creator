@@ -1,5 +1,11 @@
 {
   "version": 1,
+  "politica_talla": {
+    "origen": "Decisión editorial del 31/10/2026; no es un cambio del texto DRS",
+    "especies": ["Mediano amable", "Gnomo urbano"],
+    "armas_y_armaduras": "Todos los artículos del catálogo se ofrecen adaptados al tamaño de estas Especies, manteniendo precio y características y respetando las Competencias de Ocupación.",
+    "escudos": "Solo Escudo pequeño, si la Ocupación tiene competencia para usarlo."
+  },
   "fuentes": {
     "fantasia": "NaufragioD20DRS v1.1.12 · Equipo: Listas de equipo y Paquetes de equipo",
     "cifi": "NaufragioD20CiFi v1.0.3 · Equipo (precios y competencias); capital inicial mediante decisión editorial del 28-10-2026, todavía no incorporada al manual"
