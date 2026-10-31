@@ -119,17 +119,28 @@ async function probar(nombre,tipo,url){
     // Restaurar el estado original para las pruebas de Talentos que siguen.
     await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=false;});
     await page.locator('#e2e-poder').evaluate(x=>x.remove());
+    await page.locator('#abrir-selector-ocupacion').click();
+    assert.equal(await page.locator('#dialogo-ocupacion').evaluate(x=>x.open),true,
+      nombre+': el selector compacto abre una ventana');
     const opcionMago=page.locator('#selector-visual-ocupacion button[data-valor="Mago"]');
     await opcionMago.click();
     assert.equal(await page.locator('#ocupacion').inputValue(),'Mago');
     assert.equal(await opcionMago.getAttribute('aria-pressed'),'true');
+    assert.equal(await page.locator('#dialogo-ocupacion').evaluate(x=>x.open),false);
+    assert.equal(await page.locator('#valor-elegido-ocupacion').textContent(),'Mago (DRS)');
+    await page.locator('#abrir-selector-especie').click();
     const opcionElfo=page.locator('#selector-visual-especie button[data-valor="Elfo agreste"]');
     await opcionElfo.focus();
     await page.keyboard.press('Enter');
     assert.equal(await page.locator('#especie').inputValue(),'Elfo agreste');
     assert.equal(await opcionElfo.getAttribute('aria-pressed'),'true');
-    assert.equal(await opcionElfo.evaluate(e=>document.activeElement===e),true,
-      nombre+': el teclado conserva el foco tras seleccionar una Especie');
+    assert.equal(await page.locator('#dialogo-especie').evaluate(x=>x.open),false);
+    assert.equal(await page.locator('#abrir-selector-especie').evaluate(e=>document.activeElement===e),true,
+      nombre+': el teclado devuelve el foco al botón compacto');
+    await page.locator('#abrir-selector-especie').click();
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator('#dialogo-especie').evaluate(x=>x.open),false,
+      nombre+': Escape cierra la rejilla');
     await page.selectOption('#ocupacion','');
     await page.selectOption('#especie','');
     assert.equal(await page.locator('#selector-visual-especie button[data-valor=""]').getAttribute('aria-pressed'),'true');
@@ -141,8 +152,7 @@ async function probar(nombre,tipo,url){
       nombre+': no ofrecer suplementos ocultos en versión DRS');
     // La distribución pública muestra solo Fantasía DRS y Dungeon Hack.
     // Los otros motores permanecen comprobables en desarrollo.
-    const sistemasVisibles=process.env.FORJA_PUBLIC_ROOT?
-      ['dh']:['nd20_cifi','nd20_nocturna','dh'];
+    const sistemasVisibles=['dh'];
     const idsVisibles=await page.locator('.juegos-compactos [data-juego]')
       .evaluateAll(nodes=>nodes.map(n=>n.dataset.juego));
     assert.deepEqual(idsVisibles,['nd20',...sistemasVisibles],
