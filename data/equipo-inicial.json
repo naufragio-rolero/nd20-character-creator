@@ -2,7 +2,10 @@
   "version": 1,
   "politica_talla": {
     "origen": "Decisión editorial del 31/10/2026; no es un cambio del texto DRS",
-    "especies": ["Mediano amable", "Gnomo urbano"],
+    "especies": [
+      "Mediano amable",
+      "Gnomo urbano"
+    ],
     "armas_y_armaduras": "Todos los artículos del catálogo se ofrecen adaptados al tamaño de estas Especies, manteniendo precio y características y respetando las Competencias de Ocupación.",
     "escudos": "Solo Escudo pequeño, si la Ocupación tiene competencia para usarlo."
   },
@@ -157,6 +160,99 @@
       "nombre": "Tridente",
       "precio": 5,
       "tipo": "dos_manos"
+    },
+    {
+      "nombre": "Jabalina",
+      "precio": 0.5,
+      "tipo": "una_mano",
+      "dano": "1d6",
+      "penetracion": 2,
+      "durabilidad": "d4",
+      "arrojadiza_alcance": "12 m"
+    },
+    {
+      "nombre": "Lucero del alba",
+      "precio": 15,
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 2,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Alabarda",
+      "precio": 20,
+      "tipo": "dos_manos",
+      "dano": "1d10",
+      "penetracion": 1,
+      "durabilidad": "d10",
+      "alcance": "4 m"
+    },
+    {
+      "nombre": "Almádena",
+      "precio": 60,
+      "tipo": "dos_manos",
+      "dano": "1d10",
+      "penetracion": 3,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Gran hacha",
+      "precio": 30,
+      "tipo": "dos_manos",
+      "dano": "1d12",
+      "penetracion": 1,
+      "durabilidad": "d12"
+    },
+    {
+      "nombre": "Guja",
+      "precio": 20,
+      "tipo": "dos_manos",
+      "dano": "1d10",
+      "penetracion": 2,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Lanza de caballería",
+      "precio": 10,
+      "tipo": "dos_manos",
+      "dano": "1d12",
+      "penetracion": 3,
+      "durabilidad": "d6",
+      "alcance": "4 m",
+      "desventaja_distancia_corta": true
+    },
+    {
+      "nombre": "Ballesta de repetición",
+      "precio": 150,
+      "tipo": "distancia",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d6",
+      "alcance": "30 m",
+      "municion": "Virotes",
+      "proyectiles_por_turno": 3
+    },
+    {
+      "nombre": "Ballesta pesada",
+      "precio": 100,
+      "tipo": "distancia",
+      "dano": "1d10",
+      "penetracion": 2,
+      "durabilidad": "d8",
+      "alcance": "60 m",
+      "municion": "Virotes",
+      "no_mover_y_disparar": true
+    },
+    {
+      "nombre": "Yumi",
+      "precio": 200,
+      "tipo": "distancia",
+      "dano": "1d12",
+      "penetracion": 2,
+      "durabilidad": "d6",
+      "alcance": "75 m",
+      "municion": "Flechas",
+      "no_mover_y_disparar": true
     }
   ],
   "municion": [
@@ -226,6 +322,41 @@
       "nombre": "Cota de mallas",
       "precio": 75,
       "tipo": "pesada"
+    },
+    {
+      "nombre": "Pechera de algodón",
+      "precio": 0.5,
+      "tipo": "tela",
+      "blindaje": 1,
+      "durabilidad": null
+    },
+    {
+      "nombre": "Cota de escamas",
+      "precio": 70,
+      "tipo": "intermedia",
+      "blindaje": "d8",
+      "durabilidad": "d10"
+    },
+    {
+      "nombre": "Armadura de bandas",
+      "precio": 200,
+      "tipo": "pesada",
+      "blindaje": "d10",
+      "durabilidad": "d10"
+    },
+    {
+      "nombre": "Armadura parcial de placas",
+      "precio": 300,
+      "tipo": "pesada",
+      "blindaje": "d10",
+      "durabilidad": "d12"
+    },
+    {
+      "nombre": "Armadura completa de placas",
+      "precio": 1000,
+      "tipo": "pesada",
+      "blindaje": "d12",
+      "durabilidad": "d12"
     }
   ],
   "escudos": [
@@ -582,5 +713,48 @@
       }
     },
     "politica_compra": "Sugerencia de compra automática del generador, no lote gratuito del reglamento; equipamiento no incluido debe poder comprarse por separado"
-  }
+  },
+  "varitas_defensa": [
+    {
+      "nombre": "Varita de cerezo",
+      "tipo": "varita",
+      "alcance": "12 m",
+      "dano": "1d3",
+      "penetracion": 1,
+      "durabilidad": "d4",
+      "municion_du": "d6",
+      "precio": 100
+    },
+    {
+      "nombre": "Rama de cristal",
+      "tipo": "varita",
+      "alcance": "18 m",
+      "dano": "1d4",
+      "penetracion": 1,
+      "durabilidad": "d6",
+      "municion_du": "d8",
+      "precio": 350
+    },
+    {
+      "nombre": "Cetro de dracólita",
+      "tipo": "varita",
+      "alcance": "24 m",
+      "dano": "1d6",
+      "penetracion": 2,
+      "durabilidad": "d8",
+      "municion_du": "d8",
+      "precio": 700
+    },
+    {
+      "nombre": "Esceptro de sangreluna",
+      "tipo": "varita",
+      "alcance": "30 m",
+      "dano": "1d8",
+      "penetracion": 2,
+      "durabilidad": "d10",
+      "municion_du": "d6",
+      "precio": 1500
+    }
+  ],
+  "nota_catalogo_sin_precio": "Dardo: aparece en la tabla de armas a distancia del DRS sin precio (—); no se ofrece a compra automática sin valoración editorial."
 }
