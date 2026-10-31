@@ -84,6 +84,19 @@
       contenedor.appendChild(boton);
     });
   }
+  function marcarTarjetasSeleccionadas(tipo){
+    // No reconstruir el DOM al pulsar una tarjeta: teclado y lectores
+    // de pantalla conservan el foco sobre la opción recién seleccionada.
+    var actual=$(tipo).value;
+    $('selector-visual-'+tipo).querySelectorAll('button.opcion-visual')
+      .forEach(function(boton){
+        var selected=boton.dataset.valor===actual;
+        boton.classList.toggle('seleccionada',selected);
+        boton.setAttribute('aria-pressed',String(selected));
+        boton.setAttribute('aria-label',tipo+': '+
+          (boton.dataset.valor||'Aleatoria')+(selected?', seleccionada':''));
+      });
+  }
   function refrescarTarjetasVisibles(){
     refrescarTarjetas('ocupacion');
     refrescarTarjetas('especie');
@@ -713,7 +726,9 @@
         $(tipo).value=boton.dataset.valor;
         $(tipo).dispatchEvent(new Event('change',{bubbles:true}));
       });
-      $(tipo).addEventListener('change',refrescarTarjetasVisibles);
+      $(tipo).addEventListener('change',function(){
+        marcarTarjetasSeleccionadas(tipo);
+      });
     });
     $('generar-flotante').addEventListener('click',function(){
       if($('generar-flotante').disabled)return;
