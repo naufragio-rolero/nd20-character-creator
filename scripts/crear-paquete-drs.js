@@ -206,6 +206,25 @@ for(const ruta of especificas){
       '          Desactívalo para permitir personajes excepcionales. No es una prohibición mecánica del DRS.\n'+
       '          Los varones Gerudo son posibles, aunque excepcionales.',
       'La opción se aplica a las Ocupaciones publicadas de cada sistema.');
+    // CiFi y Nocturna permanecen disponibles y probables en desarrollo,
+    // pero se retiran (no se ocultan con CSS) de la navegación pública
+    // hasta completar la revisión editorial de ambas ediciones.
+    const botonesNoPublicados=[
+      '            <button type="button" data-juego="nd20_cifi" aria-pressed="false" title="Naufragio d20 CiFi"><span aria-hidden="true">✦</span><strong>Nd20C</strong></button>',
+      '            <button type="button" data-juego="nd20_nocturna" aria-pressed="false" title="Naufragio d20 Nocturna"><span aria-hidden="true">☾</span><strong>Nd20N</strong></button>'
+    ];
+    const opcionesNoPublicadas=[
+      '            <option value="nd20_cifi">Naufragio d20 · CiFi</option>',
+      '            <option value="nd20_nocturna">Naufragio d20 · Nocturna</option>'
+    ];
+    for(const fragmento of botonesNoPublicados.concat(opcionesNoPublicadas)){
+      if(!html.includes(fragmento))
+        throw Error('La selección pública ha cambiado: revisar ocultación de CiFi y Nocturna.');
+      html=html.replace(fragmento,'');
+    }
+    if(!html.includes('class="juegos-compactos"'))
+      throw Error('No se encuentra el selector visual de sistemas.');
+    html=html.replace('class="juegos-compactos"','class="juegos-compactos juegos-publicos"');
     // El formulario de desarrollo conserva 51 registros documentados
     // para consulta interna. Solo la distribución pública retira su opción.
     const opcionDocumentada='<option value="documentado">Personajes documentados (51)</option>';
