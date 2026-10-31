@@ -54,6 +54,23 @@ async function probar(nombre,tipo,url){
       nodes=>nodes.map(x=>({nombre:x.value,checked:x.checked})));
     assert.deepEqual(fuentes,[{nombre:'DRS',checked:true}],
       nombre+': no ofrecer suplementos ocultos en versión DRS');
+    // Alternar sistemas no puede recuperar opciones suplementarias ocultas
+    // ni dejar un filtro antiguo activo sobre Fantasía.
+    for(const otro of ['nd20_cifi','nd20_nocturna','dh']){
+      await page.locator('.juegos-compactos [data-juego="'+otro+'"]').click();
+      assert.equal(await page.locator('#juego').inputValue(),otro,
+        nombre+': selector de sistema '+otro);
+    }
+    await page.locator('.juegos-compactos [data-juego="nd20"]').click();
+    assert.equal(await page.locator('#juego').inputValue(),'nd20');
+    assert.deepEqual(await page.locator('#fuentes-nd20 input').evaluateAll(
+      nodes=>nodes.map(x=>({nombre:x.value,checked:x.checked}))),
+      [{nombre:'DRS',checked:true}],
+      nombre+': volver a Fantasía solo permite DRS');
+    assert.deepEqual(await page.locator('#ocupacion option').evaluateAll(
+      nodes=>nodes.map(x=>x.value).filter(Boolean).sort()),
+      ['Clérigo','Guerrero','Ladrón','Mago'].sort(),
+      nombre+': el cambio de sistema no filtra Ocupaciones DLC');
     await page.selectOption('#ocupacion','Guerrero');
     await page.selectOption('#especie','Humano común');
     await page.fill('#nombre-personaje','Compatibilidad '+nombre);
