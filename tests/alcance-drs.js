@@ -87,4 +87,8 @@ assert.ok(app.includes("nombres=nombres.filter(function(nombre){return publicada
   'El navegador solo ofrece las fuentes de Fantasía publicadas');
 assert.ok(app.includes("if(juego==='nd20')"),
   'Otras líneas de juego conservan sus selector de fuentes actual');
+const html=fs.readFileSync(path.join(raiz,'index.html'),'utf8');
+assert.ok(html.includes('id="aviso-alcance-drs"'));
+assert.ok(html.includes('DLC gratuitos'));
+assert.ok(app.includes("$('aviso-alcance-drs').hidden = juego!=='nd20'"));
 console.log('OK · Núcleo DRS: 8 Especies, 4 Ocupaciones, 64 Conjuros; 96 generaciones combinadas; DLC separados.');
