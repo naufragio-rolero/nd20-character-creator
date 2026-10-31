@@ -51,6 +51,7 @@ Las pruebas anteriores detectan correctamente que las opciones suplementarias no
    - Detecta fichas de Conjuros ajenos a los 64 del DRS en los dos archivos de Tomo de Magia.
    - Detecta progresiones suplementarias de Fantasía y nombres de Especies extra en `sexo-personajes.json`.
    - Señala bloques de Poderes especiales cuya pertenencia al DRS no se ha verificado.
+   - **Comprueba todos los archivos obligatorios de arranque** (JS, CSS y JSON): un directorio que solo tenga `index.html` tampoco puede obtener un resultado positivo engañoso.
 3. Invocación estricta **`node scripts/comprobar-publicacion-drs.js CARPETA`**: termina con error si detecta riesgos. `--report` imprime la misma auditoría como informe **sin certificar seguridad**.
 4. `tests/alcance-drs.js` comprueba que **la raíz actual resulte expresamente rechazada** y que el modo de informe registre las alertas. Así no puede interpretarse un CI verde como permiso de publicación de `main/(root)`.
 
