@@ -564,3 +564,128 @@ for(const especie of ['Mediano amable','Gnomo urbano']){
   assert.ok(app.includes('desarrolloHumano||'));
 }
 console.log('OK · Talentos de las 8 Especies, talla de 2 Especies y Buen desarrollo del Humano en ambos modos.');
+
+/* Auditoría integral de las cuatro tablas de Ocupación DRS.
+ * Fórmulas tomadas de las tablas originales, comprobadas en 30 filas
+ * para cada Ocupación y NO derivadas del JSON bajo prueba. */
+const tablaClerigo=(n,c)=>n<2*c?0:Math.min(7,
+  1+(n>2*c?1:0)+Math.floor(Math.max(0,n-(2*c+1))/4));
+const tablaMago=(n,c)=>n<2*c-1?0:Math.min(9,
+  1+(n>=2*c?1:0)+Math.floor(Math.max(0,n-2*c)/4));
+for(let nivel=1;nivel<=30;nivel++){
+  assert.deepEqual(progresiones.fantasia['Clérigo'].niveles[nivel-1],
+    Array.from({length:8},(_,i)=>tablaClerigo(nivel,i+1)),
+    'Tabla oficial de espacios del Clérigo al Nivel '+nivel);
+  assert.deepEqual(progresiones.fantasia.Mago.niveles[nivel-1],
+    Array.from({length:8},(_,i)=>tablaMago(nivel,i+1)),
+    'Tabla oficial de espacios del Mago al Nivel '+nivel);
+  assert.deepEqual(progresiones.fantasia.Guerrero.niveles[nivel-1],[
+    Math.min(10,1+Math.floor((nivel-1)/3)),
+    1+(nivel>=10?1:0)+(nivel>=22?1:0)
+  ],'Técnicas y Potencia de Brío musculoso en Nivel '+nivel);
+  assert.deepEqual(progresiones.fantasia['Ladrón'].niveles[nivel-1],[
+    Math.min(8,1+Math.floor((nivel-1)/4))
+  ],'Tabla oficial de Técnicas del Ladrón al Nivel '+nivel);
+}
+const talentosOcupacionDRS={
+  'Clérigo':['Expulsar muertos vivientes','Fortaleza piadosa'],
+  'Guerrero':['Recuperación','Brío musculoso','Sacrificio de escudo'],
+  'Mago':['Bagaje de arcanista','Meditación'],
+  'Ladrón':['Preparación','Sutileza']
+};
+for(const [ocupacion,talentos] of Object.entries(talentosOcupacionDRS)){
+  assert.deepEqual(ocupaciones[ocupacion].talentos,talentos,
+    'Talentos DRS exactos de '+ocupacion);
+  assert.deepEqual(Object.keys(ocupaciones[ocupacion].talentos_descripcion),talentos,
+    'Todos los Talentos de '+ocupacion+' tienen una glosa normativa');
+  for(const nivel of [1,6,10,12,22,30]){
+    const pj=reglas.crearNd20(fuenteBase,{
+      juego:'nd20',ocupacion,especie:'Humano común',nivel
+    },reglas.aleatorioSemilla('Auditoria-ocupacion/'+ocupacion+'/'+nivel));
+    const potencia=pj.recursos.find(x=>x[0]==='Potencia');
+    assert.ok(potencia,'El DRS exige Potencia inicial en todas las fichas');
+    const llevaBrio=ocupacion==='Guerrero'&&pj.capacidades.includes('Brío musculoso');
+    const esperada=1+(llevaBrio?(nivel>=10?1:0)+(nivel>=22?1:0):0);
+    assert.equal(potencia[1],esperada,'Potencia condicional DRS: '+ocupacion+'/'+nivel);
+    for(const talento of talentos.filter(x=>pj.capacidades.includes(x)))
+      assert.ok(pj.notas.some(n=>n.startsWith('Talento de Ocupación — '+talento+': ')),
+        'Talento documentado '+talento+'/'+nivel);
+    if(ocupacion==='Guerrero'){
+      const alternativas=['Brío musculoso','Sacrificio de escudo'];
+      assert.equal(alternativas.filter(x=>pj.capacidades.includes(x)).length,1);
+      assert.ok(!pj.notas.some(n=>alternativas.some(t=>
+        !pj.capacidades.includes(t)&&n.startsWith('Talento de Ocupación — '+t+': '))),
+        'No documentar el Talento no adquirido');
+    }
+  }
+}
+// La selección del Guerrero se difiere en la UI. El motor de Poderes
+// debe actualizar la Potencia según la alternativa elegida.
+for(const nivel of [1,9,10,21,22,30]){
+  const config={juego:'nd20',ocupacion:'Guerrero',especie:'Humano común',nivel,
+    aplazarElecciones:true};
+  const plan=planificadorDRS.planificar(config,fuenteBase,catalogo,progresiones);
+  assert.deepEqual(Object.keys(plan.talentos_ocupacion),
+    talentosOcupacionDRS.Guerrero,
+    'El editor puede documentar la alternativa escogida');
+  const paso=plan.pasos.find(x=>x.id==='talento-guerrero');
+  assert.ok(paso);
+  for(const talento of ['Brío musculoso','Sacrificio de escudo']){
+    const ficha=reglas.crearNd20(fuenteBase,config,
+      reglas.aleatorioSemilla('Eleccion-brio/'+nivel));
+    assert.equal(ficha.recursos.find(x=>x[0]==='Potencia')[1],1,
+      'Ficha provisional sin elección de Guerrero');
+    const simplificado={pasos:[paso],avisos:[],recursos:[],
+      talentos_ocupacion:plan.talentos_ocupacion};
+    const resuelto=planificadorDRS.resolver(simplificado,{
+      'talento-guerrero':[talento]
+    },reglas.aleatorioSemilla('Eleccion-brio/seleccion'));
+    const terminado=planificadorDRS.aplicar(ficha,simplificado,resuelto);
+    const esperado=talento==='Brío musculoso' ?
+      1+(nivel>=10?1:0)+(nivel>=22?1:0) : 1;
+    assert.equal(terminado.recursos.find(x=>x[0]==='Potencia')[1],esperado,
+      'Potencia después de elegir '+talento+' en Nv '+nivel);
+    assert.ok(terminado.notas.some(x=>
+      x.startsWith('Talento de Ocupación — '+talento+': ')));
+    assert.ok(!terminado.notas.some(x=>
+      x.startsWith('Talento de Ocupación — '+
+      (talento==='Brío musculoso'?'Sacrificio de escudo':'Brío musculoso')+': ')));
+  }
+}
+// Forja 1.0 no puede importar Técnicas de Ocupaciones/DLC al núcleo DRS.
+const drsTecnicas=new Set(catalogo.tecnicas.filter(x=>
+  x.fuente==='Naufragio d20 DRS').map(x=>x.id));
+const drsConjuros=new Set(catalogo.conjuros.filter(x=>
+  x.origen==='Nd20').map(x=>x.id));
+assert.equal(drsTecnicas.size,10);
+assert.equal(drsConjuros.size,64);
+for(const ocupacion of ['Clérigo','Guerrero','Mago','Ladrón']){
+  for(const nivel of [1,12,24,25,29,30]){
+    const plan=planificadorDRS.planificar({
+      juego:'nd20',ocupacion,especie:'Humano común',nivel,fuentes:['DRS']
+    },fuenteBase,catalogo,progresiones);
+    for(const paso of plan.pasos){
+      for(const opcion of paso.opciones){
+        if(paso.tipo==='tecnica')
+          assert.ok(drsTecnicas.has(opcion.id),
+            'No filtrar DLC por categoría: '+ocupacion+'/'+nivel+'/'+opcion.id);
+        if(paso.tipo==='conjuro_conocido'||paso.tipo==='conjuro_preparado')
+          assert.ok(drsConjuros.has(opcion.id),
+            'Los Conjuros elegibles son únicamente del DRS');
+      }
+    }
+    const tecnicas=plan.pasos.find(x=>x.id==='tecnicas');
+    if(ocupacion==='Ladrón'){
+      assert.equal(tecnicas.opciones.length,6,
+        'El DRS tiene seis Técnicas distintas de Disciplina y Trucos sucios');
+      assert.equal(tecnicas.cantidad,Math.min(
+        progresiones.fantasia['Ladrón'].niveles[nivel-1][0],6));
+      if(nivel>=25)assert.ok(plan.avisos.some(x=>
+        x.includes('Faltan '+(nivel>=29?2:1)+' opciones')),
+        'Aviso honesto de técnicas insuficientes en el DRS: Nivel '+nivel);
+    }
+    if(ocupacion==='Guerrero')assert.equal(tecnicas.opciones.length,10,
+      'El Guerrero accede a las diez Técnicas oficiales sin añadir DLC');
+  }
+}
+console.log('OK · 120 filas de progresión DRS cotejadas; Potencia y 9 Talentos de Ocupación; Técnica DRS estricta.');
