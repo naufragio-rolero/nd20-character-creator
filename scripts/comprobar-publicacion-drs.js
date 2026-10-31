@@ -10,6 +10,7 @@
  */
 const fs=require('node:fs');
 const path=require('node:path');
+const crypto=require('node:crypto');
 const args=process.argv.slice(2),report=args.includes('--report');
 const argumento=args.find(x=>!x.startsWith('--'));
 const raiz=path.resolve(argumento||path.join(__dirname,'..'));
@@ -71,13 +72,44 @@ if(catalogo){
 }
 const revisados=['data/conjuros-revisados-001-225.json',
   'data/conjuros-revisados-226-434.json'];
+const fichasConjuros=[];
 for(const ruta of revisados){
   const d=dato(ruta);
   if(!d)continue;
   const fuera=(d.conjuros||[]).filter(c=>!drsIds.has(c.id_catalogo));
   afirmar(fuera.length>0,ruta+' contiene '+fuera.length+
     ' fichas de Conjuros que no pertenecen al catálogo de 64 del DRS.');
+  fichasConjuros.push(...(d.conjuros||[]));
 }
+// Bloquear también una versión con los nombres correctos pero textos
+// retocados: la etiqueta «DRS» no garantiza fidelidad al manual.
+const registroHuellas=JSON.parse(fs.readFileSync(
+  path.join(__dirname,'..','data','huellas-conjuros-drs.json'),'utf8'));
+const huellas=registroHuellas.huellas;
+if(drsIds.size!==64||Object.keys(huellas).length!==64)
+  alertas.push('Se requieren 64 Conjuros DRS y 64 huellas originales verificadas.');
+const apariciones=new Set();
+for(const ficha of fichasConjuros){
+  if(!drsIds.has(ficha.id_catalogo))continue;
+  if(apariciones.has(ficha.id_catalogo)){
+    alertas.push('Ficha duplicada del DRS: '+ficha.id_catalogo+
+      ' ('+ficha.nombre_tomo+').');
+    continue;
+  }
+  apariciones.add(ficha.id_catalogo);
+  if(!Array.isArray(ficha.parrafos)){
+    alertas.push('Ficha DRS sin párrafos: '+ficha.id_catalogo);
+    continue;
+  }
+  const digest=crypto.createHash('sha256')
+    .update(JSON.stringify(ficha.parrafos.map(x=>x.trim())),'utf8').digest('hex');
+  if(digest!==huellas[ficha.id_catalogo])
+    alertas.push('Ficha no literal respecto al DOCX DRS: '+ficha.nombre_tomo+
+      ' ('+ficha.id_catalogo+').');
+}
+if(apariciones.size!==64)
+  alertas.push('El paquete contiene '+apariciones.size+
+    ' fichas DRS únicas; se requieren exactamente 64.');
 const prog=dato('data/progresiones-oficiales.json');
 if(prog){
   const fantasia=prog.ampliadas?.fantasia;
