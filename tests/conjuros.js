@@ -94,9 +94,9 @@ console.log('OK · 434 fichas cotejadas; 12 cambios aprobados y catálogo DRS va
 /* Pruebas del primer subconjunto de magnitudes mecánicas literales. */
 const motorMagnitudes=require('../assets/spell-magnitudes.js');
 const literales=leer('data/conjuros-magnitudes-literales.json');
-assert.equal(literales.registros.length,80,'80 fichas de magnitudes registradas');
-assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,80,
-  'No repetir IDs entre los 80 Conjuros modelados');
+assert.equal(literales.registros.length,100,'100 fichas de magnitudes registradas');
+assert.equal(new Set(literales.registros.map(x=>x.id_catalogo)).size,100,
+  'No repetir IDs entre los 100 Conjuros modelados');
 for(const entrada of literales.registros){
   // Cada magnitud debe conservar evidencia textual y funcionar en varios niveles.
   assert.equal(new Set(entrada.magnitudes.map(x=>x.clave)).size,entrada.magnitudes.length,
@@ -212,7 +212,7 @@ assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'dados_por_nivel',val
   /Dados por Nivel inválidos/);
 assert.throws(()=>magnitudes('Lanza de sombras',0),/Nivel entero positivo/);
 assert.equal(motorMagnitudes.calcular({clave:'dados',tipo:'dados_por_nivel',valor:[2,12]},5),'10d12');
-console.log('OK · 80 Conjuros con magnitudes verificadas en 4 Niveles; sin ejecutar efectos.');
+console.log('OK · 100 Conjuros con magnitudes verificadas en 4 Niveles; sin ejecutar efectos.');
 
 /* Resoluciones editoriales: 4 m³, redondeo inferior y un solo daño de doble tipo. */
 const surcar=revisados.find(x=>x.numero_tomo===385);
@@ -242,8 +242,8 @@ assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'por_cada_n_niveles',
 assert.throws(()=>motorMagnitudes.calcular({clave:'x',tipo:'base_mas_por_cada_n_niveles',valor:[1,1,0]},5),/inválidos/);
 
 const dobles=leer('data/conjuros-danio-compuesto.json');
-assert.equal(dobles.registros.length,4);
-assert.deepEqual(dobles.registros.map(x=>x.numero_tomo),[3,7,183,387]);
+assert.equal(dobles.registros.length,5);
+assert.deepEqual(dobles.registros.map(x=>x.numero_tomo),[3,7,148,183,387]);
 for(const p of dobles.registros){
   const ficha=revisados.find(x=>x.numero_tomo===p.numero_tomo);
   assert.ok(ficha);
@@ -279,7 +279,7 @@ const appMecanica=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
 const uiMecanica=fs.readFileSync(path.join(raiz,'assets/tooltip-ui.js'),'utf8');
 assert.ok(appMecanica.includes('data/conjuros-danio-compuesto.json'));
 assert.ok(uiMecanica.includes('info.danioCompuesto'));
-console.log('OK · 4 m³, redondeo inferior por bloques y 4 perfiles de daño doble aprobados.');
+console.log('OK · 4 m³, redondeo inferior por bloques y 5 perfiles de daño doble aprobados.');
 
 
 /* Tercera tanda: 35 Conjuros adicionales, todos referenciados por sus fichas. */
@@ -338,3 +338,43 @@ assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleFrio,[],['frío','imp
 assert.equal(tooltip.buscar(glosarioDoble,'[C] Aliento de agonía (C2) · Slat-Deanaich',
   'poder','nd20')?.danioCompuesto?.numero_tomo,7);
 console.log('OK · tercer lote de 35 Conjuros adicionales y cuarto daño dual validado.');
+
+/* Cuarta tanda: centenar de Conjuros, duración, magnitudes y condiciones separadas. */
+assert.equal(valor(magnitudes('Cañón aural',10),'danio_magico'),'15d10');
+assert.equal(valor(magnitudes('Cañón aural',10),'anchura_linea_m'),2);
+assert.equal(valor(magnitudes('Disipar magia',10),'volumen_afectado_m3'),6);
+assert.equal(valor(magnitudes('Disco celeste de Excelsus',10),'carga_maxima_aproximada_kg'),300);
+assert.ok(magnitudes('Disco celeste de Excelsus',10).condiciones_no_automatizadas.includes('aproximación'));
+assert.equal(valor(magnitudes('Detectar lo invisible',9),'duracion_turnos'),45);
+assert.equal(valor(magnitudes('Detectar lo invisible',9),'alcance_m'),18);
+assert.equal(valor(magnitudes('Descarga de debilidad',9),'factor_danio_cuerpo_a_cuerpo'),0.5);
+assert.equal(valor(magnitudes('Detectar la mentira',9),'ventana_declaraciones_min'),60);
+assert.equal(valor(magnitudes('Doble ilusorio',9),'alcance_m'),27);
+assert.equal(valor(magnitudes('Detectar trampas',9),'duracion_minutos'),90);
+assert.equal(valor(magnitudes('Eclipse del artefacto',9),'invocacion_regreso_turnos'),3);
+assert.equal(valor(magnitudes('Estrépito',9),'danio_sonico'),'2d6');
+assert.equal(valor(magnitudes('Ecos de decadencia',9),'duracion_turnos'),9);
+assert.equal(valor(magnitudes('Enjambre voraz',9),'danio_adicional_veneno'),'1d8');
+assert.equal(valor(magnitudes('Esfera corrosiva',9),'danio_acido_exito'),'3d12');
+assert.equal(valor(magnitudes('Esfera corrosiva',9),'danio_acido_fallo'),'3d6');
+assert.ok(magnitudes('Esfera corrosiva',9).condiciones_no_automatizadas.includes('mutuamente excluyentes'));
+assert.equal(valor(magnitudes('Encandilamiento',9),'nivel_objetivo_maximo'),3);
+assert.equal(valor(magnitudes('Esfera vital',9),'radio_minimo_m'),3);
+assert.equal(valor(magnitudes('Esfera vital',9),'radio_maximo_m'),6);
+assert.equal(valor(magnitudes('Eternidad arcana',9),'envejecimiento_costo'),'1d4');
+assert.equal(valor(magnitudes('Explosión arcana',9),'danio_fuerza'),'9d10');
+assert.equal(valor(magnitudes('Explosión arcana',9),'area_m2'),6);
+assert.equal(valor(magnitudes('Erupción',9),'danio_contundente_fuego'),'18d6');
+assert.equal(valor(magnitudes('Erupción',9),'area_m2'),12);
+assert.equal(valor(magnitudes('Endeblez',9),'penalizacion_danio'),-1);
+assert.equal(valor(magnitudes('Embozo de sombras',1),'duracion_turnos'),2);
+assert.equal(valor(magnitudes('Embozo de sombras',9),'duracion_turnos'),10);
+assert.equal(valor(magnitudes('Embozo de sombras',9),'blindaje_extra'),'1d4');
+const dobleErupcion=dobles.registros.find(x=>x.numero_tomo===148);
+assert.deepEqual(dobleErupcion.tipos,['contundente','fuego']);
+assert.equal(dobleErupcion.grupos_de_dados,1);
+assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleErupcion,
+  ['contundente','fuego'],[]).resistencia_unica,true);
+assert.equal(motorMagnitudes.clasificarDanioCompuesto(dobleErupcion,[],
+  ['contundente','fuego']).multiplicador_debilidad,2);
+console.log('OK · 100 Conjuros y quinto daño dual, con expresiones verificadas por fuente.');
