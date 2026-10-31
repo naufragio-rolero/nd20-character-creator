@@ -88,6 +88,47 @@ const origenes={
   ocupaciones:Object.fromEntries(Object.keys(ocupaciones).map(x=>[x,'DRS']))
 };
 const fuenteBase={especies,ocupaciones,fuentes:origenes};
+// El tesauro de desarrollo conserva la fuente histórica completa, pero
+// solo las 149 COMBINACIONES están aprobadas para el paquete público.
+const tesauroYlat=leer('tesauro-ylat.json');
+const nombresSexo=leer('sexo-personajes.json');
+const sexoNombres=require('../assets/sex.js');
+const combinados=tesauroYlat.entradas.filter(x=>x.tipo==='combinado');
+const documentados=tesauroYlat.entradas.filter(x=>x.tipo==='documentado');
+assert.equal(combinados.length,149);
+assert.equal(documentados.length,51);
+assert.equal(combinados.filter(x=>x.ambito==='Niguace').length,116);
+assert.equal(combinados.filter(x=>x.ambito==='Isla Tormenta').length,33);
+assert.equal(new Set(combinados.map(x=>x.nombre)).size,149);
+const clasificadosM=new Set(nombresSexo.nombres_generales_masculinos);
+const clasificadosF=new Set(nombresSexo.nombres_generales_femeninos);
+const sinSexo=combinados.filter(x=>
+  !clasificadosM.has(x.nombre.split(' ')[0]) &&
+  !clasificadosF.has(x.nombre.split(' ')[0]));
+assert.equal(sinSexo.length,27,
+  '27 combinaciones sin clasificación de sexo no deben recibirla por inferencia');
+for(const sexo of ['masculino','femenino']){
+  const opciones=sexoNombres.nombresDocumentados(combinados,sexo,nombresSexo,true);
+  assert.ok(sinSexo.every(x=>opciones.some(y=>y.id===x.id)),
+    'Los 27 nombres no clasificados son propuestas válidas sin atribución: '+sexo);
+  const ficha=sexoNombres.elegirNombre({juego:'nd20',modoNombre:'combinado'},
+    'Humano común',[],[sinSexo[0]],sexo,nombresSexo,()=>0);
+  assert.equal(ficha.nombre,sinSexo[0].nombre);
+  assert.match(ficha.nota,/sin clasificación documental de sexo/);
+}
+for(const ambito of ['Niguace','Isla Tormenta']){
+  const validos=new Set(combinados.filter(x=>x.ambito===ambito).map(x=>x.nombre));
+  for(const sexo of ['masculino','femenino']){
+    const personaje=reglas.crearNd20(fuenteBase,{
+      juego:'nd20',ocupacion:'Guerrero',especie:'Humano común',nivel:1,
+      fuentes:['DRS'],modoNombre:'combinado',ambitoNombre:ambito,sexo,
+      tesauroYlat:tesauroYlat,catalogoSexo:nombresSexo
+    },reglas.aleatorioSemilla('Nombres combinados '+ambito+' '+sexo));
+    assert.ok(validos.has(personaje.nombre),
+      'La procedencia del nombre debe corresponder a '+ambito+' sin inventar Especies');
+    assert.ok(personaje.notas.some(x=>x.includes('No identifica un personaje canónico.')));
+  }
+}
 for(const ocupacion of manifest.drs.ocupaciones){
   for(const especie of manifest.drs.especies){
     for(const nivel of [1,12,30]){
