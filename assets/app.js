@@ -325,8 +325,14 @@
   // Compras de útiles: la selección se valida con el motor antes de tocar
   // el inventario. Cada editor se vincula al ID único de una ficha DRS.
   function cerrarCompra(){
+    var id=compraBorrador&&compraBorrador.id;
     compraBorrador=null;
     $('editor-compras').hidden=true;
+    // El teclado vuelve a la ficha que abrió el editor, si sigue presente.
+    if(id!==null&&id!==undefined){
+      var retorno=$('fichas').querySelector('.comprar-utiles[data-id="'+id+'"]');
+      if(retorno)retorno.focus({preventScroll:true});
+    }
   }
   function entradaCompra(){
     if(!compraBorrador)throw Error('No hay una compra de útiles activa.');
@@ -370,6 +376,7 @@
     $('compras-nivel').value='1';
     $('editor-compras').hidden=false;
     refrescarCompra();
+    select.focus({preventScroll:true});
     $('editor-compras').scrollIntoView({behavior:'smooth',block:'start'});
   }
   function articuloCompra(){
@@ -708,8 +715,12 @@
         });
         personaje.notas.push('Compra adicional de útiles: '+compra.gastado+
           ' mo; saldo actual '+compra.restante+' mo.');
+        var idComprador=entrada.id;
         cerrarCompra();
         dibujar();
+        var boton=$('fichas').querySelector(
+          '.comprar-utiles[data-id="'+idComprador+'"]');
+        if(boton)boton.focus({preventScroll:true});
       });
     });
     $('compras-cancelar').addEventListener('click',cerrarCompra);
