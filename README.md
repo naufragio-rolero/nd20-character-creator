@@ -297,10 +297,17 @@ El flujo se verifica automáticamente en **Google Chrome real**, mediante
 `node tests/browser-compras.js`, además de las pruebas unitarias de
 Node. La ejecución en GitHub Actions comprueba generación, compra y
 cancelación, protección frente a sobrepresupuestos, independencia de
-fichas, copia/exportación, foco del teclado y ancho móvil. La prueba
-no sustituye una revisión visual manual ni una auditoría de
-accesibilidad. Véase
-`docs/enciclopedia/97-pruebas-navegador-compras-drs.md`.
+fichas, copia/exportación, foco del teclado y ancho móvil. También se
+prueban **Firefox (Gecko)** y **WebKit** mediante
+`tests/browser-compatibilidad.js`: Playwright solo se instala en el
+entorno de CI, no en la aplicación. WebKit no equivale a probar Safari
+directamente en macOS o iOS. Estas pruebas no sustituyen una auditoría
+completa de accesibilidad.
+
+Véanse `docs/enciclopedia/97-pruebas-navegador-compras-drs.md` y
+`docs/enciclopedia/99-compatibilidad-y-seguridad-publicacion-drs.md`.
+**Los tres motores funcionando no autoriza a publicar la raíz**: consultar
+el bloqueo de seguridad de la sección «Publicar en GitHub Pages».
 
 ### Fichas emergentes (Talentos, Poderes y Objetos)
 
