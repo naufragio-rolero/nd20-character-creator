@@ -196,6 +196,16 @@ async function probar(nombre,tipo,url){
     assert.equal(await popup.locator('.info-clasificacion').textContent(),
       'Ocupación · Clérigo');
     assert.equal(await popup.locator('.info-categoria').textContent(),'Acción');
+    for(const tema of ['clasico','ebano','ceruleo','obsidiana']){
+      await page.locator('#selector-tema').selectOption(tema);
+      await page.locator('#e2e-talento').click();
+      assert.equal(await popup.locator('.info-categoria').textContent(),'Acción',
+        nombre+': categoría visible en tema '+tema);
+      await page.screenshot({path:path.join(capturas,
+        nombre+'-talento-'+tema+'.png')});
+    }
+    await page.locator('#selector-tema').selectOption('clasico');
+    await page.locator('#e2e-talento').click();
     assert.deepEqual(await popup.locator('.info-primarios dt').allTextContents(),
       ['Atributo:','Coste:']);
     assert.deepEqual(await popup.locator('.info-primarios dd').allTextContents(),
@@ -299,6 +309,13 @@ async function probar(nombre,tipo,url){
     await page.locator('#e2e-talento').click();
     assert.equal(await popup.locator('.info-aclaracion-autoral').isVisible(),false);
 
+    await page.setViewportSize({width:390,height:844});
+    await page.locator('#e2e-talento').click();
+    const modalMovil=await popup.boundingBox();
+    assert.ok(modalMovil&&modalMovil.width<=390&&modalMovil.height<=844,
+      nombre+': modal de Talentos no desborda el viewport táctil');
+    await page.screenshot({path:path.join(capturas,nombre+'-talento-movil.png')});
+    await page.setViewportSize({width:1440,height:900});
     await page.keyboard.press('Escape');
     assert.equal(await popup.isHidden(),true,
       nombre+': Escape cierra el diálogo');
@@ -682,6 +699,31 @@ async function probar(nombre,tipo,url){
       return document.activeElement===t&&r.top>=-2&&r.top<innerHeight;
     });
     assert.equal(await page.locator('#fichas .tarjeta').count(),antes+1);
+    // Dispositivo táctil: apertura por tap y cierre sin depender de hover.
+    const tactil=await browser.newContext({viewport:{width:390,height:844},
+      hasTouch:true});
+    try{
+      const pagTactil=await tactil.newPage();
+      await pagTactil.goto(url,{waitUntil:'domcontentloaded'});
+      await pagTactil.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      await pagTactil.evaluate(()=>{
+        const b=document.createElement('button');
+        b.id='talento-tactil';b.type='button';b.textContent='Talento táctil';
+        b.className='referencia-glosario';
+        b.dataset.glosaId='talento-drs-especie-elfo-agreste-rapidez';
+        b.dataset.glosaGrupo='talento';b.dataset.glosaSistema='nd20';
+        document.body.appendChild(b);
+      });
+      await pagTactil.locator('#talento-tactil').tap();
+      assert.equal(await pagTactil.locator('#ficha-emergente').getAttribute('role'),
+        'dialog',nombre+': tap fija la consulta');
+      assert.equal(await pagTactil.locator('.info-categoria').textContent(),
+        'Mejora',nombre+': categoría visible en táctil');
+      await pagTactil.locator('.info-cerrar').tap();
+      assert.equal(await pagTactil.locator('#ficha-emergente').isHidden(),true);
+    }finally{
+      await tactil.close();
+    }
     assert.deepEqual(fallos,[],nombre+': no debe haber excepciones no capturadas');
     console.log('OK · '+nombre+': 4 Ocupaciones, 8 Especies, compras, Intro, cancelar,'+
       ' precio por Nivel, quitar, presupuesto, móvil y cero excepciones.');
