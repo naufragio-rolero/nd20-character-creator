@@ -138,6 +138,14 @@
     var marca=document.createElement("p");marca.className="info-tipo";
     marca.textContent=presentacion?.tipo||info.tipo||"Ficha";
     cabecera.appendChild(marca);
+    if(talento&&talento.categoria){
+      var categoria=document.createElement('span');
+      categoria.className='info-categoria info-categoria-'+talento.categoria
+        .toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+      categoria.textContent=talento.categoria;
+      categoria.setAttribute('aria-label','Categoría: '+talento.categoria);
+      cabecera.appendChild(categoria);
+    }
     if(presentacion&&presentacion.clasificacion){
       var clase=document.createElement('p');
       clase.className='info-clasificacion';
@@ -177,53 +185,19 @@
       });
       tecnicos.appendChild(tabla);
     }
-    if(talento&&talento.uso_editorial){
-      var uso=document.createElement('p');
-      uso.className='info-uso-editorial';
-      uso.textContent='Tipo de uso (guía editorial): '+talento.uso_editorial;
-      c.appendChild(uso);
-    }
-    if(talento&&talento.resumen_editorial){
-      var resumen=document.createElement('section');
-      resumen.className='info-resumen-editorial';
-      var nombreResumen=document.createElement('h4');
-      nombreResumen.textContent='En pocas palabras';
-      var textoResumen=document.createElement('p');
-      textoResumen.textContent=talento.resumen_editorial;
-      resumen.append(nombreResumen,textoResumen);
-      c.appendChild(resumen);
-      var efectoLiteral=document.createElement('p');
-      efectoLiteral.className='info-descripcion';
-      efectoLiteral.textContent=info.descripcion||'';
-      if((info.descripcion||'').length>340){
-        var literal=document.createElement('details');
-        literal.className='info-texto-literal';
-        var resumenLiteral=document.createElement('summary');
-        resumenLiteral.textContent='Leer texto íntegro del DRS';
-        literal.append(resumenLiteral,efectoLiteral);
-        literal.addEventListener('toggle',posicionar);
-        c.appendChild(literal);
-      }else{
-        var literalEtiqueta=document.createElement('h4');
-        literalEtiqueta.className='info-literal-etiqueta';
-        literalEtiqueta.textContent='Texto original del DRS';
-        c.append(literalEtiqueta,efectoLiteral);
-      }
-    }else{
-      var d=document.createElement("p");d.className="info-descripcion";
-      d.textContent=info.descripcion||
-        "No consta una descripción en la fuente seleccionada.";
-      c.appendChild(d);
-    }
+    // Un único efecto DRS visible: nunca duplicar con resúmenes o desplegables.
+    var d=document.createElement("p");d.className="info-descripcion";
+    d.textContent=info.descripcion||
+      "No consta una descripción en la fuente seleccionada.";
+    c.appendChild(d);
     if(!talento&&info.procedencia_glosa){
       var fuenteGlosa=document.createElement('p');
       fuenteGlosa.className='info-origen-glosa';
       fuenteGlosa.textContent='Descripción: '+info.procedencia_glosa;
       c.appendChild(fuenteGlosa);
     }
-    // Apartado independiente: no añadir interpretaciones al efecto literal.
-    // Visible siempre para que la aclaración aprobada no quede escondida
-    // dentro de los detalles técnicos del popup.
+    // Aclaraciones aprobadas: solo en Opciones avanzadas → Detalles técnicos.
+    // No forman parte de la descripción DRS ni introducen efectos nuevos.
     if(talento&&talento.aclaracion){
       var nota=document.createElement('section');
       nota.className='info-aclaracion-autoral';
@@ -233,7 +207,7 @@
       var contenido=document.createElement('p');
       contenido.textContent=talento.aclaracion.texto;
       nota.append(etiqueta,contenido);
-      c.appendChild(nota);
+      tecnicos.appendChild(nota);
     }
     /* Las magnitudes se calculan solo cuando conocemos el Nivel del personaje.
      * Las condiciones y las tiradas de dados NO se ejecutan aquí. */
@@ -307,11 +281,8 @@
     escuchando=true;
     document.addEventListener("pointerover",function(e){
       var a=getTarget(e);
-      // Una ficha fijada por clic o teclado no puede ser sustituida
-      // accidentalmente por hover de otra referencia.
-      // Los Talentos se leen como un diálogo estable, nunca como un
-      // tooltip volátil disparado por hover: clic o foco de teclado.
-      if(a?.dataset.glosaGrupo==="talento")return;
+      // Una ficha fijada por clic o teclado nunca se sustituye por hover.
+      // Talentos y Poderes recuperan la misma consulta ligera por ratón.
       if(a&&e.pointerType==="mouse"&&!fija&&!a.contains(e.relatedTarget))
         mostrar(a,false);
     });
@@ -336,7 +307,12 @@
         mostrar(a,true);
       }else if(card&&!card.contains(e.target))cerrar();
     });
-    document.addEventListener("keydown",function(e){if(e.key==="Escape")cerrar();});
+    document.addEventListener("keydown",function(e){
+      if(e.key!=="Escape"||!card||card.hidden)return;
+      var retorno=fija?ancla:null;
+      cerrar();
+      if(retorno&&retorno.isConnected)retorno.focus({preventScroll:true});
+    });
     root.addEventListener("resize",posicionar);
     root.addEventListener("scroll",posicionar,{passive:true,capture:true});
   }
