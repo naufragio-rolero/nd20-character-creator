@@ -465,6 +465,37 @@ async function probar(nombre,tipo,url){
     assert.ok((await infoRecuerdo.locator('.info-fuente').textContent())
       .includes('data/especies.json'));
     await page.keyboard.press('Escape');
+    // Equipo incluido en el paquete: referencias DRS, no compras adicionales.
+    const antorcha=ficha.locator('.referencia-glosario[data-glosa-grupo="equipo"]')
+      .filter({hasText:'antorcha (DU d6)'}).first();
+    assert.equal(await antorcha.count(),1,nombre+': luz de paquete consultable');
+    await antorcha.click();
+    const luz=page.locator('#ficha-emergente');
+    assert.equal(await luz.locator('.info-clasificacion').textContent(),'Iluminación');
+    assert.match(await luz.locator('.info-descripcion').textContent(),/Ilumina 6 metros/);
+    assert.deepEqual(await luz.locator('.info-primarios dd').allTextContents(),
+      ['10 mc','DU d6']);
+    assert.ok((await luz.locator('.info-fuente').textContent()).includes('Tabla 21'));
+    await page.keyboard.press('Escape');
+    const mochila=ficha.locator('.referencia-glosario[data-glosa-grupo="equipo"]')
+      .filter({hasText:'Mochila'}).first();
+    await mochila.click();
+    const componente=page.locator('#ficha-emergente');
+    assert.equal(await componente.locator('.info-clasificacion').textContent(),
+      'Componente de paquete');
+    assert.equal(await componente.locator('.info-primarios dt').count(),0);
+    assert.match(await componente.locator('.info-fuente').textContent(),
+      /Paquetes de equipo/);
+    await page.keyboard.press('Escape');
+    const racion=ficha.locator('.referencia-glosario[data-glosa-grupo="equipo"]')
+      .filter({hasText:'ración (DU d6)'}).first();
+    assert.equal(await racion.count(),1,nombre+': referencia textual de ración');
+    await racion.click();
+    assert.match(await page.locator('#ficha-emergente .info-primarios').textContent(),
+      /Precio individual/);
+    assert.match(await page.locator('#ficha-emergente .info-descripcion').textContent(),
+      /Carne o fruta seca/);
+    await page.keyboard.press('Escape');
     const inicial=precio(await ficha.locator('.riqueza').innerText());
     await ficha.locator('.comprar-utiles').click();
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
