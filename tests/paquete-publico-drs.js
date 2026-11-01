@@ -134,6 +134,15 @@ const equipo=leer(salida,'equipo-inicial.json');
 assert.equal(equipo.armas.find(x=>x.nombre==='Dardo').precio,0);
 assert.equal(equipo.armas.find(x=>x.nombre==='Almádena').precio,60);
 assert.equal(equipo.utiles_fantasia.campamento.find(x=>x.nombre==='Martillo de campamento').precio,2);
+const consultaPublica=leer(salida,'equipo-consulta-drs.json');
+const consultaFuente=leer(raiz,'equipo-consulta-drs.json');
+assert.deepEqual(consultaPublica,consultaFuente,
+  'El catálogo de consulta DRS distribuido coincide íntegramente con la fuente');
+assert.equal(consultaPublica.tablas.reduce((n,t)=>n+t.registros.length,0),10);
+assert.equal(consultaPublica.equivalencias_explicitas_paquetes.length,5);
+assert.equal(consultaPublica.componentes_exclusivos_paquete.length,5);
+assert.ok(!JSON.stringify(consultaPublica).includes('Manto de Vagryen'),
+  'No distribuir Objetos mágicos suplementarios con el equipo DRS');
 const marca=core.conjuros.find(x=>x.nombre==='Marca del dador oscuro');
 assert.equal(marca.circulo,5);
 assert.ok(core.listas_drs.Clérigo['5'].includes(marca.nombre));
@@ -211,7 +220,7 @@ const esperados=new Set([
   'catalogo-poderes.json','conjuros-revisados-001-225.json',
   'conjuros-revisados-226-434.json','conjuros-magnitudes-literales.json',
   'alcance-drs-y-dlc.json','conjuros-danio-compuesto.json',
-  'progresiones-oficiales.json','equipo-inicial.json','fichas-documentales.json',
+  'progresiones-oficiales.json','equipo-inicial.json','equipo-consulta-drs.json','fichas-documentales.json',
   'talentos-drs-literales.json','aclaraciones-talentos-drs.json',
   'dungeon-hack.json'
 ]);
