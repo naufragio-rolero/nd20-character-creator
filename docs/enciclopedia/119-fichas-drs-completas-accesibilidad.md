@@ -49,7 +49,12 @@ Las pruebas protegen cobertura 10/24/111, coincidencia física de los catálogos
 - [x] 111 artículos del Equipo actual con descripción.
 - [x] Diálogos de Talento desplazables, con cierre y texto fuente accesible.
 - [x] Corrección de contraste de Ébano.
-- [ ] Registrar **4/4 suites CI verdes** del último commit y examinar capturas reales del candidato.
+- [x] **4/4 suites CI verdes** sobre el último commit funcional `a80b9249`, con pruebas Node de cobertura 10/24/111, Chrome, Firefox/WebKit y paquete público depurado:
+  - [validación general — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41334110657)
+  - [Chrome compras — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41334110672)
+  - [Firefox/WebKit — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41334110654)
+  - [paquete público DRS — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41334110628)
+- [x] Revisar la evidencia de 10 capturas de inicio, formulario y pie de la ejecución Firefox/WebKit (run 41334110654). La revisión técnica de popups largos se respalda en la prueba automatizada de apertura/desplazamiento; no sustituye una inspección visual presencial.
 - [ ] Reconciliar con [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) si se pretende incorporar también los **37 artículos adicionales DRS**; su catálogo separado sigue en revisión y no se añade por accidente a esta entrega.
 - [ ] Tras cierre técnico/editorial, fusionar y publicar **solo el paquete DRS depurado** mediante SHA fijado, con verificación HTTP posterior.
 
