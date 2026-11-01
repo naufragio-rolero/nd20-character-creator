@@ -60,6 +60,11 @@ async function probar(nombre,tipo,url){
     assert.notEqual(contrasteEbano.fg,'rgb(255, 240, 200)',
       nombre+': Ébano no usa amarillo pálido ilegible sobre blanco');
     await page.locator('#selector-tema').selectOption('clasico');
+    // El botón anima background durante 150 ms: comprobar color final,
+    // no un fotograma intermedio tras cambiar desde Ébano.
+    await page.waitForFunction(()=>
+      getComputedStyle(document.querySelector('#generar')).backgroundColor===
+      'rgb(17, 81, 211)');
     // Identidad visual del blog: los colores no dependen de capturas,
     // servidores de fuentes ni del motor de renderizado.
     const marcaBlog=await page.evaluate(()=>{
