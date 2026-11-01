@@ -15,13 +15,16 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 - [x] Analizar la causa del solapamiento: CTA `fixed` sin comprobación de pie de página ni visibilidad de la acción principal.
 - [x] Añadir ayuda inicial clara y mensaje de Resultados vacío que explique el mínimo necesario para generar una primera ficha.
-- [x] Resolver el hallazgo de **panel Menú oculto al entrar desde móvil**: botón «Empezar» visible en Resultados, que abre el formulario y enfoca Nivel.
+- [x] Resolver el hallazgo de **panel Menú oculto al entrar desde móvil**: tarjeta «Empezar» **antes de Resultados, visible sin scroll a 390 × 844**, que abre el formulario y enfoca Nivel.
+- [x] Auditoría visual de capturas Firefox/WebKit: detectar que el primer botón «Empezar» estaba bajo el pliegue y que el flotante tapaba ayuda al abrir Menú; corregir ambos sin alterar las reglas.
 - [x] Ocultar el CTA flotante junto al pie y cuando el botón del formulario está visible; permitir reaparición durante el desplazamiento.
 - [x] Igualar el texto singular/plural del botón principal y flotante.
 - [x] Guiar a Resultados después de generar en móvil (y devolver foco al título), respetando movimiento reducido.
 - [x] Incorporar pruebas E2E de primer uso, pie accesible, CTA contextual y resultado móvil en Firefox/WebKit, con capturas de primera visita y pie despejado.
-- [x] **4/4 suites CI verdes para el commit funcional `9090c500`** (Node, Chrome, Firefox/WebKit y paquete público); los tests guardan capturas de primera visita y pie despejado ([informe 118](118-forja-ux-primer-uso-boton-flotante.md)). Inspección ocular de capturas pendiente.
-- [ ] Revisar visualmente móvil/escritorio, aprobar **fusión** de la PR #14 y autorizar **despliegue** por separado.
+- [x] **4/4 suites CI verdes para la revisión `276f91e6`** (Node, Chrome, Firefox/WebKit y paquete público); artefactos descargados y revisados visualmente. La **revisión funcional posterior** incluye ocultar el CTA durante la ayuda inicial y capturas de escritorio/formulario abierto: ver [informe 118](118-forja-ux-primer-uso-boton-flotante.md).
+- [ ] Confirmar las **4/4 suites finales** sobre el último cambio funcional y registrar las capturas revisadas; sin confundir revisión de CI con validación en el dispositivo de la usuaria.
+- [x] Inspeccionar capturas de **primera visita** y **pie** de Firefox/WebKit; incluir revisión de escritorio y formulario móvil abierto. Los hallazgos se han corregido en la rama.
+- [ ] Revisar con criterio editorial el resultado final, aprobar **fusión** de la PR #14 y autorizar **despliegue** por separado.
 - [ ] Tras integrar la corrección UX en producción, reconciliar con [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) antes de su futura fusión; no duplicar errores ni desplegar contenido no autorizado.
 
 ## Forja 1.5 — Aclaraciones autorales en popups DRS (01/11/2026)
@@ -162,6 +165,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 | Fecha | Acción | Evidencia / estado |
 |---|---|---|
+| 2026-11-01 | Revisión visual real de UX móvil de Forja | Capturas de GitHub Actions analizadas: «Empezar» bajo el pliegue y flotante que cubría texto tras abrir Menú; tarjeta de primer paso ahora visible sin scroll en 390×844 y CTA oculto mientras se lee la ayuda. [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), PR #14 en borrador y separada de PR #13. |
 | 2026-11-01 | Feedback de usabilidad: primer uso y pie de página | [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), [PR #14](https://github.com/naufragio-rolero/nd20-character-creator/pull/14). CTA flotante contextual, guía inicial, salida visible en móvil y pruebas; rama independiente de PR #13. Aún sin fusión/despliegue. |
 | 2026-10-28 | Auditoría inicial del repositorio | Finalizada; sin cambios de código. |
 | 2026-10-28 | Inventario inicial transversal y dos CSV | Documentado en esta rama, PR #3 abierta. |
