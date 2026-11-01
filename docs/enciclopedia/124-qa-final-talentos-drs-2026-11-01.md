@@ -29,3 +29,8 @@ Las primeras ejecuciones fallaron intermitentemente en WebKit al cambiar de un T
 4. La PR #13 de Equipo y el contenido de otros orígenes continúan fuera de la distribución y no deben fusionarse por derivación.
 
 **Conclusión:** implementación de Fases 1–4 terminada y validada técnicamente; en Fase 5 solo resta la promoción y verificación LIVE cuando se autorice, sin alterar el DRS ni resolver por inferencia las discrepancias autorales.
+
+
+## Posdata — Promoción validada
+
+El estado de candidato y el apartado de criterios para promoción anteriores describen **la situación cuando se redactó este informe**. Posteriormente, la [PR #17](https://github.com/naufragio-rolero/nd20-character-creator/pull/17) se fusionó con el SHA de contenido `a8371718e97c57bbcc5dc73a819704722284f052`. Se publicó por workflow fijado a dicho SHA y se verificó en la URL de Pages: [LIVE 41349181874 — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41349181874). Consulta el [informe 125](125-publicacion-live-talentos-drs.md) para la cadena definitiva de publicación y decisiones autorales pendientes. **No se ha modificado el DOCX del DRS original.**
