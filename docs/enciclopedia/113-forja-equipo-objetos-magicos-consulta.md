@@ -47,12 +47,13 @@ Si faltase el texto descriptivo, se muestra «No hay descripción adicional docu
 
 ## 5. QA y pruebas
 
-- **Ejecutado en el evaluador JavaScript de esta revisión:** carga real de `assets/tooltips.js` desde la rama con los JSON originales y comprobación de **175 registros**, sin errores: armas/protecciones/escudos/munición/varitas, 41 útiles + 2 focos, 28 fichas mágicas + ejemplo corregido y recuerdos de Especie. Se han inspeccionado expresamente Martillo de campamento (2 mo), Almádena arma (60 mo), Antídoto Nivel 3 (150 mo), Dardo (0 mo), Recuerdo y Manto de Vagryen. Esta comprobación **no reemplaza** los tests Node ni de navegador.
-- **Tests Node añadidos:** `node tests/equipo-popups.js`, invocado asimismo por `node tests/alcance-drs.js`.
-- **E2E ampliado:** `node tests/browser-compatibilidad.js` (Firefox/WebKit).
-- **Seguridad que debe verificarse en CI:** `node scripts/crear-paquete-drs.js`, `node scripts/comprobar-publicacion-drs.js dist/public-drs`, `node tests/paquete-publico-drs.js` y E2E con `FORJA_PUBLIC_ROOT=dist/public-drs`.
+- **Evaluación independiente de datos:** carga real de `assets/tooltips.js` con los JSON originales y **175 verificaciones**, sin errores: armas/protecciones/escudos/munición/varitas, 41 útiles + 2 focos, 28 fichas mágicas + ejemplo corregido y recuerdos. Casos expresos: Martillo de campamento (2 mo), Almádena (60 mo), Antídoto Nivel 3 (150 mo), Dardo (0 mo) y Manto de Vagryen.
+- **Node y tests automáticos, CI verde** en SHA `951988d0`: [Validar Conjuros y Forja](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41305702097). Incluye `node tests/alcance-drs.js`, que ejecuta `tests/equipo-popups.js` y coteja índices, fuentes y separación narrativa/mágica.
+- **Chrome, CI verde:** [E2E de compras DRS](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41305702050).
+- **Firefox y WebKit, CI verde:** [Compatibilidad de navegadores](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41305702363), con apertura de popup de Recuerdo y Martillo comprado, fuente, precio y descripción.
+- **Paquete físico DRS, CI verde:** [Candidato público sin despliegue](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41305702047), incluye crear, validar lista blanca, asegurar ausencia de suplementos de Fantasía, comparar JSON distribuidos, ejecutar E2E de Chrome/Firefox/WebKit sobre `dist/public-drs`. **Es candidato: el resultado verde no publica ni autoriza despliegue.**
 
-**Ejecución Node/Playwright y verificación física del candidato:** pendiente del resultado de CI de la PR al redactar este informe. **No afirmar que se hayan superado antes de disponer de ejecución verificable**.
+**Incidencias de las primeras ejecuciones, corregidas:** (a) un test exigía Durabilidad a `Pechera de algodón` pese a que el valor fuente era `null`; ahora solo verifica propiedades documentadas; (b) un literal regex mal escapado causaba error de sintaxis en `tests/browser-compatibilidad.js`; se sustituyó por comparación literal de fuente. Ambos problemas eran de los nuevos tests; no exigieron cambios de reglas ni datos de juego. Tras corregirlos, las **cuatro baterías pasaron**.
 
 ## 6. Pendientes y siguientes pasos
 
@@ -61,6 +62,6 @@ Si faltase el texto descriptivo, se muestra «No hay descripción adicional docu
 3. Revisión editorial de las **22** entradas complementarias 62a/62b antes de integrarlas en una fuente diferente de DRS.
 4. Para magia, consensuar aprobación de las **28 fichas + ejemplo**, sus reglas generales (cajas solo a cajas) y las anomalías textuales documentadas; después preparar una fuente de distribución **separada** con nueva política explícita de autorización y pruebas de aislamiento. No introducir mágicos en el catálogo DRS por defecto.
 5. Mantener los recuerdos como objetos propios del personaje sin reglas ni precio asignado automáticamente; no crear una interfaz de activación, combate ni simulación.
-6. Validación de CI y revisión visual; hasta entonces no fusionar ni desplegar. CiFi y Nocturna siguen fuera de los selectores públicos.
+6. Revisión editorial y visual final antes de cualquier fusión o despliegue. Las pruebas automáticas ya han pasado; esto no equivale a autorización de publicación. CiFi y Nocturna siguen fuera de los selectores públicos.
 
 **Conclusión:** la consulta de Equipo DRS queda significativamente mejorada con los datos que YA existían y sin cambiar las reglas. Los objetos mágicos están preparados para el mismo visor de forma aislada, pero **no publicados**, según la prioridad DRS.
