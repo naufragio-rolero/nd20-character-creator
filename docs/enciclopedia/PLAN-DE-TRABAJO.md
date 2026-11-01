@@ -15,8 +15,8 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [x] Mostrar `¡Sálvese quien pueda!` y `Expulsar muertos vivientes` con su aclaración aprobada, sin reescribir el DRS.
 - [x] Incorporar fuente, identidad y comprobaciones de seguridad de distribución.
 - [x] Fusionar la [PR #12](https://github.com/naufragio-rolero/nd20-character-creator/pull/12) tras 4/4 suites CI satisfactorias (SHA de merge `8dea3c9fd53c04c9739022968b551608a3276752`).
-- [ ] Promocionar a LIVE únicamente el SHA validado y comprobar la publicación.
-- [ ] Verificar nueva distribución pública y cerrar el diario.
+- [x] Promocionar a LIVE el SHA de merge `8dea3c9fd53c04c9739022968b551608a3276752` y comprobar la publicación: [Actions 41298520411](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298520411) **success**, incluidas las dos aclaraciones desde Pages.
+- [x] Verificar nueva distribución pública, incluidas las dos aclaraciones, y [cerrar el diario de acciones](112-forja-aclaraciones-autoriales.md).
 
 **Registro de acciones y decisiones:** [Informe 112 — Forja 1.5](112-forja-aclaraciones-autoriales.md). No se introduce motor de combate, tiradas automáticas ni cambios de coste.
 
