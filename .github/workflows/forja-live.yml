@@ -28,14 +28,14 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener exclusivamente Forja DRS validada (PR #17)
+      - name: Obtener exclusivamente Forja DRS validada (PR #18)
         uses: actions/checkout@v4
         with:
-          ref: a8371718e97c57bbcc5dc73a819704722284f052
+          ref: ba163f5144ec8e5f55073dea4b0cedcfbe72a78f
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "a8371718e97c57bbcc5dc73a819704722284f052"
+          test "$(git rev-parse HEAD)" = "ba163f5144ec8e5f55073dea4b0cedcfbe72a78f"
       - name: Preparar Node
         uses: actions/setup-node@v4
         with:
@@ -106,6 +106,22 @@ jobs:
           ! grep -Fq "Leer texto íntegro del DRS" /tmp/forja-tooltip-ui.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/tooltips.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-tooltips.js
           grep -Fq "x.categoria_talento=g.categoria;" /tmp/forja-tooltips.js
+
+          # Insignias nuevas en código servido, además de los 24 Talentos.
+          grep -Fq "presentarEquipo:presentarEquipo" /tmp/forja-tooltips.js
+          grep -Fq "escuelas:escuelas,circulo:circulo" /tmp/forja-tooltips.js
+          grep -Fq "info-escuela-" /tmp/forja-tooltip-ui.js
+          grep -Fq "info-circulo-valor" /tmp/forja-tooltip-ui.js
+          ! grep -Fq "fuenteGlosa.textContent='Descripción: '" /tmp/forja-tooltip-ui.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/styles.css?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-estilos.css
+          for escuela in arcana demonologia divina elemental naturaleza nigromancia; do
+            grep -Fq ".info-escuela-${escuela}" /tmp/forja-estilos.css
+          done
+          node - <<'NODE'
+          const assert=require('node:assert/strict');
+          const x=require('/tmp/glosas-talentos-drs.json');
+          assert.equal(x.registros.length,24);
+          NODE
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/glosas-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/glosas-talentos-drs.json
           node - <<'NODE'
           const assert=require('node:assert/strict');
@@ -129,6 +145,20 @@ jobs:
             curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/${archivo}?forja_release=${GITHUB_RUN_ID}" -o "/tmp/${archivo}"
             node -e "const j=require('/tmp/${archivo}'); if(j.registros.length!==Number('${total}')) process.exit(1)"
           done
+
+          # Los cuatro textos de varitas se sirven sin marcas metatextuales.
+          node - <<'NODE'
+          const assert=require('node:assert/strict');
+          const d=require('/tmp/glosas-equipo-drs.json');
+          const names=new Set(['Varita de cerezo','Rama de cristal','Cetro de dracólita','Esceptro de sangreluna']);
+          const varitas=d.registros.filter(x=>names.has(x.nombre));
+          assert.equal(varitas.length,4);
+          for(const v of varitas){
+            assert.match(v.descripcion_editorial,/Tirada de Mente/);
+            assert.doesNotMatch(v.descripcion_editorial,/según el DRS|descripción contextual|texto nuevo/i);
+          }
+          console.log('OK: cuatro varitas descriptivas y sin metatexto visible.');
+          NODE
           grep -Fq 'data/tecnicas-drs-literales.json' /tmp/forja-app.js
           grep -Fq 'data/glosas-talentos-drs.json' /tmp/forja-app.js
           grep -Fq 'data/glosas-equipo-drs.json' /tmp/forja-app.js
