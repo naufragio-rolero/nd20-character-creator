@@ -69,3 +69,18 @@ Este cambio parte directamente de `main` para poder corregir el problema de la *
 2. Aprobar la **fusión de la PR #14** y, por separado, la promoción del candidato público; comprobar pie, ayuda y resultado en la web real.
 3. Después retomar la **PR #13**: integrar la misma corrección UX antes de publicarla, sin perder los avances de su rama.
 4. Recoger comentarios tras la publicación: si todavía existen dudas, valorar una prueba de tarea («genera tu primera ficha sin instrucciones»), evitando un tutorial intrusivo por defecto.
+
+
+## 6. Cierre de publicación — 01/11/2026
+
+**Estado confirmado:** versión de Forja con corrección UX **publicada en GitHub Pages** y comprobada mediante HTTP tras el despliegue.
+
+- [PR #14](https://github.com/naufragio-rolero/nd20-character-creator/pull/14) **fusionada** a `main` sin incorporar la PR #13: commit de integración **`deac628f9389b6f4f6a4098fa314305e4dcfd8d4`**.
+- [Workflow de LIVE](https://github.com/naufragio-rolero/nd20-character-creator/blob/main/.github/workflows/forja-live.yml): actualizado para descargar **solo** ese SHA validado, generar el paquete DRS de lista blanca y rechazar DLC. Actualización del pin: commit `d03ad17bed2fb1c14997f31c3b8fe8f1421153e0`.
+- [Ejecución LIVE 41328185657](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41328185657): estado **success**; completadas la construcción/guardia DRS, pruebas Chrome y Firefox/WebKit, publicación Pages y verificación HTTP postdespliegue.
+- **URL pública actualizada:** https://naufragio-rolero.github.io/nd20-character-creator/ .
+- El control HTTP del workflow exige que la página contenga la tarjeta `inicio-movil`, el botón `empezar-forja`, la lógica de flotante contextual en `assets/app.js` y la protección de popup fijado en `assets/tooltip-ui.js`, además de 8 Especies DRS, doce iconos SVG, las dos aclaraciones autorales y exclusión de CiFi/Nocturna.
+- **Pendiente exclusivamente como validación de campo:** experiencia real en el dispositivo de la usuaria que comunicó las incidencias. La publicación y sus pruebas automáticas ya están terminadas.
+
+**Próxima fase:** reconciliar los **seis archivos compartidos** con la [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13), revalidar la versión combinada y solicitar autorización editorial específica antes de promocionar el nuevo catálogo de Equipo. La PR #13 no ha sido fusionada ni desplegada.
+
