@@ -30,14 +30,14 @@ La ampliación de `tests/browser-compatibilidad.js` para Firefox y WebKit compru
 - Al pulsar el flotante, generación efectiva de una ficha adicional y desplazamiento/foco en Resultados con viewport móvil **390 × 844**.
 - Ausencia de errores JavaScript, sin modificar compras, reglas ni catálogos.
 
-**QA final verificada para el último commit funcional `4811dd7b`: 4/4 baterías verdes.** Incluyen tarjeta visible sin scroll, lectura de ayuda sin flotante, menú móvil, pie despejado, generación, foco y capturas de escritorio/móvil:
+**QA final verificada para el último commit funcional `f3e4d945`: 4/4 baterías verdes.** Incluyen tarjeta visible sin scroll, lectura de ayuda sin flotante, menú móvil, pie despejado, generación, foco y capturas de escritorio/móvil:
 
 | Control | Evidencia de GitHub Actions |
 |---|---|
-| Generador y reglas DRS | [Validar Conjuros y Forja — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537090) |
-| Compras DRS en Chrome | [E2E navegador — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537140) |
-| Inicio, pie y creación en Firefox/WebKit | [Compatibilidad — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537139) |
-| Lista blanca, candidato público y multibrowser | [Paquete DRS — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537094) |
+| Generador y reglas DRS | [Validar Conjuros y Forja — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41327087007) |
+| Compras DRS en Chrome | [E2E navegador — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41327087006) |
+| Inicio, pie y creación en Firefox/WebKit | [Compatibilidad — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41327087067) |
+| Lista blanca, candidato público y multibrowser | [Paquete DRS — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41327087153) |
 
 ### Auditoría visual de las capturas de CI
 
@@ -55,7 +55,7 @@ Una ejecución posterior del [candidato público, run 41326829106](https://githu
 
 Este ajuste de usabilidad amplía **a seis** los archivos compartidos con la PR #13: `index.html`, `assets/app.js`, `assets/styles.css`, `assets/tooltip-ui.js`, `tests/browser-compatibilidad.js`, `docs/enciclopedia/PLAN-DE-TRABAJO.md`. La reconciliación tendrá que preservar tanto este bloqueo del popup como el visor DRS de la PR #13, sin activar magia no autorizada.
 
-**QA de esta última corrección:** comprobar las cuatro suites sobre el último SHA funcional, distinto del SHA histórico `4811dd7b`.
+**QA de esta última corrección:** **4/4 suites verdes sobre `f3e4d945`**, incluidos los nuevos tests de popup fijado y las verificaciones del paquete público (enlaces en la tabla anterior). Las posteriores modificaciones de este informe y del plan son documentales.
 
 ## 4. Separación de entregas
 
