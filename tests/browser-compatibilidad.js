@@ -168,7 +168,7 @@ async function probar(nombre,tipo,url){
     await page.locator('#e2e-poder').click();
     assert.equal(await popup.locator('.info-detalles').isHidden(),true);
     await page.keyboard.press('Escape');
-    // Talentos del DRS: texto íntegro, activación literal, fuente y homónimos.
+    // Cinco categorías, texto DRS único y transiciones reales del puntero.
     await page.evaluate(()=>{
       const b=document.createElement('button');
       b.id='e2e-talento';b.type='button';b.textContent='Consultar Talento';
@@ -177,82 +177,95 @@ async function probar(nombre,tipo,url){
       b.dataset.glosaGrupo='talento';b.dataset.glosaSistema='nd20';
       document.body.appendChild(b);
     });
+    await page.locator('#e2e-talento').hover();
+    assert.equal(await popup.getAttribute('role'),'tooltip',
+      nombre+': hover debe mostrar Talentos sin necesidad de pulsar');
+    assert.equal(await popup.isVisible(),true);
+    const puente=await popup.boundingBox();
+    assert.ok(puente,'Popup en pantalla');
+    await page.mouse.move(puente.x+Math.min(50,puente.width/2),
+      puente.y+Math.min(35,puente.height/2));
+    await page.waitForTimeout(250);
+    assert.equal(await popup.isVisible(),true,
+      nombre+': mover ratón desde el enlace al popup no lo cierra');
     await page.locator('#e2e-talento').click();
+    assert.equal(await popup.getAttribute('role'),'dialog',
+      nombre+': clic convierte consulta ligera en diálogo fijado');
     assert.equal(await popup.locator('.info-tipo').textContent(),'Talento');
     assert.equal(await popup.locator('h3').textContent(),'Expulsar muertos vivientes');
     assert.equal(await popup.locator('.info-clasificacion').textContent(),
       'Ocupación · Clérigo');
+    assert.equal(await popup.locator('.info-categoria').textContent(),'Acción');
     assert.deepEqual(await popup.locator('.info-primarios dt').allTextContents(),
-      ['Activación:','Atributo:','Coste:']);
+      ['Atributo:','Coste:']);
     assert.deepEqual(await popup.locator('.info-primarios dd').allTextContents(),
-      ['Acción','Intuición','1 Punto de Esfuerzo']);
+      ['Intuición','1 Punto de Esfuerzo']);
+    assert.equal(await popup.locator('.info-descripcion').count(),1,
+      nombre+': un solo texto original, sin resumen redundante');
     assert.match(await popup.locator('.info-descripcion').textContent(),
       /Todos aquellos que sean de un Nivel igual o inferior al tuyo/);
+    assert.equal(await popup.locator('.info-resumen-editorial').count(),0);
+    assert.equal(await popup.locator('.info-uso-editorial').count(),0);
+    assert.equal(await popup.locator('.info-texto-literal').count(),0);
     assert.match(await popup.locator('.info-fuente').textContent(),
       /Origen: Naufragio d20 DRS · Fuente: NaufragioD20DRS.docx/);
     assert.equal(await popup.locator('.info-detalles').isHidden(),true);
-    const aclaracion=popup.locator('.info-aclaracion-autoral');
-    assert.equal(await aclaracion.count(),1);
-    assert.equal(await aclaracion.locator('h4').textContent(),
-      'Aclaración autoral aprobada');
-    assert.match(await aclaracion.textContent(),/3 zombis y 2 esqueletos/);
-    assert.match(await aclaracion.textContent(),/2 Tiradas/);
-    assert.match(await aclaracion.textContent(),/criaturas idénticas/);
-    assert.equal(await aclaracion.isVisible(),true,
-      nombre+': aclaración aprobada visible sin activar detalles técnicos');
-    assert.match(await popup.locator('.info-resumen-editorial').innerText(),
-      /onda de 18 m/,'El Talento debe explicarse con claridad');
-    assert.equal(await popup.locator('.info-texto-literal summary').count(),1);
+    assert.equal(await popup.locator('.info-aclaracion-autoral').isVisible(),false,
+      nombre+': aclaración solo en Detalles técnicos');
     assert.equal(await popup.locator('.info-cerrar').isVisible(),true);
     const popupScroll=await popup.evaluate(x=>({scroll:x.scrollHeight,
       alto:x.clientHeight,alturaVentana:innerHeight}));
     assert.ok(popupScroll.alto<=popupScroll.alturaVentana,
       nombre+': Talento abierto encaja en viewport');
-    await popup.locator('.info-texto-literal summary').click();
-    assert.match(await popup.locator('.info-texto-literal .info-descripcion').innerText(),
-      /Todos aquellos que sean de un Nivel igual o inferior al tuyo/);
     await popup.evaluate(x=>{x.scrollTop=x.scrollHeight;});
     assert.equal(await popup.isVisible(),true,
       nombre+': el popup fijado permanece visible mientras se desplaza');
     assert.ok(await popup.evaluate(x=>x.scrollTop>=0));
-    assert.doesNotMatch(await popup.locator('.info-descripcion').first().textContent(),
-      /3 zombis y 2 esqueletos/,
-      nombre+': el texto literal no debe absorber la aclaración editorial');
+    // Otro vínculo bajo el ratón no sustituye un diálogo ya fijado.
+    await page.evaluate(()=>{
+      const b=document.createElement('button');
+      b.id='e2e-talento-otro';b.type='button';b.textContent='Otro Talento';
+      b.className='referencia-glosario';
+      b.dataset.glosaId='talento-drs-especie-elfo-agreste-rapidez';
+      b.dataset.glosaGrupo='talento';b.dataset.glosaSistema='nd20';
+      document.body.appendChild(b);
+    });
+    await page.locator('#e2e-talento-otro').hover();
+    assert.equal(await popup.locator('h3').textContent(),'Expulsar muertos vivientes',
+      nombre+': hover no sustituye diálogo fijado');
+    await page.locator('#e2e-talento-otro').evaluate(x=>x.remove());
+
     await page.locator('#e2e-talento').evaluate(x=>{
       x.dataset.glosaId='talento-drs-especie-mediano-amable-salvese-quien-pueda';
     });
     await page.locator('#e2e-talento').click();
     assert.equal(await popup.locator('h3').textContent(),'¡Sálvese quien pueda!');
-    assert.match(await popup.locator('.info-aclaracion-autoral').textContent(),
-      /Parálisis o Miedo/);
-    assert.match(await popup.locator('.info-aclaracion-autoral').textContent(),
-      /aunque|incluso cuando/);
-    assert.match(await popup.locator('.info-descripcion').first().textContent(),
-      /sin necesidad de tirada/);
+    assert.equal(await popup.locator('.info-categoria').textContent(),'Reacción');
+    assert.match(await popup.locator('.info-descripcion').textContent(),
+      /1 Punto de Esfuerzo y una Acción/);
+    assert.equal(await popup.locator('.info-aclaracion-autoral').isVisible(),false);
     await page.locator('#e2e-talento').evaluate(x=>{
-      x.dataset.glosaId='talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes';
+      x.dataset.glosaId='talento-drs-especie-elfo-agreste-rapidez';
     });
     await page.locator('#e2e-talento').click();
-    await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=true;});
-    await page.locator('#informacion-avanzada').check();
+    assert.equal(await popup.locator('.info-categoria').textContent(),'Mejora');
+    assert.match(await popup.locator('.info-descripcion').textContent(),/Movimiento en 1/);
+    await page.locator('#e2e-talento').evaluate(x=>{
+      x.dataset.glosaId='talento-drs-especie-elfo-agreste-linaje-feerico';
+    });
     await page.locator('#e2e-talento').click();
-    assert.equal(await popup.locator('.info-detalles').isVisible(),true);
-    assert.match(await popup.locator('.info-detalles').textContent(),
-      /Párrafos del DRS/);
-    await page.locator('#informacion-avanzada').uncheck();
+    assert.equal(await popup.locator('.info-categoria').textContent(),'Pasiva');
     await page.locator('#e2e-talento').evaluate(x=>{
       x.dataset.glosaId='talento-drs-especie-semielfo-herencia-dual-se';
     });
     await page.locator('#e2e-talento').click();
     assert.equal(await popup.locator('h3').textContent(),'Herencia dual');
+    assert.equal(await popup.locator('.info-categoria').textContent(),'Especial');
     assert.equal(await popup.locator('.info-clasificacion').textContent(),
       'Especie · Semielfo');
     assert.match(await popup.locator('.info-descripcion').textContent(),/Linaje feérico/);
     assert.equal(await popup.locator('.info-primarios dt').count(),0,
-      'No inventar activación o coste para los Talentos de Especie');
-    assert.match(await popup.locator('.info-uso-editorial').textContent(),
-      /Elección en creación/,
-      nombre+': DRS no define activación, pero la glosa editorial sí el uso');
+      nombre+': no inventar activación o coste para Especie');
     await page.locator('#e2e-talento').evaluate(x=>{
       x.dataset.glosaId='talento-drs-especie-semiorco-herencia-dual-so';
     });
@@ -265,10 +278,40 @@ async function probar(nombre,tipo,url){
     });
     await page.locator('#e2e-talento').click();
     assert.match(await popup.locator('.info-descripcion').textContent(),/alrrededor/,
-      'El texto cotejado de Gnomo conserva incluso la errata de la fuente');
-    assert.equal(await popup.locator('.info-aclaracion-autoral').count(),0,
-      nombre+': no trasladar una aclaración a Talentos ajenos');
+      nombre+': se preserva la errata literal de Gnomo');
+    assert.equal(await popup.locator('.info-aclaracion-autoral').count(),0);
+
+    await page.locator('#e2e-talento').evaluate(x=>{
+      x.dataset.glosaId='talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes';
+    });
+    await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=true;});
+    await page.locator('#informacion-avanzada').check();
+    await page.locator('#e2e-talento').click();
+    assert.equal(await popup.locator('.info-detalles').isVisible(),true);
+    assert.match(await popup.locator('.info-detalles').textContent(),
+      /Párrafos del DRS/);
+    assert.match(await popup.locator('.info-detalles').textContent(),
+      /3 zombis y 2 esqueletos/);
+    assert.match(await popup.locator('.info-detalles').textContent(),
+      /2 Tiradas/);
+    assert.equal(await popup.locator('.info-descripcion').count(),1);
+    await page.locator('#informacion-avanzada').uncheck();
+    await page.locator('#e2e-talento').click();
+    assert.equal(await popup.locator('.info-aclaracion-autoral').isVisible(),false);
+
     await page.keyboard.press('Escape');
+    assert.equal(await popup.isHidden(),true,
+      nombre+': Escape cierra el diálogo');
+    assert.equal(await page.locator('#e2e-talento').evaluate(
+      x=>document.activeElement===x),true,
+      nombre+': Escape devuelve el foco a la referencia');
+    await page.locator('#e2e-talento').evaluate(x=>x.blur());
+    await page.locator('#e2e-talento').focus();
+    assert.equal(await popup.getAttribute('role'),'dialog',
+      nombre+': foco de teclado fija el diálogo');
+    await popup.locator('.info-cerrar').click();
+    assert.equal(await popup.isHidden(),true,
+      nombre+': el botón Cerrar funciona');
     await page.locator('#e2e-talento').evaluate(x=>x.remove());
     await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=false;});
     // Restaurar el estado original para las pruebas de Talentos que siguen.
