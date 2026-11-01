@@ -72,15 +72,35 @@ const componentes=equipo.paquetes.flatMap(p=>p.contenido.split(';')
 assert.equal(componentes.length,44);
 const resultantes=componentes.map(texto=>index.buscar(glosario,texto,'equipo','nd20'));
 assert.ok(resultantes.every(Boolean),'44/44 componentes con ficha DRS identificable');
-assert.equal(resultantes.filter(f=>!!f.descripcion).length,32);
-const soloPaquete=resultantes.filter(f=>f.clase_equipo==='componente_paquete');
-assert.equal(soloPaquete.length,12);
-assert.equal(new Set(soloPaquete.map(f=>f.nombre)).size,5);
-for(const fichaComponente of soloPaquete){
-  assert.ok(index.presentarEquipo(fichaComponente).primarios.every(([k])=>k!=='Precio'));
-  assert.equal(fichaComponente.descripcion,'');
-  assert.match(index.presentarEquipo(fichaComponente).fuente,/Paquetes de equipo/);
+assert.equal(resultantes.filter(f=>!!f.descripcion).length,44,
+  'Las cinco descripciones editoriales completan las 44 apariciones de paquetes');
+const comunes=consultaDRS.objetos_comunes_sin_precio;
+assert.equal(comunes.length,5);
+assert.equal(new Set(comunes.map(x=>x.nombre)).size,5);
+assert.equal(consultaDRS.version,2);
+for(const item of comunes){
+  const encontrado=ficha(item.nombre);
+  assert.ok(encontrado,'Útil corriente sin ficha: '+item.nombre);
+  assert.equal(encontrado.clase_equipo,'util');
+  assert.equal(encontrado.categoria_equipo,'Útiles · Viaje y almacenaje');
+  assert.equal(encontrado.descripcion,item.descripcion_editorial);
+  assert.ok(item.origen_descripcion.includes('editorial'));
+  const vista=index.presentarEquipo(encontrado,item.nombre);
+  assert.ok(vista.primarios.every(([k])=>k!=='Precio'&&k!=='Precio unitario'),
+    'No hay precio documentado para '+item.nombre);
+  assert.ok(vista.primarios.some(([k,v])=>k==='Incluido en'&&v),
+    'Conservar procedencia DRS para '+item.nombre);
+  assert.ok(vista.tecnicos.some(([k,v])=>k==='Redacción'&&v.includes('editorial')));
+  assert.match(vista.fuente,/Descripción editorial, 01\/11\/2026/);
 }
+assert.equal(componentes.filter(n=>comunes.some(x=>
+  index.buscar(glosario,n,'equipo','nd20').nombre===x.nombre)).length,12);
+const odre=ficha('odre de agua (DU d6)');
+assert.equal(odre.clase_equipo,'util');
+assert.ok(index.presentarEquipo(odre).primarios.some(([k,v])=>
+  k==='Dado de Uso'&&v==='DU d6'));
+assert.ok(!comunes.some(x=>Object.hasOwn(x,'precio')),
+  'No debe inventarse un precio de compra para los cinco objetos');
 const antorcha=index.presentarEquipo(ficha('antorcha (DU d6)'));
 assert.deepEqual(antorcha.primarios.find(([k])=>k==='Precio'),['Precio','10 mc']);
 assert.match(ficha('antorcha (DU d6)').descripcion,/Ilumina 6 metros/);
@@ -94,7 +114,7 @@ assert.ok(raciones.tecnicos.some(([k,v])=>
   k==='Artículo de referencia'&&v==='Ración de alimento'));
 assert.equal(ficha('sello de orden sagrada').nombre,'Sello');
 assert.equal(ficha('libro de conjuros en blanco').nombre,'Libro de conjuros');
-assert.equal(ficha('odre de agua (DU d6)').clase_equipo,'componente_paquete');
+assert.equal(ficha('odre de agua (DU d6)').clase_equipo,'util');
 // Un alias no admitido por el documento debe fallar en vez de redirigir a
 // una regla inventada o a otro tipo de artículo.
 assert.throws(()=>index.indice({...fuentes,
