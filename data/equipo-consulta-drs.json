@@ -1,7 +1,7 @@
 {
-  "version": 2,
+  "version": 3,
   "fuente": "NaufragioD20DRS.docx",
-  "finalidad": "Consulta de equipo DRS y objetos corrientes mencionados en paquetes; las cinco descripciones nuevas son editoriales y no crean reglas ni precios.",
+  "finalidad": "Catálogo de consulta DRS de útiles, animales, equipo para monturas y transportes, más cinco descripciones editoriales de artículos comunes. No añade opciones de compra, efectos ni reglas.",
   "tablas": [
     {
       "categoria": "Iluminación",
@@ -78,6 +78,91 @@
           "detalle_literal": "De color a elegir. Hecha de tela y esparto."
         }
       ]
+    },
+    {
+      "categoria": "Instrumentos",
+      "tabla_word": 22,
+      "registros": [
+        {
+          "nombre": "Arpa",
+          "precio": 40,
+          "precio_literal": "40 mo",
+          "detalle_literal": "Instrumento de cuerda. Suena agradable."
+        },
+        {
+          "nombre": "Flauta",
+          "precio": 2,
+          "precio_literal": "2 mo",
+          "detalle_literal": "Instrumento de aire. Suena dulce."
+        },
+        {
+          "nombre": "Laúd",
+          "precio": 35,
+          "precio_literal": "35 mo",
+          "detalle_literal": "Instrumento de cuerda. Suena antiguo."
+        },
+        {
+          "nombre": "Tambor",
+          "precio": 6,
+          "precio_literal": "6 mo",
+          "detalle_literal": "Instrumento de percusión. Suena estricto."
+        }
+      ]
+    },
+    {
+      "categoria": "Objetos varios",
+      "tabla_word": 26,
+      "registros": [
+        {
+          "nombre": "Ábaco",
+          "precio": 2,
+          "precio_literal": "2 mo",
+          "detalle_literal": "Permite realizar cuentas complejas."
+        },
+        {
+          "nombre": "Balanza",
+          "precio": 15,
+          "precio_literal": "15 mo",
+          "detalle_literal": "Permite pesar hasta 5 kg de material."
+        },
+        {
+          "nombre": "Baraja de cartas",
+          "precio": 0.5,
+          "precio_literal": "50 mc",
+          "detalle_literal": "52 cartas, 4 palos con 12 figuras."
+        },
+        {
+          "nombre": "Dados",
+          "precio": 0.2,
+          "precio_literal": "2 mp",
+          "detalle_literal": "Seis cubos de seis caras cada uno."
+        },
+        {
+          "nombre": "Escalera de mano",
+          "precio": 0.15,
+          "precio_literal": "15 mc",
+          "detalle_literal": "Se extiende hasta 3 metros. De madera."
+        },
+        {
+          "nombre": "Pipa de tabaco",
+          "precio": 5,
+          "precio_literal": "50 mp",
+          "detalle_literal": "De madera tallada. DU d4 (tabaco).",
+          "du": "d4"
+        },
+        {
+          "nombre": "Reloj de arena",
+          "precio": 25,
+          "precio_literal": "25 mo",
+          "detalle_literal": "Cuenta atrás de 120 segundos."
+        },
+        {
+          "nombre": "Tabaco",
+          "precio": 0.12,
+          "precio_literal": "12 mc",
+          "detalle_literal": "Planta machacada, adictiva."
+        }
+      ]
     }
   ],
   "equivalencias_explicitas_paquetes": [
@@ -107,7 +192,7 @@
       "evidencia": "DRS: Especial devotos (párrafo 487) y tabla Word 20 (Sello personalizable)."
     }
   ],
-  "limites": "Cinco objetos corrientes aparecen en paquetes DRS, sin precio individual documentado. Sus descripciones son editoriales, aprobadas por solicitud expresa el 01/11/2026. No otorgan efectos, capacidad, peso, protección ni precio; no se incluyen en el catálogo de compras. Las equivalencias no alteran cantidades ni costes.",
+  "limites": "Cinco objetos corrientes aparecen en paquetes DRS, sin precio individual documentado. Sus descripciones son editoriales, aprobadas por solicitud expresa el 01/11/2026. No otorgan efectos, capacidad, peso, protección ni precio; no se incluyen en el catálogo de compras. Las equivalencias no alteran cantidades ni costes. Monturas y transportes son referencias documentales; no se convierten en pertenencias iniciales. Establos, alojamiento y consumición diaria se separan como servicios. Armadura equina muestra el asterisco literal y no calcula el precio variable.",
   "objetos_comunes_sin_precio": [
     {
       "inventario": "Mochila",
@@ -139,6 +224,138 @@
       "nombre": "Ropa de viaje",
       "descripcion_editorial": "Conjunto de prendas sencillas y resistentes, adecuado para el camino y el desgaste de las jornadas de viaje.",
       "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
+    }
+  ],
+  "monturas": {
+    "categoria": "Monturas y animales",
+    "tabla_word": 27,
+    "registros": [
+      {
+        "nombre": "Burro o mula",
+        "movimiento": "12 metros",
+        "precio": 8,
+        "precio_literal": "8 mo"
+      },
+      {
+        "nombre": "Caballo de guerra",
+        "movimiento": "18 metros",
+        "precio": 400,
+        "precio_literal": "400 mo"
+      },
+      {
+        "nombre": "Caballo de monta",
+        "movimiento": "18 metros",
+        "precio": 75,
+        "precio_literal": "75 mo"
+      },
+      {
+        "nombre": "Escarabajo gigante",
+        "movimiento": "8 metros",
+        "precio": 265,
+        "precio_literal": "265 mo"
+      },
+      {
+        "nombre": "Mastín",
+        "movimiento": "12 metros",
+        "precio": 25,
+        "precio_literal": "25 mo"
+      },
+      {
+        "nombre": "Pony",
+        "movimiento": "12 metros",
+        "precio": 30,
+        "precio_literal": "30 mo"
+      }
+    ]
+  },
+  "equipo_para_monturas": {
+    "categoria": "Equipo para monturas",
+    "tabla_word": 28,
+    "registros": [
+      {
+        "nombre": "Alforjas",
+        "detalle_literal": "Equivalen a dos mochilas de cuero.",
+        "precio": 2.5,
+        "precio_literal": "25 mp"
+      },
+      {
+        "nombre": "Armadura equina",
+        "detalle_literal": "Protección corporal —» Precio x4",
+        "precio_literal": "*",
+        "precio_variable_literal": "Precio x4",
+        "nota_editorial": "La fuente remite a un precio variable con asterisco. No se calcula ni se fija una base."
+      },
+      {
+        "nombre": "Bridas",
+        "detalle_literal": "Para dirigir a la montura.",
+        "precio": 1.5,
+        "precio_literal": "15 mp"
+      },
+      {
+        "nombre": "Comida",
+        "detalle_literal": "Alimento para caballos, etc. para 1 día.",
+        "precio": 0.1,
+        "precio_literal": "10 mc"
+      },
+      {
+        "nombre": "Silla",
+        "detalle_literal": "Una silla de tamaño estándar.",
+        "precio": 15,
+        "precio_literal": "15 mo"
+      }
+    ]
+  },
+  "transportes": {
+    "categoria": "Transportes",
+    "tabla_word": 29,
+    "registros": [
+      {
+        "nombre": "Carro",
+        "detalle_literal": "Necesita 1 caballo / montura.",
+        "precio": 20,
+        "precio_literal": "20 mo"
+      },
+      {
+        "nombre": "Carro de guerra",
+        "detalle_literal": "Necesita 1 caballo / montura.",
+        "precio": 400,
+        "precio_literal": "400 mo"
+      },
+      {
+        "nombre": "Carruaje",
+        "detalle_literal": "Necesita 2 caballos / monturas.",
+        "precio": 125,
+        "precio_literal": "125 mo"
+      },
+      {
+        "nombre": "Diligencia",
+        "detalle_literal": "Necesita 4 caballos / monturas.",
+        "precio": 200,
+        "precio_literal": "200 mo"
+      }
+    ]
+  },
+  "servicios_excluidos_del_equipo": [
+    {
+      "categoria": "Establos",
+      "tabla_word": 28,
+      "nombre": "Establos",
+      "detalle_literal": "Alojamiento para caballos. 1 día.",
+      "precio_literal": "6 mp",
+      "unidad": "día",
+      "motivo": "Servicio diario, no objeto físico equipable"
+    },
+    {
+      "categoria": "Alojamiento",
+      "tabla_word": 23,
+      "numero_servicios": 6,
+      "motivo": "Servicios de hospedaje por día, fuera de esta consulta de equipo"
+    },
+    {
+      "categoria": "Comida y bebida",
+      "tabla_word": 24,
+      "numero_modalidades": 4,
+      "motivo": "Precios de consumición por día, no objetos permanentes"
     }
   ]
 }
