@@ -76,6 +76,7 @@ console.log('OK · '+total+' comprobaciones de generación superadas.');
 
 
 require('./talentos-drs.js');
+require('../scripts/verificar-propiedades-talentos-drs.js');
 
 /* Validación de contenido ampliado procedente de la Biblioteca de Naufragio d20. */
 const catalogo = leer('catalogo-ampliado.json');
