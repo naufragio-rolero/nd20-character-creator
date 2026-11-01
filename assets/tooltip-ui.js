@@ -192,16 +192,23 @@
       textoResumen.textContent=talento.resumen_editorial;
       resumen.append(nombreResumen,textoResumen);
       c.appendChild(resumen);
-      var literal=document.createElement('details');
-      literal.className='info-texto-literal';
-      var resumenLiteral=document.createElement('summary');
-      resumenLiteral.textContent='Leer texto íntegro del DRS';
       var efectoLiteral=document.createElement('p');
       efectoLiteral.className='info-descripcion';
       efectoLiteral.textContent=info.descripcion||'';
-      literal.append(resumenLiteral,efectoLiteral);
-      literal.addEventListener('toggle',posicionar);
-      c.appendChild(literal);
+      if((info.descripcion||'').length>340){
+        var literal=document.createElement('details');
+        literal.className='info-texto-literal';
+        var resumenLiteral=document.createElement('summary');
+        resumenLiteral.textContent='Leer texto íntegro del DRS';
+        literal.append(resumenLiteral,efectoLiteral);
+        literal.addEventListener('toggle',posicionar);
+        c.appendChild(literal);
+      }else{
+        var literalEtiqueta=document.createElement('h4');
+        literalEtiqueta.className='info-literal-etiqueta';
+        literalEtiqueta.textContent='Texto original del DRS';
+        c.append(literalEtiqueta,efectoLiteral);
+      }
     }else{
       var d=document.createElement("p");d.className="info-descripcion";
       d.textContent=info.descripcion||
