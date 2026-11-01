@@ -99,7 +99,7 @@ jobs:
 
           # Comprobar funciones de PR #17 y no solo la presencia de los JSON.
           grep -Fq "var avanzada=false,pulsacionReferencia=false;" /tmp/forja-tooltip-ui.js
-          grep -Fq "if(talento&&talento.categoria)" /tmp/forja-tooltip-ui.js
+          grep -Fq "var categoriaVisible=talento?.categoria||objeto?.categoria;" /tmp/forja-tooltip-ui.js
           grep -Fq "tecnicos.appendChild(nota);" /tmp/forja-tooltip-ui.js
           ! grep -Fq "En pocas palabras" /tmp/forja-tooltip-ui.js
           ! grep -Fq "Tipo de uso (guía editorial)" /tmp/forja-tooltip-ui.js
