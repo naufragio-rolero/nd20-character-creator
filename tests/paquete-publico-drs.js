@@ -149,6 +149,23 @@ assert.equal(new Set(talentosPublicos.registros.map(x=>x.id)).size,24);
 assert.ok(talentosPublicos.registros.every(x=>
   x.estado==='cotejado_literal_DRS'&&x.efecto_literal&&
   x.id.startsWith('talento-drs-')&&x.parrafos_documento.length));
+const aclaracionesPublicas=leer(salida,'aclaraciones-talentos-drs.json');
+const aclaracionesDev=leer(raiz,'aclaraciones-talentos-drs.json');
+assert.deepEqual(aclaracionesPublicas,aclaracionesDev,
+  'No perder ni alterar aclaraciones autorales aprobadas en el paquete DRS');
+assert.equal(aclaracionesPublicas.estado,'aprobacion_autoral');
+assert.equal(aclaracionesPublicas.registros.length,2);
+assert.deepEqual(aclaracionesPublicas.registros.map(x=>x.id_talento).sort(),[
+  'talento-drs-especie-mediano-amable-salvese-quien-pueda',
+  'talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes'
+].sort(),'Prohibida la entrada de aclaraciones ajenas a los dos Talentos ratificados');
+assert.ok(aclaracionesPublicas.registros.every(a=>
+  talentosPublicos.registros.some(r=>r.id===a.id_talento&&
+    r.propietario===a.propietario&&r.nombre===a.nombre)));
+assert.ok(aclaracionesPublicas.registros.find(a=>a.nombre==='Expulsar muertos vivientes')
+  .texto.includes('3 zombis y 2 esqueletos'));
+assert.ok(aclaracionesPublicas.registros.find(a=>a.nombre==='¡Sálvese quien pueda!')
+  .texto.includes('Parálisis o Miedo'));
 const html=fs.readFileSync(path.join(salida,'index.html'),'utf8');
 assert.ok(!html.includes('Doncella de la Espada'));
 assert.ok(html.includes('class="juegos-compactos juegos-publicos"'));
