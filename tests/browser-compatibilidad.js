@@ -482,15 +482,18 @@ async function probar(nombre,tipo,url){
     await mochila.click();
     const componente=page.locator('#ficha-emergente');
     assert.equal(await componente.locator('.info-clasificacion').textContent(),
-      'Componente de paquete');
+      'Útiles · Viaje y almacenaje');
     assert.deepEqual(await componente.locator('.info-primarios dt').allTextContents(),
       ['Incluido en:']);
     assert.match(await componente.locator('.info-primarios dd').textContent(),
       /Especial mazmorras/);
-    assert.equal(await componente.locator('.info-descripcion').count(),0,
-      'No inventar descripción para el componente solo documentado en paquete');
+    assert.match(await componente.locator('.info-descripcion').textContent(),
+      /Bolsa resistente con correas para llevarla a la espalda/);
+    assert.equal((await componente.locator('.info-primarios').textContent())
+      .includes('Precio'),false,'No asignar precio ficticio a la mochila');
     assert.match(await componente.locator('.info-fuente').textContent(),
-      /Paquetes de equipo/);
+      /Paquetes de equipo.*Descripción editorial/);
+    assert.equal(await componente.locator('.info-tipo').textContent(),'Equipo');
     await page.keyboard.press('Escape');
     const racion=ficha.locator('.referencia-glosario[data-glosa-grupo="equipo"]')
       .filter({hasText:'ración (DU d6)'}).first();
