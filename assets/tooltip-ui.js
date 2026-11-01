@@ -88,7 +88,7 @@
     cierre=setTimeout(function(){
       if(!fija&&card&&!card.matches(":hover")&&(!ancla||!ancla.matches(":hover")))
         cerrar();
-    },140);
+    },300);
   }
   function cerrar(){
     limpiarTemporizador();
