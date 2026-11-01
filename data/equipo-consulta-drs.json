@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "fuente": "NaufragioD20DRS.docx",
   "finalidad": "Catálogo de consulta DRS de útiles, animales, equipo para monturas y transportes, más cinco descripciones editoriales de artículos comunes. No añade opciones de compra, efectos ni reglas.",
   "tablas": [
@@ -192,7 +192,7 @@
       "evidencia": "DRS: Especial devotos (párrafo 487) y tabla Word 20 (Sello personalizable)."
     }
   ],
-  "limites": "Cinco objetos corrientes aparecen en paquetes DRS, sin precio individual documentado. Sus descripciones son editoriales, aprobadas por solicitud expresa el 01/11/2026. No otorgan efectos, capacidad, peso, protección ni precio; no se incluyen en el catálogo de compras. Las equivalencias no alteran cantidades ni costes. Monturas y transportes son referencias documentales; no se convierten en pertenencias iniciales. Establos, alojamiento y consumición diaria se separan como servicios. Armadura equina muestra el asterisco literal y no calcula el precio variable.",
+  "limites": "Cinco objetos corrientes aparecen en paquetes DRS, sin precio individual documentado. Sus descripciones son editoriales, aprobadas por solicitud expresa el 01/11/2026. No otorgan efectos, capacidad, peso, protección ni precio; no se incluyen en el catálogo de compras. Las equivalencias no alteran cantidades ni costes. Monturas y transportes son referencias documentales; no se convierten en pertenencias iniciales. Establos, alojamiento y consumición diaria se separan como servicios. Armadura equina conserva el asterisco literal; su precio se obtiene de una armadura humana DRS elegida, multiplicada por cuatro, conforme a aclaración autoral del 01/11/2026. No se transfieren propiedades de combate.",
   "objetos_comunes_sin_precio": [
     {
       "inventario": "Mochila",
@@ -283,7 +283,15 @@
         "detalle_literal": "Protección corporal —» Precio x4",
         "precio_literal": "*",
         "precio_variable_literal": "Precio x4",
-        "nota_editorial": "La fuente remite a un precio variable con asterisco. No se calcula ni se fija una base."
+        "nota_editorial": "Aclaración autoral del 01/11/2026: elegir una armadura común para personas del catálogo DRS y multiplicar por cuatro su precio. No altera el resto de propiedades.",
+        "regla_precio_autoral": {
+          "estado": "aprobacion_autoral",
+          "fecha": "2026-11-01",
+          "texto": "Elegir una armadura común disponible para personas; el precio de la armadura equina es cuatro veces el precio de esa armadura.",
+          "catalogo_base": "data/equipo-inicial.json · armaduras",
+          "multiplicador": 4,
+          "alcance": "Cálculo informativo del precio; no implica compra, equipamiento automático ni conversión de Blindaje o Durabilidad."
+        }
       },
       {
         "nombre": "Bridas",
