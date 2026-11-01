@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "fuente": "NaufragioD20DRS.docx",
-  "finalidad": "Solo consulta de material DRS; no modifica compras ni concede objetos.",
+  "finalidad": "Consulta de equipo DRS y objetos corrientes mencionados en paquetes; las cinco descripciones nuevas son editoriales y no crean reglas ni precios.",
   "tablas": [
     {
       "categoria": "Iluminación",
@@ -107,28 +107,38 @@
       "evidencia": "DRS: Especial devotos (párrafo 487) y tabla Word 20 (Sello personalizable)."
     }
   ],
-  "componentes_exclusivos_paquete": [
+  "limites": "Cinco objetos corrientes aparecen en paquetes DRS, sin precio individual documentado. Sus descripciones son editoriales, aprobadas por solicitud expresa el 01/11/2026. No otorgan efectos, capacidad, peso, protección ni precio; no se incluyen en el catálogo de compras. Las equivalencias no alteran cantidades ni costes.",
+  "objetos_comunes_sin_precio": [
     {
       "inventario": "Mochila",
-      "nombre": "Mochila"
+      "nombre": "Mochila",
+      "descripcion_editorial": "Bolsa resistente con correas para llevarla a la espalda. Permite guardar y transportar las pertenencias durante un viaje.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
     },
     {
       "inventario": "Bolsa de cuero",
-      "nombre": "Bolsa de cuero"
+      "nombre": "Bolsa de cuero",
+      "descripcion_editorial": "Bolsa flexible confeccionada en cuero, con un cierre sencillo. Sirve para reunir monedas, utensilios pequeños y otros enseres.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
     },
     {
       "inventario": "odre de agua (DU d6)",
       "nombre": "Odre de agua",
-      "du": "d6"
+      "du": "d6",
+      "descripcion_editorial": "Recipiente de piel curtida destinado a transportar agua. Su abertura se cierra para evitar que se derrame durante el camino.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
     },
     {
       "inventario": "estuche de pergaminos vacío",
-      "nombre": "Estuche de pergaminos vacío"
+      "nombre": "Estuche de pergaminos vacío",
+      "descripcion_editorial": "Estuche alargado con tapa, pensado para guardar hojas de pergamino enrolladas y protegerlas durante el transporte. Se entrega vacío.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
     },
     {
       "inventario": "ropa de viaje",
-      "nombre": "Ropa de viaje"
+      "nombre": "Ropa de viaje",
+      "descripcion_editorial": "Conjunto de prendas sencillas y resistentes, adecuado para el camino y el desgaste de las jornadas de viaje.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
     }
-  ],
-  "limites": "Los cinco componentes solo constan como partes de paquetes en el DRS cotejado. No se les asignan precio individual, efecto, requisito ni descripción adicional. Las equivalencias no alteran cantidades ni costes."
+  ]
 }
