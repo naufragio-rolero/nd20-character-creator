@@ -131,6 +131,10 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 .vacio{grid-column:1/-1;min-height:390px;border:1px dashed #56717c;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:#10222a77;padding:2rem}
 .vacio>p:not(.muted){font:1.5rem Georgia,serif;margin:.7rem 0}
 .vacio .muted{max-width:44ch;line-height:1.65}
+.vacio .empezar-forja{margin-top:1.2rem;min-width:160px;min-height:46px;
+  border:1px solid var(--oro);border-radius:8px;
+  background:var(--oro);color:var(--oscuro);font-weight:800}
+.vacio .empezar-forja:hover{background:#ffe3a5;color:#091923}
 .emblema{font-size:3rem;color:var(--oro)}
 .tarjeta{background:#f0ebdf;color:#15262d;border-radius:10px;overflow:hidden;box-shadow:0 8px 27px #020b1570;display:flex;flex-direction:column;min-width:0}
 .cabecera-ficha{display:flex;gap:1rem;justify-content:space-between;align-items:start;padding:1.1rem 1.2rem;background:#d6cfbc;border-bottom:1px solid #bbb09c}
