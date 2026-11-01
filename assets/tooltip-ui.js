@@ -86,18 +86,22 @@
   function programarCierre(){
     limpiarTemporizador();
     cierre=setTimeout(function(){
-      if(!fija&&card&&!card.matches(":hover")&&(!ancla||!ancla.matches(":hover")))
+      if(!fija&&card&&card.getAttribute('role')!=='dialog'&&
+         !card.matches(":hover")&&(!ancla||!ancla.matches(":hover")))
         cerrar();
     },300);
   }
   function cerrar(){
     limpiarTemporizador();
     if(ancla){ancla.removeAttribute("aria-describedby");ancla.setAttribute("aria-expanded","false");}
-    if(card)card.hidden=true;
+    if(card){card.hidden=true;card.setAttribute('role','tooltip');}
     ancla=null;fija=false;
   }
   function mostrar(elemento,anclado){
     if(!glosario||!elemento)return;
+    // Defensa adicional: el estado DOM del diálogo fijado prima sobre
+    // eventos de puntero tardíos de Firefox/WebKit tras una pulsación.
+    if(!anclado&&card&&!card.hidden&&card.getAttribute('role')==='dialog')return;
     var info=elemento.dataset.glosaId?
       consultaPorId(elemento.dataset.glosaId,elemento.dataset.glosaGrupo,
         elemento.dataset.glosaSistema):
@@ -283,8 +287,9 @@
       var a=getTarget(e);
       // Una ficha fijada por clic o teclado nunca se sustituye por hover.
       // Talentos y Poderes recuperan la misma consulta ligera por ratón.
-      if(a&&e.pointerType==="mouse"&&!fija&&!a.contains(e.relatedTarget))
-        mostrar(a,false);
+      if(a&&e.pointerType==="mouse"&&!fija&&
+         !(card&&!card.hidden&&card.getAttribute('role')==='dialog')&&
+         !a.contains(e.relatedTarget))mostrar(a,false);
     });
     document.addEventListener("pointerout",function(e){
       var a=getTarget(e);
