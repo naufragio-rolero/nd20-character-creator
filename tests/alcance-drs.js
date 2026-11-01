@@ -695,8 +695,10 @@ for(const ficha of manifest.drs.conjuros){
   const visual=presentador.presentarPoder(original);
   assert.ok(visual,'Conjuro DRS presentable: '+ficha.nombre);
   assert.equal(visual.origen,'Naufragio d20 DRS');
-  assert.ok(visual.clasificacion.includes('Círculo'),
-    'El Círculo de '+ficha.nombre+' debe verse en cabecera');
+  assert.equal(visual.circulo,ficha.circulo,
+    'El número documentado del Círculo de '+ficha.nombre+' debe verse en insignia');
+  assert.ok(visual.escuelas.length>0,
+    'El Conjuro '+ficha.nombre+' debe mostrar su Escuela de origen');
   assert.ok(!visual.tecnicos.some(x=>['Escuelas','Círculo','Origen'].includes(x[0])));
   assert.ok(visual.fuente.includes('Tomo de Magia'));
 }
@@ -705,7 +707,9 @@ const dormirPresentacion=presentador.presentarPoder(
 assert.deepEqual(dormirPresentacion.primarios,[
   ['Alcance','10m + 2m por Nivel'],['Duración','1d6 Intervalos']
 ]);
-assert.equal(dormirPresentacion.clasificacion,'Arcana · 1.er Círculo');
+assert.deepEqual(dormirPresentacion.escuelas,['Arcana']);
+assert.equal(dormirPresentacion.circulo,1);
+assert.equal(dormirPresentacion.clasificacion,'');
 assert.ok(!dormirPresentacion.primarios.some(x=>x[0]==='Tirada'),
   'No inventar Tirada de lanzamiento para Dormir');
 assert.ok(dormirPresentacion.tecnicos.some(x=>

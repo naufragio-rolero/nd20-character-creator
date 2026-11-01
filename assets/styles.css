@@ -467,3 +467,38 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
 .ficha-emergente .info-detalles .info-aclaracion-autoral{
   margin:.35rem 0;padding:.35rem .55rem;background:transparent;
   border:0;border-left:2px solid #c6a76c;border-radius:0}
+
+/* Objetos: la categoría expresa el tipo documentado o la tabla fuente.
+   Mismo lenguaje de pills que Talentos; cada familia es legible sin color. */
+.info-categoria-objeto{background:#244451;color:#d9f3ff;border-color:#6393a9}
+.info-categoria-objeto-armas{background:#4a3b28;color:#fff0d7;border-color:#aa8b5b}
+.info-categoria-objeto-armaduras{background:#33434f;color:#e1f1ff;border-color:#7393a5}
+.info-categoria-objeto-varitas{background:#443358;color:#f2e3ff;border-color:#ac85c2}
+.info-categoria-objeto-foco-de-conjuro{background:#463756;color:#f5e7ff;border-color:#aa91ca}
+.info-categoria-objeto-municion{background:#4c4629;color:#fff1b9;border-color:#a69c59}
+.info-categoria-objeto-escudo{background:#334b40;color:#ddf6e7;border-color:#77a992}
+.info-categoria-objeto-consumible{background:#285044;color:#dcf7e9;border-color:#6bb49b}
+/* Escuelas del DRS: seis colores estables, sin asignar escuelas inexistentes. */
+.info-escuelas{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;
+  gap:.3rem;max-width:100%;margin-left:auto}
+.info-escuela{font-size:.73rem;white-space:normal}
+.info-escuela-arcana{background:#254869;color:#e1efff;border-color:#6f9dc9}
+.info-escuela-demonologia{background:#5b303e;color:#ffe4e8;border-color:#be7f91}
+.info-escuela-divina{background:#57471e;color:#fff1bd;border-color:#b09c59}
+.info-escuela-elemental{background:#245260;color:#dff7ff;border-color:#73aab7}
+.info-escuela-naturaleza{background:#2b5138;color:#e1f9de;border-color:#77b581}
+.info-escuela-nigromancia{background:#433760;color:#eee4ff;border-color:#9d8bc9}
+/* Insignia orbital: Círculo con número romano, visual e identificable
+   mediante aria-label numérico. No es una progresión nueva. */
+.info-circulo{display:inline-flex;align-items:center;gap:.38rem;flex-shrink:0;
+  border:1px solid #c3a66b;border-radius:50px;padding:.13rem .52rem .13rem .16rem;
+  background:#283441;color:#ffe7b4;font-weight:750}
+.info-circulo-valor{display:grid;place-items:center;width:2.1rem;height:2.1rem;
+  border-radius:50%;border:2px double #e2bb74;box-shadow:inset 0 0 0 2px #283441,0 0 0 1px #a18653;
+  background:#493c2c;color:#ffe7b4;font:700 .88rem/1 Georgia,serif;letter-spacing:-.02em}
+.info-circulo-rotulo{font-size:.68rem;letter-spacing:.035em}
+@media(max-width:600px){
+  .info-cabecera{row-gap:.4rem}
+  .info-escuelas{margin-left:0;justify-content:flex-start}
+  .info-circulo{margin-right:auto}
+}

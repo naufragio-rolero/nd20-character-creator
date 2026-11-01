@@ -43,7 +43,33 @@ for(const x of objetos.registros){
   const ficha=api.buscar(i,x.nombre,'equipo','nd20');
   assert.ok(ficha,'Falta equipo '+x.nombre);
   assert.equal(ficha.descripcion,x.descripcion_editorial,'Descripción: '+x.nombre);
+  const vista=api.presentarEquipo(ficha);
+  assert.ok(vista&&vista.categoria,'El objeto tiene categoría documentada: '+x.nombre);
+  assert.ok(vista.primarios.every(par=>par[0]!=='Categoría'),
+    'No duplicar la categoría en el detalle: '+x.nombre);
 }
+const varita=api.buscar(i,'Varita de cerezo','equipo','nd20');
+assert.equal(api.presentarEquipo(varita).categoria,'Varita');
+assert.match(varita.descripcion,/Tirada de Mente/);
+assert.match(varita.descripcion,/una vez al día/);
+assert.doesNotMatch(varita.descripcion,/según el DRS|texto nuevo|descripción contextual/i);
+assert.equal(api.presentarEquipo(api.buscar(i,'Daga','equipo','nd20')).categoria,'Arma ligera');
+assert.equal(api.presentarEquipo(api.buscar(i,'Armadura de cuero','equipo','nd20')).categoria,
+  'Armadura ligera');
+assert.equal(api.presentarEquipo(api.buscar(i,'Escudo grande','equipo','nd20')).categoria,'Escudo');
+assert.equal(api.presentarEquipo(api.buscar(i,'Flechas','equipo','nd20')).categoria,'Munición');
+const catalogo=cargar('catalogo-poderes.json');
+const seis=new Set(['Arcana','Demonología','Divina','Elemental','Naturaleza','Nigromancia']);
+const encontradas=new Set();
+for(const conjuro of catalogo.conjuros){
+  const ficha=api.buscarPorId(i,conjuro.id,'poder','nd20');
+  assert.ok(ficha,'Conjuro indexado '+conjuro.id);
+  const vista=api.presentarPoder(ficha);
+  assert.deepEqual(vista.escuelas,conjuro.escuelas,'Escuelas de '+conjuro.nombre);
+  assert.equal(vista.circulo,conjuro.circulo,'Círculo de '+conjuro.nombre);
+  conjuro.escuelas.forEach(x=>encontradas.add(x));
+}
+assert.deepEqual(encontradas,seis,'Las escuelas reales del catálogo son las seis del DRS');
 for(const x of glosas.registros){
   const ficha=api.buscar(i,x.nombre,'talento','nd20',
     x.tipo_origen+': '+x.propietario);
@@ -71,4 +97,4 @@ assert.equal(api.presentarTalento(api.buscar(i,'Recuperación','talento','nd20',
   'Ocupación: Guerrero')).categoria,'Pasiva');
 assert.equal(api.presentarTalento(api.buscar(i,'¡Sálvese quien pueda!','talento',
   'nd20','Especie: Mediano amable')).categoria,'Reacción');
-console.log('OK · 10 Técnicas literales, 24 categorías oficiales trazables, 111 objetos descritos; efectos originales preservados.');
+console.log('OK · 10 Técnicas literales, 24 categorías oficiales trazables, 111 objetos categorizados, escuelas y Círculos cotejados; efectos originales preservados.');

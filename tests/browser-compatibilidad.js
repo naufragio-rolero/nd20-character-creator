@@ -124,8 +124,14 @@ async function probar(nombre,tipo,url){
     const popup=page.locator('#ficha-emergente');
     assert.equal(await popup.locator('.info-tipo').textContent(),'Conjuro');
     assert.equal(await popup.locator('h3').textContent(),'Dormir');
-    assert.equal(await popup.locator('.info-clasificacion').textContent(),
-      'Arcana · 1.er Círculo');
+    assert.deepEqual(await popup.locator('.info-escuela').allTextContents(),['Arcana']);
+    assert.match(await popup.locator('.info-escuela').getAttribute('class'),
+      /info-escuela-arcana/);
+    assert.equal(await popup.locator('.info-circulo').getAttribute('aria-label'),'Círculo 1');
+    assert.equal(await popup.locator('.info-circulo-valor').textContent(),'I');
+    assert.equal(await popup.locator('.info-circulo-rotulo').textContent(),'Círculo');
+    assert.equal(await popup.locator('.info-clasificacion').count(),0,
+      nombre+': no duplicar el Círculo en un ordinal textual');
     assert.deepEqual(await popup.locator('.info-primarios dt').allTextContents(),
       ['Alcance:','Duración:']);
     assert.deepEqual(await popup.locator('.info-primarios dd').allTextContents(),
@@ -165,6 +171,38 @@ async function probar(nombre,tipo,url){
       /criatura afectada no se podrá mover durante su próximo Turno/,
       nombre+': Disparo aturdidor debe mostrar su efecto DRS');
     await page.locator('#informacion-avanzada').uncheck();
+    // Objetos: categoría en pill, precio y descripción de reglas sin
+    // mostrar metadatos de creación del catálogo.
+    await page.evaluate(()=>{
+      const boton=document.createElement('button');
+      boton.id='e2e-equipo';boton.type='button';
+      boton.className='referencia-glosario';boton.textContent='Consultar objeto';
+      boton.dataset.glosaNombre='Varita de cerezo';
+      boton.dataset.glosaGrupo='equipo';
+      boton.dataset.glosaSistema='nd20';
+      document.body.appendChild(boton);
+    });
+    await page.locator('#e2e-equipo').click();
+    assert.equal(await popup.locator('.info-tipo').textContent(),'Objeto');
+    assert.equal(await popup.locator('.info-categoria').textContent(),'Varita');
+    assert.match(await popup.locator('.info-categoria').getAttribute('class'),
+      /info-categoria-objeto-varitas/);
+    assert.match(await popup.locator('.info-primarios').innerText(),/Precio:\s*100 mo/);
+    assert.match(await popup.locator('.info-descripcion').first().innerText(),
+      /Tirada de Mente/);
+    assert.equal(await popup.locator('.info-origen-glosa').count(),0,
+      nombre+': no mostrar procedencia editorial en la ficha');
+    assert.doesNotMatch(await popup.innerText(),
+      /Descripción contextual|no introduce otras reglas|según el DRS/i);
+    for(const item of [['Daga','Arma ligera'],['Armadura de cuero','Armadura ligera'],
+      ['Flechas','Munición'],['Escudo grande','Escudo']]){
+      await page.locator('#e2e-equipo').evaluate((e,x)=>{
+        e.dataset.glosaNombre=x;
+      },item[0]);
+      await page.locator('#e2e-equipo').click();
+      assert.equal(await popup.locator('.info-categoria').textContent(),item[1],
+        nombre+': categoría de '+item[0]);
+    }
     await page.locator('#e2e-poder').click();
     assert.equal(await popup.locator('.info-detalles').isHidden(),true);
     await page.keyboard.press('Escape');
