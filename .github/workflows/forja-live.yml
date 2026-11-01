@@ -93,4 +93,6 @@ jobs:
           test "$(grep -c '<symbol id=' /tmp/forja-icons.svg)" -eq 12
           curl -fsSL "${PAGE_URL%/}/data/especies.json" -o /tmp/forja-especies.json
           node -e "const e=require('/tmp/forja-especies.json');if(Object.keys(e).length!==8)process.exit(1)"
-          echo "OK: web en vivo, 8 Especies DRS, 12 SVG y CiFi/Nocturna ocultos."
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/aclaraciones-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-aclaraciones.json
+          node -e "const a=require('/tmp/forja-aclaraciones.json');const ids=a.registros.map(x=>x.id_talento).sort();const expected=['talento-drs-especie-mediano-amable-salvese-quien-pueda','talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes'].sort();if(a.estado!=='aprobacion_autoral'||JSON.stringify(ids)!==JSON.stringify(expected))process.exit(1)"
+          echo "OK: web en vivo, 8 Especies DRS, 12 SVG, dos aclaraciones autorales y CiFi/Nocturna ocultos."
