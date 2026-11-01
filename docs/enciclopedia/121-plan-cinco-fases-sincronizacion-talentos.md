@@ -109,3 +109,12 @@ El estado de **plan documentado** al principio de este archivo corresponde a su 
 | 5 — QA/publicación | Tests documentales, navegadores y workflows de paquete candidato | **CI y capturas completados ([124](124-qa-final-talentos-drs-2026-11-01.md))**; autorización de promoción, despliegue y verificación LIVE pendientes |
 
 Se conservan las decisiones de clasificación sin modificar el efecto de **¡Sálvese quien pueda!**, **Corpulencia** ni **Recuperación**. El DRS original sigue intacto. La PR #13 permanece independiente y no se incorpora automáticamente.
+
+
+## Cierre de ejecución — LIVE verificada (01/11/2026)
+
+**Estado final de esta entrega DRS: cinco fases completadas.** La [PR #17](https://github.com/naufragio-rolero/nd20-character-creator/pull/17) fue fusionada en `a8371718e97c57bbcc5dc73a819704722284f052`; el workflow `forja-live.yml` fijó exactamente ese SHA y publicó exclusivamente `dist/public-drs`. La [ejecución LIVE 41349181874](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41349181874) terminó **success**, incluidos Chrome, Firefox, WebKit, comprobación HTTP de categorías, exclusión de DLC y ausencia de glosas duplicadas. Detalles en [informe 125](125-publicacion-live-talentos-drs.md).
+
+Las decisiones de clasificación, las propuestas de cambios del DRS y las diferencias de redacción permanecen trazadas y separadas del manual. **El funcionamiento y la publicación de la Forja no están pendientes de intervención autoral.** Una futura revisión del `NaufragioD20DRS.docx` sigue requiriendo confirmación expresa sobre los textos propuestos.
+
+La tabla de «Pendiente de ejecución» previa y los estados de plan son antecedentes históricos de su creación, no el estado actual.
