@@ -454,6 +454,17 @@ async function probar(nombre,tipo,url){
     await page.locator('#generar').click();
     await page.locator('#fichas .tarjeta').first().waitFor();
     const ficha=page.locator('#fichas .tarjeta').first();
+    // Recuerdo personal: popup descriptivo, sin precio ni estadísticas de arma.
+    const recuerdo=ficha.locator('.referencia-glosario[data-glosa-grupo="equipo"]')
+      .filter({hasText:'Recuerdo:'}).first();
+    assert.equal(await recuerdo.count(),1,nombre+': recuerdo en el inventario');
+    await recuerdo.click();
+    const infoRecuerdo=page.locator('#ficha-emergente');
+    assert.equal(await infoRecuerdo.locator('.info-tipo').textContent(),'Recuerdo personal');
+    assert.equal(await infoRecuerdo.locator('.info-primarios dt').count(),0);
+    assert.match(await infoRecuerdo.locator('.info-fuente').textContent(),
+      /data\\/especies\\.json/);
+    await page.keyboard.press('Escape');
     const inicial=precio(await ficha.locator('.riqueza').innerText());
     await ficha.locator('.comprar-utiles').click();
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
@@ -503,6 +514,23 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#editor-compras').isHidden(),true);
     assert.ok((await ficha.innerText()).includes('Martillo de campamento ×2'));
     assert.ok((await ficha.innerText()).includes('Tiza ×3'));
+    // El equipo adquirido debe ofrecer información real y fuente DRS.
+    const martillo=ficha.locator('.referencia-glosario[data-glosa-grupo="equipo"]')
+      .filter({hasText:'Martillo de campamento ×2'}).first();
+    assert.equal(await martillo.count(),1,nombre+': artículo comprado consultable');
+    await martillo.click();
+    const infoEquipo=page.locator('#ficha-emergente');
+    assert.equal(await infoEquipo.locator('.info-tipo').textContent(),'Equipo');
+    assert.deepEqual(await infoEquipo.locator('.info-primarios dt').allTextContents(),
+      ['Precio:']);
+    assert.deepEqual(await infoEquipo.locator('.info-primarios dd').allTextContents(),
+      ['2 mo']);
+    assert.match(await infoEquipo.locator('.info-descripcion').textContent(),
+      /puede utilizarse como Clava/);
+    assert.match(await infoEquipo.locator('.info-fuente').textContent(),
+      /NaufragioD20DRS\\.docx/);
+    assert.equal(await infoEquipo.locator('.info-detalles').isHidden(),true);
+    await page.keyboard.press('Escape');
     const despues=precio(await ficha.locator('.riqueza').innerText());
     assert.ok(Math.abs(inicial-despues-4.03)<.001,
       nombre+': descontar exactamente 4,03 mo al confirmar');
