@@ -126,7 +126,12 @@
     var pie=document.querySelector('.pie').getBoundingClientRect();
     // Retirar el flotante ANTES del pie (también en pantallas pequeñas).
     var pieCerca=pie.top<=innerHeight+80&&pie.bottom>=0;
-    boton.hidden=$('panel-personajes').hidden||principalVisible||pieCerca;
+    // Primera visita móvil: el menú comienza oculto. Primero enseñar
+    // «Empezar», no un botón de Generar sin contexto.
+    var primeraVisitaMovil=window.matchMedia('(max-width:830px)').matches&&
+      entradas.length===0&&!$('panel-forja').classList.contains('panel-abierto');
+    boton.hidden=$('panel-personajes').hidden||principalVisible||pieCerca||
+      primeraVisitaMovil;
   }
   function observarGenerarFlotante(){
     var pendiente=false;
@@ -530,9 +535,10 @@
     $('titulo-resultados').textContent=entradas.length?'Fichas de la mesa':'La mesa está preparada';
     $('borrar').disabled=!entradas.length;
     $('exportar').disabled=!entradas.length;
+    $('inicio-movil').hidden=entradas.length>0;
     if(!entradas.length) fichas.innerHTML='<div class="vacio"><span class="emblema" aria-hidden="true">◇</span>'+
-      '<p>Aquí aparecerá tu personaje</p><p class="muted">No necesitas elegir nada: puedes usar las opciones iniciales. Pulsa «Empezar» para ver los ajustes y después «Generar personaje».</p>'+
-      '<button type="button" class="empezar-forja">Empezar</button></div>';
+      '<p>Aquí aparecerá tu personaje</p><p class="muted">Deja las opciones iniciales o elige Nivel, Ocupación y Especie. Pulsa «Generar personaje» en la Forja: aquí verás el resultado.</p></div>';
+    refrescarGenerarFlotante();
   }
   function agregar(tipo,valor) {
     entradas.unshift({tipo:tipo,valor:valor,id:++correlativo});
@@ -1044,18 +1050,15 @@
       });
     });
     $('compras-cancelar').addEventListener('click',cerrarCompra);
+    $('inicio-movil').querySelector('.empezar-forja').addEventListener('click',function(){
+      marcarPanel('personajes');
+      if(window.matchMedia('(max-width:830px)').matches)alternarMenu(true);
+      $('panel-forja').scrollIntoView({behavior:window.matchMedia(
+        '(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+      $('nivel').focus({preventScroll:true});
+      refrescarGenerarFlotante();
+    });
     $('fichas').addEventListener('click',function(e){
-      // La zona vacía también sirve para llegar al formulario en móvil,
-      // incluso cuando el panel «Menú» comienza oculto.
-      if(e.target.closest('.empezar-forja')){
-        marcarPanel('personajes');
-        if(window.matchMedia('(max-width:830px)').matches)alternarMenu(true);
-        $('panel-forja').scrollIntoView({behavior:window.matchMedia(
-          '(prefers-reduced-motion: reduce)').matches?'auto':'smooth',
-          block:'start'});
-        $('nivel').focus({preventScroll:true});
-        return;
-      }
       var comprar=e.target.closest('.comprar-utiles');
       if(comprar){
         conControl(function(){
