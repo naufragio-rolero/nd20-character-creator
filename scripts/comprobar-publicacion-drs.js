@@ -69,7 +69,9 @@ if(consultaDRS){
   const entradas=(consultaDRS.tablas||[]).flatMap(x=>x.registros||[]);
   afirmar(entradas.length!==10||
     (consultaDRS.equivalencias_explicitas_paquetes||[]).length!==5||
-    (consultaDRS.componentes_exclusivos_paquete||[]).length!==5,
+    (consultaDRS.objetos_comunes_sin_precio||[]).length!==5||
+    consultaDRS.objetos_comunes_sin_precio.some(x=>
+      !x.descripcion_editorial||!x.origen_descripcion),
     'El índice de consulta DRS no conserva 10 entradas, cinco equivalencias y cinco componentes exclusivos.');
   afirmar(JSON.stringify(consultaDRS)!==JSON.stringify(canon),
     'El catálogo de consulta de Equipo DRS publicado difiere de la fuente auditada.');
