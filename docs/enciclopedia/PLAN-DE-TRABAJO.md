@@ -1,6 +1,6 @@
 # Enciclopedia de Talentos, Poderes y Objetos — Plan de trabajo
 
-> **Estado vigente (01/11/2026):** Forja **1.5** publicada con las aclaraciones autorales DRS (véase [informe 112](112-forja-aclaraciones-autoriales.md)); la **PR #13** continúa como candidato en borrador para consultas de Equipo y Objetos mágicos sin desplegar. Su ampliación de paquetes iniciales se documenta en [informe 114](114-cierre-componentes-paquetes-drs.md); **la autorización posterior de cinco útiles corrientes con prosa editorial** se registra en [informe 115](115-cinco-utiles-corrientes-paquetes-drs.md). El identificador **Forja 1.4** se reservó para la preclasificación de propiedades de Talentos, y **no** se reutiliza para esta tanda de Equipo. Los progresos documentales en otras ambientaciones no autorizan su exposición pública.
+> **Estado vigente (01/11/2026):** Forja **1.5** publicada con las aclaraciones autorales DRS (véase [informe 112](112-forja-aclaraciones-autoriales.md)); la **PR #13** continúa como candidato en borrador para consultas de Equipo y Objetos mágicos sin desplegar. Su ampliación de paquetes iniciales se documenta en [informe 114](114-cierre-componentes-paquetes-drs.md); **la autorización posterior de cinco útiles corrientes con prosa editorial** se registra en [informe 115](115-cinco-utiles-corrientes-paquetes-drs.md). **La siguiente ampliación incorpora 27 referencias DRS de Instrumentos, Objetos varios, Monturas y Transportes** ([informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md)), separando servicios diarios; ninguna referencia adicional equivale a una compra inicial. El identificador **Forja 1.4** se reservó para la preclasificación de propiedades de Talentos, y **no** se reutiliza para esta tanda de Equipo. Los progresos documentales en otras ambientaciones no autorizan su exposición pública.
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-11-01.  
@@ -24,7 +24,11 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [x] Mantener los **cinco útiles sin precio** fuera de la compra independiente: evitar precio inventado o gratuidad accidental.
 - [ ] Realizar revisión editorial y visual final de los popups en móvil y escritorio, antes de fusionar la PR #13.
 - [ ] Fusionar y publicar **solo tras autorización independiente**; ninguna prueba CI verde equivale por sí sola a orden de despliegue.
-- [ ] Ampliación futura dentro del DRS: instrumentos, objetos varios, monturas, material para monturas y transportes (tablas 22 y 26–29), separados de servicios y del sistema de compras.
+- [x] **Ampliación documental DRS**: 27 entradas adicionales (4 instrumentos, 8 objetos varios, 6 monturas, 5 artículos para monturas y 4 transportes), y 3 clases de servicios diarios excluidos; en total **37 referencias adicionales** a las tablas DRS más cinco útiles con descripciones editoriales ([informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md)).
+- [x] Registrar el precio variable sin base fijada de **Armadura equina** y el Movimiento propio de monturas, sin aplicar nada al personaje.
+- [x] Ampliar E2E de **Firefox/WebKit a popup móvil 390 × 844**, fuente legible, encaje, cierre con Escape y captura.
+- [ ] Completar inspección visual humana de las capturas CI; las verificaciones geométricas automatizadas no la sustituyen.
+- [ ] Diseñar acceso público **voluntario** al catálogo de Equipo que no figure en inventario inicial, sin confundir consulta con opción de compra; definir alcance y UX en revisión editorial.
 - [ ] Objetos mágicos: revisión editorial de **28 fichas y el ejemplo**, autorización y paquete aparte antes de cualquier incorporación pública.
 
 ## Forja 1.5 — Aclaraciones autorales en popups DRS (01/11/2026)
@@ -109,6 +113,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [ ] Entregar repertorio estructurado validado.
 
 ### Tanda 5 — Equipo
+- [x] Índice documental ampliado en [informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md): **27 fichas DRS** de instrumentos, variados, monturas, accesorios y transportes, con servicios separados; sin alteración de compras ni personajes.
 - [x] Ampliación de consulta del **inventario DRS**: 10 registros literales adicionales y 44/44 componentes iniciales resolubles ([informe 114](114-cierre-componentes-paquetes-drs.md)).
 - [x] Cinco útiles comunes con **descripción editorial autorizada**: 44/44 apariciones con texto y sin inventar precios; [informe 115](115-cinco-utiles-corrientes-paquetes-drs.md). No confundir con revisión exhaustiva de todas las tablas de todos los manuales.
 - [x] Inventario de equipo inicial en Forja: **48 registros de Fantasía** y **33 de CiFi**; identificar las 5 opciones de Armamento filosofal.
@@ -168,6 +173,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 | Fecha | Acción | Evidencia / estado |
 |---|---|---|
+| 2026-11-01 | Equipo DRS: 27 fichas adicionales, precios variables, servicios y QA móvil | [Informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md): 4 instrumentos, 8 objetos varios, 6 monturas, 5 enseres para monturas, 4 transportes; Establos y servicios diarios excluidos, Armadura equina sin precio inventado; pruebas E2E 390 × 844 en Firefox/WebKit. Índice de consulta **no** equivale a comercio ni a publicación. |
 | 2026-11-01 | Decisión autoral: cinco útiles corrientes de paquetes | [Informe 115](115-cinco-utiles-corrientes-paquetes-drs.md): Mochila, Bolsa de cuero, Odre de agua, Estuche de pergaminos vacío y Ropa de viaje como útiles normales, **cinco descripciones editoriales diferenciadas** y 44/44 apariciones con descripción; se conserva DU d6 del odre. Sin precio individual ni nuevas compras; [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) todavía sin fusionar ni publicar. |
 | 2026-11-01 | Equipo DRS: cierre de consulta de paquetes iniciales | [Informe 114](114-cierre-componentes-paquetes-drs.md) y [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13): 44/44 componentes con ficha, 10 entradas DRS de Iluminación/Ropa, cinco equivalencias explícitas, cinco tipos solo de paquete, precios literales y protección de publicación; aún sin fusión/despliegue. |
 | 2026-10-28 | Auditoría inicial del repositorio | Finalizada; sin cambios de código. |
