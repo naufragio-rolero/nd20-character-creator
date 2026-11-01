@@ -26,7 +26,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [ ] Fusionar y publicar **solo tras autorización independiente**; ninguna prueba CI verde equivale por sí sola a orden de despliegue.
 - [x] **Ampliación documental DRS**: 27 entradas adicionales (4 instrumentos, 8 objetos varios, 6 monturas, 5 artículos para monturas y 4 transportes), y 3 clases de servicios diarios excluidos; en total **37 referencias adicionales** a las tablas DRS más cinco útiles con descripciones editoriales ([informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md)).
 - [x] Registrar el precio variable sin base fijada de **Armadura equina** y el Movimiento propio de monturas, sin aplicar nada al personaje.
-- [x] Ampliar E2E de **Firefox/WebKit a popup móvil 390 × 844**, fuente legible, encaje, cierre con Escape y captura.
+- [x] Ampliar E2E de **Firefox/WebKit a popup móvil 390 × 844**, fuente consultable, encaje, cierre con Escape y captura; **4/4 suites verdes** para el commit `274aa738` ([informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md)).
 - [ ] Completar inspección visual humana de las capturas CI; las verificaciones geométricas automatizadas no la sustituyen.
 - [ ] Diseñar acceso público **voluntario** al catálogo de Equipo que no figure en inventario inicial, sin confundir consulta con opción de compra; definir alcance y UX en revisión editorial.
 - [ ] Objetos mágicos: revisión editorial de **28 fichas y el ejemplo**, autorización y paquete aparte antes de cualquier incorporación pública.
