@@ -39,7 +39,7 @@ const requeridos=[
   'data/conjuros-magnitudes-literales.json',
   'data/alcance-drs-y-dlc.json','data/conjuros-danio-compuesto.json',
   'data/progresiones-oficiales.json','data/equipo-inicial.json',
-  'data/fichas-documentales.json','data/talentos-drs-literales.json',
+  'data/equipo-consulta-drs.json','data/fichas-documentales.json','data/talentos-drs-literales.json',
   'data/aclaraciones-talentos-drs.json','data/dungeon-hack.json'
 ];
 for(const ruta of requeridos)
@@ -58,6 +58,21 @@ if(indexHtml){
     'La selección pública debe mostrar únicamente Fantasía DRS y Dungeon Hack.');
   afirmar(JSON.stringify(opciones)!==JSON.stringify(['nd20','dh']),
     'La selección nativa pública no debe ofrecer CiFi ni Nocturna.');
+}
+// El catálogo nuevo contiene solamente diez entradas cotejadas de iluminación
+// y ropa del DRS, cinco equivalencias explícitas y cinco componentes de
+// paquetes sin precio. Comparar el contenido FÍSICO distribuido con la fuente.
+const consultaDRS=dato('data/equipo-consulta-drs.json');
+if(consultaDRS){
+  const canon=JSON.parse(fs.readFileSync(
+    path.join(__dirname,'..','data','equipo-consulta-drs.json'),'utf8'));
+  const entradas=(consultaDRS.tablas||[]).flatMap(x=>x.registros||[]);
+  afirmar(entradas.length!==10||
+    (consultaDRS.equivalencias_explicitas_paquetes||[]).length!==5||
+    (consultaDRS.componentes_exclusivos_paquete||[]).length!==5,
+    'El índice de consulta DRS no conserva 10 entradas, cinco equivalencias y cinco componentes exclusivos.');
+  afirmar(JSON.stringify(consultaDRS)!==JSON.stringify(canon),
+    'El catálogo de consulta de Equipo DRS publicado difiere de la fuente auditada.');
 }
 const extras=dato('data/catalogo-ampliado.json');
 if(extras){
