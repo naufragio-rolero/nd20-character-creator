@@ -87,5 +87,11 @@ Separar tres planos: **regla literal** (lo escrito), **registro estructurado** (
 - **A05:** Redacción inicial de este registro con dos propuestas señaladas correctamente como no canónicas antes de la decisión autoral.
 - **A06:** Recepción de la aclaración expresa de autoría (01/11/2026): agrupación opcional de criaturas idénticas en Expulsar muertos vivientes y excepción funcional de ¡Sálvese quien pueda! frente a los Estados lesivos.
 - **A07:** Sustitución de las dos propuestas por decisiones aprobadas en este documento, manteniendo las ocho trazabilidades y distinguiendo DRS literal de aclaración autoral. Sin cambios de motor, inventario ni texto fuente.
+- **A08:** Actualización del informe anterior `110-informe-propiedades-talentos-drs.md` y del `PLAN-DE-TRABAJO.md` para que las preguntas históricas no figuren como pendientes actuales.
+- **A09:** Actualización de [PR #11](https://github.com/naufragio-rolero/nd20-character-creator/pull/11): título, explicación de los dos acuerdos, publicación de comentario de ratificación y retirada del estado «borrador».
+- **A10:** Revisión adicional de terminología: evitar dar a entender que se trata de «las primeras seis» entradas; son seis casos distribuidos por la tabla de ocho.
+- **A11:** Comprobar suites CI de Chrome, compatibilidad Firefox/WebKit y distribución DRS sobre el commit final, antes de fusionar. *Resultado y enlaces por registrar tras completarse las comprobaciones.*
+- **A12:** Fusionar el informe documental sin promover una nueva versión de la Forja pública. *Pendiente de comprobación CI.*
+
 
 **Criterio de cierre alcanzado:** las dos aclaraciones han sido ratificadas y los ocho asuntos quedan conciliados documentalmente. Ningún texto de `data/talentos-drs-literales.json` se modifica. **La automatización de estas capacidades en una interfaz de combate sigue siendo una tarea técnica diferente**, no un asunto editorial abierto.
