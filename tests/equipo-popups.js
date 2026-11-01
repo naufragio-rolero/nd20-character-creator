@@ -88,8 +88,8 @@ const vela=index.presentarEquipo(ficha('vela (DU d4)'));
 assert.deepEqual(vela.primarios.find(([k])=>k==='Precio'),['Precio','1 mc']);
 const raciones=index.presentarEquipo(ficha('dos raciones de alimento (DU d6 cada una)'),
   'dos raciones de alimento (DU d6 cada una)');
-assert.deepEqual(raciones.primarios.find(([k])=>k==='Precio individual'),
-  ['Precio individual','0.01 mo']);
+assert.deepEqual(raciones.primarios.find(([k])=>k==='Precio unitario'),
+  ['Precio unitario','0.01 mo']);
 assert.ok(raciones.tecnicos.some(([k,v])=>
   k==='Artículo de referencia'&&v==='Ración de alimento'));
 assert.equal(ficha('sello de orden sagrada').nombre,'Sello');
