@@ -588,6 +588,33 @@ async function probar(nombre,tipo,url){
     await page.locator('#editor-compras').scrollIntoViewIfNeeded();
     await page.screenshot({path:path.join(capturas,nombre+'-movil.png')});
     await page.locator('#compras-cancelar').click();
+    // QA de ficha DRS real en móvil, no solo del editor de compras.
+    // Verificar legibilidad, encaje visual, origen editorial y Escape.
+    await mochila.scrollIntoViewIfNeeded();
+    await mochila.click();
+    assert.equal(await page.locator('#ficha-emergente').getAttribute('role'),'dialog');
+    assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
+      /Bolsa resistente con correas para llevarla a la espalda/);
+    const geometria=await page.locator('#ficha-emergente').evaluate(card=>{
+      const rect=card.getBoundingClientRect();
+      return {left:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom,
+        width:rect.width,scrollWidth:card.scrollWidth,clientWidth:card.clientWidth,
+        height:rect.height,viewportWidth:innerWidth,viewportHeight:innerHeight};
+    });
+    assert.ok(geometria.left>=-2&&geometria.right<=geometria.viewportWidth+2&&
+      geometria.top>=-2&&geometria.bottom<=geometria.viewportHeight+2,
+      nombre+': popup dentro de la pantalla móvil '+JSON.stringify(geometria));
+    assert.ok(geometria.scrollWidth<=geometria.clientWidth+2,
+      nombre+': sin scroll horizontal en popup de útil');
+    assert.ok(geometria.height>=90,nombre+': altura móvil legible');
+    await page.locator('#ficha-emergente .info-fuente').scrollIntoViewIfNeeded();
+    assert.match(await page.locator('#ficha-emergente .info-fuente').innerText(),
+      /Descripción editorial/);
+    await page.screenshot({path:path.join(capturas,nombre+'-ficha-util-movil.png')});
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator('#ficha-emergente').isHidden(),true,
+      nombre+': Escape cierra el popup móvil');
+    assert.equal(await mochila.getAttribute('aria-expanded'),'false');
     assert.deepEqual(fallos,[],nombre+': no debe haber excepciones no capturadas');
     console.log('OK · '+nombre+': 4 Ocupaciones, 8 Especies, compras, Intro, cancelar,'+
       ' precio por Nivel, quitar, presupuesto, móvil y cero excepciones.');
