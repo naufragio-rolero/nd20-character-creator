@@ -18,6 +18,8 @@
       if(detalles){
         detalles.open=avanzada;
         if(ancla?.dataset.glosaGrupo==="poder"||
+           ancla?.dataset.glosaGrupo==="equipo"&&
+           card?.dataset.equipoConsultable==="true"||
            ancla?.dataset.glosaGrupo==="talento"&&
            card?.dataset.talentoDrs==="true")detalles.hidden=!avanzada;
       }
@@ -106,8 +108,12 @@
       root.NaufragioTooltipIndex?.presentarPoder?.(info):null;
     var talento=elemento.dataset.glosaGrupo==="talento"?
       root.NaufragioTooltipIndex?.presentarTalento?.(info):null;
-    var presentacion=poder||talento;
+    var equipo=elemento.dataset.glosaGrupo==="equipo"?
+      root.NaufragioTooltipIndex?.presentarEquipo?.(info,
+        elemento.dataset.glosaNombre):null;
+    var presentacion=poder||talento||equipo;
     c.dataset.talentoDrs=String(!!talento);
+    c.dataset.equipoConsultable=String(!!equipo);
     var tecnicos=document.createElement('div');
     tecnicos.className='info-avanzada';
     var cabecera=document.createElement('div');
@@ -154,10 +160,14 @@
       });
       tecnicos.appendChild(tabla);
     }
-    var d=document.createElement("p");d.className="info-descripcion";
-    d.textContent=info.descripcion||
-      "La descripción completa todavía no está incorporada al catálogo digital; consulta el manual.";
-    c.appendChild(d);
+    // Los recuerdos no reciben un falso reglamento ni texto de relleno.
+    // El equipo con estadísticas documentadas muestra primero esos datos.
+    if(info.descripcion||info.clase_equipo!=="narrativo"){
+      var d=document.createElement("p");d.className="info-descripcion";
+      d.textContent=info.descripcion||
+        "No hay descripción adicional documentada para este artículo.";
+      c.appendChild(d);
+    }
     // Apartado independiente: no añadir interpretaciones al efecto literal.
     // Visible siempre para que la aclaración aprobada no quede escondida
     // dentro de los detalles técnicos del popup.
@@ -210,7 +220,7 @@
       tecnicos.appendChild(tipo);
     }
     if(tecnicos.childNodes.length){
-      if(['talento','poder'].includes(elemento.dataset.glosaGrupo)){
+      if(['talento','poder','equipo'].includes(elemento.dataset.glosaGrupo)){
         var detalles=document.createElement('details');
         detalles.className='info-detalles';
         detalles.open=avanzada;
