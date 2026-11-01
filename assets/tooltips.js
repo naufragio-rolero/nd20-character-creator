@@ -458,12 +458,14 @@
     // La unidad de precio del artículo equivalente no es el coste de todo
     // el lote recibido en un paquete con descuento.
     var nombreEntrada=normalizar(limpiar(nombreInventario||info.nombre));
-    if(!esRecuerdo&&nombreEntrada!==normalizar(info.nombre)&&
-       info.clase_equipo!=="magico"){
+    var nombreDiferente=nombreEntrada!==normalizar(info.nombre);
+    var lote=/×\s*[2-9]\d*$/.test(String(nombreInventario||""));
+    if(!esRecuerdo&&info.clase_equipo!=="magico"&&(nombreDiferente||lote)){
       principales=principales.map(function(p){
-        return p[0]==="Precio"?["Precio individual",p[1]]:p;
+        return p[0]==="Precio"?["Precio unitario",p[1]]:p;
       });
-      tecnicos=tecnicos.concat([["Artículo de referencia",info.nombre]]);
+      if(nombreDiferente)
+        tecnicos=tecnicos.concat([["Artículo de referencia",info.nombre]]);
     }
     var categoria=esRecuerdo?"Recuerdo de Especie":
       [info.categoria_equipo,info.rareza_equipo].filter(Boolean).join(" · ");
