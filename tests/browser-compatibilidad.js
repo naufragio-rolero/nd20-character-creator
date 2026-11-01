@@ -412,9 +412,15 @@ async function probar(nombre,tipo,url){
     await salvese.click();
     assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
       /gastar 1 Punto de Esfuerzo y una Acción/);
-    await page.keyboard.press('Escape');
     const recuperacion=fichaTalentos.locator(
       '.referencia-glosario[data-glosa-nombre="Recuperación"]');
+    // Regresión: hover sobre otro Talento NO sustituye una ficha fijada.
+    await recuperacion.evaluate(el=>el.dispatchEvent(new PointerEvent('pointerover',{
+      bubbles:true,pointerType:'mouse',relatedTarget:null})));
+    assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
+      /gastar 1 Punto de Esfuerzo y una Acción/,
+      nombre+': el hover no reemplaza la ficha fijada mediante clic');
+    await page.keyboard.press('Escape');
     await recuperacion.click();
     assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
       /pasar un Intervalo recuperándote para restaurar 1d8 Puntos de Salud/);
