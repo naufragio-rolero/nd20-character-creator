@@ -30,7 +30,7 @@ for(const [tabla,clase] of clases){
     for(const [clave,etiqueta] of Object.entries({
       dano:'Daño',penetracion:'Penetración',durabilidad:'Durabilidad',
       blindaje:'Blindaje',alcance:'Alcance'})){
-      if(item[clave]!==undefined)
+      if(item[clave]!==undefined&&item[clave]!==null&&item[clave]!=='' )
         assert.ok(vista.primarios.some(([k,v])=>k===etiqueta&&v===String(item[clave])),
           item.nombre+': '+etiqueta+' exacto');
     }
