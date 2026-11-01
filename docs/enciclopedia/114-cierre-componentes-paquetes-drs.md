@@ -83,7 +83,16 @@ Se ha añadido expresamente **un solo JSON DRS** a la lista blanca `scripts/crea
 - `node tests/browser-compatibilidad.js`: revisa en Firefox y WebKit Antorcha, Mochila y Ración en una ficha generada y comprueba origen, precio correcto, DU y ausencia de descripción inventada.
 - `node scripts/crear-paquete-drs.js`, `node scripts/comprobar-publicacion-drs.js dist/public-drs`, `node tests/paquete-publico-drs.js`: deben confirmar que solo se distribuye equipo DRS autorizado.
 
-**Estado inicial del QA de este informe:** pendientes los resultados definitivos de CI para el último commit; no se atribuye una ejecución exitosa hasta consultarlos. La revisión visual final de capturas y la aceptación editorial siguen siendo trámites diferenciados de las pruebas automatizadas.
+**QA confirmado para la última revisión funcional (SHA `457db2ce`): cuatro flujos completos y satisfactorios de GitHub Actions:**
+
+| Comprobación | Evidencia |
+|---|---|
+| Generador, Conjuros, pruebas Node y consulta de Equipo | [Validar Conjuros y Forja — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41307586472) |
+| Compras DRS en Chrome | [E2E navegador — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41307586650) |
+| Popups y compatibilidad Firefox/WebKit | [Compatibilidad — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41307586490) |
+| Lista blanca física, guardia, contenido DRS y E2E del candidato | [Paquete DRS — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41307586539) |
+
+Las modificaciones posteriores a este SHA son exclusivamente documentos del plan y del presente informe; sus nuevas ejecuciones de CI también se activan por push. La **revisión visual editorial final** y la aceptación de fusión/despliegue siguen siendo decisiones independientes de los tests automatizados.
 
 ## 7. Hallazgos y siguiente fase
 
