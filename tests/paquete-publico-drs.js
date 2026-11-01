@@ -195,7 +195,7 @@ const esperados=new Set([
   'conjuros-revisados-226-434.json','conjuros-magnitudes-literales.json',
   'alcance-drs-y-dlc.json','conjuros-danio-compuesto.json',
   'progresiones-oficiales.json','equipo-inicial.json','fichas-documentales.json',
-  'talentos-drs-literales.json',
+  'talentos-drs-literales.json','aclaraciones-talentos-drs.json',
   'dungeon-hack.json'
 ]);
 assert.deepEqual(contenidos,esperados,
