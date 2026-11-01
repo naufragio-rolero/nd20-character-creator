@@ -23,6 +23,29 @@
       .replace(/^Paquete\s+([^:]+):.*$/i,"$1")
       .replace(/^Paquete\s+/i,"").trim();
   }
+  // Precio variable autorizado: armadura equina = base humana DRS × 4.
+  // SOLO consulta: no se transfieren propiedades ni se altera el inventario.
+  function opcionesArmaduraEquina(regla,armaduras){
+    if(!regla)return null;
+    if(regla.estado!=="aprobacion_autoral"||
+       regla.catalogo_base!=="data/equipo-inicial.json · armaduras"||
+       regla.multiplicador!==4)
+      throw Error("Regla de armadura equina sin autorización o fuente válida");
+    if(!Array.isArray(armaduras)||!armaduras.length)
+      throw Error("Falta el catálogo DRS de armaduras humanas");
+    var vistos=new Set();
+    return armaduras.map(function(a){
+      var nombre=String(a.nombre||"").trim();
+      var centimos=Number(a.precio)*100;
+      if(!nombre||vistos.has(normalizar(nombre))||
+         !Number.isFinite(centimos)||centimos<0||
+         Math.abs(centimos-Math.round(centimos))>1e-7)
+        throw Error("Armadura base sin precio DRS válido: "+nombre);
+      vistos.add(normalizar(nombre));
+      return {nombre:nombre,precio_base:a.precio,
+        precio_equina:Math.round(centimos)*regla.multiplicador/100};
+    });
+  }
   function indice(fuentes){
     var mapa=new Map(),porId=new Map(),total=0;
     function incluir(entry){
@@ -150,6 +173,9 @@
               .filter(Boolean).join(" · "),
             datos:datos,tecnicos_equipo:tecnicos,
             precio_por_nivel:x.precio_por_nivel,
+            opciones_armadura_equina:x.regla_precio_autoral?
+              opcionesArmaduraEquina(x.regla_precio_autoral,
+                fuentes.equipo?.armaduras):null,
             descripcion:x.descripcion||x.detalle||"",
             fuente_descripcion:x.nombre==="Dardo"&&sistema==="nd20"&&clase==="arma"?
               fuente+" · Precio 0 mo: decisión autoral del 31/10/2026":
@@ -494,6 +520,7 @@
     return {tipo:tipo,nombre:info.nombre,clasificacion:categoria,
       primarios:esRecuerdo?[]:principales,
       tecnicos:esRecuerdo?[]:tecnicos,
+      opciones_armadura_equina:info.opciones_armadura_equina||null,
       origen:esRecuerdo?"Personaje · Recuerdo personal":
         info.sistema==="nd20"?(clase==="magico"?
           "Naufragio d20 · Objetos mágicos (borrador no publicado)":
