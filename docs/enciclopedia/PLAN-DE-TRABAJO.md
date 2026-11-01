@@ -25,7 +25,8 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [x] Inspección visual técnica de **diez capturas** de escritorio, primera visita, formulario abierto, compras y pie en Firefox/WebKit; ayuda inicial **sin superposición** tras el último cambio. Queda pendiente validar en el dispositivo real de la usuaria.
 - [x] Inspeccionar capturas de **primera visita**, **pie**, **escritorio** y **formulario móvil abierto** en Firefox/WebKit; los dos hallazgos de solapamiento y el CTA bajo el pliegue están corregidos y comprobados en CI.
 - [ ] Revisar con criterio editorial el resultado final, aprobar **fusión** de la PR #14 y autorizar **despliegue** por separado.
-- [ ] Tras integrar la corrección UX en producción, reconciliar con [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) antes de su futura fusión; no duplicar errores ni desplegar contenido no autorizado.
+- [x] Auditar solapamientos entre PR #14 y PR #13: **cinco ficheros compartidos** (`index.html`, `assets/app.js`, `assets/styles.css`, `tests/browser-compatibilidad.js`, `docs/enciclopedia/PLAN-DE-TRABAJO.md`). La reconciliación debe proteger el catálogo DRS nuevo y conservar el inicio guiado.
+- [ ] Tras integrar la corrección UX en producción, reconciliar esos **cinco ficheros** con [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13), ejecutar 4/4 suites sobre la rama reconciliada y no desplegar material no autorizado.
 
 ## Forja 1.5 — Aclaraciones autorales en popups DRS (01/11/2026)
 
