@@ -56,6 +56,12 @@ Las pruebas protegen cobertura 10/24/111, coincidencia física de los catálogos
   - [paquete público DRS — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41334110628)
 - [x] Revisar la evidencia de 10 capturas de inicio, formulario y pie de la ejecución Firefox/WebKit (run 41334110654). La revisión técnica de popups largos se respalda en la prueba automatizada de apertura/desplazamiento; no sustituye una inspección visual presencial.
 - [ ] Reconciliar con [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) si se pretende incorporar también los **37 artículos adicionales DRS**; su catálogo separado sigue en revisión y no se añade por accidente a esta entrega.
-- [ ] Tras cierre técnico/editorial, fusionar y publicar **solo el paquete DRS depurado** mediante SHA fijado, con verificación HTTP posterior.
+- [x] **PR #15 fusionada** en commit `9293efb82bec97350a52fc57b657f564b3feabf3` y [Forja LIVE 41334432188](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41334432188) **success**, con paquete DRS depurado, 4/4 comprobaciones prepublicación, despliegue y control HTTP de los tres repertorios (10/24/111).
 
 Este informe no autoriza publicar el material de la PR #13 ni suplementos de otros sistemas.
+
+## 5. Entrega pública comprobada
+
+**Web:** https://naufragio-rolero.github.io/nd20-character-creator/ . La [PR #15](https://github.com/naufragio-rolero/nd20-character-creator/pull/15) se fusionó de forma independiente de la PR #13. La publicación LIVE descarga el commit fijado `9293efb82bec97350a52fc57b657f564b3feabf3`, crea solo `dist/public-drs`, pasa Chrome, Firefox/WebKit y guardias de contenido, y comprueba desde la URL pública los tres JSON con 10, 24 y 111 registros respectivamente. [Ejecución 41334432188](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41334432188): **success**.
+
+**Pendiente de campo:** verificar personalmente el comportamiento en el dispositivo de quien aportó las capturas, y reconciliar de forma aislada la PR #13 antes de liberar el catálogo ampliado. No se ha publicado su contenido.
