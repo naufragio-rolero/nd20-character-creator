@@ -241,7 +241,9 @@
       ["transportes","transporte"]].forEach(function(p){
       var tabla=consultaDRS[p[0]];
       if(!tabla)return;
-      equipo(tabla.registros,"nd20","mo",
+      equipo((tabla.registros||[]).map(function(x){
+        return Object.assign({},x,{detalle:x.detalle_literal});
+      }),"nd20","mo",
         "NaufragioD20DRS.docx · Tabla "+tabla.tabla_word+" · "+tabla.categoria,
         p[1],tabla.categoria);
     });
