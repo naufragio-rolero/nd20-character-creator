@@ -9,6 +9,24 @@
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
 
+## Nueva etapa — Fuentes, consolidación y consulta rápida (01/11/2026)
+
+**Documentación creada (sin cambios funcionales):** [120 — Procedencia, consolidación y confirmación de Talentos](120-procedencia-consolidacion-confirmacion-talentos.md) y [121 — Plan de cinco fases](121-plan-cinco-fases-sincronizacion-talentos.md).
+
+**Decisión del autor:** solo cinco categorías de Talento: **Acción, Especial, Mejora, Pasiva y Reacción**. **`NaufragioD20DRS.docx` es el documento original y normativo del núcleo**; `Lista Talentos Nd20.xlsx` es el índice editorial de trabajo. Se incorporarán documentos de **otros orígenes** de manera progresiva, conservando procedencia y aprobación específica.
+
+**Auditoría de fuentes (confirmada, no implementación):** hoja Talentos de la lista: **143 entradas** (22 Nd20, 89 Bitácora, 29 Zelda, tres Exploración). En el núcleo DRS: **22 Talentos únicos / 24 asignaciones** (15 de Especie sin etiqueta formal autónoma en el original y nueve de Ocupación ya etiquetados). El Excel clasifica todos esos Talentos; ello **no autoriza reemplazar** efectos ni costes del DRS.
+
+**Plan de trabajo en cinco pasos; todos pendientes de ejecución:**
+
+- [ ] **Fase 1 — Procedencia y sincronización:** cotejar los 22 Talentos Nd20/24 relaciones DRS, formalizar propuestas de las 15 etiquetas de Especie y registrar las discrepancias (*¡Sálvese quien pueda!*, *Corpulencia*, *Recuperación*), sin editar silenciosamente el manual.
+- [ ] **Fase 2 — Consulta inmediata:** recuperar hover, mantener clic para fijar, scroll, Escape, teclado y táctil sin popups que desaparezcan o cambien de referencia.
+- [ ] **Fase 3 — Ficha compacta y fiel:** una descripción DRS y una de las cinco categorías; eliminar los resúmenes y glosas redundantes; conservar fidelidad y contraste visual.
+- [ ] **Fase 4 — Aclaraciones autorales:** reservar las no integradas al DRS para **Opciones avanzadas → Detalles técnicos** y preparar nuevas redacciones del documento original para aprobación expresa.
+- [ ] **Fase 5 — QA y publicación controlada:** verificar 24/24 relaciones, 22/22 Talentos DRS, cinco categorías, procedencia, hover, lectura, contrastes, CI y paquete público sin suplementos; desplegar solo tras validación.
+
+**Límites:** la Forja publicada y los 111 artículos de Equipo permanecen inalterados por esta documentación; los **121 Talentos de otros orígenes no se publican por estar en el Excel**. La [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) sigue independiente.
+
 ## Revisión de fichas DRS y accesibilidad — PR #15 (01/11/2026)
 
 **Origen:** incidencias reales de uso y cinco capturas. [Informe 119](119-fichas-drs-completas-accesibilidad.md) · [PR #15](https://github.com/naufragio-rolero/nd20-character-creator/pull/15) **fusionada**; [Forja LIVE](https://naufragio-rolero.github.io/nd20-character-creator/) **publicada y verificada**.
@@ -164,7 +182,9 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 **Registro detallado:** [acuerdos editoriales](04-acuerdos-editoriales-especies.md), [textos canónicos aprobados](04b-talentos-especies-aprobados.json) y [vínculo de Talentos ampliados](04a-vinculos-talentos-especies.json). Los archivos `02*` conservan la captura original de sus respectivas fuentes.
 
-## 2B. Procedencia editorial y orígenes — pendiente de auditoría\n\n- [ ] Identificar y documentar los orígenes de **Especies, Ocupaciones y Poderes** en Forja, diferenciando fuente editorial, ambientación y disponibilidad efectiva. No inferir orígenes ausentes ni cambiar filtros de Forja sin validación.\n\n## 3. Integración y pruebas — bloqueadas hasta validación
+## 2B. Procedencia editorial y orígenes — auditoría inicial de Talentos, alcance general pendiente
+
+- [ ] Identificar y documentar los orígenes de **Especies, Ocupaciones y Poderes** en Forja, diferenciando fuente editorial, ambientación y disponibilidad efectiva. No inferir orígenes ausentes ni cambiar filtros de Forja sin validación.\n\n## 3. Integración y pruebas — bloqueadas hasta validación
 
 - [ ] Definir identificadores estables por sistema/categoría/fuente y reglas de relación para homónimos.
 - [ ] Preparar el esquema de datos común, conservando valores ausentes como **no documentados**, no como reglas negativas.
@@ -186,6 +206,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 | Fecha | Acción | Evidencia / estado |
 |---|---|---|
+| 2026-11-01 | **Plan de Talentos en cinco fases y política de fuentes** | [Informe 120](120-procedencia-consolidacion-confirmacion-talentos.md) y [plan 121](121-plan-cinco-fases-sincronizacion-talentos.md): DRS como documento original; Excel como clasificación de trabajo; 143 Talentos en cuatro orígenes, 22 Nd20/24 asignaciones DRS; categorías Acción/Especial/Mejora/Pasiva/Reacción; **sin modificaciones de reglas ni de Forja**. |
 | 2026-11-01 | **Forja DRS con fichas completas, nueva versión publicada** | [PR #15 fusionada](https://github.com/naufragio-rolero/nd20-character-creator/pull/15) en `9293efb8`; [LIVE 41334432188](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41334432188) **success**. Efectos de 10 Técnicas DRS, 24 Talentos explicativos y 111 Equipos descritos; lector fijado y Ébano corregidos. PR #13 sigue separada y sin desplegar. |
 | 2026-11-01 | Fichas DRS, Equipo y accesibilidad (nueva fase) | [Informe 119](119-fichas-drs-completas-accesibilidad.md), [PR #15](https://github.com/naufragio-rolero/nd20-character-creator/pull/15): 10 Técnicas literales, 24 Talentos explicativos, 15 clasificaciones de Especie y 111 artículos descritos; popup fijo desplazable y contraste Ébano. En QA, sin fusión ni despliegue. |
 | 2026-11-01 | **Forja UX publicada, versión utilizable** | [PR #14 fusionada](https://github.com/naufragio-rolero/nd20-character-creator/pull/14) en `deac628f`; [publicación LIVE y verificación HTTP](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41328185657) **success**. URL https://naufragio-rolero.github.io/nd20-character-creator/. Inicio visible, botón flotante no solapa el pie/ayuda y popups fijados estables. PR #13 continúa separada, sin desplegar. |
