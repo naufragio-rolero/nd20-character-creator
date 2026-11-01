@@ -51,6 +51,9 @@ async function probar(nombre,tipo,url){
       /Aquí aparecerá tu personaje/,
       nombre+': explicar qué encontrará en Resultados');
     assert.equal(await page.locator('#generar').textContent(),'Generar personaje');
+    assert.equal(await page.locator('#inicio-movil').isHidden(),true,
+      nombre+': el paso introductorio móvil no duplica la ayuda del panel en escritorio');
+    await page.screenshot({path:path.join(capturas,nombre+'-inicio-escritorio.png')});
     // Primera visita móvil: el panel arranca plegado; «Empezar» debe abrirlo.
     await page.setViewportSize({width:390,height:844});
     assert.equal(await page.locator('#panel-forja').isHidden(),true);
@@ -69,6 +72,7 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#alternar-menu').getAttribute('aria-expanded'),'true');
     assert.equal(await page.locator('#nivel').evaluate(x=>document.activeElement===x),true,
       nombre+': el foco llega al primer ajuste');
+    await page.screenshot({path:path.join(capturas,nombre+'-forja-abierta-movil.png')});
     await page.locator('#alternar-menu').click();
     assert.equal(await page.locator('#generar-flotante').isHidden(),true,
       nombre+': al cerrar menú sin primera ficha, Empezar recupera prioridad');
