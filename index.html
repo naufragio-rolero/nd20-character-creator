@@ -190,6 +190,19 @@
         </div>
       </div>
       <div id="estado" class="estado" role="status" aria-live="polite"></div>
+      <details id="consulta-catalogo-drs" class="consulta-catalogo-drs" hidden>
+        <summary>Consultar catálogo de Equipo DRS</summary>
+        <div class="consulta-catalogo-contenido">
+          <p>Fichas de consulta de útiles, monturas y transportes. No se añaden al inventario ni a la compra.</p>
+          <div class="consulta-catalogo-controles">
+            <label for="consulta-catalogo-articulo">Artículo documentado</label>
+            <select id="consulta-catalogo-articulo"></select>
+            <button type="button" id="consulta-catalogo-ver" class="referencia-glosario consulta-catalogo-ver"
+              data-glosa-grupo="equipo" data-glosa-sistema="nd20" disabled
+              aria-label="Ver ficha de equipo seleccionada">Ver ficha</button>
+          </div>
+        </div>
+      </details>
       <section id="editor-elecciones" class="editor-elecciones" hidden aria-label="Personalizar personaje">
         <h3 id="editor-titulo">Personalizar personaje</h3>
         <p id="editor-resumen" class="muted"></p>
