@@ -149,7 +149,7 @@ assert.ok(consultaPublica.equipo_para_monturas.registros.find(x=>
 assert.ok(consultaPublica.servicios_excluidos_del_equipo.some(x=>x.nombre==='Establos'));
 assert.equal(consultaPublica.equivalencias_explicitas_paquetes.length,5);
 assert.equal(consultaPublica.objetos_comunes_sin_precio.length,5);
-assert.equal(consultaPublica.version,2);
+assert.equal(consultaPublica.version,3);
 assert.ok(consultaPublica.objetos_comunes_sin_precio.every(x=>
   x.descripcion_editorial&&/editorial/.test(x.origen_descripcion)));
 assert.ok(consultaPublica.objetos_comunes_sin_precio.every(x=>
