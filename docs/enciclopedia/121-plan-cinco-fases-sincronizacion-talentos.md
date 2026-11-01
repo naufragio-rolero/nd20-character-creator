@@ -95,3 +95,17 @@ Se documentarán los resultados de cada paso y solo se marcará `[x]` cuando exi
 ## Extensión futura del sistema documental
 
 Cuando lleguen nuevas fuentes, se abrirá **una ficha de origen por documento** y se registrarán sus Talentos y relaciones con el DRS. La hoja común puede dar una visión global, pero **no borrar el origen de cada regla**. El DRS seguirá siendo el documento de arranque y la autoridad normativa sobre su propia edición; las futuras publicaciones serán ampliaciones trazables y autorizadas por ámbito.
+
+## Ejecución del 01/11/2026 — Rama candidata independiente
+
+El estado de **plan documentado** al principio de este archivo corresponde a su creación previa a los trabajos. Se ha iniciado la ejecución real en la rama `feat/fases-talentos-drs-2026-11-01`, **sin fusionarla ni desplegarla**.
+
+| Fase | Evidencia | Estado actual |
+|---|---|---|
+| 1 — Procedencia | [Informe 122](122-sincronizacion-talentos-drs-excel.md), [matriz 122a](122a-matriz-talentos-drs-excel.json), prueba `tests/sincronizacion-talentos.js` | **Ejecutada**: 22/22 entradas Excel, 24/24 relaciones, 15/15 propuestas Especie, 9/9 etiquetas originales; 7/24 diferencias anotadas |
+| 2 — Hover y fijación | `assets/tooltip-ui.js`, E2E `tests/browser-compatibilidad.js` y `tests/browser-compras.js` | **Implementada, pendiente de CI multiplataforma** |
+| 3 — Una descripción y cinco categorías | `data/glosas-talentos-drs.json` (catálogo clasificatorio), `assets/tooltips.js`, `assets/styles.css` | **Implementada, pendiente de CI y capturas** |
+| 4 — Aclaraciones y propuestas de DRS | [Informe 123](123-ejecucion-hover-categorias-aclaraciones.md), `assets/tooltip-ui.js` | **Implementada en la Forja**, textos nuevos **pendientes de aprobación autoral para modificar DRS** |
+| 5 — QA/publicación | Tests documentales, navegadores y workflows de paquete candidato | **Pendiente de resultados de CI, revisión de capturas y autorización de promoción** |
+
+Se conservan las decisiones de clasificación sin modificar el efecto de **¡Sálvese quien pueda!**, **Corpulencia** ni **Recuperación**. El DRS original sigue intacto. La PR #13 permanece independiente y no se incorpora automáticamente.
