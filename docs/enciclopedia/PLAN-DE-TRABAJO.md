@@ -15,10 +15,11 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 - [x] Analizar la causa del solapamiento: CTA `fixed` sin comprobación de pie de página ni visibilidad de la acción principal.
 - [x] Añadir ayuda inicial clara y mensaje de Resultados vacío que explique el mínimo necesario para generar una primera ficha.
+- [x] Resolver el hallazgo de **panel Menú oculto al entrar desde móvil**: botón «Empezar» visible en Resultados, que abre el formulario y enfoca Nivel.
 - [x] Ocultar el CTA flotante junto al pie y cuando el botón del formulario está visible; permitir reaparición durante el desplazamiento.
 - [x] Igualar el texto singular/plural del botón principal y flotante.
 - [x] Guiar a Resultados después de generar en móvil (y devolver foco al título), respetando movimiento reducido.
-- [x] Incorporar pruebas E2E de primer uso, pie accesible, CTA contextual y resultado móvil en Firefox/WebKit.
+- [x] Incorporar pruebas E2E de primer uso, pie accesible, CTA contextual y resultado móvil en Firefox/WebKit, con capturas de primera visita y pie despejado.
 - [ ] Confirmar **4/4 suites CI verdes sobre el último commit** de la PR #14, adjuntar evidencias de captura y cerrar auditoría UX.
 - [ ] Revisar visualmente móvil/escritorio, aprobar **fusión** de la PR #14 y autorizar **despliegue** por separado.
 - [ ] Tras integrar la corrección UX en producción, reconciliar con [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) antes de su futura fusión; no duplicar errores ni desplegar contenido no autorizado.
