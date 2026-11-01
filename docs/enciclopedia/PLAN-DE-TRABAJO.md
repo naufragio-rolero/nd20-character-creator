@@ -1,6 +1,6 @@
 # Enciclopedia de Talentos, Poderes y Objetos — Plan de trabajo
 
-> **Estado vigente (01/11/2026):** PR #3 y las sucesivas de Forja 1.1–1.3 ya fueron fusionadas. Los **24 vínculos DRS** (15 Especies, 9 Ocupaciones) disponen de ventanas compactas y textos literales publicados en Forja 1.3. La [PR #9](https://github.com/naufragio-rolero/nd20-character-creator/pull/9) de auditoría y procedencia de Herencia dual está fusionada y cuenta con cuatro suites de CI satisfactorias; su promoción pública se gestiona por separado. Véanse [diario de auditoría](109-diario-auditoria-talentos-drs.md), [huellas fuente](109a-huellas-talentos-drs.json) y [cotejador reproducible](../../scripts/cotejar-talentos-drs.py). Las menciones inferiores a «PR abierta» y «Forja sin cambios» son **instantáneas históricas de octubre**, no estado actual. La validación documental **no equivale** a automatizar mecánicamente cada Talento.
+> **Estado vigente (01/11/2026):** Forja **1.3.1 publicada**, con 24 relaciones DRS (15 Especies y 9 Ocupaciones) y trazabilidad de **Herencia dual** entre adquisición y fuente original. [Auditoría literal cerrada](109-diario-auditoria-talentos-drs.md), [huellas verificables](109a-huellas-talentos-drs.json). La fase documental siguiente, **Forja 1.4**, [preclasifica 79 fragmentos literales de esos 24 Talentos](110-informe-propiedades-talentos-drs.md), sin introducirlos en el motor ni en el paquete público. Las referencias a PR abiertas y a «Forja sin cambios» en secciones históricas corresponden a octubre y no representan el estado actual. La cobertura documental no equivale a validación o automatización mecánica.
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-10-29.  
@@ -8,6 +8,16 @@
 **Rama de trabajo:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
+
+## Tanda actual — Propiedades literales DRS (Forja 1.4)
+
+- [x] Indexar los 24 Talentos DRS por propietario y texto fuente.
+- [x] Registrar 79 fragmentos literales mediante 24 categorías editoriales, sin inventar reglas.
+- [x] Incorporar pruebas de fidelidad literal y ausencia de exposición pública.
+- [ ] Confirmar la CI y fusionar el índice cuando termine la revisión técnica.
+- [ ] Aprobar específicamente cada normalización mecánica antes de modificar el generador.
+
+**Detalle:** [Informe y diario de acciones](110-informe-propiedades-talentos-drs.md) · [repertorio literal](110a-propiedades-literales-drs.json).
 
 ## 1. Hitos generales
 
