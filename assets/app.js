@@ -115,10 +115,30 @@
     refrescarTarjetas('especie');
   }
   function refrescarGenerarFlotante(){
-    var boton=$('generar-flotante');
-    boton.hidden=$('panel-personajes').hidden;
-    boton.disabled=$('generar').disabled||!!borrador;
-    boton.textContent=Number($('cantidad').value)>1?'Generar personajes':'Generar personaje';
+    var boton=$('generar-flotante'),principal=$('generar');
+    var plural=Number($('cantidad').value)>1;
+    boton.textContent=plural?'Generar personajes':'Generar personaje';
+    principal.textContent=plural?'Generar personajes':'Generar personaje';
+    boton.disabled=principal.disabled||!!borrador;
+    var rect=principal.getBoundingClientRect();
+    var principalVisible=!$('panel-personajes').hidden&&
+      rect.width>0&&rect.height>0&&rect.bottom>0&&rect.top<innerHeight;
+    var pie=document.querySelector('.pie').getBoundingClientRect();
+    // Retirar el flotante ANTES del pie (también en pantallas pequeñas).
+    var pieCerca=pie.top<=innerHeight+80&&pie.bottom>=0;
+    boton.hidden=$('panel-personajes').hidden||principalVisible||pieCerca;
+  }
+  function observarGenerarFlotante(){
+    var pendiente=false;
+    function actualizar(){
+      if(pendiente)return;
+      pendiente=true;
+      requestAnimationFrame(function(){
+        pendiente=false;refrescarGenerarFlotante();
+      });
+    }
+    window.addEventListener('scroll',actualizar,{passive:true});
+    window.addEventListener('resize',actualizar,{passive:true});
   }
   function origenesActivos() {
     return Array.from(document.querySelectorAll('#origenes input:checked')).map(function (e) {
@@ -511,7 +531,7 @@
     $('borrar').disabled=!entradas.length;
     $('exportar').disabled=!entradas.length;
     if(!entradas.length) fichas.innerHTML='<div class="vacio"><span class="emblema" aria-hidden="true">◇</span>'+
-      '<p>Una historia espera a su protagonista.</p><p class="muted">Elige un sistema y genera tu primera ficha.</p></div>';
+      '<p>Aquí aparecerá tu personaje</p><p class="muted">En «La forja», deja las opciones por defecto para empezar o elige Nivel, Ocupación y Especie. Después pulsa «Generar personaje».</p></div>';
   }
   function agregar(tipo,valor) {
     entradas.unshift({tipo:tipo,valor:valor,id:++correlativo});
@@ -814,6 +834,7 @@
       $('configuracion').requestSubmit($('generar'));
     });
     $('cantidad').addEventListener('input',refrescarGenerarFlotante);
+    observarGenerarFlotante();
     var avanzada=$('informacion-avanzada');
     try{avanzada.checked=localStorage.getItem('forja-informacion-avanzada')==='true';}
     catch(error){avanzada.checked=false;}
@@ -890,6 +911,17 @@
         }
         items.forEach(function(p){agregar('ficha',p);});
         cerrarMenuMovil();
+        // En móvil, las fichas están DEBAJO del formulario: mostrar el
+        // resultado de la acción sin obligar a buscarlo haciendo scroll.
+        if(items.length&&window.matchMedia('(max-width:830px)').matches){
+          requestAnimationFrame(function(){
+            var titulo=$('titulo-resultados');
+            titulo.focus({preventScroll:true});
+            titulo.scrollIntoView({behavior:window.matchMedia(
+              '(prefers-reduced-motion: reduce)').matches?'auto':'smooth',
+              block:'start'});
+          });
+        }
       });
     });
     $('form-elecciones').addEventListener('submit',function(event){
