@@ -1,12 +1,15 @@
+/* Identidad visual de El Naufragio (blog): Exo y azul de marca.
+   Si Google Fonts no está disponible, el sistema conserva una fuente local. */
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&display=swap');
 :root{
-  color-scheme:dark;
-  --fondo:#0b1923;--fondo2:#102632;--superficie:#162f3a;--superficie2:#1c3945;
-  --borde:#3d5660;--texto:#f1eee4;--secundario:#bbcad0;--oro:#efd397;
-  --oro2:#e6b769;--oscuro:#13222a;--foco:#93d4e4;--peligro:#ffbaa6;
+  color-scheme:light;
+  --fondo:#f3f8fc;--fondo2:#eaf4fd;--superficie:#ffffff;--superficie2:#deeeff;
+  --borde:#a6c1dd;--texto:#203447;--secundario:#486476;--oro:#1151d3;
+  --oro2:#0099cc;--oscuro:#ffffff;--foco:#007aa3;--peligro:#aa2942;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;background:radial-gradient(circle at 80% 0,#244452 0,transparent 39%),linear-gradient(145deg,var(--fondo),#0b1820 70%);color:var(--texto);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.45}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 80% 0,#d7eafa 0,transparent 42%),linear-gradient(145deg,var(--fondo),var(--fondo2) 80%);color:var(--texto);font-family:"Exo",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.45}
 button,input,select{font:inherit}
 button{cursor:pointer}
 button:disabled{cursor:not-allowed;opacity:.45}
@@ -16,12 +19,12 @@ a:hover{color:#fff0c8}
 .encabezado{max-width:1550px;margin:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;padding:3.5rem 2.4rem 2rem;border-bottom:1px solid var(--borde)}
 .sobrelinea{font-size:.7rem;letter-spacing:.2em;color:var(--oro);font-weight:800;margin:0 0 .65rem}
 h1,h2,h3,h4,p{margin-top:0}
-h1{font-family:Georgia,serif;font-size:clamp(2.3rem,5vw,4.2rem);letter-spacing:-.045em;font-weight:600;margin-bottom:.35rem}
+h1{font-family:"Exo",system-ui,sans-serif;font-size:clamp(2.3rem,5vw,4.2rem);letter-spacing:-.045em;font-weight:600;margin-bottom:.35rem}
 .subtitulo{font-size:1.1rem;color:var(--secundario);margin-bottom:0}
 .enlace-github{white-space:nowrap;padding:.65rem 1rem;border:1px solid var(--borde);border-radius:6px;text-decoration:none;font-size:.9rem}
 .disposicion{max-width:1550px;margin:auto;padding:2rem 2.4rem 4rem;display:grid;grid-template-columns:minmax(275px,340px) minmax(0,1fr);gap:2rem;align-items:start}
 .panel{position:sticky;top:1.5rem;background:linear-gradient(170deg,var(--superficie),#112632);border:1px solid var(--borde);padding:1.5rem;border-radius:12px;box-shadow:0 14px 35px #040f1880}
-.panel h2{font-family:Georgia,serif;font-size:1.5rem;font-weight:500;margin-bottom:1.5rem}
+.panel h2{font-family:"Exo",system-ui,sans-serif;font-size:1.5rem;font-weight:500;margin-bottom:1.5rem}
 /* Primer paso visible cuando el Menú móvil de la Forja está plegado. */
 .inicio-movil{display:none}
 .inicio-movil[hidden]{display:none!important}
@@ -29,7 +32,7 @@ h1{font-family:Georgia,serif;font-size:clamp(2.3rem,5vw,4.2rem);letter-spacing:-
   .inicio-movil{display:block;margin:0 0 1.1rem;padding:1.05rem 1.15rem;
     border:1px solid var(--oro2);border-radius:12px;
     background:linear-gradient(150deg,var(--superficie2),var(--oscuro))}
-  .inicio-movil h2{font:600 1.4rem Georgia,serif;color:var(--oro);margin:0 0 .55rem}
+  .inicio-movil h2{font:600 1.4rem "Exo",system-ui,sans-serif;color:var(--oro);margin:0 0 .55rem}
   .inicio-movil .sobrelinea{margin-bottom:.4rem}
   .inicio-movil p:not(.sobrelinea){font-size:.88rem;line-height:1.55;margin-bottom:.85rem}
   .inicio-movil .empezar-forja{width:100%;min-height:46px;border-radius:8px;
@@ -40,10 +43,11 @@ h1{font-family:Georgia,serif;font-size:clamp(2.3rem,5vw,4.2rem);letter-spacing:-
 .inicio-rapido{padding:1rem 1.05rem;margin:.5rem 0 1.35rem;
   border:1px solid #63808a;border-left:4px solid var(--oro2);
   border-radius:9px;background:var(--superficie2)}
-.inicio-rapido h3{font:600 1.1rem Georgia,serif;color:var(--oro);margin:0 0 .55rem}
+.inicio-rapido h3{font:600 1.1rem "Exo",system-ui,sans-serif;color:var(--oro);margin:0 0 .55rem}
 .inicio-rapido p{font-size:.84rem;line-height:1.55;margin:0 0 .55rem}
 .inicio-rapido p:last-child{margin-bottom:0}
-.inicio-rapido strong{color:#fff0c8}
+.inicio-rapido strong{color:var(--texto)}
+html[data-tema=ceruleo] .inicio-rapido strong,html[data-tema=obsidiana] .inicio-rapido strong{color:var(--texto)}
 /* Ébano es claro: el amarillo fijo del tema oscuro era ilegible. */
 html[data-tema=ebano] .inicio-rapido strong{color:#243946}
 html[data-tema=ebano] .inicio-rapido{border-left-color:#334a59}
@@ -68,7 +72,7 @@ html[data-tema=ebano] .inicio-movil strong{color:#243946}
   justify-content:space-between;gap:1rem;position:sticky;top:-1.1rem;
   background:var(--fondo2);z-index:1;padding:.4rem 0 .7rem;
   border-bottom:1px solid var(--borde)}
-.cabecera-dialogo-eleccion h3{margin:0;font:600 1.25rem Georgia,serif}
+.cabecera-dialogo-eleccion h3{margin:0;font:600 1.25rem "Exo",system-ui,sans-serif}
 .cerrar-rejilla{border:1px solid var(--borde);background:var(--superficie);
   color:var(--texto);border-radius:7px;min-width:38px;min-height:38px}
 .leyenda-dialogo-eleccion{font-size:.82rem;color:var(--secundario);margin:.8rem 0}
@@ -140,20 +144,20 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 .botonera{display:grid;grid-template-columns:1fr;gap:.5rem;margin-bottom:.75rem}
 .resultados{min-width:0}
 .barra-resultados{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
-.barra-resultados h2{font-family:Georgia,serif;font-weight:500;font-size:1.9rem;margin:0 0 .2rem}
+.barra-resultados h2{font-family:"Exo",system-ui,sans-serif;font-weight:500;font-size:1.9rem;margin:0 0 .2rem}
 .muted{color:var(--secundario);font-size:.9rem;margin:0}
 .acciones-resultados{display:flex;gap:.5rem;flex-wrap:wrap}
 .estado{color:var(--foco);font-size:.87rem;min-height:1.4rem;margin-bottom:1rem}
 .estado.error{color:var(--peligro)}
 .fichas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
 .vacio{grid-column:1/-1;min-height:390px;border:1px dashed #56717c;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:#10222a77;padding:2rem}
-.vacio>p:not(.muted){font:1.5rem Georgia,serif;margin:.7rem 0}
+.vacio>p:not(.muted){font:1.5rem "Exo",system-ui,sans-serif;margin:.7rem 0}
 .vacio .muted{max-width:44ch;line-height:1.65}
 
 .emblema{font-size:3rem;color:var(--oro)}
 .tarjeta{background:#f0ebdf;color:#15262d;border-radius:10px;overflow:hidden;box-shadow:0 8px 27px #020b1570;display:flex;flex-direction:column;min-width:0}
 .cabecera-ficha{display:flex;gap:1rem;justify-content:space-between;align-items:start;padding:1.1rem 1.2rem;background:#d6cfbc;border-bottom:1px solid #bbb09c}
-.cabecera-ficha h3{font:600 1.6rem Georgia,serif;margin:0 0 .15rem;overflow-wrap:anywhere}
+.cabecera-ficha h3{font:600 1.6rem "Exo",system-ui,sans-serif;margin:0 0 .15rem;overflow-wrap:anywhere}
 .cabecera-ficha p:last-child{margin:0;color:#394c52;font-size:.85rem}
 .etiqueta{font-size:.67rem;letter-spacing:.07em;text-transform:uppercase;font-weight:800;color:#526063;margin:0 0 .4rem}
 .icon-btn{color:#172c36;padding:.1rem .5rem;border-color:#aaa08d;font-size:1.3rem;line-height:1.4;flex-shrink:0}
@@ -395,7 +399,7 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
 .info-texto-literal summary:focus-visible{outline:3px solid #9ee2f0}
 .info-texto-literal .info-descripcion{margin:.35rem .1rem .65rem}
 .info-origen-glosa{font-size:.71rem;line-height:1.4;color:#bfd2d9;margin:.25rem 0 .8rem}
-.ficha-emergente h3{font:600 1.28rem/1.2 Georgia,serif;color:#fce4a8;margin:.2rem 0 .8rem}
+.ficha-emergente h3{font:600 1.28rem/1.2 "Exo",system-ui,sans-serif;color:#fce4a8;margin:.2rem 0 .8rem}
 .info-tipo{margin:0;color:#bfd4dd;font-size:.67rem;text-transform:uppercase;
   letter-spacing:.16em;font-weight:700}
 /* Poderes: jerarquía de lectura para uso en mesa, sin ficha técnica visible
@@ -495,10 +499,198 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
   background:#283441;color:#ffe7b4;font-weight:750}
 .info-circulo-valor{display:grid;place-items:center;width:2.1rem;height:2.1rem;
   border-radius:50%;border:2px double #e2bb74;box-shadow:inset 0 0 0 2px #283441,0 0 0 1px #a18653;
-  background:#493c2c;color:#ffe7b4;font:700 .88rem/1 Georgia,serif;letter-spacing:-.02em}
+  background:#493c2c;color:#ffe7b4;font:700 .88rem/1 "Exo",system-ui,sans-serif;letter-spacing:-.02em}
 .info-circulo-rotulo{font-size:.68rem;letter-spacing:.035em}
 @media(max-width:600px){
   .info-cabecera{row-gap:.4rem}
   .info-escuelas{margin-left:0;justify-content:flex-start}
   .info-circulo{margin-right:auto}
 }
+
+/* ================================================================
+   Piel editorial El Naufragio — Forja (02/11/2026)
+   Referencia: CSS del blog, no selectores de WordPress. Tipografía Exo,
+   azules #1151d3 / #0099cc / #15467c y superficies #deeeff / #9dd7fb.
+   La geometría de la aplicación y las reglas de juego no cambian.
+   Clásico adopta la identidad del blog; los otros temas se conservan.
+   ================================================================ */
+.encabezado{border-bottom:2px solid var(--oro2)}
+.encabezado h1{font-weight:800;letter-spacing:-.035em}
+.sobrelinea{letter-spacing:.14em}
+.panel,.editor-elecciones,.tarjeta,.dialogo-eleccion,.inicio-rapido{
+  border-radius:16px 4px;box-shadow:5px 6px 16px #142e3918;
+}
+button,.abrir-rejilla,.opcion-visual,.enlace-github{
+  border-radius:10px 3px;
+}
+button.principal,.generar-flotante{border-radius:2rem}
+.abrir-rejilla,.opcion-visual,.pestanas-panel button{transition:border-color .16s,background-color .16s,box-shadow .16s}
+.abrir-rejilla:hover:not(:disabled),.opcion-visual:hover:not(:disabled){
+  box-shadow:0 2px 7px #15467c20;
+}
+/* Clásico: superficie editorial clara, sin filtros oscuros residuales. */
+html[data-tema=clasico] .panel{
+  background:linear-gradient(170deg,#ffffff,#eff7ff);
+  border-color:#a6c1dd;box-shadow:5px 7px 18px #1151d316;
+}
+html[data-tema=clasico] .inicio-movil{
+  background:linear-gradient(160deg,#deeeff,#f6fbff);border-color:#6699cc;
+}
+html[data-tema=clasico] .inicio-movil h2,
+html[data-tema=clasico] .inicio-rapido h3{color:#15467c}
+html[data-tema=clasico] .inicio-rapido{
+  background:#deeeff;border-color:#a6c1dd;border-left:4px solid #0099cc;
+}
+html[data-tema=clasico] .inicio-rapido strong{color:#15467c}
+html[data-tema=clasico] select,
+html[data-tema=clasico] input[type=number],
+html[data-tema=clasico] input[type=text]{
+  background:#fff;color:#203447;border-color:#a6c1dd;
+}
+html[data-tema=clasico] .eleccion-poder select{
+  background:#fff;color:#203447;border-color:#a6c1dd;
+}
+html[data-tema=clasico] button:not(.referencia-glosario):not(.icon-btn):not(.info-cerrar){
+  border-color:#9ab8d4;
+}
+html[data-tema=clasico] button:hover:not(:disabled):not(.principal):not(.generar-flotante):not(.sistema-activo):not(.activa){
+  background:#deeeff;border-color:#0099cc;color:#15467c;
+}
+html[data-tema=clasico] button.principal,
+html[data-tema=clasico] .generar-flotante,
+html[data-tema=clasico] .inicio-movil .empezar-forja,
+html[data-tema=clasico] .pestanas-panel button.activa,
+html[data-tema=clasico] .juegos-compactos button.sistema-activo{
+  background:#1151d3;border-color:#1151d3;color:#fff;
+}
+html[data-tema=clasico] button.principal:hover:not(:disabled),
+html[data-tema=clasico] .generar-flotante:hover:not(:disabled),
+html[data-tema=clasico] .inicio-movil .empezar-forja:hover:not(:disabled){
+  background:#15467c;border-color:#15467c;color:#fff;
+}
+html[data-tema=clasico] .opcion-visual.seleccionada{
+  background:#deeeff;border-color:#1151d3;box-shadow:inset 0 0 0 1px #1151d3;
+}
+html[data-tema=clasico] .dialogo-eleccion{
+  background:#f6fbff;color:#203447;border-color:#6699cc;
+  box-shadow:6px 8px 24px #15467c35;
+}
+html[data-tema=clasico] .cabecera-dialogo-eleccion,
+html[data-tema=clasico] .pie-dialogo-eleccion{background:#f6fbff}
+html[data-tema=clasico] .cerrar-rejilla{
+  background:#deeeff;color:#15467c;
+}
+html[data-tema=clasico] .editor-elecciones{
+  background:linear-gradient(145deg,#deeeff,#f6fbff);border-color:#6699cc;
+}
+html[data-tema=clasico] .editor-elecciones h3{color:#15467c}
+html[data-tema=clasico] .vacio{
+  background:#eef7ff;border-color:#a6c1dd;
+}
+html[data-tema=clasico] .tarjeta{
+  background:#fff;color:#203447;border:1px solid #a6c1dd;
+  box-shadow:5px 6px 15px #1151d31c;
+}
+html[data-tema=clasico] .cabecera-ficha{
+  background:#deeeff;border-bottom:1px solid #a6c1dd;
+}
+html[data-tema=clasico] .cabecera-ficha p:last-child,
+html[data-tema=clasico] .etiqueta,
+html[data-tema=clasico] .concepto,
+html[data-tema=clasico] .bloque-ficha h4{color:#365a73}
+html[data-tema=clasico] .atributos,
+html[data-tema=clasico] .atributo,
+html[data-tema=clasico] .recursos,
+html[data-tema=clasico] .pie-ficha{border-color:#c3d9eb}
+html[data-tema=clasico] .recursos>div{background:#e8f4fc}
+html[data-tema=clasico] .nombre-atributo span{color:#1151d3}
+html[data-tema=clasico] .avisos-ficha{
+  background:#eaf4fd;border-left-color:#0099cc;
+}
+html[data-tema=clasico] .avisos-poderes{border-left-color:#c0504d}
+html[data-tema=clasico] .contexto-ficha,
+html[data-tema=clasico] .otros-avisos{border-color:#a6c1dd}
+html[data-tema=clasico] .contexto-ficha summary,
+html[data-tema=clasico] .otros-avisos summary{color:#15467c}
+html[data-tema=clasico] .pie-ficha button{
+  color:#15467c;background:#deeeff;border-color:#a6c1dd;
+}
+html[data-tema=clasico] .pie-ficha button:hover{background:#cfe6f8}
+html[data-tema=clasico] .icon-btn{
+  color:#15467c;background:transparent;border-color:#a6c1dd;
+}
+html[data-tema=clasico] .icon-btn:hover{background:#cfe6f8}
+html[data-tema=clasico] .referencia-glosario:hover,
+html[data-tema=clasico] .referencia-glosario:focus-visible{color:#1151d3}
+/* Popup: misma gramática cromática que tarjetas del blog, sin perder
+   foco visible, scroll, anclaje ni el modo diálogo establecido. */
+html[data-tema=clasico] .ficha-emergente{
+  background:#f7fbff;color:#203447;border-color:#6699cc;
+  border-radius:16px 4px;box-shadow:7px 8px 22px #15467c40;
+  scrollbar-color:#a6c1dd #eaf4fd;
+}
+html[data-tema=clasico] .ficha-emergente h3{color:#15467c}
+html[data-tema=clasico] .info-cerrar{
+  background:#deeeff;border-color:#6699cc;color:#15467c;
+}
+html[data-tema=clasico] .info-cerrar:hover{background:#c4e4fa}
+html[data-tema=clasico] .info-tipo,
+html[data-tema=clasico] .info-adquisicion,
+html[data-tema=clasico] .info-clasificacion,
+html[data-tema=clasico] .info-literal-etiqueta{color:#365a73}
+html[data-tema=clasico] .info-datos{
+  background:#eaf4fd;color:#203447;
+}
+html[data-tema=clasico] .info-datos dt,
+html[data-tema=clasico] .info-primarios dt{color:#15467c}
+html[data-tema=clasico] .info-texto-literal,
+html[data-tema=clasico] .info-detalles{
+  background:#edf7ff;border-color:#a6c1dd;
+}
+html[data-tema=clasico] .info-texto-literal summary,
+html[data-tema=clasico] .info-detalles summary{color:#15467c}
+html[data-tema=clasico] .info-uso-editorial{
+  background:#deeeff;border-left-color:#0099cc;color:#203447;
+}
+html[data-tema=clasico] .info-resumen-editorial h4,
+html[data-tema=clasico] .ficha-emergente .info-avanzada h4{color:#15467c}
+html[data-tema=clasico] .info-aclaracion-autoral{
+  background:#eaf4fd;border-color:#a6c1dd;border-left-color:#0099cc;
+}
+html[data-tema=clasico] .info-aclaracion-autoral h4{color:#15467c}
+html[data-tema=clasico] .info-aclaracion-autoral p{color:#203447}
+html[data-tema=clasico] .info-origen-glosa{color:#486476}
+html[data-tema=clasico] .info-fuente{
+  color:#486476;border-top-color:#a6c1dd;
+}
+html[data-tema=clasico] .info-circulo{
+  background:#15467c;border-color:#6699cc;color:#fff;
+}
+html[data-tema=clasico] .info-circulo-valor{
+  background:#deeeff;border-color:#9dd7fb;color:#15467c;
+  box-shadow:inset 0 0 0 2px #15467c,0 0 0 1px #6699cc;
+}
+/* Blog: escuelas originales (Arcana, Demonología, Divina, Elemental,
+   Naturaleza). Nigromancia no tiene bloque en el CSS suministrado: se
+   conserva la familia violeta que ya la distingue en la Forja. */
+.info-escuela-arcana{background:LightSkyBlue;border-color:DeepSkyBlue;color:#143550}
+.info-escuela-demonologia{background:LightSalmon;border-color:LightCoral;color:#46242b}
+.info-escuela-divina{background:LemonChiffon;border-color:Wheat;color:#514019}
+.info-escuela-elemental{background:Pink;border-color:Plum;color:#4e2b44}
+.info-escuela-naturaleza{background:LightGreen;border-color:DarkSeaGreen;color:#224b33}
+/* Blog: tarjetas de armas, armaduras y otros objetos, en formato pill. */
+.info-categoria-objeto-armas{background:#ffa280;border-color:#ff6933;color:#4f2719}
+.info-categoria-objeto-armaduras{background:#cecae8;border-color:#ada6d8;color:#32285a}
+.info-categoria-objeto{background:#bfdfbf;border-color:#99cc99;color:#214c2a}
+.info-categoria-objeto-consumible{background:#bfdfbf;border-color:#99cc99;color:#214c2a}
+/* Distinción semántica por texto + contorno; no solo por color. */
+.info-categoria,.info-circulo{font-family:"Exo",system-ui,sans-serif}
+/* Firefox/WebKit: controles, pestañas y referencias siguen visibles. */
+@media(max-width:830px){
+  .encabezado{border-bottom-color:var(--oro2)}
+  .generar-flotante{border-radius:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .abrir-rejilla,.opcion-visual,.pestanas-panel button{transition:none}
+}
+
