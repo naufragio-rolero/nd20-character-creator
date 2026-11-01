@@ -106,6 +106,7 @@ jobs:
           ! grep -Fq "Leer texto íntegro del DRS" /tmp/forja-tooltip-ui.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/tooltips.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-tooltips.js
           grep -Fq "x.categoria_talento=g.categoria;" /tmp/forja-tooltips.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/glosas-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/glosas-talentos-drs.json
           node - <<'NODE'
           const assert=require('node:assert/strict');
           const j=require('/tmp/glosas-talentos-drs.json');
