@@ -52,8 +52,8 @@ Estos asuntos son una lista de verificaciones; **no** se presentan como errores 
 | A05 | Construir verificador de 24 identidades, 24 huellas SHA, 79 citas y protección de publicación | `scripts/verificar-propiedades-talentos-drs.js`, commit `b6fd747b11cd8e4ef1492b410d52594df05bbf72`. |
 | A06 | Incluir la verificación editorial dentro de las pruebas de la Forja | `tests/smoke.js`, commit `d9066e456dd70d5663ab9c0226795ca80944427f`. |
 | A07 | Registrar informe, decisiones, asuntos pendientes y plan de comprobación | Este documento. |
-| A08 | Ejecutar las suites CI y registrar resultados por su enlace | Pendiente hasta disponer de ejecución comprobada. |
-| A09 | Fusionar únicamente tras CI satisfactorio; preservar el despliegue LIVE de 1.3.1 | Pendiente de decisión de integración. |
+| A08 | Ejecutar las cuatro suites CI y registrar el resultado | **4/4 exitosas** sobre el commit `e2c8f406c8ea3038733b7527f75a04c1a46d6022`: [motor y Conjuros](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41291515381), [Chrome E2E](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41291515377), [Firefox/WebKit](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41291515361), [paquete público DRS filtrado](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41291515367). |
+| A09 | Fusionar tras CI satisfactoria sin promover otro despliegue | [PR #10](https://github.com/naufragio-rolero/nd20-character-creator/pull/10) fusionada en `main`; merge SHA `fad37c060d8747e4b4fba9c5dbe1ad34b4877253`. El índice es **solo documental**, no forma parte del paquete DRS público, por lo que no cambia el SHA fijado en `forja-live.yml` ni se inicia un lanzamiento nuevo. |
 
 ## Contraste específico: Movimiento ya calculado
 
@@ -67,8 +67,8 @@ Inspección de solo lectura de `data/especies.json` y `assets/rules.js`: el Movi
 - [x] 79 fragmentos coincidentes con la transcripción literaria cotejada.
 - [x] Ningún valor numérico deducido ni propiedad mecánica añadida a datos de ejecución.
 - [x] Ninguna exposición del índice en la lista blanca del producto público.
-- [ ] Prueba CI del validador y regresión del generador.
-- [ ] Comprobación CI del paquete público.
-- [ ] Registro de PR/merge al cerrar.
+- [x] Prueba CI del validador y regresión del generador.
+- [x] Comprobación CI del paquete público.
+- [x] Registro de PR/merge al cerrar.
 
 **Continuación prevista:** revisión mecánica dirigida de los ocho asuntos anteriores, empezando por duplicaciones de Movimiento y el uso de Esfuerzo. Las decisiones nuevas requieren respaldo reglamentario concreto antes de incorporarse al motor.
