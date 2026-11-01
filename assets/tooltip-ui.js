@@ -6,7 +6,7 @@
 })(typeof globalThis!=="undefined"?globalThis:this,function(root){
   "use strict";
   var glosario=null,card=null,ancla=null,fija=false,cierre=null,escuchando=false;
-  var avanzada=false;
+  var avanzada=false,pulsacionReferencia=false;
   function esc(t){
     return String(t==null?"":t).replace(/&/g,"&amp;").replace(/</g,"&lt;")
       .replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
@@ -295,8 +295,21 @@
       var a=getTarget(e);
       if(a&&a===ancla&&!a.contains(e.relatedTarget)&&!fija)programarCierre();
     });
+    // En WebKit el focusin producido durante pointerdown puede mover
+    // el diálogo antes de pointerup/click y hacer que el clic recaiga
+    // fuera del enlace. La pulsación fija en click; Tab fija en focusin.
+    document.addEventListener("pointerdown",function(e){
+      pulsacionReferencia=!!getTarget(e);
+    },true);
+    document.addEventListener("pointerup",function(){
+      pulsacionReferencia=false;
+    },true);
+    document.addEventListener("pointercancel",function(){
+      pulsacionReferencia=false;
+    },true);
     document.addEventListener("focusin",function(e){
-      var a=getTarget(e);if(a)mostrar(a,true);
+      var a=getTarget(e);
+      if(a&&!pulsacionReferencia)mostrar(a,true);
     });
     document.addEventListener("focusout",function(e){
       var a=getTarget(e);
