@@ -182,7 +182,9 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 **Registro detallado:** [acuerdos editoriales](04-acuerdos-editoriales-especies.md), [textos canónicos aprobados](04b-talentos-especies-aprobados.json) y [vínculo de Talentos ampliados](04a-vinculos-talentos-especies.json). Los archivos `02*` conservan la captura original de sus respectivas fuentes.
 
-## 2B. Procedencia editorial y orígenes — auditoría inicial de Talentos, alcance general pendiente\n\n- [ ] Identificar y documentar los orígenes de **Especies, Ocupaciones y Poderes** en Forja, diferenciando fuente editorial, ambientación y disponibilidad efectiva. No inferir orígenes ausentes ni cambiar filtros de Forja sin validación.\n\n## 3. Integración y pruebas — bloqueadas hasta validación
+## 2B. Procedencia editorial y orígenes — auditoría inicial de Talentos, alcance general pendiente
+
+- [ ] Identificar y documentar los orígenes de **Especies, Ocupaciones y Poderes** en Forja, diferenciando fuente editorial, ambientación y disponibilidad efectiva. No inferir orígenes ausentes ni cambiar filtros de Forja sin validación.\n\n## 3. Integración y pruebas — bloqueadas hasta validación
 
 - [ ] Definir identificadores estables por sistema/categoría/fuente y reglas de relación para homónimos.
 - [ ] Preparar el esquema de datos común, conservando valores ausentes como **no documentados**, no como reglas negativas.
