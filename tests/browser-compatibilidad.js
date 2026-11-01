@@ -63,6 +63,41 @@ async function probar(nombre,tipo,url){
     });
     assert.equal(iconos.status,200);
     assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,12);
+    // Consultar Equipo DRS desde el propio navegador público, sin comprar.
+    const consultaDrs=page.locator('#consulta-catalogo-drs');
+    assert.equal(await consultaDrs.isHidden(),false,
+      nombre+': catálogo de consulta accesible');
+    await consultaDrs.locator('summary').click();
+    const catalogo=page.locator('#consulta-catalogo-articulo');
+    assert.equal(await catalogo.locator('option').count(),43,
+      nombre+': 37 referencias DRS + cinco útiles editoriales + placeholder');
+    assert.equal(await catalogo.locator('option').filter({hasText:'Establos'}).count(),0);
+    assert.equal(await page.locator('#consulta-catalogo-ver').isDisabled(),true);
+    await catalogo.selectOption('Armadura equina');
+    await page.locator('#consulta-catalogo-ver').click();
+    const precio=page.locator('#ficha-emergente');
+    assert.equal(await precio.locator('h3').innerText(),'Armadura equina');
+    assert.equal(await precio.locator('.info-tipo').innerText(),'Equipo de montura');
+    assert.equal(await precio.locator('#consulta-armadura-base option').count(),15,
+      nombre+': catálogo completo de 14 armaduras humanas');
+    assert.equal(await precio.locator('.info-armadura-resultado').innerText(),
+      'Selecciona una armadura para consultar su precio.');
+    await precio.locator('#consulta-armadura-base').selectOption('Pechera de algodón');
+    assert.match(await precio.locator('.info-armadura-resultado').innerText(),
+      /0\.5 mo × 4 = 2 mo/);
+    await precio.locator('#consulta-armadura-base').selectOption('Armadura de cuero');
+    assert.match(await precio.locator('.info-armadura-resultado').innerText(),
+      /10 mo × 4 = 40 mo/);
+    await precio.locator('#consulta-armadura-base').selectOption('Armadura completa de placas');
+    assert.match(await precio.locator('.info-armadura-resultado').innerText(),
+      /1000 mo × 4 = 4000 mo/);
+    assert.match(await precio.locator('.info-armadura-aviso').innerText(),
+      /No se compra ni se equipa automáticamente/);
+    assert.match(await precio.locator('.info-fuente').innerText(),/Tabla 28/);
+    await page.keyboard.press('Escape');
+    assert.equal(await precio.isHidden(),true);
+    assert.equal(await page.locator('#fichas .tarjeta').count(),0,
+      nombre+': consulta de catálogo no genera objetos o fichas');
     // Popup de Poderes: uso inmediato de Dormir según el Tomo cotejado,
     // opción avanzada y comprobación de otra familia (Técnicas). No depende
     // de que la ficha aleatoria haya aprendido un Conjuro concreto.
