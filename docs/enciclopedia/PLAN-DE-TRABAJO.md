@@ -21,9 +21,9 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [x] Igualar el texto singular/plural del botón principal y flotante.
 - [x] Guiar a Resultados después de generar en móvil (y devolver foco al título), respetando movimiento reducido.
 - [x] Incorporar pruebas E2E de primer uso, pie accesible, CTA contextual y resultado móvil en Firefox/WebKit, con capturas de primera visita y pie despejado.
-- [x] **4/4 suites CI verdes para la revisión `276f91e6`** (Node, Chrome, Firefox/WebKit y paquete público); artefactos descargados y revisados visualmente. La **revisión funcional posterior** incluye ocultar el CTA durante la ayuda inicial y capturas de escritorio/formulario abierto: ver [informe 118](118-forja-ux-primer-uso-boton-flotante.md).
-- [ ] Confirmar las **4/4 suites finales** sobre el último cambio funcional y registrar las capturas revisadas; sin confundir revisión de CI con validación en el dispositivo de la usuaria.
-- [x] Inspeccionar capturas de **primera visita** y **pie** de Firefox/WebKit; incluir revisión de escritorio y formulario móvil abierto. Los hallazgos se han corregido en la rama.
+- [x] **4/4 suites CI verdes en el último cambio funcional `4811dd7b`**: Node, compras en Chrome, Firefox/WebKit, candidato público DRS. [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), evidencias y capturas del [run 41326537139](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537139).
+- [x] Inspección visual técnica de **diez capturas** de escritorio, primera visita, formulario abierto, compras y pie en Firefox/WebKit; ayuda inicial **sin superposición** tras el último cambio. Queda pendiente validar en el dispositivo real de la usuaria.
+- [x] Inspeccionar capturas de **primera visita**, **pie**, **escritorio** y **formulario móvil abierto** en Firefox/WebKit; los dos hallazgos de solapamiento y el CTA bajo el pliegue están corregidos y comprobados en CI.
 - [ ] Revisar con criterio editorial el resultado final, aprobar **fusión** de la PR #14 y autorizar **despliegue** por separado.
 - [ ] Tras integrar la corrección UX en producción, reconciliar con [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) antes de su futura fusión; no duplicar errores ni desplegar contenido no autorizado.
 
