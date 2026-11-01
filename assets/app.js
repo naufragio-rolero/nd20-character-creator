@@ -316,6 +316,7 @@
     $('alternar-menu').setAttribute('aria-expanded',String(abierto));
     $('alternar-menu').setAttribute('aria-label',
       abierto?'Cerrar menú de la forja':'Abrir menú de la forja');
+    refrescarGenerarFlotante();
   }
   function cerrarMenuMovil(){
     if(window.matchMedia('(max-width:830px)').matches)alternarMenu(false);
