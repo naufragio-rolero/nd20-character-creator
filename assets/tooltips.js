@@ -136,11 +136,16 @@
           clase==="foco"?"Foco de conjuros":clase==="paquete"?"Paquete":
           "Equipo",sistema,fuente,{
             id:x.id||null,grupo:"equipo",clase_equipo:clase,
-            categoria_equipo:categoria||x.tipo||x.categoria||"",
+            categoria_equipo:[categoria,x.tipo?.replace(/_/g," ")||x.categoria]
+              .filter(Boolean).join(" · "),
             datos:datos,tecnicos_equipo:tecnicos,
             precio_por_nivel:x.precio_por_nivel,
             descripcion:x.descripcion||x.detalle||"",
-            fuente_descripcion:fuente
+            fuente_descripcion:x.nombre==="Dardo"&&sistema==="nd20"&&clase==="arma"?
+              fuente+" · Precio 0 mo: decisión autoral del 31/10/2026":
+              x.nombre_original_drs?
+                fuente+" · Nombre visible: decisión editorial del 31/10/2026":
+                fuente
           });
       });
     }
