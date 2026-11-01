@@ -1237,3 +1237,6 @@ assert.ok(comprasApp.includes("entrada.valor.saldo_mo,compraBorrador.seleccion.c
 assert.ok(comprasApp.includes("personaje.equipo.push.apply(personaje.equipo,compra.equipo)"));
 assert.ok(estilosCompra.includes('.campos-compra{display:grid'));
 console.log('OK · Martillo de campamento editorial y editor de compra por ficha con saldo, transacción y controles conectados.');
+
+// Consulta desacoplada de Equipo/Objetos mágicos (solo documentación).
+require('./equipo-popups.js');
