@@ -512,6 +512,8 @@ async function probar(nombre,tipo,url){
     // Regresión: hover sobre otro Talento NO sustituye una ficha fijada.
     assert.equal(await page.locator('#ficha-emergente').getAttribute('role'),'dialog',
       nombre+': una ficha abierta con clic debe permanecer fijada');
+    assert.equal(await page.locator('#ficha-emergente').isVisible(),true,
+      nombre+': una ficha fijada no debe estar oculta antes del hover rival');
     await recuperacion.evaluate(el=>el.dispatchEvent(new PointerEvent('pointerover',{
       bubbles:true,pointerType:'mouse',relatedTarget:null})));
     const fijo=await page.locator('#ficha-emergente').evaluate(x=>({
