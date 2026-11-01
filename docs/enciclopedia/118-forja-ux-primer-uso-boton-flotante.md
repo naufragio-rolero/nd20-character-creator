@@ -15,8 +15,8 @@ La usuaria señaló **dos dificultades reales**: el botón fijo de generación t
 ## 2. Modificaciones de experiencia de uso
 
 1. **Ayuda visible al principio del panel de Personajes.** El bloque «Crea tu primer personaje» explica que se puede dejar Nivel 1 y los demás valores iniciales, pulsar «Generar personaje» y consultar la ficha en Resultados. Distingue el modo Personalizado y sus elecciones de Talentos/Poderes.
-2. **Estado vacío orientador y acción directa.** Se sustituye la frase ambiental por «Aquí aparecerá tu personaje», una indicación para usar los valores iniciales y un botón visible **«Empezar»**. En móvil abre directamente el panel oculto y lleva el foco a Nivel. Se actualiza tanto el HTML inicial como el render dinámico y se mantiene una sola acción real, no un botón de adorno.
-3. **Botón flotante contextual.** Se recalcula con scroll y cambio de tamaño: aparece cuando el formulario está disponible y el botón ordinario no está en pantalla, pero desaparece **antes de que el pie entre en la zona de cobertura**. También se oculta si el botón principal está a la vista. No se duplican llamadas ni se cambia el formulario; sigue invocando `requestSubmit`.
+2. **Primera pantalla móvil realmente orientadora.** Las capturas originales mostraban que «Empezar» estaba por debajo de la primera pantalla, mientras el flotante «Generar personaje» se imponía. Se ha trasladado **«Empezar» a una tarjeta previa a Resultados**: el usuario puede verlo y pulsarlo sin scroll a 390 × 844. En escritorio, esa tarjeta permanece oculta porque el panel de generación ya está abierto y contiene su propia explicación. El estado vacío de Resultados indica dónde aparecerá el personaje sin duplicar el botón.
+3. **Botón flotante contextual.** Se recalcula con scroll, cambio de tamaño y apertura/cierre de Menú. Se oculta **antes del pie**, cuando el botón principal está visible, **en la primera visita móvil antes de pulsar «Empezar»**, y **mientras la explicación inicial del formulario siga visible**. Así se evita un segundo solapamiento identificado al inspeccionar el formulario móvil abierto. Vuelve a aparecer al avanzar por la configuración y sigue invocando `requestSubmit`, sin alterar la generación.
 4. **Texto coherente.** «Generar personaje» en singular para una ficha y «Generar personajes» para varias, tanto en el botón principal como en el flotante.
 5. **Resultado visible tras generar en móvil.** Solo con pantallas de anchura hasta 830 px, al finalizar la creación rápida se lleva la vista a Resultados y se enfoca su encabezado para navegación asistida. Se respeta `prefers-reduced-motion`. En modo Personalizado se mantiene el flujo existente hacia su propio editor de elecciones.
 
@@ -24,7 +24,7 @@ La usuaria señaló **dos dificultades reales**: el botón fijo de generación t
 
 La ampliación de `tests/browser-compatibilidad.js` para Firefox y WebKit comprueba:
 
-- Presencia de la ayuda inicial, del mensaje de Resultados vacío y del botón «Empezar»; en móvil comprueba que el panel inicialmente oculto se abre y recibe foco en Nivel; captura de **primera visita móvil**.
+- Presencia de la ayuda inicial, del mensaje de Resultados vacío y de la **tarjeta «Empezar» anterior a Resultados**, dentro de la primera pantalla de 390 × 844; en móvil comprueba que el panel oculto se abre, recibe foco en Nivel, y **no se superpone el flotante al texto de ayuda**. Capturas de **primera visita móvil** y **formulario abierto**; captura adicional de bienvenida de escritorio.
 - Pie de página visible con el botón flotante **oculto** y enlace accesible; captura del **pie despejado**.
 - Reaparición del botón cuando el usuario abandona el pie; ocultación cuando el botón principal es visible.
 - Al pulsar el flotante, generación efectiva de una ficha adicional y desplazamiento/foco en Resultados con viewport móvil **390 × 844**.
@@ -39,7 +39,13 @@ La ampliación de `tests/browser-compatibilidad.js` para Firefox y WebKit compru
 | Inicio, pie y creación en Firefox/WebKit | [Compatibilidad — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769734) |
 | Lista blanca, candidato público y multibrowser | [Paquete DRS — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769804) |
 
-**Límites:** las pruebas verifican comportamiento de navegación y formularios; **no sustituyen la inspección visual humana** de las capturas. No se ha podido confirmar la reproducción exacta en el dispositivo de la usuaria.
+### Auditoría visual de las capturas de CI
+
+Se descargó el artefacto [forja-compatibilidad-firefox-webkit, run 41319769734](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769734), con seis capturas de 390 × 844, y se inspeccionaron los grupos **inicio** y **pie** de Firefox y WebKit. **Hallazgo real:** «Empezar» aparecía por debajo del primer viewport, mientras el botón flotante ocupaba la base de la pantalla. La comprobación geométrica previa aseguraba que el botón funcionase, **pero no su ubicación de entrada**.
+
+Después se inspeccionaron nuevas capturas de la revisión [276f91e6, run 41326066602](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326066602): el botón «Empezar» se ve completo por encima de Resultados en ambos motores, el flotante no aparece durante la primera visita y el pie se puede leer y accionar. El artefacto de [run 41326288362](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326288362) añadió **cuatro imágenes** (dos de escritorio y dos del formulario móvil abierto). **Segundo hallazgo:** en el formulario móvil abierto, el flotante cubría líneas de la ayuda inicial; el último cambio funcional lo oculta mientras esa ayuda sea visible. Las capturas finales deben cotejarse con ese último ajuste.
+
+**Límites:** esta inspección visual se ha hecho sobre **capturas de CI**, no sobre el dispositivo real de la usuaria. No equivale a validación personal de su experiencia ni autoriza fusión o despliegue.
 
 ## 4. Separación de entregas
 
@@ -49,7 +55,7 @@ Este cambio parte directamente de `main` para poder corregir el problema de la *
 
 ## 5. Próximo paso
 
-1. Cerrar los cuatro flujos de CI en la PR #14 y revisar la experiencia de primera visita en escritorio y móvil.
+1. Confirmar 4/4 suites sobre el **último cambio funcional**; cotejar las capturas de escritorio, móvil cerrado y móvil abierto, especialmente que el flotante no tape el texto de bienvenida.
 2. Aprobar la **fusión de la PR #14** y, por separado, la promoción del candidato público; comprobar pie, ayuda y resultado en la web real.
 3. Después retomar la **PR #13**: integrar la misma corrección UX antes de publicarla, sin perder los avances de su rama.
 4. Recoger comentarios tras la publicación: si todavía existen dudas, valorar una prueba de tarea («genera tu primera ficha sin instrucciones»), evitando un tutorial intrusivo por defecto.
