@@ -29,3 +29,15 @@ Permanecen intactos alcance, duración, requisito, coste, efectos literales, or�
 Pruebas automatizadas añadidas: las **111 fichas** de Equipo tienen categoría visible, las cuatro varitas no mencionan «según el DRS» ni introducen efectos, las **433 entradas de Conjuro indexadas** conservan escuelas y números de Círculo y la cobertura cromática corresponde a las seis Escuelas del manual. E2E confirma el popup de Dormir, Arcana, Círculo I, varias categorías de objetos, su precio y ausencia de metadatos editoriales en pantalla.
 
 Esta entrega **no** integra ni publica la PR #13 de Equipo, ni modifica el DRS original. Los colores y números romanos son exclusivamente diseño de interfaz.
+
+## Publicación verificada — 2026-11-01
+
+- **PR #18:** https://github.com/naufragio-rolero/nd20-character-creator/pull/18 — fusionada.
+- **SHA de producto:** `ba163f5144ec8e5f55073dea4b0cedcfbe72a78f`, fijado explícitamente en `.github/workflows/forja-live.yml`.
+- **Forja LIVE:** https://naufragio-rolero.github.io/nd20-character-creator/
+- **Ejecución definitiva:** https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41352889340 — **success**, incluida la verificación HTTP real tras publicación.
+- **QA de la PR:** 4/4 suites **success** sobre `810a74599032ac97c90eae5eb742a540e80bda94`, incluida la paquetización DRS y Chrome, Firefox y WebKit.
+
+**Incidencias controladas en el release:** la primera comprobación LIVE todavía exigía una expresión antigua del popup de Talentos; la segunda contenía una verificación redundante de JSON antes de descargarlo. Ambas pertenecían exclusivamente al workflow de verificación y fueron corregidas, sin alterar la lógica de la Forja; la ejecución final fue satisfactoria y comprobó el contenido servido: 111 objetos, cuatro varitas sin metatexto, seis estilos de Escuela y Círculos visuales. **La PR #13 permanece abierta en borrador sin integrar**, y no se ha alterado el `NaufragioD20DRS.docx`.
+
+**No hay decisiones autorales bloqueantes:** esta entrega ha modificado únicamente la presentación y la prosa contextual autorizada de las varitas, sin introducir reglas.
