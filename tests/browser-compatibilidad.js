@@ -483,7 +483,12 @@ async function probar(nombre,tipo,url){
     const componente=page.locator('#ficha-emergente');
     assert.equal(await componente.locator('.info-clasificacion').textContent(),
       'Componente de paquete');
-    assert.equal(await componente.locator('.info-primarios dt').count(),0);
+    assert.deepEqual(await componente.locator('.info-primarios dt').allTextContents(),
+      ['Incluido en:']);
+    assert.match(await componente.locator('.info-primarios dd').textContent(),
+      /Especial mazmorras/);
+    assert.equal(await componente.locator('.info-descripcion').count(),0,
+      'No inventar descripción para el componente solo documentado en paquete');
     assert.match(await componente.locator('.info-fuente').textContent(),
       /Paquetes de equipo/);
     await page.keyboard.press('Escape');
