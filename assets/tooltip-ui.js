@@ -168,6 +168,49 @@
         "No hay descripción adicional documentada para este artículo.";
       c.appendChild(d);
     }
+    // Aclaración autoral: escoger entre las armaduras humanas DRS y mostrar
+    // el precio equino calculado ×4. El selector NO realiza ninguna compra.
+    if(equipo?.opciones_armadura_equina?.length){
+      var calculadora=document.createElement('section');
+      calculadora.className='info-armadura-equina';
+      calculadora.setAttribute('aria-label','Consulta de precio de armadura equina');
+      var tituloEquino=document.createElement('h4');
+      tituloEquino.textContent='Precio de armadura equina';
+      var etiquetaEquina=document.createElement('label');
+      etiquetaEquina.htmlFor='consulta-armadura-base';
+      etiquetaEquina.textContent='Armadura común para personas';
+      var selectorEquino=document.createElement('select');
+      selectorEquino.id='consulta-armadura-base';
+      var ninguna=document.createElement('option');
+      ninguna.value='';
+      ninguna.textContent='Selecciona una armadura';
+      selectorEquino.appendChild(ninguna);
+      equipo.opciones_armadura_equina.forEach(function(opcion,i){
+        var option=document.createElement('option');
+        option.value=String(i);
+        option.textContent=opcion.nombre;
+        selectorEquino.appendChild(option);
+      });
+      var resultadoEquino=document.createElement('p');
+      resultadoEquino.className='info-armadura-resultado';
+      resultadoEquino.setAttribute('aria-live','polite');
+      resultadoEquino.textContent='Selecciona una armadura para consultar su precio.';
+      var aclaracionEquina=document.createElement('p');
+      aclaracionEquina.className='info-armadura-aviso';
+      aclaracionEquina.textContent='Precio de consulta: armadura humana ×4. No se compra ni se equipa automáticamente. Aclaración autoral del 01/11/2026.';
+      selectorEquino.addEventListener('change',function(){
+        var opcion=selectorEquino.value===''?null:
+          equipo.opciones_armadura_equina[Number(selectorEquino.value)];
+        resultadoEquino.textContent=opcion?
+          opcion.nombre+': '+opcion.precio_base+' mo × 4 = '+
+            opcion.precio_equina+' mo (armadura equina)':
+          'Selecciona una armadura para consultar su precio.';
+        posicionar();
+      });
+      calculadora.append(tituloEquino,etiquetaEquina,selectorEquino,
+        resultadoEquino,aclaracionEquina);
+      c.appendChild(calculadora);
+    }
     // Apartado independiente: no añadir interpretaciones al efecto literal.
     // Visible siempre para que la aclaración aprobada no quede escondida
     // dentro de los detalles técnicos del popup.
