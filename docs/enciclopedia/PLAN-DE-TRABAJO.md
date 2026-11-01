@@ -9,6 +9,20 @@
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
 
+## Revisión de fichas DRS y accesibilidad — PR #15 (01/11/2026)
+
+**Origen:** incidencias reales de uso y cinco capturas. [Informe 119](119-fichas-drs-completas-accesibilidad.md) · [PR #15](https://github.com/naufragio-rolero/nd20-character-creator/pull/15), rama aislada del DRS público, **sin fusionar ni desplegar**.
+
+- [x] Cotejar directamente las diez Técnicas básicas del DRS, párrafos 794–855: **10/10 efectos literales completos** y sin Técnicas de suplementos.
+- [x] Confirmar que los **15 Talentos de Especie** carecen de etiqueta literal independiente «Acción» o «Pasiva»; añadir **24/24 glosas editoriales** de uso y resumen sin alterar los efectos originales ni las aclaraciones autorales.
+- [x] Completar **111/111 descripciones de artículos DRS** (38 armas, 14 armaduras, 3 escudos, 4 municiones, 5 paquetes, 41 útiles, 2 focos y 4 varitas), distinguiendo descripción editorial y detalle DRS.
+- [x] Preparar fichas de Talento con resumen inmediato y texto fuente íntegro (desplegable si es largo); cierre visible, desplazamiento de diálogo y permanencia al perder foco.
+- [x] Corregir la combinación de texto amarillo pálido sobre fondo claro en el tema Ébano.
+- [x] Limitar los tres catálogos nuevos al paquete público filtrado y proteger cobertura 10/24/111 mediante tests Node y E2E.
+- [x] **4/4 suites CI verdes** en SHA funcional `a80b9249`: validación general, Chrome, Firefox/WebKit y paquete DRS. [Evidencias y límites de capturas en informe 119](119-fichas-drs-completas-accesibilidad.md). Se probaron diálogo desplazable y contraste de Ébano en navegador.
+- [ ] Obtener aprobación editorial y fusionar exclusivamente la PR #15; fijar SHA validado en LIVE y verificar URL pública.
+- [ ] Reconciliar cambios con la [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) si se amplía también el catálogo adicional de Equipo, conservando su estado separado.
+
 ## Corrección UX de primera visita y botón flotante — PR #14 (01/11/2026)
 
 **Fuente:** comentarios directos de una usuaria, sin captura ni dispositivo concreto. **Informe:** [118 — Primer uso y botón flotante](118-forja-ux-primer-uso-boton-flotante.md) · [PR #14](https://github.com/naufragio-rolero/nd20-character-creator/pull/14) **fusionada y publicada** · [Forja LIVE](https://naufragio-rolero.github.io/nd20-character-creator/).
@@ -171,6 +185,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 | Fecha | Acción | Evidencia / estado |
 |---|---|---|
+| 2026-11-01 | Fichas DRS, Equipo y accesibilidad (nueva fase) | [Informe 119](119-fichas-drs-completas-accesibilidad.md), [PR #15](https://github.com/naufragio-rolero/nd20-character-creator/pull/15): 10 Técnicas literales, 24 Talentos explicativos, 15 clasificaciones de Especie y 111 artículos descritos; popup fijo desplazable y contraste Ébano. En QA, sin fusión ni despliegue. |
 | 2026-11-01 | **Forja UX publicada, versión utilizable** | [PR #14 fusionada](https://github.com/naufragio-rolero/nd20-character-creator/pull/14) en `deac628f`; [publicación LIVE y verificación HTTP](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41328185657) **success**. URL https://naufragio-rolero.github.io/nd20-character-creator/. Inicio visible, botón flotante no solapa el pie/ayuda y popups fijados estables. PR #13 continúa separada, sin desplegar. |
 | 2026-11-01 | Revisión visual real de UX móvil de Forja | Capturas de GitHub Actions analizadas: «Empezar» bajo el pliegue y flotante que cubría texto tras abrir Menú; tarjeta de primer paso ahora visible sin scroll en 390×844 y CTA oculto mientras se lee la ayuda. [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), PR #14 en borrador y separada de PR #13. |
 | 2026-11-01 | Feedback de usabilidad: primer uso y pie de página | [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), [PR #14](https://github.com/naufragio-rolero/nd20-character-creator/pull/14). CTA flotante contextual, guía inicial, salida visible en móvil y pruebas; rama independiente de PR #13. Aún sin fusión/despliegue. |

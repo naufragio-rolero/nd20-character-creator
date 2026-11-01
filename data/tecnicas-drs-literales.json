@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "fuente": "NaufragioD20DRS.docx, párrafos 794–855",
+  "estado": "Transcripción literal; no sustituye el coste, requisito o categoría originales",
+  "registros": [
+    {
+      "nombre": "Ataque certero",
+      "efecto_literal": "Obtienes +2 a la Tirada de Ataque realizada pero sufres -2 a la Tirada de Daño (mínimo 1)."
+    },
+    {
+      "nombre": "Baluarte",
+      "efecto_literal": "Recuperas 1d4 Puntos de Salud, obtienes los beneficios de la acción Posición defensiva y, si aún así, recibes daño, duplicas el resultado de tu tirada de Blindaje."
+    },
+    {
+      "nombre": "Disparo aturdidor",
+      "efecto_literal": "Realiza una Tirada de Ataque a distancia; si logras herir a tu objetivo, la criatura afectada no se podrá mover durante su próximo Turno."
+    },
+    {
+      "nombre": "Doble ataque",
+      "efecto_literal": "Realiza dos Tiradas de Ataque consecutivas, la segunda con un -2 al resultado."
+    },
+    {
+      "nombre": "Impacto poderoso",
+      "efecto_literal": "Sufres -2 a la Tirada de Ataque realizada pero obtienes +2 a la Tirada de daño."
+    },
+    {
+      "nombre": "Rajar",
+      "efecto_literal": "Cuando hieras a una criatura con un ataque cuerpo a cuerpo, puedes causar la misma cantidad de daño a otro objetivo —o al mismo— al alcance de tu arma. Este efecto aumenta a partir del Nivel 12 y del Nivel 18, hasta un total de 3 impactos adicionales."
+    },
+    {
+      "nombre": "Matamagia",
+      "efecto_literal": "Realiza una Tirada de Ataque: si tienes éxito, causas daño y anulas inmediatamente uno de los efectos mágicos de los que goza tu oponente.\nMatamagia no anula efectos mágicos permanentes, como los de un objeto mágico, pero sí que los desactiva durante 1d4 Turnos."
+    },
+    {
+      "nombre": "Reflejo mágico",
+      "efecto_literal": "Cuando eres el objetivo de un conjuro dañino, como un Rayo hielo o una Bola de fuego, puedes realizar una Tirada de Intuición: si tienes éxito, reflejas el conjuro hacia su lanzador y él es afectado en lugar de ti.\nSi el conjuro afecta a otras criaturas, el Reflejo mágico no evita que éstas sean afectadas. Si tu escudo no es mágico, tiene una Probabilidad 10+ de desintegrarse tras reflejar el conjuro."
+    },
+    {
+      "nombre": "Ataque sorpresa",
+      "efecto_literal": "Si atacas a una criatura que no es consciente de tu presencia (por la espalda, está sorprendida, etc.)  añades d4 al daño causado.\nEste daño adicional aumenta en un rango en los Niveles 6 (d6), 12 (d8), 18 (d10) y 24 (d12), y se beneficia de tu valor de Potencia."
+    },
+    {
+      "nombre": "Golpe de escudo",
+      "efecto_literal": "Realiza una Tirada de ataque cuerpo a cuerpo: si la superas, causas d3 de daño si el escudo es pequeño, d4 si es mediano o d6 si es un escudo grande.\nPuedes usar Golpe de escudo fuera de tu Turno si estás próximo a una criatura que intenta atacar a distancia o lanzar un conjuro a 1,5 metros o menos de ti. Si haces esto, debes gastar un punto de Esfuerzo; si tienes éxito, interrumpes la acción de la criatura."
+    }
+  ]
+}

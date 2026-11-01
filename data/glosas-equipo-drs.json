@@ -1,0 +1,563 @@
+{
+  "version": 1,
+  "fuente": "NaufragioD20DRS.docx + descripciones editoriales autorizadas por autoría el 01/11/2026",
+  "criterio": "El texto físico editorial y los detalles literales se identifican por registro; nada modifica precio, daño, penetración, alcance, Blindaje, Durabilidad o manejo",
+  "total": 111,
+  "registros": [
+    {
+      "nombre": "Daga",
+      "descripcion_editorial": "Hoja corta y manejable, apropiada para llevarla al cinto o en una vaina discreta.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Clava",
+      "descripcion_editorial": "Pieza de madera maciza utilizada para golpear; sencilla, sin filo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Hoz",
+      "descripcion_editorial": "Hoja corta y curva con mango, concebida para cortar tallos y vegetación.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Martillo ligero",
+      "descripcion_editorial": "Martillo de una mano con cabeza metálica compacta, empleado como arma de golpeo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Hacha de mano",
+      "descripcion_editorial": "Hacha pequeña con cabeza afilada y mango corto; fácil de llevar.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Espada corta",
+      "descripcion_editorial": "Espada de hoja relativamente corta y empuñadura para una mano.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Cimitarra",
+      "descripcion_editorial": "Espada de filo curvo y punta estrecha, característica por su silueta arqueada.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Bastón",
+      "descripcion_editorial": "Vara larga y resistente que también puede servir de apoyo para caminar.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Lanza",
+      "descripcion_editorial": "Asta con una punta endurecida o metálica, diseñada para atacar manteniendo distancia.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Maza",
+      "descripcion_editorial": "Arma contundente de mango y cabeza pesada, sin filo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Hacha de batalla",
+      "descripcion_editorial": "Hacha de combate con cabeza ancha y mango apto para una mano.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Mayal",
+      "descripcion_editorial": "Arma de golpeo formada por mango y cabeza pesada unidos mediante una articulación o cadena.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Espada larga",
+      "descripcion_editorial": "Espada recta de hoja amplia, equilibrada para el combate cuerpo a cuerpo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Martillo de guerra",
+      "descripcion_editorial": "Martillo de combate de cabeza maciza, construido para golpes potentes.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Espada ropera",
+      "descripcion_editorial": "Espada estrecha con punta pronunciada y empuñadura protectora, diseñada para estocadas.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Gran clava",
+      "descripcion_editorial": "Garrote pesado y voluminoso que requiere sujetarse con ambas manos.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Guadaña",
+      "descripcion_editorial": "Herramienta de hoja larga y curva montada sobre un asta, también usada como arma.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Espadón",
+      "descripcion_editorial": "Espada de hoja larga y empuñadura extendida para dos manos.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Arco corto",
+      "descripcion_editorial": "Arco de tamaño contenido que impulsa flechas mediante cuerda tensada.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Arco largo",
+      "descripcion_editorial": "Arco alto y de gran apertura, preparado para disparar flechas.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Ballesta ligera",
+      "descripcion_editorial": "Ballesta compacta con arco transversal y mecanismo para disparar virotes.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Ballesta de mano",
+      "descripcion_editorial": "Ballesta pequeña montada sobre una empuñadura, diseñada para un solo brazo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Cerbatana",
+      "descripcion_editorial": "Tubo hueco que expulsa pequeños dardos al soplar por un extremo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Honda",
+      "descripcion_editorial": "Tira flexible que aprovecha el movimiento del brazo para lanzar balines.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Guantelete armado",
+      "descripcion_editorial": "Protección metálica de mano reforzada para golpear.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Látigo",
+      "descripcion_editorial": "Correa flexible y alargada con empuñadura, manejada con un movimiento de brazo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Tridente",
+      "descripcion_editorial": "Arma de asta rematada en tres puntas paralelas.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Jabalina",
+      "descripcion_editorial": "Lanza ligera y corta que puede arrojarse.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Lucero del alba",
+      "descripcion_editorial": "Arma contundente de mango coronado por una cabeza pesada y prominencias.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Alabarda",
+      "descripcion_editorial": "Arma de asta con cabeza compuesta por hoja, punta y salientes para el combate.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Almádena",
+      "descripcion_editorial": "Martillo de guerra muy pesado con cabeza maciza y empuñadura para dos manos; no es el martillo de campamento del mismo nombre en otra tabla.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Gran hacha",
+      "descripcion_editorial": "Hacha de combate grande y pesada destinada al uso con ambas manos.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Guja",
+      "descripcion_editorial": "Arma de asta rematada en una hoja larga y afilada.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Lanza de caballería",
+      "descripcion_editorial": "Lanza larga pensada para manejarse desde una montura.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Ballesta de repetición",
+      "descripcion_editorial": "Ballesta con mecanismo diseñado para efectuar varios disparos sucesivos.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Ballesta pesada",
+      "descripcion_editorial": "Ballesta robusta y voluminosa, dotada de gran tensión de disparo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Yumi",
+      "descripcion_editorial": "Arco largo de perfil asimétrico, propio de la tradición de tiro japonés.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Dardo",
+      "descripcion_editorial": "Proyectil pequeño, ligero y puntiagudo que puede lanzarse.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Armadura de tela",
+      "descripcion_editorial": "Vestimenta protectora hecha con capas de tejido; no posee piezas rígidas.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Armadura acolchada",
+      "descripcion_editorial": "Prenda de tela gruesa con relleno que amortigua los impactos.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Armadura de cuero",
+      "descripcion_editorial": "Protección corporal confeccionada con paneles de cuero endurecido.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Cuero tachonado",
+      "descripcion_editorial": "Armadura de cuero reforzada con pequeñas piezas metálicas.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Armadura de pieles",
+      "descripcion_editorial": "Protección corporal hecha de pieles cosidas o superpuestas.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Camisote de mallas",
+      "descripcion_editorial": "Camisa corta formada por anillas metálicas entrelazadas.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Cota de anillas",
+      "descripcion_editorial": "Vestimenta protectora compuesta por una superficie de anillas metálicas.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Coraza",
+      "descripcion_editorial": "Pieza rígida que protege principalmente el torso.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Cota de mallas",
+      "descripcion_editorial": "Armadura de anillas metálicas entrelazadas que cubre el tronco y otras partes del cuerpo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Pechera de algodón",
+      "descripcion_editorial": "Pechera fabricada con algodón resistente, ligera y sin placas de metal.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Cota de escamas",
+      "descripcion_editorial": "Armadura formada por pequeñas placas superpuestas que recuerdan a escamas.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Armadura de bandas",
+      "descripcion_editorial": "Protección ensamblada mediante bandas rígidas conectadas.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Armadura parcial de placas",
+      "descripcion_editorial": "Conjunto de piezas metálicas rígidas que cubre las zonas principales sin envolver todo el cuerpo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Armadura completa de placas",
+      "descripcion_editorial": "Armadura articulada de placas metálicas que cubre prácticamente todo el cuerpo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Escudo pequeño",
+      "descripcion_editorial": "Escudo de tamaño reducido, manejable con una mano.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Escudo mediano",
+      "descripcion_editorial": "Escudo de tamaño intermedio que protege parte del cuerpo al interponerlo.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Escudo grande",
+      "descripcion_editorial": "Escudo de amplia superficie diseñado para cubrir una zona corporal extensa.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Flechas",
+      "descripcion_editorial": "Proyectiles alargados con punta y emplumado, usados con arcos.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Virotes",
+      "descripcion_editorial": "Proyectiles cortos con punta, empleados por ballestas.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Dardos",
+      "descripcion_editorial": "Proyectiles pequeños y puntiagudos, asociados a armas como la cerbatana.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Balines",
+      "descripcion_editorial": "Proyectiles pequeños destinados al uso con honda.",
+      "procedencia": "Descripción física editorial; precio y propiedades tomados del DRS"
+    },
+    {
+      "nombre": "Especial arcanistas",
+      "descripcion_editorial": "Conjunto de equipo para iniciar una aventura. Incluye: Mochila; antorcha (DU d6); ración de alimento (DU d6); túnica; saco de dormir; yesquero; estuche de pergaminos vacío; tinta y pluma (DU d6); libro de conjuros en blanco.",
+      "procedencia": "Descripción editorial a partir del contenido DRS del paquete"
+    },
+    {
+      "nombre": "Especial criminales",
+      "descripcion_editorial": "Conjunto de equipo para iniciar una aventura. Incluye: Bolsa de cuero; odre de agua (DU d6); antorcha (DU d6); disfraz; ganzúas; kit de escalada; saco de dormir.",
+      "procedencia": "Descripción editorial a partir del contenido DRS del paquete"
+    },
+    {
+      "nombre": "Especial devotos",
+      "descripcion_editorial": "Conjunto de equipo para iniciar una aventura. Incluye: Mochila; odre de agua (DU d6); dos raciones de alimento (DU d6 cada una); túnica; vela (DU d4); saco de dormir; yesquero; sello de orden sagrada; símbolo sagrado.",
+      "procedencia": "Descripción editorial a partir del contenido DRS del paquete"
+    },
+    {
+      "nombre": "Especial exploración",
+      "descripcion_editorial": "Conjunto de equipo para iniciar una aventura. Incluye: Mochila; odre de agua (DU d6); tres raciones (DU d6); cuerda; kit de cocina; caña y aparejos; catalejo; ropa de viaje; tienda de campaña; yesquero.",
+      "procedencia": "Descripción editorial a partir del contenido DRS del paquete"
+    },
+    {
+      "nombre": "Especial mazmorras",
+      "descripcion_editorial": "Conjunto de equipo para iniciar una aventura. Incluye: Mochila; odre de agua (DU d6); ración (DU d6); antorcha (DU d6); tiza (DU d6); pértiga; ropa de viaje; manta; yesquero.",
+      "procedencia": "Descripción editorial a partir del contenido DRS del paquete"
+    },
+    {
+      "nombre": "Aparejo de poleas",
+      "descripcion_editorial": "Se fija en un punto para usar la polea.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Bolsa de abrojos",
+      "descripcion_editorial": "Pinchos que causan 1 de daño al pisar.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Bolsa de canicas",
+      "descripcion_editorial": "Esferas para esparcir por el suelo.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Cuerda",
+      "descripcion_editorial": "15 metros de cuerda de esparto.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Cuerda de seda",
+      "descripcion_editorial": "15 metros de cuerda resistente de seda.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Espejo de acero",
+      "descripcion_editorial": "Superficie reflectante.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Gancho",
+      "descripcion_editorial": "De tres puntas.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Lupa",
+      "descripcion_editorial": "No más grande que una mano.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Símbolo sagrado",
+      "descripcion_editorial": "De un Espíritu deífico concreto.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Tiza",
+      "descripcion_editorial": "Color blanco.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Martillo de campamento",
+      "descripcion_editorial": "Herramienta de campamento; puede utilizarse como Clava. En el DRS figura como «Almádena». No es el arma Almádena a dos manos (60 mo).",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Manta",
+      "descripcion_editorial": "Unipersonal.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Saco de dormir",
+      "descripcion_editorial": "No soporta temperaturas extremas.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Tienda de campaña",
+      "descripcion_editorial": "Espacio para dos personas.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Ración de alimento",
+      "descripcion_editorial": "Carne o fruta seca al sol.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Yesquero",
+      "descripcion_editorial": "Para encender fuego.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Aceite animal",
+      "descripcion_editorial": "Grasa de animal para alimentar lámparas.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Ácido",
+      "descripcion_editorial": "Ataque arrojadizo con alcance de 6 metros; 2d6 de daño.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Agua bendita",
+      "descripcion_editorial": "Ataque arrojadizo con alcance de 6 metros; 2d8 de daño a diablos y muertos vivientes.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Antídoto",
+      "descripcion_editorial": "Elimina un veneno de igual o menor Nivel si se toma a tiempo.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Fuego alquímico",
+      "descripcion_editorial": "Ataque arrojadizo con alcance de 6 metros; 2d6 de daño cada Turno durante 1d4 Turnos.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Poción de curación",
+      "descripcion_editorial": "Recupera 1d8 de Salud al beberla; requiere una Acción.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Veneno",
+      "descripcion_editorial": "Puede aplicarse en un arma, alimento o bebida. Su Nivel modifica precio y efectos.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Alambique",
+      "descripcion_editorial": "Pequeño laboratorio alquímico portátil.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Caña y aparejos",
+      "descripcion_editorial": "Permite pescar en ríos o mares.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Catalejo",
+      "descripcion_editorial": "Permite ver a lo lejos; 3 aumentos.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Ganzúas",
+      "descripcion_editorial": "Lo necesario para forzar cerraduras.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Kit de cocina",
+      "descripcion_editorial": "Cubiertos varios, una sartén y una rejilla.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Kit de escalada",
+      "descripcion_editorial": "Alcayatas, un garfio, cuerdas y un arnés.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Kit de medicina",
+      "descripcion_editorial": "Gasas, alcohol, torniquetes y pinzas.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Mortero",
+      "descripcion_editorial": "Para moler hierbas e ingredientes.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Pala",
+      "descripcion_editorial": "Se puede usar como Gran clava.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Pértiga",
+      "descripcion_editorial": "Palo flexible de 3 metros de longitud.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Pico de minero",
+      "descripcion_editorial": "Se puede usar como Hacha de mano.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Piedra de afilar",
+      "descripcion_editorial": "+1 daño a arma de filo durante 1 Intervalo.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Lacre",
+      "descripcion_editorial": "Varios colores.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Libro",
+      "descripcion_editorial": "En blanco; tomo de 180 páginas.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Libro de conjuros",
+      "descripcion_editorial": "En blanco, desprende una pizca de poder.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Pergamino",
+      "descripcion_editorial": "En blanco, desprende una pizca de poder.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Sello",
+      "descripcion_editorial": "Personalizable.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Tinta y pluma",
+      "descripcion_editorial": "Preparados para escribir.",
+      "procedencia": "Detalle de la tabla DRS, sin añadir efectos nuevos"
+    },
+    {
+      "nombre": "Tótem",
+      "descripcion_editorial": "Hecho de hueso, madera o piedra.",
+      "procedencia": "Detalle de tabla DRS; escuelas/precio del catálogo oficial"
+    },
+    {
+      "nombre": "Orbe de cristal",
+      "descripcion_editorial": "Utilizado por adivinos.",
+      "procedencia": "Detalle de tabla DRS; escuelas/precio del catálogo oficial"
+    },
+    {
+      "nombre": "Varita de cerezo",
+      "descripcion_editorial": "Varita de defensa que canaliza la esencia de su núcleo para atacar a distancia. El núcleo determina su elemento, y la munición se restaura diariamente según el DRS.",
+      "procedencia": "Descripción contextual basada en la sección Varitas de defensa del DRS; no introduce otras reglas"
+    },
+    {
+      "nombre": "Rama de cristal",
+      "descripcion_editorial": "Varita de defensa que canaliza la esencia de su núcleo para atacar a distancia. El núcleo determina su elemento, y la munición se restaura diariamente según el DRS.",
+      "procedencia": "Descripción contextual basada en la sección Varitas de defensa del DRS; no introduce otras reglas"
+    },
+    {
+      "nombre": "Cetro de dracólita",
+      "descripcion_editorial": "Varita de defensa que canaliza la esencia de su núcleo para atacar a distancia. El núcleo determina su elemento, y la munición se restaura diariamente según el DRS.",
+      "procedencia": "Descripción contextual basada en la sección Varitas de defensa del DRS; no introduce otras reglas"
+    },
+    {
+      "nombre": "Esceptro de sangreluna",
+      "descripcion_editorial": "Varita de defensa que canaliza la esencia de su núcleo para atacar a distancia. El núcleo determina su elemento, y la munición se restaura diariamente según el DRS.",
+      "procedencia": "Descripción contextual basada en la sección Varitas de defensa del DRS; no introduce otras reglas"
+    }
+  ]
+}

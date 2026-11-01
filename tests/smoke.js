@@ -1115,3 +1115,6 @@ require('./conjuros.js');
 
 /* Manifiesto de la entrega base y compatibilidad de las futuras ampliaciones. */
 require('./alcance-drs.js');
+
+/* Enciclopedia DRS: Técnicas, Talentos y Equipo con cobertura completa. */
+require('./fichas-drs-ux.js');

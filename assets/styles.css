@@ -44,6 +44,10 @@ h1{font-family:Georgia,serif;font-size:clamp(2.3rem,5vw,4.2rem);letter-spacing:-
 .inicio-rapido p{font-size:.84rem;line-height:1.55;margin:0 0 .55rem}
 .inicio-rapido p:last-child{margin-bottom:0}
 .inicio-rapido strong{color:#fff0c8}
+/* Ébano es claro: el amarillo fijo del tema oscuro era ilegible. */
+html[data-tema=ebano] .inicio-rapido strong{color:#243946}
+html[data-tema=ebano] .inicio-rapido{border-left-color:#334a59}
+html[data-tema=ebano] .inicio-movil strong{color:#243946}
 .campo{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
 .campo>label{font-size:.88rem;font-weight:700;color:var(--texto)}
 /* Forja 1.2: acceso compacto y rejilla modal sin iconos gigantes. */
@@ -367,9 +371,30 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
 }
 /* La vista previa al pasar el ratón nunca debe cubrir o interceptar
    el clic en su propia referencia; con pulsación se vuelve interactiva. */
-.ficha-emergente[role="tooltip"]{pointer-events:none}
+/* La vista de hover también debe permitir desplazarse para leer.
+   El clic fija el diálogo hasta cierre explícito o Escape. */
+.ficha-emergente[role="tooltip"]{pointer-events:auto}
 .ficha-emergente[role="dialog"]{pointer-events:auto}
 .ficha-emergente[hidden],.consultar-ficha-eleccion[hidden]{display:none!important}
+.ficha-emergente{scrollbar-width:thin;scrollbar-color:#a9c3cd #142936}
+.info-cerrar{position:sticky;top:-.25rem;float:right;z-index:1;
+  min-height:34px;padding:.32rem .65rem;margin:-.1rem -.1rem .4rem .4rem;
+  border:1px solid #9aafb8;border-radius:5px;
+  background:#1b3947;color:#fff1d2;font-size:.8rem;font-weight:700}
+.info-cerrar:hover{background:#2c5365}
+.info-cerrar:focus-visible{outline:3px solid #9ee2f0;outline-offset:2px}
+.info-uso-editorial{margin:.25rem 0 .8rem;font-size:.77rem;color:#cbe8f0;
+  background:#193845;border-left:3px solid #c2cfb7;padding:.4rem .55rem}
+.info-resumen-editorial h4{margin:.4rem 0 .3rem;font-size:.84rem;color:#ffe1a0}
+.info-resumen-editorial p{margin:.15rem 0 .75rem;font-size:.9rem;line-height:1.6}
+.info-literal-etiqueta{font-size:.76rem;margin:.6rem 0 .2rem;color:#bfd3dc;font-weight:700}
+.info-texto-literal{margin:.6rem 0 .8rem;padding:.25rem .7rem;
+  border:1px solid #55717e;border-radius:6px}
+.info-texto-literal summary{cursor:pointer;font-weight:700;font-size:.8rem;
+  padding:.45rem .1rem;color:#def1f7}
+.info-texto-literal summary:focus-visible{outline:3px solid #9ee2f0}
+.info-texto-literal .info-descripcion{margin:.35rem .1rem .65rem}
+.info-origen-glosa{font-size:.71rem;line-height:1.4;color:#bfd2d9;margin:.25rem 0 .8rem}
 .ficha-emergente h3{font:600 1.28rem/1.2 Georgia,serif;color:#fce4a8;margin:.2rem 0 .8rem}
 .info-tipo{margin:0;color:#bfd4dd;font-size:.67rem;text-transform:uppercase;
   letter-spacing:.16em;font-weight:700}

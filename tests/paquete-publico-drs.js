@@ -202,6 +202,24 @@ assert.ok(html.includes('Origen de las variantes'));
 assert.ok(html.includes('Los nombres sugeridos no determinan el origen ni la historia del personaje.'));
 assert.ok(!html.includes('Procedencia del nombre de Ylat'),
   'No presentar agrupaciones documentales como culturas de nacimiento');
+// Los tres catálogos de consulta publicados deben coincidir físicamente
+// con sus fuentes aprobadas de esta revisión, sin registros de suplementos.
+for(const [archivo,cantidad] of [
+  ['tecnicas-drs-literales.json',10],
+  ['glosas-talentos-drs.json',24],
+  ['glosas-equipo-drs.json',111]
+]){
+  const publicado=leer(salida,archivo);
+  const desarrollo=leer(raiz,archivo);
+  assert.deepEqual(publicado,desarrollo,'Fuente pública idéntica: '+archivo);
+  assert.equal(publicado.registros.length,cantidad,'Cobertura: '+archivo);
+}
+const glosasTalentosPublicas=leer(salida,'glosas-talentos-drs.json');
+assert.equal(glosasTalentosPublicas.registros.filter(x=>x.tipo_origen==='Especie').length,15);
+const catalogoEquipoPublicado=leer(salida,'glosas-equipo-drs.json');
+assert.equal(new Set(catalogoEquipoPublicado.registros.map(x=>x.nombre)).size,111);
+assert.ok(catalogoEquipoPublicado.registros.every(x=>
+  typeof x.descripcion_editorial==='string'&&x.descripcion_editorial.trim()));
 const rutaData=path.join(salida,'data');
 const contenidos=new Set(fs.readdirSync(rutaData));
 const esperados=new Set([
@@ -213,6 +231,8 @@ const esperados=new Set([
   'alcance-drs-y-dlc.json','conjuros-danio-compuesto.json',
   'progresiones-oficiales.json','equipo-inicial.json','fichas-documentales.json',
   'talentos-drs-literales.json','aclaraciones-talentos-drs.json',
+  'tecnicas-drs-literales.json','glosas-talentos-drs.json',
+  'glosas-equipo-drs.json',
   'dungeon-hack.json'
 ]);
 assert.deepEqual(contenidos,esperados,

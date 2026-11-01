@@ -100,7 +100,7 @@
         if(x.municion)detalles.push(["Munición",x.municion]);
         if(x.contenido)detalles.push(["Contenido",x.contenido]);
         anotar(x.nombre,tipo||"Objeto",sistema,fuente,{datos:detalles,
-          descripcion:x.descripcion||"",grupo:"equipo"});
+          descripcion:x.descripcion||x.detalle||"",grupo:"equipo"});
       });
     }
     especies(fuentes.fantasia?.especies,"nd20");
@@ -130,6 +130,36 @@
     var eq=fuentes.equipo||{};
     ["armas","municion","armaduras","escudos","paquetes"].forEach(function(k){
       equipo(eq[k],"nd20","mo","Naufragio d20 DRS",k==="paquetes"?"Paquete":"Objeto");
+    });
+    Object.values(eq.utiles_fantasia||{}).forEach(function(lista){
+      equipo(lista,"nd20","mo","Naufragio d20 DRS · Herramientas","Objeto");
+    });
+    equipo(eq.focos_conjuros_con_precio,"nd20","mo","Naufragio d20 DRS · Focos","Objeto");
+    equipo(eq.varitas_defensa,"nd20","mo","Naufragio d20 DRS · Varitas","Objeto");
+    // 10 Técnicas de batalla: sus efectos literales están en el DRS,
+    // no en la tabla nominal que alimenta las elecciones del generador.
+    var tecnicas=fuentes.tecnicasDRS?.registros||[];
+    if(fuentes.tecnicasDRS&&tecnicas.length!==10)throw Error("Se requieren exactamente 10 Técnicas DRS literales");
+    tecnicas.forEach(function(ficha){
+      var destino=(mapa.get(normalizar(ficha.nombre))||[]).find(function(x){
+        return x.tipo==="Técnica"&&x.sistema==="nd20"&&x.fuente==="Naufragio d20 DRS";
+      });
+      if(!destino||!ficha.efecto_literal)
+        throw Error("Técnica DRS sin efecto literal único: "+ficha.nombre);
+      destino.descripcion=ficha.efecto_literal;
+      destino.fuente_descripcion="NaufragioD20DRS.docx · Técnicas de batalla (literal cotejado)";
+    });
+    // Glosas del equipo solo amplían la descripción, no sus reglas.
+    var glosasEquipo=fuentes.glosasEquipoDRS?.registros||[];
+    if(fuentes.glosasEquipoDRS&&glosasEquipo.length!==111)throw Error("Catálogo de glosas de Equipo DRS incompleto");
+    glosasEquipo.forEach(function(g){
+      var destino=(mapa.get(normalizar(g.nombre))||[]).find(function(x){
+        return x.grupo==="equipo"&&x.sistema==="nd20"&&
+          /^Naufragio d20 DRS/.test(x.fuente);
+      });
+      if(!destino)throw Error("Equipo DRS sin ficha nominal: "+g.nombre);
+      destino.descripcion=g.descripcion_editorial;
+      destino.procedencia_glosa=g.procedencia;
     });
     ["armas","municion","protecciones","ddp","utiles"].forEach(function(k){
       equipo((eq.cifi||{})[k],"nd20_cifi","cr","Naufragio d20 CiFi");
@@ -222,6 +252,21 @@
       if(!porId.has(ficha.id))porId.set(ficha.id,[]);
       porId.get(ficha.id).push(destino);
     });
+    // Glosas de lectura rápida y clasificación de uso: IDs, propietarios y
+    // nombres deben coincidir. El DRS no etiqueta los Talentos de Especie.
+    var glosasTalentos=fuentes.glosasTalentosDRS?.registros||[];
+    if(fuentes.glosasTalentosDRS&&glosasTalentos.length!==24)throw Error("Se requieren 24 glosas DRS");
+    glosasTalentos.forEach(function(g){
+      var x=(porId.get(g.id_talento)||[]).find(function(e){
+        return e.talento_drs_publico&&e.nombre===g.nombre&&
+          e.procedencia_tipo===g.tipo_origen&&
+          e.procedencia_nombre===g.propietario;
+      });
+      if(!x||!g.resumen_editorial||!g.uso_editorial)
+        throw Error("Glosa de Talento sin relación DRS: "+g.id_talento);
+      x.resumen_editorial=g.resumen_editorial;
+      x.uso_editorial=g.uso_editorial;
+    });
     // Las aclaraciones son otra fuente editorial. Nunca reemplazar el efecto
     // literal del DRS, y nunca aplicarlas por nombre ni por homónimos.
     (fuentes.aclaracionesTalentosDRS?.registros||[]).forEach(function(a){
@@ -261,7 +306,9 @@
         [['Párrafos del DRS',referencia.join('–')]]:[],
       origen:'Naufragio d20 DRS',
       fuente:info.fuente_descripcion||info.fuente,
-      aclaracion:info.aclaracion_autoral||null};
+      aclaracion:info.aclaracion_autoral||null,
+      resumen_editorial:info.resumen_editorial||"",
+      uso_editorial:info.uso_editorial||""};
   }
   function presentarPoder(info){
     if(!info||info.grupo!=="poder")return null;

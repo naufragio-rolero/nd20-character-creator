@@ -55,7 +55,17 @@
   function posicionar(){
     if(!ancla||!card||card.hidden)return;
     var b=ancla.getBoundingClientRect();
-    var margen=12,separacion=9,w=Math.min(440,innerWidth-margen*2);
+    var margen=12,separacion=9,w=Math.min(fija?520:440,innerWidth-margen*2);
+    if(fija){
+      // Ficha fijada: diálogo accesible y desplazable, sin perseguir al
+      // puntero o quedar atrapado en el pequeño hueco junto al ancla.
+      card.style.width=w+"px";
+      card.style.maxHeight=Math.max(120,innerHeight-margen*2)+"px";
+      var altura=card.offsetHeight;
+      card.style.left=Math.max(margen,(innerWidth-w)/2)+"px";
+      card.style.top=Math.max(margen,(innerHeight-altura)/2)+"px";
+      return;
+    }
     card.style.width=w+"px";
     var huecoAbajo=Math.max(0,innerHeight-b.bottom-separacion-margen);
     var huecoArriba=Math.max(0,b.top-separacion-margen);
@@ -100,6 +110,19 @@
     var c=crearElemento();
     c.replaceChildren();
     c.setAttribute('role',fija?'dialog':'tooltip');
+    if(fija){
+      var cerrarBoton=document.createElement('button');
+      cerrarBoton.type='button';
+      cerrarBoton.className='info-cerrar';
+      cerrarBoton.textContent='Cerrar ×';
+      cerrarBoton.setAttribute('aria-label','Cerrar ficha informativa');
+      cerrarBoton.addEventListener('click',function(){
+        var retorno=ancla;
+        cerrar();
+        if(retorno&&retorno.isConnected)retorno.focus({preventScroll:true});
+      });
+      c.appendChild(cerrarBoton);
+    }
     if(fija)c.setAttribute('aria-label','Consulta de ficha');
     else c.removeAttribute('aria-label');
     var poder=elemento.dataset.glosaGrupo==="poder"?
@@ -154,10 +177,50 @@
       });
       tecnicos.appendChild(tabla);
     }
-    var d=document.createElement("p");d.className="info-descripcion";
-    d.textContent=info.descripcion||
-      "La descripción completa todavía no está incorporada al catálogo digital; consulta el manual.";
-    c.appendChild(d);
+    if(talento&&talento.uso_editorial){
+      var uso=document.createElement('p');
+      uso.className='info-uso-editorial';
+      uso.textContent='Tipo de uso (guía editorial): '+talento.uso_editorial;
+      c.appendChild(uso);
+    }
+    if(talento&&talento.resumen_editorial){
+      var resumen=document.createElement('section');
+      resumen.className='info-resumen-editorial';
+      var nombreResumen=document.createElement('h4');
+      nombreResumen.textContent='En pocas palabras';
+      var textoResumen=document.createElement('p');
+      textoResumen.textContent=talento.resumen_editorial;
+      resumen.append(nombreResumen,textoResumen);
+      c.appendChild(resumen);
+      var efectoLiteral=document.createElement('p');
+      efectoLiteral.className='info-descripcion';
+      efectoLiteral.textContent=info.descripcion||'';
+      if((info.descripcion||'').length>340){
+        var literal=document.createElement('details');
+        literal.className='info-texto-literal';
+        var resumenLiteral=document.createElement('summary');
+        resumenLiteral.textContent='Leer texto íntegro del DRS';
+        literal.append(resumenLiteral,efectoLiteral);
+        literal.addEventListener('toggle',posicionar);
+        c.appendChild(literal);
+      }else{
+        var literalEtiqueta=document.createElement('h4');
+        literalEtiqueta.className='info-literal-etiqueta';
+        literalEtiqueta.textContent='Texto original del DRS';
+        c.append(literalEtiqueta,efectoLiteral);
+      }
+    }else{
+      var d=document.createElement("p");d.className="info-descripcion";
+      d.textContent=info.descripcion||
+        "No consta una descripción en la fuente seleccionada.";
+      c.appendChild(d);
+    }
+    if(!talento&&info.procedencia_glosa){
+      var fuenteGlosa=document.createElement('p');
+      fuenteGlosa.className='info-origen-glosa';
+      fuenteGlosa.textContent='Descripción: '+info.procedencia_glosa;
+      c.appendChild(fuenteGlosa);
+    }
     // Apartado independiente: no añadir interpretaciones al efecto literal.
     // Visible siempre para que la aclaración aprobada no quede escondida
     // dentro de los detalles técnicos del popup.
@@ -246,6 +309,9 @@
       var a=getTarget(e);
       // Una ficha fijada por clic o teclado no puede ser sustituida
       // accidentalmente por hover de otra referencia.
+      // Los Talentos se leen como un diálogo estable, nunca como un
+      // tooltip volátil disparado por hover: clic o foco de teclado.
+      if(a?.dataset.glosaGrupo==="talento")return;
       if(a&&e.pointerType==="mouse"&&!fija&&!a.contains(e.relatedTarget))
         mostrar(a,false);
     });
@@ -257,7 +323,10 @@
       var a=getTarget(e);if(a)mostrar(a,true);
     });
     document.addEventListener("focusout",function(e){
-      var a=getTarget(e);if(a&&a===ancla&&!card.contains(e.relatedTarget))cerrar();
+      var a=getTarget(e);
+      // Los diálogos fijados deben soportar clic, teclado, rueda y scroll.
+      // Perder el foco en el ancla no equivale a cerrar el diálogo.
+      if(a&&a===ancla&&!fija&&card&&!card.contains(e.relatedTarget))cerrar();
     });
     document.addEventListener("click",function(e){
       var a=getTarget(e);
