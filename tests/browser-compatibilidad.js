@@ -72,6 +72,8 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#alternar-menu').getAttribute('aria-expanded'),'true');
     assert.equal(await page.locator('#nivel').evaluate(x=>document.activeElement===x),true,
       nombre+': el foco llega al primer ajuste');
+    assert.equal(await page.locator('#generar-flotante').isHidden(),true,
+      nombre+': el flotante no debe tapar la ayuda al abrir Empezar');
     await page.screenshot({path:path.join(capturas,nombre+'-forja-abierta-movil.png')});
     await page.locator('#alternar-menu').click();
     assert.equal(await page.locator('#generar-flotante').isHidden(),true,
