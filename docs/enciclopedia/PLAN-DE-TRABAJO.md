@@ -1,6 +1,6 @@
 # Enciclopedia de Talentos, Poderes y Objetos — Plan de trabajo
 
-> **Estado vigente (01/11/2026):** Forja **1.5 publicada**, con dos aclaraciones autorales de Talentos DRS ([informe 112](112-forja-aclaraciones-autoriales.md)). **PR #14**: corrección independiente del inicio y botón flotante ([informe 118](118-forja-ux-primer-uso-boton-flotante.md)), pendiente de QA editorial, fusión y publicación. **PR #13** de enciclopedia DRS sigue separada, en borrador y sin desplegar. La preclasificación de Talentos de Forja 1.4 es documental; no modifica automáticamente las reglas.
+> **Estado vigente (01/11/2026):** Forja **DRS pública y utilizable** en https://naufragio-rolero.github.io/nd20-character-creator/, con las dos aclaraciones autorales de la edición 1.5 ([informe 112](112-forja-aclaraciones-autoriales.md)) y las **mejoras UX de la PR #14 ya fusionadas y desplegadas** ([informe 118](118-forja-ux-primer-uso-boton-flotante.md); [LIVE 41328185657](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41328185657), success). **La PR #13 de enciclopedia DRS permanece abierta, en borrador y no publicada.** La preclasificación documental de Talentos 1.4 no introduce reglas nuevas.
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-11-01.  
@@ -11,7 +11,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 ## Corrección UX de primera visita y botón flotante — PR #14 (01/11/2026)
 
-**Fuente:** comentarios directos de una usuaria, sin captura ni dispositivo concreto. **Informe:** [118 — Primer uso y botón flotante](118-forja-ux-primer-uso-boton-flotante.md) · [PR #14](https://github.com/naufragio-rolero/nd20-character-creator/pull/14), rama separada de `main`, sin fusión ni despliegue.
+**Fuente:** comentarios directos de una usuaria, sin captura ni dispositivo concreto. **Informe:** [118 — Primer uso y botón flotante](118-forja-ux-primer-uso-boton-flotante.md) · [PR #14](https://github.com/naufragio-rolero/nd20-character-creator/pull/14) **fusionada y publicada** · [Forja LIVE](https://naufragio-rolero.github.io/nd20-character-creator/).
 
 - [x] Analizar la causa del solapamiento: CTA `fixed` sin comprobación de pie de página ni visibilidad de la acción principal.
 - [x] Añadir ayuda inicial clara y mensaje de Resultados vacío que explique el mínimo necesario para generar una primera ficha.
@@ -24,11 +24,14 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [x] **4/4 suites CI verdes en el último cambio funcional `4811dd7b`**: Node, compras en Chrome, Firefox/WebKit, candidato público DRS. [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), evidencias y capturas del [run 41326537139](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537139).
 - [x] Inspección visual técnica de **diez capturas** de escritorio, primera visita, formulario abierto, compras y pie en Firefox/WebKit; ayuda inicial **sin superposición** tras el último cambio. Queda pendiente validar en el dispositivo real de la usuaria.
 - [x] Inspeccionar capturas de **primera visita**, **pie**, **escritorio** y **formulario móvil abierto** en Firefox/WebKit; los dos hallazgos de solapamiento y el CTA bajo el pliegue están corregidos y comprobados en CI.
-- [ ] Revisar con criterio editorial el resultado final, aprobar **fusión** de la PR #14 y autorizar **despliegue** por separado.
+- [x] Completar revisión técnica/visual de las capturas y **fusionar** [PR #14](https://github.com/naufragio-rolero/nd20-character-creator/pull/14) en commit **`deac628f`**.
+- [x] Promover **exclusivamente** el commit `deac628f` con el workflow LIVE anclado a SHA, excluyendo CiFi, Nocturna y la PR #13; despliegue y prueba HTTP [41328185657](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41328185657) **success**.
+- [x] Verificar públicamente entrada «Empezar», comportamiento del flotante, popup fijado, 8 Especies DRS y 2 aclaraciones; enlace https://naufragio-rolero.github.io/nd20-character-creator/.
+- [ ] Confirmar la experiencia **en el dispositivo real** de la usuaria; no se atribuye a la CI una validación presencial.
 - [x] Auditar solapamientos entre PR #14 y PR #13: **seis ficheros compartidos** (`index.html`, `assets/app.js`, `assets/styles.css`, `assets/tooltip-ui.js`, `tests/browser-compatibilidad.js`, `docs/enciclopedia/PLAN-DE-TRABAJO.md`). Proteger el catálogo DRS, el inicio guiado y los popups fijados.
 - [x] Corregir popup que podía ser **reemplazado por hover mientras estaba fijado**; prueba de regresión en Firefox/WebKit, tras detectar fallo intermitente del [run 41326829106](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326829106). [Informe 118](118-forja-ux-primer-uso-boton-flotante.md).
 - [x] **4/4 suites verdes sobre el último cambio funcional `f3e4d945`** (validación general, compras Chrome, Firefox/WebKit y candidato público), con prueba de hover sobre un Talento diferente mientras el popup está fijado. Evidencias en [informe 118](118-forja-ux-primer-uso-boton-flotante.md).
-- [ ] Tras integrar la corrección UX en producción, reconciliar esos **seis ficheros** con [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13), ejecutar 4/4 suites sobre la rama reconciliada y no desplegar material no autorizado.
+- [ ] **Próxima fase:** reconciliar los **seis ficheros compartidos** con [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13), revalidar 4/4 suites y someter el catálogo de Equipo a aprobación editorial independiente, sin reintroducir problemas del flotante ni publicar DLC.
 
 ## Forja 1.5 — Aclaraciones autorales en popups DRS (01/11/2026)
 
@@ -168,6 +171,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 | Fecha | Acción | Evidencia / estado |
 |---|---|---|
+| 2026-11-01 | **Forja UX publicada, versión utilizable** | [PR #14 fusionada](https://github.com/naufragio-rolero/nd20-character-creator/pull/14) en `deac628f`; [publicación LIVE y verificación HTTP](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41328185657) **success**. URL https://naufragio-rolero.github.io/nd20-character-creator/. Inicio visible, botón flotante no solapa el pie/ayuda y popups fijados estables. PR #13 continúa separada, sin desplegar. |
 | 2026-11-01 | Revisión visual real de UX móvil de Forja | Capturas de GitHub Actions analizadas: «Empezar» bajo el pliegue y flotante que cubría texto tras abrir Menú; tarjeta de primer paso ahora visible sin scroll en 390×844 y CTA oculto mientras se lee la ayuda. [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), PR #14 en borrador y separada de PR #13. |
 | 2026-11-01 | Feedback de usabilidad: primer uso y pie de página | [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), [PR #14](https://github.com/naufragio-rolero/nd20-character-creator/pull/14). CTA flotante contextual, guía inicial, salida visible en móvil y pruebas; rama independiente de PR #13. Aún sin fusión/despliegue. |
 | 2026-10-28 | Auditoría inicial del repositorio | Finalizada; sin cambios de código. |
