@@ -213,6 +213,50 @@
     equipo(eq.focos_conjuros_con_precio,"nd20","mo",
       "NaufragioD20DRS.docx · Equipo · Focos de conjuros",
       "foco","Focos de conjuros");
+    // Tablas DRS documentadas que no forman parte del catálogo de compra.
+    // No copiar propiedades de objetos parecidos a un componente de paquete.
+    var consultaDRS=fuentes.equipoConsultaDRS||{};
+    (consultaDRS.tablas||[]).forEach(function(tabla){
+      equipo((tabla.registros||[]).map(function(x){
+        return Object.assign({},x,{detalle:x.detalle_literal});
+      }),"nd20","mo","NaufragioD20DRS.docx · Tabla "+
+        tabla.tabla_word+" · "+tabla.categoria,
+        "comun",tabla.categoria);
+    });
+    (consultaDRS.componentes_exclusivos_paquete||[]).forEach(function(comp){
+      var paquetes=(eq.paquetes||[]).filter(function(p){
+        return p.contenido.split(";").some(function(t){
+          return normalizar(t)===normalizar(comp.inventario);
+        });
+      });
+      if(!paquetes.length)
+        throw Error("Componente no encontrado en los paquetes DRS: "+comp.inventario);
+      anotar(comp.nombre,"Equipo","nd20",
+        "NaufragioD20DRS.docx · Paquetes de equipo",{
+          grupo:"equipo",clase_equipo:"componente_paquete",
+          categoria_equipo:"Componente de paquete",
+          descripcion:"",datos:comp.du?[["Dado de Uso","DU "+comp.du]]:[],
+          tecnicos_equipo:[["Paquetes",paquetes.map(function(x){
+            return x.nombre;
+          }).join(", ")]],
+          fuente_descripcion:"NaufragioD20DRS.docx · Paquetes de equipo"
+        });
+    });
+    (consultaDRS.equivalencias_explicitas_paquetes||[]).forEach(function(a){
+      var enPaquetes=(eq.paquetes||[]).some(function(p){
+        return p.contenido.split(";").some(function(t){
+          return normalizar(t)===normalizar(a.inventario);
+        });
+      });
+      var destino=(mapa.get(normalizar(a.articulo))||[]).filter(function(x){
+        return x.grupo==="equipo"&&x.sistema==="nd20"&&
+          x.clase_equipo!=="narrativo"&&x.clase_equipo!=="magico";
+      });
+      var clave=normalizar(limpiar(a.inventario));
+      if(!enPaquetes||destino.length!==1||mapa.has(clave))
+        throw Error("Equivalencia DRS ambigua o sin respaldo: "+a.inventario);
+      mapa.set(clave,[destino[0]]);
+    });
     ["armas","municion","protecciones","ddp","utiles"].forEach(function(k){
       equipo((eq.cifi||{})[k],"nd20_cifi","cr",
         "NaufragioD20CiFi.docx · Equipo · "+k,"comun",k);
