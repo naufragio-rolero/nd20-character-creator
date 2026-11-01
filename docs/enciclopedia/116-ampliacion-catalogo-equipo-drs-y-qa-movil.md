@@ -56,7 +56,12 @@ El DRS presenta **«Protección corporal —» Precio x4»** y un asterisco **«
 - Cotejo de tablas fuente completas: **4 + 8 + 6 + 5 + 4 = 27** registros de consulta y **3 categorías de servicios excluidos**.
 - Tests automáticos: `tests/equipo-popups.js` (llamado desde `tests/alcance-drs.js`), guardia de publicación y pruebas de distribución física; Playwright con controles en Chrome, Firefox y WebKit.
 - Las capturas de móvil generadas por CI son **evidencia automatizada**, no prueba de revisión ocular independiente. Se mantiene pendiente la aceptación editorial de estética visual y textos, sin declarar desplegada la web.
-- **Resultados definitivos de la última revisión**: registrar los cuatro enlaces de Actions cuando hayan concluido todos. No asumir verde por ejecución parcial.
+- **QA definitivo en el commit `274aa738`**: las cuatro suites han concluido satisfactoriamente, después de corregir dos expectativas de versión 2→3 en tests documentales (no fueron errores de reglas ni del catálogo).
+  - [Validación general, Equipo y Conjuros — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41316782397).
+  - [Compras DRS Chrome — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41316782403).
+  - [Firefox/WebKit, popup móvil a 390 × 844 y capturas — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41316782383).
+  - [Paquete público DRS, guardia y E2E multibrowser — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41316782436).
+- Las pruebas móviles confirman geometría, texto accesible por scroll, fuente, Escape y `aria-expanded`. **No se ha realizado inspección ocular de las capturas por esta vía**; la revisión estética editorial y el despliegue siguen pendientes.
 
 ## 6. Próximo paso
 
