@@ -67,12 +67,16 @@ if(consultaDRS){
   const canon=JSON.parse(fs.readFileSync(
     path.join(__dirname,'..','data','equipo-consulta-drs.json'),'utf8'));
   const entradas=(consultaDRS.tablas||[]).flatMap(x=>x.registros||[]);
-  afirmar(entradas.length!==10||
+  afirmar(entradas.length!==22||
+    (consultaDRS.monturas?.registros||[]).length!==6||
+    (consultaDRS.equipo_para_monturas?.registros||[]).length!==5||
+    (consultaDRS.transportes?.registros||[]).length!==4||
+    (consultaDRS.servicios_excluidos_del_equipo||[]).length!==3||
     (consultaDRS.equivalencias_explicitas_paquetes||[]).length!==5||
     (consultaDRS.objetos_comunes_sin_precio||[]).length!==5||
     consultaDRS.objetos_comunes_sin_precio.some(x=>
       !x.descripcion_editorial||!x.origen_descripcion),
-    'El índice de consulta DRS no conserva 10 entradas, cinco equivalencias y cinco útiles comunes con descripciones editoriales.');
+    'Consulta DRS incompleta: 22 útiles/ropa/iluminación, 6 animales, 5 enseres, 4 vehículos, 3 clases de servicios separados y 5 objetos editoriales.');
   afirmar(JSON.stringify(consultaDRS)!==JSON.stringify(canon),
     'El catálogo de consulta de Equipo DRS publicado difiere de la fuente auditada.');
 }
