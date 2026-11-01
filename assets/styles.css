@@ -22,6 +22,14 @@ h1{font-family:Georgia,serif;font-size:clamp(2.3rem,5vw,4.2rem);letter-spacing:-
 .disposicion{max-width:1550px;margin:auto;padding:2rem 2.4rem 4rem;display:grid;grid-template-columns:minmax(275px,340px) minmax(0,1fr);gap:2rem;align-items:start}
 .panel{position:sticky;top:1.5rem;background:linear-gradient(170deg,var(--superficie),#112632);border:1px solid var(--borde);padding:1.5rem;border-radius:12px;box-shadow:0 14px 35px #040f1880}
 .panel h2{font-family:Georgia,serif;font-size:1.5rem;font-weight:500;margin-bottom:1.5rem}
+/* Inicio guiado: visible sin obligar a recorrer todos los ajustes. */
+.inicio-rapido{padding:1rem 1.05rem;margin:.5rem 0 1.35rem;
+  border:1px solid #63808a;border-left:4px solid var(--oro2);
+  border-radius:9px;background:var(--superficie2)}
+.inicio-rapido h3{font:600 1.1rem Georgia,serif;color:var(--oro);margin:0 0 .55rem}
+.inicio-rapido p{font-size:.84rem;line-height:1.55;margin:0 0 .55rem}
+.inicio-rapido p:last-child{margin-bottom:0}
+.inicio-rapido strong{color:#fff0c8}
 .campo{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
 .campo>label{font-size:.88rem;font-weight:700;color:var(--texto)}
 /* Forja 1.2: acceso compacto y rejilla modal sin iconos gigantes. */
@@ -83,6 +91,8 @@ select.selector-alternativo{position:absolute;width:1px;height:1px;
 .generar-flotante:hover:not(:disabled){background:#ffe3a5;color:#091923}
 .generar-flotante:disabled{opacity:.65}
 .generar-flotante[hidden]{display:none!important}
+/* Se oculta antes de entrar en el pie; nunca lo tapa. */
+.generar-flotante:not([hidden]){max-width:calc(100vw - 2rem)}
 @media(max-width:830px){
   .generar-flotante{left:max(1rem,env(safe-area-inset-left));
     right:max(1rem,env(safe-area-inset-right));bottom:max(.75rem,env(safe-area-inset-bottom));
@@ -120,6 +130,7 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 .fichas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
 .vacio{grid-column:1/-1;min-height:390px;border:1px dashed #56717c;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:#10222a77;padding:2rem}
 .vacio>p:not(.muted){font:1.5rem Georgia,serif;margin:.7rem 0}
+.vacio .muted{max-width:44ch;line-height:1.65}
 .emblema{font-size:3rem;color:var(--oro)}
 .tarjeta{background:#f0ebdf;color:#15262d;border-radius:10px;overflow:hidden;box-shadow:0 8px 27px #020b1570;display:flex;flex-direction:column;min-width:0}
 .cabecera-ficha{display:flex;gap:1rem;justify-content:space-between;align-items:start;padding:1.1rem 1.2rem;background:#d6cfbc;border-bottom:1px solid #bbb09c}
