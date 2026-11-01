@@ -28,14 +28,14 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener únicamente la versión 1.3.1 validada
+      - name: Obtener únicamente la versión 1.5 validada
         uses: actions/checkout@v4
         with:
-          ref: 1314ef3ec058432a1612f0cfaad08873934fe088
+          ref: 8dea3c9fd53c04c9739022968b551608a3276752
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "1314ef3ec058432a1612f0cfaad08873934fe088"
+          test "$(git rev-parse HEAD)" = "8dea3c9fd53c04c9739022968b551608a3276752"
       - name: Preparar Node
         uses: actions/setup-node@v4
         with:
@@ -74,7 +74,7 @@ jobs:
         run: |
           set -euo pipefail
           test -n "$PAGE_URL"
-          echo "Comprobando que Pages sirve la versión 1.3.1 depurada"
+          echo "Comprobando que Pages sirve la versión 1.5 depurada"
           correcto=false
           for intento in $(seq 1 16); do
             if curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-live.html &&
