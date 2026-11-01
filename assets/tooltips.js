@@ -139,7 +139,7 @@
     // 10 Técnicas de batalla: sus efectos literales están en el DRS,
     // no en la tabla nominal que alimenta las elecciones del generador.
     var tecnicas=fuentes.tecnicasDRS?.registros||[];
-    if(tecnicas.length!==10)throw Error("Se requieren exactamente 10 Técnicas DRS literales");
+    if(fuentes.tecnicasDRS&&tecnicas.length!==10)throw Error("Se requieren exactamente 10 Técnicas DRS literales");
     tecnicas.forEach(function(ficha){
       var destino=(mapa.get(normalizar(ficha.nombre))||[]).find(function(x){
         return x.tipo==="Técnica"&&x.sistema==="nd20"&&x.fuente==="Naufragio d20 DRS";
@@ -151,7 +151,7 @@
     });
     // Glosas del equipo solo amplían la descripción, no sus reglas.
     var glosasEquipo=fuentes.glosasEquipoDRS?.registros||[];
-    if(glosasEquipo.length!==111)throw Error("Catálogo de glosas de Equipo DRS incompleto");
+    if(fuentes.glosasEquipoDRS&&glosasEquipo.length!==111)throw Error("Catálogo de glosas de Equipo DRS incompleto");
     glosasEquipo.forEach(function(g){
       var destino=(mapa.get(normalizar(g.nombre))||[]).find(function(x){
         return x.grupo==="equipo"&&x.sistema==="nd20"&&
@@ -255,7 +255,7 @@
     // Glosas de lectura rápida y clasificación de uso: IDs, propietarios y
     // nombres deben coincidir. El DRS no etiqueta los Talentos de Especie.
     var glosasTalentos=fuentes.glosasTalentosDRS?.registros||[];
-    if(glosasTalentos.length!==24)throw Error("Se requieren 24 glosas DRS");
+    if(fuentes.glosasTalentosDRS&&glosasTalentos.length!==24)throw Error("Se requieren 24 glosas DRS");
     glosasTalentos.forEach(function(g){
       var x=(porId.get(g.id_talento)||[]).find(function(e){
         return e.talento_drs_publico&&e.nombre===g.nombre&&
