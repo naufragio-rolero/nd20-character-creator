@@ -15,6 +15,10 @@
       .replace(/\s+·\s+[^\n]+$/,"")
       .replace(/\s+\((?:Diletante;|recuerdo personal;|arma filosofal;|Armamento filosofal;|inicial;)[^)]+\)/g,"")
       .replace(/\s+\(DU\s*d\d+\)/g,"")
+      .replace(/\s+\(Nivel\s+\d+\)/gi,"")
+      .replace(/\s+×\d+$/,"")
+      .replace(/^Recuerdo:\s*/i,"")
+      .replace(/^Objeto mágico:\s*/i,"")
       .replace(/^Estilo de gladiatoria:\s*/i,"")
       .replace(/^Paquete\s+([^:]+):.*$/i,"$1")
       .replace(/^Paquete\s+/i,"").trim();
@@ -51,8 +55,11 @@
             {grupo:"talento",descripcion:obj.talentos_descripcion?.[n]||""});
         });
         (obj.objetos_emocionales||[]).forEach(function(n){
-          anotar(n,"Objeto",sistema,"Objeto emocional de "+par[0],{grupo:"equipo",
-            datos:[["Procedencia","Recuerdo de Especie"]]});
+          anotar(n,"Recuerdo personal",sistema,"Especie: "+par[0],{
+            grupo:"equipo",clase_equipo:"narrativo",
+            categoria_equipo:"Recuerdo de Especie",descripcion:"",
+            fuente_descripcion:"data/especies.json · Recuerdos de "+par[0]
+          });
         });
       });
     }
@@ -91,16 +98,75 @@
           }))||x.fuente==="Naufragio d20 DRS"});
       });
     }
-    function equipo(lista,sistema,moneda,fuente,tipo){
+    // Datos DRS de consulta: la compra y el inventario permanecen intactos.
+    // No convertir una Competencia de Ocupación en requisito de un artículo.
+    function equipo(lista,sistema,moneda,fuente,clase,categoria){
       (lista||[]).forEach(function(x){
-        var detalles=[];
-        if(Number.isFinite(Number(x.precio)))detalles.push(["Precio",x.precio+" "+moneda]);
-        if(x.tipo||x.categoria)detalles.push(["Categoría",x.tipo||x.categoria]);
-        if(x.du)detalles.push(["Dado de Uso","DU "+x.du]);
-        if(x.municion)detalles.push(["Munición",x.municion]);
-        if(x.contenido)detalles.push(["Contenido",x.contenido]);
-        anotar(x.nombre,tipo||"Objeto",sistema,fuente,{datos:detalles,
-          descripcion:x.descripcion||"",grupo:"equipo"});
+        var datos=[];
+        function campo(etiqueta,valor){
+          if(valor!==undefined&&valor!==null&&valor!=="")
+            datos.push([etiqueta,String(valor)]);
+        }
+        if(x.precio!==undefined&&x.precio!==null)
+          campo("Precio",x.precio+" "+moneda);
+        if(x.precio_por_nivel!==undefined)
+          campo("Precio",x.precio_por_nivel+" "+moneda+" × Nivel");
+        campo("Daño",x.dano);
+        campo("Penetración",x.penetracion);
+        campo("Blindaje",x.blindaje);
+        campo("Alcance",x.alcance);
+        campo("Durabilidad",x.durabilidad);
+        if(x.du)campo("Dado de Uso","DU "+x.du);
+        campo("Munición",x.municion);
+        if(x.municion_du)campo("DU de munición","DU "+x.municion_du);
+        campo("Proyectiles por Turno",x.proyectiles_por_turno);
+        if(x.no_mover_y_disparar)campo("Restricción","No moverse y disparar");
+        if(x.escuelas?.length)campo("Escuelas",x.escuelas.join(", "));
+        campo("Requisito",x.requisito);
+        if(x.contenido)campo("Contenido",x.contenido);
+        var tecnicos=[];
+        if(x.id)tecnicos.push(["Identificador DRS",x.id]);
+        if(x.nombre_original_drs)
+          tecnicos.push(["Nombre en el DRS",x.nombre_original_drs]);
+        if(x.nombre==="Dardo"&&sistema==="nd20"&&clase==="arma")
+          tecnicos.push(["Precio 0 mo","Decisión autoral 31/10/2026; no precio literal del DRS"]);
+        anotar(x.nombre,clase==="magico"?"Objeto mágico":
+          clase==="arma"?"Arma":clase==="proteccion"?"Protección":
+          clase==="escudo"?"Escudo":clase==="municion"?"Munición":
+          clase==="foco"?"Foco de conjuros":clase==="paquete"?"Paquete":
+          "Equipo",sistema,fuente,{
+            id:x.id||null,grupo:"equipo",clase_equipo:clase,
+            categoria_equipo:categoria||x.tipo||x.categoria||"",
+            datos:datos,tecnicos_equipo:tecnicos,
+            precio_por_nivel:x.precio_por_nivel,
+            descripcion:x.descripcion||x.detalle||"",
+            fuente_descripcion:fuente
+          });
+      });
+    }
+    // Las fichas mágicas proceden de extracciones literales 65a–65e.
+    // Inyectarlas NO las publica: app.js no carga estos borradores.
+    function indexarObjetosMagicos(documentos){
+      (documentos||[]).forEach(function(doc){
+        function agregar(ficha,ejemplo){
+          if(!ficha||!ficha.nombre||!Array.isArray(ficha.texto_original))return;
+          var tipo=String(ficha.tipo_literal||"").replace(/^Tipo:\s*/,"");
+          var rareza=String(ficha.rareza_literal||"").replace(/^Rareza:\s*/,"");
+          var texto=ejemplo&&ficha.correccion_editorial_aprobada?.efecto_vigente_literal||
+            ficha.texto_original.join("\n\n").trim();
+          anotar(ficha.nombre,"Objeto mágico","nd20",
+            "NaufragioD20 — Objetos mágicos.docx · "+(ejemplo?"Ejemplo de apéndice":doc.seccion),{
+              grupo:"equipo",clase_equipo:"magico",categoria_equipo:tipo,
+              rareza_equipo:rareza,descripcion:texto,datos:[],
+              tecnicos_equipo:[["Párrafos de la fuente",
+                (ficha.parrafos_fuente||[]).join("–")],
+                ...(ejemplo?[["Naturaleza","Ejemplo del apéndice; no forma parte de los 28 objetos principales"]]:[])],
+              fuente_descripcion:"NaufragioD20 — Objetos mágicos.docx · "+
+                (ejemplo?"Ejemplo del apéndice":doc.seccion)
+            });
+        }
+        (doc.registros||[]).forEach(function(f){agregar(f,false);});
+        if(doc.ejemplo_apendice)agregar(doc.ejemplo_apendice,true);
       });
     }
     especies(fuentes.fantasia?.especies,"nd20");
@@ -128,12 +194,25 @@
       if(Array.isArray(items))elementos(items,par[0].replace(/_/g," "),"nd20");
     });
     var eq=fuentes.equipo||{};
-    ["armas","municion","armaduras","escudos","paquetes"].forEach(function(k){
-      equipo(eq[k],"nd20","mo","Naufragio d20 DRS",k==="paquetes"?"Paquete":"Objeto");
+    [["armas","arma","Armas"],["municion","municion","Munición"],
+      ["armaduras","proteccion","Armaduras"],["escudos","escudo","Escudos"],
+      ["varitas_defensa","arma","Varitas de defensa"],
+      ["paquetes","paquete","Paquetes"]].forEach(function(p){
+      equipo(eq[p[0]],"nd20","mo","NaufragioD20DRS.docx · Equipo · "+p[2],
+        p[1],p[2]);
     });
+    Object.entries(eq.utiles_fantasia||{}).forEach(function(par){
+      equipo(par[1],"nd20","mo","NaufragioD20DRS.docx · Equipo · "+
+        par[0],"util","Útiles · "+par[0]);
+    });
+    equipo(eq.focos_conjuros_con_precio,"nd20","mo",
+      "NaufragioD20DRS.docx · Equipo · Focos de conjuros",
+      "foco","Focos de conjuros");
     ["armas","municion","protecciones","ddp","utiles"].forEach(function(k){
-      equipo((eq.cifi||{})[k],"nd20_cifi","cr","Naufragio d20 CiFi");
+      equipo((eq.cifi||{})[k],"nd20_cifi","cr",
+        "NaufragioD20CiFi.docx · Equipo · "+k,"comun",k);
     });
+    indexarObjetosMagicos(fuentes.objetosMagicos);
     Object.entries(eq.obsequios_cifi||{}).forEach(function(par){
       (par[1].opciones||[]).forEach(function(n){
         anotar(n,"Objeto","nd20_cifi",par[1].fuente,
@@ -305,6 +384,38 @@
       primarios:primarios,tecnicos:tecnicos,origen:origen,
       fuente:info.fuente_descripcion||info.fuente};
   }
+  // Presentación de consulta, sin inferencias de Competencia ni uso automático.
+  function presentarEquipo(info,nombreInventario){
+    if(!info||info.grupo!=="equipo")return null;
+    var clase=info.clase_equipo||"comun";
+    var esRecuerdo=clase==="narrativo";
+    var tipo=esRecuerdo?"Recuerdo personal":clase==="magico"?"Objeto mágico":
+      info.tipo||"Equipo";
+    var principales=(info.datos||[]).filter(function(p){
+      return !["Contenido"].includes(p[0]);
+    }).map(function(p){return [String(p[0]),String(p[1])];});
+    var nivel=String(nombreInventario||"").match(/\(Nivel\s+(\d+)\)/i);
+    if(nivel&&info.precio_por_nivel!==undefined&&Number(nivel[1])>=1){
+      principales=principales.map(function(p){
+        return p[0]==="Precio"?["Precio",
+          (Number(info.precio_por_nivel)*Number(nivel[1]))+" mo (Nivel "+nivel[1]+")"]:p;
+      });
+    }
+    var tecnicos=(info.tecnicos_equipo||[]).concat(
+      (info.datos||[]).filter(function(p){return p[0]==="Contenido";}));
+    var categoria=esRecuerdo?"Recuerdo de Especie":
+      [info.categoria_equipo,info.rareza_equipo].filter(Boolean).join(" · ");
+    return {tipo:tipo,nombre:info.nombre,clasificacion:categoria,
+      primarios:esRecuerdo?[]:principales,
+      tecnicos:esRecuerdo?[]:tecnicos,
+      origen:esRecuerdo?"Personaje · Recuerdo personal":
+        info.sistema==="nd20"?(clase==="magico"?
+          "Naufragio d20 · Objetos mágicos (borrador no publicado)":
+          "Naufragio d20 DRS"):
+        info.sistema==="nd20_cifi"?"Naufragio d20 CiFi":
+        info.sistema||"No documentado",
+      fuente:info.fuente_descripcion||info.fuente};
+  }
   function buscar(ind,nombre,grupo,sistema,fuentePreferida){
     if(!ind||!nombre)return null;
     var circulo=(String(nombre).match(/\(C([1-8])\)/)||[])[1];
@@ -316,6 +427,13 @@
     if(fuentePreferida){
       // Una procedencia explícita nunca se resuelve con otro homónimo.
       lista=lista.filter(function(x){return x.fuente===fuentePreferida;});
+    }
+    if(grupo==="equipo"){
+      var esRecuerdo=/^Recuerdo:\s*/i.test(String(nombre));
+      var esMagico=/^Objeto mágico:\s*/i.test(String(nombre));
+      if(esRecuerdo)lista=lista.filter(function(x){return x.clase_equipo==="narrativo";});
+      else if(esMagico)lista=lista.filter(function(x){return x.clase_equipo==="magico";});
+      else lista=lista.filter(function(x){return x.clase_equipo!=="narrativo";});
     }
     if(!lista.length)return null;
     var tipo=grupo==="talento"?"talento":grupo==="equipo"?"equipo":"poder";
@@ -331,6 +449,8 @@
       // El precio y estadísticas del catálogo oficial prevalecen sobre
       // los simples nombres heredados de la lista de Ocupación.
       if(tipo==="equipo"&&x.datos.some(function(d){return d[0]==="Precio";}))n+=8;
+      if(tipo==="equipo"&&x.clase_equipo==="magico")n+=4;
+      if(tipo==="equipo"&&x.clase_equipo==="narrativo")n-=15;
       if(tipo==="equipo"&&/^Equipo de Ocupación:/.test(x.fuente))n-=4;
       return n;
     }
@@ -349,5 +469,6 @@
   }
   return {indice:indice,buscar:buscar,buscarPorId:buscarPorId,
     presentarPoder:presentarPoder,presentarTalento:presentarTalento,
+    presentarEquipo:presentarEquipo,
     limpiar:limpiar,normalizar:normalizar};
 });
