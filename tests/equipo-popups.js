@@ -151,7 +151,7 @@ assert.equal(resultantes.filter(f=>!!f.descripcion).length,44,
 const comunes=consultaDRS.objetos_comunes_sin_precio;
 assert.equal(comunes.length,5);
 assert.equal(new Set(comunes.map(x=>x.nombre)).size,5);
-assert.equal(consultaDRS.version,3);
+assert.equal(consultaDRS.version,4);
 for(const item of comunes){
   const encontrado=ficha(item.nombre);
   assert.ok(encontrado,'Útil corriente sin ficha: '+item.nombre);
