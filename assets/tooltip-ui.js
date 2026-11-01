@@ -244,8 +244,10 @@
     escuchando=true;
     document.addEventListener("pointerover",function(e){
       var a=getTarget(e);
-      if(a&&e.pointerType==="mouse"&&!(a.contains(e.relatedTarget))&&
-         !(a===ancla&&fija))mostrar(a,false);
+      // Una ficha fijada por clic o teclado no puede ser sustituida
+      // accidentalmente por hover de otra referencia.
+      if(a&&e.pointerType==="mouse"&&!fija&&!a.contains(e.relatedTarget))
+        mostrar(a,false);
     });
     document.addEventListener("pointerout",function(e){
       var a=getTarget(e);
