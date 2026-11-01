@@ -73,6 +73,9 @@ if(consultaDRS){
     (consultaDRS.transportes?.registros||[]).length!==4||
     (consultaDRS.servicios_excluidos_del_equipo||[]).length!==3||
     (consultaDRS.equivalencias_explicitas_paquetes||[]).length!==5||
+    consultaDRS.version!==4||
+    consultaDRS.equipo_para_monturas?.registros?.find(x=>
+      x.nombre==='Armadura equina')?.regla_precio_autoral?.multiplicador!==4||
     (consultaDRS.objetos_comunes_sin_precio||[]).length!==5||
     consultaDRS.objetos_comunes_sin_precio.some(x=>
       !x.descripcion_editorial||!x.origen_descripcion),
