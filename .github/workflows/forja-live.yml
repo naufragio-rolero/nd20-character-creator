@@ -72,7 +72,7 @@ jobs:
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
         shell: bash
         run: |
-          set -euo pipefail
+          set -euxo pipefail
           test -n "$PAGE_URL"
           echo "Comprobando que Pages sirve la consulta DRS compacta desde SHA fijado"
           correcto=false
