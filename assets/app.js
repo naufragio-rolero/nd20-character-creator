@@ -1111,6 +1111,9 @@
       equipoInicial:'data/equipo-inicial.json',
       fichasDocumentales:'data/fichas-documentales.json',
       talentosDRS:'data/talentos-drs-literales.json',
+      tecnicasDRS:'data/tecnicas-drs-literales.json',
+      glosasTalentosDRS:'data/glosas-talentos-drs.json',
+      glosasEquipoDRS:'data/glosas-equipo-drs.json',
       aclaracionesTalentosDRS:'data/aclaraciones-talentos-drs.json',
       dungeon:'data/dungeon-hack.json'
     };
@@ -1179,6 +1182,9 @@
         alcanceDRS:datos.alcanceDRS,
         descripciones:loaded.fichasDocumentales,
         talentosDRS:loaded.talentosDRS,
+        tecnicasDRS:loaded.tecnicasDRS,
+        glosasTalentosDRS:loaded.glosasTalentosDRS,
+        glosasEquipoDRS:loaded.glosasEquipoDRS,
         aclaracionesTalentosDRS:loaded.aclaracionesTalentosDRS,
         conjurosRevisados:loaded.conjurosUno.conjuros.concat(loaded.conjurosDos.conjuros),
         magnitudes:loaded.magnitudes,
