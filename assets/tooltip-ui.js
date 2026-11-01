@@ -133,7 +133,9 @@
       root.NaufragioTooltipIndex?.presentarPoder?.(info):null;
     var talento=elemento.dataset.glosaGrupo==="talento"?
       root.NaufragioTooltipIndex?.presentarTalento?.(info):null;
-    var presentacion=poder||talento;
+    var objeto=elemento.dataset.glosaGrupo==="equipo"?
+      root.NaufragioTooltipIndex?.presentarEquipo?.(info):null;
+    var presentacion=poder||talento||objeto;
     c.dataset.talentoDrs=String(!!talento);
     var tecnicos=document.createElement('div');
     tecnicos.className='info-avanzada';
@@ -142,13 +144,48 @@
     var marca=document.createElement("p");marca.className="info-tipo";
     marca.textContent=presentacion?.tipo||info.tipo||"Ficha";
     cabecera.appendChild(marca);
-    if(talento&&talento.categoria){
+    var categoriaVisible=talento?.categoria||objeto?.categoria;
+    if(categoriaVisible){
       var categoria=document.createElement('span');
-      categoria.className='info-categoria info-categoria-'+talento.categoria
-        .toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-      categoria.textContent=talento.categoria;
-      categoria.setAttribute('aria-label','Categoría: '+talento.categoria);
+      var estilo=talento?'info-categoria-'+talento.categoria
+        .toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,''):
+        'info-categoria-objeto info-categoria-objeto-'+String(objeto.familia||'otro')
+          .toLocaleLowerCase('es').normalize('NFD')
+          .replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9-]+/g,'-');
+      categoria.className='info-categoria '+estilo;
+      categoria.textContent=categoriaVisible;
+      categoria.setAttribute('aria-label','Categoría: '+categoriaVisible);
       cabecera.appendChild(categoria);
+    }
+    // Escuelas mágicas DRS: identificadas por su nombre, nunca solo por color.
+    if(poder&&poder.escuelas&&poder.escuelas.length){
+      var escuelas=document.createElement('div');
+      escuelas.className='info-escuelas';escuelas.setAttribute('aria-label','Escuelas de magia');
+      poder.escuelas.forEach(function(nombre){
+        var pill=document.createElement('span');
+        pill.className='info-categoria info-escuela info-escuela-'+nombre
+          .toLocaleLowerCase('es').normalize('NFD')
+          .replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9-]+/g,'-');
+        pill.textContent=nombre;pill.setAttribute('aria-label','Escuela: '+nombre);
+        escuelas.appendChild(pill);
+      });
+      cabecera.appendChild(escuelas);
+    }
+    // Representación visual del Círculo: número romano en un anillo,
+    // sin alterar el número declarado por el catálogo.
+    if(poder&&poder.circulo){
+      var anillo=document.createElement('span');
+      anillo.className='info-circulo';
+      anillo.setAttribute('aria-label','Círculo '+poder.circulo);
+      var romano=document.createElement('span');
+      romano.className='info-circulo-valor';
+      romano.textContent=['I','II','III','IV','V','VI','VII','VIII'][poder.circulo-1];
+      romano.setAttribute('aria-hidden','true');
+      var rotulo=document.createElement('span');
+      rotulo.className='info-circulo-rotulo';rotulo.textContent='Círculo';
+      rotulo.setAttribute('aria-hidden','true');
+      anillo.append(romano,rotulo);
+      cabecera.appendChild(anillo);
     }
     if(presentacion&&presentacion.clasificacion){
       var clase=document.createElement('p');
@@ -194,12 +231,6 @@
     d.textContent=info.descripcion||
       "No consta una descripción en la fuente seleccionada.";
     c.appendChild(d);
-    if(!talento&&info.procedencia_glosa){
-      var fuenteGlosa=document.createElement('p');
-      fuenteGlosa.className='info-origen-glosa';
-      fuenteGlosa.textContent='Descripción: '+info.procedencia_glosa;
-      c.appendChild(fuenteGlosa);
-    }
     // Aclaraciones aprobadas: solo en Opciones avanzadas → Detalles técnicos.
     // No forman parte de la descripción DRS ni introducen efectos nuevos.
     if(talento&&talento.aclaracion){
