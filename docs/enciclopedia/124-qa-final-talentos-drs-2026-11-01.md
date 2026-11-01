@@ -21,7 +21,7 @@
 
 Las primeras ejecuciones fallaron intermitentemente en WebKit al cambiar de un Talento abierto por clic a otro enlace mediante hover. El origen probable fue el `focusin` de puntero que centraba un diálogo durante `pointerdown`, antes del `click`. Se corrigió preservando el estado del diálogo fijado frente a eventos de hover tardíos y separando la ruta de pulsación de la ruta de teclado: **pointerdown → click fija; Tab → focusin fija**. Se añadió una aserción de visibilidad del diálogo antes de simular hover sobre otra referencia. La ejecución definitiva, sobre commit `affe9444`, superó ambas suites WebKit independientes.
 
-## Griterios para promoción (todavía pendientes)
+## Criterios para promoción (todavía pendientes)
 
 1. Mantener la PR #17 como candidato aislado y revisar la distinción documental: DRS original, clasificación Excel, aclaraciones aprobadas y propuestas **aún no ratificadas para editar el DRS**.
 2. Las clasificaciones de los 15 Talentos de Especie se muestran como provenientes del Excel y **no** como etiquetas formales ya presentes en el DRS.
