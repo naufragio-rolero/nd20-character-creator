@@ -1,6 +1,6 @@
 # Enciclopedia de Talentos, Poderes y Objetos — Plan de trabajo
 
-> **Estado vigente (01/11/2026):** Forja **DRS pública y utilizable** en https://naufragio-rolero.github.io/nd20-character-creator/, con las dos aclaraciones autorales de la edición 1.5 ([informe 112](112-forja-aclaraciones-autoriales.md)) y las **mejoras UX de la PR #14 ya fusionadas y desplegadas** ([informe 118](118-forja-ux-primer-uso-boton-flotante.md); [LIVE 41328185657](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41328185657), success). **La PR #13 de enciclopedia DRS permanece abierta, en borrador y no publicada.** La preclasificación documental de Talentos 1.4 no introduce reglas nuevas.
+> **Estado vigente (01/11/2026):** Forja **DRS pública y utilizable** en https://naufragio-rolero.github.io/nd20-character-creator/, con las dos aclaraciones autorales de la edición 1.5 ([informe 112](112-forja-aclaraciones-autoriales.md)) y las **mejoras UX de la PR #14 ya fusionadas y desplegadas** ([informe 118](118-forja-ux-primer-uso-boton-flotante.md); [LIVE 41328185657](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41328185657), success). **La PR #15 (fichas y accesibilidad) está fusionada y publicada** ([LIVE 41334432188](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41334432188), success). **La PR #13 de enciclopedia DRS permanece abierta, en borrador y no publicada.** La preclasificación documental de Talentos 1.4 no introduce reglas nuevas.
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-11-01.  
@@ -11,7 +11,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 ## Revisión de fichas DRS y accesibilidad — PR #15 (01/11/2026)
 
-**Origen:** incidencias reales de uso y cinco capturas. [Informe 119](119-fichas-drs-completas-accesibilidad.md) · [PR #15](https://github.com/naufragio-rolero/nd20-character-creator/pull/15), rama aislada del DRS público, **sin fusionar ni desplegar**.
+**Origen:** incidencias reales de uso y cinco capturas. [Informe 119](119-fichas-drs-completas-accesibilidad.md) · [PR #15](https://github.com/naufragio-rolero/nd20-character-creator/pull/15) **fusionada**; [Forja LIVE](https://naufragio-rolero.github.io/nd20-character-creator/) **publicada y verificada**.
 
 - [x] Cotejar directamente las diez Técnicas básicas del DRS, párrafos 794–855: **10/10 efectos literales completos** y sin Técnicas de suplementos.
 - [x] Confirmar que los **15 Talentos de Especie** carecen de etiqueta literal independiente «Acción» o «Pasiva»; añadir **24/24 glosas editoriales** de uso y resumen sin alterar los efectos originales ni las aclaraciones autorales.
@@ -20,7 +20,8 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [x] Corregir la combinación de texto amarillo pálido sobre fondo claro en el tema Ébano.
 - [x] Limitar los tres catálogos nuevos al paquete público filtrado y proteger cobertura 10/24/111 mediante tests Node y E2E.
 - [x] **4/4 suites CI verdes** en SHA funcional `a80b9249`: validación general, Chrome, Firefox/WebKit y paquete DRS. [Evidencias y límites de capturas en informe 119](119-fichas-drs-completas-accesibilidad.md). Se probaron diálogo desplazable y contraste de Ébano en navegador.
-- [ ] Obtener aprobación editorial y fusionar exclusivamente la PR #15; fijar SHA validado en LIVE y verificar URL pública.
+- [x] Fusionar exclusivamente la PR #15, commit `9293efb8`, fijar SHA en el workflow LIVE y verificar sitio público: [Actions 41334432188](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41334432188) **success**, con controles HTTP de catálogos 10/24/111 y exclusión de suplementos.
+- [ ] Recoger validación de uso en el dispositivo real de la usuaria, distinta de la QA de navegadores.
 - [ ] Reconciliar cambios con la [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) si se amplía también el catálogo adicional de Equipo, conservando su estado separado.
 
 ## Corrección UX de primera visita y botón flotante — PR #14 (01/11/2026)
@@ -185,6 +186,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 | Fecha | Acción | Evidencia / estado |
 |---|---|---|
+| 2026-11-01 | **Forja DRS con fichas completas, nueva versión publicada** | [PR #15 fusionada](https://github.com/naufragio-rolero/nd20-character-creator/pull/15) en `9293efb8`; [LIVE 41334432188](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41334432188) **success**. Efectos de 10 Técnicas DRS, 24 Talentos explicativos y 111 Equipos descritos; lector fijado y Ébano corregidos. PR #13 sigue separada y sin desplegar. |
 | 2026-11-01 | Fichas DRS, Equipo y accesibilidad (nueva fase) | [Informe 119](119-fichas-drs-completas-accesibilidad.md), [PR #15](https://github.com/naufragio-rolero/nd20-character-creator/pull/15): 10 Técnicas literales, 24 Talentos explicativos, 15 clasificaciones de Especie y 111 artículos descritos; popup fijo desplazable y contraste Ébano. En QA, sin fusión ni despliegue. |
 | 2026-11-01 | **Forja UX publicada, versión utilizable** | [PR #14 fusionada](https://github.com/naufragio-rolero/nd20-character-creator/pull/14) en `deac628f`; [publicación LIVE y verificación HTTP](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41328185657) **success**. URL https://naufragio-rolero.github.io/nd20-character-creator/. Inicio visible, botón flotante no solapa el pie/ayuda y popups fijados estables. PR #13 continúa separada, sin desplegar. |
 | 2026-11-01 | Revisión visual real de UX móvil de Forja | Capturas de GitHub Actions analizadas: «Empezar» bajo el pliegue y flotante que cubría texto tras abrir Menú; tarjeta de primer paso ahora visible sin scroll en 390×844 y CTA oculto mientras se lee la ayuda. [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), PR #14 en borrador y separada de PR #13. |
