@@ -22,6 +22,11 @@ on:
       - 'tests/conjuros.js'
       - 'tests/alcance-drs.js'
       - 'tests/smoke.js'
+      - 'tests/talentos-drs.js'
+      - 'tests/fichas-drs-ux.js'
+      - 'tests/sincronizacion-talentos.js'
+      - 'data/glosas-talentos-drs.json'
+      - 'docs/enciclopedia/122a-matriz-talentos-drs-excel.json'
       - '.github/workflows/validar-conjuros.yml'
   workflow_dispatch:
 
@@ -42,5 +47,11 @@ jobs:
           node --check assets/spell-magnitudes.js
           node --check tests/conjuros.js
           node --check tests/alcance-drs.js
+          node --check tests/sincronizacion-talentos.js
+          node --check tests/fichas-drs-ux.js
       - name: Probar generador y los 434 Conjuros
-        run: node tests/smoke.js
+        run: |
+          node tests/smoke.js
+          node tests/talentos-drs.js
+          node tests/fichas-drs-ux.js
+          node tests/sincronizacion-talentos.js
