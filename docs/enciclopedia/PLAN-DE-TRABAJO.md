@@ -17,15 +17,19 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 **Auditoría de fuentes (confirmada, no implementación):** hoja Talentos de la lista: **143 entradas** (22 Nd20, 89 Bitácora, 29 Zelda, tres Exploración). En el núcleo DRS: **22 Talentos únicos / 24 asignaciones** (15 de Especie sin etiqueta formal autónoma en el original y nueve de Ocupación ya etiquetados). El Excel clasifica todos esos Talentos; ello **no autoriza reemplazar** efectos ni costes del DRS.
 
-**Plan de trabajo en cinco pasos; todos pendientes de ejecución:**
+**Plan de trabajo en cinco pasos; Fases 1–4 implementadas y validadas técnicamente en PR #17 de borrador. Fase 5 pendiente exclusivamente de promoción y verificación LIVE:**
 
-- [ ] **Fase 1 — Procedencia y sincronización:** cotejar los 22 Talentos Nd20/24 relaciones DRS, formalizar propuestas de las 15 etiquetas de Especie y registrar las discrepancias (*¡Sálvese quien pueda!*, *Corpulencia*, *Recuperación*), sin editar silenciosamente el manual.
-- [ ] **Fase 2 — Consulta inmediata:** recuperar hover, mantener clic para fijar, scroll, Escape, teclado y táctil sin popups que desaparezcan o cambien de referencia.
-- [ ] **Fase 3 — Ficha compacta y fiel:** una descripción DRS y una de las cinco categorías; eliminar los resúmenes y glosas redundantes; conservar fidelidad y contraste visual.
-- [ ] **Fase 4 — Aclaraciones autorales:** reservar las no integradas al DRS para **Opciones avanzadas → Detalles técnicos** y preparar nuevas redacciones del documento original para aprobación expresa.
-- [ ] **Fase 5 — QA y publicación controlada:** verificar 24/24 relaciones, 22/22 Talentos DRS, cinco categorías, procedencia, hover, lectura, contrastes, CI y paquete público sin suplementos; desplegar solo tras validación.
+- [x] **Fase 1 — Procedencia y sincronización:** cotejar los 22 Talentos Nd20/24 relaciones DRS, formalizar propuestas de las 15 etiquetas de Especie y registrar las discrepancias (*¡Sálvese quien pueda!*, *Corpulencia*, *Recuperación*), sin editar silenciosamente el manual.
+- [x] **Fase 2 — Consulta inmediata:** recuperar hover, mantener clic para fijar, scroll, Escape, teclado y táctil sin popups que desaparezcan o cambien de referencia.
+- [x] **Fase 3 — Ficha compacta y fiel:** una descripción DRS y una de las cinco categorías; eliminar los resúmenes y glosas redundantes; conservar fidelidad y contraste visual.
+- [x] **Fase 4 — Aclaraciones autorales:** reservar las no integradas al DRS para **Opciones avanzadas → Detalles técnicos** y preparar nuevas redacciones del documento original para aprobación expresa.
+- [ ] **Fase 5 — QA y publicación controlada (QA 4/4 completada; publicación pendiente):** verificar 24/24 relaciones, 22/22 Talentos DRS, cinco categorías, procedencia, hover, lectura, contrastes, CI y paquete público sin suplementos; desplegar solo tras validación.
 
 **Límites:** la Forja publicada y los 111 artículos de Equipo permanecen inalterados por esta documentación; los **121 Talentos de otros orígenes no se publican por estar en el Excel**. La [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) sigue independiente.
+
+### Seguimiento de ejecución posterior a PR #16 — 01/11/2026
+
+**Rama candidata:** `feat/fases-talentos-drs-2026-11-01`, sin fusión ni despliegue. **[Informe 122](122-sincronizacion-talentos-drs-excel.md) y [matriz 122a](122a-matriz-talentos-drs-excel.json)**: Fase 1 completada con 22/22 entradas del Excel, 24/24 asignaciones DRS, 15 propuestas de etiqueta de Especie, nueve categorías DRS formales y siete diferencias literales en seis entradas únicas. **[Informe 123](123-ejecucion-hover-categorias-aclaraciones.md)**: Fases 2–4 implementadas en candidato (hover, fijación, categoría oficial, descripción única, aclaraciones solo técnicas) y dos propuestas DRS pendientes. **Fase 5:** pruebas/CI y capturas completadas [informe 124](124-qa-final-talentos-drs-2026-11-01.md): cuatro suites verdes en commit `affe94444c289c9e43dd9be9c7d5fc241e9e1f52`, incluidos Chrome, Firefox, WebKit y paquete DRS candidato. **Promoción, revisión editorial de publicación y verificación LIVE pendientes.**
 
 ## Revisión de fichas DRS y accesibilidad — PR #15 (01/11/2026)
 

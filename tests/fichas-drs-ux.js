@@ -50,11 +50,25 @@ for(const x of glosas.registros){
   assert.ok(ficha,'Falta Talento '+x.id_talento);
   const presentacion=api.presentarTalento(ficha);
   assert.ok(presentacion,'Falta presentación '+x.nombre);
-  assert.equal(presentacion.uso_editorial,x.uso_editorial);
-  assert.equal(presentacion.resumen_editorial,x.resumen_editorial);
+  assert.equal(presentacion.categoria,x.categoria);
+  assert.equal(presentacion.fuente_categoria,x.fuente_categoria);
+  assert.ok(['Acción','Especial','Mejora','Pasiva','Reacción'].includes(x.categoria));
+  if(x.tipo_origen==='Especie'){
+    assert.equal(x.estado_categoria,'propuesta_para_edicion_DRS');
+  }else{
+    assert.equal(x.estado_categoria,'formal_original_DRS');
+  }
   assert.equal(ficha.descripcion,canon.registros.find(y=>y.id===x.id_talento).efecto_literal,
     'No cambiar el efecto literal de '+x.nombre);
 }
 assert.equal(api.presentarTalento(api.buscar(i,'Ira interna','talento','nd20',
-  'Especie: Orco común')).uso_editorial,'Activación condicionada');
-console.log('OK · 10 Técnicas DRS literales, 24 Talentos explicados (15 de Especie), 111 objetos descritos; efectos originales preservados.');
+  'Especie: Orco común')).categoria,'Reacción');
+assert.equal(api.presentarTalento(api.buscar(i,'Rapidez','talento','nd20',
+  'Especie: Elfo agreste')).categoria,'Mejora');
+assert.equal(api.presentarTalento(api.buscar(i,'Corpulencia','talento','nd20',
+  'Especie: Enano montañés')).categoria,'Mejora');
+assert.equal(api.presentarTalento(api.buscar(i,'Recuperación','talento','nd20',
+  'Ocupación: Guerrero')).categoria,'Pasiva');
+assert.equal(api.presentarTalento(api.buscar(i,'¡Sálvese quien pueda!','talento',
+  'nd20','Especie: Mediano amable')).categoria,'Reacción');
+console.log('OK · 10 Técnicas literales, 24 categorías oficiales trazables, 111 objetos descritos; efectos originales preservados.');

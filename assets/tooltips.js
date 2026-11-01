@@ -252,20 +252,29 @@
       if(!porId.has(ficha.id))porId.set(ficha.id,[]);
       porId.get(ficha.id).push(destino);
     });
-    // Glosas de lectura rápida y clasificación de uso: IDs, propietarios y
-    // nombres deben coincidir. El DRS no etiqueta los Talentos de Especie.
-    var glosasTalentos=fuentes.glosasTalentosDRS?.registros||[];
-    if(fuentes.glosasTalentosDRS&&glosasTalentos.length!==24)throw Error("Se requieren 24 glosas DRS");
-    glosasTalentos.forEach(function(g){
+    // Una categoría es un dato de clasificación, no una transcripción del efecto.
+    // Solo se acepta la taxonomía de cinco valores de la hoja de trabajo;
+    // los nueve Talentos de Ocupación deben coincidir con su etiqueta DRS.
+    var categorias=["Acción","Especial","Mejora","Pasiva","Reacción"];
+    var clasificaciones=fuentes.glosasTalentosDRS?.registros||[];
+    if(fuentes.glosasTalentosDRS&&clasificaciones.length!==24)
+      throw Error("Se requieren 24 clasificaciones DRS");
+    clasificaciones.forEach(function(g){
       var x=(porId.get(g.id_talento)||[]).find(function(e){
         return e.talento_drs_publico&&e.nombre===g.nombre&&
           e.procedencia_tipo===g.tipo_origen&&
           e.procedencia_nombre===g.propietario;
       });
-      if(!x||!g.resumen_editorial||!g.uso_editorial)
-        throw Error("Glosa de Talento sin relación DRS: "+g.id_talento);
-      x.resumen_editorial=g.resumen_editorial;
-      x.uso_editorial=g.uso_editorial;
+      if(!x||!categorias.includes(g.categoria)||!g.fuente_categoria)
+        throw Error("Clasificación DRS inválida o sin procedencia: "+g.id_talento);
+      var literal=(x.datos||[]).find(function(p){return p[0]==="Activación";});
+      if(x.procedencia_tipo==="Ocupación"&&(!literal||literal[1]!==g.categoria))
+        throw Error("Categoría de Ocupación contradice el DRS: "+g.id_talento);
+      if(x.procedencia_tipo==="Especie"&&g.estado_categoria!=="propuesta_para_edicion_DRS")
+        throw Error("No atribuir al DRS una etiqueta de Especie: "+g.id_talento);
+      x.categoria_talento=g.categoria;
+      x.fuente_categoria=g.fuente_categoria;
+      x.estado_categoria=g.estado_categoria;
     });
     // Las aclaraciones son otra fuente editorial. Nunca reemplazar el efecto
     // literal del DRS, y nunca aplicarlas por nombre ni por homónimos.
@@ -297,18 +306,19 @@
   function presentarTalento(info){
     if(!info||info.grupo!=='talento'||!info.talento_drs_publico)return null;
     var campos=(info.datos||[]).filter(function(par){
-      return ['Activación','Atributo','Coste','Requisito','Nivel'].includes(par[0]);
+      return ['Activación','Atributo','Coste','Requisito','Nivel'].includes(par[0])&&
+        !(par[0]==='Activación'&&par[1]===info.categoria_talento);
     });
     var procedencia=info.procedencia_tipo+' · '+info.procedencia_nombre;
     var referencia=info.referencia_documental||[];
     return {tipo:'Talento',nombre:info.titulo_literal||info.nombre,
-      clasificacion:procedencia,primarios:campos,tecnicos:referencia.length?
+      clasificacion:procedencia,categoria:info.categoria_talento||null,
+      fuente_categoria:info.fuente_categoria||null,
+      primarios:campos,tecnicos:referencia.length?
         [['Párrafos del DRS',referencia.join('–')]]:[],
       origen:'Naufragio d20 DRS',
       fuente:info.fuente_descripcion||info.fuente,
-      aclaracion:info.aclaracion_autoral||null,
-      resumen_editorial:info.resumen_editorial||"",
-      uso_editorial:info.uso_editorial||""};
+      aclaracion:info.aclaracion_autoral||null};
   }
   function presentarPoder(info){
     if(!info||info.grupo!=="poder")return null;

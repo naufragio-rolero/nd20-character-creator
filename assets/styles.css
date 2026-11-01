@@ -452,3 +452,18 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
   .info-primarios dd{margin:0 0 .38rem .3rem}
   .ficha-emergente .info-avanzada .info-datos{grid-template-columns:1fr;row-gap:0}
 }
+
+/* Categorías oficiales de Talentos DRS: palabras + cinco tratamientos cromáticos.
+   La tarjeta utiliza fondo oscuro en los cuatro temas, con contraste constante. */
+.info-categoria{display:inline-flex;align-items:center;min-height:1.4rem;
+  padding:.16rem .48rem;border:1px solid transparent;border-radius:5px;
+  font-size:.72rem;line-height:1.25;font-weight:800;white-space:nowrap}
+.info-categoria-accion{background:#154758;color:#d8f5ff;border-color:#3d8d9d}
+.info-categoria-especial{background:#4a315f;color:#f1e3ff;border-color:#a87fcb}
+.info-categoria-mejora{background:#54471f;color:#fff2be;border-color:#a18d46}
+.info-categoria-pasiva{background:#244b35;color:#ddf8df;border-color:#6c9f80}
+.info-categoria-reaccion{background:#5a3035;color:#ffe3e4;border-color:#b96c75}
+.ficha-emergente .info-clasificacion{margin-left:auto}
+.ficha-emergente .info-detalles .info-aclaracion-autoral{
+  margin:.35rem 0;padding:.35rem .55rem;background:transparent;
+  border:0;border-left:2px solid #c6a76c;border-radius:0}
