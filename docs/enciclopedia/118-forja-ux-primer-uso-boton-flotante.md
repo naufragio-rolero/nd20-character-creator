@@ -30,20 +30,20 @@ La ampliación de `tests/browser-compatibilidad.js` para Firefox y WebKit compru
 - Al pulsar el flotante, generación efectiva de una ficha adicional y desplazamiento/foco en Resultados con viewport móvil **390 × 844**.
 - Ausencia de errores JavaScript, sin modificar compras, reglas ni catálogos.
 
-**QA verificada para el último commit funcional, `9090c500`: 4/4 baterías verdes.** Todas incluyen las mejoras de primera visita, pie despejado y tests móviles:
+**QA final verificada para el último commit funcional `4811dd7b`: 4/4 baterías verdes.** Incluyen tarjeta visible sin scroll, lectura de ayuda sin flotante, menú móvil, pie despejado, generación, foco y capturas de escritorio/móvil:
 
 | Control | Evidencia de GitHub Actions |
 |---|---|
-| Generador y reglas DRS | [Validar Conjuros y Forja — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769960) |
-| Compras DRS en Chrome | [E2E navegador — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769866) |
-| Inicio, pie y creación en Firefox/WebKit | [Compatibilidad — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769734) |
-| Lista blanca, candidato público y multibrowser | [Paquete DRS — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769804) |
+| Generador y reglas DRS | [Validar Conjuros y Forja — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537090) |
+| Compras DRS en Chrome | [E2E navegador — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537140) |
+| Inicio, pie y creación en Firefox/WebKit | [Compatibilidad — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537139) |
+| Lista blanca, candidato público y multibrowser | [Paquete DRS — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537094) |
 
 ### Auditoría visual de las capturas de CI
 
-Se descargó el artefacto [forja-compatibilidad-firefox-webkit, run 41319769734](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769734), con seis capturas de 390 × 844, y se inspeccionaron los grupos **inicio** y **pie** de Firefox y WebKit. **Hallazgo real:** «Empezar» aparecía por debajo del primer viewport, mientras el botón flotante ocupaba la base de la pantalla. La comprobación geométrica previa aseguraba que el botón funcionase, **pero no su ubicación de entrada**.
+Se descargó el artefacto [forja-compatibilidad-firefox-webkit, run 41326537139](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537139), con seis capturas de 390 × 844, y se inspeccionaron los grupos **inicio** y **pie** de Firefox y WebKit. **Hallazgo real:** «Empezar» aparecía por debajo del primer viewport, mientras el botón flotante ocupaba la base de la pantalla. La comprobación geométrica previa aseguraba que el botón funcionase, **pero no su ubicación de entrada**.
 
-Después se inspeccionaron nuevas capturas de la revisión [276f91e6, run 41326066602](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326066602): el botón «Empezar» se ve completo por encima de Resultados en ambos motores, el flotante no aparece durante la primera visita y el pie se puede leer y accionar. El artefacto de [run 41326288362](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326288362) añadió **cuatro imágenes** (dos de escritorio y dos del formulario móvil abierto). **Segundo hallazgo:** en el formulario móvil abierto, el flotante cubría líneas de la ayuda inicial; el último cambio funcional lo oculta mientras esa ayuda sea visible. Las capturas finales deben cotejarse con ese último ajuste.
+Después se inspeccionaron nuevas capturas de la revisión [276f91e6, run 41326066602](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326066602): el botón «Empezar» se ve completo por encima de Resultados en ambos motores, el flotante no aparece durante la primera visita y el pie se puede leer y accionar. El artefacto de [run 41326288362](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326288362) añadió **cuatro imágenes** (dos de escritorio y dos del formulario móvil abierto). **Segundo hallazgo:** en el formulario móvil abierto, el flotante cubría líneas de la ayuda inicial; el último cambio funcional lo oculta mientras esa ayuda sea visible. **El último ajuste ha sido comprobado:** se descargó el artefacto [run 41326537139](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537139), que incluye **diez capturas** en Firefox/WebKit (escritorio, primera visita móvil, formulario móvil abierto, compra móvil y pie despejado). La inspección ocular confirma que la explicación inicial abierta está completa sin el flotante superpuesto en ambos motores. **Cierre visual técnico de capturas: satisfactorio.** Sigue pendiente la aprobación editorial para fusión y la comprobación en la web publicada.
 
 **Límites:** esta inspección visual se ha hecho sobre **capturas de CI**, no sobre el dispositivo real de la usuaria. No equivale a validación personal de su experiencia ni autoriza fusión o despliegue.
 
