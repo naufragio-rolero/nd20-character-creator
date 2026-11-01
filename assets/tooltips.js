@@ -222,6 +222,25 @@
       if(!porId.has(ficha.id))porId.set(ficha.id,[]);
       porId.get(ficha.id).push(destino);
     });
+    // Las aclaraciones son otra fuente editorial. Nunca reemplazar el efecto
+    // literal del DRS, y nunca aplicarlas por nombre ni por homónimos.
+    (fuentes.aclaracionesTalentosDRS?.registros||[]).forEach(function(a){
+      var referencias=porId.get(a.id_talento)||[];
+      var destino=referencias.find(function(x){
+        return x.talento_drs_publico&&x.sistema==='nd20'&&
+          x.procedencia_tipo===a.tipo_origen&&
+          x.procedencia_nombre===a.propietario&&x.nombre===a.nombre;
+      });
+      if(referencias.length!==1||!destino||destino.aclaracion_autoral)
+        throw Error('Aclaración autoral DRS sin Talento único: '+a.id_talento);
+      if(!a.texto||!a.texto.trim()||
+         fuentes.aclaracionesTalentosDRS.estado!=='aprobacion_autoral')
+        throw Error('Aclaración autoral DRS sin aprobación: '+a.id_talento);
+      destino.aclaracion_autoral={
+        texto:a.texto,fecha:fuentes.aclaracionesTalentosDRS.fecha_aprobacion,
+        fuente:fuentes.aclaracionesTalentosDRS.fuente
+      };
+    });
     return {mapa:mapa,porId:porId,total:total};
   }
   /* Presentación editorial de Poderes. Nunca deduce Tiradas ni asigna
@@ -241,7 +260,8 @@
       clasificacion:procedencia,primarios:campos,tecnicos:referencia.length?
         [['Párrafos del DRS',referencia.join('–')]]:[],
       origen:'Naufragio d20 DRS',
-      fuente:info.fuente_descripcion||info.fuente};
+      fuente:info.fuente_descripcion||info.fuente,
+      aclaracion:info.aclaracion_autoral||null};
   }
   function presentarPoder(info){
     if(!info||info.grupo!=="poder")return null;
