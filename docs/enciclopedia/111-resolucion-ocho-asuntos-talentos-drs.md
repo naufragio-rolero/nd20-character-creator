@@ -90,8 +90,9 @@ Separar tres planos: **regla literal** (lo escrito), **registro estructurado** (
 - **A08:** Actualización del informe anterior `110-informe-propiedades-talentos-drs.md` y del `PLAN-DE-TRABAJO.md` para que las preguntas históricas no figuren como pendientes actuales.
 - **A09:** Actualización de [PR #11](https://github.com/naufragio-rolero/nd20-character-creator/pull/11): título, explicación de los dos acuerdos, publicación de comentario de ratificación y retirada del estado «borrador».
 - **A10:** Revisión adicional de terminología: evitar dar a entender que se trata de «las primeras seis» entradas; son seis casos distribuidos por la tabla de ocho.
-- **A11:** Comprobar suites CI de Chrome, compatibilidad Firefox/WebKit y distribución DRS sobre el commit final, antes de fusionar. *Resultado y enlaces por registrar tras completarse las comprobaciones.*
-- **A12:** Fusionar el informe documental sin promover una nueva versión de la Forja pública. *Pendiente de comprobación CI.*
+- **A11:** Comprobadas las **tres suites CI aplicables** sobre el commit `0b5be8107665a996350bad72755499493316bd44`: [Chrome E2E](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41293061845), [Firefox y WebKit](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41293061817) y [paquete candidato DRS sin despliegue](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41293061958), todas con resultado **success**.
+- **A12:** [PR #11](https://github.com/naufragio-rolero/nd20-character-creator/pull/11) **fusionada** en `main` después de CI satisfactoria, merge commit `cceeda5a3f12ce14aa985f76f7478e0fa001bc75`. Su diff incluía exclusivamente tres documentos dentro de `docs/`. **No** se ha modificado ni promovido el workflow LIVE de Forja 1.3.1.
+- **A13:** Actualización de este diario en `main` para preservar las pruebas y el SHA definitivos del cierre.
 
 
 **Criterio de cierre alcanzado:** las dos aclaraciones han sido ratificadas y los ocho asuntos quedan conciliados documentalmente. Ningún texto de `data/talentos-drs-literales.json` se modifica. **La automatización de estas capacidades en una interfaz de combate sigue siendo una tarea técnica diferente**, no un asunto editorial abierto.
