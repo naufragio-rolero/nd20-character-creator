@@ -1,6 +1,6 @@
 # Enciclopedia de Talentos, Poderes y Objetos — Plan de trabajo
 
-> **Estado vigente (01/11/2026):** Forja **1.5** publicada con las aclaraciones autorales DRS (véase [informe 112](112-forja-aclaraciones-autoriales.md)); la **PR #13** continúa como candidato en borrador para consultas de Equipo y Objetos mágicos sin desplegar. Su ampliación de paquetes iniciales se documenta en [informe 114](114-cierre-componentes-paquetes-drs.md). El identificador **Forja 1.4** se reservó para la preclasificación de propiedades de Talentos, y **no** se reutiliza para esta tanda de Equipo. Los progresos documentales en otras ambientaciones no autorizan su exposición pública.
+> **Estado vigente (01/11/2026):** Forja **1.5** publicada con las aclaraciones autorales DRS (véase [informe 112](112-forja-aclaraciones-autoriales.md)); la **PR #13** continúa como candidato en borrador para consultas de Equipo y Objetos mágicos sin desplegar. Su ampliación de paquetes iniciales se documenta en [informe 114](114-cierre-componentes-paquetes-drs.md); **la autorización posterior de cinco útiles corrientes con prosa editorial** se registra en [informe 115](115-cinco-utiles-corrientes-paquetes-drs.md). El identificador **Forja 1.4** se reservó para la preclasificación de propiedades de Talentos, y **no** se reutiliza para esta tanda de Equipo. Los progresos documentales en otras ambientaciones no autorizan su exposición pública.
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
 **Última actualización:** 2026-11-01.  
@@ -11,15 +11,17 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 ## Consulta de Equipo y paquetes iniciales DRS — Tanda activa (01/11/2026)
 
-**Base:** [Informe 113](113-forja-equipo-objetos-magicos-consulta.md) · **Ampliación:** [Informe 114](114-cierre-componentes-paquetes-drs.md) · [PR #13 en borrador](https://github.com/naufragio-rolero/nd20-character-creator/pull/13), sin fusión ni despliegue.
+**Base:** [Informe 113](113-forja-equipo-objetos-magicos-consulta.md) · **Ampliación:** [Informe 114](114-cierre-componentes-paquetes-drs.md) · **Decisión autoral nueva:** [Informe 115](115-cinco-utiles-corrientes-paquetes-drs.md) · [PR #13 en borrador](https://github.com/naufragio-rolero/nd20-character-creator/pull/13), sin fusión ni despliegue.
 
 - [x] Auditar el índice real del inventario inicial: **44 apariciones**, **29 denominaciones**; antes de la ampliación, **26/44** tenían ficha.
 - [x] Cotejar con el DOCX DRS **Iluminación (tabla Word 21, 4 entradas)** y **Ropa (tabla Word 25, 6 entradas)**; conservar textos y precios literales, incluidos mc/mp.
 - [x] Documentar **cinco correspondencias** de nombres de paquete con los artículos normativos, sin cambiar cantidades ni precios de los paquetes.
-- [x] Identificar **cinco componentes exclusivamente de paquete** (12 apariciones) sin inventar precio, efecto ni descripción; mostrar sus paquetes de procedencia.
-- [x] Cobertura de consulta **44/44**; **32** apariciones con descripción DRS y **12** con procedencia en paquete.
+- [x] Identificar **cinco artículos sin precio individual** que constan en paquetes (12 apariciones) y conservar la procedencia DRS.
+- [x] **Decisión autoral 01/11:** convertir esos cinco artículos en **útiles corrientes** con descripciones **editoriales**, diferentes del texto DRS y sin atribuirles precios ni reglas.
+- [x] Cobertura de consulta **44/44 con descripción**: **32 apariciones con texto DRS** y **12 apariciones de cinco objetos con prosa editorial**; el odre conserva el DU d6 literal.
 - [x] Mantener la separación entre equipo reglamentario, objetos mágicos no distribuidos y recuerdos; conservar array del inventario y 43 opciones de compra originales.
-- [x] Añadir pruebas de índice, navegador y guardia de publicación; un **único JSON DRS** nuevo en la lista blanca, verificado físicamente.
+- [x] Añadir pruebas de índice, navegador y guardia de publicación; un **único JSON mixto de consulta DRS y glosas editoriales expresamente identificadas** en la lista blanca, verificado físicamente y sin magia.
+- [x] Mantener los **cinco útiles sin precio** fuera de la compra independiente: evitar precio inventado o gratuidad accidental.
 - [ ] Realizar revisión editorial y visual final de los popups en móvil y escritorio, antes de fusionar la PR #13.
 - [ ] Fusionar y publicar **solo tras autorización independiente**; ninguna prueba CI verde equivale por sí sola a orden de despliegue.
 - [ ] Ampliación futura dentro del DRS: instrumentos, objetos varios, monturas, material para monturas y transportes (tablas 22 y 26–29), separados de servicios y del sistema de compras.
@@ -107,7 +109,8 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [ ] Entregar repertorio estructurado validado.
 
 ### Tanda 5 — Equipo
-- [x] Ampliación de consulta del **inventario DRS**: 10 registros literales adicionales y 44/44 componentes iniciales resolubles ([informe 114](114-cierre-componentes-paquetes-drs.md)). No confundir con revisión exhaustiva de todas las tablas de todos los manuales.
+- [x] Ampliación de consulta del **inventario DRS**: 10 registros literales adicionales y 44/44 componentes iniciales resolubles ([informe 114](114-cierre-componentes-paquetes-drs.md)).
+- [x] Cinco útiles comunes con **descripción editorial autorizada**: 44/44 apariciones con texto y sin inventar precios; [informe 115](115-cinco-utiles-corrientes-paquetes-drs.md). No confundir con revisión exhaustiva de todas las tablas de todos los manuales.
 - [x] Inventario de equipo inicial en Forja: **48 registros de Fantasía** y **33 de CiFi**; identificar las 5 opciones de Armamento filosofal.
 - [ ] Confrontar estos registros con las **listas completas de equipo** de los manuales.
 - [ ] Inventariar el equipo de **Nocturna** en su fuente, sin importar compras o riqueza de otras ambientaciones.
@@ -165,6 +168,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 | Fecha | Acción | Evidencia / estado |
 |---|---|---|
+| 2026-11-01 | Decisión autoral: cinco útiles corrientes de paquetes | [Informe 115](115-cinco-utiles-corrientes-paquetes-drs.md): Mochila, Bolsa de cuero, Odre de agua, Estuche de pergaminos vacío y Ropa de viaje como útiles normales, **cinco descripciones editoriales diferenciadas** y 44/44 apariciones con descripción; se conserva DU d6 del odre. Sin precio individual ni nuevas compras; [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) todavía sin fusionar ni publicar. |
 | 2026-11-01 | Equipo DRS: cierre de consulta de paquetes iniciales | [Informe 114](114-cierre-componentes-paquetes-drs.md) y [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13): 44/44 componentes con ficha, 10 entradas DRS de Iluminación/Ropa, cinco equivalencias explícitas, cinco tipos solo de paquete, precios literales y protección de publicación; aún sin fusión/despliegue. |
 | 2026-10-28 | Auditoría inicial del repositorio | Finalizada; sin cambios de código. |
 | 2026-10-28 | Inventario inicial transversal y dos CSV | Documentado en esta rama, PR #3 abierta. |
