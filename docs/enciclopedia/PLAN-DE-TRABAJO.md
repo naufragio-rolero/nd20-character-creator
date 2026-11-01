@@ -9,6 +9,16 @@
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
 
+## Conciliación de los ocho asuntos DRS — Cerrada editorialmente (01/11/2026)
+
+- [x] Seis asuntos resueltos directamente por el DRS o las pruebas existentes.
+- [x] `¡Sálvese quien pueda!`: aclaración autoral aprobada; su Acción y Punto de Esfuerzo permiten superar las restricciones de Miedo o Parálisis sin Tirada adicional.
+- [x] `Expulsar muertos vivientes`: tirada por criatura; cuando resulte práctico, una sola tirada por grupo de criaturas **idénticas** (3 zombis + 2 esqueletos = 2 tiradas).
+- [x] Mantener separadas las decisiones autorales del texto literal del DRS.
+- [ ] Implementación automática en un futuro sistema de combate, si procede; **no forma parte de esta conciliación**.
+
+**Cierre documentado:** [Informe 111 — Resolución de los ocho asuntos](111-resolucion-ocho-asuntos-talentos-drs.md). Las dudas históricas del informe 110 quedan reemplazadas por esta resolución.
+
 ## Tanda actual — Propiedades literales DRS (Forja 1.4)
 
 - [x] Indexar los 24 Talentos DRS por propietario y texto fuente.
