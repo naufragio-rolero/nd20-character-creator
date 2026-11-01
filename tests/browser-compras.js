@@ -149,6 +149,26 @@ async function main(){
       " && document.querySelector('#generar')?.disabled===false"+
       " && document.querySelectorAll('#fuentes-nd20 input:checked').length===1",
       'carga inicial de JSON y controles de Forja');
+    // Chromium: los Talentos DRS también abren en hover, con texto único.
+    const talentoChrome=await cdp.evalJS("(()=>{"+
+      "const b=document.createElement('button');b.type='button';"+
+      "b.className='referencia-glosario';b.dataset.glosaGrupo='talento';"+
+      "b.dataset.glosaSistema='nd20';"+
+      "b.dataset.glosaId='talento-drs-especie-elfo-agreste-rapidez';"+
+      "document.body.appendChild(b);"+
+      "b.dispatchEvent(new PointerEvent('pointerover',{bubbles:true,pointerType:'mouse'}));"+
+      "const c=document.querySelector('#ficha-emergente');"+
+      "const previo={visible:!c.hidden,role:c.getAttribute('role'),"+
+      "categoria:c.querySelector('.info-categoria')?.textContent,"+
+      "descripciones:c.querySelectorAll('.info-descripcion').length,"+
+      "sinGlosas:c.querySelectorAll('.info-resumen-editorial,.info-uso-editorial').length};"+
+      "b.click();const fijado=c.getAttribute('role');"+
+      "document.dispatchEvent(new KeyboardEvent('keydown',{bubbles:true,key:'Escape'}));"+
+      "const cerrado=c.hidden;b.remove();return {...previo,fijado,cerrado};"+
+      "})()");
+    assert.deepEqual(talentoChrome,{visible:true,role:'tooltip',categoria:'Mejora',
+      descripciones:1,sinGlosas:0,fijado:'dialog',cerrado:true},
+      'Chromium: hover y clic fijado conservan categoría oficial y texto DRS único');
     const fuentes=await cdp.evalJS("Array.from(document.querySelectorAll('#ocupacion option')).map(x=>x.value).filter(Boolean)");
     assert.deepEqual(fuentes.sort(),['Clérigo','Guerrero','Ladrón','Mago'].sort(),
       'La interfaz DRS no debe mostrar Ocupaciones DLC');
