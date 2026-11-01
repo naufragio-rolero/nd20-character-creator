@@ -10,12 +10,12 @@ La usuaria señaló **dos dificultades reales**: el botón fijo de generación t
 
 - `assets/styles.css`: `.generar-flotante` utiliza `position:fixed` y `bottom` permanente, y se extiende casi al ancho de la pantalla móvil.
 - `assets/app.js`: `refrescarGenerarFlotante()` antes solo comprobaba si estaba seleccionado el panel de Personajes y si el formulario estaba disponible. **No comprobaba la posición del pie ni si el botón principal ya era visible.**
-- `index.html`: la pantalla ofrece numerosos controles —Nivel, Ocupación, Especie, Sexo, Nombres, modo de creación— y una leyenda narrativa en la zona vacía, pero **no explica que los valores iniciales son suficientes** ni dónde verá el resultado.
+- `index.html`: la pantalla ofrece numerosos controles —Nivel, Ocupación, Especie, Sexo, Nombres, modo de creación— y una leyenda narrativa en la zona vacía, pero **no explica que los valores iniciales son suficientes** ni dónde verá el resultado. **Hallazgo adicional en móvil:** el panel está oculto por defecto bajo el botón genérico «Menú», por lo que colocar la ayuda solo dentro del panel no resolvería la primera visita.
 
 ## 2. Modificaciones de experiencia de uso
 
 1. **Ayuda visible al principio del panel de Personajes.** El bloque «Crea tu primer personaje» explica que se puede dejar Nivel 1 y los demás valores iniciales, pulsar «Generar personaje» y consultar la ficha en Resultados. Distingue el modo Personalizado y sus elecciones de Talentos/Poderes.
-2. **Estado vacío orientador.** Se sustituye la frase ambiental por «Aquí aparecerá tu personaje» y una indicación directa para utilizar La forja. Se actualiza tanto el HTML inicial como el render dinámico.
+2. **Estado vacío orientador y acción directa.** Se sustituye la frase ambiental por «Aquí aparecerá tu personaje», una indicación para usar los valores iniciales y un botón visible **«Empezar»**. En móvil abre directamente el panel oculto y lleva el foco a Nivel. Se actualiza tanto el HTML inicial como el render dinámico y se mantiene una sola acción real, no un botón de adorno.
 3. **Botón flotante contextual.** Se recalcula con scroll y cambio de tamaño: aparece cuando el formulario está disponible y el botón ordinario no está en pantalla, pero desaparece **antes de que el pie entre en la zona de cobertura**. También se oculta si el botón principal está a la vista. No se duplican llamadas ni se cambia el formulario; sigue invocando `requestSubmit`.
 4. **Texto coherente.** «Generar personaje» en singular para una ficha y «Generar personajes» para varias, tanto en el botón principal como en el flotante.
 5. **Resultado visible tras generar en móvil.** Solo con pantallas de anchura hasta 830 px, al finalizar la creación rápida se lleva la vista a Resultados y se enfoca su encabezado para navegación asistida. Se respeta `prefers-reduced-motion`. En modo Personalizado se mantiene el flujo existente hacia su propio editor de elecciones.
@@ -24,8 +24,8 @@ La usuaria señaló **dos dificultades reales**: el botón fijo de generación t
 
 La ampliación de `tests/browser-compatibilidad.js` para Firefox y WebKit comprueba:
 
-- Presencia de la ayuda inicial y del mensaje de Resultados vacío.
-- Pie de página visible con el botón flotante **oculto** y enlace accesible.
+- Presencia de la ayuda inicial, del mensaje de Resultados vacío y del botón «Empezar»; en móvil comprueba que el panel inicialmente oculto se abre y recibe foco en Nivel; captura de **primera visita móvil**.
+- Pie de página visible con el botón flotante **oculto** y enlace accesible; captura del **pie despejado**.
 - Reaparición del botón cuando el usuario abandona el pie; ocultación cuando el botón principal es visible.
 - Al pulsar el flotante, generación efectiva de una ficha adicional y desplazamiento/foco en Resultados con viewport móvil **390 × 844**.
 - Ausencia de errores JavaScript, sin modificar compras, reglas ni catálogos.
