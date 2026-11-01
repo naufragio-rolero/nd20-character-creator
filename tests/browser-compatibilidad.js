@@ -51,6 +51,15 @@ async function probar(nombre,tipo,url){
       /Aquí aparecerá tu personaje/,
       nombre+': explicar qué encontrará en Resultados');
     assert.equal(await page.locator('#generar').textContent(),'Generar personaje');
+    await page.locator('#selector-tema').selectOption('ebano');
+    const contrasteEbano=await page.locator('.inicio-rapido strong').first().evaluate(el=>{
+      const fg=getComputedStyle(el).color;
+      const bg=getComputedStyle(el.closest('.inicio-rapido')).backgroundColor;
+      return {fg,bg};
+    });
+    assert.notEqual(contrasteEbano.fg,'rgb(255, 240, 200)',
+      nombre+': Ébano no usa amarillo pálido ilegible sobre blanco');
+    await page.locator('#selector-tema').selectOption('clasico');
     assert.equal(await page.locator('#inicio-movil').isHidden(),true,
       nombre+': el paso introductorio móvil no duplica la ayuda del panel en escritorio');
     await page.screenshot({path:path.join(capturas,nombre+'-inicio-escritorio.png')});
@@ -147,6 +156,14 @@ async function probar(nombre,tipo,url){
     assert.match(await popup.locator('.info-primarios').textContent(),
       /Coste:\s*1 punto de Esfuerzo/);
     assert.match(await popup.locator('.info-primarios').textContent(),/Requisito:/);
+    assert.match(await popup.locator('.info-descripcion').first().textContent(),
+      /Recuperas 1d4 Puntos de Salud/,'Baluarte exige su efecto DRS íntegro');
+    await page.locator('#e2e-poder').evaluate(x=>{x.dataset.glosaId='tecnica-03';});
+    await page.locator('#e2e-poder').click();
+    assert.equal(await popup.locator('h3').textContent(),'Disparo aturdidor');
+    assert.match(await popup.locator('.info-descripcion').first().textContent(),
+      /criatura afectada no se podrá mover durante su próximo Turno/,
+      nombre+': Disparo aturdidor debe mostrar su efecto DRS');
     await page.locator('#informacion-avanzada').uncheck();
     await page.locator('#e2e-poder').click();
     assert.equal(await popup.locator('.info-detalles').isHidden(),true);
@@ -183,6 +200,21 @@ async function probar(nombre,tipo,url){
     assert.match(await aclaracion.textContent(),/criaturas idénticas/);
     assert.equal(await aclaracion.isVisible(),true,
       nombre+': aclaración aprobada visible sin activar detalles técnicos');
+    assert.match(await popup.locator('.info-resumen-editorial').innerText(),
+      /onda de 18 m/,'El Talento debe explicarse con claridad');
+    assert.equal(await popup.locator('.info-texto-literal summary').count(),1);
+    assert.equal(await popup.locator('.info-cerrar').isVisible(),true);
+    const popupScroll=await popup.evaluate(x=>({scroll:x.scrollHeight,
+      alto:x.clientHeight,alturaVentana:innerHeight}));
+    assert.ok(popupScroll.alto<=popupScroll.alturaVentana,
+      nombre+': Talento abierto encaja en viewport');
+    await popup.locator('.info-texto-literal summary').click();
+    assert.match(await popup.locator('.info-texto-literal .info-descripcion').innerText(),
+      /Todos aquellos que sean de un Nivel igual o inferior al tuyo/);
+    await popup.evaluate(x=>{x.scrollTop=x.scrollHeight;});
+    assert.equal(await popup.isVisible(),true,
+      nombre+': el popup fijado permanece visible mientras se desplaza');
+    assert.ok(await popup.evaluate(x=>x.scrollTop>=0));
     assert.doesNotMatch(await popup.locator('.info-descripcion').first().textContent(),
       /3 zombis y 2 esqueletos/,
       nombre+': el texto literal no debe absorber la aclaración editorial');
@@ -218,6 +250,9 @@ async function probar(nombre,tipo,url){
     assert.match(await popup.locator('.info-descripcion').textContent(),/Linaje feérico/);
     assert.equal(await popup.locator('.info-primarios dt').count(),0,
       'No inventar activación o coste para los Talentos de Especie');
+    assert.match(await popup.locator('.info-uso-editorial').textContent(),
+      /Elección en creación/,
+      nombre+': DRS no define activación, pero la glosa editorial sí el uso');
     await page.locator('#e2e-talento').evaluate(x=>{
       x.dataset.glosaId='talento-drs-especie-semiorco-herencia-dual-so';
     });
