@@ -77,7 +77,7 @@ async function probar(nombre,tipo,url){
     await page.locator('#consulta-catalogo-ver').click();
     const popupEquino=page.locator('#ficha-emergente');
     assert.equal(await popupEquino.locator('h3').innerText(),'Armadura equina');
-    assert.equal(await popupEquino.locator('.info-tipo').innerText(),'Equipo de montura');
+    assert.equal(await popupEquino.locator('.info-tipo').textContent(),'Equipo de montura');
     assert.equal(await popupEquino.locator('#consulta-armadura-base option').count(),15,
       nombre+': catálogo completo de 14 armaduras humanas');
     assert.equal(await popupEquino.locator('.info-armadura-resultado').innerText(),
