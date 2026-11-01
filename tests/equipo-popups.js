@@ -10,7 +10,9 @@ function leer(ruta){return JSON.parse(fs.readFileSync(path.join(base,ruta),'utf8
 const equipo=leer('data/equipo-inicial.json');
 const especies=leer('data/especies.json');
 const ocupaciones=leer('data/ocupaciones.json');
-const fuentes={fantasia:{especies,ocupaciones},equipo};
+const consultaDRS=leer('data/equipo-consulta-drs.json');
+const fuentes={fantasia:{especies,ocupaciones},equipo,
+  equipoConsultaDRS:consultaDRS};
 const glosario=index.indice(fuentes);
 function ficha(nombre){return index.buscar(glosario,nombre,'equipo','nd20');}
 const clases=[
@@ -47,6 +49,60 @@ for(const u of utilidades.concat(equipo.focos_conjuros_con_precio)){
   assert.equal(f.descripcion,u.detalle,'Conservar el detalle documentado de '+u.nombre);
   assert.equal(index.presentarEquipo(f).fuente.includes('NaufragioD20DRS.docx'),true);
 }
+// Tablas 21 y 25 del DRS, no incorporadas al catálogo de compras.
+assert.deepEqual(consultaDRS.tablas.map(t=>t.registros.length),[4,6]);
+for(const tabla of consultaDRS.tablas){
+  for(const objeto of tabla.registros){
+    const f=ficha(objeto.nombre);
+    assert.ok(f,'Ficha DRS suplementaria: '+objeto.nombre);
+    assert.equal(f.descripcion,objeto.detalle_literal,
+      'Texto sin resúmenes ni invenciones: '+objeto.nombre);
+    const vista=index.presentarEquipo(f);
+    assert.deepEqual(vista.primarios.find(([k])=>k==='Precio'),
+      ['Precio',objeto.precio_literal]);
+    assert.ok(vista.fuente.includes('Tabla '+tabla.tabla_word));
+    if(objeto.du)assert.ok(vista.primarios.some(([k,v])=>
+      k==='Dado de Uso'&&v==='DU '+objeto.du));
+  }
+}
+// La ficha conserva el inventario original: solo se resuelve una referencia.
+// No cobrar el precio unitario por todas las raciones de un paquete.
+const componentes=equipo.paquetes.flatMap(p=>p.contenido.split(';')
+  .map(texto=>texto.trim()));
+assert.equal(componentes.length,44);
+const resultantes=componentes.map(texto=>index.buscar(glosario,texto,'equipo','nd20'));
+assert.ok(resultantes.every(Boolean),'44/44 componentes con ficha DRS identificable');
+assert.equal(resultantes.filter(f=>!!f.descripcion).length,32);
+const soloPaquete=resultantes.filter(f=>f.clase_equipo==='componente_paquete');
+assert.equal(soloPaquete.length,12);
+assert.equal(new Set(soloPaquete.map(f=>f.nombre)).size,5);
+for(const fichaComponente of soloPaquete){
+  assert.ok(index.presentarEquipo(fichaComponente).primarios.every(([k])=>k!=='Precio'));
+  assert.equal(fichaComponente.descripcion,'');
+  assert.match(index.presentarEquipo(fichaComponente).fuente,/Paquetes de equipo/);
+}
+const antorcha=index.presentarEquipo(ficha('antorcha (DU d6)'));
+assert.deepEqual(antorcha.primarios.find(([k])=>k==='Precio'),['Precio','10 mc']);
+assert.match(ficha('antorcha (DU d6)').descripcion,/Ilumina 6 metros/);
+const vela=index.presentarEquipo(ficha('vela (DU d4)'));
+assert.deepEqual(vela.primarios.find(([k])=>k==='Precio'),['Precio','1 mc']);
+const raciones=index.presentarEquipo(ficha('dos raciones de alimento (DU d6 cada una)'),
+  'dos raciones de alimento (DU d6 cada una)');
+assert.deepEqual(raciones.primarios.find(([k])=>k==='Precio individual'),
+  ['Precio individual','0.01 mo']);
+assert.ok(raciones.tecnicos.some(([k,v])=>
+  k==='Artículo de referencia'&&v==='Ración de alimento'));
+assert.equal(ficha('sello de orden sagrada').nombre,'Sello');
+assert.equal(ficha('libro de conjuros en blanco').nombre,'Libro de conjuros');
+assert.equal(ficha('odre de agua (DU d6)').clase_equipo,'componente_paquete');
+// Un alias no admitido por el documento debe fallar en vez de redirigir a
+// una regla inventada o a otro tipo de artículo.
+assert.throws(()=>index.indice({...fuentes,
+  equipoConsultaDRS:{...consultaDRS,equivalencias_explicitas_paquetes:[
+    ...consultaDRS.equivalencias_explicitas_paquetes,
+    {inventario:'no existe en los paquetes',articulo:'Espadón'}]}}),
+  /Equivalencia DRS ambigua o sin respaldo/);
+
 const martillo=index.presentarEquipo(ficha('Martillo de campamento ×2'));
 const almadena=index.presentarEquipo(ficha('Almádena'));
 assert.deepEqual(martillo.primarios.find(([k])=>k==='Precio'),['Precio','2 mo']);
