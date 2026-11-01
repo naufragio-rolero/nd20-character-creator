@@ -30,6 +30,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [x] Ampliar E2E de **Firefox/WebKit a popup móvil 390 × 844**, fuente consultable, encaje, cierre con Escape y captura; **4/4 suites verdes** para el commit `274aa738` ([informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md)).
 - [ ] Completar inspección visual humana de las capturas CI; las verificaciones geométricas automatizadas no la sustituyen.
 - [x] Incorporar acceso público **voluntario** desde la Forja a **42 fichas de equipo DRS** (37 de tablas + cinco útiles con descripción editorial). Excluir servicios y evitar compras accidentales ([informe 117](117-armadura-equina-precio-y-catalogo-drs.md)).
+- [x] **QA sobre commit `248a5c02`: cuatro suites verdes** (Node, Chrome, Firefox/WebKit y candidato físico DRS). Control móvil de Armadura equina a 390 × 844, captura y selector con resultado visible; [evidencias en informe 117](117-armadura-equina-precio-y-catalogo-drs.md).
 - [ ] Realizar inspección ocular del catálogo desplegable y del selector equino en móvil, con pruebas de contraste, navegación de teclado y diseño antes de aceptar publicación.
 - [ ] Objetos mágicos: revisión editorial de **28 fichas y el ejemplo**, autorización y paquete aparte antes de cualquier incorporación pública.
 
