@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "fuente": "NaufragioD20DRS.docx",
+  "finalidad": "Solo consulta de material DRS; no modifica compras ni concede objetos.",
+  "tablas": [
+    {
+      "categoria": "Iluminación",
+      "tabla_word": 21,
+      "registros": [
+        {
+          "nombre": "Antorcha",
+          "precio": 0.1,
+          "precio_literal": "10 mc",
+          "du": "d6",
+          "detalle_literal": "Ilumina 6 metros alrededor con luz amarillenta. DU d6."
+        },
+        {
+          "nombre": "Lámpara de aceite",
+          "precio": 2,
+          "precio_literal": "20 mp",
+          "du": "d6",
+          "detalle_literal": "Ilumina 4 metros alrededor. DU d6 (aceite)."
+        },
+        {
+          "nombre": "Linterna",
+          "precio": 10,
+          "precio_literal": "10 mo",
+          "du": "d6",
+          "detalle_literal": "Ilumina 8 metros alrededor. DU d6 (aceite)."
+        },
+        {
+          "nombre": "Vela",
+          "precio": 0.01,
+          "precio_literal": "1 mc",
+          "du": "d4",
+          "detalle_literal": "Alumbra 2 metros alrededor con luz amarillenta y tenue. DU d4."
+        }
+      ]
+    },
+    {
+      "categoria": "Ropa",
+      "tabla_word": 25,
+      "registros": [
+        {
+          "nombre": "Abrigo de piel",
+          "precio": 20,
+          "precio_literal": "20 mo",
+          "detalle_literal": "Protege del frío por debajo de 0º."
+        },
+        {
+          "nombre": "Atuendo de noble",
+          "precio": 30,
+          "precio_literal": "30 mo",
+          "detalle_literal": "De colores vivos, con chorreras y gola."
+        },
+        {
+          "nombre": "Chaqueta de cuero",
+          "precio": 10,
+          "precio_literal": "10 mo",
+          "detalle_literal": "Protege del frío por debajo de 10º."
+        },
+        {
+          "nombre": "Disfraz",
+          "precio": 5,
+          "precio_literal": "5 mo",
+          "detalle_literal": "Contiene maquillaje, peluca y bigote falso."
+        },
+        {
+          "nombre": "Traje elegante",
+          "precio": 15,
+          "precio_literal": "15 mo",
+          "detalle_literal": "Parece de buena calidad."
+        },
+        {
+          "nombre": "Túnica",
+          "precio": 1,
+          "precio_literal": "1 mo",
+          "detalle_literal": "De color a elegir. Hecha de tela y esparto."
+        }
+      ]
+    }
+  ],
+  "equivalencias_explicitas_paquetes": [
+    {
+      "inventario": "dos raciones de alimento (DU d6 cada una)",
+      "articulo": "Ración de alimento",
+      "evidencia": "DRS: Especial devotos (párrafo 487) y tabla Word 17 (Ración de alimento)."
+    },
+    {
+      "inventario": "tres raciones (DU d6)",
+      "articulo": "Ración de alimento",
+      "evidencia": "DRS: Especial exploración (párrafo 490) y tabla Word 17 (Ración de alimento)."
+    },
+    {
+      "inventario": "ración (DU d6)",
+      "articulo": "Ración de alimento",
+      "evidencia": "DRS: Especial mazmorras (párrafo 493) y tabla Word 17 (Ración de alimento)."
+    },
+    {
+      "inventario": "libro de conjuros en blanco",
+      "articulo": "Libro de conjuros",
+      "evidencia": "DRS: Especial arcanistas (párrafo 481) y tabla Word 20 (Libro de conjuros vacío)."
+    },
+    {
+      "inventario": "sello de orden sagrada",
+      "articulo": "Sello",
+      "evidencia": "DRS: Especial devotos (párrafo 487) y tabla Word 20 (Sello personalizable)."
+    }
+  ],
+  "componentes_exclusivos_paquete": [
+    {
+      "inventario": "Mochila",
+      "nombre": "Mochila"
+    },
+    {
+      "inventario": "Bolsa de cuero",
+      "nombre": "Bolsa de cuero"
+    },
+    {
+      "inventario": "odre de agua (DU d6)",
+      "nombre": "Odre de agua",
+      "du": "d6"
+    },
+    {
+      "inventario": "estuche de pergaminos vacío",
+      "nombre": "Estuche de pergaminos vacío"
+    },
+    {
+      "inventario": "ropa de viaje",
+      "nombre": "Ropa de viaje"
+    }
+  ],
+  "limites": "Los cinco componentes solo constan como partes de paquetes en el DRS cotejado. No se les asignan precio individual, efecto, requisito ni descripción adicional. Las equivalencias no alteran cantidades ni costes."
+}
