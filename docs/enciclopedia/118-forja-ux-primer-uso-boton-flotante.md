@@ -30,7 +30,16 @@ La ampliación de `tests/browser-compatibilidad.js` para Firefox y WebKit compru
 - Al pulsar el flotante, generación efectiva de una ficha adicional y desplazamiento/foco en Resultados con viewport móvil **390 × 844**.
 - Ausencia de errores JavaScript, sin modificar compras, reglas ni catálogos.
 
-**QA definitiva:** registrar los enlaces de cuatro flujos de CI cuando hayan concluido para el último commit de la PR. Las pruebas verifican lógica y geometría básica, **no sustituyen la inspección visual humana** del resultado.
+**QA verificada para el último commit funcional, `9090c500`: 4/4 baterías verdes.** Todas incluyen las mejoras de primera visita, pie despejado y tests móviles:
+
+| Control | Evidencia de GitHub Actions |
+|---|---|
+| Generador y reglas DRS | [Validar Conjuros y Forja — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769960) |
+| Compras DRS en Chrome | [E2E navegador — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769866) |
+| Inicio, pie y creación en Firefox/WebKit | [Compatibilidad — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769734) |
+| Lista blanca, candidato público y multibrowser | [Paquete DRS — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41319769804) |
+
+**Límites:** las pruebas verifican comportamiento de navegación y formularios; **no sustituyen la inspección visual humana** de las capturas. No se ha podido confirmar la reproducción exacta en el dispositivo de la usuaria.
 
 ## 4. Separación de entregas
 
