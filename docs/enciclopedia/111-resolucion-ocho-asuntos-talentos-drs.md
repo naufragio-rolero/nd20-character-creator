@@ -1,6 +1,6 @@
 # Talentos DRS — Resolución de los ocho asuntos mecánicos
 
-**Fecha de revisión:** 01/11/2026 · **Estado:** seis asuntos resolubles por el texto del DRS; **dos decisiones autorales pendientes**.  
+**Fecha de revisión y ratificación:** 01/11/2026 · **Estado:** **ocho asuntos conciliados**: seis se resuelven desde el DRS o pruebas existentes y dos quedan cerrados mediante aclaración expresa de autoría.  
 **Fuente primaria:** `NaufragioD20DRS.docx`, párrafos del documento indicados en cada entrada.  
 **Documentos previos:** [informe 110](110-informe-propiedades-talentos-drs.md), [transcripción literal](../../data/talentos-drs-literales.json), [índice de evidencias](110a-propiedades-literales-drs.json).
 
@@ -17,12 +17,12 @@ Separar tres planos: **regla literal** (lo escrito), **registro estructurado** (
 **Registro:** `condicion: Tirada de Blindaje para reducir daño físico`, `gasto: 1 Punto de Esfuerzo`, `efecto: repetir la tirada`. Las etiquetas son descriptivas; no se añade una tirada distinta de Blindaje.  
 **Implementación:** la Forja mantiene la descripción y el valor de Movimiento; una futura interfaz de combate tendrá que detectar la tirada que ya existe, no crear otra. No se fija «una vez por turno» ni «una vez por ataque» porque el DRS no lo dice.
 
-### ESP-DRS-02 — ¡Sálvese quien pueda! (Mediano amable) · Decisión autoral requerida
+### ESP-DRS-02 — ¡Sálvese quien pueda! (Mediano amable) · Aclaración autoral aprobada
 
 **Fuente:** §§140–141; Estado Miedo, §643; Estado Parálisis, §646.  
 **Regla:** frente a Miedo o Parálisis, gastar **1 Punto de Esfuerzo y una Acción** permite liberarse sin Tirada.  
 **Tensión real:** Miedo obliga a emplear la Acción para alejarse, y Parálisis puede impedir toda actuación ese Turno. El DRS **no especifica** si el Talento permite usar esa Acción ignorando esas restricciones.  
-**Propuesta (NO canónica hasta aprobación):** considerar el Talento una excepción específica: el personaje puede dedicar su Acción a liberarse incluso cuando el Estado obliga a huir o impediría actuar; paga 1 Punto de Esfuerzo, se libera sin Tirada y no gana una Acción adicional. Mantener el coste escrito como `Acción + 1 Punto de Esfuerzo`, sin reclasificarlo como Reacción ni Pasiva.
+**Decisión autoral aprobada (01/11/2026):** el propósito específico del Talento es poder librarse de estos Estados lesivos incluso cuando normalmente sería muy difícil o imposible hacerlo. Por tanto, el Mediano **puede emplear una Acción y gastar 1 Punto de Esfuerzo** para liberarse de Parálisis o Miedo, aunque las restricciones del Estado le impidieran actuar o le obligaran a huir. No necesita Tirada, no recibe una Acción adicional y el Talento no se reclasifica como Reacción ni como Pasiva. Esta interpretación se distingue expresamente de la prosa literal del DRS.
 
 ### ESP-DRS-03 — Ánimo (Semielfo) · Resuelto documentalmente
 
@@ -36,14 +36,16 @@ Separar tres planos: **regla literal** (lo escrito), **registro estructurado** (
 **Regla:** la etiqueta formal es **Pasiva**, no Acción. Incluye dos efectos distintos: (a) tras un combate, se puede gastar **1 Punto de Esfuerzo** y dedicar **1 Intervalo** para recuperar **1d8 Puntos de Salud**; (b) Ventaja en Tiradas de Resistencia para regenerar el Esfuerzo gastado.  
 **Registro:** mantener `activacion_literal: Pasiva`; registrar el gasto en la parte condicional (a) y la Ventaja persistente (b) por separado. No crear un nuevo Coste formal en la ficha literal ni convertir el Intervalo en Turnos.
 
-### OCP-DRS-02 — Expulsar muertos vivientes (Clérigo) · Decisión autoral requerida
+### OCP-DRS-02 — Expulsar muertos vivientes (Clérigo) · Aclaración autoral aprobada
 
 **Fuente:** §§208–212; Tiradas de Probabilidad, §§547–548; definición de Intervalo, §585.  
 **Regla expresa:** Activación **Acción**, Atributo **Intuición**, Coste **1 Punto de Esfuerzo**, radio **18 metros**. Los muertos vivientes de Nivel igual o inferior al del Clérigo tienen **Probabilidad 15+** de resultar destruidos. Quienes soportan la expulsión se alejan durante **1 Intervalo o 6 Turnos**, o hasta perder al Clérigo de vista (lo que suceda antes). Probabilidad 15+ significa comparar **1d20 con 15+** según la regla general, sin que el propio Talento indique una Tirada adicional de Intuición.
 
 **Vacíos de procedimiento:** no se aclara de forma literal (a) si se comprueba una Probabilidad por cada objetivo o una sola para todos; (b) a quién corresponde la tirada; (c) si los muertos vivientes de Nivel superior también deben huir aunque no puedan ser destruidos; ni (d) cuándo corresponde elegir Intervalo frente a 6 Turnos.
 
-**Propuesta (NO canónica hasta aprobación):** el **jugador del Clérigo** realiza un 1d20 de Probabilidad 15+ **por cada muerto viviente válido** de Nivel igual o inferior, una vez por activación; los que no son destruidos deben alejarse. Los de Nivel superior quedan fuera del efecto (ni destrucción ni huida). En combate se usan **6 Turnos**; fuera de combate, **1 Intervalo**; la pérdida de vista pone fin antes al efecto. **No** pedir una Tirada adicional de Intuición: el Atributo se conserva como información literal, no como tirada deducida. Esta elección tiene carácter de interpretación autoral, no puede atribuirse al DRS sin ratificación.
+**Decisión autoral aprobada (01/11/2026):** como regla general, el **jugador del Clérigo** efectúa **una Tirada de Probabilidad 15+ por cada muerto viviente afectado**. Cuando haya varios enemigos idénticos y resulte práctico agruparlos, **puede efectuarse una sola Tirada por grupo de criaturas idénticas**, aplicando el mismo resultado a todos sus miembros. **Ejemplo aprobado:** tres zombis y dos esqueletos se resuelven mediante **dos Tiradas**, una para los tres zombis y otra para los dos esqueletos. No se introduce ningún umbral numérico obligatorio a partir del cual haya que agrupar. No se agrupan criaturas distintas entre sí.
+
+**Resto del procedimiento, conservado de la propuesta anterior:** el Talento distingue los enemigos de Nivel igual o inferior al Clérigo; no se extiende por deducción a los de Nivel superior. Los supervivientes de la expulsión se alejan. Se conserva la equivalencia textual **1 Intervalo o 6 Turnos** y la terminación anticipada al perder de vista al Clérigo; usar Turnos en combate e Intervalo fuera es un criterio operativo de lectura, **no una nueva duración textual**. **No se añade una Tirada separada de Intuición:** `Atributo: Intuición` permanece como metadato original de la ficha y la comprobación exigida expresamente es de Probabilidad 15+. La regla de agrupación y la excepción de ¡Sálvese quien pueda! son aclaraciones autorales; los detalles no citados de forma expresa se presentan como criterios de aplicación, sin atribuir frases nuevas al DRS.
 
 ### OCP-DRS-03 — Sacrificio de escudo (Guerrero) · Resuelto documentalmente
 
@@ -68,10 +70,10 @@ Separar tres planos: **regla literal** (lo escrito), **registro estructurado** (
 | Referencia | Estado | Consecuencia |
 |---|---|---|
 | ESP-DRS-01 | Resuelto desde fuente | Registrar repetición de Blindaje condicionada y gasto de Esfuerzo. |
-| ESP-DRS-02 | **Pendiente de aprobación autoral** | Decidir si el Talento excepciona las restricciones de Miedo y Parálisis. |
+| ESP-DRS-02 | **Cerrado con aclaración autoral** | Una Acción + 1 Punto de Esfuerzo: liberarse de Miedo o Parálisis aunque impidan actuar o exijan huir, sin Tirada ni Acción extra. |
 | ESP-DRS-03 | Resuelto desde fuente | Una vez al día, aliado oye, declarar antes, +2. |
 | OCP-DRS-01 | Resuelto desde fuente | Pasiva formal; dos efectos, gasto/Intervalo solo en primero. |
-| OCP-DRS-02 | **Pendiente de aprobación autoral** | Fijar tiradas por objetivo/actor, Nivel superior y tiempo. |
+| OCP-DRS-02 | **Cerrado con aclaración autoral** | Una Tirada 15+ por criatura; agrupación opcional de enemigos idénticos (3 zombis + 2 esqueletos = 2 Tiradas). |
 | OCP-DRS-03 | Resuelto desde fuente | Escudo normal destruido, mágico Durabilidad 0 e inutilizable. |
 | OCP-DRS-04 | Resuelto y con regresiones | Potencia +1 a 10 y 22, máximo 3, solo con Brío. |
 | ESP-DRS-04 | Resuelto y con regresiones | Movimiento preajustado; no duplicar; adaptaciones distinguidas. |
@@ -82,6 +84,8 @@ Separar tres planos: **regla literal** (lo escrito), **registro estructurado** (
 - **A02:** Contraste de los párrafos originales de `NaufragioD20DRS.docx` de los ocho asuntos, más reglas generales de Probabilidad, Estados, Durabilidad, Esfuerzo y Tiempo.
 - **A03:** Separación de seis resoluciones ya fundamentadas y dos interpretaciones que requieren ratificación de autoría.
 - **A04:** Apertura de rama `docs/talentos-drs-resoluciones-autoriales-20261101` para registrar el análisis sin cambios de motor ni en el producto público.
-- **A05:** Redacción de este registro; ninguna propuesta marcada como aprobada sin decisión del autor.
+- **A05:** Redacción inicial de este registro con dos propuestas señaladas correctamente como no canónicas antes de la decisión autoral.
+- **A06:** Recepción de la aclaración expresa de autoría (01/11/2026): agrupación opcional de criaturas idénticas en Expulsar muertos vivientes y excepción funcional de ¡Sálvese quien pueda! frente a los Estados lesivos.
+- **A07:** Sustitución de las dos propuestas por decisiones aprobadas en este documento, manteniendo las ocho trazabilidades y distinguiendo DRS literal de aclaración autoral. Sin cambios de motor, inventario ni texto fuente.
 
-**Criterio de cierre:** una vez ratificadas las dos propuestas, actualizar el estado de ESP-DRS-02 y OCP-DRS-02 con el texto exacto aprobado y preservar en el archivo el contraste entre literal DRS, interpretación y futura implementación. No modificar las reglas ejecutables hasta que exista una tarea técnica con pruebas propias.
+**Criterio de cierre alcanzado:** las dos aclaraciones han sido ratificadas y los ocho asuntos quedan conciliados documentalmente. Ningún texto de `data/talentos-drs-literales.json` se modifica. **La automatización de estas capacidades en una interfaz de combate sigue siendo una tarea técnica diferente**, no un asunto editorial abierto.
