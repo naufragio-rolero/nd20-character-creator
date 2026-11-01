@@ -45,7 +45,7 @@ Se deja intacta toda regla adicional del texto fuente: límites de Nivel, efecto
 | A12 | Crear [PR #12](https://github.com/naufragio-rolero/nd20-character-creator/pull/12), analizar primer fallo de CI y corregir únicamente la aserción | La primera ejecución de «Validar Conjuros y Forja» [41298198413](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298198413) falló porque el test exigía las palabras «Punto de Esfuerzo y la Acción» en ese orden, aunque la fuente decía «la Acción y el Punto de Esfuerzo». Se corrigió **solo** `tests/talentos-drs.js`, para verificar ambos gastos sin exigir su orden, commit `25e10008c12f03014d3046f64807e3b744986717`. Ninguna regla ni aclaración fue alterada. |
 | A13 | Confirmar **4/4 suites** sobre el último commit de la PR | [Motor y 434 Conjuros](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298257062) · [Chrome E2E](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298256875) · [Firefox/WebKit](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298256930) · [Candidato DRS filtrado](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298256869), todas **success**. |
 | A14 | Fusionar versión probada | [PR #12 fusionada](https://github.com/naufragio-rolero/nd20-character-creator/pull/12) por merge commit **`8dea3c9fd53c04c9739022968b551608a3276752`**. |
-| A15 | Actualizar pin de publicación LIVE y verificar el sitio público | Pendiente hasta terminar la publicación. |
+| A15 | Actualizar pin de publicación LIVE y verificar el sitio público | `forja-live.yml` fijado al merge SHA `8dea3c9fd53c04c9739022968b551608a3276752`. Primera [publicación LIVE 41298471124](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298471124) **success** (commit del workflow `c7c0a3dfdb8cb441d7c53e635e3109aec50df30a`). Refuerzo posterior del workflow: además de HTML, Chrome, Firefox/WebKit y filtrado DRS, descargar y comprobar el JSON con **exactamente los dos IDs** aprobados, commit `9599e46a93f3143ab5d6712cca80341697672658`. [Despliegue y comprobación HTTP final 41298520411](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298520411): **success**; GitHub confirma `Verificar el sitio público tras el despliegue` completado satisfactoriamente. |
 
 ## Criterios de aceptación
 
@@ -56,6 +56,6 @@ Se deja intacta toda regla adicional del texto fuente: límites de Nivel, efecto
 - [x] CiFi/Nocturna sin nuevos datos ni exposición de suplementos.
 - [x] Pruebas añadidas para los dos casos y ausencia de propagación.
 - [x] Cuatro suites CI satisfactorias sobre el commit final de la PR.
-- [ ] Publicación segura y URL pública confirmada.
+- [x] Publicación segura y URL pública confirmada: https://naufragio-rolero.github.io/nd20-character-creator/.
 
 **Nota de alcance:** «Normalización documental» significa que la aclaración puede consultarse como dato editorial. No equivale a un sistema de combate automatizado.
