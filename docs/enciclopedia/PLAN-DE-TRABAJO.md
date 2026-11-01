@@ -14,7 +14,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [x] Indexar los 24 Talentos DRS por propietario y texto fuente.
 - [x] Registrar 79 fragmentos literales mediante 24 categorías editoriales, sin inventar reglas.
 - [x] Incorporar pruebas de fidelidad literal y ausencia de exposición pública.
-- [ ] Confirmar la CI y fusionar el índice cuando termine la revisión técnica.
+- [x] Confirmar las cuatro suites de CI y fusionar el índice documental mediante [PR #10](https://github.com/naufragio-rolero/nd20-character-creator/pull/10).
 - [ ] Aprobar específicamente cada normalización mecánica antes de modificar el generador.
 
 **Detalle:** [Informe y diario de acciones](110-informe-propiedades-talentos-drs.md) · [repertorio literal](110a-propiedades-literales-drs.json).
