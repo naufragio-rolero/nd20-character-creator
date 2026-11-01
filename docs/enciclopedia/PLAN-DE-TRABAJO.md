@@ -19,7 +19,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [x] Preparar fichas de Talento con resumen inmediato y texto fuente íntegro (desplegable si es largo); cierre visible, desplazamiento de diálogo y permanencia al perder foco.
 - [x] Corregir la combinación de texto amarillo pálido sobre fondo claro en el tema Ébano.
 - [x] Limitar los tres catálogos nuevos al paquete público filtrado y proteger cobertura 10/24/111 mediante tests Node y E2E.
-- [ ] Cerrar **4/4 suites CI** sobre el último SHA funcional; revisar capturas del popup largo y contraste de Ébano.
+- [x] **4/4 suites CI verdes** en SHA funcional `a80b9249`: validación general, Chrome, Firefox/WebKit y paquete DRS. [Evidencias y límites de capturas en informe 119](119-fichas-drs-completas-accesibilidad.md). Se probaron diálogo desplazable y contraste de Ébano en navegador.
 - [ ] Obtener aprobación editorial y fusionar exclusivamente la PR #15; fijar SHA validado en LIVE y verificar URL pública.
 - [ ] Reconciliar cambios con la [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) si se amplía también el catálogo adicional de Equipo, conservando su estado separado.
 
