@@ -1056,6 +1056,7 @@
       danioCompuesto:'data/conjuros-danio-compuesto.json',
       progresiones:'data/progresiones-oficiales.json',
       equipoInicial:'data/equipo-inicial.json',
+      equipoConsultaDRS:'data/equipo-consulta-drs.json',
       fichasDocumentales:'data/fichas-documentales.json',
       talentosDRS:'data/talentos-drs-literales.json',
       aclaracionesTalentosDRS:'data/aclaraciones-talentos-drs.json',
@@ -1123,6 +1124,7 @@
       var indice=window.NaufragioTooltipIndex.indice({
         fantasia:datos.fantasia,cifi:datos.cifi,nocturna:datos.nocturna,
         catalogo:datos.catalogo,equipo:datos.equipoInicial,
+        equipoConsultaDRS:loaded.equipoConsultaDRS,
         alcanceDRS:datos.alcanceDRS,
         descripciones:loaded.fichasDocumentales,
         talentosDRS:loaded.talentosDRS,
