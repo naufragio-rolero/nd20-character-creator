@@ -450,11 +450,17 @@ async function probar(nombre,tipo,url){
     const recuperacion=fichaTalentos.locator(
       '.referencia-glosario[data-glosa-nombre="Recuperación"]');
     // Regresión: hover sobre otro Talento NO sustituye una ficha fijada.
+    assert.equal(await page.locator('#ficha-emergente').getAttribute('role'),'dialog',
+      nombre+': una ficha abierta con clic debe permanecer fijada');
     await recuperacion.evaluate(el=>el.dispatchEvent(new PointerEvent('pointerover',{
       bubbles:true,pointerType:'mouse',relatedTarget:null})));
-    assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
-      /gastar 1 Punto de Esfuerzo y una Acción/,
-      nombre+': el hover no reemplaza la ficha fijada mediante clic');
+    const fijo=await page.locator('#ficha-emergente').evaluate(x=>({
+      rol:x.getAttribute('role'),titulo:x.querySelector('h3')?.textContent,
+      texto:x.querySelector('.info-descripcion')?.textContent,
+      visible:!x.hidden}));
+    assert.equal(fijo.rol,'dialog',nombre+': hover no debe convertir un diálogo en tooltip '+JSON.stringify(fijo));
+    assert.match(fijo.texto||'',/gastar 1 Punto de Esfuerzo y una Acción/,
+      nombre+': el hover no reemplaza la ficha fijada mediante clic '+JSON.stringify(fijo));
     await page.keyboard.press('Escape');
     await recuperacion.click();
     assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
