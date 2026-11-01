@@ -158,6 +158,20 @@
     d.textContent=info.descripcion||
       "La descripción completa todavía no está incorporada al catálogo digital; consulta el manual.";
     c.appendChild(d);
+    // Apartado independiente: no añadir interpretaciones al efecto literal.
+    // Visible siempre para que la aclaración aprobada no quede escondida
+    // dentro de los detalles técnicos del popup.
+    if(talento&&talento.aclaracion){
+      var nota=document.createElement('section');
+      nota.className='info-aclaracion-autoral';
+      nota.setAttribute('aria-label','Aclaración autoral aprobada');
+      var etiqueta=document.createElement('h4');
+      etiqueta.textContent='Aclaración autoral aprobada';
+      var contenido=document.createElement('p');
+      contenido.textContent=talento.aclaracion.texto;
+      nota.append(etiqueta,contenido);
+      c.appendChild(nota);
+    }
     /* Las magnitudes se calculan solo cuando conocemos el Nivel del personaje.
      * Las condiciones y las tiradas de dados NO se ejecutan aquí. */
     var nivelTexto=elemento.dataset.glosaNivel||
