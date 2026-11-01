@@ -237,10 +237,11 @@
         "NaufragioD20DRS.docx · Paquetes de equipo",{
           grupo:"equipo",clase_equipo:"componente_paquete",
           categoria_equipo:"Componente de paquete",
-          descripcion:"",datos:comp.du?[["Dado de Uso","DU "+comp.du]]:[],
-          tecnicos_equipo:[["Paquetes",paquetes.map(function(x){
+          descripcion:"",
+          datos:[["Incluido en",paquetes.map(function(x){
             return x.nombre;
-          }).join(", ")]],
+          }).join(", ")]].concat(comp.du?[["Dado de Uso","DU "+comp.du]]:[]),
+          tecnicos_equipo:[],
           fuente_descripcion:"NaufragioD20DRS.docx · Paquetes de equipo"
         });
     });
