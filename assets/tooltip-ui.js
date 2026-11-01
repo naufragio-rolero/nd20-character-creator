@@ -309,6 +309,9 @@
       var a=getTarget(e);
       // Una ficha fijada por clic o teclado no puede ser sustituida
       // accidentalmente por hover de otra referencia.
+      // Los Talentos se leen como un diálogo estable, nunca como un
+      // tooltip volátil disparado por hover: clic o foco de teclado.
+      if(a?.dataset.glosaGrupo==="talento")return;
       if(a&&e.pointerType==="mouse"&&!fija&&!a.contains(e.relatedTarget))
         mostrar(a,false);
     });
