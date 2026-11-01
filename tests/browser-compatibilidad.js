@@ -60,6 +60,25 @@ async function probar(nombre,tipo,url){
     assert.notEqual(contrasteEbano.fg,'rgb(255, 240, 200)',
       nombre+': Ébano no usa amarillo pálido ilegible sobre blanco');
     await page.locator('#selector-tema').selectOption('clasico');
+    // Identidad visual del blog: los colores no dependen de capturas,
+    // servidores de fuentes ni del motor de renderizado.
+    const marcaBlog=await page.evaluate(()=>{
+      const estilo=selector=>getComputedStyle(document.querySelector(selector));
+      return {
+        fuente:estilo('body').fontFamily,
+        modo:getComputedStyle(document.documentElement).colorScheme,
+        inicio:estilo('.inicio-rapido').backgroundColor,
+        acento:estilo('#generar').backgroundColor,
+        colorBoton:estilo('#generar').color,
+        bordePanel:estilo('.panel').borderTopColor
+      };
+    });
+    assert.match(marcaBlog.fuente,/Exo/i,nombre+': tipografía editorial Exo');
+    assert.equal(marcaBlog.modo,'light',nombre+': Clásico es el tema claro del blog');
+    assert.equal(marcaBlog.inicio,'rgb(222, 238, 255)',nombre+': azul de tarjetas del blog');
+    assert.equal(marcaBlog.acento,'rgb(17, 81, 211)',nombre+': botón principal azul de marca');
+    assert.equal(marcaBlog.colorBoton,'rgb(255, 255, 255)',nombre+': texto blanco legible');
+    assert.equal(marcaBlog.bordePanel,'rgb(166, 193, 221)',nombre+': borde de marca');
     assert.equal(await page.locator('#inicio-movil').isHidden(),true,
       nombre+': el paso introductorio móvil no duplica la ayuda del panel en escritorio');
     await page.screenshot({path:path.join(capturas,nombre+'-inicio-escritorio.png')});
@@ -127,6 +146,22 @@ async function probar(nombre,tipo,url){
     assert.deepEqual(await popup.locator('.info-escuela').allTextContents(),['Arcana']);
     assert.match(await popup.locator('.info-escuela').getAttribute('class'),
       /info-escuela-arcana/);
+    const colorEscuela=await popup.locator('.info-escuela-arcana').evaluate(el=>({
+      fondo:getComputedStyle(el).backgroundColor,
+      borde:getComputedStyle(el).borderTopColor
+    }));
+    assert.equal(colorEscuela.fondo,'rgb(135, 206, 250)',
+      nombre+': Arcana usa LightSkyBlue del blog');
+    assert.equal(colorEscuela.borde,'rgb(0, 191, 255)',
+      nombre+': Arcana conserva DeepSkyBlue de contorno');
+    const ventanaBlog=await popup.evaluate(el=>({
+      fondo:getComputedStyle(el).backgroundColor,
+      texto:getComputedStyle(el).color
+    }));
+    assert.equal(ventanaBlog.fondo,'rgb(247, 251, 255)',
+      nombre+': las fichas emergentes también usan la paleta editorial');
+    assert.equal(ventanaBlog.texto,'rgb(32, 52, 71)',
+      nombre+': las fichas emergentes mantienen texto legible');
     assert.equal(await popup.locator('.info-circulo').getAttribute('aria-label'),'Círculo 1');
     assert.equal(await popup.locator('.info-circulo-valor').textContent(),'I');
     assert.equal(await popup.locator('.info-circulo-rotulo').textContent(),'Círculo');
