@@ -27,7 +27,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [ ] Revisar con criterio editorial el resultado final, aprobar **fusión** de la PR #14 y autorizar **despliegue** por separado.
 - [x] Auditar solapamientos entre PR #14 y PR #13: **seis ficheros compartidos** (`index.html`, `assets/app.js`, `assets/styles.css`, `assets/tooltip-ui.js`, `tests/browser-compatibilidad.js`, `docs/enciclopedia/PLAN-DE-TRABAJO.md`). Proteger el catálogo DRS, el inicio guiado y los popups fijados.
 - [x] Corregir popup que podía ser **reemplazado por hover mientras estaba fijado**; prueba de regresión en Firefox/WebKit, tras detectar fallo intermitente del [run 41326829106](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326829106). [Informe 118](118-forja-ux-primer-uso-boton-flotante.md).
-- [ ] Verificar 4/4 suites sobre el último cambio funcional del bloqueo de hover y no interpretar un único run verde como ausencia de regresiones.
+- [x] **4/4 suites verdes sobre el último cambio funcional `f3e4d945`** (validación general, compras Chrome, Firefox/WebKit y candidato público), con prueba de hover sobre un Talento diferente mientras el popup está fijado. Evidencias en [informe 118](118-forja-ux-primer-uso-boton-flotante.md).
 - [ ] Tras integrar la corrección UX en producción, reconciliar esos **seis ficheros** con [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13), ejecutar 4/4 suites sobre la rama reconciliada y no desplegar material no autorizado.
 
 ## Forja 1.5 — Aclaraciones autorales en popups DRS (01/11/2026)
