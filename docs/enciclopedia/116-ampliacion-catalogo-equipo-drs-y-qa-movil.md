@@ -1,5 +1,7 @@
 # Forja — Ampliación documental DRS: instrumentos, varios, monturas y transportes
 
+**Nota de vigencia:** la posterior [aclaración autoral del informe 117](117-armadura-equina-precio-y-catalogo-drs.md) resolvió cómo calcular el precio equino (armadura humana DRS elegida ×4), y el catálogo voluntario de 42 artículos ya ha sido incorporado a la PR #13. Las frases de este informe sobre «precio pendiente» y «navegador futuro» describen el estado anterior a esa decisión.
+
 **Fecha:** 01/11/2026 · **Ámbito:** catálogo de **consulta** DRS · **PR:** [#13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) en borrador, sin fusionar ni publicar.
 
 ## 1. Fuentes y método
