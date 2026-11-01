@@ -162,7 +162,7 @@
     }
     // Los recuerdos no reciben un falso reglamento ni texto de relleno.
     // El equipo con estadísticas documentadas muestra primero esos datos.
-    if(info.descripcion||info.clase_equipo!=="narrativo"){
+    if(info.descripcion||!["narrativo","componente_paquete"].includes(info.clase_equipo)){
       var d=document.createElement("p");d.className="info-descripcion";
       d.textContent=info.descripcion||
         "No hay descripción adicional documentada para este artículo.";
