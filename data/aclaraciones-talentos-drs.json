@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "fecha_aprobacion": "2026-11-01",
+  "fuente": "Aclaraciones expresas de la autoría de Naufragio d20",
+  "documento_resolucion": "docs/enciclopedia/111-resolucion-ocho-asuntos-talentos-drs.md",
+  "alcance": "Talentos del DRS; texto adicional al efecto literal; no ejecuta reglas",
+  "estado": "aprobacion_autoral",
+  "registros": [
+    {
+      "id_talento": "talento-drs-especie-mediano-amable-salvese-quien-pueda",
+      "tipo_origen": "Especie",
+      "propietario": "Mediano amable",
+      "nombre": "¡Sálvese quien pueda!",
+      "texto": "Puedes usar este Talento para librarte de Parálisis o Miedo incluso cuando el Estado impida actuar o te obligue a huir. Gastas la Acción y el Punto de Esfuerzo indicados en el DRS, sin necesidad de Tirada y sin obtener una Acción adicional."
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes",
+      "tipo_origen": "Ocupación",
+      "propietario": "Clérigo",
+      "nombre": "Expulsar muertos vivientes",
+      "texto": "Se realiza una Tirada de Probabilidad 15+ por cada muerto viviente afectado. Cuando haya muchas criaturas idénticas, puedes agruparlas y realizar una sola Tirada para ese grupo, aplicando su resultado a todas. Por ejemplo: 3 zombis y 2 esqueletos se resuelven con 2 Tiradas, una por cada tipo de criatura. No existe un número mínimo obligatorio para agrupar."
+    }
+  ]
+}
