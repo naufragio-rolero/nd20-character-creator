@@ -138,7 +138,15 @@ const consultaPublica=leer(salida,'equipo-consulta-drs.json');
 const consultaFuente=leer(raiz,'equipo-consulta-drs.json');
 assert.deepEqual(consultaPublica,consultaFuente,
   'El catálogo de consulta DRS distribuido coincide íntegramente con la fuente');
-assert.equal(consultaPublica.tablas.reduce((n,t)=>n+t.registros.length,0),10);
+assert.equal(consultaPublica.tablas.reduce((n,t)=>n+t.registros.length,0),22);
+assert.equal(consultaPublica.monturas.registros.length,6);
+assert.equal(consultaPublica.equipo_para_monturas.registros.length,5);
+assert.equal(consultaPublica.transportes.registros.length,4);
+assert.equal(consultaPublica.servicios_excluidos_del_equipo.length,3);
+assert.ok(consultaPublica.equipo_para_monturas.registros.find(x=>
+  x.nombre==='Armadura equina'&&x.precio_literal==='*'&&
+  x.precio===undefined),'No fijar precio inventado de armadura equina');
+assert.ok(consultaPublica.servicios_excluidos_del_equipo.some(x=>x.nombre==='Establos'));
 assert.equal(consultaPublica.equivalencias_explicitas_paquetes.length,5);
 assert.equal(consultaPublica.objetos_comunes_sin_precio.length,5);
 assert.equal(consultaPublica.version,2);
