@@ -115,10 +115,40 @@
     refrescarTarjetas('especie');
   }
   function refrescarGenerarFlotante(){
-    var boton=$('generar-flotante');
-    boton.hidden=$('panel-personajes').hidden;
-    boton.disabled=$('generar').disabled||!!borrador;
-    boton.textContent=Number($('cantidad').value)>1?'Generar personajes':'Generar personaje';
+    var boton=$('generar-flotante'),principal=$('generar');
+    var plural=Number($('cantidad').value)>1;
+    boton.textContent=plural?'Generar personajes':'Generar personaje';
+    principal.textContent=plural?'Generar personajes':'Generar personaje';
+    boton.disabled=principal.disabled||!!borrador;
+    var rect=principal.getBoundingClientRect();
+    var principalVisible=!$('panel-personajes').hidden&&
+      rect.width>0&&rect.height>0&&rect.bottom>0&&rect.top<innerHeight;
+    var pie=document.querySelector('.pie').getBoundingClientRect();
+    // Retirar el flotante ANTES del pie (también en pantallas pequeñas).
+    var pieCerca=pie.top<=innerHeight+80&&pie.bottom>=0;
+    // Primera visita móvil: el menú comienza oculto. Primero enseñar
+    // «Empezar», no un botón de Generar sin contexto.
+    var enMovil=window.matchMedia('(max-width:830px)').matches;
+    var primeraVisitaMovil=enMovil&&entradas.length===0&&
+      !$('panel-forja').classList.contains('panel-abierto');
+    var intro=$('panel-forja').querySelector('.inicio-rapido').getBoundingClientRect();
+    var introVisible=enMovil&&!$('panel-personajes').hidden&&
+      intro.width>0&&intro.height>0&&intro.bottom>0&&intro.top<innerHeight;
+    // No tapar la explicación recién abierta con «Empezar».
+    boton.hidden=$('panel-personajes').hidden||principalVisible||pieCerca||
+      primeraVisitaMovil||introVisible;
+  }
+  function observarGenerarFlotante(){
+    var pendiente=false;
+    function actualizar(){
+      if(pendiente)return;
+      pendiente=true;
+      requestAnimationFrame(function(){
+        pendiente=false;refrescarGenerarFlotante();
+      });
+    }
+    window.addEventListener('scroll',actualizar,{passive:true});
+    window.addEventListener('resize',actualizar,{passive:true});
   }
   function origenesActivos() {
     return Array.from(document.querySelectorAll('#origenes input:checked')).map(function (e) {
@@ -291,6 +321,7 @@
     $('alternar-menu').setAttribute('aria-expanded',String(abierto));
     $('alternar-menu').setAttribute('aria-label',
       abierto?'Cerrar menú de la forja':'Abrir menú de la forja');
+    refrescarGenerarFlotante();
   }
   function cerrarMenuMovil(){
     if(window.matchMedia('(max-width:830px)').matches)alternarMenu(false);
@@ -510,8 +541,10 @@
     $('titulo-resultados').textContent=entradas.length?'Fichas de la mesa':'La mesa está preparada';
     $('borrar').disabled=!entradas.length;
     $('exportar').disabled=!entradas.length;
+    $('inicio-movil').hidden=entradas.length>0;
     if(!entradas.length) fichas.innerHTML='<div class="vacio"><span class="emblema" aria-hidden="true">◇</span>'+
-      '<p>Una historia espera a su protagonista.</p><p class="muted">Elige un sistema y genera tu primera ficha.</p></div>';
+      '<p>Aquí aparecerá tu personaje</p><p class="muted">Deja las opciones iniciales o elige Nivel, Ocupación y Especie. Pulsa «Generar personaje» en la Forja: aquí verás el resultado.</p></div>';
+    refrescarGenerarFlotante();
   }
   function agregar(tipo,valor) {
     entradas.unshift({tipo:tipo,valor:valor,id:++correlativo});
@@ -814,6 +847,7 @@
       $('configuracion').requestSubmit($('generar'));
     });
     $('cantidad').addEventListener('input',refrescarGenerarFlotante);
+    observarGenerarFlotante();
     var avanzada=$('informacion-avanzada');
     try{avanzada.checked=localStorage.getItem('forja-informacion-avanzada')==='true';}
     catch(error){avanzada.checked=false;}
@@ -890,6 +924,17 @@
         }
         items.forEach(function(p){agregar('ficha',p);});
         cerrarMenuMovil();
+        // En móvil, las fichas están DEBAJO del formulario: mostrar el
+        // resultado de la acción sin obligar a buscarlo haciendo scroll.
+        if(items.length&&window.matchMedia('(max-width:830px)').matches){
+          requestAnimationFrame(function(){
+            var titulo=$('titulo-resultados');
+            titulo.focus({preventScroll:true});
+            titulo.scrollIntoView({behavior:window.matchMedia(
+              '(prefers-reduced-motion: reduce)').matches?'auto':'smooth',
+              block:'start'});
+          });
+        }
       });
     });
     $('form-elecciones').addEventListener('submit',function(event){
@@ -1011,6 +1056,14 @@
       });
     });
     $('compras-cancelar').addEventListener('click',cerrarCompra);
+    $('inicio-movil').querySelector('.empezar-forja').addEventListener('click',function(){
+      marcarPanel('personajes');
+      if(window.matchMedia('(max-width:830px)').matches)alternarMenu(true);
+      $('panel-forja').scrollIntoView({behavior:window.matchMedia(
+        '(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+      $('nivel').focus({preventScroll:true});
+      refrescarGenerarFlotante();
+    });
     $('fichas').addEventListener('click',function(e){
       var comprar=e.target.closest('.comprar-utiles');
       if(comprar){

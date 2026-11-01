@@ -64,6 +64,15 @@
           </select>
         </div>
       <div id="panel-personajes" role="tabpanel" aria-labelledby="tab-personajes">
+      <section class="inicio-rapido" aria-labelledby="titulo-inicio-rapido">
+        <h3 id="titulo-inicio-rapido">Crea tu primer personaje</h3>
+        <p>No hace falta configurar todo. Puedes dejar <strong>Nivel 1</strong>,
+          <strong>Ocupación</strong> y <strong>Especie</strong> en sus valores iniciales
+          y pulsar <strong>Generar personaje</strong>.</p>
+        <p>La ficha aparecerá en <strong>Resultados</strong>. Para decidir sus características,
+          modifica las opciones de abajo; el modo <strong>Personalizado</strong> te guiará
+          por las elecciones de Talentos y Poderes.</p>
+      </section>
       <form id="configuracion">
         <div class="campo">
           <label for="nivel">Nivel <span id="rango-nivel">1–30</span></label>
@@ -178,10 +187,18 @@
       </section>
     </aside>
     <section class="resultados" aria-labelledby="titulo-resultados">
+      <section id="inicio-movil" class="inicio-movil" aria-labelledby="titulo-inicio-movil">
+        <p class="sobrelinea">PRIMER PASO</p>
+        <h2 id="titulo-inicio-movil">Crea tu primer personaje</h2>
+        <p>La Forja ya tiene opciones preparadas. Pulsa <strong>Empezar</strong>
+          para abrirlas y luego <strong>Generar personaje</strong>.
+          No necesitas configurar nada más.</p>
+        <button type="button" class="empezar-forja" aria-controls="panel-forja">Empezar</button>
+      </section>
       <div class="barra-resultados">
         <div>
           <p class="sobrelinea">RESULTADOS</p>
-          <h2 id="titulo-resultados">La mesa está preparada</h2>
+          <h2 id="titulo-resultados" tabindex="-1">La mesa está preparada</h2>
           <p id="contador" class="muted">Todavía no has generado ninguna ficha.</p>
         </div>
         <div class="acciones-resultados">
@@ -233,8 +250,9 @@
       <div id="fichas" class="fichas" aria-live="off">
         <div class="vacio" id="vacio">
           <span class="emblema" aria-hidden="true">◇</span>
-          <p>Una historia espera a su protagonista.</p>
-          <p class="muted">Elige un sistema y genera tu primera ficha.</p>
+          <p>Aquí aparecerá tu personaje</p>
+          <p class="muted">Deja las opciones iniciales o elige Nivel, Ocupación y Especie.
+            Pulsa «Generar personaje» en la Forja: aquí verás el resultado.</p>
         </div>
       </div>
       <footer class="pie">Creado para la mesa de juego. Datos y reglas originales de sus respectivos proyectos. <a href="https://naufragio.net/" target="_blank" rel="noopener noreferrer">El Naufragio</a>.</footer>

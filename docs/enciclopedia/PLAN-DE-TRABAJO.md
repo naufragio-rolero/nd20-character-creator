@@ -1,13 +1,34 @@
 # Enciclopedia de Talentos, Poderes y Objetos — Plan de trabajo
 
-> **Estado vigente (01/11/2026):** Forja **1.3.1 publicada**, con 24 relaciones DRS (15 Especies y 9 Ocupaciones) y trazabilidad de **Herencia dual** entre adquisición y fuente original. [Auditoría literal cerrada](109-diario-auditoria-talentos-drs.md), [huellas verificables](109a-huellas-talentos-drs.json). La fase documental siguiente, **Forja 1.4**, [preclasifica 79 fragmentos literales de esos 24 Talentos](110-informe-propiedades-talentos-drs.md), sin introducirlos en el motor ni en el paquete público. Las referencias a PR abiertas y a «Forja sin cambios» en secciones históricas corresponden a octubre y no representan el estado actual. La cobertura documental no equivale a validación o automatización mecánica.
+> **Estado vigente (01/11/2026):** Forja **1.5 publicada**, con dos aclaraciones autorales de Talentos DRS ([informe 112](112-forja-aclaraciones-autoriales.md)). **PR #14**: corrección independiente del inicio y botón flotante ([informe 118](118-forja-ux-primer-uso-boton-flotante.md)), pendiente de QA editorial, fusión y publicación. **PR #13** de enciclopedia DRS sigue separada, en borrador y sin desplegar. La preclasificación de Talentos de Forja 1.4 es documental; no modifica automáticamente las reglas.
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
-**Última actualización:** 2026-10-29.  
+**Última actualización:** 2026-11-01.  
 **Estado global:** Talentos de Especies: **115/115 relaciones cotejadas documentalmente**; Talentos de Ocupaciones: **162/162 transcritos** (CSV histórico de 163 conservado; «Estilos de gladiatoria» reclasificado como Poder). Nocturna: **57/57 textos de Talentos cotejados literalmente**. Eidolas: **32/32 fichas vigentes, 96 modalidades de efecto**. Quedan discrepancias editoriales, progresiones, normalización mecánica e integración. **PR abierta, sin fusionar; Forja sin cambios de lógica.**  
 **Rama de trabajo:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
+
+## Corrección UX de primera visita y botón flotante — PR #14 (01/11/2026)
+
+**Fuente:** comentarios directos de una usuaria, sin captura ni dispositivo concreto. **Informe:** [118 — Primer uso y botón flotante](118-forja-ux-primer-uso-boton-flotante.md) · [PR #14](https://github.com/naufragio-rolero/nd20-character-creator/pull/14), rama separada de `main`, sin fusión ni despliegue.
+
+- [x] Analizar la causa del solapamiento: CTA `fixed` sin comprobación de pie de página ni visibilidad de la acción principal.
+- [x] Añadir ayuda inicial clara y mensaje de Resultados vacío que explique el mínimo necesario para generar una primera ficha.
+- [x] Resolver el hallazgo de **panel Menú oculto al entrar desde móvil**: tarjeta «Empezar» **antes de Resultados, visible sin scroll a 390 × 844**, que abre el formulario y enfoca Nivel.
+- [x] Auditoría visual de capturas Firefox/WebKit: detectar que el primer botón «Empezar» estaba bajo el pliegue y que el flotante tapaba ayuda al abrir Menú; corregir ambos sin alterar las reglas.
+- [x] Ocultar el CTA flotante junto al pie y cuando el botón del formulario está visible; permitir reaparición durante el desplazamiento.
+- [x] Igualar el texto singular/plural del botón principal y flotante.
+- [x] Guiar a Resultados después de generar en móvil (y devolver foco al título), respetando movimiento reducido.
+- [x] Incorporar pruebas E2E de primer uso, pie accesible, CTA contextual y resultado móvil en Firefox/WebKit, con capturas de primera visita y pie despejado.
+- [x] **4/4 suites CI verdes en el último cambio funcional `4811dd7b`**: Node, compras en Chrome, Firefox/WebKit, candidato público DRS. [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), evidencias y capturas del [run 41326537139](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326537139).
+- [x] Inspección visual técnica de **diez capturas** de escritorio, primera visita, formulario abierto, compras y pie en Firefox/WebKit; ayuda inicial **sin superposición** tras el último cambio. Queda pendiente validar en el dispositivo real de la usuaria.
+- [x] Inspeccionar capturas de **primera visita**, **pie**, **escritorio** y **formulario móvil abierto** en Firefox/WebKit; los dos hallazgos de solapamiento y el CTA bajo el pliegue están corregidos y comprobados en CI.
+- [ ] Revisar con criterio editorial el resultado final, aprobar **fusión** de la PR #14 y autorizar **despliegue** por separado.
+- [x] Auditar solapamientos entre PR #14 y PR #13: **seis ficheros compartidos** (`index.html`, `assets/app.js`, `assets/styles.css`, `assets/tooltip-ui.js`, `tests/browser-compatibilidad.js`, `docs/enciclopedia/PLAN-DE-TRABAJO.md`). Proteger el catálogo DRS, el inicio guiado y los popups fijados.
+- [x] Corregir popup que podía ser **reemplazado por hover mientras estaba fijado**; prueba de regresión en Firefox/WebKit, tras detectar fallo intermitente del [run 41326829106](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326829106). [Informe 118](118-forja-ux-primer-uso-boton-flotante.md).
+- [x] **4/4 suites verdes sobre el último cambio funcional `f3e4d945`** (validación general, compras Chrome, Firefox/WebKit y candidato público), con prueba de hover sobre un Talento diferente mientras el popup está fijado. Evidencias en [informe 118](118-forja-ux-primer-uso-boton-flotante.md).
+- [ ] Tras integrar la corrección UX en producción, reconciliar esos **seis ficheros** con [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13), ejecutar 4/4 suites sobre la rama reconciliada y no desplegar material no autorizado.
 
 ## Forja 1.5 — Aclaraciones autorales en popups DRS (01/11/2026)
 
@@ -147,6 +168,8 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 | Fecha | Acción | Evidencia / estado |
 |---|---|---|
+| 2026-11-01 | Revisión visual real de UX móvil de Forja | Capturas de GitHub Actions analizadas: «Empezar» bajo el pliegue y flotante que cubría texto tras abrir Menú; tarjeta de primer paso ahora visible sin scroll en 390×844 y CTA oculto mientras se lee la ayuda. [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), PR #14 en borrador y separada de PR #13. |
+| 2026-11-01 | Feedback de usabilidad: primer uso y pie de página | [Informe 118](118-forja-ux-primer-uso-boton-flotante.md), [PR #14](https://github.com/naufragio-rolero/nd20-character-creator/pull/14). CTA flotante contextual, guía inicial, salida visible en móvil y pruebas; rama independiente de PR #13. Aún sin fusión/despliegue. |
 | 2026-10-28 | Auditoría inicial del repositorio | Finalizada; sin cambios de código. |
 | 2026-10-28 | Inventario inicial transversal y dos CSV | Documentado en esta rama, PR #3 abierta. |
 | 2026-10-28 | Creación de este plan de trabajo | Punto de control para las siguientes tandas. |
