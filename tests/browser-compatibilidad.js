@@ -54,7 +54,14 @@ async function probar(nombre,tipo,url){
     // Primera visita móvil: el panel arranca plegado; «Empezar» debe abrirlo.
     await page.setViewportSize({width:390,height:844});
     assert.equal(await page.locator('#panel-forja').isHidden(),true);
+    assert.equal(await page.locator('#inicio-movil').isVisible(),true,
+      nombre+': el primer paso debe mostrarse antes de Resultados');
     assert.equal(await page.locator('.empezar-forja').isVisible(),true);
+    const primerPaso=await page.locator('.empezar-forja').boundingBox();
+    assert.ok(primerPaso&&primerPaso.y+primerPaso.height<=844,
+      nombre+': Empezar debe ser visible SIN desplazarse en 390×844');
+    assert.equal(await page.locator('#generar-flotante').isHidden(),true,
+      nombre+': el flotante no compite con Empezar al abrir móvil');
     await page.screenshot({path:path.join(capturas,nombre+'-inicio-movil.png')});
     await page.locator('.empezar-forja').click();
     assert.equal(await page.locator('#panel-forja').isVisible(),true,
@@ -63,6 +70,8 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#nivel').evaluate(x=>document.activeElement===x),true,
       nombre+': el foco llega al primer ajuste');
     await page.locator('#alternar-menu').click();
+    assert.equal(await page.locator('#generar-flotante').isHidden(),true,
+      nombre+': al cerrar menú sin primera ficha, Empezar recupera prioridad');
     await page.setViewportSize({width:1440,height:900});
     const ocupaciones=await page.locator('#ocupacion option').evaluateAll(
       nodes=>nodes.map(x=>x.value).filter(Boolean).sort());
@@ -569,6 +578,8 @@ async function probar(nombre,tipo,url){
     await page.locator('#generar-flotante').click();
     await page.waitForFunction(n=>
       document.querySelectorAll('#fichas .tarjeta').length===n+1,antes);
+    assert.equal(await page.locator('#inicio-movil').isHidden(),true,
+      nombre+': la guía de primer paso desaparece tras crear fichas');
     await page.waitForFunction(()=>{
       const t=document.querySelector('#titulo-resultados');
       const r=t.getBoundingClientRect();
