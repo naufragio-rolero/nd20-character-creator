@@ -107,7 +107,9 @@
           if(valor!==undefined&&valor!==null&&valor!=="")
             datos.push([etiqueta,String(valor)]);
         }
-        if(x.precio!==undefined&&x.precio!==null)
+        if(x.precio_literal)
+          campo("Precio",x.precio_literal);
+        else if(x.precio!==undefined&&x.precio!==null)
           campo("Precio",x.precio+" "+moneda);
         if(x.precio_por_nivel!==undefined)
           campo("Precio",x.precio_por_nivel+" "+moneda+" × Nivel");
