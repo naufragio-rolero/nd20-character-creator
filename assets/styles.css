@@ -387,6 +387,7 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
   background:#193845;border-left:3px solid #c2cfb7;padding:.4rem .55rem}
 .info-resumen-editorial h4{margin:.4rem 0 .3rem;font-size:.84rem;color:#ffe1a0}
 .info-resumen-editorial p{margin:.15rem 0 .75rem;font-size:.9rem;line-height:1.6}
+.info-literal-etiqueta{font-size:.76rem;margin:.6rem 0 .2rem;color:#bfd3dc;font-weight:700}
 .info-texto-literal{margin:.6rem 0 .8rem;padding:.25rem .7rem;
   border:1px solid #55717e;border-radius:6px}
 .info-texto-literal summary{cursor:pointer;font-weight:700;font-size:.8rem;
