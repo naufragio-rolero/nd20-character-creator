@@ -42,7 +42,12 @@ Los objetos mágicos no se cargan ni publican; CiFi y Nocturna siguen fuera de l
 - La prueba de índice verifica las **14 armaduras DRS**, con validación de 0,5 mo→2 mo, 10 mo→40 mo y 1000 mo→4000 mo.
 - Las pruebas de interfaz verifican el desplegable de catálogo, ausencia de servicio Establos, 42 artículos, cambio de base, aviso de solo consulta y sin fichas nuevas. En **390 × 844 px**, Firefox/WebKit verifican el precio 10 mo ×4 = 40 mo, encaje geométrico del popup, ausencia de desbordamiento horizontal y generan una captura específica de Armadura equina.
 - La guardia de publicación exige la **versión 4**, el origen `armaduras`, el **multiplicador 4** y la igualdad completa del catálogo público con la fuente del repositorio.
-- Las cuatro suites de GitHub Actions deberán figurar como **satisfactorias para el último SHA**, no para una revisión anterior. Las pruebas de navegador son evidencia funcional automatizada; la inspección visual humana continúa pendiente.
+- **QA funcional definitivo: 4/4 suites verdes para el commit `248a5c02`**:
+  - [Validación integral de Conjuros, Forja y Equipo — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41318316018).
+  - [Compras DRS en Chrome — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41318315968).
+  - [Firefox/WebKit, selector equino y capturas en móvil — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41318315972).
+  - [Paquete público DRS, lista blanca, guardia y E2E multibrowser — success](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41318315963).
+- Las pruebas de navegador son evidencia funcional automatizada; la **inspección visual humana de las capturas continúa pendiente**. La PR no se ha fusionado ni desplegado.
 - **No se fusiona ni despliega la PR #13** sin aprobación explícita.
 
 ## 5. Próximo paso
