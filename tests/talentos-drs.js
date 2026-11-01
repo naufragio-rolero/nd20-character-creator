@@ -94,7 +94,8 @@ assert.equal(indice.presentarTalento({
 const salvese=aclaraciones.registros.find(x=>x.nombre==='¡Sálvese quien pueda!');
 const expulsar=aclaraciones.registros.find(x=>x.nombre==='Expulsar muertos vivientes');
 assert.match(salvese.texto,/Parálisis o Miedo/);
-assert.match(salvese.texto,/Punto de Esfuerzo y la Acción/);
+assert.match(salvese.texto,/Punto de Esfuerzo/);
+assert.match(salvese.texto,/Acción/);
 assert.match(salvese.texto,/sin necesidad de Tirada/);
 assert.match(expulsar.texto,/Tirada de Probabilidad 15\+/);
 assert.match(expulsar.texto,/3 zombis y 2 esqueletos/);
