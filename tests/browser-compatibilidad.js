@@ -44,6 +44,13 @@ async function probar(nombre,tipo,url){
     assert.equal(response.status(),200,'HTML inicial debe cargar');
     await page.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
     assert.equal(await page.locator('#generar').isEnabled(),true);
+    assert.match(await page.locator('.inicio-rapido').innerText(),
+      /No hace falta configurar todo/,
+      nombre+': explicar el camino sencillo a una persona nueva');
+    assert.match(await page.locator('#fichas .vacio').innerText(),
+      /Aquí aparecerá tu personaje/,
+      nombre+': explicar qué encontrará en Resultados');
+    assert.equal(await page.locator('#generar').textContent(),'Generar personaje');
     const ocupaciones=await page.locator('#ocupacion option').evaluateAll(
       nodes=>nodes.map(x=>x.value).filter(Boolean).sort());
     assert.deepEqual(ocupaciones,['Clérigo','Guerrero','Ladrón','Mago'].sort(),
@@ -521,6 +528,36 @@ async function probar(nombre,tipo,url){
     await page.locator('#editor-compras').scrollIntoViewIfNeeded();
     await page.screenshot({path:path.join(capturas,nombre+'-movil.png')});
     await page.locator('#compras-cancelar').click();
+    // Regresión de accesibilidad: el flotante no cubre el pie de página.
+    await page.locator('.pie').scrollIntoViewIfNeeded();
+    await page.waitForFunction(()=>document.querySelector('#generar-flotante').hidden);
+    assert.equal(await page.locator('#generar-flotante').isHidden(),true,
+      nombre+': el CTA flotante no debe tapar el pie de página en móvil');
+    const enlacePie=page.locator('.pie a').first();
+    assert.equal(await enlacePie.isVisible(),true);
+    assert.equal(await enlacePie.isEnabled(),true);
+    // Fuera del pie sigue disponible, excepto junto al botón del formulario.
+    await page.locator('#titulo-resultados').scrollIntoViewIfNeeded();
+    await page.waitForFunction(()=>!document.querySelector('#generar-flotante').hidden);
+    assert.equal(await page.locator('#generar-flotante').isVisible(),true,
+      nombre+': el CTA vuelve al alejarse del pie');
+    await page.locator('#generar').scrollIntoViewIfNeeded();
+    await page.waitForFunction(()=>document.querySelector('#generar-flotante').hidden);
+    assert.equal(await page.locator('#generar-flotante').isHidden(),true,
+      nombre+': no duplicar dos botones Generar simultáneamente');
+    // Desde el inicio, el flotante permite generar y muestra el resultado.
+    await page.locator('#panel-forja').scrollIntoViewIfNeeded();
+    await page.waitForFunction(()=>!document.querySelector('#generar-flotante').hidden);
+    const antes=await page.locator('#fichas .tarjeta').count();
+    await page.locator('#generar-flotante').click();
+    await page.waitForFunction(n=>
+      document.querySelectorAll('#fichas .tarjeta').length===n+1,antes);
+    await page.waitForFunction(()=>{
+      const t=document.querySelector('#titulo-resultados');
+      const r=t.getBoundingClientRect();
+      return document.activeElement===t&&r.top>=-2&&r.top<innerHeight;
+    });
+    assert.equal(await page.locator('#fichas .tarjeta').count(),antes+1);
     assert.deepEqual(fallos,[],nombre+': no debe haber excepciones no capturadas');
     console.log('OK · '+nombre+': 4 Ocupaciones, 8 Especies, compras, Intro, cancelar,'+
       ' precio por Nivel, quitar, presupuesto, móvil y cero excepciones.');
