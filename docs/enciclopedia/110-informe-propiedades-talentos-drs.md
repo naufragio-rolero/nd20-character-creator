@@ -28,7 +28,7 @@ La prueba automática exige que **cada cita sea una subcadena exacta** del efect
 
 ## Resolución posterior (01/11/2026)
 
-**Los ocho asuntos de la tabla histórica siguiente han quedado conciliados documentalmente.** Los seis primeros resolubles desde la fuente permanecen sin cambios y los dos que requerían aclaración (**ESP-DRS-02** y **OCP-DRS-02**) han sido ratificados expresamente por la autoría. Véase [informe de cierre 111](111-resolucion-ocho-asuntos-talentos-drs.md). La tabla que sigue se conserva como registro histórico del problema, **no como lista vigente de decisiones pendientes**. No hay automatización de combate nueva ni edición del texto literal del DRS.
+**Los ocho asuntos de la tabla histórica siguiente han quedado conciliados documentalmente.** Los seis casos resueltos desde la fuente permanecen sin cambios y los dos que requerían aclaración (**ESP-DRS-02** y **OCP-DRS-02**) han sido ratificados expresamente por la autoría. Véase [informe de cierre 111](111-resolucion-ocho-asuntos-talentos-drs.md). La tabla que sigue se conserva como registro histórico del problema, **no como lista vigente de decisiones pendientes**. No hay automatización de combate nueva ni edición del texto literal del DRS.
 
 ## Asuntos que necesitan conciliación editorial antes de automatizar
 
