@@ -1,5 +1,7 @@
 # Forja — Cierre de consulta de los paquetes iniciales DRS
 
+**Nota de vigencia:** este informe conserva la auditoría histórica inicial. El autor autorizó después convertir los cinco componentes sin ficha individual en **útiles corrientes con descripción editorial**; véase el [informe 115](115-cinco-utiles-corrientes-paquetes-drs.md). Las afirmaciones siguientes de «sin descripción» describen el estado **previo** a esa decisión, no el resultado actual.
+
 **Fecha:** 01/11/2026 · **PR:** [#13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) (borrador) · **Ámbito:** solo equipo del `NaufragioD20DRS.docx`. **No desplegar ni fusionar sin revisión editorial.**
 
 ## 1. Auditoría inicial verificable
