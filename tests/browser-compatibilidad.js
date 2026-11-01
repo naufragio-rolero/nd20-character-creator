@@ -546,7 +546,7 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#generar-flotante').isHidden(),true,
       nombre+': no duplicar dos botones Generar simultáneamente');
     // Desde el inicio, el flotante permite generar y muestra el resultado.
-    await page.locator('#panel-forja').scrollIntoViewIfNeeded();
+    await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
     await page.waitForFunction(()=>!document.querySelector('#generar-flotante').hidden);
     const antes=await page.locator('#fichas .tarjeta').count();
     await page.locator('#generar-flotante').click();
