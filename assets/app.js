@@ -128,10 +128,15 @@
     var pieCerca=pie.top<=innerHeight+80&&pie.bottom>=0;
     // Primera visita móvil: el menú comienza oculto. Primero enseñar
     // «Empezar», no un botón de Generar sin contexto.
-    var primeraVisitaMovil=window.matchMedia('(max-width:830px)').matches&&
-      entradas.length===0&&!$('panel-forja').classList.contains('panel-abierto');
+    var enMovil=window.matchMedia('(max-width:830px)').matches;
+    var primeraVisitaMovil=enMovil&&entradas.length===0&&
+      !$('panel-forja').classList.contains('panel-abierto');
+    var intro=$('panel-forja').querySelector('.inicio-rapido').getBoundingClientRect();
+    var introVisible=enMovil&&!$('panel-personajes').hidden&&
+      intro.width>0&&intro.height>0&&intro.bottom>0&&intro.top<innerHeight;
+    // No tapar la explicación recién abierta con «Empezar».
     boton.hidden=$('panel-personajes').hidden||principalVisible||pieCerca||
-      primeraVisitaMovil;
+      primeraVisitaMovil||introVisible;
   }
   function observarGenerarFlotante(){
     var pendiente=false;
