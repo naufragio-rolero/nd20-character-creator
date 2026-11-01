@@ -47,6 +47,16 @@ Después se inspeccionaron nuevas capturas de la revisión [276f91e6, run 413260
 
 **Límites:** esta inspección visual se ha hecho sobre **capturas de CI**, no sobre el dispositivo real de la usuaria. No equivale a validación personal de su experiencia ni autoriza fusión o despliegue.
 
+### Hallazgo adicional: popup fijado sustituido por hover
+
+Una ejecución posterior del [candidato público, run 41326829106](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41326829106), falló de forma intermitente al comprobar el Talento **«¡Sálvese quien pueda!»**: el popup mostraba el texto de **«Recuperación»**. El fallo fue reproducible a nivel de lógica de eventos: `assets/tooltip-ui.js` permitía que `pointerover` en una segunda referencia sustituyera incluso a una ficha fijada con clic/teclado. No es una discrepancia de reglas ni de texto DRS.
+
+**Corrección funcional:** el hover **no puede reemplazar una ficha mientras está fijada**. Tras cerrar con Escape, el hover normal vuelve a funcionar. Se añadió una prueba explícita en `tests/browser-compatibilidad.js` que abre «¡Sálvese quien pueda!», despacha `pointerover` sobre «Recuperación» y exige que la descripción fijada permanezca igual. También se sigue verificando la apertura normal de «Recuperación» tras Escape.
+
+Este ajuste de usabilidad amplía **a seis** los archivos compartidos con la PR #13: `index.html`, `assets/app.js`, `assets/styles.css`, `assets/tooltip-ui.js`, `tests/browser-compatibilidad.js`, `docs/enciclopedia/PLAN-DE-TRABAJO.md`. La reconciliación tendrá que preservar tanto este bloqueo del popup como el visor DRS de la PR #13, sin activar magia no autorizada.
+
+**QA de esta última corrección:** comprobar las cuatro suites sobre el último SHA funcional, distinto del SHA histórico `4811dd7b`.
+
 ## 4. Separación de entregas
 
 Este cambio parte directamente de `main` para poder corregir el problema de la **Forja publicada** sin fusionar previamente la extensa [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) de enciclopedia de Equipo. La PR #13 sigue sin fusionar, con magia y otras ambientaciones excluidas.
