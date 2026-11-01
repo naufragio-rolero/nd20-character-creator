@@ -650,6 +650,26 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#ficha-emergente').isHidden(),true,
       nombre+': Escape cierra el popup móvil');
     assert.equal(await mochila.getAttribute('aria-expanded'),'false');
+    // El navegador DRS y el selector equino también deben funcionar en móvil.
+    await page.locator('#consulta-catalogo-ver').scrollIntoViewIfNeeded();
+    await page.locator('#consulta-catalogo-ver').click();
+    const equinoMovil=page.locator('#ficha-emergente');
+    await equinoMovil.locator('#consulta-armadura-base').selectOption('Armadura de cuero');
+    assert.match(await equinoMovil.locator('.info-armadura-resultado').textContent(),
+      /10 mo × 4 = 40 mo/);
+    const limitesEquinos=await equinoMovil.evaluate(card=>{
+      const b=card.getBoundingClientRect();
+      return {izq:b.left,der:b.right,arriba:b.top,abajo:b.bottom,
+        anchoVisible:innerWidth,altoVisible:innerHeight,
+        scrollHorizontal:card.scrollWidth-card.clientWidth};
+    });
+    assert.ok(limitesEquinos.izq>=-2&&limitesEquinos.der<=limitesEquinos.anchoVisible+2&&
+      limitesEquinos.arriba>=-2&&limitesEquinos.abajo<=limitesEquinos.altoVisible+2&&
+      limitesEquinos.scrollHorizontal<=2,
+      nombre+': selector equino encaja en móvil '+JSON.stringify(limitesEquinos));
+    await page.screenshot({path:path.join(capturas,nombre+'-armadura-equina-movil.png')});
+    await page.keyboard.press('Escape');
+    assert.equal(await equinoMovil.isHidden(),true);
     assert.deepEqual(fallos,[],nombre+': no debe haber excepciones no capturadas');
     console.log('OK · '+nombre+': 4 Ocupaciones, 8 Especies, compras, Intro, cancelar,'+
       ' precio por Nivel, quitar, presupuesto, móvil y cero excepciones.');
