@@ -149,7 +149,18 @@ assert.ok(consultaPublica.equipo_para_monturas.registros.find(x=>
 assert.ok(consultaPublica.servicios_excluidos_del_equipo.some(x=>x.nombre==='Establos'));
 assert.equal(consultaPublica.equivalencias_explicitas_paquetes.length,5);
 assert.equal(consultaPublica.objetos_comunes_sin_precio.length,5);
-assert.equal(consultaPublica.version,3);
+assert.equal(consultaPublica.version,4);
+const precioEquino=consultaPublica.equipo_para_monturas.registros.find(x=>
+  x.nombre==='Armadura equina');
+assert.equal(precioEquino.regla_precio_autoral.estado,'aprobacion_autoral');
+assert.equal(precioEquino.regla_precio_autoral.multiplicador,4);
+assert.equal(precioEquino.regla_precio_autoral.catalogo_base,
+  'data/equipo-inicial.json · armaduras');
+assert.equal(equipo.armaduras.length,14);
+assert.ok(equipo.armaduras.every(x=>Number.isFinite(x.precio)&&x.precio>=0),
+  'Armaduras humanas DRS con precio real');
+assert.ok(!consultaPublica.servicios_excluidos_del_equipo.some(x=>
+  x.nombre==='Armadura equina'));
 assert.ok(consultaPublica.objetos_comunes_sin_precio.every(x=>
   x.descripcion_editorial&&/editorial/.test(x.origen_descripcion)));
 assert.ok(consultaPublica.objetos_comunes_sin_precio.every(x=>
