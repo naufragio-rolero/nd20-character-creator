@@ -134,6 +134,40 @@ const equipo=leer(salida,'equipo-inicial.json');
 assert.equal(equipo.armas.find(x=>x.nombre==='Dardo').precio,0);
 assert.equal(equipo.armas.find(x=>x.nombre==='Almádena').precio,60);
 assert.equal(equipo.utiles_fantasia.campamento.find(x=>x.nombre==='Martillo de campamento').precio,2);
+const consultaPublica=leer(salida,'equipo-consulta-drs.json');
+const consultaFuente=leer(raiz,'equipo-consulta-drs.json');
+assert.deepEqual(consultaPublica,consultaFuente,
+  'El catálogo de consulta DRS distribuido coincide íntegramente con la fuente');
+assert.equal(consultaPublica.tablas.reduce((n,t)=>n+t.registros.length,0),22);
+assert.equal(consultaPublica.monturas.registros.length,6);
+assert.equal(consultaPublica.equipo_para_monturas.registros.length,5);
+assert.equal(consultaPublica.transportes.registros.length,4);
+assert.equal(consultaPublica.servicios_excluidos_del_equipo.length,3);
+assert.ok(consultaPublica.equipo_para_monturas.registros.find(x=>
+  x.nombre==='Armadura equina'&&x.precio_literal==='*'&&
+  x.precio===undefined),'No fijar precio inventado de armadura equina');
+assert.ok(consultaPublica.servicios_excluidos_del_equipo.some(x=>x.nombre==='Establos'));
+assert.equal(consultaPublica.equivalencias_explicitas_paquetes.length,5);
+assert.equal(consultaPublica.objetos_comunes_sin_precio.length,5);
+assert.equal(consultaPublica.version,4);
+const precioEquino=consultaPublica.equipo_para_monturas.registros.find(x=>
+  x.nombre==='Armadura equina');
+assert.equal(precioEquino.regla_precio_autoral.estado,'aprobacion_autoral');
+assert.equal(precioEquino.regla_precio_autoral.multiplicador,4);
+assert.equal(precioEquino.regla_precio_autoral.catalogo_base,
+  'data/equipo-inicial.json · armaduras');
+assert.equal(equipo.armaduras.length,14);
+assert.ok(equipo.armaduras.every(x=>Number.isFinite(x.precio)&&x.precio>=0),
+  'Armaduras humanas DRS con precio real');
+assert.ok(!consultaPublica.servicios_excluidos_del_equipo.some(x=>
+  x.nombre==='Armadura equina'));
+assert.ok(consultaPublica.objetos_comunes_sin_precio.every(x=>
+  x.descripcion_editorial&&/editorial/.test(x.origen_descripcion)));
+assert.ok(consultaPublica.objetos_comunes_sin_precio.every(x=>
+  x.precio===undefined&&x.precio_literal===undefined),
+  'No inventar precios para los cinco artículos normales de viaje');
+assert.ok(!JSON.stringify(consultaPublica).includes('Manto de Vagryen'),
+  'No distribuir Objetos mágicos suplementarios con el equipo DRS');
 const marca=core.conjuros.find(x=>x.nombre==='Marca del dador oscuro');
 assert.equal(marca.circulo,5);
 assert.ok(core.listas_drs.Clérigo['5'].includes(marca.nombre));
@@ -211,7 +245,7 @@ const esperados=new Set([
   'catalogo-poderes.json','conjuros-revisados-001-225.json',
   'conjuros-revisados-226-434.json','conjuros-magnitudes-literales.json',
   'alcance-drs-y-dlc.json','conjuros-danio-compuesto.json',
-  'progresiones-oficiales.json','equipo-inicial.json','fichas-documentales.json',
+  'progresiones-oficiales.json','equipo-inicial.json','equipo-consulta-drs.json','fichas-documentales.json',
   'talentos-drs-literales.json','aclaraciones-talentos-drs.json',
   'dungeon-hack.json'
 ]);

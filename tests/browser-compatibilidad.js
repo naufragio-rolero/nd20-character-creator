@@ -63,6 +63,41 @@ async function probar(nombre,tipo,url){
     });
     assert.equal(iconos.status,200);
     assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,12);
+    // Consultar Equipo DRS desde el propio navegador público, sin comprar.
+    const consultaDrs=page.locator('#consulta-catalogo-drs');
+    assert.equal(await consultaDrs.isHidden(),false,
+      nombre+': catálogo de consulta accesible');
+    await consultaDrs.locator('summary').click();
+    const catalogo=page.locator('#consulta-catalogo-articulo');
+    assert.equal(await catalogo.locator('option').count(),43,
+      nombre+': 37 referencias DRS + cinco útiles editoriales + placeholder');
+    assert.equal(await catalogo.locator('option').filter({hasText:'Establos'}).count(),0);
+    assert.equal(await page.locator('#consulta-catalogo-ver').isDisabled(),true);
+    await catalogo.selectOption('Armadura equina');
+    await page.locator('#consulta-catalogo-ver').click();
+    const popupEquino=page.locator('#ficha-emergente');
+    assert.equal(await popupEquino.locator('h3').innerText(),'Armadura equina');
+    assert.equal(await popupEquino.locator('.info-tipo').textContent(),'Equipo de montura');
+    assert.equal(await popupEquino.locator('#consulta-armadura-base option').count(),15,
+      nombre+': catálogo completo de 14 armaduras humanas');
+    assert.equal(await popupEquino.locator('.info-armadura-resultado').innerText(),
+      'Selecciona una armadura para consultar su precio.');
+    await popupEquino.locator('#consulta-armadura-base').selectOption('Pechera de algodón');
+    assert.match(await popupEquino.locator('.info-armadura-resultado').innerText(),
+      /0\.5 mo × 4 = 2 mo/);
+    await popupEquino.locator('#consulta-armadura-base').selectOption('Armadura de cuero');
+    assert.match(await popupEquino.locator('.info-armadura-resultado').innerText(),
+      /10 mo × 4 = 40 mo/);
+    await popupEquino.locator('#consulta-armadura-base').selectOption('Armadura completa de placas');
+    assert.match(await popupEquino.locator('.info-armadura-resultado').innerText(),
+      /1000 mo × 4 = 4000 mo/);
+    assert.match(await popupEquino.locator('.info-armadura-aviso').innerText(),
+      /No se compra ni se equipa automáticamente/);
+    assert.match(await popupEquino.locator('.info-fuente').innerText(),/Tabla 28/);
+    await page.keyboard.press('Escape');
+    assert.equal(await popupEquino.isHidden(),true);
+    assert.equal(await page.locator('#fichas .tarjeta').count(),0,
+      nombre+': consulta de catálogo no genera objetos o fichas');
     // Popup de Poderes: uso inmediato de Dormir según el Tomo cotejado,
     // opción avanzada y comprobación de otra familia (Técnicas). No depende
     // de que la ficha aleatoria haya aprendido un Conjuro concreto.
@@ -454,6 +489,56 @@ async function probar(nombre,tipo,url){
     await page.locator('#generar').click();
     await page.locator('#fichas .tarjeta').first().waitFor();
     const ficha=page.locator('#fichas .tarjeta').first();
+    // Recuerdo personal: popup descriptivo, sin precio ni estadísticas de arma.
+    const recuerdo=ficha.locator('.referencia-glosario[data-glosa-grupo="equipo"]')
+      .filter({hasText:'Recuerdo:'}).first();
+    assert.equal(await recuerdo.count(),1,nombre+': recuerdo en el inventario');
+    await recuerdo.click();
+    const infoRecuerdo=page.locator('#ficha-emergente');
+    assert.equal(await infoRecuerdo.locator('.info-tipo').textContent(),'Recuerdo personal');
+    assert.equal(await infoRecuerdo.locator('.info-primarios dt').count(),0);
+    assert.ok((await infoRecuerdo.locator('.info-fuente').textContent())
+      .includes('data/especies.json'));
+    await page.keyboard.press('Escape');
+    // Equipo incluido en el paquete: referencias DRS, no compras adicionales.
+    const antorcha=ficha.locator('.referencia-glosario[data-glosa-grupo="equipo"]')
+      .filter({hasText:'antorcha (DU d6)'}).first();
+    assert.equal(await antorcha.count(),1,nombre+': luz de paquete consultable');
+    await antorcha.click();
+    const luz=page.locator('#ficha-emergente');
+    assert.equal(await luz.locator('.info-clasificacion').textContent(),'Iluminación');
+    assert.match(await luz.locator('.info-descripcion').textContent(),/Ilumina 6 metros/);
+    assert.deepEqual(await luz.locator('.info-primarios dd').allTextContents(),
+      ['10 mc','DU d6']);
+    assert.ok((await luz.locator('.info-fuente').textContent()).includes('Tabla 21'));
+    await page.keyboard.press('Escape');
+    const mochila=ficha.locator('.referencia-glosario[data-glosa-grupo="equipo"]')
+      .filter({hasText:'Mochila'}).first();
+    await mochila.click();
+    const componente=page.locator('#ficha-emergente');
+    assert.equal(await componente.locator('.info-clasificacion').textContent(),
+      'Útiles · Viaje y almacenaje');
+    assert.deepEqual(await componente.locator('.info-primarios dt').allTextContents(),
+      ['Incluido en:']);
+    assert.match(await componente.locator('.info-primarios dd').textContent(),
+      /Especial mazmorras/);
+    assert.match(await componente.locator('.info-descripcion').textContent(),
+      /Bolsa resistente con correas para llevarla a la espalda/);
+    assert.equal((await componente.locator('.info-primarios').textContent())
+      .includes('Precio'),false,'No asignar precio ficticio a la mochila');
+    assert.match(await componente.locator('.info-fuente').textContent(),
+      /Paquetes de equipo.*Descripción editorial/);
+    assert.equal(await componente.locator('.info-tipo').textContent(),'Equipo');
+    await page.keyboard.press('Escape');
+    const racion=ficha.locator('.referencia-glosario[data-glosa-grupo="equipo"]')
+      .filter({hasText:'ración (DU d6)'}).first();
+    assert.equal(await racion.count(),1,nombre+': referencia textual de ración');
+    await racion.click();
+    assert.match(await page.locator('#ficha-emergente .info-primarios').textContent(),
+      /Precio unitario/);
+    assert.match(await page.locator('#ficha-emergente .info-descripcion').textContent(),
+      /Carne o fruta seca/);
+    await page.keyboard.press('Escape');
     const inicial=precio(await ficha.locator('.riqueza').innerText());
     await ficha.locator('.comprar-utiles').click();
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
@@ -503,6 +588,23 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#editor-compras').isHidden(),true);
     assert.ok((await ficha.innerText()).includes('Martillo de campamento ×2'));
     assert.ok((await ficha.innerText()).includes('Tiza ×3'));
+    // El equipo adquirido debe ofrecer información real y fuente DRS.
+    const martillo=ficha.locator('.referencia-glosario[data-glosa-grupo="equipo"]')
+      .filter({hasText:'Martillo de campamento ×2'}).first();
+    assert.equal(await martillo.count(),1,nombre+': artículo comprado consultable');
+    await martillo.click();
+    const infoEquipo=page.locator('#ficha-emergente');
+    assert.equal(await infoEquipo.locator('.info-tipo').textContent(),'Equipo');
+    assert.deepEqual(await infoEquipo.locator('.info-primarios dt').allTextContents(),
+      ['Precio unitario:']);
+    assert.deepEqual(await infoEquipo.locator('.info-primarios dd').allTextContents(),
+      ['2 mo']);
+    assert.match(await infoEquipo.locator('.info-descripcion').textContent(),
+      /puede utilizarse como Clava/);
+    assert.ok((await infoEquipo.locator('.info-fuente').textContent())
+      .includes('NaufragioD20DRS.docx'));
+    assert.equal(await infoEquipo.locator('.info-detalles').isHidden(),true);
+    await page.keyboard.press('Escape');
     const despues=precio(await ficha.locator('.riqueza').innerText());
     assert.ok(Math.abs(inicial-despues-4.03)<.001,
       nombre+': descontar exactamente 4,03 mo al confirmar');
@@ -521,6 +623,53 @@ async function probar(nombre,tipo,url){
     await page.locator('#editor-compras').scrollIntoViewIfNeeded();
     await page.screenshot({path:path.join(capturas,nombre+'-movil.png')});
     await page.locator('#compras-cancelar').click();
+    // QA de ficha DRS real en móvil, no solo del editor de compras.
+    // Verificar legibilidad, encaje visual, origen editorial y Escape.
+    await mochila.scrollIntoViewIfNeeded();
+    await mochila.click();
+    assert.equal(await page.locator('#ficha-emergente').getAttribute('role'),'dialog');
+    assert.match(await page.locator('#ficha-emergente .info-descripcion').innerText(),
+      /Bolsa resistente con correas para llevarla a la espalda/);
+    const geometria=await page.locator('#ficha-emergente').evaluate(card=>{
+      const rect=card.getBoundingClientRect();
+      return {left:rect.left,right:rect.right,top:rect.top,bottom:rect.bottom,
+        width:rect.width,scrollWidth:card.scrollWidth,clientWidth:card.clientWidth,
+        height:rect.height,viewportWidth:innerWidth,viewportHeight:innerHeight};
+    });
+    assert.ok(geometria.left>=-2&&geometria.right<=geometria.viewportWidth+2&&
+      geometria.top>=-2&&geometria.bottom<=geometria.viewportHeight+2,
+      nombre+': popup dentro de la pantalla móvil '+JSON.stringify(geometria));
+    assert.ok(geometria.scrollWidth<=geometria.clientWidth+2,
+      nombre+': sin scroll horizontal en popup de útil');
+    assert.ok(geometria.height>=90,nombre+': altura móvil legible');
+    await page.locator('#ficha-emergente .info-fuente').scrollIntoViewIfNeeded();
+    assert.match(await page.locator('#ficha-emergente .info-fuente').innerText(),
+      /Descripción editorial/);
+    await page.screenshot({path:path.join(capturas,nombre+'-ficha-util-movil.png')});
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator('#ficha-emergente').isHidden(),true,
+      nombre+': Escape cierra el popup móvil');
+    assert.equal(await mochila.getAttribute('aria-expanded'),'false');
+    // El navegador DRS y el selector equino también deben funcionar en móvil.
+    await page.locator('#consulta-catalogo-ver').scrollIntoViewIfNeeded();
+    await page.locator('#consulta-catalogo-ver').click();
+    const equinoMovil=page.locator('#ficha-emergente');
+    await equinoMovil.locator('#consulta-armadura-base').selectOption('Armadura de cuero');
+    assert.match(await equinoMovil.locator('.info-armadura-resultado').textContent(),
+      /10 mo × 4 = 40 mo/);
+    const limitesEquinos=await equinoMovil.evaluate(card=>{
+      const b=card.getBoundingClientRect();
+      return {izq:b.left,der:b.right,arriba:b.top,abajo:b.bottom,
+        anchoVisible:innerWidth,altoVisible:innerHeight,
+        scrollHorizontal:card.scrollWidth-card.clientWidth};
+    });
+    assert.ok(limitesEquinos.izq>=-2&&limitesEquinos.der<=limitesEquinos.anchoVisible+2&&
+      limitesEquinos.arriba>=-2&&limitesEquinos.abajo<=limitesEquinos.altoVisible+2&&
+      limitesEquinos.scrollHorizontal<=2,
+      nombre+': selector equino encaja en móvil '+JSON.stringify(limitesEquinos));
+    await page.screenshot({path:path.join(capturas,nombre+'-armadura-equina-movil.png')});
+    await page.keyboard.press('Escape');
+    assert.equal(await equinoMovil.isHidden(),true);
     assert.deepEqual(fallos,[],nombre+': no debe haber excepciones no capturadas');
     console.log('OK · '+nombre+': 4 Ocupaciones, 8 Especies, compras, Intro, cancelar,'+
       ' precio por Nivel, quitar, presupuesto, móvil y cero excepciones.');

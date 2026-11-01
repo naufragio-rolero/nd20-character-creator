@@ -389,6 +389,36 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
 .info-detalles .info-datos{margin:.3rem 0 .7rem}
 .info-detalles .info-descripcion:last-child{margin-bottom:.3rem}
 .ficha-emergente .info-descripcion{line-height:1.55}
+/* Catálogo de consulta DRS: apartado voluntario, fuera del editor de compras. */
+.consulta-catalogo-drs{margin:.75rem 0 1rem;padding:.75rem 1rem;
+  border:1px solid var(--borde);border-radius:9px;background:var(--oscuro);color:var(--texto)}
+.consulta-catalogo-drs[hidden]{display:none!important}
+.consulta-catalogo-drs summary{cursor:pointer;font-weight:750;color:var(--oro)}
+.consulta-catalogo-drs summary:focus-visible{outline:3px solid var(--foco);outline-offset:3px}
+.consulta-catalogo-contenido p{font-size:.82rem;line-height:1.5;margin:.6rem 0}
+.consulta-catalogo-controles{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.consulta-catalogo-controles label{font-size:.8rem;font-weight:650}
+.consulta-catalogo-controles select{min-width:0;flex:1 1 13rem;max-width:100%;
+  min-height:2.5rem;padding:.4rem;border-radius:6px}
+.consulta-catalogo-ver{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+  border:1px solid var(--borde);border-radius:6px;
+  padding:.48rem .85rem;min-height:2.5rem;
+  background:var(--oro);color:#172b35;font-weight:700}
+.consulta-catalogo-ver:disabled{opacity:.55;cursor:not-allowed}
+.consulta-catalogo-ver:focus-visible{outline:3px solid var(--foco);outline-offset:3px}
+/* Consulta informativa de armadura equina: no interviene en compras. */
+.info-armadura-equina{margin:.75rem 0;padding:.75rem;border:1px solid #61717b;
+  border-radius:7px;background:#1b323b;display:grid;gap:.35rem}
+.info-armadura-equina h4{font-size:.86rem;color:#f1d8a2;margin:0 0 .15rem}
+.info-armadura-equina label{font-size:.78rem;font-weight:700;color:#e3eef0}
+.info-armadura-equina select{display:block;width:100%;max-width:100%;
+  min-height:2.6rem;border-radius:5px;padding:.4rem .55rem;
+  background:#edf3ef;color:#142e39;border:1px solid #829b9f;font:inherit}
+.info-armadura-equina select:focus-visible{outline:3px solid #93d4e4;outline-offset:2px}
+.info-armadura-resultado{font-size:.85rem;font-weight:700;line-height:1.5;
+  overflow-wrap:anywhere;margin:.45rem 0 0;color:#f6e3ae}
+.info-armadura-aviso{font-size:.72rem;line-height:1.5;
+  color:#d3e1e4;margin:.15rem 0 0}
 .info-fuente{font-size:.71rem;color:#b8ced2;border-top:1px solid #355660;
   padding-top:.6rem;margin:0;overflow-wrap:anywhere}
 @media(max-width:600px){

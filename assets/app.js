@@ -1040,6 +1040,52 @@
       descargar('el-naufragio-fichas.txt',entradas.map(obtenerTexto).join('\n\n'+('=').repeat(60)+'\n\n'));
     });
   }
+  // Consulta voluntaria de fichas DRS (no es compra, no genera objetos).
+  // Este índice visible se alimenta SOLO del JSON incluido en la lista blanca.
+  function configurarCatalogoDRS(consulta){
+    var panel=$('consulta-catalogo-drs');
+    var select=$('consulta-catalogo-articulo');
+    var boton=$('consulta-catalogo-ver');
+    if(!panel||!select||!boton||!infoUI)return;
+    select.replaceChildren();
+    var vacio=document.createElement('option');
+    vacio.value='';vacio.textContent='Selecciona un artículo';
+    select.appendChild(vacio);
+    var grupos=(consulta.tablas||[]).map(function(g){
+      return [g.categoria,g.registros||[]];
+    }).concat([
+      ['Monturas y animales',consulta.monturas?.registros||[]],
+      ['Equipo para monturas',consulta.equipo_para_monturas?.registros||[]],
+      ['Transportes',consulta.transportes?.registros||[]],
+      ['Útiles corrientes de viaje',consulta.objetos_comunes_sin_precio||[]]
+    ]);
+    var vistos=new Set();
+    grupos.forEach(function(grupo){
+      var opciones=document.createElement('optgroup');
+      opciones.label=grupo[0];
+      grupo[1].forEach(function(item){
+        if(!item?.nombre||vistos.has(item.nombre))return;
+        if(!infoUI.consulta(item.nombre,'equipo','nd20'))return;
+        vistos.add(item.nombre);
+        var option=document.createElement('option');
+        option.value=item.nombre;option.textContent=item.nombre;
+        opciones.appendChild(option);
+      });
+      if(opciones.children.length)select.appendChild(opciones);
+    });
+    select.addEventListener('change',function(){
+      var nombre=select.value;
+      boton.disabled=!nombre;
+      if(nombre){
+        boton.dataset.glosaNombre=nombre;
+        boton.setAttribute('aria-label','Ver ficha: '+nombre);
+      }else{
+        delete boton.dataset.glosaNombre;
+        boton.setAttribute('aria-label','Ver ficha de equipo seleccionada');
+      }
+    });
+    panel.hidden=vistos.size===0;
+  }
   async function cargar() {
     var archivos={
       especies:'data/especies.json',ocupaciones:'data/ocupaciones.json',
@@ -1056,6 +1102,7 @@
       danioCompuesto:'data/conjuros-danio-compuesto.json',
       progresiones:'data/progresiones-oficiales.json',
       equipoInicial:'data/equipo-inicial.json',
+      equipoConsultaDRS:'data/equipo-consulta-drs.json',
       fichasDocumentales:'data/fichas-documentales.json',
       talentosDRS:'data/talentos-drs-literales.json',
       aclaracionesTalentosDRS:'data/aclaraciones-talentos-drs.json',
@@ -1123,6 +1170,7 @@
       var indice=window.NaufragioTooltipIndex.indice({
         fantasia:datos.fantasia,cifi:datos.cifi,nocturna:datos.nocturna,
         catalogo:datos.catalogo,equipo:datos.equipoInicial,
+        equipoConsultaDRS:loaded.equipoConsultaDRS,
         alcanceDRS:datos.alcanceDRS,
         descripciones:loaded.fichasDocumentales,
         talentosDRS:loaded.talentosDRS,
@@ -1132,6 +1180,7 @@
         danioCompuesto:loaded.danioCompuesto
       });
       infoUI.configurar(indice);
+      configurarCatalogoDRS(loaded.equipoConsultaDRS);
     }
     datos.dh=loaded.dungeon;
     $('origenes').textContent='';

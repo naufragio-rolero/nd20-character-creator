@@ -1,13 +1,38 @@
 # Enciclopedia de Talentos, Poderes y Objetos — Plan de trabajo
 
-> **Estado vigente (01/11/2026):** Forja **1.3.1 publicada**, con 24 relaciones DRS (15 Especies y 9 Ocupaciones) y trazabilidad de **Herencia dual** entre adquisición y fuente original. [Auditoría literal cerrada](109-diario-auditoria-talentos-drs.md), [huellas verificables](109a-huellas-talentos-drs.json). La fase documental siguiente, **Forja 1.4**, [preclasifica 79 fragmentos literales de esos 24 Talentos](110-informe-propiedades-talentos-drs.md), sin introducirlos en el motor ni en el paquete público. Las referencias a PR abiertas y a «Forja sin cambios» en secciones históricas corresponden a octubre y no representan el estado actual. La cobertura documental no equivale a validación o automatización mecánica.
+> **Estado vigente (01/11/2026):** Forja **1.5** publicada con las aclaraciones autorales DRS (véase [informe 112](112-forja-aclaraciones-autoriales.md)); la **PR #13** continúa como candidato en borrador para consultas de Equipo y Objetos mágicos sin desplegar. Su ampliación de paquetes iniciales se documenta en [informe 114](114-cierre-componentes-paquetes-drs.md); **la autorización posterior de cinco útiles corrientes con prosa editorial** se registra en [informe 115](115-cinco-utiles-corrientes-paquetes-drs.md). **La siguiente ampliación incorpora 27 referencias DRS de Instrumentos, Objetos varios, Monturas y Transportes** ([informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md)), separando servicios diarios; ninguna referencia adicional equivale a una compra inicial. **La aclaración autoral sobre Armadura equina y el acceso voluntario a 42 fichas DRS** están recogidos en el [informe 117](117-armadura-equina-precio-y-catalogo-drs.md). El identificador **Forja 1.4** se reservó para la preclasificación de propiedades de Talentos, y **no** se reutiliza para esta tanda de Equipo. Los progresos documentales en otras ambientaciones no autorizan su exposición pública.
 
 **Proyecto:** Forja de personajes · Naufragio d20 (Fantasía, CiFi y Nocturna).  
-**Última actualización:** 2026-10-29.  
+**Última actualización:** 2026-11-01.  
 **Estado global:** Talentos de Especies: **115/115 relaciones cotejadas documentalmente**; Talentos de Ocupaciones: **162/162 transcritos** (CSV histórico de 163 conservado; «Estilos de gladiatoria» reclasificado como Poder). Nocturna: **57/57 textos de Talentos cotejados literalmente**. Eidolas: **32/32 fichas vigentes, 96 modalidades de efecto**. Quedan discrepancias editoriales, progresiones, normalización mecánica e integración. **PR abierta, sin fusionar; Forja sin cambios de lógica.**  
 **Rama de trabajo:** `docs/enciclopedia-inventario-2026-10-28` · [PR #3](https://github.com/naufragio-rolero/nd20-character-creator/pull/3) **abierta, sin fusionar** al crear este documento.
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
+
+## Consulta de Equipo y paquetes iniciales DRS — Tanda activa (01/11/2026)
+
+**Base:** [Informe 113](113-forja-equipo-objetos-magicos-consulta.md) · **Ampliación:** [Informe 114](114-cierre-componentes-paquetes-drs.md) · **Decisión autoral nueva:** [Informe 115](115-cinco-utiles-corrientes-paquetes-drs.md) · **Regla equina:** [Informe 117](117-armadura-equina-precio-y-catalogo-drs.md) · [PR #13 en borrador](https://github.com/naufragio-rolero/nd20-character-creator/pull/13), sin fusión ni despliegue.
+
+- [x] Auditar el índice real del inventario inicial: **44 apariciones**, **29 denominaciones**; antes de la ampliación, **26/44** tenían ficha.
+- [x] Cotejar con el DOCX DRS **Iluminación (tabla Word 21, 4 entradas)** y **Ropa (tabla Word 25, 6 entradas)**; conservar textos y precios literales, incluidos mc/mp.
+- [x] Documentar **cinco correspondencias** de nombres de paquete con los artículos normativos, sin cambiar cantidades ni precios de los paquetes.
+- [x] Identificar **cinco artículos sin precio individual** que constan en paquetes (12 apariciones) y conservar la procedencia DRS.
+- [x] **Decisión autoral 01/11:** convertir esos cinco artículos en **útiles corrientes** con descripciones **editoriales**, diferentes del texto DRS y sin atribuirles precios ni reglas.
+- [x] Cobertura de consulta **44/44 con descripción**: **32 apariciones con texto DRS** y **12 apariciones de cinco objetos con prosa editorial**; el odre conserva el DU d6 literal.
+- [x] Mantener la separación entre equipo reglamentario, objetos mágicos no distribuidos y recuerdos; conservar array del inventario y 43 opciones de compra originales.
+- [x] Añadir pruebas de índice, navegador y guardia de publicación; un **único JSON mixto de consulta DRS y glosas editoriales expresamente identificadas** en la lista blanca, verificado físicamente y sin magia.
+- [x] Mantener los **cinco útiles sin precio** fuera de la compra independiente: evitar precio inventado o gratuidad accidental.
+- [ ] Realizar revisión editorial y visual final de los popups en móvil y escritorio, antes de fusionar la PR #13.
+- [ ] Fusionar y publicar **solo tras autorización independiente**; ninguna prueba CI verde equivale por sí sola a orden de despliegue.
+- [x] **Ampliación documental DRS**: 27 entradas adicionales (4 instrumentos, 8 objetos varios, 6 monturas, 5 artículos para monturas y 4 transportes), y 3 clases de servicios diarios excluidos; en total **37 referencias adicionales** a las tablas DRS más cinco útiles con descripciones editoriales ([informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md)).
+- [x] Cotejar precio variable literal de **Armadura equina** (DRS, tabla índice 28) y resolver la base mediante **aclaración autoral 01/11**: una de las 14 armaduras comunes humanas del DRS, precio ×4. Conserva el Movimiento propio de las monturas sin aplicarlo al personaje ([informe 117](117-armadura-equina-precio-y-catalogo-drs.md)).
+- [x] Selector de base equina en el popup: sin elección inicial, cálculo en vivo y sin compra ni transferencia de Blindaje/Durabilidad.
+- [x] Ampliar E2E de **Firefox/WebKit a popup móvil 390 × 844**, fuente consultable, encaje, cierre con Escape y captura; **4/4 suites verdes** para el commit `274aa738` ([informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md)).
+- [ ] Completar inspección visual humana de las capturas CI; las verificaciones geométricas automatizadas no la sustituyen.
+- [x] Incorporar acceso público **voluntario** desde la Forja a **42 fichas de equipo DRS** (37 de tablas + cinco útiles con descripción editorial). Excluir servicios y evitar compras accidentales ([informe 117](117-armadura-equina-precio-y-catalogo-drs.md)).
+- [x] **QA sobre commit `248a5c02`: cuatro suites verdes** (Node, Chrome, Firefox/WebKit y candidato físico DRS). Control móvil de Armadura equina a 390 × 844, captura y selector con resultado visible; [evidencias en informe 117](117-armadura-equina-precio-y-catalogo-drs.md).
+- [ ] Realizar inspección ocular del catálogo desplegable y del selector equino en móvil, con pruebas de contraste, navegación de teclado y diseño antes de aceptar publicación.
+- [ ] Objetos mágicos: revisión editorial de **28 fichas y el ejemplo**, autorización y paquete aparte antes de cualquier incorporación pública.
 
 ## Forja 1.5 — Aclaraciones autorales en popups DRS (01/11/2026)
 
@@ -91,6 +116,10 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [ ] Entregar repertorio estructurado validado.
 
 ### Tanda 5 — Equipo
+- [x] Aclaración autoral equina y catálogo público de solo consulta: 14 armaduras base, precio ×4, 42 fichas visibles al elegir la consulta DRS ([informe 117](117-armadura-equina-precio-y-catalogo-drs.md)).
+- [x] Índice documental ampliado en [informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md): **27 fichas DRS** de instrumentos, variados, monturas, accesorios y transportes, con servicios separados; sin alteración de compras ni personajes.
+- [x] Ampliación de consulta del **inventario DRS**: 10 registros literales adicionales y 44/44 componentes iniciales resolubles ([informe 114](114-cierre-componentes-paquetes-drs.md)).
+- [x] Cinco útiles comunes con **descripción editorial autorizada**: 44/44 apariciones con texto y sin inventar precios; [informe 115](115-cinco-utiles-corrientes-paquetes-drs.md). No confundir con revisión exhaustiva de todas las tablas de todos los manuales.
 - [x] Inventario de equipo inicial en Forja: **48 registros de Fantasía** y **33 de CiFi**; identificar las 5 opciones de Armamento filosofal.
 - [ ] Confrontar estos registros con las **listas completas de equipo** de los manuales.
 - [ ] Inventariar el equipo de **Nocturna** en su fuente, sin importar compras o riqueza de otras ambientaciones.
@@ -98,6 +127,7 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 - [ ] Entregar catálogo estructurado validado.
 
 ### Tanda 6 — Objetos mágicos
+- [x] Modelo de consulta en la PR #13 separa los **28 + 1** objetos mágicos de los recuerdos, sin cargar ni publicar el catálogo mágico; su distribución sigue sin autorización.
 - [x] Localizar **28 fichas de objeto en bloques principales y 1 ejemplo de apéndice** en el documento de Objetos mágicos.
 - [ ] Comprobar menciones adicionales no representadas por encabezados propios.
 - [ ] Extraer efectos, rareza, naturaleza, requisitos y procedencia literal, si la fuente los indica.
@@ -147,6 +177,10 @@ Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se
 
 | Fecha | Acción | Evidencia / estado |
 |---|---|---|
+| 2026-11-01 | Resolución autoral de Armadura equina y acceso público a la consulta DRS | [Informe 117](117-armadura-equina-precio-y-catalogo-drs.md): base a elegir entre 14 armaduras comunes DRS; precio equino = base ×4, sin transferir otras propiedades. Selector informativo y 42 fichas accesibles fuera del editor de compras. PR #13 en borrador, sin fusión ni despliegue. |
+| 2026-11-01 | Equipo DRS: 27 fichas adicionales, precios variables, servicios y QA móvil | [Informe 116](116-ampliacion-catalogo-equipo-drs-y-qa-movil.md): 4 instrumentos, 8 objetos varios, 6 monturas, 5 enseres para monturas, 4 transportes; Establos y servicios diarios excluidos, Armadura equina sin precio inventado; pruebas E2E 390 × 844 en Firefox/WebKit. Índice de consulta **no** equivale a comercio ni a publicación. |
+| 2026-11-01 | Decisión autoral: cinco útiles corrientes de paquetes | [Informe 115](115-cinco-utiles-corrientes-paquetes-drs.md): Mochila, Bolsa de cuero, Odre de agua, Estuche de pergaminos vacío y Ropa de viaje como útiles normales, **cinco descripciones editoriales diferenciadas** y 44/44 apariciones con descripción; se conserva DU d6 del odre. Sin precio individual ni nuevas compras; [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13) todavía sin fusionar ni publicar. |
+| 2026-11-01 | Equipo DRS: cierre de consulta de paquetes iniciales | [Informe 114](114-cierre-componentes-paquetes-drs.md) y [PR #13](https://github.com/naufragio-rolero/nd20-character-creator/pull/13): 44/44 componentes con ficha, 10 entradas DRS de Iluminación/Ropa, cinco equivalencias explícitas, cinco tipos solo de paquete, precios literales y protección de publicación; aún sin fusión/despliegue. |
 | 2026-10-28 | Auditoría inicial del repositorio | Finalizada; sin cambios de código. |
 | 2026-10-28 | Inventario inicial transversal y dos CSV | Documentado en esta rama, PR #3 abierta. |
 | 2026-10-28 | Creación de este plan de trabajo | Punto de control para las siguientes tandas. |
