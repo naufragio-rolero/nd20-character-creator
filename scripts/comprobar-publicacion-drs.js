@@ -72,7 +72,7 @@ if(consultaDRS){
     (consultaDRS.objetos_comunes_sin_precio||[]).length!==5||
     consultaDRS.objetos_comunes_sin_precio.some(x=>
       !x.descripcion_editorial||!x.origen_descripcion),
-    'El índice de consulta DRS no conserva 10 entradas, cinco equivalencias y cinco componentes exclusivos.');
+    'El índice de consulta DRS no conserva 10 entradas, cinco equivalencias y cinco útiles comunes con descripciones editoriales.');
   afirmar(JSON.stringify(consultaDRS)!==JSON.stringify(canon),
     'El catálogo de consulta de Equipo DRS publicado difiere de la fuente auditada.');
 }
