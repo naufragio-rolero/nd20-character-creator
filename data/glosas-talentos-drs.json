@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "fuente": "Glosas editoriales sobre 24 efectos literales cotejados del NaufragioD20DRS.docx",
+  "criterio": "La clasificación de Talentos de Especie NO aparece como campo independiente del DRS. Solo es orientación de uso, no atribuye tiempos, costes o efectos nuevos. Las de Ocupación se corresponden con su activación literal.",
+  "registros": [
+    {
+      "id_talento": "talento-drs-especie-elfo-agreste-linaje-feerico",
+      "nombre": "Linaje feérico",
+      "tipo_origen": "Especie",
+      "propietario": "Elfo agreste",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Inmunidad a Parálisis y Ventaja para resistir el conjuro Dormir."
+    },
+    {
+      "id_talento": "talento-drs-especie-elfo-agreste-rapidez",
+      "nombre": "Rapidez",
+      "tipo_origen": "Especie",
+      "propietario": "Elfo agreste",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Tu Movimiento aumenta en 1; la ficha ya lo contempla."
+    },
+    {
+      "id_talento": "talento-drs-especie-enano-montanes-corpulencia",
+      "nombre": "Corpulencia",
+      "tipo_origen": "Especie",
+      "propietario": "Enano montañés",
+      "uso_editorial": "Pasiva y activación condicionada",
+      "resumen_editorial": "Movimiento reducido en 1. Si tiras Blindaje contra daño físico, puedes gastar 1 Esfuerzo para repetir la Tirada."
+    },
+    {
+      "id_talento": "talento-drs-especie-enano-montanes-vision-en-la-oscuridad",
+      "nombre": "Visión en la oscuridad",
+      "tipo_origen": "Especie",
+      "propietario": "Enano montañés",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Ves hasta 30 metros en oscuridad total, en blanco y negro y con detalles poco definidos."
+    },
+    {
+      "id_talento": "talento-drs-especie-humano-comun-buen-desarrollo",
+      "nombre": "Buen desarrollo",
+      "tipo_origen": "Especie",
+      "propietario": "Humano común",
+      "uso_editorial": "Elección en creación",
+      "resumen_editorial": "Al crear el personaje, mejora en 1 uno de tus Atributos."
+    },
+    {
+      "id_talento": "talento-drs-especie-mediano-amable-baja-estatura",
+      "nombre": "Baja estatura",
+      "tipo_origen": "Especie",
+      "propietario": "Mediano amable",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Tamaño pequeño: Movimiento -1 ya incluido, equipo adaptado, escudos pequeños y +1 al esquivar ataques a distancia."
+    },
+    {
+      "id_talento": "talento-drs-especie-mediano-amable-salvese-quien-pueda",
+      "nombre": "¡Sálvese quien pueda!",
+      "tipo_origen": "Especie",
+      "propietario": "Mediano amable",
+      "uso_editorial": "Activación: Acción",
+      "resumen_editorial": "Puedes gastar una Acción y 1 Esfuerzo para liberarte de Parálisis o Miedo sin Tirada."
+    },
+    {
+      "id_talento": "talento-drs-especie-gnomo-urbano-baja-estatura",
+      "nombre": "Baja estatura",
+      "tipo_origen": "Especie",
+      "propietario": "Gnomo urbano",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Tamaño pequeño: Movimiento -1 ya incluido, equipo adaptado, escudos pequeños y +1 al esquivar ataques a distancia."
+    },
+    {
+      "id_talento": "talento-drs-especie-gnomo-urbano-vision-en-la-oscuridad",
+      "nombre": "Visión en la oscuridad",
+      "tipo_origen": "Especie",
+      "propietario": "Gnomo urbano",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Ves hasta 30 metros en oscuridad total, en blanco y negro y con detalles poco definidos."
+    },
+    {
+      "id_talento": "talento-drs-especie-semielfo-animo",
+      "nombre": "Ánimo",
+      "tipo_origen": "Especie",
+      "propietario": "Semielfo",
+      "uso_editorial": "Activación: 1 vez al día",
+      "resumen_editorial": "Antes de la Tirada de un aliado que te escuche, puedes concederle +2 a esa Tirada de Atributo."
+    },
+    {
+      "id_talento": "talento-drs-especie-semielfo-herencia-dual-se",
+      "nombre": "Herencia dual (SE)",
+      "tipo_origen": "Especie",
+      "propietario": "Semielfo",
+      "uso_editorial": "Elección en creación",
+      "resumen_editorial": "Elige Buen desarrollo (Humano) o Linaje feérico (Elfo)."
+    },
+    {
+      "id_talento": "talento-drs-especie-orco-comun-ira-interna",
+      "nombre": "Ira interna",
+      "tipo_origen": "Especie",
+      "propietario": "Orco común",
+      "uso_editorial": "Activación condicionada",
+      "resumen_editorial": "Si tu Salud cae a 0 o menos, puedes gastar 1 Esfuerzo para dejarla en 1 y seguir luchando."
+    },
+    {
+      "id_talento": "talento-drs-especie-orco-comun-sana-primitiva",
+      "nombre": "Saña primitiva",
+      "tipo_origen": "Especie",
+      "propietario": "Orco común",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Obtienes +1 a la Tirada de Daño con armas cuerpo a cuerpo."
+    },
+    {
+      "id_talento": "talento-drs-especie-semiorco-sed-de-sangre",
+      "nombre": "Sed de sangre",
+      "tipo_origen": "Especie",
+      "propietario": "Semiorco",
+      "uso_editorial": "Activación antes de atacar",
+      "resumen_editorial": "Antes de atacar cuerpo a cuerpo, puedes aceptar -2 a la Tirada de Ataque para obtener +1 Penetración."
+    },
+    {
+      "id_talento": "talento-drs-especie-semiorco-herencia-dual-so",
+      "nombre": "Herencia dual (SO)",
+      "tipo_origen": "Especie",
+      "propietario": "Semiorco",
+      "uso_editorial": "Elección en creación",
+      "resumen_editorial": "Elige Buen desarrollo (Humano) o Ira interna (Orco)."
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes",
+      "nombre": "Expulsar muertos vivientes",
+      "tipo_origen": "Ocupación",
+      "propietario": "Clérigo",
+      "uso_editorial": "Activación: Acción",
+      "resumen_editorial": "Emites una onda de 18 m: los muertos vivientes afectados pueden ser destruidos con Probabilidad 15+; quienes resistan huyen temporalmente. Consulta las condiciones de Nivel y la aclaración autoral."
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-clerigo-fortaleza-piadosa",
+      "nombre": "Fortaleza piadosa",
+      "tipo_origen": "Ocupación",
+      "propietario": "Clérigo",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Ventaja al resistir los Estados Parálisis o Veneno mediante Tiradas de Resistencia."
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-guerrero-recuperacion",
+      "nombre": "Recuperación",
+      "tipo_origen": "Ocupación",
+      "propietario": "Guerrero",
+      "uso_editorial": "Pasiva con uso condicionado",
+      "resumen_editorial": "Tras un combate, emplea un Intervalo y 1 Esfuerzo para recuperar 1d8 de Salud. Ventaja al regenerar Esfuerzo."
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-guerrero-brio-musculoso",
+      "nombre": "Brío musculoso",
+      "tipo_origen": "Ocupación",
+      "propietario": "Guerrero",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Ventaja al forzar puertas u obstáculos. La Potencia aumenta a Niveles 10 y 22."
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-guerrero-sacrificio-de-escudo",
+      "nombre": "Sacrificio de escudo",
+      "tipo_origen": "Ocupación",
+      "propietario": "Guerrero",
+      "uso_editorial": "Reacción",
+      "resumen_editorial": "Puedes romper el escudo al fallar Bloqueo o Esquiva para evitar el daño. Los escudos mágicos quedan con Durabilidad 0."
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-mago-bagaje-de-arcanista",
+      "nombre": "Bagaje de arcanista",
+      "tipo_origen": "Ocupación",
+      "propietario": "Mago",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Ventaja para identificar criaturas sobrenaturales o descifrar lenguajes desconocidos mediante Mente."
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-mago-meditacion",
+      "nombre": "Meditación",
+      "tipo_origen": "Ocupación",
+      "propietario": "Mago",
+      "uso_editorial": "Activación: Acción",
+      "resumen_editorial": "Tras un Intervalo de concentración sin molestias y 1 Esfuerzo, recupera un Conjuro lanzado ese día."
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-ladron-preparacion",
+      "nombre": "Preparación",
+      "tipo_origen": "Ocupación",
+      "propietario": "Ladrón",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Ventaja en Iniciativa si participas activamente en el combate."
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-ladron-sutileza",
+      "nombre": "Sutileza",
+      "tipo_origen": "Ocupación",
+      "propietario": "Ladrón",
+      "uso_editorial": "Pasiva",
+      "resumen_editorial": "Ventaja en Agilidad para forzar cerraduras, desactivar trampas y trepar superficies verticales."
+    }
+  ]
+}
