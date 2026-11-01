@@ -91,16 +91,28 @@
           }))||x.fuente==="Naufragio d20 DRS"});
       });
     }
-    function equipo(lista,sistema,moneda,fuente,tipo){
+    function equipo(lista,sistema,moneda,fuente,tipo,categoriaGrupo){
       (lista||[]).forEach(function(x){
         var detalles=[];
         if(Number.isFinite(Number(x.precio)))detalles.push(["Precio",x.precio+" "+moneda]);
-        if(x.tipo||x.categoria)detalles.push(["Categoría",x.tipo||x.categoria]);
+        // El grupo procede de la tabla del catálogo. Tipo y grupo se presentan
+        // juntos cuando «ligera», por ejemplo, sería ambiguo fuera de contexto.
+        var clases={una_mano:"de una mano",dos_manos:"de dos manos",
+          distancia:"a distancia",ligera:"ligera",tela:"de tela",
+          intermedia:"intermedia",pesada:"pesada",varita:"Varita"};
+        var base=x.tipo||x.categoria||"";
+        var categoriaObjeto=base?(base==="varita"?"Varita":
+          categoriaGrupo==="armas"?"Arma "+(clases[base]||base):
+          categoriaGrupo==="armaduras"?"Armadura "+(clases[base]||base):
+          clases[base]||base):categoriaGrupo||"";
+        if(categoriaObjeto)detalles.push(["Categoría",categoriaObjeto]);
         if(x.du)detalles.push(["Dado de Uso","DU "+x.du]);
         if(x.municion)detalles.push(["Munición",x.municion]);
         if(x.contenido)detalles.push(["Contenido",x.contenido]);
         anotar(x.nombre,tipo||"Objeto",sistema,fuente,{datos:detalles,
-          descripcion:x.descripcion||x.detalle||"",grupo:"equipo"});
+          descripcion:x.descripcion||x.detalle||"",grupo:"equipo",
+          categoria_objeto:categoriaObjeto||null,
+          familia_objeto:categoriaGrupo||"otro"});
       });
     }
     especies(fuentes.fantasia?.especies,"nd20");
@@ -128,14 +140,22 @@
       if(Array.isArray(items))elementos(items,par[0].replace(/_/g," "),"nd20");
     });
     var eq=fuentes.equipo||{};
+    var familias={armas:"Arma",municion:"Munición",armaduras:"Armadura",
+      escudos:"Escudo",paquetes:"Paquete"};
     ["armas","municion","armaduras","escudos","paquetes"].forEach(function(k){
-      equipo(eq[k],"nd20","mo","Naufragio d20 DRS",k==="paquetes"?"Paquete":"Objeto");
+      equipo(eq[k],"nd20","mo","Naufragio d20 DRS",
+        k==="paquetes"?"Paquete":"Objeto",k==="armas"||k==="armaduras"?k:familias[k]);
     });
-    Object.values(eq.utiles_fantasia||{}).forEach(function(lista){
-      equipo(lista,"nd20","mo","Naufragio d20 DRS · Herramientas","Objeto");
+    var gruposUtiles={aventura:"Útil de aventura",campamento:"Campamento",
+      consumibles:"Consumible",herramientas:"Herramienta",escritura:"Escritura"};
+    Object.entries(eq.utiles_fantasia||{}).forEach(function(par){
+      equipo(par[1],"nd20","mo","Naufragio d20 DRS · Herramientas",
+        "Objeto",gruposUtiles[par[0]]||null);
     });
-    equipo(eq.focos_conjuros_con_precio,"nd20","mo","Naufragio d20 DRS · Focos","Objeto");
-    equipo(eq.varitas_defensa,"nd20","mo","Naufragio d20 DRS · Varitas","Objeto");
+    equipo(eq.focos_conjuros_con_precio,"nd20","mo",
+      "Naufragio d20 DRS · Focos","Objeto","Foco de conjuro");
+    equipo(eq.varitas_defensa,"nd20","mo",
+      "Naufragio d20 DRS · Varitas","Objeto","varitas");
     // 10 Técnicas de batalla: sus efectos literales están en el DRS,
     // no en la tabla nominal que alimenta las elecciones del generador.
     var tecnicas=fuentes.tecnicasDRS?.registros||[];
@@ -320,6 +340,19 @@
       fuente:info.fuente_descripcion||info.fuente,
       aclaracion:info.aclaracion_autoral||null};
   }
+  /* Equipamiento: categoría tomada del tipo de la tabla o del grupo
+   * documentado. No implica una propiedad mecánica adicional. */
+  function presentarEquipo(info){
+    if(!info||info.grupo!=="equipo")return null;
+    var datos=info.datos||[];
+    var categoria=info.categoria_objeto||
+      (datos.find(function(p){return p[0]==="Categoría";})||[])[1]||null;
+    var primarios=datos.filter(function(p){return p[0]!=="Categoría";});
+    return {tipo:info.tipo,nombre:info.nombre,categoria:categoria,
+      familia:info.familia_objeto||"otro",primarios:primarios,tecnicos:[],
+      origen:info.sistema==="nd20"?"Naufragio d20 DRS":info.sistema,
+      fuente:info.fuente};
+  }
   function presentarPoder(info){
     if(!info||info.grupo!=="poder")return null;
     var entradas=(info.datos||[]).map(function(p){return [String(p[0]),String(p[1])];});
@@ -334,13 +367,13 @@
       return par?par[1]:"";
     }
     var detallesCabecera=[];
+    var escuelas=[],circulo=null;
     if(info.tipo==="Conjuro"){
-      if(valor("Escuelas"))detallesCabecera.push(valor("Escuelas"));
-      var circulo=valor("Círculo");
-      if(circulo){
-        var ordinal=(circulo==="1"||circulo==="3")?circulo+".er":circulo+".º";
-        detallesCabecera.push(ordinal+" Círculo");
-      }
+      // Círculo y Escuelas ya proceden del catálogo; no se infieren del texto.
+      escuelas=valor("Escuelas")?valor("Escuelas").split(/,\\s*/).filter(Boolean):[];
+      var numeroCirculo=Number(valor("Círculo"));
+      if(Number.isInteger(numeroCirculo)&&numeroCirculo>=1&&numeroCirculo<=8)
+        circulo=numeroCirculo;
     }else{
       if(valor("Categoría"))detallesCabecera.push(valor("Categoría"));
       if(valor("Ímpetu"))detallesCabecera.push("Ímpetu "+valor("Ímpetu"));
@@ -359,6 +392,7 @@
       info.sistema==="dh"?"Dungeon Hack":
       valor("Origen")||info.sistema||"Origen no documentado";
     return {tipo:info.tipo,nombre:info.nombre,clasificacion:detallesCabecera.join(" · "),
+      escuelas:escuelas,circulo:circulo,
       primarios:primarios,tecnicos:tecnicos,origen:origen,
       fuente:info.fuente_descripcion||info.fuente};
   }
@@ -406,5 +440,6 @@
   }
   return {indice:indice,buscar:buscar,buscarPorId:buscarPorId,
     presentarPoder:presentarPoder,presentarTalento:presentarTalento,
+    presentarEquipo:presentarEquipo,
     limpiar:limpiar,normalizar:normalizar};
 });
