@@ -50,7 +50,7 @@ for(const u of utilidades.concat(equipo.focos_conjuros_con_precio)){
   assert.equal(index.presentarEquipo(f).fuente.includes('NaufragioD20DRS.docx'),true);
 }
 // Tablas 21 y 25 del DRS, no incorporadas al catálogo de compras.
-assert.deepEqual(consultaDRS.tablas.map(t=>t.registros.length),[4,6]);
+assert.deepEqual(consultaDRS.tablas.map(t=>t.registros.length),[4,6,4,8]);
 for(const tabla of consultaDRS.tablas){
   for(const objeto of tabla.registros){
     const f=ficha(objeto.nombre);
@@ -65,6 +65,47 @@ for(const tabla of consultaDRS.tablas){
       k==='Dado de Uso'&&v==='DU '+objeto.du));
   }
 }
+// Fuentes adicionales DRS: monturas/animales (movimiento propio), enseres
+// para monturas (incluye precio variable literal) y transportes.
+for(const [clave,clase,cantidad] of [
+  ['monturas','montura',6],
+  ['equipo_para_monturas','equipo_montura',5],
+  ['transportes','transporte',4]
+]){
+  const seccion=consultaDRS[clave];
+  assert.equal(seccion.registros.length,cantidad);
+  for(const x of seccion.registros){
+    const encontrada=ficha(x.nombre);
+    assert.ok(encontrada,'Ficha DRS no indexada: '+x.nombre);
+    assert.equal(encontrada.clase_equipo,clase);
+    assert.equal(encontrada.descripcion,x.detalle_literal||'');
+    const vista=index.presentarEquipo(encontrada,x.nombre);
+    assert.match(vista.fuente,new RegExp('Tabla '+seccion.tabla_word));
+    if(x.precio_literal!=='*'){
+      assert.deepEqual(vista.primarios.find(([k])=>k==='Precio'),
+        ['Precio',x.precio_literal]);
+    }else{
+      assert.equal(vista.primarios.some(([k])=>k==='Precio'),false);
+      assert.deepEqual(vista.primarios.find(([k])=>k==='Precio variable'),
+        ['Precio variable',x.precio_variable_literal]);
+      assert.ok(vista.tecnicos.some(([k,v])=>k==='Precio en tabla DRS'&&v==='*'));
+    }
+    if(x.movimiento)
+      assert.deepEqual(vista.primarios.find(([k])=>k==='Movimiento'),
+        ['Movimiento',x.movimiento]);
+    assert.ok(vista.primarios.every(([k])=>k!=='Competencia'));
+  }
+}
+// Un servicio por día no es un artículo guardado en el inventario.
+assert.equal(ficha('Establos'),null);
+assert.equal(ficha('Hospedaje'),null);
+assert.ok(consultaDRS.servicios_excluidos_del_equipo.some(x=>x.nombre==='Establos'));
+assert.equal(ficha('Arpa').tipo,'Equipo');
+assert.equal(ficha('Baraja de cartas').descripcion,
+  '52 cartas, 4 palos con 12 figuras.');
+assert.equal(ficha('Pipa de tabaco').datos.some(([k,v])=>
+  k==='Dado de Uso'&&v==='DU d4'),true);
+
 // La ficha conserva el inventario original: solo se resuelve una referencia.
 // No cobrar el precio unitario por todas las raciones de un paquete.
 const componentes=equipo.paquetes.flatMap(p=>p.contenido.split(';')
