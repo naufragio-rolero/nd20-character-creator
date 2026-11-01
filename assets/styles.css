@@ -550,7 +550,7 @@ html[data-tema=clasico] input[type=text]{
 html[data-tema=clasico] .eleccion-poder select{
   background:#fff;color:#203447;border-color:#a6c1dd;
 }
-html[data-tema=clasico] button:not(.referencia-glosario):not(.icon-btn):not(.info-cerrar){
+html[data-tema=clasico] button:not(.referencia-glosario):not(.icon-btn):not(.info-cerrar):not(.principal):not(.generar-flotante):not(.sistema-activo):not(.activa):not(.empezar-forja){
   border-color:#9ab8d4;
 }
 html[data-tema=clasico] button:hover:not(:disabled):not(.principal):not(.generar-flotante):not(.sistema-activo):not(.activa){
@@ -622,6 +622,7 @@ html[data-tema=clasico] .icon-btn{
 html[data-tema=clasico] .icon-btn:hover{background:#cfe6f8}
 html[data-tema=clasico] .referencia-glosario:hover,
 html[data-tema=clasico] .referencia-glosario:focus-visible{color:#1151d3}
+html[data-tema=clasico] a:hover{color:#15467c}
 /* Popup: misma gramática cromática que tarjetas del blog, sin perder
    foco visible, scroll, anclaje ni el modo diálogo establecido. */
 html[data-tema=clasico] .ficha-emergente{
