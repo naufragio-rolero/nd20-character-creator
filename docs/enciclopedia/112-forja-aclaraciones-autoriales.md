@@ -42,9 +42,10 @@ Se deja intacta toda regla adicional del texto fuente: límites de Nivel, efecto
 | A09 | Proteger IDs, origen, texto original, ausencia de falsos positivos y paquete filtrado | `tests/talentos-drs.js` · `f4d3fe80ac0db04fcc2651b0970a6251925f028f`; `tests/paquete-publico-drs.js` · `47428d7fa673e0abb843943219c3b95f90635865`. |
 | A10 | Probar ambos popups en navegador y controlar homónimos/otros Talentos | `tests/browser-compatibilidad.js` · `e4608e1999d459fce977985cdbd2ff0b89cc56d0`. |
 | A11 | Registrar decisiones y plan de entrega | Este documento. |
-| A12 | Abrir PR y obtener cuatro suites CI completas | Pendiente. |
-| A13 | Fusionar y promover únicamente un SHA verificado a LIVE | Pendiente. |
-| A14 | Comprobar Pages y registrar evidencia definitiva | Pendiente. |
+| A12 | Crear [PR #12](https://github.com/naufragio-rolero/nd20-character-creator/pull/12), analizar primer fallo de CI y corregir únicamente la aserción | La primera ejecución de «Validar Conjuros y Forja» [41298198413](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298198413) falló porque el test exigía las palabras «Punto de Esfuerzo y la Acción» en ese orden, aunque la fuente decía «la Acción y el Punto de Esfuerzo». Se corrigió **solo** `tests/talentos-drs.js`, para verificar ambos gastos sin exigir su orden, commit `25e10008c12f03014d3046f64807e3b744986717`. Ninguna regla ni aclaración fue alterada. |
+| A13 | Confirmar **4/4 suites** sobre el último commit de la PR | [Motor y 434 Conjuros](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298257062) · [Chrome E2E](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298256875) · [Firefox/WebKit](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298256930) · [Candidato DRS filtrado](https://github.com/naufragio-rolero/nd20-character-creator/actions/runs/41298256869), todas **success**. |
+| A14 | Fusionar versión probada | [PR #12 fusionada](https://github.com/naufragio-rolero/nd20-character-creator/pull/12) por merge commit **`8dea3c9fd53c04c9739022968b551608a3276752`**. |
+| A15 | Actualizar pin de publicación LIVE y verificar el sitio público | Pendiente hasta terminar la publicación. |
 
 ## Criterios de aceptación
 
@@ -54,7 +55,7 @@ Se deja intacta toda regla adicional del texto fuente: límites de Nivel, efecto
 - [x] Otras 22 fichas DRS no presentan aclaraciones.
 - [x] CiFi/Nocturna sin nuevos datos ni exposición de suplementos.
 - [x] Pruebas añadidas para los dos casos y ausencia de propagación.
-- [ ] Cuatro suites CI sin fallos sobre el commit final.
+- [x] Cuatro suites CI satisfactorias sobre el commit final de la PR.
 - [ ] Publicación segura y URL pública confirmada.
 
 **Nota de alcance:** «Normalización documental» significa que la aclaración puede consultarse como dato editorial. No equivale a un sistema de combate automatizado.
