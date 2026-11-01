@@ -1,0 +1,573 @@
+{
+  "version": "0.1",
+  "fecha": "2026-11-01",
+  "fuente": "NaufragioD20DRS.docx",
+  "fuente_documental": "data/talentos-drs-literales.json",
+  "estado": "preclasificacion_documental_no_validacion_mecanica",
+  "uso": "Solo auditoría y consulta editorial. Prohibido interpretar ausencia de fragmento como ausencia de regla; no consumir desde motor ni publicar como mecánica.",
+  "politica": "Cada fragmento es una subcadena literal y comprobable del efecto del manual; la categoría es un índice de trabajo, no un parámetro ejecutable.",
+  "cobertura": {
+    "total_relaciones": 24,
+    "total_fragmentos": 79,
+    "categorias": {
+      "inmunidad": 1,
+      "ventaja": 7,
+      "modificador": 11,
+      "ya_aplicado": 4,
+      "condicion": 16,
+      "gasto_recurso": 5,
+      "efecto": 7,
+      "alcance": 3,
+      "restriccion": 6,
+      "momento_adquisicion": 1,
+      "gasto_accion": 1,
+      "frecuencia": 1,
+      "momento_uso": 2,
+      "eleccion": 3,
+      "probabilidad": 1,
+      "efecto_alternativo": 1,
+      "duracion": 2,
+      "terminacion": 1,
+      "progresion": 1,
+      "limite": 1,
+      "requisito": 1,
+      "sustitucion": 1,
+      "consecuencia": 1,
+      "excepcion": 1
+    }
+  },
+  "registros": [
+    {
+      "id_talento": "talento-drs-especie-elfo-agreste-linaje-feerico",
+      "propietario": "Elfo agreste",
+      "nombre": "Linaje feérico",
+      "fuente_parrafo": 109,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "inmunidad",
+          "fragmento_literal": "Eres inmune al estado Parálisis"
+        },
+        {
+          "tipo": "ventaja",
+          "fragmento_literal": "tienes Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-elfo-agreste-rapidez",
+      "propietario": "Elfo agreste",
+      "nombre": "Rapidez",
+      "fuente_parrafo": 111,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "modificador",
+          "fragmento_literal": "Aumenta tu Movimiento en 1"
+        },
+        {
+          "tipo": "ya_aplicado",
+          "fragmento_literal": "(ya calculado)"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-enano-montanes-corpulencia",
+      "propietario": "Enano montañés",
+      "nombre": "Corpulencia",
+      "fuente_parrafo": 120,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "modificador",
+          "fragmento_literal": "Tu Movimiento se reduce en 1"
+        },
+        {
+          "tipo": "ya_aplicado",
+          "fragmento_literal": "(ya calculado)"
+        },
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "Cuando realices una Tirada de Blindaje para reducir daño físico sufrido"
+        },
+        {
+          "tipo": "gasto_recurso",
+          "fragmento_literal": "puedes gastar 1 Punto de Esfuerzo"
+        },
+        {
+          "tipo": "efecto",
+          "fragmento_literal": "repetir la tirada"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-enano-montanes-vision-en-la-oscuridad",
+      "propietario": "Enano montañés",
+      "nombre": "Visión en la oscuridad",
+      "fuente_parrafo": 122,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "alcance",
+          "fragmento_literal": "hasta 30 metros"
+        },
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "en áreas de absoluta oscuridad"
+        },
+        {
+          "tipo": "restriccion",
+          "fragmento_literal": "verás en blanco y negro con formas y detalles poco definidos"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-humano-comun-buen-desarrollo",
+      "propietario": "Humano común",
+      "nombre": "Buen desarrollo",
+      "fuente_parrafo": 130,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "modificador",
+          "fragmento_literal": "Mejora uno de tus Atributos en 1 punto"
+        },
+        {
+          "tipo": "momento_adquisicion",
+          "fragmento_literal": "durante la Creación de PJ"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-mediano-amable-baja-estatura",
+      "propietario": "Mediano amable",
+      "nombre": "Baja estatura",
+      "fuente_parrafo": 139,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "modificador",
+          "fragmento_literal": "Tu Movimiento se reduce en 1"
+        },
+        {
+          "tipo": "ya_aplicado",
+          "fragmento_literal": "(ya calculado)"
+        },
+        {
+          "tipo": "restriccion",
+          "fragmento_literal": "No puedes usar armas o armaduras que no estén adaptadas a ti"
+        },
+        {
+          "tipo": "restriccion",
+          "fragmento_literal": "Sólo puedes llevar escudos pequeños"
+        },
+        {
+          "tipo": "modificador",
+          "fragmento_literal": "Obtienes un +1 a las Tiradas de esquiva de ataques a distancia"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-mediano-amable-salvese-quien-pueda",
+      "propietario": "Mediano amable",
+      "nombre": "¡Sálvese quien pueda!",
+      "fuente_parrafo": 141,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "Cuando estés afectado por un Estado de Parálisis o Miedo"
+        },
+        {
+          "tipo": "gasto_recurso",
+          "fragmento_literal": "puedes gastar 1 Punto de Esfuerzo"
+        },
+        {
+          "tipo": "gasto_accion",
+          "fragmento_literal": "una Acción"
+        },
+        {
+          "tipo": "efecto",
+          "fragmento_literal": "liberarte del efecto sin necesidad de tirada"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-gnomo-urbano-baja-estatura",
+      "propietario": "Gnomo urbano",
+      "nombre": "Baja estatura",
+      "fuente_parrafo": 151,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "modificador",
+          "fragmento_literal": "Tu Movimiento se reduce en 1"
+        },
+        {
+          "tipo": "ya_aplicado",
+          "fragmento_literal": "(ya calculado)"
+        },
+        {
+          "tipo": "restriccion",
+          "fragmento_literal": "No puedes usar armas o armaduras que no estén adaptadas a ti"
+        },
+        {
+          "tipo": "restriccion",
+          "fragmento_literal": "Sólo puedes llevar escudos pequeños"
+        },
+        {
+          "tipo": "modificador",
+          "fragmento_literal": "Obtienes un +1 a las Tiradas de esquiva de ataques a distancia"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-gnomo-urbano-vision-en-la-oscuridad",
+      "propietario": "Gnomo urbano",
+      "nombre": "Visión en la oscuridad",
+      "fuente_parrafo": 153,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "alcance",
+          "fragmento_literal": "hasta 30 metros"
+        },
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "en áreas de absoluta oscuridad"
+        },
+        {
+          "tipo": "restriccion",
+          "fragmento_literal": "verás en blanco y negro con formas y detalles poco definidos"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-semielfo-animo",
+      "propietario": "Semielfo",
+      "nombre": "Ánimo",
+      "fuente_parrafo": 172,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "frecuencia",
+          "fragmento_literal": "Una vez al día"
+        },
+        {
+          "tipo": "modificador",
+          "fragmento_literal": "un +2 a la Tirada de Atributo de uno de tus aliados"
+        },
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "Éste debe ser capaz de escucharte"
+        },
+        {
+          "tipo": "momento_uso",
+          "fragmento_literal": "antes de que tire"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-semielfo-herencia-dual-se",
+      "propietario": "Semielfo",
+      "nombre": "Herencia dual (SE)",
+      "fuente_parrafo": 174,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "eleccion",
+          "fragmento_literal": "Elige Buen desarrollo de los humanos o el Linaje feérico de los elfos"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-orco-comun-ira-interna",
+      "propietario": "Orco común",
+      "nombre": "Ira interna",
+      "fuente_parrafo": 162,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "Si tus Puntos de Salud son reducidos a 0 o menos"
+        },
+        {
+          "tipo": "gasto_recurso",
+          "fragmento_literal": "puedes gastar 1 Punto de Esfuerzo"
+        },
+        {
+          "tipo": "efecto",
+          "fragmento_literal": "ajustarlos a 1 y seguir luchando"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-orco-comun-sana-primitiva",
+      "propietario": "Orco común",
+      "nombre": "Saña primitiva",
+      "fuente_parrafo": 164,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "modificador",
+          "fragmento_literal": "Obtienes +1 a la Tirada de Daño"
+        },
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "si atacas con un arma cuerpo a cuerpo"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-semiorco-sed-de-sangre",
+      "propietario": "Semiorco",
+      "nombre": "Sed de sangre",
+      "fuente_parrafo": 180,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "momento_uso",
+          "fragmento_literal": "Antes de realizar una Tirada de Ataque con un arma cuerpo a cuerpo"
+        },
+        {
+          "tipo": "eleccion",
+          "fragmento_literal": "puedes declarar que tu embate será brutal"
+        },
+        {
+          "tipo": "modificador",
+          "fragmento_literal": "un -2 a la Tirada de Ataque"
+        },
+        {
+          "tipo": "modificador",
+          "fragmento_literal": "un +1 a la Penetración del arma"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-especie-semiorco-herencia-dual-so",
+      "propietario": "Semiorco",
+      "nombre": "Herencia dual (SO)",
+      "fuente_parrafo": 182,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "eleccion",
+          "fragmento_literal": "Elige el Buen desarrollo de los humanos o la Ira interna de los orcos"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes",
+      "propietario": "Clérigo",
+      "nombre": "Expulsar muertos vivientes",
+      "fuente_parrafo": 212,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "alcance",
+          "fragmento_literal": "en un radio de 18 metros a tu alrededor"
+        },
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "de un Nivel igual o inferior al tuyo"
+        },
+        {
+          "tipo": "probabilidad",
+          "fragmento_literal": "una Probabilidad 15+"
+        },
+        {
+          "tipo": "efecto",
+          "fragmento_literal": "ser destruídos"
+        },
+        {
+          "tipo": "efecto_alternativo",
+          "fragmento_literal": "Si soportan la expulsión"
+        },
+        {
+          "tipo": "duracion",
+          "fragmento_literal": "durante 1 Intervalo o 6 Turnos"
+        },
+        {
+          "tipo": "terminacion",
+          "fragmento_literal": "hasta que dejes de estar a su vista, lo que ocurra antes"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-clerigo-fortaleza-piadosa",
+      "propietario": "Clérigo",
+      "nombre": "Fortaleza piadosa",
+      "fuente_parrafo": 215,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "ventaja",
+          "fragmento_literal": "Tienes Ventaja a la hora de realizar una Tirada de Resistencia"
+        },
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "para soportar los Estados Parálisis o Veneno"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-guerrero-recuperacion",
+      "propietario": "Guerrero",
+      "nombre": "Recuperación",
+      "fuente_parrafo": 286,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "Tras un combate"
+        },
+        {
+          "tipo": "gasto_recurso",
+          "fragmento_literal": "puedes gastar 1 Punto de Esfuerzo"
+        },
+        {
+          "tipo": "duracion",
+          "fragmento_literal": "pasar un Intervalo recuperándote"
+        },
+        {
+          "tipo": "efecto",
+          "fragmento_literal": "restaurar 1d8 Puntos de Salud"
+        },
+        {
+          "tipo": "ventaja",
+          "fragmento_literal": "tienes Ventaja en las Tiradas de Resistencia para regenerar tu Esfuerzo gastado"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-guerrero-brio-musculoso",
+      "propietario": "Guerrero",
+      "nombre": "Brío musculoso",
+      "fuente_parrafo": 290,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "ventaja",
+          "fragmento_literal": "Tienes Ventaja en las Tiradas de Fuerza"
+        },
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "para derribar puertas, barricadas y cualquier obstáculo similar"
+        },
+        {
+          "tipo": "progresion",
+          "fragmento_literal": "tu Potencia aumenta en 1 en Nivel 10 y en Nivel 22"
+        },
+        {
+          "tipo": "limite",
+          "fragmento_literal": "hasta un total de Potencia 3 de forma natural"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-guerrero-sacrificio-de-escudo",
+      "propietario": "Guerrero",
+      "nombre": "Sacrificio de escudo",
+      "fuente_parrafo": 294,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "Cuando falles una Tirada de Bloqueo o Esquiva"
+        },
+        {
+          "tipo": "requisito",
+          "fragmento_literal": "debes tener un escudo equipado"
+        },
+        {
+          "tipo": "sustitucion",
+          "fragmento_literal": "en lugar de realizar la Tirada de Blindaje"
+        },
+        {
+          "tipo": "efecto",
+          "fragmento_literal": "evitar todo el daño"
+        },
+        {
+          "tipo": "consecuencia",
+          "fragmento_literal": "éste queda destruído por completo tras resolver la situación"
+        },
+        {
+          "tipo": "excepcion",
+          "fragmento_literal": "salvo que sea mágico, en ese caso su Durabilidad quedará reducida a 0"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-mago-bagaje-de-arcanista",
+      "propietario": "Mago",
+      "nombre": "Bagaje de arcanista",
+      "fuente_parrafo": 315,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "ventaja",
+          "fragmento_literal": "Tienes Ventaja cuando debas realizar una Tirada de Mente"
+        },
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "para identificar a una criatura sobrenatural o para descifrar un lenguaje que te parezca desconocido"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-mago-meditacion",
+      "propietario": "Mago",
+      "nombre": "Meditación",
+      "fuente_parrafo": 318,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "Si puedes concentrarte durante un Intervalo, sin molestia alguna"
+        },
+        {
+          "tipo": "gasto_recurso",
+          "fragmento_literal": "gastas 1 Punto de Esfuerzo"
+        },
+        {
+          "tipo": "efecto",
+          "fragmento_literal": "recuperas un Conjuro que ya hayas lanzado durante el día"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-ladron-preparacion",
+      "propietario": "Ladrón",
+      "nombre": "Preparación",
+      "fuente_parrafo": 395,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "ventaja",
+          "fragmento_literal": "Tienes Ventaja en la Tirada de Iniciativa"
+        },
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "si vas a participar en el combate activamente"
+        }
+      ]
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-ladron-sutileza",
+      "propietario": "Ladrón",
+      "nombre": "Sutileza",
+      "fuente_parrafo": 398,
+      "origen": "cita_literal_DRS",
+      "fragmentos": [
+        {
+          "tipo": "ventaja",
+          "fragmento_literal": "Tienes Ventaja en las Tiradas de Agilidad"
+        },
+        {
+          "tipo": "condicion",
+          "fragmento_literal": "que impliquen abrir cerraduras con ganzúas, desactivar trampas y trepar por superficies verticales"
+        }
+      ]
+    }
+  ]
+}
