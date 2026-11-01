@@ -107,7 +107,9 @@
           if(valor!==undefined&&valor!==null&&valor!=="")
             datos.push([etiqueta,String(valor)]);
         }
-        if(x.precio_literal)
+        if(x.precio_variable_literal)
+          campo("Precio variable",x.precio_variable_literal);
+        else if(x.precio_literal)
           campo("Precio",x.precio_literal);
         else if(x.precio!==undefined&&x.precio!==null)
           campo("Precio",x.precio+" "+moneda);
@@ -117,6 +119,7 @@
         campo("Penetración",x.penetracion);
         campo("Blindaje",x.blindaje);
         campo("Alcance",x.alcance);
+        campo("Movimiento",x.movimiento);
         campo("Durabilidad",x.durabilidad);
         if(x.du)campo("Dado de Uso","DU "+x.du);
         campo("Munición",x.municion);
@@ -130,13 +133,18 @@
         if(x.id)tecnicos.push(["Identificador DRS",x.id]);
         if(x.nombre_original_drs)
           tecnicos.push(["Nombre en el DRS",x.nombre_original_drs]);
+        if(x.precio_variable_literal){
+          tecnicos.push(["Precio en tabla DRS",x.precio_literal]);
+          if(x.nota_editorial)tecnicos.push(["Nota editorial",x.nota_editorial]);
+        }
         if(x.nombre==="Dardo"&&sistema==="nd20"&&clase==="arma")
           tecnicos.push(["Precio 0 mo","Decisión autoral 31/10/2026; no precio literal del DRS"]);
         anotar(x.nombre,clase==="magico"?"Objeto mágico":
           clase==="arma"?"Arma":clase==="proteccion"?"Protección":
           clase==="escudo"?"Escudo":clase==="municion"?"Munición":
           clase==="foco"?"Foco de conjuros":clase==="paquete"?"Paquete":
-          "Equipo",sistema,fuente,{
+          clase==="montura"?"Montura":clase==="equipo_montura"?"Equipo de montura":
+          clase==="transporte"?"Transporte":"Equipo",sistema,fuente,{
             id:x.id||null,grupo:"equipo",clase_equipo:clase,
             categoria_equipo:[categoria,x.tipo?.replace(/_/g," ")||x.categoria]
               .filter(Boolean).join(" · "),
@@ -227,6 +235,16 @@
     });
     // Cinco útiles corrientes mencionados en los paquetes del DRS.
     // Su descripción física es editorial; NO implica precio ni efectos.
+    // Monturas, enseres para animales y vehículos: lectura documental.
+    // Nunca aparecen como compras iniciales ni conceden Movimiento al PJ.
+    [["monturas","montura"],["equipo_para_monturas","equipo_montura"],
+      ["transportes","transporte"]].forEach(function(p){
+      var tabla=consultaDRS[p[0]];
+      if(!tabla)return;
+      equipo(tabla.registros,"nd20","mo",
+        "NaufragioD20DRS.docx · Tabla "+tabla.tabla_word+" · "+tabla.categoria,
+        p[1],tabla.categoria);
+    });
     (consultaDRS.objetos_comunes_sin_precio||[]).forEach(function(comp){
       var paquetes=(eq.paquetes||[]).filter(function(p){
         return p.contenido.split(";").some(function(t){
