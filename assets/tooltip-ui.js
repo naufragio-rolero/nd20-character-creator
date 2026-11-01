@@ -320,7 +320,10 @@
       var a=getTarget(e);if(a)mostrar(a,true);
     });
     document.addEventListener("focusout",function(e){
-      var a=getTarget(e);if(a&&a===ancla&&!card.contains(e.relatedTarget))cerrar();
+      var a=getTarget(e);
+      // Los diálogos fijados deben soportar clic, teclado, rueda y scroll.
+      // Perder el foco en el ancla no equivale a cerrar el diálogo.
+      if(a&&a===ancla&&!fija&&card&&!card.contains(e.relatedTarget))cerrar();
     });
     document.addEventListener("click",function(e){
       var a=getTarget(e);
