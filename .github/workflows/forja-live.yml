@@ -28,14 +28,14 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener únicamente la versión 1.5 validada
+      - name: Obtener únicamente la Forja UX validada (PR #14)
         uses: actions/checkout@v4
         with:
-          ref: 8dea3c9fd53c04c9739022968b551608a3276752
+          ref: deac628f9389b6f4f6a4098fa314305e4dcfd8d4
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "8dea3c9fd53c04c9739022968b551608a3276752"
+          test "$(git rev-parse HEAD)" = "deac628f9389b6f4f6a4098fa314305e4dcfd8d4"
       - name: Preparar Node
         uses: actions/setup-node@v4
         with:
@@ -74,13 +74,15 @@ jobs:
         run: |
           set -euo pipefail
           test -n "$PAGE_URL"
-          echo "Comprobando que Pages sirve la versión 1.5 depurada"
+          echo "Comprobando que Pages sirve la corrección UX depurada"
           correcto=false
           for intento in $(seq 1 16); do
             if curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-live.html &&
                grep -Fq 'id="selector-visual-especie"' /tmp/forja-live.html &&
                grep -Fq 'id="generar-flotante"' /tmp/forja-live.html &&
-               grep -Fq 'id="informacion-avanzada"' /tmp/forja-live.html; then
+               grep -Fq 'id="informacion-avanzada"' /tmp/forja-live.html &&
+               grep -Fq 'id="inicio-movil"' /tmp/forja-live.html &&
+               grep -Fq 'class="empezar-forja"' /tmp/forja-live.html; then
               correcto=true
               break
             fi
@@ -89,10 +91,15 @@ jobs:
           test "$correcto" = true
           ! grep -Fq 'data-juego="nd20_cifi"' /tmp/forja-live.html
           ! grep -Fq 'data-juego="nd20_nocturna"' /tmp/forja-live.html
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/app.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-app.js
+          grep -Fq "var primeraVisitaMovil" /tmp/forja-app.js
+          grep -Fq "var introVisible" /tmp/forja-app.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/tooltip-ui.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-tooltip-ui.js
+          grep -Fq "if(a&&e.pointerType===\"mouse\"&&!fija" /tmp/forja-tooltip-ui.js
           curl -fsSL "${PAGE_URL%/}/assets/icons-forja.svg" -o /tmp/forja-icons.svg
           test "$(grep -c '<symbol id=' /tmp/forja-icons.svg)" -eq 12
           curl -fsSL "${PAGE_URL%/}/data/especies.json" -o /tmp/forja-especies.json
           node -e "const e=require('/tmp/forja-especies.json');if(Object.keys(e).length!==8)process.exit(1)"
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/aclaraciones-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-aclaraciones.json
           node -e "const a=require('/tmp/forja-aclaraciones.json');const ids=a.registros.map(x=>x.id_talento).sort();const expected=['talento-drs-especie-mediano-amable-salvese-quien-pueda','talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes'].sort();if(a.estado!=='aprobacion_autoral'||JSON.stringify(ids)!==JSON.stringify(expected))process.exit(1)"
-          echo "OK: web en vivo, 8 Especies DRS, 12 SVG, dos aclaraciones autorales y CiFi/Nocturna ocultos."
+          echo "OK: Forja UX en vivo, Empezar visible, popup protegido, 8 Especies DRS, 12 SVG, dos aclaraciones autorales y CiFi/Nocturna ocultos."
