@@ -497,7 +497,7 @@ async function probar(nombre,tipo,url){
     assert.equal(await racion.count(),1,nombre+': referencia textual de ración');
     await racion.click();
     assert.match(await page.locator('#ficha-emergente .info-primarios').textContent(),
-      /Precio individual/);
+      /Precio unitario/);
     assert.match(await page.locator('#ficha-emergente .info-descripcion').textContent(),
       /Carne o fruta seca/);
     await page.keyboard.press('Escape');
@@ -558,7 +558,7 @@ async function probar(nombre,tipo,url){
     const infoEquipo=page.locator('#ficha-emergente');
     assert.equal(await infoEquipo.locator('.info-tipo').textContent(),'Equipo');
     assert.deepEqual(await infoEquipo.locator('.info-primarios dt').allTextContents(),
-      ['Precio:']);
+      ['Precio unitario:']);
     assert.deepEqual(await infoEquipo.locator('.info-primarios dd').allTextContents(),
       ['2 mo']);
     assert.match(await infoEquipo.locator('.info-descripcion').textContent(),
