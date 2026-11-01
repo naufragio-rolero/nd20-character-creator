@@ -225,24 +225,26 @@
         tabla.tabla_word+" · "+tabla.categoria,
         "comun",tabla.categoria);
     });
-    (consultaDRS.componentes_exclusivos_paquete||[]).forEach(function(comp){
+    // Cinco útiles corrientes mencionados en los paquetes del DRS.
+    // Su descripción física es editorial; NO implica precio ni efectos.
+    (consultaDRS.objetos_comunes_sin_precio||[]).forEach(function(comp){
       var paquetes=(eq.paquetes||[]).filter(function(p){
         return p.contenido.split(";").some(function(t){
           return normalizar(t)===normalizar(comp.inventario);
         });
       });
-      if(!paquetes.length)
-        throw Error("Componente no encontrado en los paquetes DRS: "+comp.inventario);
+      if(!paquetes.length||!comp.descripcion_editorial)
+        throw Error("Objeto común sin respaldo o descripción editorial: "+comp.inventario);
       anotar(comp.nombre,"Equipo","nd20",
         "NaufragioD20DRS.docx · Paquetes de equipo",{
-          grupo:"equipo",clase_equipo:"componente_paquete",
-          categoria_equipo:"Componente de paquete",
-          descripcion:"",
+          grupo:"equipo",clase_equipo:"util",
+          categoria_equipo:"Útiles · Viaje y almacenaje",
+          descripcion:comp.descripcion_editorial,
           datos:[["Incluido en",paquetes.map(function(x){
             return x.nombre;
           }).join(", ")]].concat(comp.du?[["Dado de Uso","DU "+comp.du]]:[]),
-          tecnicos_equipo:[],
-          fuente_descripcion:"NaufragioD20DRS.docx · Paquetes de equipo"
+          tecnicos_equipo:[["Redacción","Descripción editorial, 01/11/2026; no es texto literal del DRS"]],
+          fuente_descripcion:"NaufragioD20DRS.docx · Paquetes de equipo (nombre y DU) · Descripción editorial, 01/11/2026"
         });
     });
     (consultaDRS.equivalencias_explicitas_paquetes||[]).forEach(function(a){
