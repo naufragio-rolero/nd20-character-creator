@@ -462,8 +462,8 @@ async function probar(nombre,tipo,url){
     const infoRecuerdo=page.locator('#ficha-emergente');
     assert.equal(await infoRecuerdo.locator('.info-tipo').textContent(),'Recuerdo personal');
     assert.equal(await infoRecuerdo.locator('.info-primarios dt').count(),0);
-    assert.match(await infoRecuerdo.locator('.info-fuente').textContent(),
-      /data\\/especies\\.json/);
+    assert.ok((await infoRecuerdo.locator('.info-fuente').textContent())
+      .includes('data/especies.json'));
     await page.keyboard.press('Escape');
     const inicial=precio(await ficha.locator('.riqueza').innerText());
     await ficha.locator('.comprar-utiles').click();
@@ -527,8 +527,8 @@ async function probar(nombre,tipo,url){
       ['2 mo']);
     assert.match(await infoEquipo.locator('.info-descripcion').textContent(),
       /puede utilizarse como Clava/);
-    assert.match(await infoEquipo.locator('.info-fuente').textContent(),
-      /NaufragioD20DRS\\.docx/);
+    assert.ok((await infoEquipo.locator('.info-fuente').textContent())
+      .includes('NaufragioD20DRS.docx'));
     assert.equal(await infoEquipo.locator('.info-detalles').isHidden(),true);
     await page.keyboard.press('Escape');
     const despues=precio(await ficha.locator('.riqueza').innerText());
