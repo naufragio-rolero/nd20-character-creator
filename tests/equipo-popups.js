@@ -96,6 +96,39 @@ for(const [clave,clase,cantidad] of [
     assert.ok(vista.primarios.every(([k])=>k!=='Competencia'));
   }
 }
+// Aclaración autoral 01/11: Armadura equina cuesta la base humana DRS ×4.
+const equinaFuente=consultaDRS.equipo_para_monturas.registros.find(x=>
+  x.nombre==='Armadura equina');
+assert.equal(equinaFuente.precio_literal,'*','Preservar asterisco del DRS');
+assert.equal(equinaFuente.precio_variable_literal,'Precio x4');
+assert.equal(equinaFuente.regla_precio_autoral.estado,'aprobacion_autoral');
+assert.equal(equinaFuente.regla_precio_autoral.multiplicador,4);
+const equina=index.presentarEquipo(ficha('Armadura equina'));
+const opcionesEquinas=equina.opciones_armadura_equina;
+assert.equal(opcionesEquinas.length,equipo.armaduras.length);
+assert.equal(opcionesEquinas.length,14);
+for(let i=0;i<equipo.armaduras.length;i++){
+  assert.equal(opcionesEquinas[i].nombre,equipo.armaduras[i].nombre);
+  assert.equal(opcionesEquinas[i].precio_base,equipo.armaduras[i].precio);
+  assert.equal(opcionesEquinas[i].precio_equina,
+    Math.round(equipo.armaduras[i].precio*100)*4/100);
+}
+assert.deepEqual(opcionesEquinas.find(x=>x.nombre==='Pechera de algodón'),
+  {nombre:'Pechera de algodón',precio_base:0.5,precio_equina:2});
+assert.deepEqual(opcionesEquinas.find(x=>x.nombre==='Armadura de cuero'),
+  {nombre:'Armadura de cuero',precio_base:10,precio_equina:40});
+assert.equal(opcionesEquinas.find(x=>x.nombre==='Armadura completa de placas')
+  .precio_equina,4000);
+assert.equal(equina.primarios.some(([k])=>k==='Precio'),false,
+  'No fijar precio antes de elegir base');
+// No permitir precios ni fuentes alternativas escondidas en el JSON.
+assert.throws(()=>index.indice({...fuentes,
+  equipoConsultaDRS:{...consultaDRS,equipo_para_monturas:{
+    ...consultaDRS.equipo_para_monturas,
+    registros:consultaDRS.equipo_para_monturas.registros.map(x=>
+      x.nombre!=='Armadura equina'?x:{...x,regla_precio_autoral:{
+        ...x.regla_precio_autoral,multiplicador:3}})}}}),
+  /sin autorización o fuente válida/);
 // Un servicio por día no es un artículo guardado en el inventario.
 assert.equal(ficha('Establos'),null);
 assert.equal(ficha('Hospedaje'),null);
