@@ -1058,6 +1058,7 @@
       equipoInicial:'data/equipo-inicial.json',
       fichasDocumentales:'data/fichas-documentales.json',
       talentosDRS:'data/talentos-drs-literales.json',
+      aclaracionesTalentosDRS:'data/aclaraciones-talentos-drs.json',
       dungeon:'data/dungeon-hack.json'
     };
     var elementos=await Promise.all(Object.entries(archivos).map(async function(par){
@@ -1112,6 +1113,7 @@
     datos.alcanceDRS=loaded.alcanceDRS;
     datos.catalogo=loaded.catalogo;
     datos.talentosDRS=loaded.talentosDRS;
+    datos.aclaracionesTalentosDRS=loaded.aclaracionesTalentosDRS;
     datos.tesauroYlat=loaded.tesauroYlat;
     datos.nombresHistoricosYlat=loaded.nombresHistoricosYlat;
     datos.sexo=loaded.sexoCatalogo;
@@ -1124,6 +1126,7 @@
         alcanceDRS:datos.alcanceDRS,
         descripciones:loaded.fichasDocumentales,
         talentosDRS:loaded.talentosDRS,
+        aclaracionesTalentosDRS:loaded.aclaracionesTalentosDRS,
         conjurosRevisados:loaded.conjurosUno.conjuros.concat(loaded.conjurosDos.conjuros),
         magnitudes:loaded.magnitudes,
         danioCompuesto:loaded.danioCompuesto

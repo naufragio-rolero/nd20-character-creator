@@ -9,6 +9,16 @@
 
 Este archivo es el **punto único de seguimiento** del proyecto. Las casillas se marcarán cuando exista un entregable comprobable, no por una estimación de avance. El informe de cada tanda conservará las fuentes, discrepancias y decisiones pendientes. **No modificar reglas ni datos de ejecución por completar tareas documentales.**
 
+## Forja 1.5 — Aclaraciones autorales en popups DRS (01/11/2026)
+
+- [x] Separar las dos aclaraciones ratificadas de los 24 efectos literales.
+- [x] Mostrar `¡Sálvese quien pueda!` y `Expulsar muertos vivientes` con su aclaración aprobada, sin reescribir el DRS.
+- [x] Incorporar fuente, identidad y comprobaciones de seguridad de distribución.
+- [ ] Fusionar tras cuatro suites CI satisfactorias y promocionar el SHA validado.
+- [ ] Verificar nueva distribución pública y cerrar el diario.
+
+**Registro de acciones y decisiones:** [Informe 112 — Forja 1.5](112-forja-aclaraciones-autoriales.md). No se introduce motor de combate, tiradas automáticas ni cambios de coste.
+
 ## Conciliación de los ocho asuntos DRS — Cerrada editorialmente (01/11/2026)
 
 - [x] Seis asuntos resueltos directamente por el DRS o las pruebas existentes.
