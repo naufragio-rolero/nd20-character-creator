@@ -140,7 +140,13 @@ assert.deepEqual(consultaPublica,consultaFuente,
   'El catálogo de consulta DRS distribuido coincide íntegramente con la fuente');
 assert.equal(consultaPublica.tablas.reduce((n,t)=>n+t.registros.length,0),10);
 assert.equal(consultaPublica.equivalencias_explicitas_paquetes.length,5);
-assert.equal(consultaPublica.componentes_exclusivos_paquete.length,5);
+assert.equal(consultaPublica.objetos_comunes_sin_precio.length,5);
+assert.equal(consultaPublica.version,2);
+assert.ok(consultaPublica.objetos_comunes_sin_precio.every(x=>
+  x.descripcion_editorial&&/editorial/.test(x.origen_descripcion)));
+assert.ok(consultaPublica.objetos_comunes_sin_precio.every(x=>
+  x.precio===undefined&&x.precio_literal===undefined),
+  'No inventar precios para los cinco artículos normales de viaje');
 assert.ok(!JSON.stringify(consultaPublica).includes('Manto de Vagryen'),
   'No distribuir Objetos mágicos suplementarios con el equipo DRS');
 const marca=core.conjuros.find(x=>x.nombre==='Marca del dador oscuro');
