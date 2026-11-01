@@ -370,7 +370,7 @@
     var escuelas=[],circulo=null;
     if(info.tipo==="Conjuro"){
       // Círculo y Escuelas ya proceden del catálogo; no se infieren del texto.
-      escuelas=valor("Escuelas")?valor("Escuelas").split(/,\\s*/).filter(Boolean):[];
+      escuelas=valor("Escuelas")?valor("Escuelas").split(/,\s*/).filter(Boolean):[];
       var numeroCirculo=Number(valor("Círculo"));
       if(Number.isInteger(numeroCirculo)&&numeroCirculo>=1&&numeroCirculo<=8)
         circulo=numeroCirculo;
