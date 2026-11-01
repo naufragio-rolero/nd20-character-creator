@@ -139,6 +139,33 @@ async function probar(nombre,tipo,url){
     assert.match(await popup.locator('.info-fuente').textContent(),
       /Origen: Naufragio d20 DRS · Fuente: NaufragioD20DRS.docx/);
     assert.equal(await popup.locator('.info-detalles').isHidden(),true);
+    const aclaracion=popup.locator('.info-aclaracion-autoral');
+    assert.equal(await aclaracion.count(),1);
+    assert.equal(await aclaracion.locator('h4').textContent(),
+      'Aclaración autoral aprobada');
+    assert.match(await aclaracion.textContent(),/3 zombis y 2 esqueletos/);
+    assert.match(await aclaracion.textContent(),/2 Tiradas/);
+    assert.match(await aclaracion.textContent(),/criaturas idénticas/);
+    assert.equal(await aclaracion.isVisible(),true,
+      nombre+': aclaración aprobada visible sin activar detalles técnicos');
+    assert.doesNotMatch(await popup.locator('.info-descripcion').first().textContent(),
+      /3 zombis y 2 esqueletos/,
+      nombre+': el texto literal no debe absorber la aclaración editorial');
+    await page.locator('#e2e-talento').evaluate(x=>{
+      x.dataset.glosaId='talento-drs-especie-mediano-amable-salvese-quien-pueda';
+    });
+    await page.locator('#e2e-talento').click();
+    assert.equal(await popup.locator('h3').textContent(),'¡Sálvese quien pueda!');
+    assert.match(await popup.locator('.info-aclaracion-autoral').textContent(),
+      /Parálisis o Miedo/);
+    assert.match(await popup.locator('.info-aclaracion-autoral').textContent(),
+      /aunque|incluso cuando/);
+    assert.match(await popup.locator('.info-descripcion').first().textContent(),
+      /sin necesidad de tirada/);
+    await page.locator('#e2e-talento').evaluate(x=>{
+      x.dataset.glosaId='talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes';
+    });
+    await page.locator('#e2e-talento').click();
     await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=true;});
     await page.locator('#informacion-avanzada').check();
     await page.locator('#e2e-talento').click();
@@ -169,6 +196,8 @@ async function probar(nombre,tipo,url){
     await page.locator('#e2e-talento').click();
     assert.match(await popup.locator('.info-descripcion').textContent(),/alrrededor/,
       'El texto cotejado de Gnomo conserva incluso la errata de la fuente');
+    assert.equal(await popup.locator('.info-aclaracion-autoral').count(),0,
+      nombre+': no trasladar una aclaración a Talentos ajenos');
     await page.keyboard.press('Escape');
     await page.locator('#e2e-talento').evaluate(x=>x.remove());
     await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=false;});
