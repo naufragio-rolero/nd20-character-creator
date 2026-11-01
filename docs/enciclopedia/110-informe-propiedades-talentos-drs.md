@@ -55,6 +55,12 @@ Estos asuntos son una lista de verificaciones; **no** se presentan como errores 
 | A08 | Ejecutar las suites CI y registrar resultados por su enlace | Pendiente hasta disponer de ejecución comprobada. |
 | A09 | Fusionar únicamente tras CI satisfactorio; preservar el despliegue LIVE de 1.3.1 | Pendiente de decisión de integración. |
 
+## Contraste específico: Movimiento ya calculado
+
+Inspección de solo lectura de `data/especies.json` y `assets/rules.js`: el Movimiento de Elfo agreste, Enano montañés, Mediano amable y Gnomo urbano es, respectivamente, **7, 5, 5 y 5**; Humano común conserva **6**. En el motor, la ficha usa directamente `esp.movimiento` al crear el recurso Movimiento, sin otra operación en ese punto. La batería existente `tests/alcance-drs.js` ya comprueba estos valores y la ausencia de duplicación. **Resultado:** no se ha demostrado un error de doble aplicación; no procede alterar la fórmula.
+
+**Registro de acción A07b:** comprobación de los cuatro perfiles, recurso de Movimiento y pruebas preexistentes. Sin cambios de código ni de reglas.
+
 ## Comprobación de seguridad editorial
 
 - [x] 24/24 identidades del DRS.
