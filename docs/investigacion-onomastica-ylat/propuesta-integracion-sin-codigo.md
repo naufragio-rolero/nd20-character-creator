@@ -5,6 +5,9 @@
 **Ámbito:** La Forja del repositorio `naufragio-rolero/nd20-character-creator`.  
 **Base:** [censo de 140 PNJ](censo-pnj-historico.md), [clasificación de sus 97 segundos componentes](clasificacion-segundos-componentes.md), [familias acreditadas](familias-acreditadas.md), [catálogo de fuentes](catalogo-provisional.md) y [exclusión de corpus ajeno](../enciclopedia/127-exclusion-corpus-ajeno-ylat.md).
 
+
+> **ACTUALIZACIÓN EDITORIAL DE AUTORÍA (2026-11-02):** las reservas restrictivas de los apartados siguientes fueron **propuestas anteriores** a la validación. La [nueva acta](acta-decisiones-autoria-2026-11-02.md) autoriza en principio apellidos nobiliarios **de peso muy bajo**, mezcla de nombres de épocas/realidades, conservación de Máthair/Pietro sin excluirlos y mantenimiento de la convención eladrín **sin usarla**. La ponderación numérica aún no existe ni se ha fijado. No atribuir a esta propuesta un veto que la autoría ya descartó.
+
 ## 1. Estado comprobado del generador (rama principal, lectura 2026-11-02)
 
 - `data/nombres-historicos-ylat.json`: 1428 filas, 1422 formas únicas. La política del propio archivo no identifica sexo, cultura, linaje, especie ni identidad documentada; **no convertir esas formas en apellidos por su apariencia**.
