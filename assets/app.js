@@ -382,7 +382,7 @@
   }
   // Clasificación solo visual: no altera las propiedades del Equipo DRS.
   function iconoEquipo(nombre){
-    var c=datos.equipoInicial||{},n=String(nombre).replace(/\\s+×\\d+$/,'').trim();
+    var c=datos.equipoInicial||{},n=String(nombre).replace(/\s+×\d+$/,'').trim();
     function contiene(lista){return (lista||[]).some(function(x){return x.nombre===n;});}
     var arma=(c.armas||[]).find(function(x){return x.nombre===n;});
     if(arma)return arma.tipo==='distancia'?'equipo-arco':'equipo-espada';
@@ -393,15 +393,15 @@
     if(contiene(c.focos_conjuros_con_precio))return 'equipo-orbe';
     var utiles=Object.values(c.utiles_fantasia||{}).flat();
     if(contiene(utiles)){
-      if(/^(libro|grimorio|tomo)\\b/i.test(n))return 'equipo-libro';
-      if(/^(mochila|alforjas|zurrón|saco|baúl|cofre)\\b/i.test(n))
+      if(/^(libro|grimorio|tomo)\b/i.test(n))return 'equipo-libro';
+      if(/^(mochila|alforjas|zurrón|saco|baúl|cofre)\b/i.test(n))
         return 'equipo-mochila';
     }
     // Respaldo por nombre, sin inventar categorías ni efectos mecánicos.
-    if(/\\b(arco|ballesta)\\b/i.test(n))return 'equipo-arco';
-    if(/\\bvarita\\b/i.test(n))return 'equipo-varita';
-    if(/^(libro|grimorio|tomo)\\b/i.test(n))return 'equipo-libro';
-    if(/^(mochila|alforjas|zurrón|saco de viaje)\\b/i.test(n))
+    if(/\b(arco|ballesta)\b/i.test(n))return 'equipo-arco';
+    if(/\bvarita\b/i.test(n))return 'equipo-varita';
+    if(/^(libro|grimorio|tomo)\b/i.test(n))return 'equipo-libro';
+    if(/^(mochila|alforjas|zurrón|saco de viaje)\b/i.test(n))
       return 'equipo-mochila';
     return 'equipo-bolsa';
   }
