@@ -45,7 +45,7 @@ Las tres matrices de desarrollo inicial son **humano, elfo y orco**. Enano, medi
 - **Otros mestizos futuros:** aplicar exactamente la misma lógica desde las dos matrices que correspondan. **No crear nuevas especies ni incorporarlas a la interfaz sin respaldo documental y decisión editorial.**
 - **Proporción e identidad:** el híbrido debe identificarse con ambas familias sin ser una copia de una de ellas, ni un collage recargado. Las piezas compartidas se derivan de la misma geometría para que el parentesco sea evidente.
 
-**Secuencia de diseño:** 1. Humano → 2. Elfo → 3. Orco → 4. Semielfo → 5. Semiorco. Los cuatro primeros tienen bocetos v1 en esta conversación; **ninguno está aprobado ni sustituye todavía a los iconos de LIVE**.
+**Secuencia interna de esta familia (una vez llegue su turno):** Humano → Elfo → Orco → Semielfo → Semiorco. **Humano, Elfo, Orco y Semielfo: bocetos v1 aprobados por el equipo.** El Semiorco queda por diseñar. La aprobación artística no implica que los SVG estén ya desplegados en LIVE.
 
 ### 3.3. Criterios de rechazo
 
@@ -116,11 +116,17 @@ Descartar un diseño si el humano parece un monstruo, si el semielfo no conserva
 
 **Total: 8 + 4 + 2 + 6 + 11 + 4 = 35.**
 
-## 5. Prioridades tras la familia inicial
+## 5. Orden de producción: prioridad por visibilidad real
 
-- **Primero:** las tres matrices humano/elfo/orco, los híbridos semielfo/semiorco y las demás especies.
-- **Problemas inmediatos de UI:** `ico-configurar`, `recurso-esfuerzo`, `recurso-potencia`, `recurso-blindaje`, `recurso-esencia`, `equipo-bolsa`, `sexo-indeterminado`.
-- **Después:** completar Recursos, Ocupaciones, Poderes y Equipo con el mismo lenguaje visual.
+**La prioridad global no es completar primero una familia, sino mejorar aquello que más se ve en la Forja.** Las relaciones familiares se respetan *dentro del bloque de Especies*, pero no alteran el orden de trabajo general.
+
+1. **Primer bloque — controles y Recursos de la ficha (7 SVG):** `ico-configurar`, `recurso-salud`, `recurso-potencia`, `recurso-esfuerzo`, `recurso-blindaje`, `recurso-movimiento`, `recurso-esencia`. Es el contenido más reiterado o más visible de la interfaz; todos deben ser inmediatamente legibles a 16 px.
+2. **Segundo bloque — Equipo e inventario (11 SVG):** `equipo-espada`, `equipo-arco`, `equipo-varita`, `equipo-bolsa`, `equipo-caballo`, `equipo-mochila`, `equipo-orbe`, `equipo-libro`, `equipo-armadura`, `equipo-escudo`, `equipo-municion`. Se revisará también la repetición del icono genérico de bolsa, sin inventar categorías.
+3. **Tercer bloque — Talentos/Poderes y sexo (5 SVG):** `ico-conjuro`, `ico-tecnica`, `sexo-masculino`, `sexo-femenino`, `sexo-indeterminado`.
+4. **Cuarto bloque — Ocupaciones (4 SVG):** `ocu-clerigo`, `ocu-guerrero`, `ocu-mago`, `ocu-ladron`.
+5. **Quinto bloque — Especies (8 SVG):** `esp-humano`, `esp-elfo`, `esp-orco`, `esp-semielfo`, `esp-semiorco`, `esp-enano`, `esp-mediano`, `esp-gnomo`.
+
+**Excepción ya realizada:** los diseños originales `esp-humano`, `esp-elfo`, `esp-orco` y `esp-semielfo` están **aprobados (v1)**. Se conservan como trabajo adelantado; **no desplazan la prioridad de los Recursos**. Ninguna aprobación artística constituye autorización para desplegar o modificar el paquete LIVE.
 
 ## 6. Proceso de producción y control
 
@@ -131,4 +137,4 @@ Descartar un diseño si el humano parece un monstruo, si el semielfo no conserva
 5. **Integración:** sustituir `assets/icons/<id>.svg` manteniendo el ID y su función; documentar autoría/cambios.
 6. **Seguridad:** pruebas de Chrome, Firefox/WebKit, URLs de máscaras y paquete DRS aislado; publicar LIVE solo mediante flujo protegido y promoción explícita de SHA.
 
-**Estado inicial:** 35 iconos provisionales visibles en LIVE; 0 diseños originales aprobados; 4 bocetos SVG iniciales en revisión (humano, elfo, orco, semielfo).
+**Estado editorial actualizado:** 35 iconos provisionales en LIVE; 4 diseños originales aprobados — Humano, Elfo, Orco y Semielfo — aún sin sustituir los SVG desplegados; el siguiente bloque de trabajo son Configuración y los seis Recursos (7 SVG).
