@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=913ad5678f318eb981a1d465888392d35bd26c55
+          UI_COMMIT=6bb4b0c661d537fbf5d15ce4bbb5e38c0f05360a
           archivos=(
             assets/app.js
             assets/styles.css
@@ -67,11 +67,11 @@ jobs:
             tests/smoke.js
           )
           blobs=(
-            4025129efa4b16bfe8d999027f912f8600b39ffc
-            48439afc172eb513e3369df30ef3a9c6615690b7
-            e4967b575b8a20a5d7a0b5b202377ad9a4245df9
+            b128ff7b6c95f88d74c8c71f033aeca5bcb5f167
+            b981f35c505af075857bb5933b9da95339c2c24e
+            8de9c70d9104688bfa3039fdd802f16b09b540f9
             105de262dd5d81c283ac2cc1bd26e04068ea8a6f
-            cdf8a6b2c21f28c06be15417118bedc5fcf6b75f
+            8bc37f3ed18a2af93faccd6dff108852d86105a1
             30e8e3b03d381afa328cdcc202a644c2b74d8e82
             9593337ee7b4779f8f06f62151e6905d1cd8124f
             7aced6a1728d60a69115190a38861f3bfabed0bd
@@ -81,9 +81,9 @@ jobs:
             59001f362a71505b07af35f0d65c215bd4f76647
             6d42c7947d900bc8f754593771840d442c61b184
             e480ee85fddc90f3c52a7b6654cfd97ba19f0242
-            77fca2b032202608cfdf87691770210779f48ad6
+            9b35672d6c33e0ab7a4867ca9763214276e6887b
             8d1d0fb7a6e0001c4506fa9b72d1e79cd83739d7
-            602d69574e9c40e914bb31dc9c387282cee02c92
+            c8961a9b3376debe544079e8cf03d9b4739b4832
             163f721f174fd9e30c3d351c5b13b6dcd9fff780
             ddb7fe831b99018834633f5b85d28dd670ddaa18
           )
@@ -125,6 +125,11 @@ jobs:
           grep -Fq 'function blindajeFicha(personaje,catalogo)' assets/equipment.js
           grep -Fq 'class="recursos recursos-rejilla"' assets/app.js
           grep -Fq 'function iconoEquipo(nombre)' assets/app.js
+          grep -Fq 'function descripcionConSexo(personaje)' assets/app.js
+          grep -Fq 'function nombreEquipoVisible(nombre)' assets/app.js
+          grep -Fq 'id="sexo-masculino"' assets/icons-forja.svg
+          grep -Fq 'id="sexo-femenino"' assets/icons-forja.svg
+          grep -Fq 'id="sexo-indeterminado"' assets/icons-forja.svg
           grep -Fq 'id="dialogo-configuracion"' index.html
           grep -Fq 'id="abrir-configuracion"' index.html
           grep -Fq 'id="ico-configurar"' assets/icons-forja.svg
@@ -135,7 +140,7 @@ jobs:
           grep -Fq 'grid-template-columns:repeat(4,minmax(0,1fr))' assets/styles.css
           grep -Fq 'function htmlProteccionesEquipadas(personaje,id)' assets/app.js
           grep -Fq 'id="recurso-blindaje"' assets/icons-forja.svg
-          test "$(grep -c '<symbol id=' assets/icons-forja.svg)" -eq 31
+          test "$(grep -c '<symbol id=' assets/icons-forja.svg)" -eq 34
           echo "OK: estadísticas oficiales, 64 Conjuros, Recursos y protecciones cotejados por hash."
       - name: Preparar Node
         uses: actions/setup-node@v4
@@ -236,6 +241,8 @@ jobs:
           grep -Fq 'function htmlProteccionesEquipadas(personaje,id)' /tmp/forja-app.js
           grep -Fq 'class="recursos recursos-rejilla"' /tmp/forja-app.js
           grep -Fq 'function iconoEquipo(nombre)' /tmp/forja-app.js
+          grep -Fq 'function descripcionConSexo(personaje)' /tmp/forja-app.js
+          grep -Fq 'function nombreEquipoVisible(nombre)' /tmp/forja-app.js
           grep -Fq "recurso-nota-escudo" /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/equipment.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-equipment.js
           grep -Fq 'function blindajeFicha(personaje,catalogo)' /tmp/forja-equipment.js
@@ -335,11 +342,11 @@ jobs:
           grep -Fq 'data/glosas-talentos-drs.json' /tmp/forja-app.js
           grep -Fq 'data/glosas-equipo-drs.json' /tmp/forja-app.js
           curl -fsSL "${PAGE_URL%/}/assets/icons-forja.svg" -o /tmp/forja-icons.svg
-          test "$(grep -c '<symbol id=' /tmp/forja-icons.svg)" -eq 31
+          test "$(grep -c '<symbol id=' /tmp/forja-icons.svg)" -eq 34
           grep -Fq 'id="recurso-blindaje"' /tmp/forja-icons.svg
           grep -Fq 'id="recurso-salud"' /tmp/forja-icons.svg
           curl -fsSL "${PAGE_URL%/}/data/especies.json" -o /tmp/forja-especies.json
           node -e "const e=require('/tmp/forja-especies.json');if(Object.keys(e).length!==8)process.exit(1)"
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/aclaraciones-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-aclaraciones.json
           node -e "const a=require('/tmp/forja-aclaraciones.json');const ids=a.registros.map(x=>x.id_talento).sort();const expected=['talento-drs-especie-mediano-amable-salvese-quien-pueda','talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes'].sort();if(a.estado!=='aprobacion_autoral'||JSON.stringify(ids)!==JSON.stringify(expected))process.exit(1)"
-          echo "OK: Forja DRS completa en vivo, 10 Técnicas, 24 Talentos, 111 descripciones, 8 Especies, 31 SVG, dos aclaraciones y CiFi/Nocturna excluidos."
+          echo "OK: Forja DRS completa en vivo, 10 Técnicas, 24 Talentos, 111 descripciones, 8 Especies, 34 SVG, dos aclaraciones y CiFi/Nocturna excluidos."
