@@ -37,6 +37,7 @@ jobs:
           node tests/pdf-export-compositor-mock.js
           node tests/pdf-a5-etiquetas.js
           node tests/pdf-a5-integracion.js
+          node tests/pdf-a5-editorial.js
       - name: Instalar bibliotecas y fuente open source (desarrollo, sin CDN en el navegador)
         run: |
           npm install --no-save --no-package-lock --ignore-scripts \
@@ -62,6 +63,14 @@ jobs:
             pdftoppm -f 1 -l 1 -scale-to 1200 -png -singlefile \
               "$archivo" "dist/pdf-a5-preimpresion/nivel-${nivel}-pagina-1"
           done
+      - name: Validar observaciones solo en continuación y daño documentado
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(pdfinfo dist/pdf-a5-preimpresion/nivel-1.pdf | awk '/Pages:/ {print $2}')" -ge 2
+          ! pdftotext -f 1 -l 1 dist/pdf-a5-preimpresion/nivel-1.pdf - | grep -Fq 'OBSERVACION_PAGINA_DOS'
+          pdftotext -f 2 -l 2 dist/pdf-a5-preimpresion/nivel-1.pdf - | grep -Fq 'OBSERVACION_PAGINA_DOS'
+          pdftotext -layout dist/pdf-a5-preimpresion/nivel-1.pdf - | grep -Fq 'Daño 1d8'
       - name: Conservar pruebas de preimpresión A5
         if: always()
         uses: actions/upload-artifact@v4
@@ -72,3 +81,10 @@ jobs:
           retention-days: 14
       - name: Exportar desde Chrome real (E2E)
         run: node tests/pdf-a5-browser-e2e.cjs
+      - name: Verificar pictogramas oficiales embebidos en PDF de Chrome
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s dist/pdf-a5-preimpresion/e2e-chrome-con-iconos.pdf
+          pdfimages -list dist/pdf-a5-preimpresion/e2e-chrome-con-iconos.pdf | awk 'NR>2 {n++} END {exit !(n >= 6)}'
+
