@@ -678,12 +678,15 @@ async function probar(nombre,tipo,url){
     const columnasRecursos=()=>recursos.evaluate(el=>
       getComputedStyle(el).gridTemplateColumns.split(' ').length);
     assert.equal(await columnasRecursos(),4,nombre+': Recursos muestran cuatro columnas');
-    const dimensionesRecursos=()=>recursos.evaluate(el=>({
-      ancho:el.getBoundingClientRect().width,
+    const dimensionesRecursos=()=>recursos.evaluate(el=>{
+      const estilo=getComputedStyle(el);
+      return {
+      ancho:el.clientWidth-parseFloat(estilo.paddingLeft)-parseFloat(estilo.paddingRight),
       ultimo:el.lastElementChild.getBoundingClientRect().width,
       icono:el.querySelector('svg.icono-recurso').getBoundingClientRect().width,
       desborda:el.scrollWidth>el.clientWidth
-    }));
+      };
+    });
     assert.ok((await dimensionesRecursos()).icono<=20,
       nombre+': los SVG de Recursos son más pequeños');
     assert.ok((await dimensionesRecursos()).ultimo>=(await dimensionesRecursos()).ancho*.95,
