@@ -36,6 +36,23 @@ jobs:
       - name: Comprobar la revisión exacta de la entrega
         run: |
           test "$(git rev-parse HEAD)" = "ba163f5144ec8e5f55073dea4b0cedcfbe72a78f"
+      # La PR #19 únicamente actualiza el diseño. La base DRS aprobada
+      # sigue fija: ni la PR #13 ni otras fuentes inéditas se despliegan.
+      - name: Aplicar únicamente el CSS auditado de la PR #19
+        shell: bash
+        run: |
+          set -euo pipefail
+          ESTILO_COMMIT=3e880e463231b44bf99ef1430f0c8eef79af1009
+          ESTILO_BLOB=d3356e1ecaf8206b00a8c3d70c0795907f7a0fbc
+          curl --connect-timeout 10 --max-time 30 --fail --location --silent --show-error \
+            "https://raw.githubusercontent.com/naufragio-rolero/nd20-character-creator/${ESTILO_COMMIT}/assets/styles.css" \
+            -o assets/styles.css
+          test "$(git hash-object assets/styles.css)" = "$ESTILO_BLOB"
+          test "$(git diff --name-only | sort)" = "assets/styles.css"
+          grep -Fq "fonts.googleapis.com/css2?family=Exo" assets/styles.css
+          grep -Fq "html[data-tema=clasico] .ficha-emergente" assets/styles.css
+          grep -Fq ".info-escuela-arcana{background:LightSkyBlue" assets/styles.css
+          echo "OK: solamente CSS del blog superpuesto al DRS revisado."
       - name: Preparar Node
         uses: actions/setup-node@v4
         with:
@@ -117,6 +134,14 @@ jobs:
           for escuela in arcana demonologia divina elemental naturaleza nigromancia; do
             grep -Fq ".info-escuela-${escuela}" /tmp/forja-estilos.css
           done
+          # La web pública debe servir exactamente la nueva piel editorial,
+          # no una hoja antigua de Pages con el resto del paquete actualizado.
+          grep -Fq "fonts.googleapis.com/css2?family=Exo" /tmp/forja-estilos.css
+          grep -Fq -- "--fondo:#f3f8fc" /tmp/forja-estilos.css
+          grep -Fq "html[data-tema=clasico] .ficha-emergente" /tmp/forja-estilos.css
+          grep -Fq ".info-escuela-arcana{background:LightSkyBlue" /tmp/forja-estilos.css
+          grep -Fq ".info-categoria-objeto-armas{background:#ffa280" /tmp/forja-estilos.css
+          echo "OK: identidad Exo, azul del blog y categorías DRS en el CSS público."
 
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/glosas-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/glosas-talentos-drs.json
           node - <<'NODE'
