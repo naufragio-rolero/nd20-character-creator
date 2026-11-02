@@ -315,3 +315,13 @@ Tres bloques concretos documentados fuera del Excel de 140 PNJ:
 **Criterios propuestos, pendientes de aprobación:** [matriz de elegibilidad editorial](matriz-elegibilidad-editorial.md), que distingue fuente, función semántica y permiso de generación. Nueva cuestión **ONO-13**: alcance del sorteo de nombres de persona frente a nombres propios de lugares y animales. Total de cuestiones editoriales documentadas: **13**.
 
 **Corrección de precisión en Car'rt / Kaart:** la ficha [Kaart Oquati](https://drive.google.com/file/d/1HvCV1TgFsD8WoYc4WCVwSa_r7wmATU1w/view) contiene **Lenseng** (creencias y vasallaje) y **Melora** (lema) dentro del propio documento; no afirmar que exista necesariamente una contradicción entre cultos sin fuente que establezca exclusividad.
+
+
+## Anexo nuevo — Identidades deíficas, crónicas y astros (2026-11-02)
+
+Se añaden dos fuentes de **clasificación distinta de los nombres de PNJ**, para evitar que futuros recuentos mezclen personas, títulos, espíritus y geografía:
+
+- [Inventario de **18 fichas de Espíritus Deíficos** y **54 epítetos/títulos**](inventario-teonimos-y-epitetos.md), con los casos Narga Solarys → Ganragán, Valujna, la variante Bazjurm/Bajzurm y el parentesco mitológico de Pulkros. **No son 18 personas nuevas ni 54 apellidos posibles**.
+- [Enciclopedia — cronología y nombres astrales](cronologia-y-astroonimia-enciclopedia.md): **Norluth** (dragón de acero), **Narelmayl** (dirigente), **Shadel** (nombre individual sin segundo componente), **Alleinn Nuj** (imperio) y **Thelne Saeras** (ciudadela). Identificadas además las designaciones de cinco planetas, la estrella **Kaeduin**, el satélite **Vaiel** y la grafía **Y'Lat**.
+
+**Claves de reconciliación:** el mismo signo **Vaiel** puede remitir al satélite o a la entidad deífica; la misma identidad **Narga Solarys/Ganragán** tiene nombres distintos en diferentes fases de su relato; **Bazjurm/Bajzurm** son grafías de una ficha. Estos ejemplos exigen **entidad, tipo, forma literal, fuente y relación**, no una lista plana. No sumar los inventarios a las **88 denominaciones** del antiguo corte Isophius/Malasthar/Biografías. No se autoriza generación nueva.
