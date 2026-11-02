@@ -157,7 +157,7 @@
       equipo(eq[k],"nd20","mo","Naufragio d20 DRS",
         k==="paquetes"?"Paquete":"Objeto",k==="armas"||k==="armaduras"?k:familias[k]);
     });
-    var gruposUtiles={aventura:"Útil de aventura",campamento:"Campamento",
+    var gruposUtiles={iluminacion:"Iluminación",aventura:"Útil de aventura",campamento:"Campamento",
       consumibles:"Consumible",herramientas:"Herramienta",escritura:"Escritura"};
     Object.entries(eq.utiles_fantasia||{}).forEach(function(par){
       equipo(par[1],"nd20","mo","Naufragio d20 DRS · Herramientas",
