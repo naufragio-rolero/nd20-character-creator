@@ -184,8 +184,10 @@
       vehiculos:"Vagones y diligencias",
       consumibles:"Consumible",herramientas:"Herramienta",escritura:"Escritura"};
     Object.entries(eq.utiles_fantasia||{}).forEach(function(par){
+      var tipo=par[0]==="monturas"?"Montura":
+        par[0]==="vehiculos"?"Vehículo":"Objeto";
       equipo(par[1],"nd20","mo","Naufragio d20 DRS · Herramientas",
-        "Objeto",gruposUtiles[par[0]]||null);
+        tipo,gruposUtiles[par[0]]||null);
     });
     equipo(eq.focos_conjuros_con_precio,"nd20","mo",
       "Naufragio d20 DRS · Focos","Objeto","Foco de conjuro");
