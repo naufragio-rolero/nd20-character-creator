@@ -92,7 +92,7 @@ Estas decisiones **no bloquean la continuación de la investigación documental*
 
 | Unidad documental | Ejemplo comprobado | Qué no hacer |
 | --- | --- | --- |
-| Personaje narrativo | `Kharan Boll` tiene [ficha en Ylat³](https://drive.google.com/file/d/1gTNBmn8BE6PB5hF59NFBnwgzALdf0LT0/view) | Suponer que todos los miembros de Casa Gull (Ylat¹) están en su misma realidad |
+| Personaje narrativo | `Kharan Boll` tiene [ficha en Ylat³](https://drive.google.com/file/d/1gTNBmn8BE6PB5hF59NFBnwgzALdf0LT0/view) | Suponer que todos los miembros de Casa Gull, o William Gull (cuya ficha sí indica Ylat¹), están en la realidad Ylat³ de Kharan |
 | Nombre nominal de personaje | `Richerento`, nombre unitario de una [ficha](https://drive.google.com/file/d/1XDQfQd6Eyv5oMW5L2UC8nwnVSAPB6LS0/view) | Completar «Richerento» con apellido inventado |
 | Alias individual | `Draconio «Drake» Orovecchio`, [ficha](https://drive.google.com/file/d/18bkKd4-ZE_dQNDWvFWxua6MZkie6_1YE/view) | Usar «Drake» como segundo componente familiar |
 | Denominación de cobertura | `Amadeus`, nombre adoptado en Ylat por el extraterrestre que la [biografía](https://docs.google.com/document/d/1yOtB8nNvE9_jBDvITuXzFFFFNFAiJI6Z4hr6D_1pxaA/edit) denomina Amathur | Clasificar «Amadeus» como nombre tradicional de humanos ylathinos |
