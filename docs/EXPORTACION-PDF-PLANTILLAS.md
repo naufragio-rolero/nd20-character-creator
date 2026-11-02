@@ -1,51 +1,65 @@
-# Forja · Preparación de plantillas para exportación PDF
+# Forja · Exportación PDF — fichas A5
 
-**Estado:** especificación de preparación. **No hay exportación PDF implementada.**
-**Objetivo:** obtener una ficha **completamente rellenada** con los datos que la Forja ya conoce, lista para imprimir, consultar o compartir. No incorporar automatización de combate, viajes, seguimiento de turnos ni estados de partida.
+**Estado:** auditoría técnica de la plantilla A5 realizada el 02/11/2026. **No hay exportación PDF implementada ni autorización cerrada para redistribuir el archivo.** La implementación queda pendiente de resolver las limitaciones de composición y la distribución del activo. Véase [auditoría detallada](EXPORTACION-PDF-A5-AUDITORIA.md).
 
-## Archivos que debe preparar el equipo editorial
+## Decisión de diseño
 
-1. **`forja-nd20-fantasia-a4.pdf`** — plantilla vacía para personajes Naufragio d20 (DRS); formato A4 vertical (210 × 297 mm).
-2. **`forja-dungeon-hack-a4.pdf`** — plantilla vacía independiente para Dungeon Hack; formato A4 vertical, con sus campos y convenciones propios.
-3. **`forja-continuacion-a4.pdf`** — página de continuación reutilizable para listas largas (Talentos, Conjuros, Equipo, Competencias, Observaciones), si el diseño principal tiene espacio limitado.
+1. **Usar como primera página el PDF original** `Nd20-FPJ-A5.pdf` (una página, A5 vertical, 419,76 × 595,44 puntos; sin AcroForm). Mantener intactos sus gráficos, texto, fuentes y medidas, sin recrearlo desde cero.
+2. **Proyectar sobre el original mediante coordenadas** los datos del objeto de personaje. No leer la tarjeta HTML ni reinterpretar reglas del sistema.
+3. **Diseñar una continuación independiente en A5**, de la misma familia editorial, con campos identificados para todo lo que no cabe: identidad extensa, Talentos, Competencias, Poderes conocidos, Conjuros preparados, Equipo, economía y observaciones. Incorporar únicamente las páginas necesarias, según contenido real, sin truncamientos.
+4. **Separar estrictamente** `Naufragio d20 · Fantasía` de Dungeon Hack, CiFi y Nocturna. No publicar un PDF de Dungeon Hack con campos Nd20.
+5. **No incorporar la plantilla al paquete DRS ni al workflow LIVE** hasta disponer de decisión editorial sobre su distribución, permisos de gráficos y fuentes, y revisión de legibilidad. El PDF de Drive es de lectura pública, pero eso por sí solo no documenta una licencia de redistribución aplicable al fichero autónomo.
 
-**Preferencia técnica:** PDF vectorial con texto legible y zonas claras para cada campo. Puede incluir **campos de formulario PDF (AcroForm)** con nombres estables; si es un PDF gráfico sin campos, se mapearán coordenadas y dimensiones para superponer texto. Guardar, si existe, un **original editable** (por ejemplo, SVG, InDesign, Scribus o similar), además del PDF exportado. Las fuentes utilizadas deben estar autorizadas para la distribución o sustituidas por fuentes compatibles; no incorporar al repositorio archivos de fuentes de terceros sin autorización.
+## Activos entregados / pendientes
 
-Los ficheros deben estar **en blanco**, sin datos de personajes reales. Mantener el mismo tamaño de página, margen de impresión de aproximadamente 10 mm y espacio para textos de longitud variable. Si se rasterizan ornamentos, utilizar alrededor de 300 ppp (A4: 2480 × 3508 píxeles), aunque se prefiere conservar texto y líneas vectoriales. No hace falta crear códigos de barras, cuadrículas de combate ni casillas para registrar viajes.
+- **Recibido y auditado:** `Nd20-FPJ-A5.pdf` de Google Drive, creado en Affinity Publisher, 7.973.386 bytes, PDF 1.7, una sola página, sin campos editables ni cifrado.
+- **Pendiente de distribución autorizada:** ejemplar PDF original que se empaquetará como plantilla local, tras verificación de derechos.
+- **Pendiente de diseño:** patrón de páginas de continuación A5 que respete el estilo original.
+- **Pendiente de desarrollo:** motor PDF local y pruebas; no añadir bibliotecas sin requerimiento probado ni abrir Dungeon Hack.
 
-## Mapeo de campos que ya proporciona la Forja
+## Mapeo del modelo actual
 
-Los valores deben tomarse del **objeto de personaje generado**, no parsearse a partir de la tarjeta HTML ni del archivo TXT.
-
-| Zona de la plantilla | Datos disponibles | Criterio |
+| Información | Objeto de personaje / fuente existente | Destino |
 |---|---|---|
-| Identidad | `nombre`, `juego`, `nivel`, `descripcion`, `sexo`, `concepto` si existe | Mostrar solo información presente; no inventar una biografía |
-| Atributos | `atributos[]`: `nombre`, `valor` si procede, `dificultad`, `favorito` | Nd20: VA y DA, favorito; Dungeon Hack: DD según su sistema |
-| Recursos | `recursos[]`, con sus valores existentes | Usar nombres reales; no suponer que ambos juegos tienen los mismos Recursos |
-| Protección | `protecciones_equipadas`, si existe, y el blindaje consultable por el motor | Distinguir armadura, escudo y protección natural; no convertir el escudo en Blindaje |
-| Capacidades | `competencias[]`, `capacidades[]` | Mantener los nombres y registros íntegros |
-| Magia y poderes | `poderes[]`, `conjuros_preparados[]` si existen | Separar conocidos y preparados; no ejecutar efectos ni descontar recursos |
-| Equipo | `equipo[]` | Conservar nombres, cantidades y anotaciones literales de los paquetes |
-| Economía | `riqueza`; `saldo_mo` cuando exista | No deducir monedas donde solo se conoce texto |
-| Observaciones | `notas[]` y procedencia de la ficha | No eliminar advertencias que añadan información reglamentaria |
+| Identidad | `nombre`, `descripcion` (Ocupación · Especie), `nivel` | Cabecera; nombres largos también en continuación sin pérdida |
+| Sexo y concepto | `sexo`, `concepto` | Continuación A5: no hay casillas en la original |
+| EXP | No consta en el objeto actual | Dejar casilla original vacía |
+| Atributos | `atributos[]`: `nombre`, `valor`, `dificultad`, `favorito` | Seis grupos originales; asignación exacta de figuras a VA, DA y favorito requiere validación del diseño |
+| Salud, Esfuerzo, Movimiento | `recursos[]` | Áreas originales; si el valor literal no cabe, registrar el dato íntegro en continuación |
+| Potencia u otros Recursos | `recursos[]` | Continuación; no existe casilla propia |
+| Competencias | `competencias[]` | Hasta tres líneas según ajuste verificado, resto en continuación |
+| Talentos | `capacidades[]` | Hasta cinco líneas según ajuste verificado, resto en continuación |
+| Conjuros/Poderes conocidos | `poderes[]` | Hasta seis celdas según ajuste verificado, resto en continuación |
+| Conjuros preparados | `conjuros_preparados[]`, si existe | Continuación, listado separado |
+| Equipo | `equipo[]` con sus textos y cantidades originales | Inventario (14 espacios), con continuación cuando proceda |
+| Protección equipada | `protecciones_equipadas`, validado con `NaufragioEquipment.blindajeFicha(personaje, catalogo)` | Zona Equipo solo después de validar iconos; detalle inequívoco en continuación |
+| Blindaje natural | `blindaje_natural` solo si tiene `blindaje_natural_fuente` | Continuación con procedencia explícita |
+| Riqueza | `riqueza`, `saldo_mo`, `capital_inicial_mo` cuando existan | Oro/saldo verificable; conservar riqueza literal y presupuesto en continuación; cobre, bronce, plata, gemas vacíos si no documentados |
+| Observaciones | `notas[]` y procedencias `procedenciaOcupacion`, `procedenciaEspecie` | Continuación, sin suprimir información reglamentaria |
 
-Los detalles de un Talento, Conjuro u objeto que ya se consultan mediante popup **no deberían convertirse automáticamente en una página por entrada**: primero deben caber los datos de la ficha. Como posible segunda fase, se puede incorporar un anexo de referencias documentadas, solo si es útil para crear o consultar el personaje y respeta las fuentes autorizadas.
+**Importante:** `NaufragioEquipment.blindajeFicha` distingue armadura realmente equipada, escudo equipado y Protección natural documentada; el escudo no suma Blindaje permanente. No inferir equipamiento ni otros valores.
 
-## Distribución editorial sugerida
+## Criterios de aceptación
 
-- **Primera página:** cabecera e identidad, Atributos, Recursos, protecciones equipadas, Competencias y Talentos/capacidades.
-- **Segunda página o continuación:** Conjuros/Poderes conocidos, preparados, Equipo, Riqueza, Observaciones y fuente reglamentaria.
-- Si los listados desbordan: **añadir páginas de continuación**, no recortar nombres, omitir información silenciosamente ni reducir la tipografía hasta hacerla ilegible. La cantidad de páginas dependerá del personaje y su Nivel.
-- La exportación será, por defecto, **un PDF por personaje**. La exportación simultánea de muchas fichas podrá definirse después sin complicar la primera versión.
+- Un PDF A5 con la página original íntegra y una o más continuaciones A5 **solo cuando haya datos que la primera página no contiene o no admite**.
+- Registros fieles al modelo: ni valores inventados, ni conversiones monetarias implícitas, ni información omitida o silenciosamente truncada.
+- Las listas conservan orden, nombres, multiplicadores y cantidades de la fuente original. Las cadenas de 90 caracteres, tildes y ñ son legibles sin sustituir símbolos por interrogaciones.
+- Priorizar un umbral tipográfico mínimo legible y el salto a continuación antes que disminuir indiscriminadamente cuerpos de letra.
+- `Exportar PDF` se integra junto a `Exportar .txt` sin alterar su función; exportación únicamente para personajes Nd20 Fantasía.
+- Generación **en el navegador** desde `entrada.valor` / objeto del personaje, sin servicios de impresión en servidor ni envío de nombres o datos del personaje a terceros.
+- Comprobar una batería de personajes iniciales, intermedios y de Nivel alto, con/sin armadura, con/sin magia, cantidad de inventario y textos extremos; renderizar y revisar cada página.
+- Validación Node y E2E Chromium, Firefox, WebKit, preservando las defensas de la lista blanca y SHA del paquete DRS.
+- **No fusionar ni desplegar** sin autorización del activo, tests funcionales, revisión visual y nueva fijación explícita de los SHA en LIVE.
 
-## Pruebas de aceptación cuando se implemente
+## Plan de implementación
 
-1. Comparar un personaje Nd20 DRS de Nivel bajo y otro de Nivel alto con su ficha PDF.
-2. Comprobar personajes con Conjuros preparados y sin ellos, Talentos extensos y Equipo largo.
-3. Comprobar armadura equipada, escudo separado y ausencia de armadura.
-4. Exportar una ficha Dungeon Hack sin rellenar campos que pertenecen únicamente a Nd20.
-5. Comprobar acentos, `ñ`, letras especiales y símbolos de reglas sin sustituciones.
-6. Revisar el resultado visual (todas las páginas) a escala de lectura e impresión A4.
-7. Confirmar que el botón de exportación no altera el personaje, sus valores ni el inventario.
+1. Confirmar nombres y semántica de las figuras de VA/DA y los cuatro iconos de «Equipo» con el diseño original.
+2. Validar permiso documental de redistribución de la ficha autónoma y licencias de las fuentes/ornamentos. Registrar titular, alcance, atribución y licencia del PDF.
+3. Cerrar diseño de continuación A5 y umbrales legibles; probar con ejemplares extremos.
+4. Implementar `pdf-lib` cargado de modo local, sin automatización de combate. Verificar soporte de caracteres: las fuentes PDF estándar admiten parte del texto español, pero para Unicode arbitrario puede hacer falta una fuente con licencia y `@pdf-lib/fontkit`. No eliminar caracteres sin avisar.
+5. Registrar plantilla, biblioteca y recursos autorizados en el script de empaquetado y en las listas SHA del LIVE; añadir controles negativos para evitar archivos CiFi/Nocturna/Dungeon Hack.
+6. Conservar `Exportar .txt`; incorporar botón PDF con opción por tarjeta o selección explícita de fichas, sin intentar exportar mapas, matrices ni PNJ no admitidos.
+7. Probar al menos Niveles 1, 12 y 30; comprobar integridad de datos y diseños renderizados en A5, y los tres motores de navegador.
+8. Abrir PR funcional independiente; fusionar únicamente con checks y revisión editorial aprobados. Verificar LIVE después del pin SHA.
 
-**No confundir:** preparar los PDF vacíos es trabajo de diseño; automatizar su rellenado será una implementación posterior. La Forja sigue siendo un **creador rápido de personajes**, no una herramienta de gestión de partidas.
+**Este documento sustituye el antiguo requisito A4**. La ficha Dungeon Hack tendrá una plantilla específica más adelante; no preparar un A4 de Dungeon Hack dentro de este trabajo.
