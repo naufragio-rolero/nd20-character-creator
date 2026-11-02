@@ -133,6 +133,12 @@ assert.equal(new Set(historicosPublico.entradas.map(x=>x.nombre)).size,1422);
 assert.equal(leer(salida,'alcance-drs-y-dlc.json').paquetes_posteriores,undefined,
   'No se distribuye información interna de paquetes suplementarios');
 const equipo=leer(salida,'equipo-inicial.json');
+const iluminacionDRS=equipo.utiles_fantasia.iluminacion;
+assert.deepEqual(iluminacionDRS.map(x=>[x.nombre,x.precio,x.du]),[
+  ['Antorcha',0.1,'d6'],['Lámpara de aceite',2,'d6 (aceite)'],
+  ['Linterna',10,'d6 (aceite)'],['Vela',0.01,'d4']
+], 'El paquete público incorpora únicamente la iluminación documentada en el DRS');
+
 assert.equal(equipo.armas.find(x=>x.nombre==='Dardo').precio,0);
 assert.equal(equipo.armas.find(x=>x.nombre==='Almádena').precio,60);
 assert.equal(equipo.utiles_fantasia.campamento.find(x=>x.nombre==='Martillo de campamento').precio,2);
