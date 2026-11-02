@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener Forja DRS con PDF A5 e iconos integrados de main (PR #50)
+      - name: Obtener snapshot verificado del PDF A5 con iconos (PR #51)
         uses: actions/checkout@v4
         with:
-          ref: 4a2d783a9e11f36a1c5479c0560ac301029a5bd8
+          ref: 981a1ad27c192e26cf3936a005d2bf167289f98b
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "4a2d783a9e11f36a1c5479c0560ac301029a5bd8"
-      # Snapshot derivado del LIVE PDF A5 con los 35 SVG fusionados en main.
+          test "$(git rev-parse HEAD)" = "981a1ad27c192e26cf3936a005d2bf167289f98b"
+      # Snapshot derivado del PR #50, con ajustes del PR #51 y los 35 SVG intactos.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
       - name: Auditar iconografia y funcionalidades fijadas
@@ -119,6 +119,7 @@ jobs:
           node tests/pdf-a5-real.cjs
           node tests/pdf-a5-etiquetas.js
           node tests/pdf-a5-integracion.js
+          node tests/pdf-a5-editorial.js
       - name: Regresión editorial de nombres y esquema DRS
         run: |
           node tests/alcance-drs.js
@@ -171,8 +172,10 @@ jobs:
           # Verificar también la exportación A5 y su cadena de recursos sin CDN.
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-export-browser.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-pdf-browser.js
           grep -Fq 'NaufragioPdfBrowser' /tmp/forja-pdf-browser.js
+          grep -Fq 'rasterizarIcono' /tmp/forja-pdf-browser.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-export-v2.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-pdf-engine.js
           grep -Fq 'function prepararDatos' /tmp/forja-pdf-engine.js
+          grep -Fq 'detalleEquipo' /tmp/forja-pdf-engine.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-a5/forja-fantasia-epica-a5.pdf?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-plantilla-a5.pdf
           test "$(head -c 5 /tmp/forja-plantilla-a5.pdf)" = '%PDF-'
           for activo in assets/vendor/pdf-lib.min.js assets/vendor/fontkit.umd.min.js assets/pdf-a5/SourceSerif4_400Regular.ttf assets/pdf-a5/OFL-SourceSerif4.txt; do
@@ -204,6 +207,7 @@ jobs:
           # El CTA también se ofrece cuando la mesa no contiene fichas.
           grep -Fq "var mesaVacia=entradas.length===0;" /tmp/forja-app.js
           grep -Fq "configurador.showModal();" /tmp/forja-app.js
+          grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/tooltip-ui.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-tooltip-ui.js
           grep -Fq "if(a&&e.pointerType===\"mouse\"&&!fija" /tmp/forja-tooltip-ui.js
 
