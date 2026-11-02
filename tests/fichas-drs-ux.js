@@ -83,7 +83,9 @@ for(const [nombre,precio,descripcion,du] of [
   assert.equal(objeto.precio,precio,'Precio documentado de '+nombre);
   assert.equal(objeto.detalle,descripcion,'Alcance de luz documentado '+nombre);
   assert.equal(objeto.du,du,'DU documentado de '+nombre);
-  const ficha=api.buscar(i,nombre+' (DU '+du+')','equipo','nd20');
+  const nombreEnInventario=['Antorcha','Vela'].includes(nombre)?
+    nombre+' (DU '+du+')':nombre;
+  const ficha=api.buscar(i,nombreEnInventario,'equipo','nd20');
   assert.ok(ficha&&ficha.fuente==='Naufragio d20 DRS · Herramientas',
     'El paquete resuelve la ficha oficial de '+nombre);
   assert.equal(ficha.descripcion,descripcion);
