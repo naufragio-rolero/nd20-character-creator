@@ -1,6 +1,6 @@
 # Matriz de relaciones entre denominaciones — identidad, variante, homonimia y usurpación
 
-**Corte:** 2026-11-02. **Estado:** evidencia estructurada de investigación, no resolución editorial de las ONO ni migración de La Forja. **Uso:** acompañar al [índice maestro de 282 formas](indice-maestro-testimonios-v1.md), que agrupa por cadena literal pero **no identifica personas por similitud de texto**.
+**Corte:** 2026-11-02. **Estado:** evidencia estructurada de investigación, no resolución editorial de las ONO ni migración de La Forja. **Uso:** acompañar al [índice maestro v2 de 297 formas](indice-maestro-testimonios-v2.md), que agrupa por cadena literal pero **no identifica personas por similitud de texto**.
 
 ## Clases de relación (criterio de análisis, no nombres del sistema de juego)
 
@@ -22,12 +22,14 @@
 | **Amathur / Amadeus** | **IDENTIDAD_EXPRESA**. Amadeus es el nombre adoptado en Ylat por el personaje nombrado antes como Amathur | [Biografías](biografias-personajes-cotejo.md) | No duplicar individuo; no asumir que la grafía Amathur sea su nombre natal impronunciable completo. |
 | **Romualdius Walerian / Crujidor** | **IDENTIDAD_EXPRESA**. Nombre civil y alias posterior del mismo identificador de censo | [Censo y contraste con `npcs.xlsx`](censo-pnj-historico.md) | Mantener nombre civil, apellido escrito y alias; **Crujidor** no es apellido. |
 | **Draconio «Drake» Orovecchio** | **IDENTIDAD_EXPRESA** para `Drake` como alias dentro del nombre personal completo | [Isophius y ficha](corpus-complementario-isophius.md) | No crear otra ficha de personaje `Drake Orovecchio` por la aparición del alias; segundo componente familiar en esa fuente sí documentado. |
+| **Caelia Fulgentis / Kah-Suran** | **IDENTIDAD_EXPRESA**. La biografía narra que Caelia emerge de su transformación como **Kah-Suran** | [Biografías de Ylat](biografias-personajes-cotejo.md), [adenda](adenda-fuentes-historicas-y-alias.md) | No crear una persona adicional; no usar Kah-Suran como apellido general. |
 
 ## B. Variantes compatibles o disputadas; no corregir los originales
 
 | Caso | Clase y evidencia de comparación | Fuente | Estado |
 | --- | --- | --- | --- |
 | **Bazjurm / Bajzurm** | **VARIANTE_COMPATIBLE** en una sola ficha: encabezado «Bazjurm» y uso «Bajzurm» en Adoración y Avatar | [Inventario deíficos](inventario-teonimos-y-epitetos.md) | Misma ficha, grafías distintas; no multiplicar espíritus. |
+| **Sumaeryn Maren / Sumaeryn de las Mareas** | **VARIANTE_COMPATIBLE de una monarca**: cronología y lista de monarcas del mismo documento | [Malasthar](linajes-historicos-malasthar.md) y [adenda](adenda-fuentes-historicas-y-alias.md) | Dos denominaciones de un personaje en una fuente **[PENDIENTE]**; no generalizar Maren. |
 | **Narga Solarys / Narga Solaris** | **VARIANTE_COMPATIBLE** interdocumental para el invasor de Sylestria | [Enciclopedia/Deíficos](auditoria-fuentes-rectoras-teonimia.md), [Zonas](auditoria-shadaleen-eponimos-y-relatos.md) | **ONO-14**; preservar ambas formas. |
 | **Zekogs Quiebrahielo / Zekogs Quiebrahielos** | **VARIANTE_COMPATIBLE** entre censo y *Zonas / Valle de Inistia*, con Oenogs Roerraíces y contexto compartidos | [Censo](censo-pnj-historico.md), [Zonas](barrido-final-zonas-inistia.md) | Compatible como un personaje; **no canonizar** grafía ni duplicar automáticamente. |
 | **Belegur Sigvald «Furia» / Belegur “Furia” Sigvald** | **VARIANTE_COMPATIBLE** por reordenación tipográfica de un alias explícito | [Aventuras](auditoria-aventuras-ylat.md), [Zonas](barrido-final-zonas-inistia.md) | Orden y comillas no implican cambio de persona ni segundo apellido. |
@@ -69,4 +71,4 @@
 
 ## F. Resultado
 
-La matriz recoge relaciones específicas necesarias para no confundir **282 formas literales** con **282 identidades**. **No se publica un recuento global de individuos únicos**, porque no existe prueba suficiente para deduplicar todas las variantes, voces narrativas y realidades. **No se han realizado cambios en La Forja, los JSON ni `main`**.
+La matriz recoge relaciones específicas necesarias para no confundir **297 formas literales** con **297 identidades**. **No se publica un recuento global de individuos únicos**, porque no existe prueba suficiente para deduplicar todas las variantes, voces narrativas y realidades. **No se han realizado cambios en La Forja, los JSON ni `main`**.
