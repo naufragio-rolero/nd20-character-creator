@@ -134,25 +134,43 @@
       draw(current,29,30.7,header,7);
       draw(current,138,30.7,doc.getPageCount(),7);
     }
+    async function header(title,continuado){
+      var label=continuado?title+' (CONT.)':title;
+      var fs=region<2?7.1:8.1;
+      var titulo=wrapText(label,(width-1)*PT,bold,fs);
+      var paso=region<2?3.3:3.8;
+      if(y+titulo.length*paso+3.2>bottom){
+        await changeRegion();
+        fs=region<2?7.1:8.1;
+        titulo=wrapText(label,(width-1)*PT,bold,fs);
+        paso=region<2?3.3:3.8;
+      }
+      for(var parte of titulo){
+        draw(current,x,y+2.7,parte,fs,true);
+        y+=paso;
+      }
+      y+=2.0;
+    }
     async function section(title,items){
       var count=0,needsTitle=true;
       for(var item of items){
+        if(needsTitle){
+          await header(title,count>0);
+          needsTitle=false;
+        }
         var fs=region<2?6.65:7.05;
         var lines=wrapText(item,(width-3.4)*PT,font,fs);
-        if(needsTitle){
-          if(y+7+3.2>bottom)await changeRegion();
-          draw(current,x,y+3,title+(count?' (CONT.)':''),8.1,true);
-          y+=5.4;needsTitle=false;
-        }
         for(var j=0;j<lines.length;j++){
-          if(y+3.2>bottom){
+          if(y+(region<2?3.23:3.56)>bottom){
             await changeRegion();
-            draw(current,x,y+3,title+' (CONT.)',8.1,true);y+=5.5;
+            await header(title,true);
+            fs=region<2?6.65:7.05;
           }
           if(j===0){
             current.drawCircle({x:(x+.7)*PT,y:topToPdf(y+1.1),size:.2*PT,color:shade});
           }
-          draw(current,x+2.8,y+2.2,lines[j],fs);y+=region<2?3.23:3.56;
+          draw(current,x+2.8,y+2.2,lines[j],fs);
+          y+=region<2?3.23:3.56;
         }
         y+=.55;count++;
       }
