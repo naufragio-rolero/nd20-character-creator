@@ -82,3 +82,33 @@
 Esta es una **revisión por relevancia, no un censo exhaustivo** de todos los documentos del Drive o la Biblioteca. La carpeta principal y varios directorios se han enumerado, pero quedan subcarpetas, documentos narrativos, ficheros DOCX/PDF y TXT por revisar. Para cada nuevo archivo debe constar fecha, fuente, acceso, relevancia y resultado verificable. Los nombres de ficheros de imagen no bastan como prueba onomástica.
 
 **Riesgo de mayor prioridad:** normalizar o combinar erróneamente los nombres nobles/linajísticos o la convención dependiente del orden de nacimiento en Erklan. Se prohíbe su ingreso directo a catálogos productivos sin revisión editorial.
+
+
+## Cuarta sesión — Cotejo de 97 componentes y fichas familiares (2026-11-02)
+
+| Fuente | Estado | Resultado |
+| --- | --- | --- |
+| [Clasificación de 97 segundos componentes](clasificacion-segundos-componentes.md) | Creado tras revisar los 140 PNJ y fuentes individuales | 17 familias documentadas, 1 apellido individual explícito, 1 apodo confirmado, 66 componentes de función todavía no acreditada y otras categorías |
+| [Casa Kultstein](https://drive.google.com/file/d/10uRTnEtrADwxdhIIanseoQ8Z9SpKI7ey/view) | Leída | «Disuelto»; miembros Viktor y Morgarath |
+| [«La condena de Viktor Kultstein»](https://drive.google.com/file/d/1GDzOljZierUkG3i6PrkcxuAqsBXWG487/view) | Leído, artículo publicado 2020 | Viktor superviviente de la Purga |
+| [Morgarath Kultstein](https://drive.google.com/file/d/1XKGEWVB3Q40YRfGCXLtoTuduMNnOVIr7/view) | Leída | Miembro superviviente de los Kultstein; sin parentesco concreto con Viktor acreditado |
+| [Vrymmir Borgenrstâg (ficha antigua)](https://drive.google.com/file/d/18QTLcE-N_QMAEnAmKdvNo-v0dPVUFSP8/view) | Leída | Variante de grafía Borgenrstâg |
+| [«Vrymmir Borgernstâg», artículo](https://drive.google.com/file/d/1kIqinxl5pxknczqwPH-BH0I9XDEEkGg5/view) | Leído, publicado 2019 y modificado 2024 | Grafía Borgernstâg; preferencia editorial pendiente |
+| [Casa Lobeth](https://drive.google.com/file/d/161zJJ4kXnUehxGDrEl2HXWydwUiD6ZUp/view) | Leída | Incluye a Mashera **Skara** entre sus miembros |
+| [Casa Adorasol](https://drive.google.com/file/d/1I_g1ni_qIrJXGcEteIfs2xQchUCgKlDd/view) | Revisitada | Incluye a los hermanos «del Atardecer» con otro apellido |
+| [Casa Iraldsay](https://drive.google.com/file/d/114RcJbWOKxUIAPc_8rbd2kRLCDQuA137/view) | Leída | Tres miembros enumerados en la ficha frente a cinco testimoniados en el censo |
+| [Casa Vardamir](https://drive.google.com/file/d/1We5LG-_WH8oDU-9T1uJW5vPGz-yA1KEJ/view) | Leída | Cuatro miembros Vardamir; Stasi Giovanni figura como esposa en ficha de Hyarion |
+| [Jaleba Inversa](https://drive.google.com/file/d/11sruNoGvtI230SmcTr6XhWjqxJ8E_is1/view) | Leída | Califica expresamente Inversa de apellido |
+| [Baryn Violatesoros](https://drive.google.com/file/d/19JtNIx4UEJvBteFP4ajG1wAUQqdsrKQD/view) | Leída | Explica que Violatesoros fue un apodo |
+| [Neyney sin Apellido](https://drive.google.com/file/d/1Oc44ZzyDmCLVU_qWQ6Hmd6U-RG9ssLgq/view) | Leída | Denominación que el personaje pide utilizar |
+| [Tegku Bagui Fénix](https://drive.google.com/file/d/1hs2TLs0ePQoza_zFTYIdMJj-57FggSEt/view) | Leída | «Realidad: Ylat⁴», distinta de muchas fichas de Ylat¹ |
+| [`assets/rules.js` / `assets/sex.js` / `assets/repertorios.js`](https://github.com/naufragio-rolero/nd20-character-creator/tree/main/assets) | Comparados contra rama `main` | Generación usa RNG compartido; los nombres se representan mayoritariamente como cadenas; se preservará comportamiento existente |
+
+**Diseño sin código:** [propuesta-integracion-sin-codigo.md](propuesta-integracion-sin-codigo.md). La cuarta sesión está centrada en la evidencia, no en editar las aplicaciones.
+
+## Pendientes de revisión exhaustiva
+
+- El conjunto restante de los **66 segundos componentes no acreditados como apellidos familiares**, especialmente sus fichas individuales.
+- Más documentación de campañas y archivos secundarios no enumerados o no leídos íntegramente.
+- Resolución de grafías y conflictos con decisión editorial.
+- Auditoría de compatibilidad de la futura propuesta con el generador, sin editar código ni datos.
