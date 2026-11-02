@@ -616,6 +616,8 @@
       '</small>' +
       (personaje.juego==='Naufragio d20 · Fantasía'&&Number.isFinite(personaje.saldo_mo)?
         '<button type="button" class="comprar-utiles" data-id="'+id+'">Comprar útiles</button>':'')+
+      (personaje.juego==='Naufragio d20 · Fantasía'?
+        '<button type="button" class="exportar-pdf-ficha" data-id="'+id+'">Exportar PDF A5</button>':'')+
       '<button type="button" class="copiar-ficha" data-id="' + id +
       '">Copiar ficha</button></div></article>';
   }
@@ -1327,6 +1329,30 @@
           cerrarCompra();
         entradas=entradas.filter(function(x){return String(x.id)!==del.dataset.id;});
         dibujar();return;
+      }
+      var pdf=e.target.closest('.exportar-pdf-ficha');
+      if(pdf){
+        var entradaPdf=entradas.find(function(x){
+          return x.tipo==='ficha'&&String(x.id)===pdf.dataset.id;
+        });
+        if(!entradaPdf||entradaPdf.valor.juego!=='Naufragio d20 · Fantasía'){
+          aviso('La ficha solicitada no admite exportación A5.',true);return;
+        }
+        if(!window.NaufragioPdfBrowser?.exportar){
+          aviso('El motor PDF A5 no está disponible.',true);return;
+        }
+        pdf.disabled=true;
+        aviso('Preparando PDF A5 de '+entradaPdf.valor.nombre+'…');
+        window.NaufragioPdfBrowser.exportar(
+          entradaPdf.valor,blindajePersonaje(entradaPdf.valor)
+        ).then(function(paginas){
+          aviso('PDF A5 preparado: '+paginas+' página(s).');
+        }).catch(function(error){
+          aviso(error.message||'No se pudo exportar el PDF A5.',true);
+        }).finally(function(){
+          if(pdf.isConnected)pdf.disabled=false;
+        });
+        return;
       }
       var copy=e.target.closest('.copiar-ficha');
       if(copy){
