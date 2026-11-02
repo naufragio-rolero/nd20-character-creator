@@ -161,20 +161,17 @@ const transformaciones={
     ));
   },
   'data/tesauro-ylat.json'(d){
-    // Corrección autoral (02/11/2026): excluir cualquier corpus ajeno a Ylat.
-    // Solo quedan 33 combinaciones de Isla Tormenta; las 19 identidades
-    // documentadas permanecen fuera del paquete público.
-    if(d.entradas.length!==52||
-       d.entradas.some(x=>x.ambito!=='Isla Tormenta'))
-      throw Error('El tesauro editorial de Ylat debe contener solo los 52 registros de Isla Tormenta.');
+    // Publicar los nombres documentados de Ylat ya auditados por autoría,
+    // sin importar todo el índice (que también incluye lugares y deidades).
     const combinados=d.entradas.filter(x=>x.tipo==='combinado');
-    if(combinados.length!==33||
-       new Set(combinados.map(x=>x.id)).size!==33||
-       new Set(combinados.map(x=>x.nombre)).size!==33)
-      throw Error('El tesauro publicado exige exactamente 33 combinaciones únicas de Isla Tormenta.');
-    d.entradas=combinados;
-    d.contexto='33 variantes onomásticas del ámbito Isla Tormenta conservadas tras excluir materiales ajenos a Ylat.';
-    d.politica='33 nombres combinados: propuestas para nuevos personajes, no personajes canónicos. Las 19 identidades documentadas solo se conservan en desarrollo.';
+    const documentados=d.entradas.filter(x=>x.tipo==='documentado');
+    if(combinados.length!==33||documentados.length!==262||
+       new Set(d.entradas.map(x=>x.nombre)).size!==d.entradas.length)
+      throw Error('Cambió el repertorio onomástico de Ylat: revisar antes de publicar.');
+    if(d.entradas.some(x=>!/^(combinado|documentado)$/.test(x.tipo)))
+      throw Error('Tipo onomástico no admitido en el paquete público.');
+    d.contexto='33 variantes combinadas y 262 denominaciones de figuras documentadas de Ylat; no se atribuye identidad al nuevo personaje.';
+    d.politica='Nombres libres para inspiración: los documentados pertenecen a figuras atestiguadas; las combinaciones no acreditan parentesco. Se excluyen topónimos, entidades deíficas, variantes y borradores del archivo de investigación.';
     return d;
   },
   'data/nombres-historicos-ylat.json'(d){
