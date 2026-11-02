@@ -47,7 +47,7 @@ jobs:
           test "$(find assets/icons -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 35
           test -f assets/icons/CREDITOS-GAME-ICONS.txt
           grep -Fq 'CC BY 3.0' assets/icons/CREDITOS-GAME-ICONS.txt
-          grep -Fq 'Goblin head' assets/icons/CREDITOS-GAME-ICONS.txt
+          grep -Fq 'goblin-head.svg' assets/icons/CREDITOS-GAME-ICONS.txt
           # Verificar la composicion exacta y la seleccion editorial de PR #50.
           test "$(grep -l 'Icono original de Naufragio d20 aprobado' assets/icons/*.svg | wc -l)" -eq 7
           test "$(grep -l 'Game-icons.net' assets/icons/*.svg | wc -l)" -eq 28
