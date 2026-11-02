@@ -30,12 +30,15 @@ const eqNombres=[...eq.armas,...eq.armaduras,...eq.escudos,
   ...eq.focos_conjuros_con_precio,...eq.varitas_defensa].map(x=>x.nombre);
 // Las 111 glosas aprobadas permanecen intactas. Iluminación y Ropa
 // aportan directamente los registros literales del DRS, sin glosas nuevas.
+const nuevasTablas=['instrumentos','objetos_varios','monturas','equipo_monturas','vehiculos'];
+const nuevos=nuevasTablas.flatMap(k=>eq.utiles_fantasia[k]);
+assert.equal(nuevos.length,28,'28 filas nuevas del DRS, sin inventar entradas');
 const iluminacion=eq.utiles_fantasia.iluminacion;
 const ropa=eq.utiles_fantasia.ropa;
 assert.deepEqual(iluminacion.map(x=>x.nombre),
   ['Antorcha','Lámpara de aceite','Linterna','Vela']);
 assert.deepEqual(new Set(eqNombres),
-  new Set([...nombres,...iluminacion.map(x=>x.nombre),...ropa.map(x=>x.nombre)]),
+  new Set([...nombres,...iluminacion.map(x=>x.nombre),...ropa.map(x=>x.nombre),...nuevos.map(x=>x.nombre)]),
   'Todos los objetos tienen ficha literal o glosa autorizada');
 
 const i=api.indice({fantasia:{especies:cargar('especies.json'),
@@ -131,6 +134,34 @@ for(const expresion of ['ropa de viaje','mochila','bolsa de cuero','odre de agua
     'Sin atribuir categoría o efectos de otro artículo: '+expresion);
   assert.equal(ficha.descripcion||'','');
   assert.ok(!api.presentarEquipo(ficha).primarios.some(x=>x[0]==='Precio'));
+}
+// Consulta de las 28 entradas: coste/documentación sin efectos simulados.
+for(const objeto of nuevos){
+  const ficha=api.buscar(i,objeto.nombre,'equipo','nd20');
+  assert.ok(ficha,'Sin ficha de Equipo DRS '+objeto.nombre);
+  const vista=api.presentarEquipo(ficha);
+  assert.ok(vista.categoria,'Sin categoría DRS '+objeto.nombre);
+  const propiedades=new Map(vista.primarios);
+  if(objeto.precio!==undefined)
+    assert.equal(propiedades.get(objeto.servicio_por_dia?'Precio por día':'Precio'),
+      objeto.precio+' mo');
+  if(objeto.precio_variable)
+    assert.equal(propiedades.get('Precio variable'),objeto.precio_variable);
+  if(objeto.movimiento)
+    assert.equal(propiedades.get('Movimiento'),objeto.movimiento);
+  if(objeto.du)assert.equal(propiedades.get('Dado de Uso'),'DU '+objeto.du);
+  assert.equal(ficha.descripcion,objeto.detalle,'Detalle literal: '+objeto.nombre);
+}
+const equina=api.presentarEquipo(api.buscar(i,'Armadura equina','equipo','nd20'));
+assert.equal(new Map(equina.primarios).has('Precio'),false);
+assert.equal(new Map(equina.primarios).get('Precio variable'),
+  'Precio de la protección corporal ×4');
+const establosVista=api.presentarEquipo(api.buscar(i,'Establos','equipo','nd20'));
+assert.equal(new Map(establosVista.primarios).get('Precio por día'),'0.6 mo');
+for(const nombre of ['Libro de conjuros en blanco','libro de conjuros (en blanco)']){
+  const libro=api.buscar(i,nombre,'equipo','nd20');
+  assert.equal(libro.nombre,'Libro de conjuros');
+  assert.equal(new Map(api.presentarEquipo(libro).primarios).get('Precio'),'50 mo');
 }
 const catalogo=cargar('catalogo-poderes.json');
 const seis=new Set(['Arcana','Demonología','Divina','Elemental','Naturaleza','Nigromancia']);
