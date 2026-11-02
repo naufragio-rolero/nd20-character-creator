@@ -17,7 +17,7 @@
 | Zonas, Shadaleen y casos de contraste (**Z**, **H**, y formas recuperadas de **C**/**B**) | 12 entradas nominales dirigidas de este corte, más menciones de contraste a formas preexistentes | [Zonas/Inistia](barrido-final-zonas-inistia.md), [Shadaleen](auditoria-shadaleen-eponimos-y-relatos.md) |
 
 **Controles:**
-- Antes de sumar Gestas, teónimos, Enciclopedia y casos dirigidos, las seis colecciones **C+A+I+M+B** aportan **382 testimonios de entrada** que se agrupan en **269 formas literales distintas**, no en 382 personas. Este corte no presupone equivalencias entre realidades.
+- Antes de sumar Gestas, teónimos, Enciclopedia y casos dirigidos, las cinco colecciones **C+A+I+M+B** aportan **382 testimonios de entrada** que se agrupan en **269 formas literales distintas**, no en 382 personas. Este corte no presupone equivalencias entre realidades.
 - Tras incorporar los grupos adicionales y las variantes expresamente identificadas, el índice contiene **282 formas literales**. La diferencia no debe leerse como cifra de «nuevos personajes»; se mezclan individuos, teónimos, nombres de imperio y topónimos.
 - **Códigos:** **C**=censo 140 (el número corresponde a `N.º fuente`), **A**=índice de aventura (número de índice), **I**=Isophius (número de registro), **M**=Malasthar (sección/monarca o MH otros), **B**=biografías, **GP**=Gesta publicada, **GB**=Gesta borrador, **D**=deíficos, **E**=Enciclopedia, **Z**=Zonas, **H**=Historia/Shadaleen. Los enlaces conducen a una **ficha documental con URL original y localizador**, no a una nueva certificación automática de parentesco. **C** de Romualdius Walerian significa *contraste del censo con `npcs.xlsx`*, no una de las 140 filas del censo.
 - Las denominaciones de los **siete linajes fundacionales** (Shadelgast, Bronnhum, Rowes, Alogers, Keefe, Dórilon y Kultstein) se conservan en la [auditoría de Shadaleen](auditoria-shadaleen-eponimos-y-relatos.md) como **casas**, y no se añaden como personajes individuales nuevos por su condición de colectivos. Igual criterio para los **54 epítetos**.
@@ -254,7 +254,7 @@ La columna **clase** señala el **tipo de evidencia predominante**; cuando hay u
 | 223 | Romualdius Walerian | Nombre civil atestiguado en contraste | [C](censo-pnj-historico.md) | Nombre civil de Crujidor en `npcs.xlsx`, no fila del censo 140. |
 | 224 | Ryn'Acki | PNJ histórico | [C61](censo-pnj-historico.md), [A122](auditoria-aventuras-ylat.md) | — |
 | 225 | Sadyiya Falaz | PNJ histórico | [C101](censo-pnj-historico.md), [A123](auditoria-aventuras-ylat.md) | — |
-| 226 | Santa Verna | Patrona / aldea | [GP](corpus-gesta-personajes-ylat.md), [G](corpus-gesta-personajes-ylat.md) | Patrona y aldea; «Santa» es tratamiento. |
+| 226 | Santa Verna | Patrona / aldea | [GP](corpus-gesta-personajes-ylat.md) | Patrona y aldea; «Santa» es tratamiento. |
 | 227 | Sarata Lobeth | PNJ histórico | [C90](censo-pnj-historico.md), [A124](auditoria-aventuras-ylat.md), [I51](corpus-complementario-isophius.md) | — |
 | 228 | Sashka Norvvind | PNJ histórico | [C110](censo-pnj-historico.md), [A125](auditoria-aventuras-ylat.md) | — |
 | 229 | Scheziss | Campaña/casa | [I52](corpus-complementario-isophius.md) | — |
@@ -308,7 +308,7 @@ La columna **clase** señala el **tipo de evidencia predominante**; cuando hay u
 | 277 | Zack Lobeth | PNJ histórico | [C135](censo-pnj-historico.md), [A151](auditoria-aventuras-ylat.md), [I61](corpus-complementario-isophius.md) | — |
 | 278 | Zarkon | Personaje publicado | [GP](corpus-gesta-personajes-ylat.md) | — |
 | 279 | Zarzik Ceñóseo | PNJ histórico | [C56](censo-pnj-historico.md), [A152](auditoria-aventuras-ylat.md) | — |
-| 280 | Zekogs Quiebrahielo | PNJ histórico | [C17](censo-pnj-historico.md), [A153](auditoria-aventuras-ylat.md), [Z](barrido-final-zonas-inistia.md) | Zonas añade -s final. |
+| 280 | Zekogs Quiebrahielo | PNJ histórico | [C17](censo-pnj-historico.md), [A153](auditoria-aventuras-ylat.md) | Zonas añade -s final. |
 | 281 | Zekogs Quiebrahielos | Variante | [Z](barrido-final-zonas-inistia.md) | Variante de Zekogs Quiebrahielo. |
 | 282 | Zurari Hermous | Índice de aventura | [A154](auditoria-aventuras-ylat.md) | — |
 
