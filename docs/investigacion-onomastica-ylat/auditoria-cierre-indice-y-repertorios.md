@@ -61,3 +61,33 @@ No se ha encontrado la palabra excluida **Niguace/Niguaze** entre los **282 valo
 - **Sin prueba de juego o ejecución:** al no haber cambios funcionales, esta auditoría no declara pruebas automatizadas de la interfaz realizadas.
 
 **Conclusión de control:** la **contabilidad de testimonios y enlaces del índice preliminar es consistente en los puntos auditados**. Es elegible para un **cierre documental de este alcance**, manteniendo el grado de incertidumbre de las identidades y el bloqueo de activación del generador.
+
+
+## 5. Segunda pasada de control: índice ampliado v2
+
+Tras el contraste final del [catálogo previo](catalogo-provisional.md) se detectaron **15 denominaciones literales** que no estaban en la primera versión, procedentes de [Gylran, Laventia (borrador), Malasthar, Shadaleen/Zonas y una biografía](adenda-fuentes-historicas-y-alias.md). Se creó el [índice maestro **v2 de 297 formas**](indice-maestro-testimonios-v2.md), conservando intacta la **v1 de 282** como primer corte trazable.
+
+**Resultados verificados sobre la v2 guardada:**
+
+| Prueba | Resultado |
+| --- | --- |
+| Filas numeradas | **297** |
+| Claves de denominación no repetidas | **297** |
+| Saltos de numeración | **0** |
+| Nuevas filas con referencia a adenda `F` | **15** |
+| Enlaces internos a archivos inexistentes | **0** |
+| Formas de corpus Niguace/Niguaze entre las 297 | **0** |
+| Coincidencias exactas con `nombres-historicos-ylat.json` | **1** — Ryn'Acki |
+| Coincidencias exactas con `tesauro-ylat.json` | **12** — las mismas ya enumeradas en el §2 |
+| Coincidencias exactas con `sexo-personajes.json` | **4** — las mismas ya enumeradas en el §2 |
+
+El cotejo de sexo cubrió listas generales **y** los nombres editoriales por especie, sin deducir de ellas características personales. Las **15 formas añadidas no produjeron nuevos solapamientos exactos** con los tres archivos activos.
+
+### Reservas adicionales
+
+- **Sumaeryn Maren / Sumaeryn de las Mareas**: una denominación de cronología y otra de lista de monarcas en una fuente **[PENDIENTE]**, no dos reinas demostradas.
+- **Caelia Fulgentis / Kah-Suran**: identidad expresamente narrada, no dos personajes ni un apellido nuevo.
+- **Siete personajes clave de Laventia**: proceden de fuente rotulada **[PENDIENTE]**. Integrados solo en **consulta documental con marca de origen**, nunca en generación automática.
+- **14 formas del índice de Ylat³** y la ficha de **Tegku Bagui Fénix / Ylat⁴** se registran en [marcas de realidades](marcas-realidades-ylat.md). Una aparición en distintas aventuras no significa identidad entre realidades.
+
+**Cifra vigente al cierre de la revisión:** **297 formas documentales distintas en el corpus acotado**, **no 297 personajes**. La v1 y sus cifras de auditoría continúan siendo históricamente válidas para aquel primer corte, pero **la v2 es el índice de trabajo preferente**.
