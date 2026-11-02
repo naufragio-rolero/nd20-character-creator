@@ -362,12 +362,12 @@
   // La presentación compacta NO modifica el nombre original: se utiliza
   // íntegro para buscar el popup, copiar/exportar y cotejar el catálogo.
   function presentarPoder(nombre){
-    var tipo=String(nombre).match(/^\\[(C|T)\\]\\s+/);
+    var tipo=String(nombre).match(/^\[(C|T)\]\s+/);
     if(!tipo)return {texto:nombre,icono:''};
-    var texto=String(nombre).replace(/^\\[[CT]\\]\\s+/,'');
+    var texto=String(nombre).replace(/^\[[CT]\]\s+/,'');
     if(tipo[1]==='C'){
-      texto=texto.replace(/\\s+·\\s+Nd20$/,'')
-        .replace(/\\s+\\(C([1-8])\\)$/,' ($1)');
+      texto=texto.replace(/\s+·\s+Nd20$/,'')
+        .replace(/\s+\(C([1-8])\)$/,' ($1)');
     }
     var icono=tipo[1]==='C'?'ico-conjuro':'ico-tecnica';
     return {texto:texto,icono:
