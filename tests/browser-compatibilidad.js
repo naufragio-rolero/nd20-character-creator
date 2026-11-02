@@ -991,8 +991,8 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
     assert.equal(await page.locator('#editor-compras').evaluate(el=>el.open),true,
       nombre+': las compras se muestran en un diálogo modal');
-    assert.equal(await page.locator('#compras-grupo option').count(),6,
-      nombre+': familias originales de útiles DRS');
+    assert.equal(await page.locator('#compras-grupo option').count(),7,
+      nombre+': seis familias DRS documentadas más Focos');
     assert.ok((await page.locator('#compras-articulo option').count())<43,
       nombre+': artículos agrupados en un desplegable más compacto');
     await page.selectOption('#compras-grupo','campamento');
