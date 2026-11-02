@@ -1,13 +1,13 @@
 # Acta editorial de onomástica de Ylat — decisiones expresas de autoría
 
-**Fecha:** 2026-11-02. **Origen:** respuestas directas de la autoría en la conversación que siguió al [dossier editorial](dossier-validacion-editorial-onomastica.md). **Estado:** **13 decisiones de criterio fijadas; ONO-02 pendiente**. Este documento **recoge decisiones de autoría**, a diferencia de las recomendaciones provisionales de fases anteriores. **No** es un registro de implementación técnica ni modifica automáticamente fuentes históricas.
+**Fecha:** 2026-11-02. **Origen:** respuestas directas de la autoría en la conversación que siguió al [dossier editorial](dossier-validacion-editorial-onomastica.md). **Estado:** **14 decisiones de criterio cerradas por autoría (ONO-01 a ONO-14)**. Este documento **recoge decisiones de autoría**, a diferencia de las recomendaciones provisionales de fases anteriores. **No** es un registro de implementación técnica ni modifica automáticamente fuentes históricas.
 
 ## 1. Decisiones expresas
 
 | ID | Criterio fijado por la autoría | Aplicación documental / alcance exacto | Estado |
 | --- | --- | --- | --- |
 | **ONO-01** | **Aerandil del Atardecer Brillante** | Preferencia editorial frente a **Refulgente** de fichas y censo. La respuesta de autoría escribió «Atarceder»; se interpreta como errata mecanográfica por el contexto de los dos TXT originales, que escriben **Atardecer**. Mantener las formas antiguas como testimonios, sin corregir silenciosamente los originales. | **Fijada** |
-| **ONO-02** | **No decidido**: Dyeld o Eldburg como padre de Tuliëlle | Los testimonios son contradictorios; **no sustituir una identidad ni fijar parentesco** hasta respuesta expresa. | **Pendiente** |
+| **ONO-02** | **Dyeld es el padre canónico de Tuliëlle.** Resolución expresa de autoría posterior a las primeras trece decisiones. | El relato autobiográfico y la ficha de Laevinë identifican a Dyeld. La ficha de Eldburg aporta una versión contradictoria que se conserva **como testimonio histórico, no como parentesco canónico**. No fusionar a Dyeld y Eldburg ni alterar la fuente sin acción editorial distinta. | **Cerrada por autoría** |
 | **ONO-03** | **Vrymmir Borgernstâg** | Forma editorial preferida **Borgernstâg**; conservar **Borgenrstâg** en testimonio antiguo. | **Fijada** |
 | **ONO-04** | **Permitir apellidos nobiliarios/de casa en la generación con un peso muy bajo** | Se levanta el veto propuesto a su **reutilización creativa**; no se atribuye parentesco canónico al personaje resultante. **«Muy bajo» es criterio cualitativo**: no hay proporción ni peso numérico dado por la autoría; hay que acordar/implementar ponderación futura. | **Criterio fijado; implementación y magnitud pendientes** |
 | **ONO-05** | **Mezclar identidades y épocas** en generación | No filtrar nombres por **Ylat¹/Ylat³/Ylat⁴** ni por época al construir un **nombre aleatorio**. Se preservan **fuente, realidad e identidad original** en la consulta histórica, para no convertir actores distintos en una misma ficha canónica ni transformar ficción combinatoria en hechos del mundo. | **Fijada** |
@@ -37,8 +37,13 @@ No está aprobada ninguna normalización destructiva de esa fuente. Un nombre co
 - **ONO-13 / no eliminar:** la clasificación de Máthair como montaña y de Pietro como oso se conserva; no se ordena borrar entradas ni combinaciones.
 - **Nombre canónico frente a forma archivada:** las grafías elegidas **no obligan a reescribir en masa** textos históricos ya publicados ni fichas originales. Deben figurar como preferencias editoriales en el índice y como variantes en los registros de procedencia.
 
-## 4. Única respuesta aún necesaria
+## 4. Resolución final de la paternidad de Tuliëlle — ONO-02
 
-**ONO-02: ¿Dyeld o Eldburg es el padre de Tuliëlle?** La primera versión del expediente [documenta testimonios enfrentados](decisiones-editoriales.md). La autoría **no se pronunció** sobre esta cuestión en la respuesta que fijó las otras trece; ninguna preferencia provisional puede transformarse en canon por silencio.
+**La autoría confirma expresamente: «Dyeld es el padre de Tuliëlle».** Se registra esta decisión como **hecho canónico**, y la cuestión **ONO-02 queda cerrada**.
 
-**Estado general:** **13 decisiones fijadas; 1 pendiente; 0 cambios funcionales autorizados o ejecutados durante el registro**.
+- **Dyeld** es la **paternidad canónica**.
+- **Eldburg** permanece como personaje distinto: el testimonio de su ficha que afirma otra paternidad se registra como **contradicción documental anterior** sin valor de corrección canónica vigente.
+- No se reconstruyen relaciones no documentadas ni se reescriben la autobiografía, la ficha de Laevinë o la ficha de Eldburg por este acto de registro.
+- La resolución es **autoría confirmada**, no un resultado que se haya inferido automáticamente por mayoría de fuentes.
+
+**Estado editorial definitivo del corte:** **14/14 ONO cerradas**. **Estado técnico:** pendiente de implementación del comportamiento aprobado para La Forja, incluida la cuantificación del peso «muy bajo» de apellidos de casas; **ningún cambio funcional ejecutado**.
