@@ -107,3 +107,32 @@
 6. **Procedencia y escritura:** conservar la forma literal, los alias, los ordinales y las variantes ortográficas. La familia no se equipara a una regla general de onomástica de una especie.
 
 **Próximos cruces:** cotejar los 45 nombres o denominaciones externas con el banco de 1422 formas y con el tesauro, identificar entidades no personales, y buscar testimonios familiares del resto de casas de Ylat sin usar resultados de otros universos. [Análisis previo de Isophius](ampliacion-cronicas-isophius.md).
+
+
+## Auditoría frente a los repertorios actuales de La Forja
+
+**Lectura de `main` (2026-11-02)** sobre las 61 denominaciones del registro, con cotejo literal y normalización únicamente de acentos y mayúsculas para la búsqueda (no para corregir fuentes):
+
+| Catálogo | Entradas | Coincidencias exactas de forma completa | Cautela |
+| --- | ---: | --- | --- |
+| `data/nombres-historicos-ylat.json` | 1428 filas (1422 formas distintas) | **0/61** | Tampoco coincide ningún primer componente de los 61 con este banco histórico; no concluye que las fuentes sean ajenas a Ylat |
+| `data/tesauro-ylat.json` | 52 | **1/61: Kharan Boll** | Solo la entrada `ylat-d038` es **documentada**. No considerar combinaciones `Kharan Shadelgast` ni `Abdul Boll` como PNJ |
+| `data/sexo-personajes.json` | 49 nombres generales en ambos listados | **0/61** denominaciones completas; **1** coincidencia de primer componente, `Kharan` | La etiqueta es editorial y no reconstruye datos canónicos sobre sexo, linaje o especie |
+
+El [tesauro](../../data/tesauro-ylat.json) identifica `Kharan Boll` como **nombre documentado**, fuente `Hilo Isla Tormenta 2019.pdf`, página 7, ámbito `Isla Tormenta`. **Esta comprobación procede de la metadata del JSON; no implica una nueva lectura directa de esa página de PDF.**
+
+La [ficha de Kharan Boll](https://drive.google.com/file/d/1gTNBmn8BE6PB5hF59NFBnwgzALdf0LT0/view) indica **Realidad: Ylat³**, tipo PJ, especie humano shadalense, y pertenencia a **Casa Boll** y **Los errantes de Isla Tormenta**. La [ficha de Casa Boll](https://drive.google.com/file/d/1Z6U0pbk9NXdfC4EBDUfZumSSJ0WsxvUr/view) la sitúa bajo [Casa Gull](https://drive.google.com/file/d/16K7PxxqSRXnGD-g-9VDaSgMKlw8owpp0/view) en su organización; **no queda establecido por estas fuentes que todas las versiones de esas casas o de William Gull pertenezcan a Ylat³**, así que se mantendrán los contextos separados.
+
+### Casos familiares y aparentes excepciones examinados individualmente
+
+- [**Maurice Martoni**](https://drive.google.com/file/d/1SKFsVDWORznA_I8QHh2dC_3VGqCd21ts/view) es padre de Mario; [**Francesca Martoni**](https://drive.google.com/file/d/1bEjT5jhMDnsd_BNB1wFmbmknrDsTNrXj/view) es su madre; [**Mario Martoni**](https://drive.google.com/file/d/1CELaYbxVija5vyNYEbLKsR5eezh2eleD/view) es hijo de ambos. **Martoni está acreditado familiarmente** en esas tres fichas, aunque los tres figuren como miembros de [Casa Rizzo](https://drive.google.com/file/d/1sFZVDqN7UzYAhAk2WpD0-_gdY4onDWJ6/view). Esta relación **no acredita** que «Rizzo» sea apellido personal de ninguno de los tres ni que «Martoni» y «Rizzo» sean sinónimos.
+- [**Tayana Pamphilos**](https://drive.google.com/file/d/1nbcb_02oY35gZAqbDlC3IZBPCWE9un5z/view) pertenecía a **Casa Methodius antes de su matrimonio** con Jiggalen Pamphilos; ambas casas la listan como miembro. Tayana consta como fallecida y la [Casa Pamphilos](https://drive.google.com/file/d/1NeURxLvWDE8ADNO-IjtnvjE1G8Yjh8pa/view) identifica a **Jiggalen** como único superviviente *en el momento de esa descripción*. Esta evidencia demuestra un **uso nominal vinculado al matrimonio en un caso individual**, no una regla universal.
+- [**Edward Swordkey**](https://drive.google.com/file/d/1-OXDfjI2r3YRhXx5PRu6yKKsuqZH2oz1/view) es hijo de **Joferick y Frea Swordkey** y primogénito del Duque del Arroz. Su [Casa Swordkey](https://drive.google.com/file/d/1q5Md3cjjja6eG2FDi2V3VKVRKAWo38vf/view) está documentada; la cita conjunta de sus padres **no autoriza asignar a ambos automáticamente el mismo segundo componente sin un testimonio específico**.
+- [**William Gull**](https://drive.google.com/file/d/1cW7hy7VivQ4Vy1mUM_CvhjpLGasrJUl2/view) es primogénito bastardo de Casa Gull. El nombre procede también del registro de personajes de Isophius, fuera del censo de 140. No corregir por este motivo otras grafías antiguas sin cotejo.
+- [**Mogg'Shattoth**](https://drive.google.com/file/d/10bH7dXTJoqX8V_luTdTWFApxbru5sUHG/view) está clasificado en una ficha como **demonio**; [**Otho-Dekrll**](https://drive.google.com/file/d/1t1QoiZX7ASdUo9inlfIaQw5AG5QZDBng/view) como **semideidad**; la designación **«Hijo de Pamela»** no es un nombre propio. Son tres motivos distintos para **no tratarlos como evidencias de apellido humano ordinario**.
+
+## Resultado editorial
+
+La **brecha de cobertura** entre este corpus y los repertorios vigentes es verificable, pero no debe solventarse mediante mezclas automáticas. La integración futura puede beneficiarse de una **capa de consulta documental** capaz de mostrar nombres completos acreditados, fuentes, personajes y relaciones **antes** de decidir si algunos componentes son utilizables para sorteo.
+
+Pendiente además la separación explícita por `Realidad` en casos como `Kharan Boll`, `Lazare Brice` o `Branwen Sigvald`. Consultar [revision-biografica-y-realidades.md](revision-biografica-y-realidades.md) y [decisiones-editoriales.md](decisiones-editoriales.md).
