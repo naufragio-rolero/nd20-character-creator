@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=e1d6f851ad80991583cee657a80a1baed7fc6d98
+          UI_COMMIT=99e16d5ad71f9f68d9569824187143f712684b04
           archivos=(
             assets/app.js
             assets/styles.css
@@ -67,7 +67,7 @@ jobs:
             tests/smoke.js
           )
           blobs=(
-            b128ff7b6c95f88d74c8c71f033aeca5bcb5f167
+            d997d975cc7366e99154af4e3036834867d18cc9
             a3fcc0c59cd0ad002dc36dc635f1583132066749
             8de9c70d9104688bfa3039fdd802f16b09b540f9
             105de262dd5d81c283ac2cc1bd26e04068ea8a6f
@@ -81,7 +81,7 @@ jobs:
             59001f362a71505b07af35f0d65c215bd4f76647
             6d42c7947d900bc8f754593771840d442c61b184
             e480ee85fddc90f3c52a7b6654cfd97ba19f0242
-            fffb697bab2af3b5ab7dbea181431e7fbaed680d
+            c1b2815c3c8e49e6bbe39fee068c0be754cdc6a8
             8d1d0fb7a6e0001c4506fa9b72d1e79cd83739d7
             c8961a9b3376debe544079e8cf03d9b4739b4832
             163f721f174fd9e30c3d351c5b13b6dcd9fff780
