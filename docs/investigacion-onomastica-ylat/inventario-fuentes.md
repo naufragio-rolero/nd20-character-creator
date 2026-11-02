@@ -12,9 +12,9 @@
 | Historia de Shadaleen | [Drive](https://docs.google.com/document/d/15LVdulBcuf62G6OPQKKCTHQWOHrqrGUAZO6DnXZJA2o/edit) | Consultado, vínculos y contradicciones localizados | Rector para familias y sucesos shadalenses |
 | Historia de Gylran | Biblioteca, «Trasfondo - Historia de Gylran.md» | Consultado; extraídos cuatro nombres completos históricos | Canónico y sustituto de tres fuentes anteriores |
 | Zonas de Ylat | [Drive](https://docs.google.com/document/d/1v6rZIEWMGLvhv6b5WHMNQa0zwCzrPTOdqZEU5t6USFg/edit) | Consultado; extraídos nombres y testimonios familiares | Rector para geografía, nombres locales cuando mencionados |
-| Lenguas de Ylat | [Drive](https://docs.google.com/document/d/1FhYWtfZHKoAlr9aQAFLCVej3Uc7s_sVKRp-dMjwsTN4/edit) | Lectura inicial; sin convención general de apellidos identificada | Rector lingüístico; no confundir equivalencias de idioma con nombres personales |
-| Enciclopedia de Ylat | [Drive](https://docs.google.com/document/d/11xNUoTcW7bBE3fq8wwBpmxIJmnfaZZnEeB9t47p1qKg/edit) | Pendiente de extracción onomástica sistemática | Rector global |
-| Espíritus Deíficos | [Drive](https://docs.google.com/document/d/1O4u4k0sQKFZ-H5SYr38zS0dHkRWMxequQNiUMN5GkNw/edit) | Pendiente de extracción onomástica sistemática | Rector de seres deíficos; nombres divinos no son apellidos |
+| Lenguas de Ylat | [Drive](https://docs.google.com/document/d/1FhYWtfZHKoAlr9aQAFLCVej3Uc7s_sVKRp-dMjwsTN4/edit) | Relectura dirigida: dialectos, alfabetos y Narga Solarys/Cóbatur; [auditoría](auditoria-fuentes-rectoras-teonimia.md) | Rector lingüístico; no derivar apellidos de nombres de idiomas |
+| Enciclopedia de Ylat | [Drive](https://docs.google.com/document/d/11xNUoTcW7bBE3fq8wwBpmxIJmnfaZZnEeB9t47p1qKg/edit) | Barrido dirigido de eras, cronología y calendario; [auditoría](auditoria-fuentes-rectoras-teonimia.md); **pendiente extracción exhaustiva** | Rector global; separar entidades políticas, dragones, topónimos y calendario de antropónimos |
+| Espíritus Deíficos | [Drive](https://docs.google.com/document/d/1O4u4k0sQKFZ-H5SYr38zS0dHkRWMxequQNiUMN5GkNw/edit) | Barrido dirigido de siete fichas y sus designaciones; [auditoría](auditoria-fuentes-rectoras-teonimia.md); **pendiente extracción exhaustiva** | Narga Solarys y Ganragán son una identidad; teónimos y epítetos no son apellidos |
 | Susurros en Isophius | [Drive](https://docs.google.com/document/d/1E7AMmSFvZestqgVVDnm4vHKKu4G5_NeXIUWlzlChEYM/edit) | Consultado; parentesco Orovecchio y familias Buelhorn | Narrativa de campaña |
 | Historia de Malasthar | [Drive](https://docs.google.com/document/d/1fyLSppENaYx2w8tvVzdzdfTAZ46_epq-nFS1S0yPWKE/edit) | Consultado; Tres Lises y Casa Achgate | **[PENDIENTE]** según título en Drive, no canonizar |
 | El Imperio de Laventia | [Drive](https://docs.google.com/document/d/1xCISRek6ewUo5hvNHLgRdjuFHew5_evI2Wx2wL5YRdI/edit) | Consultado; ejemplos históricos | **[PENDIENTE]** según título en Drive |
@@ -156,3 +156,9 @@ Esta es una **revisión por relevancia, no un censo exhaustivo** de todos los do
 | [Repertorios `main`](https://github.com/naufragio-rolero/nd20-character-creator/tree/main/data) | JSON contrastados, **sin editar** | Entre las 61 denominaciones de Isophius/casas: **0** formas completas en banco histórico y **1** en tesauro: **Kharan Boll**, `ylat-d038` |
 
 **Productos de esta sesión:** [corpus-complementario-isophius.md](corpus-complementario-isophius.md), [linajes-historicos-malasthar.md](linajes-historicos-malasthar.md), [biografias-personajes-cotejo.md](biografias-personajes-cotejo.md). En la unión de esos tres registros se han confirmado **88 denominaciones textuales**, con **16 coincidencias literales** con los 140 PNJ y **72 no idénticas a esos registros**. No son 72 personajes nuevos ni 72 nombres generables. El material sigue segregado de `data/` y `assets/`.
+
+
+## Aclaraciones de la sesión editorial de 2026-11-02
+
+- El autor confirma que **Isophius se jugó después del periodo cubierto por los 140 PNJ** y que sus personajes **no se incorporaron** al Excel antiguo; no usar la ausencia como indicador de falta de validez narrativa. Ver [corpus complementario](corpus-complementario-isophius.md).
+- Barrido dirigido de [Enciclopedia, Espíritus Deíficos y Lenguas](auditoria-fuentes-rectoras-teonimia.md). **No equivale a auditoría exhaustiva de los documentos completos** y no autoriza nuevos nombres generables.
