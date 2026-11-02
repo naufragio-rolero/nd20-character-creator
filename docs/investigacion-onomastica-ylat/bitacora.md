@@ -74,3 +74,12 @@ Añadir una entrada fechada por sesión, enlaces a fuentes y distinción entre h
 
 **Documentos de trabajo:** [catálogo provisional](catalogo-provisional.md).  
 **Decisiones pendientes:** nombre canónico de Aerandil; utilización de apellidos históricos y de casas nobles; validez actual de la convención eladrín; función de membresía en Casa Adorasol.
+
+
+### 2026-11-02 — Inventario y revisión de la Casa Gull
+
+- Registradas carpetas y estado de lectura en [inventario-fuentes.md](inventario-fuentes.md).
+- Revisado el documento `Sir William White Gull.docx`: existen formas William y Whilliam para el mismo personaje, y una discrepancia John William / John Gull para su padre. El término White solo está en el título del archivo, no en el texto.
+- Detalles y referencias en [catalogo-provisional.md](catalogo-provisional.md), sección I.
+- Persisten bloqueos de lectura en dos TXT eladrines. Se mantienen las decisiones editoriales pendientes.
+- Sin modificaciones de datos, código, despliegues o PR.
