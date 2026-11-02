@@ -292,6 +292,18 @@ async function probar(nombre,tipo,url){
     assert.match(await popup.locator('.info-categoria').getAttribute('class'),
       /info-categoria-objeto-varitas/);
     assert.match(await popup.locator('.info-primarios').innerText(),/Precio:\s*100 mo/);
+    const columnasObjeto=()=>popup.locator('.info-primarios-objeto').evaluate(el=>
+      getComputedStyle(el).gridTemplateColumns.split(' ').length);
+    assert.equal(await columnasObjeto(),2,nombre+': Objetos en dos columnas');
+    assert.equal(await popup.locator('.info-objeto-campo').count(),6,
+      nombre+': seis parejas de estadísticas DRS independientes');
+    await page.setViewportSize({width:390,height:844});
+    assert.equal(await columnasObjeto(),2,nombre+': Objetos mantienen dos columnas en móvil');
+    assert.equal(await popup.locator('.info-primarios-objeto').evaluate(el=>
+      el.scrollWidth<=el.clientWidth),true,nombre+': los valores de Objetos caben en móvil');
+    await page.setViewportSize({width:320,height:720});
+    assert.equal(await columnasObjeto(),1,nombre+': Objetos legibles en móvil muy estrecho');
+    await page.setViewportSize({width:1440,height:900});
     const varitaCampos=await popup.locator('.info-primarios').evaluate(x=>
       Object.fromEntries(Array.from(x.querySelectorAll('dt')).map(k=>[
         k.textContent.replace(/:$/,''),k.nextElementSibling?.textContent
@@ -682,15 +694,17 @@ async function probar(nombre,tipo,url){
       const estilo=getComputedStyle(el);
       return {
       ancho:el.clientWidth-parseFloat(estilo.paddingLeft)-parseFloat(estilo.paddingRight),
-      ultimo:el.lastElementChild.getBoundingClientRect().width,
+      ultimo:el.querySelector('.recurso-ficha:last-child').getBoundingClientRect().width,
+      primero:el.querySelector('.recurso-ficha:first-child').getBoundingClientRect().width,
       icono:el.querySelector('svg.icono-recurso').getBoundingClientRect().width,
       desborda:el.scrollWidth>el.clientWidth
       };
     });
     assert.ok((await dimensionesRecursos()).icono<=20,
       nombre+': los SVG de Recursos son más pequeños');
-    assert.ok((await dimensionesRecursos()).ultimo>=(await dimensionesRecursos()).ancho*.95,
-      nombre+': el quinto recurso dispone de todo el ancho de la segunda fila');
+    assert.ok(Math.abs((await dimensionesRecursos()).ultimo-
+      (await dimensionesRecursos()).primero)<=2,
+      nombre+': el quinto recurso tiene el mismo ancho que el primero');
     await page.setViewportSize({width:531,height:844});
     assert.equal(await columnasRecursos(),4,nombre+': cuatro columnas en ficha de 531px');
     assert.equal((await dimensionesRecursos()).desborda,false,
@@ -734,8 +748,12 @@ async function probar(nombre,tipo,url){
         .selectOption(opcionesEscudo[0]);
       assert.equal(await blindajeVisible(),'Sin armadura',
         nombre+': un escudo no se suma al dado permanente de Blindaje');
-      assert.match(await recursos.locator('.recurso-aclaracion').innerText(),
+      assert.match(await recursos.locator('.recurso-nota-escudo').innerText(),
         /Escudo \+1 solo al bloquear/);
+      assert.equal(await recursos.locator('.recurso-ficha .recurso-nota-escudo').count(),0,
+        nombre+': la aclaración del escudo no agranda la tarjeta de Blindaje');
+      assert.equal(await recursos.locator('.recurso-ficha').count(),5,
+        nombre+': las cinco tarjetas conservan tamaño uniforme');
     }
     const rejillaTalentos=fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas').first();
     assert.equal(await rejillaTalentos.evaluate(el=>getComputedStyle(el).gridTemplateColumns

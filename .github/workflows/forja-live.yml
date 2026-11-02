@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=a3cba939077468401ae6623f9af75f542353b1e3
+          UI_COMMIT=d953e6fe9181d91f23618b7a672bea547899940a
           archivos=(
             assets/app.js
             assets/styles.css
@@ -67,10 +67,10 @@ jobs:
             tests/smoke.js
           )
           blobs=(
-            4b9c6d5ed692bb766b73235e512d3738db84e8e5
-            4ff9a67c4de93bbc9f3cab778992c82504a334df
+            8722185282cbde86cbc5db6d69dc32392652682a
+            4e2288293175b0d9842a6848a98f5fd374421214
             e4967b575b8a20a5d7a0b5b202377ad9a4245df9
-            398bc6a60db85818d7837ad4c243e06b07c0274c
+            105de262dd5d81c283ac2cc1bd26e04068ea8a6f
             7149224a2284082f0eea36f8080e9c5b531776a7
             30e8e3b03d381afa328cdcc202a644c2b74d8e82
             5eece69a3940ee7699cc249bb91ef1c25f350025
@@ -81,7 +81,7 @@ jobs:
             59001f362a71505b07af35f0d65c215bd4f76647
             6d42c7947d900bc8f754593771840d442c61b184
             e480ee85fddc90f3c52a7b6654cfd97ba19f0242
-            5cf7c205c771abcbeed812862f36e0d00938d2db
+            12ff1e760004a79d4811459c9b85c603c888dd85
             8d1d0fb7a6e0001c4506fa9b72d1e79cd83739d7
             8979e20239dfe54c9952d75c0d0805b859b927b9
             163f721f174fd9e30c3d351c5b13b6dcd9fff780
@@ -124,6 +124,9 @@ jobs:
           grep -Fq '"blindaje": "d4"' data/equipo-inicial.json
           grep -Fq 'function blindajeFicha(personaje,catalogo)' assets/equipment.js
           grep -Fq 'class="recursos recursos-rejilla"' assets/app.js
+          grep -Fq "recurso-nota-escudo" assets/app.js
+          grep -Fq "info-primarios-objeto" assets/tooltip-ui.js
+          ! grep -Fq 'nth-child(5):last-child{grid-column:1/-1}' assets/styles.css
           grep -Fq 'grid-template-columns:repeat(4,minmax(0,1fr))' assets/styles.css
           grep -Fq 'function htmlProteccionesEquipadas(personaje,id)' assets/app.js
           grep -Fq 'id="recurso-blindaje"' assets/icons-forja.svg
@@ -214,6 +217,7 @@ jobs:
           grep -Fq 'if(x.blindaje!=null)' /tmp/forja-tooltips.js
           grep -Fq 'info.danioCompuesto?.dados_base' /tmp/forja-tooltips.js
           grep -Fq "info.bloques_conjuro" /tmp/forja-tooltip-ui.js
+          grep -Fq 'info-primarios-objeto' /tmp/forja-tooltip-ui.js
           grep -Fq "escuelas:escuelas,circulo:circulo" /tmp/forja-tooltips.js
           grep -Fq "info-escuela-" /tmp/forja-tooltip-ui.js
           grep -Fq "info-circulo-valor" /tmp/forja-tooltip-ui.js
@@ -223,6 +227,7 @@ jobs:
           grep -Fq "grupo==='talento'||grupo==='poder'||grupo==='equipo'" /tmp/forja-app.js
           grep -Fq 'function htmlProteccionesEquipadas(personaje,id)' /tmp/forja-app.js
           grep -Fq 'class="recursos recursos-rejilla"' /tmp/forja-app.js
+          grep -Fq "recurso-nota-escudo" /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/equipment.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-equipment.js
           grep -Fq 'function blindajeFicha(personaje,catalogo)' /tmp/forja-equipment.js
           grep -Fq 'proteccionesDisponibles:proteccionesDisponibles' /tmp/forja-equipment.js
@@ -271,6 +276,8 @@ jobs:
           grep -Fq ".dialogo-compras{" /tmp/forja-estilos.css
           grep -Fq ".info-tabla-conjuro{" /tmp/forja-estilos.css
           grep -Fq ".recursos.recursos-rejilla{" /tmp/forja-estilos.css
+          grep -Fq ".info-primarios.info-primarios-objeto{" /tmp/forja-estilos.css
+          ! grep -Fq 'nth-child(5):last-child{grid-column:1/-1}' /tmp/forja-estilos.css
           grep -Fq 'grid-template-columns:repeat(4,minmax(0,1fr))' /tmp/forja-estilos.css
           grep -Fq ".protecciones-activas{" /tmp/forja-estilos.css
           grep -Fq ".info-escuela-arcana{background:LightSkyBlue" /tmp/forja-estilos.css
