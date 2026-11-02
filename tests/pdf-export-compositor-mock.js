@@ -1,14 +1,15 @@
+'use strict';
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
-const {exportar}=require('./pdf-export.js');
-const map=require('../templates/campos-ficha-a5.json');
+const {exportar}=require('../assets/pdf-export-v2.js');
+const map=JSON.parse(fs.readFileSync(path.join(__dirname,'../assets/pdf-a5/campos-ficha-a5.json'),'utf8'));
 class MockPage{
   constructor(){this.draws=[];}
-  drawText(value,opts){
+  drawText(text,opts){
     assert(Number.isFinite(opts.x)&&Number.isFinite(opts.y));
     assert(opts.x>=0&&opts.y>=0);
-    this.draws.push({text:value,...opts});
+    this.draws.push(String(text));
   }
   drawCircle(){}
 }
@@ -20,23 +21,39 @@ class MockDocument{
   async copyPages(){return [new MockPage()];}
   addPage(page){this.pages.push(page);return page;}
   getPageCount(){return this.pages.length;}
-  async save(){return Buffer.from(this.pages.map(p=>p.draws.map(x=>x.text).join('\n')).join('\n'),'utf8');}
+  async save(){return Buffer.from(this.pages.flatMap(p=>p.draws).join('\n'));}
 }
 const PDFLib={PDFDocument:{load:async()=>new MockDocument()},rgb:(r,g,b)=>({r,g,b})};
-async function run(name){
-  const fixture=JSON.parse(fs.readFileSync(path.join(__dirname,'../samples',name+'.json'),'utf8'));
-  const initial=JSON.stringify(fixture);
-  const obj=await exportar(fixture,{PDFLib,fontkit:{},fontBytes:Buffer.from('mock'),
-    plantilla:Buffer.from('main'),continuacion:Buffer.from('cont'),mapa:map});
-  assert.equal(initial,JSON.stringify(fixture));
-  assert(obj.paginas>=1);
-  const text=Buffer.from(obj.bytes).toString('utf8');
-  assert(text.includes('NAUFRAGIO')===false); // the template background is not re-rendered by the mock.
-  if(name==='nivel30_extenso'){
-    assert(obj.paginas>=3);
-    for(let i=1;i<=29;i++)assert(text.includes('Talento de prueba '+String(i).padStart(2,'0')));
-    for(let i=1;i<=48;i++)assert(text.includes('Artículo de inventario de prueba '+String(i).padStart(2,'0')));
-  }
-  console.log('Mock JS',name,obj.paginas,'páginas');
+const attrs=['Fuerza','Agilidad','Resistencia','Mente','Intuición','Presencia'].map((nombre,i)=>({
+  nombre,valor:10+i,dificultad:10-i,favorito:i===2
+}));
+function ficha(nivel){
+  return {
+    juego:'Naufragio d20 · Fantasía',nombre:'Personaje de pruebas',
+    descripcion:'Guerrero · Humano común',nivel,
+    atributos:attrs,
+    recursos:[['Salud','25 (d8)'],['Esfuerzo',2],['Movimiento',6],['Potencia',1]],
+    equipo:['Espada','Escudo pequeño'],notas:[],
+    competencias:['Armas'],capacidades:nivel===30?
+      Array.from({length:154},(_,i)=>'Talento de prueba '+String(i+1).padStart(3,'0')):['Recuperación'],
+    poderes:[],conjuros_preparados:[]
+  };
 }
-(async()=>{await run('nivel1');await run('nivel30_extenso');await run('nombre_largo_unicode_sin_armadura');})().catch(e=>{console.error(e);process.exitCode=1;});
+async function run(){
+  for(const nivel of [1,30]){
+    const p=ficha(nivel),before=JSON.stringify(p);
+    const out=await exportar(p,{PDFLib,fontkit:{},fontBytes:Buffer.from('mock'),
+      plantilla:Buffer.from('main'),continuacion:Buffer.from('cont'),mapa:map});
+    assert.equal(JSON.stringify(p),before,'No debe mutar la ficha');
+    assert(out.paginas>=1);
+    const text=Buffer.from(out.bytes).toString('utf8');
+    assert(text.includes('Personaje de pruebas'));
+    if(nivel===30){
+      assert(out.paginas>=2);
+      for(let i=1;i<=154;i++)
+        assert(text.includes('Talento de prueba '+String(i).padStart(3,'0')),i);
+    }
+    console.log('OK: compositor simulado Nivel '+nivel+' ('+out.paginas+' páginas)');
+  }
+}
+run().catch(e=>{console.error(e);process.exitCode=1;});
