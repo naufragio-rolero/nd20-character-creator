@@ -69,3 +69,11 @@ La ficha **Yuseth / Leyenda** conserva un relato sobre un profeta y una bestia m
 ## Evidencia y trazabilidad
 
 Todas las formas se extraen del mismo documento primario, en su ficha homónima: **encabezado de ficha, «Leyenda», línea de epítetos anterior a «Ideograma»**, y cuando se indica, «Adoración» o «Avatar». El cotejo interdocumental se limita a las fuentes enlazadas. No se han incorporado datos personales reales, cambiado el texto original ni implementado reglas.
+
+## Nota de coherencia entre documentos
+
+La apertura de la [*Enciclopedia de Ylat*](https://docs.google.com/document/d/11xNUoTcW7bBE3fq8wwBpmxIJmnfaZZnEeB9t47p1qKg/edit) habla literalmente de **«dieciséis leyendas»**, mientras el índice y los encabezados de *Espíritus Deíficos* utilizados en esta investigación contienen **dieciocho fichas**. Esto puede reflejar versiones diferentes del corpus, pero **el motivo no está acreditado**. En esta auditoría prevalece el **recuento comprobado de fichas realmente presentes**, sin corregir la introducción ni declarar obsoleta su cifra.
+
+## Contraste literal acotado con los repositorios de nombre
+
+La búsqueda insensible a mayúsculas, con límites de palabra y preservando grafía, sobre `data/nombres-historicos-ylat.json`, `data/tesauro-ylat.json` y `data/sexo-personajes.json` en `main`, y sobre [censo-pnj-historico.md](censo-pnj-historico.md) en esta rama, no encontró ninguna de **24 formas comprobadas**: los **18 encabezados** de esta tabla, la grafía variante **Bajzurm**, ni **Narelmayl**, **Norluth**, **Narga Solarys**, **Alleinn Nuj** y **Shadel**. Son **24 cadenas buscadas**, no 24 identidades nuevas. Que `Shadel` no coincida exactamente con `Shadelgast` es coherente con la búsqueda con límites de palabra, no una inferencia de identidades diferentes. No se ejecutó un cotejo fonético o de variantes que pudiera cambiar ese resultado.
