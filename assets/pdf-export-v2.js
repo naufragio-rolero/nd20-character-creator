@@ -1,4 +1,4 @@
-/* La Forja - compositor PDF A5 de Fantasía (candidato NO integrado).
+/* La Forja - compositor PDF A5 de Fantasía (edición con iconografía oficial).
  * pdf-lib + fontkit deben suministrarse localmente por el llamador.
  * Sin CDN; no modifica personajes ni gestiona turnos/combate.
  * Copyright El Naufragio. Revisión editorial pendiente.
@@ -15,12 +15,32 @@
     ['CONJUROS Y PODERES CONOCIDOS','poderes'],
     ['CONJUROS PREPARADOS','conjuros_preparados'],
     ['INVENTARIO Y EQUIPO','equipo'],
-    ['RIQUEZA','riqueza'],
-    ['OBSERVACIONES REGLAMENTARIAS','notas']
+    ['RIQUEZA','riqueza']
   ];
   function asText(x){return x==null?'':String(x);}
   function clone(x){return JSON.parse(JSON.stringify(x));}
-  function prepararDatos(personaje,consultaBlindaje){
+  // Datos de equipo tomados exclusivamente del catálogo DRS servido a la Forja.
+  // No inventar daño, durabilidad ni bonificaciones para objetos ausentes.
+  function detalleEquipo(nombre,catalogo){
+    var original=asText(nombre),base=original.replace(/\s+×\s*\d+\s*$/,'').trim();
+    if(!catalogo||!base)return original;
+    var grupos=[['armas','arma'],['armaduras','armadura'],['escudos','escudo']];
+    var encontrado=null,tipo='';
+    for(var grupo of grupos){
+      var registro=(catalogo[grupo[0]]||[]).find(function(x){return x.nombre===base;});
+      if(registro){encontrado=registro;tipo=grupo[1];break;}
+    }
+    if(!encontrado)return original;
+    var datos=[];
+    if(tipo==='arma'&&encontrado.dano)datos.push('Daño '+encontrado.dano);
+    if(tipo==='armadura'&&encontrado.blindaje)datos.push('Blindaje '+encontrado.blindaje);
+    // El escudo NO añade Blindaje pasivo: su valor solo sirve al bloquear.
+    if(tipo==='escudo'&&encontrado.blindaje)datos.push('Bloqueo '+encontrado.blindaje);
+    if(encontrado.durabilidad&&encontrado.durabilidad!=='-')
+      datos.push('Durab. '+encontrado.durabilidad);
+    return datos.length?original+' ('+datos.join(' · ')+')':original;
+  }
+  function prepararDatos(personaje,consultaBlindaje,catalogoEquipo){
     if(!personaje||personaje.juego!=='Naufragio d20 · Fantasía')
       throw Error('La exportación solo admite fichas de Naufragio d20 Fantasía.');
     var out=clone(personaje), desc=asText(out.descripcion),pos=desc.indexOf(' · ');
@@ -36,12 +56,17 @@
     out._escudo_equ=prot.escudo&&owns(prot.escudo)?prot.escudo:'';
     out._blindaje=out._consultaBlindaje&&out._consultaBlindaje.valor!=='Sin armadura'?asText(out._consultaBlindaje.valor):'';
     out._natural=(out.blindaje_natural_fuente&&out.blindaje_natural!=null)?asText(out.blindaje_natural):'';
+    out._notas=(Array.isArray(out.notas)?out.notas:
+      (out.notas?[out.notas]:[])).map(function(n){
+      return Array.isArray(n)&&n.length>=2?asText(n[0])+': '+asText(n[1]):asText(n);
+    });
     out._sections=sectionKeys.map(function(k){
       var v=out[k[1]];
       if(v==null||v==='')return null;
       var items=Array.isArray(v)?v.map(function(x){
         return Array.isArray(x)&&x.length>=2?asText(x[0])+': '+asText(x[1]):asText(x);
       }):[asText(v)];
+      if(k[1]==='equipo')items=items.map(function(x){return detalleEquipo(x,catalogoEquipo);});
       return items.length?{title:k[0],source:k[1],items:items}:null;
     }).filter(Boolean);
     return out;
@@ -79,7 +104,7 @@
       throw Error('Faltan activos locales autorizados: PDFLib, fontkit, fuente Unicode, PDFs o mapa.');
     var api=opts.PDFLib;
     var consulta=opts.consultarBlindaje?opts.consultarBlindaje(personaje):null;
-    var p=prepararDatos(personaje,consulta);
+    var p=prepararDatos(personaje,consulta,opts.catalogoEquipo);
     var doc=await api.PDFDocument.load(opts.plantilla);
     doc.registerFontkit(opts.fontkit);
     var font=await doc.embedFont(opts.fontBytes,{subset:true});
@@ -88,6 +113,29 @@
     var principal=doc.getPage(0);
     var overflow=[];
     var shade=api.rgb(.13,.13,.13);
+    // Los PNG se producen localmente a partir de los SVG oficiales.
+    // No se descargan imágenes externas ni se embeben fuentes SVG remotas.
+    var imagenes={};
+    if(opts.iconos&&typeof doc.embedPng==='function'){
+      for(var id of Object.keys(opts.iconos)){
+        imagenes[id]=await doc.embedPng(opts.iconos[id]);
+      }
+    }
+    function icono(page,id,x,y,side){
+      if(!imagenes[id]||typeof page.drawImage!=='function')return false;
+      page.drawImage(imagenes[id],{x:x*PT,y:topToPdf(y+side),
+        width:side*PT,height:side*PT,opacity:.90});
+      return true;
+    }
+    var iconoSeccion={
+      'COMPETENCIAS':'ico-tecnica',
+      'TALENTOS Y CAPACIDADES':'recurso-potencia',
+      'CONJUROS Y PODERES CONOCIDOS':'ico-conjuro',
+      'CONJUROS PREPARADOS':'ico-conjuro',
+      'INVENTARIO Y EQUIPO':'equipo-bolsa',
+      'RIQUEZA':'equipo-bolsa',
+      'OBSERVACIONES REGLAMENTARIAS':'ico-configurar'
+    };
     function draw(page,x,y,value,fs,isBold){
       var val=asText(value);if(!val)return;
       page.drawText(val,{x:x*PT,y:topToPdf(y),size:fs,font:isBold?bold:font,color:shade});
@@ -118,7 +166,12 @@
     (p.recursos||[]).forEach(function(r){
       if(Array.isArray(r)&&r.length>1){
         var id='recurso_'+asText(r[0]).toLowerCase();
-        if(opts.mapa.campos_fijos.some(function(f){return f.id===id;}))fixed(id,r[1]);
+        if(opts.mapa.campos_fijos.some(function(f){return f.id===id;})){
+          fixed(id,r[1]);
+          var b=getBox(opts.mapa,id);
+          // El hexágono decorativo de cada recurso en la ficha admite un pictograma.
+          icono(principal,id,b.x+b.width-1.08,75.0,2.16);
+        }
       }
     });
     fixed('armadura_equipada',p._armadura_equ);fixed('escudo_equipado',p._escudo_equ);
@@ -137,16 +190,18 @@
     async function header(title,continuado){
       var label=continuado?title+' (CONT.)':title;
       var fs=region<2?7.1:8.1;
-      var titulo=wrapText(label,(width-1)*PT,bold,fs);
+      var id=iconoSeccion[title],offset=imagenes[id]?4.1:0;
+      var titulo=wrapText(label,(width-1-offset)*PT,bold,fs);
       var paso=region<2?3.3:3.8;
       if(y+titulo.length*paso+3.2>bottom){
         await changeRegion();
         fs=region<2?7.1:8.1;
-        titulo=wrapText(label,(width-1)*PT,bold,fs);
+        titulo=wrapText(label,(width-1-offset)*PT,bold,fs);
         paso=region<2?3.3:3.8;
       }
+      if(offset)icono(current,id,x,y-.1,2.8);
       for(var parte of titulo){
-        draw(current,x,y+2.7,parte,fs,true);
+        draw(current,x+offset,y+2.7,parte,fs,true);
         y+=paso;
       }
       y+=2.0;
@@ -177,6 +232,12 @@
       y+=1.25;
     }
     for(var s of p._sections)await section(s.title,s.items);
+    // Las notas extensas nunca consumen espacio de la primera página.
+    // Si el resto de la ficha ya desbordó, siguen en su hoja de continuación.
+    if(p._notas.length){
+      while(region<2)await changeRegion();
+      await section('OBSERVACIONES REGLAMENTARIAS',p._notas);
+    }
     if(overflow.length||p._descripcion_sin_dividir){
       while(region<2)await changeRegion();
       var extras=overflow.map(function(v){return v.id.toUpperCase()+': '+v.value;});
@@ -188,5 +249,5 @@
     var bytes=await doc.save();
     return {bytes:bytes,paginas:doc.getPageCount()};
   }
-  return {prepararDatos:prepararDatos,wrapText:wrapText,exportar:exportar};
+  return {prepararDatos:prepararDatos,detalleEquipo:detalleEquipo,wrapText:wrapText,exportar:exportar};
 });
