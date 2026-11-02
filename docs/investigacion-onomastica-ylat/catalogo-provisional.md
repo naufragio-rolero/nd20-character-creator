@@ -295,3 +295,23 @@ Tres bloques concretos documentados fuera del Excel de 140 PNJ:
 - **Bram Brasagorda** posee un mote explícito; su apellido de nacimiento es desconocido.
 
 **Nuevas decisiones humanas:** ninguna es imprescindible *para proseguir investigando*. Mantener sin resolver las decisiones de [decisiones-editoriales.md](decisiones-editoriales.md) antes de normalizar para la futura integración. Los cambios de epíteto `Branneth` y `Tharn` son variantes internas de un mismo documento que se conservarán como testimonios, sin convertirlos en reglas.
+
+
+## Q. Índices de cuatro aventuras y auditoría de la clase de entidad del tesauro (2026-11-02)
+
+**Nuevas fuentes de aventuras:** [Era Rasa](https://drive.google.com/file/d/12-j5jC9uJOfi91Q0BRpmT9cXEd9s_htM/view), [Casus Belli](https://drive.google.com/file/d/1rYsSxkTBchO9z2OTn0oU_RSC0tAdzzdi/view), [Ylat³](https://drive.google.com/file/d/1tx2wZ2zvkmgjx3qFoR0mImsSSjqGegPo/view) y [El decadente Circo Labrice](https://drive.google.com/file/d/1R1ukaNGzFJYst3z1TzG7NrhsOZOedr-z/view). Sus índices de «Personajes» contienen **182 menciones**, **154 formas literales distintas**. De ellas, **127** aparecen idénticas en el censo de 140 y **18** en el corpus Isophius; **15** están en ambos conjuntos. **24** no están en ninguno de los dos, pero algunas ya se conocían en otros documentos; no son 24 personas recién descubiertas ni nombres aprobados. Todas las formas y fuentes quedan inventariadas en [auditoria-aventuras-ylat.md](auditoria-aventuras-ylat.md).
+
+**Colisión de ID de personaje:** dos fichas de **Vaelar Eldarien**, [Ylat¹](https://drive.google.com/file/d/136DT4cAGmNPjqdU-TYzHjpvJpAnGB2HD/view) (PJ, cazador/clérigo) y [Ylat³](https://drive.google.com/file/d/1KFLLgAEUOOj4N1862IZO9hx9dwaxJniF/view) (PNJ, sacerdote), utilizan literalmente el mismo `ID: vaelar`. No se puede indexar todo Ylat por ID antiguo sin la identidad del documento de origen y la realidad.
+
+**Nueva evidencia de la función de los nombres, no deducible por su forma:**
+- **Modestia Jof «Esti»** figura como miembro de Casa Shadelgast sin llevar ese apellido; el alias está escrito expresamente.
+- **Skörn y Sashka Norvvind** son hermanos por fuente expresa; el segundo componente está ligado a dos personas de una misma familia.
+- **Nebulashka** es la entidad rediviva fruto de Nébula y Sashka, no una persona adicional con apellido de nacimiento.
+- **Nidrael Eldarien** es un demonio, relacionado con Vaelar en una ficha; no se confirma relación sanguínea solo por compartir apellido.
+- **Noron Cabeza de Oso** consta como nombre completo de un enano de Ylat³; la ficha no afirma que `Cabeza de Oso` sea apellido transferible.
+
+**Auditoría del tesauro productivo:** las **19** entradas `documentado` contienen **dos** casos no personales según fuentes internas de Ylat: [**Máthair Felsaer**](https://drive.google.com/file/d/1kTIO-sZcM1-YQMiIsxjB4IwX8WJv3Kha/view), **montaña**, y **Pietro**, [oso de Drakabel](https://drive.google.com/file/d/14io6IofuStSQOOAIrR7ujeDUoJ_qWikz/view). La fuente es legítima, pero la entidad no es persona. De las **33** combinaciones ficticias, **4** tienen `Máthair`/`Pietro` como primer componente; **3** usan el topónimo `Felsaer` en segundo lugar; **7** atribuyen `Shadelgast` o `Boll` sin vínculo familiar documentado; las **19** restantes siguen siendo combinaciones sin regla de herencia acreditada. [Auditoría de las 52 entradas](auditoria-tesauro-componentes.md). Ninguna clasificación implica alteración o borrado del JSON.
+
+**Criterios propuestos, pendientes de aprobación:** [matriz de elegibilidad editorial](matriz-elegibilidad-editorial.md), que distingue fuente, función semántica y permiso de generación. Nueva cuestión **ONO-13**: alcance del sorteo de nombres de persona frente a nombres propios de lugares y animales. Total de cuestiones editoriales documentadas: **13**.
+
+**Corrección de precisión en Car'rt / Kaart:** la ficha [Kaart Oquati](https://drive.google.com/file/d/1HvCV1TgFsD8WoYc4WCVwSa_r7wmATU1w/view) contiene **Lenseng** (creencias y vasallaje) y **Melora** (lema) dentro del propio documento; no afirmar que exista necesariamente una contradicción entre cultos sin fuente que establezca exclusividad.
