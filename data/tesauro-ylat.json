@@ -2,7 +2,7 @@
   "version": 1,
   "titulo": "Tesauro onomástico de Ylat",
   "contexto": "Repertorio de la colección Ylat: únicamente registros del ámbito Isla Tormenta. Se han excluido los corpus externos a Ylat.",
-  "politica": "Los nombres documentados conservan archivo y página de origen; las combinaciones son propuestas no canónicas. Se excluyen los registros de corpus ajenos a Ylat.",
+  "politica": "Los nombres documentados conservan archivo y página de origen; las combinaciones son propuestas no canónicas. Se excluyen los registros de corpus ajenos a Ylat. La ponderación técnica de variantes combinadas es relativa: 1 para las siete propuestas con apellido de casa (Boll/Shadelgast) y 100 para cada otra propuesta. No es una probabilidad canónica ni acredita parentesco.",
   "entradas": [
     {
       "id": "ylat-d033",
@@ -203,7 +203,8 @@
         "Nilsea",
         "Orbem"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c006",
@@ -214,7 +215,8 @@
         "Tanto",
         "Cabeza de Oso"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c009",
@@ -225,7 +227,8 @@
         "Abdul",
         "Boll"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 1
     },
     {
       "id": "ylat-c012",
@@ -236,7 +239,8 @@
         "Saewig",
         "Hueso de Sangre"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c015",
@@ -247,7 +251,8 @@
         "Vaelar",
         "Brice"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c018",
@@ -258,7 +263,8 @@
         "Oiam",
         "Williams"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c021",
@@ -269,7 +275,8 @@
         "Kharan",
         "Shadelgast"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 1
     },
     {
       "id": "ylat-c024",
@@ -280,7 +287,8 @@
         "Kutak",
         "Alban"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c026",
@@ -291,7 +299,8 @@
         "Lazare",
         "Felsaer"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c029",
@@ -302,7 +311,8 @@
         "Máthair",
         "Eldarien"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c034",
@@ -313,7 +323,8 @@
         "Noron",
         "Tugg"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c039",
@@ -324,7 +335,8 @@
         "Thingrim",
         "Boll"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 1
     },
     {
       "id": "ylat-c044",
@@ -335,7 +347,8 @@
         "Pietro",
         "Brice"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c049",
@@ -346,7 +359,8 @@
         "Drakabel",
         "Shadelgast"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 1
     },
     {
       "id": "ylat-c054",
@@ -357,7 +371,8 @@
         "Joseph",
         "Felsaer"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c059",
@@ -368,7 +383,8 @@
         "Kalzifer",
         "Orbem"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c064",
@@ -379,7 +395,8 @@
         "Gorgan",
         "Cabeza de Oso"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c069",
@@ -390,7 +407,8 @@
         "Jeremie",
         "Hueso de Sangre"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c074",
@@ -401,7 +419,8 @@
         "Xandor",
         "Williams"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c079",
@@ -412,7 +431,8 @@
         "Abdul",
         "Alban"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c088",
@@ -423,7 +443,8 @@
         "Kharan",
         "Tugg"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c092",
@@ -434,7 +455,8 @@
         "Lazare",
         "Boll"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 1
     },
     {
       "id": "ylat-c097",
@@ -445,7 +467,8 @@
         "Nilsea",
         "Brice"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c102",
@@ -456,7 +479,8 @@
         "Tanto",
         "Shadelgast"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 1
     },
     {
       "id": "ylat-c107",
@@ -467,7 +491,8 @@
         "Saewig",
         "Felsaer"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c116",
@@ -478,7 +503,8 @@
         "Kutak",
         "Cabeza de Oso"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c121",
@@ -489,7 +515,8 @@
         "Máthair",
         "Hueso de Sangre"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c125",
@@ -500,7 +527,8 @@
         "Noron",
         "Williams"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c130",
@@ -511,7 +539,8 @@
         "Thingrim",
         "Alban"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c135",
@@ -522,7 +551,8 @@
         "Pietro",
         "Eldarien"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c139",
@@ -533,7 +563,8 @@
         "Drakabel",
         "Tugg"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     },
     {
       "id": "ylat-c144",
@@ -544,7 +575,8 @@
         "Joseph",
         "Boll"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 1
     },
     {
       "id": "ylat-c148",
@@ -555,7 +587,8 @@
         "Kalzifer",
         "Brice"
       ],
-      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico."
+      "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
+      "peso_relativo": 100
     }
   ]
 }

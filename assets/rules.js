@@ -277,7 +277,9 @@
           (!ambitoNombres||item.ambito===ambitoNombres);
       });
     }
-    var nombreYlat=escoger(poolNombres,rng);
+    var nombreYlat=config.modoNombre==='combinado'&&sexoApi&&
+      sexoApi.elegirPonderado?sexoApi.elegirPonderado(poolNombres,rng):
+      escoger(poolNombres,rng);
     var nombreConSexo=sexoFuente&&sexoApi?
       sexoApi.elegirNombre(config,especie,esp.nombres||[],poolNombres,sexo,sexoFuente,rng):null;
     if(nombreConSexo&&nombreConSexo.nota&&nombreConSexo.nota!=='Nombre elegido manualmente.')

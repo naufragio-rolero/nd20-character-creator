@@ -64,6 +64,23 @@
     }
     return {opciones:filtered,editorial:false,neutral:false};
   }
+  // Peso editorial de variantes: una entrada sin peso conserva el valor 100.
+  // Un solo consumo del RNG, como la elección uniforme anterior.
+  function elegirPonderado(entradas,rng){
+    if(!Array.isArray(entradas)||!entradas.length)return null;
+    rng=rng||Math.random;
+    var pesos=entradas.map(function(e){
+      var valor=Number(e&&e.peso_relativo);
+      return Number.isFinite(valor)&&valor>0?valor:100;
+    });
+    var total=pesos.reduce(function(a,v){return a+v;},0);
+    var restante=rng()*total;
+    for(var i=0;i<entradas.length;i++){
+      restante-=pesos[i];
+      if(restante<0)return entradas[i];
+    }
+    return entradas[entradas.length-1];
+  }
   function elegirNombre(config,especie,nombres,entradas,sexo,datos,rng){
     if(config.nombre)return {nombre:config.nombre,nota:"Nombre elegido manualmente."};
     rng=rng||Math.random;
@@ -84,7 +101,8 @@
       var filtrados=nombresDocumentados(ylat,sexo,datos,
         config.modoNombre==="combinado");
       if(filtrados.length){
-        var elegido=filtrados[Math.floor(rng()*filtrados.length)];
+        var elegido=config.modoNombre==='combinado'?elegirPonderado(filtrados,rng):
+          filtrados[Math.floor(rng()*filtrados.length)];
         var sinClasificar=!datos?.nombres_generales_femeninos?.some(function(n){
           return normal(n)===normal(primerNombre(elegido.nombre));
         })&&!datos?.nombres_generales_masculinos?.some(function(n){
@@ -111,5 +129,5 @@
   return {forma:forma,preferenciaOcupacion:preferenciaOcupacion,
     ocuparPermitida:ocuparPermitida,resolverSexo:resolverSexo,primerNombre:primerNombre,
     nombresEspecie:nombresEspecie,nombresDocumentados:nombresDocumentados,
-    elegirNombre:elegirNombre,nombresDH:nombresDH};
+    elegirPonderado:elegirPonderado,elegirNombre:elegirNombre,nombresDH:nombresDH};
 });
