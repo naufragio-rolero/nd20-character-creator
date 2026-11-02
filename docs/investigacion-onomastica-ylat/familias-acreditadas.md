@@ -64,3 +64,27 @@ Para agregar un nuevo vínculo, exigir una declaración de parentesco o familia 
 - El mismo ODS identifica a **Alim de Mostaganem** como **hijo adoptivo** de Fabrizio. **No reemplazar su denominación por «Alim Orovecchio»**, porque esa forma no consta en las fuentes.
 
 La hoja de preparación de Isophius, los seis personajes que contiene y las reservas de estatus están explicados en [isophius-fuentes-campana.md](isophius-fuentes-campana.md). El parentesco no impone un apellido único ni permite inferir que `de Mostaganem` sea un apellido hereditario.
+
+
+## Segunda verificación: casa, apellido y parentesco no son equivalentes
+
+### Casas con miembros de nombres diferentes
+
+- [Casa Lobeth](https://drive.google.com/file/d/161zJJ4kXnUehxGDrEl2HXWydwUiD6ZUp/view), ficha etiquetada «Tipo: Familia», contiene como miembro a **Mashera Skara**. La biografía de Mashera explica su matrimonio con un Lobeth, pero **la ficha mantiene el apellido Skara**. *Pertenencia a la casa* y *apellido mostrado* deben representarse por separado.
+- [Casa Adorasol](https://drive.google.com/file/d/1I_g1ni_qIrJXGcEteIfs2xQchUCgKlDd/view) incluye **Aerandil del Atardecer Refulgente** y **Anasthore del Atardecer Luciente**, además de Galeshra y Maverae Adorasol. **No se ha probado por qué figuran como miembros**; la relación documental no permite renombrarlos como Adorasol.
+- [Casa Iraldsay](https://drive.google.com/file/d/114RcJbWOKxUIAPc_8rbd2kRLCDQuA137/view) enumera en la ficha a **Ciale, Eman y Hiller**, mientras las biografías del censo establecen explícitamente a **Naleale y Aradale** como hijas de esa misma familia. **Las listas de miembros de una ficha no necesariamente son exhaustivas.**
+- [Casa Vardamir](https://drive.google.com/file/d/1We5LG-_WH8oDU-9T1uJW5vPGz-yA1KEJ/view) incluye a Hyarion, Elrohir, Daeron y Gilraen. La [biografía de Hyarion](https://drive.google.com/file/d/1LIuPErOX1U9Gf5jJhplismFvO6ru8FpY/view) documenta expresamente a su esposa **Stasi Giovanni**, y la maternidad de los cuatro hijos. **Stasi no debe recibir el apellido Vardamir de manera automática por matrimonio.**
+
+### Casa Kultstein: disuelta con personas supervivientes
+
+La [ficha de Casa Kultstein](https://drive.google.com/file/d/10uRTnEtrADwxdhIIanseoQ8Z9SpKI7ey/view) está marcada como **Disuelto** y enumera a **Viktor** y **Morgarath Kultstein**. La ficha de [Morgarath](https://drive.google.com/file/d/1XKGEWVB3Q40YRfGCXLtoTuduMNnOVIr7/view) lo describe como nigromante de los Kultstein educado en una comunidad secreta. El artículo publicado [«La condena de Viktor Kultstein»](https://drive.google.com/file/d/1GDzOljZierUkG3i6PrkcxuAqsBXWG487/view) presenta a Viktor como superviviente de la Purga.
+
+**Conclusión:** puede sobrevivir el apellido aunque una casa esté disuelta; ni la disolución implica extinción biológica completa ni la presencia de dos personas acredita su parentesco concreto o una casa vigente.
+
+### Distinción entre linaje y alias
+
+- La [ficha de Baryn Violatesoros](https://drive.google.com/file/d/19JtNIx4UEJvBteFP4ajG1wAUQqdsrKQD/view) señala que **«Violatesoros» fue un apodo** otorgado por sus compañeros. No acreditarlo como apellido familiar.
+- La [ficha de Jaleba Inversa](https://drive.google.com/file/d/11sruNoGvtI230SmcTr6XhWjqxJ8E_is1/view) llama **apellido** a «Inversa», aunque no muestra otros miembros de familia Inversa.
+- La ficha de [Neyney sin Apellido](https://drive.google.com/file/d/1Oc44ZzyDmCLVU_qWQ6Hmd6U-RG9ssLgq/view) explica que usa ese tratamiento voluntariamente; no es un apellido.
+
+**Observación editorial:** una marca de `familia_documentada` se refiere a una fuente positiva para la existencia de la casa o apellido, **no** a permiso de generar automáticamente nuevos miembros.
