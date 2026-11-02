@@ -28,14 +28,14 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener exclusivamente Forja DRS validada (PR #42)
+      - name: Obtener exclusivamente Forja DRS validada (PR #44)
         uses: actions/checkout@v4
         with:
-          ref: a8c43bbb3f7d950df84d385e3da495b70ad4c862
+          ref: 3aeb807cc9584f047660cba49327e816f115d24a
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "a8c43bbb3f7d950df84d385e3da495b70ad4c862"
+          test "$(git rev-parse HEAD)" = "3aeb807cc9584f047660cba49327e816f115d24a"
       # La revisión fijada ya contiene todos los cambios probados en PR #42.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
       - name: Auditar iconografia y funcionalidades fijadas
