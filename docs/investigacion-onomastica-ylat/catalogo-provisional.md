@@ -5,7 +5,7 @@
 **Exclusión absoluta:** Niguace/Niguaze y material de procedencia no acreditada.
 
 
-> **ACTUALIZACIÓN DE CANON POR AUTORÍA:** el [acta de decisiones (13 fijadas, ONO-02 pendiente)](acta-decisiones-autoria-2026-11-02.md) prevalece sobre recomendaciones antiguas del catálogo. Se permiten combinaciones creativas de apellidos de casa **con probabilidad muy baja**, mezcla de épocas/realidades, mantenimiento de Máthair/Pietro como entidades de Ylat y se conserva la convención eladrín **sin aplicarla a generación**. Formas editoriales aprobadas y hermandad de Leezar/Thingrim Lockbruck en el acta. Este catálogo sigue conservando las grafías fuente por trazabilidad.
+> **ACTUALIZACIÓN CANÓNICA DEFINITIVA (2026-11-02):** la autoría ha cerrado las **14 decisiones ONO** en el [acta editorial](acta-decisiones-autoria-2026-11-02.md). **Dyeld es el padre de Tuliëlle**; Eldburg queda como contradicción de ficha anterior, no como segunda filiación aprobada. Se permite reutilización creativa de apellidos nobiliarios con **probabilidad muy baja** aún sin cifra implementada, mezcla de épocas/realidades, conservación de Máthair/Pietro y no generación mediante convenciones eladrines. Las grafías anteriores siguen documentadas por trazabilidad. Ninguna de estas decisiones implica modificaciones automáticas en producción.
 
 ## Criterios de clasificación
 
