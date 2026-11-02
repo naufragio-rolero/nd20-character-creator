@@ -470,13 +470,13 @@
         var icono=iconosRecursos[p[0]],simbolo=icono?
           '<svg class="icono-recurso" aria-hidden="true" focusable="false">'+
           '<use href="assets/icons-forja.svg#'+icono+'"></use></svg>':'';
-        var nota=p[0]==='Blindaje'&&blindaje?.bonoEscudo?
-          '<small class="recurso-aclaracion">Escudo '+esc(blindaje.bonoEscudo)+
-          ' solo al bloquear</small>':'';
         return '<div class="recurso-ficha">'+simbolo+
           '<span class="recurso-texto"><span class="recurso-nombre">'+esc(p[0])+
-          '</span><strong>'+esc(p[1])+'</strong>'+nota+'</span></div>';
-      }).join('')+'</div>';
+          '</span><strong>'+esc(p[1])+'</strong></span></div>';
+      }).join('')+
+      (blindaje?.bonoEscudo?
+        '<small class="recurso-nota-escudo">Escudo '+esc(blindaje.bonoEscudo)+
+        ' solo al bloquear</small>':'')+'</div>';
   }
   function htmlProteccionesEquipadas(personaje,id){
     if(personaje.juego!=='Naufragio d20 · Fantasía'||
