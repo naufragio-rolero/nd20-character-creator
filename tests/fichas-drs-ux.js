@@ -152,6 +152,18 @@ for(const objeto of nuevos){
   if(objeto.du)assert.equal(propiedades.get('Dado de Uso'),'DU '+objeto.du);
   assert.equal(ficha.descripcion,objeto.detalle,'Detalle literal: '+objeto.nombre);
 }
+for(const nombre of ['Burro o mula','Caballo de guerra','Caballo de monta',
+  'Escarabajo gigante','Mastín','Pony']){
+  const ficha=api.buscar(i,nombre,'equipo','nd20');
+  assert.equal(ficha.tipo,'Montura','Tipo explícito para '+nombre);
+  assert.equal(api.presentarEquipo(ficha).tipo,'Montura');
+  assert.equal(api.presentarEquipo(ficha).categoria,'Monturas');
+}
+for(const nombre of ['Carro','Carro de guerra','Carruaje','Diligencia']){
+  const ficha=api.buscar(i,nombre,'equipo','nd20');
+  assert.equal(api.presentarEquipo(ficha).tipo,'Vehículo');
+  assert.equal(api.presentarEquipo(ficha).categoria,'Vagones y diligencias');
+}
 const equina=api.presentarEquipo(api.buscar(i,'Armadura equina','equipo','nd20'));
 assert.equal(new Map(equina.primarios).has('Precio'),false);
 assert.equal(new Map(equina.primarios).get('Precio variable'),
