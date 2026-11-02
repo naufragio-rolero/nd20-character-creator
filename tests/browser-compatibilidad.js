@@ -199,6 +199,51 @@ async function probar(nombre,tipo,url){
     assert.match(await detallesPoder.innerText(),/Magnitudes literales · Nivel 1/);
     assert.match(await detallesPoder.innerText(),/12 metros/);
     assert.match(await detallesPoder.innerText(),/1d6 Intervalos/);
+    // Las estructuras de los Conjuros proceden de índices documentados:
+    // nunca se añade HTML dentro de los textos literales del DRS.
+    for(const entrada of [
+      ['conjuro-8','Luz',2],
+      ['conjuro-18','Ilusión',2],
+      ['conjuro-19','Resistir los elementos',2],
+      ['conjuro-45','Forja arcana',4],
+      ['conjuro-51','Lluvia de estrellas',2],
+      ['conjuro-61','Palabra de Poder: Muerte',2]
+    ]){
+      await page.locator('#e2e-poder').evaluate((el,id)=>{
+        el.dataset.glosaId=id;
+      },entrada[0]);
+      await page.locator('#e2e-poder').click();
+      assert.equal(await popup.locator('h3').textContent(),entrada[1]);
+      assert.equal(await popup.locator('.info-conjuro-bloques>ul>li').count(),entrada[2],
+        nombre+': lista semántica de '+entrada[1]);
+      assert.equal(await popup.locator('.info-conjuro-bloques>table').count(),0);
+    }
+    assert.equal(await popup.locator('.info-conjuro-bloques>p').count(),1,
+      nombre+': Palabra de Poder tiene introducción y lista aparte');
+    await page.locator('#e2e-poder').evaluate(el=>{
+      el.dataset.glosaId='conjuro-14';
+    });
+    await page.locator('#e2e-poder').click();
+    assert.equal(await popup.locator('h3').textContent(),'Calentar metal');
+    const tablaConjuro=popup.locator('.info-tabla-conjuro');
+    assert.equal(await tablaConjuro.count(),1,nombre+': tabla real de Calentar metal');
+    assert.deepEqual(await tablaConjuro.locator('thead th').allTextContents(),
+      ['Turno','Temperatura','Daño']);
+    assert.equal(await tablaConjuro.locator('tbody tr').count(),5);
+    assert.deepEqual(await tablaConjuro.locator('tbody tr').nth(2).locator('td').allTextContents(),
+      ['3-4','Ardiente','2d6']);
+    assert.equal(await popup.locator('.info-conjuro-bloques>p').count(),2);
+    await page.setViewportSize({width:390,height:844});
+    const tablaMovil=await tablaConjuro.evaluate(e=>({
+      ancho:e.getBoundingClientRect().width,
+      ventana:innerWidth,
+      desbordamiento:e.scrollWidth-e.clientWidth
+    }));
+    assert.ok(tablaMovil.ancho<390&&tablaMovil.desbordamiento<3,
+      nombre+': tabla DRS legible en móvil sin desbordamiento');
+    await page.screenshot({path:path.join(capturas,nombre+'-tabla-calentar-metal-movil.png')});
+    await page.setViewportSize({width:1440,height:900});
+    // Técnicas y efectos no pertenecientes a Conjuros siguen siendo texto plano.
     await page.locator('#e2e-poder').evaluate(x=>{x.dataset.glosaId='tecnica-02';});
     await page.locator('#e2e-poder').click();
     assert.equal(await popup.locator('.info-tipo').textContent(),'Técnica');

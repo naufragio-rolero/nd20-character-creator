@@ -226,11 +226,52 @@
       });
       tecnicos.appendChild(tabla);
     }
-    // Un único efecto DRS visible: nunca duplicar con resúmenes o desplegables.
-    var d=document.createElement("p");d.className="info-descripcion";
-    d.textContent=info.descripcion||
-      "No consta una descripción en la fuente seleccionada.";
-    c.appendChild(d);
+    // Conjuros DRS: solo se cambia la estructura HTML, nunca las palabras.
+    // El texto sin formato se conserva para los otros Poderes y como respaldo.
+    if(poder&&Array.isArray(info.bloques_conjuro)&&info.bloques_conjuro.length){
+      var descripcion=document.createElement('div');
+      descripcion.className='info-descripcion info-conjuro-bloques';
+      info.bloques_conjuro.forEach(function(bloque){
+        if(bloque.tipo==='parrafo'){
+          var parrafo=document.createElement('p');
+          parrafo.textContent=bloque.texto;
+          descripcion.appendChild(parrafo);
+        }else if(bloque.tipo==='lista'){
+          var lista=document.createElement('ul');
+          bloque.elementos.forEach(function(texto){
+            var item=document.createElement('li');
+            item.textContent=texto;lista.appendChild(item);
+          });
+          descripcion.appendChild(lista);
+        }else if(bloque.tipo==='tabla'){
+          var tablaConjuro=document.createElement('table');
+          tablaConjuro.className='info-tabla-conjuro';
+          tablaConjuro.setAttribute('aria-label','Tabla de '+info.nombre);
+          var cabeceraTabla=document.createElement('thead'),filaCabecera=document.createElement('tr');
+          bloque.cabeceras.forEach(function(texto){
+            var celda=document.createElement('th');
+            celda.scope='col';celda.textContent=texto;filaCabecera.appendChild(celda);
+          });
+          cabeceraTabla.appendChild(filaCabecera);
+          var cuerpoTabla=document.createElement('tbody');
+          bloque.filas.forEach(function(fila){
+            var tr=document.createElement('tr');
+            fila.forEach(function(texto){
+              var td=document.createElement('td');td.textContent=texto;tr.appendChild(td);
+            });
+            cuerpoTabla.appendChild(tr);
+          });
+          tablaConjuro.append(cabeceraTabla,cuerpoTabla);
+          descripcion.appendChild(tablaConjuro);
+        }
+      });
+      c.appendChild(descripcion);
+    }else{
+      var d=document.createElement('p');d.className='info-descripcion';
+      d.textContent=info.descripcion||
+        'No consta una descripción en la fuente seleccionada.';
+      c.appendChild(d);
+    }
     // Aclaraciones aprobadas: solo en Opciones avanzadas → Detalles técnicos.
     // No forman parte de la descripción DRS ni introducen efectos nuevos.
     if(talento&&talento.aclaracion){
