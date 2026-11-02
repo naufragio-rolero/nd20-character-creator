@@ -6,8 +6,7 @@
 
 Los 35 pictogramas son archivos autónomos en `assets/icons/ID.svg`.
 Todos tienen `viewBox="0 0 24 24"`, anchura y altura idénticas,
-figura centrada y una huella máxima de 19,5 unidades dentro del cuadrado.
-La normalización es **proporcional**: no deforma iconos alargados o estrechos.
+figura centrada y proporciones conservadas. Los 24 iconos aún derivados de Game-icons.net ocupan una huella máxima de 19,5 unidades; los once diseños propios utilizan su geometría original aprobada, optimizada para lectura a 16 px.
 
 **Para reemplazar uno:** editar únicamente `assets/icons/ID.svg`, sin
 renombrar el archivo, con lienzo 1:1 y el dibujo dentro de sus límites.
@@ -38,11 +37,13 @@ altera automáticamente el sitio publicado.
 
 ## Nueva iconografía Game-icons.net (atribución y adaptación)
 
-Los 35 SVG visibles de `assets/icons/` proceden de [Game-icons.net](https://game-icons.net/), bajo [Creative Commons Atribución 3.0](https://creativecommons.org/licenses/by/3.0/). Sus autores originales son Delapouite, Lorc, Kier Heyl, DarkZaitzev y sbed. **Cada icono tiene su entrada con autor, título y vínculo a la obra original** en `assets/icons/CREDITOS-GAME-ICONS.txt`, accesible mediante el pie de página de la Forja. Es obligatorio mantener esta atribución en cualquier publicación que incluya los iconos.
+Los 24 SVG de origen ajeno que siguen en `assets/icons/` proceden de [Game-icons.net](https://game-icons.net/), bajo [Creative Commons Atribución 3.0](https://creativecommons.org/licenses/by/3.0/). Sus autores originales son Delapouite, Lorc, Kier Heyl, DarkZaitzev y sbed. **Cada icono tiene su entrada con autor, título y vínculo a la obra original** en `assets/icons/CREDITOS-GAME-ICONS.txt`, accesible mediante el pie de página de la Forja. Es obligatorio mantener esta atribución en cualquier publicación que incluya los iconos.
 
-Los SVG originales se guardan, con su estructura original 512×512 y sin publicarlos en el paquete DRS, en `docs/iconografia/originales/game-icons/<autor>/<icono>.svg`. Los 35 adaptados emplean fondo transparente, `viewBox="0 0 24 24"`, relleno monocromo y un único marco proporcional 19,5/512 dentro del lienzo 24×24. Las máscaras CSS conservan el color del tema.
+Las 35 fuentes originales de Game-icons.net, incluidas las sustituidas, se conservan como archivo histórico privado de distribución en `docs/iconografia/originales/game-icons/<autor>/<icono>.svg`. Los 24 derivados restantes emplean proporción 19,5/512; los 11 iconos nuevos son originales propios, con lienzo transparente `viewBox="0 0 24 24"` y siluetas simplificadas. Las máscaras CSS conservan el color del tema. Las máscaras CSS conservan el color del tema.
 
-`esp-semiorco.svg` es una composición modificada de **orc-head** y **monk-face**, ambos de Delapouite, divididos longitudinalmente para representar herencia humana y orca; no utiliza `goblin-head`. El icono original `goblin-head.svg` está reservado en `docs/iconografia/originales/game-icons/delapouite/` para una posible futura especie Goblin, pero no está incluido en la aplicación pública ni se añade especie alguna al DRS.
+A fecha de la primera tanda, `esp-semiorco.svg` continúa siendo una composición modificada de **orc-head** y **monk-face**, ambos de Delapouite, divididos longitudinalmente para representar herencia humana y orca; no utiliza `goblin-head`. El icono original `goblin-head.svg` está reservado en `docs/iconografia/originales/game-icons/delapouite/` para una posible futura especie Goblin, pero no está incluido en la aplicación pública ni se añade especie alguna al DRS.
+
+Los 11 diseños propios aprobados son `esp-humano`, `esp-elfo`, `esp-orco`, `esp-semielfo`, `ico-configurar`, `recurso-salud`, `recurso-esfuerzo`, `recurso-movimiento`, `recurso-potencia`, `recurso-esencia` y `recurso-blindaje`. La licencia CC BY de Game-icons.net no se atribuye a estos once. El archivo `CREDITOS-GAME-ICONS.txt` enumera los 24 derivados restantes, con autor y URL de cada fuente.
 
 No se alteran reglas, categorías ni nombres de especies. La sustitución de archivos individuales se hace sin regenerar sprites. El despliegue LIVE requiere aprobación separada porque el workflow de producción está fijado por revisión y hashes.
 

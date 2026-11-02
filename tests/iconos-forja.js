@@ -42,11 +42,20 @@ const ids=[
 assert.deepEqual(
   fs.readdirSync(dir).filter(x=>x.endsWith('.svg')).sort(),
   ids.map(x=>x+'.svg').sort(),'35 archivos autónomos sin iconos ajenos');
+const originalesPropios=new Set(["esp-humano","esp-elfo","esp-orco","esp-semielfo","ico-configurar","recurso-salud","recurso-potencia","recurso-esfuerzo","recurso-blindaje","recurso-movimiento","recurso-esencia"]);
+assert.equal(originalesPropios.size,11,'11 iconos propios aprobados');
 for(const id of ids){
   const svg=fs.readFileSync(path.join(dir,id+'.svg'),'utf8');
   assert.match(svg,/<svg[^>]+viewBox="0 0 24 24"/,id+': cuadrado 1:1');
   assert.ok(svg.includes('id="'+id+'"'),id+': identificador');
-  assert.ok(svg.includes('<g transform="translate('),id+': centrado proporcional');
+  if(originalesPropios.has(id)){
+    assert.match(svg,/Icono original de Naufragio d20 aprobado/,
+      id+': diseño original aprobado, no derivado de Game-icons');
+    assert.ok(!svg.includes('Game-icons.net'),id+': sin atribucion ajena');
+  }else{
+    assert.ok(svg.includes('<g transform="translate('),id+': original Game-icons escalado');
+    assert.match(svg,/Game-icons.net/,id+': atribucion de derivado');
+  }
   assert.ok(!/<symbol\b|<image\b|<use\b|<script\b/i.test(svg),
     id+': SVG independiente sin recursos remotos');
 }
@@ -75,12 +84,15 @@ assert.match(semiorco,/mitad-orco/,'El semiorco combina dos fuentes');
 assert.match(semiorco,/mitad-humano/,'El semiorco tiene mitad humana');
 for(const id of ids){
   const svg=fs.readFileSync(path.join(dir,id+'.svg'),'utf8');
-  assert.match(svg,/Game-icons.net/,'Cada icono adaptado conserva atribucion');
   assert.ok(!svg.includes('M0 0h512v512H0z'),'Sin fondo opaco original');
 }
 const creditos=fs.readFileSync(path.join(dir,'CREDITOS-GAME-ICONS.txt'),'utf8');
 for(const id of ids) assert.ok(creditos.includes(id+'.svg'),'Crédito '+id);
+assert.equal(creditos.split('\n').filter(line=>line.includes(' — https://game-icons.net/1x1/')).length,24,
+  '24 iconos derivados con sus enlaces originales');
+for(const id of originalesPropios) assert.ok(creditos.includes(id+'.svg — diseño original propio'),
+  'Atribucion como diseño propio '+id);
 assert.ok(fs.readFileSync(path.join(raiz,'index.html'),'utf8')
   .includes('assets/icons/CREDITOS-GAME-ICONS.txt'),'Créditos enlazados desde la Forja');
 
-console.log('OK · 35 iconos Game-icons SVG 1:1, créditos y 35 fuentes originales.');
+console.log('OK · 35 SVG 1:1 (11 originales aprobados + 24 derivados), créditos y originales archivados.');
