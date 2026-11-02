@@ -76,7 +76,7 @@ assert.ok(!appJs.includes("'url(assets/icons/"),
 const rutaOrigen=path.join(raiz,'docs','iconografia','originales','game-icons');
 const originales=fs.readdirSync(rutaOrigen).flatMap(autor=>
   fs.readdirSync(path.join(rutaOrigen,autor)).filter(x=>x.endsWith('.svg')));
-assert.equal(originales.length,39,'39 SVG fuente históricos, incluido Goblin head reservado');
+assert.equal(originales.length,40,'40 SVG fuente históricos, incluido Goblin head reservado');
 assert.ok(fs.existsSync(path.join(rutaOrigen,'delapouite','goblin-head.svg')),
   'El original de goblin queda en reserva, no asignado al semiorco');
 const semiorco=fs.readFileSync(path.join(dir,'esp-semiorco.svg'),'utf8');
@@ -99,6 +99,7 @@ const fuentesDecididas=[
   ["esp-orco","orc-head","Delapouite"],
   ["esp-semielfo","elf-ear","Delapouite"],
   ["esp-mediano","baby-face","Delapouite"],
+  ["esp-gnomo","big-gear","DarkZaitzev"],
   ["ocu-mago","pointy-hat","Lorc"],
   ["ocu-guerrero","axe-sword","Delapouite"],
   ["ocu-ladron","robin-hood-hat","Delapouite"],
@@ -112,6 +113,12 @@ for(const [id,icono,autor] of fuentesDecididas){
 }
 assert.ok(creditos.includes('esp-mediano.svg — baby-face'),
   'Los medianos ya no tienen puerta de hobbit');
+assert.ok(!fs.readFileSync(path.join(dir,'esp-gnomo.svg'),'utf8').includes('pointy-hat'),
+  'El gnomo ya no comparte el sombrero del Mago');
+assert.ok(fs.readFileSync(path.join(dir,'ocu-mago.svg'),'utf8').includes('pointy-hat'),
+  'El Mago conserva el sombrero puntiagudo');
+assert.ok(fs.existsSync(path.join(rutaOrigen,'darkzaitzev','big-gear.svg')),
+  'El SVG original big-gear se conserva como fuente');
 
 assert.ok(fs.readFileSync(path.join(raiz,'index.html'),'utf8')
   .includes('assets/icons/CREDITOS-GAME-ICONS.txt'),'Créditos enlazados desde la Forja');

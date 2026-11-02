@@ -23,7 +23,7 @@ error de consola. El selector visual
 usa exactamente el mismo mecanismo. Los pictogramas son decorativos y
 se mantienen las etiquetas accesibles.
 
-- Especies: `esp-elfo`, `esp-enano`, `esp-humano`, `esp-mediano`, `esp-gnomo`, `esp-semielfo`, `esp-orco`, `esp-semiorco`.
+- Especies: `esp-elfo`, `esp-enano`, `esp-humano`, `esp-mediano`, `esp-gnomo` (`big-gear` de DarkZaitzev), `esp-semielfo`, `esp-orco`, `esp-semiorco`.
 - Ocupaciones: `ocu-clerigo`, `ocu-guerrero`, `ocu-mago`, `ocu-ladron`.
 - Poderes y ajustes: `ico-conjuro`, `ico-tecnica`, `ico-configurar`.
 - Recursos: `recurso-salud`, `recurso-esfuerzo`, `recurso-movimiento`, `recurso-potencia`, `recurso-esencia`, `recurso-blindaje`.
@@ -39,7 +39,7 @@ altera automáticamente el sitio publicado.
 
 Los 28 SVG de origen ajeno que siguen en `assets/icons/` proceden de [Game-icons.net](https://game-icons.net/), bajo [Creative Commons Atribución 3.0](https://creativecommons.org/licenses/by/3.0/). Sus autores originales son Delapouite, Lorc, Kier Heyl y sbed. **Cada icono tiene su entrada con autor, título y vínculo a la obra original** en `assets/icons/CREDITOS-GAME-ICONS.txt`, accesible mediante el pie de página de la Forja. Es obligatorio mantener esta atribución en cualquier publicación que incluya los iconos.
 
-Las 39 fuentes originales de Game-icons.net, incluidas las sustituidas, se conservan como archivo histórico privado de distribución en `docs/iconografia/originales/game-icons/<autor>/<icono>.svg`. Los 28 derivados restantes emplean proporción 19,5/512; los 7 iconos de controles y Recursos son originales propios, con lienzo transparente `viewBox="0 0 24 24"` y siluetas simplificadas. Las máscaras CSS conservan el color del tema.
+Las 40 fuentes originales de Game-icons.net, incluidas las sustituidas, se conservan como archivo histórico privado de distribución en `docs/iconografia/originales/game-icons/<autor>/<icono>.svg`. Los 28 derivados restantes emplean proporción 19,5/512; los 7 iconos de controles y Recursos son originales propios, con lienzo transparente `viewBox="0 0 24 24"` y siluetas simplificadas. Las máscaras CSS conservan el color del tema.
 
 A fecha de la primera tanda, `esp-semiorco.svg` continúa siendo una composición modificada de **orc-head** y **monk-face**, ambos de Delapouite, divididos longitudinalmente para representar herencia humana y orca; no utiliza `goblin-head`. El icono original `goblin-head.svg` está reservado en `docs/iconografia/originales/game-icons/delapouite/` para una posible futura especie Goblin, pero no está incluido en la aplicación pública ni se añade especie alguna al DRS.
 
