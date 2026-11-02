@@ -325,3 +325,12 @@ Se añaden dos fuentes de **clasificación distinta de los nombres de PNJ**, par
 - [Enciclopedia — cronología y nombres astrales](cronologia-y-astroonimia-enciclopedia.md): **Norluth** (dragón de acero), **Narelmayl** (dirigente), **Shadel** (nombre individual sin segundo componente), **Alleinn Nuj** (imperio) y **Thelne Saeras** (ciudadela). Identificadas además las designaciones de cinco planetas, la estrella **Kaeduin**, el satélite **Vaiel** y la grafía **Y'Lat**.
 
 **Claves de reconciliación:** el mismo signo **Vaiel** puede remitir al satélite o a la entidad deífica; la misma identidad **Narga Solarys/Ganragán** tiene nombres distintos en diferentes fases de su relato; **Bazjurm/Bajzurm** son grafías de una ficha. Estos ejemplos exigen **entidad, tipo, forma literal, fuente y relación**, no una lista plana. No sumar los inventarios a las **88 denominaciones** del antiguo corte Isophius/Malasthar/Biografías. No se autoriza generación nueva.
+
+
+## Anexo — Personajes de Gestas publicados y en borrador (2026-11-02)
+
+El [corpus de tres Gestas](corpus-gesta-personajes-ylat.md) distingue **cinco denominaciones personales** de aventuras publicadas en 2025 (**Arloth, Zarkon, Tomás Belardo, Ilythia, Santa Verna**) y **seis** de un borrador no publicado en 2026 (**Naira Vell, Aldo Reme, Liria, Miro, Berno, Joren**). Todas son formas escritas en relatos declarados de Ylat. Ninguna coincide literalmente con el antiguo censo de 140 PNJ, el catálogo previo ni los tres repertorios de nombres en `main`.
+
+**Precauciones:** **Santa Verna** es patrona religiosa **y** denominación de una aldea, no apellido. **Tomás Belardo, Naira Vell y Aldo Reme** son nombres completos documentados, pero las fuentes leídas **no acreditan** heredabilidad general del segundo componente. Los nombres simples permanecen como tales: no completar arbitrariamente con apellido. Los seis nombres de *La siega de los nombres* siguen siendo **borrador**, no material publicado.
+
+No sumar las once denominaciones a los **88 testimonios** de Isophius/Malasthar/Biografías sin una futura auditoría cruzada global; son inventarios con origen, estado y función distintos. Consulta documental posible; **generación nueva no autorizada**.
