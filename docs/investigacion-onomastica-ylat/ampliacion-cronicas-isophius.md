@@ -4,6 +4,8 @@
 **Estado:** investigación de nuevas fuentes **fuera del Excel de 140 PNJ**. No implica entradas nuevas listas para generación ni cambios en el canon.  
 **Precaución:** se usan solo nombres ficticios, relaciones y referencias narrativas. No se trasladan datos personales de jugadores, autores o participantes de formularios.
 
+**Aclaración de procedencia:** según la autoría, *Susurros en Isophius* se **jugó posteriormente** a los registros del Excel histórico de 140 PNJ; **no llegó a consolidarse** en él. La falta de entradas no es anomalía ni argumento para descartar los personajes. La documentación de juego y la preparatoria conservan distintos grados de evidencia y no se mezclan sin marca.
+
 ## 1. Fuentes directas de campaña cotejadas
 
 - [«[1x06] Capítulo sexto: Reposo de Gaaladar»](https://drive.google.com/file/d/1qYR74sOdmTDUkPIuwkFJfD3kuXu_OIIi/view), archivo de los mensajes de la campaña *Susurros en Isophius* de 2019, con escenas del Consejo y duelo entre personajes de casas nobles.
