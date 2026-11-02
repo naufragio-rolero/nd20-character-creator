@@ -522,7 +522,10 @@
     var items=(pares||[]).slice(),blindaje=null;
     if(personaje?.juego==='Naufragio d20 · Fantasía'){
       blindaje=blindajePersonaje(personaje);
-      if(blindaje)items.push(['Blindaje',blindaje.valor]);
+      // La ausencia de armadura es un estado, no un dado de Blindaje.
+      // El selector y la copia textual mantienen el dato explícito.
+      if(blindaje)items.push(['Blindaje',
+        blindaje.valor==='Sin armadura'?'—':blindaje.valor]);
     }
     return '<div class="recursos recursos-rejilla" aria-label="Recursos del personaje">'+
       items.map(function(p){

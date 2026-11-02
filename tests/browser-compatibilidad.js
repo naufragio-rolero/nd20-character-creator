@@ -815,7 +815,7 @@ async function probar(nombre,tipo,url){
       .evaluateAll(xs=>xs.map(x=>x.value).filter(Boolean));
     const blindajeVisible=()=>fichaTalentos.locator('.recurso-ficha')
       .filter({hasText:'Blindaje'}).locator('strong').innerText();
-    assert.equal(await blindajeVisible(),'Sin armadura',
+    assert.equal(await blindajeVisible(),'—',
       nombre+': ninguna armadura se equipa automáticamente');
     if(opcionesArmadura.length){
       const elegida=opcionesArmadura[0];
@@ -829,14 +829,14 @@ async function probar(nombre,tipo,url){
       assert.equal(await protecciones.locator('select[data-tipo="armadura"]').inputValue(),elegida,
         nombre+': mantiene selección tras redibujar ficha');
       await protecciones.locator('select[data-tipo="armadura"]').selectOption('');
-      assert.equal(await blindajeVisible(),'Sin armadura');
+      assert.equal(await blindajeVisible(),'—');
     }
     const opcionesEscudo=await protecciones.locator('select[data-tipo="escudo"] option')
       .evaluateAll(xs=>xs.map(x=>x.value).filter(Boolean));
     if(opcionesEscudo.length){
       await protecciones.locator('select[data-tipo="escudo"]')
         .selectOption(opcionesEscudo[0]);
-      assert.equal(await blindajeVisible(),'Sin armadura',
+      assert.equal(await blindajeVisible(),'—',
         nombre+': un escudo no se suma al dado permanente de Blindaje');
       assert.match(await recursos.locator('.recurso-nota-escudo').innerText(),
         /Escudo \+1 solo al bloquear/);
