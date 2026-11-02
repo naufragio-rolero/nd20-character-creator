@@ -12,6 +12,7 @@ const plantilla=read('assets/pdf-a5/forja-fantasia-epica-a5.pdf');
 const continuacion=read('assets/pdf-a5/forja-continuacion-a5.pdf');
 const fontBytes=read('assets/pdf-a5/SourceSerif4_400Regular.ttf');
 const mapa=JSON.parse(read('assets/pdf-a5/campos-ficha-a5.json').toString('utf8'));
+const catalogoEquipo=JSON.parse(read('data/equipo-inicial.json').toString('utf8'));
 function fixture(nivel){
   return {
     juego:'Naufragio d20 · Fantasía',
@@ -20,16 +21,18 @@ function fixture(nivel){
     atributos:['Fuerza','Agilidad','Resistencia','Mente','Intuición','Presencia'].map(
       (nombre,i)=>({nombre,valor:11+i,dificultad:9-i,favorito:i===0})),
     recursos:[['Salud','25 (d8)'],['Esfuerzo',2],['Movimiento','Cerca'],['Potencia',1]],
-    equipo:['Espada','Escudo pequeño'],protecciones_equipadas:{armadura:'',escudo:'Escudo pequeño'},
+    equipo:['Hacha de batalla','Armadura acolchada','Escudo pequeño'],protecciones_equipadas:{armadura:'Armadura acolchada',escudo:'Escudo pequeño'},
     competencias:['Armas'],capacidades:nivel===30?
       Array.from({length:154},(_,i)=>'Talento de prueba '+(i+1)):['Recuperación'],
-    poderes:[],conjuros_preparados:[],riqueza:'10 mo',notas:[]
+    poderes:[],conjuros_preparados:[],riqueza:'10 mo',
+    notas:['OBSERVACION_PAGINA_DOS: Comprobar ubicación y conservar texto íntegro.']
   };
 }
 async function revisar(nivel){
   const p=fixture(nivel),original=JSON.stringify(p);
   const r=await exportar(p,{PDFLib:{PDFDocument,rgb},fontkit,fontBytes,
-    plantilla,continuacion,mapa,consultarBlindaje:()=>({valor:'Sin armadura'})});
+    plantilla,continuacion,mapa,catalogoEquipo,
+    consultarBlindaje:()=>({valor:'d4'})});
   assert.equal(JSON.stringify(p),original,'No mutar personaje');
   assert(r.bytes.length>15000);
   const qaDir=path.join(root,'dist','pdf-a5-preimpresion');
@@ -37,7 +40,7 @@ async function revisar(nivel){
   fs.writeFileSync(path.join(qaDir,'nivel-'+nivel+'.pdf'),r.bytes);
   const pdf=await PDFDocument.load(r.bytes);
   assert.equal(pdf.getPageCount(),r.paginas);
-  if(nivel===30)assert(r.paginas>1);
+  assert(r.paginas>=2,'Las observaciones generan continuación, incluso al Nivel 1');
   for(const page of pdf.getPages()){
     const {width,height}=page.getSize();
     assert(Math.abs(width-419.528)<1,'ancho A5');
