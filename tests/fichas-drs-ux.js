@@ -34,6 +34,9 @@ const i=api.indice({fantasia:{especies:cargar('especies.json'),
   equipo:eq,tecnicasDRS:tecnica,glosasEquipoDRS:objetos,
   glosasTalentosDRS:glosas,talentosDRS:canon,
   aclaracionesTalentosDRS:cargar('aclaraciones-talentos-drs.json'),
+  descripciones:cargar('fichas-documentales.json'),
+  danioCompuesto:cargar('conjuros-danio-compuesto.json'),
+  magnitudes:cargar('conjuros-magnitudes-literales.json'),
   conjurosRevisados:revisados});
 for(const x of tecnica.registros){
   const ficha=api.buscar(i,x.nombre,'poder','nd20');
@@ -72,6 +75,64 @@ for(const conjuro of catalogo.conjuros){
   assert.equal(vista.circulo,conjuro.circulo,'Círculo de '+conjuro.nombre);
   conjuro.escuelas.forEach(x=>encontradas.add(x));
 }
+// Verificación de fichas contra tablas del DOCX DRS, sin calcular combate.
+const estadisticas=[
+  [eq.armas,[
+    ['Daga','Daño','1d4'],['Daga','Penetración','1'],['Daga','Durabilidad','d8'],
+    ['Arco corto','Alcance','48 m'],['Arco corto','Daño','1d6'],
+    ['Cerbatana','Penetración','0'],['Espadón','Daño','1d12'],
+    ['Martillo de guerra','Durabilidad','d10']]],
+  [eq.varitas_defensa,[
+    ['Varita de cerezo','Alcance','12 m'],['Varita de cerezo','Daño','1d3'],
+    ['Varita de cerezo','Penetración','1'],['Varita de cerezo','Durabilidad','d4'],
+    ['Varita de cerezo','Munición','DU d6']]],
+  [eq.armaduras,[
+    ['Armadura de tela','Blindaje','d4'],['Armadura de tela','Durabilidad','—'],
+    ['Armadura de pieles','Blindaje','d6'],['Armadura de pieles','Durabilidad','d6'],
+    ['Cota de mallas','Blindaje','d10'],['Cota de mallas','Durabilidad','d8']]],
+  [eq.escudos,[
+    ['Escudo pequeño','Blindaje','+1'],['Escudo pequeño','Durabilidad','d6'],
+    ['Escudo pequeño','Daño','d3']]]
+];
+const consultaCampos=nombre=>{
+  const info=api.buscar(i,nombre,'equipo','nd20');
+  assert.ok(info,'Sin entrada de Equipo '+nombre);
+  const ui=api.presentarEquipo(info);
+  return new Map(ui.primarios);
+};
+for(const [familia,filas] of estadisticas){
+  for(const [nombre,clave,esperado] of filas)
+    assert.equal(consultaCampos(nombre).get(clave),esperado,
+      'Transcripción DRS de '+nombre+'/'+clave);
+}
+assert.deepEqual([eq.armas.length,eq.armaduras.length,eq.escudos.length,
+  eq.varitas_defensa.length],[38,14,3,4]);
+// Todas las filas oficiales con atributos de combate se pueden consultar;
+// el literal «—» no se convierte en un supuesto dado de Durabilidad.
+for(const objeto of [...eq.armas,...eq.armaduras,...eq.escudos,...eq.varitas_defensa]){
+  const fields=consultaCampos(objeto.nombre);
+  for(const [origen,vista] of [
+    ['dano','Daño'],['blindaje','Blindaje'],
+    ['penetracion','Penetración'],['durabilidad','Durabilidad'],
+    ['alcance','Alcance']]){
+    if(!Object.hasOwn(objeto,origen))continue;
+    assert.ok(fields.has(vista),
+      objeto.nombre+' debe ofrecer '+vista);
+    assert.equal(fields.get(vista),
+      objeto[origen]==null||objeto[origen]==='-'?'—':String(objeto[origen]),
+      objeto.nombre+'/'+vista+' muestra el literal DRS');
+  }
+}
+const aguijon=api.buscarPorId(i,'conjuro-0','poder','nd20');
+assert.ok(aguijon);
+const vistaAguijon=api.presentarPoder(aguijon);
+assert.deepEqual(vistaAguijon.primarios.filter(p=>p[0]==='Alcance'),
+  [['Alcance','20 m']],'Aguijón impío solo muestra un Alcance DRS');
+assert.deepEqual(vistaAguijon.primarios.filter(p=>p[0]==='Daño'),
+  [['Daño','1d6 (veneno e impío)']],
+  'Dado y tipos simultáneos explícitos, sin cálculo automatizado');
+assert.match(aguijon.descripcion,/1d6 de daño por veneno e impío/);
+
 assert.deepEqual(encontradas,seis,'Las escuelas reales del catálogo son las seis del DRS');
 // Auditoría de los 64 Conjuros. El formato debe conservar cada cadena
 // original, en el mismo orden y una sola vez. No modificar huellas DRS.

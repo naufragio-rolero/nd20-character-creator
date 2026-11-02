@@ -23,143 +23,230 @@
     {
       "nombre": "Daga",
       "precio": 2,
-      "tipo": "ligera"
+      "tipo": "ligera",
+      "dano": "1d4",
+      "penetracion": 1,
+      "durabilidad": "d8"
     },
     {
       "nombre": "Clava",
       "precio": 0.1,
-      "tipo": "ligera"
+      "tipo": "ligera",
+      "dano": "1d4",
+      "penetracion": 0,
+      "durabilidad": "d4"
     },
     {
       "nombre": "Hoz",
       "precio": 1,
-      "tipo": "ligera"
+      "tipo": "ligera",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d4"
     },
     {
       "nombre": "Martillo ligero",
       "precio": 2,
-      "tipo": "ligera"
+      "tipo": "ligera",
+      "dano": "1d4",
+      "penetracion": 2,
+      "durabilidad": "d6"
     },
     {
       "nombre": "Hacha de mano",
       "precio": 5,
-      "tipo": "ligera"
+      "tipo": "ligera",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d6"
     },
     {
       "nombre": "Espada corta",
       "precio": 10,
-      "tipo": "ligera"
+      "tipo": "ligera",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d8"
     },
     {
       "nombre": "Cimitarra",
       "precio": 25,
-      "tipo": "ligera"
+      "tipo": "ligera",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d8"
     },
     {
       "nombre": "Bastón",
       "precio": 0.2,
-      "tipo": "una_mano"
+      "tipo": "una_mano",
+      "dano": "1d6",
+      "penetracion": 0,
+      "durabilidad": "d4"
     },
     {
       "nombre": "Lanza",
       "precio": 1,
-      "tipo": "una_mano"
+      "tipo": "una_mano",
+      "dano": "1d6",
+      "penetracion": 2,
+      "durabilidad": "d8"
     },
     {
       "nombre": "Maza",
       "precio": 5,
-      "tipo": "una_mano"
+      "tipo": "una_mano",
+      "dano": "1d6",
+      "penetracion": 2,
+      "durabilidad": "d6"
     },
     {
       "nombre": "Hacha de batalla",
       "precio": 10,
-      "tipo": "una_mano"
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 1,
+      "durabilidad": "d10"
     },
     {
       "nombre": "Mayal",
       "precio": 10,
-      "tipo": "una_mano"
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 3,
+      "durabilidad": "d6"
     },
     {
       "nombre": "Espada larga",
       "precio": 15,
-      "tipo": "una_mano"
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 1,
+      "durabilidad": "d8"
     },
     {
       "nombre": "Martillo de guerra",
       "precio": 15,
-      "tipo": "una_mano"
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 2,
+      "durabilidad": "d10"
     },
     {
       "nombre": "Espada ropera",
       "precio": 25,
-      "tipo": "una_mano"
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 2,
+      "durabilidad": "d6"
     },
     {
       "nombre": "Gran clava",
       "precio": 0.2,
-      "tipo": "dos_manos"
+      "tipo": "dos_manos",
+      "dano": "1d8",
+      "penetracion": 1,
+      "durabilidad": "d6"
     },
     {
       "nombre": "Guadaña",
       "precio": 10,
-      "tipo": "dos_manos"
+      "tipo": "dos_manos",
+      "dano": "1d10",
+      "penetracion": 1,
+      "durabilidad": "d8"
     },
     {
       "nombre": "Espadón",
       "precio": 50,
-      "tipo": "dos_manos"
+      "tipo": "dos_manos",
+      "dano": "1d12",
+      "penetracion": 1,
+      "durabilidad": "d8"
     },
     {
       "nombre": "Arco corto",
       "precio": 25,
       "tipo": "distancia",
-      "municion": "Flechas"
+      "municion": "Flechas",
+      "alcance": "48 m",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d6"
     },
     {
       "nombre": "Arco largo",
       "precio": 50,
       "tipo": "distancia",
-      "municion": "Flechas"
+      "municion": "Flechas",
+      "alcance": "90 m",
+      "dano": "1d8",
+      "penetracion": 1,
+      "durabilidad": "d6"
     },
     {
       "nombre": "Ballesta ligera",
       "precio": 40,
       "tipo": "distancia",
-      "municion": "Virotes"
+      "municion": "Virotes",
+      "alcance": "48 m",
+      "dano": "1d8",
+      "penetracion": 1,
+      "durabilidad": "d8"
     },
     {
       "nombre": "Ballesta de mano",
       "precio": 75,
       "tipo": "distancia",
-      "municion": "Virotes"
+      "municion": "Virotes",
+      "alcance": "18 m",
+      "dano": "1d6",
+      "penetracion": 0,
+      "durabilidad": "d6"
     },
     {
       "nombre": "Cerbatana",
       "precio": 1,
       "tipo": "distancia",
-      "municion": "Dardos"
+      "municion": "Dardos",
+      "alcance": "15 m",
+      "dano": "1d3",
+      "penetracion": 0,
+      "durabilidad": "d4"
     },
     {
       "nombre": "Honda",
       "precio": 0.1,
       "tipo": "distancia",
-      "municion": "Balines"
+      "municion": "Balines",
+      "alcance": "18 m",
+      "dano": "1d4",
+      "penetracion": 1,
+      "durabilidad": "d6"
     },
     {
       "nombre": "Guantelete armado",
       "precio": 18,
-      "tipo": "una_mano"
+      "tipo": "una_mano",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d8"
     },
     {
       "nombre": "Látigo",
       "precio": 2,
-      "tipo": "una_mano"
+      "tipo": "una_mano",
+      "dano": "1d4",
+      "penetracion": 1,
+      "durabilidad": "d10"
     },
     {
       "nombre": "Tridente",
       "precio": 5,
-      "tipo": "dos_manos"
+      "tipo": "dos_manos",
+      "dano": "1d8",
+      "penetracion": 2,
+      "durabilidad": "d8"
     },
     {
       "nombre": "Jabalina",
@@ -291,47 +378,65 @@
     {
       "nombre": "Armadura de tela",
       "precio": 1,
-      "tipo": "tela"
+      "tipo": "tela",
+      "blindaje": "d4",
+      "durabilidad": "-"
     },
     {
       "nombre": "Armadura acolchada",
       "precio": 5,
-      "tipo": "ligera"
+      "tipo": "ligera",
+      "blindaje": "d4",
+      "durabilidad": "d4"
     },
     {
       "nombre": "Armadura de cuero",
       "precio": 10,
-      "tipo": "ligera"
+      "tipo": "ligera",
+      "blindaje": "d6",
+      "durabilidad": "d6"
     },
     {
       "nombre": "Cuero tachonado",
       "precio": 30,
-      "tipo": "ligera"
+      "tipo": "ligera",
+      "blindaje": "d6",
+      "durabilidad": "d8"
     },
     {
       "nombre": "Armadura de pieles",
       "precio": 15,
-      "tipo": "intermedia"
+      "tipo": "intermedia",
+      "blindaje": "d6",
+      "durabilidad": "d6"
     },
     {
       "nombre": "Camisote de mallas",
       "precio": 50,
-      "tipo": "intermedia"
+      "tipo": "intermedia",
+      "blindaje": "d8",
+      "durabilidad": "d8"
     },
     {
       "nombre": "Cota de anillas",
       "precio": 45,
-      "tipo": "intermedia"
+      "tipo": "intermedia",
+      "blindaje": "d8",
+      "durabilidad": "d10"
     },
     {
       "nombre": "Coraza",
       "precio": 100,
-      "tipo": "intermedia"
+      "tipo": "intermedia",
+      "blindaje": "d8",
+      "durabilidad": "d12"
     },
     {
       "nombre": "Cota de mallas",
       "precio": 75,
-      "tipo": "pesada"
+      "tipo": "pesada",
+      "blindaje": "d10",
+      "durabilidad": "d8"
     },
     {
       "nombre": "Pechera de algodón",
@@ -372,15 +477,24 @@
   "escudos": [
     {
       "nombre": "Escudo pequeño",
-      "precio": 5
+      "precio": 5,
+      "blindaje": "+1",
+      "durabilidad": "d6",
+      "dano": "d3"
     },
     {
       "nombre": "Escudo mediano",
-      "precio": 10
+      "precio": 10,
+      "blindaje": "+1",
+      "durabilidad": "d8",
+      "dano": "d4"
     },
     {
       "nombre": "Escudo grande",
-      "precio": 12
+      "precio": 12,
+      "blindaje": "+1",
+      "durabilidad": "d10",
+      "dano": "d6"
     }
   ],
   "paquetes": [
