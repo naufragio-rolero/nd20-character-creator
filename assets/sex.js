@@ -98,8 +98,8 @@
       return e.tipo===(config.modoNombre==="documentado"?"documentado":"combinado");
     });
     if(config.modoNombre!=="especie"&&config.juego==="nd20"){
-      var filtrados=nombresDocumentados(ylat,sexo,datos,
-        config.modoNombre==="combinado");
+      var filtrados=config.modoNombre==='documentado'?ylat:
+        nombresDocumentados(ylat,sexo,datos,true);
       if(filtrados.length){
         var elegido=config.modoNombre==='combinado'?elegirPonderado(filtrados,rng):
           filtrados[Math.floor(rng()*filtrados.length)];
