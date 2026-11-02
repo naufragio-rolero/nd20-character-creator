@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=d3bf49af74293629604eee93d616cb7e0ad90bdd
+          UI_COMMIT=31913632816b9fc778aac8c061da9f5267ac09f6
           archivos=(
             assets/app.js
             assets/styles.css
@@ -84,7 +84,7 @@ jobs:
             aa3ef23e5ff2d605b9d27fc9d6436a4c220b0d80
             bda2e38bc38887a73d9948172c2533bcad31ce6a
             1c2e30895adfcde572603b138ecbc458a77c6bc9
-            163f721f174fd9e30c3d351c5b13b6dcd9fff780
+            bad9dd2c94c0ad27f0984c984bc12f4a4261347f
             08bf54f92c0f226027779ba6baf06324c3954973
           )
           for i in "${!archivos[@]}"; do
