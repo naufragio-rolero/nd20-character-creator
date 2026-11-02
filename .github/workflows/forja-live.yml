@@ -185,9 +185,9 @@ jobs:
           for intento in $(seq 1 16); do
             if curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-live.html &&
                grep -Fq 'id="selector-visual-especie"' /tmp/forja-live.html &&
-               grep -Fq 'id="generar-flotante"' /tmp/forja-live.html
-          grep -Fq 'id="dialogo-configuracion"' /tmp/forja-live.html
-          grep -Fq 'id="abrir-configuracion"' /tmp/forja-live.html &&
+               grep -Fq 'id="generar-flotante"' /tmp/forja-live.html &&
+               grep -Fq 'id="dialogo-configuracion"' /tmp/forja-live.html &&
+               grep -Fq 'id="abrir-configuracion"' /tmp/forja-live.html &&
                grep -Fq 'id="informacion-avanzada"' /tmp/forja-live.html &&
                grep -Fq 'id="inicio-movil"' /tmp/forja-live.html &&
                grep -Fq 'class="empezar-forja"' /tmp/forja-live.html; then
@@ -203,8 +203,9 @@ jobs:
           grep -Fq 'id="compras-grupo"' /tmp/forja-live.html
           ! grep -Eiq 'niguac|niguaz' /tmp/forja-live.html
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/app.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-app.js
-          grep -Fq "var primeraVisitaMovil" /tmp/forja-app.js
-          grep -Fq "var introVisible" /tmp/forja-app.js
+          # El CTA también se ofrece cuando la mesa no contiene fichas.
+          grep -Fq "var mesaVacia=entradas.length===0;" /tmp/forja-app.js
+          grep -Fq "configurador.showModal();" /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/tooltip-ui.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-tooltip-ui.js
           grep -Fq "if(a&&e.pointerType===\"mouse\"&&!fija" /tmp/forja-tooltip-ui.js
 
