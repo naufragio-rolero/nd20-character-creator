@@ -28,16 +28,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener exclusivamente Forja DRS y PDF A5 del snapshot estable
+      - name: Obtener Forja DRS con PDF A5 e iconos integrados de main (PR #50)
         uses: actions/checkout@v4
         with:
-          ref: 609fd08946bb1d42d67dfcd4f08a14291c2f2e55
+          ref: 4a2d783a9e11f36a1c5479c0560ac301029a5bd8
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "609fd08946bb1d42d67dfcd4f08a14291c2f2e55"
-      # Snapshot construido desde el último LIVE, con solo exportación PDF A5.
-      # No incluye los iconos aún en desarrollo de main.
+          test "$(git rev-parse HEAD)" = "4a2d783a9e11f36a1c5479c0560ac301029a5bd8"
+      # Snapshot derivado del LIVE PDF A5 con los 35 SVG fusionados en main.
+      # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
       - name: Auditar iconografia y funcionalidades fijadas
         shell: bash
@@ -48,6 +48,17 @@ jobs:
           test -f assets/icons/CREDITOS-GAME-ICONS.txt
           grep -Fq 'CC BY 3.0' assets/icons/CREDITOS-GAME-ICONS.txt
           grep -Fq 'Goblin head' assets/icons/CREDITOS-GAME-ICONS.txt
+          # Verificar la composicion exacta y la seleccion editorial de PR #50.
+          test "$(grep -l 'Icono original de Naufragio d20 aprobado' assets/icons/*.svg | wc -l)" -eq 7
+          test "$(grep -l 'Game-icons.net' assets/icons/*.svg | wc -l)" -eq 28
+          grep -Fq '28 son adaptaciones SVG' assets/icons/CREDITOS-GAME-ICONS.txt
+          grep -Fq '7 son diseños originales' assets/icons/CREDITOS-GAME-ICONS.txt
+          grep -Fq 'big-gear' assets/icons/esp-gnomo.svg
+          grep -Fq 'baby-face' assets/icons/esp-mediano.svg
+          grep -Fq 'pointy-hat' assets/icons/ocu-mago.svg
+          grep -Fq 'axe-sword' assets/icons/ocu-guerrero.svg
+          grep -Fq 'robin-hood-hat' assets/icons/ocu-ladron.svg
+          grep -Fq 'pope-crown' assets/icons/ocu-clerigo.svg
           grep -Fq 'mitad-orco' assets/icons/esp-semiorco.svg
           grep -Fq 'mitad-humano' assets/icons/esp-semiorco.svg
           ! grep -Fq 'icons-forja.svg' assets/app.js
@@ -363,8 +374,25 @@ jobs:
             curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/${id}.svg?forja_release=${GITHUB_RUN_ID}" -o "/tmp/forja-${id}.svg"
             grep -Fq 'viewBox="0 0 24 24"' "/tmp/forja-${id}.svg"
             grep -Fq "id=\"${id}\"" "/tmp/forja-${id}.svg"
-            grep -Fq "Game-icons.net" "/tmp/forja-${id}.svg"
+            # No exigir CC BY a los siete SVG originales de El Naufragio.
+            case "$id" in
+              ico-configurar|recurso-salud|recurso-esfuerzo|recurso-movimiento|recurso-potencia|recurso-esencia|recurso-blindaje)
+                grep -Fq 'Icono original de Naufragio d20 aprobado' "/tmp/forja-${id}.svg"
+                ;;
+              *)
+                grep -Fq 'Game-icons.net' "/tmp/forja-${id}.svg"
+                ;;
+            esac
           done
+          # Asegurar que la web muestra los SVG definitivos de Gnomo, Mago y Mediano.
+          grep -Fq 'big-gear' /tmp/forja-esp-gnomo.svg
+          grep -Fq 'pointy-hat' /tmp/forja-ocu-mago.svg
+          grep -Fq 'baby-face' /tmp/forja-esp-mediano.svg
+          grep -Fq 'axe-sword' /tmp/forja-ocu-guerrero.svg
+          grep -Fq 'robin-hood-hat' /tmp/forja-ocu-ladron.svg
+          grep -Fq 'pope-crown' /tmp/forja-ocu-clerigo.svg
+          grep -Fq '28 son adaptaciones SVG' /tmp/forja-creditos.txt
+          grep -Fq '7 son diseños originales' /tmp/forja-creditos.txt
           curl -fsSL "${PAGE_URL%/}/data/especies.json" -o /tmp/forja-especies.json
           node -e "const e=require('/tmp/forja-especies.json');if(Object.keys(e).length!==8)process.exit(1)"
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/aclaraciones-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-aclaraciones.json
