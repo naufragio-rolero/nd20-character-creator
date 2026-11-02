@@ -100,4 +100,9 @@
   <symbol id="equipo-escudo" viewBox="0 0 24 24"><path d="m12 2 9 4v6c0 5-3 8-9 10-6-2-9-5-9-10V6l9-4Zm0 3v14m-6-8h12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
   <symbol id="equipo-municion" viewBox="0 0 24 24"><path d="M3 21 20 4m-7 1 7-1-1 7M3 15v6h6M3 18l3 3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="ico-configurar" viewBox="0 0 24 24"><path d="m10 2-.5 2.3-2 1.1-2.2-.8L3 8l1.8 1.5v2.8L3 14l2.3 3.4 2.2-.8 2 1.1L10 20h4l.5-2.3 2-1.1 2.2.8L21 14l-1.8-1.7V9.5L21 8l-2.3-3.4-2.2.8-2-1.1L14 2h-4Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="11" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+
+  <!-- Signos de sexo: pictogramas de ficha, sin alterar los datos del personaje. -->
+  <symbol id="sexo-masculino" viewBox="0 0 24 24"><circle cx="10" cy="14" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m14 10 7-7m-5 0h5v5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="sexo-femenino" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 14.5V22m-4-3.5h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="sexo-indeterminado" viewBox="0 0 24 24"><circle cx="12" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 11h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
 </svg>
