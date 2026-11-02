@@ -209,6 +209,46 @@
           e.fuente_descripcion=par[1].fuente;
       });
     });
+    /* Representación semántica de las 64 fichas DRS, sin cambiar un solo
+     * carácter de los párrafos fuente ni calcular efectos. Por defecto
+     * cada párrafo es un <p>; las seis enumeraciones cotejadas y la única
+     * tabla del DRS disponen de agrupación explícita por ID e índice.
+     * Si cambia la cantidad de párrafos, la presentación especial
+     * se desactiva y recupera los párrafos sin perder texto. */
+    var enumeracionesDRS={
+      'conjuro-8':{cantidad:3,inicio:1,fin:2},   // Luz
+      'conjuro-18':{cantidad:3,inicio:1,fin:2},  // Ilusión
+      'conjuro-19':{cantidad:3,inicio:1,fin:2},  // Resistir los elementos
+      'conjuro-45':{cantidad:6,inicio:1,fin:4},  // Forja arcana
+      'conjuro-51':{cantidad:4,inicio:2,fin:3},  // Lluvia de estrellas
+      'conjuro-61':{cantidad:3,inicio:1,fin:2}   // Palabra de Poder: Muerte
+    };
+    function bloquesConjuroDRS(ficha){
+      var cuerpo=(ficha.parrafos||[]).filter(function(p){
+        return !/^(?:Primer|Segundo|Tercer|Cuarto|Quinto|Sexto|Séptimo|Octavo) Círculo$/i.test(p)
+          && !/^(?:Escuela|Alcance|Duración|Lanzamiento|Requisito):/i.test(p);
+      });
+      if(!cuerpo.length)return [];
+      var bloques=[],enumeracion=enumeracionesDRS[ficha.id_catalogo];
+      var tabla=ficha.id_catalogo==='conjuro-14'&&cuerpo.length===20&&
+        cuerpo[2]==='Turno'&&cuerpo[3]==='Temperatura'&&cuerpo[4]==='Daño';
+      for(var i=0;i<cuerpo.length;){
+        if(tabla&&i===2){
+          var filas=[];
+          for(var fila=5;fila<20;fila+=3)filas.push(cuerpo.slice(fila,fila+3));
+          bloques.push({tipo:'tabla',cabeceras:cuerpo.slice(2,5),filas:filas});
+          i=20;
+        }else if(enumeracion&&cuerpo.length===enumeracion.cantidad&&
+                 i===enumeracion.inicio){
+          bloques.push({tipo:'lista',elementos:cuerpo.slice(i,enumeracion.fin+1)});
+          i=enumeracion.fin+1;
+        }else{
+          bloques.push({tipo:'parrafo',texto:cuerpo[i]});
+          i++;
+        }
+      }
+      return bloques;
+    }
     /* Integración informativa del Tomo auditado. Nunca ejecuta efectos. */
     var conjurosPorId=new Map((catalogo.conjuros||[]).map(function(x){return [x.id,x];}));
     var magnitudesPorId=new Map((fuentes.magnitudes?.registros||[]).map(function(x){return [x.id_catalogo,x];}));
@@ -231,6 +271,7 @@
       }).join("\n\n");
       if(!cuerpo)return;
       destino.descripcion=cuerpo;
+      destino.bloques_conjuro=bloquesConjuroDRS(ficha);
       [["Alcance",ficha.alcance],["Duración",ficha.duracion],
         ["Lanzamiento",ficha.lanzamiento],["Requisito",ficha.requisito]]
         .forEach(function(p){if(p[1])destino.datos.push(p);});
