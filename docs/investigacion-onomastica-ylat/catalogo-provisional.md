@@ -339,3 +339,12 @@ No sumar las once denominaciones a los **88 testimonios** de Isophius/Malasthar/
 ## Anexo — fuentes históricas contrapuestas (2026-11-02)
 
 La [auditoría de Shadaleen](auditoria-shadaleen-eponimos-y-relatos.md) distingue siete casas fundacionales (Shadelgast, Bronnhum, Rowes, Alogers, Keefe, Dórilon, Kultstein) de los nombres personales. El relato «La Primera Huella» ofrece otra explicación sobre Shadel, Shadelgast y la montaña Ananolis. [Zonas de Ylat](https://docs.google.com/document/d/1v6rZIEWMGLvhv6b5WHMNQa0zwCzrPTOdqZEU5t6USFg/edit) cita a Mirethia del Atardecer Coral e Iskadar el Segundo, además de la variante Narga Solaris frente a Narga Solarys (ONO-14). Ninguno de estos testimonios autoriza una combinación adicional. El [plan de cierre](plan-cierre-y-criterios-aceptacion.md) define los tres bloques que restan.
+
+
+## Corte documental del 2026-11-02 — índice maestro vigente
+
+La [primera versión del índice](indice-maestro-testimonios-v1.md) reunió **282** formas literales. Después del contraste de [quince formas omitidas en Gylran, Laventia, Malasthar, Zonas y Biografías](adenda-fuentes-historicas-y-alias.md), el documento vigente es el [**índice maestro v2 de 297 formas**](indice-maestro-testimonios-v2.md).
+
+El número **297 no es una cifra de personajes únicos**, ni un repertorio autorizado para sorteo: se conservan nombres de individuos, títulos, alias, variantes, entidades religiosas, un imperio, denominaciones topográficas y formas de borrador. Se adjuntan [matriz de identidades](matriz-identidades-y-variantes-v1.md), [realidades específicas](marcas-realidades-ylat.md), [cotejo y auditoría](auditoria-cierre-indice-y-repertorios.md) y [**acta de cierre documental acotado**](acta-cierre-documental-corte-2026-11-02.md).
+
+**El trabajo de fuentes del alcance declarado se considera completado con reservas.** Las cuestiones editoriales **ONO-01 a ONO-14** siguen pendientes; nada se ha añadido a los archivos productivos de La Forja.
