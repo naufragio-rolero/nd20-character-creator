@@ -650,9 +650,9 @@ async function probar(nombre,tipo,url){
       await page.locator('#fichas .tarjeta').first().waitFor();
       const cabeceraOtro=page.locator('#fichas .tarjeta').first();
       assert.equal(await cabeceraOtro.locator('.nivel-ficha').innerText(),'Nivel 1');
-      assert.equal(await cabeceraOtro.locator('.sexo-ficha use').getAttribute('href'),
-        'assets/icons-forja.svg#sexo-indeterminado',
-        nombre+': Dungeon Hack sin sexo declarado usa símbolo neutro');
+      assert.match(await cabeceraOtro.locator('.sexo-ficha use').getAttribute('href'),
+        /^assets\/icons-forja\.svg#sexo-(masculino|femenino)$/,
+        nombre+': Dungeon Hack respeta el sexo generado sin asignar otros valores');
       assert.ok((await page.locator('#fichas .tarjeta').first().innerText())
         .includes('Comprobación '+otro),
         nombre+': generación de '+otro+' no debe romperse por depurar DLC');
