@@ -49,7 +49,7 @@ async function probar(nombre,tipo,url){
     async function generar(){
       if(await page.locator('#dialogo-configuracion').evaluate(x=>x.open))
         await page.locator('#generar-dialogo').click();
-      else await generar();
+      else await page.locator('#generar').click();
     }
     const nativeFill=page.fill.bind(page),nativeSelect=page.selectOption.bind(page);
     page.fill=async function(sel,...args){
