@@ -133,6 +133,17 @@ assert.equal(new Set(historicosPublico.entradas.map(x=>x.nombre)).size,1422);
 assert.equal(leer(salida,'alcance-drs-y-dlc.json').paquetes_posteriores,undefined,
   'No se distribuye información interna de paquetes suplementarios');
 const equipo=leer(salida,'equipo-inicial.json');
+const prendasDRS=equipo.utiles_fantasia.ropa;
+assert.deepEqual(prendasDRS.map(x=>[x.nombre,x.precio,x.detalle]),[
+  ['Abrigo de piel',20,'Protege del frío por debajo de 0º.'],
+  ['Atuendo de noble',30,'De colores vivos, con chorreras y gola.'],
+  ['Chaqueta de cuero',10,'Protege del frío por debajo de 10º.'],
+  ['Disfraz',5,'Contiene maquillaje, peluca y bigote falso.'],
+  ['Traje elegante',15,'Parece de buena calidad.'],
+  ['Túnica',1,'De color a elegir. Hecha de tela y esparto.']
+], 'El paquete público conserva las seis prendas de la tabla Ropa del DRS');
+assert.equal(equipo.utiles_fantasia.ropa.some(x=>x.nombre==='Ropa de viaje'),false,
+  'Ropa de viaje solo consta en paquetes, sin ficha individual documentada');
 const iluminacionDRS=equipo.utiles_fantasia.iluminacion;
 assert.deepEqual(iluminacionDRS.map(x=>[x.nombre,x.precio,x.du]),[
   ['Antorcha',0.1,'d6'],['Lámpara de aceite',2,'d6 (aceite)'],
