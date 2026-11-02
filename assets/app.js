@@ -451,10 +451,59 @@
         return '<li>'+esc(n)+'</li>';
       }).join('')+'</ul></details>';
   }
-  function htmlRecursos(pares) {
-    return '<div class="recursos">' + (pares || []).map(function (p) {
-      return '<div><span>' + esc(p[0]) + '</span><strong>' + esc(p[1]) + '</strong></div>';
-    }).join('') + '</div>';
+  // Recursos visuales: mismo dato original, ahora en rejilla accesible
+  // con símbolos SVG locales. No se modifica el resultado de las tiradas.
+  var iconosRecursos={Salud:'recurso-salud',Esfuerzo:'recurso-esfuerzo',
+    Movimiento:'recurso-movimiento',Potencia:'recurso-potencia',
+    Esencia:'recurso-esencia',Blindaje:'recurso-blindaje'};
+  function blindajePersonaje(personaje){
+    return window.NaufragioEquipment?.blindajeFicha?.(personaje,datos.equipoInicial)||null;
+  }
+  function htmlRecursos(pares,personaje){
+    var items=(pares||[]).slice(),blindaje=null;
+    if(personaje?.juego==='Naufragio d20 · Fantasía'){
+      blindaje=blindajePersonaje(personaje);
+      if(blindaje)items.push(['Blindaje',blindaje.valor]);
+    }
+    return '<div class="recursos recursos-rejilla" aria-label="Recursos del personaje">'+
+      items.map(function(p){
+        var icono=iconosRecursos[p[0]],simbolo=icono?
+          '<svg class="icono-recurso" aria-hidden="true" focusable="false">'+
+          '<use href="assets/icons-forja.svg#'+icono+'"></use></svg>':'';
+        var nota=p[0]==='Blindaje'&&blindaje?.bonoEscudo?
+          '<small class="recurso-aclaracion">Escudo '+esc(blindaje.bonoEscudo)+
+          ' solo al bloquear</small>':'';
+        return '<div class="recurso-ficha">'+simbolo+
+          '<span class="recurso-texto"><span class="recurso-nombre">'+esc(p[0])+
+          '</span><strong>'+esc(p[1])+'</strong>'+nota+'</span></div>';
+      }).join('')+'</div>';
+  }
+  function htmlProteccionesEquipadas(personaje,id){
+    if(personaje.juego!=='Naufragio d20 · Fantasía'||
+       !window.NaufragioEquipment?.proteccionesDisponibles)return '';
+    var disponibles=window.NaufragioEquipment.proteccionesDisponibles(
+      personaje,datos.equipoInicial);
+    var actual=personaje.protecciones_equipadas||{};
+    function control(tipo,lista,rotulo){
+      var idSelect='proteccion-'+tipo+'-'+id;
+      var elegido=lista.some(function(x){return x.nombre===actual[tipo];})?
+        actual[tipo]:'';
+      return '<label for="'+esc(idSelect)+'">'+esc(rotulo)+'</label>'+
+        '<select id="'+esc(idSelect)+'" class="seleccionar-proteccion"'+
+        ' data-id="'+esc(id)+'" data-tipo="'+esc(tipo)+'"'+
+        (lista.length?'':' disabled')+'>'+
+        '<option value="">Sin equipar</option>'+
+        lista.map(function(x){
+          return '<option value="'+esc(x.nombre)+'"'+
+            (x.nombre===elegido?' selected':'')+'>'+esc(x.nombre)+'</option>';
+        }).join('')+'</select>';
+    }
+    return '<section class="protecciones-activas" aria-label="Protecciones equipadas">'+
+      '<h4>Protecciones equipadas</h4>'+
+      '<div class="protecciones-selectores"><div>'+control('armadura',disponibles.armaduras,'Armadura')+
+      '</div><div>'+control('escudo',disponibles.escudos,'Escudo')+'</div></div>'+
+      '<p>Solo aparecen piezas del inventario. El escudo aporta su bonificación'+
+      ' únicamente al bloquear; no a las esquivas.</p></section>';
   }
   function fichaHTML(personaje, id) {
     var notas=organizarObservaciones(personaje);
@@ -476,7 +525,7 @@
       '<button class="icon-btn eliminar-ficha" data-id="' + id + '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div>' +
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
       htmlContexto(notas.contexto) +
-      '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos) +
+      '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos,personaje) +
       htmlLista('Competencias',personaje.competencias) +
       htmlLista('Talentos y capacidades',personaje.capacidades,'talento',
         sistemaFicha(personaje),personaje) +
@@ -485,6 +534,7 @@
       htmlLista('Conjuros preparados',personaje.conjuros_preparados,'poder',sistemaFicha(personaje)) +
       htmlAvisos('Condiciones de uso',notas.poderes,'avisos-poderes') +
       htmlLista('Equipo',personaje.equipo,'equipo',sistemaFicha(personaje)) +
+      htmlProteccionesEquipadas(personaje,id) +
       htmlAvisos('Reglas y compras de equipo',notas.equipo,'avisos-equipo') +
       (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
       htmlAvisos('Riqueza adicional',notas.riqueza,'avisos-riqueza') +
@@ -535,6 +585,16 @@
         p[key].forEach(function(v){str.push('- '+(Array.isArray(v)?v[0]+': '+v[1]:v));});
       }
     });
+    if(p.juego==='Naufragio d20 · Fantasía'){
+      var defensa=blindajePersonaje(p);
+      if(defensa){
+        str.push('Blindaje: '+defensa.valor);
+        if(defensa.armadura)str.push('Armadura equipada: '+defensa.armadura);
+        if(defensa.escudo)str.push('Escudo equipado: '+defensa.escudo+
+          ' ('+defensa.bonoEscudo+' solo al bloquear)');
+        if(defensa.natural)str.push('Protección natural documentada: '+defensa.natural);
+      }
+    }
     if(p.riqueza)str.push('Riqueza: '+p.riqueza);
     str.push(fuentesFicha(p));
     return str.join('\n');
@@ -1115,6 +1175,33 @@
         '(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
       $('nivel').focus({preventScroll:true});
       refrescarGenerarFlotante();
+    });
+    $('fichas').addEventListener('change',function(event){
+      var selector=event.target.closest('.seleccionar-proteccion');
+      if(!selector)return;
+      conControl(function(){
+        var entrada=entradas.find(function(x){
+          return x.tipo==='ficha'&&String(x.id)===selector.dataset.id;
+        });
+        if(!entrada||entrada.valor.juego!=='Naufragio d20 · Fantasía')
+          throw Error('No existe una ficha DRS válida para equipar protección.');
+        var tipo=selector.dataset.tipo;
+        if(tipo!=='armadura'&&tipo!=='escudo')
+          throw Error('Tipo de protección desconocido.');
+        var disponibles=window.NaufragioEquipment.proteccionesDisponibles(
+          entrada.valor,datos.equipoInicial)[tipo==='armadura'?'armaduras':'escudos'];
+        var nombre=selector.value;
+        if(nombre&&!disponibles.some(function(x){return x.nombre===nombre;}))
+          throw Error('La protección no consta en el inventario del personaje.');
+        if(!entrada.valor.protecciones_equipadas)
+          entrada.valor.protecciones_equipadas={armadura:'',escudo:''};
+        entrada.valor.protecciones_equipadas[tipo]=nombre;
+        var id=entrada.id;
+        dibujar();
+        var nuevo=$('fichas').querySelector('.seleccionar-proteccion[data-id="'+
+          id+'"][data-tipo="'+tipo+'"]');
+        if(nuevo)nuevo.focus({preventScroll:true});
+      });
     });
     $('fichas').addEventListener('click',function(e){
       var comprar=e.target.closest('.comprar-utiles');

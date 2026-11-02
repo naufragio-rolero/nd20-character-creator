@@ -220,4 +220,47 @@ assert.equal(api.presentarTalento(api.buscar(i,'Recuperación','talento','nd20',
   'Ocupación: Guerrero')).categoria,'Pasiva');
 assert.equal(api.presentarTalento(api.buscar(i,'¡Sálvese quien pueda!','talento',
   'nd20','Especie: Mediano amable')).categoria,'Reacción');
+// Inventario ≠ equipo activo. Nunca atribuir Blindaje por compra automática.
+const equipoApi=require('../assets/equipment.js');
+const pjProtecciones={
+  juego:'Naufragio d20 · Fantasía',
+  equipo:['Armadura de tela','Armadura de pieles','Escudo pequeño','Daga',
+    'Recuerdo: Escudo grande']
+};
+assert.deepEqual(
+  equipoApi.proteccionesDisponibles(pjProtecciones,eq).armaduras.map(x=>x.nombre),
+  ['Armadura de tela','Armadura de pieles']);
+assert.deepEqual(
+  equipoApi.proteccionesDisponibles(pjProtecciones,eq).escudos.map(x=>x.nombre),
+  ['Escudo pequeño']);
+assert.deepEqual(equipoApi.blindajeFicha(pjProtecciones,eq),{
+  valor:'Sin armadura',armadura:null,escudo:null,bonoEscudo:null,natural:null
+},'Comprar armadura no la equipa automáticamente');
+pjProtecciones.protecciones_equipadas={
+  armadura:'Armadura de pieles',escudo:'Escudo pequeño'};
+let defensa=equipoApi.blindajeFicha(pjProtecciones,eq);
+assert.equal(defensa.valor,'d6');
+assert.equal(defensa.bonoEscudo,'+1','El escudo solo aporta bono al bloquear');
+assert.equal(defensa.armadura,'Armadura de pieles');
+pjProtecciones.protecciones_equipadas.armadura='Armadura de tela';
+assert.equal(equipoApi.blindajeFicha(pjProtecciones,eq).valor,'d4');
+pjProtecciones.protecciones_equipadas.armadura='Armadura completa de placas';
+assert.equal(equipoApi.blindajeFicha(pjProtecciones,eq).valor,'Sin armadura',
+  'Nunca se atribuye Blindaje de equipo que no consta en inventario');
+pjProtecciones.protecciones_equipadas={armadura:'',escudo:'Escudo grande'};
+assert.equal(equipoApi.blindajeFicha(pjProtecciones,eq).bonoEscudo,null,
+  'Un Recuerdo no autoriza equipar un Escudo grande');
+pjProtecciones.blindaje_natural='d6';
+assert.equal(equipoApi.blindajeFicha(pjProtecciones,eq).valor,'Sin armadura',
+  'No se aplica ninguna protección natural sin fuente documental');
+pjProtecciones.blindaje_natural_fuente='Referencia de prueba DRS';
+assert.equal(equipoApi.blindajeFicha(pjProtecciones,eq).valor,'d6');
+delete pjProtecciones.blindaje_natural_fuente;
+delete pjProtecciones.blindaje_natural;
+pjProtecciones.equipo.push('Armadura de pieles ×2');
+pjProtecciones.equipo=['Armadura de pieles ×2'];
+assert.deepEqual(
+  equipoApi.proteccionesDisponibles(pjProtecciones,eq).armaduras.map(x=>x.nombre),
+  ['Armadura de pieles'],'La cantidad no altera el nombre documentado');
+
 console.log('OK · 10 Técnicas literales, 24 categorías oficiales trazables, 111 objetos categorizados, escuelas y Círculos cotejados; efectos originales preservados.');
