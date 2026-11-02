@@ -176,7 +176,13 @@ async function probar(nombre,tipo,url){
     // Los nombres originales de los paquetes no siempre son entradas del
     // catálogo individual. Deben poder consultarse sin atributos inventados.
     for(const [item,esperado,procedencia] of [
-      ['túnica','Túnica',/Especial arcanistas/],
+      ['túnica','Túnica',/De color a elegir\. Hecha de tela y esparto\./],
+      ['disfraz','Disfraz',/Contiene maquillaje, peluca y bigote falso/],
+      ['ración (DU d6)','Ración de alimento',/Carne o fruta seca al sol/],
+      ['dos raciones de alimento (DU d6 cada una)','Ración de alimento',/Dado de Uso:\\s*DU d6/],
+      ['tres raciones (DU d6)','Ración de alimento',/Dado de Uso:\\s*DU d6/],
+      ['ropa de viaje','Ropa de viaje',/Especial exploración/],
+      ['mochila','Mochila',/Especial arcanistas/],
       ['yesquero','Yesquero',/Naufragio d20 DRS/],
       ['antorcha (DU d6)','Antorcha',/Dado de Uso:\s*DU d6/],
       ['vela (DU d4)','Vela',/Dado de Uso:\s*DU d4/]
@@ -197,10 +203,10 @@ async function probar(nombre,tipo,url){
         nombre+': título de popup del paquete '+item);
       assert.match(await page.locator('#ficha-emergente').innerText(),procedencia,
         nombre+': procedencia del popup '+item);
-      if(item==='túnica')
-        assert.equal(await page.locator('#ficha-emergente .info-primarios dt')
-          .allTextContents().then(x=>x.includes('Precio:')),false,
-          nombre+': túnica de paquete sin precio inventado');
+      const tienePrecio=(await page.locator('#ficha-emergente .info-primarios dt')
+        .allTextContents()).includes('Precio:');
+      assert.equal(tienePrecio,!['ropa de viaje','mochila'].includes(item),
+        nombre+': precio solo con ficha individual DRS: '+item);
       await page.locator('#'+id).evaluate(el=>el.remove());
       await page.keyboard.press('Escape');
     }
@@ -991,8 +997,8 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
     assert.equal(await page.locator('#editor-compras').evaluate(el=>el.open),true,
       nombre+': las compras se muestran en un diálogo modal');
-    assert.equal(await page.locator('#compras-grupo option').count(),7,
-      nombre+': seis familias DRS documentadas más Focos');
+    assert.equal(await page.locator('#compras-grupo option').count(),8,
+      nombre+': siete familias DRS documentadas más Focos');
     assert.ok((await page.locator('#compras-articulo option').count())<43,
       nombre+': artículos agrupados en un desplegable más compacto');
     await page.selectOption('#compras-grupo','campamento');
