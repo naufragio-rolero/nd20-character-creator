@@ -986,8 +986,8 @@ html[data-tema]:not([data-tema=clasico]) .descripcion-personaje .sexo-ficha{
   .nivel-ficha{font-size:.67rem;padding:.2rem .3rem}
 }
 /* Cerúleo: nunca usar un fondo oscuro con texto oscuro en botones de ficha. */
-html[data-tema=ceruleo] .tarjeta .pie-ficha button:hover:not(:disabled),
-html[data-tema=ceruleo] .tarjeta .pie-ficha button:focus-visible,
-html[data-tema=ceruleo] .tarjeta .icon-btn:hover:not(:disabled){
+html[data-tema=ceruleo] .tarjeta .pie-ficha button:hover:not(:disabled):not(.principal):not(.sistema-activo):not(.activa),
+html[data-tema=ceruleo] .tarjeta .pie-ficha button:focus-visible:not(:disabled):not(.principal):not(.sistema-activo):not(.activa),
+html[data-tema=ceruleo] .tarjeta .icon-btn:hover:not(:disabled):not(.principal):not(.sistema-activo):not(.activa){
   background:#c5efff;color:#071448;border-color:#168d9f;
 }
