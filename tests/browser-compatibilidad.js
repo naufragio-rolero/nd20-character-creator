@@ -206,8 +206,8 @@ async function probar(nombre,tipo,url){
       },[id,item]);
       await page.locator('#'+id+' .referencia-glosario').click();
       if(item==='Burro o mula'||item==='Carruaje')
-        assert.equal(await page.locator('#ficha-emergente .info-tipo').innerText(),
-          item==='Burro o mula'?'MONTURA':'VEHÍCULO',
+        assert.equal(await page.locator('#ficha-emergente .info-tipo').textContent(),
+          item==='Burro o mula'?'Montura':'Vehículo',
           nombre+': tipo de objeto legible y coherente');
       assert.equal(await page.locator('#ficha-emergente h3').textContent(),esperado,
         nombre+': título de popup del paquete '+item);
