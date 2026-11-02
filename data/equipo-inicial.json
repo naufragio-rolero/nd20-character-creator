@@ -1040,6 +1040,50 @@
         "fuente": "DRS"
       }
     ],
+    "ropa": [
+      {
+        "id": "ropa-abrigo-piel",
+        "nombre": "Abrigo de piel",
+        "precio": 20,
+        "detalle": "Protege del frío por debajo de 0º.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "ropa-atuendo-noble",
+        "nombre": "Atuendo de noble",
+        "precio": 30,
+        "detalle": "De colores vivos, con chorreras y gola.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "ropa-chaqueta-cuero",
+        "nombre": "Chaqueta de cuero",
+        "precio": 10,
+        "detalle": "Protege del frío por debajo de 10º.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "ropa-disfraz",
+        "nombre": "Disfraz",
+        "precio": 5,
+        "detalle": "Contiene maquillaje, peluca y bigote falso.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "ropa-traje-elegante",
+        "nombre": "Traje elegante",
+        "precio": 15,
+        "detalle": "Parece de buena calidad.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "ropa-tunica",
+        "nombre": "Túnica",
+        "precio": 1,
+        "detalle": "De color a elegir. Hecha de tela y esparto.",
+        "fuente": "DRS"
+      }
+    ],
     "consumibles": [
       {
         "id": "consumible-aceite-animal",

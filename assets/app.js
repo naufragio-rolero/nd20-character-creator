@@ -758,6 +758,7 @@
   }
   function etiquetaGrupoCompra(id){
     return ({iluminacion:'Iluminación',aventura:'Aventura',campamento:'Campamento',
+      ropa:'Ropa',
       consumibles:'Consumibles',herramientas:'Herramientas',
       escritura:'Escritura',focos:'Focos de Conjuros'})[id]||id;
   }

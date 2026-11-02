@@ -28,13 +28,14 @@ for(const x of objetos.registros){
 const eqNombres=[...eq.armas,...eq.armaduras,...eq.escudos,
   ...eq.municion,...eq.paquetes,...Object.values(eq.utiles_fantasia).flat(),
   ...eq.focos_conjuros_con_precio,...eq.varitas_defensa].map(x=>x.nombre);
-// Las 111 glosas ya aprobadas mantienen su cobertura íntegra; las cuatro
-// entradas de Iluminación aportan únicamente texto literal del DRS.
+// Las 111 glosas aprobadas permanecen intactas. Iluminación y Ropa
+// aportan directamente los registros literales del DRS, sin glosas nuevas.
 const iluminacion=eq.utiles_fantasia.iluminacion;
+const ropa=eq.utiles_fantasia.ropa;
 assert.deepEqual(iluminacion.map(x=>x.nombre),
   ['Antorcha','Lámpara de aceite','Linterna','Vela']);
 assert.deepEqual(new Set(eqNombres),
-  new Set([...nombres,...iluminacion.map(x=>x.nombre)]),
+  new Set([...nombres,...iluminacion.map(x=>x.nombre),...ropa.map(x=>x.nombre)]),
   'Todos los objetos tienen ficha literal o glosa autorizada');
 
 const i=api.indice({fantasia:{especies:cargar('especies.json'),
@@ -92,6 +93,44 @@ for(const [nombre,precio,descripcion,du] of [
   assert.equal(api.presentarEquipo(ficha).categoria,'Iluminación');
   assert.equal(new Map(api.presentarEquipo(ficha).primarios).get('Dado de Uso'),
     'DU '+du);
+}
+// Ropa: las seis entradas de la tabla DRS; no equiparar Ropa de viaje
+// a otra prenda porque no tiene ficha individual ni precio propios.
+for(const [nombre,precio,detalle] of [
+  ['Abrigo de piel',20,'Protege del frío por debajo de 0º.'],
+  ['Atuendo de noble',30,'De colores vivos, con chorreras y gola.'],
+  ['Chaqueta de cuero',10,'Protege del frío por debajo de 10º.'],
+  ['Disfraz',5,'Contiene maquillaje, peluca y bigote falso.'],
+  ['Traje elegante',15,'Parece de buena calidad.'],
+  ['Túnica',1,'De color a elegir. Hecha de tela y esparto.']
+]){
+  const registro=ropa.find(x=>x.nombre===nombre);
+  assert.ok(registro,'Falta prenda DRS '+nombre);
+  assert.equal(registro.precio,precio);
+  assert.equal(registro.detalle,detalle);
+  const ficha=api.buscar(i,nombre.toLowerCase(),'equipo','nd20');
+  assert.equal(ficha.descripcion,detalle);
+  const vista=api.presentarEquipo(ficha);
+  assert.equal(vista.categoria,'Ropa');
+  assert.equal(new Map(vista.primarios).get('Precio'),precio+' mo');
+}
+// Raciones de los paquetes: alias exactos, sin segunda ficha ni nuevos
+// precios. No alteran las cantidades ni el inventario original.
+for(const expresion of [
+  'ración (DU d6)','ración de alimento (DU d6)',
+  'dos raciones de alimento (DU d6 cada una)','tres raciones (DU d6)'
+]){
+  const ficha=api.buscar(i,expresion,'equipo','nd20');
+  assert.equal(ficha.nombre,'Ración de alimento','Alias de paquete: '+expresion);
+  assert.equal(new Map(api.presentarEquipo(ficha).primarios).get('Dado de Uso'),'DU d6');
+  assert.equal(new Map(api.presentarEquipo(ficha).primarios).get('Precio'),'0.01 mo');
+}
+for(const expresion of ['ropa de viaje','mochila','bolsa de cuero','odre de agua (DU d6)']){
+  const ficha=api.buscar(i,expresion,'equipo','nd20');
+  assert.ok(ficha&&/Paquetes de equipo/.test(ficha.fuente),
+    'Sin atribuir categoría o efectos de otro artículo: '+expresion);
+  assert.equal(ficha.descripcion||'','');
+  assert.ok(!api.presentarEquipo(ficha).primarios.some(x=>x[0]==='Precio'));
 }
 const catalogo=cargar('catalogo-poderes.json');
 const seis=new Set(['Arcana','Demonología','Divina','Elemental','Naturaleza','Nigromancia']);
