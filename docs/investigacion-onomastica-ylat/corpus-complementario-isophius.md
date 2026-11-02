@@ -2,6 +2,8 @@
 
 **Fecha de extracción:** 2026-11-02. **Estado:** catálogo documental, **no** repertorio aprobado para asignación o sorteo. **No se han añadido nombres ficticios nuevos**: todas las denominaciones proceden literalmente de las fuentes citadas.
 
+> **Nota de cronología documental aportada por la autoría (2026-11-02).** La campaña *Susurros en Isophius* se jugó **después** del periodo recogido en el censo histórico de 140 PNJ y sus personajes **nunca se consolidaron en aquel Excel**. Por tanto, la baja coincidencia literal responde a un **desfase de incorporación de registros**, no a una refutación de sus personajes ni a prueba de que sean «ajenos» a Ylat. La investigación seguirá distinguiendo fuente jugada, material preparatorio, realidad de ficción y permiso editorial de generación; la cronología de elaboración no resuelve por sí sola divergencias de canon entre versiones.
+
 ## Fuentes y recuentos verificables
 
 - [**Susurros en Isophius — ficha de campaña**](https://drive.google.com/file/d/18UIbCTckiCU8B2l3-eIIIy4gho9Q1cSd/view): **46** entradas de «Personajes» con su denominación literal.
