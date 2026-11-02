@@ -168,3 +168,44 @@ La propia nota menciona pruebas de Historia **CD 30** para reconocer la relació
 La forma «John William» podría ser un desliz, otro nombre compuesto o una formulación con significado propio. Es un **conflicto editorial**, no una corrección automática.
 
 La existencia de un testimonio narrativo sobre la Casa Gull corrobora su uso como apellido familiar, no autoriza distribuirlo aleatoriamente entre personajes sin vínculos.
+
+
+## J. Descubrimiento de un censo histórico con separación explícita de campos
+
+**Fuentes:** [`dnd_npcs.xlsx`](https://drive.google.com/file/d/1B2YnVslAK7Sjd5ELYR9kteHB9Q-L4AWp/view) y [`npcs.xlsx`](https://drive.google.com/file/d/1g-y0abx5rnOJpiSv8vJsE_iv6V-fOLVR/view), archivos de trabajo históricos. **Anexos en esta rama:** [censo íntegro de los 140 PNJ](censo-pnj-historico.md) y [familias y parentescos acreditados](familias-acreditadas.md).
+
+- `dnd_npcs.xlsx` registra 140 personajes en cada una de sus dos pestañas, con 140 nombres completos únicos y 140 identificadores internos distintos.
+- 126 registros tienen un campo `surname` no vacío, pero entre ellos hay 97 valores distintos que **no equivalen a apellidos familiares reales**.
+- `npcs.xlsx` contiene 66 identidades con nombre (el resto de las 99 posiciones de la pestaña principal está vacío). Por identificador interno (`url`), las 66 están presentes en el censo más amplio; 65 conservan la misma forma visible y una cambia de presentación.
+- En la primera pestaña de `dnd_npcs.xlsx` hay 76 PNJ de Era Rasa, 50 de Casus Belli y 14 en Pasado. La segunda deja sin campaña a Daeron Vardamir y Gilraen Vardamir; para los registros de referencia se conserva la clasificación de la primera pestaña.
+- El código `origin=101` se repite en los 140 registros y **no se ha interpretado** por carecer de glosa documentada. La ausencia de cadenas literales del corpus excluido tampoco equivale a validación de todo el material.
+- El título `surname` incluye formas como `la Tuerta`, `el Huérfano`, `Shadelgast II`, `del Atardecer Luciente` y `sin Apellido`: **prohibida la importación automática a un generador de apellidos**.
+
+### Identidad recuperada: Crujidor / Romualdius Walerian
+
+El registro con identificador `crujidor` se muestra como **Romualdius Walerian** en `npcs.xlsx`, pero como **Crujidor** en `dnd_npcs.xlsx`. Ambos textos cuentan la misma biografía y dicen literalmente que Crujidor era un apodo y que su nombre original era Romualdius Walerian.
+
+**Corrección de un falso positivo de comparación:** no falta un personaje; cambió el nombre de presentación. Se necesitan campos separados de identidad civil, alias y etiqueta mostrada.
+
+### Grupos familiares documentados
+
+El examen de las biografías acredita parentescos para **Iraldsay, Lobeth, Skara, Vardamir, Fiercespada, Gomelera, Smoth, Bronnhum, Fuegosombrío, Adorasol y Tonunt**; y pertenencia familiar documentada sin genealogía completa entre todos los miembros para **Alogers y Shadelgast**. Detalles y relaciones exactas: [familias-acreditadas.md](familias-acreditadas.md).
+
+### Nueva discrepancia: Dyeld / Eldburg Skara
+
+- [Relato en primera persona de Tuliëlle](https://drive.google.com/file/d/1liE5kG1h9icFxEmcQWVyzIi0zLZX29zc/view) e [«Tuliëlle Skara I»](https://drive.google.com/file/d/1662Z9kAs28RPG17Y89retm1DvAk5fYvo/view): su padre es **Dyeld**.
+- [Biografía de Laevinë Skara](https://drive.google.com/file/d/1LyZUv3B1fUJTyWlT4Hzsx30gNRClWE9t/view): el hijo de Laevinë, padre de Tuliëlle, es **Dyeld**.
+- [Ficha de Eldburg Skara](https://drive.google.com/file/d/1N1oSjRdONXH0YGHGZzSWg8M57ZarZ5s_/view): el padre de Tuliëlle es **Eldburg**.
+
+No se ha hallado una afirmación que haga equivalentes Dyeld y Eldburg. **Conflicto editorial abierto**, no corrección automática.
+
+## K. Contraste entre el banco de 1428 formas y los 140 PNJ
+
+Se comparó [`data/nombres-historicos-ylat.json`](../../data/nombres-historicos-ylat.json), derivado de [`Generador - Nombres (Principal).xlsx`](https://drive.google.com/file/d/1ImXMEU0Lb03l7TdRo7vr8E4X2IQrlmmQ/view), contra los campos `name` y `surname` de los 140 PNJ de `dnd_npcs.xlsx`. Comparación normalizada de mayúsculas, espacios externos y diacríticos, sin corregir las fuentes.
+
+- 1428 filas / 1422 formas distintas en el banco histórico.
+- **16 coincidencias** con los **139 nombres de pila distintos** de los PNJ: Ciale, Essaetia, Bankingar, Tyvoz, Quaon, Roluj, Eman, Eld'mose, Inether, Ryn'Acki, Jaleba, Radinel, Adaldust, Oelmi, Naleale, Hiller.
+- **2 coincidencias** con los **97 valores distintos no vacíos** del campo `surname` de los PNJ: Iraldsay y Beld.
+- La pestaña de datos del Excel concentra el repertorio Ylat bajo `ID.6` / `Nombre.6`; no se ha acreditado una columna independiente que clasifique los **apellidos de Ylat** con la misma trazabilidad.
+
+**Conclusión limitada:** el banco contiene al menos formas que en las biografías se utilizan en funciones diferentes (nombre de pila / segundo componente). No se puede usar la ausencia o coincidencia como criterio de canon ni inferir por ello reglas sobre todos los 1428 valores.
