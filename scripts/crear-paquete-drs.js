@@ -150,18 +150,20 @@ const transformaciones={
     ));
   },
   'data/tesauro-ylat.json'(d){
-    // Aprobación del autor (31/10/2026): publicar exclusivamente las 149
-    // COMBINACIONES, no las 51 identidades de PNJ documentados.
-    // Mantener los ámbitos ya atribuidos por el tesauro; nunca inventar
-    // una correspondencia ámbito <-> Especie.
+    // Corrección autoral (02/11/2026): excluir cualquier corpus ajeno a Ylat.
+    // Solo quedan 33 combinaciones de Isla Tormenta; las 19 identidades
+    // documentadas permanecen fuera del paquete público.
+    if(d.entradas.length!==52||
+       d.entradas.some(x=>x.ambito!=='Isla Tormenta'))
+      throw Error('El tesauro editorial de Ylat debe contener solo los 52 registros de Isla Tormenta.');
     const combinados=d.entradas.filter(x=>x.tipo==='combinado');
-    if(combinados.length!==149||
-       new Set(combinados.map(x=>x.id)).size!==149||
-       new Set(combinados.map(x=>x.nombre)).size!==149)
-      throw Error('El tesauro publicado exige exactamente 149 combinaciones únicas.');
+    if(combinados.length!==33||
+       new Set(combinados.map(x=>x.id)).size!==33||
+       new Set(combinados.map(x=>x.nombre)).size!==33)
+      throw Error('El tesauro publicado exige exactamente 33 combinaciones únicas de Isla Tormenta.');
     d.entradas=combinados;
-    d.contexto='Variantes onomásticas creadas a partir de elementos documentales de Ylat.';
-    d.politica='149 nombres combinados: propuestas para nuevos personajes, no personajes canónicos. Los 51 nombres documentados permanecen solo en desarrollo.';
+    d.contexto='33 variantes onomásticas del ámbito Isla Tormenta conservadas tras excluir materiales ajenos a Ylat.';
+    d.politica='33 nombres combinados: propuestas para nuevos personajes, no personajes canónicos. Las 19 identidades documentadas solo se conservan en desarrollo.';
     return d;
   },
   'data/nombres-historicos-ylat.json'(d){

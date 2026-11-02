@@ -243,10 +243,12 @@ console.log('OK · '+planificados+' pruebas de Poderes adicionales y nuevas inte
 
 /* Corrección editorial: Talentos visibles, Magia tántrica y tesauro de Ylat. */
 const tesauroYlat=leer('tesauro-ylat.json');
-assert.equal(tesauroYlat.entradas.length,200,'Tesauro con doscientas entradas');
-assert.equal(tesauroYlat.entradas.filter(n=>n.tipo==='documentado').length,51);
-assert.equal(tesauroYlat.entradas.filter(n=>n.tipo==='combinado').length,149);
-assert.equal(new Set(tesauroYlat.entradas.map(n=>n.nombre.toLocaleLowerCase('es'))).size,200,
+assert.equal(tesauroYlat.entradas.length,52,'Tesauro sin el corpus externo a Ylat');
+assert.equal(tesauroYlat.entradas.filter(n=>n.tipo==='documentado').length,19);
+assert.equal(tesauroYlat.entradas.filter(n=>n.tipo==='combinado').length,33);
+assert.ok(tesauroYlat.entradas.every(n=>n.ambito==='Isla Tormenta'));
+assert.ok(!/niguac|niguaz/i.test(JSON.stringify(tesauroYlat)));
+assert.equal(new Set(tesauroYlat.entradas.map(n=>n.nombre.toLocaleLowerCase('es'))).size,52,
   'No hay nombres duplicados');
 assert.ok(tesauroYlat.entradas.filter(n=>n.tipo==='documentado').every(n=>
   n.fuente && n.fuente.archivo && n.fuente.pagina>=1),'Procedencia de nombres documentados');
@@ -556,8 +558,8 @@ const nombresSeguidores=localizarRep('Dungeon Hack','Seguidores','Nombres de seg
 assert.ok(nombresSeguidores.valores.length>0,'Nombres de seguidores');
 const ylatDocumentados=localizarRep('Nd20 Fantasía','Tesauro Ylat','Nombres documentados','nombres');
 const ylatCombinados=localizarRep('Nd20 Fantasía','Tesauro Ylat','Nombres combinados','nombres');
-assert.equal(ylatDocumentados.valores.length,51,'Conservar nombres documentados');
-assert.equal(ylatCombinados.valores.length,149,'Nombres combinados ampliables');
+assert.equal(ylatDocumentados.valores.length,19,'Conservar solo documentados del ámbito aprobado');
+assert.equal(ylatCombinados.valores.length,33,'Conservar las variantes del ámbito aprobado');
 assert.equal(ylatDocumentados.editable,false,'Referencias documentadas protegidas');
 assert.equal(ylatCombinados.editable,true,'Creaciones combinadas editables');
 assert.throws(()=>catalogoRepertorios.actualizar(repertoriosPrueba,{},

@@ -88,8 +88,8 @@ const origenes={
   ocupaciones:Object.fromEntries(Object.keys(ocupaciones).map(x=>[x,'DRS']))
 };
 const fuenteBase={especies,ocupaciones,fuentes:origenes};
-// El tesauro de desarrollo conserva la fuente histórica completa, pero
-// solo las 149 COMBINACIONES están aprobadas para el paquete público.
+// El tesauro editorial está depurado: se retiraron 148 registros ajenos
+// a Ylat; solo las 33 combinaciones restantes pasan al paquete público.
 const tesauroYlat=leer('tesauro-ylat.json');
 const nombresSexo=leer('sexo-personajes.json');
 // La fuente histórica tiene 1428 testimonios, seis formas repetidas.
@@ -116,28 +116,30 @@ for(const sexoElegido of ['masculino','femenino']){
 const sexoNombres=require('../assets/sex.js');
 const combinados=tesauroYlat.entradas.filter(x=>x.tipo==='combinado');
 const documentados=tesauroYlat.entradas.filter(x=>x.tipo==='documentado');
-assert.equal(combinados.length,149);
-assert.equal(documentados.length,51);
-assert.equal(combinados.filter(x=>x.ambito==='Niguace').length,116);
-assert.equal(combinados.filter(x=>x.ambito==='Isla Tormenta').length,33);
-assert.equal(new Set(combinados.map(x=>x.nombre)).size,149);
+assert.equal(combinados.length,33);
+assert.equal(documentados.length,19);
+assert.equal(tesauroYlat.entradas.length,52);
+assert.ok(tesauroYlat.entradas.every(x=>x.ambito==='Isla Tormenta'));
+assert.ok(!/niguac|niguaz/i.test(JSON.stringify(tesauroYlat)),
+  'El tesauro de Ylat no debe conservar huellas del corpus externo');
+assert.equal(new Set(combinados.map(x=>x.nombre)).size,33);
 const clasificadosM=new Set(nombresSexo.nombres_generales_masculinos);
 const clasificadosF=new Set(nombresSexo.nombres_generales_femeninos);
 const sinSexo=combinados.filter(x=>
   !clasificadosM.has(x.nombre.split(' ')[0]) &&
   !clasificadosF.has(x.nombre.split(' ')[0]));
-assert.equal(sinSexo.length,27,
-  '27 combinaciones sin clasificación de sexo no deben recibirla por inferencia');
+assert.equal(sinSexo.length,3,
+  'Las tres combinaciones no clasificadas restantes no reciben atribución inferida');
 for(const sexo of ['masculino','femenino']){
   const opciones=sexoNombres.nombresDocumentados(combinados,sexo,nombresSexo,true);
   assert.ok(sinSexo.every(x=>opciones.some(y=>y.id===x.id)),
-    'Los 27 nombres no clasificados son propuestas válidas sin atribución: '+sexo);
+    'Los tres nombres no clasificados son propuestas válidas sin atribución: '+sexo);
   const ficha=sexoNombres.elegirNombre({juego:'nd20',modoNombre:'combinado'},
     'Humano común',[],[sinSexo[0]],sexo,nombresSexo,()=>0);
   assert.equal(ficha.nombre,sinSexo[0].nombre);
   assert.match(ficha.nota,/sin clasificación documental de sexo/);
 }
-for(const ambito of ['Niguace','Isla Tormenta']){
+for(const ambito of ['Isla Tormenta']){
   const validos=new Set(combinados.filter(x=>x.ambito===ambito).map(x=>x.nombre));
   for(const sexo of ['masculino','femenino']){
     const personaje=reglas.crearNd20(fuenteBase,{

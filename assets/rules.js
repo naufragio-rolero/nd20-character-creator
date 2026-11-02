@@ -252,11 +252,10 @@
         (nivel >= 10 ? 1 : 0) + (nivel >= 22 ? 1 : 0) : 0) : null;
     var riqueza = esFantasia ? compra.restante+' mo restantes / '+presupuesto+' mo iniciales' :
       esCifi ? compra.restante+' cr restantes / '+presupuesto+' cr iniciales' : '';
-    // Los valores de ámbito agrupan documentos de origen, NO culturas:
-    // Isla Tormenta reúne PJ de múltiples regiones y Niguace es una academia.
-    // No se asigna procedencia cultural ni Especie a partir del corpus.
+    // El ámbito es una referencia documental, nunca una cultura ni Especie.
+    // Solo se permite filtrar por la colección vigente de Isla Tormenta.
     var ambitoNombres=config.modoNombre==='combinado'&&
-      ['Niguace','Isla Tormenta'].includes(config.ambitoNombre)?
+      config.ambitoNombre==='Isla Tormenta'?
       config.ambitoNombre:null;
     var poolNombres=[];
     if(config.juego==='nd20'&&config.modoNombre==='historico'){
