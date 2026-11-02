@@ -208,3 +208,12 @@ Añadir una entrada fechada por sesión, enlaces a fuentes y distinción entre h
 - Se documentó un [**plan de pruebas editoriales y de regresión**](plan-pruebas-editoriales-regresion-sin-codigo.md), sin escribir código, con identidad, eponimia, apodos, casas, realidades, determinismo de semillas y límites de publicación.
 - En [la propuesta de integración](propuesta-integracion-sin-codigo.md) se corrigió la numeración duplicada de secciones 9 y se enlazaron los nuevos entregables, manteniendo explícitamente el estado **NO APROBADO**.
 - No se alteraron datos/código de producción, la rama `main`, ni se abrió una PR funcional.
+
+
+### 2026-11-02 — Duodécima sesión: decisiones directas de autoría (13 de 14)
+
+- Se registraron **13 de 14 resoluciones** en [acta de decisiones de autoría](acta-decisiones-autoria-2026-11-02.md) y [registro maestro de ONO](decisiones-editoriales.md), sin atribuir al autor elecciones no comunicadas.
+- **ONO-01:** Aerandil del Atardecer **Brillante** (no Refulgente); **ONO-03:** **Borgernstâg**; **ONO-07:** Saewig **Rowes Ylat¹** / **Shadelgast Ylat³**; **ONO-08:** **Car'rt Oq'uatee**; **ONO-09:** **Eomdyn Noreesh**; **ONO-10:** **Leezar Lockbruck**, **hermano de Thingrim Lockbruck** por indicación directa de autoría; **ONO-11:** **Alim de Mostáganem**; **ONO-12:** **Janus II Achgate**; **ONO-14:** **Narga Solarys**.
+- **ONO-04:** uso generativo de apellidos nobiliarios/de casa **permitido con un peso muy bajo**; aún no existe implementación de ponderación ni valor numérico definido. **ONO-05:** mezclar repertorios nominales de épocas/realidades sin perder procedencia e identidad documental. **ONO-06:** conservar regla eladrín para consulta **sin utilizarla** al generar nombres. **ONO-13:** las fichas de **Máthair Felsaer** (montaña) y **Pietro** (oso de una jugadora) se conservan; **no aplicar filtros de exclusión** ni borrar combinaciones por iniciativa del asistente.
+- **ONO-02 permanece pendiente**: paternidad de Tuliëlle, **Dyeld / Eldburg**; no se fija por silencio. Los antiguos documentos de propuestas, matriz, catálogo y acta de cierre se marcaron con referencias que **priorizan las decisiones posteriores del autor**, preservando testimonios literales originales.
+- El código de La Forja sigue usando selección **uniforme** de entrada en `assets/rules.js`: no existe tabla de probabilidades noble verificada. Se registró el requisito cualitativo sin inventar porcentaje ni modificar código/producto.
