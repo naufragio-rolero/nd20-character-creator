@@ -36,17 +36,18 @@ jobs:
       - name: Comprobar la revisión exacta de la entrega
         run: |
           test "$(git rev-parse HEAD)" = "ba163f5144ec8e5f55073dea4b0cedcfbe72a78f"
-      # El núcleo DRS de PR #18 permanece fijado y sin suplementos.
-      # Solo se superponen archivos de UI, guardias y el tesauro depurado
-      # según la rectificación canónica aprobada en la PR #22.
-      - name: Aplicar corrección de Niguace de PR #22 sin publicar DLC
+      # El núcleo DRS de PR #18 sigue fijado, sin DLC.
+      # Se superponen solo archivos de PR #23 y las revisiones
+      # previamente aprobadas, cotejando cada blob y la lista blanca.
+      - name: Aplicar formato de 64 Conjuros DRS de PR #23
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=d62d22918a5a8205ec22951f5cafd319891ee8f9
+          UI_COMMIT=bedcdb297c4d47280c744e090d94cdf7873d28ec
           archivos=(
             assets/app.js
             assets/styles.css
+            assets/tooltips.js
             assets/tooltip-ui.js
             assets/icons-forja.svg
             index.html
@@ -57,14 +58,16 @@ jobs:
             scripts/comprobar-publicacion-drs.js
             tests/browser-compras.js
             tests/browser-compatibilidad.js
+            tests/fichas-drs-ux.js
             tests/paquete-publico-drs.js
             tests/alcance-drs.js
             tests/smoke.js
           )
           blobs=(
             593d62212b0111786d368eeb3ebd732a986de3af
-            588c2848f399368ac6280a1e1e21dbc4a65a037a
-            8ce8e6d89e3d8639c43033db6c582208c34fa75b
+            3d7e019548d707499d5c8e815526162bb0dc6082
+            8fe0567e9b3b15c7112da8c28c0c04be6b08a299
+            398bc6a60db85818d7837ad4c243e06b07c0274c
             88783aebb85f835c3b41c10f237ed52453c66e8f
             5eece69a3940ee7699cc249bb91ef1c25f350025
             7aced6a1728d60a69115190a38861f3bfabed0bd
@@ -73,7 +76,8 @@ jobs:
             59001f362a71505b07af35f0d65c215bd4f76647
             6d42c7947d900bc8f754593771840d442c61b184
             e480ee85fddc90f3c52a7b6654cfd97ba19f0242
-            d7462d2b142579d23b1d0a34e137bf160b2b05fc
+            f63747a2b879d8c0ba28af1fca3f060f3c4e998e
+            d76b513f19fdbec72f4eab9c737a2e33113e7f6b
             c9e7a74e35e7cbac65b9f3b641425a06215af2f3
             163f721f174fd9e30c3d351c5b13b6dcd9fff780
             ddb7fe831b99018834633f5b85d28dd670ddaa18
@@ -107,7 +111,10 @@ jobs:
           ! grep -Eiq 'niguac|niguaz' index.html
           ! grep -Eiq 'niguac|niguaz' assets/rules.js
           grep -Fq 'exactamente 33 combinaciones únicas' scripts/crear-paquete-drs.js
-          echo "OK: corpus externo excluido; 52 entradas editoriales, 33 variantes públicas, 1422 históricas sin cambios."
+          grep -Fq 'function bloquesConjuroDRS(ficha)' assets/tooltips.js
+          grep -Fq 'bloques_conjuro' assets/tooltip-ui.js
+          grep -Fq '.info-tabla-conjuro{' assets/styles.css
+          echo "OK: corpus externo excluido y formato DRS de 64 Conjuros cotejado por hash."
       - name: Preparar Node
         uses: actions/setup-node@v4
         with:
@@ -116,6 +123,7 @@ jobs:
         run: |
           node tests/alcance-drs.js
           node tests/smoke.js
+          node tests/fichas-drs-ux.js
       - name: Generar solo la carpeta DRS autorizada
         run: node scripts/crear-paquete-drs.js
       - name: Detener la publicación ante DLC o sistemas no autorizados
@@ -188,6 +196,8 @@ jobs:
 
           # Insignias nuevas en código servido, además de los 24 Talentos.
           grep -Fq "presentarEquipo:presentarEquipo" /tmp/forja-tooltips.js
+          grep -Fq "function bloquesConjuroDRS(ficha)" /tmp/forja-tooltips.js
+          grep -Fq "info.bloques_conjuro" /tmp/forja-tooltip-ui.js
           grep -Fq "escuelas:escuelas,circulo:circulo" /tmp/forja-tooltips.js
           grep -Fq "info-escuela-" /tmp/forja-tooltip-ui.js
           grep -Fq "info-circulo-valor" /tmp/forja-tooltip-ui.js
@@ -221,6 +231,7 @@ jobs:
           grep -Fq "html[data-tema=clasico] .ficha-emergente" /tmp/forja-estilos.css
           grep -Fq ".bloque-ficha ul.lista-dos-columnas" /tmp/forja-estilos.css
           grep -Fq ".dialogo-compras{" /tmp/forja-estilos.css
+          grep -Fq ".info-tabla-conjuro{" /tmp/forja-estilos.css
           grep -Fq ".info-escuela-arcana{background:LightSkyBlue" /tmp/forja-estilos.css
           grep -Fq ".info-categoria-objeto-armas{background:#ffa280" /tmp/forja-estilos.css
           echo "OK: identidad Exo, azul del blog y categorías DRS en el CSS público."
