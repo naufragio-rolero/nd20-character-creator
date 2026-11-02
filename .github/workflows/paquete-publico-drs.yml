@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - 'main'
+      - 'release/pdf-a5-from-live-20261102'
   workflow_dispatch:
 
 permissions:
