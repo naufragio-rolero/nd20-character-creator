@@ -4,7 +4,7 @@
 
 ## 1. Objetivo
 
-Sustituir progresivamente los **35 iconos** actuales de la Forja por una familia de pictogramas originales que priorice claridad a tamaños reducidos y una identidad visual consistente. De los 35 iconos activos en la rama de revisión, 28 proceden de Game-icons.net y 7 son originales de El Naufragio. Los antiguos cuatro bocetos propios de especies se preservan como prototipos históricos; los SVG actualmente asignados a ellas vuelven a proceder de Game-icons.net. No hay promoción automática a LIVE. No se retiran sus créditos mientras se sigan distribuyendo obras derivadas.
+Sustituir progresivamente los **35 iconos** actuales de la Forja por una familia de pictogramas originales que priorice claridad a tamaños reducidos y una identidad visual consistente. De los 35 iconos integrados en `main` (PR #48), 28 proceden de Game-icons.net y 7 son originales de El Naufragio. Los antiguos cuatro bocetos propios de especies se preservan como prototipos históricos; los SVG actualmente asignados a ellas vuelven a proceder de Game-icons.net. No hay promoción automática a LIVE. No se retiran sus créditos mientras se sigan distribuyendo obras derivadas.
 
 El documento define **qué representa cada icono**, qué relaciones visuales debe conservar y cómo se revisarán los nuevos diseños. Los significados de especies y recursos vienen del generador y no añaden capacidades ni reglas.
 
@@ -137,7 +137,7 @@ Descartar un diseño si el humano parece un monstruo, si el semielfo no conserva
 5. **Integración:** sustituir `assets/icons/<id>.svg` manteniendo el ID y su función; documentar autoría/cambios.
 6. **Seguridad:** pruebas de Chrome, Firefox/WebKit, URLs de máscaras y paquete DRS aislado; publicar LIVE solo mediante flujo protegido y promoción explícita de SHA.
 
-**Estado de esta revisión:** 7 diseños originales propios y 28 iconos derivados de Game-icons.net. En esta rama se actualizan las Especies y Ocupaciones seleccionadas. LIVE sigue fijado a su SHA anterior.
+**Estado tras la PR #48:** 7 diseños originales propios y 28 iconos derivados de Game-icons.net integrados en `main`. Las Especies y Ocupaciones seleccionadas están incorporadas al repositorio. LIVE sigue fijado a su SHA anterior.
 
 ### Restricción de despliegue futuro
 
