@@ -20,6 +20,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - name: Verificar regresiones del último LIVE estable sin tocar iconografía nueva
+        run: |
+          node tests/alcance-drs.js
+          node tests/smoke.js
+          node tests/fichas-drs-ux.js
+          node tests/iconos-forja.js
       - name: Preparar activos locales PDF y fuentes con licencias
         run: |
           npm install --no-save --no-package-lock --ignore-scripts \
