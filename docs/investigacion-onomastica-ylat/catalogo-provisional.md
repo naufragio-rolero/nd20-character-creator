@@ -334,3 +334,8 @@ El [corpus de tres Gestas](corpus-gesta-personajes-ylat.md) distingue **cinco de
 **Precauciones:** **Santa Verna** es patrona religiosa **y** denominación de una aldea, no apellido. **Tomás Belardo, Naira Vell y Aldo Reme** son nombres completos documentados, pero las fuentes leídas **no acreditan** heredabilidad general del segundo componente. Los nombres simples permanecen como tales: no completar arbitrariamente con apellido. Los seis nombres de *La siega de los nombres* siguen siendo **borrador**, no material publicado.
 
 No sumar las once denominaciones a los **88 testimonios** de Isophius/Malasthar/Biografías sin una futura auditoría cruzada global; son inventarios con origen, estado y función distintos. Consulta documental posible; **generación nueva no autorizada**.
+
+
+## Anexo — fuentes históricas contrapuestas (2026-11-02)
+
+La [auditoría de Shadaleen](auditoria-shadaleen-eponimos-y-relatos.md) distingue siete casas fundacionales (Shadelgast, Bronnhum, Rowes, Alogers, Keefe, Dórilon, Kultstein) de los nombres personales. El relato «La Primera Huella» ofrece otra explicación sobre Shadel, Shadelgast y la montaña Ananolis. [Zonas de Ylat](https://docs.google.com/document/d/1v6rZIEWMGLvhv6b5WHMNQa0zwCzrPTOdqZEU5t6USFg/edit) cita a Mirethia del Atardecer Coral e Iskadar el Segundo, además de la variante Narga Solaris frente a Narga Solarys (ONO-14). Ninguno de estos testimonios autoriza una combinación adicional. El [plan de cierre](plan-cierre-y-criterios-aceptacion.md) define los tres bloques que restan.
