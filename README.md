@@ -22,5 +22,6 @@ Nunca publicar el directorio raíz: el único paquete público es el DRS depurad
 - Internacionalización: `assets/i18n.js` (otros idiomas pendientes).
 - Documentación editorial: `docs/enciclopedia/`.
 - Tareas de Forja 1.2: `docs/PLAN-FORJA-1-2.md`.
+- Iconografía de Equipo y configurador: `docs/ICONOS-Y-CONFIGURACION-FORJA.md`.
 
 Código GPL-3.0. Los textos originales conservan sus respectivas atribuciones y licencias.
