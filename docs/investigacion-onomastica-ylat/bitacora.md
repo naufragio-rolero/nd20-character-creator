@@ -56,3 +56,21 @@
 ## Política de actualización
 
 Añadir una entrada fechada por sesión, enlaces a fuentes y distinción entre hechos comprobados e hipótesis. No usar esta rama para cambios de producción.
+
+
+### 2026-11-02 — Segunda sesión: contraste histórico, regional y documental
+
+- Leída en Biblioteca «Trasfondo - Historia de Gylran.md», documento canónico que sustituye tres fuentes antiguas. Extraídos **Lathandos Snave, Käbrius Festus, Belril Sierpercana y Caefyn Verdimbre**; no se prueba vigencia contemporánea de los segundos componentes.
+- Revisados «Historia de Shadaleen», «Zonas de Ylat», «Susurros en Isophius», «Historia de Malasthar», «Historia de Nulsärax» y «El Imperio de Laventia»; consolidados ejemplos con sus condiciones en [catalogo-provisional.md](catalogo-provisional.md).
+- Documentado el carácter de familias de los **Orovecchio** y los **Gull**; diferenciados los linajes sacros **Terrana/Maren/Caelis** (historia de Malasthar, provisional) y los apellidos cuya función sigue sin certificar.
+- Verificadas las formas **Saewig Rowes** (Historia de Shadaleen) frente a **Saewig Shadelgast** (tesauro): no fusionar automáticamente. Hallada divergencia histórica entre el relato genealógico shadalense y la versión interna «La Primera Huella» sobre la denominación Shadelgast.
+- Búsqueda literal en los cuatro JSON de nombres existentes: 24 términos de interés nuevos no aparecen; la ausencia **no** acredita su inclusión automática.
+- Revisados mediante extracción local 16 documentos DOCX de reglas y ambientación asociados al proyecto; se detectaron principalmente usos mecánicos de «linaje», sin un sistema general de apellidos equiparable a las fuentes de historia. No se han alterado.
+- La lectura directa de «Apellidos eladrines en Erklan.txt» y «Linajes eladrines.txt» falla por codificación en el conector; ambas fuentes continúan marcadas como **no leídas**.
+- **Hallazgo de recuperación:** encontrada una copia Markdown de la antigua wiki de [Apellidos eladrines en Erklan](https://drive.google.com/file/d/1brBjcXrRFz2slCSSEuw7m78Y8pBLT5v6/view). Expone la estructura de apellidos ligada a fenómenos atmosféricos y orden de nacimiento; documentada en sección H del catálogo.
+- Contrastadas fichas antiguas: [Aerandil del Atardecer Refulgente](https://drive.google.com/file/d/1q2AGQap3uCdFgwyS6CwGf_FiLB5Xbrur/view), [Anasthore del Atardecer Luciente](https://drive.google.com/file/d/1rV6rEjO_Sy2kiollOgJtvKfYbSlTRTZG/view) y [Casa Adorasol](https://drive.google.com/file/d/1I_g1ni_qIrJXGcEteIfs2xQchUCgKlDd/view). **Discrepancia:** en la nota antigua Aerandil aparece como «del Atardecer Brillante», mientras en dos fichas aparece «del Atardecer Refulgente».
+- La ficha de Galeshra Adorasol documenta **migración de la familia desde Qelasthavia a Erklan**, por lo que su apellido no puede atribuirse como originario de Erklan sin matices.
+- Ningún JSON ni archivo ejecutable de la aplicación ha sido modificado. No se ha abierto PR ni desplegado LIVE.
+
+**Documentos de trabajo:** [catálogo provisional](catalogo-provisional.md).  
+**Decisiones pendientes:** nombre canónico de Aerandil; utilización de apellidos históricos y de casas nobles; validez actual de la convención eladrín; función de membresía en Casa Adorasol.
