@@ -117,8 +117,8 @@ const sexoNombres=require('../assets/sex.js');
 const combinados=tesauroYlat.entradas.filter(x=>x.tipo==='combinado');
 const documentados=tesauroYlat.entradas.filter(x=>x.tipo==='documentado');
 assert.equal(combinados.length,33);
-assert.equal(documentados.length,19);
-assert.equal(tesauroYlat.entradas.length,52);
+assert.equal(documentados.length,262);
+assert.equal(tesauroYlat.entradas.length,295);
 assert.ok(tesauroYlat.entradas.every(x=>x.ambito==='Isla Tormenta'));
 assert.ok(!/niguac|niguaz/i.test(JSON.stringify(tesauroYlat)),
   'El tesauro de Ylat no debe conservar huellas del corpus externo');
