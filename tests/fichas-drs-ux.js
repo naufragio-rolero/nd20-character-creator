@@ -10,6 +10,8 @@ const tecnica=cargar('tecnicas-drs-literales.json');
 const glosas=cargar('glosas-talentos-drs.json');
 const objetos=cargar('glosas-equipo-drs.json');
 const canon=cargar('talentos-drs-literales.json');
+const revisados=[...cargar('conjuros-revisados-001-225.json').conjuros,
+  ...cargar('conjuros-revisados-226-434.json').conjuros];
 assert.equal(tecnica.registros.length,10);
 assert.equal(glosas.registros.length,24);
 assert.equal(glosas.registros.filter(x=>x.tipo_origen==='Especie').length,15);
@@ -31,7 +33,8 @@ const i=api.indice({fantasia:{especies:cargar('especies.json'),
   ocupaciones:cargar('ocupaciones.json')},catalogo:cargar('catalogo-poderes.json'),
   equipo:eq,tecnicasDRS:tecnica,glosasEquipoDRS:objetos,
   glosasTalentosDRS:glosas,talentosDRS:canon,
-  aclaracionesTalentosDRS:cargar('aclaraciones-talentos-drs.json')});
+  aclaracionesTalentosDRS:cargar('aclaraciones-talentos-drs.json'),
+  conjurosRevisados:revisados});
 for(const x of tecnica.registros){
   const ficha=api.buscar(i,x.nombre,'poder','nd20');
   assert.ok(ficha,'Falta Técnica '+x.nombre);
@@ -70,6 +73,65 @@ for(const conjuro of catalogo.conjuros){
   conjuro.escuelas.forEach(x=>encontradas.add(x));
 }
 assert.deepEqual(encontradas,seis,'Las escuelas reales del catálogo son las seis del DRS');
+// Auditoría de los 64 Conjuros. El formato debe conservar cada cadena
+// original, en el mismo orden y una sola vez. No modificar huellas DRS.
+const drsConjuros=catalogo.conjuros.filter(x=>x.origen==='Nd20');
+assert.equal(drsConjuros.length,64);
+const listaIDs=new Set(['conjuro-8','conjuro-18','conjuro-19',
+  'conjuro-45','conjuro-51','conjuro-61']);
+const originales=new Map();
+for(const r of revisados){
+  if(!originales.has(r.id_catalogo))originales.set(r.id_catalogo,r);
+}
+const quitarCabeceras=x=>x.parrafos.filter(p=>
+  !/^(?:Primer|Segundo|Tercer|Cuarto|Quinto|Sexto|Séptimo|Octavo) Círculo$/i.test(p)&&
+  !/^(?:Escuela|Alcance|Duración|Lanzamiento|Requisito):/i.test(p));
+for(const conjuro of drsConjuros){
+  const ficha=api.buscarPorId(i,conjuro.id,'poder','nd20');
+  const original=originales.get(conjuro.id);
+  assert.ok(original,'Falta transcripción cotejada: '+conjuro.nombre);
+  assert.ok(Array.isArray(ficha.bloques_conjuro)&&ficha.bloques_conjuro.length,
+    'Todo Conjuro DRS tiene bloques: '+conjuro.nombre);
+  const esperado=quitarCabeceras(original);
+  assert.equal(ficha.descripcion,esperado.join('\\n\\n'),
+    'Descripción literal sin modificaciones: '+conjuro.nombre);
+  const reconstruido=ficha.bloques_conjuro.flatMap(b=>
+    b.tipo==='parrafo'?[b.texto]:
+    b.tipo==='lista'?b.elementos:b.tipo==='tabla'?
+      b.cabeceras.concat(b.filas.flat()):[]);
+  assert.deepEqual(reconstruido,esperado,
+    'Presentación reversible, sin pérdida ni duplicación: '+conjuro.nombre);
+  const tipos=ficha.bloques_conjuro.map(b=>b.tipo);
+  if(listaIDs.has(conjuro.id))assert.ok(tipos.includes('lista'),
+    conjuro.nombre+' debe contener lista semántica');
+  else assert.ok(!tipos.includes('lista'),
+    conjuro.nombre+' no tiene enumeración validada');
+  if(conjuro.id==='conjuro-14'){
+    assert.deepEqual(tipos,['parrafo','parrafo','tabla']);
+    const t=ficha.bloques_conjuro[2];
+    assert.deepEqual(t.cabeceras,['Turno','Temperatura','Daño']);
+    assert.deepEqual(t.filas,[
+      ['1','Templada','-'],['2','Caliente','1d6'],
+      ['3-4','Ardiente','2d6'],['5','Caliente','1d6'],
+      ['6','Templada','-']
+    ]);
+  }else assert.ok(!tipos.includes('tabla'),
+    conjuro.nombre+' no tiene tabla documentada');
+}
+// El respaldo tampoco interpreta el texto si cambia la estructura fuente.
+const originalForja=originales.get('conjuro-45');
+const copiaAlterada={...originalForja,parrafos:originalForja.parrafos.concat(
+  'Apéndice editorial de prueba, no publicable.')};
+const idxAlterado=api.indice({
+  catalogo:catalogo,
+  conjurosRevisados:revisados.map(x=>x.id_catalogo==='conjuro-45'?
+    copiaAlterada:x)
+});
+const bloquesAlterados=api.buscarPorId(idxAlterado,'conjuro-45','poder','nd20')
+  .bloques_conjuro;
+assert.ok(bloquesAlterados.every(x=>x.tipo==='parrafo'),
+  'Una edición no verificada desactiva la lista y conserva los párrafos');
+
 for(const x of glosas.registros){
   const ficha=api.buscar(i,x.nombre,'talento','nd20',
     x.tipo_origen+': '+x.propietario);
