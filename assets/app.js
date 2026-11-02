@@ -359,17 +359,36 @@
       return {fuente:'Especie: '+fuente,adquisicion:'Herencia dual · '+especie};
     return {fuente:'',adquisicion:''};
   }
+  // La presentación compacta NO modifica el nombre original: se utiliza
+  // íntegro para buscar el popup, copiar/exportar y cotejar el catálogo.
+  function presentarPoder(nombre){
+    var tipo=String(nombre).match(/^\\[(C|T)\\]\\s+/);
+    if(!tipo)return {texto:nombre,icono:''};
+    var texto=String(nombre).replace(/^\\[[CT]\\]\\s+/,'');
+    if(tipo[1]==='C'){
+      texto=texto.replace(/\\s+·\\s+Nd20$/,'')
+        .replace(/\\s+\\(C([1-8])\\)$/,' ($1)');
+    }
+    var icono=tipo[1]==='C'?'ico-conjuro':'ico-tecnica';
+    return {texto:texto,icono:
+      '<svg class="icono-poder-lista" aria-hidden="true" focusable="false">'+
+        '<use href="assets/icons-forja.svg#'+icono+'"></use></svg>'};
+  }
   function htmlLista(titulo, valores, grupo, sistema, personaje) {
     if (!valores || !valores.length) return '';
+    var compacta=grupo==='talento'||grupo==='poder';
     return '<section class="bloque-ficha"><h4>' + esc(titulo) + '</h4>' +
       (grupo==='talento'?'<p class="pista-talentos">Pulsa un Talento ⓘ para consultar su efecto.</p>':'') +
-      '<ul>' + valores.map(function (v) {
+      '<ul'+(compacta?' class="lista-dos-columnas"':'')+'>' +
+      valores.map(function (v) {
         var procedencia=grupo==='talento'?
           procedenciaTalentoDRS(personaje,v):{fuente:'',adquisicion:''};
+        var vista=grupo==='poder'?presentarPoder(v):{texto:v,icono:''};
         var item=grupo&&infoUI?
           infoUI.etiqueta(v,grupo,sistema,
-            procedencia.fuente,procedencia.adquisicion):esc(v);
-        return '<li>' + item + '</li>';
+            procedencia.fuente,procedencia.adquisicion,vista.texto):esc(vista.texto);
+        return '<li>'+(vista.icono?'<span class="linea-poder">':'')+
+          vista.icono+item+(vista.icono?'</span>':'')+'</li>';
       }).join('') + '</ul></section>';
   }
   // Las reglas de los Talentos se consultan junto al nombre, no al
@@ -555,7 +574,9 @@
   function cerrarCompra(){
     var id=compraBorrador&&compraBorrador.id;
     compraBorrador=null;
-    $('editor-compras').hidden=true;
+    var dialogo=$('editor-compras');
+    if(dialogo.open)dialogo.close();
+    dialogo.hidden=true;
     // El teclado vuelve a la ficha que abrió el editor, si sigue presente.
     if(id!==null&&id!==undefined){
       var retorno=$('fichas').querySelector('.comprar-utiles[data-id="'+id+'"]');
@@ -580,32 +601,51 @@
       throw Error('La compra individual solo está disponible en fichas DRS con saldo.');
     compraBorrador={id:entrada.id,seleccion:[]};
     $('titulo-editor-compras').textContent='Comprar útiles · '+entrada.valor.nombre;
-    var select=$('compras-articulo');
-    select.textContent='';
-    var etiquetas={aventura:'Aventura',campamento:'Campamento',
-      consumibles:'Consumibles',herramientas:'Herramientas',
-      escritura:'Escritura',focos:'Focos de Conjuros'};
-    var grupos=Object.entries(datos.equipoInicial.utiles_fantasia||{});
-    grupos.push(['focos',datos.equipoInicial.focos_conjuros_con_precio||[]]);
-    grupos.forEach(function(par){
-      var grupo=document.createElement('optgroup');
-      grupo.label=etiquetas[par[0]]||par[0];
-      par[1].forEach(function(item){
-        var opt=document.createElement('option');
-        opt.value=item.id;
-        opt.textContent=item.nombre+
-          ' · '+(item.precio_por_nivel!==undefined?
-            item.precio_por_nivel+' mo/Nivel':item.precio+' mo');
-        grupo.appendChild(opt);
-      });
-      select.appendChild(grupo);
+    var familia=$('compras-grupo');
+    familia.textContent='';
+    gruposCompra().forEach(function(par){
+      var opcion=document.createElement('option');
+      opcion.value=par[0];opcion.textContent=etiquetaGrupoCompra(par[0]);
+      familia.appendChild(opcion);
     });
+    familia.selectedIndex=0;
+    rellenarArticulosCompra();
     $('compras-cantidad').value='1';
     $('compras-nivel').value='1';
-    $('editor-compras').hidden=false;
+    var dialogo=$('editor-compras');
+    dialogo.hidden=false;
+    dialogo.showModal();
     refrescarCompra();
-    select.focus({preventScroll:true});
-    $('editor-compras').scrollIntoView({behavior:'smooth',block:'start'});
+    $('compras-articulo').focus({preventScroll:true});
+  }
+  // La familia reduce el desplegable a un subconjunto documentado
+  // (sin añadir artículos ni precios ajenos al DRS).
+  function gruposCompra(){
+    return Object.entries(datos.equipoInicial.utiles_fantasia||{})
+      .concat([['focos',datos.equipoInicial.focos_conjuros_con_precio||[]]]);
+  }
+  function etiquetaGrupoCompra(id){
+    return ({aventura:'Aventura',campamento:'Campamento',
+      consumibles:'Consumibles',herramientas:'Herramientas',
+      escritura:'Escritura',focos:'Focos de Conjuros'})[id]||id;
+  }
+  function rellenarArticulosCompra(){
+    var grupo=gruposCompra().find(function(par){
+      return par[0]===$('compras-grupo').value;
+    });
+    var select=$('compras-articulo'),previo=select.value;
+    select.textContent='';
+    (grupo?grupo[1]:[]).forEach(function(item){
+      var opt=document.createElement('option');
+      opt.value=item.id;
+      opt.textContent=item.nombre+' · '+
+        (item.precio_por_nivel!==undefined?
+          item.precio_por_nivel+' mo/Nivel':item.precio+' mo');
+      select.appendChild(opt);
+    });
+    if(Array.from(select.options).some(function(op){return op.value===previo;}))
+      select.value=previo;
+    refrescarCompra();
   }
   function articuloCompra(){
     var id=$('compras-articulo').value;
@@ -987,6 +1027,7 @@
     $('generar-mazmorra').addEventListener('click',function(){
       conControl(function(){agregar('mazmorra',reglas.mazmorra({ancho:6,alto:6},rngUnico()(correlativo)));});
     });
+    $('compras-grupo').addEventListener('change',rellenarArticulosCompra);
     $('compras-articulo').addEventListener('change',refrescarCompra);
     $('compras-cantidad').addEventListener('input',refrescarCompra);
     $('compras-nivel').addEventListener('input',refrescarCompra);
@@ -1056,6 +1097,17 @@
       });
     });
     $('compras-cancelar').addEventListener('click',cerrarCompra);
+    $('compras-cerrar').addEventListener('click',cerrarCompra);
+    $('editor-compras').addEventListener('cancel',function(event){
+      event.preventDefault();
+      cerrarCompra(); // Escape descarta el borrador y devuelve el foco.
+    });
+    $('editor-compras').addEventListener('click',function(event){
+      if(event.target!==this)return;
+      var r=this.getBoundingClientRect();
+      if(event.clientX<r.left||event.clientX>r.right||
+         event.clientY<r.top||event.clientY>r.bottom)cerrarCompra();
+    });
     $('inicio-movil').querySelector('.empezar-forja').addEventListener('click',function(){
       marcarPanel('personajes');
       if(window.matchMedia('(max-width:830px)').matches)alternarMenu(true);
