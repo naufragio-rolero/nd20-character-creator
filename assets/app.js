@@ -376,7 +376,7 @@
   }
   function htmlLista(titulo, valores, grupo, sistema, personaje) {
     if (!valores || !valores.length) return '';
-    var compacta=grupo==='talento'||grupo==='poder';
+    var compacta=grupo==='talento'||grupo==='poder'||grupo==='equipo';
     return '<section class="bloque-ficha"><h4>' + esc(titulo) + '</h4>' +
       (grupo==='talento'?'<p class="pista-talentos">Pulsa un Talento ⓘ para consultar su efecto.</p>':'') +
       '<ul'+(compacta?' class="lista-dos-columnas"':'')+'>' +
@@ -411,7 +411,7 @@
       }
       var elegido=literal.match(/^Talento (?:de Guerrero elegido|adicional de (?:Especie|Ocupación) seleccionado): (.+?)\.$/);
       if(elegido&&(personaje.capacidades||[]).includes(elegido[1]))return;
-      if(/^Nombre del banco histórico |^Forma del generador histórico |^Nombre propuesto con elementos de Ylat/.test(literal)||
+      if(/^Nombre propuesto con elementos de Ylat/.test(literal)||
          /^Envejecimiento de Especie:/.test(literal)){
         grupos.contexto.push(literal);return;
       }
@@ -477,13 +477,13 @@
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
       htmlContexto(notas.contexto) +
       '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos) +
+      htmlLista('Competencias',personaje.competencias) +
       htmlLista('Talentos y capacidades',personaje.capacidades,'talento',
         sistemaFicha(personaje),personaje) +
       htmlAvisos('Detalles sin ficha emergente',notas.talentos,'avisos-talentos') +
       htmlLista('Conjuros y Poderes conocidos',personaje.poderes,'poder',sistemaFicha(personaje)) +
       htmlLista('Conjuros preparados',personaje.conjuros_preparados,'poder',sistemaFicha(personaje)) +
       htmlAvisos('Condiciones de uso',notas.poderes,'avisos-poderes') +
-      htmlLista('Competencias',personaje.competencias) +
       htmlLista('Equipo',personaje.equipo,'equipo',sistemaFicha(personaje)) +
       htmlAvisos('Reglas y compras de equipo',notas.equipo,'avisos-equipo') +
       (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
