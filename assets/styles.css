@@ -695,3 +695,109 @@ html[data-tema=clasico] .info-circulo-valor{
   .abrir-rejilla,.opcion-visual,.pestanas-panel button{transition:none}
 }
 
+/* Forja: Talentos y Poderes comparten la cuadrícula compacta de Atributos.
+   El contenido textual íntegro permanece accesible en el popup. */
+.bloque-ficha ul.lista-dos-columnas{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:1.1rem;row-gap:.2rem;align-items:start;
+  padding-left:1.05rem;margin:.35rem 0 .7rem;
+}
+.bloque-ficha ul.lista-dos-columnas li{
+  min-width:0;padding:.14rem .15rem .14rem 0;
+  overflow-wrap:anywhere;break-inside:avoid;
+}
+.linea-poder{display:inline-flex;align-items:baseline;gap:.38rem;min-width:0;max-width:100%}
+.linea-poder .referencia-glosario{min-width:0;overflow-wrap:anywhere}
+.icono-poder-lista{
+  width:1.12rem;height:1.12rem;flex:0 0 1.12rem;
+  vertical-align:-.2em;color:#1151d3;
+}
+html[data-tema=ceruleo] .icono-poder-lista{color:#33cccc}
+html[data-tema=ebano] .icono-poder-lista{color:#15467c}
+html[data-tema=obsidiana] .icono-poder-lista{color:#f0f0f0}
+@media(max-width:560px){
+  .bloque-ficha ul.lista-dos-columnas{grid-template-columns:1fr}
+}
+/* Compra modal con scroll propio; la top layer bloquea clics sobre la mesa
+   hasta confirmar/cancelar, y el select nativo conserva teclado y SR. */
+.dialogo-compras{
+  width:min(690px,calc(100vw - 1.5rem));max-width:none;
+  max-height:min(88dvh,780px);overflow:auto;overscroll-behavior:contain;
+  padding:0;border:1px solid var(--borde);border-radius:16px 5px;
+  background:var(--superficie);color:var(--texto);
+  box-shadow:0 24px 72px #081a2980;
+}
+.dialogo-compras::backdrop{background:#061d32ab;backdrop-filter:blur(3px)}
+.dialogo-compras .cabecera-compras{
+  position:sticky;top:0;z-index:2;display:flex;align-items:flex-start;
+  justify-content:space-between;gap:.7rem;padding:1rem 1.3rem .8rem;
+  background:var(--superficie);border-bottom:1px solid var(--borde);
+}
+.dialogo-compras .cabecera-compras h3{
+  font-size:1.28rem;line-height:1.3;color:var(--texto);margin:0 0 .35rem;
+}
+.dialogo-compras .cabecera-compras .muted{font-size:.78rem;line-height:1.5}
+.dialogo-compras #compras-cerrar{
+  min-width:40px;min-height:40px;flex-shrink:0;
+  color:var(--texto);background:var(--superficie2);border-color:var(--borde);
+}
+.dialogo-compras #form-compra-utiles{padding:1.05rem 1.3rem 1.25rem}
+.dialogo-compras .selectores-compra{
+  display:grid;grid-template-columns:minmax(145px,.8fr) minmax(0,1.6fr);gap:.8rem;
+}
+.dialogo-compras .selectores-compra .campo{min-width:0}
+.dialogo-compras .envoltura-select{position:relative;min-width:0}
+.dialogo-compras .envoltura-select::after{
+  content:"";position:absolute;right:.95rem;top:calc(50% - .22rem);
+  width:.45rem;height:.45rem;border-right:2px solid var(--oro);
+  border-bottom:2px solid var(--oro);transform:rotate(45deg);pointer-events:none;
+}
+.dialogo-compras .envoltura-select select{
+  appearance:none;-webkit-appearance:none;min-height:44px;
+  width:100%;border:1px solid var(--borde);border-radius:10px 3px;
+  padding:.62rem 2.25rem .62rem .8rem;
+  color:var(--texto);background:var(--fondo2);
+  cursor:pointer;white-space:nowrap;text-overflow:ellipsis;
+}
+.dialogo-compras .envoltura-select select:hover{border-color:var(--oro2)}
+.dialogo-compras .envoltura-select select:focus-visible{outline:3px solid var(--foco)}
+.dialogo-compras #compras-anadir{min-height:40px}
+.dialogo-compras #compras-detalle{margin:.3rem 0 .9rem}
+.dialogo-compras h4{margin:1rem 0 .5rem;font-size:.88rem;color:var(--texto)}
+.dialogo-compras .lista-compra{
+  max-height:155px;overflow-y:auto;scrollbar-width:thin;
+  margin:0 0 .85rem;padding:0;list-style:none;line-height:1.45;
+}
+.dialogo-compras .lista-compra li{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:.7rem;flex-wrap:wrap;margin:0;padding:.42rem .1rem;
+  border-bottom:1px solid var(--borde);
+}
+.dialogo-compras .lista-compra li span{font-size:.78rem;flex:1 1 190px}
+.dialogo-compras .lista-compra button{min-height:36px}
+.dialogo-compras #compras-total{
+  margin:.5rem 0 .85rem;padding:.75rem;border-radius:9px;
+  background:var(--superficie2);border-color:var(--borde);
+}
+.dialogo-compras .botonera{
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:.7rem;
+}
+.dialogo-compras .botonera .principal{margin:0;min-height:44px}
+.dialogo-compras .botonera #compras-cancelar{min-height:44px}
+html[data-tema=clasico] .dialogo-compras{
+  background:#fff;color:#203447;border-color:#6699cc;
+}
+html[data-tema=clasico] .dialogo-compras .cabecera-compras{
+  background:#f6fbff;border-bottom-color:#a6c1dd;
+}
+html[data-tema=clasico] .dialogo-compras .envoltura-select select{background:#eaf4fd;color:#203447}
+html[data-tema=clasico] .dialogo-compras #compras-total{background:#deeeff}
+@media(max-width:550px){
+  .dialogo-compras{width:calc(100vw - 1rem);max-height:calc(100dvh - 1rem)}
+  .dialogo-compras .cabecera-compras{padding:.85rem .85rem .7rem}
+  .dialogo-compras #form-compra-utiles{padding:.85rem}
+  .dialogo-compras .selectores-compra{grid-template-columns:1fr;gap:.15rem}
+  .dialogo-compras .botonera{grid-template-columns:1fr 1fr}
+  .dialogo-compras .botonera #compras-cancelar{padding:.65rem}
+}
+
