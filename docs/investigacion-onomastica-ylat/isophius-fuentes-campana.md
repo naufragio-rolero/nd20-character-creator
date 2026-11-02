@@ -33,7 +33,14 @@ La presencia en una **hoja de preparación** no prueba publicación, participaci
 
 ## Pendientes
 
-- Validar si los seis personajes de la hoja de campaña llegaron a formar parte de la continuidad narrativa.
-- Determinar si el segundo componente `de Mostaganem` expresa origen geográfico, nombre familiar o fórmula específica: **la hoja no lo define**.
+- Verificar individualmente la continuidad de todos los personajes preparatorios: **Alim ya figura expresamente en escenas publicadas**, **Draconio «Drake» Orovecchio** y **Leezar Lockbruck** cuentan con fichas públicas; **Leezar Theroux** es una denominación anterior probable, no un cambio formalmente documentado. Otros casos permanecen en revisión. Véase [ampliacion-cronicas-isophius.md](ampliacion-cronicas-isophius.md).
+- **Actualización:** la [ficha publicada de Alim](https://drive.google.com/file/d/1iM91tlKV1wri3kQMFBg1OIabQ964xn6a/view) indica procedencia de la **ciudad de Mostagánem** y varias grafías (`Mostaganem`, `Mostagánem`, `Mostáganem`). Su vínculo con un topónimo está acreditado, **no** un apellido de familia heredable.
 - Resolver la discordancia interna de Abelio únicamente si la información fuera necesaria para un catálogo individual; **no es imprescindible para probar la existencia textual del nombre**.
 - No combinar automáticamente el apellido Orovecchio con cualquier nombre de la región.
+
+
+## Actualización tras leer crónicas efectivas (2026-11-02)
+
+La participación en la campaña ya **no está pendiente en todos los casos**: las [escenas del capítulo sexto](https://drive.google.com/file/d/1qYR74sOdmTDUkPIuwkFJfD3kuXu_OIIi/view) contienen intervenciones de **Alim de Mostaganem** y referencias a su adopción por **Fabrizio Orovecchio**; la [ficha pública](https://drive.google.com/file/d/1iM91tlKV1wri3kQMFBg1OIabQ964xn6a/view) usa **Alim de Mostagánem** y acredita una ciudad con ese nombre. [Draconio «Drake» Orovecchio](https://drive.google.com/file/d/18bkKd4-ZE_dQNDWvFWxua6MZkie6_1YE/view) y [Leezar Lockbruck](https://drive.google.com/file/d/151ZXHJwC8PnPjvpzZCYcORErEL26uI-7/view) cuentan igualmente con fichas narrativas. En cambio, `Leezar Theroux` continúa como grafía de planificación y referencia interna de [Casa Forneustone](https://drive.google.com/file/d/1Sm0YEeQh_Cz1vjsFBV5Qu5Cs2l7sI0xh/view), **no como apellido actual aprobado del personaje**. 
+
+En la [ficha de Casa Orovecchio](https://drive.google.com/file/d/1NcHcETJESJ3xVwLrEf6WPEBMwO-0o9vy/view) constan personajes de numerosos apellidos distintos y vasallajes; por tanto, se refuerza la distinción entre pertenencia a la **Casa Orovecchio** y uso del **apellido Orovecchio**. Análisis completo en [ampliacion-cronicas-isophius.md](ampliacion-cronicas-isophius.md).
