@@ -1127,3 +1127,6 @@ require('./alcance-drs.js');
 
 /* Enciclopedia DRS: Técnicas, Talentos y Equipo con cobertura completa. */
 require('./fichas-drs-ux.js');
+
+/* Iconografía autónoma 1:1 de la Forja. */
+require('./iconos-forja.js');

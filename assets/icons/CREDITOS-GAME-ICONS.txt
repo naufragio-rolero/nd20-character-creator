@@ -1,0 +1,64 @@
+ICONOGRAFÍA DE LA FORJA — CRÉDITOS Y LICENCIA
+
+Los 35 iconos SVG de la Forja son obras adaptadas a partir de Game-icons.net.
+Autores originales: Delapouite, Lorc, Kier Heyl, DarkZaitzev y sbed.
+Licencia de los iconos originales y sus adaptaciones: Creative Commons Atribución 3.0 (CC BY 3.0).
+https://creativecommons.org/licenses/by/3.0/
+Sitio original: https://game-icons.net/
+Repositorio oficial de origen: https://github.com/game-icons/icons
+
+MODIFICACIONES DE NAUFRAGIO D20:
+Se ha eliminado el fondo negro de los SVG originales 512 × 512, se ha
+convertido el dibujo en una silueta monocroma y se ha adaptado proporcionalmente
+a un lienzo transparente de 24 × 24, con margen y centrado común.
+La Forja aplica al dibujo el color del tema mediante máscaras CSS.
+El semiorco es una composición nueva de la mitad del icono Orc head y
+la mitad del icono Monk face, ambos de Delapouite.
+
+DETALLE DE ATRIBUCIONES (archivo de la Forja — icono original — autor — enlace):
+esp-elfo.svg — elf-helmet — Kier Heyl — https://game-icons.net/1x1/kier-heyl/elf-helmet.html
+esp-enano.svg — dwarf-face — Delapouite — https://game-icons.net/1x1/delapouite/dwarf-face.html
+esp-humano.svg — person — Delapouite — https://game-icons.net/1x1/delapouite/person.html
+esp-mediano.svg — hobbit-door — Delapouite — https://game-icons.net/1x1/delapouite/hobbit-door.html
+esp-gnomo.svg — pointy-hat — Lorc — https://game-icons.net/1x1/lorc/pointy-hat.html
+esp-semielfo.svg — elf-ear — Delapouite — https://game-icons.net/1x1/delapouite/elf-ear.html
+esp-orco.svg — orc-head — Delapouite — https://game-icons.net/1x1/delapouite/orc-head.html
+esp-semiorco.svg — orc-head + monk-face — Delapouite — https://game-icons.net/1x1/delapouite/orc-head.html ; https://game-icons.net/1x1/delapouite/monk-face.html
+ocu-clerigo.svg — monk-face — Delapouite — https://game-icons.net/1x1/delapouite/monk-face.html
+ocu-guerrero.svg — crossed-swords — Lorc — https://game-icons.net/1x1/lorc/crossed-swords.html
+ocu-mago.svg — wizard-face — Delapouite — https://game-icons.net/1x1/delapouite/wizard-face.html
+ocu-ladron.svg — hooded-figure — DarkZaitzev — https://game-icons.net/1x1/darkzaitzev/hooded-figure.html
+ico-conjuro.svg — magic-swirl — Lorc — https://game-icons.net/1x1/lorc/magic-swirl.html
+ico-tecnica.svg — sword-clash — Lorc — https://game-icons.net/1x1/lorc/sword-clash.html
+recurso-salud.svg — nested-hearts — Delapouite — https://game-icons.net/1x1/delapouite/nested-hearts.html
+recurso-esfuerzo.svg — biceps — Delapouite — https://game-icons.net/1x1/delapouite/biceps.html
+recurso-movimiento.svg — sprint — Lorc — https://game-icons.net/1x1/lorc/sprint.html
+recurso-potencia.svg — energise — Lorc — https://game-icons.net/1x1/lorc/energise.html
+recurso-esencia.svg — potion-ball — Lorc — https://game-icons.net/1x1/lorc/potion-ball.html
+recurso-blindaje.svg — layered-armor — Lorc — https://game-icons.net/1x1/lorc/layered-armor.html
+equipo-espada.svg — broadsword — Lorc — https://game-icons.net/1x1/lorc/broadsword.html
+equipo-arco.svg — bow-arrow — Delapouite — https://game-icons.net/1x1/delapouite/bow-arrow.html
+equipo-varita.svg — fairy-wand — Lorc — https://game-icons.net/1x1/lorc/fairy-wand.html
+equipo-bolsa.svg — swap-bag — Lorc — https://game-icons.net/1x1/lorc/swap-bag.html
+equipo-caballo.svg — horse-head — Delapouite — https://game-icons.net/1x1/delapouite/horse-head.html
+equipo-mochila.svg — backpack — Delapouite — https://game-icons.net/1x1/delapouite/backpack.html
+equipo-orbe.svg — crystal-ball — Lorc — https://game-icons.net/1x1/lorc/crystal-ball.html
+equipo-libro.svg — open-book — Lorc — https://game-icons.net/1x1/lorc/open-book.html
+equipo-armadura.svg — breastplate — Lorc — https://game-icons.net/1x1/lorc/breastplate.html
+equipo-escudo.svg — shield — sbed — https://game-icons.net/1x1/sbed/shield.html
+equipo-municion.svg — quiver — Delapouite — https://game-icons.net/1x1/delapouite/quiver.html
+ico-configurar.svg — gears — Lorc — https://game-icons.net/1x1/lorc/gears.html
+sexo-masculino.svg — male — Delapouite — https://game-icons.net/1x1/delapouite/male.html
+sexo-femenino.svg — female — Delapouite — https://game-icons.net/1x1/delapouite/female.html
+sexo-indeterminado.svg — uncertainty — Lorc — https://game-icons.net/1x1/lorc/uncertainty.html
+
+RESERVA PARA FUTURA ESPECIE:
+Goblin head — Delapouite — https://game-icons.net/1x1/delapouite/goblin-head.html
+Se conserva el SVG original de Goblin head en docs/iconografia/originales/
+pero no se muestra en la Forja ni se asigna a los semiorcos.
+
+Los originales SVG de referencia se guardan en
+docs/iconografia/originales/game-icons/<autor>/<nombre>.svg.
+Esos originales no forman parte del paquete público de la Forja.
+Este reconocimiento se refiere solo a los iconos indicados; el resto
+del código, las marcas y las reglas mantienen sus condiciones propias.

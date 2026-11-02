@@ -69,9 +69,20 @@ const especiesAdmitidas=new Set([
   ...Object.keys(especiesCifi),
   ...Object.keys(ampliado.nocturna.especies||{})
 ]);
+const iconosForja=[
+  'esp-elfo', 'esp-enano', 'esp-humano', 'esp-mediano', 'esp-gnomo',
+  'esp-semielfo', 'esp-orco', 'esp-semiorco', 'ocu-clerigo', 'ocu-guerrero',
+  'ocu-mago', 'ocu-ladron', 'ico-conjuro', 'ico-tecnica', 'recurso-salud',
+  'recurso-esfuerzo', 'recurso-movimiento', 'recurso-potencia', 'recurso-esencia', 'recurso-blindaje',
+  'equipo-espada', 'equipo-arco', 'equipo-varita', 'equipo-bolsa', 'equipo-caballo',
+  'equipo-mochila', 'equipo-orbe', 'equipo-libro', 'equipo-armadura', 'equipo-escudo',
+  'equipo-municion', 'ico-configurar', 'sexo-masculino', 'sexo-femenino', 'sexo-indeterminado',
+];
 const especificas=[
   'index.html',
-  'assets/styles.css','assets/favicon.svg','assets/icons-forja.svg','assets/equipment.js','assets/sex.js',
+  'assets/styles.css','assets/favicon.svg',
+  ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
+  'assets/icons/CREDITOS-GAME-ICONS.txt','assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/i18n.js',
   'locales/es.json',

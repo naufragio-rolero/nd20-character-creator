@@ -147,32 +147,69 @@ async function probar(nombre,tipo,url){
       nombre+': 8 Especies con pictograma + aleatoria');
     assert.equal(await page.locator('#selector-visual-ocupacion button').count(),5,
       nombre+': 4 Ocupaciones con pictograma + aleatoria');
-    assert.equal(await page.locator('#selector-visual-especie svg use').count(),8);
-    assert.equal(await page.locator('#selector-visual-ocupacion svg use').count(),4);
-    const iconos=await page.evaluate(async()=>{
-      const r=await fetch('assets/icons-forja.svg');
-      return {status:r.status,contenido:await r.text()};
-    });
-    assert.equal(iconos.status,200);
-    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,35);
-    for(const id of ['masculino','femenino','indeterminado']){
-      assert.ok(iconos.contenido.includes('id="sexo-'+id+'"'),
-        nombre+': SVG de sexo '+id);
+    assert.equal(await page.locator('#selector-visual-especie .icono-svg').count(),8);
+    assert.equal(await page.locator('#selector-visual-ocupacion .icono-svg').count(),4);
+    // Archivos independientes: el canvas 1:1 debe funcionar en cada motor.
+    const idsIconos=[
+      "esp-elfo",
+      "esp-enano",
+      "esp-humano",
+      "esp-mediano",
+      "esp-gnomo",
+      "esp-semielfo",
+      "esp-orco",
+      "esp-semiorco",
+      "ocu-clerigo",
+      "ocu-guerrero",
+      "ocu-mago",
+      "ocu-ladron",
+      "ico-conjuro",
+      "ico-tecnica",
+      "recurso-salud",
+      "recurso-esfuerzo",
+      "recurso-movimiento",
+      "recurso-potencia",
+      "recurso-esencia",
+      "recurso-blindaje",
+      "equipo-espada",
+      "equipo-arco",
+      "equipo-varita",
+      "equipo-bolsa",
+      "equipo-caballo",
+      "equipo-mochila",
+      "equipo-orbe",
+      "equipo-libro",
+      "equipo-armadura",
+      "equipo-escudo",
+      "equipo-municion",
+      "ico-configurar",
+      "sexo-masculino",
+      "sexo-femenino",
+      "sexo-indeterminado"
+    ];
+    const iconos=await page.evaluate(async ids=>Promise.all(ids.map(async id=>{
+      const respuesta=await fetch('assets/icons/'+id+'.svg');
+      return {id,status:respuesta.status,contenido:await respuesta.text()};
+    })),idsIconos);
+    assert.equal(iconos.length,35);
+    for(const icono of iconos){
+      assert.equal(icono.status,200,nombre+': icono '+icono.id);
+      assert.ok(icono.contenido.includes('viewBox="0 0 24 24"'),
+        nombre+': lienzo cuadrado de '+icono.id);
     }
-    for(const id of ['espada','arco','varita','bolsa','mochila','orbe','libro',
-      'armadura','escudo','municion','caballo']){
-      assert.ok(iconos.contenido.includes('id="equipo-'+id+'"'),
-        nombre+': icono de Equipo '+id);
-    }
-    assert.ok(iconos.contenido.includes('id="ico-configurar"'));
-    for(const id of ['salud','esfuerzo','movimiento','potencia','esencia','blindaje']){
-      assert.ok(iconos.contenido.includes('id="recurso-'+id+'"'),
-        nombre+': SVG de '+id+' disponible');
-    }
-    assert.match(iconos.contenido,/<symbol id="ico-conjuro"/,
-      nombre+': icono propio de Conjuros');
-    assert.match(iconos.contenido,/<symbol id="ico-tecnica"/,
-      nombre+': icono propio de Técnicas');
+    const cuadros=await page.locator('.selector-visual .icono-svg')
+      .evaluateAll(nodos=>nodos.map(nodo=>{
+        const estilo=getComputedStyle(nodo);
+        // Los selectores están dentro de diálogos cerrados en este punto;
+        // sus dimensiones CSS siguen siendo comprobables sin abrirlos.
+        return {ancho:estilo.width,alto:estilo.height,
+          mascara:estilo.maskImage&&estilo.maskImage!=='none'?estilo.maskImage:estilo.webkitMaskImage};
+      }));
+    assert.equal(cuadros.length,12);
+    assert.ok(cuadros.every(x=>parseFloat(x.ancho)>0&&x.ancho===x.alto),
+      nombre+': todos los iconos tienen marco 1:1');
+    assert.ok(cuadros.every(x=>x.mascara.includes('assets/icons/')),
+      nombre+': cada icono se carga de su propio archivo');
     // Los nombres originales de los paquetes no siempre son entradas del
     // catálogo individual. Deben poder consultarse sin atributos inventados.
     for(const [item,esperado,procedencia] of [
@@ -667,8 +704,8 @@ async function probar(nombre,tipo,url){
       await page.locator('#fichas .tarjeta').first().waitFor();
       const cabeceraOtro=page.locator('#fichas .tarjeta').first();
       assert.equal(await cabeceraOtro.locator('.nivel-ficha').innerText(),'Nivel 1');
-      assert.match(await cabeceraOtro.locator('.sexo-ficha use').getAttribute('href'),
-        /^assets\/icons-forja\.svg#sexo-(masculino|femenino)$/,
+      assert.match(await cabeceraOtro.locator('.sexo-ficha .icono-svg').getAttribute('style'),
+        /assets\/icons\/sexo-(masculino|femenino)\.svg/,
         nombre+': Dungeon Hack respeta el sexo generado sin asignar otros valores');
       assert.ok((await page.locator('#fichas .tarjeta').first().innerText())
         .includes('Comprobación '+otro),
@@ -728,8 +765,8 @@ async function probar(nombre,tipo,url){
       const tarjeta=page.locator('#fichas .tarjeta').first();
       await tarjeta.waitFor();
       assert.equal(await tarjeta.locator('.nivel-ficha').innerText(),'Nivel 1');
-      assert.equal(await tarjeta.locator('.sexo-ficha use').getAttribute('href'),
-        'assets/icons-forja.svg#sexo-'+sexoHistorico,
+      assert.equal(await tarjeta.locator('.sexo-ficha .icono-svg').getAttribute('style'),
+        '--icono-svg:url(assets/icons/sexo-'+sexoHistorico+'.svg)',
         nombre+': icono de sexo visible junto a Ocupación');
       assert.doesNotMatch(await tarjeta.locator('.cabecera-ficha .etiqueta').innerText(),
         /Nivel|Masculino|Femenino/,nombre+': cabecera despejada');
@@ -808,7 +845,7 @@ async function probar(nombre,tipo,url){
       ancho:el.clientWidth-parseFloat(estilo.paddingLeft)-parseFloat(estilo.paddingRight),
       ultimo:el.querySelector('.recurso-ficha:last-child').getBoundingClientRect().width,
       primero:el.querySelector('.recurso-ficha:first-child').getBoundingClientRect().width,
-      icono:el.querySelector('svg.icono-recurso').getBoundingClientRect().width,
+      icono:el.querySelector('.icono-svg.icono-recurso').getBoundingClientRect().width,
       desborda:el.scrollWidth>el.clientWidth
       };
     });
@@ -829,7 +866,7 @@ async function probar(nombre,tipo,url){
     const valoresRecursos=await recursos.locator('.recurso-nombre').allTextContents();
     for(const etiqueta of ['Salud','Esfuerzo','Movimiento','Potencia','Blindaje'])
       assert.ok(valoresRecursos.includes(etiqueta),nombre+': recurso '+etiqueta);
-    assert.equal(await recursos.locator('svg.icono-recurso use').count(),
+    assert.equal(await recursos.locator('.icono-svg.icono-recurso').count(),
       valoresRecursos.length,nombre+': cada recurso posee un SVG');
     const protecciones=fichaTalentos.locator('.protecciones-activas');
     assert.equal(await protecciones.locator('select').count(),2);

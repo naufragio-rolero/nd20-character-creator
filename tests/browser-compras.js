@@ -177,7 +177,7 @@ async function main(){
     const controlesVisuales=await cdp.evalJS("({"+
       "especies:document.querySelectorAll('#selector-visual-especie button').length,"+
       "ocupaciones:document.querySelectorAll('#selector-visual-ocupacion button').length,"+
-      "iconos:document.querySelectorAll('.selector-visual svg use').length,"+
+      "iconos:document.querySelectorAll('.selector-visual .icono-svg').length,"+
       "flotante:!document.querySelector('#generar-flotante').disabled,"+
       "avanzada:document.querySelector('#informacion-avanzada').checked"+
       "})");

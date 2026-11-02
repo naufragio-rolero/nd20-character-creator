@@ -25,8 +25,19 @@ function afirmar(condicion,mensaje){
 }
 // Evitar el falso positivo de una carpeta «segura» porque solo contiene
 // index.html y faltan todos los archivos que la aplicación necesita cargar.
+const iconosForja=[
+  'esp-elfo', 'esp-enano', 'esp-humano', 'esp-mediano', 'esp-gnomo',
+  'esp-semielfo', 'esp-orco', 'esp-semiorco', 'ocu-clerigo', 'ocu-guerrero',
+  'ocu-mago', 'ocu-ladron', 'ico-conjuro', 'ico-tecnica', 'recurso-salud',
+  'recurso-esfuerzo', 'recurso-movimiento', 'recurso-potencia', 'recurso-esencia', 'recurso-blindaje',
+  'equipo-espada', 'equipo-arco', 'equipo-varita', 'equipo-bolsa', 'equipo-caballo',
+  'equipo-mochila', 'equipo-orbe', 'equipo-libro', 'equipo-armadura', 'equipo-escudo',
+  'equipo-municion', 'ico-configurar', 'sexo-masculino', 'sexo-femenino', 'sexo-indeterminado',
+];
 const requeridos=[
-  'index.html','assets/styles.css','assets/icons-forja.svg','assets/equipment.js','assets/sex.js',
+  'index.html','assets/styles.css',
+  ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
+  'assets/icons/CREDITOS-GAME-ICONS.txt','assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/favicon.svg',
   'data/especies.json','data/ocupaciones.json',
