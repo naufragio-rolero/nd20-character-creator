@@ -114,11 +114,22 @@
     refrescarTarjetas('ocupacion');
     refrescarTarjetas('especie');
   }
+  // Resumen informativo de los ajustes activos en el diálogo.
+  function refrescarResumenCreacion(){
+    function poner(id,valor){$(id).textContent=String(valor);}
+    poner('resumen-nivel',$('nivel').value||'1');
+    poner('resumen-ocupacion',$('valor-elegido-ocupacion').textContent);
+    poner('resumen-especie',$('valor-elegido-especie').textContent);
+    poner('resumen-sexo',$('sexo-pj').selectedOptions[0]?.textContent||'Aleatorio');
+    poner('resumen-modo',dhModo($('juego').value)==='personalizado'?'Personalizado':'Rápido');
+    poner('resumen-cantidad',$('cantidad').value||'1');
+  }
   function refrescarGenerarFlotante(){
     var boton=$('generar-flotante'),principal=$('generar');
     var plural=Number($('cantidad').value)>1;
     boton.textContent=plural?'Generar personajes':'Generar personaje';
     principal.textContent=plural?'Generar personajes':'Generar personaje';
+    $('generar-dialogo').textContent=principal.textContent;
     boton.disabled=principal.disabled||!!borrador;
     var rect=principal.getBoundingClientRect();
     var principalVisible=!$('panel-personajes').hidden&&
@@ -126,17 +137,11 @@
     var pie=document.querySelector('.pie').getBoundingClientRect();
     // Retirar el flotante ANTES del pie (también en pantallas pequeñas).
     var pieCerca=pie.top<=innerHeight+80&&pie.bottom>=0;
-    // Primera visita móvil: el menú comienza oculto. Primero enseñar
-    // «Empezar», no un botón de Generar sin contexto.
-    var enMovil=window.matchMedia('(max-width:830px)').matches;
-    var primeraVisitaMovil=enMovil&&entradas.length===0&&
-      !$('panel-forja').classList.contains('panel-abierto');
-    var intro=$('panel-forja').querySelector('.inicio-rapido').getBoundingClientRect();
-    var introVisible=enMovil&&!$('panel-personajes').hidden&&
-      intro.width>0&&intro.height>0&&intro.bottom>0&&intro.top<innerHeight;
-    // No tapar la explicación recién abierta con «Empezar».
-    boton.hidden=$('panel-personajes').hidden||principalVisible||pieCerca||
-      primeraVisitaMovil||introVisible;
+    // Con la mesa vacía, el CTA es accesible desde el primer momento
+    // incluso con el panel móvil cerrado. Después respeta pie y botón principal.
+    var mesaVacia=entradas.length===0;
+    boton.hidden=$('panel-personajes').hidden||$('dialogo-configuracion').open||
+      (!mesaVacia&&(principalVisible||pieCerca));
   }
   function observarGenerarFlotante(){
     var pendiente=false;
@@ -267,6 +272,7 @@
       }).sort(ordenar),true);
     }
     refrescarTarjetasVisibles();
+    refrescarResumenCreacion();
     refrescarGenerarFlotante();
   }
   function ordenar(a,b) {return a.nombre.localeCompare(b.nombre, 'es');}
@@ -374,6 +380,31 @@
       '<svg class="icono-poder-lista" aria-hidden="true" focusable="false">'+
         '<use href="assets/icons-forja.svg#'+icono+'"></use></svg>'};
   }
+  // Clasificación solo visual: no altera las propiedades del Equipo DRS.
+  function iconoEquipo(nombre){
+    var c=datos.equipoInicial||{},n=String(nombre).replace(/\\s+×\\d+$/,'').trim();
+    function contiene(lista){return (lista||[]).some(function(x){return x.nombre===n;});}
+    var arma=(c.armas||[]).find(function(x){return x.nombre===n;});
+    if(arma)return arma.tipo==='distancia'?'equipo-arco':'equipo-espada';
+    if(contiene(c.varitas_defensa))return 'equipo-varita';
+    if(contiene(c.armaduras))return 'equipo-armadura';
+    if(contiene(c.escudos))return 'equipo-escudo';
+    if(contiene(c.municion))return 'equipo-municion';
+    if(contiene(c.focos_conjuros_con_precio))return 'equipo-orbe';
+    var utiles=Object.values(c.utiles_fantasia||{}).flat();
+    if(contiene(utiles)){
+      if(/^(libro|grimorio|tomo)\\b/i.test(n))return 'equipo-libro';
+      if(/^(mochila|alforjas|zurrón|saco|baúl|cofre)\\b/i.test(n))
+        return 'equipo-mochila';
+    }
+    // Respaldo por nombre, sin inventar categorías ni efectos mecánicos.
+    if(/\\b(arco|ballesta)\\b/i.test(n))return 'equipo-arco';
+    if(/\\bvarita\\b/i.test(n))return 'equipo-varita';
+    if(/^(libro|grimorio|tomo)\\b/i.test(n))return 'equipo-libro';
+    if(/^(mochila|alforjas|zurrón|saco de viaje)\\b/i.test(n))
+      return 'equipo-mochila';
+    return 'equipo-bolsa';
+  }
   function htmlLista(titulo, valores, grupo, sistema, personaje) {
     if (!valores || !valores.length) return '';
     var compacta=grupo==='talento'||grupo==='poder'||grupo==='equipo';
@@ -384,6 +415,11 @@
         var procedencia=grupo==='talento'?
           procedenciaTalentoDRS(personaje,v):{fuente:'',adquisicion:''};
         var vista=grupo==='poder'?presentarPoder(v):{texto:v,icono:''};
+        if(grupo==='equipo'){
+          var simbolo=iconoEquipo(v);
+          vista.icono='<svg class="icono-equipo-lista" aria-hidden="true" focusable="false">'+
+            '<use href="assets/icons-forja.svg#'+simbolo+'"></use></svg>';
+        }
         var item=grupo&&infoUI?
           infoUI.etiqueta(v,grupo,sistema,
             procedencia.fuente,procedencia.adquisicion,vista.texto):esc(vista.texto);
@@ -903,6 +939,28 @@
     });
   }
   function vincular() {
+    var configurador=$('dialogo-configuracion'),abrirConfig=$('abrir-configuracion');
+    abrirConfig.addEventListener('click',function(){
+      configurador.showModal();
+      $('nivel').focus({preventScroll:true});
+      refrescarGenerarFlotante();
+    });
+    function cerrarConfiguracion(){if(configurador.open)configurador.close();}
+    $('cerrar-configuracion').addEventListener('click',cerrarConfiguracion);
+    $('aplicar-configuracion').addEventListener('click',cerrarConfiguracion);
+    configurador.addEventListener('close',function(){
+      refrescarResumenCreacion();
+      refrescarGenerarFlotante();
+      abrirConfig.focus({preventScroll:true});
+    });
+    configurador.addEventListener('click',function(e){
+      if(e.target!==configurador)return;
+      var r=configurador.getBoundingClientRect();
+      if(e.clientX<r.left||e.clientX>r.right||
+         e.clientY<r.top||e.clientY>r.bottom)cerrarConfiguracion();
+    });
+    $('configuracion').addEventListener('input',refrescarResumenCreacion);
+    $('configuracion').addEventListener('change',refrescarResumenCreacion);
     ['ocupacion','especie'].forEach(function(tipo){
       var dialogo=$('dialogo-'+tipo),abrir=$('abrir-selector-'+tipo);
       abrir.addEventListener('click',function(){
@@ -927,6 +985,7 @@
         candidatosSelector[tipo]=borradorSelector[tipo].slice();
         $(tipo).value=candidatosSelector[tipo].length===1?candidatosSelector[tipo][0]:'';
         marcarTarjetasSeleccionadas(tipo);
+        refrescarResumenCreacion();
         dialogo.close();abrir.focus();
       });
       dialogo.querySelector('[data-cerrar-selector]').addEventListener('click',function(){
@@ -995,6 +1054,7 @@
     });
     $('configuracion').addEventListener('submit',function(e) {
       e.preventDefault();
+      if(configurador.open)cerrarConfiguracion();
       conControl(function () {
         var c=config(),createRng=rngUnico(),items=[];
         for(var i=0;i<c.cantidad;i++){
@@ -1173,7 +1233,7 @@
       if(window.matchMedia('(max-width:830px)').matches)alternarMenu(true);
       $('panel-forja').scrollIntoView({behavior:window.matchMedia(
         '(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-      $('nivel').focus({preventScroll:true});
+      $('abrir-configuracion').focus({preventScroll:true});
       refrescarGenerarFlotante();
     });
     $('fichas').addEventListener('change',function(event){
@@ -1351,10 +1411,13 @@
     }catch(error){ /* El formulario funciona sin almacenamiento. */ }
     vincular();refrescarSelectores();dibujar();
     $('generar').disabled=false;
+    $('generar-dialogo').disabled=false;
+    refrescarResumenCreacion();
     refrescarGenerarFlotante();
     aviso('Datos listos. Puedes empezar a generar personajes.');
   }
   $('generar').disabled=true;
+  $('generar-dialogo').disabled=true;
   aviso('Cargando datos de los sistemas…');
   cargar().catch(function (e) {aviso('Error de carga: '+e.message+
     ' Abre el proyecto mediante GitHub Pages o un servidor HTTP local.',true);});
