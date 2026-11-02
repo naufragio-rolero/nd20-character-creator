@@ -537,10 +537,11 @@ async function probar(nombre,tipo,url){
       const elegido=await tarjeta.locator('h3').innerText();
       assert.ok(bancoHistorico.entradas.some(x=>x.nombre===elegido),
         nombre+': nombre histórico no reconocido: '+elegido);
-      assert.match(await tarjeta.locator('.contexto-ficha').textContent(),
-        /Forma del generador histórico/);
-      assert.match(await tarjeta.locator('.contexto-ficha').textContent(),
-        /sin clasificación documental de sexo/);
+      const textoHistorico=await tarjeta.innerText();
+      assert.doesNotMatch(textoHistorico,/Forma del generador histórico/,
+        nombre+': sin avisos de procedencia técnica en Contexto');
+      assert.doesNotMatch(textoHistorico,/Nombre del banco histórico sin clasificación documental de sexo/,
+        nombre+': sin notas repetidas del banco histórico');
       await page.locator('#borrar').click();
     }
     await page.selectOption('#modo-nombre','combinado');
@@ -576,6 +577,20 @@ async function probar(nombre,tipo,url){
     await page.locator('#generar').click();
     const fichaTalentos=page.locator('#fichas .tarjeta').first();
     await fichaTalentos.waitFor();
+    const bloquesFicha=await fichaTalentos.locator('.bloque-ficha').evaluateAll(nodos=>
+      nodos.map(n=>({titulo:n.querySelector('h4')?.textContent,
+        columnas:n.querySelector('ul')?.classList.contains('lista-dos-columnas'),
+        computadas:n.querySelector('ul')?.classList.contains('lista-dos-columnas')?
+          getComputedStyle(n.querySelector('ul')).gridTemplateColumns.split(' ').length:null
+      })));
+    const ordenBloques=bloquesFicha.map(b=>b.titulo);
+    assert.ok(ordenBloques.indexOf('Competencias')>=0&&
+      ordenBloques.indexOf('Competencias')<ordenBloques.indexOf('Talentos y capacidades'),
+      nombre+': Competencias debe preceder a Talentos');
+    assert.equal(bloquesFicha.find(x=>x.titulo==='Equipo')?.columnas,true,
+      nombre+': Equipo usa la misma rejilla compacta que Talentos y Poderes');
+    assert.equal(bloquesFicha.find(x=>x.titulo==='Equipo')?.computadas,2,
+      nombre+': Equipo utiliza dos columnas en escritorio');
     const rejillaTalentos=fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas').first();
     assert.equal(await rejillaTalentos.evaluate(el=>getComputedStyle(el).gridTemplateColumns
       .split(' ').length),2,nombre+': Talentos en dos columnas como Atributos');

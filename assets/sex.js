@@ -72,8 +72,10 @@
       // de sexo, cultura ni linaje. Se usa sin asignarlas por analogía.
       var historicos=(entradas||[]).filter(function(e){return e.tipo==='historico';});
       if(historicos.length)
+        // La cautela documental queda en los metadatos del corpus; no
+        // se imprime una nota técnica en cada ficha de personaje.
         return {nombre:historicos[Math.floor(rng()*historicos.length)].nombre,
-          nota:'Nombre del banco histórico sin clasificación documental de sexo; no se le atribuye una.'};
+          nota:''};
     }
     var ylat=(entradas||[]).filter(function(e){
       return e.tipo===(config.modoNombre==="documentado"?"documentado":"combinado");
