@@ -25,9 +25,9 @@
 
 | Fuente | Estado | Observaciones |
 | --- | --- | --- |
-| [Apellidos eladrines en Erklan.txt](https://drive.google.com/file/d/1YVanaM-4ThS94W-qY3NFShmNE6Klbmj7/view) | Identificado, **no legible** por el conector | 1104 bytes, marca temporal 2015 |
+| [Apellidos eladrines en Erklan.txt](https://drive.google.com/file/d/1YVanaM-4ThS94W-qY3NFShmNE6Klbmj7/view) | **Leído íntegramente** tras descarga de bytes | 1104 bytes, Windows-1252, 2015; [cotejo](fuentes-eladrines-cotejo.md) |
 | [Apellidos eladrines en Erklan — antiguo contenido wiki (.md)](https://drive.google.com/file/d/1brBjcXrRFz2slCSSEuw7m78Y8pBLT5v6/view) | **Leído y catalogado** | Fuente histórica recuperada de `wiki.naufragio.net` |
-| [Linajes eladrines.txt](https://drive.google.com/file/d/1J1uHzpl9DqyLVrsoes73N3_u6sclPCXB/view) | Identificado, **no legible** por el conector | 993 bytes, marca temporal 2014; sin copia de contenido confirmada |
+| [Linajes eladrines.txt](https://drive.google.com/file/d/1J1uHzpl9DqyLVrsoes73N3_u6sclPCXB/view) | **Leído íntegramente** tras descarga de bytes | 993 bytes, Windows-1252, 2014; [cotejo](fuentes-eladrines-cotejo.md) |
 | [Aerandil del Atardecer Refulgente](https://drive.google.com/file/d/1q2AGQap3uCdFgwyS6CwGf_FiLB5Xbrur/view) | Leído | Divergencia Refulgente/Brillante |
 | [Anasthore del Atardecer Luciente](https://drive.google.com/file/d/1rV6rEjO_Sy2kiollOgJtvKfYbSlTRTZG/view) | Leído | Nombre y relación fraterna |
 | [Casa Adorasol](https://drive.google.com/file/d/1I_g1ni_qIrJXGcEteIfs2xQchUCgKlDd/view) | Leído | Listado de miembros; alcance de pertenencia por resolver |
@@ -45,6 +45,21 @@
 | Directorios Personajes, PNJ, campañas y documentación auxiliar | Listados parcialmente | Pendiente localizar narrativas con nombres completos y estatus diegético |
 | 16 archivos DOCX locales del proyecto (DRS, especies, bestiario, ocupaciones, etc.) | **Escaneo léxico** de nomenclatura, no lectura integral | «Linaje» se usa a menudo como término mecánico de especie, no como apellido; no hacer equivalencias |
 | PDFs de personajes, Vademécum y campañas | Pendiente de inspección por documentos relevantes | No afirmar que han sido leídos por el mero hecho de estar listados |
+
+## Censos y fichas de PNJ recuperados (segunda sesión)
+
+| Fuente | Tratamiento | Resultado |
+| --- | --- | --- |
+| [`dnd_npcs.xlsx`](https://drive.google.com/file/d/1B2YnVslAK7Sjd5ELYR9kteHB9Q-L4AWp/view) | Extracción íntegra del censo estructurado | 140 PNJ, dos pestañas; [anexo íntegro](censo-pnj-historico.md) |
+| [`npcs.xlsx`](https://drive.google.com/file/d/1g-y0abx5rnOJpiSv8vJsE_iv6V-fOLVR/view) | Extracción y contraste de 66 identidades | Las 66 están en el censo amplio; Romualdius Walerian aparece como Crujidor |
+| [`Generador - Nombres (Principal).xlsx`](https://drive.google.com/file/d/1ImXMEU0Lb03l7TdRo7vr8E4X2IQrlmmQ/view) | Comprobación de estructura y del banco de 1428 formas | El solapamiento con los 140 PNJ no acredita por sí solo categoría de apellido |
+| [`Tuliëlle.docx`](https://drive.google.com/file/d/1liE5kG1h9icFxEmcQWVyzIi0zLZX29zc/view) | Lectura dirigida del capítulo II | Nombra **Dyeld** como padre de Tuliëlle, en conflicto con «Eldburg Skara» |
+| [`Tuliëlle Skara I`](https://drive.google.com/file/d/1662Z9kAs28RPG17Y89retm1DvAk5fYvo/view) | Lectura dirigida | Corrobora **Dyeld** |
+| [`Laevinë Skara`](https://drive.google.com/file/d/1LyZUv3B1fUJTyWlT4Hzsx30gNRClWE9t/view) | Ficha leída | Corrobora **Dyeld** |
+| [`Eldburg Skara`](https://drive.google.com/file/d/1N1oSjRdONXH0YGHGZzSWg8M57ZarZ5s_/view) | Ficha leída | Identifica a Eldburg como padre; contradicción abierta |
+| [`Casa Skara`](https://drive.google.com/file/d/17iZUBDqVzaUyX0JVmZSN_ocJ0btrJ1dn/view) | Ficha leída | Acredita relación de membresía en la familia Skara |
+
+**Anexos:** [censo](censo-pnj-historico.md), [familias y parentescos](familias-acreditadas.md) y [cotejo eladrín](fuentes-eladrines-cotejo.md).
 
 ## Repositorio examinado
 
