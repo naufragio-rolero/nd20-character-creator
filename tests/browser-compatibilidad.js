@@ -185,7 +185,13 @@ async function probar(nombre,tipo,url){
       ['mochila','Mochila',/Especial arcanistas/],
       ['yesquero','Yesquero',/Naufragio d20 DRS/],
       ['antorcha (DU d6)','Antorcha',/Dado de Uso:\s*DU d6/],
-      ['vela (DU d4)','Vela',/Dado de Uso:\s*DU d4/]
+      ['vela (DU d4)','Vela',/Dado de Uso:\s*DU d4/],
+      ['libro de conjuros en blanco','Libro de conjuros',/En blanco, desprende una pizca de poder/],
+      ['Pipa de tabaco','Pipa de tabaco',/Dado de Uso:\s*DU d4 \(tabaco\)/],
+      ['Burro o mula','Burro o mula',/Movimiento:\s*12 metros/],
+      ['Armadura equina','Armadura equina',/Precio variable:\s*Precio de la protección corporal ×4/],
+      ['Establos','Establos',/Precio por día:\s*0\.6 mo/],
+      ['Carruaje','Carruaje',/Necesita 2 caballos \/ monturas/]
     ]){
       const enlace=await page.evaluate(nombreObjeto=>
         window.NaufragioInfoUI.etiqueta(nombreObjeto,'equipo','nd20'),
@@ -997,10 +1003,16 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
     assert.equal(await page.locator('#editor-compras').evaluate(el=>el.open),true,
       nombre+': las compras se muestran en un diálogo modal');
-    assert.equal(await page.locator('#compras-grupo option').count(),8,
-      nombre+': siete familias DRS documentadas más Focos');
+    assert.equal(await page.locator('#compras-grupo option').count(),13,
+      nombre+': doce familias documentadas más Focos');
     assert.ok((await page.locator('#compras-articulo option').count())<43,
       nombre+': artículos agrupados en un desplegable más compacto');
+    await page.selectOption('#compras-grupo','equipo_monturas');
+    const equipoMonturas=await page.locator('#compras-articulo option').allTextContents();
+    assert.ok(equipoMonturas.some(x=>x.startsWith('Alforjas · 2.5 mo')),
+      nombre+': alforjas de compra documentada');
+    assert.equal(equipoMonturas.some(x=>/Armadura equina|Establos/.test(x)),false,
+      nombre+': ni precio variable ni servicio diario se convierten en compra');
     await page.selectOption('#compras-grupo','campamento');
     await page.selectOption('#compras-articulo','campamento-martillo');
     await page.fill('#compras-cantidad','2');
