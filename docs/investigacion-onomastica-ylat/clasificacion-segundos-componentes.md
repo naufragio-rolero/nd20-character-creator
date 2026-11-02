@@ -7,7 +7,7 @@
 ## Reglas de lectura
 
 - El campo `surname` de la hoja histórica se considera **segundo componente nominal de origen**, no un apellido real por definición.
-- **F:** familia o apellido con pertenencia, parentesco o linaje respaldado por documentación independiente (**20 formas**). **No es autorización de combinación libre.**
+- **F:** familia o apellido con pertenencia, parentesco o linaje respaldado por documentación independiente (**22 formas**). **No es autorización de combinación libre.**
 - **A:** la propia fuente llama al componente «apellido», pero solo está acreditado para ese individuo.
 - **N:** denominación eladrín con apéndice determinado por nacimiento.
 - **O:** apellido más ordinal; se debe representar por separado.
@@ -24,7 +24,7 @@ Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni
 
 | Código | Valores únicos | Criterio |
 | --- | ---: | --- |
-| F | 20 | Familia acreditada |
+| F | 22 | Familia acreditada |
 | A | 1 | Apellido individual explícito |
 | N | 2 | Convención dependiente del nacimiento |
 | O | 1 | Ordinal |
@@ -32,8 +32,8 @@ Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni
 | P | 1 | Apodo explícito |
 | E | 3 | Fórmula de epíteto |
 | C | 4 | Compuesto no resuelto |
-| V | 1 | Variante en conflicto |
-| I | 63 | Segundo componente no acreditado como apellido |
+| V | 2 | Variante en conflicto |
+| I | 60 | Segundo componente no acreditado como apellido |
 | **Total** | **97** | Registro completo sin blancos |
 
 ## Diccionario por valor literal
@@ -98,13 +98,13 @@ Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni
 | Maxley | 1 | **I** | Mark Maxley | Función familiar no probada; consultar censo y biografía individual |
 | Morcrick | 1 | **I** | Ophilia Morcrick | Función familiar no probada; consultar censo y biografía individual |
 | Nerese | 1 | **I** | Asharod Nerese | Función familiar no probada; consultar censo y biografía individual |
-| Neulenthris | 1 | **I** | Essaetia Neulenthris | Función familiar no probada; consultar censo y biografía individual |
+| Neulenthris | 1 | **F** | Essaetia Neulenthris | [Ficha de Essaetia](https://drive.google.com/file/d/11Q_fnDj8pP1KmLQimfZ4crstpHWyqi0G/view): menciona expresamente las **familias Neulenthris y Adorasol**. El posible vínculo de sangre es **hipótesis interna**, no parentesco confirmado |
 | Nichols | 1 | **I** | Chred Nichols | Función familiar no probada; consultar censo y biografía individual |
 | Noccerado | 1 | **I** | Besyl Noccerado | Función familiar no probada; consultar censo y biografía individual |
 | Noreesh | 1 | **I** | Eomdyn Noreesh | Función familiar no probada; consultar censo y biografía individual |
 | Norvvind | 1 | **F** | Sashka Norvvind | Sashka figura como hermana de Skörn Norvvind |
 | Nyser | 1 | **I** | Warsam Nyser | Función familiar no probada; consultar censo y biografía individual |
-| Oq'uatee | 1 | **I** | Car'rt Oq'uatee | Función familiar no probada; consultar censo y biografía individual |
+| Oq'uatee | 1 | **V** | Car'rt Oq'uatee | Censo: **Car'rt Oq'uatee**, referencia interna `carrt`, magistrado y vasallo de Melora; [ficha posterior](https://drive.google.com/file/d/1HvCV1TgFsD8WoYc4WCVwSa_r7wmATU1w/view): **Kaart Oquati**, ID `kaart`, pero descripción **«magistrado Car'rt»** y vasallo de Lenseng. Misma función, **no equivalencia canónica resuelta** |
 | Pelocobre | 1 | **I** | Halor Pelocobre | Función familiar no probada; consultar censo y biografía individual |
 | Quiebrahielo | 1 | **I** | Zekogs Quiebrahielo | Función familiar no probada; consultar censo y biografía individual |
 | Rocene | 1 | **I** | Hadewig Rocene | Función familiar no probada; consultar censo y biografía individual |
@@ -133,7 +133,7 @@ Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni
 | Ungesavia | 1 | **I** | Nabeel Ungesavia | Función familiar no probada; consultar censo y biografía individual |
 | Valanthis | 1 | **I** | Syssbel Valanthis | Función familiar no probada; consultar censo y biografía individual |
 | Vardamir | 4 | **F** | Daeron Vardamir; Gilraen Vardamir; Elrohir Vardamir; Hyarion Vardamir | Hyarion padre; Daeron, Elrohir y Gilraen descendientes; Stasi conserva Giovanni |
-| Veredron | 1 | **I** | Vysoben Veredron | Función familiar no probada; consultar censo y biografía individual |
+| Veredron | 1 | **F** | Vysoben Veredron | [Casa Veredron](https://drive.google.com/file/d/1Xw4uzuJC17vXNLAXp-HAzuzcA7ypZvf2/view), tipo **Familia**, miembro Vysoben; vasallaje a [Casa Keefe](https://drive.google.com/file/d/1Mw9p1TU3_2kR9sm8mgA-SK6nhhPR1hsW/view), no apellido Keefe |
 | Violatesoros | 1 | **P** | Baryn Violatesoros | Su [ficha biográfica](https://drive.google.com/file/d/19JtNIx4UEJvBteFP4ajG1wAUQqdsrKQD/view) declara expresamente que sus compañeros le impusieron el **apodo** «Violatesoros» |
 | Vuelumbrío | 1 | **I** | Nimara Vuelumbrío | Función familiar no probada; consultar censo y biografía individual |
 | Ysheasa | 1 | **I** | Idfaseya Ysheasa | Función familiar no probada; consultar censo y biografía individual |
@@ -165,3 +165,16 @@ Se consultaron individualmente **23** formas que estaban en categoría I. Tres p
 La lista completa, versiones de realidades alternas y fuentes precisas constan en [revision-biografica-y-realidades.md](revision-biografica-y-realidades.md).
 
 **Nota de precisión:** la edad/ocupación de dos versiones de Lazare Brice y Branwen Sigvald difiere según Ylat¹/Ylat³. La columna `surname` del censo no permite reconstruir esa separación sin acceder a las fichas de los personajes.
+
+
+## Cierre de la primera ronda: 66/66 segundos componentes inicialmente desconocidos (2026-11-02)
+
+Se contrastaron con fichas individuales los **66 componentes que estaban inicialmente en categoría I**; se cotejó el conjunto sin duplicados con los 97 registros del censo. No se excluyó ninguna forma de ese grupo original de la revisión. Resultado acumulado:
+
+- **5** componentes promovidos a **F**: **Asheishi, Kinistis, Sigvald, Neulenthris y Veredron**.
+- **1** componente promovido a **V** (variante documental sin resolver): **Oq'uatee / Oquati**, con las formas de persona Car'rt / Kaart.
+- **60** permanecen en **I**, por falta de prueba positiva de función familiar o hereditariedad (no se ha demostrado que sean seudónimos ni que sean apellidos transferibles).
+
+**Distribución actual de los 97 valores:** 22 **F**, 1 **A**, 1 **P**, 2 **N**, 1 **O**, 1 **M**, 3 **E**, 4 **C**, 2 **V** y 60 **I** = **97**. Documentación y procedencia de los 66 revisados en [revision-biografica-y-realidades.md](revision-biografica-y-realidades.md).
+
+No se ha realizado importación de esta clasificación a La Forja. La nomenclatura de «casa», «apellido» y «familia» continúa restringida a los testimonios positivos de cada fuente.
