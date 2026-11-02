@@ -199,12 +199,14 @@ async function probar(nombre,tipo,url){
     }
     const cuadros=await page.locator('.selector-visual .icono-svg')
       .evaluateAll(nodos=>nodos.map(nodo=>{
-        const caja=nodo.getBoundingClientRect(),estilo=getComputedStyle(nodo);
-        return {ancho:caja.width,alto:caja.height,
+        const estilo=getComputedStyle(nodo);
+        // Los selectores están dentro de diálogos cerrados en este punto;
+        // sus dimensiones CSS siguen siendo comprobables sin abrirlos.
+        return {ancho:estilo.width,alto:estilo.height,
           mascara:estilo.maskImage||estilo.webkitMaskImage};
       }));
     assert.equal(cuadros.length,12);
-    assert.ok(cuadros.every(x=>x.ancho>0&&x.ancho===x.alto),
+    assert.ok(cuadros.every(x=>parseFloat(x.ancho)>0&&x.ancho===x.alto),
       nombre+': todos los iconos tienen marco 1:1');
     assert.ok(cuadros.every(x=>x.mascara.includes('assets/icons/')),
       nombre+': cada icono se carga de su propio archivo');
