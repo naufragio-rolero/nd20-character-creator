@@ -280,7 +280,7 @@ async function main(){
       type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
     await cdp.enviar('Input.dispatchKeyEvent',{
       type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
-    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').hidden"),false,
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),true,
       'Intro en cantidad no confirma accidentalmente el carrito');
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),2,
       'Intro en cantidad añade otra línea al carrito');
