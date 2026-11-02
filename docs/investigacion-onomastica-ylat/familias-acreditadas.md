@@ -88,3 +88,20 @@ La [ficha de Casa Kultstein](https://drive.google.com/file/d/10uRTnEtrADwxdhIIan
 - La ficha de [Neyney sin Apellido](https://drive.google.com/file/d/1Oc44ZzyDmCLVU_qWQ6Hmd6U-RG9ssLgq/view) explica que usa ese tratamiento voluntariamente; no es un apellido.
 
 **Observación editorial:** una marca de `familia_documentada` se refiere a una fuente positiva para la existencia de la casa o apellido, **no** a permiso de generar automáticamente nuevos miembros.
+
+
+## Tercera ampliación: tres familias verificadas mediante fichas individuales
+
+**Fecha:** 2026-11-02. Clasificación ampliada de 17 a **20** formas familiares dentro de los 97 componentes del censo. Estos casos estaban previamente en la categoría de segundo componente de función indeterminada.
+
+| Familia | Personas | Evidencia literal y contexto | Limitación |
+| --- | --- | --- | --- |
+| **Asheishi** | Loroohck Asheishi | [Ficha](https://drive.google.com/file/d/1AcFcAEZhDEVUL--EItPJF93Mo6FMz1je/view): «patriarca de la familia Asheishi», dirigente de la caravana Gha'engu, Ylat¹ | No se conocen otros portadores ni reglas de herencia del apellido |
+| **Kinistis** | Eld'mose Kinistis | [Ficha](https://drive.google.com/file/d/1mbm6oKNXJDeA45oZ7XwFzmd2jRKI-CrP/view): «matriarca de la familia Kinistis», codirigente de la misma caravana, Ylat¹ | No vincularla a la familia Asheishi por compartir caravana |
+| **Sigvald** | Anfingrem Sigvald, Branwen Sigvald «Discordia», Belegur Sigvald «Furia» | [Anfingrem](https://drive.google.com/file/d/15QEr23FLHQ0-bd71FJA3IeEGQ4FQ_qYG/view) es padre de los mellizos Furia y Discordia; [Branwen Ylat¹](https://drive.google.com/file/d/1t5kfa53ExNX6uoN-FtXORb1DyHSviMEy/view) y [Belegur](https://drive.google.com/file/d/1mHwROYpYv8bS3y6S5gDmyytOXInW7lLA/view) llevan Sigvald | No atribuir automáticamente Sigvald a Eilinn: figura como **Eilinn Brillonuevo**, aunque fuese la madre y esposa |
+
+La [ficha de Caravana Gha'engu](https://drive.google.com/file/d/1l1CxnrZBbbIf660WJIRh78vKFDQn_n1E/view) enumera a Loroohck y Eld'mose como miembros de una misma organización, **no de una misma familia**.
+
+También existe [Branwen Sigvald «Discordia», Ylat³](https://drive.google.com/file/d/1afQDtEg8be53B3t8cu1cUJqaYDKfzRTh/view), con edad y tipo diferentes de la versión Ylat¹. La evidencia de la familia en Ylat¹ no autoriza fusionar automáticamente ambas versiones ni inferir genealogías transreales.
+
+**Fuente de trabajo detallada:** [revision-biografica-y-realidades.md](revision-biografica-y-realidades.md).
