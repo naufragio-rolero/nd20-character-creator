@@ -39,7 +39,9 @@ jobs:
         run: |
           npm install --no-save --no-package-lock --ignore-scripts \
             pdf-lib@1.17.1 @pdf-lib/fontkit@1.1.1 \
-            @expo-google-fonts/source-serif-4@0.4.1
+            @expo-google-fonts/source-serif-4@0.4.1 playwright@1.56.1
           node scripts/preparar-vendor-pdf-a5.cjs
       - name: Generar PDF A5 reales
         run: node tests/pdf-a5-real.cjs
+      - name: Exportar desde Chrome real (E2E)
+        run: node tests/pdf-a5-browser-e2e.cjs
