@@ -145,6 +145,9 @@ assert.equal(fijo.find(x=>x.nombre==='Armadura equina').precio_variable,
 assert.equal(fijo.find(x=>x.nombre==='Establos').servicio_por_dia,true);
 assert.equal(equipo.utiles_fantasia.objetos_varios.find(x=>x.nombre==='Pipa de tabaco').du,
   'd4 (tabaco)');
+const svgEquipo=fs.readFileSync(path.join(salida,'assets/icons-forja.svg'),'utf8');
+assert.match(svgEquipo,/<symbol id="equipo-caballo" viewBox="0 0 24 24">/,
+  'El caballo de cuerpo entero se distribuye en el sprite público');
 const prendasDRS=equipo.utiles_fantasia.ropa;
 assert.deepEqual(prendasDRS.map(x=>[x.nombre,x.precio,x.detalle]),[
   ['Abrigo de piel',20,'Protege del frío por debajo de 0º.'],
