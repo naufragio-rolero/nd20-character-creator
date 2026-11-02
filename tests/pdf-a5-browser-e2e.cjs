@@ -46,6 +46,10 @@ async function main(){
     assert(fname.endsWith('-A5.pdf'),fname);
     const file=await download.path();
     const bytes=fs.readFileSync(file);
+    // Conservar evidencia real del navegador para auditar los pictogramas PDF.
+    const qaDir=path.join(path.resolve(__dirname,'..'),'dist','pdf-a5-preimpresion');
+    fs.mkdirSync(qaDir,{recursive:true});
+    fs.writeFileSync(path.join(qaDir,'e2e-chrome-con-iconos.pdf'),bytes);
     assert(bytes.subarray(0,5).toString('ascii')==='%PDF-');
     const pdf=await PDFDocument.load(bytes);
     assert(pdf.getPageCount()>=1);
