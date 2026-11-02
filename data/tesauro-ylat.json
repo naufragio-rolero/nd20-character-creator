@@ -2,7 +2,7 @@
   "version": 1,
   "titulo": "Tesauro onomástico de Ylat",
   "contexto": "Repertorio de la colección Ylat: únicamente registros del ámbito Isla Tormenta. Se han excluido los corpus externos a Ylat.",
-  "politica": "Los nombres documentados conservan archivo y página de origen; las combinaciones son propuestas no canónicas. Se excluyen los registros de corpus ajenos a Ylat. La ponderación técnica de variantes combinadas es relativa: 1 para las siete propuestas con apellido de casa (Boll/Shadelgast) y 100 para cada otra propuesta. No es una probabilidad canónica ni acredita parentesco.",
+  "politica": "Los nombres documentados conservan archivo y página de origen; las combinaciones son propuestas no canónicas. Se excluyen los registros de corpus ajenos a Ylat. La ponderación técnica de variantes combinadas es relativa: 1 para las siete propuestas con apellido de casa (Boll/Shadelgast) y 100 para cada otra propuesta. No es una probabilidad canónica ni acredita parentesco. El modo documentado se abre a las figuras onomásticas atestiguadas en Ylat; las variantes, lugares, deidades, borradores y nombres adquiridos no se añaden como personas al sorteo. No se atribuye sexo o parentesco por inferencia.",
   "entradas": [
     {
       "id": "ylat-d033",
@@ -589,6 +589,3067 @@
       ],
       "nota": "Combinación nueva de elementos documentados. No identifica un personaje canónico.",
       "peso_relativo": 100
+    },
+    {
+      "id": "documentado-onomastica-ylat-o001",
+      "nombre": "Abdul Hassif",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C40, A1",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o002",
+      "nombre": "Abelio Floricarpio",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I01",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o003",
+      "nombre": "Acathia Masticadedos",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C39, A2",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o004",
+      "nombre": "Adaldust Alogers",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C84, A3",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o005",
+      "nombre": "Addare Skara",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C11",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o006",
+      "nombre": "Adhat la Tuerta",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C31, A4",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o007",
+      "nombre": "Aerandil del Atardecer Refulgente",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C107, A5, I02",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o008",
+      "nombre": "Aereth, la del Alba Fría",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MAereth",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o009",
+      "nombre": "Aeromund el Inquebrantable",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MAeromund",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o010",
+      "nombre": "Akestu Fiercespada",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C104, A6",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o011",
+      "nombre": "Albert Lobeth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C97, A7, I03",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o013",
+      "nombre": "Alessia Cianci",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I04",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o014",
+      "nombre": "Alim de Mostagánem",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I05",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o016",
+      "nombre": "Amadeus",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · B",
+      "procedencia": [
+        "biografias-personajes-cotejo.md"
+      ],
+      "clase_documental": "Biografía",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o017",
+      "nombre": "Amathur",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · B",
+      "procedencia": [
+        "biografias-personajes-cotejo.md"
+      ],
+      "clase_documental": "Nombre referido en biografía",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o019",
+      "nombre": "Anasthore del Atardecer Luciente",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C105, A8, I06",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o020",
+      "nombre": "Anfingrem Sigvald",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C131",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o021",
+      "nombre": "Angus Burbridge",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · B",
+      "procedencia": [
+        "biografias-personajes-cotejo.md"
+      ],
+      "clase_documental": "Biografía",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o023",
+      "nombre": "Aradale Iraldsay",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C139, A9",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o024",
+      "nombre": "Arlia Brahemfor",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I07",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o025",
+      "nombre": "Arloth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · GP",
+      "procedencia": [
+        "corpus-gesta-personajes-ylat.md"
+      ],
+      "clase_documental": "Personaje publicado",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o026",
+      "nombre": "Armando Orovecchio",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I08",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o028",
+      "nombre": "Asharod Nerese",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C28, A10",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o029",
+      "nombre": "Astrid Sombralba",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · B",
+      "procedencia": [
+        "biografias-personajes-cotejo.md"
+      ],
+      "clase_documental": "Biografía",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o030",
+      "nombre": "Aurelius Ryszard",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C33, A11",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o031",
+      "nombre": "Awara Tonunt",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C121, A12",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o032",
+      "nombre": "Azael",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C136, A13",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o034",
+      "nombre": "Balthyr Maplewilde",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C71, A14",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o035",
+      "nombre": "Banelm Samdaw",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C55, A15",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o036",
+      "nombre": "Bankingar Sonascama",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C20, A16",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o037",
+      "nombre": "Baryn Violatesoros",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C19, A17",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o040",
+      "nombre": "Belegur Sigvald «Furia»",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A18",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o041",
+      "nombre": "Belril Sierpercana",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · F",
+      "procedencia": [
+        "adenda-fuentes-historicas-y-alias.md"
+      ],
+      "clase_documental": "Personaje histórico de Gylran",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o043",
+      "nombre": "Besyl Noccerado",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C30, A19",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o044",
+      "nombre": "Bianca Leone",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I09",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o045",
+      "nombre": "Bram Brasagorda",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · B",
+      "procedencia": [
+        "biografias-personajes-cotejo.md"
+      ],
+      "clase_documental": "Biografía",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o046",
+      "nombre": "Branneth, el de la Larga Siembra",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MBranneth",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o047",
+      "nombre": "Branwen Sigvald «Discordia»",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A20",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o048",
+      "nombre": "Bruto",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I10",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o049",
+      "nombre": "Cabal Sireg",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C134, A21",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o050",
+      "nombre": "Caefyn Verdimbre",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · F",
+      "procedencia": [
+        "adenda-fuentes-historicas-y-alias.md"
+      ],
+      "clase_documental": "Personaje histórico de Gylran",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o051",
+      "nombre": "Caelia Fulgentis",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C82, A22, B",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "biografias-personajes-cotejo.md"
+      ],
+      "clase_documental": "Biografía",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o052",
+      "nombre": "Caeloen Leahein",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C99, A23",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o053",
+      "nombre": "Caisadi Fuegosombrío",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C51, A24",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o054",
+      "nombre": "Calotgero Oroforte",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I11",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o055",
+      "nombre": "Car'rt Oq'uatee",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C100",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o056",
+      "nombre": "Caramierda",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C45, A25",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o057",
+      "nombre": "Celebriän Brisaolvidada",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C27, A26",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o058",
+      "nombre": "Chrachack Fiercespada",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C37, A27",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o059",
+      "nombre": "Chred Nichols",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C130, A28",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o060",
+      "nombre": "Ciale Iraldsay",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C6, A29",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o062",
+      "nombre": "Cromust Fiercespada",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C108, A30",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o063",
+      "nombre": "Crujidor",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C77, A31",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o064",
+      "nombre": "Cuthert Achgate",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MH",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Personaje histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o065",
+      "nombre": "Daeron Vardamir",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C106",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o066",
+      "nombre": "Damien Holdt",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C1, A32",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o067",
+      "nombre": "Dan",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C120, A33",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o068",
+      "nombre": "Daniel Alswick",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C10, A34",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o069",
+      "nombre": "Darelon Thrathal",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C128, A35",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o070",
+      "nombre": "Delril Torgal",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C22, A36",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o071",
+      "nombre": "Demetrius Buelhorn",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I12",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o072",
+      "nombre": "Denhat Lobeth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C5, A37, I13",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o073",
+      "nombre": "Dianne Smoth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C86, A38",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o074",
+      "nombre": "Dora Verdiscente",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A39",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o075",
+      "nombre": "Draconio «Drake» Orovecchio",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I14",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o077",
+      "nombre": "Drazoath",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C60",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o078",
+      "nombre": "Drother Tasano",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C74, A41",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o079",
+      "nombre": "Drut'Jaal",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C113, A42",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o080",
+      "nombre": "Edward Swordkey",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I15",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o081",
+      "nombre": "Eilinn Brillonuevo",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C57",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o082",
+      "nombre": "Eld'mose Kinistis",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C50, A43",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o083",
+      "nombre": "Eldburg Skara",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C96, A44",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o084",
+      "nombre": "Elisia Jacenty",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C32, A45, I16",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o085",
+      "nombre": "Elrohir Vardamir",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C114, A46",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o086",
+      "nombre": "Elthon Travole",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I17",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o087",
+      "nombre": "Eman Iraldsay",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C41, A47",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o088",
+      "nombre": "Engaw Brosul",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C3, A48",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o089",
+      "nombre": "Enyra Petreius",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I18",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o090",
+      "nombre": "Eomdyn Noreesh",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C43, A49",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o091",
+      "nombre": "Essaetia Neulenthris",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C8, A50",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o092",
+      "nombre": "Eurip Shadelgast",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C118, A51",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o093",
+      "nombre": "Fabrizio Orovecchio",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I19",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o094",
+      "nombre": "Fëanáro Vardamir",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A52",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o095",
+      "nombre": "Filotheus Achgate",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MH",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Personaje histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o096",
+      "nombre": "Findorian Alcanzarríos",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C49, A53",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o097",
+      "nombre": "Francesca Martoni",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I20",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o098",
+      "nombre": "Fredián Alogers",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C119, A54",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o099",
+      "nombre": "Galeshra Adorasol",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C124, A55, I21",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o100",
+      "nombre": "Galibard Shadelgast",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C79",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o101",
+      "nombre": "Galibard Shadelgast II",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C80, A56",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o102",
+      "nombre": "Galothertus Porach",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I22",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o104",
+      "nombre": "Gerad Orovecchio",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I23",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o105",
+      "nombre": "Gerad Silversea",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C68, A57",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o106",
+      "nombre": "Gilraen Vardamir",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C109",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o107",
+      "nombre": "Godogene Alogers",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C65, A58",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o109",
+      "nombre": "Góvan Gomelera",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C62, A60",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o110",
+      "nombre": "Grogtk",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C72, A61",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o111",
+      "nombre": "Gulfrik",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C9",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o112",
+      "nombre": "Gustaffon Olatheus",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A62, I24",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o113",
+      "nombre": "Gwilherm Smoth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C85, A63",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o114",
+      "nombre": "Hadewig Rocene",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C95, A64",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o115",
+      "nombre": "Hadrik Achgate",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MH",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Personaje histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o116",
+      "nombre": "Halor Pelocobre",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C13, A65",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o117",
+      "nombre": "Hansus Bronnhum",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C36, A66",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o119",
+      "nombre": "Harlend Terrana, el Mediador",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MHarlend",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o120",
+      "nombre": "Hassad Fadel",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C44, A67",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o121",
+      "nombre": "Havindrin Mantodorado",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C34, A68",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o122",
+      "nombre": "Hermilda Shadelgast",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C81, A69",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o123",
+      "nombre": "Hijo de Pamela",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I25",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o124",
+      "nombre": "Hiller Iraldsay",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C140, A70",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o125",
+      "nombre": "Hiyael el Huérfano",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C112, A71",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o127",
+      "nombre": "Hyarion Vardamir",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C115",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o128",
+      "nombre": "Idfaseya Ysheasa",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C94, A72",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o129",
+      "nombre": "Ilythia",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · GP",
+      "procedencia": [
+        "corpus-gesta-personajes-ylat.md"
+      ],
+      "clase_documental": "Personaje publicado",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o130",
+      "nombre": "Indalezius Dreedmist",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A73",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o131",
+      "nombre": "Inether Lowees",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C58, A74",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o132",
+      "nombre": "Ingulph Ceolward",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · F",
+      "procedencia": [
+        "adenda-fuentes-historicas-y-alias.md"
+      ],
+      "clase_documental": "Personaje histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o133",
+      "nombre": "Iralde Terrana, la del Arado Rojo",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MIralde",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o134",
+      "nombre": "Isandra Bronnhum",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C47, A75",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o135",
+      "nombre": "Iskadar el Segundo",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · H",
+      "procedencia": [
+        "auditoria-shadaleen-eponimos-y-relatos.md"
+      ],
+      "clase_documental": "Personaje histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o136",
+      "nombre": "Isspol Tonunt",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C12, A76",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o137",
+      "nombre": "Jaleba Inversa",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C63, A77",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o138",
+      "nombre": "Jérémie Alban",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C15",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o139",
+      "nombre": "Jiggalen Pamphilos",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I26",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o140",
+      "nombre": "Jkoor Hiervescarcha",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C127, A78",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o141",
+      "nombre": "Joan Orovecchio",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I27",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o143",
+      "nombre": "Josah Buelhorn",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I28",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o144",
+      "nombre": "Kaart Oquati",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A79",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o145",
+      "nombre": "Käbrius Festus",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · F",
+      "procedencia": [
+        "adenda-fuentes-historicas-y-alias.md"
+      ],
+      "clase_documental": "Personaje histórico de Gylran",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o146",
+      "nombre": "Kaelgor, el Estable",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MKaelgor",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o150",
+      "nombre": "Kineyie Gudrün",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C25, A82",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o151",
+      "nombre": "Korgrán Nudillo Pétreo",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · Z",
+      "procedencia": [
+        "barrido-final-zonas-inistia.md"
+      ],
+      "clase_documental": "Personaje en fuente geográfica",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o152",
+      "nombre": "Kranthrom Hiendeacero",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C123, A83",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o153",
+      "nombre": "Kurzak Sendero Severo",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C116, A84",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o155",
+      "nombre": "Laevinë Skara",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C52",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o156",
+      "nombre": "Lalis Floricarpio",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I30",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o157",
+      "nombre": "Lathandos Snave",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · F",
+      "procedencia": [
+        "adenda-fuentes-historicas-y-alias.md"
+      ],
+      "clase_documental": "Personaje histórico de Gylran",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o159",
+      "nombre": "Leandro Bracco",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I31",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o160",
+      "nombre": "Leezar Lockbruck",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I32",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o163",
+      "nombre": "Lisandra",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I33",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o164",
+      "nombre": "Lorif Samasi",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C23, A87",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o165",
+      "nombre": "Loroohck Asheishi",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C2, A88",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o166",
+      "nombre": "Lorss Duthmor",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C54, A89",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o167",
+      "nombre": "Luresse Gomelera",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C102, A90",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o168",
+      "nombre": "Lyran",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MH",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Personaje histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o169",
+      "nombre": "Malthus Haagenti",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I34",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o170",
+      "nombre": "Marco",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I35",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o171",
+      "nombre": "Mario Martoni",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I36",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o172",
+      "nombre": "Mark Maxley",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C76, A91",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o173",
+      "nombre": "Marlak Fuegosombrío",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C87, A92",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o174",
+      "nombre": "Marten Lobeth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C88, A93, I37",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o175",
+      "nombre": "Martius Smoth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C91, A94",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o177",
+      "nombre": "Mashera Skara",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C129, A95, I38",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o178",
+      "nombre": "Maurice Martoni",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I39",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o179",
+      "nombre": "Maverae Adorasol",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C67, A96, I40",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o180",
+      "nombre": "Mirethia del Atardecer Coral",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · H",
+      "procedencia": [
+        "auditoria-shadaleen-eponimos-y-relatos.md"
+      ],
+      "clase_documental": "Gobernante",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o182",
+      "nombre": "Modestia Jof «Esti»",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A97",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o183",
+      "nombre": "Mogg'Shattoth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I41",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o184",
+      "nombre": "Morgarath Kultstein",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I42",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o185",
+      "nombre": "Morgendärr",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C122, A98",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o186",
+      "nombre": "Muhammad Sossei",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C38, A99",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o189",
+      "nombre": "Nabeel Ungesavia",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C14, A100",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o190",
+      "nombre": "Naeis Shadelgast",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A101, B",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md",
+        "biografias-personajes-cotejo.md"
+      ],
+      "clase_documental": "Biografía",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o191",
+      "nombre": "Nahr Caelis, el Cortavientos",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MNahr",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o193",
+      "nombre": "Naleale Iraldsay",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C138, A102",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o194",
+      "nombre": "Narelmayl",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · E",
+      "procedencia": [
+        "cronologia-y-astroonimia-enciclopedia.md"
+      ],
+      "clase_documental": "Figura/individuo histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o196",
+      "nombre": "Narga Solarys",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · E, D",
+      "procedencia": [
+        "cronologia-y-astroonimia-enciclopedia.md",
+        "inventario-teonimos-y-epitetos.md"
+      ],
+      "clase_documental": "Figura/individuo histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o198",
+      "nombre": "Nathan",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I43",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o199",
+      "nombre": "Nebulashka",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A103",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o200",
+      "nombre": "Nêrra",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A104",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o201",
+      "nombre": "Nesaweyn Feebil",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C18, A105",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o202",
+      "nombre": "Neurustho Forneustone",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I44",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o203",
+      "nombre": "Neyney sin Apellido",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C73, A106",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o204",
+      "nombre": "Nidrael Eldarien",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A107, Z",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md",
+        "barrido-final-zonas-inistia.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o206",
+      "nombre": "Nimara Vuelumbrío",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C125, A109",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o207",
+      "nombre": "Norluth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · E",
+      "procedencia": [
+        "cronologia-y-astroonimia-enciclopedia.md"
+      ],
+      "clase_documental": "Figura/individuo histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o209",
+      "nombre": "Notorius Anverso",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C4, A111",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o210",
+      "nombre": "Nulsärax",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C117",
+      "procedencia": [
+        "censo-pnj-historico.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o211",
+      "nombre": "Nyldryl",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A112",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o212",
+      "nombre": "Oelmi Beld",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C89, A113",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o213",
+      "nombre": "Oenogs Roerraíces",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C48, A114",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o216",
+      "nombre": "Ophilia Morcrick",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C75, A116",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o217",
+      "nombre": "Ork",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C111, A117",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o219",
+      "nombre": "Otho-Dekrll",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I45",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o220",
+      "nombre": "Pamela",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I46",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o221",
+      "nombre": "Paulina Orovecchio",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I47",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o222",
+      "nombre": "Petro Grimaldi",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I48",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o224",
+      "nombre": "Quamara Rowes",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MH",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Personaje histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o225",
+      "nombre": "Quaon Arianhrod",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C26, A118",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o226",
+      "nombre": "Radinel Soplotenue",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C78, A119",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o227",
+      "nombre": "Rargar Ecala",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C132, A120",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o228",
+      "nombre": "Rewill Borney",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I49",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o229",
+      "nombre": "Richerento",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I50",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o231",
+      "nombre": "Robin Ranley",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · F",
+      "procedencia": [
+        "adenda-fuentes-historicas-y-alias.md"
+      ],
+      "clase_documental": "Personaje documentado en Zonas",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o232",
+      "nombre": "Roluj Buenacerveza",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C35, A121",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o234",
+      "nombre": "Ryn'Acki",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C61, A122",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o235",
+      "nombre": "Sadyiya Falaz",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C101, A123",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o237",
+      "nombre": "Sarata Lobeth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C90, A124, I51",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o238",
+      "nombre": "Sashka Norvvind",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C110, A125",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o239",
+      "nombre": "Scheziss",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I52",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o240",
+      "nombre": "Selvarn, el Nuboso",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MSelvarn",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o241",
+      "nombre": "Señor Calcetines",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C137, A126",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o242",
+      "nombre": "Seruon el Esmeralda",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C46, A127",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o243",
+      "nombre": "Shadel",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · E",
+      "procedencia": [
+        "cronologia-y-astroonimia-enciclopedia.md"
+      ],
+      "clase_documental": "Figura/individuo histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o245",
+      "nombre": "Skörn Norvvind",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A128",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o246",
+      "nombre": "Sodyd Gomelera",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C103, A129",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o247",
+      "nombre": "Stasi Giovanni",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C16, A130, I53",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o248",
+      "nombre": "Sumaeryn de las Mareas",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MSumaeryn",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o250",
+      "nombre": "Syssbel Valanthis",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C24, A131",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o251",
+      "nombre": "Tadeo Orovecchio",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I54",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o253",
+      "nombre": "Tayana Pamphilos",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I55",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o254",
+      "nombre": "Tegku Bagui Fénix",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C69, A133",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o255",
+      "nombre": "Ternus Arper",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C42, A134",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o256",
+      "nombre": "Tharn, el Viento Eterno",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MTharn",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o257",
+      "nombre": "Theren Bron",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · Z",
+      "procedencia": [
+        "barrido-final-zonas-inistia.md"
+      ],
+      "clase_documental": "Personaje en fuente geográfica",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o258",
+      "nombre": "Thergan Ulvbane",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C126, A135",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o259",
+      "nombre": "Thingrim Lockbruck",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A136",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o260",
+      "nombre": "Tomás Belardo",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · GP",
+      "procedencia": [
+        "corpus-gesta-personajes-ylat.md"
+      ],
+      "clase_documental": "Personaje publicado",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o262",
+      "nombre": "Travis Engalei",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · Z",
+      "procedencia": [
+        "barrido-final-zonas-inistia.md"
+      ],
+      "clase_documental": "Personaje en fuente geográfica",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o263",
+      "nombre": "Treban Tepoel",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C98, A137",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o264",
+      "nombre": "Tuliëlle Skara",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A138",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o265",
+      "nombre": "Tyvoz Fluyeflauta",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C21, A139",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o266",
+      "nombre": "Ubale Keefe",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C92, A140",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o267",
+      "nombre": "Uragana Buelhorn",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · I56",
+      "procedencia": [
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o271",
+      "nombre": "Varlyna, la Fundadora",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MVarlyna",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o272",
+      "nombre": "Velyn Maren, la de los Ojos de Espuma",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MVelyn",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Monarca",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o273",
+      "nombre": "Viktor Kultstein",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C83, A142, I57",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o274",
+      "nombre": "Vrymmir Borgenrstâg",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C59, A143",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o275",
+      "nombre": "Vrymmir Borgernstâg",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · B",
+      "procedencia": [
+        "biografias-personajes-cotejo.md"
+      ],
+      "clase_documental": "Biografía",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o276",
+      "nombre": "Vysoben Veredron",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C133, A144, I58",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o277",
+      "nombre": "Warsam Nyser",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C7, A145",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o278",
+      "nombre": "Weeheem Pinnotix",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · B",
+      "procedencia": [
+        "biografias-personajes-cotejo.md"
+      ],
+      "clase_documental": "Biografía",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o279",
+      "nombre": "Werhilda Forjaplata",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C64, A146",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o280",
+      "nombre": "Wilgils Ceolward",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MH",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Personaje histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o281",
+      "nombre": "William Gull",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A147, I59",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "Campaña/casa",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o284",
+      "nombre": "Ybardonydd Acomanydd Unerrannor",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C70, A149",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o286",
+      "nombre": "Ymobil",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · MH",
+      "procedencia": [
+        "linajes-historicos-malasthar.md"
+      ],
+      "clase_documental": "Personaje histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o289",
+      "nombre": "Yuno Lobeth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C93, A150, I60",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o292",
+      "nombre": "Zack Lobeth",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C135, A151, I61",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md",
+        "corpus-complementario-isophius.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o293",
+      "nombre": "Zarkon",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · GP",
+      "procedencia": [
+        "corpus-gesta-personajes-ylat.md"
+      ],
+      "clase_documental": "Personaje publicado",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o294",
+      "nombre": "Zarzik Ceñóseo",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C56, A152",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o295",
+      "nombre": "Zekogs Quiebrahielo",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · C17, A153",
+      "procedencia": [
+        "censo-pnj-historico.md",
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "PNJ histórico",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
+    },
+    {
+      "id": "documentado-onomastica-ylat-o297",
+      "nombre": "Zurari Hermous",
+      "tipo": "documentado",
+      "ambito": "Ylat",
+      "fuente": "Investigación onomástica de Ylat · A154",
+      "procedencia": [
+        "auditoria-aventuras-ylat.md"
+      ],
+      "clase_documental": "Índice de aventura",
+      "nota": "Nombre de una figura documentada; usar como inspiración no convierte al nuevo personaje en esa figura."
     }
   ]
 }
