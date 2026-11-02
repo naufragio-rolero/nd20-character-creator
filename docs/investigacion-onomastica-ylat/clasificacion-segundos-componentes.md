@@ -2,22 +2,23 @@
 
 **Corte:** 2026-11-02. **Estado:** auditoría documental; ninguna forma aprobada como apellido libre de generación.
 
-**Fuente primaria:** [\`dnd_npcs.xlsx\`](https://drive.google.com/file/d/1B2YnVslAK7Sjd5ELYR9kteHB9Q-L4AWp/view), segunda pestaña, campos \u0060name\u0060 / \u0060surname\u0060 / \u0060full_name\u0060. Ver [censo íntegro de 140 personajes](censo-pnj-historico.md), [familias acreditadas](familias-acreditadas.md) y [catálogo provisional](catalogo-provisional.md).
+**Fuente primaria:** [`dnd_npcs.xlsx`](https://drive.google.com/file/d/1B2YnVslAK7Sjd5ELYR9kteHB9Q-L4AWp/view), segunda pestaña, campos `name` / `surname` / `full_name`. Ver [censo íntegro de 140 personajes](censo-pnj-historico.md), [familias acreditadas](familias-acreditadas.md) y [catálogo provisional](catalogo-provisional.md).
 
 ## Reglas de lectura
 
-- El campo \u0060surname\u0060 de la hoja histórica se considera **segundo componente nominal de origen**, no un apellido real por definición.
+- El campo `surname` de la hoja histórica se considera **segundo componente nominal de origen**, no un apellido real por definición.
 - **F:** familia o apellido con pertenencia, parentesco o linaje respaldado por documentación independiente (17 formas). **No es autorización de combinación libre.**
 - **A:** la propia fuente llama al componente «apellido», pero solo está acreditado para ese individuo.
 - **N:** denominación eladrín con apéndice determinado por nacimiento.
 - **O:** apellido más ordinal; se debe representar por separado.
 - **M:** tratamiento de presentación («sin Apellido»), no apellido transferible.
+- **P:** apodo individual reconocido expresamente por la biografía; no apellido transferible.
 - **E:** fórmula lingüística propia de un epíteto; necesita confirmar su función en la biografía.
 - **C:** compuesto de varias palabras cuya estructura no se ha acreditado.
 - **V:** componente con grafía conflictiva en fuentes independientes.
 - **I:** segundo componente nominal individual documentado sin suficientes pruebas para atribuirle función familiar, cultural o hereditariedad.
 
-Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni probabilidades. En particular, las formas **I, C, E, V, N, O, M** y **A** no entran automáticamente a un generador de apellidos.
+Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni probabilidades. En particular, las formas **I, C, E, V, N, O, M, P** y **A** no entran automáticamente a un generador de apellidos.
 
 ### Recuento de valores distintos (97)
 
@@ -28,10 +29,11 @@ Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni
 | N | 2 | Convención dependiente del nacimiento |
 | O | 1 | Ordinal |
 | M | 1 | Presentación / alias |
+| P | 1 | Apodo explícito |
 | E | 3 | Fórmula de epíteto |
 | C | 4 | Compuesto no resuelto |
 | V | 1 | Variante en conflicto |
-| I | 67 | Segundo componente no acreditado como apellido |
+| I | 66 | Segundo componente no acreditado como apellido |
 | **Total** | **97** | Registro completo sin blancos |
 
 ## Diccionario por valor literal
@@ -132,17 +134,21 @@ Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni
 | Valanthis | 1 | **I** | Syssbel Valanthis | Función familiar no probada; consultar censo y biografía individual |
 | Vardamir | 4 | **F** | Daeron Vardamir; Gilraen Vardamir; Elrohir Vardamir; Hyarion Vardamir | Hyarion padre; Daeron, Elrohir y Gilraen descendientes; Stasi conserva Giovanni |
 | Veredron | 1 | **I** | Vysoben Veredron | Función familiar no probada; consultar censo y biografía individual |
-| Violatesoros | 1 | **I** | Baryn Violatesoros | Función familiar no probada; consultar censo y biografía individual |
+| Violatesoros | 1 | **P** | Baryn Violatesoros | Su [ficha biográfica](https://drive.google.com/file/d/19JtNIx4UEJvBteFP4ajG1wAUQqdsrKQD/view) declara expresamente que sus compañeros le impusieron el **apodo** «Violatesoros» |
 | Vuelumbrío | 1 | **I** | Nimara Vuelumbrío | Función familiar no probada; consultar censo y biografía individual |
 | Ysheasa | 1 | **I** | Idfaseya Ysheasa | Función familiar no probada; consultar censo y biografía individual |
+
+## Nota adicional sobre realidades de origen
+
+La [ficha de Tegku Bagui Fénix](https://drive.google.com/file/d/1hs2TLs0ePQoza_zFTYIdMJj-57FggSEt/view) indica literalmente **«Realidad: Ylat⁴»**, mientras las fichas examinadas de muchos otros personajes indican **«Ylat¹»**. Su participación en una crónica ambientada en Ylat no demuestra que su denominación sea originaria del mismo ámbito/repertorio que esos PNJ. Se registra como **nombre de personaje de una realidad diferenciada**; no inferir su transferibilidad ni atribuirlo a una especie universal. 
 
 ## Nota editorial sobre el alcance
 
 1. La pertenencia a una casa es **una relación entre personaje y organización**, distinta de llevar su apellido: [Casa Lobeth](https://drive.google.com/file/d/161zJJ4kXnUehxGDrEl2HXWydwUiD6ZUp/view) lista a **Mashera Skara**, y [Casa Adorasol](https://drive.google.com/file/d/1I_g1ni_qIrJXGcEteIfs2xQchUCgKlDd/view) incluye a **Aerandil** y **Anasthore del Atardecer**.
 2. Una denominación puede ser un **apellido genuino aunque parezca mote**: [Jaleba Inversa](https://drive.google.com/file/d/11sruNoGvtI230SmcTr6XhWjqxJ8E_is1/view) denomina literalmente «apellido» a Inversa. **No deducir tipología por apariencia**.
-3. Un **alias** puede ocultar nombre y apellido civil documentados: **Romualdius Walerian** figura como **Crujidor** en el censo actual (identificador interno constante \u0060crujidor\u0060).
+3. Un **alias** puede ocultar nombre y apellido civil documentados: **Romualdius Walerian** figura como **Crujidor** en el censo actual (identificador interno constante `crujidor`).
 4. Una casa dada por **disuelta** puede tener supervivientes: el artículo [La condena de Viktor Kultstein](https://drive.google.com/file/d/1GDzOljZierUkG3i6PrkcxuAqsBXWG487/view) confirma a Viktor como uno de los pocos supervivientes de la purga. También [Morgarath Kultstein](https://drive.google.com/file/d/1XKGEWVB3Q40YRfGCXLtoTuduMNnOVIr7/view) figura como miembro. No concluir que la casa se conserva institucionalmente ni habilitar su apellido para cualquiera.
-5. Las **formas pluriverbales** se conservan completas. Que un sistema de datos las guarde en la columna \u0060surname\u0060 no significa que sean un apellido ni que pueda generarse parte de ellas por separado.
+5. Las **formas pluriverbales** se conservan completas. Que un sistema de datos las guarde en la columna `surname` no significa que sean un apellido ni que pueda generarse parte de ellas por separado.
 
 ## Trabajos para la siguiente revisión
 
