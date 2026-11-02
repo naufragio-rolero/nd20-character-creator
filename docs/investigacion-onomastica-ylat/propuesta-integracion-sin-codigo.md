@@ -145,3 +145,12 @@ Las fuentes rectoras documentan una relación con **identidad inequívoca y nomb
 **Consecuencia para el modelo propuesto, sin implementar:** representar los nombres como **testimonios cronológicos y de función**, relacionados con una entidad, y guardar títulos de culto y epítetos en relaciones distintas. Un cambio explícito de nombre puede justificar vínculo entre denominaciones; la coincidencia en cadena literal o en segundo componente, por sí sola, no. No extraer **Solarys** como apellido familiar sin prueba ni añadir nombres de deidades al sorteo de personas. Esta extensión no modifica las trece cuestiones editoriales abiertas ni los recuentos de los tres subcorpus anteriores.
 
 **Desfase del censo de Isophius:** la autoría confirma que la campaña se **jugó más tarde** y no se consolidó en las hojas de 140 PNJ. No tratar la ausencia del Excel como invalidez del registro: distinguir siempre **fecha/cobertura de censo**, **participación narrativa acreditada** y **permiso de reutilización**.
+
+
+## 10. Tipos de entidad y epítetos de fuentes rectoras (2026-11-02)
+
+El [inventario de Espíritus Deíficos](inventario-teonimos-y-epitetos.md) registra **18 fichas** y **54 epítetos** (tres por ficha); [Enciclopedia](cronologia-y-astroonimia-enciclopedia.md) documenta individuos como **Narelmayl**, el dragón de acero **Norluth**, el imperio **Alleinn Nuj**, la estrella **Kaeduin**, los cinco planetas y el satélite **Vaiel**.
+
+**Extensión propuesta, no implementada:** un registro de denominación debe conservar **`tipo_entidad`**, **`tipo_denominacion`**, **`fuente`**, **`seccion`**, **`realidad` cuando conste**, y, solo si se conoce, **`misma_identidad_que`** o **relación de nombre sucesivo**. El ejemplo **Vaiel** impide tratar automáticamente dos menciones idénticas como la misma clase de entidad; **Narga Solarys/Ganragán** demuestra el caso inverso, dos cadenas para una identidad narrativamente acreditada. Las 54 expresiones de epíteto no pueden trasladarse a un campo de apellido.
+
+**No cambiar los repertorios actuales**: el cotejo literal de 24 cadenas con tres catálogos y el censo antiguo fue negativo y **no concede permiso de combinación**. Para una función de consulta documental, priorizar tipos y fuentes antes que la concatenación. Las decisiones ONO-01 a ONO-13 permanecen pendientes.
