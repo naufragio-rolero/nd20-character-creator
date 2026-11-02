@@ -6,6 +6,7 @@ Todos los símbolos están en `assets/icons-forja.svg` (`viewBox="0 0 24 24"`), 
 
 - Poderes: `ico-conjuro`, `ico-tecnica` (función `presentarPoder()`).
 - Recursos: `recurso-salud`, `recurso-esfuerzo`, `recurso-movimiento`, `recurso-potencia`, `recurso-esencia`, `recurso-blindaje`.
+- Cabecera de personaje: `sexo-masculino`, `sexo-femenino`, `sexo-indeterminado` (este último significa dato no indicado, no una clasificación añadida).
 - Configuración: `ico-configurar` (engranaje).
 - Equipo: `equipo-espada` (armas cuerpo a cuerpo), `equipo-arco` (a distancia), `equipo-varita`, `equipo-bolsa` (genérico), `equipo-mochila` (almacenamiento), `equipo-orbe` (foco), `equipo-libro`, `equipo-armadura`, `equipo-escudo` y `equipo-municion`.
 
@@ -14,6 +15,14 @@ Los trazos son **provisionales** y solo representan categorías visuales. Para c
 ## Asociación con Equipo
 
 `iconoEquipo(nombre)` en `assets/app.js` consulta primero los registros literales de `data/equipo-inicial.json`: `armas`, `varitas_defensa`, `armaduras`, `escudos`, `municion`, `focos_conjuros_con_precio` y `utiles_fantasia`. En útiles documentados, reconoce nombres explícitos de libros o almacenamiento. Para textos externos o de Dungeon Hack aplica un respaldo conservador por nombre; lo demás recibe bolsa genérica. No se deduce ninguna regla, competencia ni propiedad mecánica. El nombre original de cada objeto se mantiene para consultar, copiar y exportar.
+
+## Cabecera, lotes y contraste
+
+El encabezado muestra el sistema en la primera línea, el nombre debajo y el símbolo de sexo **junto a la Ocupación** (antes de la Especie). El Nivel queda en un distintivo separado, justo a la izquierda de cerrar. La ficha de Dungeon Hack sin sexo declarado muestra un símbolo neutro con texto accesible «Sexo: No indicado»; no se modifica ni se presupone el sexo del personaje.
+
+Los nombres del Equipo se capitalizan **solo para mostrarlos**: «yesquero» pasa a «Yesquero», pero el texto original se conserva en el modelo, las consultas, la exportación y la copia. Las entradas sueltas de los paquetes del DRS se registran en el índice de información: si hay ficha de catálogo se utiliza esa, y si no la hay se ofrece exclusivamente la procedencia del paquete, sin inventar precio ni efecto. No se transforma el contenido reglamentario del paquete.
+
+En Cerúleo, los botones de ficha iluminan el fondo al pasar el ratón y mantienen el texto oscuro contrastado; se evita que el hover genérico oscuro se aplique a botones que utilizan texto oscuro en las tarjetas claras.
 
 ## Configurar creación
 
