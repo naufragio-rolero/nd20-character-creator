@@ -36,7 +36,8 @@ const iconosForja=[
 ];
 const requeridos=[
   'index.html','assets/styles.css',
-  ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),'assets/equipment.js','assets/sex.js',
+  ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
+  'assets/icons/CREDITOS-GAME-ICONS.txt','assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/favicon.svg',
   'data/especies.json','data/ocupaciones.json',

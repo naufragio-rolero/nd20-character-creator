@@ -30,6 +30,16 @@ incluyen los 35 SVG, sin el sprite antiguo. La entrega LIVE conserva
 la revisión fijada por SHA; integrar esta mejora no despliega DLC ni
 altera automáticamente el sitio publicado.
 
+## Nueva iconografía Game-icons.net (atribución y adaptación)
+
+Los 35 SVG visibles de `assets/icons/` proceden de [Game-icons.net](https://game-icons.net/), bajo [Creative Commons Atribución 3.0](https://creativecommons.org/licenses/by/3.0/). Sus autores originales son Delapouite, Lorc, Kier Heyl, DarkZaitzev y sbed. **Cada icono tiene su entrada con autor, título y vínculo a la obra original** en `assets/icons/CREDITOS-GAME-ICONS.txt`, accesible mediante el pie de página de la Forja. Es obligatorio mantener esta atribución en cualquier publicación que incluya los iconos.
+
+Los SVG originales se guardan, con su estructura original 512×512 y sin publicarlos en el paquete DRS, en `docs/iconografia/originales/game-icons/<autor>/<icono>.svg`. Los 35 adaptados emplean fondo transparente, `viewBox="0 0 24 24"`, relleno monocromo y un único marco proporcional 19,5/512 dentro del lienzo 24×24. Las máscaras CSS conservan el color del tema.
+
+`esp-semiorco.svg` es una composición modificada de **orc-head** y **monk-face**, ambos de Delapouite, divididos longitudinalmente para representar herencia humana y orca; no utiliza `goblin-head`. El icono original `goblin-head.svg` está reservado en `docs/iconografia/originales/game-icons/delapouite/` para una posible futura especie Goblin, pero no está incluido en la aplicación pública ni se añade especie alguna al DRS.
+
+No se alteran reglas, categorías ni nombres de especies. La sustitución de archivos individuales se hace sin regenerar sprites. El despliegue LIVE requiere aprobación separada porque el workflow de producción está fijado por revisión y hashes.
+
 ## Asociación con Equipo
 
 `iconoEquipo(nombre)` en `assets/app.js` consulta primero los registros literales de `data/equipo-inicial.json`: `armas`, `varitas_defensa`, `armaduras`, `escudos`, `municion`, `focos_conjuros_con_precio` y `utiles_fantasia`. En útiles documentados, reconoce nombres explícitos de libros o almacenamiento. Para textos externos o de Dungeon Hack aplica un respaldo conservador por nombre; lo demás recibe bolsa genérica. No se deduce ninguna regla, competencia ni propiedad mecánica. El nombre original de cada objeto se mantiene para consultar, copiar y exportar.

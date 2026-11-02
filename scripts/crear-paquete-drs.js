@@ -81,7 +81,8 @@ const iconosForja=[
 const especificas=[
   'index.html',
   'assets/styles.css','assets/favicon.svg',
-  ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),'assets/equipment.js','assets/sex.js',
+  ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
+  'assets/icons/CREDITOS-GAME-ICONS.txt','assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/i18n.js',
   'locales/es.json',
