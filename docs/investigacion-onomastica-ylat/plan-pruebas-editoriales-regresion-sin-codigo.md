@@ -5,6 +5,9 @@
 
 > **RESOLUCIONES DE AUTORÍA (2026-11-02):** las pruebas **TIPO-01 a TIPO-05** se redactaron para una opción de exclusión por tipo de entidad que **la autoría no ha adoptado**: deben considerarse escenarios previos, **no requisitos actuales**. **CASA-01** debe revisarse para permitir combinación de linaje con peso muy bajo y sin parentesco canónico; **REAL-01/02** no debe prohibir mezclar nombres por época/realidad, aunque conserva la identidad histórica de cada fuente. **ELAD-01** no generará nombres. Véase [acta](acta-decisiones-autoria-2026-11-02.md).
 
+
+> **CIERRE DE DECISIONES (2026-11-02):** [las 14 ONO están cerradas por autoría](acta-decisiones-autoria-2026-11-02.md). Nuevo testigo editorial para la futura integración: **ID-10 — Tuliëlle: Dyeld padre canónico**, mientras que la atribución de paternidad a Eldburg en una ficha anterior se conserva únicamente como discrepancia de origen. No inferir que Dyeld y Eldburg son la misma persona. Este criterio es documental; no se han ejecutado ni implementado pruebas.
+
 ## 1. Estado técnico verificado antes de proponer pruebas
 
 En la rama `main` se consultaron:
