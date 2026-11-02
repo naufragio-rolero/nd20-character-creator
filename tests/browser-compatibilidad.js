@@ -259,6 +259,17 @@ async function probar(nombre,tipo,url){
     assert.match(await popup.locator('.info-descripcion').first().textContent(),
       /criatura afectada no se podrá mover durante su próximo Turno/,
       nombre+': Disparo aturdidor debe mostrar su efecto DRS');
+    // Regresión de Aguijón impío: alcance duplicado por «20m»/«20 m».
+    await page.locator('#e2e-poder').evaluate(x=>{x.dataset.glosaId='conjuro-0';});
+    await page.locator('#e2e-poder').click();
+    assert.equal(await popup.locator('h3').textContent(),'Aguijón impío');
+    assert.deepEqual(await popup.locator('.info-primarios dt').allTextContents(),
+      ['Alcance:','Daño:'],nombre+': no repetir Alcance');
+    assert.deepEqual(await popup.locator('.info-primarios dd').allTextContents(),
+      ['20 m','1d6 (veneno e impío)'],
+      nombre+': daño literal mixto visible en consulta rápida');
+    assert.match(await popup.locator('.info-descripcion').textContent(),
+      /1d6 de daño por veneno e impío/);
     await page.locator('#informacion-avanzada').uncheck();
     // Objetos: categoría en pill, precio y descripción de reglas sin
     // mostrar metadatos de creación del catálogo.
@@ -277,6 +288,14 @@ async function probar(nombre,tipo,url){
     assert.match(await popup.locator('.info-categoria').getAttribute('class'),
       /info-categoria-objeto-varitas/);
     assert.match(await popup.locator('.info-primarios').innerText(),/Precio:\s*100 mo/);
+    const varitaCampos=await popup.locator('.info-primarios').evaluate(x=>
+      Object.fromEntries(Array.from(x.querySelectorAll('dt')).map(k=>[
+        k.textContent.replace(/:$/,''),k.nextElementSibling?.textContent
+      ])));
+    assert.deepEqual(varitaCampos,{
+      Precio:'100 mo',Daño:'1d3',Penetración:'1',Alcance:'12 m',
+      Durabilidad:'d4',Munición:'DU d6'},
+      nombre+': la varita presenta todas las estadísticas oficiales');
     assert.match(await popup.locator('.info-descripcion').first().innerText(),
       /Tirada de Mente/);
     assert.equal(await popup.locator('.info-origen-glosa').count(),0,
@@ -292,6 +311,14 @@ async function probar(nombre,tipo,url){
       assert.equal(await popup.locator('.info-categoria').textContent(),item[1],
         nombre+': categoría de '+item[0]);
     }
+    await page.locator('#e2e-equipo').evaluate(el=>{el.dataset.glosaNombre='Armadura de tela';});
+    await page.locator('#e2e-equipo').click();
+    assert.match(await popup.locator('.info-primarios').innerText(),/Blindaje:\s*d4/);
+    assert.match(await popup.locator('.info-primarios').innerText(),/Durabilidad:\s*—/);
+    await page.locator('#e2e-equipo').evaluate(el=>{el.dataset.glosaNombre='Armadura de pieles';});
+    await page.locator('#e2e-equipo').click();
+    assert.match(await popup.locator('.info-primarios').innerText(),/Blindaje:\s*d6/);
+    assert.match(await popup.locator('.info-primarios').innerText(),/Durabilidad:\s*d6/);
     await page.locator('#e2e-poder').click();
     assert.equal(await popup.locator('.info-detalles').isHidden(),true);
     await page.keyboard.press('Escape');
