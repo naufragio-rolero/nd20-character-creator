@@ -1,0 +1,72 @@
+name: PDF A5 Fantasía — validación aislada
+on:
+  pull_request:
+    paths:
+      - 'assets/pdf-a5/**'
+      - 'assets/pdf-export-*.js'
+      - 'tests/pdf-a5-*'
+      - 'tests/pdf-export-*'
+      - 'scripts/preparar-vendor-pdf-a5.cjs'
+      - 'index.html'
+      - 'assets/app.js'
+      - '.github/workflows/pdf-a5-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  comprobar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Auditar sintaxis sin dependencias
+        run: |
+          node --check assets/pdf-export-model.js
+          node --check assets/pdf-export-v2.js
+          node --check assets/pdf-export-browser.js
+          node --check assets/app.js
+          node tests/pdf-export-model.js
+          node tests/pdf-export-adaptador.js
+          node tests/pdf-export-compositor-mock.js
+          node tests/pdf-a5-etiquetas.js
+          node tests/pdf-a5-integracion.js
+      - name: Instalar bibliotecas y fuente open source (desarrollo, sin CDN en el navegador)
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts \
+            pdf-lib@1.17.1 @pdf-lib/fontkit@1.1.1 \
+            @expo-google-fonts/source-serif-4@0.4.1 playwright@1.56.1
+          node scripts/preparar-vendor-pdf-a5.cjs
+      - name: Generar PDF A5 reales
+        run: node tests/pdf-a5-real.cjs
+      - name: Preimpresión A5 — tamaño, fuentes y renderizado
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v pdftoppm >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq poppler-utils
+          fi
+          for nivel in 1 30; do
+            archivo="dist/pdf-a5-preimpresion/nivel-${nivel}.pdf"
+            test -s "$archivo"
+            pdfinfo "$archivo" | grep -Fq '419.528 x 595.276 pts'
+            pdftotext -layout "$archivo" - | grep -Fq 'BLINDAJE'
+            pdffonts "$archivo" | grep -Fq 'SourceSerif'
+            pdftoppm -f 1 -l 1 -scale-to 1200 -png -singlefile \
+              "$archivo" "dist/pdf-a5-preimpresion/nivel-${nivel}-pagina-1"
+          done
+      - name: Conservar pruebas de preimpresión A5
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-a5-preimpresion-nivel-1-y-30
+          path: dist/pdf-a5-preimpresion/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Exportar desde Chrome real (E2E)
+        run: node tests/pdf-a5-browser-e2e.cjs

@@ -220,6 +220,32 @@ assert.ok(html.includes('id="abrir-configuracion"'));
 assert.ok(html.includes('id="dialogo-configuracion"'));
 assert.ok(html.includes('id="resumen-nivel"'));
 assert.ok(html.includes('id="informacion-avanzada"'));
+// El PDF A5 se distribuye completo con el paquete DRS; no depende de CDN ni del árbol de desarrollo.
+const pdfA5=[
+  'assets/pdf-export-v2.js','assets/pdf-export-browser.js',
+  'assets/pdf-a5/forja-fantasia-epica-a5.pdf',
+  'assets/pdf-a5/forja-continuacion-a5.pdf',
+  'assets/pdf-a5/campos-ficha-a5.json',
+  'assets/pdf-a5/SourceSerif4_400Regular.ttf',
+  'assets/pdf-a5/OFL-SourceSerif4.txt',
+  'assets/vendor/pdf-lib.min.js','assets/vendor/fontkit.umd.min.js',
+  'assets/vendor/LICENSE-pdf-lib.txt','assets/vendor/LICENSE-fontkit.txt'
+];
+for(const file of pdfA5){
+  assert(fs.existsSync(path.join(salida,file)),
+    'La exportación A5 requiere el activo local '+file);
+  assert(fs.statSync(path.join(salida,file)).size>100,file+': archivo insuficiente');
+}
+const publicPdfIndex=fs.readFileSync(path.join(salida,'index.html'),'utf8');
+const publicPdfApp=fs.readFileSync(path.join(salida,'assets/app.js'),'utf8');
+assert(publicPdfIndex.includes('assets/pdf-export-browser.js'));
+assert(publicPdfApp.includes('exportar-pdf-ficha'));
+assert(!fs.readFileSync(path.join(salida,'assets/pdf-export-browser.js'),'utf8').includes('https://')&&
+  !fs.readFileSync(path.join(salida,'assets/pdf-export-browser.js'),'utf8').includes('http://'),
+  'El motor de descarga PDF no puede cargar bibliotecas CDN');
+const templateA5=fs.readFileSync(path.join(salida,'assets/pdf-a5/forja-fantasia-epica-a5.pdf'));
+assert.equal(templateA5.subarray(0,5).toString('ascii'),'%PDF-');
+assert.deepEqual(JSON.parse(fs.readFileSync(path.join(salida,'assets/pdf-a5/campos-ficha-a5.json'))).campos_fijos.length,32);
 const iconosPublicos=fs.readdirSync(path.join(salida,'assets','icons'))
   .filter(nombre=>nombre.endsWith('.svg'));
 assert.equal(iconosPublicos.length,35,'El paquete contiene exactamente 35 SVG');
