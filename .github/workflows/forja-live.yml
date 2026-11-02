@@ -28,15 +28,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener exclusivamente Forja DRS validada (PR #44)
+      - name: Obtener exclusivamente Forja DRS y PDF A5 del snapshot estable
         uses: actions/checkout@v4
         with:
-          ref: 3aeb807cc9584f047660cba49327e816f115d24a
+          ref: 609fd08946bb1d42d67dfcd4f08a14291c2f2e55
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "3aeb807cc9584f047660cba49327e816f115d24a"
-      # La revisión fijada ya contiene todos los cambios probados en PR #42.
+          test "$(git rev-parse HEAD)" = "609fd08946bb1d42d67dfcd4f08a14291c2f2e55"
+      # Snapshot construido desde el último LIVE, con solo exportación PDF A5.
+      # No incluye los iconos aún en desarrollo de main.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
       - name: Auditar iconografia y funcionalidades fijadas
         shell: bash
@@ -98,6 +99,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - name: Preparar bibliotecas PDF A5 locales y licencias antes de empaquetar
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts \
+            pdf-lib@1.17.1 @pdf-lib/fontkit@1.1.1 \
+            @expo-google-fonts/source-serif-4@0.4.1 playwright@1.56.1
+          node scripts/preparar-vendor-pdf-a5.cjs
+          node tests/pdf-a5-real.cjs
+          node tests/pdf-a5-etiquetas.js
+          node tests/pdf-a5-integracion.js
       - name: Regresión editorial de nombres y esquema DRS
         run: |
           node tests/alcance-drs.js
@@ -110,18 +120,26 @@ jobs:
         run: node scripts/comprobar-publicacion-drs.js dist/public-drs
       - name: Auditar la distribución y sus textos de reglas
         run: node tests/paquete-publico-drs.js
+      - name: Exportación A5 en Chrome sobre el paquete público DRS
+        env:
+          FORJA_PUBLIC_ROOT: dist/public-drs
+        run: node tests/pdf-a5-browser-e2e.cjs
       - name: Verificar interacción real de Chrome
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
         run: node tests/browser-compras.js
-      - name: Instalar Firefox y WebKit para verificar el sitio real
+      - name: Preparar Firefox y WebKit conservando pdf-lib y fontkit
         run: |
-          npm install --no-save --no-package-lock playwright@1.56.1
+          test -f node_modules/playwright/package.json
           npx playwright install --with-deps firefox webkit
       - name: Verificar la distribución en Firefox y WebKit
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
         run: node tests/browser-compatibilidad.js
+      - name: Exportación PDF A5 en Firefox y WebKit públicos
+        env:
+          FORJA_PUBLIC_ROOT: dist/public-drs
+        run: node tests/pdf-a5-multimotor.cjs
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
       - name: Subir exclusivamente el paquete depurado
@@ -139,6 +157,17 @@ jobs:
           set -euo pipefail
           test -n "$PAGE_URL"
           echo "Comprobando que Pages sirve la consulta DRS compacta desde SHA fijado"
+          # Verificar también la exportación A5 y su cadena de recursos sin CDN.
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-export-browser.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-pdf-browser.js
+          grep -Fq 'NaufragioPdfBrowser' /tmp/forja-pdf-browser.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-export-v2.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-pdf-engine.js
+          grep -Fq 'function prepararDatos' /tmp/forja-pdf-engine.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-a5/forja-fantasia-epica-a5.pdf?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-plantilla-a5.pdf
+          test "$(head -c 5 /tmp/forja-plantilla-a5.pdf)" = '%PDF-'
+          for activo in assets/vendor/pdf-lib.min.js assets/vendor/fontkit.umd.min.js assets/pdf-a5/SourceSerif4_400Regular.ttf assets/pdf-a5/OFL-SourceSerif4.txt; do
+            curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/${activo}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-recurso-pdf-a5
+            test -s /tmp/forja-recurso-pdf-a5
+          done
           correcto=false
           for intento in $(seq 1 16); do
             if curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-live.html &&
