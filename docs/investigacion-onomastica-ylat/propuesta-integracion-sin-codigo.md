@@ -138,7 +138,7 @@ La [auditoría de 52 entradas del tesauro](auditoria-tesauro-componentes.md) ide
 La [matriz editorial](matriz-elegibilidad-editorial.md) recoge las clases y los controles sugeridos; [ONO-13](decisiones-editoriales.md) registra la decisión pendiente de separar nombres de persona de topónimos/animales. **Ninguna de estas propuestas cambia los JSON ni la aplicación en la rama de investigación**.
 
 
-## 9. Nueva comprobación de identidades transformadas (2026-11-02)
+## 10. Nueva comprobación de identidades transformadas (2026-11-02)
 
 Las fuentes rectoras documentan una relación con **identidad inequívoca y nombres distintos**: **Narga Solarys**, Rey Vetusto de Sylestria, fue privado de su nombre y bautizado **Ganragán** por sus creaciones tras el destierro. Véase [auditoría de teonimia](auditoria-fuentes-rectoras-teonimia.md). También **Valujna** recibió su nombre después de ser un lobo sin nombre consignado en la leyenda.
 
@@ -147,7 +147,7 @@ Las fuentes rectoras documentan una relación con **identidad inequívoca y nomb
 **Desfase del censo de Isophius:** la autoría confirma que la campaña se **jugó más tarde** y no se consolidó en las hojas de 140 PNJ. No tratar la ausencia del Excel como invalidez del registro: distinguir siempre **fecha/cobertura de censo**, **participación narrativa acreditada** y **permiso de reutilización**.
 
 
-## 10. Tipos de entidad y epítetos de fuentes rectoras (2026-11-02)
+## 11. Tipos de entidad y epítetos de fuentes rectoras (2026-11-02)
 
 El [inventario de Espíritus Deíficos](inventario-teonimos-y-epitetos.md) registra **18 fichas** y **54 epítetos** (tres por ficha); [Enciclopedia](cronologia-y-astroonimia-enciclopedia.md) documenta individuos como **Narelmayl**, el dragón de acero **Norluth**, el imperio **Alleinn Nuj**, la estrella **Kaeduin**, los cinco planetas y el satélite **Vaiel**.
 
@@ -156,8 +156,15 @@ El [inventario de Espíritus Deíficos](inventario-teonimos-y-epitetos.md) regis
 **No cambiar los repertorios actuales**: el cotejo literal de 24 cadenas con tres catálogos y el censo antiguo fue negativo y **no concede permiso de combinación**. Para una función de consulta documental, priorizar tipos y fuentes antes que la concatenación. Las decisiones ONO-01 a ONO-13 permanecen pendientes.
 
 
-## 11. Estado de publicación como atributo independiente (2026-11-02)
+## 12. Estado de publicación como atributo independiente (2026-11-02)
 
 La extracción de [tres Gestas de Ylat](corpus-gesta-personajes-ylat.md) documenta **11 denominaciones**: **5** de dos aventuras publicadas en 2025 y **6** de *La siega de los nombres* (borrador de 2026). Se propone conservar `estado_documental` (`publicado`, `borrador`, `fuente_historica` cuando corresponda), **sin convertir esta propuesta en campos implementados**. El estado de publicación no garantiza por sí solo que un apellido sea libremente transferible.
 
 **Santa Verna** demuestra homonimia de **patrona** y **localidad** dentro de una misma obra. **Liria/Berno** son cónyuges en el borrador, pero ninguno recibe allí segundo componente; un vínculo matrimonial no crea apellidos nuevos. Estas observaciones refuerzan la separación **entidad / denominación / clase / relación / fuente / permiso**.
+
+
+## 13. Entrega para revisión editorial tras el cierre documental
+
+El corpus de referencia ya tiene [**acta de cierre del alcance documental**](acta-cierre-documental-corte-2026-11-02.md) e [**índice maestro v2 de 297 formas**](indice-maestro-testimonios-v2.md). Para decisiones de autoría, véase el [dossier ONO-01 a ONO-14](dossier-validacion-editorial-onomastica.md), que separa **prioridades P0: ONO-13 y ONO-04** de los asuntos de realidad, apéndices eladrines y grafías. Los [casos de prueba propuestos](plan-pruebas-editoriales-regresion-sin-codigo.md) están documentados, **no implementados**.
+
+**La propuesta técnica permanece sin aprobar.** El resultado documental no cambia la política de generación vigente, no resuelve los asuntos pendientes y no da permiso para modificar los JSON, las funciones de nombre, los tests o la publicación.
