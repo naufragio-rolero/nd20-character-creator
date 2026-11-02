@@ -154,7 +154,7 @@ jobs:
           grep -Fq 'grid-template-columns:repeat(4,minmax(0,1fr))' assets/styles.css
           grep -Fq 'function htmlProteccionesEquipadas(personaje,id)' assets/app.js
           grep -Fq 'id="recurso-blindaje"' assets/icons-forja.svg
-          test "$(grep -c '<symbol id=' assets/icons-forja.svg)" -eq 34
+          test "$(grep -c '<symbol id=' assets/icons-forja.svg)" -eq 35
           echo "OK: estadísticas oficiales, 64 Conjuros, Recursos y protecciones cotejados por hash."
       - name: Preparar Node
         uses: actions/setup-node@v4
