@@ -86,3 +86,16 @@ Tras ocho sesiones documentadas y con los grandes censos y muestras específicos
 - [x] Alcance y criterios de cierre documentados.
 - [ ] Bloques A, B y C **pendientes**.
 - [ ] Validación editorial y cambios de producto **no realizados**.
+
+
+## 7. Actualización de cierre documental — corte 2026-11-02
+
+**Estado actualizado de la fase acotada:** los tres bloques anteriores se han **cumplido en el alcance dirigido**, con límites y reservas detallados en [acta de cierre](acta-cierre-documental-corte-2026-11-02.md).
+
+- [x] **Bloque A:** completado barrido dirigido de Zonas/Inistia, Shadaleen, teonimia, cronología y contradicciones; [barrido de Zonas](barrido-final-zonas-inistia.md) y [adenda de quince formas](adenda-fuentes-historicas-y-alias.md). No se afirma revisión exhaustiva de toda la Biblioteca.
+- [x] **Bloque B:** [índice maestro **v2 de 297 formas**](indice-maestro-testimonios-v2.md), [matriz de identidades](matriz-identidades-y-variantes-v1.md) y [marcas de Ylat³/Ylat⁴](marcas-realidades-ylat.md). Se preserva [v1 de 282](indice-maestro-testimonios-v1.md) como corte histórico.
+- [x] **Bloque C:** [auditoría de recuentos, referencias y repertorios](auditoria-cierre-indice-y-repertorios.md), incluido control actualizado de **297 filas únicas y cero enlaces internos rotos**; [acta](acta-cierre-documental-corte-2026-11-02.md).
+- [ ] **Cierre editorial de la autoría:** **14 decisiones** ONO-01 a ONO-14 pendientes. Su resolución **no** se presume.
+- [ ] **Integración de datos o funciones en La Forja:** **no iniciada**, sin autorización implícita.
+
+**Alcance del término «finalizado»:** terminada **la primera fase documental delimitada**, **no** todas las onomásticas posibles de Ylat ni el examen de toda la producción del proyecto. El cierre con incidencias pendientes conserva su trazabilidad y no modifica datos productivos.
