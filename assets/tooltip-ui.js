@@ -31,14 +31,14 @@
   function consultaPorId(id,grupo,sistema){
     return root.NaufragioTooltipIndex?.buscarPorId(glosario,id,grupo,sistema)||null;
   }
-  function etiqueta(t,grupo,sistema,fuentePreferida,adquisicion){
+  function etiqueta(t,grupo,sistema,fuentePreferida,adquisicion,textoVisible){
     var dato=consulta(t,grupo,sistema,fuentePreferida);
     if(!dato)return esc(t);
     return '<button type="button" class="referencia-glosario" data-glosa-nombre="'+
       esc(t)+'" data-glosa-grupo="'+esc(grupo)+'" data-glosa-sistema="'+
       esc(sistema)+'"'+(fuentePreferida?' data-glosa-fuente="'+esc(fuentePreferida)+'"':'')+
       (adquisicion?' data-glosa-adquisicion="'+esc(adquisicion)+'"':'')+
-      ' aria-label="Ver ficha: '+esc(t)+'">'+esc(t)+'</button>';
+      ' aria-label="Ver ficha: '+esc(t)+'">'+esc(textoVisible===undefined?t:textoVisible)+'</button>';
   }
   function crearElemento(){
     if(card)return card;
