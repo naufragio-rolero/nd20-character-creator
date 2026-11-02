@@ -217,3 +217,12 @@ Añadir una entrada fechada por sesión, enlaces a fuentes y distinción entre h
 - **ONO-04:** uso generativo de apellidos nobiliarios/de casa **permitido con un peso muy bajo**; aún no existe implementación de ponderación ni valor numérico definido. **ONO-05:** mezclar repertorios nominales de épocas/realidades sin perder procedencia e identidad documental. **ONO-06:** conservar regla eladrín para consulta **sin utilizarla** al generar nombres. **ONO-13:** las fichas de **Máthair Felsaer** (montaña) y **Pietro** (oso de una jugadora) se conservan; **no aplicar filtros de exclusión** ni borrar combinaciones por iniciativa del asistente.
 - **ONO-02 permanece pendiente**: paternidad de Tuliëlle, **Dyeld / Eldburg**; no se fija por silencio. Los antiguos documentos de propuestas, matriz, catálogo y acta de cierre se marcaron con referencias que **priorizan las decisiones posteriores del autor**, preservando testimonios literales originales.
 - El código de La Forja sigue usando selección **uniforme** de entrada en `assets/rules.js`: no existe tabla de probabilidades noble verificada. Se registró el requisito cualitativo sin inventar porcentaje ni modificar código/producto.
+
+
+### 2026-11-02 — Decimotercera sesión: ONO-02 resuelta; 14/14 decisiones cerradas
+
+- La autoría confirma **expresamente que Dyeld es el padre canónico de Tuliëlle**. Se registra en [decisiones-editoriales.md](decisiones-editoriales.md) (**ONO-02 cerrada**) y en el [acta final de autoría](acta-decisiones-autoria-2026-11-02.md).
+- La ficha de **Eldburg**, que atribuye otra paternidad, se conserva como **testimonio contradictorio anterior**; no supone un segundo padre canónico ni se fusiona su identidad con Dyeld. No se modifica el texto de ninguna ficha ni relato original.
+- **Estado editorial del corte: 14 decisiones ONO-01 a ONO-14 cerradas por autoría.** El valor numérico de la probabilidad **«muy baja»** para apellidos nobiliarios queda como requisito técnico aún no concretado, **no** como cuestión editorial ONO abierta.
+- Se actualizaron los documentos rectores y notas de vigencia. Los pasajes anteriores que decían «13/14» o «ONO-02 pendiente» se conservan únicamente cuando forman parte de un **registro cronológico histórico de la investigación**, nunca como estado editorial vigente.
+- **Sin modificaciones de** `main`, `data/*.json`, `assets/*.js`, tests o despliegue. La integración en La Forja es fase independiente.
