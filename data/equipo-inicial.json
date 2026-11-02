@@ -885,6 +885,40 @@
     "martillo_campamento": "Decisión editorial del 31/10/2026: el útil «Almádena» del listado de Campamento pasa a llamarse «Martillo de campamento». Conserva precio 2 mo y uso como Clava. El arma Almádena conserva su nombre y precio 60 mo. Se preserva el nombre literal DRS en nombre_original_drs."
   },
   "utiles_fantasia": {
+    "iluminacion": [
+      {
+        "id": "iluminacion-antorcha",
+        "nombre": "Antorcha",
+        "precio": 0.1,
+        "detalle": "Ilumina 6 metros alrededor con luz amarillenta.",
+        "du": "d6",
+        "fuente": "DRS"
+      },
+      {
+        "id": "iluminacion-lampara-aceite",
+        "nombre": "Lámpara de aceite",
+        "precio": 2,
+        "detalle": "Ilumina 4 metros alrededor.",
+        "du": "d6 (aceite)",
+        "fuente": "DRS"
+      },
+      {
+        "id": "iluminacion-linterna",
+        "nombre": "Linterna",
+        "precio": 10,
+        "detalle": "Ilumina 8 metros alrededor.",
+        "du": "d6 (aceite)",
+        "fuente": "DRS"
+      },
+      {
+        "id": "iluminacion-vela",
+        "nombre": "Vela",
+        "precio": 0.01,
+        "detalle": "Alumbra 2 metros alrededor con luz amarillenta y tenue.",
+        "du": "d4",
+        "fuente": "DRS"
+      }
+    ],
     "aventura": [
       {
         "id": "aventura-aparejo-poleas",
