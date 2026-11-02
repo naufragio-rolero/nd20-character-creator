@@ -56,7 +56,8 @@ assert.equal(combinados.reduce((a,e)=>a+e.peso_relativo,0),2607);
 
 // Un sorteo ponderado consume exactamente un número aleatorio, y no
 // descompone nombres completos ni añade un apellido nuevo.
-const pareja=[{nombre:'Test noble',peso_relativo:1},{nombre:'Test común',peso_relativo:100}];
+const pareja=[{nombre:'Test noble',tipo:'combinado',peso_relativo:1},
+  {nombre:'Test común',tipo:'combinado',peso_relativo:100}];
 let llamadas=0;
 assert.equal(sexo.elegirPonderado(pareja,()=>{llamadas++;return 0;}).nombre,'Test noble');
 assert.equal(llamadas,1,'El RNG compartido no recibe extracciones nuevas');
