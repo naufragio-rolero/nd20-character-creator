@@ -5,7 +5,7 @@ De los 35 iconos de la Forja: 28 son adaptaciones SVG de Game-icons.net (CC BY 3
 Sitio y fuentes: https://game-icons.net/
 Repositorio original: https://github.com/game-icons/icons
 Licencia CC BY 3.0: https://creativecommons.org/licenses/by/3.0/
-Autores de los derivados actualmente utilizados: Delapouite, Lorc, Kier Heyl y sbed.
+Autores de los derivados actualmente utilizados: Delapouite, Lorc, Kier Heyl, DarkZaitzev y sbed.
 
 MODIFICACIONES
 Para su uso como máscaras CSS de la Forja se ha eliminado el fondo opaco original, convertido a silueta monocroma y ajustado proporcionalmente a un lienzo transparente 24 × 24. El icono de semiorco combina Orc head y Monk face (ambos de Delapouite). Se conserva la identificación y enlace individual de cada diseño.
@@ -24,7 +24,7 @@ equipo-orbe.svg — crystal-ball — Lorc — https://game-icons.net/1x1/lorc/cr
 equipo-varita.svg — fairy-wand — Lorc — https://game-icons.net/1x1/lorc/fairy-wand.html
 esp-elfo.svg — elf-helmet — Kier Heyl — https://game-icons.net/1x1/kier-heyl/elf-helmet.html
 esp-enano.svg — dwarf-face — Delapouite — https://game-icons.net/1x1/delapouite/dwarf-face.html
-esp-gnomo.svg — pointy-hat — Lorc — https://game-icons.net/1x1/lorc/pointy-hat.html
+esp-gnomo.svg — big-gear — DarkZaitzev — https://game-icons.net/1x1/darkzaitzev/big-gear.html
 esp-humano.svg — person — Delapouite — https://game-icons.net/1x1/delapouite/person.html
 esp-mediano.svg — baby-face — Delapouite — https://game-icons.net/1x1/delapouite/baby-face.html
 esp-orco.svg — orc-head — Delapouite — https://game-icons.net/1x1/delapouite/orc-head.html
@@ -50,9 +50,9 @@ recurso-esencia.svg — diseño original propio, versión aprobada v1
 recurso-blindaje.svg — diseño original propio, versión aprobada v1
 
 REFERENCIAS HISTÓRICAS
-Se conservan 39 fuentes SVG originales del catálogo Game-icons.net en docs/iconografia/originales/game-icons/<autor>/<nombre>.svg; no forman parte del paquete DRS distribuido.
+Se conservan 40 fuentes SVG originales del catálogo Game-icons.net en docs/iconografia/originales/game-icons/<autor>/<nombre>.svg; no forman parte del paquete DRS distribuido.
 Los cuatro bocetos propios de especies anteriormente aprobados y sustituidos posteriormente por decisión editorial se conservan en docs/iconografia/prototipos-especies-v1/. Tampoco se publican.
 El original goblin-head.svg queda reservado para un posible goblin futuro; no se asigna al semiorco.
-Se reutiliza por ahora pointy-hat de Lorc tanto en esp-gnomo.svg como en ocu-mago.svg, con atribución en ambas entradas.
+El mago conserva pointy-hat de Lorc; el gnomo utiliza big-gear de DarkZaitzev. Los símbolos ya no se repiten entre ambas opciones.
 
 Este documento acredita únicamente la iconografía indicada. No modifica las licencias del código, las marcas ni los textos originales de Naufragio d20.

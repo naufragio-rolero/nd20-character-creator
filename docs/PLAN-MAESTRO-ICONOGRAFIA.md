@@ -63,7 +63,7 @@ Descartar un diseño si el humano parece un monstruo, si el semielfo no conserva
 | `esp-semiorco` | Semiorco | Derivado humano + orco, nunca goblin |
 | `esp-enano` | Enano montañés | Familia enana robusta |
 | `esp-mediano` | Mediano amable | Familia mediana reconocible |
-| `esp-gnomo` | Gnomo urbano | Familia gnómica diferenciada |
+| `esp-gnomo` | Gnomo urbano | `big-gear` (DarkZaitzev), engranaje; distinto de `pointy-hat` del Mago |
 
 ### Ocupaciones — 4
 | ID | Representa | Concepto de silueta |
@@ -148,7 +148,7 @@ El workflow `.github/workflows/forja-live.yml` sigue fijado al SHA anterior y, e
 
 **Elección posterior que prevalece sobre los bocetos históricos:** conservar Game-icons para las Especies, con `baby-face` de Delapouite en Mediano en lugar de la puerta de hobbit. Se restauran los iconos de Humano (`person`), Elfo (`elf-helmet`), Orco (`orc-head`) y Semielfo (`elf-ear`). Semiorco conserva provisionalmente la composición de `orc-head` y `monk-face`. El criterio de parentesco por familias se reserva como pauta de diseño futuro, no como descripción de los archivos actuales.
 
-**Ocupaciones:** las cuatro opciones DRS se representan mediante tocados o herramientas, en vez de retratos. Mago: `pointy-hat` de Lorc; Guerrero: `axe-sword` de Delapouite; Ladrón: `robin-hood-hat` de Delapouite; Clérigo: `pope-crown` de Delapouite. Para futuras Ocupaciones se preferirán sombreros y objetos profesionales. El icono `pointy-hat` se repite actualmente entre Mago y Gnomo; conviene tener presente ese solapamiento.
+**Ocupaciones:** las cuatro opciones DRS se representan mediante tocados o herramientas, en vez de retratos. Mago: `pointy-hat` de Lorc; Guerrero: `axe-sword` de Delapouite; Ladrón: `robin-hood-hat` de Delapouite; Clérigo: `pope-crown` de Delapouite. Para futuras Ocupaciones se preferirán sombreros y objetos profesionales. El Gnomo utiliza `big-gear` de DarkZaitzev, mientras que `pointy-hat` queda reservado al Mago; ya no comparten pictograma.
 
 ### Acuerdos sobre otros iconos (pendientes de aplicar salvo indicación)
 
