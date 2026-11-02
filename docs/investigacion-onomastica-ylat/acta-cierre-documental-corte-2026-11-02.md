@@ -3,7 +3,7 @@
 **Corte documental:** 2026-11-02. **Rama:** `research/onomastica-ylat-2026-11`. **Estado:** **CERRADO EL ALCANCE DOCUMENTAL DEFINIDO** en el [plan de cierre](plan-cierre-y-criterios-aceptacion.md); **NO** significa que la onomástica global de Ylat esté agotada, ni que exista aprobación de su autoría para modificar La Forja.
 
 
-> **NOTA POSTERIOR DE GESTIÓN EDITORIAL:** esta acta **cerró el corpus de fuentes** antes de que la autoría respondiese a las cuestiones. El estado actual de las ONO es **13 decisiones fijadas y solo ONO-02 pendiente**, conforme al [acta expresa de autoría](acta-decisiones-autoria-2026-11-02.md). Los pasajes siguientes que dicen «14 pendientes» describen la situación **a la fecha de cierre documental**, no anulan la decisión posterior. No hubo cambios de producción.
+> **NOTA POSTERIOR DE CIERRE EDITORIAL (2026-11-02):** el acta original preserva el estado en que se **cerró la investigación**, cuando las 14 decisiones todavía estaban abiertas. **Posteriormente, la autoría resolvió las 14/14**, incluida ONO-02: **Dyeld es el padre canónico de Tuliëlle**, frente a la discrepancia histórica de la ficha de Eldburg. Véase el [acta editorial definitiva](acta-decisiones-autoria-2026-11-02.md). La fase documental queda cerrada, y la implementación técnica continúa separada.
 
 ## 1. Declaración de cierre y límites
 
