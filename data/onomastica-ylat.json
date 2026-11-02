@@ -185,13 +185,23 @@
       "id": "ylat-o008",
       "nombre": "Aereth, la del Alba Fría",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MAereth",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o009",
       "nombre": "Aeromund el Inquebrantable",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MAeromund",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o010",
@@ -663,7 +673,12 @@
       "id": "ylat-o046",
       "nombre": "Branneth, el de la Larga Siembra",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MBranneth",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o047",
@@ -1653,7 +1668,12 @@
       "id": "ylat-o119",
       "nombre": "Harlend Terrana, el Mediador",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MHarlend",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o120",
@@ -1831,7 +1851,12 @@
       "id": "ylat-o133",
       "nombre": "Iralde Terrana, la del Arado Rojo",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MIralde",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o134",
@@ -1987,7 +2012,12 @@
       "id": "ylat-o146",
       "nombre": "Kaelgor, el Estable",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MKaelgor",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o147",
@@ -2574,7 +2604,12 @@
       "id": "ylat-o191",
       "nombre": "Nahr Caelis, el Cortavientos",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MNahr",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o192",
@@ -3195,7 +3230,12 @@
       "id": "ylat-o240",
       "nombre": "Selvarn, el Nuboso",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MSelvarn",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o241",
@@ -3300,7 +3340,12 @@
       "id": "ylat-o248",
       "nombre": "Sumaeryn de las Mareas",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MSumaeryn",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o249",
@@ -3396,7 +3441,12 @@
       "id": "ylat-o256",
       "nombre": "Tharn, el Viento Eterno",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MTharn",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o257",
@@ -3585,13 +3635,23 @@
       "id": "ylat-o271",
       "nombre": "Varlyna, la Fundadora",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MVarlyna",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o272",
       "nombre": "Velyn Maren, la de los Ojos de Espuma",
       "clase": "Monarca",
-      "fuentes": []
+      "fuentes": [
+        {
+          "registro": "MVelyn",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
     },
     {
       "id": "ylat-o273",
