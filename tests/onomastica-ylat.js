@@ -54,6 +54,11 @@ for(const e of combinados){
 assert.equal(combinados.filter(e=>e.peso_relativo===1).length,7);
 assert.equal(combinados.reduce((a,e)=>a+e.peso_relativo,0),2607);
 
+// Los nombres documentados se ofrecen sin inferir sexo de la figura.
+const historicoLibre=sexo.elegirNombre({juego:'nd20',modoNombre:'documentado'},
+  'Humano común',[],[{nombre:'Figura documentada',tipo:'documentado'}],
+  'femenino',{nombres_generales_femeninos:[],nombres_generales_masculinos:[]},()=>0);
+assert.equal(historicoLibre.nombre,'Figura documentada');
 // Un sorteo ponderado consume exactamente un número aleatorio, y no
 // descompone nombres completos ni añade un apellido nuevo.
 const pareja=[{nombre:'Test noble',tipo:'combinado',peso_relativo:1},
