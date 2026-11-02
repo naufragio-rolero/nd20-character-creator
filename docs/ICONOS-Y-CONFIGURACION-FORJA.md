@@ -1,5 +1,7 @@
 # Forja: iconografía y configuración de creación
 
+**Plan editorial de rediseño:** [PLAN-MAESTRO-ICONOGRAFIA.md](PLAN-MAESTRO-ICONOGRAFIA.md). Las familias humana, élfica y orca se usan como matrices; semielfos y semiorcos se derivan de ellas. Hasta aprobar los nuevos diseños, los iconos de Game-icons y sus créditos permanecen vigentes.
+
 ## Iconos SVG individuales y lienzo cuadrado
 
 Los 35 pictogramas son archivos autónomos en `assets/icons/ID.svg`.
