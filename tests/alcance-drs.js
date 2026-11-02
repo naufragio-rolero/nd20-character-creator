@@ -1228,8 +1228,8 @@ assert.match(comprasHtml,/<button[^>]*id="generar"[^>]*disabled/,
 const comprasApp=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
 const estilosCompra=fs.readFileSync(path.join(raiz,'assets/styles.css'),'utf8');
 for(const id of ['editor-compras','titulo-editor-compras','form-compra-utiles',
-  'compras-articulo','compras-cantidad','compras-nivel','compras-campo-nivel',
-  'compras-anadir','compras-lista','compras-total','compras-confirmar','compras-cancelar']){
+  'compras-grupo','compras-articulo','compras-cantidad','compras-nivel','compras-campo-nivel',
+  'compras-anadir','compras-lista','compras-total','compras-confirmar','compras-cancelar','compras-cerrar']){
   assert.ok(comprasHtml.includes('id="'+id+'"'),'Elemento visible de compra: '+id);
   assert.ok(comprasApp.includes("$('"+id+"')"),'Elemento de compra conectado a JS: '+id);
 }
@@ -1237,6 +1237,16 @@ assert.ok(comprasApp.includes('class="comprar-utiles"'));
 assert.ok(comprasApp.includes("personaje.saldo_mo=compra.restante"));
 assert.ok(comprasApp.includes("personaje.riqueza=compra.restante"));
 assert.ok(comprasApp.includes("cerrarCompra();"));
+assert.ok(comprasApp.includes("dialogo.showModal();"),
+  'El editor se abre como modal accesible');
+assert.ok(comprasHtml.includes('<dialog id="editor-compras"'),
+  'La compra usa un diálogo nativo');
+assert.ok(comprasApp.includes("function presentarPoder(nombre)"),
+  'Los poderes solo cambian su presentación en la ficha');
+assert.ok(comprasApp.includes('ico-conjuro')&&comprasApp.includes('ico-tecnica'),
+  'El listado identifica ambas familias con SVG');
+assert.ok(estilosCompra.includes('.lista-dos-columnas'),
+  'Talentos y Poderes comparten dos columnas');
 assert.ok(comprasApp.includes("entrada.valor.saldo_mo,compraBorrador.seleccion.concat([linea])"));
 assert.ok(comprasApp.includes("personaje.equipo.push.apply(personaje.equipo,compra.equipo)"));
 assert.ok(estilosCompra.includes('.campos-compra{display:grid'));
