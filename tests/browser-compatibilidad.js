@@ -130,7 +130,11 @@ async function probar(nombre,tipo,url){
       return {status:r.status,contenido:await r.text()};
     });
     assert.equal(iconos.status,200);
-    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,14);
+    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,20);
+    for(const id of ['salud','esfuerzo','movimiento','potencia','esencia','blindaje']){
+      assert.ok(iconos.contenido.includes('id="recurso-'+id+'"'),
+        nombre+': SVG de '+id+' disponible');
+    }
     assert.match(iconos.contenido,/<symbol id="ico-conjuro"/,
       nombre+': icono propio de Conjuros');
     assert.match(iconos.contenido,/<symbol id="ico-tecnica"/,
@@ -669,6 +673,48 @@ async function probar(nombre,tipo,url){
       nombre+': Equipo usa la misma rejilla compacta que Talentos y Poderes');
     assert.equal(bloquesFicha.find(x=>x.titulo==='Equipo')?.computadas,2,
       nombre+': Equipo utiliza dos columnas en escritorio');
+    const recursos=fichaTalentos.locator('.recursos-rejilla');
+    assert.equal(await recursos.count(),1,nombre+': recursos en una sola cuadrícula');
+    const columnasRecursos=await recursos.evaluate(el=>
+      getComputedStyle(el).gridTemplateColumns.split(' ').length);
+    assert.equal(columnasRecursos,2,nombre+': Recursos muestran dos columnas');
+    const valoresRecursos=await recursos.locator('.recurso-nombre').allTextContents();
+    for(const etiqueta of ['Salud','Esfuerzo','Movimiento','Potencia','Blindaje'])
+      assert.ok(valoresRecursos.includes(etiqueta),nombre+': recurso '+etiqueta);
+    assert.equal(await recursos.locator('svg.icono-recurso use').count(),
+      valoresRecursos.length,nombre+': cada recurso posee un SVG');
+    const protecciones=fichaTalentos.locator('.protecciones-activas');
+    assert.equal(await protecciones.locator('select').count(),2);
+    const opcionesArmadura=await protecciones.locator('select[data-tipo="armadura"] option')
+      .evaluateAll(xs=>xs.map(x=>x.value).filter(Boolean));
+    const blindajeVisible=()=>fichaTalentos.locator('.recurso-ficha')
+      .filter({hasText:'Blindaje'}).locator('strong').innerText();
+    assert.equal(await blindajeVisible(),'Sin armadura',
+      nombre+': ninguna armadura se equipa automáticamente');
+    if(opcionesArmadura.length){
+      const elegida=opcionesArmadura[0];
+      const catalogo=JSON.parse(fs.readFileSync(
+        path.join(raiz,'data/equipo-inicial.json'),'utf8'));
+      const registro=catalogo.armaduras.find(x=>x.nombre===elegida);
+      assert.ok(registro);
+      await protecciones.locator('select[data-tipo="armadura"]').selectOption(elegida);
+      assert.equal(await blindajeVisible(),String(registro.blindaje),
+        nombre+': Blindaje corresponde solo a armadura equipada');
+      assert.equal(await protecciones.locator('select[data-tipo="armadura"]').inputValue(),elegida,
+        nombre+': mantiene selección tras redibujar ficha');
+      await protecciones.locator('select[data-tipo="armadura"]').selectOption('');
+      assert.equal(await blindajeVisible(),'Sin armadura');
+    }
+    const opcionesEscudo=await protecciones.locator('select[data-tipo="escudo"] option')
+      .evaluateAll(xs=>xs.map(x=>x.value).filter(Boolean));
+    if(opcionesEscudo.length){
+      await protecciones.locator('select[data-tipo="escudo"]')
+        .selectOption(opcionesEscudo[0]);
+      assert.equal(await blindajeVisible(),'Sin armadura',
+        nombre+': un escudo no se suma al dado permanente de Blindaje');
+      assert.match(await recursos.locator('.recurso-aclaracion').innerText(),
+        /Escudo \+1 solo al bloquear/);
+    }
     const rejillaTalentos=fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas').first();
     assert.equal(await rejillaTalentos.evaluate(el=>getComputedStyle(el).gridTemplateColumns
       .split(' ').length),2,nombre+': Talentos en dos columnas como Atributos');
