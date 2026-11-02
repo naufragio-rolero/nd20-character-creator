@@ -1,8 +1,8 @@
 ICONOGRAFÍA DE LA FORJA — CRÉDITOS Y LICENCIA
 
-Los 35 iconos SVG de la Forja son obras adaptadas a partir de Game-icons.net.
+Los 24 iconos SVG de la Forja aún señalados en el detalle de atribuciones son obras adaptadas de Game-icons.net. Los otros 11 son diseños originales de El Naufragio, aprobados en noviembre de 2026, y NO proceden de Game-icons.net.
 Autores originales: Delapouite, Lorc, Kier Heyl, DarkZaitzev y sbed.
-Licencia de los iconos originales y sus adaptaciones: Creative Commons Atribución 3.0 (CC BY 3.0).
+La licencia CC BY 3.0 solo corresponde a los 24 iconos restantes de Game-icons.net y a sus originales de referencia; no se aplica a los 11 iconos originales de El Naufragio.
 https://creativecommons.org/licenses/by/3.0/
 Sitio original: https://game-icons.net/
 Repositorio oficial de origen: https://github.com/game-icons/icons
@@ -15,14 +15,10 @@ La Forja aplica al dibujo el color del tema mediante máscaras CSS.
 El semiorco es una composición nueva de la mitad del icono Orc head y
 la mitad del icono Monk face, ambos de Delapouite.
 
-DETALLE DE ATRIBUCIONES (archivo de la Forja — icono original — autor — enlace):
-esp-elfo.svg — elf-helmet — Kier Heyl — https://game-icons.net/1x1/kier-heyl/elf-helmet.html
+DETALLE DE ATRIBUCIONES DE LOS 24 SVG ACTUALMENTE DERIVADOS (archivo de la Forja — icono original — autor — enlace):
 esp-enano.svg — dwarf-face — Delapouite — https://game-icons.net/1x1/delapouite/dwarf-face.html
-esp-humano.svg — person — Delapouite — https://game-icons.net/1x1/delapouite/person.html
 esp-mediano.svg — hobbit-door — Delapouite — https://game-icons.net/1x1/delapouite/hobbit-door.html
 esp-gnomo.svg — pointy-hat — Lorc — https://game-icons.net/1x1/lorc/pointy-hat.html
-esp-semielfo.svg — elf-ear — Delapouite — https://game-icons.net/1x1/delapouite/elf-ear.html
-esp-orco.svg — orc-head — Delapouite — https://game-icons.net/1x1/delapouite/orc-head.html
 esp-semiorco.svg — orc-head + monk-face — Delapouite — https://game-icons.net/1x1/delapouite/orc-head.html ; https://game-icons.net/1x1/delapouite/monk-face.html
 ocu-clerigo.svg — monk-face — Delapouite — https://game-icons.net/1x1/delapouite/monk-face.html
 ocu-guerrero.svg — crossed-swords — Lorc — https://game-icons.net/1x1/lorc/crossed-swords.html
@@ -30,12 +26,6 @@ ocu-mago.svg — wizard-face — Delapouite — https://game-icons.net/1x1/delap
 ocu-ladron.svg — hooded-figure — DarkZaitzev — https://game-icons.net/1x1/darkzaitzev/hooded-figure.html
 ico-conjuro.svg — magic-swirl — Lorc — https://game-icons.net/1x1/lorc/magic-swirl.html
 ico-tecnica.svg — sword-clash — Lorc — https://game-icons.net/1x1/lorc/sword-clash.html
-recurso-salud.svg — nested-hearts — Delapouite — https://game-icons.net/1x1/delapouite/nested-hearts.html
-recurso-esfuerzo.svg — biceps — Delapouite — https://game-icons.net/1x1/delapouite/biceps.html
-recurso-movimiento.svg — sprint — Lorc — https://game-icons.net/1x1/lorc/sprint.html
-recurso-potencia.svg — energise — Lorc — https://game-icons.net/1x1/lorc/energise.html
-recurso-esencia.svg — potion-ball — Lorc — https://game-icons.net/1x1/lorc/potion-ball.html
-recurso-blindaje.svg — layered-armor — Lorc — https://game-icons.net/1x1/lorc/layered-armor.html
 equipo-espada.svg — broadsword — Lorc — https://game-icons.net/1x1/lorc/broadsword.html
 equipo-arco.svg — bow-arrow — Delapouite — https://game-icons.net/1x1/delapouite/bow-arrow.html
 equipo-varita.svg — fairy-wand — Lorc — https://game-icons.net/1x1/lorc/fairy-wand.html
@@ -47,18 +37,30 @@ equipo-libro.svg — open-book — Lorc — https://game-icons.net/1x1/lorc/open
 equipo-armadura.svg — breastplate — Lorc — https://game-icons.net/1x1/lorc/breastplate.html
 equipo-escudo.svg — shield — sbed — https://game-icons.net/1x1/sbed/shield.html
 equipo-municion.svg — quiver — Delapouite — https://game-icons.net/1x1/delapouite/quiver.html
-ico-configurar.svg — gears — Lorc — https://game-icons.net/1x1/lorc/gears.html
 sexo-masculino.svg — male — Delapouite — https://game-icons.net/1x1/delapouite/male.html
 sexo-femenino.svg — female — Delapouite — https://game-icons.net/1x1/delapouite/female.html
 sexo-indeterminado.svg — uncertainty — Lorc — https://game-icons.net/1x1/lorc/uncertainty.html
+
+ICONOS ORIGINALES DE EL NAUFRAGIO (sin derivación de Game-icons.net):
+esp-humano.svg — diseño original propio, versión aprobada v1
+esp-elfo.svg — diseño original propio, versión aprobada v1
+esp-orco.svg — diseño original propio, versión aprobada v1
+esp-semielfo.svg — diseño original propio, versión aprobada v1
+ico-configurar.svg — diseño original propio, versión aprobada v1
+recurso-salud.svg — diseño original propio, versión aprobada v1
+recurso-potencia.svg — diseño original propio, versión aprobada v1
+recurso-esfuerzo.svg — diseño original propio, versión aprobada v1
+recurso-blindaje.svg — diseño original propio, versión aprobada v1
+recurso-movimiento.svg — diseño original propio, versión aprobada v1
+recurso-esencia.svg — diseño original propio, versión aprobada v1
 
 RESERVA PARA FUTURA ESPECIE:
 Goblin head — Delapouite — https://game-icons.net/1x1/delapouite/goblin-head.html
 Se conserva el SVG original de Goblin head en docs/iconografia/originales/
 pero no se muestra en la Forja ni se asigna a los semiorcos.
 
-Los originales SVG de referencia se guardan en
+Los SVG de Game-icons.net usados inicialmente como fuentes, incluidos los sustituidos, se conservan exclusivamente como referencias históricas en
 docs/iconografia/originales/game-icons/<autor>/<nombre>.svg.
-Esos originales no forman parte del paquete público de la Forja.
+Esos originales archivados no forman parte del paquete público de la Forja.
 Este reconocimiento se refiere solo a los iconos indicados; el resto
 del código, las marcas y las reglas mantienen sus condiciones propias.

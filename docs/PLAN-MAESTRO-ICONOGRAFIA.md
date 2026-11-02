@@ -4,7 +4,7 @@
 
 ## 1. Objetivo
 
-Sustituir progresivamente los **35 iconos** actuales de la Forja por una familia de pictogramas originales que priorice claridad a tamaños reducidos y una identidad visual consistente. Los SVG procedentes de Game-icons.net **siguen en producción como solución provisional** hasta que se apruebe y pruebe cada sustitución. No se retiran sus créditos mientras se sigan distribuyendo obras derivadas.
+Sustituir progresivamente los **35 iconos** actuales de la Forja por una familia de pictogramas originales que priorice claridad a tamaños reducidos y una identidad visual consistente. Los **24 SVG restantes** procedentes de Game-icons.net siguen siendo provisionales en la rama de rediseño. Los **11 diseños aprobados** (cuatro especies y siete iconos principales) ya están incorporados en la rama de trabajo, pendientes de integrar y publicar según las pruebas. No se retiran sus créditos mientras se sigan distribuyendo obras derivadas.
 
 El documento define **qué representa cada icono**, qué relaciones visuales debe conservar y cómo se revisarán los nuevos diseños. Los significados de especies y recursos vienen del generador y no añaden capacidades ni reglas.
 
@@ -45,7 +45,7 @@ Las tres matrices de desarrollo inicial son **humano, elfo y orco**. Enano, medi
 - **Otros mestizos futuros:** aplicar exactamente la misma lógica desde las dos matrices que correspondan. **No crear nuevas especies ni incorporarlas a la interfaz sin respaldo documental y decisión editorial.**
 - **Proporción e identidad:** el híbrido debe identificarse con ambas familias sin ser una copia de una de ellas, ni un collage recargado. Las piezas compartidas se derivan de la misma geometría para que el parentesco sea evidente.
 
-**Secuencia interna de esta familia (una vez llegue su turno):** Humano → Elfo → Orco → Semielfo → Semiorco. **Humano, Elfo, Orco y Semielfo: bocetos v1 aprobados por el equipo.** El Semiorco queda por diseñar. La aprobación artística no implica que los SVG estén ya desplegados en LIVE.
+**Secuencia interna de esta familia (una vez llegue su turno):** Humano → Elfo → Orco → Semielfo → Semiorco. **Humano, Elfo, Orco y Semielfo: versiones v1 aprobadas e incorporadas a la rama de trabajo.** El Semiorco queda por diseñar. La aprobación artística no implica que los SVG estén ya desplegados en LIVE.
 
 ### 3.3. Criterios de rechazo
 
@@ -126,7 +126,7 @@ Descartar un diseño si el humano parece un monstruo, si el semielfo no conserva
 4. **Cuarto bloque — Ocupaciones (4 SVG):** `ocu-clerigo`, `ocu-guerrero`, `ocu-mago`, `ocu-ladron`.
 5. **Quinto bloque — Especies (8 SVG):** `esp-humano`, `esp-elfo`, `esp-orco`, `esp-semielfo`, `esp-semiorco`, `esp-enano`, `esp-mediano`, `esp-gnomo`.
 
-**Excepción ya realizada:** los diseños originales `esp-humano`, `esp-elfo`, `esp-orco` y `esp-semielfo` están **aprobados (v1)**. Se conservan como trabajo adelantado; **no desplazan la prioridad de los Recursos**. Ninguna aprobación artística constituye autorización para desplegar o modificar el paquete LIVE.
+**Primer bloque aprobado:** `ico-configurar`, `recurso-salud`, `recurso-potencia`, `recurso-esfuerzo`, `recurso-blindaje`, `recurso-movimiento` y `recurso-esencia`. **Trabajo adelantado también aprobado:** `esp-humano`, `esp-elfo`, `esp-orco`, `esp-semielfo`. Los once están en la rama de rediseño y no desplazan la prioridad del siguiente bloque de Equipo. Ninguna aprobación artística constituye autorización para desplegar o modificar el paquete LIVE.
 
 ## 6. Proceso de producción y control
 
@@ -137,4 +137,4 @@ Descartar un diseño si el humano parece un monstruo, si el semielfo no conserva
 5. **Integración:** sustituir `assets/icons/<id>.svg` manteniendo el ID y su función; documentar autoría/cambios.
 6. **Seguridad:** pruebas de Chrome, Firefox/WebKit, URLs de máscaras y paquete DRS aislado; publicar LIVE solo mediante flujo protegido y promoción explícita de SHA.
 
-**Estado editorial actualizado:** 35 iconos provisionales en LIVE; 4 diseños originales aprobados — Humano, Elfo, Orco y Semielfo — aún sin sustituir los SVG desplegados; el siguiente bloque de trabajo son Configuración y los seis Recursos (7 SVG).
+**Estado editorial actualizado:** 11 diseños originales v1 aprobados y añadidos a la rama de rediseño; 24 iconos restantes derivados de Game-icons.net; los 35 iconos de LIVE no cambian hasta una publicación aprobada mediante el workflow protegido. **Siguiente bloque en bocetaje: 11 iconos de Equipo e inventario.**
