@@ -133,6 +133,18 @@ assert.equal(new Set(historicosPublico.entradas.map(x=>x.nombre)).size,1422);
 assert.equal(leer(salida,'alcance-drs-y-dlc.json').paquetes_posteriores,undefined,
   'No se distribuye información interna de paquetes suplementarios');
 const equipo=leer(salida,'equipo-inicial.json');
+const nuevasCategorias=['instrumentos','objetos_varios','monturas',
+  'equipo_monturas','vehiculos'];
+assert.deepEqual(nuevasCategorias.map(k=>equipo.utiles_fantasia[k].length),
+  [4,8,6,6,4], 'El paquete DRS incluye exactamente 28 filas nuevas aprobadas');
+const fijo=equipo.utiles_fantasia.equipo_monturas;
+assert.equal(fijo.find(x=>x.nombre==='Armadura equina').precio,undefined,
+  'Armadura equina no puede disponer de precio fijo ficticio');
+assert.equal(fijo.find(x=>x.nombre==='Armadura equina').precio_variable,
+  'Precio de la protección corporal ×4');
+assert.equal(fijo.find(x=>x.nombre==='Establos').servicio_por_dia,true);
+assert.equal(equipo.utiles_fantasia.objetos_varios.find(x=>x.nombre==='Pipa de tabaco').du,
+  'd4 (tabaco)');
 const prendasDRS=equipo.utiles_fantasia.ropa;
 assert.deepEqual(prendasDRS.map(x=>[x.nombre,x.precio,x.detalle]),[
   ['Abrigo de piel',20,'Protege del frío por debajo de 0º.'],
