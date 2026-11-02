@@ -220,6 +220,26 @@ Se comparó [`data/nombres-historicos-ylat.json`](../../data/nombres-historicos-
 5. **Neyney «sin Apellido» — etiqueta deliberada.** La [ficha de Neyney](https://drive.google.com/file/d/1Oc44ZzyDmCLVU_qWQ6Hmd6U-RG9ssLgq/view) dice que pide que lo llamen así. Es una denominación de presentación, no un apellido real y tampoco equivale sin más a un campo vacío.
 6. **Pertenencia no implica apellido ni inventario exhaustivo.** [Casa Lobeth](https://drive.google.com/file/d/161zJJ4kXnUehxGDrEl2HXWydwUiD6ZUp/view) incluye a **Mashera Skara**; [Casa Adorasol](https://drive.google.com/file/d/1I_g1ni_qIrJXGcEteIfs2xQchUCgKlDd/view) incluye a **Aerandil y Anasthore del Atardecer**, mientras la antigua convención distingue sus apellidos. [Casa Iraldsay](https://drive.google.com/file/d/114RcJbWOKxUIAPc_8rbd2kRLCDQuA137/view) enumera tres miembros, pero cinco fichas del censo describen expresamente el hogar. La membresía de «Casa» es **otra relación**, no prueba de uso del apellido ni listado completo.
 7. **No extrapolar de una realidad a otra.** La [ficha de Tegku Bagui Fénix](https://drive.google.com/file/d/1hs2TLs0ePQoza_zFTYIdMJj-57FggSEt/view) marca literalmente **«Realidad: Ylat⁴»**, mientras otros PNJ estudiados figuran con **«Ylat¹»**. Tegku está documentado como personaje participante, pero no prueba una convención onomástica general de Ylat¹.
-8. **Catálogo sistemático añadido:** [clasificación crítica de los 97 segundos componentes](clasificacion-segundos-componentes.md), con 17 formas de familia, 1 apellido individual explícito, 1 apodo confirmado, otros tipos y 66 formas aún sin suficiente atribución. Esta clasificación no es lista de apellidos aprobados.
+8. **Catálogo sistemático añadido:** [clasificación crítica de los 97 segundos componentes](clasificacion-segundos-componentes.md), con 20 formas de familia, 1 apellido individual explícito, 1 apodo confirmado, otros tipos y 63 formas aún sin suficiente atribución. Esta clasificación no es lista de apellidos aprobados.
 
 **Decisiones humanas:** resolver Dyeld/Eldburg, Brillante/Refulgente y el criterio de disponibilidad de apellidos de linajes extinguidos o disueltos. Hasta entonces, conservar fuentes y no alterar generación.
+
+
+## M. Familias adicionales y versiones de Ylat¹ / Ylat³
+
+**Nuevas familias acreditadas:**
+- **Asheishi:** [Loroohck Asheishi](https://drive.google.com/file/d/1AcFcAEZhDEVUL--EItPJF93Mo6FMz1je/view), patriarca explícito de esa familia.
+- **Kinistis:** [Eld'mose Kinistis](https://drive.google.com/file/d/1mbm6oKNXJDeA45oZ7XwFzmd2jRKI-CrP/view), matriarca explícita; dirige la **misma caravana** que Loroohck, pero **no** pertenece por ello a su familia.
+- **Sigvald:** [Anfingrem Sigvald](https://drive.google.com/file/d/15QEr23FLHQ0-bd71FJA3IeEGQ4FQ_qYG/view) es padre de [Branwen Sigvald «Discordia»](https://drive.google.com/file/d/1t5kfa53ExNX6uoN-FtXORb1DyHSviMEy/view) y [Belegur Sigvald «Furia»](https://drive.google.com/file/d/1mHwROYpYv8bS3y6S5gDmyytOXInW7lLA/view); la madre sigue identificada como **Eilinn Brillonuevo**.
+
+**Corrección de alcance:** entre las 97 formas `surname` del censo, las acreditadas como familia pasan de **17 a 20**, las de función familiar desconocida de **66 a 63**. En esta sesión se consultaron biografías de 23 formas previamente indeterminadas; 3 se reclasifican y 20 permanecen a la espera de prueba positiva.
+
+**No fusionar versiones homónimas:**
+- [Lazare Brice en Ylat¹](https://drive.google.com/file/d/1rGblTDtw0DYyY5P79cWbWQJ5MB8jKWnQ/view): 76 años, nigromante, ID `lazare`.
+- [Lazare Brice en Ylat³](https://drive.google.com/file/d/1z5R53EpEgWTD7cfauK9Gy_W5_sEZA3Wq/view): 59 años, mago, ID `lazare_ylat3`.
+- [Branwen Sigvald «Discordia», Ylat¹](https://drive.google.com/file/d/1t5kfa53ExNX6uoN-FtXORb1DyHSviMEy/view): PJ de 18 años.
+- [Branwen Sigvald «Discordia», Ylat³](https://drive.google.com/file/d/1afQDtEg8be53B3t8cu1cUJqaYDKfzRTh/view): PNJ de 29 años.
+
+**Nueva interpretación de conflicto anterior:** `Saewig Rowes` se documenta en «Historia de Shadaleen»; `Saewig Shadelgast` en [«El decadente Circo Labrice», Ylat³, Mundos alternos](https://drive.google.com/file/d/1R1ukaNGzFJYst3z1TzG7NrhsOZOedr-z/view). Esto **plantea la posibilidad** de una divergencia entre realidades; **no prueba** que los dos sean variantes autorizadas de una identidad ni resuelve por sí solo la cuestión editorial.
+
+**Detalle y las 23 fichas examinadas:** [revision-biografica-y-realidades.md](revision-biografica-y-realidades.md).
