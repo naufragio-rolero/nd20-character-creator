@@ -7,7 +7,7 @@
 ## Reglas de lectura
 
 - El campo `surname` de la hoja histórica se considera **segundo componente nominal de origen**, no un apellido real por definición.
-- **F:** familia o apellido con pertenencia, parentesco o linaje respaldado por documentación independiente (17 formas). **No es autorización de combinación libre.**
+- **F:** familia o apellido con pertenencia, parentesco o linaje respaldado por documentación independiente (**20 formas**). **No es autorización de combinación libre.**
 - **A:** la propia fuente llama al componente «apellido», pero solo está acreditado para ese individuo.
 - **N:** denominación eladrín con apéndice determinado por nacimiento.
 - **O:** apellido más ordinal; se debe representar por separado.
@@ -24,7 +24,7 @@ Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni
 
 | Código | Valores únicos | Criterio |
 | --- | ---: | --- |
-| F | 17 | Familia acreditada |
+| F | 20 | Familia acreditada |
 | A | 1 | Apellido individual explícito |
 | N | 2 | Convención dependiente del nacimiento |
 | O | 1 | Ordinal |
@@ -33,7 +33,7 @@ Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni
 | E | 3 | Fórmula de epíteto |
 | C | 4 | Compuesto no resuelto |
 | V | 1 | Variante en conflicto |
-| I | 66 | Segundo componente no acreditado como apellido |
+| I | 63 | Segundo componente no acreditado como apellido |
 | **Total** | **97** | Registro completo sin blancos |
 
 ## Diccionario por valor literal
@@ -49,7 +49,7 @@ Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni
 | Anverso | 1 | **I** | Notorius Anverso | Función familiar no probada; consultar censo y biografía individual |
 | Arianhrod | 1 | **I** | Quaon Arianhrod | Función familiar no probada; consultar censo y biografía individual |
 | Arper | 1 | **I** | Ternus Arper | Función familiar no probada; consultar censo y biografía individual |
-| Asheishi | 1 | **I** | Loroohck Asheishi | Función familiar no probada; consultar censo y biografía individual |
+| Asheishi | 1 | **F** | Loroohck Asheishi | [Ficha de Loroohck](https://drive.google.com/file/d/1AcFcAEZhDEVUL--EItPJF93Mo6FMz1je/view): declara expresamente que es **patriarca de la familia Asheishi**; sin autorización de apellido libre |
 | Bagui Fénix | 1 | **C** | Tegku Bagui Fénix | Tegku presenta su nombre completo; no se acredita qué parte es apellido |
 | Beld | 1 | **I** | Oelmi Beld | Función familiar no probada; consultar censo y biografía individual |
 | Borgenrstâg | 1 | **V** | Vrymmir Borgenrstâg | Censo y ficha antigua: Borgenrstâg; artículo 2019 y Biografías: Borgernstâg |
@@ -86,7 +86,7 @@ Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni
 | Iraldsay | 5 | **F** | Ciale Iraldsay; Eman Iraldsay; Naleale Iraldsay; Aradale Iraldsay; Hiller Iraldsay | Familia de Turche: Eman, Ciale y tres hijos |
 | Jacenty | 1 | **I** | Elisia Jacenty | Función familiar no probada; consultar censo y biografía individual |
 | Keefe | 1 | **F** | Ubale Keefe | Una de las Siete Familias; Ubale figura como noble |
-| Kinistis | 1 | **I** | Eld'mose Kinistis | Función familiar no probada; consultar censo y biografía individual |
+| Kinistis | 1 | **F** | Eld'mose Kinistis | [Ficha de Eld'mose](https://drive.google.com/file/d/1mbm6oKNXJDeA45oZ7XwFzmd2jRKI-CrP/view): **matriarca de la familia Kinistis**; dirige la misma caravana que Loroohck Asheishi, pero son familias diferentes |
 | Kultstein | 1 | **F** | Viktor Kultstein | Casa disuelta, superviviente Viktor documentado; no libre asignación |
 | la Tuerta | 1 | **E** | Adhat la Tuerta | Función familiar no probada; consultar censo y biografía individual |
 | Leahein | 1 | **I** | Caeloen Leahein | Función familiar no probada; consultar censo y biografía individual |
@@ -115,7 +115,7 @@ Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni
 | Sendero Severo | 1 | **C** | Kurzak Sendero Severo | Kurzak; no dividir en dos apellidos |
 | Shadelgast | 3 | **F** | Galibard Shadelgast; Hermilda Shadelgast; Eurip Shadelgast | Casa dinástica, ordinal II de Galibard separado |
 | Shadelgast II | 1 | **O** | Galibard Shadelgast II | No tratar II como parte del apellido ni combinación arbitraria |
-| Sigvald | 1 | **I** | Anfingrem Sigvald | Función familiar no probada; consultar censo y biografía individual |
+| Sigvald | 1 | **F** | Anfingrem Sigvald | [Anfingrem](https://drive.google.com/file/d/15QEr23FLHQ0-bd71FJA3IeEGQ4FQ_qYG/view) es padre de [Branwen Sigvald «Discordia»](https://drive.google.com/file/d/1t5kfa53ExNX6uoN-FtXORb1DyHSviMEy/view) y [Belegur Sigvald «Furia»](https://drive.google.com/file/d/1mHwROYpYv8bS3y6S5gDmyytOXInW7lLA/view). Eilinn Brillonuevo conserva su denominación tras el matrimonio |
 | Silversea | 1 | **I** | Gerad Silversea | Función familiar no probada; consultar censo y biografía individual |
 | sin Apellido | 1 | **M** | Neyney sin Apellido | Neyney pide ser llamado así tras olvidar su nombre; etiqueta, no apellido |
 | Sireg | 1 | **I** | Cabal Sireg | Función familiar no probada; consultar censo y biografía individual |
@@ -156,3 +156,12 @@ La [ficha de Tegku Bagui Fénix](https://drive.google.com/file/d/1hs2TLs0ePQoza_
 - Para las familias **F**, determinar si son activas, históricas, nobiliarias o excepcionales sin inventar vigencia.
 - Cotejar los 140 PNJ con el banco de 1428 formas y los dos JSON vigentes; conservar coincidencias y diferencias literales sin autoconvertir.
 - No modificar datos de producción ni abrir PR funcional.
+
+
+## Revisión adicional de 23 componentes con biografías (2026-11-02)
+
+Se consultaron individualmente **23** formas que estaban en categoría I. Tres pasan a **F** por pruebas positivas: **Asheishi**, **Kinistis** y **Sigvald**. Las otras **20** mantienen I: se acredita la existencia del personaje y de su denominación, pero no la función hereditaria, familiar o cultural del segundo componente. Este es un resultado de **insuficiencia de evidencia, no una afirmación de que nunca sean apellidos**.
+
+La lista completa, versiones de realidades alternas y fuentes precisas constan en [revision-biografica-y-realidades.md](revision-biografica-y-realidades.md).
+
+**Nota de precisión:** la edad/ocupación de dos versiones de Lazare Brice y Branwen Sigvald difiere según Ylat¹/Ylat³. La columna `surname` del censo no permite reconstruir esa separación sin acceder a las fichas de los personajes.
