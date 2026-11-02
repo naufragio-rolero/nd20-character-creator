@@ -251,10 +251,16 @@ async function main(){
     assert.ok(primera.riqueza&&segunda.riqueza);
     assert.equal(await cdp.evalJS("document.querySelectorAll('.comprar-utiles').length"),2);
     await cdp.evalJS("document.querySelectorAll('.comprar-utiles')[0].click()");
-    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').hidden"),false);
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),true,
+      'Comprar útiles abre un diálogo nativo y modal');
     assert.equal(await cdp.evalJS("document.activeElement.id"),'compras-articulo',
       'Abrir compras debe situar el foco en el selector de artículos');
-    assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-articulo option').length"),43);
+    assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-grupo option').length"),6,
+      'Familias documentadas, sin grupos inventados');
+    assert.ok((await cdp.evalJS("document.querySelectorAll('#compras-articulo option').length"))<43,
+      'El selector de artículos muestra solo una familia compacta');
+    await cdp.evalJS("(()=>{var g=document.querySelector('#compras-grupo');"+
+      "g.value='campamento';g.dispatchEvent(new Event('change',{bubbles:true}));})()");
     const nombres=await cdp.evalJS("Array.from(document.querySelectorAll('#compras-articulo option')).map(x=>x.textContent)");
     assert.ok(nombres.some(x=>x.startsWith('Martillo de campamento · 2 mo')));
     assert.ok(!nombres.some(x=>x.startsWith('Almádena ·')),
@@ -281,9 +287,18 @@ async function main(){
     assert.ok((await cdp.evalJS("document.querySelector('#compras-total').textContent"))
       .includes('8.00 mo'));
     await cdp.evalJS("document.querySelector('#compras-cancelar').click()");
-    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').hidden"),true);
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),false);
     assert.equal(await cdp.evalJS("document.activeElement.classList.contains('comprar-utiles')"),true,
       'Cancelar devuelve el foco al botón de compras del personaje');
+    // Escape también cancela: no confirma, y el foco vuelve a la ficha.
+    await cdp.evalJS("document.querySelectorAll('.comprar-utiles')[0].click()");
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),true);
+    await cdp.enviar('Input.dispatchKeyEvent',{
+      type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
+    await cdp.enviar('Input.dispatchKeyEvent',{
+      type:'keyUp',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
+    await cdp.esperar("document.querySelector('#editor-compras').open===false",
+      'Escape descarta el modal sin confirmar el carrito');
     estado=await cdp.evalJS("Array.from(document.querySelectorAll('#fichas .tarjeta')).map(x=>x.innerHTML)");
     assert.equal(estado[0],primera.html,'Cancelar no modifica la primera ficha');
     assert.equal(estado[1],segunda.html,'Cancelar no modifica la ficha ajena');
@@ -291,10 +306,10 @@ async function main(){
     await cdp.evalJS("document.querySelectorAll('.comprar-utiles')[0].click()");
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),0);
     await cdp.evalJS("(()=>{var s=document.querySelector('#compras-articulo');"+
-      "s.value='campamento-martillo';s.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "document.querySelector('#compras-grupo').value='campamento';document.querySelector('#compras-grupo').dispatchEvent(new Event('change',{bubbles:true}));s.value='campamento-martillo';s.dispatchEvent(new Event('change',{bubbles:true}));"+
       "document.querySelector('#compras-cantidad').value='2';"+
       "document.querySelector('#compras-anadir').click();"+
-      "s.value='aventura-tiza';s.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "document.querySelector('#compras-grupo').value='aventura';document.querySelector('#compras-grupo').dispatchEvent(new Event('change',{bubbles:true}));s.value='aventura-tiza';s.dispatchEvent(new Event('change',{bubbles:true}));"+
       "document.querySelector('#compras-cantidad').value='3';"+
       "document.querySelector('#compras-anadir').click();})()");
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),2);
@@ -310,7 +325,7 @@ async function main(){
     assert.equal(await cdp.evalJS("document.querySelectorAll('#fichas .tarjeta')[0].innerHTML"),
       primera.html,'Editar el carrito no altera la ficha antes de confirmar');
     await cdp.evalJS("(()=>{var s=document.querySelector('#compras-articulo');"+
-      "s.value='aventura-tiza';s.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "document.querySelector('#compras-grupo').value='aventura';document.querySelector('#compras-grupo').dispatchEvent(new Event('change',{bubbles:true}));s.value='aventura-tiza';s.dispatchEvent(new Event('change',{bubbles:true}));"+
       "document.querySelector('#compras-cantidad').value='3';"+
       "document.querySelector('#compras-anadir').click();})()");
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),2);
@@ -332,14 +347,14 @@ async function main(){
       "scroll:document.documentElement.scrollWidth})");
     assert.equal(vistaDesktop.ancho,1440,'La prueba de escritorio utiliza 1440 px reales');
     assert.ok(vistaDesktop.panel>200,'El panel lateral de escritorio está visible');
-    assert.ok(vistaDesktop.editor>500,'El editor de escritorio tiene anchura usable');
+    assert.ok(vistaDesktop.editor>500,'El modal de escritorio tiene anchura usable');
     assert.ok(vistaDesktop.scroll<=1442,'No hay desbordamiento en escritorio');
     const imagenDesktop=await cdp.enviar('Page.captureScreenshot',{
       format:'png',captureBeyondViewport:false});
     fs.writeFileSync(path.join(capturas,'compras-escritorio.png'),
       Buffer.from(imagenDesktop.data,'base64'));
     await cdp.evalJS("(()=>{var s=document.querySelector('#compras-articulo');"+
-      "s.value='consumible-antidoto';s.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "document.querySelector('#compras-grupo').value='consumibles';document.querySelector('#compras-grupo').dispatchEvent(new Event('change',{bubbles:true}));s.value='consumible-antidoto';s.dispatchEvent(new Event('change',{bubbles:true}));"+
       "document.querySelector('#compras-cantidad').value='1';"+
       "document.querySelector('#compras-cantidad').dispatchEvent(new Event('input',{bubbles:true}));"+
       "document.querySelector('#compras-nivel').value='3';"+
@@ -349,13 +364,13 @@ async function main(){
       .includes('150.00 mo'),'Antídoto Nivel 3 = 150 mo');
     // Un intento de añadir una compra imposible no modifica el carrito.
     await cdp.evalJS("(()=>{var s=document.querySelector('#compras-articulo');"+
-      "s.value='herramienta-catalejo';s.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "document.querySelector('#compras-grupo').value='herramientas';document.querySelector('#compras-grupo').dispatchEvent(new Event('change',{bubbles:true}));s.value='herramienta-catalejo';s.dispatchEvent(new Event('change',{bubbles:true}));"+
       "document.querySelector('#compras-cantidad').value='99';"+
       "document.querySelector('#compras-anadir').click();})()");
     assert.equal(await cdp.evalJS("document.querySelector('#estado').classList.contains('error')"),true);
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),2);
     await cdp.evalJS("document.querySelector('#form-compra-utiles').requestSubmit()");
-    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').hidden"),true);
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),false);
     assert.equal(await cdp.evalJS("document.activeElement.classList.contains('comprar-utiles')"),true,
       'Confirmar la compra devuelve el foco a la ficha actualizada');
     estado=await cdp.evalJS("Array.from(document.querySelectorAll('#fichas .tarjeta')).map(x=>({"+
@@ -389,7 +404,7 @@ async function main(){
     assert.ok((await cdp.evalJS("document.querySelector('#resumen-compras').textContent"))
       .includes(dinero(estado[0].riqueza).toFixed(2)+' mo'));
     await cdp.evalJS("document.querySelector('#fichas .tarjeta .eliminar-ficha').click()");
-    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').hidden"),true);
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),false);
     assert.equal(await cdp.evalJS("document.querySelectorAll('#fichas .tarjeta').length"),1);
     // El formulario de compras debe mantener su jerarquía sin desbordarse en móvil.
     await cdp.enviar('Emulation.setDeviceMetricsOverride',{
@@ -400,7 +415,7 @@ async function main(){
     assert.equal(movil.botones,1);
     await cdp.evalJS("document.querySelector('.comprar-utiles').click()");
     const movilEditor=await cdp.evalJS("({ancho:document.documentElement.scrollWidth,"+
-      "ventana:window.innerWidth,visible:!document.querySelector('#editor-compras').hidden,"+
+      "ventana:window.innerWidth,visible:document.querySelector('#editor-compras').open,"+
       "campo:document.querySelector('#compras-articulo').getBoundingClientRect().width})");
     assert.ok(movilEditor.visible,'El editor puede abrirse en móvil');
     assert.ok(movilEditor.ancho<=movilEditor.ventana+2,
