@@ -178,7 +178,8 @@ async function probar(nombre,tipo,url){
     for(const [item,esperado,procedencia] of [
       ['túnica','Túnica',/Especial arcanistas/],
       ['yesquero','Yesquero',/Naufragio d20 DRS/],
-      ['antorcha (DU d6)','Antorcha',/Especial arcanistas/]
+      ['antorcha (DU d6)','Antorcha',/Dado de Uso:\s*DU d6/],
+      ['vela (DU d4)','Vela',/Dado de Uso:\s*DU d4/]
     ]){
       const enlace=await page.evaluate(nombreObjeto=>
         window.NaufragioInfoUI.etiqueta(nombreObjeto,'equipo','nd20'),
@@ -761,6 +762,11 @@ async function probar(nombre,tipo,url){
     await generar();
     const fichaTalentos=page.locator('#fichas .tarjeta').first();
     await fichaTalentos.waitFor();
+    const atributosVista=await fichaTalentos.locator('.atributo .nombre-atributo')
+      .allTextContents();
+    assert.deepEqual(atributosVista.map(x=>x.replace('★','').trim()),
+      ['Fuerza','Mente','Agilidad','Intuición','Resistencia','Presencia'],
+      nombre+': parejas de Atributos en el orden solicitado, sin cambiar sus valores');
     const bloquesFicha=await fichaTalentos.locator('.bloque-ficha').evaluateAll(nodos=>
       nodos.map(n=>({titulo:n.querySelector('h4')?.textContent,
         columnas:n.querySelector('ul')?.classList.contains('lista-dos-columnas'),
@@ -985,8 +991,8 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
     assert.equal(await page.locator('#editor-compras').evaluate(el=>el.open),true,
       nombre+': las compras se muestran en un diálogo modal');
-    assert.equal(await page.locator('#compras-grupo option').count(),6,
-      nombre+': familias originales de útiles DRS');
+    assert.equal(await page.locator('#compras-grupo option').count(),7,
+      nombre+': seis familias DRS documentadas más Focos');
     assert.ok((await page.locator('#compras-articulo option').count())<43,
       nombre+': artículos agrupados en un desplegable más compacto');
     await page.selectOption('#compras-grupo','campamento');

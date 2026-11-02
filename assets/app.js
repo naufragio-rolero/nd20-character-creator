@@ -570,7 +570,16 @@
   function fichaHTML(personaje, id) {
     var notas=organizarObservaciones(personaje);
     var esDungeonHack = personaje.juego.indexOf('Dungeon Hack') === 0;
-    var attrs = personaje.atributos.map(function (a) {
+    // Orden de lectura en la ficha Nd20, independiente del orden del modelo.
+    // Dungeon Hack conserva su presentación sin alterar su sistema.
+    var ordenAtributos=['Fuerza','Mente','Agilidad','Intuición','Resistencia','Presencia'];
+    var atributosVista=esDungeonHack?personaje.atributos:
+      personaje.atributos.slice().sort(function(a,b){
+        var ia=ordenAtributos.indexOf(a.nombre),ib=ordenAtributos.indexOf(b.nombre);
+        return (ia<0?ordenAtributos.length:ia)-
+          (ib<0?ordenAtributos.length:ib);
+      });
+    var attrs = atributosVista.map(function (a) {
       var cifra = esDungeonHack ?
         '<strong>' + esc(a.dificultad) + '</strong><small>DD</small>' :
         '<strong>VA ' + esc(a.valor) + '</strong><small>DA ' + esc(a.dificultad) + '+</small>';
@@ -748,7 +757,7 @@
       .concat([['focos',datos.equipoInicial.focos_conjuros_con_precio||[]]]);
   }
   function etiquetaGrupoCompra(id){
-    return ({aventura:'Aventura',campamento:'Campamento',
+    return ({iluminacion:'Iluminación',aventura:'Aventura',campamento:'Campamento',
       consumibles:'Consumibles',herramientas:'Herramientas',
       escritura:'Escritura',focos:'Focos de Conjuros'})[id]||id;
   }

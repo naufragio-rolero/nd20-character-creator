@@ -28,7 +28,15 @@ for(const x of objetos.registros){
 const eqNombres=[...eq.armas,...eq.armaduras,...eq.escudos,
   ...eq.municion,...eq.paquetes,...Object.values(eq.utiles_fantasia).flat(),
   ...eq.focos_conjuros_con_precio,...eq.varitas_defensa].map(x=>x.nombre);
-assert.deepEqual(new Set(eqNombres),nombres,'111 elementos con cobertura completa');
+// Las 111 glosas ya aprobadas mantienen su cobertura íntegra; las cuatro
+// entradas de Iluminación aportan únicamente texto literal del DRS.
+const iluminacion=eq.utiles_fantasia.iluminacion;
+assert.deepEqual(iluminacion.map(x=>x.nombre),
+  ['Antorcha','Lámpara de aceite','Linterna','Vela']);
+assert.deepEqual(new Set(eqNombres),
+  new Set([...nombres,...iluminacion.map(x=>x.nombre)]),
+  'Todos los objetos tienen ficha literal o glosa autorizada');
+
 const i=api.indice({fantasia:{especies:cargar('especies.json'),
   ocupaciones:cargar('ocupaciones.json')},catalogo:cargar('catalogo-poderes.json'),
   equipo:eq,tecnicasDRS:tecnica,glosasEquipoDRS:objetos,
@@ -64,6 +72,27 @@ assert.equal(api.presentarEquipo(api.buscar(i,'Armadura de cuero','equipo','nd20
   'Armadura ligera');
 assert.equal(api.presentarEquipo(api.buscar(i,'Escudo grande','equipo','nd20')).categoria,'Escudo');
 assert.equal(api.presentarEquipo(api.buscar(i,'Flechas','equipo','nd20')).categoria,'Munición');
+// Tabla «Iluminación» del DRS: precios convertidos a mo, sin inferencias.
+for(const [nombre,precio,descripcion,du] of [
+  ['Antorcha',0.1,'Ilumina 6 metros alrededor con luz amarillenta.','d6'],
+  ['Lámpara de aceite',2,'Ilumina 4 metros alrededor.','d6 (aceite)'],
+  ['Linterna',10,'Ilumina 8 metros alrededor.','d6 (aceite)'],
+  ['Vela',0.01,'Alumbra 2 metros alrededor con luz amarillenta y tenue.','d4']
+]){
+  const objeto=iluminacion.find(x=>x.nombre===nombre);
+  assert.equal(objeto.precio,precio,'Precio documentado de '+nombre);
+  assert.equal(objeto.detalle,descripcion,'Alcance de luz documentado '+nombre);
+  assert.equal(objeto.du,du,'DU documentado de '+nombre);
+  const nombreEnInventario=['Antorcha','Vela'].includes(nombre)?
+    nombre+' (DU '+du+')':nombre;
+  const ficha=api.buscar(i,nombreEnInventario,'equipo','nd20');
+  assert.ok(ficha&&ficha.fuente==='Naufragio d20 DRS · Herramientas',
+    'El paquete resuelve la ficha oficial de '+nombre);
+  assert.equal(ficha.descripcion,descripcion);
+  assert.equal(api.presentarEquipo(ficha).categoria,'Iluminación');
+  assert.equal(new Map(api.presentarEquipo(ficha).primarios).get('Dado de Uso'),
+    'DU '+du);
+}
 const catalogo=cargar('catalogo-poderes.json');
 const seis=new Set(['Arcana','Demonología','Divina','Elemental','Naturaleza','Nigromancia']);
 const encontradas=new Set();

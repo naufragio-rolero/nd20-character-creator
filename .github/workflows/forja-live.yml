@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=99e16d5ad71f9f68d9569824187143f712684b04
+          UI_COMMIT=e5c4f8a1e7cb390db35e57accb945c1447ed8d6e
           archivos=(
             assets/app.js
             assets/styles.css
@@ -67,9 +67,9 @@ jobs:
             tests/smoke.js
           )
           blobs=(
-            d997d975cc7366e99154af4e3036834867d18cc9
+            bddfd760a1ed8afa64af74614a03772785a111af
             a3fcc0c59cd0ad002dc36dc635f1583132066749
-            8de9c70d9104688bfa3039fdd802f16b09b540f9
+            3b8f8282416d53d3dc6547c11594b65a5c39596e
             105de262dd5d81c283ac2cc1bd26e04068ea8a6f
             8bc37f3ed18a2af93faccd6dff108852d86105a1
             30e8e3b03d381afa328cdcc202a644c2b74d8e82
@@ -77,14 +77,14 @@ jobs:
             7aced6a1728d60a69115190a38861f3bfabed0bd
             5840727b1c4b4b7a260ff425e596edca4ea6534f
             e21e0704d247d02a9930e28f0fd88bf307408d7e
-            2dfa8140d3b163d7d7cbb032e61709d94c4bba8f
+            1e6ecffe0a3f6d9a45e791dbc89ef52dbc66f8f2
             59001f362a71505b07af35f0d65c215bd4f76647
             6d42c7947d900bc8f754593771840d442c61b184
-            e480ee85fddc90f3c52a7b6654cfd97ba19f0242
-            c1b2815c3c8e49e6bbe39fee068c0be754cdc6a8
-            8d1d0fb7a6e0001c4506fa9b72d1e79cd83739d7
-            c8961a9b3376debe544079e8cf03d9b4739b4832
-            163f721f174fd9e30c3d351c5b13b6dcd9fff780
+            e9daf09208ce5cf687345885b3f41c35393480d4
+            d99dd8e8dd7b65c18bd0af08c245b8c16d0bf451
+            bda2e38bc38887a73d9948172c2533bcad31ce6a
+            1c2e30895adfcde572603b138ecbc458a77c6bc9
+            bad9dd2c94c0ad27f0984c984bc12f4a4261347f
             08bf54f92c0f226027779ba6baf06324c3954973
           )
           for i in "${!archivos[@]}"; do
@@ -127,6 +127,9 @@ jobs:
           grep -Fq 'function iconoEquipo(nombre)' assets/app.js
           grep -Fq 'function descripcionConSexo(personaje)' assets/app.js
           grep -Fq 'function nombreEquipoVisible(nombre)' assets/app.js
+          grep -Fq "var ordenAtributos=['Fuerza','Mente','Agilidad','Intuición','Resistencia','Presencia'];" assets/app.js
+          grep -Fq "iluminacion:'Iluminación'" assets/app.js
+          grep -Fq '"id": "iluminacion-antorcha"' data/equipo-inicial.json
           grep -Fq 'id="sexo-masculino"' assets/icons-forja.svg
           grep -Fq 'id="sexo-femenino"' assets/icons-forja.svg
           grep -Fq 'id="sexo-indeterminado"' assets/icons-forja.svg
@@ -243,6 +246,8 @@ jobs:
           grep -Fq 'function iconoEquipo(nombre)' /tmp/forja-app.js
           grep -Fq 'function descripcionConSexo(personaje)' /tmp/forja-app.js
           grep -Fq 'function nombreEquipoVisible(nombre)' /tmp/forja-app.js
+          grep -Fq "var ordenAtributos=['Fuerza','Mente','Agilidad','Intuición','Resistencia','Presencia'];" /tmp/forja-app.js
+          grep -Fq "iluminacion:'Iluminación'" /tmp/forja-app.js
           grep -Fq "recurso-nota-escudo" /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/equipment.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-equipment.js
           grep -Fq 'function blindajeFicha(personaje,catalogo)' /tmp/forja-equipment.js
@@ -276,6 +281,10 @@ jobs:
           assert.deepEqual([pieles.blindaje,pieles.durabilidad],['d6','d6']);
           assert.deepEqual([varita.dano,varita.durabilidad,varita.municion_du],['1d3','d4','d6']);
           assert.deepEqual([daga.dano,daga.penetracion,daga.durabilidad],['1d4',1,'d8']);
+          assert.deepEqual(e.utiles_fantasia.iluminacion.map(x=>[x.nombre,x.precio,x.du]),[
+            ['Antorcha',0.1,'d6'],['Lámpara de aceite',2,'d6 (aceite)'],
+            ['Linterna',10,'d6 (aceite)'],['Vela',0.01,'d4']
+          ]);
           console.log('OK: atributos literales DRS de armas, varitas y armaduras en LIVE.');
           NODE
           ! grep -Fq "fuenteGlosa.textContent='Descripción: '" /tmp/forja-tooltip-ui.js

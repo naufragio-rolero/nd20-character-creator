@@ -257,8 +257,8 @@ async function main(){
       'Comprar útiles abre un diálogo nativo y modal');
     assert.equal(await cdp.evalJS("document.activeElement.id"),'compras-articulo',
       'Abrir compras debe situar el foco en el selector de artículos');
-    assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-grupo option').length"),6,
-      'Familias documentadas, sin grupos inventados');
+    assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-grupo option').length"),7,
+      'Seis familias DRS y Focos, sin grupos ajenos al catálogo');
     assert.ok((await cdp.evalJS("document.querySelectorAll('#compras-articulo option').length"))<43,
       'El selector de artículos muestra solo una familia compacta');
     await cdp.evalJS("(()=>{var g=document.querySelector('#compras-grupo');"+
