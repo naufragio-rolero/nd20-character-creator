@@ -1093,7 +1093,7 @@ assert.ok(!mago.equipo.some(x=>
   'El Mago conserva la protección exclusivamente de tela');
 console.log('OK · Competencias reales DRS: Clérigo armas romas, Guerrero todas las armas, Ladrón armaduras ligeras y Mago tela.');
 
-/* Tablas de útiles del DRS: siete bloques completos, 51 registros.
+/* Tablas de útiles del DRS: doce bloques completos, 79 registros.
  * Precios normalizados a mo, sin confundir precios por Nivel ni la
  * herramienta Almádena de campamento con el arma a dos manos. */
 const utilidadDRS={
@@ -1114,6 +1114,24 @@ const utilidadDRS={
     ['Chaqueta de cuero',10],['Disfraz',5],
     ['Traje elegante',15],['Túnica',1]
   ],
+  instrumentos:[
+    ['Arpa',40],['Flauta',2],['Laúd',35],['Tambor',6]
+  ],
+  objetos_varios:[
+    ['Ábaco',2],['Balanza',15],['Baraja de cartas',.5],['Dados',.2],
+    ['Escalera de mano',.15],['Pipa de tabaco',5],['Reloj de arena',25],['Tabaco',.12]
+  ],
+  monturas:[
+    ['Burro o mula',8],['Caballo de guerra',400],['Caballo de monta',75],
+    ['Escarabajo gigante',265],['Mastín',25],['Pony',30]
+  ],
+  equipo_monturas:[
+    ['Alforjas',2.5],['Armadura equina',null],['Bridas',1.5],
+    ['Comida',.1],['Establos',.6],['Silla',15]
+  ],
+  vehiculos:[
+    ['Carro',20],['Carro de guerra',400],['Carruaje',125],['Diligencia',200]
+  ],
   consumibles:[
     ['Aceite animal',.1],['Ácido',25],['Agua bendita',30],
     ['Antídoto',null],['Fuego alquímico',50],['Poción de curación',40],
@@ -1133,15 +1151,15 @@ const utilidadDRS={
 const tablaUtiles=catalogoEquipamiento.utiles_fantasia;
 assert.deepEqual(Object.keys(tablaUtiles),Object.keys(utilidadDRS));
 const todosUtiles=Object.values(tablaUtiles).flat();
-assert.equal(todosUtiles.length,51);
-assert.equal(new Set(todosUtiles.map(x=>x.id)).size,51);
+assert.equal(todosUtiles.length,79);
+assert.equal(new Set(todosUtiles.map(x=>x.id)).size,79);
 for(const [grupo,esperados] of Object.entries(utilidadDRS)){
   assert.deepEqual(tablaUtiles[grupo].map(x=>[x.nombre,
       x.precio===undefined?null:x.precio]),esperados,
     'Útiles y precios literales de la tabla DRS: '+grupo);
   assert.ok(tablaUtiles[grupo].every(x=>x.fuente==='DRS'));
   for(const item of tablaUtiles[grupo]){
-    if(item.precio===undefined)continue;
+    if(item.precio===undefined||item.servicio_por_dia)continue;
     assert.deepEqual(equipamientoDRS.consultarUtilFantasia(
       catalogoEquipamiento,item.id),
       {id:item.id,nombre:item.nombre,seccion:grupo,precio:item.precio,
@@ -1149,6 +1167,30 @@ for(const [grupo,esperados] of Object.entries(utilidadDRS)){
       'Consulta inequívoca por ID de útil '+item.id);
   }
 }
+// Monturas: Movimiento es informativo, sin ejecución de viajes.
+assert.deepEqual(tablaUtiles.monturas.map(x=>x.movimiento),
+  ['12 metros','18 metros','18 metros','8 metros','12 metros','12 metros']);
+assert.equal(tablaUtiles.objetos_varios.find(x=>x.nombre==='Pipa de tabaco').du,
+  'd4 (tabaco)');
+// La Armadura equina tiene precio variable, no un precio fijo inventado.
+// Establos es un servicio de un día, no un artículo persistente.
+const armaduraEquina=tablaUtiles.equipo_monturas.find(x=>x.nombre==='Armadura equina');
+assert.equal(armaduraEquina.precio,undefined);
+assert.equal(armaduraEquina.precio_variable,'Precio de la protección corporal ×4');
+assert.throws(()=>equipamientoDRS.consultarUtilFantasia(
+  catalogoEquipamiento,armaduraEquina.id),/requiere precio variable documentado/);
+const establos=tablaUtiles.equipo_monturas.find(x=>x.nombre==='Establos');
+assert.equal(establos.precio,.6);
+assert.equal(establos.servicio_por_dia,true);
+assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
+  catalogoEquipamiento,10,[{id:establos.id}]),/no es un objeto de inventario comprable/);
+const adquisicionMonturas=equipamientoDRS.compraUtilesFantasia(catalogoEquipamiento,200,[
+  {id:'montura-burro-mula'},{id:'vehiculo-carro'},
+  {id:'montura-alforjas'},{id:'varios-dados',cantidad:2}
+]);
+assert.equal(adquisicionMonturas.gastado,30.9);
+assert.deepEqual(adquisicionMonturas.equipo,
+  ['Burro o mula','Carro','Alforjas','Dados ×2']);
 assert.equal(tablaUtiles.consumibles.find(x=>x.nombre==='Antídoto').precio_por_nivel,50);
 assert.equal(tablaUtiles.consumibles.find(x=>x.nombre==='Veneno').precio_por_nivel,100);
 assert.equal(equipamientoDRS.consultarUtilFantasia(
@@ -1196,7 +1238,7 @@ assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
   catalogoEquipamiento,10,[{id:'aventura-tiza',cantidad:0}]),/Cantidad incorrecta/);
 assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
   catalogoEquipamiento,10,[{id:'consumible-veneno'}]),/requiere un Nivel/);
-console.log('OK · 51 útiles DRS y 2 focos: Martillo de campamento y Almádena separados, compras válidas.');
+console.log('OK · 79 entradas de Equipo DRS y 2 focos: Martillo de campamento y Almádena separados, compras válidas.');
 
 /* Integración del editor de compras por personaje (DRS).
  * La compra es transaccional: previsualizar NO debe modificar la ficha. */

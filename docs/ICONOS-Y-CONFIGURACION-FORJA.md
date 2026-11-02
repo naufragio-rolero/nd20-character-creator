@@ -32,6 +32,30 @@ Los paquetes conservan su inventario y las cantidades originales. El índice de 
 
 **Ropa de viaje** sí aparece en los paquetes Especial exploración y Especial mazmorras, pero **no tiene entrada individual** en la tabla Ropa ni precio descrito en el DRS. Mantiene la ficha de procedencia, sin heredar precio o efecto de Túnica, Traje elegante u otra prenda. Lo mismo ocurre con Mochila, Bolsa de cuero y Odre de agua, para los que tampoco existe ficha individual en las tablas verificadas. Las 111 glosas anteriores permanecen intactas; las seis prendas nuevas emplean exclusivamente detalles del DRS.
 
+## Instrumentos, objetos varios y monturas del DRS
+
+Se incorporan **28 filas documentadas** a cinco secciones del catálogo DRS:
+**Instrumentos** (4), **Objetos varios** (8), **Monturas** (6),
+**Equipo y cuidado de las monturas** (6) y **Vagones y diligencias** (4).
+Los precios fijos se expresan en mo según las equivalencias existentes.
+En Monturas se muestra el **Movimiento literal** del DRS; los vehículos
+conservan la descripción de sus caballos o monturas requeridos sin ejecutar
+viajes ni asignar cargas no documentadas.
+
+El editor de compras ofrece los artículos con **precio fijo**, reutilizando
+la transacción, el presupuesto y el inventario ya existentes. La ficha
+**Armadura equina** conserva el coste variable «precio de la protección
+corporal ×4», por lo que no se ofrece como compra de precio fijo; el
+servicio **Establos** muestra su tarifa de 6 mp **por día**, pero tampoco se
+convierte en un objeto permanente del inventario. Ambos quedan consultables.
+No se calcula el coste de una armadura equina sin especificar previamente
+la protección. En Objetos varios, la Pipa conserva «DU d4 (tabaco)».
+
+**Libro de conjuros en blanco** (y «Libro de conjuros (en blanco)») resuelven,
+solo para consulta, la ficha ya existente **Libro de conjuros** (50 mo).
+No se cambia el nombre conservado del objeto del paquete ni se duplica
+su registro, igual que ocurre con las raciones.
+
 ## Cabecera, lotes y contraste
 
 El encabezado muestra el sistema en la primera línea, el nombre debajo y el símbolo de sexo **junto a la Ocupación** (antes de la Especie). El Nivel queda en un distintivo separado, justo a la izquierda de cerrar. La ficha de Dungeon Hack sin sexo declarado muestra un símbolo neutro con texto accesible «Sexo: No indicado»; no se modifica ni se presupone el sexo del personaje.

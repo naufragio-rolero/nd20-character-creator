@@ -754,11 +754,22 @@
   // (sin añadir artículos ni precios ajenos al DRS).
   function gruposCompra(){
     return Object.entries(datos.equipoInicial.utiles_fantasia||{})
+      .map(function(par){
+        // Servicios diarios y precios variables son consultables, pero
+        // no producen artículos persistentes en el inventario.
+        return [par[0],par[1].filter(function(x){
+          return !x.servicio_por_dia&&
+            (Number.isFinite(x.precio)||x.precio_por_nivel!==undefined);
+        })];
+      })
+      .filter(function(par){return par[1].length>0;})
       .concat([['focos',datos.equipoInicial.focos_conjuros_con_precio||[]]]);
   }
   function etiquetaGrupoCompra(id){
     return ({iluminacion:'Iluminación',aventura:'Aventura',campamento:'Campamento',
-      ropa:'Ropa',
+      ropa:'Ropa',instrumentos:'Instrumentos',objetos_varios:'Objetos varios',
+      monturas:'Monturas',equipo_monturas:'Equipo de monturas',
+      vehiculos:'Vagones y diligencias',
       consumibles:'Consumibles',herramientas:'Herramientas',
       escritura:'Escritura',focos:'Focos de Conjuros'})[id]||id;
   }

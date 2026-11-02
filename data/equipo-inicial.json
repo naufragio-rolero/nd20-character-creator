@@ -1084,6 +1084,220 @@
         "fuente": "DRS"
       }
     ],
+    "instrumentos": [
+      {
+        "id": "instrumento-arpa",
+        "nombre": "Arpa",
+        "precio": 40,
+        "detalle": "Instrumento de cuerda. Suena agradable.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "instrumento-flauta",
+        "nombre": "Flauta",
+        "precio": 2,
+        "detalle": "Instrumento de aire. Suena dulce.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "instrumento-laud",
+        "nombre": "Laúd",
+        "precio": 35,
+        "detalle": "Instrumento de cuerda. Suena antiguo.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "instrumento-tambor",
+        "nombre": "Tambor",
+        "precio": 6,
+        "detalle": "Instrumento de percusión. Suena estricto.",
+        "fuente": "DRS"
+      }
+    ],
+    "objetos_varios": [
+      {
+        "id": "varios-abaco",
+        "nombre": "Ábaco",
+        "precio": 2,
+        "detalle": "Permite realizar cuentas complejas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-balanza",
+        "nombre": "Balanza",
+        "precio": 15,
+        "detalle": "Permite pesar hasta 5 kg de material.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-baraja-cartas",
+        "nombre": "Baraja de cartas",
+        "precio": 0.5,
+        "detalle": "52 cartas, 4 palos con 12 figuras.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-dados",
+        "nombre": "Dados",
+        "precio": 0.2,
+        "detalle": "Seis cubos de seis caras cada uno.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-escalera-mano",
+        "nombre": "Escalera de mano",
+        "precio": 0.15,
+        "detalle": "Se extiende hasta 3 metros. De madera.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-pipa-tabaco",
+        "nombre": "Pipa de tabaco",
+        "precio": 5,
+        "detalle": "De madera tallada.",
+        "du": "d4 (tabaco)",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-reloj-arena",
+        "nombre": "Reloj de arena",
+        "precio": 25,
+        "detalle": "Cuenta atrás de 120 segundos.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-tabaco",
+        "nombre": "Tabaco",
+        "precio": 0.12,
+        "detalle": "Planta machacada, adictiva.",
+        "fuente": "DRS"
+      }
+    ],
+    "monturas": [
+      {
+        "id": "montura-burro-mula",
+        "nombre": "Burro o mula",
+        "precio": 8,
+        "detalle": "",
+        "movimiento": "12 metros",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-caballo-guerra",
+        "nombre": "Caballo de guerra",
+        "precio": 400,
+        "detalle": "",
+        "movimiento": "18 metros",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-caballo-monta",
+        "nombre": "Caballo de monta",
+        "precio": 75,
+        "detalle": "",
+        "movimiento": "18 metros",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-escarabajo-gigante",
+        "nombre": "Escarabajo gigante",
+        "precio": 265,
+        "detalle": "",
+        "movimiento": "8 metros",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-mastin",
+        "nombre": "Mastín",
+        "precio": 25,
+        "detalle": "",
+        "movimiento": "12 metros",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-pony",
+        "nombre": "Pony",
+        "precio": 30,
+        "detalle": "",
+        "movimiento": "12 metros",
+        "fuente": "DRS"
+      }
+    ],
+    "equipo_monturas": [
+      {
+        "id": "montura-alforjas",
+        "nombre": "Alforjas",
+        "precio": 2.5,
+        "detalle": "Equivalen a dos mochilas de cuero.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-armadura-equina",
+        "nombre": "Armadura equina",
+        "detalle": "Protección corporal —» Precio x4.",
+        "precio_variable": "Precio de la protección corporal ×4",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-bridas",
+        "nombre": "Bridas",
+        "precio": 1.5,
+        "detalle": "Para dirigir a la montura.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-comida",
+        "nombre": "Comida",
+        "precio": 0.1,
+        "detalle": "Alimento para caballos, etc. para 1 día.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-establos",
+        "nombre": "Establos",
+        "precio": 0.6,
+        "detalle": "Alojamiento para caballos. 1 día.",
+        "servicio_por_dia": true,
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-silla",
+        "nombre": "Silla",
+        "precio": 15,
+        "detalle": "Una silla de tamaño estándar.",
+        "fuente": "DRS"
+      }
+    ],
+    "vehiculos": [
+      {
+        "id": "vehiculo-carro",
+        "nombre": "Carro",
+        "precio": 20,
+        "detalle": "Necesita 1 caballo / montura.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "vehiculo-carro-guerra",
+        "nombre": "Carro de guerra",
+        "precio": 400,
+        "detalle": "Necesita 1 caballo / montura.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "vehiculo-carruaje",
+        "nombre": "Carruaje",
+        "precio": 125,
+        "detalle": "Necesita 2 caballos / monturas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "vehiculo-diligencia",
+        "nombre": "Diligencia",
+        "precio": 200,
+        "detalle": "Necesita 4 caballos / monturas.",
+        "fuente": "DRS"
+      }
+    ],
     "consumibles": [
       {
         "id": "consumible-aceite-animal",

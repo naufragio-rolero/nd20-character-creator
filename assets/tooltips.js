@@ -31,7 +31,9 @@
       "dos raciones de alimentos":"racion de alimento",
       "tres raciones":"racion de alimento",
       "tres raciones de alimento":"racion de alimento",
-      "tres raciones de alimentos":"racion de alimento"
+      "tres raciones de alimentos":"racion de alimento",
+      "libro de conjuros en blanco":"libro de conjuros",
+      "libro de conjuros (en blanco)":"libro de conjuros"
     };
     return sinonimos[clave]||clave;
   }
@@ -110,7 +112,10 @@
     function equipo(lista,sistema,moneda,fuente,tipo,categoriaGrupo){
       (lista||[]).forEach(function(x){
         var detalles=[];
-        if(Number.isFinite(Number(x.precio)))detalles.push(["Precio",x.precio+" "+moneda]);
+        if(Number.isFinite(Number(x.precio)))
+          detalles.push([x.servicio_por_dia?"Precio por día":"Precio",x.precio+" "+moneda]);
+        if(x.precio_variable)detalles.push(["Precio variable",x.precio_variable]);
+        if(x.movimiento)detalles.push(["Movimiento",String(x.movimiento)]);
         // El grupo procede de la tabla del catálogo. Tipo y grupo se presentan
         // juntos cuando «ligera», por ejemplo, sería ambiguo fuera de contexto.
         var clases={una_mano:"de una mano",dos_manos:"de dos manos",
@@ -174,7 +179,9 @@
         k==="paquetes"?"Paquete":"Objeto",k==="armas"||k==="armaduras"?k:familias[k]);
     });
     var gruposUtiles={iluminacion:"Iluminación",aventura:"Útil de aventura",campamento:"Campamento",
-      ropa:"Ropa",
+      ropa:"Ropa",instrumentos:"Instrumentos",objetos_varios:"Objetos varios",
+      monturas:"Monturas",equipo_monturas:"Equipo de monturas",
+      vehiculos:"Vagones y diligencias",
       consumibles:"Consumible",herramientas:"Herramienta",escritura:"Escritura"};
     Object.entries(eq.utiles_fantasia||{}).forEach(function(par){
       equipo(par[1],"nd20","mo","Naufragio d20 DRS · Herramientas",

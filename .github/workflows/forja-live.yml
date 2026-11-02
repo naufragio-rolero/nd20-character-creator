@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=1be9c07e2a8f7c1671e34a5a22c33034d284aba7
+          UI_COMMIT=b82952cdbda6532747178ff73054e39c802f8a9d
           archivos=(
             assets/app.js
             assets/styles.css
@@ -67,24 +67,24 @@ jobs:
             tests/smoke.js
           )
           blobs=(
-            2b4d2cdfdb19a9c541d9178337476f967d5ee250
+            49d7a0467ac6c71dcb9ce220e530bd5579d7106d
             a3fcc0c59cd0ad002dc36dc635f1583132066749
-            44556a29e7700beb17085298e61545aca023d784
+            91ba5debe4b79b59d5b97b53f0be9c62a4fb328b
             105de262dd5d81c283ac2cc1bd26e04068ea8a6f
             8bc37f3ed18a2af93faccd6dff108852d86105a1
-            30e8e3b03d381afa328cdcc202a644c2b74d8e82
+            0014c9b90c45bde0415c93c6102d432611df6ddd
             9593337ee7b4779f8f06f62151e6905d1cd8124f
             7aced6a1728d60a69115190a38861f3bfabed0bd
             5840727b1c4b4b7a260ff425e596edca4ea6534f
             e21e0704d247d02a9930e28f0fd88bf307408d7e
-            4dbf838ed85a8510a3ca1204de41bc981ac6046f
+            656e5676c6e7be339156ff62bd2995f635ad4d3c
             59001f362a71505b07af35f0d65c215bd4f76647
             6d42c7947d900bc8f754593771840d442c61b184
-            21a76d20eb5b002654b551df61ad64631c39a739
-            cd473554a697bf764d8a4b513936aa6a48474b33
-            70a61361e0fab3e107a47b81fa7ecc454686c306
-            d9cf204932a38b31be22034465cbad55bd24b805
-            551397fa923f6444b65725968214f7e3b2a030b7
+            002a5d47f7b7abc4da3bf4aa09ac447e19ea1823
+            346a56b5c409e23e7ffaa4f65423314bfd719134
+            5f920abfa2c39d38a51569592229a67240981cc6
+            45288a2de0a0d998ace8c15555449c9cec85f59a
+            a84bdc15cc0ee37284f72903cb6cf6a8e141c44f
             08bf54f92c0f226027779ba6baf06324c3954973
           )
           for i in "${!archivos[@]}"; do
@@ -133,6 +133,10 @@ jobs:
           grep -Fq 'function claveEquipoDRS(nombre)' assets/tooltips.js
           grep -Fq '"id": "ropa-disfraz"' data/equipo-inicial.json
           grep -Fq '"id": "ropa-tunica"' data/equipo-inicial.json
+          grep -Fq '"id": "montura-armadura-equina"' data/equipo-inicial.json
+          grep -Fq '"id": "vehiculo-diligencia"' data/equipo-inicial.json
+          grep -Fq '"libro de conjuros en blanco":"libro de conjuros"' assets/tooltips.js
+          grep -Fq 'return !x.servicio_por_dia&&' assets/app.js
           grep -Fq '"id": "iluminacion-antorcha"' data/equipo-inicial.json
           grep -Fq 'id="sexo-masculino"' assets/icons-forja.svg
           grep -Fq 'id="sexo-femenino"' assets/icons-forja.svg
@@ -253,6 +257,8 @@ jobs:
           grep -Fq "var ordenAtributos=['Fuerza','Mente','Agilidad','Intuición','Resistencia','Presencia'];" /tmp/forja-app.js
           grep -Fq "iluminacion:'Iluminación'" /tmp/forja-app.js
           grep -Fq "ropa:'Ropa'" /tmp/forja-app.js
+          grep -Fq "monturas:'Monturas'" /tmp/forja-app.js
+          grep -Fq "vehiculos:'Vagones y diligencias'" /tmp/forja-app.js
           grep -Fq "recurso-nota-escudo" /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/equipment.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-equipment.js
           grep -Fq 'function blindajeFicha(personaje,catalogo)' /tmp/forja-equipment.js
@@ -296,6 +302,17 @@ jobs:
             ['Traje elegante',15],['Túnica',1]
           ]);
           assert.equal(e.utiles_fantasia.ropa.some(x=>x.nombre==='Ropa de viaje'),false);
+          const gruposNuevos=['instrumentos','objetos_varios','monturas',
+            'equipo_monturas','vehiculos'];
+          assert.deepEqual(gruposNuevos.map(k=>e.utiles_fantasia[k].length),[4,8,6,6,4]);
+          const armaduraEquina=e.utiles_fantasia.equipo_monturas.find(x=>x.nombre==='Armadura equina');
+          assert.equal(armaduraEquina.precio,undefined);
+          assert.equal(armaduraEquina.precio_variable,'Precio de la protección corporal ×4');
+          const establos=e.utiles_fantasia.equipo_monturas.find(x=>x.nombre==='Establos');
+          assert.equal(establos.precio,.6);
+          assert.equal(establos.servicio_por_dia,true);
+          assert.equal(e.utiles_fantasia.objetos_varios.find(x=>x.nombre==='Pipa de tabaco').du,
+            'd4 (tabaco)');
           console.log('OK: atributos literales DRS de armas, varitas y armaduras en LIVE.');
           NODE
           ! grep -Fq "fuenteGlosa.textContent='Descripción: '" /tmp/forja-tooltip-ui.js
