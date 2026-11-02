@@ -119,3 +119,33 @@ Se han identificado ambos mediante metadatos, pero la operación de lectura del 
 3. ¿Se aceptarán como componentes generables formas de segundos miembros no confirmados como apellido, tales como Brisaolvidada, Fuegosombrío o Telaar? Propuesta: **no** hasta establecer su función.
 
 **No hay autorización ni decisión todavía para modificar datos de producción.**
+
+
+## H. Hallazgo específico: convención de denominación eladrín de Erklan
+
+**Fuente recuperada:** [«Apellidos eladrines en Erklan» — copia Markdown de la antigua wiki](https://drive.google.com/file/d/1brBjcXrRFz2slCSSEuw7m78Y8pBLT5v6/view), cuyo encabezado declara como fuente original `http://wiki.naufragio.net/ylat:terms:eladrin_surnames`. Es una fuente **histórica**, todavía no refrendada en el corpus rector actual.
+
+La nota atribuye a las familias del linaje de los hermanos Aerandil y Anasthore, distinguiéndolas de los Adorasol, un sistema de apellidos construidos con fenómenos del día, la noche o atmosféricos (menciona Alba, Aurora y Ocaso). El segundo elemento distingue el orden de nacimiento y sus deberes/expectativas hereditarias:
+
+| Testimonio de la nota histórica | Información explícita |
+| --- | --- |
+| Aerandil del Atardecer Brillante | Primogénito; sufijo Brillante según la explicación |
+| Anasthore del Atardecer Luciente | Segunda descendiente; sufijo Luciente |
+| del Atardecer Resplandeciente | Ejemplo de sufijo para tercero |
+| de la Aurora Brillante / del Alba Luciente | **Ejemplos explicativos** de la nota, no personajes documentados; no añadir como nombres completos reales |
+
+La propia nota menciona pruebas de Historia **CD 30** para reconocer la relación y **CD 25** para deberes. Son referencias de un sistema anterior y **no deben transferirse a la mecánica de Naufragio d20**.
+
+### Contraste con las fichas individualizadas
+
+- [Aerandil del Atardecer **Refulgente**](https://drive.google.com/file/d/1q2AGQap3uCdFgwyS6CwGf_FiLB5Xbrur/view): ficha de PNJ y hermano mayor, natural de Erklan; el segundo componente **difiere** de la nota antigua (Brillante).
+- [Anasthore del Atardecer Luciente](https://drive.google.com/file/d/1rV6rEjO_Sy2kiollOgJtvKfYbSlTRTZG/view): ficha de PNJ y hermana menor, natural de Erklan; coincide con la nota.
+- [Casa Adorasol](https://drive.google.com/file/d/1I_g1ni_qIrJXGcEteIfs2xQchUCgKlDd/view): tipo «Familia» y membresía listada para Aerandil, Anasthore, Galeshra y Maverae. **Pertenencia no permite por sí sola inferir parentesco o cambio de apellido**; verificar su significado en la base.
+- [Galeshra Adorasol](https://drive.google.com/file/d/1a27heCls2SOJAdEwo2RfxSBd2E3u8lGl/view): la familia Adorasol procede de Thelne Shaeras (Qelasthavia), migró a Erklan y después sus miembros se instalaron en Shadaleen; se confirma como familia y apellido, **no apellido autóctono universal de Erklan**. Maverae Adorasol es primo menor de Galeshra.
+- [Maverae Adorasol](https://drive.google.com/file/d/1vFQabEPdE40CEZvwiytPoXDQjhImYk5Z/view): ficha de PNJ con pertenencia a Casa Adorasol.
+- [Havindrin Mantodorado](https://drive.google.com/file/d/1fIFvT2Hlwh3ncg7-R5hQQA65n9KuFmr4/view): PNJ eladrín relacionado con Erklan, **segundo componente de función indeterminada**. No aplicar la regla Atardecer a toda la especie.
+- [Aurelius Ryszard](https://drive.google.com/file/d/1TL-rwvSRyRQa7bBNrcNRKF6zc5cDmcAV/view): PNJ enano de Faustheim; confirmar función de Ryszard antes de extraer apellido.
+
+**Conflicto editorial nuevo:** Brillante (explicación de la vieja wiki) frente a Refulgente (ficha individual y ficha de Anasthore). Propuesta de trabajo: mantener ambos testimonios con prioridad provisional de la ficha del personaje, sin reescribir ninguna fuente hasta decisión editorial.
+
+**Bloqueo parcial:** el `.txt` original de apellidos (2015) y `Linajes eladrines.txt` (2014) siguen sin poder leerse mediante el conector por error de codificación. El Markdown recuperado puede proceder de una versión web de la nota de apellidos, pero **no se ha establecido equivalencia binaria** con el TXT.
