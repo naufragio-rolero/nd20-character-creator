@@ -6,6 +6,7 @@
   'use strict';
   var biblioteca=null;
   var recursos=null;
+  var iconosCache=null;
   var RUTA='assets/';
   function obtener(url){
     return fetch(url,{cache:'force-cache'}).then(function(response){
@@ -49,20 +50,58 @@
     }
     return recursos;
   }
+  // Cada icono procede de assets/icons/*.svg, ya aprobado y publicado.
+  // Rasterizado local para pdf-lib: los archivos originales no se alteran.
+  var IDS_ICONOS=[
+    'recurso-salud','recurso-esfuerzo','recurso-movimiento','recurso-potencia',
+    'ico-tecnica','ico-conjuro','equipo-bolsa','ico-configurar'
+  ];
+  async function rasterizarIcono(id){
+    var response=await obtener(RUTA+'icons/'+id+'.svg');
+    var svg=await response.blob(),url=URL.createObjectURL(svg),imagen=new Image();
+    try{
+      await new Promise(function(resolve,reject){
+        imagen.onload=resolve;
+        imagen.onerror=function(){reject(Error('No se pudo dibujar el icono '+id));};
+        imagen.src=url;
+      });
+      var canvas=document.createElement('canvas');
+      canvas.width=96;canvas.height=96;
+      var ctx=canvas.getContext('2d');
+      if(!ctx)throw Error('No hay soporte Canvas para los iconos PDF.');
+      ctx.drawImage(imagen,0,0,96,96);
+      return await new Promise(function(resolve,reject){
+        canvas.toBlob(function(png){
+          if(!png){reject(Error('No se pudo rasterizar '+id));return;}
+          png.arrayBuffer().then(resolve,reject);
+        },'image/png');
+      });
+    }finally{URL.revokeObjectURL(url);}
+  }
+  function iconos(){
+    if(!iconosCache){
+      iconosCache=Promise.all(IDS_ICONOS.map(function(id){
+        return rasterizarIcono(id).then(function(bytes){return [id,bytes];});
+      })).then(function(pares){return Object.fromEntries(pares);})
+        .catch(function(e){iconosCache=null;throw e;});
+    }
+    return iconosCache;
+  }
   function filename(personaje){
     var fragmento=String(personaje.nombre||'personaje').normalize('NFKD')
       .replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9_-]+/g,'-')
       .replace(/^-+|-+$/g,'').slice(0,55);
     return 'naufragio-d20-'+(fragmento||'personaje')+'-A5.pdf';
   }
-  async function exportar(personaje,consultaBlindaje){
+  async function exportar(personaje,consultaBlindaje,catalogoEquipo){
     if(!personaje||personaje.juego!=='Naufragio d20 · Fantasía')
       throw Error('El PDF A5 está disponible solo para personajes de Fantasía.');
     if(!root.NaufragioPdfExport||typeof root.NaufragioPdfExport.exportar!=='function')
       throw Error('No se ha cargado el motor de exportación PDF A5.');
-    var recursosDisponibles=await Promise.all([bibliotecas(),archivos()]);
+    var recursosDisponibles=await Promise.all([bibliotecas(),archivos(),iconos()]);
     var opciones=Object.assign({},recursosDisponibles[1],{
       PDFLib:root.PDFLib,fontkit:root.fontkit,
+      iconos:recursosDisponibles[2],catalogoEquipo:catalogoEquipo,
       consultarBlindaje:function(){return consultaBlindaje;}
     });
     var resultado=await root.NaufragioPdfExport.exportar(personaje,opciones);
