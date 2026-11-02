@@ -151,3 +151,16 @@ Añadir una entrada fechada por sesión, enlaces a fuentes y distinción entre h
 **Decisiones:** no hay bloqueo para seguir inventariando. Se mantienen las **12 decisiones ya abiertas**, sin aprobación implícita por parte del autor. Se documentan además variantes internas de epíteto en Branneth y Tharn; no se altera ninguna fuente.
 
 **Próximos trabajos en la rama:** ampliar el registro de nombres fuera del censo con otros textos narrativos, comprobar variantes documentadas antes de proponer fusiones, y ordenar una matriz de elegibilidad editorial. No modificar repertorios productivos antes de validar las restricciones.
+
+
+### 2026-11-02 — Séptima sesión: cronología de Isophius y fuentes rectoras de teonimia
+
+- **Aclaración de autoría:** *Susurros en Isophius* se jugó **después** del periodo cubierto por el censo histórico de 140 PNJ y sus datos **nunca se incorporaron** al Excel. La omisión del registro histórico es esperable por cronología de recopilación, **no evidencia contra el carácter jugado de la campaña**. Actualizados [corpus](corpus-complementario-isophius.md) y [ampliación por crónicas](ampliacion-cronicas-isophius.md) sin alterar sus recuentos.
+- **Nuevas lecturas dirigidas de fuentes rectoras:** [Enciclopedia de Ylat](https://docs.google.com/document/d/11xNUoTcW7bBE3fq8wwBpmxIJmnfaZZnEeB9t47p1qKg/edit), [Espíritus Deíficos](https://docs.google.com/document/d/1O4u4k0sQKFZ-H5SYr38zS0dHkRWMxequQNiUMN5GkNw/edit) y [Lenguas de Ylat](https://docs.google.com/document/d/1FhYWtfZHKoAlr9aQAFLCVej3Uc7s_sVKRp-dMjwsTN4/edit). Documentados en [auditoría de teonimia y designaciones](auditoria-fuentes-rectoras-teonimia.md); la revisión de Enciclopedia y Espíritus sigue siendo **dirigida, no exhaustiva**.
+- **Hallazgo de identidad explícita:** **Narga Solarys** y **Ganragán** son denominaciones de **la misma entidad** antes y después del destierro. **Cacique de las Hordas**, **Último Rey Vetusto** y **Déspota Salvaje** son títulos/epítetos, no apellidos; *Solarys* tampoco está acreditado como apellido familiar libre.
+- **Segundo caso de denominación otorgada:** **Valujna** fue un lobo según su leyenda y recibió ese nombre de los entes que lo salvaron. **Ornuth Aium** es una denominación deífica de dos palabras, no prueba de nombre+apellido. Revisadas también las designaciones de Hstet, Ylathia y Z’Thur.
+- **Lenguas no equivalen a culturas personales inferidas:** la ficha *Cóbatur* confirma a Narga como creador de la lengua; se mantienen las restricciones de atribución cultural y de combinabilidad.
+- **Matriz y propuesta técnica actualizadas:** consulta literal y relación de identidad sí; nuevas asignaciones automáticas **no**. Las decisiones **ONO-01 a ONO-13 permanecen abiertas**; no se han añadido nuevas cuestiones sin necesidad ni cambiado el estado de ninguna.
+- **Cambios GitHub:** exclusivamente documentación de investigación en `docs/investigacion-onomastica-ylat/`. **20 documentos**, ninguno de `data/`, `assets/` ni LIVE modificado. Sin PR de integración ni sincronización de rama con `main`.
+
+**Próximos trabajos:** completar los barridos sistemáticos de las fuentes rectoras y cruzar entidades deíficas y cambios de nombre con el catálogo de aventuras, sin sumarlos prematuramente a los 88 registros del corte anterior.
