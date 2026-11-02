@@ -331,7 +331,11 @@ const htmlForja=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
 assert.ok(htmlForja.includes('id="alternar-menu"')&&htmlForja.includes('aria-expanded="false"'));
 assert.ok(htmlForja.includes('id="opciones-fuentes"')&&htmlForja.includes('id="fuentes-nd20"'));
 const jsForja=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
-assert.ok(jsForja.includes('esc(personaje.descripcion)')&&!jsForja.includes('descripcionConFuente'));
+assert.ok(jsForja.includes('descripcionConSexo(personaje)')&&
+  jsForja.includes('esc(ocupacion)')&&
+  jsForja.includes('esc(descripcion.slice(separacion))')&&
+  !jsForja.includes('descripcionConFuente'),
+  'Cabecera sin procedencias inferidas; conservar literalmente Ocupación y Especie');
 assert.ok(jsForja.includes('fuentesFicha(personaje)'));
 const cssForja=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'utf8');
 assert.ok(cssForja.includes('.panel:not(.panel-abierto){display:none}'));
