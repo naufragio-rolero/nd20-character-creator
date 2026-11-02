@@ -40,7 +40,7 @@ La ficha de **Valujna** relata el origen animal y el bautismo posterior. El nomb
 
 ## 3. Lo que acreditan —y no acreditan— las lenguas
 
-*Lenguas de Ylat* documenta variantes como los dialectos **erk laní** (escrito en el texto original como **Erklaní**), **qelastaví**, **daelí** y otros dentro de *Silvano*; y hablas de *Esserino*, *Guráltico*, *Lítico* y otras lenguas. La descripción del silvano aclara además que su nombre es una **adaptación** para los mortales. Estos hechos ayudan a contextualizar la lengua **cuando una ficha afirma expresamente la procedencia**, pero no permiten deducir automáticamente que un nombre visto en Erklan «deba ser eladrín» o que una forma parecida a un dialecto pertenezca a él.
+*Lenguas de Ylat* documenta variantes como los dialectos **Erklaní**, **Qelastaví**, **Daelí** y otros dentro de *Silvano*; y hablas de *Esserino*, *Guráltico*, *Lítico* y otras lenguas. La descripción del silvano aclara además que su nombre es una **adaptación** para los mortales. Estos hechos ayudan a contextualizar la lengua **cuando una ficha afirma expresamente la procedencia**, pero no permiten deducir automáticamente que un nombre visto en Erklan «deba ser eladrín» o que una forma parecida a un dialecto pertenezca a él.
 
 El apartado *Cóbatur* identifica de nuevo a Narga Solarys, ahora como creador de una lengua artificial. **La lengua que creó una entidad y la cultura lingüística de cualquier nombre asociado a ella son hechos diferentes.**
 
