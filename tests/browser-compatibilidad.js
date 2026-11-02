@@ -211,7 +211,7 @@ async function probar(nombre,tipo,url){
         nombre+': procedencia del popup '+item);
       const tienePrecio=(await page.locator('#ficha-emergente .info-primarios dt')
         .allTextContents()).includes('Precio:');
-      assert.equal(tienePrecio,!['ropa de viaje','mochila'].includes(item),
+      assert.equal(tienePrecio,!['ropa de viaje','mochila','Armadura equina','Establos'].includes(item),
         nombre+': precio solo con ficha individual DRS: '+item);
       await page.locator('#'+id).evaluate(el=>el.remove());
       await page.keyboard.press('Escape');
