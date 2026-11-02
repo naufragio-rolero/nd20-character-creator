@@ -33,7 +33,7 @@
   }
   function etiqueta(t,grupo,sistema,fuentePreferida,adquisicion,textoVisible){
     var dato=consulta(t,grupo,sistema,fuentePreferida);
-    if(!dato)return esc(t);
+    if(!dato)return esc(textoVisible===undefined?t:textoVisible);
     return '<button type="button" class="referencia-glosario" data-glosa-nombre="'+
       esc(t)+'" data-glosa-grupo="'+esc(grupo)+'" data-glosa-sistema="'+
       esc(sistema)+'"'+(fuentePreferida?' data-glosa-fuente="'+esc(fuentePreferida)+'"':'')+
