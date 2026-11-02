@@ -2,6 +2,8 @@
 
 **Preparado:** 2026-11-02. **Estado:** PROPUESTA PARA DECISIÓN DE AUTORÍA, **no aprobada**. Basado en [acta de cierre documental](acta-cierre-documental-corte-2026-11-02.md), [índice maestro v2 (297 formas)](indice-maestro-testimonios-v2.md), [matriz de identidades](matriz-identidades-y-variantes-v1.md), [matriz de elegibilidad](matriz-elegibilidad-editorial.md) y [14 cuestiones ONO](decisiones-editoriales.md). **No se cambia la obra, los datos ni el código.**
 
+> **ACTUALIZACIÓN EDITORIAL DE AUTORÍA (2026-11-02):** tras redactar este dossier, la autoría **fijó 13 de las 14 cuestiones ONO**. La única pendiente es **ONO-02 (padre de Tuliëlle: Dyeld o Eldburg)**. Las opciones y recomendaciones de los apartados siguientes son **antecedentes de investigación**, **no** la política actual. El documento rector de decisiones es el [**acta de autoría**](acta-decisiones-autoria-2026-11-02.md), aplicada en [decisiones-editoriales.md](decisiones-editoriales.md). Se rechazó excluir Máthair/Pietro, se aprobó uso creativo de apellidos de casa **con peso muy bajo** (sin porcentaje implementado), se admitió mezcla de épocas/realidades y se archivó sin uso generativo la convención eladrín. **Ningún cambio de datos o código se desprende automáticamente de esta actualización.**
+
 ## 1. Decisiones necesarias antes de integrar nombres
 
 Las cuestiones se ordenan por **impacto en comportamiento**, no por antigüedad o gravedad literaria. Una **recomendación** es una opción de trabajo conservadora, **nunca una aprobación implícita**.
