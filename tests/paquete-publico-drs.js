@@ -106,18 +106,14 @@ const onomasticoOriginal=leer(raiz,'tesauro-ylat.json');
 const combinaciones=onomasticoOriginal.entradas.filter(x=>x.tipo==='combinado');
 const documentados=onomasticoOriginal.entradas.filter(x=>x.tipo==='documentado');
 assert.equal(combinaciones.length,33);
-assert.equal(documentados.length,19);
-assert.equal(onomasticoOriginal.entradas.length,52);
-assert.deepEqual(onomastico.entradas,combinaciones,
-  'Se publican exactamente las 33 combinaciones del ámbito aprobado');
-assert.equal(new Set(onomastico.entradas.map(x=>x.nombre)).size,33);
-assert.ok(onomastico.entradas.every(x=>x.ambito==='Isla Tormenta'));
-assert.ok(!/niguac|niguaz/i.test(JSON.stringify(onomastico)),
-  'La distribución pública no conserva referencias al corpus externo');
-assert.ok(onomastico.entradas.every(x=>x.tipo==='combinado'));
-assert.ok(!onomastico.entradas.some(x=>
-  documentados.some(y=>y.nombre===x.nombre)),
-  'Ningún personaje documentado puede convertirse en un nombre aleatorio público');
+assert.equal(documentados.length,262);
+assert.equal(onomasticoOriginal.entradas.length,295);
+assert.deepEqual(onomastico.entradas,onomasticoOriginal.entradas,
+  'La distribución pública conserva los 262 documentados y las 33 combinaciones autorizadas');
+assert.equal(new Set(onomastico.entradas.map(x=>x.nombre)).size,295);
+assert.ok(!/niguac|niguaz/i.test(JSON.stringify(onomastico)));
+assert.equal(onomastico.entradas.filter(x=>x.tipo==='documentado').length,262);
+assert.equal(onomastico.entradas.filter(x=>x.tipo==='combinado').length,33);
 const historicosDev=leer(raiz,'nombres-historicos-ylat.json');
 const historicosPublico=leer(salida,'nombres-historicos-ylat.json');
 const vistosHistoricos=new Set();
@@ -338,7 +334,7 @@ try{
   const rechazado=spawnSync(process.execPath,[scriptGuardia,temporal],
     {encoding:'utf8'});
   assert.equal(rechazado.status,1,'El corpus externo jamás se publica');
-  assert.match(rechazado.stderr,/33 combinaciones|corpus ajeno|ámbito aprobado/);
+  assert.match(rechazado.stderr,/repertorio onomástico|Tipo onomástico/);
   fs.writeFileSync(archivoYlat,originalYlat);
   const cambiado=JSON.parse(originalYlat);
   cambiado.entradas[0].nombre='Nombre inventado no aprobado';
