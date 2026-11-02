@@ -53,3 +53,14 @@ En [«Apellidos eladrines en Erklan»](https://drive.google.com/file/d/1brBjcXrR
 ## Política de ampliación
 
 Para agregar un nuevo vínculo, exigir una declaración de parentesco o familia en biografía/relato/ficha individual, guardar la fuente y localizar la frase correspondiente. Registrar las discrepancias tal cual. Una coincidencia de forma, especie, geografía o género no constituye evidencia de parentesco.
+
+## Ampliación: Casa Orovecchio (campaña de Isophius)
+
+**Fuentes con autoridad diferenciada:**
+
+- [`DocumentacionIsophius.odt`](https://drive.google.com/file/d/1js4SQFdk7xry3Q6OsGn2rWfD7t37nmc4/view) menciona explícitamente a la **Casa Orovecchio** como casa noble establecida en la Fortaleza de Piedrahundida.
+- [«Susurros en Isophius»](https://docs.google.com/document/d/1E7AMmSFvZestqgVVDnm4vHKKu4G5_NeXIUWlzlChEYM/edit) acredita a **Tadeo Orovecchio** como padre de **Fabrizio Orovecchio**.
+- [`DatosIsophius.ods`](https://drive.google.com/file/d/1phFBXkKkmBA_0u7wIGDGD7LM3gyxMzep/view) identifica a **Drake Orovecchio** como hermano mediano de Fabrizio y a **Gerad Orovecchio** como hermano menor. Su origen es **preparación de campaña**, no un relato canónico confirmado.
+- El mismo ODS identifica a **Alim de Mostaganem** como **hijo adoptivo** de Fabrizio. **No reemplazar su denominación por «Alim Orovecchio»**, porque esa forma no consta en las fuentes.
+
+La hoja de preparación de Isophius, los seis personajes que contiene y las reservas de estatus están explicados en [isophius-fuentes-campana.md](isophius-fuentes-campana.md). El parentesco no impone un apellido único ni permite inferir que `de Mostaganem` sea un apellido hereditario.
