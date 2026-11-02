@@ -4,6 +4,9 @@
 
 **Documentos de base:** [gestas publicadas y en borrador](corpus-gesta-personajes-ylat.md);  [18 teónimos y 54 epítetos](inventario-teonimos-y-epitetos.md), [cronología y astros](cronologia-y-astroonimia-enciclopedia.md);  [auditoría de fuentes rectoras y teonimia](auditoria-fuentes-rectoras-teonimia.md);  [censo de 140 PNJ](censo-pnj-historico.md); [97 segundos componentes](clasificacion-segundos-componentes.md); [corpus de Isophius](corpus-complementario-isophius.md); [linajes históricos](linajes-historicos-malasthar.md); [biografías](biografias-personajes-cotejo.md); [154 nombres de aventuras](auditoria-aventuras-ylat.md); [auditoría completa del tesauro](auditoria-tesauro-componentes.md). El catálogo de Ylat es documental; las categorías y controles de esta matriz son **diseño editorial**, no nuevo canon.
 
+
+> **CAMBIO DE CRITERIO DE AUTORÍA (2026-11-02):** la tabla inferior recoge la propuesta previa, **no la política aprobada**. El [acta actual](acta-decisiones-autoria-2026-11-02.md) permite uso creativo de apellidos de casa **con probabilidad muy baja** y mezcla de realidades/épocas, conserva Máthair Felsaer (montaña) y Pietro (oso) sin excluirlos, y ordena **no usar** reglas eladrines para generación. El peso concreto sigue pendiente técnico y ONO-02 sigue abierta.
+
 ## 1. Tres dimensiones independientes: no confundirlas
 
 1. **Procedencia acreditada:** archivo, URL, ámbito narrativo, persona y versión; distinguir texto publicado, ficha, campaña, borrador, índice y material de otro universo. «Aparece en un archivo de Ylat» prueba fuente, pero no la clase de entidad ni la legitimidad de su combinación.
