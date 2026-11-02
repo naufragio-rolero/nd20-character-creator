@@ -704,8 +704,8 @@ async function probar(nombre,tipo,url){
       await page.locator('#fichas .tarjeta').first().waitFor();
       const cabeceraOtro=page.locator('#fichas .tarjeta').first();
       assert.equal(await cabeceraOtro.locator('.nivel-ficha').innerText(),'Nivel 1');
-      assert.match(await cabeceraOtro.locator('.sexo-ficha use').getAttribute('href'),
-        /^assets\/icons-forja\.svg#sexo-(masculino|femenino)$/,
+      assert.match(await cabeceraOtro.locator('.sexo-ficha .icono-svg').getAttribute('style'),
+        /assets\/icons\/sexo-(masculino|femenino)\.svg/,
         nombre+': Dungeon Hack respeta el sexo generado sin asignar otros valores');
       assert.ok((await page.locator('#fichas .tarjeta').first().innerText())
         .includes('Comprobación '+otro),
@@ -765,8 +765,8 @@ async function probar(nombre,tipo,url){
       const tarjeta=page.locator('#fichas .tarjeta').first();
       await tarjeta.waitFor();
       assert.equal(await tarjeta.locator('.nivel-ficha').innerText(),'Nivel 1');
-      assert.equal(await tarjeta.locator('.sexo-ficha use').getAttribute('href'),
-        'assets/icons-forja.svg#sexo-'+sexoHistorico,
+      assert.equal(await tarjeta.locator('.sexo-ficha .icono-svg').getAttribute('style'),
+        '--icono-svg:url(assets/icons/sexo-'+sexoHistorico+'.svg)',
         nombre+': icono de sexo visible junto a Ocupación');
       assert.doesNotMatch(await tarjeta.locator('.cabecera-ficha .etiqueta').innerText(),
         /Nivel|Masculino|Femenino/,nombre+': cabecera despejada');
@@ -866,7 +866,7 @@ async function probar(nombre,tipo,url){
     const valoresRecursos=await recursos.locator('.recurso-nombre').allTextContents();
     for(const etiqueta of ['Salud','Esfuerzo','Movimiento','Potencia','Blindaje'])
       assert.ok(valoresRecursos.includes(etiqueta),nombre+': recurso '+etiqueta);
-    assert.equal(await recursos.locator('svg.icono-recurso use').count(),
+    assert.equal(await recursos.locator('.icono-svg.icono-recurso').count(),
       valoresRecursos.length,nombre+': cada recurso posee un SVG');
     const protecciones=fichaTalentos.locator('.protecciones-activas');
     assert.equal(await protecciones.locator('select').count(),2);
