@@ -2,6 +2,9 @@
 
 **Fecha:** 2026-11-02. **Estado:** ESPECIFICACIÓN DE PRUEBAS FUTURAS, **sin implementación y sin aprobación editorial**. Este documento no crea tests ni modifica archivos de producción. Complementa el [dossier de decisiones](dossier-validacion-editorial-onomastica.md) y el [acta de investigación](acta-cierre-documental-corte-2026-11-02.md).
 
+
+> **RESOLUCIONES DE AUTORÍA (2026-11-02):** las pruebas **TIPO-01 a TIPO-05** se redactaron para una opción de exclusión por tipo de entidad que **la autoría no ha adoptado**: deben considerarse escenarios previos, **no requisitos actuales**. **CASA-01** debe revisarse para permitir combinación de linaje con peso muy bajo y sin parentesco canónico; **REAL-01/02** no debe prohibir mezclar nombres por época/realidad, aunque conserva la identidad histórica de cada fuente. **ELAD-01** no generará nombres. Véase [acta](acta-decisiones-autoria-2026-11-02.md).
+
 ## 1. Estado técnico verificado antes de proponer pruebas
 
 En la rama `main` se consultaron:
