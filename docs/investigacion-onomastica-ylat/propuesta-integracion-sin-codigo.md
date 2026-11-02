@@ -154,3 +154,10 @@ El [inventario de Espíritus Deíficos](inventario-teonimos-y-epitetos.md) regis
 **Extensión propuesta, no implementada:** un registro de denominación debe conservar **`tipo_entidad`**, **`tipo_denominacion`**, **`fuente`**, **`seccion`**, **`realidad` cuando conste**, y, solo si se conoce, **`misma_identidad_que`** o **relación de nombre sucesivo**. El ejemplo **Vaiel** impide tratar automáticamente dos menciones idénticas como la misma clase de entidad; **Narga Solarys/Ganragán** demuestra el caso inverso, dos cadenas para una identidad narrativamente acreditada. Las 54 expresiones de epíteto no pueden trasladarse a un campo de apellido.
 
 **No cambiar los repertorios actuales**: el cotejo literal de 24 cadenas con tres catálogos y el censo antiguo fue negativo y **no concede permiso de combinación**. Para una función de consulta documental, priorizar tipos y fuentes antes que la concatenación. Las decisiones ONO-01 a ONO-13 permanecen pendientes.
+
+
+## 11. Estado de publicación como atributo independiente (2026-11-02)
+
+La extracción de [tres Gestas de Ylat](corpus-gesta-personajes-ylat.md) documenta **11 denominaciones**: **5** de dos aventuras publicadas en 2025 y **6** de *La siega de los nombres* (borrador de 2026). Se propone conservar `estado_documental` (`publicado`, `borrador`, `fuente_historica` cuando corresponda), **sin convertir esta propuesta en campos implementados**. El estado de publicación no garantiza por sí solo que un apellido sea libremente transferible.
+
+**Santa Verna** demuestra homonimia de **patrona** y **localidad** dentro de una misma obra. **Liria/Berno** son cónyuges en el borrador, pero ninguno recibe allí segundo componente; un vínculo matrimonial no crea apellidos nuevos. Estas observaciones refuerzan la separación **entidad / denominación / clase / relación / fuente / permiso**.
