@@ -262,6 +262,42 @@
     return {equipo:equipo,detalles:detalles,gastado:gastado,
       restante:Math.round((presupuesto-gastado)*100)/100};
   }
+  // Solo inventario ya adquirido: poseer una protección no equivale
+  // a llevarla puesta. No se equipan piezas de manera automática.
+  function proteccionesDisponibles(personaje,catalogo){
+    var nombres=Array.isArray(personaje?.equipo)?personaje.equipo:[];
+    function propias(lista){
+      return (lista||[]).filter(function(item){
+        return nombres.some(function(n){
+          // Los útiles pueden incorporar cantidad. Nunca tomar una
+          // coincidencia parcial ni un recuerdo por una pieza comprada.
+          return n===item.nombre||n.startsWith(item.nombre+' ×');
+        });
+      });
+    }
+    return {armaduras:propias(catalogo?.armaduras),
+      escudos:propias(catalogo?.escudos)};
+  }
+  // Solo se muestra el dado de la armadura explícitamente equipada.
+  // Los escudos NO se suman al Blindaje permanente: +1 solo al bloquear
+  // según la regla DRS. Una protección natural requiere fuente documental
+  // explícita y no se infiere a partir de Especies o Talentos.
+  function blindajeFicha(personaje,catalogo){
+    var disponibles=proteccionesDisponibles(personaje,catalogo);
+    var activas=personaje?.protecciones_equipadas||{};
+    var armadura=disponibles.armaduras.find(function(x){return x.nombre===activas.armadura;})||null;
+    var escudo=disponibles.escudos.find(function(x){return x.nombre===activas.escudo;})||null;
+    var natural=personaje?.blindaje_natural_fuente&&
+      personaje.blindaje_natural!==undefined&&personaje.blindaje_natural!==null?
+      String(personaje.blindaje_natural):null;
+    return {valor:armadura&&armadura.blindaje!=null?String(armadura.blindaje):
+        natural||'Sin armadura',
+      armadura:armadura?armadura.nombre:null,
+      escudo:escudo?escudo.nombre:null,
+      bonoEscudo:escudo&&escudo.blindaje!=null?String(escudo.blindaje):null,
+      natural:natural?personaje.blindaje_natural_fuente:null};
+  }
   return {compraInicial:compraInicial,consultarUtilFantasia:consultarUtilFantasia,
-    compraUtilesFantasia:compraUtilesFantasia};
+    compraUtilesFantasia:compraUtilesFantasia,
+    proteccionesDisponibles:proteccionesDisponibles,blindajeFicha:blindajeFicha};
 });
