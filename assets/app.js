@@ -82,12 +82,10 @@
       boton.setAttribute('aria-label',tipo+': '+nombre);
       var dibujo;
       if(key){
-        dibujo=document.createElementNS('http://www.w3.org/2000/svg','svg');
-        dibujo.classList.add('icono-eleccion');
+        dibujo=document.createElement('span');
+        dibujo.className='icono-svg icono-eleccion';
+        dibujo.style.setProperty('--icono-svg','url(assets/icons/'+key+'.svg)');
         dibujo.setAttribute('aria-hidden','true');
-        var use=document.createElementNS('http://www.w3.org/2000/svg','use');
-        use.setAttribute('href','assets/icons-forja.svg#'+key);
-        dibujo.appendChild(use);
       }else{
         dibujo=document.createElement('span');
         dibujo.className='icono-azar';
@@ -367,6 +365,11 @@
   }
   // La presentación compacta NO modifica el nombre original: se utiliza
   // íntegro para buscar el popup, copiar/exportar y cotejar el catálogo.
+  // La máscara conserva currentColor y carga cada icono de forma individual.
+  function iconoDecorativo(id,clase){
+    return '<span class="icono-svg '+clase+'" aria-hidden="true" '+
+      'style="--icono-svg:url(assets/icons/'+id+'.svg)"></span>';
+  }
   function presentarPoder(nombre){
     var tipo=String(nombre).match(/^\[(C|T)\]\s+/);
     if(!tipo)return {texto:nombre,icono:''};
@@ -376,9 +379,7 @@
         .replace(/\s+\(C([1-8])\)$/,' ($1)');
     }
     var icono=tipo[1]==='C'?'ico-conjuro':'ico-tecnica';
-    return {texto:texto,icono:
-      '<svg class="icono-poder-lista" aria-hidden="true" focusable="false">'+
-        '<use href="assets/icons-forja.svg#'+icono+'"></use></svg>'};
+    return {texto:texto,icono:iconoDecorativo(icono,'icono-poder-lista')};
   }
   // Clasificación solo visual: no altera las propiedades del Equipo DRS.
   function iconoEquipo(nombre){
@@ -418,8 +419,7 @@
     var leyenda=personaje.sexo==='masculino'?'Masculino':
       personaje.sexo==='femenino'?'Femenino':'No indicado';
     return '<span class="sexo-ficha" role="img" aria-label="Sexo: '+leyenda+
-      '" title="Sexo: '+leyenda+'"><svg aria-hidden="true" focusable="false">'+
-      '<use href="assets/icons-forja.svg#'+id+'"></use></svg></span>';
+      '" title="Sexo: '+leyenda+'">'+iconoDecorativo(id,'')+'</span>';
   }
   function descripcionConSexo(personaje){
     var descripcion=String(personaje.descripcion||'');
@@ -441,8 +441,7 @@
         if(grupo==='equipo'){
           vista.texto=nombreEquipoVisible(v);
           var simbolo=iconoEquipo(v);
-          vista.icono='<svg class="icono-equipo-lista" aria-hidden="true" focusable="false">'+
-            '<use href="assets/icons-forja.svg#'+simbolo+'"></use></svg>';
+          vista.icono=iconoDecorativo(simbolo,'icono-equipo-lista');
         }
         var item=grupo&&infoUI?
           infoUI.etiqueta(v,grupo,sistema,
@@ -531,8 +530,7 @@
     return '<div class="recursos recursos-rejilla" aria-label="Recursos del personaje">'+
       items.map(function(p){
         var icono=iconosRecursos[p[0]],simbolo=icono?
-          '<svg class="icono-recurso" aria-hidden="true" focusable="false">'+
-          '<use href="assets/icons-forja.svg#'+icono+'"></use></svg>':'';
+          iconoDecorativo(icono,'icono-recurso'):'';
         return '<div class="recurso-ficha">'+simbolo+
           '<span class="recurso-texto"><span class="recurso-nombre">'+esc(p[0])+
           '</span><strong>'+esc(p[1])+'</strong></span></div>';

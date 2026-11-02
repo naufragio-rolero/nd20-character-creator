@@ -147,32 +147,67 @@ async function probar(nombre,tipo,url){
       nombre+': 8 Especies con pictograma + aleatoria');
     assert.equal(await page.locator('#selector-visual-ocupacion button').count(),5,
       nombre+': 4 Ocupaciones con pictograma + aleatoria');
-    assert.equal(await page.locator('#selector-visual-especie svg use').count(),8);
-    assert.equal(await page.locator('#selector-visual-ocupacion svg use').count(),4);
-    const iconos=await page.evaluate(async()=>{
-      const r=await fetch('assets/icons-forja.svg');
-      return {status:r.status,contenido:await r.text()};
-    });
-    assert.equal(iconos.status,200);
-    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,35);
-    for(const id of ['masculino','femenino','indeterminado']){
-      assert.ok(iconos.contenido.includes('id="sexo-'+id+'"'),
-        nombre+': SVG de sexo '+id);
+    assert.equal(await page.locator('#selector-visual-especie .icono-svg').count(),8);
+    assert.equal(await page.locator('#selector-visual-ocupacion .icono-svg').count(),4);
+    // Archivos independientes: el canvas 1:1 debe funcionar en cada motor.
+    const idsIconos=[
+      "esp-elfo",
+      "esp-enano",
+      "esp-humano",
+      "esp-mediano",
+      "esp-gnomo",
+      "esp-semielfo",
+      "esp-orco",
+      "esp-semiorco",
+      "ocu-clerigo",
+      "ocu-guerrero",
+      "ocu-mago",
+      "ocu-ladron",
+      "ico-conjuro",
+      "ico-tecnica",
+      "recurso-salud",
+      "recurso-esfuerzo",
+      "recurso-movimiento",
+      "recurso-potencia",
+      "recurso-esencia",
+      "recurso-blindaje",
+      "equipo-espada",
+      "equipo-arco",
+      "equipo-varita",
+      "equipo-bolsa",
+      "equipo-caballo",
+      "equipo-mochila",
+      "equipo-orbe",
+      "equipo-libro",
+      "equipo-armadura",
+      "equipo-escudo",
+      "equipo-municion",
+      "ico-configurar",
+      "sexo-masculino",
+      "sexo-femenino",
+      "sexo-indeterminado"
+    ];
+    const iconos=await page.evaluate(async ids=>Promise.all(ids.map(async id=>{
+      const respuesta=await fetch('assets/icons/'+id+'.svg');
+      return {id,status:respuesta.status,contenido:await respuesta.text()};
+    })),idsIconos);
+    assert.equal(iconos.length,35);
+    for(const icono of iconos){
+      assert.equal(icono.status,200,nombre+': icono '+icono.id);
+      assert.ok(icono.contenido.includes('viewBox="0 0 24 24"'),
+        nombre+': lienzo cuadrado de '+icono.id);
     }
-    for(const id of ['espada','arco','varita','bolsa','mochila','orbe','libro',
-      'armadura','escudo','municion','caballo']){
-      assert.ok(iconos.contenido.includes('id="equipo-'+id+'"'),
-        nombre+': icono de Equipo '+id);
-    }
-    assert.ok(iconos.contenido.includes('id="ico-configurar"'));
-    for(const id of ['salud','esfuerzo','movimiento','potencia','esencia','blindaje']){
-      assert.ok(iconos.contenido.includes('id="recurso-'+id+'"'),
-        nombre+': SVG de '+id+' disponible');
-    }
-    assert.match(iconos.contenido,/<symbol id="ico-conjuro"/,
-      nombre+': icono propio de Conjuros');
-    assert.match(iconos.contenido,/<symbol id="ico-tecnica"/,
-      nombre+': icono propio de Técnicas');
+    const cuadros=await page.locator('.selector-visual .icono-svg')
+      .evaluateAll(nodos=>nodos.map(nodo=>{
+        const caja=nodo.getBoundingClientRect(),estilo=getComputedStyle(nodo);
+        return {ancho:caja.width,alto:caja.height,
+          mascara:estilo.maskImage||estilo.webkitMaskImage};
+      }));
+    assert.equal(cuadros.length,12);
+    assert.ok(cuadros.every(x=>x.ancho>0&&x.ancho===x.alto),
+      nombre+': todos los iconos tienen marco 1:1');
+    assert.ok(cuadros.every(x=>x.mascara.includes('assets/icons/')),
+      nombre+': cada icono se carga de su propio archivo');
     // Los nombres originales de los paquetes no siempre son entradas del
     // catálogo individual. Deben poder consultarse sin atributos inventados.
     for(const [item,esperado,procedencia] of [

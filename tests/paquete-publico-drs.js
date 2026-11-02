@@ -145,9 +145,9 @@ assert.equal(fijo.find(x=>x.nombre==='Armadura equina').precio_variable,
 assert.equal(fijo.find(x=>x.nombre==='Establos').servicio_por_dia,true);
 assert.equal(equipo.utiles_fantasia.objetos_varios.find(x=>x.nombre==='Pipa de tabaco').du,
   'd4 (tabaco)');
-const svgEquipo=fs.readFileSync(path.join(salida,'assets/icons-forja.svg'),'utf8');
-assert.match(svgEquipo,/<symbol id="equipo-caballo" viewBox="0 0 24 24">/,
-  'El caballo de cuerpo entero se distribuye en el sprite público');
+const svgEquipo=fs.readFileSync(path.join(salida,'assets/icons/equipo-caballo.svg'),'utf8');
+assert.match(svgEquipo,/<svg[^>]+viewBox="0 0 24 24"/,
+  'El caballo completo se distribuye como SVG autónomo');
 const prendasDRS=equipo.utiles_fantasia.ropa;
 assert.deepEqual(prendasDRS.map(x=>[x.nombre,x.precio,x.detalle]),[
   ['Abrigo de piel',20,'Protege del frío por debajo de 0º.'],
@@ -220,10 +220,16 @@ assert.ok(html.includes('id="abrir-configuracion"'));
 assert.ok(html.includes('id="dialogo-configuracion"'));
 assert.ok(html.includes('id="resumen-nivel"'));
 assert.ok(html.includes('id="informacion-avanzada"'));
-assert.ok(fs.existsSync(path.join(salida,'assets','icons-forja.svg')));
-assert.equal((fs.readFileSync(path.join(salida,'assets','icons-forja.svg'),'utf8')
-  .match(/<symbol id=/g)||[]).length,35,
-  'Pictogramas DRS: Especies, Ocupaciones, Poderes, Recursos, Equipo y configuración');
+const iconosPublicos=fs.readdirSync(path.join(salida,'assets','icons'))
+  .filter(nombre=>nombre.endsWith('.svg'));
+assert.equal(iconosPublicos.length,35,'El paquete contiene exactamente 35 SVG');
+for(const nombre of iconosPublicos){
+  const svg=fs.readFileSync(path.join(salida,'assets','icons',nombre),'utf8');
+  assert.match(svg,/viewBox="0 0 24 24"/,nombre+': lienzo cuadrado');
+  assert.ok(!svg.includes('<symbol'),nombre+': sin dependencia del sprite');
+}
+assert.ok(!fs.existsSync(path.join(salida,'assets','icons-forja.svg')),
+  'El antiguo sprite no debe distribuirse');
 assert.ok(html.indexOf('value="historico"')<html.indexOf('value="combinado"'),
   'El banco histórico debe ser el modo predeterminado en la distribución');
 assert.ok(html.includes('Variantes de Ylat'));

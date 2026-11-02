@@ -1,16 +1,34 @@
 # Forja: iconografía y configuración de creación
 
-## Iconos
+## Iconos SVG individuales y lienzo cuadrado
 
-Todos los símbolos están en `assets/icons-forja.svg` (`viewBox="0 0 24 24"`), invocados desde `assets/app.js` con `<svg><use href="assets/icons-forja.svg#ID"></use></svg>`. El tamaño y los colores se controlan en `assets/styles.css`.
+Los 35 pictogramas son archivos autónomos en `assets/icons/ID.svg`.
+Todos tienen `viewBox="0 0 24 24"`, anchura y altura idénticas,
+figura centrada y una huella máxima de 19,5 unidades dentro del cuadrado.
+La normalización es **proporcional**: no deforma iconos alargados o estrechos.
 
-- Poderes: `ico-conjuro`, `ico-tecnica` (función `presentarPoder()`).
+**Para reemplazar uno:** editar únicamente `assets/icons/ID.svg`, sin
+renombrar el archivo, con lienzo 1:1 y el dibujo dentro de sus límites.
+No es necesario mantener el `id` interno ni regenerar ningún sprite.
+Las máscaras CSS hacen que cualquier SVG de sustitución utilice el color
+correspondiente al tema activo mediante `currentColor`.
+
+La función `iconoDecorativo(id,clase)` en `assets/app.js` inserta una
+máscara con `--icono-svg:url(assets/icons/ID.svg)`. El selector visual
+usa exactamente el mismo mecanismo. Los pictogramas son decorativos y
+se mantienen las etiquetas accesibles.
+
+- Especies: `esp-elfo`, `esp-enano`, `esp-humano`, `esp-mediano`, `esp-gnomo`, `esp-semielfo`, `esp-orco`, `esp-semiorco`.
+- Ocupaciones: `ocu-clerigo`, `ocu-guerrero`, `ocu-mago`, `ocu-ladron`.
+- Poderes y ajustes: `ico-conjuro`, `ico-tecnica`, `ico-configurar`.
 - Recursos: `recurso-salud`, `recurso-esfuerzo`, `recurso-movimiento`, `recurso-potencia`, `recurso-esencia`, `recurso-blindaje`.
-- Cabecera de personaje: `sexo-masculino`, `sexo-femenino`, `sexo-indeterminado` (este último significa dato no indicado, no una clasificación añadida).
-- Configuración: `ico-configurar` (engranaje).
-- Equipo: `equipo-espada` (armas cuerpo a cuerpo), `equipo-arco` (a distancia), `equipo-varita`, `equipo-bolsa` (genérico), `equipo-mochila` (almacenamiento), `equipo-orbe` (foco), `equipo-libro`, `equipo-armadura`, `equipo-escudo`, `equipo-municion` y `equipo-caballo` (monturas de cuerpo entero).
+- Equipo: `equipo-espada`, `equipo-arco`, `equipo-varita`, `equipo-bolsa`, `equipo-caballo`, `equipo-mochila`, `equipo-orbe`, `equipo-libro`, `equipo-armadura`, `equipo-escudo`, `equipo-municion`.
+- Sexo: `sexo-masculino`, `sexo-femenino`, `sexo-indeterminado`.
 
-Los trazos son **provisionales** y solo representan categorías visuales. Para crear una familia propia conservad los `id`, `viewBox` y el trazo mediante `currentColor`; no hace falta modificar el programa. Los SVG son decorativos (`aria-hidden="true"`).
+**Publicación DRS:** las listas blancas de construcción y auditoría
+incluyen los 35 SVG, sin el sprite antiguo. La entrega LIVE conserva
+la revisión fijada por SHA; integrar esta mejora no despliega DLC ni
+altera automáticamente el sitio publicado.
 
 ## Asociación con Equipo
 

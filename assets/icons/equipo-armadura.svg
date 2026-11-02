@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="equipo-armadura" viewBox="0 0 24 24" width="24" height="24">
+  <g transform="translate(1.16667 1.16667) scale(0.90278)">
+    <path d="m8 2 4 3 4-3 5 5-3 4v11H6V11L3 7l5-5Zm0 0 1 6 3 2 3-2 1-6M9 14h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+  </g>
+</svg>
