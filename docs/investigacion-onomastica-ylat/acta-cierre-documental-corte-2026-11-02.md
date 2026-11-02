@@ -2,6 +2,9 @@
 
 **Corte documental:** 2026-11-02. **Rama:** `research/onomastica-ylat-2026-11`. **Estado:** **CERRADO EL ALCANCE DOCUMENTAL DEFINIDO** en el [plan de cierre](plan-cierre-y-criterios-aceptacion.md); **NO** significa que la onomástica global de Ylat esté agotada, ni que exista aprobación de su autoría para modificar La Forja.
 
+
+> **NOTA POSTERIOR DE GESTIÓN EDITORIAL:** esta acta **cerró el corpus de fuentes** antes de que la autoría respondiese a las cuestiones. El estado actual de las ONO es **13 decisiones fijadas y solo ONO-02 pendiente**, conforme al [acta expresa de autoría](acta-decisiones-autoria-2026-11-02.md). Los pasajes siguientes que dicen «14 pendientes» describen la situación **a la fecha de cierre documental**, no anulan la decisión posterior. No hubo cambios de producción.
+
 ## 1. Declaración de cierre y límites
 
 Se considera **finalizado el primer ciclo documental delimitado**: se han catalogado testimonios ya identificados de personajes, casas, campañas, biografías, cronología, fuentes rectoras y Gestas, junto a sus principales variantes y problemas de identidad. Se fija un corte reproducible para la **consulta** y un inventario explícito de incertidumbres.
