@@ -8,13 +8,24 @@ Todos los símbolos están en `assets/icons-forja.svg` (`viewBox="0 0 24 24"`), 
 - Recursos: `recurso-salud`, `recurso-esfuerzo`, `recurso-movimiento`, `recurso-potencia`, `recurso-esencia`, `recurso-blindaje`.
 - Cabecera de personaje: `sexo-masculino`, `sexo-femenino`, `sexo-indeterminado` (este último significa dato no indicado, no una clasificación añadida).
 - Configuración: `ico-configurar` (engranaje).
-- Equipo: `equipo-espada` (armas cuerpo a cuerpo), `equipo-arco` (a distancia), `equipo-varita`, `equipo-bolsa` (genérico), `equipo-mochila` (almacenamiento), `equipo-orbe` (foco), `equipo-libro`, `equipo-armadura`, `equipo-escudo` y `equipo-municion`.
+- Equipo: `equipo-espada` (armas cuerpo a cuerpo), `equipo-arco` (a distancia), `equipo-varita`, `equipo-bolsa` (genérico), `equipo-mochila` (almacenamiento), `equipo-orbe` (foco), `equipo-libro`, `equipo-armadura`, `equipo-escudo`, `equipo-municion` y `equipo-caballo` (monturas de cuerpo entero).
 
 Los trazos son **provisionales** y solo representan categorías visuales. Para crear una familia propia conservad los `id`, `viewBox` y el trazo mediante `currentColor`; no hace falta modificar el programa. Los SVG son decorativos (`aria-hidden="true"`).
 
 ## Asociación con Equipo
 
 `iconoEquipo(nombre)` en `assets/app.js` consulta primero los registros literales de `data/equipo-inicial.json`: `armas`, `varitas_defensa`, `armaduras`, `escudos`, `municion`, `focos_conjuros_con_precio` y `utiles_fantasia`. En útiles documentados, reconoce nombres explícitos de libros o almacenamiento. Para textos externos o de Dungeon Hack aplica un respaldo conservador por nombre; lo demás recibe bolsa genérica. No se deduce ninguna regla, competencia ni propiedad mecánica. El nombre original de cada objeto se mantiene para consultar, copiar y exportar.
+
+## Icono y categoría de monturas
+
+Las seis monturas documentadas en `utiles_fantasia.monturas` emplean
+`equipo-caballo`, un caballo completo de perfil (SVG 24×24, `currentColor`).
+El símbolo se decide por **pertenencia al catálogo de Monturas**, no por
+palabras sueltas en el nombre: no aparece en Alforjas, Armadura equina,
+Establos o vehículos. El popup identifica **Montura** como tipo y **Monturas**
+como categoría, en vez del genérico «Objeto». Los vehículos indican
+**Vehículo** como tipo, manteniendo su categoría «Vagones y diligencias».
+No se modifican mecánicas ni propiedades.
 
 ## Atributos e Iluminación DRS
 
