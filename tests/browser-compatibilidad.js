@@ -208,8 +208,28 @@ async function probar(nombre,tipo,url){
     assert.equal(cuadros.length,12);
     assert.ok(cuadros.every(x=>parseFloat(x.ancho)>0&&x.ancho===x.alto),
       nombre+': todos los iconos tienen marco 1:1');
-    assert.ok(cuadros.every(x=>x.mascara.includes('assets/icons/')),
-      nombre+': cada icono se carga de su propio archivo');
+    // La ruta absoluta de la mascara, no solo el SVG obtenido por fetch,
+    // tiene que servir desde el directorio correcto en la pagina publica.
+    // De otro modo un icono transparente puede pasar todas las pruebas.
+    const mascaras=await page.locator(
+      '.selector-visual .icono-svg, #abrir-configuracion .icono-svg')
+      .evaluateAll(async nodos=>Promise.all(nodos.map(async nodo=>{
+        const estilos=getComputedStyle(nodo);
+        const valor=estilos.maskImage&&estilos.maskImage!=='none'?
+          estilos.maskImage:estilos.webkitMaskImage;
+        const fuente=valor&&valor.startsWith('url(')?
+          valor.slice(4,-1).replace(/^["']|["']$/g,''):null;
+        if(!fuente)return {url:valor,estado:0,correcto:false};
+        const url=new URL(fuente,document.baseURI);
+        const esperado=new URL('assets/icons/',document.baseURI);
+        const respuesta=await fetch(url.href);
+        return {url:url.href,estado:respuesta.status,
+          correcto:url.href.startsWith(esperado.href)&&url.pathname.endsWith('.svg')};
+      })));
+    assert.equal(mascaras.length,13,nombre+': doce elecciones y configuracion');
+    assert.ok(mascaras.every(m=>m.correcto&&m.estado===200),
+      nombre+': mascara con URL real valida (sin assets/assets/icons): '+
+      JSON.stringify(mascaras.filter(m=>!m.correcto||m.estado!==200)));
     // Los nombres originales de los paquetes no siempre son entradas del
     // catálogo individual. Deben poder consultarse sin atributos inventados.
     for(const [item,esperado,procedencia] of [
@@ -765,9 +785,9 @@ async function probar(nombre,tipo,url){
       const tarjeta=page.locator('#fichas .tarjeta').first();
       await tarjeta.waitFor();
       assert.equal(await tarjeta.locator('.nivel-ficha').innerText(),'Nivel 1');
-      assert.equal(await tarjeta.locator('.sexo-ficha .icono-svg').getAttribute('style'),
-        '--icono-svg:url(assets/icons/sexo-'+sexoHistorico+'.svg)',
-        nombre+': icono de sexo visible junto a Ocupación');
+      assert.ok((await tarjeta.locator('.sexo-ficha .icono-svg').getAttribute('style'))
+        .includes('/assets/icons/sexo-'+sexoHistorico+'.svg)'),
+        nombre+': icono de sexo con ruta absoluta junto a Ocupación');
       assert.doesNotMatch(await tarjeta.locator('.cabecera-ficha .etiqueta').innerText(),
         /Nivel|Masculino|Femenino/,nombre+': cabecera despejada');
       const elegido=await tarjeta.locator('h3').innerText();
@@ -868,6 +888,16 @@ async function probar(nombre,tipo,url){
       assert.ok(valoresRecursos.includes(etiqueta),nombre+': recurso '+etiqueta);
     assert.equal(await recursos.locator('.icono-svg.icono-recurso').count(),
       valoresRecursos.length,nombre+': cada recurso posee un SVG');
+    const mascarasRecursos=await recursos.locator('.icono-svg.icono-recurso')
+      .evaluateAll(nodos=>nodos.map(nodo=>{
+        const valor=getComputedStyle(nodo).maskImage;
+        const fuente=valor&&valor.startsWith('url(')?
+          valor.slice(4,-1).replace(/^["']|["']$/g,''):null;
+        return fuente?new URL(fuente,document.baseURI).pathname:'';
+      }));
+    assert.ok(mascarasRecursos.every(r=>r.includes('/assets/icons/recurso-')&&
+      !r.includes('/assets/assets/icons/')),
+      nombre+': recursos con mascaras cargadas desde assets/icons');
     const protecciones=fichaTalentos.locator('.protecciones-activas');
     assert.equal(await protecciones.locator('select').count(),2);
     const opcionesArmadura=await protecciones.locator('select[data-tipo="armadura"] option')

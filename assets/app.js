@@ -46,6 +46,13 @@
       'Gnomo urbano':'esp-gnomo','Semielfo':'esp-semielfo',
       'Orco común':'esp-orco','Semiorco':'esp-semiorco'}
   };
+  // Las mascaras CSS se resuelven desde assets/styles.css. Con rutas relativas
+  // a la pagina acababan solicitando assets/assets/icons/*.svg: el navegador
+  // dibujaba un hueco transparente sin generar errores JavaScript.
+  // Normalizamos la URL desde el documento para cualquier ruta de despliegue.
+  function urlIcono(id){
+    return 'url('+new URL('assets/icons/'+id+'.svg',document.baseURI).href+')';
+  }
   // Selector de una sola opción, estilo rejilla de personajes de lucha.
   // El select nativo conserva el estado de reglas y es respaldo accesible.
   // Varias candidatas permitidas, una sola Especie/Ocupación por personaje.
@@ -84,7 +91,7 @@
       if(key){
         dibujo=document.createElement('span');
         dibujo.className='icono-svg icono-eleccion';
-        dibujo.style.setProperty('--icono-svg','url(assets/icons/'+key+'.svg)');
+        dibujo.style.setProperty('--icono-svg',urlIcono(key));
         dibujo.setAttribute('aria-hidden','true');
       }else{
         dibujo=document.createElement('span');
@@ -368,7 +375,7 @@
   // La máscara conserva currentColor y carga cada icono de forma individual.
   function iconoDecorativo(id,clase){
     return '<span class="icono-svg '+clase+'" aria-hidden="true" '+
-      'style="--icono-svg:url(assets/icons/'+id+'.svg)"></span>';
+      'style="--icono-svg:'+urlIcono(id)+'"></span>';
   }
   function presentarPoder(nombre){
     var tipo=String(nombre).match(/^\[(C|T)\]\s+/);

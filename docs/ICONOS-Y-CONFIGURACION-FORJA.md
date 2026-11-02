@@ -14,7 +14,11 @@ Las máscaras CSS hacen que cualquier SVG de sustitución utilice el color
 correspondiente al tema activo mediante `currentColor`.
 
 La función `iconoDecorativo(id,clase)` en `assets/app.js` inserta una
-máscara con `--icono-svg:url(assets/icons/ID.svg)`. El selector visual
+máscara con `--icono-svg:url(URL-ABSOLUTA/assets/icons/ID.svg)`.
+La URL se construye con `new URL('assets/icons/'+id+'.svg',document.baseURI)`
+para evitar que el CSS interprete rutas relativas desde `assets/styles.css`
+como `assets/assets/icons/ID.svg`, dejando los pictogramas invisibles sin
+error de consola. El selector visual
 usa exactamente el mismo mecanismo. Los pictogramas son decorativos y
 se mantienen las etiquetas accesibles.
 

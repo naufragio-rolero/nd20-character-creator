@@ -92,6 +92,8 @@ html[data-tema=ebano] .inicio-movil strong{color:#243946}
   -webkit-mask:var(--icono-svg) center / contain no-repeat;
   mask:var(--icono-svg) center / contain no-repeat;
 }
+/* Ruta relativa a esta hoja (assets/styles.css), no al documento. */
+#abrir-configuracion .icono-svg{--icono-svg:url(icons/ico-configurar.svg)}
 .icono-eleccion{display:block;width:29px;height:29px;flex:none;color:var(--oro)}
 .icono-azar{display:grid;place-items:center;font-size:1.25rem;font-weight:700;
   height:29px;color:var(--oro)}
