@@ -140,3 +140,19 @@ Esta es una **revisión por relevancia, no un censo exhaustivo** de todos los do
 **Archivo de ampliación:** [ampliacion-cronicas-isophius.md](ampliacion-cronicas-isophius.md).
 
 **Pendiente real, distinto del antiguo bloqueo:** ampliar el corpus global más allá del Excel, determinar el peso canónico de textos históricos y resolver variantes mediante decisión editorial. No cargar los hallazgos en los JSON productivos.
+
+
+## Sexta sesión: cierre de la unión Isophius–casas y nuevos documentos históricos (2026-11-02)
+
+| Fuente | Estado | Producto y hallazgo |
+| --- | --- | --- |
+| [«Susurros en Isophius» — ficha narrativa](https://drive.google.com/file/d/18UIbCTckiCU8B2l3-eIIIy4gho9Q1cSd/view) | Ficha completa leída y lista de 46 personajes extraída | 44 denominaciones literales fuera del censo de 140; una es el descriptor «Hijo de Pamela» |
+| 15 fichas de casas, incluidas [Pamphilos](https://drive.google.com/file/d/1NeURxLvWDE8ADNO-IjtnvjE1G8Yjh8pa/view), [Swordkey](https://drive.google.com/file/d/1q5Md3cjjja6eG2FDi2V3VKVRKAWo38vf/view), [Gull](https://drive.google.com/file/d/16K7PxxqSRXnGD-g-9VDaSgMKlw8owpp0/view), [Boll](https://drive.google.com/file/d/1Z6U0pbk9NXdfC4EBDUfZumSSJ0WsxvUr/view) y [Methodius](https://drive.google.com/file/d/1MdcHupwIefxN18Lcs9AZmOLNScnEZPIz/view) | Listas de miembros cotejadas | 50 membresías, 43 personas distintas, 61 denominaciones únicas combinadas con la campaña; 15 ya en el censo, 46 fuera |
+| [Maurice Martoni](https://drive.google.com/file/d/1SKFsVDWORznA_I8QHh2dC_3VGqCd21ts/view), [Francesca Martoni](https://drive.google.com/file/d/1bEjT5jhMDnsd_BNB1wFmbmknrDsTNrXj/view), [Mario Martoni](https://drive.google.com/file/d/1CELaYbxVija5vyNYEbLKsR5eezh2eleD/view) | Biografías leídas | Padre, madre e hijo Martoni; aparecen bajo **Casa Rizzo**, sin que se documente portador del apellido Rizzo |
+| [Tayana Pamphilos](https://drive.google.com/file/d/1nbcb_02oY35gZAqbDlC3IZBPCWE9un5z/view), [Jiggalen Pamphilos](https://drive.google.com/file/d/1NaH5XoKyACX8dKTdSqqd7UG1uHc4VZHt/view) | Biografías leídas | Tayana procede de Methodius; figura como Pamphilos tras casarse; Jiggalen es superviviente en la fecha interna del texto |
+| [Edward Swordkey](https://drive.google.com/file/d/1-OXDfjI2r3YRhXx5PRu6yKKsuqZH2oz1/view), [William Gull](https://drive.google.com/file/d/1cW7hy7VivQ4Vy1mUM_CvhjpLGasrJUl2/view), [Kharan Boll](https://drive.google.com/file/d/1gTNBmn8BE6PB5hF59NFBnwgzALdf0LT0/view) | Fichas leídas | Parentesco explícito, título nobiliario y **Ylat³** de Kharan; no generalizar |
+| [Historia del Imperio de Malasthar](https://docs.google.com/document/d/1fyLSppENaYx2w8tvVzdzdfTAZ46_epq-nFS1S0yPWKE/edit) | Bloque histórico y monárquico leído | **19** denominaciones verificadas: **12 monarcas** y siete menciones; separa **Tres Lises** y epítetos, conserva variantes Branneth/Tharn |
+| [Biografías de personajes: Ylat](https://docs.google.com/document/d/1yOtB8nNvE9_jBDvITuXzFFFFNFAiJI6Z4hr6D_1pxaA/edit) | 8 biografías cotejadas con el censo | Caelia coincide; Vrymmir tiene variante ortográfica; Amadeus es nombre adoptado por Amathur; Astrid vino de otra realidad; Bram posee un mote |
+| [Repertorios `main`](https://github.com/naufragio-rolero/nd20-character-creator/tree/main/data) | JSON contrastados, **sin editar** | Entre las 61 denominaciones de Isophius/casas: **0** formas completas en banco histórico y **1** en tesauro: **Kharan Boll**, `ylat-d038` |
+
+**Productos de esta sesión:** [corpus-complementario-isophius.md](corpus-complementario-isophius.md), [linajes-historicos-malasthar.md](linajes-historicos-malasthar.md), [biografias-personajes-cotejo.md](biografias-personajes-cotejo.md). En la unión de esos tres registros se han confirmado **88 denominaciones textuales**, con **16 coincidencias literales** con los 140 PNJ y **72 no idénticas a esos registros**. No son 72 personajes nuevos ni 72 nombres generables. El material sigue segregado de `data/` y `assets/`.
