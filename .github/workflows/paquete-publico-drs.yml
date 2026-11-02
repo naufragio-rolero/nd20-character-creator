@@ -42,7 +42,7 @@ jobs:
         run: node tests/pdf-a5-browser-e2e.cjs
       - name: Instalar motores de compatibilidad solo en CI
         run: |
-          npm install --no-save --no-package-lock playwright@1.56.1
+          test -f node_modules/playwright/package.json
           npx playwright install --with-deps firefox webkit
       - name: Probar los archivos PUBLICOS en Firefox y WebKit
         env:
