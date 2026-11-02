@@ -82,3 +82,40 @@ Estas decisiones **no bloquean la continuación de la investigación documental*
 - No inventar apellidos, etimologías, reglas culturales, genealogías o términos de ambientación.
 - No alterar `data/`, `assets/`, interfaces ni LIVE en esta rama.
 - No fusionar esta rama con `main` ni abrir una PR de integración antes de revisión editorial.
+
+
+## 8. Extensión de la propuesta tras el contraste con otros tres corpus
+
+**Documentación nueva (2026-11-02):** [corpus complementario de Isophius](corpus-complementario-isophius.md) (61 denominaciones), [linajes históricos de Malasthar](linajes-historicos-malasthar.md) (19 nombres), [biografías contrastadas](biografias-personajes-cotejo.md) (8 biografías). **Son testimonios, no componentes generables**. En su unión literal hay **88 denominaciones**, **16** idénticas a entradas del censo de 140, **72** externas por coincidencia literal; incluyen alias, títulos, referencias a otros mundos y un descriptor sin nombre propio, así que no equivalen a 72 PNJ nuevos.
+
+### Entidades y relaciones que no deben confluir
+
+| Unidad documental | Ejemplo comprobado | Qué no hacer |
+| --- | --- | --- |
+| Personaje narrativo | `Kharan Boll` tiene [ficha en Ylat³](https://drive.google.com/file/d/1gTNBmn8BE6PB5hF59NFBnwgzALdf0LT0/view) | Suponer que todos los miembros de Casa Gull (Ylat¹) están en su misma realidad |
+| Nombre nominal de personaje | `Richerento`, nombre unitario de una [ficha](https://drive.google.com/file/d/1XDQfQd6Eyv5oMW5L2UC8nwnVSAPB6LS0/view) | Completar «Richerento» con apellido inventado |
+| Alias individual | `Draconio «Drake» Orovecchio`, [ficha](https://drive.google.com/file/d/18bkKd4-ZE_dQNDWvFWxua6MZkie6_1YE/view) | Usar «Drake» como segundo componente familiar |
+| Denominación de cobertura | `Amadeus`, nombre adoptado en Ylat por el extraterrestre que la [biografía](https://docs.google.com/document/d/1yOtB8nNvE9_jBDvITuXzFFFFNFAiJI6Z4hr6D_1pxaA/edit) denomina Amathur | Clasificar «Amadeus» como nombre tradicional de humanos ylathinos |
+| Apodo explícito | `Bram Brasagorda`; el verdadero apellido consta como desconocido | Transmitir «Brasagorda» como apellido hereditario |
+| Linaje histórico | `Lys Terrana / Lys Maren / Lys Caelis`, fuente [Historia de Malasthar](https://docs.google.com/document/d/1fyLSppENaYx2w8tvVzdzdfTAZ46_epq-nFS1S0yPWKE/edit) | Crear nombres «Lys X» o añadir Terrana a todos los monarcas por defecto |
+| Epíteto individual | `Varlyna, la Fundadora`, `Iralde Terrana, la del Arado Rojo` | Convertir epítetos y partículas en apellidos de familia |
+| Topónimo | `Varlyna` también designa la ciudad fundada por la gobernante | Fusionar el nombre de persona con la entidad geográfica |
+| Casa y membresía | [Casa Rizzo](https://drive.google.com/file/d/1sFZVDqN7UzYAhAk2WpD0-_gdY4onDWJ6/view) enumera **Maurice, Francesca y Mario Martoni** | Sustituir automáticamente Martoni por Rizzo |
+| Relación biológica | [Maurice](https://drive.google.com/file/d/1SKFsVDWORznA_I8QHh2dC_3VGqCd21ts/view) y [Francesca](https://drive.google.com/file/d/1bEjT5jhMDnsd_BNB1wFmbmknrDsTNrXj/view) son padre y madre de Mario | Inventar que «Casa Rizzo» se llama realmente «Martoni» |
+| Matrimonio y apellido de presentación | [Tayana Pamphilos](https://drive.google.com/file/d/1nbcb_02oY35gZAqbDlC3IZBPCWE9un5z/view) era Methodius antes de casarse; [Stasi Giovanni](https://drive.google.com/file/d/1ozRYZsVyx215chp5qLK5SVspCjhtOky-/view) mantiene otro apellido | Aplicar una regla universal de cambio o permanencia de apellido por matrimonio |
+| Descriptor sin nombre | `Hijo de Pamela` aparece como personaje en el índice de Isophius | Añadirlo al repertorio de nombres propios |
+| Denominación de entidad no humana | [`Mogg'Shattoth`](https://drive.google.com/file/d/10bH7dXTJoqX8V_luTdTWFApxbru5sUHG/view) está clasificado como demonio | Mezclarlo con repertorio ordinario de nombre humano |
+
+**Propuesta para la eventual estructura de consulta:** conservar `nombre_literal` por fuente, `tipo_de_denominacion` solo si hay evidencia, `persona/entidad`, `realidad`, `época`, `fuente`, `casa`, `relación`, `alias`, `epíteto` y un indicador editorial **independiente** de `aprobado_para_generacion`. Esta tabla es una **especificación conceptual**, no un esquema de datos aprobado.
+
+### Pruebas de regresión adicionales futuras, sin ejecutarlas aún
+
+- `Kharan Boll` está documentado en el tesauro de Isla Tormenta, pero **`Kharan Shadelgast`** es una combinación no canónica en ese tesauro.
+- La unión del censo y del corpus complementario no puede registrar dos veces `Caelia Fulgentis` por coincidencia literal.
+- `Vrymmir Borgernstâg` y `Vrymmir Borgenrstâg` deben poder apuntar a una **relación de variante propuesta**, no a dos individuos automáticos.
+- `Hijo de Pamela` nunca se convierte en nombre aleatorio.
+- `Amadeus` y `Amathur` conservan su contexto de nombre de cobertura y narrativo; no contaminan nombres humanos ordinarios.
+- `Rizzo` no debe ser asignado automáticamente a `Maurice Martoni` por pertenencia a Casa Rizzo.
+- La combinación de **linaje histórico y epíteto** en las Tres Lises debe conservar el nombre literal tal como figura en cada testimonio; no derivar una fórmula general.
+
+**La integración continúa sin autorización** y no se ha escrito código, modificado JSON, abierto PR de integración ni desplegado LIVE.
