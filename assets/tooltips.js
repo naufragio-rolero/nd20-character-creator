@@ -19,6 +19,22 @@
       .replace(/^Paquete\s+([^:]+):.*$/i,"$1")
       .replace(/^Paquete\s+/i,"").trim();
   }
+  // Alias explícitos de artículos DRS documentados; solo consulta.
+  // Las cantidades de los paquetes se conservan intactas en el inventario.
+  function claveEquipoDRS(nombre){
+    var clave=normalizar(limpiar(nombre));
+    var sinonimos={
+      "racion":"racion de alimento",
+      "raciones":"racion de alimento",
+      "racion de alimentos":"racion de alimento",
+      "dos raciones de alimento":"racion de alimento",
+      "dos raciones de alimentos":"racion de alimento",
+      "tres raciones":"racion de alimento",
+      "tres raciones de alimento":"racion de alimento",
+      "tres raciones de alimentos":"racion de alimento"
+    };
+    return sinonimos[clave]||clave;
+  }
   function indice(fuentes){
     var mapa=new Map(),porId=new Map(),total=0;
     function incluir(entry){
@@ -158,6 +174,7 @@
         k==="paquetes"?"Paquete":"Objeto",k==="armas"||k==="armaduras"?k:familias[k]);
     });
     var gruposUtiles={iluminacion:"Iluminación",aventura:"Útil de aventura",campamento:"Campamento",
+      ropa:"Ropa",
       consumibles:"Consumible",herramientas:"Herramienta",escritura:"Escritura"};
     Object.entries(eq.utiles_fantasia||{}).forEach(function(par){
       equipo(par[1],"nd20","mo","Naufragio d20 DRS · Herramientas",
@@ -183,7 +200,7 @@
         });
     });
     porObjetoPaquete.forEach(function(item,key){
-      if(mapa.has(key))return; // Preferir siempre la glosa original DRS.
+      if(mapa.has(claveEquipoDRS(item.nombre)))return; // Preferir ficha DRS real.
       var titulo=item.nombre.replace(/^./,function(x){return x.toLocaleUpperCase("es");});
       anotar(titulo,"Objeto","nd20","Naufragio d20 DRS · Paquetes de equipo",
         {grupo:"equipo",datos:[["Incluido en",item.paquetes.join(", ")]]});
@@ -484,7 +501,9 @@
   function buscar(ind,nombre,grupo,sistema,fuentePreferida){
     if(!ind||!nombre)return null;
     var circulo=(String(nombre).match(/\(C([1-8])\)/)||[])[1];
-    var limpio=limpiar(nombre),lista=(ind.mapa.get(normalizar(limpio))||[]).slice();
+    var limpio=limpiar(nombre),clave=normalizar(limpio);
+    var claveReal=grupo==="equipo"?claveEquipoDRS(limpio):clave;
+    var lista=(ind.mapa.get(claveReal)||ind.mapa.get(clave)||[]).slice();
     if(circulo)lista=lista.filter(function(x){
       if(x.tipo!=="Conjuro")return true;
       return x.datos.some(function(d){return d[0]==="Círculo"&&String(d[1])===circulo;});
