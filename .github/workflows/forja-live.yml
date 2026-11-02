@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=b82952cdbda6532747178ff73054e39c802f8a9d
+          UI_COMMIT=1ba19f369423ad0e297adbcbf3d2d5ec6935cc59
           archivos=(
             assets/app.js
             assets/styles.css
@@ -67,11 +67,11 @@ jobs:
             tests/smoke.js
           )
           blobs=(
-            49d7a0467ac6c71dcb9ce220e530bd5579d7106d
+            d77ecc370b700748629131c8a01feae71d8547ca
             a3fcc0c59cd0ad002dc36dc635f1583132066749
-            91ba5debe4b79b59d5b97b53f0be9c62a4fb328b
+            13784584db09986e28841cd6df72c8f09aae94f1
             105de262dd5d81c283ac2cc1bd26e04068ea8a6f
-            8bc37f3ed18a2af93faccd6dff108852d86105a1
+            116ae34bbc0fe58361091cefdc0b38502413cab1
             0014c9b90c45bde0415c93c6102d432611df6ddd
             9593337ee7b4779f8f06f62151e6905d1cd8124f
             7aced6a1728d60a69115190a38861f3bfabed0bd
@@ -81,9 +81,9 @@ jobs:
             59001f362a71505b07af35f0d65c215bd4f76647
             6d42c7947d900bc8f754593771840d442c61b184
             002a5d47f7b7abc4da3bf4aa09ac447e19ea1823
-            346a56b5c409e23e7ffaa4f65423314bfd719134
-            5f920abfa2c39d38a51569592229a67240981cc6
-            45288a2de0a0d998ace8c15555449c9cec85f59a
+            7517ead2292569cb7db354f0869d49f83276cdd7
+            efb2d320e1ae44978e0a794c9d5e49104028fcfc
+            d0647305466852941286fcb80812d84cd285d9f4
             a84bdc15cc0ee37284f72903cb6cf6a8e141c44f
             08bf54f92c0f226027779ba6baf06324c3954973
           )
@@ -108,6 +108,9 @@ jobs:
           grep -Fq 'id="compras-grupo"' index.html
           grep -Fq 'id="ico-conjuro"' assets/icons-forja.svg
           grep -Fq 'id="ico-tecnica"' assets/icons-forja.svg
+          grep -Fq 'id="equipo-caballo"' assets/icons-forja.svg
+          grep -Fq "if(contiene(c.utiles_fantasia?.monturas))return 'equipo-caballo';" assets/app.js
+          grep -Fq 'par[0]==="monturas"?"Montura"' assets/tooltips.js
           ! grep -Fq 'Forma del generador histórico de nombres de Ylat.' assets/rules.js
           ! grep -Fq 'Nombre del banco histórico sin clasificación documental de sexo;' assets/sex.js
           grep -Fq "grupo==='talento'||grupo==='poder'||grupo==='equipo'" assets/app.js
@@ -252,6 +255,10 @@ jobs:
           grep -Fq 'function htmlProteccionesEquipadas(personaje,id)' /tmp/forja-app.js
           grep -Fq 'class="recursos recursos-rejilla"' /tmp/forja-app.js
           grep -Fq 'function iconoEquipo(nombre)' /tmp/forja-app.js
+          grep -Fq "if(contiene(c.utiles_fantasia?.monturas))return 'equipo-caballo';" /tmp/forja-app.js
+          grep -Fq 'par[0]==="monturas"?"Montura"' /tmp/forja-tooltips.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons-forja.svg?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-iconos.svg
+          grep -Fq 'id="equipo-caballo"' /tmp/forja-iconos.svg
           grep -Fq 'function descripcionConSexo(personaje)' /tmp/forja-app.js
           grep -Fq 'function nombreEquipoVisible(nombre)' /tmp/forja-app.js
           grep -Fq "var ordenAtributos=['Fuerza','Mente','Agilidad','Intuición','Resistencia','Presencia'];" /tmp/forja-app.js
