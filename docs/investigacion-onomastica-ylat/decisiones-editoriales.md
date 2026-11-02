@@ -1,6 +1,6 @@
 # Decisiones editoriales pendientes — onomástica de Ylat
 
-Actualizado: 2026-11-02. **13 asuntos registrados**; ninguna resolución se atribuye al autor. Estas dudas no impiden seguir investigando, pero sí normalizar nombres o activar nuevas combinaciones.
+Actualizado: 2026-11-02. **14 asuntos registrados**; ninguna resolución se atribuye al autor. Estas dudas no impiden seguir investigando, pero sí normalizar nombres o activar nuevas combinaciones.
 
 | ID | Cuestión | Pruebas contrapuestas | Criterio provisional | Estado |
 |---|---|---|---|---|
@@ -20,6 +20,8 @@ Actualizado: 2026-11-02. **13 asuntos registrados**; ninguna resolución se atri
 
 | ONO-13 | ¿La Forja puede sortear nombres de animales o topónimos documentados? | El tesauro activo contiene [Máthair Felsaer](https://drive.google.com/file/d/1kTIO-sZcM1-YQMiIsxjB4IwX8WJv3Kha/view) como `documentado` (su ficha dice Montaña), y «Pietro» como `documentado` ([oso de Drakabel](https://drive.google.com/file/d/14io6IofuStSQOOAIrR7ujeDUoJ_qWikz/view)); hay **4 combinaciones** que los usan como primer componente y **3** que usan el topónimo Felsaer como segundo | Proponer separarlos en consulta de **entidades/lugares/animales** y excluirlos de la generación ordinaria de nombres de persona, **si el alcance del generador se restringe a personajes**; confirmar criterio editorial antes de tocar datos | **Pendiente de autor, prioridad alta** |
 
+| ONO-14 | Narga Solarys / Narga Solaris | «Narga Solarys» en [Enciclopedia de Ylat](https://docs.google.com/document/d/11xNUoTcW7bBE3fq8wwBpmxIJmnfaZZnEeB9t47p1qKg/edit) y [Espíritus Deíficos](https://docs.google.com/document/d/1O4u4k0sQKFZ-H5SYr38zS0dHkRWMxequQNiUMN5GkNw/edit); «Narga Solaris» en [Zonas de Ylat](https://docs.google.com/document/d/1v6rZIEWMGLvhv6b5WHMNQa0zwCzrPTOdqZEU5t6USFg/edit), Península de Erklan | Preservar ambas formas, preferir **Solarys** como grafía provisional al cotejar **dos fuentes** frente a **una**, sin corregir Zonas; véase [auditoría](auditoria-shadaleen-eponimos-y-relatos.md) | **Pendiente de autor** |
+
 ## Hechos aclarados
 
 - Viktor Kultstein sobrevivió a la Purga pese a que la Casa Kultstein figura como disuelta.
@@ -37,6 +39,7 @@ Actualizado: 2026-11-02. **13 asuntos registrados**; ninguna resolución se atri
 - [Clasificación de los 97 componentes](clasificacion-segundos-componentes.md)
 - [Propuesta de integración sin código](propuesta-integracion-sin-codigo.md)
 - [Matriz de elegibilidad editorial](matriz-elegibilidad-editorial.md)
+- [Siete Familias, relatos contrapuestos y Solaris/Solarys](auditoria-shadaleen-eponimos-y-relatos.md)
 - [Auditoría del tesauro activo](auditoria-tesauro-componentes.md)
 - [Índices de aventuras y colisión Vaelar](auditoria-aventuras-ylat.md)
 - [Rectificación de corpus ajeno](../enciclopedia/127-exclusion-corpus-ajeno-ylat.md)
