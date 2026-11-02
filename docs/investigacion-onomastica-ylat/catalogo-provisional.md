@@ -149,3 +149,22 @@ La propia nota menciona pruebas de Historia **CD 30** para reconocer la relació
 **Conflicto editorial nuevo:** Brillante (explicación de la vieja wiki) frente a Refulgente (ficha individual y ficha de Anasthore). Propuesta de trabajo: mantener ambos testimonios con prioridad provisional de la ficha del personaje, sin reescribir ninguna fuente hasta decisión editorial.
 
 **Bloqueo parcial:** el `.txt` original de apellidos (2015) y `Linajes eladrines.txt` (2014) siguen sin poder leerse mediante el conector por error de codificación. El Markdown recuperado puede proceder de una versión web de la nota de apellidos, pero **no se ha establecido equivalencia binaria** con el TXT.
+
+
+## I. Contraste detallado de la Casa Gull
+
+**Fuente:** [«Sir William White Gull.docx»](https://drive.google.com/file/d/1zUsqKWxR7SBPx9xxMKNMh-fP6yPg1ADy/view), en la carpeta Personajes del Drive.
+
+| Forma textual | Función/corroboración | Cautela |
+| --- | --- | --- |
+| Casa Gull / los Gull | Familia noble explícita; la historia trata de su declive y sucesión | En «Zonas de Ylat» también se documenta la familia noble Gull de Aermont, pendiente de cotejar época y estado |
+| John Gull | Padre de William; nombre empleado expresamente en el relato | En la primera presentación también figura como **John William**; no sustituir una forma por otra sin revisión |
+| Whilliam Gull | Forma de nacimiento y presentación del heredero | El mismo documento utiliza a continuación «William» de modo repetido |
+| William Gull / sir William Gull | Uso posterior y encabezado del texto | Equivalencia narrativa de Whilliam/William **dentro de este relato**, no necesariamente regla ortográfica general |
+| Annie Crook | Mujer que interviene en la sucesión familiar | La función exacta de Crook como apellido se infiere de la forma completa, pero no existe descripción explícita de familia Crook |
+| Eddy | Hijo menor y heredero de John | El texto no lo denomina literalmente «Eddy Gull»; no construir forma completa por cuenta propia |
+| White | Solo en el **nombre de archivo**, no en el cuerpo textual | No incorporarlo como segundo nombre, apellido ni epíteto |
+
+La forma «John William» podría ser un desliz, otro nombre compuesto o una formulación con significado propio. Es un **conflicto editorial**, no una corrección automática.
+
+La existencia de un testimonio narrativo sobre la Casa Gull corrobora su uso como apellido familiar, no autoriza distribuirlo aleatoriamente entre personajes sin vínculos.
