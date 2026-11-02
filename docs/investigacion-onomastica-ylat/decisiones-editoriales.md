@@ -1,11 +1,11 @@
-# Decisiones editoriales pendientes — onomástica de Ylat
+# Decisiones editoriales cerradas — onomástica de Ylat
 
-Actualizado: 2026-11-02. **14 asuntos registrados: 13 criterios definidos expresamente por la autoría; 1 pendiente (ONO-02)**. Véase el [acta de decisiones de autoría](acta-decisiones-autoria-2026-11-02.md). **Las decisiones de política no implican que se hayan implementado pesos o filtros en La Forja.**
+Actualizado: 2026-11-02. **14 asuntos registrados y cerrados por decisión expresa de la autoría (ONO-01 a ONO-14)**. Véase el [acta de decisiones de autoría](acta-decisiones-autoria-2026-11-02.md). **Las decisiones de política no implican que se hayan implementado pesos o filtros en La Forja.**
 
 | ID | Cuestión | Pruebas contrapuestas | Decisión de autoría (o reserva pendiente) | Estado |
 |---|---|---|---|---|
 | ONO-01 | Aerandil | Brillante en los TXT eladrines de 2014 y 2015; Refulgente en fichas y censo | Fijar **Aerandil del Atardecer Brillante** (autoría); **Refulgente** es variante en fichas/censo. | Definida por autoría |
-| ONO-02 | Padre de Tuliëlle | Dyeld en relato autobiográfico y ficha de Laevinë; Eldburg en ficha de Eldburg | **Sin decisión de autoría**: padre de Tuliëlle **Dyeld o Eldburg**; preservar testimonios sin atribuir paternidad definitiva. | **Pendiente (única cuestión abierta)** |
+| ONO-02 | Padre de Tuliëlle | Dyeld en relato autobiográfico y ficha de Laevinë; Eldburg en ficha de Eldburg | **Dyeld es el padre canónico de Tuliëlle**, por confirmación expresa de la autoría. Eldburg conserva su declaración en la ficha original como **contradicción documental histórica**, no como segunda paternidad vigente. No fusionar personajes ni reescribir testimonios originales. | **Cerrada por autoría** |
 | ONO-03 | Apellido de Vrymmir | Borgenrstâg en ficha/censo antiguo; Borgernstâg en artículo publicado y Biografías | Fijar **Vrymmir Borgernstâg**; conservar Borgenrstâg como variante histórica. | Definida por autoría |
 | ONO-04 | Apellidos nobiliarios o de casas disueltas | Casas familiares, supervivientes Kultstein, matrimonios y adopciones | **Se permite** generación creativa con apellidos de casas y nobiliarios, con **peso muy bajo**; el resultado no acredita parentesco. **Valor numérico e implementación pendientes**. | Criterio definido; ponderación no implantada |
 | ONO-05 | Nombres de otras épocas y realidades | Gylran antiguo; Tegku etiquetado Ylat⁴ y muchos PNJ Ylat¹ | **Se permite mezclar** nombres y épocas/realidades en la generación, sin eliminar los metadatos históricos de identidad y realidad de las fuentes. | Definida por autoría |
@@ -34,7 +34,7 @@ Actualizado: 2026-11-02. **14 asuntos registrados: 13 criterios definidos expres
 
 ## Documentos de contraste
 
-- [Acta de 13 decisiones fijadas y ONO-02 pendiente](acta-decisiones-autoria-2026-11-02.md)
+- [Acta de las 14 decisiones canónicas cerradas](acta-decisiones-autoria-2026-11-02.md)
 - [Fuentes eladrines](fuentes-eladrines-cotejo.md)
 - [Familias acreditadas](familias-acreditadas.md)
 - [Biografías y realidades alternativas](revision-biografica-y-realidades.md)
@@ -47,4 +47,4 @@ Actualizado: 2026-11-02. **14 asuntos registrados: 13 criterios definidos expres
 - [Índices de aventuras y colisión Vaelar](auditoria-aventuras-ylat.md)
 - [Rectificación de corpus ajeno](../enciclopedia/127-exclusion-corpus-ajeno-ylat.md)
 
-**Alcance del acuerdo:** el criterio de selección y las grafías anteriores son decisiones editoriales. **No** se ha fijado el número del peso «muy bajo» ni se ha autorizado por este registro un despliegue automático. Mantener **ONO-02** abierta hasta respuesta de autoría.
+**Alcance del acuerdo:** el criterio de selección y las grafías anteriores son decisiones editoriales. **No** se ha fijado el número del peso «muy bajo» ni se ha autorizado por este registro un despliegue automático. **ONO-02 resuelta: Dyeld es el padre canónico de Tuliëlle, confirmado expresamente por la autoría**. Las 14 ONO se consideran **cerradas editorialmente**; la ponderación de apellidos «muy baja» sigue sin valor numérico y la implementación técnica sigue separada.
