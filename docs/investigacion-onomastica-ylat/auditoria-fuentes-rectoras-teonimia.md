@@ -62,3 +62,9 @@ En la *Enciclopedia* aparecen nombres de días de hexana, meses, lugares, planet
 3. Mantener el registro histórico de **Isophius** como campaña posterior, jugada y **no incorporada al Excel antiguo**, sin penalizar su validez documental por esa omisión.
 
 **No se han editado las fuentes originales ni la aplicación.**
+
+## 6. Cotejo negativo contra los repertorios de producción (2026-11-02)
+
+Se revisaron literalmente en `main` los archivos `data/nombres-historicos-ylat.json`, `data/tesauro-ylat.json` y `data/sexo-personajes.json`. La búsqueda de formas literales, ignorando únicamente mayúsculas/minúsculas, no encontró ninguna de estas cadenas: **Narga Solarys**, **Narga**, **Solarys**, **Ganragán**, **Valujna**, **Ornuth Aium**, **Hstet**, **Ylathia**, **Z’Thur**, **Z'Thur**, **Norluth**, **Alleinn Nuj**.
+
+El resultado es **cero coincidencias literales de esas cadenas en esos tres archivos**, no un análisis fonético, una garantía de que no haya formas parecidas en otros catálogos ni una acusación de que los repertorios actuales estén mal. **No se han incorporado a `data/`**: la revisión confirma que consulta de entidades, teonimia y generación ordinaria de nombres de personajes deben mantenerse como problemas editoriales separados.
