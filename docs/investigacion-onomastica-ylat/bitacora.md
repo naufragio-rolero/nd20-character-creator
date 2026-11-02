@@ -179,3 +179,11 @@ Añadir una entrada fechada por sesión, enlaces a fuentes y distinción entre h
 - **Estado editorial:** **ONO-01 a ONO-13 abiertas**; ninguna aprobación atribuida al autor. **No se han incorporado nuevos nombres a la generación de La Forja**. Se ha evitado el despliegue, la sincronización con `main` y la modificación de código o JSON de producción.
 
 **Trabajo todavía pendiente:** ampliar otros relatos publicados de Ylat, hacer un recuento global de identidades en lugar de sumar denominaciones, y pasar cada caso por la matriz de elegibilidad solo cuando se disponga de permiso editorial específico. La investigación documental no está cerrada.
+
+
+### 2026-11-02 — Novena sesión: relatos históricos y plan de cierre
+
+- Relectura dirigida de *Historia de Shadaleen* y *Zonas de Ylat*: se documentan las **Siete Familias** y la versión rival **«La Primera Huella»**, atribuida a Aneris de Cálama. El segundo relato cuestiona el origen de Shadel, Shadelgast y Ananolis, sin ofrecer una resolución editorial definitiva.
+- Se cotejan **Narga Solarys / Narga Solaris**, **Mirethia del Atardecer Coral**, **Iskadar el Segundo**, Rowes, Skara, Boll, Gull, Alogers y el topónimo Omudax. [Auditoría específica](auditoria-shadaleen-eponimos-y-relatos.md); nueva decisión **ONO-14**.
+- Examen dirigido del texto extenso *Crónicas de Ylat d20*: la búsqueda por «nombre», «apellido», «familia» y «linaje» no encontró una regla formal de apellidos en los pasajes recuperados; no equivale a una lectura total del manual.
+- [Plan de cierre](plan-cierre-y-criterios-aceptacion.md) creado: **tres bloques documentales pendientes** y **14 decisiones editoriales**, que no impiden necesariamente cerrar el informe de investigación con incertidumbres explícitas. No se modifican código, JSON ni `main`.
