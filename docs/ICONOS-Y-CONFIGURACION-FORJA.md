@@ -16,6 +16,14 @@ Los trazos son **provisionales** y solo representan categorías visuales. Para c
 
 `iconoEquipo(nombre)` en `assets/app.js` consulta primero los registros literales de `data/equipo-inicial.json`: `armas`, `varitas_defensa`, `armaduras`, `escudos`, `municion`, `focos_conjuros_con_precio` y `utiles_fantasia`. En útiles documentados, reconoce nombres explícitos de libros o almacenamiento. Para textos externos o de Dungeon Hack aplica un respaldo conservador por nombre; lo demás recibe bolsa genérica. No se deduce ninguna regla, competencia ni propiedad mecánica. El nombre original de cada objeto se mantiene para consultar, copiar y exportar.
 
+## Atributos e Iluminación DRS
+
+La ficha de Naufragio d20 presenta los Atributos en tres filas: **Fuerza · Mente**, **Agilidad · Intuición** y **Resistencia · Presencia**. Es una ordenación de la vista: los seis objetos originales de `personaje.atributos` conservan su orden y valores para cálculos y exportaciones. Dungeon Hack conserva su orden sin reordenación automática.
+
+El grupo de compra **Iluminación** incluye las cuatro entradas literales de la tabla del DRS: Antorcha (0,10 mo; DU d6; luz a 6 m), Lámpara de aceite (2 mo; DU d6 de aceite; 4 m), Linterna (10 mo; DU d6 de aceite; 8 m) y Vela (0,01 mo; DU d4; 2 m). Los precios usan las equivalencias de moneda ya establecidas en `equipo-inicial.json`; la regla general del DRS es tirar el DU por Intervalo de uso.
+
+Cuando el inventario de un paquete especial incluye, por ejemplo, `antorcha (DU d6)` o `vela (DU d4)`, la normalización del índice de consulta elimina **solo para buscar** el sufijo de DU y resuelve la ficha concreta del catálogo. El texto original del paquete, la compra y las exportaciones no cambian. Las demás piezas de paquete sin ficha siguen mostrando únicamente la procedencia; las 111 glosas editoriales anteriores no se alteran.
+
 ## Cabecera, lotes y contraste
 
 El encabezado muestra el sistema en la primera línea, el nombre debajo y el símbolo de sexo **junto a la Ocupación** (antes de la Especie). El Nivel queda en un distintivo separado, justo a la izquierda de cerrar. La ficha de Dungeon Hack sin sexo declarado muestra un símbolo neutro con texto accesible «Sexo: No indicado»; no se modifica ni se presupone el sexo del personaje.
