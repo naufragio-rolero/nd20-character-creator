@@ -20,7 +20,7 @@
 
 | Campo lógico | Descripción | Ejemplo o precaución documental |
 | --- | --- | --- |
-| Identificador interno estable | Identidad del registro independientemente de variantes | `crujidor` en los dos Excel, aunque cambia el nombre visible |
+| Identificador **de fuente/registro** estable | Identifica el testimonio de una ficha, independientemente del nombre/alias; **no** dar por único globalmente el campo `ID` heredado | `crujidor` identifica el mismo enlace en los dos Excel, pero **Vaelar Eldarien en Ylat¹ y Ylat³** comparte literal `ID: vaelar` en fichas diferentes |
 | Forma literal en cada fuente | Transcripción fiel con diacríticos, espacios y ordinales | Vrymmir Borgenrstâg / Vrymmir Borgernstâg |
 | Función acreditada | Nombre de pila, apellido familiar, nombre completo, título, alias, apellido individual o función no demostrada | «Violatesoros» está explícitamente descrito como apodo |
 | Titular / personaje | Persona o personaje al que corresponde | Jaleba Inversa; apellido «Inversa» explícito **para Jaleba**, no como serie libre |
@@ -119,3 +119,20 @@ Estas decisiones **no bloquean la continuación de la investigación documental*
 - La combinación de **linaje histórico y epíteto** en las Tres Lises debe conservar el nombre literal tal como figura en cada testimonio; no derivar una fórmula general.
 
 **La integración continúa sin autorización** y no se ha escrito código, modificado JSON, abierto PR de integración ni desplegado LIVE.
+
+
+## 9. Actualización por las cuatro aventuras y la auditoría del tesauro
+
+La [auditoría de cuatro aventuras](auditoria-aventuras-ylat.md) analiza **182 referencias** a personajes y **154 denominaciones literales distintas**, de las cuales **24** no aparecen idénticas ni en el censo de 140 PNJ ni en el corpus Isophius (algunas ya estaban registradas en biografías y archivos separados). Hay una **colisión concreta de ID heredado**: [Vaelar Ylat¹](https://drive.google.com/file/d/136DT4cAGmNPjqdU-TYzHjpvJpAnGB2HD/view) y [Vaelar Ylat³](https://drive.google.com/file/d/1KFLLgAEUOOj4N1862IZO9hx9dwaxJniF/view) conservan el mismo `ID: vaelar`. Por tanto, el eventual diseño **no debe asumir que el campo `ID` es una clave única global**, aunque siga siendo útil para enlaces históricos.
+
+La [auditoría de 52 entradas del tesauro](auditoria-tesauro-componentes.md) identifica dos registros `documentado` que **no son nombres personales según las fuentes cotejadas**: **Máthair Felsaer es una montaña** y **Pietro es el oso de Drakabel**. Entre las 33 entradas `combinado`, cuatro utilizan Máthair/Pietro como primer elemento, tres usan el topónimo Felsaer como segundo y siete proponen apellidos de casas **Shadelgast/Boll** sin vinculación familiar documentada. Las 19 restantes siguen siendo combinaciones ficticias sin norma hereditaria probada.
+
+### Requisitos añadidos a una eventual implementación — aún no autorizada
+
+- No basta comprobar `origen=Ylat`: una fuente puede identificar un **lugar, animal o nombre de persona**. La clase de entidad será verificada **antes** de incluirla en el sorteo de personajes.
+- Para nombres de casas, **pertenencia** no equivale a apellido ni a parentesco: ejemplo **Casa Rizzo** y los Martoni, o **Casa Shadelgast** y Modestia Jof.
+- Para identidades entre realidades, conservar **ID de documento de fuente** (o referencia estable verificable), **realidad declarada**, **ID heredado**, **nombre literal**, **versión** y **relaciones narrativas** como campos distintos.
+- Si la Forja conserva un **modo de combinación creativa no canónica**, sus resultados deberán etiquetarse de forma que no se confundan con personajes documentados; la selección y los límites requieren aprobación editorial.
+- La versión futura deberá ser capaz de exponer las **52 entradas activas y sus justificaciones**, permitir auditar cambios editoriales y respetar la **reproducibilidad** de semillas anteriores.
+
+La [matriz editorial](matriz-elegibilidad-editorial.md) recoge las clases y los controles sugeridos; [ONO-13](decisiones-editoriales.md) registra la decisión pendiente de separar nombres de persona de topónimos/animales. **Ninguna de estas propuestas cambia los JSON ni la aplicación en la rama de investigación**.
