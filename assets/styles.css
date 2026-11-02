@@ -422,6 +422,17 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
   column-gap:.45rem;row-gap:.2rem;margin:0 0 .9rem;font-size:.8rem;line-height:1.5}
 .info-primarios dt{font-weight:700;color:#bfdae0}
 .info-primarios dd{margin:0;overflow-wrap:anywhere}
+/* Solo Objetos: propiedades en dos columnas; los demás popups no cambian. */
+.info-primarios.info-primarios-objeto{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:.9rem;row-gap:.45rem;
+}
+.info-objeto-campo{
+  display:grid;grid-template-columns:max-content minmax(0,1fr);
+  align-items:baseline;column-gap:.4rem;min-width:0;
+}
+.info-objeto-campo dt{min-width:0}
+.info-objeto-campo dd{min-width:0;overflow-wrap:anywhere}
 .ficha-emergente .info-cabecera+h3{margin:.12rem 0 .6rem}
 .ficha-emergente .info-primarios+.info-descripcion{margin:.65rem 0 1.05rem}
 .ficha-emergente .info-detalles[hidden]{display:none!important}
@@ -473,9 +484,14 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
   .info-clasificacion{text-align:left}
   .info-primarios{grid-template-columns:1fr;row-gap:0}
   .info-primarios dd{margin:0 0 .38rem .3rem}
+  .info-primarios.info-primarios-objeto{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .info-primarios-objeto .info-objeto-campo dd{margin:0}
   .ficha-emergente .info-avanzada .info-datos{grid-template-columns:1fr;row-gap:0}
 }
 
+@media(max-width:360px){
+  .info-primarios.info-primarios-objeto{grid-template-columns:1fr}
+}
 /* Categorías oficiales de Talentos DRS: palabras + cinco tratamientos cromáticos.
    La tarjeta utiliza fondo oscuro en los cuatro temas, con contraste constante. */
 .info-categoria{display:inline-flex;align-items:center;min-height:1.4rem;
@@ -819,9 +835,8 @@ html[data-tema=clasico] .dialogo-compras #compras-total{background:#deeeff}
   .dialogo-compras .botonera{grid-template-columns:1fr 1fr}
   .dialogo-compras .botonera #compras-cancelar{padding:.65rem}
 }
-/* Recursos informativos: cuatro columnas y SVG compactos.
-   Si hay cinco valores, el último ocupa toda la segunda fila para
-   conservar legible la aclaración condicional del escudo. */
+/* Recursos informativos: cuatro columnas de ancho uniforme con SVG compactos.
+   Las bonificaciones del escudo se explican fuera de las tarjetas. */
 .recursos.recursos-rejilla{
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
   gap:.45rem;padding:0 1.2rem 1rem;align-items:stretch;
@@ -832,7 +847,6 @@ html[data-tema=clasico] .dialogo-compras #compras-total{background:#deeeff}
   border:1px solid #b5bec6;background:#e9e9e4;
   font-size:.76rem;
 }
-.recursos-rejilla>.recurso-ficha:nth-child(5):last-child{grid-column:1/-1}
 .recursos-rejilla .icono-recurso{
   width:1.1rem;height:1.1rem;flex:0 0 1.1rem;color:#1151d3;
 }
@@ -844,8 +858,9 @@ html[data-tema=clasico] .dialogo-compras #compras-total{background:#deeeff}
 .recursos-rejilla .recurso-texto strong{
   font-size:.97rem;line-height:1.2;overflow-wrap:anywhere;
 }
-.recursos-rejilla .recurso-aclaracion{
-  display:block;font-size:.65rem;line-height:1.3;font-weight:550;
+.recursos-rejilla>.recurso-nota-escudo{
+  grid-column:1/-1;margin:0;padding:.1rem .1rem 0;
+  font-size:.67rem;line-height:1.4;font-weight:550;
   color:#425c71;overflow-wrap:anywhere;
 }
 .protecciones-activas{
@@ -875,7 +890,7 @@ html[data-tema]:not([data-tema=clasico]) .recursos-rejilla>.recurso-ficha{
   background:var(--tema-ficha-head);border-color:var(--borde);
   color:var(--tema-ficha-text);
 }
-html[data-tema]:not([data-tema=clasico]) .recursos-rejilla :is(.recurso-nombre,.recurso-aclaracion){
+html[data-tema]:not([data-tema=clasico]) .recursos-rejilla :is(.recurso-nombre,.recurso-nota-escudo){
   color:var(--tema-ficha-text);
 }
 html[data-tema]:not([data-tema=clasico]) .recursos-rejilla .icono-recurso{
