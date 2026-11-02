@@ -93,7 +93,7 @@ for(const conjuro of drsConjuros){
   assert.ok(Array.isArray(ficha.bloques_conjuro)&&ficha.bloques_conjuro.length,
     'Todo Conjuro DRS tiene bloques: '+conjuro.nombre);
   const esperado=quitarCabeceras(original);
-  assert.equal(ficha.descripcion,esperado.join('\\n\\n'),
+  assert.equal(ficha.descripcion,esperado.join('\n\n'),
     'Descripción literal sin modificaciones: '+conjuro.nombre);
   const reconstruido=ficha.bloques_conjuro.flatMap(b=>
     b.tipo==='parrafo'?[b.texto]:
