@@ -229,6 +229,10 @@
       throw Error(encontrados.length?"Identificador duplicado de útil: "+id:
         "Útil no documentado en el DRS: "+id);
     var resultado=encontrados[0],x=resultado.item,precio=x.precio;
+    if(x.servicio_por_dia)
+      throw Error("El servicio "+x.nombre+" no es un objeto de inventario comprable.");
+    if(x.precio_variable)
+      throw Error("El artículo "+x.nombre+" requiere precio variable documentado: "+x.precio_variable);
     if(x.precio_por_nivel!==undefined){
       if(!Number.isInteger(nivel)||nivel<1)
         throw Error("El artículo "+x.nombre+" requiere un Nivel positivo para calcular su precio.");
