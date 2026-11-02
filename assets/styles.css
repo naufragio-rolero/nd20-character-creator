@@ -985,6 +985,10 @@ html[data-tema]:not([data-tema=clasico]) .descripcion-personaje .sexo-ficha{
   .cabecera-ficha .acciones-cabecera-ficha{gap:.3rem}
   .nivel-ficha{font-size:.67rem;padding:.2rem .3rem}
 }
+/* WebKit anima el cambio de tema desde Clásico: los controles de ficha
+   necesitan un estado hover inmediato, no una interpolación casi transparente. */
+html[data-tema=ceruleo] .tarjeta .pie-ficha button,
+html[data-tema=ceruleo] .tarjeta .icon-btn{transition:none}
 /* Cerúleo: nunca usar un fondo oscuro con texto oscuro en botones de ficha. */
 html[data-tema=ceruleo] .tarjeta .pie-ficha button:hover:not(:disabled):not(.principal):not(.sistema-activo):not(.activa),
 html[data-tema=ceruleo] .tarjeta .pie-ficha button:focus-visible:not(:disabled):not(.principal):not(.sistema-activo):not(.activa),
