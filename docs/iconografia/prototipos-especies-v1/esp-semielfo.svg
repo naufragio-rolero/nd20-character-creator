@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="esp-semielfo" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="Semielfo">
+  <!-- Icono original de Naufragio d20 aprobado (v1). Fondo transparente; sin recursos externos. -->
+  <g fill="#000000">
+    <path d="M5.88 10.1 C4.0 9.4 3.50 10.3 3.9 12.8 C4.2 14.45 5.2 15.25 6.32 14.9 L6.1 11.25 Z"/><path d="M17.85 10.05 L22.85 5.15 L21.00 12.42 L17.05 15.10 L17.3 10.5 Z"/>
+    <path fill-rule="evenodd" d="M12 2.33 C8.12 2.33 5.81 5.2 5.84 9.05 L6.30 14.42 C6.76 17.45 8.82 20.1 12 21.55 C15.16 19.91 17.26 17.17 17.63 14.28 L18.08 9.08 C18.08 5.14 15.8 2.33 12 2.33 Z
+  M8.0 10.1 H10.6 V11.65 H8.0 Z
+  M13.4 10.1 H16.0 V11.65 H13.4 Z
+  M9.5 17.0 H14.5 V18.05 H9.5 Z"/></g>
+</svg>

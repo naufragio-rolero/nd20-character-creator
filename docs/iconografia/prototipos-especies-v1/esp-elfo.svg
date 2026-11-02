@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="esp-elfo" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="Elfo">
+  <!-- Icono original de Naufragio d20 aprobado (v1). Fondo transparente; sin recursos externos. -->
+  <g fill="#000000">
+    <path d="M6.2 10.05 L1.15 5.15 L3.00 12.42 L6.95 15.10 L6.7 10.5 Z"/><path d="M17.8 10.05 L22.85 5.15 L21 12.42 L17.05 15.10 L17.3 10.5 Z"/>
+    <path fill-rule="evenodd" d="M12 2.1 C8.27 2.1 6.14 5.0 6.20 9.12 L6.64 14.12 C7.20 17.45 9.21 20.02 12 21.74 C14.79 20.02 16.80 17.45 17.36 14.12 L17.80 9.12 C17.86 5 15.73 2.1 12 2.1 Z
+  M8.0 10.2 H10.4 V11.8 H8.0 Z
+  M13.6 10.2 H16 V11.8 H13.6 Z
+  M9.6 16.9 H14.4 V17.95 H9.6 Z"/></g>
+</svg>

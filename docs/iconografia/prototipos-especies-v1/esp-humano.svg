@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="esp-humano" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="Humano">
+  <!-- Icono original de Naufragio d20 aprobado (v1). Fondo transparente; sin recursos externos. -->
+  <g fill="#000000">
+    <path d="M5.8 10.1 C3.9 9.4 3.45 10.3 3.85 12.8 C4.15 14.45 5.2 15.25 6.35 14.9 L6.1 11.25 Z"/><path d="M18.2 10.1 C20.1 9.4 20.55 10.3 20.15 12.8 C19.85 14.45 18.8 15.25 17.65 14.9 L17.9 11.25 Z"/>
+    <path fill-rule="evenodd" d="M12 2.45 C8.10 2.45 5.75 5.23 5.75 9.05 L6.22 14.55 C6.45 17.30 8.66 20.18 12 21.45 C15.34 20.18 17.55 17.30 17.78 14.55 L18.25 9.05 C18.25 5.23 15.90 2.45 12 2.45 Z
+  M8.0 10.1 H10.6 V11.65 H8.0 Z
+  M13.4 10.1 H16.0 V11.65 H13.4 Z
+  M9.5 17.0 H14.5 V18.05 H9.5 Z"/></g>
+</svg>
