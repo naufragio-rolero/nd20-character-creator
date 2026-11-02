@@ -88,3 +88,12 @@ jobs:
           test -s dist/pdf-a5-preimpresion/e2e-chrome-con-iconos.pdf
           pdfimages -list dist/pdf-a5-preimpresion/e2e-chrome-con-iconos.pdf | awk 'NR>2 {n++} END {exit !(n >= 6)}'
 
+      - name: Conservar PDF completo de navegador con iconografía
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-a5-chrome-iconos-oficiales
+          path: dist/pdf-a5-preimpresion/e2e-chrome-con-iconos.pdf
+          if-no-files-found: warn
+          retention-days: 14
+
