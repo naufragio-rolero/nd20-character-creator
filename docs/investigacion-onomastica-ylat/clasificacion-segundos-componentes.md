@@ -1,0 +1,152 @@
+# Clasificación crítica de los 97 segundos componentes del censo de PNJ
+
+**Corte:** 2026-11-02. **Estado:** auditoría documental; ninguna forma aprobada como apellido libre de generación.
+
+**Fuente primaria:** [\`dnd_npcs.xlsx\`](https://drive.google.com/file/d/1B2YnVslAK7Sjd5ELYR9kteHB9Q-L4AWp/view), segunda pestaña, campos \u0060name\u0060 / \u0060surname\u0060 / \u0060full_name\u0060. Ver [censo íntegro de 140 personajes](censo-pnj-historico.md), [familias acreditadas](familias-acreditadas.md) y [catálogo provisional](catalogo-provisional.md).
+
+## Reglas de lectura
+
+- El campo \u0060surname\u0060 de la hoja histórica se considera **segundo componente nominal de origen**, no un apellido real por definición.
+- **F:** familia o apellido con pertenencia, parentesco o linaje respaldado por documentación independiente (17 formas). **No es autorización de combinación libre.**
+- **A:** la propia fuente llama al componente «apellido», pero solo está acreditado para ese individuo.
+- **N:** denominación eladrín con apéndice determinado por nacimiento.
+- **O:** apellido más ordinal; se debe representar por separado.
+- **M:** tratamiento de presentación («sin Apellido»), no apellido transferible.
+- **E:** fórmula lingüística propia de un epíteto; necesita confirmar su función en la biografía.
+- **C:** compuesto de varias palabras cuya estructura no se ha acreditado.
+- **V:** componente con grafía conflictiva en fuentes independientes.
+- **I:** segundo componente nominal individual documentado sin suficientes pruebas para atribuirle función familiar, cultural o hereditariedad.
+
+Estas categorías clasifican **evidencia**, no especies, géneros, estamentos ni probabilidades. En particular, las formas **I, C, E, V, N, O, M** y **A** no entran automáticamente a un generador de apellidos.
+
+### Recuento de valores distintos (97)
+
+| Código | Valores únicos | Criterio |
+| --- | ---: | --- |
+| F | 17 | Familia acreditada |
+| A | 1 | Apellido individual explícito |
+| N | 2 | Convención dependiente del nacimiento |
+| O | 1 | Ordinal |
+| M | 1 | Presentación / alias |
+| E | 3 | Fórmula de epíteto |
+| C | 4 | Compuesto no resuelto |
+| V | 1 | Variante en conflicto |
+| I | 67 | Segundo componente no acreditado como apellido |
+| **Total** | **97** | Registro completo sin blancos |
+
+## Diccionario por valor literal
+
+| Componente literal | N.º personajes | Código | Personajes que lo usan | Evidencia / observación |
+| --- | ---: | :---: | --- | --- |
+| Acomanydd Unerrannor | 1 | **C** | Ybardonydd Acomanydd Unerrannor | Ybardonydd; nombre de varias palabras, no normalizar |
+| Adorasol | 2 | **F** | Maverae Adorasol; Galeshra Adorasol | Linaje migrante de Qelasthavia; Casa Adorasol incluye miembros de otros apellidos |
+| Alban | 1 | **I** | Jérémie Alban | Función familiar no probada; consultar censo y biografía individual |
+| Alcanzarríos | 1 | **I** | Findorian Alcanzarríos | Función familiar no probada; consultar censo y biografía individual |
+| Alogers | 3 | **F** | Godogene Alogers; Adaldust Alogers; Fredián Alogers | Casa fundacional; Adaldust, Godogene y Fredián con pertenencia confirmada, parentesco exacto indeterminado |
+| Alswick | 1 | **I** | Daniel Alswick | Función familiar no probada; consultar censo y biografía individual |
+| Anverso | 1 | **I** | Notorius Anverso | Función familiar no probada; consultar censo y biografía individual |
+| Arianhrod | 1 | **I** | Quaon Arianhrod | Función familiar no probada; consultar censo y biografía individual |
+| Arper | 1 | **I** | Ternus Arper | Función familiar no probada; consultar censo y biografía individual |
+| Asheishi | 1 | **I** | Loroohck Asheishi | Función familiar no probada; consultar censo y biografía individual |
+| Bagui Fénix | 1 | **C** | Tegku Bagui Fénix | Tegku presenta su nombre completo; no se acredita qué parte es apellido |
+| Beld | 1 | **I** | Oelmi Beld | Función familiar no probada; consultar censo y biografía individual |
+| Borgenrstâg | 1 | **V** | Vrymmir Borgenrstâg | Censo y ficha antigua: Borgenrstâg; artículo 2019 y Biografías: Borgernstâg |
+| Brice | 1 | **I** | Lazare Brice | Función familiar no probada; consultar censo y biografía individual |
+| Brillonuevo | 1 | **I** | Eilinn Brillonuevo | Función familiar no probada; consultar censo y biografía individual |
+| Brisaolvidada | 1 | **I** | Celebriän Brisaolvidada | Función familiar no probada; consultar censo y biografía individual |
+| Bronnhum | 2 | **F** | Hansus Bronnhum; Isandra Bronnhum | Isandra y Hansus, primos segundos; casa noble |
+| Brosul | 1 | **I** | Engaw Brosul | Función familiar no probada; consultar censo y biografía individual |
+| Buenacerveza | 1 | **I** | Roluj Buenacerveza | Función familiar no probada; consultar censo y biografía individual |
+| Ceñóseo | 1 | **I** | Zarzik Ceñóseo | Función familiar no probada; consultar censo y biografía individual |
+| del Atardecer Luciente | 1 | **N** | Anasthore del Atardecer Luciente | Anasthore, segunda descendiente del linaje; dependiente del nacimiento |
+| del Atardecer Refulgente | 1 | **N** | Aerandil del Atardecer Refulgente | Aerandil; TXT 2014/2015 dan Brillante, ficha actual Refulgente |
+| Duthmor | 1 | **I** | Lorss Duthmor | Función familiar no probada; consultar censo y biografía individual |
+| Ecala | 1 | **I** | Rargar Ecala | Función familiar no probada; consultar censo y biografía individual |
+| el Esmeralda | 1 | **E** | Seruon el Esmeralda | Función familiar no probada; consultar censo y biografía individual |
+| el Huérfano | 1 | **E** | Hiyael el Huérfano | Función familiar no probada; consultar censo y biografía individual |
+| Fadel | 1 | **I** | Hassad Fadel | Función familiar no probada; consultar censo y biografía individual |
+| Falaz | 1 | **I** | Sadyiya Falaz | Función familiar no probada; consultar censo y biografía individual |
+| Feebil | 1 | **I** | Nesaweyn Feebil | Función familiar no probada; consultar censo y biografía individual |
+| Fiercespada | 3 | **F** | Chrachack Fiercespada; Akestu Fiercespada; Cromust Fiercespada | Cromust padre de Akestu, Chrachack tío |
+| Fluyeflauta | 1 | **I** | Tyvoz Fluyeflauta | Función familiar no probada; consultar censo y biografía individual |
+| Forjaplata | 1 | **I** | Werhilda Forjaplata | Función familiar no probada; consultar censo y biografía individual |
+| Fuegosombrío | 2 | **F** | Caisadi Fuegosombrío; Marlak Fuegosombrío | Marlak padre de Caisadi |
+| Fulgentis | 1 | **F** | Caelia Fulgentis | Caelia, hija de familia artesana de Beslitz |
+| Giovanni | 1 | **I** | Stasi Giovanni | Función familiar no probada; consultar censo y biografía individual |
+| Gomelera | 3 | **F** | Góvan Gomelera; Luresse Gomelera; Sodyd Gomelera | Góvan tío de Luresse y Sodyd |
+| Gudrün | 1 | **I** | Kineyie Gudrün | Función familiar no probada; consultar censo y biografía individual |
+| Hassif | 1 | **I** | Abdul Hassif | Función familiar no probada; consultar censo y biografía individual |
+| Hiendeacero | 1 | **I** | Kranthrom Hiendeacero | Función familiar no probada; consultar censo y biografía individual |
+| Hiervescarcha | 1 | **I** | Jkoor Hiervescarcha | Función familiar no probada; consultar censo y biografía individual |
+| Holdt | 1 | **I** | Damien Holdt | Función familiar no probada; consultar censo y biografía individual |
+| Hueso de Sangre | 1 | **C** | Gorgan Hueso de Sangre | Nombre de Gorgan, caudillo; no acreditar apellido de clan |
+| Inversa | 1 | **A** | Jaleba Inversa | La propia biografía llama «apellido» a Inversa; no linaje demostrado |
+| Iraldsay | 5 | **F** | Ciale Iraldsay; Eman Iraldsay; Naleale Iraldsay; Aradale Iraldsay; Hiller Iraldsay | Familia de Turche: Eman, Ciale y tres hijos |
+| Jacenty | 1 | **I** | Elisia Jacenty | Función familiar no probada; consultar censo y biografía individual |
+| Keefe | 1 | **F** | Ubale Keefe | Una de las Siete Familias; Ubale figura como noble |
+| Kinistis | 1 | **I** | Eld'mose Kinistis | Función familiar no probada; consultar censo y biografía individual |
+| Kultstein | 1 | **F** | Viktor Kultstein | Casa disuelta, superviviente Viktor documentado; no libre asignación |
+| la Tuerta | 1 | **E** | Adhat la Tuerta | Función familiar no probada; consultar censo y biografía individual |
+| Leahein | 1 | **I** | Caeloen Leahein | Función familiar no probada; consultar censo y biografía individual |
+| Lobeth | 6 | **F** | Denhat Lobeth; Marten Lobeth; Sarata Lobeth; Yuno Lobeth; Albert Lobeth; Zack Lobeth | Familia de Calbarás, con relaciones explícitas; Casa Lobeth también incluye Mashera Skara |
+| Lowees | 1 | **I** | Inether Lowees | Función familiar no probada; consultar censo y biografía individual |
+| Mantodorado | 1 | **I** | Havindrin Mantodorado | Función familiar no probada; consultar censo y biografía individual |
+| Maplewilde | 1 | **I** | Balthyr Maplewilde | Función familiar no probada; consultar censo y biografía individual |
+| Masticadedos | 1 | **I** | Acathia Masticadedos | Función familiar no probada; consultar censo y biografía individual |
+| Maxley | 1 | **I** | Mark Maxley | Función familiar no probada; consultar censo y biografía individual |
+| Morcrick | 1 | **I** | Ophilia Morcrick | Función familiar no probada; consultar censo y biografía individual |
+| Nerese | 1 | **I** | Asharod Nerese | Función familiar no probada; consultar censo y biografía individual |
+| Neulenthris | 1 | **I** | Essaetia Neulenthris | Función familiar no probada; consultar censo y biografía individual |
+| Nichols | 1 | **I** | Chred Nichols | Función familiar no probada; consultar censo y biografía individual |
+| Noccerado | 1 | **I** | Besyl Noccerado | Función familiar no probada; consultar censo y biografía individual |
+| Noreesh | 1 | **I** | Eomdyn Noreesh | Función familiar no probada; consultar censo y biografía individual |
+| Norvvind | 1 | **F** | Sashka Norvvind | Sashka figura como hermana de Skörn Norvvind |
+| Nyser | 1 | **I** | Warsam Nyser | Función familiar no probada; consultar censo y biografía individual |
+| Oq'uatee | 1 | **I** | Car'rt Oq'uatee | Función familiar no probada; consultar censo y biografía individual |
+| Pelocobre | 1 | **I** | Halor Pelocobre | Función familiar no probada; consultar censo y biografía individual |
+| Quiebrahielo | 1 | **I** | Zekogs Quiebrahielo | Función familiar no probada; consultar censo y biografía individual |
+| Rocene | 1 | **I** | Hadewig Rocene | Función familiar no probada; consultar censo y biografía individual |
+| Roerraíces | 1 | **I** | Oenogs Roerraíces | Función familiar no probada; consultar censo y biografía individual |
+| Ryszard | 1 | **I** | Aurelius Ryszard | Función familiar no probada; consultar censo y biografía individual |
+| Samasi | 1 | **I** | Lorif Samasi | Función familiar no probada; consultar censo y biografía individual |
+| Samdaw | 1 | **I** | Banelm Samdaw | Función familiar no probada; consultar censo y biografía individual |
+| Sendero Severo | 1 | **C** | Kurzak Sendero Severo | Kurzak; no dividir en dos apellidos |
+| Shadelgast | 3 | **F** | Galibard Shadelgast; Hermilda Shadelgast; Eurip Shadelgast | Casa dinástica, ordinal II de Galibard separado |
+| Shadelgast II | 1 | **O** | Galibard Shadelgast II | No tratar II como parte del apellido ni combinación arbitraria |
+| Sigvald | 1 | **I** | Anfingrem Sigvald | Función familiar no probada; consultar censo y biografía individual |
+| Silversea | 1 | **I** | Gerad Silversea | Función familiar no probada; consultar censo y biografía individual |
+| sin Apellido | 1 | **M** | Neyney sin Apellido | Neyney pide ser llamado así tras olvidar su nombre; etiqueta, no apellido |
+| Sireg | 1 | **I** | Cabal Sireg | Función familiar no probada; consultar censo y biografía individual |
+| Skara | 4 | **F** | Addare Skara; Laevinë Skara; Eldburg Skara; Mashera Skara | Familia de Tuliëlle; paternidad Dyeld/Eldburg en conflicto |
+| Smoth | 3 | **F** | Gwilherm Smoth; Dianne Smoth; Martius Smoth | Martius y Dianne, progenitores de Gwilherm |
+| Sonascama | 1 | **I** | Bankingar Sonascama | Función familiar no probada; consultar censo y biografía individual |
+| Soplotenue | 1 | **I** | Radinel Soplotenue | Función familiar no probada; consultar censo y biografía individual |
+| Sossei | 1 | **I** | Muhammad Sossei | Función familiar no probada; consultar censo y biografía individual |
+| Tasano | 1 | **I** | Drother Tasano | Función familiar no probada; consultar censo y biografía individual |
+| Tepoel | 1 | **I** | Treban Tepoel | Función familiar no probada; consultar censo y biografía individual |
+| Thrathal | 1 | **I** | Darelon Thrathal | Función familiar no probada; consultar censo y biografía individual |
+| Tonunt | 2 | **F** | Isspol Tonunt; Awara Tonunt | Awara hermana de Isspol |
+| Torgal | 1 | **I** | Delril Torgal | Función familiar no probada; consultar censo y biografía individual |
+| Ulvbane | 1 | **I** | Thergan Ulvbane | Función familiar no probada; consultar censo y biografía individual |
+| Ungesavia | 1 | **I** | Nabeel Ungesavia | Función familiar no probada; consultar censo y biografía individual |
+| Valanthis | 1 | **I** | Syssbel Valanthis | Función familiar no probada; consultar censo y biografía individual |
+| Vardamir | 4 | **F** | Daeron Vardamir; Gilraen Vardamir; Elrohir Vardamir; Hyarion Vardamir | Hyarion padre; Daeron, Elrohir y Gilraen descendientes; Stasi conserva Giovanni |
+| Veredron | 1 | **I** | Vysoben Veredron | Función familiar no probada; consultar censo y biografía individual |
+| Violatesoros | 1 | **I** | Baryn Violatesoros | Función familiar no probada; consultar censo y biografía individual |
+| Vuelumbrío | 1 | **I** | Nimara Vuelumbrío | Función familiar no probada; consultar censo y biografía individual |
+| Ysheasa | 1 | **I** | Idfaseya Ysheasa | Función familiar no probada; consultar censo y biografía individual |
+
+## Nota editorial sobre el alcance
+
+1. La pertenencia a una casa es **una relación entre personaje y organización**, distinta de llevar su apellido: [Casa Lobeth](https://drive.google.com/file/d/161zJJ4kXnUehxGDrEl2HXWydwUiD6ZUp/view) lista a **Mashera Skara**, y [Casa Adorasol](https://drive.google.com/file/d/1I_g1ni_qIrJXGcEteIfs2xQchUCgKlDd/view) incluye a **Aerandil** y **Anasthore del Atardecer**.
+2. Una denominación puede ser un **apellido genuino aunque parezca mote**: [Jaleba Inversa](https://drive.google.com/file/d/11sruNoGvtI230SmcTr6XhWjqxJ8E_is1/view) denomina literalmente «apellido» a Inversa. **No deducir tipología por apariencia**.
+3. Un **alias** puede ocultar nombre y apellido civil documentados: **Romualdius Walerian** figura como **Crujidor** en el censo actual (identificador interno constante \u0060crujidor\u0060).
+4. Una casa dada por **disuelta** puede tener supervivientes: el artículo [La condena de Viktor Kultstein](https://drive.google.com/file/d/1GDzOljZierUkG3i6PrkcxuAqsBXWG487/view) confirma a Viktor como uno de los pocos supervivientes de la purga. También [Morgarath Kultstein](https://drive.google.com/file/d/1XKGEWVB3Q40YRfGCXLtoTuduMNnOVIr7/view) figura como miembro. No concluir que la casa se conserva institucionalmente ni habilitar su apellido para cualquiera.
+5. Las **formas pluriverbales** se conservan completas. Que un sistema de datos las guarde en la columna \u0060surname\u0060 no significa que sean un apellido ni que pueda generarse parte de ellas por separado.
+
+## Trabajos para la siguiente revisión
+
+- Localizar y leer fichas individuales de los **I** y resolver a **F**, **A** o tratamiento específico solo con pruebas positivas.
+- Para las familias **F**, determinar si son activas, históricas, nobiliarias o excepcionales sin inventar vigencia.
+- Cotejar los 140 PNJ con el banco de 1428 formas y los dos JSON vigentes; conservar coincidencias y diferencias literales sin autoconvertir.
+- No modificar datos de producción ni abrir PR funcional.
