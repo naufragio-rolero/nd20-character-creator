@@ -36,23 +36,56 @@ jobs:
       - name: Comprobar la revisión exacta de la entrega
         run: |
           test "$(git rev-parse HEAD)" = "ba163f5144ec8e5f55073dea4b0cedcfbe72a78f"
-      # La PR #19 únicamente actualiza el diseño. La base DRS aprobada
-      # sigue fija: ni la PR #13 ni otras fuentes inéditas se despliegan.
-      - name: Aplicar únicamente el CSS auditado de la PR #19
+      # La base DRS continúa fija en el commit de la PR #18.
+      # Solo se superponen 8 archivos de interfaz y sus pruebas de la PR #20.
+      # Nunca se obtienen catálogos, reglas ni fuentes suplementarias de main.
+      - name: Aplicar frontend aprobado de la PR #20 sobre DRS verificado
         shell: bash
         run: |
           set -euo pipefail
-          ESTILO_COMMIT=3e880e463231b44bf99ef1430f0c8eef79af1009
-          ESTILO_BLOB=d3356e1ecaf8206b00a8c3d70c0795907f7a0fbc
-          curl --connect-timeout 10 --max-time 30 --fail --location --silent --show-error \
-            "https://raw.githubusercontent.com/naufragio-rolero/nd20-character-creator/${ESTILO_COMMIT}/assets/styles.css" \
-            -o assets/styles.css
-          test "$(git hash-object assets/styles.css)" = "$ESTILO_BLOB"
-          test "$(git diff --name-only | sort)" = "assets/styles.css"
+          UI_COMMIT=37f9bf632e594037b59db4c47ef02da4c6c1823f
+          archivos=(
+            assets/app.js
+            assets/styles.css
+            assets/tooltip-ui.js
+            assets/icons-forja.svg
+            index.html
+            tests/browser-compras.js
+            tests/browser-compatibilidad.js
+            tests/paquete-publico-drs.js
+          )
+          blobs=(
+            41e49fc236b550f89bb9d18e70772713d8a0e34b
+            588c2848f399368ac6280a1e1e21dbc4a65a037a
+            8ce8e6d89e3d8639c43033db6c582208c34fa75b
+            88783aebb85f835c3b41c10f237ed52453c66e8f
+            8d14af124ff4d30088ed863e211eadf5f0afd25d
+            a08136ece8cdf0e7a8e978fa9a88a79c589efd41
+            4995034c50867720fd876636c7a505bd088451b0
+            25c951f1b054d959b386aceff5ce2f2bc7354c96
+          )
+          for i in "${!archivos[@]}"; do
+            archivo="${archivos[$i]}"
+            blob="${blobs[$i]}"
+            curl --connect-timeout 10 --max-time 30 --fail --location --silent --show-error \
+              "https://raw.githubusercontent.com/naufragio-rolero/nd20-character-creator/${UI_COMMIT}/${archivo}" \
+              -o "${archivo}"
+            test "$(git hash-object "${archivo}")" = "${blob}"
+          done
+          # Todo cambio respecto al pin DRS debe estar en esta lista blanca.
+          while IFS= read -r modificado; do
+            autorizado=false
+            for archivo in "${archivos[@]}"; do
+              if [[ "${modificado}" == "${archivo}" ]]; then autorizado=true;break;fi
+            done
+            test "${autorizado}" = true
+          done < <(git diff --name-only)
           grep -Fq "fonts.googleapis.com/css2?family=Exo" assets/styles.css
-          grep -Fq "html[data-tema=clasico] .ficha-emergente" assets/styles.css
-          grep -Fq ".info-escuela-arcana{background:LightSkyBlue" assets/styles.css
-          echo "OK: solamente CSS del blog superpuesto al DRS revisado."
+          grep -Fq "dialogo.showModal();" assets/app.js
+          grep -Fq 'id="compras-grupo"' index.html
+          grep -Fq 'id="ico-conjuro"' assets/icons-forja.svg
+          grep -Fq 'id="ico-tecnica"' assets/icons-forja.svg
+          echo "OK: frontend PR #20 cotejado por hash; datos DRS del pin original."
       - name: Preparar Node
         uses: actions/setup-node@v4
         with:
@@ -108,6 +141,8 @@ jobs:
           test "$correcto" = true
           ! grep -Fq 'data-juego="nd20_cifi"' /tmp/forja-live.html
           ! grep -Fq 'data-juego="nd20_nocturna"' /tmp/forja-live.html
+          grep -Fq '<dialog id="editor-compras"' /tmp/forja-live.html
+          grep -Fq 'id="compras-grupo"' /tmp/forja-live.html
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/app.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-app.js
           grep -Fq "var primeraVisitaMovil" /tmp/forja-app.js
           grep -Fq "var introVisible" /tmp/forja-app.js
@@ -129,6 +164,9 @@ jobs:
           grep -Fq "escuelas:escuelas,circulo:circulo" /tmp/forja-tooltips.js
           grep -Fq "info-escuela-" /tmp/forja-tooltip-ui.js
           grep -Fq "info-circulo-valor" /tmp/forja-tooltip-ui.js
+          grep -Fq "textoVisible===undefined?t:textoVisible" /tmp/forja-tooltip-ui.js
+          grep -Fq "function presentarPoder(nombre)" /tmp/forja-app.js
+          grep -Fq "ico-conjuro" /tmp/forja-app.js
           ! grep -Fq "fuenteGlosa.textContent='Descripción: '" /tmp/forja-tooltip-ui.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/styles.css?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-estilos.css
           for escuela in arcana demonologia divina elemental naturaleza nigromancia; do
@@ -139,6 +177,8 @@ jobs:
           grep -Fq "fonts.googleapis.com/css2?family=Exo" /tmp/forja-estilos.css
           grep -Fq -- "--fondo:#f3f8fc" /tmp/forja-estilos.css
           grep -Fq "html[data-tema=clasico] .ficha-emergente" /tmp/forja-estilos.css
+          grep -Fq ".bloque-ficha ul.lista-dos-columnas" /tmp/forja-estilos.css
+          grep -Fq ".dialogo-compras{" /tmp/forja-estilos.css
           grep -Fq ".info-escuela-arcana{background:LightSkyBlue" /tmp/forja-estilos.css
           grep -Fq ".info-categoria-objeto-armas{background:#ffa280" /tmp/forja-estilos.css
           echo "OK: identidad Exo, azul del blog y categorías DRS en el CSS público."
@@ -184,9 +224,9 @@ jobs:
           grep -Fq 'data/glosas-talentos-drs.json' /tmp/forja-app.js
           grep -Fq 'data/glosas-equipo-drs.json' /tmp/forja-app.js
           curl -fsSL "${PAGE_URL%/}/assets/icons-forja.svg" -o /tmp/forja-icons.svg
-          test "$(grep -c '<symbol id=' /tmp/forja-icons.svg)" -eq 12
+          test "$(grep -c '<symbol id=' /tmp/forja-icons.svg)" -eq 14
           curl -fsSL "${PAGE_URL%/}/data/especies.json" -o /tmp/forja-especies.json
           node -e "const e=require('/tmp/forja-especies.json');if(Object.keys(e).length!==8)process.exit(1)"
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/aclaraciones-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-aclaraciones.json
           node -e "const a=require('/tmp/forja-aclaraciones.json');const ids=a.registros.map(x=>x.id_talento).sort();const expected=['talento-drs-especie-mediano-amable-salvese-quien-pueda','talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes'].sort();if(a.estado!=='aprobacion_autoral'||JSON.stringify(ids)!==JSON.stringify(expected))process.exit(1)"
-          echo "OK: Forja DRS completa en vivo, 10 Técnicas, 24 Talentos, 111 descripciones, 8 Especies, 12 SVG, dos aclaraciones y CiFi/Nocturna excluidos."
+          echo "OK: Forja DRS completa en vivo, 10 Técnicas, 24 Talentos, 111 descripciones, 8 Especies, 14 SVG, dos aclaraciones y CiFi/Nocturna excluidos."
