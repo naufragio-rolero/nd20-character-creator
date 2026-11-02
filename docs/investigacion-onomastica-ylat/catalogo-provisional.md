@@ -243,3 +243,24 @@ Se comparó [`data/nombres-historicos-ylat.json`](../../data/nombres-historicos-
 **Nueva interpretación de conflicto anterior:** `Saewig Rowes` se documenta en «Historia de Shadaleen»; `Saewig Shadelgast` en [«El decadente Circo Labrice», Ylat³, Mundos alternos](https://drive.google.com/file/d/1R1ukaNGzFJYst3z1TzG7NrhsOZOedr-z/view). Esto **plantea la posibilidad** de una divergencia entre realidades; **no prueba** que los dos sean variantes autorizadas de una identidad ni resuelve por sí solo la cuestión editorial.
 
 **Detalle y las 23 fichas examinadas:** [revision-biografica-y-realidades.md](revision-biografica-y-realidades.md).
+
+
+## N. Cierre de la primera revisión de los 66 componentes originalmente indeterminados (2026-11-02)
+
+**Esta sección actualiza y sustituye los recuentos intermedios de la sección M:** en el censo de 140 PNJ existen **97 segundos componentes nominales distintos**. Tras cotejar individualmente los **66** que inicialmente carecían de función familiar acreditada, el resultado es: **22 F** (familia/documentación positiva), **1 A** (apellido individual explícito), **1 P** (apodo explícito), **2 N** (convención de nacimiento), **1 O** (ordinal), **1 M** (tratamiento), **3 E** (fórmulas de epíteto), **4 C** (compuestos sin función probada), **2 V** (variantes en conflicto) y **60 I** (segundos componentes cuya función familiar sigue sin prueba suficiente). Suma: **97**. Ninguna categoría implica autorización automática para generar.
+
+**Cinco familias acreditadas durante el barrido:** Asheishi, Kinistis, Sigvald, Neulenthris y Veredron. La posible relación sanguínea Neulenthris–Adorasol es conjetural según la propia fuente. **Car'rt Oq'uatee / Kaart Oquati** se mantiene como conflicto documental, sin confirmar ni corregir automáticamente la identidad y el culto.
+
+**Anexo de cobertura:** [revisión biográfica y versiones entre realidades](revision-biografica-y-realidades.md). Los **60 I ya han tenido primera lectura dirigida**: no confundir «sin función demostrada» con «sin estudiar» o «definitivamente no es apellido».
+
+## O. Casas y personajes fuera del censo: crónicas de Isophius
+
+Los relatos publicados y las fichas de [Isophius](ampliacion-cronicas-isophius.md) documentan nombres y familias **fuera de los 140 PNJ**, sin cambiar el denominador del recuento anterior.
+
+- **Orovecchio**: apellido afirmado expresamente en un capítulo; Tadeo es padre de Fabrizio, Draconio «Drake» y Gerad; alias Drake confirmado.
+- **Achgate**: Lalo Achgate es primo segundo del emperador Janus; grafías `Janus II Achgate` y `Janus Achgate II`.
+- **Buelhorn, Leone, Forneustone y Grimaldi**: casas nobles con personas nominadas en fichas. **Casa Rizzo** figura como familia, pero sus miembros enumerados llevan el apellido **Martoni**: no se ha verificado ningún portador del apellido Rizzo en esa ficha.
+- **Alim de Mostagánem**: nombre personal y topónimo de procedencia acreditados en ficha de campaña; también Mostaganem y Mostáganem en otros testimonios. Participó en las escenas del foro y consta como hijo adoptivo de Fabrizio, **sin cambiar su apellido**.
+- **Leezar Theroux / Leezar Lockbruck**: material de preparación y un texto antiguo frente a ficha y crónicas publicadas. Probablemente versiones del mismo personaje, **no** cambio de apellido narrado explícitamente.
+
+Las discrepancias se conservan en [decisiones-editoriales.md](decisiones-editoriales.md), ahora con **12 cuestiones**. Las casas externas al Excel **no** se suman a los 22 apellidos familiares del recuento cerrado del censo.
