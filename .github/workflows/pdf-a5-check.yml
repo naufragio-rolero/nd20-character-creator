@@ -1,5 +1,7 @@
 name: PDF A5 Fantasía — validación aislada
 on:
+  push:
+    branches: ['release/pdf-a5-from-live-20261102']
   pull_request:
     paths:
       - 'assets/pdf-a5/**'
