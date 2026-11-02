@@ -268,7 +268,7 @@ async function probar(nombre,tipo,url){
     assert.deepEqual(await popup.locator('.info-primarios dd').allTextContents(),
       ['20 m','1d6 (veneno e impío)'],
       nombre+': daño literal mixto visible en consulta rápida');
-    assert.match(await popup.locator('.info-descripcion').textContent(),
+    assert.match(await popup.locator('.info-descripcion').first().textContent(),
       /1d6 de daño por veneno e impío/);
     await page.locator('#informacion-avanzada').uncheck();
     // Objetos: categoría en pill, precio y descripción de reglas sin
