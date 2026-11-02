@@ -845,7 +845,7 @@ async function probar(nombre,tipo,url){
       ancho:el.clientWidth-parseFloat(estilo.paddingLeft)-parseFloat(estilo.paddingRight),
       ultimo:el.querySelector('.recurso-ficha:last-child').getBoundingClientRect().width,
       primero:el.querySelector('.recurso-ficha:first-child').getBoundingClientRect().width,
-      icono:el.querySelector('svg.icono-recurso').getBoundingClientRect().width,
+      icono:el.querySelector('.icono-svg.icono-recurso').getBoundingClientRect().width,
       desborda:el.scrollWidth>el.clientWidth
       };
     });
