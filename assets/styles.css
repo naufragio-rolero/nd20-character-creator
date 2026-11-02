@@ -915,3 +915,53 @@ html[data-tema]:not([data-tema=clasico]) .protecciones-activas :is(h4,p){
 }
 @media(max-width:350px){.protecciones-selectores{grid-template-columns:1fr}}
 
+
+
+/* Forja · configuración modal y resumen compacto de solo lectura. */
+.resumen-creacion{margin:.2rem 0 .85rem;padding:.85rem .9rem;
+  border:1px solid var(--borde);border-radius:10px;background:var(--superficie2)}
+.resumen-creacion h3{font:600 .98rem "Exo",system-ui,sans-serif;margin:0 0 .65rem}
+.resumen-creacion dl{margin:0;display:grid;gap:.45rem}
+.resumen-creacion dl>div{display:flex;justify-content:space-between;gap:.75rem;
+  border-bottom:1px solid var(--borde);padding-bottom:.4rem;font-size:.79rem}
+.resumen-creacion dl>div:last-child{border-bottom:0;padding-bottom:0}
+.resumen-creacion dt{color:var(--secundario)}
+.resumen-creacion dd{margin:0;font-weight:700;text-align:right;overflow-wrap:anywhere}
+.configurar-creacion{display:flex;justify-content:center;align-items:center;gap:.55rem;
+  width:100%;min-height:44px;margin:.75rem 0;background:var(--superficie2);
+  color:var(--texto);font-weight:700}
+.configurar-creacion svg{width:1.15rem;height:1.15rem;flex:none}
+#panel-personajes>#generar{width:100%;min-height:45px;margin:.15rem 0 0}
+.dialogo-configuracion{width:min(760px,calc(100vw - 1.2rem));max-height:calc(100dvh - 1.2rem);
+  overflow-y:auto;border:1px solid var(--oro);border-radius:14px;
+  color:var(--texto);background:var(--superficie);padding:1.1rem 1.25rem;
+  box-shadow:0 18px 60px #0008}
+.dialogo-configuracion::backdrop{background:#061d32c2;backdrop-filter:blur(3px)}
+.dialogo-configuracion .cabecera-configuracion{display:flex;align-items:center;
+  justify-content:space-between;gap:1rem;position:sticky;top:-1.1rem;z-index:2;
+  background:var(--superficie);padding:.2rem 0 .7rem;border-bottom:1px solid var(--borde)}
+.dialogo-configuracion .cabecera-configuracion h3{font:600 1.4rem "Exo",system-ui,sans-serif;margin:0}
+.dialogo-configuracion #cerrar-configuracion{min-width:38px;min-height:38px}
+.ayuda-configuracion{color:var(--secundario);font-size:.8rem;margin:.7rem 0 1rem}
+.dialogo-configuracion #configuracion{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.6rem 1.25rem}
+.dialogo-configuracion #configuracion>.campo,
+.dialogo-configuracion #configuracion>fieldset{min-width:0;margin-bottom:.3rem}
+.dialogo-configuracion #configuracion>:is(#opciones-fuentes,#opciones-dh,#opciones-contexto-sexo,
+  #modos-creacion,#opciones-riqueza-nivel,#configuracion-avanzada,.pie-configuracion){grid-column:1/-1}
+.dialogo-configuracion .pie-configuracion{display:flex;justify-content:flex-end;gap:.65rem;
+  flex-wrap:wrap;position:sticky;bottom:-1.1rem;background:var(--superficie);
+  padding:.85rem 0 .2rem;border-top:1px solid var(--borde)}
+.dialogo-configuracion .pie-configuracion button{min-height:42px}
+.dialogo-configuracion .pie-configuracion .generar-desde-dialogo{
+  background:var(--superficie2);color:var(--texto)}
+.icono-equipo-lista{width:1.05rem;height:1.05rem;flex:0 0 1.05rem;
+  color:var(--oro2);vertical-align:middle}
+html[data-tema=clasico] .icono-equipo-lista{color:#15467c}
+@media(max-width:560px){
+  .dialogo-configuracion{padding:.85rem}
+  .dialogo-configuracion #configuracion{grid-template-columns:minmax(0,1fr)}
+  .dialogo-configuracion #configuracion>*{grid-column:1/-1}
+  .dialogo-configuracion .cabecera-configuracion{top:-.85rem}
+  .dialogo-configuracion .pie-configuracion{bottom:-.85rem}
+}

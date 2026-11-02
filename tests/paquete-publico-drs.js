@@ -184,11 +184,14 @@ assert.ok(html.includes('assets/i18n.js'));
 assert.ok(fs.existsSync(path.join(salida,'locales','es.json')));
 assert.ok(html.includes('id="selector-visual-ocupacion"'));
 assert.ok(html.includes('id="generar-flotante"'));
+assert.ok(html.includes('id="abrir-configuracion"'));
+assert.ok(html.includes('id="dialogo-configuracion"'));
+assert.ok(html.includes('id="resumen-nivel"'));
 assert.ok(html.includes('id="informacion-avanzada"'));
 assert.ok(fs.existsSync(path.join(salida,'assets','icons-forja.svg')));
 assert.equal((fs.readFileSync(path.join(salida,'assets','icons-forja.svg'),'utf8')
-  .match(/<symbol id=/g)||[]).length,20,
-  'Se distribuyen exactamente 8 pictogramas de Especie y 4 de Ocupación');
+  .match(/<symbol id=/g)||[]).length,31,
+  'Pictogramas DRS: Especies, Ocupaciones, Poderes, Recursos, Equipo y configuración');
 assert.ok(html.indexOf('value="historico"')<html.indexOf('value="combinado"'),
   'El banco histórico debe ser el modo predeterminado en la distribución');
 assert.ok(html.includes('Variantes de Ylat'));

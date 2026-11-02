@@ -69,10 +69,33 @@
         <p>No hace falta configurar todo. Puedes dejar <strong>Nivel 1</strong>,
           <strong>Ocupación</strong> y <strong>Especie</strong> en sus valores iniciales
           y pulsar <strong>Generar personaje</strong>.</p>
-        <p>La ficha aparecerá en <strong>Resultados</strong>. Para decidir sus características,
-          modifica las opciones de abajo; el modo <strong>Personalizado</strong> te guiará
-          por las elecciones de Talentos y Poderes.</p>
+        <p>Las opciones actuales se resumen debajo. Pulsa <strong>Configurar creación</strong>
+          para modificarlas, o genera directamente con los valores mostrados.</p>
       </section>
+      <section class="resumen-creacion" aria-labelledby="titulo-resumen-creacion">
+        <h3 id="titulo-resumen-creacion">Creación preparada</h3>
+        <dl>
+          <div><dt>Nivel</dt><dd id="resumen-nivel">1</dd></div>
+          <div><dt>Ocupación</dt><dd id="resumen-ocupacion">Aleatoria</dd></div>
+          <div><dt>Especie</dt><dd id="resumen-especie">Aleatoria</dd></div>
+          <div><dt>Sexo</dt><dd id="resumen-sexo">Aleatorio</dd></div>
+          <div><dt>Modo</dt><dd id="resumen-modo">Rápido</dd></div>
+          <div><dt>Fichas</dt><dd id="resumen-cantidad">1</dd></div>
+        </dl>
+      </section>
+      <button id="abrir-configuracion" type="button" class="configurar-creacion"
+        aria-haspopup="dialog" aria-controls="dialogo-configuracion">
+        <svg aria-hidden="true" focusable="false"><use href="assets/icons-forja.svg#ico-configurar"></use></svg>
+        Configurar creación
+      </button>
+      <button class="principal" id="generar" type="submit" form="configuracion" disabled>Generar personaje</button>
+      <dialog id="dialogo-configuracion" class="dialogo-configuracion"
+        aria-labelledby="titulo-dialogo-configuracion">
+        <div class="cabecera-configuracion">
+          <h3 id="titulo-dialogo-configuracion">Configurar creación</h3>
+          <button id="cerrar-configuracion" type="button" aria-label="Cerrar configuración">✕</button>
+        </div>
+        <p class="ayuda-configuracion">Ajusta las opciones de la siguiente generación. Los cambios se reflejan en el resumen de la Forja.</p>
       <form id="configuracion">
         <div class="campo">
           <label for="nivel">Nivel <span id="rango-nivel">1–30</span></label>
@@ -172,8 +195,12 @@
           </label>
           <small>Por defecto, las fichas emergentes muestran el efecto y la fuente. Los metadatos, las magnitudes y las condiciones técnicas se pueden desplegar cuando hagan falta.</small>
         </details>
-        <button class="principal" id="generar" type="submit" disabled>Generar personajes</button>
+        <div class="pie-configuracion">
+          <button type="button" id="aplicar-configuracion" class="principal">Aplicar opciones</button>
+          <button type="submit" id="generar-dialogo" class="generar-desde-dialogo">Generar personaje</button>
+        </div>
       </form>
+      </dialog>
       </div>
       <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
         <h3>Herramientas del Cronista</h3>
@@ -190,7 +217,7 @@
         <p class="sobrelinea">PRIMER PASO</p>
         <h2 id="titulo-inicio-movil">Crea tu primer personaje</h2>
         <p>La Forja ya tiene opciones preparadas. Pulsa <strong>Empezar</strong>
-          para abrirlas y luego <strong>Generar personaje</strong>.
+          para ver el resumen y pulsa <strong>Generar personaje</strong> o <strong>Configurar creación</strong>.
           No necesitas configurar nada más.</p>
         <button type="button" class="empezar-forja" aria-controls="panel-forja">Empezar</button>
       </section>
@@ -262,8 +289,7 @@
         <div class="vacio" id="vacio">
           <span class="emblema" aria-hidden="true">◇</span>
           <p>Aquí aparecerá tu personaje</p>
-          <p class="muted">Deja las opciones iniciales o elige Nivel, Ocupación y Especie.
-            Pulsa «Generar personaje» en la Forja: aquí verás el resultado.</p>
+          <p class="muted">Puedes generar con las opciones resumidas en la Forja o modificarlas desde «Configurar creación».</p>
         </div>
       </div>
       <footer class="pie">Creado para la mesa de juego. Datos y reglas originales de sus respectivos proyectos. <a href="https://naufragio.net/" target="_blank" rel="noopener noreferrer">El Naufragio</a>.</footer>
