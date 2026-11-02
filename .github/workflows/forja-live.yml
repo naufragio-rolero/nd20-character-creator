@@ -28,87 +28,32 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener exclusivamente Forja DRS validada (PR #18)
+      - name: Obtener exclusivamente Forja DRS validada (PR #42)
         uses: actions/checkout@v4
         with:
-          ref: ba163f5144ec8e5f55073dea4b0cedcfbe72a78f
+          ref: a8c43bbb3f7d950df84d385e3da495b70ad4c862
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "ba163f5144ec8e5f55073dea4b0cedcfbe72a78f"
-      # DRS base PR #18 fijado. La PR #24 aporta las estadísticas
-      # documentadas de equipo, la PR #25 los recursos y protecciones.
-      # Esta revisión compacta sus tarjetas sin alterar las reglas del DRS.
-      # Superponer solo archivos autorizados cotejados por SHA.
-      - name: Aplicar mejoras DRS y Recursos compactos por SHA
+          test "$(git rev-parse HEAD)" = "a8c43bbb3f7d950df84d385e3da495b70ad4c862"
+      # La revisión fijada ya contiene todos los cambios probados en PR #42.
+      # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
+      - name: Auditar iconografia y funcionalidades fijadas
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=681cccef593eccb3a72b80d5acaed0a184450e08
-          archivos=(
-            assets/app.js
-            assets/styles.css
-            assets/tooltips.js
-            assets/tooltip-ui.js
-            assets/icons-forja.svg
-            assets/equipment.js
-            index.html
-            assets/rules.js
-            assets/sex.js
-            data/tesauro-ylat.json
-            data/equipo-inicial.json
-            scripts/crear-paquete-drs.js
-            scripts/comprobar-publicacion-drs.js
-            tests/browser-compras.js
-            tests/browser-compatibilidad.js
-            tests/fichas-drs-ux.js
-            tests/paquete-publico-drs.js
-            tests/alcance-drs.js
-            tests/smoke.js
-          )
-          blobs=(
-            d77ecc370b700748629131c8a01feae71d8547ca
-            a3fcc0c59cd0ad002dc36dc635f1583132066749
-            13784584db09986e28841cd6df72c8f09aae94f1
-            105de262dd5d81c283ac2cc1bd26e04068ea8a6f
-            116ae34bbc0fe58361091cefdc0b38502413cab1
-            0014c9b90c45bde0415c93c6102d432611df6ddd
-            9593337ee7b4779f8f06f62151e6905d1cd8124f
-            7aced6a1728d60a69115190a38861f3bfabed0bd
-            5840727b1c4b4b7a260ff425e596edca4ea6534f
-            e21e0704d247d02a9930e28f0fd88bf307408d7e
-            656e5676c6e7be339156ff62bd2995f635ad4d3c
-            59001f362a71505b07af35f0d65c215bd4f76647
-            6d42c7947d900bc8f754593771840d442c61b184
-            002a5d47f7b7abc4da3bf4aa09ac447e19ea1823
-            388e9797eac14ca27b2ce6d01080bea96d3f3868
-            efb2d320e1ae44978e0a794c9d5e49104028fcfc
-            0662a4fdc80e5b315b59ec7f30ff67b9ea608209
-            a84bdc15cc0ee37284f72903cb6cf6a8e141c44f
-            08bf54f92c0f226027779ba6baf06324c3954973
-          )
-          for i in "${!archivos[@]}"; do
-            archivo="${archivos[$i]}"
-            blob="${blobs[$i]}"
-            curl --connect-timeout 10 --max-time 30 --fail --location --silent --show-error \
-              "https://raw.githubusercontent.com/naufragio-rolero/nd20-character-creator/${UI_COMMIT}/${archivo}" \
-              -o "${archivo}"
-            test "$(git hash-object "${archivo}")" = "${blob}"
-          done
-          # Todo cambio respecto al pin DRS debe estar en esta lista blanca.
-          while IFS= read -r modificado; do
-            autorizado=false
-            for archivo in "${archivos[@]}"; do
-              if [[ "${modificado}" == "${archivo}" ]]; then autorizado=true;break;fi
-            done
-            test "${autorizado}" = true
-          done < <(git diff --name-only)
+          test ! -e assets/icons-forja.svg
+          test "$(find assets/icons -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 35
+          test -f assets/icons/CREDITOS-GAME-ICONS.txt
+          grep -Fq 'CC BY 3.0' assets/icons/CREDITOS-GAME-ICONS.txt
+          grep -Fq 'Goblin head' assets/icons/CREDITOS-GAME-ICONS.txt
+          grep -Fq 'mitad-orco' assets/icons/esp-semiorco.svg
+          grep -Fq 'mitad-humano' assets/icons/esp-semiorco.svg
+          ! grep -Fq 'icons-forja.svg' assets/app.js
+          ! grep -Fq 'icons-forja.svg' index.html
           grep -Fq "fonts.googleapis.com/css2?family=Exo" assets/styles.css
           grep -Fq "dialogo.showModal();" assets/app.js
           grep -Fq 'id="compras-grupo"' index.html
-          grep -Fq 'id="ico-conjuro"' assets/icons-forja.svg
-          grep -Fq 'id="ico-tecnica"' assets/icons-forja.svg
-          grep -Fq 'id="equipo-caballo"' assets/icons-forja.svg
           grep -Fq "if(contiene(c.utiles_fantasia?.monturas))return 'equipo-caballo';" assets/app.js
           grep -Fq 'par[0]==="monturas"?"Montura"' assets/tooltips.js
           ! grep -Fq 'Forma del generador histórico de nombres de Ylat.' assets/rules.js
@@ -141,20 +86,13 @@ jobs:
           grep -Fq '"libro de conjuros en blanco":"libro de conjuros"' assets/tooltips.js
           grep -Fq 'return !x.servicio_por_dia&&' assets/app.js
           grep -Fq '"id": "iluminacion-antorcha"' data/equipo-inicial.json
-          grep -Fq 'id="sexo-masculino"' assets/icons-forja.svg
-          grep -Fq 'id="sexo-femenino"' assets/icons-forja.svg
-          grep -Fq 'id="sexo-indeterminado"' assets/icons-forja.svg
           grep -Fq 'id="dialogo-configuracion"' index.html
           grep -Fq 'id="abrir-configuracion"' index.html
-          grep -Fq 'id="ico-configurar"' assets/icons-forja.svg
-          grep -Fq 'id="equipo-arco"' assets/icons-forja.svg
           grep -Fq "recurso-nota-escudo" assets/app.js
           grep -Fq "info-primarios-objeto" assets/tooltip-ui.js
           ! grep -Fq 'nth-child(5):last-child{grid-column:1/-1}' assets/styles.css
           grep -Fq 'grid-template-columns:repeat(4,minmax(0,1fr))' assets/styles.css
           grep -Fq 'function htmlProteccionesEquipadas(personaje,id)' assets/app.js
-          grep -Fq 'id="recurso-blindaje"' assets/icons-forja.svg
-          test "$(grep -c '<symbol id=' assets/icons-forja.svg)" -eq 35
           echo "OK: estadísticas oficiales, 64 Conjuros, Recursos y protecciones cotejados por hash."
       - name: Preparar Node
         uses: actions/setup-node@v4
@@ -165,6 +103,7 @@ jobs:
           node tests/alcance-drs.js
           node tests/smoke.js
           node tests/fichas-drs-ux.js
+          node tests/iconos-forja.js
       - name: Generar solo la carpeta DRS autorizada
         run: node scripts/crear-paquete-drs.js
       - name: Detener la publicación ante DLC o sistemas no autorizados
@@ -257,8 +196,13 @@ jobs:
           grep -Fq 'function iconoEquipo(nombre)' /tmp/forja-app.js
           grep -Fq "if(contiene(c.utiles_fantasia?.monturas))return 'equipo-caballo';" /tmp/forja-app.js
           grep -Fq 'par[0]==="monturas"?"Montura"' /tmp/forja-tooltips.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons-forja.svg?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-iconos.svg
-          grep -Fq 'id="equipo-caballo"' /tmp/forja-iconos.svg
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/esp-semiorco.svg?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-semiorco.svg
+          grep -Fq 'id="esp-semiorco"' /tmp/forja-semiorco.svg
+          grep -Fq 'mitad-orco' /tmp/forja-semiorco.svg
+          grep -Fq 'mitad-humano' /tmp/forja-semiorco.svg
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/CREDITOS-GAME-ICONS.txt?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-creditos.txt
+          grep -Fq 'CC BY 3.0' /tmp/forja-creditos.txt
+          grep -Fq 'CREDITOS-GAME-ICONS.txt' /tmp/forja-live.html
           grep -Fq 'function descripcionConSexo(personaje)' /tmp/forja-app.js
           grep -Fq 'function nombreEquipoVisible(nombre)' /tmp/forja-app.js
           grep -Fq "var ordenAtributos=['Fuerza','Mente','Agilidad','Intuición','Resistencia','Presencia'];" /tmp/forja-app.js
@@ -385,10 +329,13 @@ jobs:
           grep -Fq 'data/tecnicas-drs-literales.json' /tmp/forja-app.js
           grep -Fq 'data/glosas-talentos-drs.json' /tmp/forja-app.js
           grep -Fq 'data/glosas-equipo-drs.json' /tmp/forja-app.js
-          curl -fsSL "${PAGE_URL%/}/assets/icons-forja.svg" -o /tmp/forja-icons.svg
-          test "$(grep -c '<symbol id=' /tmp/forja-icons.svg)" -eq 35
-          grep -Fq 'id="recurso-blindaje"' /tmp/forja-icons.svg
-          grep -Fq 'id="recurso-salud"' /tmp/forja-icons.svg
+          # Auditar todos los SVG realmente servidos desde Pages (no desde main).
+          for id in esp-elfo esp-enano esp-humano esp-mediano esp-gnomo esp-semielfo esp-orco esp-semiorco ocu-clerigo ocu-guerrero ocu-mago ocu-ladron ico-conjuro ico-tecnica recurso-salud recurso-esfuerzo recurso-movimiento recurso-potencia recurso-esencia recurso-blindaje equipo-espada equipo-arco equipo-varita equipo-bolsa equipo-caballo equipo-mochila equipo-orbe equipo-libro equipo-armadura equipo-escudo equipo-municion ico-configurar sexo-masculino sexo-femenino sexo-indeterminado; do
+            curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/${id}.svg?forja_release=${GITHUB_RUN_ID}" -o "/tmp/forja-${id}.svg"
+            grep -Fq 'viewBox="0 0 24 24"' "/tmp/forja-${id}.svg"
+            grep -Fq "id=\"${id}\"" "/tmp/forja-${id}.svg"
+            grep -Fq "Game-icons.net" "/tmp/forja-${id}.svg"
+          done
           curl -fsSL "${PAGE_URL%/}/data/especies.json" -o /tmp/forja-especies.json
           node -e "const e=require('/tmp/forja-especies.json');if(Object.keys(e).length!==8)process.exit(1)"
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/aclaraciones-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-aclaraciones.json
