@@ -208,11 +208,17 @@
     // Conservar las fórmulas literales, sin reemplazarlas por un valor por Nivel.
     if(presentacion&&presentacion.primarios.length){
       var principales=document.createElement('dl');
-      principales.className='info-primarios';
+      principales.className='info-primarios'+(objeto?' info-primarios-objeto':'');
       presentacion.primarios.forEach(function(p){
         var dt=document.createElement('dt'),dd=document.createElement('dd');
         dt.textContent=p[0]+':';dd.textContent=p[1];
-        principales.append(dt,dd);
+        if(objeto){
+          // Agrupar etiqueta y valor permite dos columnas sin alterar su orden.
+          var campo=document.createElement('div');
+          campo.className='info-objeto-campo';
+          campo.append(dt,dd);
+          principales.appendChild(campo);
+        }else principales.append(dt,dd);
       });
       c.appendChild(principales);
     }
