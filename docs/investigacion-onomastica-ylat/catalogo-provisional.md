@@ -4,6 +4,9 @@
 **Estado:** investigación; **no constituye un repertorio aprobado para generación**.  
 **Exclusión absoluta:** Niguace/Niguaze y material de procedencia no acreditada.
 
+
+> **ACTUALIZACIÓN DE CANON POR AUTORÍA:** el [acta de decisiones (13 fijadas, ONO-02 pendiente)](acta-decisiones-autoria-2026-11-02.md) prevalece sobre recomendaciones antiguas del catálogo. Se permiten combinaciones creativas de apellidos de casa **con probabilidad muy baja**, mezcla de épocas/realidades, mantenimiento de Máthair/Pietro como entidades de Ylat y se conserva la convención eladrín **sin aplicarla a generación**. Formas editoriales aprobadas y hermandad de Leezar/Thingrim Lockbruck en el acta. Este catálogo sigue conservando las grafías fuente por trazabilidad.
+
 ## Criterios de clasificación
 
 - **Apellido/familia acreditada:** existe una relación familiar, dinástica o una mención explícita a la familia, además de usos en nombres completos.
