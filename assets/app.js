@@ -405,6 +405,28 @@
       return 'equipo-mochila';
     return 'equipo-bolsa';
   }
+  // Capitalización editorial: la ficha conserva el inventario literal.
+  function nombreEquipoVisible(nombre){
+    return String(nombre).replace(/^(\s*)([a-záéíóúüñ])/iu,function(_,espacio,letra){
+      return espacio+letra.toLocaleUpperCase('es');
+    });
+  }
+  function sexoVisible(personaje){
+    var id=personaje.sexo==='masculino'?'sexo-masculino':
+      personaje.sexo==='femenino'?'sexo-femenino':'sexo-indeterminado';
+    var leyenda=personaje.sexo==='masculino'?'Masculino':
+      personaje.sexo==='femenino'?'Femenino':'No indicado';
+    return '<span class="sexo-ficha" role="img" aria-label="Sexo: '+leyenda+
+      '" title="Sexo: '+leyenda+'"><svg aria-hidden="true" focusable="false">'+
+      '<use href="assets/icons-forja.svg#'+id+'"></use></svg></span>';
+  }
+  function descripcionConSexo(personaje){
+    var descripcion=String(personaje.descripcion||'');
+    var separacion=descripcion.indexOf(' · ');
+    var ocupacion=separacion<0?descripcion:descripcion.slice(0,separacion);
+    return esc(ocupacion)+' '+sexoVisible(personaje)+
+      (separacion<0?'':esc(descripcion.slice(separacion)));
+  }
   function htmlLista(titulo, valores, grupo, sistema, personaje) {
     if (!valores || !valores.length) return '';
     var compacta=grupo==='talento'||grupo==='poder'||grupo==='equipo';
@@ -416,6 +438,7 @@
           procedenciaTalentoDRS(personaje,v):{fuente:'',adquisicion:''};
         var vista=grupo==='poder'?presentarPoder(v):{texto:v,icono:''};
         if(grupo==='equipo'){
+          vista.texto=nombreEquipoVisible(v);
           var simbolo=iconoEquipo(v);
           vista.icono='<svg class="icono-equipo-lista" aria-hidden="true" focusable="false">'+
             '<use href="assets/icons-forja.svg#'+simbolo+'"></use></svg>';
@@ -554,11 +577,12 @@
     }).join('');
     return '<article class="tarjeta" data-id="' + id + '" data-nivel="' + esc(personaje.nivel) + '">' +
       '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(personaje.juego) +
-      ' · Nivel ' + esc(personaje.nivel) +
-      (personaje.sexo?' · '+esc(personaje.sexo==='femenino'?'Femenino':'Masculino'):'') +
       '</p><h3>' + esc(personaje.nombre) +
-      '</h3><p>' + esc(personaje.descripcion) + '</p></div>' +
-      '<button class="icon-btn eliminar-ficha" data-id="' + id + '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div>' +
+      '</h3><p class="descripcion-personaje">' + descripcionConSexo(personaje) + '</p></div>' +
+      '<div class="acciones-cabecera-ficha"><span class="nivel-ficha" aria-label="Nivel '+
+      esc(personaje.nivel)+'">Nivel '+esc(personaje.nivel)+'</span>'+
+      '<button class="icon-btn eliminar-ficha" data-id="' + id +
+      '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div></div>' +
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
       htmlContexto(notas.contexto) +
       '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos,personaje) +
