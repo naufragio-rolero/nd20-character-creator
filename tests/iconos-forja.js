@@ -56,6 +56,13 @@ for(const archivo of ['assets/app.js','index.html'])
 assert.equal(fs.existsSync(path.join(raiz,'assets','icons-forja.svg')),false);
 const css=fs.readFileSync(path.join(raiz,'assets','styles.css'),'utf8');
 assert.ok(css.includes('.icono-svg{')&&css.includes('mask:var(--icono-svg)'));
+assert.ok(css.includes('url(icons/ico-configurar.svg)'),
+  'El boton de configurar resuelve el SVG desde la hoja assets/styles.css');
+const appJs=fs.readFileSync(path.join(raiz,'assets','app.js'),'utf8');
+assert.ok(appJs.includes("new URL('assets/icons/'+id+'.svg',document.baseURI)"),
+  'Las mascaras dinamicas generan URL absoluta sin duplicar assets');
+assert.ok(!appJs.includes("'url(assets/icons/"),
+  'No quedan mascaras dinamicas de rutas relativas ambiguas');
 
 const rutaOrigen=path.join(raiz,'docs','iconografia','originales','game-icons');
 const originales=fs.readdirSync(rutaOrigen).flatMap(autor=>
