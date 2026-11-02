@@ -686,8 +686,13 @@ async function probar(nombre,tipo,url){
     const inicial=precio(await ficha.locator('.riqueza').innerText());
     await ficha.locator('.comprar-utiles').click();
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
-    assert.equal(await page.locator('#compras-articulo option').count(),43,
-      nombre+': 41 útiles DRS + dos focos documentados');
+    assert.equal(await page.locator('#editor-compras').evaluate(el=>el.open),true,
+      nombre+': las compras se muestran en un diálogo modal');
+    assert.equal(await page.locator('#compras-grupo option').count(),6,
+      nombre+': familias originales de útiles DRS');
+    assert.ok((await page.locator('#compras-articulo option').count())<43,
+      nombre+': artículos agrupados en un desplegable más compacto');
+    await page.selectOption('#compras-grupo','campamento');
     await page.selectOption('#compras-articulo','campamento-martillo');
     await page.fill('#compras-cantidad','2');
     await page.locator('#compras-anadir').click();
@@ -701,27 +706,32 @@ async function probar(nombre,tipo,url){
     // Volver a abrir: el carrito se vacía y se puede editar por línea.
     await ficha.locator('.comprar-utiles').click();
     assert.equal(await page.locator('#compras-lista li').count(),0);
+    await page.selectOption('#compras-grupo','campamento');
     await page.selectOption('#compras-articulo','campamento-martillo');
     await page.fill('#compras-cantidad','2');
     await page.locator('#compras-cantidad').press('Enter');
     assert.equal(await page.locator('#editor-compras').isVisible(),true,
       nombre+': Intro no confirma el carrito');
     assert.equal(await page.locator('#compras-lista li').count(),1);
+    await page.selectOption('#compras-grupo','aventura');
     await page.selectOption('#compras-articulo','aventura-tiza');
     await page.fill('#compras-cantidad','3');
     await page.locator('#compras-anadir').click();
     assert.match(await page.locator('#compras-total').innerText(),/4\.03 mo/);
     await page.locator('.compras-quitar-linea').last().click();
     assert.match(await page.locator('#compras-total').innerText(),/4\.00 mo/);
+    await page.selectOption('#compras-grupo','aventura');
     await page.selectOption('#compras-articulo','aventura-tiza');
     await page.fill('#compras-cantidad','3');
     await page.locator('#compras-anadir').click();
     assert.match(await page.locator('#compras-total').innerText(),/4\.03 mo/);
+    await page.selectOption('#compras-grupo','consumibles');
     await page.selectOption('#compras-articulo','consumible-antidoto');
     await page.fill('#compras-cantidad','1');
     await page.fill('#compras-nivel','3');
     assert.match(await page.locator('#compras-detalle').innerText(),/150\.00 mo/,
       nombre+': Antídoto Nivel 3 vale 150 mo');
+    await page.selectOption('#compras-grupo','herramientas');
     await page.selectOption('#compras-articulo','herramienta-catalejo');
     await page.fill('#compras-cantidad','99');
     await page.locator('#compras-anadir').click();
