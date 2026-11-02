@@ -617,14 +617,15 @@
       (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
       htmlAvisos('Riqueza adicional',notas.riqueza,'avisos-riqueza') +
       htmlOtrosAvisos(notas.otras) +
-      '<div class="pie-ficha"><small>' + esc(fuentesFicha(personaje)) +
-      '</small>' +
+      '<div class="pie-ficha"><div class="acciones-pie-ficha" role="group" aria-label="Acciones de la ficha">' +
       (personaje.juego==='Naufragio d20 · Fantasía'&&Number.isFinite(personaje.saldo_mo)?
-        '<button type="button" class="comprar-utiles" data-id="'+id+'">Comprar útiles</button>':'')+
+        '<button type="button" class="comprar-utiles" data-id="'+id+'" title="Comprar útiles" aria-label="Comprar útiles">Útiles</button>':'')+
       (personaje.juego==='Naufragio d20 · Fantasía'?
-        '<button type="button" class="exportar-pdf-ficha" data-id="'+id+'">Exportar PDF A5</button>':'')+
+        '<button type="button" class="exportar-pdf-ficha" data-id="'+id+'" title="Exportar PDF A5" aria-label="Exportar ficha PDF A5">PDF</button>':'')+
       '<button type="button" class="copiar-ficha" data-id="' + id +
-      '">Copiar ficha</button></div></article>';
+      '" title="Copiar ficha" aria-label="Copiar ficha al portapapeles">Copiar</button></div>'+
+      '<small class="fuentes-pie-ficha">' + esc(fuentesFicha(personaje)) +
+      '</small></div></article>';
   }
   var tiles = {wall:['#172d39','Muro'],tile:['#d9d3bd','Suelo'],col:['#a7af9e','Columna'],
     trap:['#c98369','Trampa'],furn:['#b7a17f','Mobiliario']};
@@ -1349,7 +1350,7 @@
         pdf.disabled=true;
         aviso('Preparando PDF A5 de '+entradaPdf.valor.nombre+'…');
         window.NaufragioPdfBrowser.exportar(
-          entradaPdf.valor,blindajePersonaje(entradaPdf.valor)
+          entradaPdf.valor,blindajePersonaje(entradaPdf.valor),datos.equipoInicial
         ).then(function(paginas){
           aviso('PDF A5 preparado: '+paginas+' página(s).');
         }).catch(function(error){
