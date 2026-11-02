@@ -8,6 +8,9 @@
 
 > **ACTUALIZACIÓN EDITORIAL DE AUTORÍA (2026-11-02):** las reservas restrictivas de los apartados siguientes fueron **propuestas anteriores** a la validación. La [nueva acta](acta-decisiones-autoria-2026-11-02.md) autoriza en principio apellidos nobiliarios **de peso muy bajo**, mezcla de nombres de épocas/realidades, conservación de Máthair/Pietro sin excluirlos y mantenimiento de la convención eladrín **sin usarla**. La ponderación numérica aún no existe ni se ha fijado. No atribuir a esta propuesta un veto que la autoría ya descartó.
 
+
+> **CIERRE EDITORIAL DEFINITIVO (2026-11-02):** la autoría ha resuelto las **14/14 ONO**. **ONO-02** confirma a **Dyeld** como padre canónico de **Tuliëlle**; la ficha de Eldburg contiene una variante contradictoria que se conserva como testimonio anterior. Las secciones de «decisiones pendientes» de esta especificación describen un momento previo y no representan el estado actual. Las decisiones se detallan en el [acta final](acta-decisiones-autoria-2026-11-02.md). No hay implementación de ponderación de apellidos ni cambios de código autorizados automáticamente.
+
 ## 1. Estado comprobado del generador (rama principal, lectura 2026-11-02)
 
 - `data/nombres-historicos-ylat.json`: 1428 filas, 1422 formas únicas. La política del propio archivo no identifica sexo, cultura, linaje, especie ni identidad documentada; **no convertir esas formas en apellidos por su apariencia**.
