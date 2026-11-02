@@ -675,9 +675,31 @@ async function probar(nombre,tipo,url){
       nombre+': Equipo utiliza dos columnas en escritorio');
     const recursos=fichaTalentos.locator('.recursos-rejilla');
     assert.equal(await recursos.count(),1,nombre+': recursos en una sola cuadrícula');
-    const columnasRecursos=await recursos.evaluate(el=>
+    const columnasRecursos=()=>recursos.evaluate(el=>
       getComputedStyle(el).gridTemplateColumns.split(' ').length);
-    assert.equal(columnasRecursos,2,nombre+': Recursos muestran dos columnas');
+    assert.equal(await columnasRecursos(),4,nombre+': Recursos muestran cuatro columnas');
+    const dimensionesRecursos=()=>recursos.evaluate(el=>{
+      const estilo=getComputedStyle(el);
+      return {
+      ancho:el.clientWidth-parseFloat(estilo.paddingLeft)-parseFloat(estilo.paddingRight),
+      ultimo:el.lastElementChild.getBoundingClientRect().width,
+      icono:el.querySelector('svg.icono-recurso').getBoundingClientRect().width,
+      desborda:el.scrollWidth>el.clientWidth
+      };
+    });
+    assert.ok((await dimensionesRecursos()).icono<=20,
+      nombre+': los SVG de Recursos son más pequeños');
+    assert.ok((await dimensionesRecursos()).ultimo>=(await dimensionesRecursos()).ancho*.95,
+      nombre+': el quinto recurso dispone de todo el ancho de la segunda fila');
+    await page.setViewportSize({width:531,height:844});
+    assert.equal(await columnasRecursos(),4,nombre+': cuatro columnas en ficha de 531px');
+    assert.equal((await dimensionesRecursos()).desborda,false,
+      nombre+': Recursos no desbordan a 531px');
+    await page.setViewportSize({width:390,height:844});
+    assert.equal(await columnasRecursos(),2,nombre+': dos columnas en móvil estrecho');
+    assert.equal((await dimensionesRecursos()).desborda,false,
+      nombre+': Recursos no desbordan a 390px');
+    await page.setViewportSize({width:1440,height:900});
     const valoresRecursos=await recursos.locator('.recurso-nombre').allTextContents();
     for(const etiqueta of ['Salud','Esfuerzo','Movimiento','Potencia','Blindaje'])
       assert.ok(valoresRecursos.includes(etiqueta),nombre+': recurso '+etiqueta);

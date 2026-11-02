@@ -38,12 +38,13 @@ jobs:
           test "$(git rev-parse HEAD)" = "ba163f5144ec8e5f55073dea4b0cedcfbe72a78f"
       # DRS base PR #18 fijado. La PR #24 aporta las estadísticas
       # documentadas de equipo, la PR #25 los recursos y protecciones.
+      # Esta revisión compacta sus tarjetas sin alterar las reglas del DRS.
       # Superponer solo archivos autorizados cotejados por SHA.
-      - name: Aplicar mejoras DRS de PR #24 y PR #25
+      - name: Aplicar mejoras DRS y Recursos compactos por SHA
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=4e502872a6119d232d129693599a283a4e5d846b
+          UI_COMMIT=a3cba939077468401ae6623f9af75f542353b1e3
           archivos=(
             assets/app.js
             assets/styles.css
@@ -67,7 +68,7 @@ jobs:
           )
           blobs=(
             4b9c6d5ed692bb766b73235e512d3738db84e8e5
-            d6f80b19f9a779c2d4cd17c86fb93a4cf27ba3a4
+            4ff9a67c4de93bbc9f3cab778992c82504a334df
             e4967b575b8a20a5d7a0b5b202377ad9a4245df9
             398bc6a60db85818d7837ad4c243e06b07c0274c
             7149224a2284082f0eea36f8080e9c5b531776a7
@@ -80,7 +81,7 @@ jobs:
             59001f362a71505b07af35f0d65c215bd4f76647
             6d42c7947d900bc8f754593771840d442c61b184
             e480ee85fddc90f3c52a7b6654cfd97ba19f0242
-            5df104c1bb4e012771bc3f311eeaf1df056f3b4a
+            5cf7c205c771abcbeed812862f36e0d00938d2db
             8d1d0fb7a6e0001c4506fa9b72d1e79cd83739d7
             8979e20239dfe54c9952d75c0d0805b859b927b9
             163f721f174fd9e30c3d351c5b13b6dcd9fff780
@@ -123,6 +124,7 @@ jobs:
           grep -Fq '"blindaje": "d4"' data/equipo-inicial.json
           grep -Fq 'function blindajeFicha(personaje,catalogo)' assets/equipment.js
           grep -Fq 'class="recursos recursos-rejilla"' assets/app.js
+          grep -Fq 'grid-template-columns:repeat(4,minmax(0,1fr))' assets/styles.css
           grep -Fq 'function htmlProteccionesEquipadas(personaje,id)' assets/app.js
           grep -Fq 'id="recurso-blindaje"' assets/icons-forja.svg
           test "$(grep -c '<symbol id=' assets/icons-forja.svg)" -eq 20
@@ -269,6 +271,7 @@ jobs:
           grep -Fq ".dialogo-compras{" /tmp/forja-estilos.css
           grep -Fq ".info-tabla-conjuro{" /tmp/forja-estilos.css
           grep -Fq ".recursos.recursos-rejilla{" /tmp/forja-estilos.css
+          grep -Fq 'grid-template-columns:repeat(4,minmax(0,1fr))' /tmp/forja-estilos.css
           grep -Fq ".protecciones-activas{" /tmp/forja-estilos.css
           grep -Fq ".info-escuela-arcana{background:LightSkyBlue" /tmp/forja-estilos.css
           grep -Fq ".info-categoria-objeto-armas{background:#ffa280" /tmp/forja-estilos.css
