@@ -106,8 +106,19 @@
           categoriaGrupo==="armaduras"?"Armadura "+(clases[base]||base):
           clases[base]||base):categoriaGrupo||"";
         if(categoriaObjeto)detalles.push(["Categoría",categoriaObjeto]);
+        // Transcripción directa de las tablas de Equipo del DRS:
+        // presentar atributos solo cuando la fuente declara el campo.
+        // Cero en Penetración y «-» en Durabilidad son valores válidos.
+        if(x.dano!=null)detalles.push(["Daño",String(x.dano)]);
+        if(x.blindaje!=null)detalles.push(["Blindaje",String(x.blindaje)]);
+        if(x.penetracion!=null)detalles.push(["Penetración",String(x.penetracion)]);
+        if(x.alcance)detalles.push(["Alcance",String(x.alcance)]);
+        if(x.arrojadiza_alcance)detalles.push(["Alcance arrojadizo",String(x.arrojadiza_alcance)]);
+        if(Object.prototype.hasOwnProperty.call(x,"durabilidad"))
+          detalles.push(["Durabilidad",x.durabilidad==null||x.durabilidad==="-"?"—":String(x.durabilidad)]);
         if(x.du)detalles.push(["Dado de Uso","DU "+x.du]);
-        if(x.municion)detalles.push(["Munición",x.municion]);
+        if(x.municion_du)detalles.push(["Munición","DU "+x.municion_du]);
+        else if(x.municion)detalles.push(["Munición",x.municion]);
         if(x.contenido)detalles.push(["Contenido",x.contenido]);
         anotar(x.nombre,tipo||"Objeto",sistema,fuente,{datos:detalles,
           descripcion:x.descripcion||x.detalle||"",grupo:"equipo",
@@ -399,7 +410,10 @@
     var entradas=(info.datos||[]).map(function(p){return [String(p[0]),String(p[1])];});
     var clavesVistas=new Set();
     var campos=entradas.filter(function(p){
-      var clave=p[0]+"\u0000"+p[1];
+      // Para magnitudes de cabecera la primera procedencia documentada
+      // prevalece: el DRS puede escribir «20 m» y el Tomo «20m».
+      var exclusivo=["Alcance","Duración","Lanzamiento","Requisito"].includes(p[0]);
+      var clave=exclusivo?p[0]:p[0]+"\u0000"+p[1];
       if(clavesVistas.has(clave))return false;
       clavesVistas.add(clave);return true;
     });
@@ -423,6 +437,15 @@
     var destacados=["Alcance","Duración","Tirada","Lanzamiento","Atributo",
       "Activación","Coste","Requisito","Nivel mínimo","Nivel"];
     var primarios=campos.filter(function(p){return destacados.includes(p[0]);});
+    // Mostrar el dado de daño documentado en la consulta rápida.
+    // No se tira ni se calcula daño; se respeta el único grupo de dados.
+    if(info.tipo==="Conjuro"&&info.danioCompuesto?.dados_base){
+      var literal=String(info.danioCompuesto.dados_base);
+      var tipos=info.danioCompuesto.tipos||[];
+      if(tipos.length)literal+=" ("+tipos.join(" e ")+")";
+      if(!primarios.some(function(p){return p[0]==="Daño";}))
+        primarios.push(["Daño",literal]);
+    }
     var usados=new Set(["Círculo","Escuelas","Categoría","Ímpetu","Complejidad",
       "Origen"].concat(destacados));
     var tecnicos=campos.filter(function(p){return !usados.has(p[0]);});
