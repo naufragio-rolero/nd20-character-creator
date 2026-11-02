@@ -36,32 +36,36 @@ jobs:
       - name: Comprobar la revisión exacta de la entrega
         run: |
           test "$(git rev-parse HEAD)" = "ba163f5144ec8e5f55073dea4b0cedcfbe72a78f"
-      # La base DRS continúa fija en el commit de la PR #18.
-      # Solo se superponen 8 archivos de interfaz y sus pruebas de la PR #20.
-      # Nunca se obtienen catálogos, reglas ni fuentes suplementarias de main.
-      - name: Aplicar frontend aprobado de la PR #20 sobre DRS verificado
+      # La base DRS sigue fija en PR #18. La PR #21 añade solo mejoras
+      # de interfaz y retira dos mensajes técnicos, sin alterar el corpus.
+      # Ningún catálogo ni suplemento de main se publica por accidente.
+      - name: Aplicar frontend aprobado de PR #21 sobre DRS verificado
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=37f9bf632e594037b59db4c47ef02da4c6c1823f
+          UI_COMMIT=4a9c07ef0bd3a1f839c0b9316d16cb616158a7a7
           archivos=(
             assets/app.js
             assets/styles.css
             assets/tooltip-ui.js
             assets/icons-forja.svg
             index.html
+            assets/rules.js
+            assets/sex.js
             tests/browser-compras.js
             tests/browser-compatibilidad.js
             tests/paquete-publico-drs.js
           )
           blobs=(
-            41e49fc236b550f89bb9d18e70772713d8a0e34b
+            593d62212b0111786d368eeb3ebd732a986de3af
             588c2848f399368ac6280a1e1e21dbc4a65a037a
             8ce8e6d89e3d8639c43033db6c582208c34fa75b
             88783aebb85f835c3b41c10f237ed52453c66e8f
             8d14af124ff4d30088ed863e211eadf5f0afd25d
+            24eda09430dbd903b4ee5999bb4d6adde9c188a2
+            5840727b1c4b4b7a260ff425e596edca4ea6534f
             a08136ece8cdf0e7a8e978fa9a88a79c589efd41
-            4995034c50867720fd876636c7a505bd088451b0
+            7833d9c9ecee459d0ca75ec302fc4eb77d644c12
             25c951f1b054d959b386aceff5ce2f2bc7354c96
           )
           for i in "${!archivos[@]}"; do
@@ -85,7 +89,10 @@ jobs:
           grep -Fq 'id="compras-grupo"' index.html
           grep -Fq 'id="ico-conjuro"' assets/icons-forja.svg
           grep -Fq 'id="ico-tecnica"' assets/icons-forja.svg
-          echo "OK: frontend PR #20 cotejado por hash; datos DRS del pin original."
+          ! grep -Fq 'Forma del generador histórico de nombres de Ylat.' assets/rules.js
+          ! grep -Fq 'Nombre del banco histórico sin clasificación documental de sexo;' assets/sex.js
+          grep -Fq "grupo==='talento'||grupo==='poder'||grupo==='equipo'" assets/app.js
+          echo "OK: frontend PR #21 cotejado por hash; banco histórico conservado y notas omitidas."
       - name: Preparar Node
         uses: actions/setup-node@v4
         with:
@@ -167,6 +174,11 @@ jobs:
           grep -Fq "textoVisible===undefined?t:textoVisible" /tmp/forja-tooltip-ui.js
           grep -Fq "function presentarPoder(nombre)" /tmp/forja-app.js
           grep -Fq "ico-conjuro" /tmp/forja-app.js
+          grep -Fq "grupo==='talento'||grupo==='poder'||grupo==='equipo'" /tmp/forja-app.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/rules.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-rules.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/sex.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-sex.js
+          ! grep -Fq 'Forma del generador histórico de nombres de Ylat.' /tmp/forja-rules.js
+          ! grep -Fq 'Nombre del banco histórico sin clasificación documental de sexo;' /tmp/forja-sex.js
           ! grep -Fq "fuenteGlosa.textContent='Descripción: '" /tmp/forja-tooltip-ui.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/styles.css?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-estilos.css
           for escuela in arcana demonologia divina elemental naturaleza nigromancia; do
