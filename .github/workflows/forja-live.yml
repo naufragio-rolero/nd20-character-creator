@@ -287,15 +287,15 @@ jobs:
           assert.deepEqual([varita.dano,varita.durabilidad,varita.municion_du],['1d3','d4','d6']);
           assert.deepEqual([daga.dano,daga.penetracion,daga.durabilidad],['1d4',1,'d8']);
           assert.deepEqual(e.utiles_fantasia.iluminacion.map(x=>[x.nombre,x.precio,x.du]),[
+            ['Antorcha',0.1,'d6'],['Lámpara de aceite',2,'d6 (aceite)'],
+            ['Linterna',10,'d6 (aceite)'],['Vela',0.01,'d4']
+          ]);
           assert.deepEqual(e.utiles_fantasia.ropa.map(x=>[x.nombre,x.precio]),[
             ['Abrigo de piel',20],['Atuendo de noble',30],
             ['Chaqueta de cuero',10],['Disfraz',5],
             ['Traje elegante',15],['Túnica',1]
           ]);
           assert.equal(e.utiles_fantasia.ropa.some(x=>x.nombre==='Ropa de viaje'),false);
-            ['Antorcha',0.1,'d6'],['Lámpara de aceite',2,'d6 (aceite)'],
-            ['Linterna',10,'d6 (aceite)'],['Vela',0.01,'d4']
-          ]);
           console.log('OK: atributos literales DRS de armas, varitas y armaduras en LIVE.');
           NODE
           ! grep -Fq "fuenteGlosa.textContent='Descripción: '" /tmp/forja-tooltip-ui.js
