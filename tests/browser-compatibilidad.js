@@ -217,7 +217,8 @@ async function probar(nombre,tipo,url){
         const estilos=getComputedStyle(nodo);
         const valor=estilos.maskImage&&estilos.maskImage!=='none'?
           estilos.maskImage:estilos.webkitMaskImage;
-        const fuente=valor?.match(/url\\(["']?([^"'\\)]+)["']?\\)/)?.[1];
+        const fuente=valor&&valor.startsWith('url(')?
+          valor.slice(4,-1).replace(/^["']|["']$/g,''):null;
         if(!fuente)return {url:valor,estado:0,correcto:false};
         const url=new URL(fuente,document.baseURI);
         const esperado=new URL('assets/icons/',document.baseURI);
@@ -784,8 +785,8 @@ async function probar(nombre,tipo,url){
       const tarjeta=page.locator('#fichas .tarjeta').first();
       await tarjeta.waitFor();
       assert.equal(await tarjeta.locator('.nivel-ficha').innerText(),'Nivel 1');
-      assert.match(await tarjeta.locator('.sexo-ficha .icono-svg').getAttribute('style'),
-        new RegExp('/assets/icons/sexo-'+sexoHistorico+'\\\\.svg\\\\)'),
+      assert.ok((await tarjeta.locator('.sexo-ficha .icono-svg').getAttribute('style'))
+        .includes('/assets/icons/sexo-'+sexoHistorico+'.svg)'),
         nombre+': icono de sexo con ruta absoluta junto a Ocupación');
       assert.doesNotMatch(await tarjeta.locator('.cabecera-ficha .etiqueta').innerText(),
         /Nivel|Masculino|Femenino/,nombre+': cabecera despejada');
@@ -887,6 +888,16 @@ async function probar(nombre,tipo,url){
       assert.ok(valoresRecursos.includes(etiqueta),nombre+': recurso '+etiqueta);
     assert.equal(await recursos.locator('.icono-svg.icono-recurso').count(),
       valoresRecursos.length,nombre+': cada recurso posee un SVG');
+    const mascarasRecursos=await recursos.locator('.icono-svg.icono-recurso')
+      .evaluateAll(nodos=>nodos.map(nodo=>{
+        const valor=getComputedStyle(nodo).maskImage;
+        const fuente=valor&&valor.startsWith('url(')?
+          valor.slice(4,-1).replace(/^["']|["']$/g,''):null;
+        return fuente?new URL(fuente,document.baseURI).pathname:'';
+      }));
+    assert.ok(mascarasRecursos.every(r=>r.includes('/assets/icons/recurso-')&&
+      !r.includes('/assets/assets/icons/')),
+      nombre+': recursos con mascaras cargadas desde assets/icons');
     const protecciones=fichaTalentos.locator('.protecciones-activas');
     assert.equal(await protecciones.locator('select').count(),2);
     const opcionesArmadura=await protecciones.locator('select[data-tipo="armadura"] option')
