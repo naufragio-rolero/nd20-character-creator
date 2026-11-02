@@ -106,10 +106,12 @@ for(const sexoElegido of ['masculino','femenino']){
     nombresHistoricosYlat:nombresHistoricos,catalogoSexo:nombresSexo
   },reglas.aleatorioSemilla('Banco-historico-'+sexoElegido));
   assert.ok(opcionesHistoricas.has(personaje.nombre));
-  assert.ok(personaje.notas.some(x=>
+  // Las dos leyendas de procedencia se conservan en la ficha del corpus,
+  // pero no deben aparecer en las notas ni al exportar un personaje.
+  assert.ok(!personaje.notas.some(x=>
     x.includes('No implica personaje canónico, sexo documental, Especie, cultura ni linaje.')));
-  assert.ok(personaje.notas.some(x=>
-    x.includes('sin clasificación documental de sexo')));
+  assert.ok(!personaje.notas.some(x=>
+    x.includes('Nombre del banco histórico sin clasificación documental de sexo')));
 }
 const sexoNombres=require('../assets/sex.js');
 const combinados=tesauroYlat.entradas.filter(x=>x.tipo==='combinado');
