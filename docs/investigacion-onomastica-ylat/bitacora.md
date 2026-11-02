@@ -83,3 +83,20 @@ Añadir una entrada fechada por sesión, enlaces a fuentes y distinción entre h
 - Detalles y referencias en [catalogo-provisional.md](catalogo-provisional.md), sección I.
 - Persisten bloqueos de lectura en dos TXT eladrines. Se mantienen las decisiones editoriales pendientes.
 - Sin modificaciones de datos, código, despliegues o PR.
+
+
+### 2026-11-02 — Tercera sesión: censos de PNJ, linajes acreditados y recuperación de los TXT
+
+1. **Recuperación de censo:** leídos [`dnd_npcs.xlsx`](https://drive.google.com/file/d/1B2YnVslAK7Sjd5ELYR9kteHB9Q-L4AWp/view) (140 PNJ en dos pestañas) y [`npcs.xlsx`](https://drive.google.com/file/d/1g-y0abx5rnOJpiSv8vJsE_iv6V-fOLVR/view) (66 identidades con datos, 99 posiciones totales). La comparación por identificador interno conserva las 66 identidades; 65 formas visibles coinciden y una cambia de nombre.
+2. **Hallazgo de alias:** el mismo personaje `url=crujidor` consta como **Romualdius Walerian** en la hoja más antigua y como **Crujidor** en la nueva. La biografía lo acredita como apodo. Se corrige así la falsa apariencia de personaje perdido.
+3. **Clasificación:** los 140 PNJ tienen 126 campos `surname` no vacíos y 97 valores distintos, pero hay ordinales, alias, apodos y marcadores: no alimentar el generador directamente. Publicado el [censo de 140 PNJ](censo-pnj-historico.md) con procedencia y marcas de revisión.
+4. **Genealogía:** documentados parentescos en once núcleos familiares y pertenencia familiar sin relaciones completas en Alogers/Shadelgast. Creado [familias-acreditadas.md](familias-acreditadas.md).
+5. **Discrepancia Skara:** el padre de Tuliëlle es **Dyeld** según su propio relato, «Tuliëlle Skara I» y la biografía de Laevinë, pero **Eldburg** según la ficha individual homónima. No unificar ni corregir sin decisión.
+6. **Banco histórico:** comparación normalizada de las 1422 formas únicas del banco de nombres contra los 140 PNJ: 16 coincidencias con nombres de pila y 2 con valores de segundo componente (Iraldsay y Beld). El solapamiento muestra usos distintos, no da reglas automáticas de clasificación.
+7. **Fuentes eladrines desbloqueadas:** descargados los originales [`Apellidos eladrines en Erklan.txt`](https://drive.google.com/file/d/1YVanaM-4ThS94W-qY3NFShmNE6Klbmj7/view) y [`Linajes eladrines.txt`](https://drive.google.com/file/d/1J1uHzpl9DqyLVrsoes73N3_u6sclPCXB/view), ambos codificados en **Windows-1252**. Leídos íntegramente, contrastados por líneas y huellas SHA-256; [cotejo documentado](fuentes-eladrines-cotejo.md). Ambos dan **Brillante** para Aerandil, frente a **Refulgente** en su ficha y en el censo; los valores CD de las notas están intercambiados entre versiones (no convertir a reglas d20).
+8. **Isophius:** examinados [`DocumentacionIsophius.odt`](https://drive.google.com/file/d/1js4SQFdk7xry3Q6OsGn2rWfD7t37nmc4/view), [`DatosIsophius.ods`](https://drive.google.com/file/d/1phFBXkKkmBA_0u7wIGDGD7LM3gyxMzep/view) y las respuestas del formulario de creación, limitándose a nombres ficticios, **sin datos personales**. Se corrobora la Casa Orovecchio en Piedrahundida; en materiales de campaña aparecen **Drake Orovecchio**, **Gerad Orovecchio** y el hijo adoptivo **Alim de Mostaganem**. Se documentó en [isophius-fuentes-campana.md](isophius-fuentes-campana.md).
+9. **Repositorios:** revisados y actualizados [inventario-fuentes.md](inventario-fuentes.md), [catalogo-provisional.md](catalogo-provisional.md), y ampliado [familias-acreditadas.md](familias-acreditadas.md). La documentación antigua de archivos TXT «inaccesibles» queda supersedida por las entradas fechadas de hoy.
+
+**Cambios técnicos:** solo documentación en `docs/investigacion-onomastica-ylat/`. Sin edición de JSON de producción, código, pruebas de la aplicación, PR ni LIVE.
+
+**Pendiente de decisión editorial:** Aerandil Brillante/Refulgente; Dyeld/Eldburg Skara; incorporación o no de genealogías de campañas antiguas frente al canon actual; reglas restrictivas de casas nobles, adopción y nombres históricos.
