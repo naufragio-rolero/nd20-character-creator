@@ -130,7 +130,11 @@ async function probar(nombre,tipo,url){
       return {status:r.status,contenido:await r.text()};
     });
     assert.equal(iconos.status,200);
-    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,12);
+    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,14);
+    assert.match(iconos.contenido,/<symbol id="ico-conjuro"/,
+      nombre+': icono propio de Conjuros');
+    assert.match(iconos.contenido,/<symbol id="ico-tecnica"/,
+      nombre+': icono propio de Técnicas');
     // Popup de Poderes: uso inmediato de Dormir según el Tomo cotejado,
     // opción avanzada y comprobación de otra familia (Técnicas). No depende
     // de que la ficha aleatoria haya aprendido un Conjuro concreto.
@@ -572,6 +576,9 @@ async function probar(nombre,tipo,url){
     await page.locator('#generar').click();
     const fichaTalentos=page.locator('#fichas .tarjeta').first();
     await fichaTalentos.waitFor();
+    const rejillaTalentos=fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas').first();
+    assert.equal(await rejillaTalentos.evaluate(el=>getComputedStyle(el).gridTemplateColumns
+      .split(' ').length),2,nombre+': Talentos en dos columnas como Atributos');
     const baja=fichaTalentos.locator('.referencia-glosario[data-glosa-nombre="Baja estatura"]');
     assert.equal(await baja.count(),1,nombre+': Baja estatura debe ser consultable');
     await baja.click();
