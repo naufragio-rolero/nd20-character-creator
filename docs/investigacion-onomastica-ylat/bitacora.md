@@ -115,3 +115,5 @@ Añadir una entrada fechada por sesión, enlaces a fuentes y distinción entre h
 - **Cambios GitHub:** solo archivos Markdown de investigación. Sin modificación de `data/`, `assets/`, pruebas de La Forja, PR ni LIVE.
 
 **Decisiones editoriales bloqueantes solamente para integración, no para investigar:** forma canónica Aerandil Brillante/Refulgente; Dyeld/Eldburg Skara; si los apellidos históricos/nobiliarios pueden generarse o solo consultarse; cómo preservar restricciones por tiempo/realidad.
+
+**Cierre de esta revisión:** creado [decisiones-editoriales.md](decisiones-editoriales.md) con seis cuestiones identificadas y sin atribuir decisiones al autor. El documento distingue tres discrepancias de identidad/grafía de otras tres cuestiones sobre ámbito de generación y linaje. La investigación sigue abierta.
