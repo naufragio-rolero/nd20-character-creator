@@ -1,0 +1,3936 @@
+{
+  "version": 1,
+  "titulo": "Índice documental onomástico de Ylat",
+  "corte": "2026-11-02",
+  "fuente": "https://github.com/naufragio-rolero/nd20-character-creator/blob/research/onomastica-ylat-2026-11/docs/investigacion-onomastica-ylat/indice-maestro-testimonios-v2.md",
+  "acta_autoria": "https://github.com/naufragio-rolero/nd20-character-creator/blob/research/onomastica-ylat-2026-11/docs/investigacion-onomastica-ylat/acta-decisiones-autoria-2026-11-02.md",
+  "total_formas": 297,
+  "politica": "Archivo de testimonios, NO lista de personas únicas ni permiso de generación: incluye variantes, entidades religiosas, lugares, borradores, apodos y realidades. Mantener el nombre literal y la procedencia; la normalización aprobada se registra separada.",
+  "canon_por_autoria": [
+    {
+      "id": "ONO-01",
+      "preferida": "Aerandil del Atardecer Brillante",
+      "variantes": "Aerandil del Atardecer Refulgente"
+    },
+    {
+      "id": "ONO-02",
+      "preferida": "Dyeld",
+      "variantes": "Eldburg"
+    },
+    {
+      "id": "ONO-03",
+      "preferida": "Vrymmir Borgernstâg",
+      "variantes": "Vrymmir Borgenrstâg"
+    },
+    {
+      "id": "ONO-07",
+      "preferida": "Saewig Rowes (Ylat¹) / Saewig Shadelgast (Ylat³)"
+    },
+    {
+      "id": "ONO-08",
+      "preferida": "Car'rt Oq'uatee",
+      "variantes": "Kaart Oquati"
+    },
+    {
+      "id": "ONO-09",
+      "preferida": "Eomdyn Noreesh",
+      "variantes": "Emodyn Noreesh"
+    },
+    {
+      "id": "ONO-10",
+      "preferida": "Leezar Lockbruck",
+      "variantes": "Leezar Theroux"
+    },
+    {
+      "id": "ONO-11",
+      "preferida": "Alim de Mostáganem",
+      "variantes": "Alim de Mostagánem; Alim de Mostaganem"
+    },
+    {
+      "id": "ONO-12",
+      "preferida": "Janus II Achgate",
+      "variantes": "Janus Achgate II"
+    },
+    {
+      "id": "ONO-14",
+      "preferida": "Narga Solarys",
+      "variantes": "Narga Solaris"
+    }
+  ],
+  "relaciones_canonicas": [
+    {
+      "id": "ONO-02",
+      "sujeto": "Tuliëlle",
+      "relacion": "padre",
+      "objeto": "Dyeld",
+      "nota": "Confirmado por autoría; Eldburg es un testimonio documental contradictorio, no segunda paternidad."
+    },
+    {
+      "id": "ONO-10",
+      "sujeto": "Leezar Lockbruck",
+      "relacion": "hermano",
+      "objeto": "Thingrim Lockbruck",
+      "nota": "Confirmado directamente por autoría."
+    }
+  ],
+  "politica_generacion": {
+    "ONO-04": "Se permiten apellidos de casas con probabilidad muy baja (ponderación técnica separada en tesauro de variantes).",
+    "ONO-05": "Se permite mezclar nombres de épocas y realidades en propuestas creativas; no fusionar biografías documentales.",
+    "ONO-06": "Conservar convención eladrín en consulta, no usarla para generar.",
+    "ONO-13": "Conservar Máthair Felsaer (montaña) y Pietro (oso); no eliminar sus denominaciones ni combinaciones por su tipo."
+  },
+  "entradas": [
+    {
+      "id": "ylat-o001",
+      "nombre": "Abdul Hassif",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C40",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A1",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o002",
+      "nombre": "Abelio Floricarpio",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I01",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o003",
+      "nombre": "Acathia Masticadedos",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C39",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A2",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o004",
+      "nombre": "Adaldust Alogers",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C84",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A3",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o005",
+      "nombre": "Addare Skara",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C11",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o006",
+      "nombre": "Adhat la Tuerta",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C31",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A4",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o007",
+      "nombre": "Aerandil del Atardecer Refulgente",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C107",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A5",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I02",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o008",
+      "nombre": "Aereth, la del Alba Fría",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o009",
+      "nombre": "Aeromund el Inquebrantable",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o010",
+      "nombre": "Akestu Fiercespada",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C104",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A6",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o011",
+      "nombre": "Albert Lobeth",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C97",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A7",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I03",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o012",
+      "nombre": "Aldo Reme",
+      "clase": "Personaje de borrador",
+      "fuentes": [
+        {
+          "registro": "GB",
+          "anexo": "corpus-gesta-personajes-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o013",
+      "nombre": "Alessia Cianci",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I04",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o014",
+      "nombre": "Alim de Mostagánem",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I05",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o015",
+      "nombre": "Alleinn Nuj",
+      "clase": "Imperio",
+      "fuentes": [
+        {
+          "registro": "E",
+          "anexo": "cronologia-y-astroonimia-enciclopedia.md"
+        }
+      ],
+      "nota": "Imperio, no nombre civil probado."
+    },
+    {
+      "id": "ylat-o016",
+      "nombre": "Amadeus",
+      "clase": "Biografía",
+      "fuentes": [
+        {
+          "registro": "B",
+          "anexo": "biografias-personajes-cotejo.md"
+        }
+      ],
+      "nota": "Nombre asumido; Amathur está en la biografía."
+    },
+    {
+      "id": "ylat-o017",
+      "nombre": "Amathur",
+      "clase": "Nombre referido en biografía",
+      "fuentes": [
+        {
+          "registro": "B",
+          "anexo": "biografias-personajes-cotejo.md"
+        }
+      ],
+      "nota": "Mismo personaje denominado Amadeus al adoptar identidad en Ylat."
+    },
+    {
+      "id": "ylat-o018",
+      "nombre": "An’ael Yuvann",
+      "clase": "Lugar",
+      "fuentes": [
+        {
+          "registro": "H",
+          "anexo": "auditoria-shadaleen-eponimos-y-relatos.md"
+        }
+      ],
+      "nota": "Nombre de montaña en relato controvertido."
+    },
+    {
+      "id": "ylat-o019",
+      "nombre": "Anasthore del Atardecer Luciente",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C105",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A8",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I06",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o020",
+      "nombre": "Anfingrem Sigvald",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C131",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o021",
+      "nombre": "Angus Burbridge",
+      "clase": "Biografía",
+      "fuentes": [
+        {
+          "registro": "B",
+          "anexo": "biografias-personajes-cotejo.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o022",
+      "nombre": "Apae",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o023",
+      "nombre": "Aradale Iraldsay",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C139",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A9",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o024",
+      "nombre": "Arlia Brahemfor",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I07",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o025",
+      "nombre": "Arloth",
+      "clase": "Personaje publicado",
+      "fuentes": [
+        {
+          "registro": "GP",
+          "anexo": "corpus-gesta-personajes-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o026",
+      "nombre": "Armando Orovecchio",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I08",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o027",
+      "nombre": "Arvan Solhumo",
+      "clase": "Personaje de borrador Laventia",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "[PENDIENTE]; familia no acreditada."
+    },
+    {
+      "id": "ylat-o028",
+      "nombre": "Asharod Nerese",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C28",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A10",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o029",
+      "nombre": "Astrid Sombralba",
+      "clase": "Biografía",
+      "fuentes": [
+        {
+          "registro": "B",
+          "anexo": "biografias-personajes-cotejo.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o030",
+      "nombre": "Aurelius Ryszard",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C33",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A11",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o031",
+      "nombre": "Awara Tonunt",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C121",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A12",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o032",
+      "nombre": "Azael",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C136",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A13",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o033",
+      "nombre": "Bajzurm",
+      "clase": "Variante",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ],
+      "nota": "Variante interna del encabezado Bazjurm en Espíritus."
+    },
+    {
+      "id": "ylat-o034",
+      "nombre": "Balthyr Maplewilde",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C71",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A14",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o035",
+      "nombre": "Banelm Samdaw",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C55",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A15",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o036",
+      "nombre": "Bankingar Sonascama",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C20",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A16",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o037",
+      "nombre": "Baryn Violatesoros",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C19",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A17",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o038",
+      "nombre": "Bazjurm",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ],
+      "nota": "Bajzurm en adoración y avatar."
+    },
+    {
+      "id": "ylat-o039",
+      "nombre": "Belegur “Furia” Sigvald",
+      "clase": "Variante",
+      "fuentes": [
+        {
+          "registro": "Z",
+          "anexo": "barrido-final-zonas-inistia.md"
+        }
+      ],
+      "nota": "Variante de posición de Furia."
+    },
+    {
+      "id": "ylat-o040",
+      "nombre": "Belegur Sigvald «Furia»",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A18",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ],
+      "nota": "El alias se desplaza en la variante de Zonas."
+    },
+    {
+      "id": "ylat-o041",
+      "nombre": "Belril Sierpercana",
+      "clase": "Personaje histórico de Gylran",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "Sargento de Gylran; función familiar no demostrada."
+    },
+    {
+      "id": "ylat-o042",
+      "nombre": "Berno",
+      "clase": "Personaje de borrador",
+      "fuentes": [
+        {
+          "registro": "GB",
+          "anexo": "corpus-gesta-personajes-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o043",
+      "nombre": "Besyl Noccerado",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C30",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A19",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o044",
+      "nombre": "Bianca Leone",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I09",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o045",
+      "nombre": "Bram Brasagorda",
+      "clase": "Biografía",
+      "fuentes": [
+        {
+          "registro": "B",
+          "anexo": "biografias-personajes-cotejo.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o046",
+      "nombre": "Branneth, el de la Larga Siembra",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o047",
+      "nombre": "Branwen Sigvald «Discordia»",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A20",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o048",
+      "nombre": "Bruto",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I10",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o049",
+      "nombre": "Cabal Sireg",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C134",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A21",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o050",
+      "nombre": "Caefyn Verdimbre",
+      "clase": "Personaje histórico de Gylran",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "Soldado; apellido libre no acreditado."
+    },
+    {
+      "id": "ylat-o051",
+      "nombre": "Caelia Fulgentis",
+      "clase": "Biografía",
+      "fuentes": [
+        {
+          "registro": "C82",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A22",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "B",
+          "anexo": "biografias-personajes-cotejo.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o052",
+      "nombre": "Caeloen Leahein",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C99",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A23",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o053",
+      "nombre": "Caisadi Fuegosombrío",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C51",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A24",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o054",
+      "nombre": "Calotgero Oroforte",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I11",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o055",
+      "nombre": "Car'rt Oq'uatee",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C100",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o056",
+      "nombre": "Caramierda",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C45",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A25",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o057",
+      "nombre": "Celebriän Brisaolvidada",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C27",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A26",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o058",
+      "nombre": "Chrachack Fiercespada",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C37",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A27",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o059",
+      "nombre": "Chred Nichols",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C130",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A28",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o060",
+      "nombre": "Ciale Iraldsay",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C6",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A29",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o061",
+      "nombre": "Corlagg",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o062",
+      "nombre": "Cromust Fiercespada",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C108",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A30",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o063",
+      "nombre": "Crujidor",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C77",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A31",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ],
+      "nota": "Alias del nombre civil Romualdius Walerian."
+    },
+    {
+      "id": "ylat-o064",
+      "nombre": "Cuthert Achgate",
+      "clase": "Personaje histórico",
+      "fuentes": [
+        {
+          "registro": "MH",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o065",
+      "nombre": "Daeron Vardamir",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C106",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o066",
+      "nombre": "Damien Holdt",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C1",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A32",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o067",
+      "nombre": "Dan",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C120",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A33",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o068",
+      "nombre": "Daniel Alswick",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C10",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A34",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o069",
+      "nombre": "Darelon Thrathal",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C128",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A35",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o070",
+      "nombre": "Delril Torgal",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C22",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A36",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o071",
+      "nombre": "Demetrius Buelhorn",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I12",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o072",
+      "nombre": "Denhat Lobeth",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C5",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A37",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I13",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o073",
+      "nombre": "Dianne Smoth",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C86",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A38",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o074",
+      "nombre": "Dora Verdiscente",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A39",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o075",
+      "nombre": "Draconio «Drake» Orovecchio",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I14",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o076",
+      "nombre": "Drakabel",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A40",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o077",
+      "nombre": "Drazoath",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C60",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o078",
+      "nombre": "Drother Tasano",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C74",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A41",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o079",
+      "nombre": "Drut'Jaal",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C113",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A42",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o080",
+      "nombre": "Edward Swordkey",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I15",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o081",
+      "nombre": "Eilinn Brillonuevo",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C57",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o082",
+      "nombre": "Eld'mose Kinistis",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C50",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A43",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o083",
+      "nombre": "Eldburg Skara",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C96",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A44",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o084",
+      "nombre": "Elisia Jacenty",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C32",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A45",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I16",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o085",
+      "nombre": "Elrohir Vardamir",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C114",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A46",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o086",
+      "nombre": "Elthon Travole",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I17",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o087",
+      "nombre": "Eman Iraldsay",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C41",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A47",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o088",
+      "nombre": "Engaw Brosul",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C3",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A48",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o089",
+      "nombre": "Enyra Petreius",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I18",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o090",
+      "nombre": "Eomdyn Noreesh",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C43",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A49",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o091",
+      "nombre": "Essaetia Neulenthris",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C8",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A50",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o092",
+      "nombre": "Eurip Shadelgast",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C118",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A51",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o093",
+      "nombre": "Fabrizio Orovecchio",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I19",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o094",
+      "nombre": "Fëanáro Vardamir",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A52",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o095",
+      "nombre": "Filotheus Achgate",
+      "clase": "Personaje histórico",
+      "fuentes": [
+        {
+          "registro": "MH",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o096",
+      "nombre": "Findorian Alcanzarríos",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C49",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A53",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o097",
+      "nombre": "Francesca Martoni",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I20",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o098",
+      "nombre": "Fredián Alogers",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C119",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A54",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o099",
+      "nombre": "Galeshra Adorasol",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C124",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A55",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I21",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o100",
+      "nombre": "Galibard Shadelgast",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C79",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o101",
+      "nombre": "Galibard Shadelgast II",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C80",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A56",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o102",
+      "nombre": "Galothertus Porach",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I22",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o103",
+      "nombre": "Ganragán",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ],
+      "nota": "Mismo referente que Narga Solarys según leyenda."
+    },
+    {
+      "id": "ylat-o104",
+      "nombre": "Gerad Orovecchio",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I23",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o105",
+      "nombre": "Gerad Silversea",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C68",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A57",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o106",
+      "nombre": "Gilraen Vardamir",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C109",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o107",
+      "nombre": "Godogene Alogers",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C65",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A58",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o108",
+      "nombre": "Gorgan Hueso de Sangre",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C29",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A59",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o109",
+      "nombre": "Góvan Gomelera",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C62",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A60",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o110",
+      "nombre": "Grogtk",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C72",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A61",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o111",
+      "nombre": "Gulfrik",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C9",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o112",
+      "nombre": "Gustaffon Olatheus",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "A62",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I24",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o113",
+      "nombre": "Gwilherm Smoth",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C85",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A63",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o114",
+      "nombre": "Hadewig Rocene",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C95",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A64",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o115",
+      "nombre": "Hadrik Achgate",
+      "clase": "Personaje histórico",
+      "fuentes": [
+        {
+          "registro": "MH",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o116",
+      "nombre": "Halor Pelocobre",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C13",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A65",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o117",
+      "nombre": "Hansus Bronnhum",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C36",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A66",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o118",
+      "nombre": "Hargan de las Tres Hachas",
+      "clase": "Personaje de borrador Laventia",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "[PENDIENTE]; fórmula compuesta, no apellido común."
+    },
+    {
+      "id": "ylat-o119",
+      "nombre": "Harlend Terrana, el Mediador",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o120",
+      "nombre": "Hassad Fadel",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C44",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A67",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o121",
+      "nombre": "Havindrin Mantodorado",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C34",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A68",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o122",
+      "nombre": "Hermilda Shadelgast",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C81",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A69",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o123",
+      "nombre": "Hijo de Pamela",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I25",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o124",
+      "nombre": "Hiller Iraldsay",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C140",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A70",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o125",
+      "nombre": "Hiyael el Huérfano",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C112",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A71",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o126",
+      "nombre": "Hstet",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o127",
+      "nombre": "Hyarion Vardamir",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C115",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o128",
+      "nombre": "Idfaseya Ysheasa",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C94",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A72",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o129",
+      "nombre": "Ilythia",
+      "clase": "Personaje publicado",
+      "fuentes": [
+        {
+          "registro": "GP",
+          "anexo": "corpus-gesta-personajes-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o130",
+      "nombre": "Indalezius Dreedmist",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A73",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o131",
+      "nombre": "Inether Lowees",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C58",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A74",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o132",
+      "nombre": "Ingulph Ceolward",
+      "clase": "Personaje histórico",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "No inferir parentesco con Wilgils Ceolward."
+    },
+    {
+      "id": "ylat-o133",
+      "nombre": "Iralde Terrana, la del Arado Rojo",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o134",
+      "nombre": "Isandra Bronnhum",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C47",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A75",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o135",
+      "nombre": "Iskadar el Segundo",
+      "clase": "Personaje histórico",
+      "fuentes": [
+        {
+          "registro": "H",
+          "anexo": "auditoria-shadaleen-eponimos-y-relatos.md"
+        }
+      ],
+      "nota": "Ordinal y topónimo epónimo; no apellido."
+    },
+    {
+      "id": "ylat-o136",
+      "nombre": "Isspol Tonunt",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C12",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A76",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o137",
+      "nombre": "Jaleba Inversa",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C63",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A77",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o138",
+      "nombre": "Jérémie Alban",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C15",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o139",
+      "nombre": "Jiggalen Pamphilos",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I26",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o140",
+      "nombre": "Jkoor Hiervescarcha",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C127",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A78",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o141",
+      "nombre": "Joan Orovecchio",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I27",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o142",
+      "nombre": "Joren",
+      "clase": "Personaje de borrador",
+      "fuentes": [
+        {
+          "registro": "GB",
+          "anexo": "corpus-gesta-personajes-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o143",
+      "nombre": "Josah Buelhorn",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I28",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o144",
+      "nombre": "Kaart Oquati",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A79",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o145",
+      "nombre": "Käbrius Festus",
+      "clase": "Personaje histórico de Gylran",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "General y último rey, según fuente histórica."
+    },
+    {
+      "id": "ylat-o146",
+      "nombre": "Kaelgor, el Estable",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o147",
+      "nombre": "Kah-Suran",
+      "clase": "Nombre adquirido",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "Mismo referente biográfico que Caelia Fulgentis; no persona adicional."
+    },
+    {
+      "id": "ylat-o148",
+      "nombre": "Kalzifer",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A80",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o149",
+      "nombre": "Kharan Boll",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "A81",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I29",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o150",
+      "nombre": "Kineyie Gudrün",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C25",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A82",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o151",
+      "nombre": "Korgrán Nudillo Pétreo",
+      "clase": "Personaje en fuente geográfica",
+      "fuentes": [
+        {
+          "registro": "Z",
+          "anexo": "barrido-final-zonas-inistia.md"
+        }
+      ],
+      "nota": "Segundo componente sin función familiar acreditada."
+    },
+    {
+      "id": "ylat-o152",
+      "nombre": "Kranthrom Hiendeacero",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C123",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A83",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o153",
+      "nombre": "Kurzak Sendero Severo",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C116",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A84",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o154",
+      "nombre": "Kutak",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C53",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A85",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o155",
+      "nombre": "Laevinë Skara",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C52",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o156",
+      "nombre": "Lalis Floricarpio",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I30",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o157",
+      "nombre": "Lathandos Snave",
+      "clase": "Personaje histórico de Gylran",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "Rey histórico; segundo componente sin uso familiar general probado."
+    },
+    {
+      "id": "ylat-o158",
+      "nombre": "Lazare Brice",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C66",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A86",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o159",
+      "nombre": "Leandro Bracco",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I31",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o160",
+      "nombre": "Leezar Lockbruck",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I32",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o161",
+      "nombre": "Lenseng",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o162",
+      "nombre": "Liria",
+      "clase": "Personaje de borrador",
+      "fuentes": [
+        {
+          "registro": "GB",
+          "anexo": "corpus-gesta-personajes-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o163",
+      "nombre": "Lisandra",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I33",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o164",
+      "nombre": "Lorif Samasi",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C23",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A87",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o165",
+      "nombre": "Loroohck Asheishi",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C2",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A88",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o166",
+      "nombre": "Lorss Duthmor",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C54",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A89",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o167",
+      "nombre": "Luresse Gomelera",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C102",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A90",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o168",
+      "nombre": "Lyran",
+      "clase": "Personaje histórico",
+      "fuentes": [
+        {
+          "registro": "MH",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o169",
+      "nombre": "Malthus Haagenti",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I34",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o170",
+      "nombre": "Marco",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I35",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o171",
+      "nombre": "Mario Martoni",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I36",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o172",
+      "nombre": "Mark Maxley",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C76",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A91",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o173",
+      "nombre": "Marlak Fuegosombrío",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C87",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A92",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o174",
+      "nombre": "Marten Lobeth",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C88",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A93",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I37",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o175",
+      "nombre": "Martius Smoth",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C91",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A94",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o176",
+      "nombre": "Marugal-Ka, la Semilla Rota",
+      "clase": "Personaje de borrador Laventia",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "[PENDIENTE]; denominación con epíteto literal."
+    },
+    {
+      "id": "ylat-o177",
+      "nombre": "Mashera Skara",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C129",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A95",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I38",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o178",
+      "nombre": "Maurice Martoni",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I39",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o179",
+      "nombre": "Maverae Adorasol",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C67",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A96",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I40",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o180",
+      "nombre": "Mirethia del Atardecer Coral",
+      "clase": "Gobernante",
+      "fuentes": [
+        {
+          "registro": "H",
+          "anexo": "auditoria-shadaleen-eponimos-y-relatos.md"
+        }
+      ],
+      "nota": "Fórmula compuesta, heredabilidad no acreditada."
+    },
+    {
+      "id": "ylat-o181",
+      "nombre": "Miro",
+      "clase": "Personaje de borrador",
+      "fuentes": [
+        {
+          "registro": "GB",
+          "anexo": "corpus-gesta-personajes-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o182",
+      "nombre": "Modestia Jof «Esti»",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A97",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o183",
+      "nombre": "Mogg'Shattoth",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I41",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o184",
+      "nombre": "Morgarath Kultstein",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I42",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o185",
+      "nombre": "Morgendärr",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C122",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A98",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o186",
+      "nombre": "Muhammad Sossei",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C38",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A99",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o187",
+      "nombre": "Mulinith",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o188",
+      "nombre": "Mushuki",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o189",
+      "nombre": "Nabeel Ungesavia",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C14",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A100",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o190",
+      "nombre": "Naeis Shadelgast",
+      "clase": "Biografía",
+      "fuentes": [
+        {
+          "registro": "A101",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "B",
+          "anexo": "biografias-personajes-cotejo.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o191",
+      "nombre": "Nahr Caelis, el Cortavientos",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o192",
+      "nombre": "Naira Vell",
+      "clase": "Personaje de borrador",
+      "fuentes": [
+        {
+          "registro": "GB",
+          "anexo": "corpus-gesta-personajes-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o193",
+      "nombre": "Naleale Iraldsay",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C138",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A102",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o194",
+      "nombre": "Narelmayl",
+      "clase": "Figura/individuo histórico",
+      "fuentes": [
+        {
+          "registro": "E",
+          "anexo": "cronologia-y-astroonimia-enciclopedia.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o195",
+      "nombre": "Narga Solaris",
+      "clase": "Variante de nombre de entidad",
+      "fuentes": [
+        {
+          "registro": "H",
+          "anexo": "auditoria-shadaleen-eponimos-y-relatos.md"
+        }
+      ],
+      "nota": "Variante de la grafía Solarys; ONO-14."
+    },
+    {
+      "id": "ylat-o196",
+      "nombre": "Narga Solarys",
+      "clase": "Figura/individuo histórico",
+      "fuentes": [
+        {
+          "registro": "E",
+          "anexo": "cronologia-y-astroonimia-enciclopedia.md"
+        },
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ],
+      "nota": "Nombre anterior a Ganragán; Solaris es otra grafía."
+    },
+    {
+      "id": "ylat-o197",
+      "nombre": "Nastala",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o198",
+      "nombre": "Nathan",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I43",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o199",
+      "nombre": "Nebulashka",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A103",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o200",
+      "nombre": "Nêrra",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A104",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o201",
+      "nombre": "Nesaweyn Feebil",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C18",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A105",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o202",
+      "nombre": "Neurustho Forneustone",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I44",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o203",
+      "nombre": "Neyney sin Apellido",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C73",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A106",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o204",
+      "nombre": "Nidrael Eldarien",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A107",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "Z",
+          "anexo": "barrido-final-zonas-inistia.md"
+        }
+      ],
+      "nota": "Diablo utiliza el cuerpo de Nidrael; no equivale a identidad civil Vaelar."
+    },
+    {
+      "id": "ylat-o205",
+      "nombre": "Nilsea",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A108",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o206",
+      "nombre": "Nimara Vuelumbrío",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C125",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A109",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o207",
+      "nombre": "Norluth",
+      "clase": "Figura/individuo histórico",
+      "fuentes": [
+        {
+          "registro": "E",
+          "anexo": "cronologia-y-astroonimia-enciclopedia.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o208",
+      "nombre": "Noron Cabeza de Oso",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A110",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o209",
+      "nombre": "Notorius Anverso",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C4",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A111",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o210",
+      "nombre": "Nulsärax",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C117",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o211",
+      "nombre": "Nyldryl",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A112",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o212",
+      "nombre": "Oelmi Beld",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C89",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A113",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o213",
+      "nombre": "Oenogs Roerraíces",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C48",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A114",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o214",
+      "nombre": "Oiam Orbem",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A115",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o215",
+      "nombre": "Omudax",
+      "clase": "Lugar",
+      "fuentes": [
+        {
+          "registro": "H",
+          "anexo": "auditoria-shadaleen-eponimos-y-relatos.md"
+        }
+      ],
+      "nota": "Topónimo, origen epónimo alegado."
+    },
+    {
+      "id": "ylat-o216",
+      "nombre": "Ophilia Morcrick",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C75",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A116",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o217",
+      "nombre": "Ork",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C111",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A117",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o218",
+      "nombre": "Ornuth Aium",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o219",
+      "nombre": "Otho-Dekrll",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I45",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o220",
+      "nombre": "Pamela",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I46",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o221",
+      "nombre": "Paulina Orovecchio",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I47",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o222",
+      "nombre": "Petro Grimaldi",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I48",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o223",
+      "nombre": "Pulkros",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o224",
+      "nombre": "Quamara Rowes",
+      "clase": "Personaje histórico",
+      "fuentes": [
+        {
+          "registro": "MH",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o225",
+      "nombre": "Quaon Arianhrod",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C26",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A118",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o226",
+      "nombre": "Radinel Soplotenue",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C78",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A119",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o227",
+      "nombre": "Rargar Ecala",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C132",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A120",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o228",
+      "nombre": "Rewill Borney",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I49",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o229",
+      "nombre": "Richerento",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I50",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o230",
+      "nombre": "Rilankhu",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o231",
+      "nombre": "Robin Ranley",
+      "clase": "Personaje documentado en Zonas",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "Héroe peregrino, Pueblo de Ugnak."
+    },
+    {
+      "id": "ylat-o232",
+      "nombre": "Roluj Buenacerveza",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C35",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A121",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o233",
+      "nombre": "Romualdius Walerian",
+      "clase": "Nombre civil atestiguado en contraste",
+      "fuentes": [
+        {
+          "registro": "C",
+          "anexo": "censo-pnj-historico.md"
+        }
+      ],
+      "nota": "Nombre civil de Crujidor en `npcs.xlsx`, no fila del censo 140."
+    },
+    {
+      "id": "ylat-o234",
+      "nombre": "Ryn'Acki",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C61",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A122",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o235",
+      "nombre": "Sadyiya Falaz",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C101",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A123",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o236",
+      "nombre": "Santa Verna",
+      "clase": "Patrona / aldea",
+      "fuentes": [
+        {
+          "registro": "GP",
+          "anexo": "corpus-gesta-personajes-ylat.md"
+        }
+      ],
+      "nota": "Patrona y aldea; «Santa» es tratamiento."
+    },
+    {
+      "id": "ylat-o237",
+      "nombre": "Sarata Lobeth",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C90",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A124",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I51",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o238",
+      "nombre": "Sashka Norvvind",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C110",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A125",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o239",
+      "nombre": "Scheziss",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I52",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o240",
+      "nombre": "Selvarn, el Nuboso",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o241",
+      "nombre": "Señor Calcetines",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C137",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A126",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o242",
+      "nombre": "Seruon el Esmeralda",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C46",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A127",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o243",
+      "nombre": "Shadel",
+      "clase": "Figura/individuo histórico",
+      "fuentes": [
+        {
+          "registro": "E",
+          "anexo": "cronologia-y-astroonimia-enciclopedia.md"
+        }
+      ],
+      "nota": "Nombre unitario en cronología; no completarlo por conjetura."
+    },
+    {
+      "id": "ylat-o244",
+      "nombre": "Sílerea del Claro Blanco",
+      "clase": "Personaje de borrador Laventia",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "[PENDIENTE]; segundo componente sin heredabilidad acreditada."
+    },
+    {
+      "id": "ylat-o245",
+      "nombre": "Skörn Norvvind",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A128",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o246",
+      "nombre": "Sodyd Gomelera",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C103",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A129",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o247",
+      "nombre": "Stasi Giovanni",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C16",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A130",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I53",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o248",
+      "nombre": "Sumaeryn de las Mareas",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o249",
+      "nombre": "Sumaeryn Maren",
+      "clase": "Variante de monarca",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "Forma de cronología del personaje llamado Sumaeryn de las Mareas en otra sección."
+    },
+    {
+      "id": "ylat-o250",
+      "nombre": "Syssbel Valanthis",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C24",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A131",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o251",
+      "nombre": "Tadeo Orovecchio",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I54",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o252",
+      "nombre": "Tanto",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A132",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o253",
+      "nombre": "Tayana Pamphilos",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I55",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o254",
+      "nombre": "Tegku Bagui Fénix",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C69",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A133",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o255",
+      "nombre": "Ternus Arper",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C42",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A134",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o256",
+      "nombre": "Tharn, el Viento Eterno",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o257",
+      "nombre": "Theren Bron",
+      "clase": "Personaje en fuente geográfica",
+      "fuentes": [
+        {
+          "registro": "Z",
+          "anexo": "barrido-final-zonas-inistia.md"
+        }
+      ],
+      "nota": "Segundo componente sin función familiar acreditada."
+    },
+    {
+      "id": "ylat-o258",
+      "nombre": "Thergan Ulvbane",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C126",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A135",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o259",
+      "nombre": "Thingrim Lockbruck",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A136",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o260",
+      "nombre": "Tomás Belardo",
+      "clase": "Personaje publicado",
+      "fuentes": [
+        {
+          "registro": "GP",
+          "anexo": "corpus-gesta-personajes-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o261",
+      "nombre": "Torvek Brazanegra",
+      "clase": "Personaje de borrador Laventia",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "[PENDIENTE]; familia no acreditada."
+    },
+    {
+      "id": "ylat-o262",
+      "nombre": "Travis Engalei",
+      "clase": "Personaje en fuente geográfica",
+      "fuentes": [
+        {
+          "registro": "Z",
+          "anexo": "barrido-final-zonas-inistia.md"
+        }
+      ],
+      "nota": "Sin apellido familiar probado."
+    },
+    {
+      "id": "ylat-o263",
+      "nombre": "Treban Tepoel",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C98",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A137",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o264",
+      "nombre": "Tuliëlle Skara",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A138",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o265",
+      "nombre": "Tyvoz Fluyeflauta",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C21",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A139",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o266",
+      "nombre": "Ubale Keefe",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C92",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A140",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o267",
+      "nombre": "Uragana Buelhorn",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "I56",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o268",
+      "nombre": "Vaelar Eldarien",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A141",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "Z",
+          "anexo": "barrido-final-zonas-inistia.md"
+        }
+      ],
+      "nota": "También hay suplantación en Inistia y realidades distintas."
+    },
+    {
+      "id": "ylat-o269",
+      "nombre": "Vaiel",
+      "clase": "Espíritu / satélite",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        },
+        {
+          "registro": "E",
+          "anexo": "cronologia-y-astroonimia-enciclopedia.md"
+        }
+      ],
+      "nota": "También nombre del satélite; no fusionar entidades."
+    },
+    {
+      "id": "ylat-o270",
+      "nombre": "Valujna",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o271",
+      "nombre": "Varlyna, la Fundadora",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o272",
+      "nombre": "Velyn Maren, la de los Ojos de Espuma",
+      "clase": "Monarca",
+      "fuentes": []
+    },
+    {
+      "id": "ylat-o273",
+      "nombre": "Viktor Kultstein",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C83",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A142",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I57",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o274",
+      "nombre": "Vrymmir Borgenrstâg",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C59",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A143",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o275",
+      "nombre": "Vrymmir Borgernstâg",
+      "clase": "Biografía",
+      "fuentes": [
+        {
+          "registro": "B",
+          "anexo": "biografias-personajes-cotejo.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o276",
+      "nombre": "Vysoben Veredron",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C133",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A144",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I58",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o277",
+      "nombre": "Warsam Nyser",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C7",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A145",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o278",
+      "nombre": "Weeheem Pinnotix",
+      "clase": "Biografía",
+      "fuentes": [
+        {
+          "registro": "B",
+          "anexo": "biografias-personajes-cotejo.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o279",
+      "nombre": "Werhilda Forjaplata",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C64",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A146",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o280",
+      "nombre": "Wilgils Ceolward",
+      "clase": "Personaje histórico",
+      "fuentes": [
+        {
+          "registro": "MH",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o281",
+      "nombre": "William Gull",
+      "clase": "Campaña/casa",
+      "fuentes": [
+        {
+          "registro": "A147",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I59",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o282",
+      "nombre": "Xandor Tugg",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A148",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o283",
+      "nombre": "Xelastris",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o284",
+      "nombre": "Ybardonydd Acomanydd Unerrannor",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C70",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A149",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o285",
+      "nombre": "Ylathia",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o286",
+      "nombre": "Ymobil",
+      "clase": "Personaje histórico",
+      "fuentes": [
+        {
+          "registro": "MH",
+          "anexo": "linajes-historicos-malasthar.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o287",
+      "nombre": "Ynuma Sombra de Fango",
+      "clase": "Personaje de borrador Laventia",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "[PENDIENTE]; nombre compuesto, no apellido libre."
+    },
+    {
+      "id": "ylat-o288",
+      "nombre": "Ysolen Telaar",
+      "clase": "Personaje de borrador Laventia",
+      "fuentes": [
+        {
+          "registro": "F",
+          "anexo": "adenda-fuentes-historicas-y-alias.md"
+        }
+      ],
+      "nota": "[PENDIENTE]; familia no acreditada."
+    },
+    {
+      "id": "ylat-o289",
+      "nombre": "Yuno Lobeth",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C93",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A150",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I60",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o290",
+      "nombre": "Yuseth",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o291",
+      "nombre": "Z’Thur",
+      "clase": "Entidad deífica",
+      "fuentes": [
+        {
+          "registro": "D",
+          "anexo": "inventario-teonimos-y-epitetos.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o292",
+      "nombre": "Zack Lobeth",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C135",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A151",
+          "anexo": "auditoria-aventuras-ylat.md"
+        },
+        {
+          "registro": "I61",
+          "anexo": "corpus-complementario-isophius.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o293",
+      "nombre": "Zarkon",
+      "clase": "Personaje publicado",
+      "fuentes": [
+        {
+          "registro": "GP",
+          "anexo": "corpus-gesta-personajes-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o294",
+      "nombre": "Zarzik Ceñóseo",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C56",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A152",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    },
+    {
+      "id": "ylat-o295",
+      "nombre": "Zekogs Quiebrahielo",
+      "clase": "PNJ histórico",
+      "fuentes": [
+        {
+          "registro": "C17",
+          "anexo": "censo-pnj-historico.md"
+        },
+        {
+          "registro": "A153",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ],
+      "nota": "Zonas añade -s final."
+    },
+    {
+      "id": "ylat-o296",
+      "nombre": "Zekogs Quiebrahielos",
+      "clase": "Variante",
+      "fuentes": [
+        {
+          "registro": "Z",
+          "anexo": "barrido-final-zonas-inistia.md"
+        }
+      ],
+      "nota": "Variante de Zekogs Quiebrahielo."
+    },
+    {
+      "id": "ylat-o297",
+      "nombre": "Zurari Hermous",
+      "clase": "Índice de aventura",
+      "fuentes": [
+        {
+          "registro": "A154",
+          "anexo": "auditoria-aventuras-ylat.md"
+        }
+      ]
+    }
+  ]
+}
