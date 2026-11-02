@@ -1,18 +1,32 @@
+'use strict';
 const assert=require('node:assert/strict');
-const lib=require('./pdf-export.js');
-const p={juego:'Naufragio d20 · Fantasía',nombre:'Pepe',descripcion:'Guerrero · Humano común',nivel:1,
-  atributos:[],recursos:[['Salud','7 (d6)']],equipo:['Armadura de cuero','Escudo pequeño'],protecciones_equipadas:{armadura:'Armadura de cuero',escudo:'Escudo pequeño'},
-  capacidades:['Suerte'],competencias:[],riqueza:'4 mo'};
-const before=JSON.stringify(p);
-const o=lib.prepararDatos(p,{valor:'d6',armadura:'Armadura de cuero',escudo:'Escudo pequeño'});
-assert.equal(JSON.stringify(p),before,'No debe mutar el personaje');
-assert.equal(o._especie,'Humano común');assert.equal(o._ocupacion,'Guerrero');
-assert.equal(o._armadura_equ,'Armadura de cuero');assert.equal(o._escudo_equ,'Escudo pequeño');
-assert.equal(o._blindaje,'d6');assert.equal(o._sections.length,3);
-const p2={...p,equipo:[]};assert.equal(lib.prepararDatos(p2)._armadura_equ,'');
-assert.throws(()=>lib.prepararDatos({...p,juego:'Dungeon Hack'}),/solo admite/);
-const font={widthOfTextAtSize:(s,sz)=>Array.from(s).length*sz*.53};
-assert.deepEqual(lib.wrapText('uno dos tres',100,font,7),['uno dos tres']);
-const wrapped=lib.wrapText('reconocimiento-extraordinariamente-largo',42,font,7);
-assert.equal(wrapped.join(''),'reconocimiento-extraordinariamente-largo');
-console.log('OK: adaptador puro y saltos básicos; NO se ha validado todavía pdf-lib real.');
+const {prepararDatos}=require('../assets/pdf-export-v2.js');
+const p={
+  juego:'Naufragio d20 · Fantasía',
+  nombre:'Ínara de Sander',
+  nivel:1,
+  descripcion:'Guerrero · Humano común',
+  atributos:[{nombre:'Fuerza',valor:14,dificultad:6,favorito:true}],
+  recursos:[['Salud','7 (d6)'],['Esfuerzo',2]],
+  equipo:['Armadura de cuero','Escudo pequeño','Cuerda ×2'],
+  protecciones_equipadas:{armadura:'Armadura de cuero',escudo:'Escudo pequeño'},
+  competencias:['Espadas'],capacidades:['Recuperación'],
+  poderes:[],conjuros_preparados:[],notas:[],riqueza:'10 mo'
+};
+const original=JSON.stringify(p);
+const f=prepararDatos(p,{valor:'d6',armadura:'Armadura de cuero',escudo:'Escudo pequeño'});
+assert.equal(JSON.stringify(p),original,'No debe cambiar el personaje');
+assert.equal(f._ocupacion,'Guerrero');
+assert.equal(f._especie,'Humano común');
+assert.equal(f._armadura_equ,'Armadura de cuero');
+assert.equal(f._escudo_equ,'Escudo pequeño');
+assert.equal(f._blindaje,'d6');
+assert.equal(f._sections.find(x=>x.source==='riqueza').items[0],'10 mo');
+const sin=structuredClone(p);
+sin.equipo=[];sin.protecciones_equipadas={armadura:'Armadura de cuero',escudo:'Escudo pequeño'};
+const no=prepararDatos(sin,{valor:'Sin armadura'});
+assert.equal(no._armadura_equ,'');
+assert.equal(no._escudo_equ,'');
+assert.equal(no._blindaje,'');
+assert.throws(()=>prepararDatos({...p,juego:'Naufragio d20 · CiFi'}),/solo admite/);
+console.log('OK: adaptador A5 no mutante, equipo equipado e integridad básica.');
