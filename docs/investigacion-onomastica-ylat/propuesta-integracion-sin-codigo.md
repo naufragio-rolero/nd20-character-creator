@@ -136,3 +136,12 @@ La [auditoría de 52 entradas del tesauro](auditoria-tesauro-componentes.md) ide
 - La versión futura deberá ser capaz de exponer las **52 entradas activas y sus justificaciones**, permitir auditar cambios editoriales y respetar la **reproducibilidad** de semillas anteriores.
 
 La [matriz editorial](matriz-elegibilidad-editorial.md) recoge las clases y los controles sugeridos; [ONO-13](decisiones-editoriales.md) registra la decisión pendiente de separar nombres de persona de topónimos/animales. **Ninguna de estas propuestas cambia los JSON ni la aplicación en la rama de investigación**.
+
+
+## 9. Nueva comprobación de identidades transformadas (2026-11-02)
+
+Las fuentes rectoras documentan una relación con **identidad inequívoca y nombres distintos**: **Narga Solarys**, Rey Vetusto de Sylestria, fue privado de su nombre y bautizado **Ganragán** por sus creaciones tras el destierro. Véase [auditoría de teonimia](auditoria-fuentes-rectoras-teonimia.md). También **Valujna** recibió su nombre después de ser un lobo sin nombre consignado en la leyenda.
+
+**Consecuencia para el modelo propuesto, sin implementar:** representar los nombres como **testimonios cronológicos y de función**, relacionados con una entidad, y guardar títulos de culto y epítetos en relaciones distintas. Un cambio explícito de nombre puede justificar vínculo entre denominaciones; la coincidencia en cadena literal o en segundo componente, por sí sola, no. No extraer **Solarys** como apellido familiar sin prueba ni añadir nombres de deidades al sorteo de personas. Esta extensión no modifica las trece cuestiones editoriales abiertas ni los recuentos de los tres subcorpus anteriores.
+
+**Desfase del censo de Isophius:** la autoría confirma que la campaña se **jugó más tarde** y no se consolidó en las hojas de 140 PNJ. No tratar la ausencia del Excel como invalidez del registro: distinguir siempre **fecha/cobertura de censo**, **participación narrativa acreditada** y **permiso de reutilización**.
