@@ -154,13 +154,13 @@ async function probar(nombre,tipo,url){
       return {status:r.status,contenido:await r.text()};
     });
     assert.equal(iconos.status,200);
-    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,34);
+    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,35);
     for(const id of ['masculino','femenino','indeterminado']){
       assert.ok(iconos.contenido.includes('id="sexo-'+id+'"'),
         nombre+': SVG de sexo '+id);
     }
     for(const id of ['espada','arco','varita','bolsa','mochila','orbe','libro',
-      'armadura','escudo','municion']){
+      'armadura','escudo','municion','caballo']){
       assert.ok(iconos.contenido.includes('id="equipo-'+id+'"'),
         nombre+': icono de Equipo '+id);
     }
@@ -205,6 +205,10 @@ async function probar(nombre,tipo,url){
         document.body.appendChild(cont);
       },[id,item]);
       await page.locator('#'+id+' .referencia-glosario').click();
+      if(item==='Burro o mula'||item==='Carruaje')
+        assert.equal(await page.locator('#ficha-emergente .info-tipo').innerText(),
+          item==='Burro o mula'?'MONTURA':'VEHÍCULO',
+          nombre+': tipo de objeto legible y coherente');
       assert.equal(await page.locator('#ficha-emergente h3').textContent(),esperado,
         nombre+': título de popup del paquete '+item);
       assert.match(await page.locator('#ficha-emergente').innerText(),procedencia,
