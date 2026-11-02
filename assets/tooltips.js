@@ -14,7 +14,7 @@
       .replace(/\s+\(C[1-8]\)/g,"")
       .replace(/\s+·\s+[^\n]+$/,"")
       .replace(/\s+\((?:Diletante;|recuerdo personal;|arma filosofal;|Armamento filosofal;|inicial;)[^)]+\)/g,"")
-      .replace(/\s+\(DU\s*d\d+\)/g,"")
+      .replace(/\s+\(DU\s*d\d+(?:\s+cada una)?\)/gi,"")
       .replace(/^Estilo de gladiatoria:\s*/i,"")
       .replace(/^Paquete\s+([^:]+):.*$/i,"$1")
       .replace(/^Paquete\s+/i,"").trim();
@@ -167,6 +167,27 @@
       "Naufragio d20 DRS · Focos","Objeto","Foco de conjuro");
     equipo(eq.varitas_defensa,"nd20","mo",
       "Naufragio d20 DRS · Varitas","Objeto","varitas");
+    // Los lotes DRS contienen objetos por nombre libre. Donde el catálogo
+    // no dispone de una ficha individual, registrar solo su procedencia;
+    // jamás atribuir precio, mecánica o descripción al objeto suelto.
+    var porObjetoPaquete=new Map();
+    (eq.paquetes||[]).forEach(function(paquete){
+      String(paquete.contenido||"").split(";").map(function(x){return limpiar(x.trim());})
+        .filter(Boolean).forEach(function(item){
+          var key=normalizar(item);
+          if(!porObjetoPaquete.has(key))
+            porObjetoPaquete.set(key,{nombre:item,paquetes:[]});
+          var registro=porObjetoPaquete.get(key);
+          if(!registro.paquetes.includes(paquete.nombre))
+            registro.paquetes.push(paquete.nombre);
+        });
+    });
+    porObjetoPaquete.forEach(function(item,key){
+      if(mapa.has(key))return; // Preferir siempre la glosa original DRS.
+      var titulo=item.nombre.replace(/^./,function(x){return x.toLocaleUpperCase("es");});
+      anotar(titulo,"Objeto","nd20","Naufragio d20 DRS · Paquetes de equipo",
+        {grupo:"equipo",datos:[["Incluido en",item.paquetes.join(", ")]]});
+    });
     // 10 Técnicas de batalla: sus efectos literales están en el DRS,
     // no en la tabla nominal que alimenta las elecciones del generador.
     var tecnicas=fuentes.tecnicasDRS?.registros||[];
