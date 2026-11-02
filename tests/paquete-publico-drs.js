@@ -99,19 +99,21 @@ const fichas=leer(salida,'fichas-documentales.json');
 assert.ok(Object.values(fichas).every(x=>x.sistema!=='nd20'||
   (x.fuente||'').includes('NaufragioD20DRS')),
   'No hay documentación de Talentos de Ocupaciones Fantasy futuras');
-// El autor ha autorizado las 149 combinaciones como nombres posibles,
- // pero los 51 personajes documentados NO forman parte de la distribución.
+// Tras excluir el corpus externo a Ylat, quedan 33 combinaciones
+// públicas y 19 identidades documentadas que NO pasan a distribución.
 const onomastico=leer(salida,'tesauro-ylat.json');
 const onomasticoOriginal=leer(raiz,'tesauro-ylat.json');
 const combinaciones=onomasticoOriginal.entradas.filter(x=>x.tipo==='combinado');
 const documentados=onomasticoOriginal.entradas.filter(x=>x.tipo==='documentado');
-assert.equal(combinaciones.length,149);
-assert.equal(documentados.length,51);
+assert.equal(combinaciones.length,33);
+assert.equal(documentados.length,19);
+assert.equal(onomasticoOriginal.entradas.length,52);
 assert.deepEqual(onomastico.entradas,combinaciones,
-  'Se publica el conjunto de 149 combinaciones exactas, sin inventar ni alterar nombres');
-assert.equal(new Set(onomastico.entradas.map(x=>x.nombre)).size,149);
-assert.equal(onomastico.entradas.filter(x=>x.ambito==='Niguace').length,116);
-assert.equal(onomastico.entradas.filter(x=>x.ambito==='Isla Tormenta').length,33);
+  'Se publican exactamente las 33 combinaciones del ámbito aprobado');
+assert.equal(new Set(onomastico.entradas.map(x=>x.nombre)).size,33);
+assert.ok(onomastico.entradas.every(x=>x.ambito==='Isla Tormenta'));
+assert.ok(!/niguac|niguaz/i.test(JSON.stringify(onomastico)),
+  'La distribución pública no conserva referencias al corpus externo');
 assert.ok(onomastico.entradas.every(x=>x.tipo==='combinado'));
 assert.ok(!onomastico.entradas.some(x=>
   documentados.some(y=>y.nombre===x.nombre)),
@@ -196,7 +198,8 @@ assert.ok(!html.includes('value="documentado"'),
 assert.ok(!html.includes('Personajes documentados (51)'),
   'No mostrar los 51 nombres de PNJ en el selector público');
 assert.ok(html.includes('id="ambito-nombre"'));
-assert.ok(html.includes('<option value="Niguace">Niguace</option>'));
+assert.ok(!/niguac|niguaz/i.test(html),
+  'No debe existir un selector del ámbito excluido');
 assert.ok(html.includes('<option value="Isla Tormenta">Isla Tormenta</option>'));
 assert.ok(html.includes('Origen de las variantes'));
 assert.ok(html.includes('Los nombres sugeridos no determinan el origen ni la historia del personaje.'));
@@ -274,7 +277,7 @@ try{
   assert.equal(repetido.status,1,'Un duplicado invalida el paquete');
   assert.match(repetido.stderr,/Ficha duplicada del DRS/);
   // Tampoco se puede publicar una identidad documental entre los nombres
-  // propuestos o sustituir arbitrariamente uno de los 149 autorizados.
+  // propuestos o sustituir arbitrariamente uno de los 33 autorizados.
   const archivoYlat=path.join(temporal,'data','tesauro-ylat.json');
   const originalYlat=fs.readFileSync(archivoYlat,'utf8');
   const colado=JSON.parse(originalYlat);
@@ -285,13 +288,24 @@ try{
   assert.equal(publicoColado.status,1,'Un PNJ documentado invalida el paquete');
   assert.match(publicoColado.stderr,/nombres de personajes documentados/);
   fs.writeFileSync(archivoYlat,originalYlat);
+  // Inyección negativa: un registro de la fuente excluida no puede
+  // colarse por el guardia aunque sea de tipo combinado.
+  const externo=JSON.parse(originalYlat);
+  externo.entradas.push({id:'externo-niguace',nombre:'Propuesta externa',
+    tipo:'combinado',ambito:'Niguace'});
+  fs.writeFileSync(archivoYlat,JSON.stringify(externo));
+  const rechazado=spawnSync(process.execPath,[scriptGuardia,temporal],
+    {encoding:'utf8'});
+  assert.equal(rechazado.status,1,'El corpus externo jamás se publica');
+  assert.match(rechazado.stderr,/33 combinaciones|corpus ajeno|ámbito aprobado/);
+  fs.writeFileSync(archivoYlat,originalYlat);
   const cambiado=JSON.parse(originalYlat);
   cambiado.entradas[0].nombre='Nombre inventado no aprobado';
   fs.writeFileSync(archivoYlat,JSON.stringify(cambiado));
   const nombreDistinto=spawnSync(process.execPath,[scriptGuardia,temporal],
     {encoding:'utf8'});
   assert.equal(nombreDistinto.status,1,'Un cambio no autorizado en nombres invalida el paquete');
-  assert.match(nombreDistinto.stderr,/149 combinaciones originales autorizadas/);
+  assert.match(nombreDistinto.stderr,/33 combinaciones originales autorizadas/);
   const archivoHistorico=path.join(temporal,'data','nombres-historicos-ylat.json');
   const originalHistorico=fs.readFileSync(archivoHistorico,'utf8');
   const falso=JSON.parse(originalHistorico);
