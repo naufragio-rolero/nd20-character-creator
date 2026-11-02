@@ -106,3 +106,74 @@ La [ficha de Findorian Alcanzarríos](https://drive.google.com/file/d/1GZMzw21y6
 - Buscar personajes de la misma familia fuera del censo: la genealogía Sigvald y las dos versiones de Branwen son ejemplos de corpus importante no capturado en la lista de 140.
 - Preparar un registro de variantes por realidad y un catálogo de **personajes documentados fuera de los Excel**, sin mezclarlos con nombres nuevos inventados.
 - No alterar código, JSON de producción ni LIVE.
+
+
+## 7. Segunda tanda y cierre del barrido: 43 fichas adicionales
+
+**Resultado acumulado de la primera ronda:** 66/66 componentes inicialmente en I cotejados con fuentes individuales. Esta sección registra **43 formas adicionales** a las 23 del bloque inicial; no hay duplicados entre tandas.
+
+Tres hallazgos modifican la categoría: **Neulenthris** y **Veredron** pasan a F; **Oq'uatee** pasa a V, por conflicto entre la grafía del censo y la ficha. Las otras 40 se mantienen en I. El recuento actualizado de los 97 segundos componentes queda: **22 familias/linajes (F), 60 sin función familiar acreditada (I) y 2 con variantes en conflicto (V)**, más las restantes categorías ya documentadas.
+
+| Segundo componente del censo | Personaje | Fuente cotejada | Estado | Observación |
+| --- | --- | --- | :---: | --- |
+| Alswick | Daniel | [Ficha individual](https://drive.google.com/file/d/1CQM4B2m-yft5TEPh8gcnt2nTCaznE1Hi/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Arper | Ternus | [Ficha individual](https://drive.google.com/file/d/1VirULOLvOHBS1uHSsspmp3BwWhF8Qses/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Beld | Oelmi | [Ficha individual](https://drive.google.com/file/d/12DKyE3yrUKM1X5T__G1FnvU-fN645rD7/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Brosul | Engaw | [Ficha individual](https://drive.google.com/file/d/147cqiEsG0hKmRAEoYadSe4HEoAFx3GMl/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Ceñóseo | Zarzik | [Ficha individual](https://drive.google.com/file/d/1fcBhOCsGzzqcSMb185dOazt2qoS7h8z9/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Duthmor | Lorss | [Ficha individual](https://drive.google.com/file/d/1y3f9iRCjHYkgLE5ETI1nwrdMUJaQpp1V/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Ecala | Rargar | [Ficha individual](https://drive.google.com/file/d/1dZD8lIx4dMYVArN3DmnMY4-xWAbfcUUO/view) | **I** | **I:** el personaje pertenece a baja nobleza, pero no consta una familia denominada Ecala. |
+| Feebil | Nesaweyn | [Ficha individual](https://drive.google.com/file/d/1R2Ghy0TO3G11L0P9_cLH3f72CbJo_c4y/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Forjaplata | Werhilda | [Ficha individual](https://drive.google.com/file/d/1LGkydDDvyVXcuQJCvBBnpcfdPAMHBRiv/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Gudrün | Kineyie | [Ficha individual](https://drive.google.com/file/d/1TogNWQ2XaBDrIIpHonk1TDzRiZ31D6v2/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Holdt | Damien | [Ficha individual](https://drive.google.com/file/d/10fLg54iL1Bf6-7cTFe9goRVY7yB4Qnz6/view) | **I** | **I:** Lazare Brice acoge a Damien como hijo; Damien conserva Holdt en la ficha, no se acredita apellido familiar Holdt. |
+| Jacenty | Elisia | [Ficha individual](https://drive.google.com/file/d/1y7SSkPCzhIk1Nx2-PUeTjAHuybjUjGoK/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Neulenthris | Essaetia | [Ficha individual](https://drive.google.com/file/d/11Q_fnDj8pP1KmLQimfZ4crstpHWyqi0G/view) | **F** | **F:** texto nombra las familias Neulenthris y Adorasol; el posible vínculo de sangre se expresa como hipótesis, no certeza. |
+| Nerese | Asharod | [Ficha individual](https://drive.google.com/file/d/1xQuASnaBD3Ky1q7iXiLVVGtKPtZ5_FFs/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Nichols | Chred | [Ficha individual](https://drive.google.com/file/d/14SBGPygSsMuXmjUb2-nNdZ7ODoMCtYRe/view) | **I** | **I:** Chred fue maestro de armas de los Gull; no se deduce que Nichols sea familia Gull. |
+| Noccerado | Besyl | [Ficha individual](https://drive.google.com/file/d/1SR5JkMQbAKzGrzfIARrcwDWXfdyu3HOl/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Noreesh | Eomdyn | [Ficha individual](https://drive.google.com/file/d/1GqbPBdCb_aCFF93qwWLDD9XjT9TlaD44/view) | **I** | **I** con variante en el nombre de pila: ficha titulada Eomdyn pero descripción escribe Emodyn; apellido sin función familiar probada. |
+| Nyser | Warsam | [Ficha individual](https://drive.google.com/file/d/1d0vbgO8dMQoG6BJth52stldOHaJv6j26/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Pelocobre | Halor | [Ficha individual](https://drive.google.com/file/d/1oyv1hdhfRmm6kKPVTCPZRuvaqvmPMTNq/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Quiebrahielo | Zekogs | [Ficha individual](https://drive.google.com/file/d/1TVg5zHxfBpKiss7esRPO7g4GaM22RvVA/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Rocene | Hadewig | [Ficha individual](https://drive.google.com/file/d/1V9uDrjIUTPV5pL2wX6OvCBj8W5NTFqfv/view) | **I** | **I:** cargo de regente neretteo no acredita apellido familiar Rocene. |
+| Roerraíces | Oenogs | [Ficha individual](https://drive.google.com/file/d/17Vpek8fTT-b8zSz12pU5bGji3trMtHKZ/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Samasi | Lorif | [Ficha individual](https://drive.google.com/file/d/1IbhlvVNQ-RuaF5bK8UOymbLpyBzG8RtA/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Brisaolvidada | Celebriän | [Ficha individual](https://drive.google.com/file/d/1CRyZX5uIkpjWYuQPiDhnC3yAzyxgDBhd/view) | **I** | **I:** nombre completo del brujo de Inistia; no se infiere función a partir del significado. |
+| Leahein | Caeloen | [Ficha individual](https://drive.google.com/file/d/1cucp63ZWI8_D1GIjIcRWRfJ_i59yPa2J/view) | **I** | **I:** cargo de regente neretteo no acredita apellido familiar Leahein. |
+| Lowees | Inether | [Ficha individual](https://drive.google.com/file/d/1LQ-Nof9SjE1JNzIggN6vC2YogPEBDWvw/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Samdaw | Banelm | [Ficha individual](https://drive.google.com/file/d/1vzalYYuJvCtI5g4_Ubs7lQ9iaVc5yDay/view) | **I** | **I:** Compañía Samdaw es banda de mercenarios/criminal, no casa familiar acreditada. |
+| Sossei | Muhammad | [Ficha individual](https://drive.google.com/file/d/18uRE3zAHd3zWr-enq12IPm4n66xlkM-W/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Tasano | Drother | [Ficha individual](https://drive.google.com/file/d/18aTtyYOz4LdMXGBhCdNu32Dft3tgoCv3/view) | **I** | **I:** Banda de Tasano es una banda criminal, no familia acreditada. |
+| Tepoel | Treban | [Ficha individual](https://drive.google.com/file/d/1JkrlTIOC4_NxPc7RH-EoX1InC-j2lO3t/view) | **I** | **I:** cargo de regente neretteo no acredita apellido familiar Tepoel. |
+| Thrathal | Darelon | [Ficha individual](https://drive.google.com/file/d/1NPKGr8p2kwGBRMJCC2MuwRwtkc5VTc0N/view) | **I** | **I:** su biografía menciona a Ulnorn Yunquescuro, personaje fuera del censo como testimonio nominal separado. |
+| Torgal | Delril | [Ficha individual](https://drive.google.com/file/d/1lycT77me8DfS9hk-qEZyDLkxV8PtJFj_/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Ulvbane | Thergan | [Ficha individual](https://drive.google.com/file/d/1xEeq9qavRr9Aw4o5DJSaiJcJ_4L8Z0fR/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Valanthis | Syssbel | [Ficha individual](https://drive.google.com/file/d/1-u4GIY_pshtywuvD65zCe_a6qfKGwGq9/view) | **I** | **I:** nombre de una bruja; la profesión no determina si el segundo componente es apellido. |
+| Oq'uatee | Car'rt | [Ficha individual](https://drive.google.com/file/d/1HvCV1TgFsD8WoYc4WCVwSa_r7wmATU1w/view) | **V** | **V:** censo Car'rt Oq'uatee (ID carrt) frente a ficha Kaart Oquati (ID kaart), que en descripción vuelve a escribir Car'rt; Melora/Lenseng difieren. |
+| Veredron | Vysoben | [Ficha individual](https://drive.google.com/file/d/1n7JQkJG9JDGiP2kQzDFf2Pp2ei56f9hj/view) | **F** | **F:** Casa Veredron, casa familiar vasalla de Casa Keefe; Vysoben es miembro. |
+| Sonascama | Bankingar | [Ficha individual](https://drive.google.com/file/d/1bp1LcuIc6x49he83cFpVy8ydX0_8mWOF/view) | **I** | **I:** fue acogido por un guardia; no consta parentesco o apellido transferible Sonascama. |
+| Vuelumbrío | Nimara | [Ficha individual](https://drive.google.com/file/d/1ZzQEdY1OXOB1Jm2CedRey_Mh6Qik58X7/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Ysheasa | Idfaseya | [Ficha individual](https://drive.google.com/file/d/1lh0Yb-eGQgI4nPaIpwT8zA1RcHD2jHR0/view) | **I** | **I:** cargo de regente nerettea no acredita apellido familiar Ysheasa. |
+| Giovanni | Stasi | [Ficha individual](https://drive.google.com/file/d/1ozRYZsVyx215chp5qLK5SVspCjhtOky-/view) | **I** | **I:** Stasi conserva apellido durante su matrimonio con Hyarion Vardamir, sin corroboración de familia Giovanni. |
+| Hiendeacero | Kranthrom | [Ficha individual](https://drive.google.com/file/d/1B9nBdIChZ9WBN4OVy-4Kjcrtckp51NId/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Masticadedos | Acathia | [Ficha individual](https://drive.google.com/file/d/1tfnssxxT1aVhLSmg-hOBxOR9E-EEMrk3/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+| Mantodorado | Havindrin | [Ficha individual](https://drive.google.com/file/d/1fIFvT2Hlwh3ncg7-R5hQQA65n9KuFmr4/view) | **I** | **I:** nombre completo acreditado; ficha sin prueba positiva de familia o herencia del segundo componente. |
+
+### Referencias adicionales para las tres reclasificaciones
+
+- [Casa Veredron](https://drive.google.com/file/d/1Xw4uzuJC17vXNLAXp-HAzuzcA7ypZvf2/view): ficha etiquetada **«Tipo: Familia»**, miembro Vysoben y pertenencia a [Casa Keefe](https://drive.google.com/file/d/1Mw9p1TU3_2kR9sm8mgA-SK6nhhPR1hsW/view). La ficha de Keefe la enumera como **vasallaje**, no como un apellido de Vysoben.
+- [Essaetia Neulenthris](https://drive.google.com/file/d/11Q_fnDj8pP1KmLQimfZ4crstpHWyqi0G/view): «familias Neulenthris y Adorasol» aparece expresamente en su descripción. El posible vínculo de sangre se expresa como **posibilidad**, no como genealogía demostrada.
+- [Kaart Oquati](https://drive.google.com/file/d/1HvCV1TgFsD8WoYc4WCVwSa_r7wmATU1w/view): el nombre de la ficha difiere de **Car'rt Oq'uatee** en el [censo de 140 PNJ](censo-pnj-historico.md), cuyo identificador es `carrt`; la ficha tiene `kaart` y llama al magistrado **Car'rt** en su descripción. El censo lo relaciona con **Melora** y la ficha con **Lenseng**. Hay coincidencia de oficio y órgano de gobierno, pero **no se declara que la discrepancia de culto sea una corrección ni que se trate de dos personas diferentes**.
+
+### Nuevas cuestiones de lectura
+
+1. [**Eomdyn Noreesh**](https://drive.google.com/file/d/1GqbPBdCb_aCFF93qwWLDD9XjT9TlaD44/view) figura como **Eomdyn** en título y censo, pero la descripción abre con **Emodyn**. No crear dos personajes; conservar la variante y decidir forma preferente solo al normalizar.
+2. [**Damien Holdt**](https://drive.google.com/file/d/10fLg54iL1Bf6-7cTFe9goRVY7yB4Qnz6/view) es acogido por **Lazare Brice** como hijo en su biografía; la identidad `Damien Holdt` permanece. La adopción narrada no habilita `Damien Brice` ni demuestra que Holdt sea una dinastía.
+3. [**Compañía Samdaw**](https://drive.google.com/file/d/1263tnL93j0M3ze6goRB36QKWhkRSu_GM/view) y [**Banda de Tasano**](https://drive.google.com/file/d/1U1zfJ3zk_cMKsU0_-oIFweQ5jGTjDyH-/view) están etiquetadas **«Tipo: Organización»**, no «Familia». El nombre de un grupo que deriva del de su líder no convierte necesariamente su segundo componente en apellido hereditario.
+4. [**República de Nerettea**](https://drive.google.com/file/d/1I7BTJ0aJRiDkI1_L4NG-FkyHHFhepBRK/view) enumera cinco regentes con denominaciones personales diferentes; la pertenencia a un órgano político no es prueba de parentesco entre ellos.
+5. La referencia a **Ulnorn Yunquescuro** en la [ficha de Darelon Thrathal](https://drive.google.com/file/d/1NPKGr8p2kwGBRMJCC2MuwRwtkc5VTc0N/view) es un nombre de personaje adicional fuera del censo. Se conserva como *testimonio localizado*, no todavía como apellido categorizado.
+
+### Cierre metodológico
+
+Este barrido cierra la **primera revisión de los 66 casos I de origen**. No equivale a haber agotado todo el material de Ylat, ni a que los 60 componentes todavía en I se hayan demostrado no familiares: algunas fuentes no proporcionan información genealógica. El siguiente trabajo relevante pasa a ser **ampliar corpus por nuevas fuentes**, **cotejar la autoridad canónica entre realidades**, y **preparar decisiones para habilitar nombres/apellidos sin inventar relaciones**.
