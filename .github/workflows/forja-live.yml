@@ -36,14 +36,14 @@ jobs:
       - name: Comprobar la revisión exacta de la entrega
         run: |
           test "$(git rev-parse HEAD)" = "ba163f5144ec8e5f55073dea4b0cedcfbe72a78f"
-      # La base DRS sigue fija en PR #18. La PR #21 añade solo mejoras
-      # de interfaz y retira dos mensajes técnicos, sin alterar el corpus.
-      # Ningún catálogo ni suplemento de main se publica por accidente.
-      - name: Aplicar frontend aprobado de PR #21 sobre DRS verificado
+      # El núcleo DRS de PR #18 permanece fijado y sin suplementos.
+      # Solo se superponen archivos de UI, guardias y el tesauro depurado
+      # según la rectificación canónica aprobada en la PR #22.
+      - name: Aplicar corrección de Niguace de PR #22 sin publicar DLC
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=4a9c07ef0bd3a1f839c0b9316d16cb616158a7a7
+          UI_COMMIT=d62d22918a5a8205ec22951f5cafd319891ee8f9
           archivos=(
             assets/app.js
             assets/styles.css
@@ -52,21 +52,31 @@ jobs:
             index.html
             assets/rules.js
             assets/sex.js
+            data/tesauro-ylat.json
+            scripts/crear-paquete-drs.js
+            scripts/comprobar-publicacion-drs.js
             tests/browser-compras.js
             tests/browser-compatibilidad.js
             tests/paquete-publico-drs.js
+            tests/alcance-drs.js
+            tests/smoke.js
           )
           blobs=(
             593d62212b0111786d368eeb3ebd732a986de3af
             588c2848f399368ac6280a1e1e21dbc4a65a037a
             8ce8e6d89e3d8639c43033db6c582208c34fa75b
             88783aebb85f835c3b41c10f237ed52453c66e8f
-            8d14af124ff4d30088ed863e211eadf5f0afd25d
-            24eda09430dbd903b4ee5999bb4d6adde9c188a2
+            5eece69a3940ee7699cc249bb91ef1c25f350025
+            7aced6a1728d60a69115190a38861f3bfabed0bd
             5840727b1c4b4b7a260ff425e596edca4ea6534f
-            a08136ece8cdf0e7a8e978fa9a88a79c589efd41
-            7833d9c9ecee459d0ca75ec302fc4eb77d644c12
-            25c951f1b054d959b386aceff5ce2f2bc7354c96
+            e21e0704d247d02a9930e28f0fd88bf307408d7e
+            59001f362a71505b07af35f0d65c215bd4f76647
+            6d42c7947d900bc8f754593771840d442c61b184
+            e480ee85fddc90f3c52a7b6654cfd97ba19f0242
+            d7462d2b142579d23b1d0a34e137bf160b2b05fc
+            c9e7a74e35e7cbac65b9f3b641425a06215af2f3
+            163f721f174fd9e30c3d351c5b13b6dcd9fff780
+            ddb7fe831b99018834633f5b85d28dd670ddaa18
           )
           for i in "${!archivos[@]}"; do
             archivo="${archivos[$i]}"
@@ -92,11 +102,20 @@ jobs:
           ! grep -Fq 'Forma del generador histórico de nombres de Ylat.' assets/rules.js
           ! grep -Fq 'Nombre del banco histórico sin clasificación documental de sexo;' assets/sex.js
           grep -Fq "grupo==='talento'||grupo==='poder'||grupo==='equipo'" assets/app.js
-          echo "OK: frontend PR #21 cotejado por hash; banco histórico conservado y notas omitidas."
+          test "$(grep -c '"ambito": "Isla Tormenta"' data/tesauro-ylat.json)" -eq 52
+          ! grep -Eiq 'niguac|niguaz' data/tesauro-ylat.json
+          ! grep -Eiq 'niguac|niguaz' index.html
+          ! grep -Eiq 'niguac|niguaz' assets/rules.js
+          grep -Fq 'exactamente 33 combinaciones únicas' scripts/crear-paquete-drs.js
+          echo "OK: corpus externo excluido; 52 entradas editoriales, 33 variantes públicas, 1422 históricas sin cambios."
       - name: Preparar Node
         uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - name: Regresión editorial de nombres y esquema DRS
+        run: |
+          node tests/alcance-drs.js
+          node tests/smoke.js
       - name: Generar solo la carpeta DRS autorizada
         run: node scripts/crear-paquete-drs.js
       - name: Detener la publicación ante DLC o sistemas no autorizados
@@ -150,6 +169,7 @@ jobs:
           ! grep -Fq 'data-juego="nd20_nocturna"' /tmp/forja-live.html
           grep -Fq '<dialog id="editor-compras"' /tmp/forja-live.html
           grep -Fq 'id="compras-grupo"' /tmp/forja-live.html
+          ! grep -Eiq 'niguac|niguaz' /tmp/forja-live.html
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/app.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-app.js
           grep -Fq "var primeraVisitaMovil" /tmp/forja-app.js
           grep -Fq "var introVisible" /tmp/forja-app.js
@@ -179,6 +199,16 @@ jobs:
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/sex.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-sex.js
           ! grep -Fq 'Forma del generador histórico de nombres de Ylat.' /tmp/forja-rules.js
           ! grep -Fq 'Nombre del banco histórico sin clasificación documental de sexo;' /tmp/forja-sex.js
+          ! grep -Eiq 'niguac|niguaz' /tmp/forja-rules.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/tesauro-ylat.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-ylat.json
+          ! grep -Eiq 'niguac|niguaz' /tmp/forja-ylat.json
+          node - <<'NODE'
+          const assert=require('node:assert/strict');
+          const j=require('/tmp/forja-ylat.json');
+          assert.equal(j.entradas.length,33);
+          assert.ok(j.entradas.every(x=>x.tipo==='combinado'&&x.ambito==='Isla Tormenta'));
+          console.log('OK: cero registros externos; solo 33 variantes aprobadas de Ylat.');
+          NODE
           ! grep -Fq "fuenteGlosa.textContent='Descripción: '" /tmp/forja-tooltip-ui.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/styles.css?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-estilos.css
           for escuela in arcana demonologia divina elemental naturaleza nigromancia; do
