@@ -264,3 +264,34 @@ Los relatos publicados y las fichas de [Isophius](ampliacion-cronicas-isophius.m
 - **Leezar Theroux / Leezar Lockbruck**: material de preparación y un texto antiguo frente a ficha y crónicas publicadas. Probablemente versiones del mismo personaje, **no** cambio de apellido narrado explícitamente.
 
 Las discrepancias se conservan en [decisiones-editoriales.md](decisiones-editoriales.md), ahora con **12 cuestiones**. Las casas externas al Excel **no** se suman a los 22 apellidos familiares del recuento cerrado del censo.
+
+
+## P. Corpus suplementario verificado y deduplicación literal (2026-11-02)
+
+Tres bloques concretos documentados fuera del Excel de 140 PNJ:
+
+| Subcorpus | Denominaciones literales | Coincidencias idénticas con el censo de 140 | Denominaciones no idénticas a las del censo | Fuente de trabajo |
+| --- | ---: | ---: | ---: | --- |
+| Isophius + 15 casas vinculadas | **61** | **15** | **46** | [corpus-complementario-isophius.md](corpus-complementario-isophius.md) |
+| Historia del Imperio de Malasthar | **19** (12 monarcas + 7 otras menciones seleccionadas) | **0** | **19** | [linajes-historicos-malasthar.md](linajes-historicos-malasthar.md) |
+| Biografías de personajes de Ylat | **8** | **1** (Caelia Fulgentis) | **7** | [biografias-personajes-cotejo.md](biografias-personajes-cotejo.md) |
+| **Unión de estos tres bloques** | **88** | **16** | **72** | Cotejo de denominación **literal**; no entidades/personas únicas |
+
+**Interpretación correcta:** las 88 formas no están duplicadas entre estos tres subcorpus bajo coincidencia textual exacta, pero **no son 88 personas distintas** ni 72 incorporaciones listas para sorteo. Hay **alias y variantes**, **nombres de entidades**, **denominaciones que también son topónimos** y un **descriptor sin nombre propio** («Hijo de Pamela»). Una variante como `Vrymmir Borgernstâg` se compara como diferente de `Vrymmir Borgenrstâg` solo a nivel literal, no como dos personajes.
+
+### Nuevas familias y casas fuera del censo
+
+- **Martoni**: Maurice y Francesca están documentados como padre y madre de Mario Martoni. Los tres figuran bajo **Casa Rizzo**, pero la casa no acredita por sí misma un apellido personal Rizzo.
+- **Pamphilos y Methodius**: Tayana es Pamphilos en ficha y figura como Methodius antes de su matrimonio con Jiggalen; el matrimonio individual **no** establece una regla universal.
+- **Swordkey**: Edward Swordkey es hijo de Joferick y Frea, en una casa ducal identificada; el apellido y el parentesco de Edward sí están documentados.
+- **Gull/Boll**: casas con vínculo de vasallaje; [Kharan Boll](https://drive.google.com/file/d/1gTNBmn8BE6PB5hF59NFBnwgzALdf0LT0/view) lleva marca **Ylat³**, y su forma completa coincide con el tesauro documentado de Isla Tormenta. No asociar automáticamente a un mismo momento/realidad las biografías de William Gull y Kharan.
+
+### Linajes antiguos y cautelas transreales
+
+- **Lys Terrana, Lys Maren y Lys Caelis**: son linajes/colectivos históricos de Malasthar y preceden al Imperio. Entre los doce gobernantes se observan apellidos de linaje explícitos en algunos nombres, pero otros se escriben con nombre y epíteto solamente.
+- **Varlyna**, soberana del linaje Maren, da nombre a una ciudad: no clasificar el topónimo como apellido.
+- **Amadeus** es un nombre de cobertura del ser extraterrestre a quien la biografía también denomina **Amathur**. No clasificar la forma local adoptada como nombre tradicional de cultura humana.
+- **Astrid Sombralba** llega de otra realidad por un portal: vivir en Beslitz no demuestra origen onomástico malasthino.
+- **Bram Brasagorda** posee un mote explícito; su apellido de nacimiento es desconocido.
+
+**Nuevas decisiones humanas:** ninguna es imprescindible *para proseguir investigando*. Mantener sin resolver las decisiones de [decisiones-editoriales.md](decisiones-editoriales.md) antes de normalizar para la futura integración. Los cambios de epíteto `Branneth` y `Tharn` son variantes internas de un mismo documento que se conservarán como testimonios, sin convertirlos en reglas.
