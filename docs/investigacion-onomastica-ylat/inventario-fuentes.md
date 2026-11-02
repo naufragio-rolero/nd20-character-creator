@@ -61,6 +61,15 @@
 
 **Anexos:** [censo](censo-pnj-historico.md), [familias y parentescos](familias-acreditadas.md) y [cotejo eladrín](fuentes-eladrines-cotejo.md).
 
+## Material complementario de Isophius
+
+| Documento | Tratamiento | Resultado y autoridad |
+| --- | --- | --- |
+| [`DatosIsophius.ods`](https://drive.google.com/file/d/1phFBXkKkmBA_0u7wIGDGD7LM3gyxMzep/view) | Leído desde el archivo ODS original | Seis personajes y relaciones con figuras de campaña; fuente de **preparación**, no publicación probada |
+| [Respuestas de «Creación familia Isophius»](https://drive.google.com/file/d/18K1OYekr3jYoh2MLEOnP7ywau9meg24eneGvlwjmuOs/view) | Seis nombres de personaje extraídos; **sin datos personales** | Planificación de personajes, no canon aprobado |
+| [`DocumentacionIsophius.odt`](https://drive.google.com/file/d/1js4SQFdk7xry3Q6OsGn2rWfD7t37nmc4/view) | Texto ODT original leído | Menciona Casa Orovecchio; tribu Azurroca no es apellido probado |
+| [`isophius-fuentes-campana.md`](isophius-fuentes-campana.md) | Análisis escrito en rama de investigación | Relaciones de hermanos y adopción, límites y discrepancias |
+
 ## Repositorio examinado
 
 - `data/nombres-historicos-ylat.json`: leído anteriormente; contiene formas sin atribución onomástica suficiente.
