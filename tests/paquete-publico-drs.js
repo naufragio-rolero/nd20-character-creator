@@ -222,7 +222,7 @@ assert.ok(html.includes('id="resumen-nivel"'));
 assert.ok(html.includes('id="informacion-avanzada"'));
 assert.ok(fs.existsSync(path.join(salida,'assets','icons-forja.svg')));
 assert.equal((fs.readFileSync(path.join(salida,'assets','icons-forja.svg'),'utf8')
-  .match(/<symbol id=/g)||[]).length,34,
+  .match(/<symbol id=/g)||[]).length,35,
   'Pictogramas DRS: Especies, Ocupaciones, Poderes, Recursos, Equipo y configuración');
 assert.ok(html.indexOf('value="historico"')<html.indexOf('value="combinado"'),
   'El banco histórico debe ser el modo predeterminado en la distribución');
