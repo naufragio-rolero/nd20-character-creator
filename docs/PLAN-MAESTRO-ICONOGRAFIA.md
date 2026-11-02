@@ -4,7 +4,7 @@
 
 ## 1. Objetivo
 
-Sustituir progresivamente los **35 iconos** actuales de la Forja por una familia de pictogramas originales que priorice claridad a tamaños reducidos y una identidad visual consistente. Los **24 SVG restantes** procedentes de Game-icons.net siguen siendo provisionales en la rama de rediseño. Los **11 diseños aprobados** (cuatro especies y siete iconos principales) ya están incorporados en la rama de trabajo, pendientes de integrar y publicar según las pruebas. No se retiran sus créditos mientras se sigan distribuyendo obras derivadas.
+Sustituir progresivamente los **35 iconos** actuales de la Forja por una familia de pictogramas originales que priorice claridad a tamaños reducidos y una identidad visual consistente. Los **24 SVG restantes** procedentes de Game-icons.net siguen siendo provisionales en el repositorio. Los **11 diseños aprobados** (cuatro especies y siete iconos principales) ya están integrados en `main` mediante la PR #46. **Todavía no han sido promovidos a LIVE**. No se retiran sus créditos mientras se sigan distribuyendo obras derivadas.
 
 El documento define **qué representa cada icono**, qué relaciones visuales debe conservar y cómo se revisarán los nuevos diseños. Los significados de especies y recursos vienen del generador y no añaden capacidades ni reglas.
 
@@ -45,7 +45,7 @@ Las tres matrices de desarrollo inicial son **humano, elfo y orco**. Enano, medi
 - **Otros mestizos futuros:** aplicar exactamente la misma lógica desde las dos matrices que correspondan. **No crear nuevas especies ni incorporarlas a la interfaz sin respaldo documental y decisión editorial.**
 - **Proporción e identidad:** el híbrido debe identificarse con ambas familias sin ser una copia de una de ellas, ni un collage recargado. Las piezas compartidas se derivan de la misma geometría para que el parentesco sea evidente.
 
-**Secuencia interna de esta familia (una vez llegue su turno):** Humano → Elfo → Orco → Semielfo → Semiorco. **Humano, Elfo, Orco y Semielfo: versiones v1 aprobadas e incorporadas a la rama de trabajo.** El Semiorco queda por diseñar. La aprobación artística no implica que los SVG estén ya desplegados en LIVE.
+**Secuencia interna de esta familia (una vez llegue su turno):** Humano → Elfo → Orco → Semielfo → Semiorco. **Humano, Elfo, Orco y Semielfo: versiones v1 aprobadas e incorporadas al repositorio.** El Semiorco queda por diseñar. La aprobación artística no implica que los SVG estén ya desplegados en LIVE.
 
 ### 3.3. Criterios de rechazo
 
@@ -126,7 +126,7 @@ Descartar un diseño si el humano parece un monstruo, si el semielfo no conserva
 4. **Cuarto bloque — Ocupaciones (4 SVG):** `ocu-clerigo`, `ocu-guerrero`, `ocu-mago`, `ocu-ladron`.
 5. **Quinto bloque — Especies (8 SVG):** `esp-humano`, `esp-elfo`, `esp-orco`, `esp-semielfo`, `esp-semiorco`, `esp-enano`, `esp-mediano`, `esp-gnomo`.
 
-**Primer bloque aprobado:** `ico-configurar`, `recurso-salud`, `recurso-potencia`, `recurso-esfuerzo`, `recurso-blindaje`, `recurso-movimiento` y `recurso-esencia`. **Trabajo adelantado también aprobado:** `esp-humano`, `esp-elfo`, `esp-orco`, `esp-semielfo`. Los once están en la rama de rediseño y no desplazan la prioridad del siguiente bloque de Equipo. Ninguna aprobación artística constituye autorización para desplegar o modificar el paquete LIVE.
+**Primer bloque aprobado:** `ico-configurar`, `recurso-salud`, `recurso-potencia`, `recurso-esfuerzo`, `recurso-blindaje`, `recurso-movimiento` y `recurso-esencia`. **Trabajo adelantado también aprobado:** `esp-humano`, `esp-elfo`, `esp-orco`, `esp-semielfo`. Los once están integrados en `main` mediante la PR #46 y no desplazan la prioridad del siguiente bloque de Equipo. Ninguna aprobación artística constituye autorización para desplegar o modificar el paquete LIVE.
 
 ## 6. Proceso de producción y control
 
@@ -137,4 +137,8 @@ Descartar un diseño si el humano parece un monstruo, si el semielfo no conserva
 5. **Integración:** sustituir `assets/icons/<id>.svg` manteniendo el ID y su función; documentar autoría/cambios.
 6. **Seguridad:** pruebas de Chrome, Firefox/WebKit, URLs de máscaras y paquete DRS aislado; publicar LIVE solo mediante flujo protegido y promoción explícita de SHA.
 
-**Estado editorial actualizado:** 11 diseños originales v1 aprobados y añadidos a la rama de rediseño; 24 iconos restantes derivados de Game-icons.net; los 35 iconos de LIVE no cambian hasta una publicación aprobada mediante el workflow protegido. **Siguiente bloque en bocetaje: 11 iconos de Equipo e inventario.**
+**Estado editorial actualizado:** 11 diseños originales v1 aprobados e integrados en `main` (PR #46); 24 iconos restantes derivados de Game-icons.net; **LIVE no cambia** hasta una publicación aprobada mediante el workflow protegido. **Siguiente bloque: 11 bocetos SVG de Equipo e inventario, pendientes de aprobación artística.**
+
+### Restricción de despliegue futuro
+
+El workflow `.github/workflows/forja-live.yml` sigue fijado al SHA anterior y, en su verificación posterior al despliegue, exige que **los 35 SVG** contengan la cadena `Game-icons.net`. Al promover los 11 iconos originales será obligatorio revisar esa auditoría: comprobar **11 autorías propias y 24 atribuciones Game-icons**, conservar el archivo público de créditos, mantener la lista blanca DRS y pasar las pruebas en navegadores. **No cambiar el workflow solo para forzar un despliegue** ni retirar los controles de seguridad.
