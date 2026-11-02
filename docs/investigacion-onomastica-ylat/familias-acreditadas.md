@@ -105,3 +105,17 @@ La [ficha de Caravana Gha'engu](https://drive.google.com/file/d/1l1CxnrZBbbIf660
 También existe [Branwen Sigvald «Discordia», Ylat³](https://drive.google.com/file/d/1afQDtEg8be53B3t8cu1cUJqaYDKfzRTh/view), con edad y tipo diferentes de la versión Ylat¹. La evidencia de la familia en Ylat¹ no autoriza fusionar automáticamente ambas versiones ni inferir genealogías transreales.
 
 **Fuente de trabajo detallada:** [revision-biografica-y-realidades.md](revision-biografica-y-realidades.md).
+
+
+## Cuarta ampliación: familias Neulenthris y Veredron (2026-11-02)
+
+El primer barrido de los **66** componentes del censo inicialmente sin categoría familiar ha permitido acreditar **cinco** familias nuevas en total: Asheishi, Kinistis, Sigvald, Neulenthris y Veredron. El catálogo de 97 componentes asciende a **22 formas F**.
+
+- **Neulenthris.** La [ficha de Essaetia Neulenthris](https://drive.google.com/file/d/11Q_fnDj8pP1KmLQimfZ4crstpHWyqi0G/view) expresa literalmente «las **familias Neulenthris y Adorasol**». Galeshra la acoge como pupila y el texto solo sugiere que **puede existir** un vínculo de sangre. **No presentar ese parentesco como probado**, ni confundir pupilaje y pertenencia familiar.
+- **Veredron.** [Casa Veredron](https://drive.google.com/file/d/1Xw4uzuJC17vXNLAXp-HAzuzcA7ypZvf2/view) es una entidad de **tipo Familia** y enumera a [Vysoben Veredron](https://drive.google.com/file/d/1n7JQkJG9JDGiP2kQzDFf2Pp2ei56f9hj/view) entre sus miembros. La ficha documenta su pertenencia a [Casa Keefe](https://drive.google.com/file/d/1Mw9p1TU3_2kR9sm8mgA-SK6nhhPR1hsW/view) como **vasallaje**. Esto acredita dos niveles institucionales: **la casa familiar Veredron** y **la casa superior Keefe**, no un apellido doble ni un cambio de apellido.
+
+**Nueva relación de acogida sin sustitución de apellido:** [Damien Holdt](https://drive.google.com/file/d/10fLg54iL1Bf6-7cTFe9goRVY7yB4Qnz6/view) es acogido por [Lazare Brice](https://drive.google.com/file/d/1rGblTDtw0DYyY5P79cWbWQJ5MB8jKWnQ/view) como hijo en su biografía. Se conserva como **Damien Holdt**; la relación no demuestra ni autoriza la forma «Damien Brice».
+
+**Cautela adicional:** la [Compañía Samdaw](https://drive.google.com/file/d/1263tnL93j0M3ze6goRB36QKWhkRSu_GM/view) y la [Banda de Tasano](https://drive.google.com/file/d/1U1zfJ3zk_cMKsU0_-oIFweQ5jGTjDyH-/view) son **organizaciones**, no familias según sus fichas, aunque lleven el segundo componente de sus dirigentes.
+
+La cobertura completa del barrido y las fuentes está en [revision-biografica-y-realidades.md](revision-biografica-y-realidades.md).
