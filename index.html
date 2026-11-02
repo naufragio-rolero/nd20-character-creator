@@ -218,13 +218,25 @@
           </div>
         </form>
       </section>
-      <section id="editor-compras" class="editor-elecciones" hidden aria-labelledby="titulo-editor-compras">
-        <h3 id="titulo-editor-compras">Comprar útiles del DRS</h3>
-        <p id="resumen-compras" class="muted" aria-live="polite"></p>
+      <dialog id="editor-compras" class="dialogo-compras" hidden aria-labelledby="titulo-editor-compras">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-editor-compras">Comprar útiles del DRS</h3>
+            <p id="resumen-compras" class="muted" aria-live="polite"></p>
+          </div>
+          <button type="button" id="compras-cerrar" class="cerrar-rejilla"
+            aria-label="Cerrar compra">✕</button>
+        </div>
         <form id="form-compra-utiles">
-          <div class="campo">
-            <label for="compras-articulo">Artículo</label>
-            <select id="compras-articulo" required></select>
+          <div class="selectores-compra">
+            <div class="campo">
+              <label for="compras-grupo">Familia</label>
+              <div class="envoltura-select"><select id="compras-grupo" required></select></div>
+            </div>
+            <div class="campo">
+              <label for="compras-articulo">Artículo</label>
+              <div class="envoltura-select"><select id="compras-articulo" required></select></div>
+            </div>
           </div>
           <div class="campos-compra">
             <div class="campo">
@@ -246,7 +258,7 @@
             <button id="compras-cancelar" type="button">Cancelar</button>
           </div>
         </form>
-      </section>
+      </dialog>
       <div id="fichas" class="fichas" aria-live="off">
         <div class="vacio" id="vacio">
           <span class="emblema" aria-hidden="true">◇</span>
