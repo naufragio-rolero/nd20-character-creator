@@ -105,12 +105,12 @@ Comprobación textual exacta en la revisión de 2026-11-02: los términos `Latha
 - [El Imperio de Laventia](https://docs.google.com/document/d/1xCISRek6ewUo5hvNHLgRdjuFHew5_evI2Wx2wL5YRdI/edit)
 - [Historia de Nulsärax](https://docs.google.com/document/d/1Xk6DKvGt7uSRMT6Ob_Ttr2T0Ag7aR7hm64sXxS6iVRE/edit): registro conversacional y variantes, **no sustituye** Historia de Gylran.
 
-### Fuentes prioritarias con bloqueo de lectura
+### Fuentes prioritarias con bloqueo de lectura **resuelto** (2026-11-02)
 
 - [Apellidos eladrines en Erklan.txt](https://drive.google.com/file/d/1YVanaM-4ThS94W-qY3NFShmNE6Klbmj7/view), 1104 bytes, modificado en 2015.
 - [Linajes eladrines.txt](https://drive.google.com/file/d/1J1uHzpl9DqyLVrsoes73N3_u6sclPCXB/view), 993 bytes, modificado en 2014.
 
-Se han identificado ambos mediante metadatos, pero la operación de lectura del conector devuelve error de decodificación UTF-8. **No se ha leído ni inferido su contenido**.
+**Actualización:** ambos TXT se han descargado en formato binario y leído íntegramente en Windows-1252. Consta comparación de diferencias y hashes en [fuentes-eladrines-cotejo.md](fuentes-eladrines-cotejo.md). El bloqueo UTF-8 ya no existe.
 
 ## G. Decisiones editoriales por resolver antes de generar
 
@@ -148,7 +148,7 @@ La propia nota menciona pruebas de Historia **CD 30** para reconocer la relació
 
 **Conflicto editorial nuevo:** Brillante (explicación de la vieja wiki) frente a Refulgente (ficha individual y ficha de Anasthore). Propuesta de trabajo: mantener ambos testimonios con prioridad provisional de la ficha del personaje, sin reescribir ninguna fuente hasta decisión editorial.
 
-**Bloqueo parcial:** el `.txt` original de apellidos (2015) y `Linajes eladrines.txt` (2014) siguen sin poder leerse mediante el conector por error de codificación. El Markdown recuperado puede proceder de una versión web de la nota de apellidos, pero **no se ha establecido equivalencia binaria** con el TXT.
+**Actualización 2026-11-02:** recuperados ambos `.txt` originales mediante descarga de bytes y lectura Windows-1252. Coinciden en las convenciones onomásticas, pero sus dificultades históricas de Historia están invertidas. **Brillante** figura en ambos; **Refulgente** en las fichas individuales y el censo. Véase [cotejo completo de las fuentes](fuentes-eladrines-cotejo.md).
 
 
 ## I. Contraste detallado de la Casa Gull
