@@ -507,9 +507,13 @@ async function probar(nombre,tipo,url){
       return respuesta.json();
     });
     const combinados=nombresYlat.entradas.filter(x=>x.tipo==='combinado');
-    assert.equal(combinados.length,149);
+    assert.equal(combinados.length,33);
+    assert.ok(nombresYlat.entradas.every(x=>x.ambito==='Isla Tormenta'),
+      nombre+': el corpus de variantes no contiene el ámbito ajeno a Ylat');
+    assert.ok(!/niguac|niguaz/i.test(JSON.stringify(nombresYlat)),
+      nombre+': no hay datos del corpus excluido');
     if(process.env.FORJA_PUBLIC_ROOT){
-      assert.equal(nombresYlat.entradas.length,149,
+      assert.equal(nombresYlat.entradas.length,33,
         nombre+': distribución sin PNJ documentados');
       assert.equal(await page.locator('#modo-nombre option[value="documentado"]').count(),0);
     }
@@ -549,7 +553,9 @@ async function probar(nombre,tipo,url){
     await page.selectOption('#ocupacion','Guerrero');
     await page.selectOption('#especie','Humano común');
     await page.selectOption('#sexo-pj','femenino');
-    for(const ambito of ['Niguace','Isla Tormenta']){
+    assert.equal(await page.locator('#ambito-nombre option').count(),2,
+      nombre+': solo Todas e Isla Tormenta en el filtro de variantes');
+    for(const ambito of ['Isla Tormenta']){
       await page.selectOption('#modo-nombre','combinado');
       await page.selectOption('#ambito-nombre',ambito);
       await page.fill('#nombre-personaje','');
