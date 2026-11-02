@@ -41,7 +41,7 @@ assert.match(archivo.politica_generacion['ONO-13'],/Pietro/);
 
 const documentados=tesauro.entradas.filter(x=>x.tipo==='documentado');
 const combinados=tesauro.entradas.filter(x=>x.tipo==='combinado');
-assert.equal(documentados.length,19,'Conservar documental actual');
+assert.equal(documentados.length,262,'Conservar documental ampliado');
 assert.equal(combinados.length,33,'Conservar las combinaciones de Isla Tormenta');
 assert.ok(documentados.some(x=>x.nombre==='Máthair Felsaer'));
 assert.ok(documentados.some(x=>x.nombre==='Pietro'));
