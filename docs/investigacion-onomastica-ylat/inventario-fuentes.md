@@ -168,3 +168,10 @@ Esta es una **revisión por relevancia, no un censo exhaustivo** de todos los do
 - [18 fichas y 54 epítetos de Espíritus Deíficos](inventario-teonimos-y-epitetos.md): incluye variante Bazjurm/Bajzurm dentro del original, identidad Narga Solarys/Ganragán, denominaciones de Vaiel y parentescos míticos de Pulkros. **No son antropónimos generables**.
 - [Cronología y astros de Enciclopedia](cronologia-y-astroonimia-enciclopedia.md): Norluth (dragón), Narelmayl (dirigente), Shadel (nombre unitario), Alleinn Nuj (imperio), Thelne Saeras (ciudadela) y nombres astrales. **No inferir apellidos ni parentescos**.
 - La versión de **Vaiel** como satélite y la de **Vaiel** como entidad deífica deben permanecer como dos registros de distintos tipos, relacionados solo cuando la fuente establezca el alcance de su homonimia. No se han asignado nombres nuevos al generador.
+
+### Gestas adicionales de Ylat (2026-11-02)
+
+- [*La Peregrinación de Arloth*](https://drive.google.com/file/d/1Jizt_sU2bDK_LNOBoXl2XfwZd9Tc_ZZu/view): artículo **publicado 2025-07-04**, explícitamente ambientado en Ylat; revisados Arloth, Zarkon y el topónimo Tiermas.
+- [*La Campana de Santa Verna*](https://drive.google.com/file/d/1V_IX2DcfBPpiHWTDhD6WsiY7kbyBiXON/view): artículo **publicado 2025-11-07**, explícitamente ambientado en Ylat; revisados Tomás Belardo, Ilythia y la polisemia **Santa Verna** como patrona y localidad.
+- [*La siega de los nombres*](https://drive.google.com/file/d/1xVmxqnQeKCKHw0XW195Qz759pWDdAXYM/view): **borrador** de 2026-10-09, explícitamente situado en Pastizales de Calbarás, Ylat; extraídos **Naira Vell, Aldo Reme, Liria, Miro, Berno, Joren**, sin promover a estado publicado.
+- Cotejo completo y límites de cada extracción en [corpus de gestas](corpus-gesta-personajes-ylat.md). **11 denominaciones nominales** (5 publicadas, 6 de borrador), sin coincidencias literales en los tres repertorios actuales, censo, catálogo provisional o auditoría previa de aventuras. **No son 11 formas generables**.
