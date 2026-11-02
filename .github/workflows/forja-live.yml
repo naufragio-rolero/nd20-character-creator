@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          UI_COMMIT=8e20e32ae07248a0706bbb986170a9f789ba3704
+          UI_COMMIT=b82952cdbda6532747178ff73054e39c802f8a9d
           archivos=(
             assets/app.js
             assets/styles.css
@@ -81,7 +81,7 @@ jobs:
             59001f362a71505b07af35f0d65c215bd4f76647
             6d42c7947d900bc8f754593771840d442c61b184
             002a5d47f7b7abc4da3bf4aa09ac447e19ea1823
-            534c394f700e7bd606799f00026812b0ba0f7962
+            346a56b5c409e23e7ffaa4f65423314bfd719134
             5f920abfa2c39d38a51569592229a67240981cc6
             45288a2de0a0d998ace8c15555449c9cec85f59a
             a84bdc15cc0ee37284f72903cb6cf6a8e141c44f
