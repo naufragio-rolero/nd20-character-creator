@@ -1,6 +1,6 @@
 # Plan de cierre auditable — investigación onomástica de Ylat
 
-**Fecha:** 2026-11-02. **Objeto:** establecer una **línea de llegada verificable** que evite ampliar indefinidamente la investigación al encontrar cualquier texto antiguo o nuevo. **Estado:** planificación; la investigación **todavía no está cerrada**. Rama de estudio: `research/onomastica-ylat-2026-11`. **El cierre de la investigación no equivale a habilitar nombres nuevos en La Forja**.
+**Fecha:** 2026-11-02. **Objeto:** establecer una **línea de llegada verificable** que evite ampliar indefinidamente la investigación al encontrar cualquier texto antiguo o nuevo. **Estado actual (actualización de 2026-11-02): investigación documental y **14/14 decisiones editoriales** cerradas. **El cuerpo anterior de este plan conserva la redacción cronológica previa al cierre.** Rama de estudio: `research/onomastica-ylat-2026-11`. **El cierre de la investigación no equivale a habilitar nombres nuevos en La Forja**.
 
 ## 1. Qué está estudiado ya
 
@@ -95,7 +95,18 @@ Tras ocho sesiones documentadas y con los grandes censos y muestras específicos
 - [x] **Bloque A:** completado barrido dirigido de Zonas/Inistia, Shadaleen, teonimia, cronología y contradicciones; [barrido de Zonas](barrido-final-zonas-inistia.md) y [adenda de quince formas](adenda-fuentes-historicas-y-alias.md). No se afirma revisión exhaustiva de toda la Biblioteca.
 - [x] **Bloque B:** [índice maestro **v2 de 297 formas**](indice-maestro-testimonios-v2.md), [matriz de identidades](matriz-identidades-y-variantes-v1.md) y [marcas de Ylat³/Ylat⁴](marcas-realidades-ylat.md). Se preserva [v1 de 282](indice-maestro-testimonios-v1.md) como corte histórico.
 - [x] **Bloque C:** [auditoría de recuentos, referencias y repertorios](auditoria-cierre-indice-y-repertorios.md), incluido control actualizado de **297 filas únicas y cero enlaces internos rotos**; [acta](acta-cierre-documental-corte-2026-11-02.md).
-- [ ] **Cierre editorial de la autoría:** **14 decisiones** ONO-01 a ONO-14 pendientes. Su resolución **no** se presume.
+- [x] **Cierre editorial de la autoría:** **14 decisiones ONO-01 a ONO-14 cerradas** según el [acta final](acta-decisiones-autoria-2026-11-02.md). **ONO-02: Dyeld es el padre de Tuliëlle**. La magnitud y la implementación del peso «muy bajo» siguen siendo tareas técnicas independientes.
 - [ ] **Integración de datos o funciones en La Forja:** **no iniciada**, sin autorización implícita.
 
 **Alcance del término «finalizado»:** terminada **la primera fase documental delimitada**, **no** todas las onomásticas posibles de Ylat ni el examen de toda la producción del proyecto. El cierre con incidencias pendientes conserva su trazabilidad y no modifica datos productivos.
+
+
+## 8. Resolución editorial definitiva de ONO-01 a ONO-14
+
+**La autoría ha confirmado las catorce decisiones:** [acta editorial](acta-decisiones-autoria-2026-11-02.md) y [registro cerrado](decisiones-editoriales.md). El último caso, **ONO-02**, queda establecido: **Dyeld es el padre canónico de Tuliëlle**, aunque la ficha de Eldburg contenga un testimonio anterior diferente. La distinción entre decisión canónica y fuente histórica se preserva.
+
+- [x] **Investigación documental del corpus acotado**.
+- [x] **Cierre de las 14/14 decisiones editoriales ONO**.
+- [ ] **Integración técnica y pruebas en La Forja**: fase diferente, **no iniciada**. La elección de un peso numérico «muy bajo» para apellidos de casa no figura aún como probabilidad implementada.
+
+Los apartados anteriores sobre asuntos «pendientes» se conservan como antecedentes de cada etapa, pero **no representan el estado actual**.
