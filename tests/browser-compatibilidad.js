@@ -969,15 +969,15 @@ async function probar(nombre,tipo,url){
     for(const clase of ['.comprar-utiles','.copiar-ficha','.eliminar-ficha']){
       const boton=ficha.locator(clase);
       await boton.hover();
-      await page.waitForFunction(selector=>
-        getComputedStyle(document.querySelector('#fichas .tarjeta '+selector))
-          .backgroundColor==='rgb(197, 239, 255)',clase);
+      await page.waitForTimeout(220); // estabilizar transición CSS de 150 ms
       const colores=await boton.evaluate(el=>({
         fondo:getComputedStyle(el).backgroundColor,
-        texto:getComputedStyle(el).color
+        texto:getComputedStyle(el).color,
+        hover:el.matches(':hover')
       }));
       assert.deepEqual(colores,{fondo:'rgb(197, 239, 255)',
-        texto:'rgb(7, 20, 72)'},nombre+': Cerúleo mantiene contraste en '+clase);
+        texto:'rgb(7, 20, 72)',hover:true},
+        nombre+': Cerúleo mantiene contraste en '+clase);
     }
     await page.locator('#selector-tema').selectOption('clasico');
     const inicial=precio(await ficha.locator('.riqueza').innerText());
