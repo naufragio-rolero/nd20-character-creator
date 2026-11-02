@@ -391,6 +391,7 @@
     if(contiene(c.escudos))return 'equipo-escudo';
     if(contiene(c.municion))return 'equipo-municion';
     if(contiene(c.focos_conjuros_con_precio))return 'equipo-orbe';
+    if(contiene(c.utiles_fantasia?.monturas))return 'equipo-caballo';
     var utiles=Object.values(c.utiles_fantasia||{}).flat();
     if(contiene(utiles)){
       if(/^(libro|grimorio|tomo)\b/i.test(n))return 'equipo-libro';
