@@ -203,7 +203,7 @@ async function probar(nombre,tipo,url){
         // Los selectores están dentro de diálogos cerrados en este punto;
         // sus dimensiones CSS siguen siendo comprobables sin abrirlos.
         return {ancho:estilo.width,alto:estilo.height,
-          mascara:estilo.maskImage||estilo.webkitMaskImage};
+          mascara:estilo.maskImage&&estilo.maskImage!=='none'?estilo.maskImage:estilo.webkitMaskImage};
       }));
     assert.equal(cuadros.length,12);
     assert.ok(cuadros.every(x=>parseFloat(x.ancho)>0&&x.ancho===x.alto),
