@@ -130,7 +130,11 @@ async function probar(nombre,tipo,url){
       return {status:r.status,contenido:await r.text()};
     });
     assert.equal(iconos.status,200);
-    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,12);
+    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,14);
+    assert.match(iconos.contenido,/<symbol id="ico-conjuro"/,
+      nombre+': icono propio de Conjuros');
+    assert.match(iconos.contenido,/<symbol id="ico-tecnica"/,
+      nombre+': icono propio de Técnicas');
     // Popup de Poderes: uso inmediato de Dormir según el Tomo cotejado,
     // opción avanzada y comprobación de otra familia (Técnicas). No depende
     // de que la ficha aleatoria haya aprendido un Conjuro concreto.
@@ -572,6 +576,9 @@ async function probar(nombre,tipo,url){
     await page.locator('#generar').click();
     const fichaTalentos=page.locator('#fichas .tarjeta').first();
     await fichaTalentos.waitFor();
+    const rejillaTalentos=fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas').first();
+    assert.equal(await rejillaTalentos.evaluate(el=>getComputedStyle(el).gridTemplateColumns
+      .split(' ').length),2,nombre+': Talentos en dos columnas como Atributos');
     const baja=fichaTalentos.locator('.referencia-glosario[data-glosa-nombre="Baja estatura"]');
     assert.equal(await baja.count(),1,nombre+': Baja estatura debe ser consultable');
     await baja.click();
@@ -679,8 +686,13 @@ async function probar(nombre,tipo,url){
     const inicial=precio(await ficha.locator('.riqueza').innerText());
     await ficha.locator('.comprar-utiles').click();
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
-    assert.equal(await page.locator('#compras-articulo option').count(),43,
-      nombre+': 41 útiles DRS + dos focos documentados');
+    assert.equal(await page.locator('#editor-compras').evaluate(el=>el.open),true,
+      nombre+': las compras se muestran en un diálogo modal');
+    assert.equal(await page.locator('#compras-grupo option').count(),6,
+      nombre+': familias originales de útiles DRS');
+    assert.ok((await page.locator('#compras-articulo option').count())<43,
+      nombre+': artículos agrupados en un desplegable más compacto');
+    await page.selectOption('#compras-grupo','campamento');
     await page.selectOption('#compras-articulo','campamento-martillo');
     await page.fill('#compras-cantidad','2');
     await page.locator('#compras-anadir').click();
@@ -694,27 +706,32 @@ async function probar(nombre,tipo,url){
     // Volver a abrir: el carrito se vacía y se puede editar por línea.
     await ficha.locator('.comprar-utiles').click();
     assert.equal(await page.locator('#compras-lista li').count(),0);
+    await page.selectOption('#compras-grupo','campamento');
     await page.selectOption('#compras-articulo','campamento-martillo');
     await page.fill('#compras-cantidad','2');
     await page.locator('#compras-cantidad').press('Enter');
     assert.equal(await page.locator('#editor-compras').isVisible(),true,
       nombre+': Intro no confirma el carrito');
     assert.equal(await page.locator('#compras-lista li').count(),1);
+    await page.selectOption('#compras-grupo','aventura');
     await page.selectOption('#compras-articulo','aventura-tiza');
     await page.fill('#compras-cantidad','3');
     await page.locator('#compras-anadir').click();
     assert.match(await page.locator('#compras-total').innerText(),/4\.03 mo/);
     await page.locator('.compras-quitar-linea').last().click();
     assert.match(await page.locator('#compras-total').innerText(),/4\.00 mo/);
+    await page.selectOption('#compras-grupo','aventura');
     await page.selectOption('#compras-articulo','aventura-tiza');
     await page.fill('#compras-cantidad','3');
     await page.locator('#compras-anadir').click();
     assert.match(await page.locator('#compras-total').innerText(),/4\.03 mo/);
+    await page.selectOption('#compras-grupo','consumibles');
     await page.selectOption('#compras-articulo','consumible-antidoto');
     await page.fill('#compras-cantidad','1');
     await page.fill('#compras-nivel','3');
     assert.match(await page.locator('#compras-detalle').innerText(),/150\.00 mo/,
       nombre+': Antídoto Nivel 3 vale 150 mo');
+    await page.selectOption('#compras-grupo','herramientas');
     await page.selectOption('#compras-articulo','herramienta-catalejo');
     await page.fill('#compras-cantidad','99');
     await page.locator('#compras-anadir').click();

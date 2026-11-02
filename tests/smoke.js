@@ -910,7 +910,7 @@ for(const token of ['assets/tooltips.js','assets/tooltip-ui.js'])
   assert.ok(htmlTooltips.includes(token),'Dependencia cargada '+token);
 assert.ok(appTooltips.includes('data/fichas-documentales.json'));
 assert.ok(appTooltips.includes('infoUI.configurar(indice)'));
-assert.ok(appTooltips.includes('procedencia.fuente,procedencia.adquisicion)'),
+assert.ok(appTooltips.includes('procedencia.fuente,procedencia.adquisicion,vista.texto)'),
   'La ficha conserva la procedencia para distinguir Talentos homónimos');
 assert.ok(appTooltips.includes('consultar-ficha-eleccion'));
 assert.ok(stylesTooltips.includes('.ficha-emergente'));

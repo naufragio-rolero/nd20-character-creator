@@ -39,4 +39,19 @@
     <circle cx="8" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
     <path d="m11 11 10 10m-5-5 3-3m0 6 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
+  <!-- Conjuro: estrella de cuatro puntas sobre órbita arcana; Técnica:
+       filo oblicuo y trazo de movimiento. Ambos originales, 24×24. -->
+  <symbol id="ico-conjuro" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <path d="m12 3.5 2.2 6.3 6.3 2.2-6.3 2.2-2.2 6.3-2.2-6.3L3.5 12l6.3-2.2L12 3.5Z"
+      fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+    <circle cx="12" cy="12" r="1.25" fill="currentColor"/>
+  </symbol>
+  <symbol id="ico-tecnica" viewBox="0 0 24 24">
+    <path d="m5 19 14-14M14 4l6 6M4 14l6 6M7 20l-3-3M17 3l4 4"
+      fill="none" stroke="currentColor" stroke-width="1.8"
+      stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M3 8h6M3 11h3" fill="none" stroke="currentColor"
+      stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
 </svg>
