@@ -24,6 +24,14 @@ El grupo de compra **Iluminación** incluye las cuatro entradas literales de la 
 
 Cuando el inventario de un paquete especial incluye, por ejemplo, `antorcha (DU d6)` o `vela (DU d4)`, la normalización del índice de consulta elimina **solo para buscar** el sufijo de DU y resuelve la ficha concreta del catálogo. El texto original del paquete, la compra y las exportaciones no cambian. Las demás piezas de paquete sin ficha siguen mostrando únicamente la procedencia; las 111 glosas editoriales anteriores no se alteran.
 
+## Ropa y correspondencias documentadas de los paquetes
+
+La categoría **Ropa** recoge seis prendas de la tabla literal del DRS: Abrigo de piel (20 mo), Atuendo de noble (30 mo), Chaqueta de cuero (10 mo), Disfraz (5 mo), Traje elegante (15 mo) y Túnica (1 mo). Los detalles se transcriben de la tabla, sin añadir efectos a los objetos.
+
+Los paquetes conservan su inventario y las cantidades originales. El índice de consulta resuelve las expresiones «ración (DU d6)», «dos raciones de alimento (DU d6 cada una)» y «tres raciones (DU d6)» como la ficha **Ración de alimento**, que ya existía en Campamento. Este alias afecta únicamente a la consulta: no se cobra otra vez, no añade equipo y no modifica el nombre al exportar.
+
+**Ropa de viaje** sí aparece en los paquetes Especial exploración y Especial mazmorras, pero **no tiene entrada individual** en la tabla Ropa ni precio descrito en el DRS. Mantiene la ficha de procedencia, sin heredar precio o efecto de Túnica, Traje elegante u otra prenda. Lo mismo ocurre con Mochila, Bolsa de cuero y Odre de agua, para los que tampoco existe ficha individual en las tablas verificadas. Las 111 glosas anteriores permanecen intactas; las seis prendas nuevas emplean exclusivamente detalles del DRS.
+
 ## Cabecera, lotes y contraste
 
 El encabezado muestra el sistema en la primera línea, el nombre debajo y el símbolo de sexo **junto a la Ocupación** (antes de la Especie). El Nivel queda en un distintivo separado, justo a la izquierda de cerrar. La ficha de Dungeon Hack sin sexo declarado muestra un símbolo neutro con texto accesible «Sexo: No indicado»; no se modifica ni se presupone el sexo del personaje.
