@@ -190,7 +190,9 @@ async function main(){
       'todos','Sin procedencia restringida de forma implícita');
     const tesauroPagina=await cdp.evalJS("(async()=>{"+
       "let r=await fetch('data/tesauro-ylat.json');return await r.json()})()");
-    assert.equal(tesauroPagina.entradas.filter(x=>x.tipo==='combinado').length,149);
+    assert.equal(tesauroPagina.entradas.filter(x=>x.tipo==='combinado').length,33);
+    assert.ok(!/niguac|niguaz/i.test(JSON.stringify(tesauroPagina)),
+      'El tesauro obtenido por el navegador no incluye el corpus excluido');
     const bancoHistorico=await cdp.evalJS("(async()=>{"+
       "let r=await fetch('data/nombres-historicos-ylat.json');return await r.json()})()");
     assert.equal(bancoHistorico.total_filas_fuente,1428);
@@ -198,7 +200,7 @@ async function main(){
     assert.equal(bancoHistorico.entradas.length,
       process.env.FORJA_PUBLIC_ROOT?1422:1428);
     if(process.env.FORJA_PUBLIC_ROOT){
-      assert.equal(tesauroPagina.entradas.length,149,
+      assert.equal(tesauroPagina.entradas.length,33,
         'Los nombres de 51 PNJ documentados no aparecen en la distribución');
       assert.equal(await cdp.evalJS(
         "document.querySelector('#modo-nombre option[value=documentado]')===null"),
