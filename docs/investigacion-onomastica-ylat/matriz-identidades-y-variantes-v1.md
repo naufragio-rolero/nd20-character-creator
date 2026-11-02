@@ -3,7 +3,7 @@
 **Corte:** 2026-11-02. **Estado:** evidencia estructurada de investigación, no resolución editorial de las ONO ni migración de La Forja. **Uso:** acompañar al [índice maestro v2 de 297 formas](indice-maestro-testimonios-v2.md), que agrupa por cadena literal pero **no identifica personas por similitud de texto**.
 
 
-> **ADENDA CANÓNICA POR AUTORÍA (2026-11-02):** [acta editorial](acta-decisiones-autoria-2026-11-02.md): **Saewig Rowes Ylat¹ / Saewig Shadelgast Ylat³**, **Leezar Lockbruck hermano de Thingrim Lockbruck** (dato nuevo aportado por la autoría), **Aerandil del Atardecer Brillante**, **Vrymmir Borgernstâg**, **Car'rt Oq'uatee**, **Eomdyn Noreesh**, **Alim de Mostáganem**, **Janus II Achgate**, **Narga Solarys**. Los apartados originales de variantes no se reescriben para preservar su valor de testimonio, pero **no prevalecen sobre estas decisiones**. ONO-02, paternidad de Tuliëlle, permanece pendiente.
+> **CIERRE CANÓNICO DE AUTORÍA (2026-11-02):** las **14/14 ONO** están cerradas en el [acta de decisiones](acta-decisiones-autoria-2026-11-02.md). **Tuliëlle tiene por padre a Dyeld** (decisión expresa de autoría). La ficha de Eldburg contiene una afirmación de paternidad contradictoria, conservada únicamente como testimonio de la fuente anterior: **no fusionar Dyeld con Eldburg**. Permanecen canónicas las otras trece resoluciones, incluida la hermandad de Leezar y Thingrim Lockbruck, las formas de Saewig para Ylat¹/Ylat³ y las grafías expresamente aprobadas. Las variantes del resto de la matriz siguen archivadas como documentación, no como opciones canónicas abiertas.
 
 ## Clases de relación (criterio de análisis, no nombres del sistema de juego)
 
