@@ -292,9 +292,8 @@
     if(registroNombre&&registroNombre.tipo==='combinado')
       detalles.push('Nombre propuesto con elementos de Ylat (corpus de referencia: '+
         registroNombre.ambito+'). No identifica un personaje canónico.');
-    if(registroNombre&&registroNombre.tipo==='historico')
-      detalles.push('Forma del generador histórico de nombres de Ylat. '+
-        'No implica personaje canónico, sexo documental, Especie, cultura ni linaje.');
+    // El banco histórico conserva sus cautelas en el JSON de origen.
+    // No se duplican como observaciones de cada personaje generado.
     if(sexoFuente&&coherencia&&sexo==='masculino'&&
       sexoFuente.especies_preferencia_femenino?.[especie])
       detalles.push('Varón excepcional de '+especie+
