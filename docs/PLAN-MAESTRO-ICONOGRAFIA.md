@@ -4,7 +4,7 @@
 
 ## 1. Objetivo
 
-Sustituir progresivamente los **35 iconos** actuales de la Forja por una familia de pictogramas originales que priorice claridad a tamaños reducidos y una identidad visual consistente. Los **24 SVG restantes** procedentes de Game-icons.net siguen siendo provisionales en el repositorio. Los **11 diseños aprobados** (cuatro especies y siete iconos principales) ya están integrados en `main` mediante la PR #46. **Todavía no han sido promovidos a LIVE**. No se retiran sus créditos mientras se sigan distribuyendo obras derivadas.
+Sustituir progresivamente los **35 iconos** actuales de la Forja por una familia de pictogramas originales que priorice claridad a tamaños reducidos y una identidad visual consistente. De los 35 iconos activos en la rama de revisión, 28 proceden de Game-icons.net y 7 son originales de El Naufragio. Los antiguos cuatro bocetos propios de especies se preservan como prototipos históricos; los SVG actualmente asignados a ellas vuelven a proceder de Game-icons.net. No hay promoción automática a LIVE. No se retiran sus créditos mientras se sigan distribuyendo obras derivadas.
 
 El documento define **qué representa cada icono**, qué relaciones visuales debe conservar y cómo se revisarán los nuevos diseños. Los significados de especies y recursos vienen del generador y no añaden capacidades ni reglas.
 
@@ -45,7 +45,7 @@ Las tres matrices de desarrollo inicial son **humano, elfo y orco**. Enano, medi
 - **Otros mestizos futuros:** aplicar exactamente la misma lógica desde las dos matrices que correspondan. **No crear nuevas especies ni incorporarlas a la interfaz sin respaldo documental y decisión editorial.**
 - **Proporción e identidad:** el híbrido debe identificarse con ambas familias sin ser una copia de una de ellas, ni un collage recargado. Las piezas compartidas se derivan de la misma geometría para que el parentesco sea evidente.
 
-**Secuencia interna de esta familia (una vez llegue su turno):** Humano → Elfo → Orco → Semielfo → Semiorco. **Humano, Elfo, Orco y Semielfo: versiones v1 aprobadas e incorporadas al repositorio.** El Semiorco queda por diseñar. La aprobación artística no implica que los SVG estén ya desplegados en LIVE.
+**Secuencia interna de esta familia (una vez llegue su turno):** Humano → Elfo → Orco → Semielfo → Semiorco. **Humano, Elfo, Orco y Semielfo:** sus bocetos originales previos siguen conservados en `docs/iconografia/prototipos-especies-v1/`, pero por nueva decisión editorial las especies activas recuperan los SVG de Game-icons.net. El Semiorco queda por diseñar. La aprobación artística no implica que los SVG estén ya desplegados en LIVE.
 
 ### 3.3. Criterios de rechazo
 
@@ -126,7 +126,7 @@ Descartar un diseño si el humano parece un monstruo, si el semielfo no conserva
 4. **Cuarto bloque — Ocupaciones (4 SVG):** `ocu-clerigo`, `ocu-guerrero`, `ocu-mago`, `ocu-ladron`.
 5. **Quinto bloque — Especies (8 SVG):** `esp-humano`, `esp-elfo`, `esp-orco`, `esp-semielfo`, `esp-semiorco`, `esp-enano`, `esp-mediano`, `esp-gnomo`.
 
-**Primer bloque aprobado:** `ico-configurar`, `recurso-salud`, `recurso-potencia`, `recurso-esfuerzo`, `recurso-blindaje`, `recurso-movimiento` y `recurso-esencia`. **Trabajo adelantado también aprobado:** `esp-humano`, `esp-elfo`, `esp-orco`, `esp-semielfo`. Los once están integrados en `main` mediante la PR #46 y no desplazan la prioridad del siguiente bloque de Equipo. Ninguna aprobación artística constituye autorización para desplegar o modificar el paquete LIVE.
+**Bloque propio vigente:** `ico-configurar`, `recurso-salud`, `recurso-potencia`, `recurso-esfuerzo`, `recurso-blindaje`, `recurso-movimiento` y `recurso-esencia`. Los cuatro bocetos de especies propios siguen archivados aunque no sean los SVG activos. Ninguna decisión artística constituye autorización para desplegar LIVE.
 
 ## 6. Proceso de producción y control
 
@@ -137,8 +137,30 @@ Descartar un diseño si el humano parece un monstruo, si el semielfo no conserva
 5. **Integración:** sustituir `assets/icons/<id>.svg` manteniendo el ID y su función; documentar autoría/cambios.
 6. **Seguridad:** pruebas de Chrome, Firefox/WebKit, URLs de máscaras y paquete DRS aislado; publicar LIVE solo mediante flujo protegido y promoción explícita de SHA.
 
-**Estado editorial actualizado:** 11 diseños originales v1 aprobados e integrados en `main` (PR #46); 24 iconos restantes derivados de Game-icons.net; **LIVE no cambia** hasta una publicación aprobada mediante el workflow protegido. **Siguiente bloque: 11 bocetos SVG de Equipo e inventario, pendientes de aprobación artística.**
+**Estado de esta revisión:** 7 diseños originales propios y 28 iconos derivados de Game-icons.net. En esta rama se actualizan las Especies y Ocupaciones seleccionadas. LIVE sigue fijado a su SHA anterior.
 
 ### Restricción de despliegue futuro
 
-El workflow `.github/workflows/forja-live.yml` sigue fijado al SHA anterior y, en su verificación posterior al despliegue, exige que **los 35 SVG** contengan la cadena `Game-icons.net`. Al promover los 11 iconos originales será obligatorio revisar esa auditoría: comprobar **11 autorías propias y 24 atribuciones Game-icons**, conservar el archivo público de créditos, mantener la lista blanca DRS y pasar las pruebas en navegadores. **No cambiar el workflow solo para forzar un despliegue** ni retirar los controles de seguridad.
+El workflow `.github/workflows/forja-live.yml` sigue fijado al SHA anterior y, en su verificación posterior al despliegue, exige que **los 35 SVG** contengan la cadena `Game-icons.net`. Al promover los 11 iconos originales será obligatorio revisar esa auditoría: comprobar **7 autorías propias y 28 atribuciones Game-icons**, conservar el archivo público de créditos, mantener la lista blanca DRS y pasar las pruebas en navegadores. **No cambiar el workflow solo para forzar un despliegue** ni retirar los controles de seguridad.
+
+
+## 7. Selección editorial de Especies y Ocupaciones
+
+**Elección posterior que prevalece sobre los bocetos históricos:** conservar Game-icons para las Especies, con `baby-face` de Delapouite en Mediano en lugar de la puerta de hobbit. Se restauran los iconos de Humano (`person`), Elfo (`elf-helmet`), Orco (`orc-head`) y Semielfo (`elf-ear`). Semiorco conserva provisionalmente la composición de `orc-head` y `monk-face`. El criterio de parentesco por familias se reserva como pauta de diseño futuro, no como descripción de los archivos actuales.
+
+**Ocupaciones:** las cuatro opciones DRS se representan mediante tocados o herramientas, en vez de retratos. Mago: `pointy-hat` de Lorc; Guerrero: `axe-sword` de Delapouite; Ladrón: `robin-hood-hat` de Delapouite; Clérigo: `pope-crown` de Delapouite. Para futuras Ocupaciones se preferirán sombreros y objetos profesionales. El icono `pointy-hat` se repite actualmente entre Mago y Gnomo; conviene tener presente ese solapamiento.
+
+### Acuerdos sobre otros iconos (pendientes de aplicar salvo indicación)
+
+| ID | Acuerdo |
+|---|---|
+| `equipo-espada`, `equipo-armadura` | Conservar Game-icons, relleno macizo sin detalles interiores |
+| `recurso-salud`, `recurso-blindaje` | Recuperar Game-icons y rellenar sin detalles interiores; sustituye el diseño propio actual |
+| `recurso-esfuerzo` | Una gota simple y maciza; sustituye la mancuerna propia actual |
+| `recurso-movimiento` | Mantener flecha lateral, como el diseño propio actual |
+| `recurso-potencia` | Mantener rayo, como el diseño propio actual |
+| `equipo-caballo`, `equipo-mochila`, `equipo-bolsa`, `equipo-orbe` | Conservar sus Game-icons actuales |
+| `ico-conjuro` | Nueva estrella opaca de siete puntas |
+| `ico-tecnica` | Dos siluetas de espada cruzadas, derivadas del futuro diseño macizo de Espada |
+
+**Los acuerdos pendientes no son cambios realizados en los SVG.** El despliegue LIVE queda fuera de esta revisión.
