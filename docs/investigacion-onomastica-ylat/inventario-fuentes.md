@@ -108,7 +108,35 @@ Esta es una **revisión por relevancia, no un censo exhaustivo** de todos los do
 
 ## Pendientes de revisión exhaustiva
 
-- El conjunto restante de los **66 segundos componentes no acreditados como apellidos familiares**, especialmente sus fichas individuales.
+- **Actualización 2026-11-02: primera revisión de los 66 componentes I completada (66/66)**. Quedan **60** formas sin prueba familiar positiva, pero ya no queda ninguna de ese grupo original sin una lectura dirigida de su ficha o testimonio correspondiente. No confundir «revisado» con «resuelto como apellido».
 - Más documentación de campañas y archivos secundarios no enumerados o no leídos íntegramente.
 - Resolución de grafías y conflictos con decisión editorial.
 - Auditoría de compatibilidad de la futura propuesta con el generador, sin editar código ni datos.
+
+
+## Quinta sesión: cierre de las 66 fichas y ampliación con crónicas de Isophius (2026-11-02)
+
+**Resultado de cobertura:** auditadas las **66 formas originalmente en categoría I** del censo, con una revisión individual por forma, sin duplicados en el conjunto. Las fuentes se enumeran en [revision-biografica-y-realidades.md](revision-biografica-y-realidades.md). Tras reclasificaciones: **22 F, 60 I, 2 V** y el resto de categorías suman 97.
+
+| Fuente nueva o recuperada | Estado | Resultado |
+| --- | --- | --- |
+| [Essaetia Neulenthris](https://drive.google.com/file/d/11Q_fnDj8pP1KmLQimfZ4crstpHWyqi0G/view) | Leída | Se citan expresamente las familias Neulenthris y Adorasol; parentesco sanguíneo, solo hipotético |
+| [Casa Veredron](https://drive.google.com/file/d/1Xw4uzuJC17vXNLAXp-HAzuzcA7ypZvf2/view) y [Casa Keefe](https://drive.google.com/file/d/1Mw9p1TU3_2kR9sm8mgA-SK6nhhPR1hsW/view) | Leídas | Veredron es casa familiar vasalla de Keefe |
+| [Kaart Oquati](https://drive.google.com/file/d/1HvCV1TgFsD8WoYc4WCVwSa_r7wmATU1w/view) | Leída | Variante Car'rt Oq'uatee (censo); Melora frente a Lenseng |
+| [Eomdyn Noreesh](https://drive.google.com/file/d/1GqbPBdCb_aCFF93qwWLDD9XjT9TlaD44/view) | Leída | Emodyn en su descripción, Eomdyn en encabezado |
+| [«1x06 — Reposo de Gaaladar»](https://drive.google.com/file/d/1qYR74sOdmTDUkPIuwkFJfD3kuXu_OIIi/view) | Lectura dirigida de nombres y parentescos | Lalo/Janus Achgate, Josah Buelhorn, Neurustho Forneustone, declaración de apellido Orovecchio, participación de Alim |
+| [«1x04 — Templo de Ylathia»](https://drive.google.com/file/d/1c1_VxotPJvwjUsL65oL4OxpxlYcGZj1_/view) | Lectura dirigida de identidades | Apariciones de Alim y contexto de Fabrizio y los Buelhorn |
+| [Ficha publicada de Alim](https://drive.google.com/file/d/1iM91tlKV1wri3kQMFBg1OIabQ964xn6a/view) | Leída | La ciudad Mostagánem es origen geográfico; nombre con variantes de acentuación |
+| [Ficha publicada de Leezar](https://drive.google.com/file/d/1ZYnxEG9iKcDPtniGk6promyw-H7JCO_l/view) | Leída | Leezar **Lockbruck** frente a Theroux en material de creación y un párrafo de Casa Forneustone |
+| [Casa Forneustone](https://drive.google.com/file/d/1Sm0YEeQh_Cz1vjsFBV5Qu5Cs2l7sI0xh/view) | Leída | Casa familiar, miembros de distintos apellidos; Neurustho cabeza de familia |
+| [Casa Buelhorn](https://drive.google.com/file/d/14y28BNtJ4ethjyBWTet_WgG2DOqgnEBf/view) y [Josah Buelhorn](https://drive.google.com/file/d/1lIkWA8k3ZLKE8c8aFPO3jp2rC3PzioJQ/view) | Leídas | Nobles Buelhorn y miembros Orovecchio; casa superior de Leone |
+| [Casa Leone](https://drive.google.com/file/d/15ZBJDv0fC_jrkplAteA_TUOgERe5DF9s/view) | Leída | Bianca Leone, vasallaje Buelhorn |
+| [Casa Grimaldi](https://drive.google.com/file/d/1BgelEwZ_hwzN4SGZP33we52uNmvXRaBZ/view) y [Petro Grimaldi](https://drive.google.com/file/d/1Zm29USQpFp70Dz2RN2HY4PQrnqkr5A-e/view) | Leídas | Petro, segundo hijo de la familia Grimaldi, vasalla de Orovecchio |
+| [Casa Rizzo](https://drive.google.com/file/d/1sFZVDqN7UzYAhAk2WpD0-_gdY4onDWJ6/view) | Leída | Casa familiar/vasalla; miembros enumerados **Martoni**, sin personaje Rizzo acreditado |
+| [Casa Orovecchio](https://drive.google.com/file/d/1NcHcETJESJ3xVwLrEf6WPEBMwO-0o9vy/view) y [Tadeo Orovecchio](https://drive.google.com/file/d/1O4pno2voYSo9sAS6gfcZ9z3HyitOx7ai/view) | Leídas | Tadeo padre de Fabrizio, Draconio y Gerad; miembros de múltiples apellidos y casas vasallas |
+| [Janus II Achgate](https://drive.google.com/file/d/1_tEXpusmYDucnc0y9NtwOiKr7yQYoLht/view) | Leída | Variante en crónica Janus Achgate II, primo segundo Lalo Achgate |
+| [«[Organización] Familia Orovecchio»](https://drive.google.com/file/d/1WEhRcvPdXo5AE7ZZ0cAXJBqoZwtSIvNy/view) | Consultada | Contexto narrativo y organizativo del reparto de la casa |
+
+**Archivo de ampliación:** [ampliacion-cronicas-isophius.md](ampliacion-cronicas-isophius.md).
+
+**Pendiente real, distinto del antiguo bloqueo:** ampliar el corpus global más allá del Excel, determinar el peso canónico de textos históricos y resolver variantes mediante decisión editorial. No cargar los hallazgos en los JSON productivos.
