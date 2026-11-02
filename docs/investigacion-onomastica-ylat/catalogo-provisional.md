@@ -1,0 +1,121 @@
+# Catálogo provisional de testimonios onomásticos de Ylat
+
+**Fecha de revisión:** 2026-11-02  
+**Estado:** investigación; **no constituye un repertorio aprobado para generación**.  
+**Exclusión absoluta:** Niguace/Niguaze y material de procedencia no acreditada.
+
+## Criterios de clasificación
+
+- **Apellido/familia acreditada:** existe una relación familiar, dinástica o una mención explícita a la familia, además de usos en nombres completos.
+- **Nombre completo documentado:** aparece una denominación de un personaje, pero la función de todos sus componentes no está demostrada.
+- **Casa/linaje:** denominación colectiva, no automáticamente apellido asignable a cualquier personaje.
+- **Alias/título/mote:** no trasladar a un campo de apellido.
+- **Conflicto/variante:** conservar literalmente cada grafía; no corregir sin cotejo editorial.
+- **Ámbito temporal:** una persona histórica no prueba que su nombre o segundo componente esté vigente en el presente del escenario.
+
+## A. Familias y apellidos con vínculo explícito
+
+| Forma | Testimonio identificable | Papel demostrado | Advertencia |
+| --- | --- | --- | --- |
+| Fulgentis | «Biografías de personajes: Ylat», Caelia Fulgentis, Orígenes | Familia de alfareros de Beslitz; Caelia nació como Caelia Fulgentis | No se documenta que sea un apellido común en todo Malasthar |
+| Shadelgast | «Historia del Reino de Shadaleen», Las Siete Familias; «Biografías», Naeis Shadelgast | Casa dinástica, apellido de personajes identificados | No asignar sin parentesco; hay narraciones enfrentadas sobre el origen familiar |
+| Bronnhum | «Historia del Reino de Shadaleen», Las Siete Familias; Edith Bronnhum; «Biografías», Cyleron Bronnhum | Familia nobiliaria con personajes conocidos | Reservar contexto de pertenencia |
+| Rowes | «Historia del Reino de Shadaleen», Las Siete Familias, Pactos de Saewig, Quamara Rowes | Casa de arcanistas; Saewig Rowes y Quamara Rowes | Existe una discordancia con Saewig Shadelgast del tesauro |
+| Alogers | «Historia del Reino de Shadaleen», Las Siete Familias y masacre de Aermont | Familia; Geoffrey Alogers | Reservar contexto de pertenencia |
+| Keefe | «Historia del Reino de Shadaleen», Las Siete Familias | Familia fundacional | El testimonio consultado no aporta todavía un individuo con nombre completo |
+| Dórilon | «Historia del Reino de Shadaleen», Las Siete Familias, Barnabas y Aurinda Dórilon, Desaparición de los Dórilon | Familia histórica | El documento afirma la extinción del linaje hacia 505 E.E.; **no habilitar para generación contemporánea** |
+| Kultstein | «Historia del Reino de Shadaleen», Las Siete Familias; Redvers Kultstein | Casa histórica | Derrocamiento y desaparición histórica; disponibilidad actual sin acreditar |
+| Orovecchio | «Susurros en Isophius», inicio, Fabrizio y Tadeo Orovecchio | Familia que gobierna Piedrahundida; parentesco padre-hijo explícito | No extrapolar al conjunto de la población de Isophius |
+| Gull | «Zonas de Ylat», Bahía de Iskadar | Los Gull de Aermont identificados como familia noble que dirige la región | No clasificar toda aparición de Gull como miembro de la misma familia |
+| Buelhorn | «Susurros en Isophius», inicio | Familia señorial de Altoviento | Falta un nombre de pila individual en el extracto consultado |
+| Achgate | «Historia de Malasthar», Reconsolidación y Casa Achgate | Casa asociada al gobierno imperial; Cuthert Achgate | Fuente en revisión/borrador: **pendiente de validación canónica** |
+| Terrana / Maren / Caelis | «Historia de Malasthar», Tres Lises, historia del Dominio | Tres linajes sacros que alternaban el trono | Fuente en revisión/borrador; no tratarlos como apellidos libremente combinables |
+
+## B. Nombres completos cuya segunda parte requiere evaluación
+
+| Nombre documentado | Fuente y localizador | Contexto explícito | Estado |
+| --- | --- | --- | --- |
+| Lathandos Snave | Biblioteca: «Trasfondo - Historia de Gylran.md», Origen / Conceptos clave | Rey de Gylran | Segundo componente candidato; **solo testimonio histórico** |
+| Käbrius Festus | «Historia de Gylran», Origen / Conceptos clave | General y último rey de Gylran | Segundo componente candidato; **solo testimonio histórico** |
+| Belril Sierpercana | «Historia de Gylran», Conceptos clave | Sargento que dirigió la captura de Nulsärax | Segundo componente candidato; **solo testimonio histórico** |
+| Caefyn Verdimbre | «Historia de Gylran», Conceptos clave | Soldado gylraní entregado a Nercerón | Segundo componente candidato; **solo testimonio histórico** |
+| Ingulph Ceolward | «Historia de Shadaleen», Masacre de Xalanth | Estratega de Malasthar | Confirmar función del segundo componente |
+| Wilgils Ceolward | «Historia de Shadaleen», Segunda Guerra Esserina | Emperador de Malasthar | Segundo uso de Ceolward, pero parentesco no verificado |
+| Bianca Leone | «Susurros en Isophius», inicio | Mujer vinculada a los Buelhorn | Confirmar función de Leone |
+| Enyra Petreius | «Susurros en Isophius», inicio | Entrenó integrantes de la guardia de Fabrizio | Confirmar función de Petreius |
+| Travis Engalei | «Zonas de Ylat», Holthâard | Semigigante que dirige el clan Roca Gris | No consta si Engalei es apellido, nombre de clan o epíteto |
+| Robin Ranley | «Zonas de Ylat», Pueblo de Ugnak | Héroe peregrino | Confirmar función de Ranley |
+| Vaelar Eldarien | «Zonas de Ylat», Valle de Inistia | Aventurero elfo | Confirmar si Eldarien es apellido |
+| Celebriän Brisaolvidada | «Zonas de Ylat», Valle de Inistia | Brujo lugarteniente del falso Vaelar | No clasificar automáticamente Brisaolvidada como apellido |
+| Nimara Vuelumbrío | «Zonas de Ylat», Valle de Inistia | Sacerdotisa | No clasificar automáticamente Vuelumbrío como apellido |
+| Marlak Fuegosombrío | «Zonas de Ylat», Valle de Inistia | Noble iblisio y brujo | No prueba uso general del componente entre iblisios |
+| Iralde Terrana | «Historia de Malasthar», Tres Lises | Reina del linaje Terrana | Borrador; linaje sagrado, no apellido universal |
+| Sumaeryn Maren | «Historia de Malasthar», cronología del Dominio | Monarca del linaje Maren | Borrador; linaje sagrado |
+| Harlend Terrana | «Historia de Malasthar», Monarcas del Cisma | Monarca del linaje Terrana | Borrador |
+| Velyn Maren | «Historia de Malasthar», Monarcas del Cisma | Monarca del linaje Maren | Borrador |
+| Nahr Caelis | «Historia de Malasthar», Monarcas del Cisma | Monarca del linaje Caelis | Borrador |
+| Torvek Brazanegra | «El Imperio de Laventia», Personajes clave | Enano histórico | Documento auxiliar; no acreditado como apellido |
+| Arvan Solhumo | «El Imperio de Laventia», Personajes clave | Humano histórico | Documento auxiliar; no acreditado como apellido |
+| Ysolen Telaar | «El Imperio de Laventia», Personajes clave | Elfo histórico | Documento auxiliar; no acreditado como apellido |
+| Ynuma Sombra de Fango | «El Imperio de Laventia», Personajes clave | Semitrol y chamana | Denominación compuesta indivisible sin prueba adicional |
+
+## C. No apellidos transferibles
+
+| Forma | Fuente | Evidencia |
+| --- | --- | --- |
+| Brasagorda | «Biografías», Bram Brasagorda | El propio texto señala que fue un **mote de taller** y desconoce el apellido real |
+| Kah-Suran | «Biografías», Caelia Fulgentis | Identidad alternativa usada por Caelia; no es apellido |
+| el Destinado | «Historia de Shadaleen», Thies el Destinado | Epíteto o apelativo, no apellido demostrado |
+| el Usurpador | «Historia de Shadaleen», Redvers el Usurpador | Epíteto histórico |
+| Paso de Plata | «Zonas de Ylat», Alluran Paso de Plata | Denominación compuesta documentada; naturaleza del segundo componente sin confirmar |
+| Portador de la Tormenta | «Biografías», Vrymmir | Título o cometido atribuido a un individuo bendecido, no apellido |
+
+## D. Variantes y contradicciones pendientes
+
+1. **Saewig Rowes / Saewig Shadelgast.** En «Historia de Shadaleen» figura como arcanista de la Casa Rowes, y la cronología lo llama **Saewig Rowes**. El tesauro histórico contiene «Saewig Shadelgast». Bloquear la consolidación automática hasta resolver procedencia e identidad.
+2. **Belril / Belryl; Sierpercana / Sierpercan.** «Historia de Gylran» recoge Belril Sierpercana; «Historia de Nulsärax», relato conversacional, contiene variantes. La prioridad canónica favorece Historia de Gylran, pero no eliminar testimonios del registro de variantes.
+3. **Shadelgast: parentesco frente a denominación impuesta.** «Historia de Shadaleen» narra la descendencia familiar de Shadel; el «Relato prohibido» titulado *La Primera Huella*, incluido en el mismo documento, presenta otra explicación: Shadel impone la denominación a habitantes sometidos. **Son versiones diegéticas de autoridad distinta**; no se debe aplanar a una regla biológica.
+4. **Dórilon y Kultstein.** Documentados históricamente, pero el relato contiene hitos de desaparición o extinción. El generador actual no tiene una variable de época para contextualizar tales nombres.
+5. **Amadeus.** En «Biografías» consta como identidad adoptada por Amathur, visitante extraylatí; la presencia del nombre en Ylat no acredita que pertenezca a un repertorio humano cultural local.
+
+## E. Estado frente a La Forja
+
+Comprobación textual exacta en la revisión de 2026-11-02: los términos `Lathandos`, `Snave`, `Käbrius`, `Festus`, `Belril`, `Sierpercana`, `Caefyn`, `Verdimbre`, `Fulgentis`, `Gull`, `Buelhorn`, `Petreius`, `Leone`, `Ceolward`, `Engalei`, `Brisaolvidada`, `Vuelumbrío`, `Fuegosombrío`, `Terrana`, `Maren`, `Caelis`, `Achgate` y `Orovecchio` no se encontraron en los contenidos de:
+
+- `data/nombres-historicos-ylat.json`
+- `data/tesauro-ylat.json`
+- `data/especies.json`
+- `data/sexo-personajes.json`
+
+**Alcance de la prueba:** búsqueda literal sin distinción de mayúsculas, no búsqueda normalizada ni por transliteración; «ausente» no equivale a descartado ni autoriza añadir entradas.
+
+## F. Fuentes, enlaces y accesibilidad
+
+### Fuentes rectoras o preferentes
+
+- [Biografías de personajes: Ylat](https://docs.google.com/document/d/1yOtB8nNvE9_jBDvITuXzFFFFNFAiJI6Z4hr6D_1pxaA/edit)
+- [Historia del Reino de Shadaleen](https://docs.google.com/document/d/15LVdulBcuf62G6OPQKKCTHQWOHrqrGUAZO6DnXZJA2o/edit)
+- [Zonas de Ylat](https://docs.google.com/document/d/1v6rZIEWMGLvhv6b5WHMNQa0zwCzrPTOdqZEU5t6USFg/edit)
+- [Susurros en Isophius](https://docs.google.com/document/d/1E7AMmSFvZestqgVVDnm4vHKKu4G5_NeXIUWlzlChEYM/edit)
+- Biblioteca, «Trasfondo - Historia de Gylran.md»: documento rector para Gylran y las especies asociadas.
+
+### Fuentes auxiliares: requieren valoración
+
+- [Historia de Malasthar](https://docs.google.com/document/d/1fyLSppENaYx2w8tvVzdzdfTAZ46_epq-nFS1S0yPWKE/edit)
+- [El Imperio de Laventia](https://docs.google.com/document/d/1xCISRek6ewUo5hvNHLgRdjuFHew5_evI2Wx2wL5YRdI/edit)
+- [Historia de Nulsärax](https://docs.google.com/document/d/1Xk6DKvGt7uSRMT6Ob_Ttr2T0Ag7aR7hm64sXxS6iVRE/edit): registro conversacional y variantes, **no sustituye** Historia de Gylran.
+
+### Fuentes prioritarias con bloqueo de lectura
+
+- [Apellidos eladrines en Erklan.txt](https://drive.google.com/file/d/1YVanaM-4ThS94W-qY3NFShmNE6Klbmj7/view), 1104 bytes, modificado en 2015.
+- [Linajes eladrines.txt](https://drive.google.com/file/d/1J1uHzpl9DqyLVrsoes73N3_u6sclPCXB/view), 993 bytes, modificado en 2014.
+
+Se han identificado ambos mediante metadatos, pero la operación de lectura del conector devuelve error de decodificación UTF-8. **No se ha leído ni inferido su contenido**.
+
+## G. Decisiones editoriales por resolver antes de generar
+
+1. ¿La Forja genera nombres para personajes actuales o también reconstruye nombres históricos? La respuesta afecta a Gylran, Dórilon, Kultstein y los linajes del Dominio.
+2. ¿Se permitirán apellidos nobiliarios solo como parte de una historia familiar declarada o se incluirán en un selector independiente, claramente advertido?
+3. ¿Se aceptarán como componentes generables formas de segundos miembros no confirmados como apellido, tales como Brisaolvidada, Fuegosombrío o Telaar? Propuesta: **no** hasta establecer su función.
+
+**No hay autorización ni decisión todavía para modificar datos de producción.**
