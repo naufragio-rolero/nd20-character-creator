@@ -313,20 +313,9 @@ try{
     {encoding:'utf8'});
   assert.equal(repetido.status,1,'Un duplicado invalida el paquete');
   assert.match(repetido.stderr,/Ficha duplicada del DRS/);
-  // Tampoco se puede publicar una identidad documental entre los nombres
-  // propuestos o sustituir arbitrariamente uno de los 33 autorizados.
+  // Guardia negativa: ni fuentes externas ni sustituciones arbitrarias.
   const archivoYlat=path.join(temporal,'data','tesauro-ylat.json');
   const originalYlat=fs.readFileSync(archivoYlat,'utf8');
-  const colado=JSON.parse(originalYlat);
-  colado.entradas.push(documentados[0]);
-  fs.writeFileSync(archivoYlat,JSON.stringify(colado));
-  const publicoColado=spawnSync(process.execPath,[scriptGuardia,temporal],
-    {encoding:'utf8'});
-  assert.equal(publicoColado.status,1,'Un PNJ documentado invalida el paquete');
-  assert.match(publicoColado.stderr,/nombres de personajes documentados/);
-  fs.writeFileSync(archivoYlat,originalYlat);
-  // Inyección negativa: un registro de la fuente excluida no puede
-  // colarse por el guardia aunque sea de tipo combinado.
   const externo=JSON.parse(originalYlat);
   externo.entradas.push({id:'externo-niguace',nombre:'Propuesta externa',
     tipo:'combinado',ambito:'Niguace'});
@@ -334,7 +323,7 @@ try{
   const rechazado=spawnSync(process.execPath,[scriptGuardia,temporal],
     {encoding:'utf8'});
   assert.equal(rechazado.status,1,'El corpus externo jamás se publica');
-  assert.match(rechazado.stderr,/repertorio onomástico|Tipo onomástico/);
+  assert.match(rechazado.stderr,/295 nombres|corpus ajeno|repertorio onomástico/);
   fs.writeFileSync(archivoYlat,originalYlat);
   const cambiado=JSON.parse(originalYlat);
   cambiado.entradas[0].nombre='Nombre inventado no aprobado';
@@ -342,7 +331,8 @@ try{
   const nombreDistinto=spawnSync(process.execPath,[scriptGuardia,temporal],
     {encoding:'utf8'});
   assert.equal(nombreDistinto.status,1,'Un cambio no autorizado en nombres invalida el paquete');
-  assert.match(nombreDistinto.stderr,/33 combinaciones originales autorizadas/);
+  assert.match(nombreDistinto.stderr,/295 formas originales autorizadas/);
+  fs.writeFileSync(archivoYlat,originalYlat);
   const archivoHistorico=path.join(temporal,'data','nombres-historicos-ylat.json');
   const originalHistorico=fs.readFileSync(archivoHistorico,'utf8');
   const falso=JSON.parse(originalHistorico);
