@@ -1093,10 +1093,13 @@ assert.ok(!mago.equipo.some(x=>
   'El Mago conserva la protección exclusivamente de tela');
 console.log('OK · Competencias reales DRS: Clérigo armas romas, Guerrero todas las armas, Ladrón armaduras ligeras y Mago tela.');
 
-/* Tablas de útiles del DRS: cinco bloques completos, 41 registros.
+/* Tablas de útiles del DRS: seis bloques completos, 45 registros.
  * Precios normalizados a mo, sin confundir precios por Nivel ni la
  * herramienta Almádena de campamento con el arma a dos manos. */
 const utilidadDRS={
+  iluminacion:[
+    ['Antorcha',.1],['Lámpara de aceite',2],['Linterna',10],['Vela',.01]
+  ],
   aventura:[
     ['Aparejo de poleas',3],['Bolsa de abrojos',1],['Bolsa de canicas',1],
     ['Cuerda',1],['Cuerda de seda',10],['Espejo de acero',5],['Gancho',2],
@@ -1125,8 +1128,8 @@ const utilidadDRS={
 const tablaUtiles=catalogoEquipamiento.utiles_fantasia;
 assert.deepEqual(Object.keys(tablaUtiles),Object.keys(utilidadDRS));
 const todosUtiles=Object.values(tablaUtiles).flat();
-assert.equal(todosUtiles.length,41);
-assert.equal(new Set(todosUtiles.map(x=>x.id)).size,41);
+assert.equal(todosUtiles.length,45);
+assert.equal(new Set(todosUtiles.map(x=>x.id)).size,45);
 for(const [grupo,esperados] of Object.entries(utilidadDRS)){
   assert.deepEqual(tablaUtiles[grupo].map(x=>[x.nombre,
       x.precio===undefined?null:x.precio]),esperados,
@@ -1188,7 +1191,7 @@ assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
   catalogoEquipamiento,10,[{id:'aventura-tiza',cantidad:0}]),/Cantidad incorrecta/);
 assert.throws(()=>equipamientoDRS.compraUtilesFantasia(
   catalogoEquipamiento,10,[{id:'consumible-veneno'}]),/requiere un Nivel/);
-console.log('OK · 41 útiles DRS y 2 focos: Martillo de campamento y Almádena separados, compras válidas.');
+console.log('OK · 45 útiles DRS y 2 focos: Martillo de campamento y Almádena separados, compras válidas.');
 
 /* Integración del editor de compras por personaje (DRS).
  * La compra es transaccional: previsualizar NO debe modificar la ficha. */
