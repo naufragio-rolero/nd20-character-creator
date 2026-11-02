@@ -38,6 +38,30 @@ async function probar(nombre,tipo,url){
     context=await browser.newContext({viewport:{width:1440,height:900},
       acceptDownloads:true});
     const page=await context.newPage();
+    async function abrirConfig(){
+      if(!await page.locator('#dialogo-configuracion').evaluate(x=>x.open))
+        await page.locator('#abrir-configuracion').click();
+    }
+    async function cerrarConfig(){
+      if(await page.locator('#dialogo-configuracion').evaluate(x=>x.open))
+        await page.locator('#aplicar-configuracion').click();
+    }
+    async function generar(){
+      if(await page.locator('#dialogo-configuracion').evaluate(x=>x.open))
+        await page.locator('#generar-dialogo').click();
+      else await generar();
+    }
+    const nativeFill=page.fill.bind(page),nativeSelect=page.selectOption.bind(page);
+    page.fill=async function(sel,...args){
+      if(['#nivel','#cantidad','#nombre-personaje','#semilla'].includes(sel))
+        await abrirConfig();
+      return nativeFill(sel,...args);
+    };
+    page.selectOption=async function(sel,...args){
+      if(['#ocupacion','#especie','#sexo-pj','#modo-nombre','#ambito-nombre'].includes(sel))
+        await abrirConfig();
+      return nativeSelect(sel,...args);
+    };
     const fallos=[];
     page.on('pageerror',error=>fallos.push(error.message));
     const response=await page.goto(url,{waitUntil:'domcontentloaded'});
@@ -96,21 +120,21 @@ async function probar(nombre,tipo,url){
     const primerPaso=await page.locator('.empezar-forja').boundingBox();
     assert.ok(primerPaso&&primerPaso.y+primerPaso.height<=844,
       nombre+': Empezar debe ser visible SIN desplazarse en 390×844');
-    assert.equal(await page.locator('#generar-flotante').isHidden(),true,
-      nombre+': el flotante no compite con Empezar al abrir móvil');
+    assert.equal(await page.locator('#generar-flotante').isVisible(),true,
+      nombre+': crear personaje disponible con mesa vacía');
     await page.screenshot({path:path.join(capturas,nombre+'-inicio-movil.png')});
     await page.locator('.empezar-forja').click();
     assert.equal(await page.locator('#panel-forja').isVisible(),true,
       nombre+': Empezar abre la Forja en móvil');
     assert.equal(await page.locator('#alternar-menu').getAttribute('aria-expanded'),'true');
-    assert.equal(await page.locator('#nivel').evaluate(x=>document.activeElement===x),true,
-      nombre+': el foco llega al primer ajuste');
-    assert.equal(await page.locator('#generar-flotante').isHidden(),true,
-      nombre+': el flotante no debe tapar la ayuda al abrir Empezar');
+    assert.equal(await page.locator('#abrir-configuracion').evaluate(x=>document.activeElement===x),true,
+      nombre+': Empezar enfoca la configuración');
+    assert.equal(await page.locator('#generar-flotante').isVisible(),true,
+      nombre+': con mesa vacía permanece el CTA flotante');
     await page.screenshot({path:path.join(capturas,nombre+'-forja-abierta-movil.png')});
     await page.locator('#alternar-menu').click();
-    assert.equal(await page.locator('#generar-flotante').isHidden(),true,
-      nombre+': al cerrar menú sin primera ficha, Empezar recupera prioridad');
+    assert.equal(await page.locator('#generar-flotante').isVisible(),true,
+      nombre+': el CTA sigue visible con el panel cerrado');
     await page.setViewportSize({width:1440,height:900});
     const ocupaciones=await page.locator('#ocupacion option').evaluateAll(
       nodes=>nodes.map(x=>x.value).filter(Boolean).sort());
@@ -130,7 +154,13 @@ async function probar(nombre,tipo,url){
       return {status:r.status,contenido:await r.text()};
     });
     assert.equal(iconos.status,200);
-    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,20);
+    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,31);
+    for(const id of ['espada','arco','varita','bolsa','mochila','orbe','libro',
+      'armadura','escudo','municion']){
+      assert.ok(iconos.contenido.includes('id="equipo-'+id+'"'),
+        nombre+': icono de Equipo '+id);
+    }
+    assert.ok(iconos.contenido.includes('id="ico-configurar"'));
     for(const id of ['salud','esfuerzo','movimiento','potencia','esencia','blindaje']){
       assert.ok(iconos.contenido.includes('id="recurso-'+id+'"'),
         nombre+': SVG de '+id+' disponible');
@@ -191,8 +221,11 @@ async function probar(nombre,tipo,url){
     const detallesPoder=popup.locator('.info-detalles');
     assert.equal(await detallesPoder.isHidden(),true,
       nombre+': magnitudes no visibles en lectura rápida');
+    await abrirConfig();
     await page.locator('#configuracion-avanzada summary').click();
+    await abrirConfig();
     await page.locator('#informacion-avanzada').check();
+    await cerrarConfig();
     // El popup se cierra al salir de él para cambiar ajustes; al
     // reabrirlo debe respetar inmediatamente la opción avanzada.
     await page.locator('#e2e-poder').click();
@@ -274,7 +307,9 @@ async function probar(nombre,tipo,url){
       nombre+': daño literal mixto visible en consulta rápida');
     assert.match(await popup.locator('.info-descripcion').first().textContent(),
       /1d6 de daño por veneno e impío/);
+    await abrirConfig();
     await page.locator('#informacion-avanzada').uncheck();
+    await cerrarConfig();
     // Objetos: categoría en pill, precio y descripción de reglas sin
     // mostrar metadatos de creación del catálogo.
     await page.evaluate(()=>{
@@ -465,7 +500,9 @@ async function probar(nombre,tipo,url){
       x.dataset.glosaId='talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes';
     });
     await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=true;});
+    await abrirConfig();
     await page.locator('#informacion-avanzada').check();
+    await cerrarConfig();
     await page.locator('#e2e-talento').click();
     assert.equal(await popup.locator('.info-detalles').isVisible(),true);
     assert.match(await popup.locator('.info-detalles').textContent(),
@@ -475,7 +512,9 @@ async function probar(nombre,tipo,url){
     assert.match(await popup.locator('.info-detalles').textContent(),
       /2 Tiradas/);
     assert.equal(await popup.locator('.info-descripcion').count(),1);
+    await abrirConfig();
     await page.locator('#informacion-avanzada').uncheck();
+    await cerrarConfig();
     await page.locator('#e2e-talento').click();
     assert.equal(await popup.locator('.info-aclaracion-autoral').isVisible(),false);
 
@@ -500,10 +539,12 @@ async function probar(nombre,tipo,url){
     assert.equal(await popup.isHidden(),true,
       nombre+': el botón Cerrar funciona');
     await page.locator('#e2e-talento').evaluate(x=>x.remove());
+    await cerrarConfig();
     await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=false;});
     // Restaurar el estado original para las pruebas de Talentos que siguen.
     await page.locator('#configuracion-avanzada').evaluate(x=>{x.open=false;});
     await page.locator('#e2e-poder').evaluate(x=>x.remove());
+    await abrirConfig();
     await page.locator('#abrir-selector-ocupacion').click();
     assert.equal(await page.locator('#dialogo-ocupacion').evaluate(x=>x.open),true);
     const opcionMago=page.locator('#selector-visual-ocupacion button[data-valor="Mago"]');
@@ -550,6 +591,7 @@ async function probar(nombre,tipo,url){
       .evaluateAll(nodes=>nodes.map(n=>n.value));
     assert.deepEqual(opcionesSistema,['nd20',...sistemasVisibles],
       nombre+': el selector nativo tampoco contiene CiFi/Nocturna públicos');
+    await cerrarConfig();
     // Alternar sistemas no puede recuperar opciones suplementarias ocultas.
     for(const otro of sistemasVisibles){
       await page.locator('.juegos-compactos [data-juego="'+otro+'"]').click();
@@ -559,6 +601,7 @@ async function probar(nombre,tipo,url){
     // Comprobar generación real de todos los sistemas visibles.
     for(const otro of sistemasVisibles){
       await page.locator('.juegos-compactos [data-juego="'+otro+'"]').click();
+      await abrirConfig();
       const opciones=await page.locator('#ocupacion option').evaluateAll(
         nodes=>nodes.map(x=>x.value).filter(Boolean));
       assert.ok(opciones.length>0,nombre+': Ocupaciones disponibles en '+otro);
@@ -569,7 +612,7 @@ async function probar(nombre,tipo,url){
       await page.fill('#nombre-personaje','Comprobación '+otro);
       await page.fill('#nivel','1');
       await page.fill('#cantidad','1');
-      await page.locator('#generar').click();
+      await generar();
       await page.locator('#fichas .tarjeta').first().waitFor();
       assert.ok((await page.locator('#fichas .tarjeta').first().innerText())
         .includes('Comprobación '+otro),
@@ -577,6 +620,7 @@ async function probar(nombre,tipo,url){
       await page.locator('#borrar').click();
       assert.equal(await page.locator('#fichas .tarjeta').count(),0);
     }
+    await cerrarConfig();
     await page.locator('.juegos-compactos [data-juego="nd20"]').click();
     assert.equal(await page.locator('#juego').inputValue(),'nd20');
     assert.deepEqual(await page.locator('#fuentes-nd20 input').evaluateAll(
@@ -619,11 +663,12 @@ async function probar(nombre,tipo,url){
     await page.selectOption('#ocupacion','Guerrero');
     await page.selectOption('#especie','Humano común');
     for(const sexoHistorico of ['masculino','femenino']){
+      await abrirConfig();
       await page.selectOption('#sexo-pj',sexoHistorico);
       await page.fill('#nombre-personaje','');
       await page.fill('#nivel','1');
       await page.fill('#semilla','Forja-historica-'+nombre+'-'+sexoHistorico);
-      await page.locator('#generar').click();
+      await generar();
       const tarjeta=page.locator('#fichas .tarjeta').first();
       await tarjeta.waitFor();
       const elegido=await tarjeta.locator('h3').innerText();
@@ -649,7 +694,7 @@ async function probar(nombre,tipo,url){
       await page.fill('#nombre-personaje','');
       await page.fill('#semilla','Forja-nombre-'+nombre+'-'+ambito);
       await page.fill('#nivel','1');
-      await page.locator('#generar').click();
+      await generar();
       const tarjeta=page.locator('#fichas .tarjeta').first();
       await tarjeta.waitFor();
       const nombreGenerado=await tarjeta.locator('h3').innerText();
@@ -668,7 +713,7 @@ async function probar(nombre,tipo,url){
     await page.fill('#nombre-personaje','Prueba de Talentos');
     await page.fill('#nivel','1');
     await page.fill('#semilla','Forja-popup-talentos-'+nombre);
-    await page.locator('#generar').click();
+    await generar();
     const fichaTalentos=page.locator('#fichas .tarjeta').first();
     await fichaTalentos.waitFor();
     const bloquesFicha=await fichaTalentos.locator('.bloque-ficha').evaluateAll(nodos=>
@@ -797,13 +842,18 @@ async function probar(nombre,tipo,url){
     assert.equal(await detalles.isHidden(),true,
       nombre+': detalles técnicos del Talento DRS ocultos por defecto');
     await page.keyboard.press('Escape');
+    await abrirConfig();
     await page.locator('#configuracion-avanzada summary').click();
+    await abrirConfig();
     await page.locator('#informacion-avanzada').check();
+    await cerrarConfig();
     await recuperacion.click();
     assert.equal(await page.locator('#ficha-emergente .info-detalles').evaluate(e=>e.open),true,
       nombre+': preferencia avanzada despliega los detalles al abrir');
     await page.keyboard.press('Escape');
+    await abrirConfig();
     await page.locator('#informacion-avanzada').uncheck();
+    await cerrarConfig();
     assert.equal(await fichaTalentos.locator('.bloque-ficha').filter({hasText:'Observaciones'}).count(),0,
       nombre+': no duplicar descripciones completas al final en Observaciones');
     assert.equal(await fichaTalentos.locator('.avisos-talentos').count(),0,
@@ -820,7 +870,7 @@ async function probar(nombre,tipo,url){
       await page.fill('#nivel','1');
       await page.fill('#nombre-personaje','Herencia '+especie);
       await page.fill('#semilla','forja-adquisicion-'+especie);
-      await page.locator('#generar').click();
+      await generar();
       const fichaHeredada=page.locator('#fichas .tarjeta').first();
       await fichaHeredada.waitFor();
       const alternativas=especie==='Semielfo'?
@@ -859,7 +909,7 @@ async function probar(nombre,tipo,url){
     await page.fill('#semilla','Forja-compatibilidad-'+nombre);
     await page.fill('#nivel','30');
     await page.locator('#riqueza-por-nivel').check();
-    await page.locator('#generar').click();
+    await generar();
     await page.locator('#fichas .tarjeta').first().waitFor();
     const ficha=page.locator('#fichas .tarjeta').first();
     const inicial=precio(await ficha.locator('.riqueza').innerText());
