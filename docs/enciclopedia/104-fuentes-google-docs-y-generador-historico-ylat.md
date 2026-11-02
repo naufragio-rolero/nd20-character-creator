@@ -1,3 +1,5 @@
+> **RECTIFICACIÓN AUTORAL — 02/11/2026 (vigente):** Niguace **NO pertenece a Ylat**. Las referencias a Niguace en este informe son exclusivamente un registro **histórico del error de catalogación** y **NO son fuentes válidas del tesauro de Ylat**. Se han retirado sus 32 nombres documentados y sus 116 combinaciones de `data/tesauro-ylat.json`. El catálogo vigente contiene 19 nombres documentados y 33 combinaciones del ámbito Isla Tormenta. **Los recuentos y aprobaciones anteriores que incluyen Niguace están revocados.** Véase [rectificación editorial](127-exclusion-corpus-ajeno-ylat.md).
+
 # Forja 1.0 — Ampliación de fuentes onomásticas de Ylat: Google Docs y generador histórico
 
 **Fecha de consulta:** 31/10/2026. **Estado:** auditoría documental, **no** publicación ni aprobación de nombres nuevos.  
