@@ -40,6 +40,15 @@ const requeridos=[
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/favicon.svg',
+  // PDF A5: si el botón existe, todos sus recursos deben estar presentes.
+  'assets/pdf-export-v2.js','assets/pdf-export-browser.js',
+  'assets/pdf-a5/forja-fantasia-epica-a5.pdf',
+  'assets/pdf-a5/forja-continuacion-a5.pdf',
+  'assets/pdf-a5/campos-ficha-a5.json',
+  'assets/pdf-a5/SourceSerif4_400Regular.ttf',
+  'assets/pdf-a5/OFL-SourceSerif4.txt',
+  'assets/vendor/pdf-lib.min.js','assets/vendor/fontkit.umd.min.js',
+  'assets/vendor/LICENSE-pdf-lib.txt','assets/vendor/LICENSE-fontkit.txt',
   'data/especies.json','data/ocupaciones.json',
   'data/especies_cifi.json','data/ocupaciones_cifi.json',
   'data/catalogo-ampliado.json','data/tesauro-ylat.json',
@@ -59,6 +68,31 @@ for(const ruta of requeridos)
   if(!fs.existsSync(path.join(raiz,ruta)))
     alertas.push('Falta archivo requerido por el arranque de Forja: '+ruta+
       '. No declarar publicable un paquete incompleto.');
+// Comprobar MIME/contenido y tamaño físico de los activos de descarga,
+ // para evitar una distribución que muestra el botón y falla en ejecución.
+for(const ruta of [
+  'assets/pdf-a5/forja-fantasia-epica-a5.pdf',
+  'assets/pdf-a5/forja-continuacion-a5.pdf'
+]){
+  const archivo=path.join(raiz,ruta);
+  if(fs.existsSync(archivo)){
+    const fd=fs.readFileSync(archivo);
+    afirmar(fd.length<10000||fd.subarray(0,5).toString('ascii')!=='%PDF-',
+      'Plantilla PDF A5 ausente/corrupta: '+ruta);
+  }
+}
+for(const ruta of [
+  'assets/vendor/pdf-lib.min.js','assets/vendor/fontkit.umd.min.js',
+  'assets/pdf-a5/SourceSerif4_400Regular.ttf'
+]){
+  const archivo=path.join(raiz,ruta);
+  if(fs.existsSync(archivo))
+    afirmar(fs.statSync(archivo).size<8000,'Dependencia PDF truncada: '+ruta);
+}
+const encabezadoPdf=fs.existsSync(path.join(raiz,'index.html'))?
+  fs.readFileSync(path.join(raiz,'index.html'),'utf8'):'';
+afirmar(!encabezadoPdf.includes('assets/pdf-export-browser.js'),
+  'Falta módulo de descarga PDF A5 en el HTML público.');
 // El lanzamiento público habilita exclusivamente Fantasía DRS y Dungeon Hack.
 // No basta ocultar botones por CSS: tampoco deben existir opciones nativas.
 const indexHtml=fs.existsSync(path.join(raiz,'index.html'))?
