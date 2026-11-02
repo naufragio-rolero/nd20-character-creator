@@ -965,3 +965,33 @@ html[data-tema=clasico] .icono-equipo-lista{color:#15467c}
   .dialogo-configuracion .cabecera-configuracion{top:-.85rem}
   .dialogo-configuracion .pie-configuracion{bottom:-.85rem}
 }
+
+/* Cabecera compacta: nivel independiente del sistema, sexo junto a la Ocupación. */
+.cabecera-ficha>div:first-child{min-width:0}
+.cabecera-ficha .acciones-cabecera-ficha{display:flex;gap:.55rem;
+  align-items:flex-start;flex-shrink:0}
+.nivel-ficha{display:inline-flex;align-items:center;white-space:nowrap;
+  font-size:.72rem;line-height:1.5;font-weight:800;padding:.27rem .45rem;
+  border:1px solid currentColor;border-radius:6px;color:#465865}
+.descripcion-personaje .sexo-ficha{display:inline-flex;align-items:center;
+  vertical-align:-.19em;justify-content:center;margin:0 .1rem;
+  color:#15467c}
+.sexo-ficha svg{display:block;width:1.07rem;height:1.07rem}
+html[data-tema]:not([data-tema=clasico]) .nivel-ficha{color:var(--tema-ficha-text)}
+html[data-tema]:not([data-tema=clasico]) .descripcion-personaje .sexo-ficha{
+  color:var(--tema-ficha-text)}
+@media(max-width:400px){
+  .cabecera-ficha{gap:.5rem;padding:.9rem .8rem}
+  .cabecera-ficha .acciones-cabecera-ficha{gap:.3rem}
+  .nivel-ficha{font-size:.67rem;padding:.2rem .3rem}
+}
+/* WebKit anima el cambio de tema desde Clásico: los controles de ficha
+   necesitan un estado hover inmediato, no una interpolación casi transparente. */
+html[data-tema=ceruleo] .tarjeta .pie-ficha button,
+html[data-tema=ceruleo] .tarjeta .icon-btn{transition:none}
+/* Cerúleo: nunca usar un fondo oscuro con texto oscuro en botones de ficha. */
+html[data-tema=ceruleo] .tarjeta .pie-ficha button:hover:not(:disabled):not(.principal):not(.sistema-activo):not(.activa),
+html[data-tema=ceruleo] .tarjeta .pie-ficha button:focus-visible:not(:disabled):not(.principal):not(.sistema-activo):not(.activa),
+html[data-tema=ceruleo] .tarjeta .icon-btn:hover:not(:disabled):not(.principal):not(.sistema-activo):not(.activa){
+  background:#c5efff;color:#071448;border-color:#168d9f;
+}

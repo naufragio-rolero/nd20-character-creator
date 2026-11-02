@@ -154,7 +154,11 @@ async function probar(nombre,tipo,url){
       return {status:r.status,contenido:await r.text()};
     });
     assert.equal(iconos.status,200);
-    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,31);
+    assert.equal((iconos.contenido.match(/<symbol id=/g)||[]).length,34);
+    for(const id of ['masculino','femenino','indeterminado']){
+      assert.ok(iconos.contenido.includes('id="sexo-'+id+'"'),
+        nombre+': SVG de sexo '+id);
+    }
     for(const id of ['espada','arco','varita','bolsa','mochila','orbe','libro',
       'armadura','escudo','municion']){
       assert.ok(iconos.contenido.includes('id="equipo-'+id+'"'),
@@ -169,6 +173,36 @@ async function probar(nombre,tipo,url){
       nombre+': icono propio de Conjuros');
     assert.match(iconos.contenido,/<symbol id="ico-tecnica"/,
       nombre+': icono propio de Técnicas');
+    // Los nombres originales de los paquetes no siempre son entradas del
+    // catálogo individual. Deben poder consultarse sin atributos inventados.
+    for(const [item,esperado,procedencia] of [
+      ['túnica','Túnica',/Especial arcanistas/],
+      ['yesquero','Yesquero',/Naufragio d20 DRS/],
+      ['antorcha (DU d6)','Antorcha',/Especial arcanistas/]
+    ]){
+      const enlace=await page.evaluate(nombreObjeto=>
+        window.NaufragioInfoUI.etiqueta(nombreObjeto,'equipo','nd20'),
+        item);
+      assert.match(enlace,/class="referencia-glosario"/,
+        nombre+': el objeto de paquete tiene popup: '+item);
+      const id='e2e-paquete-'+item.length;
+      await page.evaluate(([id,nombreObjeto])=>{
+        const cont=document.createElement('div');cont.id=id;
+        cont.innerHTML=window.NaufragioInfoUI.etiqueta(nombreObjeto,'equipo','nd20');
+        document.body.appendChild(cont);
+      },[id,item]);
+      await page.locator('#'+id+' .referencia-glosario').click();
+      assert.equal(await page.locator('#ficha-emergente h3').textContent(),esperado,
+        nombre+': título de popup del paquete '+item);
+      assert.match(await page.locator('#ficha-emergente').innerText(),procedencia,
+        nombre+': procedencia del popup '+item);
+      if(item==='túnica')
+        assert.equal(await page.locator('#ficha-emergente .info-primarios dt')
+          .allTextContents().then(x=>x.includes('Precio:')),false,
+          nombre+': túnica de paquete sin precio inventado');
+      await page.locator('#'+id).evaluate(el=>el.remove());
+      await page.keyboard.press('Escape');
+    }
     // Popup de Poderes: uso inmediato de Dormir según el Tomo cotejado,
     // opción avanzada y comprobación de otra familia (Técnicas). No depende
     // de que la ficha aleatoria haya aprendido un Conjuro concreto.
@@ -614,6 +648,11 @@ async function probar(nombre,tipo,url){
       await page.fill('#cantidad','1');
       await generar();
       await page.locator('#fichas .tarjeta').first().waitFor();
+      const cabeceraOtro=page.locator('#fichas .tarjeta').first();
+      assert.equal(await cabeceraOtro.locator('.nivel-ficha').innerText(),'Nivel 1');
+      assert.match(await cabeceraOtro.locator('.sexo-ficha use').getAttribute('href'),
+        /^assets\/icons-forja\.svg#sexo-(masculino|femenino)$/,
+        nombre+': Dungeon Hack respeta el sexo generado sin asignar otros valores');
       assert.ok((await page.locator('#fichas .tarjeta').first().innerText())
         .includes('Comprobación '+otro),
         nombre+': generación de '+otro+' no debe romperse por depurar DLC');
@@ -671,6 +710,12 @@ async function probar(nombre,tipo,url){
       await generar();
       const tarjeta=page.locator('#fichas .tarjeta').first();
       await tarjeta.waitFor();
+      assert.equal(await tarjeta.locator('.nivel-ficha').innerText(),'Nivel 1');
+      assert.equal(await tarjeta.locator('.sexo-ficha use').getAttribute('href'),
+        'assets/icons-forja.svg#sexo-'+sexoHistorico,
+        nombre+': icono de sexo visible junto a Ocupación');
+      assert.doesNotMatch(await tarjeta.locator('.cabecera-ficha .etiqueta').innerText(),
+        /Nivel|Masculino|Femenino/,nombre+': cabecera despejada');
       const elegido=await tarjeta.locator('h3').innerText();
       assert.ok(bancoHistorico.entradas.some(x=>x.nombre===elegido),
         nombre+': nombre histórico no reconocido: '+elegido);
@@ -912,6 +957,29 @@ async function probar(nombre,tipo,url){
     await generar();
     await page.locator('#fichas .tarjeta').first().waitFor();
     const ficha=page.locator('#fichas .tarjeta').first();
+    assert.equal(await ficha.locator('.nivel-ficha').innerText(),'Nivel 30');
+    const cabeceraMedidas=await ficha.locator('.acciones-cabecera-ficha').evaluate(el=>{
+      const nivel=el.querySelector('.nivel-ficha').getBoundingClientRect();
+      const cerrar=el.querySelector('.eliminar-ficha').getBoundingClientRect();
+      return {nivelDerecha:nivel.right,cerrarIzquierda:cerrar.left};
+    });
+    assert.ok(cabeceraMedidas.nivelDerecha<=cabeceraMedidas.cerrarIzquierda,
+      nombre+': el Nivel está inmediatamente a la izquierda de cerrar');
+    await page.locator('#selector-tema').selectOption('ceruleo');
+    for(const clase of ['.comprar-utiles','.copiar-ficha','.eliminar-ficha']){
+      const boton=ficha.locator(clase);
+      await boton.hover();
+      await page.waitForTimeout(220); // estabilizar transición CSS de 150 ms
+      const colores=await boton.evaluate(el=>({
+        fondo:getComputedStyle(el).backgroundColor,
+        texto:getComputedStyle(el).color,
+        hover:el.matches(':hover')
+      }));
+      assert.deepEqual(colores,{fondo:'rgb(197, 239, 255)',
+        texto:'rgb(7, 20, 72)',hover:true},
+        nombre+': Cerúleo mantiene contraste en '+clase);
+    }
+    await page.locator('#selector-tema').selectOption('clasico');
     const inicial=precio(await ficha.locator('.riqueza').innerText());
     await ficha.locator('.comprar-utiles').click();
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
