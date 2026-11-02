@@ -435,6 +435,25 @@ html[data-tema]:not([data-tema=clasico]) .vacio{background:var(--superficie);bor
 .info-datos dt{color:#b5c9cf;font-weight:600}
 .info-datos dd{margin:0;overflow-wrap:anywhere}
 .info-descripcion{white-space:pre-line;overflow-wrap:anywhere;margin:.65rem 0 .8rem}
+/* Conjuros DRS: lectura semántica, literalidad intacta. Sin HTML interpolado. */
+.info-conjuro-bloques{white-space:normal}
+.info-conjuro-bloques>p{margin:0 0 .9rem;white-space:pre-line}
+.info-conjuro-bloques>p:last-child,
+.info-conjuro-bloques>ul:last-child,
+.info-conjuro-bloques>table:last-child{margin-bottom:0}
+.info-conjuro-bloques>ul{margin:.25rem 0 1rem;padding-left:1.4rem;list-style:disc}
+.info-conjuro-bloques>ul>li{padding:.08rem 0 .26rem;overflow-wrap:anywhere}
+.info-conjuro-bloques>ul>li::marker{color:var(--oro2,#9dd7fb)}
+.info-tabla-conjuro{width:100%;border-collapse:collapse;margin:.45rem 0 1rem;
+  font-size:.83rem;line-height:1.4;table-layout:auto}
+.info-tabla-conjuro th,.info-tabla-conjuro td{
+  padding:.43rem .55rem;border-bottom:1px solid currentColor;text-align:left}
+.info-tabla-conjuro th{font-weight:750;border-bottom-width:2px}
+.info-tabla-conjuro tbody tr:nth-child(even){background:rgba(128,160,185,.12)}
+.info-tabla-conjuro td:last-child,.info-tabla-conjuro th:last-child{text-align:right}
+@media(max-width:390px){
+  .info-tabla-conjuro th,.info-tabla-conjuro td{padding:.36rem .32rem;font-size:.76rem}
+}
 .info-detalles{margin:.7rem 0;border:1px solid #3e6472;border-radius:7px;
   background:#152d38;overflow:hidden}
 .info-detalles summary{cursor:pointer;list-style:auto;padding:.65rem .8rem;
