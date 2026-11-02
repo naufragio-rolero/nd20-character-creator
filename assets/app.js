@@ -757,7 +757,7 @@
       .concat([['focos',datos.equipoInicial.focos_conjuros_con_precio||[]]]);
   }
   function etiquetaGrupoCompra(id){
-    return ({aventura:'Aventura',campamento:'Campamento',
+    return ({iluminacion:'Iluminación',aventura:'Aventura',campamento:'Campamento',
       consumibles:'Consumibles',herramientas:'Herramientas',
       escritura:'Escritura',focos:'Focos de Conjuros'})[id]||id;
   }
