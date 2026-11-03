@@ -2161,6 +2161,8 @@
       }
       var del=e.target.closest('.eliminar-ficha');
       if(del){
+        // La ficha desaparece: no reabrir Equipo después de cancelar su submenú.
+        volverGestionEquipo=null;
         if(compraBorrador&&String(compraBorrador.id)===del.dataset.id)
           cerrarCompra();
         if(armamentoBorrador&&String(armamentoBorrador.id)===del.dataset.id)
@@ -2204,7 +2206,11 @@
       }
     });
     $('borrar').addEventListener('click',function(){
-      cerrarCompra();entradas=[];dibujar();aviso('Mesa despejada.');
+      volverGestionEquipo=null;
+      if(compraBorrador)cerrarCompra();
+      if(armamentoBorrador)cerrarArmamento();
+      if(gestionBorrador)cerrarGestionEquipo();
+      entradas=[];dibujar();aviso('Mesa despejada.');
     });
     $('exportar').addEventListener('click',function(){
       descargar('el-naufragio-fichas.txt',entradas.map(obtenerTexto).join('\n\n'+('=').repeat(60)+'\n\n'));
