@@ -301,7 +301,34 @@
       bonoEscudo:escudo&&escudo.blindaje!=null?String(escudo.blindaje):null,
       natural:natural?personaje.blindaje_natural_fuente:null};
   }
+  // Consulta autoral de la armadura equina: precio humano ×4.
+  // No habilita compras ni altera Inventario, Blindaje o Movimiento.
+  function consultarPreciosArmaduraEquina(catalogo){
+    var equina=catalogo?.utiles_fantasia?.equipo_monturas?.find(function(x){
+      return x.id==='montura-armadura-equina';
+    });
+    var regla=equina?.regla_precio_autoral;
+    if(!regla||regla.estado!=='aprobacion_autoral'||
+       regla.catalogo_base!=='data/equipo-inicial.json · armaduras'||
+       regla.multiplicador!==4||equina.precio!==undefined)
+      throw Error('No hay regla autoral válida de precio de armadura equina.');
+    var armaduras=catalogo.armaduras;
+    if(!Array.isArray(armaduras)||armaduras.length!==14)
+      throw Error('El catálogo DRS debe contener catorce armaduras humanas.');
+    var nombres=new Set();
+    return armaduras.map(function(a){
+      var nombre=String(a.nombre||'').trim();
+      var centimos=Number(a.precio)*100;
+      if(!nombre||nombres.has(nombre)||!Number.isFinite(centimos)||
+         centimos<0||Math.abs(centimos-Math.round(centimos))>1e-7)
+        throw Error('Armadura humana sin precio DRS válido: '+nombre);
+      nombres.add(nombre);
+      return {nombre:nombre,precio_base:a.precio,
+        precio_equino:Math.round(centimos)*regla.multiplicador/100};
+    });
+  }
   return {compraInicial:compraInicial,consultarUtilFantasia:consultarUtilFantasia,
     compraUtilesFantasia:compraUtilesFantasia,
+    consultarPreciosArmaduraEquina:consultarPreciosArmaduraEquina,
     proteccionesDisponibles:proteccionesDisponibles,blindajeFicha:blindajeFicha};
 });

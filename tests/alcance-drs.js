@@ -1177,6 +1177,24 @@ assert.equal(tablaUtiles.objetos_varios.find(x=>x.nombre==='Pipa de tabaco').du,
 const armaduraEquina=tablaUtiles.equipo_monturas.find(x=>x.nombre==='Armadura equina');
 assert.equal(armaduraEquina.precio,undefined);
 assert.equal(armaduraEquina.precio_variable,'Precio de la protección corporal ×4');
+assert.equal(armaduraEquina.regla_precio_autoral.multiplicador,4);
+const preciosEquinos=equipamientoDRS.consultarPreciosArmaduraEquina(catalogoEquipamiento);
+assert.equal(preciosEquinos.length,14);
+assert.deepEqual(preciosEquinos.find(x=>x.nombre==='Pechera de algodón'),
+  {nombre:'Pechera de algodón',precio_base:0.5,precio_equino:2});
+assert.deepEqual(preciosEquinos.find(x=>x.nombre==='Armadura de cuero'),
+  {nombre:'Armadura de cuero',precio_base:10,precio_equino:40});
+assert.deepEqual(preciosEquinos.find(x=>x.nombre==='Armadura completa de placas'),
+  {nombre:'Armadura completa de placas',precio_base:1000,precio_equino:4000});
+assert.throws(()=>equipamientoDRS.consultarPreciosArmaduraEquina({
+  ...catalogoEquipamiento,
+  utiles_fantasia:{...catalogoEquipamiento.utiles_fantasia,
+    equipo_monturas:catalogoEquipamiento.utiles_fantasia.equipo_monturas
+      .map(x=>x.id!==armaduraEquina.id?x:{
+        ...x,regla_precio_autoral:{...x.regla_precio_autoral,multiplicador:5}})}
+}),/regla autoral válida/);
+assert.equal(armaduraEquina.precio,undefined,
+  'La consulta no permite convertir precio variable en compra directa');
 assert.throws(()=>equipamientoDRS.consultarUtilFantasia(
   catalogoEquipamiento,armaduraEquina.id),/requiere precio variable documentado/);
 const establos=tablaUtiles.equipo_monturas.find(x=>x.nombre==='Establos');

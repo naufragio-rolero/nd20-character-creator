@@ -128,13 +128,25 @@ for(const expresion of [
   assert.equal(new Map(api.presentarEquipo(ficha).primarios).get('Dado de Uso'),'DU d6');
   assert.equal(new Map(api.presentarEquipo(ficha).primarios).get('Precio'),'0.01 mo');
 }
-for(const expresion of ['ropa de viaje','mochila','bolsa de cuero','odre de agua (DU d6)']){
-  const ficha=api.buscar(i,expresion,'equipo','nd20');
+// Cinco descripciones editorialmente autorizadas en la antigua PR #13.
+// Ninguna atribuye precio individual, Competencia o nueva regla de juego.
+const glosasPaquetes=eq.componentes_paquetes_editoriales;
+assert.equal(glosasPaquetes.length,5);
+for(const glosa of glosasPaquetes){
+  const nombre=glosa.nombre==='Odre de agua'?'odre de agua (DU d6)':
+    glosa.nombre.toLowerCase();
+  const ficha=api.buscar(i,nombre,'equipo','nd20');
   assert.ok(ficha&&/Paquetes de equipo/.test(ficha.fuente),
-    'Sin atribuir categoría o efectos de otro artículo: '+expresion);
-  assert.equal(ficha.descripcion||'','');
-  assert.ok(!api.presentarEquipo(ficha).primarios.some(x=>x[0]==='Precio'));
+    'Debe conservar la procedencia del paquete: '+nombre);
+  assert.equal(ficha.descripcion,glosa.descripcion_editorial);
+  assert.match(ficha.procedencia_glosa,/Redacción editorial autorizada/);
+  assert.equal(api.presentarEquipo(ficha).categoria,'Útiles · Viaje y almacenaje');
+  assert.ok(!api.presentarEquipo(ficha).primarios.some(x=>x[0]==='Precio'),
+    'Sin precio individual inventado: '+nombre);
+  assert.equal(new Map(api.presentarEquipo(ficha).primarios).get('Dado de Uso'),
+    glosa.nombre==='Odre de agua'?'DU d6':undefined);
 }
+assert.equal(eq.utiles_fantasia.ropa.some(x=>x.nombre==='Ropa de viaje'),false);
 // Consulta de las 28 entradas: coste/documentación sin efectos simulados.
 for(const objeto of nuevos){
   const ficha=api.buscar(i,objeto.nombre,'equipo','nd20');

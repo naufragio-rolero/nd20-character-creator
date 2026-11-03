@@ -278,8 +278,23 @@ async function main(){
     assert.ok(compraMonturas.some(x=>x.startsWith('Alforjas · 2.5 mo')));
     assert.ok(!compraMonturas.some(x=>/Armadura equina|Establos/.test(x)),
       'Las tarifas variables o diarias se consultan sin crear inventario persistente');
+    // Consultar Armadura equina en el mismo editor, sin añadir una venta.
+    assert.equal(await cdp.evalJS("document.querySelector('#consulta-armadura-equina').hidden"),false);
+    assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-armadura-equina-base option').length"),15,
+      'Catorce armaduras DRS + opción vacía');
+    await cdp.evalJS("(()=>{var s=document.querySelector('#compras-armadura-equina-base');"+
+      "s.value='Armadura de cuero';s.dispatchEvent(new Event('change',{bubbles:true}));})()");
+    assert.match(await cdp.evalJS("document.querySelector('#compras-armadura-equina-resultado').textContent"),
+      /10 mo × 4 = 40 mo/);
+    await cdp.evalJS("(()=>{var s=document.querySelector('#compras-armadura-equina-base');"+
+      "s.value='Armadura completa de placas';s.dispatchEvent(new Event('change',{bubbles:true}));})()");
+    assert.match(await cdp.evalJS("document.querySelector('#compras-armadura-equina-resultado').textContent"),
+      /1000 mo × 4 = 4000 mo/);
+    assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),0,
+      'La consulta equina no añade artículos al carrito');
     await cdp.evalJS("(()=>{var g=document.querySelector('#compras-grupo');"+
       "g.value='campamento';g.dispatchEvent(new Event('change',{bubbles:true}));})()");
+    assert.equal(await cdp.evalJS("document.querySelector('#consulta-armadura-equina').hidden"),true);
     const nombres=await cdp.evalJS("Array.from(document.querySelectorAll('#compras-articulo option')).map(x=>x.textContent)");
     assert.ok(nombres.some(x=>x.startsWith('Martillo de campamento · 2 mo')));
     assert.ok(!nombres.some(x=>x.startsWith('Almádena ·')),

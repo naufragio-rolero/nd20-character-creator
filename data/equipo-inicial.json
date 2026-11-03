@@ -524,6 +524,34 @@
       "contenido": "Mochila; odre de agua (DU d6); ración (DU d6); antorcha (DU d6); tiza (DU d6); pértiga; ropa de viaje; manta; yesquero"
     }
   ],
+  "componentes_paquetes_editoriales": [
+    {
+      "nombre": "Mochila",
+      "descripcion_editorial": "Bolsa resistente con correas para llevarla a la espalda. Permite guardar y transportar las pertenencias durante un viaje.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
+    },
+    {
+      "nombre": "Bolsa de cuero",
+      "descripcion_editorial": "Bolsa flexible confeccionada en cuero, con un cierre sencillo. Sirve para reunir monedas, utensilios pequeños y otros enseres.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
+    },
+    {
+      "nombre": "Odre de agua",
+      "du": "d6",
+      "descripcion_editorial": "Recipiente de piel curtida destinado a transportar agua. Su abertura se cierra para evitar que se derrame durante el camino.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
+    },
+    {
+      "nombre": "Estuche de pergaminos vacío",
+      "descripcion_editorial": "Estuche alargado con tapa, pensado para guardar hojas de pergamino enrolladas y protegerlas durante el transporte. Se entrega vacío.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
+    },
+    {
+      "nombre": "Ropa de viaje",
+      "descripcion_editorial": "Conjunto de prendas sencillas y resistentes, adecuado para el camino y el desgaste de las jornadas de viaje.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
+    }
+  ],
   "obsequios_cifi": {
     "Eudemonista": {
       "fuente": "NaufragioD20CiFi · Eudemonista · Armamento filosofal",
@@ -1236,6 +1264,14 @@
         "nombre": "Armadura equina",
         "detalle": "Protección corporal —» Precio x4.",
         "precio_variable": "Precio de la protección corporal ×4",
+        "regla_precio_autoral": {
+          "estado": "aprobacion_autoral",
+          "fecha": "2026-11-01",
+          "texto": "Elegir una armadura común disponible para personas; el precio de la armadura equina es cuatro veces el precio de esa armadura.",
+          "catalogo_base": "data/equipo-inicial.json · armaduras",
+          "multiplicador": 4,
+          "alcance": "Cálculo informativo del precio; no implica compra, equipamiento automático ni conversión de Blindaje o Durabilidad."
+        },
         "fuente": "DRS"
       },
       {

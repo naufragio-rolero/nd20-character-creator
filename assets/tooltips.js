@@ -197,6 +197,16 @@
     // no dispone de una ficha individual, registrar solo su procedencia;
     // jamás atribuir precio, mecánica o descripción al objeto suelto.
     var porObjetoPaquete=new Map();
+    // Solo cinco glosas editoriales autorizadas para componentes que ya
+    // existen en los paquetes DRS; nunca constituyen artículos de venta.
+    var glosasPaquete=new Map();
+    (eq.componentes_paquetes_editoriales||[]).forEach(function(x){
+      var key=normalizar(x.nombre);
+      if(!key||glosasPaquete.has(key)||!x.descripcion_editorial||
+         Object.hasOwn(x,'precio'))
+        throw Error('Glosa de paquete no válida: '+x.nombre);
+      glosasPaquete.set(key,x);
+    });
     (eq.paquetes||[]).forEach(function(paquete){
       String(paquete.contenido||"").split(";").map(function(x){return limpiar(x.trim());})
         .filter(Boolean).forEach(function(item){
@@ -208,12 +218,25 @@
             registro.paquetes.push(paquete.nombre);
         });
     });
+    var glosasAplicadas=new Set();
     porObjetoPaquete.forEach(function(item,key){
       if(mapa.has(claveEquipoDRS(item.nombre)))return; // Preferir ficha DRS real.
       var titulo=item.nombre.replace(/^./,function(x){return x.toLocaleUpperCase("es");});
+      var glosa=glosasPaquete.get(key);
+      var datos=[["Incluido en",item.paquetes.join(", ")]];
+      if(glosa){
+        glosasAplicadas.add(key);
+        if(glosa.du)datos.push(["Dado de Uso","DU "+glosa.du]);
+      }
       anotar(titulo,"Objeto","nd20","Naufragio d20 DRS · Paquetes de equipo",
-        {grupo:"equipo",datos:[["Incluido en",item.paquetes.join(", ")]]});
+        {grupo:"equipo",datos:datos,
+          descripcion:glosa?.descripcion_editorial||"",
+          categoria_objeto:glosa?"Útiles · Viaje y almacenaje":null,
+          familia_objeto:glosa?"utiles":"otro",
+          procedencia_glosa:glosa?.origen_descripcion||null});
     });
+    if(glosasAplicadas.size!==glosasPaquete.size)
+      throw Error("Glosas editoriales sin componente original en paquetes DRS");
     // 10 Técnicas de batalla: sus efectos literales están en el DRS,
     // no en la tabla nominal que alimenta las elecciones del generador.
     var tecnicas=fuentes.tecnicasDRS?.registros||[];
