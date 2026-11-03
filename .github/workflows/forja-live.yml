@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS validado (hasta PR #64: Nivel y límites de compra)
+      - name: Obtener snapshot DRS aprobado hasta PR #69: ficha A5, pie y logos WebP
         uses: actions/checkout@v4
         with:
-          ref: ddc6d5f12f0eacedf63aca7d0edc6c412e588023
+          ref: 2225177315e155ce8bdf78928d39a5aa3b82c5f1
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "ddc6d5f12f0eacedf63aca7d0edc6c412e588023"
-      # Snapshot aprobado para LIVE: 35 SVG, PDF A5, genérico 1422, Ylat 255 × 133,
+          test "$(git rev-parse HEAD)" = "2225177315e155ce8bdf78928d39a5aa3b82c5f1"
+      # Snapshot aprobado para LIVE: 35 SVG, 2 logos WebP, PDF A5, genérico 1422, Ylat 255 × 133,
       # cinco glosas de paquetes, armadura equina ×4, armamento manual y Dardo 5 mc.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
@@ -46,6 +46,16 @@ jobs:
           set -euo pipefail
           test ! -e assets/icons-forja.svg
           test "$(find assets/icons -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 35
+          test "$(find assets/icons -maxdepth 1 -name '*.webp' -type f | wc -l)" -eq 2
+          for logo in sistema-nd20-faep.webp sistema-dh.webp; do
+            test -s "assets/icons/$logo"
+            test "$(head -c 4 "assets/icons/$logo")" = "RIFF"
+            test "$(dd if="assets/icons/$logo" bs=1 skip=8 count=4 status=none)" = "WEBP"
+            grep -Fq "src=\"assets/icons/$logo\"" index.html
+          done
+          grep -Fq 'Creador de personajes para Naufragio d20.' index.html
+          grep -Fq "items.push(['Daño',dano.valor])" assets/app.js
+          grep -Fq 'EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES' assets/pdf-export-v2.js
           test -f assets/icons/CREDITOS-GAME-ICONS.txt
           grep -Fq 'CC BY 3.0' assets/icons/CREDITOS-GAME-ICONS.txt
           grep -Fq 'goblin-head.svg' assets/icons/CREDITOS-GAME-ICONS.txt
@@ -236,6 +246,9 @@ jobs:
                grep -Fq 'id="abrir-configuracion"' /tmp/forja-live.html &&
                grep -Fq 'id="informacion-avanzada"' /tmp/forja-live.html &&
                grep -Fq 'id="inicio-movil"' /tmp/forja-live.html &&
+               grep -Fq 'assets/icons/sistema-nd20-faep.webp' /tmp/forja-live.html &&
+               grep -Fq 'assets/icons/sistema-dh.webp' /tmp/forja-live.html &&
+               grep -Fq 'Creador de personajes para Naufragio d20.' /tmp/forja-live.html &&
                grep -Fq 'class="empezar-forja"' /tmp/forja-live.html &&
                grep -Fq '<option value="generico">Nombres genéricos</option>' /tmp/forja-live.html &&
                grep -Fq '<option value="ylat">Nombres de Ylat</option>' /tmp/forja-live.html; then
@@ -245,6 +258,11 @@ jobs:
             sleep 5
           done
           test "$correcto" = true
+          for logo in sistema-nd20-faep.webp sistema-dh.webp; do
+            curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/${logo}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-logo-webp
+            test "$(head -c 4 /tmp/forja-logo-webp)" = "RIFF"
+            test "$(dd if=/tmp/forja-logo-webp bs=1 skip=8 count=4 status=none)" = "WEBP"
+          done
           ! grep -Fq 'data-juego="nd20_cifi"' /tmp/forja-live.html
           ! grep -Fq 'data-juego="nd20_nocturna"' /tmp/forja-live.html
           grep -Fq '<dialog id="editor-compras"' /tmp/forja-live.html
