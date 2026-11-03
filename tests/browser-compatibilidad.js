@@ -1068,7 +1068,7 @@ async function probar(nombre,tipo,url){
     assert.ok(cabeceraMedidas.nivelDerecha<=cabeceraMedidas.cerrarIzquierda,
       nombre+': el Nivel está inmediatamente a la izquierda de cerrar');
     await page.locator('#selector-tema').selectOption('ceruleo');
-    for(const clase of ['.comprar-utiles','.copiar-ficha','.eliminar-ficha']){
+    for(const clase of ['.gestionar-equipo','.copiar-ficha','.eliminar-ficha']){
       const boton=ficha.locator(clase);
       await boton.hover();
       await page.waitForTimeout(220); // estabilizar transición CSS de 150 ms
@@ -1083,7 +1083,13 @@ async function probar(nombre,tipo,url){
     }
     await page.locator('#selector-tema').selectOption('clasico');
     const inicial=precio(await ficha.locator('.riqueza').innerText());
-    await ficha.locator('.comprar-utiles').click();
+    async function abrirUtilesDesdeFicha(){
+      await ficha.locator('.gestionar-equipo').click();
+      assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),true);
+      await page.locator('#gestion-abrir-utiles').click();
+      assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),false);
+    }
+    await abrirUtilesDesdeFicha();
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
     assert.equal(await page.locator('#editor-compras').evaluate(el=>el.open),true,
       nombre+': las compras se muestran en un diálogo modal');
@@ -1109,7 +1115,7 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#editor-compras').isHidden(),true);
 
     // Volver a abrir: el carrito se vacía y se puede editar por línea.
-    await ficha.locator('.comprar-utiles').click();
+    await abrirUtilesDesdeFicha();
     assert.equal(await page.locator('#compras-lista li').count(),0);
     await page.selectOption('#compras-grupo','campamento');
     await page.selectOption('#compras-articulo','campamento-martillo');
@@ -1150,7 +1156,7 @@ async function probar(nombre,tipo,url){
     const despues=precio(await ficha.locator('.riqueza').innerText());
     assert.ok(Math.abs(inicial-despues-4.03)<.001,
       nombre+': descontar exactamente 4,03 mo al confirmar');
-    await ficha.locator('.comprar-utiles').click();
+    await abrirUtilesDesdeFicha();
     assert.match(await page.locator('#resumen-compras').innerText(),
       new RegExp(despues.toFixed(2)+' mo'),'Saldo actualizado al reabrir');
     await page.setViewportSize({width:390,height:844});
