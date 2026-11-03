@@ -81,6 +81,7 @@ const iconosForja=[
 const especificas=[
   'index.html',
   'assets/styles.css','assets/favicon.svg',
+  'assets/icons/sistema-nd20-faep.webp','assets/icons/sistema-dh.webp',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/names.js','assets/powers.js','assets/spell-magnitudes.js',

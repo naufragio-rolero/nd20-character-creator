@@ -260,6 +260,24 @@ assert.deepEqual(JSON.parse(fs.readFileSync(path.join(salida,'assets/pdf-a5/camp
 const iconosPublicos=fs.readdirSync(path.join(salida,'assets','icons'))
   .filter(nombre=>nombre.endsWith('.svg'));
 assert.equal(iconosPublicos.length,35,'El paquete contiene exactamente 35 SVG');
+// Logos de identidad de sistema: exactamente dos WebP locales, sin DLC.
+// Cada archivo distribuido debe ser idéntico al aprobado en la rama.
+const logosWebp=['sistema-nd20-faep.webp','sistema-dh.webp'];
+const logosPublicos=fs.readdirSync(path.join(salida,'assets','icons'))
+  .filter(nombre=>nombre.endsWith('.webp')).sort();
+assert.deepEqual(logosPublicos,logosWebp.slice().sort());
+for(const nombre of logosWebp){
+  const ruta='assets/icons/'+nombre;
+  const publicado=fs.readFileSync(path.join(salida,ruta));
+  const original=fs.readFileSync(path.join(raiz,ruta));
+  assert.ok(publicado.length>1000&&publicado.length<80000,nombre+': tamaño WebP razonable');
+  assert.equal(publicado.toString('ascii',0,4),'RIFF',nombre+': contenedor RIFF');
+  assert.equal(publicado.toString('ascii',8,12),'WEBP',nombre+': formato WebP real');
+  assert.deepEqual(publicado,original,nombre+': logo original sin transformación');
+  assert.ok(html.includes('src="'+ruta+'"'),nombre+': logo referenciado desde HTML');
+}
+assert.ok(!html.includes('>Nd20F</strong>')&&!html.includes('>DH</strong>'),
+  'El selector ya no usa glifos ni abreviaturas en lugar de los logotipos.');
 for(const nombre of iconosPublicos){
   const svg=fs.readFileSync(path.join(salida,'assets','icons',nombre),'utf8');
   assert.match(svg,/viewBox="0 0 24 24"/,nombre+': lienzo cuadrado');
