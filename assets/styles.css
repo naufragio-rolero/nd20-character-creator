@@ -1280,3 +1280,9 @@ html[data-tema=violeta]{
   --tema-boton-texto:#292136;--tema-boton-hover:#74658c;--tema-field-bg:#484152;
   --tema-ficha-bg:#f8f5fc;--tema-ficha-head:#e5daf2;--tema-ficha-text:#31283e;
 }
+
+/* WebKit también conserva el diálogo al cambiar la anchura sin emitir resize.
+ * El panel no puede tener display:none si contiene Configuración modal abierta. */
+@media(max-width:830px){
+  #panel-forja:has(#dialogo-configuracion[open]){display:block}
+}
