@@ -92,6 +92,8 @@ async function run(name,origin){
     await check(page,'#resumen-nivel','Niveles 3–10');
     // Un origen vacío debe bloquear la generación y mostrar error dentro.
     await page.locator('#nombre-personaje').fill('Persistencia UI');
+    await page.locator('#ocupacion').selectOption('Guerrero');
+    await page.locator('#especie').selectOption('Humano común');
     await page.locator('#fuentes-nd20 input').first().uncheck();
     assert.match(await page.locator('#aviso-fuentes').textContent(),/Selecciona al menos una fuente/);
     assert.equal(await page.locator('#opciones-fuentes').getAttribute('aria-invalid'),'true');
@@ -108,6 +110,10 @@ async function run(name,origin){
     await page.locator('#generar-flotante').evaluate(x=>x.click());
     assert.equal(await config.evaluate(x=>x.open),true);
     await page.locator('#fuentes-nd20 input').first().check();
+    assert.equal(await page.locator('#ocupacion').inputValue(),'Guerrero',
+      'Recuperar fuentes conserva la Ocupación elegida');
+    assert.equal(await page.locator('#especie').inputValue(),'Humano común',
+      'Recuperar fuentes conserva la Especie elegida');
     assert.equal(await page.locator('#aviso-fuentes').textContent(),'');
     assert.equal(await page.locator('#opciones-fuentes').getAttribute('aria-invalid'),'false');
     await page.setViewportSize({width:1320,height:920});
