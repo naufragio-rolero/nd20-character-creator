@@ -529,11 +529,11 @@
     }
     // Aprender no es preparar: un Conjuro conocido solo ocupa una plaza
     // en el grimorio entero. Las preparaciones sí admiten repeticiones.
-    if(paso.tipo==="conjuro_conocido"&&/^grimorio-\\d+$/.test(paso.id)){
+    if(paso.tipo==="conjuro_conocido"&&/^grimorio-\d+$/.test(paso.id)){
       var nivelActual=Number(paso.id.slice("grimorio-".length));
       var anteriores=new Set();
       Object.keys(selecciones||{}).forEach(function(id){
-        var encontrado=id.match(/^grimorio-(\\d+)$/);
+        var encontrado=id.match(/^grimorio-(\d+)$/);
         if(encontrado&&Number(encontrado[1])<nivelActual)
           (selecciones[id]||[]).forEach(function(conjuro){anteriores.add(conjuro);});
       });
