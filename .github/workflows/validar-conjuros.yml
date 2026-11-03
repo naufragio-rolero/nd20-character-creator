@@ -52,6 +52,7 @@ jobs:
           node --check tests/conjuros.js
           node --check tests/alcance-drs.js
           node --check tests/armamento-edicion.js
+          node --check tests/limites-compra-ux.js
           node --check assets/equipment.js
           node --check tests/sincronizacion-talentos.js
           node --check tests/fichas-drs-ux.js
@@ -61,5 +62,6 @@ jobs:
           node tests/talentos-drs.js
           node tests/fichas-drs-ux.js
           node tests/armamento-edicion.js
+          node tests/limites-compra-ux.js
           node tests/elecciones-poscreacion.js
           node tests/sincronizacion-talentos.js
