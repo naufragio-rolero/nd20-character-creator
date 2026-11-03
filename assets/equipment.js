@@ -56,16 +56,11 @@
     notas.push("Capital inicial CiFi: 4d10 × 100 cr, decisión editorial pendiente de incorporarse al DRS.");
     return {equipo:eq,gastado:gastado,restante:restante,notas:notas};
   }
-  function compraInicial(ocupacion,nombre,juego,catalogo,presupuesto,rng,nivel,perfilEspecie){
-    rng=rng||Math.random;
-    var eq=[],notas=[],gasto=0;
-    if(juego==="nd20_cifi")return compraCifi(nombre,catalogo,presupuesto,rng);
-    if(juego!=="nd20")return {equipo:[],gastado:0,restante:null,
-      notas:["Nocturna: no se genera equipo ni riqueza, por decisión editorial."]};
-    if(!catalogo||!Number.isInteger(presupuesto)||presupuesto<0)
-      throw Error("Falta la tabla DRS o el presupuesto inicial documentado.");
+  // Una única fuente de Competencias para generación y edición posterior.
+  function opcionesCompetencia(ocupacion,catalogo,nivel,perfilEspecie){
     // Competencias desbloqueadas en niveles futuros NO habilitan compras iniciales.
     nivel=Number(nivel)||1;
+    var notas=[];
     var bajaEstatura=!!(perfilEspecie&&(perfilEspecie.talentos||[]).includes('Baja estatura'));
     var comp=(ocupacion.competencias||[]).filter(function(regla){
       var m=normal(regla).match(/a partir de nivel\s*(\d+)/);
@@ -168,11 +163,33 @@
       });
       notas.push('Baja estatura: armas y armaduras del catálogo en versión adaptada al tamaño, sin modificar precio ni características; únicamente escudos pequeños; +1 a Tiradas de Esquiva contra ataques a distancia.');
     }
-    function extraer(pool,limite){
+    return {armasPermitidas:armasPermitidas,armadurasPermitidas:armadurasPermitidas,
+      escudosPermitidos:escudosPermitidos,varitasHabilitadas:varitasHabilitadas,
+      bajaEstatura:bajaEstatura,notas:notas};
+  }
+  function compraInicial(ocupacion,nombre,juego,catalogo,presupuesto,rng,nivel,perfilEspecie){
+    rng=rng||Math.random;
+    var eq=[],notas=[],gasto=0;
+    if(juego==="nd20_cifi")return compraCifi(nombre,catalogo,presupuesto,rng);
+    if(juego!=="nd20")return {equipo:[],gastado:0,restante:null,
+      notas:["Nocturna: no se genera equipo ni riqueza, por decisión editorial."]};
+    if(!catalogo||!Number.isInteger(presupuesto)||presupuesto<0)
+      throw Error("Falta la tabla DRS o el presupuesto inicial documentado.");
+    var permitidas=opcionesCompetencia(ocupacion,catalogo,nivel,perfilEspecie);
+    var armasPermitidas=permitidas.armasPermitidas,
+      armadurasPermitidas=permitidas.armadurasPermitidas,
+      escudosPermitidos=permitidas.escudosPermitidos,
+      varitasHabilitadas=permitidas.varitasHabilitadas;
+    notas.push.apply(notas,permitidas.notas);
+    var comprasCambiables=[];
+    function extraer(pool,limite,grupo){
       var viable=pool.filter(function(x){return x.precio<=presupuesto-gasto+1e-7&&x.precio<=limite;});
       if(!viable.length)return null;
       var elegido=viable[Math.floor(rng()*viable.length)];
       gasto=Math.round((gasto+elegido.precio)*100)/100;
+      if(grupo)comprasCambiables.push({indice:eq.length,nombre:elegido.nombre,
+        grupo:grupo==='armas'&&elegido.tipo==='varita'?'varitas_defensa':grupo,
+        precio:elegido.precio,precio_inicial:elegido.precio,origen:'compra_inicial'});
       eq.push(elegido.nombre);
       return elegido;
     }
@@ -180,19 +197,19 @@
     // 60 mo. Las varitas oficiales cuestan 100 mo o más, así que cuando
     // estén autorizadas se amplía ese tope sin saltarse el 40% del capital.
     var arma=extraer(armasPermitidas,
-      Math.min(presupuesto*.4,varitasHabilitadas?presupuesto:60));
+      Math.min(presupuesto*.4,varitasHabilitadas?presupuesto:60),'armas');
     if(arma&&arma.tipo==="varita")
       notas.push("Varita de defensa: "+arma.nombre+
         " (Munición: DU "+arma.municion_du+
         "). Los ataques requieren una Tirada de Mente.");
-    extraer(armadurasPermitidas,Math.min(presupuesto*.35,100));
+    extraer(armadurasPermitidas,Math.min(presupuesto*.35,100),'armaduras');
     if(arma&&arma.municion){
       var municion=catalogo.municion.find(function(x){return x.nombre===arma.municion;});
       if(!municion||!extraer([municion],presupuesto-gasto))
         notas.push("Arma a distancia sin munición comprada: "+arma.nombre+
           " requiere "+arma.municion+". Comprobar suministro antes de utilizarla.");
     }
-    extraer(escudosPermitidos,Math.min(presupuesto*.2,15));
+    extraer(escudosPermitidos,Math.min(presupuesto*.2,15),'escudos');
     var etiqueta=nombre==="Clérigo"?"Especial devotos":
       nombre==="Mago"?"Especial arcanistas":
       nombre==="Ladrón"?"Especial criminales":
@@ -210,7 +227,146 @@
     var restante=Math.round((presupuesto-gasto)*100)/100;
     if(restante<0)throw Error("La compra inicial supera la riqueza.");
     notas.push("Equipo DRS adquirido por "+gasto+" mo; presupuesto "+presupuesto+" mo; saldo "+restante+" mo.");
-    return {equipo:eq,gastado:gasto,restante:restante,notas:notas};
+    return {equipo:eq,gastado:gasto,restante:restante,notas:notas,
+      compras_iniciales_intercambiables:comprasCambiables};
+  }
+  // Economía DRS: se opera en centésimas de moneda de oro (1 mc).
+  // El catálogo puede mostrar "5 mc", pero nunca se pierde en redondeos.
+  function centimos(precio){
+    var n=precio;
+    if(typeof n!=='number'||!Number.isFinite(n)||n<0||
+       !Number.isSafeInteger(Math.round(n*100))||
+       Math.abs(n*100-Math.round(n*100))>1e-7)
+      throw Error('Precio no documentado o inferior a una moneda de cobre.');
+    return Math.round(n*100);
+  }
+  function informacionEquipo(catalogo,ocupacion,nivel,especie){
+    if(!catalogo||!ocupacion)throw Error('Faltan las Competencias DRS.');
+    var posibles=opcionesCompetencia(ocupacion,catalogo,nivel,especie);
+    var grupos=['armas','armaduras','escudos','varitas_defensa','municion'];
+    var listas={armas:posibles.armasPermitidas,armaduras:posibles.armadurasPermitidas,
+      escudos:posibles.escudosPermitidos,
+      varitas_defensa:posibles.varitasHabilitadas?(catalogo.varitas_defensa||[]):[],
+      municion:catalogo.municion||[]};
+    var permitidos={};
+    grupos.forEach(function(g){
+      permitidos[g]=new Set(listas[g].map(function(x){return x.nombre;}));
+    });
+    // Distinguir uso sin Competencia y prohibiciones expresas del DRS.
+    var prohibiciones=(ocupacion.competencias||[]).map(normal).filter(function(t){
+      return /no puedes|no puede/.test(t);
+    });
+    var prohibeEscudo=prohibiciones.some(function(t){
+      return /escudo/.test(t);
+    });
+    var prohibeDistancia=prohibiciones.some(function(t){
+      return /armas a distancia|arma a distancia/.test(t);
+    });
+    var prohibeArrojadizas=prohibiciones.some(function(t){
+      return /arrojadiz/.test(t);
+    });
+    var prohibeFilo=prohibiciones.some(function(t){
+      return /con filo/.test(t);
+    });
+    var armadurasUnicamente=(ocupacion.competencias||[]).map(normal)
+      .some(function(t){return /unicamente/.test(t)&&/armaduras/.test(t);});
+    return grupos.flatMap(function(grupo){
+      return (catalogo[grupo]||[]).filter(function(x){
+        if(grupo==='escudos'&&prohibeEscudo)return false;
+        if(grupo==='armaduras'&&armadurasUnicamente&&
+           !permitidos.armaduras.has(x.nombre))return false;
+        if(grupo==='armas'&&prohibeDistancia&&x.tipo==='distancia')return false;
+        if(grupo==='armas'&&prohibeArrojadizas&&x.arrojadiza_alcance)return false;
+        // El catálogo no etiqueta las armas con filo. Para una prohibición
+        // expresa, acudir exclusivamente a la lista competente documentada.
+        if(grupo==='armas'&&prohibeFilo&&!permitidos.armas.has(x.nombre))
+          return false;
+        // Baja estatura: únicamente escudos pequeños.
+        return grupo!=='escudos'||!posibles.bajaEstatura||
+          normal(x.nombre)==='escudo pequeno';
+      }).filter(function(x){
+        // Las varitas son una excepción: no se canalizan sin Competencia.
+        return grupo!=='varitas_defensa'||permitidos[grupo].has(x.nombre);
+      }).map(function(x){
+        var competente=permitidos[grupo].has(x.nombre);
+        var advertencia=competente||grupo==='municion'?null:
+          grupo==='armaduras'?
+          'Sin Competencia: Desventaja al utilizarla y en Tiradas de Fuerza, Agilidad y Resistencia mientras esté puesta.':
+          'Sin Competencia: Desventaja en las Tiradas relacionadas con su uso.';
+        return {grupo:grupo,nombre:x.nombre,precio:x.precio,
+          precio_editorial:x.precio_editorial||null,
+          competente:competente||grupo==='municion',advertencia:advertencia,
+          municion:x.municion||null,du:x.du||x.municion_du||null};
+      });
+    });
+  }
+  function encontrarOpcion(opciones,grupo,nombre){
+    var x=opciones.filter(function(o){return o.grupo===grupo&&o.nombre===nombre;});
+    if(x.length!==1)throw Error('Artículo no disponible en el catálogo DRS: '+nombre);
+    centimos(x[0].precio);
+    return x[0];
+  }
+  function intercambiarEquipoInicial(personaje,catalogo,ocupacion,nivel,especie,seleccion){
+    if(personaje?.juego!=='Naufragio d20 · Fantasía'||
+       !Array.isArray(personaje.equipo)||!Array.isArray(personaje.compras_iniciales_intercambiables))
+      throw Error('Solo puede intercambiarse equipo inicial registrado de Fantasía DRS.');
+    var indice=seleccion?.indice;
+    if(!Number.isInteger(indice)||indice<0)throw Error('Selecciona una pieza inicial válida.');
+    var registros=personaje.compras_iniciales_intercambiables;
+    var actuales=registros.filter(function(r){return r.indice===indice;});
+    if(actuales.length!==1)throw Error('El objeto no procede de una compra inicial intercambiable.');
+    var origen=actuales[0];
+    if(origen.origen!=='compra_inicial'||personaje.equipo[indice]!==origen.nombre||
+       !['armas','armaduras','escudos','varitas_defensa'].includes(origen.grupo))
+      throw Error('El equipo original no coincide con la compra inicial.');
+    var original=(catalogo[origen.grupo]||[]).filter(function(x){
+      return x.nombre===origen.nombre;
+    });
+    if(original.length!==1||centimos(original[0].precio)!==centimos(origen.precio))
+      throw Error('El valor reembolsable no coincide con el catálogo documentado.');
+    var opciones=informacionEquipo(catalogo,ocupacion,nivel,especie);
+    var nuevo=encontrarOpcion(opciones,seleccion.grupo,seleccion.nombre);
+    var claseOrigen=['armas','varitas_defensa'].includes(origen.grupo)?'arma':origen.grupo;
+    var claseNueva=['armas','varitas_defensa'].includes(nuevo.grupo)?'arma':nuevo.grupo;
+    if(claseOrigen!==claseNueva)
+      throw Error('Un intercambio debe mantener la clase de equipo original.');
+    var saldo=centimos(personaje.saldo_mo),reembolso=centimos(origen.precio),
+      coste=centimos(nuevo.precio);
+    if(saldo+reembolso<coste)
+      throw Error('Saldo insuficiente para intercambiar esta pieza inicial.');
+    var inventario=personaje.equipo.slice();
+    inventario[indice]=nuevo.nombre;
+    var nuevosRegistros=registros.map(function(r){
+      return r.indice!==indice?Object.assign({},r):Object.assign({},r,{
+        nombre:nuevo.nombre,grupo:nuevo.grupo,precio:nuevo.precio
+      });
+    });
+    return {equipo:inventario,compras_iniciales_intercambiables:nuevosRegistros,
+      restante:(saldo+reembolso-coste)/100,reembolso:reembolso/100,
+      coste:coste/100,diferencia:(coste-reembolso)/100,
+      original:origen.nombre,nuevo:nuevo.nombre,advertencia:nuevo.advertencia};
+  }
+  function comprarArmamentoFantasia(personaje,catalogo,ocupacion,nivel,especie,seleccion){
+    if(personaje?.juego!=='Naufragio d20 · Fantasía'||
+       !Array.isArray(personaje.equipo)||!Array.isArray(seleccion))
+      throw Error('Compra adicional solo disponible en Fantasía DRS.');
+    var opciones=informacionEquipo(catalogo,ocupacion,nivel,especie),
+      disponible=centimos(personaje.saldo_mo),total=0,objetos=[],detalles=[];
+    seleccion.forEach(function(s){
+      var cantidad=s.cantidad===undefined?1:s.cantidad;
+      if(!Number.isInteger(cantidad)||cantidad<1||cantidad>99)
+        throw Error('La cantidad debe estar entre 1 y 99.');
+      var item=encontrarOpcion(opciones,s.grupo,s.nombre),
+        importe=centimos(item.precio)*cantidad;
+      if(importe>disponible-total)
+        throw Error('La compra de armamento supera el saldo disponible.');
+      total+=importe;
+      objetos.push(item.nombre+(cantidad>1?' ×'+cantidad:''));
+      detalles.push({nombre:item.nombre,grupo:item.grupo,cantidad:cantidad,
+        precio_unitario:item.precio,subtotal:importe/100,advertencia:item.advertencia});
+    });
+    return {equipo:personaje.equipo.concat(objetos),gastado:total/100,
+      restante:(disponible-total)/100,adquiridos:objetos,detalles:detalles};
   }
   // Consulta exacta del inventario de útiles del DRS, sin alterar la
   // compra automática existente ni conceder Objetos de forma gratuita.
@@ -329,6 +485,9 @@
   }
   return {compraInicial:compraInicial,consultarUtilFantasia:consultarUtilFantasia,
     compraUtilesFantasia:compraUtilesFantasia,
+    informacionEquipo:informacionEquipo,
+    intercambiarEquipoInicial:intercambiarEquipoInicial,
+    comprarArmamentoFantasia:comprarArmamentoFantasia,
     consultarPreciosArmaduraEquina:consultarPreciosArmaduraEquina,
     proteccionesDisponibles:proteccionesDisponibles,blindajeFicha:blindajeFicha};
 });

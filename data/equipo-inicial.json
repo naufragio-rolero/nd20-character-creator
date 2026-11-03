@@ -343,7 +343,8 @@
     },
     {
       "nombre": "Dardo",
-      "precio": 0,
+      "precio": 0.05,
+      "precio_editorial": "5 mc",
       "tipo": "distancia",
       "alcance": "9 m",
       "dano": "1d4",
@@ -909,7 +910,7 @@
     }
   ],
   "decisiones_editoriales": {
-    "dardo_precio": "El autor fija el precio del Dardo en 0 mo (31/10/2026); el DRS indicaba «—». La munición Dardos conserva su precio y DU del DRS.",
+    "dardo_precio": "Rectificación autoral del 03/11/2026: el Dardo cuesta 5 mc = 0,05 mo; el DRS original indicaba «—». La munición Dardos conserva su precio y DU del DRS. El valor se almacena en mo con precisión de 0,01 mo sin introducir una billetera multimoneda.",
     "martillo_campamento": "Decisión editorial del 31/10/2026: el útil «Almádena» del listado de Campamento pasa a llamarse «Martillo de campamento». Conserva precio 2 mo y uso como Clava. El arma Almádena conserva su nombre y precio 60 mo. Se preserva el nombre literal DRS en nombre_original_drs."
   },
   "utiles_fantasia": {

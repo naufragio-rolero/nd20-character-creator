@@ -947,10 +947,10 @@ for(const nivel of [24,25,28,29,30]){
 }
 console.log('OK · Política editorial del Ladrón: 6 Técnicas DRS, hasta 8 con DLC habilitado sin cambiar progresión.');
 
-/* Catálogo DRS: el manual lista 38 armas. El autor fija Dardo a 0 mo,
- * manteniendo 37 precios literales y una decisión editorial registrada. */
+/* Catálogo DRS: el manual lista 38 armas. El autor rectifica el precio
+ * del Dardo a 5 mc = 0,05 mo; el manual original indicaba «—». */
 assert.equal(catalogoEquipamiento.armas.length,38,
-  'Todas las armas DRS, incluido Dardo gratuito por decisión del autor');
+  'Todas las armas DRS, incluido el Dardo a 5 mc por decisión autoral');
 assert.equal(catalogoEquipamiento.armaduras.length,14,
   'Las 14 protecciones corporales del DRS, con categoría y precio');
 assert.equal(catalogoEquipamiento.varitas_defensa.length,4,
@@ -958,11 +958,11 @@ assert.equal(catalogoEquipamiento.varitas_defensa.length,4,
 assert.deepEqual(
   Object.fromEntries(Object.entries(catalogoEquipamiento.armas.find(x=>x.nombre==='Dardo'))
     .filter(([key])=>['precio','tipo','alcance','dano','penetracion','durabilidad','municion'].includes(key))),
-  {precio:0,tipo:'distancia',alcance:'9 m',dano:'1d4',penetracion:0,
+  {precio:0.05,tipo:'distancia',alcance:'9 m',dano:'1d4',penetracion:0,
     durabilidad:'d4',municion:'Dardos'},
-  'Dardo: gratis, conservando todas las características de la tabla DRS');
+  'Dardo: precio corregido a 5 mc, restantes características DRS intactas');
 assert.equal(catalogoEquipamiento.municion.find(x=>x.nombre==='Dardos').precio,.2,
-  'La gratuidad del Dardo no cambia el precio de su munición');
+  'El precio del Dardo no cambia el precio de su munición');
 const equipoEsperadoDRS={
   'Jabalina':{precio:.5,tipo:'una_mano',dano:'1d6',penetracion:2,durabilidad:'d4'},
   'Lucero del alba':{precio:15,tipo:'una_mano',dano:'1d8',penetracion:2,durabilidad:'d8'},
@@ -1030,25 +1030,25 @@ for(const [ocupacion,nivel] of [
     assert.ok(compra.gastado<=presupuesto);
     assert.ok(compra.restante>=0);
     assert.ok(compra.equipo.every(x=>!x.startsWith('Dardo (') ),
-      'Dardo gratuito: no simular suplementos ni precios adicionales');
+      'Dardo: no simular suplementos ni precios adicionales');
   }
 }
 
-// Solo Guerrero y Ladrón tienen competencia con el Dardo, y 0 mo
-// no equivale a un precio desconocido, ni permite comprar munición gratis.
+// Solo Guerrero y Ladrón tienen competencia con el Dardo. El precio
+// corregido de 5 mc no implica munición gratuita.
 for(const ocupacion of ['Guerrero','Ladrón']){
   assert.ok(ocupaciones[ocupacion].armas.includes('Dardo'));
   const soloDardo=structuredClone(catalogoEquipamiento);
   soloDardo.armas=soloDardo.armas.filter(x=>x.nombre==='Dardo');
   soloDardo.municion=[]; // la munición no se regala al comprar el arma
-  const gratuito=equipamientoDRS.compraInicial(ocupaciones[ocupacion],ocupacion,
-    'nd20',soloDardo,0,()=>0,1,especies['Humano común']);
-  assert.ok(gratuito.equipo.includes('Dardo'),'Arma gratis se puede comprar con 0 mo');
-  assert.equal(gratuito.gastado,0);
-  assert.equal(gratuito.restante,0);
-  assert.ok(gratuito.notas.some(x=>x.includes('sin munición comprada')&&
+  const comprado=equipamientoDRS.compraInicial(ocupaciones[ocupacion],ocupacion,
+    'nd20',soloDardo,1,()=>0,1,especies['Humano común']);
+  assert.ok(comprado.equipo.includes('Dardo'),'Arma por 5 mc comprable con 1 mo');
+  assert.equal(comprado.gastado,0.05);
+  assert.equal(comprado.restante,0.95);
+  assert.ok(comprado.notas.some(x=>x.includes('sin munición comprada')&&
     x.includes('Dardo')&&x.includes('Dardos')),
-    'Dardo gratuito no implica munición gratuita: debe avisar');
+    'Dardo por 5 mc no implica munición gratuita: debe avisar');
 }
 for(const ocupacion of ['Mago','Clérigo']){
   assert.ok(!ocupaciones[ocupacion].armas.includes('Dardo'),
@@ -1058,7 +1058,7 @@ const marcaCatalogo=catalogo.conjuros.find(x=>x.nombre==='Marca del dador oscuro
 assert.equal(marcaCatalogo.circulo,5,'Ficha del Conjuro es la fuente de Círculo 5');
 assert.ok(!catalogo.listas_drs['Clérigo']['4'].includes(marcaCatalogo.nombre));
 assert.ok(catalogo.listas_drs['Clérigo']['5'].includes(marcaCatalogo.nombre));
-console.log('OK · Equipo oficial: 38 armas (Dardo gratuito), 14 armaduras y 4 varitas; competencias verificadas.');
+console.log('OK · Equipo oficial: 38 armas (Dardo 5 mc), 14 armaduras y 4 varitas; competencias verificadas.');
 
 /* Las listas expresas de equipo no pueden contradecir las Competencias
  * genéricas del DRS: armas romas Clérigo; todo el armamento Guerrero;

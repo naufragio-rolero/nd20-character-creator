@@ -15,6 +15,7 @@
       .replace(/\s+·\s+[^\n]+$/,"")
       .replace(/\s+\((?:Diletante;|recuerdo personal;|arma filosofal;|Armamento filosofal;|inicial;)[^)]+\)/g,"")
       .replace(/\s+\(DU\s*d\d+(?:\s+cada una)?\)/gi,"")
+      .replace(/\s+×\d+$/,"")
       .replace(/^Estilo de gladiatoria:\s*/i,"")
       .replace(/^Paquete\s+([^:]+):.*$/i,"$1")
       .replace(/^Paquete\s+/i,"").trim();
@@ -115,6 +116,7 @@
         if(Number.isFinite(Number(x.precio)))
           detalles.push([x.servicio_por_dia?"Precio por día":"Precio",x.precio+" "+moneda]);
         if(x.precio_variable)detalles.push(["Precio variable",x.precio_variable]);
+        if(x.precio_editorial)detalles.push(["Precio autoral",x.precio_editorial]);
         if(x.movimiento)detalles.push(["Movimiento",String(x.movimiento)]);
         // El grupo procede de la tabla del catálogo. Tipo y grupo se presentan
         // juntos cuando «ligera», por ejemplo, sería ambiguo fuera de contexto.

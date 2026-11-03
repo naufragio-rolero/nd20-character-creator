@@ -24,7 +24,8 @@
   function detalleEquipo(nombre,catalogo){
     var original=asText(nombre),base=original.replace(/\s+×\s*\d+\s*$/,'').trim();
     if(!catalogo||!base)return original;
-    var grupos=[['armas','arma'],['armaduras','armadura'],['escudos','escudo']];
+    var grupos=[['armas','arma'],['varitas_defensa','varita'],
+      ['armaduras','armadura'],['escudos','escudo'],['municion','municion']];
     var encontrado=null,tipo='';
     for(var grupo of grupos){
       var registro=(catalogo[grupo[0]]||[]).find(function(x){return x.nombre===base;});
@@ -32,7 +33,10 @@
     }
     if(!encontrado)return original;
     var datos=[];
-    if(tipo==='arma'&&encontrado.dano)datos.push('Daño '+encontrado.dano);
+    if(['arma','varita'].includes(tipo)&&encontrado.dano)datos.push('Daño '+encontrado.dano);
+    if(tipo==='municion'&&encontrado.du)datos.push('DU '+encontrado.du);
+    if(tipo==='varita'&&encontrado.municion_du)
+      datos.push('Munición DU '+encontrado.municion_du);
     if(tipo==='armadura'&&encontrado.blindaje)datos.push('Blindaje '+encontrado.blindaje);
     // El escudo NO añade Blindaje pasivo: su valor solo sirve al bloquear.
     if(tipo==='escudo'&&encontrado.blindaje)datos.push('Bloqueo '+encontrado.blindaje);

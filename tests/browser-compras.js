@@ -260,6 +260,26 @@ async function main(){
     const primera=estado[0],segunda=estado[1];
     assert.ok(primera.riqueza&&segunda.riqueza);
     assert.equal(await cdp.evalJS("document.querySelectorAll('.comprar-utiles').length"),2);
+    // El nuevo editor de armamento es independiente de comprar Útiles.
+    assert.equal(await cdp.evalJS("document.querySelectorAll('.editar-armamento').length"),2);
+    await cdp.evalJS("document.querySelectorAll('.editar-armamento')[0].click()");
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),true);
+    assert.ok(await cdp.evalJS("document.querySelector('#armamento-origen option')!==null"),
+      'La propuesta inicial identifica piezas con precio recuperable');
+    await cdp.evalJS("(()=>{var m=document.querySelector('#armamento-modo');"+
+      "m.value='comprar';m.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "var g=document.querySelector('#armamento-grupo');g.value='armas';"+
+      "g.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "var s=document.querySelector('#armamento-articulo');"+
+      "s.value=JSON.stringify(['armas','Dardo']);"+
+      "s.dispatchEvent(new Event('change',{bubbles:true}));})()");
+    assert.match(await cdp.evalJS("document.querySelector('#armamento-resumen').textContent"),
+      /0\.05 mo/,'Dardo de 5 mc debe mostrarse como 0,05 mo');
+    assert.equal(await cdp.evalJS("document.querySelector('#armamento-confirmar').disabled"),false);
+    await cdp.evalJS("document.querySelector('#armamento-cancelar').click()");
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),false);
+    assert.ok(await cdp.evalJS("document.activeElement.classList.contains('editar-armamento')"),
+      'Cancelar devuelve el foco al botón de Armamento');
     await cdp.evalJS("document.querySelectorAll('.comprar-utiles')[0].click()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),true,
       'Comprar útiles abre un diálogo nativo y modal');
@@ -467,6 +487,44 @@ async function main(){
     fs.writeFileSync(path.join(capturas,'compras-movil.png'),
       Buffer.from(imagenMovil.data,'base64'));
     await cdp.evalJS("document.querySelector('#compras-cancelar').click()");
+    // Compra confirmada en móvil: la ficha y el saldo reflejan exactamente 5 mc.
+    const saldoArmasAntes=await cdp.evalJS(
+      "Number(document.querySelector('#fichas .tarjeta .riqueza').textContent.match(/([0-9.]+) mo restantes/)[1])");
+    await cdp.evalJS("document.querySelector('.editar-armamento').click()");
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),true);
+    const anchoArmamento=await cdp.evalJS(
+      "document.querySelector('#editor-armamento').getBoundingClientRect().width");
+    assert.ok(anchoArmamento<=390,'El modal de armamento cabe en móvil');
+    await cdp.evalJS("(()=>{var m=document.querySelector('#armamento-modo');"+
+      "m.value='comprar';m.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "var g=document.querySelector('#armamento-grupo');g.value='armas';"+
+      "g.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "var s=document.querySelector('#armamento-articulo');"+
+      "s.value=JSON.stringify(['armas','Dardo']);"+
+      "s.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "document.querySelector('#form-armamento').requestSubmit();})()");
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),false);
+    const saldoArmasDespues=await cdp.evalJS(
+      "Number(document.querySelector('#fichas .tarjeta .riqueza').textContent.match(/([0-9.]+) mo restantes/)[1])");
+    assert.equal(Math.round((saldoArmasAntes-saldoArmasDespues)*100),5,
+      'Comprar Dardo consume 5 mc sin redondeo a cero ni doble cargo');
+    assert.equal(await cdp.evalJS("document.querySelector('#estado').textContent.includes('Compra adicional de armamento')"),true);
+    // Cambiar de verdad una pieza inicial sin tocar los útiles ni el inventario restante.
+    await cdp.evalJS("document.querySelector('.editar-armamento').click()");
+    const tienePieza=await cdp.evalJS(
+      "document.querySelector('#armamento-origen').options.length>0");
+    assert.ok(tienePieza,'La generación conserva registros de compra inicial');
+    const elegida=await cdp.evalJS("(()=>{"+
+      "var s=document.querySelector('#armamento-destino'),c=document.querySelector('#armamento-confirmar');"+
+      "for(var o of Array.from(s.options)){"+
+      "if(o.value===s.value)continue;"+
+      "s.value=o.value;s.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "if(!c.disabled)return o.value;"+
+      "}return null;})()");
+    assert.ok(elegida,'Debe existir al menos una sustitución inicial asequible');
+    await cdp.evalJS("document.querySelector('#form-armamento').requestSubmit()");
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),false);
+    assert.equal(await cdp.evalJS("document.querySelector('#estado').textContent.includes('Cambio de equipo inicial')"),true);
     assert.deepEqual(cdp.errores,[],'El navegador no debe lanzar errores JS');
     console.log('OK · Chromium real: datos DRS, dos fichas, cancelar, importe 4,03 mo,'+
       ' Antídoto por Nivel, sobrepresupuesto, copiar, exportar, borrar y móvil.');
