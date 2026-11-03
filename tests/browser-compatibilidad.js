@@ -745,7 +745,7 @@ async function probar(nombre,tipo,url){
       ['Clérigo','Guerrero','Ladrón','Mago'].sort(),
       nombre+': el cambio de sistema no filtra Ocupaciones DLC');
     // Probar los nombres de Ylat sobre la distribución física: la opción
-    // de personajes documentados solo existe en la rama de desarrollo.
+    // los documentados son consultables, pero no sorteables.
     const nombresYlat=await page.evaluate(async()=>{
       const respuesta=await fetch('data/tesauro-ylat.json');
       if(!respuesta.ok)throw Error('No se ha podido cargar el tesauro');
@@ -753,13 +753,13 @@ async function probar(nombre,tipo,url){
     });
     const combinados=nombresYlat.entradas.filter(x=>x.tipo==='combinado');
     assert.equal(combinados.length,33);
-    assert.ok(nombresYlat.entradas.every(x=>x.ambito==='Isla Tormenta'),
+    assert.ok(nombresYlat.entradas.every(x=>x.ambito==='Isla Tormenta'||x.ambito==='Ylat'),
       nombre+': el corpus de variantes no contiene el ámbito ajeno a Ylat');
     assert.ok(!/niguac|niguaz/i.test(JSON.stringify(nombresYlat)),
       nombre+': no hay datos del corpus excluido');
     if(process.env.FORJA_PUBLIC_ROOT){
-      assert.equal(nombresYlat.entradas.length,33,
-        nombre+': distribución sin PNJ documentados');
+      assert.equal(nombresYlat.entradas.length,295,
+        nombre+': consulta documental disponible en distribución');
       assert.equal(await page.locator('#modo-nombre option[value="documentado"]').count(),0);
     }
     assert.equal(await page.locator('#modo-nombre').inputValue(),'historico');

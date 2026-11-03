@@ -99,7 +99,7 @@
     });
     if(config.modoNombre!=="especie"&&config.juego==="nd20"){
       var filtrados=nombresDocumentados(ylat,sexo,datos,
-        config.modoNombre==="combinado");
+        config.modoNombre==='combinado');
       if(filtrados.length){
         var elegido=config.modoNombre==='combinado'?elegirPonderado(filtrados,rng):
           filtrados[Math.floor(rng()*filtrados.length)];

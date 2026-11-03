@@ -200,11 +200,11 @@ async function main(){
     assert.equal(bancoHistorico.entradas.length,
       process.env.FORJA_PUBLIC_ROOT?1422:1428);
     if(process.env.FORJA_PUBLIC_ROOT){
-      assert.equal(tesauroPagina.entradas.length,33,
-        'Los nombres de 51 PNJ documentados no aparecen en la distribución');
+      assert.equal(tesauroPagina.entradas.length,295,
+        'Los 262 documentados están disponibles para consulta y los 33 combinados para sorteo');
       assert.equal(await cdp.evalJS(
         "document.querySelector('#modo-nombre option[value=documentado]')===null"),
-        true,'La opción de PNJ documentados se oculta en la versión pública');
+        true,'La opción documentada no participa en el sorteo público');
     }
     await cdp.evalJS("(()=>{"+
       "document.querySelector('#ocupacion').value='Guerrero';"+

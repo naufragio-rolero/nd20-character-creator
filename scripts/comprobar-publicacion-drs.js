@@ -184,29 +184,29 @@ if(ficha){
     extras.length+' fichas de Fantasía de suplementos no publicados.');
 }
 const nombresYlat=dato('data/tesauro-ylat.json');
-// Tras excluir el corpus externo, solo se autorizan 33 combinaciones
-// de Isla Tormenta. Las 19 identidades documentadas siguen vetadas.
+// Solo se publican las 295 entradas auditadas: 33 combinaciones y
+// 262 nombres de figuras documentadas de Ylat, sin otros tipos ni DLC.
 if(nombresYlat){
   const nombres=nombresYlat.entradas||[];
   const ids=new Set(nombres.map(x=>x.id));
   const literales=new Set(nombres.map(x=>x.nombre));
-  afirmar(nombres.length!==33||ids.size!==33||literales.size!==33,
-    'data/tesauro-ylat.json debe contener exactamente 33 combinaciones únicas de Isla Tormenta.');
-  const originales=nombres.filter(x=>x.tipo!=='combinado');
-  afirmar(originales.length>0,'data/tesauro-ylat.json expone '+
-    originales.length+' nombres de personajes documentados o de tipo no autorizado.');
-  const noAutorizados=nombres.filter(x=>x.ambito!=='Isla Tormenta'||
+  afirmar(nombres.length!==295||ids.size!==295||literales.size!==295,
+    'data/tesauro-ylat.json debe contener exactamente 295 nombres auditados.');
+  afirmar(nombres.filter(x=>x.tipo==='combinado').length!==33||
+    nombres.filter(x=>x.tipo==='documentado').length!==262,
+    'El repertorio onomástico no respeta 33 variantes y 262 documentados.');
+  const noAutorizados=nombres.filter(x=>
+    !['combinado','documentado'].includes(x.tipo)||
+    !['Isla Tormenta','Ylat'].includes(x.ambito)||
     /niguac|niguaz/i.test(JSON.stringify(x)));
   afirmar(noAutorizados.length>0,'data/tesauro-ylat.json contiene '+
     noAutorizados.length+' entradas de un corpus ajeno al ámbito aprobado.');
   const tesauroMaestro=JSON.parse(fs.readFileSync(
     path.join(__dirname,'..','data','tesauro-ylat.json'),'utf8'));
-  afirmar(tesauroMaestro.entradas.length!==52||
-    tesauroMaestro.entradas.some(x=>x.ambito!=='Isla Tormenta'),
-    'El tesauro de origen incluye registros ajenos al ámbito de Ylat aprobado.');
-  const autorizados=tesauroMaestro.entradas.filter(x=>x.tipo==='combinado');
-  afirmar(JSON.stringify(nombres)!==JSON.stringify(autorizados),
-    'Los nombres publicados difieren de las 33 combinaciones originales autorizadas.');
+  afirmar(tesauroMaestro.entradas.length!==295,
+    'El tesauro maestro no tiene los 295 registros aprobados.');
+  afirmar(JSON.stringify(nombres)!==JSON.stringify(tesauroMaestro.entradas),
+    'Los nombres publicados difieren de las 295 formas originales autorizadas.');
 }
 // El repertorio histórico es una fuente editorial expresamente autorizada,
 // pero el candidato solo sirve 1422 formas únicas (1428 filas en origen).

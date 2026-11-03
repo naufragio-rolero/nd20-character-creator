@@ -1091,6 +1091,11 @@
     });
     $('juego').addEventListener('change',refrescarSelectores);
     $('modo-nombre').addEventListener('change',refrescarSelectores);
+    $('buscar-nombre-ylat').addEventListener('input',mostrarConsultaNombres);
+    $('resultados-nombres-ylat').addEventListener('click',function(event){
+      var boton=event.target.closest('.copiar-nombre-ylat');
+      if(boton)copiar(boton.dataset.nombre);
+    });
     $('sexo-pj').addEventListener('change',function(){
       try{localStorage.setItem('forja-sexo-pj',$('sexo-pj').value);}catch(error){}
       refrescarSelectores();
@@ -1346,6 +1351,22 @@
       descargar('el-naufragio-fichas.txt',entradas.map(obtenerTexto).join('\n\n'+('=').repeat(60)+'\n\n'));
     });
   }
+  function mostrarConsultaNombres(){
+    var input=$('buscar-nombre-ylat'),lista=$('resultados-nombres-ylat');
+    if(!input||!lista||!datos.tesauroYlat)return;
+    var nombres=datos.tesauroYlat.entradas.filter(function(x){return x.tipo==='documentado';});
+    var termino=input.value.trim().toLocaleLowerCase('es');
+    var filtrados=nombres.filter(function(x){return x.nombre.toLocaleLowerCase('es').includes(termino);});
+    $('total-nombres-ylat').textContent=filtrados.length+' de '+nombres.length+' nombres documentados';
+    lista.innerHTML=filtrados.slice(0,60).map(function(x){
+      var origen=typeof x.fuente==='string'?x.fuente:
+        (x.fuente&&x.fuente.archivo)||'Fuente documentada';
+      return '<div class="consulta-nombre-item"><span><strong>'+esc(x.nombre)+
+        '</strong><small> · '+esc(origen)+'</small></span> '+
+        '<button type="button" class="copiar-nombre-ylat" data-nombre="'+esc(x.nombre)+
+        '" aria-label="Copiar '+esc(x.nombre)+'">Copiar</button></div>';
+    }).join('');
+  }
   async function cargar() {
     var archivos={
       especies:'data/especies.json',ocupaciones:'data/ocupaciones.json',
@@ -1424,6 +1445,7 @@
     datos.talentosDRS=loaded.talentosDRS;
     datos.aclaracionesTalentosDRS=loaded.aclaracionesTalentosDRS;
     datos.tesauroYlat=loaded.tesauroYlat;
+    mostrarConsultaNombres();
     datos.nombresHistoricosYlat=loaded.nombresHistoricosYlat;
     datos.sexo=loaded.sexoCatalogo;
     datos.progresiones=loaded.progresiones;
