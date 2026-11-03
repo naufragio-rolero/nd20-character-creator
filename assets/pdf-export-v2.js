@@ -109,10 +109,10 @@
       var items=Array.isArray(v)?v.map(function(x){
         return Array.isArray(x)&&x.length>=2?asText(x[0])+': '+asText(x[1]):asText(x);
       }):[asText(v)];
+      // El campo Arma equipada ya indica qué pieza está activa; no
+      // repetir esa etiqueta en el inventario del PDF.
       if(k[1]==='equipo')items=items.map(function(x){
-        var base=x.replace(/\\s+×\\s*\\d+\\s*$/,'').trim();
-        return detalleEquipo(x,catalogoEquipo)+
-          (out._arma_equ&&out._arma_equ===base?' · Arma equipada':'');
+        return detalleEquipo(x,catalogoEquipo);
       });
       return items.length?{title:k[0],source:k[1],items:items}:null;
     }).filter(Boolean);
