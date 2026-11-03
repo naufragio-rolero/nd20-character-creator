@@ -346,18 +346,70 @@
       coste:coste/100,diferencia:(coste-reembolso)/100,
       original:origen.nombre,nuevo:nuevo.nombre,advertencia:nuevo.advertencia};
   }
+  // Los topes son decisiones de UX de La Forja, NO reglas del DRS.
+  // Se aplican por personaje, sumando inventario y carrito, para impedir
+  // fraccionar 70 Clavas o 30 burros en compras sucesivas.
+  var MAX_UNIDADES_ARTICULO=10,MAX_MONTURAS_PERSONAJE=5;
+  function contarInventario(inventario,nombre){
+    return (Array.isArray(inventario)?inventario:[]).reduce(function(total,linea){
+      var texto=String(linea).trim(),cantidad=1;
+      var lote=texto.match(/\\s+×(\\d+)$/);
+      if(lote){cantidad=Number(lote[1]);texto=texto.slice(0,lote.index).trim();}
+      // Algunas piezas tienen anotaciones documentadas de DU o Nivel.
+      if(texto===nombre||texto.startsWith(nombre+' (DU ')||
+         texto.startsWith(nombre+' (Nivel '))
+        return total+cantidad;
+      return total;
+    },0);
+  }
+  function monturasCatalogo(catalogo){
+    return (catalogo?.utiles_fantasia?.monturas||[]).map(function(x){return x.nombre;});
+  }
+  function cupoCompraFantasia(catalogo,inventario,pendientes,grupo,nombre){
+    var solicitudes=Array.isArray(pendientes)?pendientes:[];
+    var ya=contarInventario(inventario,nombre);
+    var propuesto=solicitudes.filter(function(x){return x.nombre===nombre;})
+      .reduce(function(n,x){return n+x.cantidad;},0);
+    var cupo=MAX_UNIDADES_ARTICULO-ya-propuesto;
+    if(grupo==='monturas'){
+      var monturas=new Set(monturasCatalogo(catalogo));
+      var acumulado=[...monturas].reduce(function(n,m){
+        return n+contarInventario(inventario,m);
+      },0);
+      var sumas=solicitudes.filter(function(x){return monturas.has(x.nombre);})
+        .reduce(function(n,x){return n+x.cantidad;},0);
+      cupo=Math.min(cupo,MAX_MONTURAS_PERSONAJE-acumulado-sumas);
+    }
+    return Math.max(0,cupo);
+  }
+  function comprobarLimitesCompra(catalogo,inventario,solicitudes){
+    var previos=[];
+    (solicitudes||[]).forEach(function(x){
+      if(!Number.isSafeInteger(x.cantidad)||x.cantidad<1)
+        throw Error('La cantidad debe ser un entero positivo.');
+      var cupo=cupoCompraFantasia(catalogo,inventario,previos,x.grupo,x.nombre);
+      if(x.cantidad>cupo)
+        throw Error('Límite de La Forja para '+x.nombre+': '+cupo+
+          ' unidad(es) adicionales disponibles. Máximo 10 por artículo y '+
+          '5 monturas en total por personaje; no es una regla del DRS.');
+      previos.push(x);
+    });
+  }
   function comprarArmamentoFantasia(personaje,catalogo,ocupacion,nivel,especie,seleccion){
     if(personaje?.juego!=='Naufragio d20 · Fantasía'||
        !Array.isArray(personaje.equipo)||!Array.isArray(seleccion))
       throw Error('Compra adicional solo disponible en Fantasía DRS.');
     var opciones=informacionEquipo(catalogo,ocupacion,nivel,especie),
       disponible=centimos(personaje.saldo_mo),total=0,objetos=[],detalles=[];
+    var solicitudes=[];
     seleccion.forEach(function(s){
       var cantidad=s.cantidad===undefined?1:s.cantidad;
-      if(!Number.isInteger(cantidad)||cantidad<1||cantidad>99)
-        throw Error('La cantidad debe estar entre 1 y 99.');
-      var item=encontrarOpcion(opciones,s.grupo,s.nombre),
-        importe=centimos(item.precio)*cantidad;
+      if(!Number.isSafeInteger(cantidad)||cantidad<1)
+        throw Error('La cantidad debe ser un entero positivo.');
+      var item=encontrarOpcion(opciones,s.grupo,s.nombre);
+      solicitudes.push({grupo:item.grupo,nombre:item.nombre,cantidad:cantidad});
+      comprobarLimitesCompra(catalogo,personaje.equipo,solicitudes);
+      var importe=centimos(item.precio)*cantidad;
       if(importe>disponible-total)
         throw Error('La compra de armamento supera el saldo disponible.');
       total+=importe;
@@ -401,15 +453,17 @@
       nivel:x.precio_por_nivel===undefined?null:nivel,
       du:x.du||null,detalle:x.detalle||""};
   }
-  function compraUtilesFantasia(catalogo,presupuesto,seleccion){
+  function compraUtilesFantasia(catalogo,presupuesto,seleccion,inventarioActual){
     if(!Number.isFinite(presupuesto)||presupuesto<0||!Array.isArray(seleccion))
       throw Error("Presupuesto o selección de útiles incorrectos.");
-    var gastado=0,equipo=[],detalles=[];
+    var gastado=0,equipo=[],detalles=[],solicitudes=[];
     seleccion.forEach(function(s){
       var cantidad=s.cantidad===undefined?1:s.cantidad;
-      if(!Number.isInteger(cantidad)||cantidad<1)
+      if(!Number.isSafeInteger(cantidad)||cantidad<1)
         throw Error("Cantidad incorrecta para un artículo del DRS.");
       var item=consultarUtilFantasia(catalogo,s.id,s.nivel);
+      solicitudes.push({nombre:item.nombre,grupo:item.seccion,cantidad:cantidad});
+      comprobarLimitesCompra(catalogo,inventarioActual,solicitudes);
       var subtotal=Math.round(item.precio*cantidad*100)/100;
       if(Math.round((gastado+subtotal)*100)/100>presupuesto+1e-7)
         throw Error("Compra de útiles supera el presupuesto disponible.");
@@ -514,6 +568,7 @@
   }
   return {compraInicial:compraInicial,consultarUtilFantasia:consultarUtilFantasia,
     compraUtilesFantasia:compraUtilesFantasia,
+    cupoCompraFantasia:cupoCompraFantasia,
     informacionEquipo:informacionEquipo,
     intercambiarEquipoInicial:intercambiarEquipoInicial,
     comprarArmamentoFantasia:comprarArmamentoFantasia,
