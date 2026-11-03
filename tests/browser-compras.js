@@ -274,7 +274,7 @@ async function main(){
       "s.value=JSON.stringify(['armas','Dardo']);"+
       "s.dispatchEvent(new Event('change',{bubbles:true}));})()");
     assert.match(await cdp.evalJS("document.querySelector('#armamento-resumen').textContent"),
-      /0\\.05 mo/,'Dardo de 5 mc debe mostrarse como 0,05 mo');
+      /0\.05 mo/,'Dardo de 5 mc debe mostrarse como 0,05 mo');
     assert.equal(await cdp.evalJS("document.querySelector('#armamento-confirmar').disabled"),false);
     await cdp.evalJS("document.querySelector('#armamento-cancelar').click()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),false);
