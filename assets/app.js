@@ -70,6 +70,36 @@
   // Varias candidatas permitidas, una sola Especie/Ocupación por personaje.
   // Ninguna marca significa aleatorio entre todas las disponibles.
   var candidatosSelector={ocupacion:[],especie:[]};
+  // Al quitar temporalmente todas las fuentes, los selectores se vacían.
+  // Conservar la elección anterior para recuperarla al corregir el error.
+  var seleccionesPausadas={};
+  function refrescarFuentesConPreservacion(){
+    var juego=$('juego').value,hayDisponibles=juego==='dh'?
+      origenesActivos().length>0:fuentesNd20Activas().length>0;
+    if(!hayDisponibles&&!seleccionesPausadas[juego]){
+      seleccionesPausadas[juego]={
+        ocupacion:candidatosSelector.ocupacion.slice(),
+        especie:candidatosSelector.especie.slice(),
+        ocupacionDirecta:$('ocupacion').value,
+        especieDirecta:$('especie').value
+      };
+    }
+    refrescarSelectores();
+    if(hayDisponibles&&seleccionesPausadas[juego]){
+      var anterior=seleccionesPausadas[juego];
+      ['ocupacion','especie'].forEach(function(tipo){
+        var disponibles=Array.from($(tipo).options).map(function(x){return x.value;});
+        var valor=anterior[tipo+'Directa'];
+        $(tipo).value=disponibles.includes(valor)?valor:'';
+        candidatosSelector[tipo]=anterior[tipo].filter(function(x){
+          return disponibles.includes(x);
+        });
+        marcarTarjetasSeleccionadas(tipo);
+      });
+      delete seleccionesPausadas[juego];
+      refrescarResumenCreacion();
+    }
+  }
   var borradorSelector={ocupacion:[],especie:[]};
   function marcarCeldas(tipo,seleccion){
     $('selector-visual-'+tipo).querySelectorAll('button.opcion-visual')
@@ -1755,10 +1785,10 @@
       refrescarSelectores();
     });
     $('con-especie').addEventListener('change',refrescarSelectores);
-    $('origenes').addEventListener('change',refrescarSelectores);
+    $('origenes').addEventListener('change',refrescarFuentesConPreservacion);
     $('fuentes-nd20').addEventListener('change',function(){
       fuentesGuardadas[$('juego').value]=fuentesNd20Activas();
-      refrescarSelectores();
+      refrescarFuentesConPreservacion();
     });
     $('ocultar-tutorial').addEventListener('click',function(){
       $('tutorial-inicial').hidden=true;
