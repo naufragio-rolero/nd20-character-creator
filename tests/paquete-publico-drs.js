@@ -252,20 +252,26 @@ for(const nombre of iconosPublicos){
 }
 assert.ok(!fs.existsSync(path.join(salida,'assets','icons-forja.svg')),
   'El antiguo sprite no debe distribuirse');
-assert.ok(html.indexOf('value="historico"')<html.indexOf('value="combinado"'),
-  'El banco histórico debe ser el modo predeterminado en la distribución');
-assert.ok(html.includes('Variantes de Ylat'));
-assert.ok(html.includes('Según Especie'));
-assert.ok(!html.includes('value="documentado"'),
-  'El paquete no debe permitir seleccionar personajes documentados');
-assert.ok(html.includes('id="buscar-nombre-ylat"') && html.includes('id="resultados-nombres-ylat"'),
-  'Consulta documental visible sin participar en el sorteo');
-assert.ok(html.includes('id="ambito-nombre"'));
+assert.ok(html.includes('<option value="generico">Nombres genéricos</option>'),
+  'Generador genérico accesible en el paquete');
+assert.ok(html.includes('<option value="ylat">Nombres de Ylat</option>'),
+  'Generador Ylat accesible en el paquete');
+assert.ok(html.indexOf('value="generico"')<html.indexOf('value="ylat"'));
+assert.ok(!html.includes('value="historico"')&&!html.includes('value="combinado"')&&
+  !html.includes('value="documentado"'),'No hay modos anteriores en el selector');
+assert.ok(!html.includes('id="buscar-nombre-ylat"')&&
+  !html.includes('id="ambito-nombre"'),'Sin buscador ni lista separada de Isla Tormenta');
+assert.ok(html.includes('assets/names.js'),'El motor modular debe cargarse');
 assert.ok(!/niguac|niguaz/i.test(html),
   'No debe existir un selector del ámbito excluido');
-assert.ok(html.includes('<option value="Isla Tormenta">Isla Tormenta</option>'));
-assert.ok(html.includes('Origen de las variantes'));
-assert.ok(html.includes('Los nombres sugeridos no determinan el origen ni la historia del personaje.'));
+const componentes=leer(salida,'componentes-nombres-ylat.json');
+const componentesDev=leer(raiz,'componentes-nombres-ylat.json');
+assert.deepEqual(componentes,componentesDev);
+assert.equal(componentes.nombres.length,255);
+assert.equal(componentes.apellidos.length,133);
+for(const casa of ['Shadelgast','Bronnhum','Boll'])
+  assert.equal(componentes.apellidos.find(x=>x.nombre===casa).peso_relativo,1);
+assert.ok(fs.existsSync(path.join(salida,'assets/names.js')));
 assert.ok(!html.includes('Procedencia del nombre de Ylat'),
   'No presentar agrupaciones documentales como culturas de nacimiento');
 // Los tres catálogos de consulta publicados deben coincidir físicamente
