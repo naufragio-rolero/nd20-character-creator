@@ -1136,7 +1136,8 @@ async function probar(nombre,tipo,url){
     await page.locator('#selector-tema').selectOption('clasico');
     const inicial=precio(await ficha.locator('.riqueza').innerText());
     async function abrirUtilesDesdeFicha(){
-      await ficha.locator('.gestionar-equipo').click();
+      if(!await page.locator('#editor-gestion-equipo').evaluate(e=>e.open))
+        await ficha.locator('.gestionar-equipo').click();
       assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),true);
       await page.locator('#gestion-abrir-utiles').click();
       assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),false);
@@ -1162,6 +1163,8 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#compras-lista li').count(),1);
     assert.match(await page.locator('#compras-total').innerText(),/4\.00 mo/);
     await page.locator('#compras-cancelar').click();
+    assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),true,
+      nombre+': cancelar útiles deja abierto el panel Equipo');
     assert.equal(precio(await ficha.locator('.riqueza').innerText()),inicial,
       nombre+': cancelar no puede descontar dinero');
     assert.equal(await page.locator('#editor-compras').isHidden(),true);
@@ -1231,6 +1234,8 @@ async function probar(nombre,tipo,url){
     await page.locator('#editor-compras').scrollIntoViewIfNeeded();
     await page.screenshot({path:path.join(capturas,nombre+'-movil.png')});
     await page.locator('#compras-cancelar').click();
+    assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),true);
+    await page.locator('#gestion-cerrar').click();
     // Regresión de accesibilidad: el flotante no cubre el pie de página.
     await page.locator('.pie').scrollIntoViewIfNeeded();
     await page.waitForFunction(()=>document.querySelector('#generar-flotante').hidden);
