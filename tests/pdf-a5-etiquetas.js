@@ -7,6 +7,6 @@ const svg=fs.readFileSync(path.join(root,'forja-fantasia-epica-a5.svg'),'utf8');
 const map=JSON.parse(fs.readFileSync(path.join(root,'campos-ficha-a5.json'),'utf8'));
 assert(svg.includes('>BLINDAJE</text>'),'La etiqueta debe ser BLINDAJE');
 assert(!svg.includes('BLINDAJE DOCUMENTADO'),'Evitar la nomenclatura antigua');
-assert(map.campos_fijos.some(x=>x.id==='blindaje'));
-assert(map.campos_fijos.some(x=>x.id==='blindaje_natural'));
+assert(map.campos_fijos.some(x=>x.id==='arma_equipada'));
+assert(map.campos_fijos.some(x=>x.id==='dano_equipado'));
 console.log('OK: etiqueta Blindaje y campos conservados.');
