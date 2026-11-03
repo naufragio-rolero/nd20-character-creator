@@ -267,6 +267,7 @@
           'Sin Competencia: Desventaja al utilizarla y en Tiradas de Fuerza, Agilidad y Resistencia mientras esté puesta.':
           'Sin Competencia: Desventaja en las Tiradas relacionadas con su uso.';
         return {grupo:grupo,nombre:x.nombre,precio:x.precio,
+          precio_editorial:x.precio_editorial||null,
           competente:competente||grupo==='municion',advertencia:advertencia,
           municion:x.municion||null,du:x.du||x.municion_du||null};
       });
