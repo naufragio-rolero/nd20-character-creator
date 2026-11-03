@@ -268,9 +268,13 @@
     var prohibeFilo=prohibiciones.some(function(t){
       return /con filo/.test(t);
     });
+    var armadurasUnicamente=(ocupacion.competencias||[]).map(normal)
+      .some(function(t){return /unicamente/.test(t)&&/armaduras/.test(t);});
     return grupos.flatMap(function(grupo){
       return (catalogo[grupo]||[]).filter(function(x){
         if(grupo==='escudos'&&prohibeEscudo)return false;
+        if(grupo==='armaduras'&&armadurasUnicamente&&
+           !permitidos.armaduras.has(x.nombre))return false;
         if(grupo==='armas'&&prohibeDistancia&&x.tipo==='distancia')return false;
         if(grupo==='armas'&&prohibeArrojadizas&&x.arrojadiza_alcance)return false;
         // El catálogo no etiqueta las armas con filo. Para una prohibición
