@@ -1050,3 +1050,102 @@ html[data-tema=ceruleo] .tarjeta .icon-btn:hover:not(:disabled):not(.principal):
   .acciones-pie-ficha{gap:.35rem}
   .pie-ficha .acciones-pie-ficha button{min-width:0;flex:1}
 }
+
+
+/* Ficha UX: lista semántica con apariencia de pseudotabla a dos columnas.
+   Se suprimen únicamente las viñetas visuales; lector de pantalla conserva <li>. */
+.bloque-ficha ul.lista-dos-columnas{
+  list-style:none;padding:0;margin:.35rem 0 .65rem;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0 1rem;align-items:stretch;
+}
+.bloque-ficha ul.lista-dos-columnas li{
+  list-style:none;display:flex;align-items:center;min-width:0;
+  min-height:2rem;padding:.4rem .25rem .4rem .1rem;
+  border-bottom:1px solid #d9e1e5;line-height:1.45;
+}
+.bloque-ficha ul.lista-dos-columnas li::marker{content:""}
+.bloque-ficha .linea-poder{
+  display:grid;grid-template-columns:1.08rem minmax(0,1fr);
+  align-items:center;gap:.4rem;width:100%;max-width:100%;
+}
+.bloque-ficha .linea-poder .icono-svg{
+  display:block;position:static;align-self:center;
+  width:1.08rem;height:1.08rem;min-width:1.08rem;
+  margin:0;vertical-align:initial;line-height:1;
+}
+.bloque-ficha .linea-poder .referencia-glosario{
+  align-self:center;line-height:1.5;overflow-wrap:anywhere;min-width:0;
+}
+html[data-tema]:not([data-tema=clasico]) .bloque-ficha ul.lista-dos-columnas li{
+  border-bottom-color:var(--borde);
+}
+@media(max-width:560px){
+  .bloque-ficha ul.lista-dos-columnas{grid-template-columns:minmax(0,1fr)}
+}
+
+/* Daño: consulta visual del arma activa, sin nueva regla de ataque.
+   Seis recursos DRS: tres tarjetas por fila, dos en móvil estrecho. */
+.recursos.recursos-rejilla.recursos-con-dano{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.recursos-rejilla .recurso-dano .recurso-arma{
+  font-size:.65rem;line-height:1.35;overflow-wrap:anywhere;
+  color:#425c71;font-weight:550;
+}
+html[data-tema]:not([data-tema=clasico]) .recursos-rejilla .recurso-arma{
+  color:var(--tema-ficha-text);
+}
+@media(max-width:500px){
+  .recursos.recursos-rejilla.recursos-con-dano{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+/* Gestión del equipo: un acceso desde la ficha, ajustes en diálogo.
+   Las ventanas de compra se abren secuencialmente, nunca apiladas. */
+.dialogo-gestion-equipo .gestion-equipo-contenido{
+  padding:1rem 1.2rem 1.25rem;
+  display:flex;flex-direction:column;gap:.9rem;
+}
+.dialogo-gestion-equipo .campo>label{
+  display:block;font-size:.84rem;font-weight:750;margin-bottom:.35rem;
+}
+.dialogo-gestion-equipo #gestion-arma{
+  width:100%;min-height:44px;border:1px solid var(--borde);
+  border-radius:8px;background:var(--superficie2);color:var(--texto);
+  padding:.6rem .7rem;font:inherit;
+}
+.dialogo-gestion-equipo .campo small{display:block;line-height:1.5}
+.dialogo-gestion-equipo #gestion-dano{
+  margin:.55rem 0;font-weight:700;line-height:1.45;
+}
+.dialogo-gestion-equipo .protecciones-activas,
+.dialogo-gestion-equipo .avisos-ficha{
+  margin:0;padding:.75rem;
+}
+.dialogo-gestion-equipo .gestion-equipo-compras{
+  border-top:1px solid var(--borde);padding-top:.85rem;
+}
+.dialogo-gestion-equipo .gestion-equipo-compras h4{
+  font-size:.8rem;text-transform:uppercase;margin:0 0 .65rem;
+}
+.dialogo-gestion-equipo .gestion-equipo-compras .botonera{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;
+}
+.dialogo-gestion-equipo :is(.gestion-equipo-compras button,#gestion-terminar){
+  min-height:44px;white-space:normal;
+}
+.dialogo-gestion-equipo #gestion-terminar{
+  align-self:flex-end;
+}
+.dialogo-gestion-equipo :is(select,button):focus-visible{
+  outline:3px solid #0099cc;outline-offset:2px;
+}
+@media(max-width:550px){
+  .dialogo-gestion-equipo .gestion-equipo-contenido{padding:.85rem}
+  .dialogo-gestion-equipo .gestion-equipo-compras .botonera{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .dialogo-gestion-equipo #gestion-terminar{align-self:stretch}
+}
