@@ -15,6 +15,8 @@
   var revisionBorrador = null;
   var fuentesGuardadas = {};
   var ultimaReproduccion = null;
+  var reproduccionActiva = null;
+  var reproduccionAbiertaId = null;
   var usarSemilla = false; // Generar personaje siempre usa azar nuevo salvo activación explícita.
   var volverGestionEquipo = null;
   var sistemasVisibles={
@@ -688,7 +690,7 @@
       '<p>Solo aparecen piezas del inventario. El escudo aporta su bonificación'+
       ' únicamente al bloquear; no a las esquivas.</p></section>';
   }
-  function fichaHTML(personaje, id) {
+  function fichaHTML(personaje, id, reproduccion) {
     var notas=organizarObservaciones(personaje);
     var esDungeonHack = personaje.juego.indexOf('Dungeon Hack') === 0;
     // Orden de lectura en la ficha Nd20, independiente del orden del modelo.
@@ -738,6 +740,10 @@
         '" title="Revisar Talentos y Poderes elegidos" aria-label="Revisar Talentos y Poderes">Talentos y Poderes</button>':'')+
       (personaje.juego==='Naufragio d20 · Fantasía'?
         '<button type="button" class="exportar-pdf-ficha" data-id="'+id+'" title="Exportar PDF A5" aria-label="Exportar ficha PDF A5">PDF</button>':'')+
+      (reproduccion?
+         '<button type="button" class="ver-reproduccion" data-id="'+id+
+         '" title="Consultar la semilla y las opciones originales" aria-haspopup="dialog"'+
+         ' aria-controls="dialogo-reproduccion">Semilla</button>':'')+
       '<button type="button" class="copiar-ficha" data-id="' + id +
       '" title="Copiar ficha" aria-label="Copiar ficha al portapapeles">Copiar</button></div>'+
       '<small class="fuentes-pie-ficha">' + esc(fuentesFicha(personaje)) +
@@ -812,7 +818,7 @@
     fichas.innerHTML='';
     entradas.forEach(function (e) {
       fichas.insertAdjacentHTML('beforeend',e.tipo==='mazmorra' ?
-        mazmorraHTML(e.valor,e.id) : fichaHTML(e.valor,e.id));
+        mazmorraHTML(e.valor,e.id) : fichaHTML(e.valor,e.id,e.reproduccion));
     });
     $('contador').textContent=entradas.length ?
       entradas.length+' elemento(s) en la mesa.' : 'Todavía no has generado ninguna ficha.';
@@ -824,8 +830,9 @@
       '<p>Aquí aparecerá tu personaje</p><p class="muted">Deja las opciones iniciales o elige Nivel, Ocupación y Especie. Pulsa «Generar personaje» en la Forja: aquí verás el resultado.</p></div>';
     refrescarGenerarFlotante();
   }
-  function agregar(tipo,valor) {
-    entradas.unshift({tipo:tipo,valor:valor,id:++correlativo});
+  function agregar(tipo,valor,reproduccion,indiceReproduccion) {
+    entradas.unshift({tipo:tipo,valor:valor,id:++correlativo,
+      reproduccion:reproduccion||null,indiceReproduccion:indiceReproduccion||0});
     dibujar();
   }
   // Edición posterior al azar: solo se intercambia material pagado en
@@ -1458,7 +1465,7 @@
     $('estado-uso-semilla').textContent=usarSemilla?'Activada':'Desactivada';
     $('ayuda-semilla').textContent=usarSemilla?
       'Semilla fija activada: se repetirá el mismo resultado mientras no cambies las opciones.':
-      'Azar nuevo en cada generación. La semilla usada se puede copiar desde los resultados.';
+      'Azar nuevo en cada generación. La semilla usada se consulta y copia desde cada ficha.';
   }
   function cambiarUsoSemilla(activo){
     usarSemilla=!!activo;
@@ -1479,9 +1486,28 @@
     return function(i){return reglas.aleatorioSemilla(base+':'+i);};
   }
   function mostrarReproduccion(semilla,cfg){
+    // Esta instantánea pertenece al lote original y no cambia con la configuración
+    // posterior ni con nuevos personajes generados.
     ultimaReproduccion={version:1,semilla:semilla,config:JSON.parse(JSON.stringify(cfg))};
-    $('semilla-resultado').textContent=semilla;
-    $('reproduccion-resultados').hidden=false;
+    return ultimaReproduccion;
+  }
+  function abrirReproduccion(entrada){
+    if(!entrada||!entrada.reproduccion)
+      throw Error('Esta ficha no conserva un registro de reproducción.');
+    reproduccionActiva=entrada.reproduccion;
+    reproduccionAbiertaId=entrada.id;
+    $('semilla-resultado').textContent=reproduccionActiva.semilla;
+    var total=reproduccionActiva.config.cantidad||1;
+    $('reproduccion-personaje').textContent=entrada.valor.nombre+
+      (total>1?' · Personaje '+(entrada.indiceReproduccion+1)+' de '+total:'');
+    $('reproduccion-aviso').textContent=(total>1?
+      'Este registro reproduce el lote original completo, en el mismo orden. ':'')+
+      'Las modificaciones posteriores y elecciones manuales no se reconstruyen.';
+    $('dialogo-reproduccion').showModal();
+    $('cerrar-reproduccion').focus({preventScroll:true});
+  }
+  function cerrarReproduccion(){
+    if($('dialogo-reproduccion').open)$('dialogo-reproduccion').close();
   }
   function aplicarReproduccion(texto){
     var registro=JSON.parse(texto);
@@ -1847,10 +1873,24 @@
     try{$('tutorial-inicial').hidden=localStorage.getItem('forja-tutorial-oculto')==='true';}
     catch(error){/* Sin almacenamiento: permite cerrar durante la sesión. */}
     $('copiar-semilla').addEventListener('click',function(){
-      if(ultimaReproduccion)copiar(ultimaReproduccion.semilla);
+      if(reproduccionActiva)copiar(reproduccionActiva.semilla);
     });
     $('copiar-reproduccion').addEventListener('click',function(){
-      if(ultimaReproduccion)copiar(JSON.stringify(ultimaReproduccion,null,2));
+      if(reproduccionActiva)copiar(JSON.stringify(reproduccionActiva,null,2));
+    });
+    $('cerrar-reproduccion').addEventListener('click',cerrarReproduccion);
+    $('dialogo-reproduccion').addEventListener('close',function(){
+      var boton=document.querySelector('.ver-reproduccion[data-id="'+
+        reproduccionAbiertaId+'"]');
+      reproduccionActiva=null;
+      reproduccionAbiertaId=null;
+      (boton||$('generar')).focus({preventScroll:true});
+    });
+    $('dialogo-reproduccion').addEventListener('click',function(e){
+      if(e.target!==this)return;
+      var r=this.getBoundingClientRect();
+      if(e.clientX<r.left||e.clientX>r.right||
+         e.clientY<r.top||e.clientY>r.bottom)cerrarReproduccion();
     });
     $('aplicar-reproduccion').addEventListener('click',function(){
       try{
@@ -1893,15 +1933,16 @@
           var plan=poderes.planificar(opciones,juegoDatos,datos.catalogo,datos.progresiones);
           if(c.modo==='personalizado'&&plan.pasos.some(function(x){return !x.automatico;})){
             cerrarMenuMovil();
-            mostrarReproduccion(semillaUsada,c);
+            var registroPersonalizado=mostrarReproduccion(semillaUsada,c);
             if(configurador.open)cerrarConfiguracion();
             prepararEditor(personaje,plan,r,
-              {config:configFicha,semillaPersonaje:semillaPersonaje});return;
+              {config:configFicha,semillaPersonaje:semillaPersonaje,
+                reproduccion:registroPersonalizado});return;
           }
           items.push(poderes.registrar(personaje,plan,poderes.resolver(plan,null,r)));
         }
-        items.forEach(function(p){agregar('ficha',p);});
-        mostrarReproduccion(semillaUsada,c);
+        var registroGeneracion=mostrarReproduccion(semillaUsada,c);
+        items.forEach(function(p,i){agregar('ficha',p,registroGeneracion,i);});
         if(configurador.open)cerrarConfiguracion();
         cerrarMenuMovil();
         // En móvil, las fichas están DEBAJO del formulario: mostrar el
@@ -1971,7 +2012,8 @@
             throw Error('La reconstrucción alteró la identidad del personaje.');
           personaje=nuevo;
         }
-        agregar('ficha',poderes.registrar(personaje,borrador.plan,resultado));
+        agregar('ficha',poderes.registrar(personaje,borrador.plan,resultado),
+          borrador.origen?.reproduccion,0);
         cerrarEditor();
       });
     });
@@ -2227,6 +2269,15 @@
          e.clientY<r.top||e.clientY>r.bottom)cerrarGestionEquipo();
     });
     $('fichas').addEventListener('click',function(e){
+      var reproduccion=e.target.closest('.ver-reproduccion');
+      if(reproduccion){
+        conControl(function(){
+          var entrada=entradas.find(function(x){
+            return x.tipo==='ficha'&&String(x.id)===reproduccion.dataset.id;
+          });
+          abrirReproduccion(entrada);
+        });return;
+      }
       var revision=e.target.closest('.revisar-elecciones');
       if(revision){
         conControl(function(){
@@ -2247,6 +2298,7 @@
       }
       var del=e.target.closest('.eliminar-ficha');
       if(del){
+        if(String(reproduccionAbiertaId)===del.dataset.id)cerrarReproduccion();
         // La ficha desaparece: no reabrir Equipo después de cancelar su submenú.
         volverGestionEquipo=null;
         if(compraBorrador&&String(compraBorrador.id)===del.dataset.id)
@@ -2292,6 +2344,7 @@
       }
     });
     $('borrar').addEventListener('click',function(){
+      cerrarReproduccion();
       volverGestionEquipo=null;
       if(compraBorrador)cerrarCompra();
       if(armamentoBorrador)cerrarArmamento();

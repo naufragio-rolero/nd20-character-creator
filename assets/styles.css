@@ -1275,6 +1275,19 @@ html[data-tema] .juegos-compactos button.sistema-logo.sistema-activo{
 .reproduccion-resultados code{overflow-wrap:anywhere;user-select:all}
 .reproduccion-resultados small{display:block;color:var(--secundario);margin-top:.55rem}
 .reproduccion-acciones{display:flex;flex-wrap:wrap;gap:.5rem}
+/* El registro de reproducción solo se muestra desde la ficha correspondiente.
+   Mantener la estética anterior dentro de un diálogo accesible y compacto. */
+.dialogo-reproduccion{width:min(640px,calc(100vw - 1.5rem))}
+.dialogo-reproduccion .reproduccion-resultados{margin:1rem 1.1rem 1.3rem}
+.dialogo-reproduccion #cerrar-reproduccion{min-width:40px;min-height:40px;
+  flex-shrink:0;color:var(--texto);background:var(--superficie2);
+  border:1px solid var(--borde)}
+.dialogo-reproduccion .reproduccion-acciones button{min-height:42px}
+.dialogo-reproduccion #reproduccion-personaje{overflow-wrap:anywhere;margin:0}
+@media(max-width:440px){
+  .dialogo-reproduccion .reproduccion-resultados{margin:.75rem}
+  .dialogo-reproduccion .reproduccion-acciones button{width:100%}
+}
 #texto-reproduccion{display:block;width:100%;min-height:5rem;max-width:100%;
   resize:vertical;background:var(--tema-field-bg,var(--superficie));color:var(--texto);
   border:1px solid var(--borde);border-radius:7px;padding:.65rem;margin:.6rem 0}
