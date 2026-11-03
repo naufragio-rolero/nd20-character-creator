@@ -12,6 +12,7 @@
   var compraBorrador = null;
   var armamentoBorrador = null;
   var gestionBorrador = null;
+  var revisionBorrador = null;
   var fuentesGuardadas = {};
   var $ = function (id) {return document.getElementById(id);};
   function aviso(mensaje, esError) {
@@ -628,6 +629,9 @@
       '<div class="pie-ficha"><div class="acciones-pie-ficha" role="group" aria-label="Acciones de la ficha">' +
       (personaje.juego==='Naufragio d20 · Fantasía'&&Number.isFinite(personaje.saldo_mo)?
         '<button type="button" class="gestionar-equipo" data-id="'+id+'" title="Equipar y gestionar el equipo" aria-label="Equipar y gestionar el equipo">Equipo</button>':'')+
+      (personaje.juego==='Naufragio d20 · Fantasía'&&personaje.elecciones_registradas?
+        '<button type="button" class="revisar-elecciones" data-id="'+id+
+        '" title="Revisar Talentos y Poderes elegidos" aria-label="Revisar Talentos y Poderes">Talentos y Poderes</button>':'')+
       (personaje.juego==='Naufragio d20 · Fantasía'?
         '<button type="button" class="exportar-pdf-ficha" data-id="'+id+'" title="Exportar PDF A5" aria-label="Exportar ficha PDF A5">PDF</button>':'')+
       '<button type="button" class="copiar-ficha" data-id="' + id +
@@ -1398,7 +1402,7 @@
             prepararEditor(personaje,plan,r,
               {config:c,semillaPersonaje:semillaPersonaje});return;
           }
-          items.push(poderes.aplicar(personaje,plan,poderes.resolver(plan,null,r)));
+          items.push(poderes.registrar(personaje,plan,poderes.resolver(plan,null,r)));
         }
         items.forEach(function(p){agregar('ficha',p);});
         cerrarMenuMovil();
@@ -1438,7 +1442,7 @@
             throw Error('La reconstrucción alteró la identidad del personaje.');
           personaje=nuevo;
         }
-        agregar('ficha',poderes.aplicar(personaje,borrador.plan,resultado));
+        agregar('ficha',poderes.registrar(personaje,borrador.plan,resultado));
         cerrarEditor();
       });
     });
@@ -1692,6 +1696,16 @@
          e.clientY<r.top||e.clientY>r.bottom)cerrarGestionEquipo();
     });
     $('fichas').addEventListener('click',function(e){
+      var revision=e.target.closest('.revisar-elecciones');
+      if(revision){
+        conControl(function(){
+          var entrada=entradas.find(function(x){
+            return x.tipo==='ficha'&&String(x.id)===revision.dataset.id;
+          });
+          if(!entrada)throw Error('Ficha no encontrada.');
+          abrirRevisionElecciones(entrada);
+        });return;
+      }
       var gestionar=e.target.closest('.gestionar-equipo');
       if(gestionar){
         conControl(function(){
@@ -1708,6 +1722,8 @@
           cerrarArmamento();
         if(gestionBorrador&&String(gestionBorrador.id)===del.dataset.id)
           cerrarGestionEquipo();
+        if(revisionBorrador&&String(revisionBorrador.id)===del.dataset.id)
+          cerrarRevisionElecciones();
         entradas=entradas.filter(function(x){return String(x.id)!==del.dataset.id;});
         dibujar();return;
       }
