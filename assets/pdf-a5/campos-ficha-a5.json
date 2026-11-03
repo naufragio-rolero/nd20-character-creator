@@ -1,0 +1,765 @@
+{
+  "version": "0.3.0-fantasia-epica-v2",
+  "dimensiones_mm": {
+    "width": 148.0,
+    "height": 210.0
+  },
+  "dimensiones_pdf_pt": {
+    "width": 419.5276,
+    "height": 595.2756
+  },
+  "coordenadas": {
+    "mm_superior_izquierda": "origen superior izquierdo, Y hacia abajo",
+    "pdf_inferior_izquierda": "origen inferior izquierdo, Y hacia arriba",
+    "conversion": "x_pt = x_mm * 72 / 25.4; y_pdf = (210 - y_mm - alto_mm) * 72 / 25.4"
+  },
+  "campos_fijos": [
+    {
+      "id": "nombre",
+      "origen": "nombre",
+      "pagina": "principal",
+      "descripcion": "Nombre completo",
+      "mm_superior_izquierda": {
+        "x": 29,
+        "y": 9.7,
+        "width": 46,
+        "height": 3.0
+      },
+      "pdf_inferior_izquierda": {
+        "x": 82.205,
+        "y": 559.276,
+        "width": 130.394,
+        "height": 8.504
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 7.9,
+      "alineacion": "left",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "especie",
+      "origen": "descripcion [componente especie]",
+      "pagina": "principal",
+      "descripcion": "Especie, sin inferir",
+      "mm_superior_izquierda": {
+        "x": 29,
+        "y": 14.75,
+        "width": 46,
+        "height": 3.0
+      },
+      "pdf_inferior_izquierda": {
+        "x": 82.205,
+        "y": 544.961,
+        "width": 130.394,
+        "height": 8.504
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 7.2,
+      "alineacion": "left",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "ocupacion",
+      "origen": "descripcion [componente ocupación]",
+      "pagina": "principal",
+      "descripcion": "Ocupación",
+      "mm_superior_izquierda": {
+        "x": 34,
+        "y": 19.8,
+        "width": 41,
+        "height": 3
+      },
+      "pdf_inferior_izquierda": {
+        "x": 96.378,
+        "y": 530.646,
+        "width": 116.22,
+        "height": 8.504
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 7.2,
+      "alineacion": "left",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "nivel",
+      "origen": "nivel",
+      "pagina": "principal",
+      "descripcion": "Nivel existente",
+      "mm_superior_izquierda": {
+        "x": 23,
+        "y": 24.85,
+        "width": 9,
+        "height": 3
+      },
+      "pdf_inferior_izquierda": {
+        "x": 65.197,
+        "y": 516.331,
+        "width": 25.512,
+        "height": 8.504
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 7.2,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "sexo",
+      "origen": "sexo",
+      "pagina": "principal",
+      "descripcion": "Texto de sexo si documentado",
+      "mm_superior_izquierda": {
+        "x": 50,
+        "y": 24.85,
+        "width": 25,
+        "height": 3
+      },
+      "pdf_inferior_izquierda": {
+        "x": 141.732,
+        "y": 516.331,
+        "width": 70.866,
+        "height": 8.504
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 6.4,
+      "alineacion": "left",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "concepto",
+      "origen": "concepto",
+      "pagina": "principal",
+      "descripcion": "Concepto opcional",
+      "mm_superior_izquierda": {
+        "x": 32,
+        "y": 29.75,
+        "width": 43,
+        "height": 3
+      },
+      "pdf_inferior_izquierda": {
+        "x": 90.709,
+        "y": 502.441,
+        "width": 121.89,
+        "height": 8.504
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 6.4,
+      "alineacion": "left",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "atributo_fuerza_va",
+      "origen": "atributos[nombre=Fuerza].valor",
+      "pagina": "principal",
+      "descripcion": "VA",
+      "mm_superior_izquierda": {
+        "x": 17.1,
+        "y": 45.6,
+        "width": 5.2,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 48.472,
+        "y": 454.394,
+        "width": 14.74,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_fuerza_da",
+      "origen": "atributos[nombre=Fuerza].dificultad",
+      "pagina": "principal",
+      "descripcion": "DA",
+      "mm_superior_izquierda": {
+        "x": 32,
+        "y": 45.6,
+        "width": 12.4,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 90.709,
+        "y": 454.394,
+        "width": 35.15,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_fuerza_favorito",
+      "origen": "atributos[nombre=Fuerza].favorito",
+      "pagina": "principal",
+      "descripcion": "Marca de favorito",
+      "mm_superior_izquierda": {
+        "x": 42.1,
+        "y": 41.3,
+        "width": 5,
+        "height": 4
+      },
+      "pdf_inferior_izquierda": {
+        "x": 119.339,
+        "y": 466.866,
+        "width": 14.173,
+        "height": 11.339
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 7.3,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_agilidad_va",
+      "origen": "atributos[nombre=Agilidad].valor",
+      "pagina": "principal",
+      "descripcion": "VA",
+      "mm_superior_izquierda": {
+        "x": 62.1,
+        "y": 45.6,
+        "width": 5.2,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 176.031,
+        "y": 454.394,
+        "width": 14.74,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_agilidad_da",
+      "origen": "atributos[nombre=Agilidad].dificultad",
+      "pagina": "principal",
+      "descripcion": "DA",
+      "mm_superior_izquierda": {
+        "x": 77,
+        "y": 45.6,
+        "width": 12.4,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 218.268,
+        "y": 454.394,
+        "width": 35.15,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_agilidad_favorito",
+      "origen": "atributos[nombre=Agilidad].favorito",
+      "pagina": "principal",
+      "descripcion": "Marca de favorito",
+      "mm_superior_izquierda": {
+        "x": 87.1,
+        "y": 41.3,
+        "width": 5,
+        "height": 4
+      },
+      "pdf_inferior_izquierda": {
+        "x": 246.898,
+        "y": 466.866,
+        "width": 14.173,
+        "height": 11.339
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 7.3,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_resistencia_va",
+      "origen": "atributos[nombre=Resistencia].valor",
+      "pagina": "principal",
+      "descripcion": "VA",
+      "mm_superior_izquierda": {
+        "x": 107.1,
+        "y": 45.6,
+        "width": 5.2,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 303.591,
+        "y": 454.394,
+        "width": 14.74,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_resistencia_da",
+      "origen": "atributos[nombre=Resistencia].dificultad",
+      "pagina": "principal",
+      "descripcion": "DA",
+      "mm_superior_izquierda": {
+        "x": 122,
+        "y": 45.6,
+        "width": 12.4,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 345.827,
+        "y": 454.394,
+        "width": 35.15,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_resistencia_favorito",
+      "origen": "atributos[nombre=Resistencia].favorito",
+      "pagina": "principal",
+      "descripcion": "Marca de favorito",
+      "mm_superior_izquierda": {
+        "x": 132.1,
+        "y": 41.3,
+        "width": 5,
+        "height": 4
+      },
+      "pdf_inferior_izquierda": {
+        "x": 374.457,
+        "y": 466.866,
+        "width": 14.173,
+        "height": 11.339
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 7.3,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_mente_va",
+      "origen": "atributos[nombre=Mente].valor",
+      "pagina": "principal",
+      "descripcion": "VA",
+      "mm_superior_izquierda": {
+        "x": 17.1,
+        "y": 58.800000000000004,
+        "width": 5.2,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 48.472,
+        "y": 416.976,
+        "width": 14.74,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_mente_da",
+      "origen": "atributos[nombre=Mente].dificultad",
+      "pagina": "principal",
+      "descripcion": "DA",
+      "mm_superior_izquierda": {
+        "x": 32,
+        "y": 58.800000000000004,
+        "width": 12.4,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 90.709,
+        "y": 416.976,
+        "width": 35.15,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_mente_favorito",
+      "origen": "atributos[nombre=Mente].favorito",
+      "pagina": "principal",
+      "descripcion": "Marca de favorito",
+      "mm_superior_izquierda": {
+        "x": 42.1,
+        "y": 54.5,
+        "width": 5,
+        "height": 4
+      },
+      "pdf_inferior_izquierda": {
+        "x": 119.339,
+        "y": 429.449,
+        "width": 14.173,
+        "height": 11.339
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 7.3,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_intuición_va",
+      "origen": "atributos[nombre=Intuición].valor",
+      "pagina": "principal",
+      "descripcion": "VA",
+      "mm_superior_izquierda": {
+        "x": 62.1,
+        "y": 58.800000000000004,
+        "width": 5.2,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 176.031,
+        "y": 416.976,
+        "width": 14.74,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_intuición_da",
+      "origen": "atributos[nombre=Intuición].dificultad",
+      "pagina": "principal",
+      "descripcion": "DA",
+      "mm_superior_izquierda": {
+        "x": 77,
+        "y": 58.800000000000004,
+        "width": 12.4,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 218.268,
+        "y": 416.976,
+        "width": 35.15,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_intuición_favorito",
+      "origen": "atributos[nombre=Intuición].favorito",
+      "pagina": "principal",
+      "descripcion": "Marca de favorito",
+      "mm_superior_izquierda": {
+        "x": 87.1,
+        "y": 54.5,
+        "width": 5,
+        "height": 4
+      },
+      "pdf_inferior_izquierda": {
+        "x": 246.898,
+        "y": 429.449,
+        "width": 14.173,
+        "height": 11.339
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 7.3,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_presencia_va",
+      "origen": "atributos[nombre=Presencia].valor",
+      "pagina": "principal",
+      "descripcion": "VA",
+      "mm_superior_izquierda": {
+        "x": 107.1,
+        "y": 58.800000000000004,
+        "width": 5.2,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 303.591,
+        "y": 416.976,
+        "width": 14.74,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_presencia_da",
+      "origen": "atributos[nombre=Presencia].dificultad",
+      "pagina": "principal",
+      "descripcion": "DA",
+      "mm_superior_izquierda": {
+        "x": 122,
+        "y": 58.800000000000004,
+        "width": 12.4,
+        "height": 4.1
+      },
+      "pdf_inferior_izquierda": {
+        "x": 345.827,
+        "y": 416.976,
+        "width": 35.15,
+        "height": 11.622
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8.8,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "atributo_presencia_favorito",
+      "origen": "atributos[nombre=Presencia].favorito",
+      "pagina": "principal",
+      "descripcion": "Marca de favorito",
+      "mm_superior_izquierda": {
+        "x": 132.1,
+        "y": 54.5,
+        "width": 5,
+        "height": 4
+      },
+      "pdf_inferior_izquierda": {
+        "x": 374.457,
+        "y": 429.449,
+        "width": 14.173,
+        "height": 11.339
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 7.3,
+      "alineacion": "center",
+      "desbordamiento": "ninguno"
+    },
+    {
+      "id": "recurso_salud",
+      "origen": "recursos[nombre=Salud][1]",
+      "pagina": "principal",
+      "descripcion": "Recurso literal (Salud incluye el dado)",
+      "mm_superior_izquierda": {
+        "x": 10.0,
+        "y": 79,
+        "width": 26.3,
+        "height": 8
+      },
+      "pdf_inferior_izquierda": {
+        "x": 28.346,
+        "y": 348.661,
+        "width": 74.551,
+        "height": 22.677
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8,
+      "alineacion": "center",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "recurso_esfuerzo",
+      "origen": "recursos[nombre=Esfuerzo][1]",
+      "pagina": "principal",
+      "descripcion": "Recurso literal (Salud incluye el dado)",
+      "mm_superior_izquierda": {
+        "x": 43.25,
+        "y": 79,
+        "width": 26.3,
+        "height": 8
+      },
+      "pdf_inferior_izquierda": {
+        "x": 122.598,
+        "y": 348.661,
+        "width": 74.551,
+        "height": 22.677
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8,
+      "alineacion": "center",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "recurso_movimiento",
+      "origen": "recursos[nombre=Movimiento][1]",
+      "pagina": "principal",
+      "descripcion": "Recurso literal (Salud incluye el dado)",
+      "mm_superior_izquierda": {
+        "x": 76.5,
+        "y": 79,
+        "width": 26.3,
+        "height": 8
+      },
+      "pdf_inferior_izquierda": {
+        "x": 216.85,
+        "y": 348.661,
+        "width": 74.551,
+        "height": 22.677
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8,
+      "alineacion": "center",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "recurso_potencia",
+      "origen": "recursos[nombre=Potencia][1]",
+      "pagina": "principal",
+      "descripcion": "Recurso literal (Salud incluye el dado)",
+      "mm_superior_izquierda": {
+        "x": 109.75,
+        "y": 79,
+        "width": 26.3,
+        "height": 8
+      },
+      "pdf_inferior_izquierda": {
+        "x": 311.102,
+        "y": 348.661,
+        "width": 74.551,
+        "height": 22.677
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 8,
+      "alineacion": "center",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "armadura_equipada",
+      "origen": "protecciones_equipadas.armadura",
+      "pagina": "principal",
+      "descripcion": "armadura equipada",
+      "mm_superior_izquierda": {
+        "x": 8,
+        "y": 99,
+        "width": 61,
+        "height": 3.7
+      },
+      "pdf_inferior_izquierda": {
+        "x": 22.677,
+        "y": 304.157,
+        "width": 172.913,
+        "height": 10.488
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 6.7,
+      "alineacion": "left",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "escudo_equipado",
+      "origen": "protecciones_equipadas.escudo",
+      "pagina": "principal",
+      "descripcion": "escudo equipado",
+      "mm_superior_izquierda": {
+        "x": 76,
+        "y": 99,
+        "width": 61,
+        "height": 3.7
+      },
+      "pdf_inferior_izquierda": {
+        "x": 215.433,
+        "y": 304.157,
+        "width": 172.913,
+        "height": 10.488
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 6.7,
+      "alineacion": "left",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "blindaje",
+      "origen": "NaufragioEquipment.blindajeFicha",
+      "pagina": "principal",
+      "descripcion": "blindaje",
+      "mm_superior_izquierda": {
+        "x": 8,
+        "y": 109.2,
+        "width": 61,
+        "height": 3.7
+      },
+      "pdf_inferior_izquierda": {
+        "x": 22.677,
+        "y": 275.244,
+        "width": 172.913,
+        "height": 10.488
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 6.7,
+      "alineacion": "left",
+      "desbordamiento": "continuacion"
+    },
+    {
+      "id": "blindaje_natural",
+      "origen": "blindaje_natural + blindaje_natural_fuente",
+      "pagina": "principal",
+      "descripcion": "blindaje natural",
+      "mm_superior_izquierda": {
+        "x": 76,
+        "y": 109.2,
+        "width": 61,
+        "height": 3.7
+      },
+      "pdf_inferior_izquierda": {
+        "x": 215.433,
+        "y": 275.244,
+        "width": 172.913,
+        "height": 10.488
+      },
+      "fuente": "Source Serif Pro o compatible con cobertura Unicode (fuente de datos no distribuida)",
+      "tamano_pt_recomendado": 6.7,
+      "alineacion": "left",
+      "desbordamiento": "continuacion"
+    }
+  ],
+  "zonas_dinamicas": [
+    {
+      "id": "cuerpo_principal_izq",
+      "origen": "listas no vacias",
+      "pagina": "principal",
+      "mm_superior_izquierda": {
+        "x": 8,
+        "y": 124.3,
+        "width": 63.8,
+        "height": 74.3
+      }
+    },
+    {
+      "id": "cuerpo_principal_dcha",
+      "origen": "listas no vacias",
+      "pagina": "principal",
+      "mm_superior_izquierda": {
+        "x": 76.2,
+        "y": 124.3,
+        "width": 63.8,
+        "height": 74.3
+      }
+    },
+    {
+      "id": "cuerpo_continuacion",
+      "origen": "secciones con desbordamiento",
+      "pagina": "continuacion n",
+      "mm_superior_izquierda": {
+        "x": 8,
+        "y": 38,
+        "width": 132,
+        "height": 160
+      }
+    }
+  ],
+  "reglas": [
+    "No inventar ni completar valores ausentes.",
+    "Ninguna lista de contenido variable tiene un máximo de entradas.",
+    "No usar puntos suspensivos para truncar datos sin referencia íntegra.",
+    "La página de continuación es una base editorial, no tiene secciones estáticas.",
+    "Solo Naufragio d20 Fantasía."
+  ],
+  "identidad": "naufragiod20_faep.svg; Source Serif Pro (histórica), Komikazoom; maquetación blanco y negro."
+}
