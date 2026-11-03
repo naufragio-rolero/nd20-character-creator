@@ -153,11 +153,17 @@
           <select id="modo-nombre" name="modo-nombre">
             <option value="historico" data-i18n="nombres.historicos">Históricos de Ylat</option>
             <option value="combinado" data-i18n="nombres.variantes">Variantes de Ylat</option>
-            <option value="documentado" data-i18n="nombres.documentados">Personajes documentados</option>
             <option value="especie" data-i18n="nombres.especie">Según Especie</option>
           </select>
           <small data-i18n="ayuda.nombresYlat">Los nombres sugeridos no determinan el origen ni la historia del personaje.</small>
         </div>
+        <section class="campo" id="consulta-onomastica" aria-label="Consulta de nombres documentados de Ylat">
+          <label for="buscar-nombre-ylat">Consultar nombres documentados de Ylat</label>
+          <input id="buscar-nombre-ylat" type="search" placeholder="Buscar nombre o variante" autocomplete="off">
+          <small>Consulta documental: estos nombres no participan en el sorteo de personajes.</small>
+          <p id="total-nombres-ylat" aria-live="polite"></p>
+          <div id="resultados-nombres-ylat" class="consulta-nombres-resultados" aria-live="polite"></div>
+        </section>
         <div class="campo" id="opciones-ambito-nombre">
           <label for="ambito-nombre">Origen de las variantes</label>
           <select id="ambito-nombre" name="ambito-nombre">
