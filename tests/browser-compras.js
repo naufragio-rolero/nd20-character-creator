@@ -260,6 +260,26 @@ async function main(){
     const primera=estado[0],segunda=estado[1];
     assert.ok(primera.riqueza&&segunda.riqueza);
     assert.equal(await cdp.evalJS("document.querySelectorAll('.comprar-utiles').length"),2);
+    // El nuevo editor de armamento es independiente de comprar Útiles.
+    assert.equal(await cdp.evalJS("document.querySelectorAll('.editar-armamento').length"),2);
+    await cdp.evalJS("document.querySelectorAll('.editar-armamento')[0].click()");
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),true);
+    assert.ok(await cdp.evalJS("document.querySelector('#armamento-origen option')!==null"),
+      'La propuesta inicial identifica piezas con precio recuperable');
+    await cdp.evalJS("(()=>{var m=document.querySelector('#armamento-modo');"+
+      "m.value='comprar';m.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "var g=document.querySelector('#armamento-grupo');g.value='armas';"+
+      "g.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "var s=document.querySelector('#armamento-articulo');"+
+      "s.value=JSON.stringify(['armas','Dardo']);"+
+      "s.dispatchEvent(new Event('change',{bubbles:true}));})()");
+    assert.match(await cdp.evalJS("document.querySelector('#armamento-resumen').textContent"),
+      /0\\.05 mo/,'Dardo de 5 mc debe mostrarse como 0,05 mo');
+    assert.equal(await cdp.evalJS("document.querySelector('#armamento-confirmar').disabled"),false);
+    await cdp.evalJS("document.querySelector('#armamento-cancelar').click()");
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),false);
+    assert.ok(await cdp.evalJS("document.activeElement.classList.contains('editar-armamento')"),
+      'Cancelar devuelve el foco al botón de Armamento');
     await cdp.evalJS("document.querySelectorAll('.comprar-utiles')[0].click()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),true,
       'Comprar útiles abre un diálogo nativo y modal');
