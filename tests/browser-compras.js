@@ -217,7 +217,7 @@ async function main(){
     await cdp.evalJS("(()=>{"+
       "document.querySelector('#ocupacion').value='Guerrero';"+
       "document.querySelector('#especie').value='Humano común';"+
-      "document.querySelector('#nivel').value='30';"+
+      "document.querySelector('#nivel-min').value='30';document.querySelector('#nivel-max').value='30';"+
       "document.querySelector('#riqueza-por-nivel').checked=true;"+
       "document.querySelector('#cantidad').value='2';"+
       "document.querySelector('#nombre-personaje').value='Control E2E';"+
@@ -227,20 +227,20 @@ async function main(){
     await cdp.esperar("document.querySelectorAll('#fichas .tarjeta').length===2",
       'generación de dos fichas');
     // Informe de LoKoO: Nivel 99 no debe provocar un clic silencioso.
-    await cdp.evalJS("(()=>{let n=document.querySelector('#nivel');n.value='99';"+
+    await cdp.evalJS("(()=>{let n=document.querySelector('#nivel-min');n.value='99';"+
       "n.dispatchEvent(new Event('input',{bubbles:true}));"+
       "document.querySelector('#configuracion').requestSubmit(document.querySelector('#generar'));})()");
-    assert.equal(await cdp.evalJS("document.querySelector('#nivel').value"),'99',
+    assert.equal(await cdp.evalJS("document.querySelector('#nivel-min').value"),'99',
       'No se cambia silenciosamente el Nivel del usuario');
     assert.match(await cdp.evalJS("document.querySelector('#aviso-nivel').textContent"),
       /entre 1 y 30/,'La Forja explica el rango permitido');
     assert.equal(await cdp.evalJS("document.querySelector('#dialogo-configuracion').open"),
       true,'La configuración se abre al intentar generar fuera de rango');
-    assert.equal(await cdp.evalJS("document.querySelector('#nivel').getAttribute('aria-invalid')"),
+    assert.equal(await cdp.evalJS("document.querySelector('#nivel-min').getAttribute('aria-invalid')"),
       'true');
     assert.equal(await cdp.evalJS("document.querySelectorAll('#fichas .tarjeta').length"),2,
       'Nivel 99 no genera personajes');
-    await cdp.evalJS("(()=>{let n=document.querySelector('#nivel');n.value='30';"+
+    await cdp.evalJS("(()=>{let n=document.querySelector('#nivel-min');n.value='30';"+
       "n.dispatchEvent(new Event('input',{bubbles:true}));"+
       "document.querySelector('#cerrar-configuracion').click();})()");
     assert.equal(await cdp.evalJS("document.querySelector('#aviso-nivel').textContent"),'');
