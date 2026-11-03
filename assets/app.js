@@ -1465,7 +1465,7 @@
     $('estado-uso-semilla').textContent=usarSemilla?'Activada':'Desactivada';
     $('ayuda-semilla').textContent=usarSemilla?
       'Semilla fija activada: se repetirá el mismo resultado mientras no cambies las opciones.':
-      'Azar nuevo en cada generación. La semilla usada se puede copiar desde los resultados.';
+      'Azar nuevo en cada generación. La semilla usada se consulta y copia desde cada ficha.';
   }
   function cambiarUsoSemilla(activo){
     usarSemilla=!!activo;
