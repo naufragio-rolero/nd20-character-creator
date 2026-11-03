@@ -226,6 +226,25 @@ async function main(){
       "})()");
     await cdp.esperar("document.querySelectorAll('#fichas .tarjeta').length===2",
       'generación de dos fichas');
+    // Informe de LoKoO: Nivel 99 no debe provocar un clic silencioso.
+    await cdp.evalJS("(()=>{let n=document.querySelector('#nivel');n.value='99';"+
+      "n.dispatchEvent(new Event('input',{bubbles:true}));"+
+      "document.querySelector('#configuracion').requestSubmit(document.querySelector('#generar'));})()");
+    assert.equal(await cdp.evalJS("document.querySelector('#nivel').value"),'99',
+      'No se cambia silenciosamente el Nivel del usuario');
+    assert.match(await cdp.evalJS("document.querySelector('#aviso-nivel').textContent"),
+      /entre 1 y 30/,'La Forja explica el rango permitido');
+    assert.equal(await cdp.evalJS("document.querySelector('#dialogo-configuracion').open"),
+      true,'La configuración se abre al intentar generar fuera de rango');
+    assert.equal(await cdp.evalJS("document.querySelector('#nivel').getAttribute('aria-invalid')"),
+      'true');
+    assert.equal(await cdp.evalJS("document.querySelectorAll('#fichas .tarjeta').length"),2,
+      'Nivel 99 no genera personajes');
+    await cdp.evalJS("(()=>{let n=document.querySelector('#nivel');n.value='30';"+
+      "n.dispatchEvent(new Event('input',{bubbles:true}));"+
+      "document.querySelector('#cerrar-configuracion').click();})()");
+    assert.equal(await cdp.evalJS("document.querySelector('#aviso-nivel').textContent"),'');
+    assert.equal(await cdp.evalJS("document.querySelector('#dialogo-configuracion').open"),false);
     // Confirmar el caso de uso principal: popup visible con el efecto
     // completo de Recuperación, no solo la etiqueta del Talento.
     const infoRecuperacion=await cdp.evalJS("(()=>{"+
@@ -333,6 +352,16 @@ async function main(){
     assert.match(await cdp.evalJS("document.querySelector('#armamento-resumen').textContent"),
       /0\.05 mo/,'Dardo de 5 mc debe mostrarse como 0,05 mo');
     assert.equal(await cdp.evalJS("document.querySelector('#armamento-confirmar').disabled"),false);
+    await cdp.evalJS("(()=>{var s=document.querySelector('#armamento-articulo');"+
+      "s.value=JSON.stringify(['armas','Clava']);s.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "var n=document.querySelector('#armamento-cantidad');n.value='70';"+
+      "n.dispatchEvent(new Event('input',{bubbles:true}));})()");
+    assert.equal(await cdp.evalJS("document.querySelector('#armamento-cantidad').max"),
+      '10','La compra de Clavas solo ofrece diez unidades');
+    assert.equal(await cdp.evalJS("document.querySelector('#armamento-confirmar').disabled"),
+      true,'No se pueden confirmar 70 Clavas');
+    assert.match(await cdp.evalJS("document.querySelector('#armamento-resumen').textContent"),
+      /Cupo restante: 10/);
     await cdp.evalJS("document.querySelector('#armamento-cancelar').click()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),false);
     assert.ok(await cdp.evalJS("document.activeElement.classList.contains('gestionar-equipo')"),
@@ -356,6 +385,21 @@ async function main(){
     assert.ok(!compraMonturas.some(x=>/Armadura equina|Establos/.test(x)),
       'Las tarifas variables o diarias se consultan sin crear inventario persistente');
     // Consultar Armadura equina en el mismo editor, sin añadir una venta.
+    // El otro caso de LoKoO: treinta burros no son una compra válida.
+    await cdp.evalJS("(()=>{var g=document.querySelector('#compras-grupo');"+
+      "g.value='monturas';g.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "var s=document.querySelector('#compras-articulo');s.value='montura-burro-mula';"+
+      "s.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "var n=document.querySelector('#compras-cantidad');n.value='30';"+
+      "n.dispatchEvent(new Event('input',{bubbles:true}));})()");
+    assert.equal(await cdp.evalJS("document.querySelector('#compras-cantidad').max"),'5');
+    await cdp.evalJS("document.querySelector('#compras-anadir').click()");
+    assert.equal(await cdp.evalJS("document.querySelector('#estado').classList.contains('error')"),
+      true,'Treinta burros deben rechazarse con mensaje visible');
+    assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),0);
+    await cdp.evalJS("(()=>{var g=document.querySelector('#compras-grupo');"+
+      "g.value='equipo_monturas';g.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "document.querySelector('#compras-cantidad').value='1';})()");
     assert.equal(await cdp.evalJS("document.querySelector('#consulta-armadura-equina').hidden"),false);
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-armadura-equina-base option').length"),15,
       'Catorce armaduras DRS + opción vacía');
