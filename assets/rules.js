@@ -32,6 +32,20 @@
       return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
   }
+  function nivelAleatorio(minimo,maximo,rng,limite) {
+    limite=limite===undefined?36:limite;
+    if(!Number.isInteger(minimo)||!Number.isInteger(maximo)||
+       minimo<1||maximo>limite||minimo>maximo)
+      throw Error('El intervalo de Niveles no es válido (1–'+limite+').');
+    if(typeof rng!=='function')throw Error('Falta el generador determinista de Niveles.');
+    return minimo===maximo?minimo:minimo+Math.floor(rng()*(maximo-minimo+1));
+  }
+  function nivelExacto(config,maximo){
+    var nivel=config.nivel===undefined?1:config.nivel;
+    if(!Number.isInteger(nivel)||nivel<1||nivel>maximo)
+      throw Error('Nivel no válido: debe ser un entero entre 1 y '+maximo+'.');
+    return nivel;
+  }
   function dado(caras, rng) { return 1 + Math.floor(rng() * caras); }
   function escoger(arr, rng) {
     if (!Array.isArray(arr) || !arr.length) return null;
@@ -58,9 +72,11 @@
   function crearNd20(datos, config, rng) {
     rng = rng || Math.random;
     config = config || {};
-    var nivel = clamp(Math.floor(Number(config.nivel) || 1), 1, 30);
+    var nivel = nivelExacto(config,30);
     var especies = datos.especies, ocupaciones = datos.ocupaciones;
     var fuentes=datos.fuentes||{}, permitidas=Array.isArray(config.fuentes)?config.fuentes:null;
+    if(permitidas&&!permitidas.length)
+      throw Error('Selecciona al menos una fuente para generar personajes.');
     function permitida(tipo,key){
       return !permitidas||permitidas.indexOf((fuentes[tipo]||{})[key]||'DRS')!==-1;
     }
@@ -355,6 +371,8 @@
     return salud;
   }
   function escogerEntradaPorOrigen(entries, origenes, rng) {
+    if(origenes&&!origenes.length)
+      throw Error('Marca al menos una procedencia para Dungeon Hack.');
     var valores = Object.keys(entries).filter(function(k) {
       return !origenes || !origenes.length || origenes.indexOf(Number(entries[k].origin)) !== -1;
     });
@@ -363,6 +381,8 @@
   }
   function eleccionDH(datos, config, rng) {
     var origenes = Array.isArray(config.origenes) ? config.origenes.map(Number) : null;
+    if(origenes&&!origenes.length)
+      throw Error('Marca al menos una procedencia para Dungeon Hack.');
     var clases = datos.classes;
     if(config.ocupacion&&clases[config.ocupacion]&&origenes&&
       origenes.indexOf(Number(clases[config.ocupacion].origin))===-1)
@@ -373,7 +393,7 @@
     }));
     var claseKey = config.ocupacion && clases[config.ocupacion] ?
       config.ocupacion : escogerEntradaPorOrigen(candidatas, origenes, rng);
-    var clase = clases[claseKey], nivel = clamp(Math.floor(Number(config.nivel) || 1), 1, 36);
+    var clase = clases[claseKey], nivel = nivelExacto(config,36);
     var favor = escoger(clase.attr, rng);
     var atributos = ATTR_DH.map(function(){return dificultadDH(rng);});
     var tieneRaza = config.conEspecie !== false && !clase.is_race;
@@ -505,6 +525,7 @@
     }
     return filas;
   }
-  return {hash:hash, aleatorioSemilla:aleatorioSemilla, dado:dado, crearNd20:crearNd20,
+  return {hash:hash, aleatorioSemilla:aleatorioSemilla, nivelAleatorio:nivelAleatorio,
+    dado:dado, crearNd20:crearNd20,
     eleccionDH:eleccionDH, seguidorDH:seguidorDH, matriz:matriz, mazmorra:mazmorra};
 });
