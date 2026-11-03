@@ -290,6 +290,55 @@
           </div>
         </form>
       </dialog>
+      <dialog id="editor-armamento" class="dialogo-compras dialogo-armamento" hidden aria-labelledby="titulo-editor-armamento">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-editor-armamento">Gestionar armas y protecciones</h3>
+            <p id="armamento-saldo" class="muted" aria-live="polite"></p>
+          </div>
+          <button type="button" id="armamento-cerrar" class="cerrar-rejilla" aria-label="Cerrar editor de armamento">✕</button>
+        </div>
+        <form id="form-armamento">
+          <div class="campo">
+            <label for="armamento-modo">Operación</label>
+            <select id="armamento-modo">
+              <option value="cambiar">Cambiar equipo comprado inicialmente</option>
+              <option value="comprar">Comprar equipo adicional</option>
+            </select>
+          </div>
+          <section id="armamento-cambio">
+            <div class="campo">
+              <label for="armamento-origen">Pieza inicial que deseas sustituir</label>
+              <select id="armamento-origen"></select>
+            </div>
+            <div class="campo">
+              <label for="armamento-destino">Nueva pieza</label>
+              <select id="armamento-destino"></select>
+            </div>
+            <small>Solo se reembolsa el precio pagado por armas, armaduras, escudos y varitas de la compra inicial. Nunca se devuelven objetos de paquetes ni regalos.</small>
+          </section>
+          <section id="armamento-adicional" hidden>
+            <div class="campo">
+              <label for="armamento-grupo">Familia de equipo</label>
+              <select id="armamento-grupo"></select>
+            </div>
+            <div class="campo">
+              <label for="armamento-articulo">Artículo</label>
+              <select id="armamento-articulo"></select>
+            </div>
+            <div class="campo">
+              <label for="armamento-cantidad">Cantidad</label>
+              <input id="armamento-cantidad" type="number" min="1" max="99" step="1" value="1">
+            </div>
+            <small>Compra individual. Las Varitas requieren Competencia explícita; el resto del equipo sin Competencia conlleva las Desventajas del DRS.</small>
+          </section>
+          <p id="armamento-resumen" class="ayuda" aria-live="polite"></p>
+          <div class="botonera">
+            <button type="submit" id="armamento-confirmar" class="principal">Confirmar operación</button>
+            <button type="button" id="armamento-cancelar">Cancelar</button>
+          </div>
+        </form>
+      </dialog>
       <div id="fichas" class="fichas" aria-live="off">
         <div class="vacio" id="vacio">
           <span class="emblema" aria-hidden="true">◇</span>
