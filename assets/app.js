@@ -12,6 +12,7 @@
   var compraBorrador = null;
   var armamentoBorrador = null;
   var gestionBorrador = null;
+  var revisionBorrador = null;
   var fuentesGuardadas = {};
   var $ = function (id) {return document.getElementById(id);};
   function aviso(mensaje, esError) {
@@ -628,6 +629,9 @@
       '<div class="pie-ficha"><div class="acciones-pie-ficha" role="group" aria-label="Acciones de la ficha">' +
       (personaje.juego==='Naufragio d20 · Fantasía'&&Number.isFinite(personaje.saldo_mo)?
         '<button type="button" class="gestionar-equipo" data-id="'+id+'" title="Equipar y gestionar el equipo" aria-label="Equipar y gestionar el equipo">Equipo</button>':'')+
+      (personaje.juego==='Naufragio d20 · Fantasía'&&personaje.elecciones_registradas?
+        '<button type="button" class="revisar-elecciones" data-id="'+id+
+        '" title="Revisar Talentos y Poderes elegidos" aria-label="Revisar Talentos y Poderes">Talentos y Poderes</button>':'')+
       (personaje.juego==='Naufragio d20 · Fantasía'?
         '<button type="button" class="exportar-pdf-ficha" data-id="'+id+'" title="Exportar PDF A5" aria-label="Exportar ficha PDF A5">PDF</button>':'')+
       '<button type="button" class="copiar-ficha" data-id="' + id +
@@ -949,6 +953,170 @@
     if(tipo==='armamento')abrirArmamento(entrada);
     else abrirCompra(entrada);
   }
+  // Una segunda oportunidad para elegir las plazas documentadas al generar,
+  // con fichas informativas, sin conceder progresión ni preparar Conjuros.
+  function entradaRevision(){
+    var entrada=entradas.find(function(x){return x.id===revisionBorrador?.id;});
+    if(!entrada||entrada.tipo!=='ficha'||
+       entrada.valor.juego!=='Naufragio d20 · Fantasía')
+      throw Error('Esta ficha no tiene elecciones DRS revisables.');
+    return entrada;
+  }
+  function cerrarRevisionElecciones(){
+    var id=revisionBorrador?.id;
+    revisionBorrador=null;
+    var dialogo=$('editor-revision-elecciones');
+    if(dialogo.open)dialogo.close();
+    dialogo.hidden=true;
+    if(id!==undefined){
+      var boton=$('fichas').querySelector('.revisar-elecciones[data-id="'+id+'"]');
+      if(boton)boton.focus({preventScroll:true});
+    }
+  }
+  function opcionesRevision(paso,decisiones){
+    return poderes.disponibles(paso,decisiones);
+  }
+  function actualizarConsultaRevision(selector,opciones,paso,nivel){
+    var boton=selector.parentElement.querySelector('.consultar-ficha-eleccion');
+    if(!boton)return;
+    var elegida=opciones.find(function(x){return x.id===selector.value;});
+    var grupo=paso.tipo==='talento'?'talento':'poder';
+    var porId=elegida&&infoUI?.consultaPorId?.(elegida.id,grupo,'nd20');
+    var esConjuro=elegida&&/^conjuro-/.test(elegida.id);
+    var encontrada=porId||(esConjuro?null:elegida&&
+      infoUI?.consulta(elegida.nombre,grupo,'nd20'));
+    boton.hidden=!encontrada;
+    if(encontrada){
+      boton.dataset.glosaNombre=elegida.nombre;
+      boton.dataset.glosaGrupo=grupo;
+      boton.dataset.glosaSistema='nd20';
+      boton.dataset.glosaNivel=String(nivel);
+      if(porId)boton.dataset.glosaId=elegida.id;
+      else delete boton.dataset.glosaId;
+    }else{
+      delete boton.dataset.glosaId;
+      delete boton.dataset.glosaNombre;
+    }
+  }
+  function refrescarRevision(){
+    var entrada=entradaRevision(),p=entrada.valor;
+    var registro=p.elecciones_registradas,decisiones=JSON.parse(
+      JSON.stringify(registro.decisiones));
+    var pasos=poderes.opcionesRevisables(p);
+    var cantidad=0,valido=pasos.length>0;
+    pasos.forEach(function(paso){
+      var selectors=Array.from($('form-revision-elecciones')
+        .querySelectorAll('select[data-revision-paso="'+paso.id+'"]'));
+      var usados=new Set(),valores=[];
+      selectors.forEach(function(sel){
+        var anterior=sel.value;
+        var permitidas=opcionesRevision(paso,decisiones).filter(function(x){
+          return !usados.has(x.id);
+        });
+        sel.replaceChildren();
+        var vacio=document.createElement('option');
+        vacio.value='';vacio.textContent='— Elige una opción —';
+        sel.appendChild(vacio);
+        permitidas.forEach(function(op){
+          var opt=document.createElement('option');
+          opt.value=op.id;
+          opt.textContent=poderes.nombreEtiquetado(paso.tipo,paso.titulo,op.nombre)+
+            (op.circulo?' · C'+op.circulo:'')+
+            poderes.origenConjuro(paso.tipo,paso.titulo,op.origen);
+          sel.appendChild(opt);
+        });
+        if(permitidas.some(function(x){return x.id===anterior;})){
+          sel.value=anterior;usados.add(anterior);valores.push(anterior);
+        }else{
+          sel.value='';valido=false;
+        }
+        actualizarConsultaRevision(sel,permitidas,paso,p.nivel);
+      });
+      cantidad+=selectors.length;
+      decisiones[paso.id]=valores;
+      if(valores.length!==paso.cantidad)valido=false;
+    });
+    $('revision-confirmar').disabled=!valido;
+    $('revision-estado').textContent=!pasos.length?
+      'No hay elecciones manuales de Talentos ni Poderes conocidos en la progresión DRS de esta ficha.':
+      valido?cantidad+' plazas documentadas. Preparar Conjuros es una operación distinta.':
+      'Completa las plazas pendientes; no se permiten Conjuros conocidos repetidos.';
+  }
+  function seleccionesRevision(){
+    var p=entradaRevision().valor,resultado={};
+    poderes.opcionesRevisables(p).forEach(function(paso){
+      resultado[paso.id]=Array.from($('form-revision-elecciones')
+        .querySelectorAll('select[data-revision-paso="'+paso.id+'"]'))
+        .map(function(sel){return sel.value;});
+      if(resultado[paso.id].length!==paso.cantidad||
+         resultado[paso.id].some(function(x){return !x;}))
+        throw Error('Completa las elecciones de '+paso.titulo+'.');
+    });
+    return resultado;
+  }
+  function abrirRevisionElecciones(entrada){
+    if(!poderes?.opcionesRevisables||!poderes?.revisar)
+      throw Error('El editor de Poderes y Talentos no está cargado.');
+    revisionBorrador={id:entrada.id};
+    var p=entradaRevision().valor,reg=p.elecciones_registradas;
+    var pasos=poderes.opcionesRevisables(p);
+    $('revision-resumen').textContent=p.nombre+' · Nivel '+p.nivel;
+    var talentos=$('revision-pasos-talentos'),otros=$('revision-pasos-poderes');
+    talentos.replaceChildren();otros.replaceChildren();
+    $('revision-talentos').hidden=!pasos.some(function(x){return x.tipo==='talento';});
+    $('revision-poderes').hidden=!pasos.some(function(x){return x.tipo!=='talento';});
+    pasos.forEach(function(paso){
+      var field=document.createElement('fieldset');
+      field.className='grupo-poderes';
+      var leyenda=document.createElement('legend');
+      leyenda.textContent=paso.titulo+' ('+paso.cantidad+')';
+      field.appendChild(leyenda);
+      for(var i=0;i<paso.cantidad;i++){
+        var label=document.createElement('label');
+        label.className='eleccion-poder';
+        label.textContent=(i+1)+'. ';
+        var sel=document.createElement('select');
+        sel.dataset.revisionPaso=paso.id;sel.dataset.orden=String(i);
+        sel.required=true;
+        var inicial=(reg.decisiones[paso.id]||[])[i];
+        // Se asigna después de construir el conjunto de opciones.
+        sel.dataset.inicial=inicial||'';
+        label.appendChild(sel);
+        var ver=document.createElement('button');
+        ver.type='button';ver.className='consultar-ficha-eleccion';
+        ver.textContent='Ver ficha';ver.hidden=true;
+        ver.setAttribute('aria-label','Consultar la ficha de la opción elegida');
+        label.appendChild(ver);field.appendChild(label);
+      }
+      (paso.tipo==='talento'?talentos:otros).appendChild(field);
+    });
+    // Primero se crean todas las opciones con las mismas restricciones del
+    // editor original, después se recupera cada selección registrada.
+    pasos.forEach(function(paso){
+      var sels=Array.from($('form-revision-elecciones')
+        .querySelectorAll('select[data-revision-paso="'+paso.id+'"]'));
+      var usados=new Set();
+      sels.forEach(function(sel){
+        var pool=opcionesRevision(paso,reg.decisiones).filter(function(op){
+          return !usados.has(op.id);
+        });
+        var inicial=sel.dataset.inicial;
+        pool.forEach(function(op){
+          var option=document.createElement('option');
+          option.value=op.id;option.textContent=op.nombre;sel.appendChild(option);
+        });
+        if(pool.some(function(op){return op.id===inicial;})){
+          sel.value=inicial;usados.add(inicial);
+        }else sel.value='';
+        delete sel.dataset.inicial;
+      });
+    });
+    refrescarRevision();
+    var dialogo=$('editor-revision-elecciones');
+    dialogo.hidden=false;dialogo.showModal();
+    var primero=dialogo.querySelector('select[data-revision-paso]');
+    (primero||$('revision-cerrar')).focus({preventScroll:true});
+  }
   // Compras de útiles: la selección se valida con el motor antes de tocar
   // el inventario. Cada editor se vincula al ID único de una ficha DRS.
   function cerrarCompra(){
@@ -1208,6 +1376,16 @@
     $('grupos-elecciones').querySelectorAll('select[data-paso]').forEach(function(sel){
       var paso=borrador.plan.pasos.find(function(p){return p.id===sel.dataset.paso;});
       var anterior=sel.value,disponibles=poderes.disponibles(paso,selecciones);
+      if(paso.tipo==='conjuro_conocido'&&!paso.repetibles){
+        // En un mismo Nivel del grimorio tampoco se aprende dos veces
+        // el mismo Conjuro. Se preserva el primer selector elegido.
+        var previos=Array.from($('grupos-elecciones')
+          .querySelectorAll('select[data-paso="'+paso.id+'"]'))
+          .filter(function(otro){
+            return otro!==sel&&Number(otro.dataset.orden)<Number(sel.dataset.orden);
+          }).map(function(otro){return otro.value;}).filter(Boolean);
+        disponibles=disponibles.filter(function(op){return !previos.includes(op.id);});
+      }
       sel.textContent='';
       var option=document.createElement('option');
       option.value='';option.textContent='— Elige una opción —';sel.appendChild(option);
@@ -1398,7 +1576,7 @@
             prepararEditor(personaje,plan,r,
               {config:c,semillaPersonaje:semillaPersonaje});return;
           }
-          items.push(poderes.aplicar(personaje,plan,poderes.resolver(plan,null,r)));
+          items.push(poderes.registrar(personaje,plan,poderes.resolver(plan,null,r)));
         }
         items.forEach(function(p){agregar('ficha',p);});
         cerrarMenuMovil();
@@ -1414,6 +1592,37 @@
           });
         }
       });
+    });
+    $('form-revision-elecciones').addEventListener('change',function(e){
+      if(e.target.matches('select[data-revision-paso]'))refrescarRevision();
+    });
+    $('form-revision-elecciones').addEventListener('submit',function(e){
+      e.preventDefault();
+      var mensaje='';
+      conControl(function(){
+        var entrada=entradaRevision();
+        var resultado=poderes.revisar(entrada.valor,seleccionesRevision());
+        entrada.valor=resultado.personaje;
+        cerrarRevisionElecciones();
+        dibujar();
+        var boton=$('fichas').querySelector('.revisar-elecciones[data-id="'+entrada.id+'"]');
+        if(boton)boton.focus({preventScroll:true});
+        mensaje='Talentos y Poderes actualizados.'+
+          (resultado.preparacionesRetiradas?
+            ' '+resultado.preparacionesRetiradas+' preparación(es) invalidadas retiradas.':'');
+      });
+      if(mensaje)aviso(mensaje);
+    });
+    $('revision-cerrar').addEventListener('click',cerrarRevisionElecciones);
+    $('revision-cancelar').addEventListener('click',cerrarRevisionElecciones);
+    $('editor-revision-elecciones').addEventListener('cancel',function(e){
+      e.preventDefault();cerrarRevisionElecciones();
+    });
+    $('editor-revision-elecciones').addEventListener('click',function(e){
+      if(e.target!==this)return;
+      var r=this.getBoundingClientRect();
+      if(e.clientX<r.left||e.clientX>r.right||
+         e.clientY<r.top||e.clientY>r.bottom)cerrarRevisionElecciones();
     });
     $('form-elecciones').addEventListener('submit',function(event){
       event.preventDefault();
@@ -1438,7 +1647,7 @@
             throw Error('La reconstrucción alteró la identidad del personaje.');
           personaje=nuevo;
         }
-        agregar('ficha',poderes.aplicar(personaje,borrador.plan,resultado));
+        agregar('ficha',poderes.registrar(personaje,borrador.plan,resultado));
         cerrarEditor();
       });
     });
@@ -1692,6 +1901,16 @@
          e.clientY<r.top||e.clientY>r.bottom)cerrarGestionEquipo();
     });
     $('fichas').addEventListener('click',function(e){
+      var revision=e.target.closest('.revisar-elecciones');
+      if(revision){
+        conControl(function(){
+          var entrada=entradas.find(function(x){
+            return x.tipo==='ficha'&&String(x.id)===revision.dataset.id;
+          });
+          if(!entrada)throw Error('Ficha no encontrada.');
+          abrirRevisionElecciones(entrada);
+        });return;
+      }
       var gestionar=e.target.closest('.gestionar-equipo');
       if(gestionar){
         conControl(function(){
@@ -1708,6 +1927,8 @@
           cerrarArmamento();
         if(gestionBorrador&&String(gestionBorrador.id)===del.dataset.id)
           cerrarGestionEquipo();
+        if(revisionBorrador&&String(revisionBorrador.id)===del.dataset.id)
+          cerrarRevisionElecciones();
         entradas=entradas.filter(function(x){return String(x.id)!==del.dataset.id;});
         dibujar();return;
       }

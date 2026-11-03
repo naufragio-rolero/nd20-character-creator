@@ -254,6 +254,57 @@ async function main(){
       "document.querySelector('#fichas .tarjeta .otros-avisos')?.textContent?.includes('Talento de Ocupación — Recuperación:')!==true"),
       'La ficha no duplica el efecto de Recuperación al final');
     await cdp.evalJS("window.NaufragioInfoUI.cerrar()");
+    // La ficha terminada permite revisar una plaza real de Talento.
+    assert.equal(await cdp.evalJS(
+      "document.querySelectorAll('#fichas .revisar-elecciones').length"),2);
+    await cdp.evalJS("document.querySelectorAll('.revisar-elecciones')[0].click()");
+    const revisionAbierta=await cdp.evalJS("({abierta:document.querySelector('#editor-revision-elecciones').open,"+
+      "estado:document.querySelector('#estado').textContent,grupos:document.querySelectorAll('#revision-pasos-talentos select').length})");
+    assert.equal(revisionAbierta.abierta,true,
+      'La revisión debe abrirse: '+JSON.stringify(revisionAbierta));
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#revision-pasos-talentos select').dataset.revisionPaso"),
+      'talento-guerrero');
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#revision-poderes').hidden === "+
+      "(document.querySelectorAll('#revision-pasos-poderes select').length===0)"),true,
+      'La sección de Poderes aparece si el Guerrero tiene elecciones adicionales documentadas');
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#revision-pasos-talentos .consultar-ficha-eleccion').hidden"),
+      false,'Una elección de Talento documentada tiene su popup');
+    await cdp.evalJS("document.querySelector('#revision-pasos-talentos .consultar-ficha-eleccion').click()");
+    const vistaPopup=await cdp.evalJS("(()=>{var c=document.querySelector('#ficha-emergente');"+
+      "if(!c)return null;var r=c.getBoundingClientRect();"+
+      "var x=document.elementFromPoint(r.left+r.width/2,r.top+Math.min(18,r.height/2));"+
+      "return {visible:!c.hidden,contenedor:c.parentElement.id,"+
+      "accesible:c.contains(x),texto:c.textContent};})()");
+    assert.ok(vistaPopup?.visible&&vistaPopup.contenedor==='editor-revision-elecciones',
+      'Ver ficha debe mostrarse delante del editor modal');
+    assert.equal(vistaPopup.accesible,true,
+      'La ventana de glosa es interactiva y no queda detrás del diálogo');
+    await cdp.evalJS("window.NaufragioInfoUI.cerrar()");
+    const talentoAntes=await cdp.evalJS(
+      "document.querySelector('#revision-pasos-talentos select').value");
+    await cdp.evalJS("(()=>{var s=document.querySelector('#revision-pasos-talentos select');"+
+      "s.value=Array.from(s.options).find(o=>o.value&&o.value!==s.value).value;"+
+      "s.dispatchEvent(new Event('change',{bubbles:true}));})()");
+    const talentoDespues=await cdp.evalJS(
+      "document.querySelector('#revision-pasos-talentos select').value");
+    assert.notEqual(talentoAntes,talentoDespues);
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#revision-confirmar').disabled"),false);
+    await cdp.evalJS("document.querySelector('#form-revision-elecciones').requestSubmit()");
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#editor-revision-elecciones').open"),false);
+    assert.match(await cdp.evalJS("document.querySelector('#estado').textContent"),
+      /Talentos y Poderes actualizados/);
+    assert.equal(await cdp.evalJS(
+      "document.activeElement.classList.contains('revisar-elecciones')"),true);
+    const habilidades=await cdp.evalJS(
+      "document.querySelector('#fichas .tarjeta').textContent");
+    const nombreTalento=talentoDespues;
+    assert.ok(habilidades.includes(nombreTalento),
+      'La ficha refleja el Talento elegido después de crear el personaje');
 
     let estado=await cdp.evalJS("Array.from(document.querySelectorAll('#fichas .tarjeta')).map(x=>({"+
       "id:x.dataset.id,html:x.innerHTML,riqueza:x.querySelector('.riqueza')?.textContent}))");

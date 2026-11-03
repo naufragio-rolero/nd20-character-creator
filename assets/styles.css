@@ -1149,3 +1149,46 @@ html[data-tema]:not([data-tema=clasico]) .recursos-rejilla .recurso-arma{
   }
   .dialogo-gestion-equipo #gestion-terminar{align-self:stretch}
 }
+
+
+/* Edición posterior: plazas documentadas con consulta inmediata de glosas.
+   Los formularios de creación y de preparación de Conjuros no se modifican. */
+.dialogo-revision-elecciones #form-revision-elecciones{
+  padding:1rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.8rem;
+}
+.dialogo-revision-elecciones .revision-aclaracion{
+  line-height:1.55;margin:0;
+}
+.dialogo-revision-elecciones .revision-grupo h4{
+  font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;
+  margin:0 0 .6rem;color:var(--texto);
+}
+.dialogo-revision-elecciones .grupo-poderes{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.65rem .8rem;padding:.8rem;
+}
+.dialogo-revision-elecciones .grupo-poderes legend{font-size:.78rem}
+.dialogo-revision-elecciones .eleccion-poder{
+  min-width:0;font-size:.78rem;
+}
+.dialogo-revision-elecciones .eleccion-poder select{
+  width:100%;min-height:44px;font-size:.84rem;
+  background:var(--superficie2);color:var(--texto);
+}
+.dialogo-revision-elecciones .eleccion-poder .consultar-ficha-eleccion{
+  align-self:flex-start;min-height:36px;padding:.35rem .7rem;
+}
+.dialogo-revision-elecciones #revision-estado{
+  margin:0;line-height:1.45;
+}
+.dialogo-revision-elecciones .botonera{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.6rem;
+}
+.dialogo-revision-elecciones :is(button,select):focus-visible{
+  outline:3px solid #0099cc;outline-offset:2px;
+}
+@media(max-width:560px){
+  .dialogo-revision-elecciones #form-revision-elecciones{padding:.8rem}
+  .dialogo-revision-elecciones .grupo-poderes{grid-template-columns:minmax(0,1fr)}
+  .dialogo-revision-elecciones .botonera{grid-template-columns:minmax(0,1fr)}
+}

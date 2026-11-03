@@ -94,7 +94,11 @@
   function cerrar(){
     limpiarTemporizador();
     if(ancla){ancla.removeAttribute("aria-describedby");ancla.setAttribute("aria-expanded","false");}
-    if(card){card.hidden=true;card.setAttribute('role','tooltip');}
+    if(card){
+      card.hidden=true;card.setAttribute('role','tooltip');
+      // Fuera de una ventana modal, la ficha conserva su posición habitual.
+      if(card.parentElement!==document.body)document.body.appendChild(card);
+    }
     ancla=null;fija=false;
   }
   function mostrar(elemento,anclado){
@@ -112,6 +116,12 @@
     if(ancla&&ancla!==elemento)ancla.removeAttribute("aria-describedby");
     ancla=elemento;fija=!!anclado;
     var c=crearElemento();
+    // Los elementos de un <dialog> nativo están en la top layer. La ficha
+    // flotante debe pertenecer a ese diálogo para no quedar oculta detrás
+    // de él (Chrome, Firefox y WebKit); no se cambia su contenido.
+    var modal=elemento.closest?.('dialog[open]');
+    var contenedor=modal||document.body;
+    if(c.parentElement!==contenedor)contenedor.appendChild(c);
     c.replaceChildren();
     c.setAttribute('role',fija?'dialog':'tooltip');
     if(fija){

@@ -527,6 +527,18 @@
       });
       lista=lista.filter(function(op){return !usados.has(op.id);});
     }
+    // Aprender no es preparar: un Conjuro conocido solo ocupa una plaza
+    // en el grimorio entero. Las preparaciones sí admiten repeticiones.
+    if(paso.tipo==="conjuro_conocido"&&/^grimorio-\d+$/.test(paso.id)){
+      var nivelActual=Number(paso.id.slice("grimorio-".length));
+      var anteriores=new Set();
+      Object.keys(selecciones||{}).forEach(function(id){
+        var encontrado=id.match(/^grimorio-(\d+)$/);
+        if(encontrado&&Number(encontrado[1])<nivelActual)
+          (selecciones[id]||[]).forEach(function(conjuro){anteriores.add(conjuro);});
+      });
+      lista=lista.filter(function(x){return !anteriores.has(x.id);});
+    }
     if(paso.tipo==="conjuro_preparado")
       return [{id:"__vacio",nombre:"Sin preparar"}].concat(lista);
     return lista;
@@ -683,7 +695,107 @@
     if(vacios)personaje.notas.push(vacios+" Espacio(s) de Conjuro sin preparar.");
     return personaje;
   }
+
+  // Una instantánea anterior a aplicar las decisiones permite revisar
+  // exactamente las plazas originales sin convertir la edición en niveles
+  // o Talentos adicionales. Solo Fantasía DRS.
+  function registrar(personaje,plan,resultado){
+    var admisible=personaje?.juego==="Naufragio d20 · Fantasía";
+    var base=admisible?JSON.parse(JSON.stringify(personaje)):null;
+    var p=aplicar(personaje,plan,resultado);
+    if(admisible){
+      p.elecciones_registradas={
+        plan:JSON.parse(JSON.stringify(plan)),
+        decisiones:JSON.parse(JSON.stringify(resultado.decisiones)),
+        base:base
+      };
+    }
+    return p;
+  }
+  function puedeRevisar(paso){
+    return !paso.automatico&&
+      ["talento","conjuro_conocido","tecnica"].includes(paso.tipo);
+  }
+  function opcionesRevisables(personaje){
+    var registro=personaje?.elecciones_registradas;
+    if(personaje?.juego!=="Naufragio d20 · Fantasía"||!registro||
+       !registro.plan||!registro.decisiones||!registro.base)return [];
+    return registro.plan.pasos.filter(puedeRevisar);
+  }
+  function extraPreservado(actual,original){
+    var disponibles=new Map();
+    (original||[]).forEach(function(x){
+      var clave=JSON.stringify(x);
+      disponibles.set(clave,(disponibles.get(clave)||0)+1);
+    });
+    return (actual||[]).filter(function(x){
+      var clave=JSON.stringify(x),numero=disponibles.get(clave)||0;
+      if(numero){disponibles.set(clave,numero-1);return false;}
+      return true;
+    });
+  }
+  // Reaplica solo los efectos que ya pertenecían a una selección inicial.
+  // Mantiene compras posteriores, notas nuevas, recursos no relacionados y
+  // cualquier otra modificación posterior que no sea una elección reemplazada.
+  function revisar(personaje,cambios){
+    var registro=personaje?.elecciones_registradas;
+    var pasos=opcionesRevisables(personaje);
+    if(!pasos.length)throw Error("No hay elecciones DRS editables registradas.");
+    if(!cambios||typeof cambios!=="object"||Array.isArray(cambios))
+      throw Error("Las elecciones deben estar identificadas por su plaza.");
+    var ids=new Set(pasos.map(function(p){return p.id;}));
+    Object.keys(cambios).forEach(function(id){
+      if(!ids.has(id))throw Error("No se puede cambiar esta plaza: "+id);
+    });
+    var decisiones=JSON.parse(JSON.stringify(registro.decisiones));
+    pasos.forEach(function(paso){
+      if(!Object.hasOwn(cambios,paso.id))return;
+      var seleccion=cambios[paso.id];
+      if(!Array.isArray(seleccion)||seleccion.length!==paso.cantidad)
+        throw Error("La plaza exige "+paso.cantidad+" elecciones: "+paso.titulo);
+      decisiones[paso.id]=seleccion.slice();
+    });
+    var retiradas=0;
+    // Si un Conjuro deja de ser conocido, nunca puede seguir preparado.
+    // Conservar el resto de preparaciones sin ofrecer aquí su edición.
+    var conocidos=new Set();
+    registro.plan.pasos.forEach(function(paso){
+      if(paso.tipo==="conjuro_conocido")
+        (decisiones[paso.id]||[]).forEach(function(id){conocidos.add(id);});
+    });
+    registro.plan.pasos.forEach(function(paso){
+      if(paso.tipo!=="conjuro_preparado"||!paso.dependeGrimorio)return;
+      decisiones[paso.id]=(decisiones[paso.id]||[]).map(function(id){
+        if(id==="__vacio"||conocidos.has(id))return id;
+        retiradas++;return "__vacio";
+      });
+    });
+    var previo=resolver(registro.plan,registro.decisiones,function(){return 0;});
+    var nuevo=resolver(registro.plan,decisiones,function(){return 0;});
+    function construir(resultado){
+      var base=JSON.parse(JSON.stringify(registro.base));
+      return aplicar(base,registro.plan,resultado);
+    }
+    var anterior=construir(previo),siguiente=construir(nuevo);
+    var copia=JSON.parse(JSON.stringify(personaje));
+    ["capacidades","competencias","poderes","conjuros_preparados","notas"].forEach(function(campo){
+      copia[campo]=(siguiente[campo]||[]).concat(
+        extraPreservado(personaje[campo],anterior[campo]));
+    });
+    var anteriores=new Set((anterior.recursos||[]).map(function(x){return x[0];}));
+    copia.recursos=(siguiente.recursos||[]).concat(
+      (personaje.recursos||[]).filter(function(x){return !anteriores.has(x[0]);}));
+    copia.elecciones_registradas={
+      plan:registro.plan,base:registro.base,decisiones:decisiones
+    };
+    if(retiradas){
+      copia.notas.push("Revisión de Conjuros conocidos: "+
+        retiradas+" preparación(es) retiradas porque ya no se conocen esos Conjuros.");
+    }
+    return {personaje:copia,preparacionesRetiradas:retiradas};
+  }
   return {planificar:planificar,resolver:resolver,aplicar:aplicar,disponibles:disponibles,
+    registrar:registrar,opcionesRevisables:opcionesRevisables,revisar:revisar,
     codigoPoder:codigoPoder,nombreEtiquetado:nombreEtiquetado,
     origenConjuro:origenConjuro,estadoUsoVA:estadoUsoVA};
 });
