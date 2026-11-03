@@ -102,7 +102,8 @@
       <form id="configuracion">
         <div class="campo">
           <label for="nivel">Nivel <span id="rango-nivel">1–30</span></label>
-          <input id="nivel" name="nivel" type="number" value="1" min="1" max="30" step="1" required>
+          <input id="nivel" name="nivel" type="number" value="1" min="1" max="30" step="1" required aria-describedby="aviso-nivel">
+          <p id="aviso-nivel" class="ayuda aviso-validacion-nivel" role="status" aria-live="polite"></p>
         </div>
         <div class="campo">
           <label id="etiqueta-ocupacion" for="ocupacion">Ocupación / Clase</label>
@@ -313,7 +314,8 @@
           <div class="campos-compra">
             <div class="campo">
               <label for="compras-cantidad">Cantidad</label>
-              <input id="compras-cantidad" type="number" min="1" max="99" step="1" value="1" required>
+              <input id="compras-cantidad" type="number" min="1" max="10" step="1" value="1" required aria-describedby="compras-limite">
+              <small id="compras-limite">La Forja permite hasta 10 unidades por artículo; 5 monturas en total por personaje. Límite de interfaz, no del DRS.</small>
             </div>
             <div class="campo" id="compras-campo-nivel" hidden>
               <label for="compras-nivel">Nivel del Antídoto o Veneno</label>
@@ -337,7 +339,7 @@
           <ul id="compras-lista" class="lista-compra"></ul>
           <p id="compras-total" aria-live="polite"></p>
           <div class="botonera">
-            <button id="compras-confirmar" type="submit" class="principal" disabled>Confirmar compra</button>
+            <button id="compras-confirmar" type="submit" class="principal" formnovalidate disabled>Confirmar compra</button>
             <button id="compras-cancelar" type="button">Cancelar</button>
           </div>
         </form>
@@ -380,7 +382,8 @@
             </div>
             <div class="campo">
               <label for="armamento-cantidad">Cantidad</label>
-              <input id="armamento-cantidad" type="number" min="1" max="99" step="1" value="1">
+              <input id="armamento-cantidad" type="number" min="1" max="10" step="1" value="1" aria-describedby="armamento-limite">
+              <small id="armamento-limite">Máximo 10 unidades del mismo artículo por personaje. Límite de La Forja, no del DRS.</small>
             </div>
             <small>Compra individual. Las Varitas requieren Competencia explícita; el resto del equipo sin Competencia conlleva las Desventajas del DRS.</small>
           </section>

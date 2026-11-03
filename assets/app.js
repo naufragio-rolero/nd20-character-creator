@@ -278,6 +278,7 @@
       }).sort(ordenar),true);
     }
     refrescarTarjetasVisibles();
+    validarNivelVisible();
     refrescarResumenCreacion();
     refrescarGenerarFlotante();
   }
@@ -285,6 +286,17 @@
   function dhModo(juego) {
     if(juego==='dh')return 'rapido';
     return document.querySelector('input[name="modo-creacion"]:checked').value;
+  }
+  function validarNivelVisible(){
+    var campo=$('nivel'),maximo=Number(campo.max);
+    var valido=Number.isInteger(campo.valueAsNumber)&&
+      campo.valueAsNumber>=1&&campo.valueAsNumber<=maximo;
+    var mensaje=valido?'':'Nivel no válido. Escribe un número entero entre 1 y '+
+      maximo+' para el sistema seleccionado.';
+    $('aviso-nivel').textContent=mensaje;
+    if(valido)campo.removeAttribute('aria-invalid');
+    else campo.setAttribute('aria-invalid','true');
+    return valido;
   }
   function config() {
     var juego=$('juego').value, nivel=Number($('nivel').value);
@@ -803,6 +815,7 @@
     var cambiar=$('armamento-modo').value==='cambiar';
     $('armamento-cambio').hidden=!cambiar;
     $('armamento-adicional').hidden=cambiar;
+    $('armamento-cantidad').disabled=cambiar;
     $('armamento-saldo').textContent='Personaje: '+personaje.nombre+
       ' · Saldo disponible: '+dineroEquipo(personaje.saldo_mo);
     var resultado='',validar=false,advertencia='';
@@ -840,7 +853,14 @@
           resultado='Compra adicional: '+item.nombre+' ×'+cantidad+
             ' · '+dineroEquipo(total)+'.\nSaldo tras compra: '+
             dineroEquipo(Math.round((personaje.saldo_mo-total)*100)/100)+'.';
-          validar=Number.isInteger(cantidad)&&cantidad>=1&&cantidad<=99&&
+          var cupo=window.NaufragioEquipment.cupoCompraFantasia(
+            datos.equipoInicial,personaje.equipo,[],item.grupo,item.nombre);
+          $('armamento-cantidad').max=String(cupo);
+          $('armamento-limite').textContent='Puedes añadir '+cupo+
+            ' unidad(es) de este artículo. Máximo 10 por artículo y '+
+            '5 monturas por personaje: límite de La Forja, no del DRS.';
+          resultado+='\nCupo restante: '+cupo+' unidad(es).';
+          validar=Number.isInteger(cantidad)&&cantidad>=1&&cantidad<=cupo&&
             total<=personaje.saldo_mo+1e-7;
           advertencia=item.advertencia||'';
         }
@@ -1239,8 +1259,18 @@
     var item=articuloCompra();
     if(!item)throw Error('Elige un artículo documentado del DRS.');
     var cantidad=Number($('compras-cantidad').value);
-    if(!Number.isInteger(cantidad)||cantidad<1||cantidad>99)
-      throw Error('La cantidad debe ser un entero entre 1 y 99.');
+    var pendientes=compraBorrador.seleccion.map(function(x){
+      var existente=window.NaufragioEquipment.consultarUtilFantasia(
+        datos.equipoInicial,x.id,x.nivel);
+      return {nombre:existente.nombre,grupo:existente.seccion,cantidad:x.cantidad};
+    });
+    var cupo=window.NaufragioEquipment.cupoCompraFantasia(
+      datos.equipoInicial,entradaCompra().valor.equipo,pendientes,
+      $('compras-grupo').value,item.nombre);
+    if(!Number.isInteger(cantidad)||cantidad<1||cantidad>cupo)
+      throw Error('Límite de La Forja: quedan '+cupo+
+        ' unidades disponibles de '+item.nombre+'. Máximo 10 por artículo y '+
+        '5 monturas por personaje. No es una regla del DRS.');
     var linea={id:item.id,cantidad:cantidad};
     if(item.precio_por_nivel!==undefined){
       var nivel=Number($('compras-nivel').value);
@@ -1259,7 +1289,8 @@
     $('resumen-compras').textContent='Personaje: '+entrada.valor.nombre+
       ' · Saldo disponible: '+entrada.valor.saldo_mo.toFixed(2)+' mo';
     var actual=window.NaufragioEquipment.compraUtilesFantasia(
-      datos.equipoInicial,entrada.valor.saldo_mo,compraBorrador.seleccion);
+      datos.equipoInicial,entrada.valor.saldo_mo,
+      compraBorrador.seleccion,entrada.valor.equipo);
     var lista=$('compras-lista');
     lista.textContent='';
     actual.detalles.forEach(function(x,indice){
@@ -1281,6 +1312,20 @@
     $('compras-total').textContent='Seleccionados: '+actual.gastado.toFixed(2)+
       ' mo · Saldo tras compra: '+actual.restante.toFixed(2)+' mo';
     $('compras-confirmar').disabled=!compraBorrador.seleccion.length;
+    if(item){
+      var pendientes=actual.detalles.map(function(x){
+        var original=window.NaufragioEquipment.consultarUtilFantasia(
+          datos.equipoInicial,x.id,x.nivel);
+        return {grupo:original.seccion,nombre:original.nombre,cantidad:x.cantidad};
+      });
+      var cupo=window.NaufragioEquipment.cupoCompraFantasia(
+        datos.equipoInicial,entrada.valor.equipo,pendientes,
+        $('compras-grupo').value,item.nombre);
+      $('compras-cantidad').max=String(cupo);
+      $('compras-limite').textContent='Cupo restante: '+cupo+
+        ' unidad(es). Máximo 10 por artículo y 5 monturas en total por '+
+        'personaje; límite de La Forja, no del DRS.';
+    }
     try{
       var nueva=lineaCompra(),consulta=window.NaufragioEquipment.consultarUtilFantasia(
         datos.equipoInicial,nueva.id,nueva.nivel);
@@ -1456,6 +1501,19 @@
          e.clientY<r.top||e.clientY>r.bottom)cerrarConfiguracion();
     });
     $('configuracion').addEventListener('input',refrescarResumenCreacion);
+    $('nivel').addEventListener('input',validarNivelVisible);
+    $('nivel').addEventListener('change',validarNivelVisible);
+    // HTML impide el submit de un campo fuera de rango antes de llegar
+    // al manejador de generación. Dar feedback incluso con el diálogo
+    // de configuración cerrado (botón Generar fijo/flotante).
+    $('configuracion').addEventListener('invalid',function(event){
+      if(event.target.id==='nivel')validarNivelVisible();
+      aviso(event.target.id==='nivel'?
+        'El Nivel supera el rango permitido. Revisa el aviso de Nivel.':
+        'Revisa el campo de configuración no válido.',true);
+      if(!configurador.open)configurador.showModal();
+      event.target.focus({preventScroll:true});
+    },true);
     $('configuracion').addEventListener('change',refrescarResumenCreacion);
     ['ocupacion','especie'].forEach(function(tipo){
       var dialogo=$('dialogo-'+tipo),abrir=$('abrir-selector-'+tipo);
@@ -1498,7 +1556,13 @@
     $('generar-flotante').addEventListener('click',function(){
       if($('generar-flotante').disabled)return;
       marcarPanel('personajes');
-      // Mantiene validación nativa y el mismo flujo que el formulario.
+      // Si el campo está oculto en Configuración, abrirlo y señalar el
+      // error antes de intentar generar: nunca dejar un clic sin respuesta.
+      if(!$('configuracion').checkValidity()){
+        if(!configurador.open)configurador.showModal();
+        $('configuracion').reportValidity();
+        return;
+      }
       $('configuracion').requestSubmit($('generar'));
     });
     $('cantidad').addEventListener('input',refrescarGenerarFlotante);
@@ -1788,7 +1852,8 @@
       conControl(function(){
         var entrada=entradaCompra(),linea=lineaCompra();
         window.NaufragioEquipment.compraUtilesFantasia(datos.equipoInicial,
-          entrada.valor.saldo_mo,compraBorrador.seleccion.concat([linea]));
+          entrada.valor.saldo_mo,compraBorrador.seleccion.concat([linea]),
+          entrada.valor.equipo);
         compraBorrador.seleccion.push(linea);
         refrescarCompra();
       });
@@ -1800,7 +1865,8 @@
         if(!compraBorrador.seleccion.length)
           throw Error('Añade al menos un artículo antes de confirmar la compra.');
         var compra=window.NaufragioEquipment.compraUtilesFantasia(
-          datos.equipoInicial,personaje.saldo_mo,compraBorrador.seleccion);
+          datos.equipoInicial,personaje.saldo_mo,
+          compraBorrador.seleccion,personaje.equipo);
         // Todas las validaciones se realizan ANTES de modificar la ficha.
         personaje.equipo.push.apply(personaje.equipo,compra.equipo);
         personaje.saldo_mo=compra.restante;
