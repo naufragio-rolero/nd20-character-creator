@@ -132,6 +132,13 @@ async function run(name,origin){
     assert.equal(await page.locator('#fichas .tarjeta').count(),7);
     const niveles=await page.locator('#fichas .nivel-ficha').allTextContents();
     assert.ok(niveles.every(t=>/^Nivel (?:[3-9]|10)$/.test(t)));
+    assert.equal(await page.locator('#reproduccion-resultados').isVisible(),false,
+      'No mostrar un recuadro de semillas encima de las fichas');
+    assert.equal(await page.locator('#fichas .ver-reproduccion').count(),7);
+    await first().locator('.ver-reproduccion').click();
+    assert.equal(await page.locator('#dialogo-reproduccion').evaluate(x=>x.open),true);
+    await check(page,'#titulo-dialogo-reproduccion','Semilla y reproducción');
+    assert.match(await page.locator('#reproduccion-personaje').innerText(),/Personaje 7 de 7/);
     const semilla=await page.locator('#semilla-resultado').textContent();
     assert.ok(semilla.length>=6);
     assert.equal(await page.locator('#semilla').inputValue(),'',
@@ -152,11 +159,24 @@ async function run(name,origin){
     assert.equal(registro.config.nivelMin,3);
     assert.equal(registro.config.nivelMax,10);
     assert.deepEqual(registro.config.fuentes,['DRS']);
+    await page.locator('#cerrar-reproduccion').click();
+    assert.equal(await page.locator('#dialogo-reproduccion').evaluate(x=>x.open),false);
+    assert.equal(await first().locator('.ver-reproduccion').count(),1,
+      'Cada ficha conserva su acceso incluso con el diálogo cerrado');
     // Dos clics consecutivos en Generar producen resultados nuevos sin borrar nada.
     await page.locator('#generar').click();
     assert.equal(await page.locator('#fichas .tarjeta').count(),14);
+    await first().locator('.ver-reproduccion').click();
     const semillaDos=await page.locator('#semilla-resultado').textContent();
     assert.notEqual(semillaDos,semilla,'Cada clic normal requiere azar nuevo');
+    await page.locator('#cerrar-reproduccion').click();
+    // Una ficha de la primera tanda conserva SU semilla tras otras generaciones.
+    await page.locator('#fichas .tarjeta').nth(7).locator('.ver-reproduccion').click();
+    assert.equal(await page.locator('#semilla-resultado').textContent(),semilla);
+    await page.locator('#copiar-reproduccion').click();
+    assert.equal(JSON.parse(await page.evaluate(()=>window.__forjaCopiado)).semilla,semilla);
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator('#dialogo-reproduccion').evaluate(x=>x.open),false);
     assert.equal(await page.locator('#semilla').inputValue(),'');
     const fichasDos=(await page.locator('#fichas .tarjeta').allInnerTexts()).slice(0,7);
     assert.notDeepEqual(fichasDos,fichasPrimera,'El segundo lote no repite el primero');
@@ -168,12 +188,16 @@ async function run(name,origin){
     await page.locator('#generar-dialogo').click();
     const fichasTres=(await page.locator('#fichas .tarjeta').allInnerTexts()).slice(0,7);
     assert.deepEqual(fichasTres,fichasDos,'Usar semilla reproduce el último lote');
+    await first().locator('.ver-reproduccion').click();
     assert.equal(await page.locator('#semilla-resultado').textContent(),semillaDos);
+    await page.locator('#cerrar-reproduccion').click();
     // Desactivar la semilla mantiene el texto para uso futuro, pero NO repite.
     await page.locator('#usar-semilla').click();
     assert.equal(await page.locator('#usar-semilla').getAttribute('aria-pressed'),'false');
     await page.locator('#generar').click();
+    await first().locator('.ver-reproduccion').click();
     assert.notEqual(await page.locator('#semilla-resultado').textContent(),semillaDos);
+    await page.locator('#cerrar-reproduccion').click();
     assert.equal(await page.locator('#semilla').inputValue(),semillaDos);
     await page.locator('#borrar').click();
     await open();
@@ -191,6 +215,11 @@ async function run(name,origin){
     const fichasSegunda=await page.locator('#fichas .tarjeta').allInnerTexts();
     assert.deepEqual(fichasSegunda,fichasPrimera,
       'La misma configuración y semilla recrean los mismos personajes');
+    await first().locator('.ver-reproduccion').click();
+    assert.equal(await page.locator('#semilla-resultado').textContent(),semilla);
+    await page.locator('#copiar-reproduccion').click();
+    assert.equal(await page.evaluate(()=>window.__forjaCopiado),json);
+    await page.locator('#cerrar-reproduccion').click();
     await page.locator('#borrar').click();
     await open();
     await page.locator('#semilla').fill('otra-secuencia');
@@ -210,6 +239,15 @@ async function run(name,origin){
     await page.locator('#generar-dialogo').click();
     await page.locator('#fichas .tarjeta').first().waitFor();
     assert.equal(await first().locator('.nivel-ficha').innerText(),'Nivel 36');
+    await first().locator('.ver-reproduccion').click();
+    assert.match(await page.locator('#reproduccion-personaje').innerText(),/./);
+    assert.equal(JSON.parse(await page.locator('#copiar-reproduccion').evaluate(async button=>{
+      window.__forjaCopiado='';
+      button.click();
+      await new Promise(r=>setTimeout(r,10));
+      return window.__forjaCopiado;
+    })).config.juego,'dh');
+    await page.locator('#cerrar-reproduccion').click();
     await open();
     await page.locator('#juego').evaluate(x=>{x.value='nd20';x.dispatchEvent(new Event('change',{bubbles:true}));});
     assert.equal(await page.locator('#nivel-max').inputValue(),'36');
