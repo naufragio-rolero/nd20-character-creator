@@ -4,7 +4,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path');
 const data=n=>JSON.parse(fs.readFileSync(path.join(__dirname,'..','data',n),'utf8'));
 const powers=require('../assets/powers.js');
-const catalogo=data('catalogo-poderes.json'),progresiones=data('progresiones.json');
+const catalogo=data('catalogo-poderes.json'),progresiones=data('progresiones-oficiales.json');
 const juego={ocupaciones:data('ocupaciones.json'),especies:data('especies.json')};
 function modelo(ocupacion,nivel){
   return {juego:'Naufragio d20 · Fantasía',
