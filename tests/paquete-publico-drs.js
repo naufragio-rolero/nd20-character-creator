@@ -138,6 +138,20 @@ assert.equal(fijo.find(x=>x.nombre==='Armadura equina').precio,undefined,
   'Armadura equina no puede disponer de precio fijo ficticio');
 assert.equal(fijo.find(x=>x.nombre==='Armadura equina').precio_variable,
   'Precio de la protección corporal ×4');
+assert.equal(fijo.find(x=>x.nombre==='Armadura equina').regla_precio_autoral.multiplicador,4,
+  'La aclaración autoral está disponible solo para calcular precio informativo');
+assert.equal(equipo.componentes_paquetes_editoriales.length,5,
+  'El paquete DRS conserva exactamente cinco descripciones de componentes');
+assert.deepEqual(equipo.componentes_paquetes_editoriales.map(x=>x.nombre),[
+  'Mochila','Bolsa de cuero','Odre de agua',
+  'Estuche de pergaminos vacío','Ropa de viaje']);
+equipo.componentes_paquetes_editoriales.forEach(x=>{
+  assert.ok(x.descripcion_editorial&&/editorial autorizada/.test(x.origen_descripcion),
+    'La descripción autoral debe estar identificada');
+  assert.equal(x.precio,undefined,'Sin precio suelto de componente de paquete');
+});
+assert.equal(equipo.componentes_paquetes_editoriales.find(x=>
+  x.nombre==='Odre de agua').du,'d6');
 assert.equal(fijo.find(x=>x.nombre==='Establos').servicio_por_dia,true);
 assert.equal(equipo.utiles_fantasia.objetos_varios.find(x=>x.nombre==='Pipa de tabaco').du,
   'd4 (tabaco)');
