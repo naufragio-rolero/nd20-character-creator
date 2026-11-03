@@ -1263,11 +1263,9 @@
         datos.equipoInicial,x.id,x.nivel);
       return {nombre:existente.nombre,grupo:existente.seccion,cantidad:x.cantidad};
     });
-    var informacion=window.NaufragioEquipment.consultarUtilFantasia(
-      datos.equipoInicial,item.id,undefined);
     var cupo=window.NaufragioEquipment.cupoCompraFantasia(
       datos.equipoInicial,entradaCompra().valor.equipo,pendientes,
-      informacion.seccion,informacion.nombre);
+      $('compras-grupo').value,item.nombre);
     if(!Number.isInteger(cantidad)||cantidad<1||cantidad>cupo)
       throw Error('Límite de La Forja: quedan '+cupo+
         ' unidades disponibles de '+item.nombre+'. Máximo 10 por artículo y '+
@@ -1319,11 +1317,9 @@
           datos.equipoInicial,x.id,x.nivel);
         return {grupo:original.seccion,nombre:original.nombre,cantidad:x.cantidad};
       });
-      var disponible=window.NaufragioEquipment.consultarUtilFantasia(
-        datos.equipoInicial,item.id,undefined);
       var cupo=window.NaufragioEquipment.cupoCompraFantasia(
         datos.equipoInicial,entrada.valor.equipo,pendientes,
-        disponible.seccion,disponible.nombre);
+        $('compras-grupo').value,item.nombre);
       $('compras-cantidad').max=String(cupo);
       $('compras-limite').textContent='Cupo restante: '+cupo+
         ' unidad(es). Máximo 10 por artículo y 5 monturas en total por '+
