@@ -251,10 +251,32 @@
     grupos.forEach(function(g){
       permitidos[g]=new Set(listas[g].map(function(x){return x.nombre;}));
     });
+    // Distinguir uso sin Competencia y prohibiciones expresas del DRS.
+    var prohibiciones=(ocupacion.competencias||[]).map(normal).filter(function(t){
+      return /no puedes|no puede/.test(t);
+    });
+    var prohibeEscudo=prohibiciones.some(function(t){
+      return /escudo/.test(t);
+    });
+    var prohibeDistancia=prohibiciones.some(function(t){
+      return /armas a distancia|arma a distancia/.test(t);
+    });
+    var prohibeArrojadizas=prohibiciones.some(function(t){
+      return /arrojadiz/.test(t);
+    });
+    var prohibeFilo=prohibiciones.some(function(t){
+      return /con filo/.test(t);
+    });
     return grupos.flatMap(function(grupo){
       return (catalogo[grupo]||[]).filter(function(x){
-        // La limitación de escudos para Baja estatura es una regla de Forja
-        // aprobada; no se ofrece uno incompatible ni como compra opcional.
+        if(grupo==='escudos'&&prohibeEscudo)return false;
+        if(grupo==='armas'&&prohibeDistancia&&x.tipo==='distancia')return false;
+        if(grupo==='armas'&&prohibeArrojadizas&&x.arrojadiza_alcance)return false;
+        // El catálogo no etiqueta las armas con filo. Para una prohibición
+        // expresa, acudir exclusivamente a la lista competente documentada.
+        if(grupo==='armas'&&prohibeFilo&&!permitidos.armas.has(x.nombre))
+          return false;
+        // Baja estatura: únicamente escudos pequeños.
         return grupo!=='escudos'||!posibles.bajaEstatura||
           normal(x.nombre)==='escudo pequeno';
       }).filter(function(x){
