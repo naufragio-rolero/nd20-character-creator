@@ -695,6 +695,25 @@ async function probar(nombre,tipo,url){
       .evaluateAll(nodes=>nodes.map(n=>n.dataset.juego));
     assert.deepEqual(idsVisibles,['nd20',...sistemasVisibles],
       nombre+': solo se muestran sistemas aprobados en el selector');
+    // Dos logotipos WebP cargados y botones iguales, sin romper teclado
+    // ni ocultar el nombre accesible al sustituir los glifos.
+    const logos=await page.locator('.juegos-compactos button.sistema-logo')
+      .evaluateAll(buttons=>buttons.map(b=>{
+        const img=b.querySelector('img.logotipo-sistema');
+        const rect=b.getBoundingClientRect();
+        return {id:b.dataset.juego,nombre:b.getAttribute('aria-label'),
+          path:img?.getAttribute('src'),completo:img?.complete,
+          anchoNatural:img?.naturalWidth,anchoBoton:rect.width,
+          altoBoton:rect.height,ajuste:img&&getComputedStyle(img).objectFit};
+      }));
+    assert.deepEqual(logos.map(l=>l.id),['nd20','dh']);
+    assert.deepEqual(logos.map(l=>l.path),[
+      'assets/icons/sistema-nd20-faep.webp','assets/icons/sistema-dh.webp']);
+    assert.ok(logos.every(l=>l.nombre&&l.completo&&l.anchoNatural>0&&
+      l.ajuste==='contain'),nombre+': logos accesibles, cargados y sin deformación');
+    assert.ok(Math.abs(logos[0].anchoBoton-logos[1].anchoBoton)<1 &&
+      Math.abs(logos[0].altoBoton-logos[1].altoBoton)<1,
+      nombre+': ambos sistemas conservan el mismo espacio pulsable');
     const opcionesSistema=await page.locator('#juego option')
       .evaluateAll(nodes=>nodes.map(n=>n.value));
     assert.deepEqual(opcionesSistema,['nd20',...sistemasVisibles],
