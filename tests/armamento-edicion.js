@@ -109,6 +109,29 @@ assert.equal(defensa.valor,'1');
 assert.equal(api.blindajeFicha({...pjLanza,equipo:piel.equipo,
   protecciones_equipadas:{armadura:'Pechera de algodón',escudo:''}},cat).valor,
   'Sin armadura');
+// Equipar arma no es adquirirla: solo nombres exactos del inventario.
+const sinElegir=api.danoFicha(pj,cat);
+assert.deepEqual(sinElegir,{valor:'—',arma:null,grupo:null});
+const equipables=api.armasDisponibles({...pj,equipo:['Daga','Varita de cerezo',
+  'Arco corto ×2','Recuerdo: Daga de familia']},cat);
+assert.deepEqual(equipables.map(x=>x.nombre),['Daga','Arco corto','Varita de cerezo']);
+assert.deepEqual(api.danoFicha({...pj,equipo:['Daga'],arma_equipada:'Daga'},cat),
+  {valor:'1d4',arma:'Daga',grupo:'armas'});
+assert.equal(api.danoFicha({...pj,equipo:['Daga'],arma_equipada:'Espadón'},cat).valor,'—');
+assert.deepEqual(api.danoFicha({...pj,equipo:['Varita de cerezo'],
+  arma_equipada:'Varita de cerezo'},cat),
+  {valor:'1d3',arma:'Varita de cerezo',grupo:'varitas_defensa'});
+// El PDF identifica la pieza activa, sin añadirla ni modificar sus datos.
+const pjPdf={...pj,equipo:['Daga','Arco corto'],arma_equipada:'Daga',
+  descripcion:'Guerrero · Humano común',recursos:[],atributos:[]};
+const exportable=pdf.prepararDatos(pjPdf,null,cat);
+assert.equal(exportable._arma_equ,'Daga');
+assert.equal(exportable._dano_equ,'1d4');
+const itemsPDF=exportable._sections.find(x=>x.source==='equipo').items;
+assert.equal(itemsPDF.filter(x=>x.includes('Arma equipada')).length,1);
+assert.match(itemsPDF[0],/Daga.*Arma equipada/);
+assert.equal(pdf.prepararDatos({...pjPdf,arma_equipada:'Espadón'},null,cat)
+  ._arma_equ,'');
 // Consulta y PDF de munición, varitas y compras múltiples.
 assert.match(pdf.detalleEquipo('Flechas ×2',cat),/DU d8/);
 assert.match(pdf.detalleEquipo('Varita de cerezo',cat),/Munición DU d6/);
