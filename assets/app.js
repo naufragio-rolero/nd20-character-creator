@@ -361,6 +361,7 @@
   function mostrarErrorConfiguracion(error){
     var texto=error?.message||String(error);
     aviso(texto,true);
+    $('aviso-configuracion').textContent=texto;
     var dialogo=$('dialogo-configuracion');
     if(!dialogo.open)dialogo.showModal();
     var destino=!validarNivelVisible()?$('nivel-min'):
@@ -923,9 +924,15 @@
   function cerrarArmamento(){
     var id=armamentoBorrador?.id;
     armamentoBorrador=null;
+    var regresar=volverGestionEquipo===id;
+    if(regresar)volverGestionEquipo=null;
     var modal=$('editor-armamento');
     if(modal.open)modal.close();
     modal.hidden=true;
+    if(regresar){
+      var entrada=entradas.find(function(x){return x.id===id;});
+      if(entrada){abrirGestionEquipo(entrada);return;}
+    }
     if(id!==undefined){
       var boton=$('fichas').querySelector('.gestionar-equipo[data-id="'+id+'"]');
       if(boton)boton.focus({preventScroll:true});
@@ -1019,6 +1026,7 @@
   function abrirCompraDesdeGestion(tipo){
     var entrada=entradaGestionEquipo();
     cerrarGestionEquipo(false);
+    volverGestionEquipo=entrada.id;
     if(tipo==='armamento')abrirArmamento(entrada);
     else abrirCompra(entrada);
   }
@@ -1191,10 +1199,16 @@
   function cerrarCompra(){
     var id=compraBorrador&&compraBorrador.id;
     compraBorrador=null;
+    var regresar=volverGestionEquipo===id;
+    if(regresar)volverGestionEquipo=null;
     var dialogo=$('editor-compras');
     if(dialogo.open)dialogo.close();
     dialogo.hidden=true;
-    // El teclado vuelve a la ficha que abrió el editor, si sigue presente.
+    // Cerrar solamente el submenú; recuperar el panel principal de Equipo.
+    if(regresar){
+      var entrada=entradas.find(function(x){return x.id===id;});
+      if(entrada){abrirGestionEquipo(entrada);return;}
+    }
     if(id!==null&&id!==undefined){
       var retorno=$('fichas').querySelector('.gestionar-equipo[data-id="'+id+'"]');
       if(retorno)retorno.focus({preventScroll:true});
@@ -1429,6 +1443,12 @@
       e.checked=c.origenes.map(String).includes(e.value);
     });
     refrescarSelectores();
+    if(c.juego!=='dh'){
+      var actuales=Array.from($('fuentes-nd20').querySelectorAll('input'));
+      if(c.fuentes.some(function(nombre){return !actuales.some(function(e){return e.value===nombre;});}))
+        throw Error('La reproducción incluye fuentes no publicadas o no disponibles.');
+      actuales.forEach(function(e){e.checked=c.fuentes.includes(e.value);});
+    }
     $('nivel-min').value=String(c.nivelMin);
     $('nivel-max').value=String(c.nivelMax);
     $('cantidad').value=String(c.cantidad);
@@ -1597,12 +1617,15 @@
     var configurador=$('dialogo-configuracion'),abrirConfig=$('abrir-configuracion');
     abrirConfig.addEventListener('click',function(){
       configurador.showModal();
-      $('nivel').focus({preventScroll:true});
+      $('nivel-min').focus({preventScroll:true});
       refrescarGenerarFlotante();
     });
     function cerrarConfiguracion(){if(configurador.open)configurador.close();}
     $('cerrar-configuracion').addEventListener('click',cerrarConfiguracion);
-    $('aplicar-configuracion').addEventListener('click',cerrarConfiguracion);
+    $('aplicar-configuracion').addEventListener('click',function(){
+      try{config();$('aviso-configuracion').textContent='';cerrarConfiguracion();}
+      catch(error){mostrarErrorConfiguracion(error);}
+    });
     configurador.addEventListener('close',function(){
       refrescarResumenCreacion();
       refrescarGenerarFlotante();
@@ -1614,19 +1637,23 @@
       if(e.clientX<r.left||e.clientX>r.right||
          e.clientY<r.top||e.clientY>r.bottom)cerrarConfiguracion();
     });
-    $('configuracion').addEventListener('input',refrescarResumenCreacion);
-    $('nivel').addEventListener('input',validarNivelVisible);
-    $('nivel').addEventListener('change',validarNivelVisible);
-    // HTML impide el submit de un campo fuera de rango antes de llegar
-    // al manejador de generación. Dar feedback incluso con el diálogo
-    // de configuración cerrado (botón Generar fijo/flotante).
+    $('configuracion').addEventListener('input',function(){
+      refrescarResumenCreacion();
+      validarNivelVisible();
+      if(validarFuentesVisibles()&&validarNivelVisible())
+        $('aviso-configuracion').textContent='';
+    });
+    ['nivel-min','nivel-max'].forEach(function(id){
+      $(id).addEventListener('input',validarNivelVisible);
+      $(id).addEventListener('change',validarNivelVisible);
+    });
+    // La validación nativa cancela submit antes de que llegue al manejador.
+    // Responder dentro del diálogo, incluso desde el botón principal o móvil.
     $('configuracion').addEventListener('invalid',function(event){
-      if(event.target.id==='nivel')validarNivelVisible();
-      aviso(event.target.id==='nivel'?
-        'El Nivel supera el rango permitido. Revisa el aviso de Nivel.':
-        'Revisa el campo de configuración no válido.',true);
-      if(!configurador.open)configurador.showModal();
+      event.preventDefault();
+      mostrarErrorConfiguracion(Error('Corrige el campo de configuración señalado.'));
       event.target.focus({preventScroll:true});
+      event.target.scrollIntoView({block:'center',behavior:'auto'});
     },true);
     $('configuracion').addEventListener('change',refrescarResumenCreacion);
     ['ocupacion','especie'].forEach(function(tipo){
@@ -1703,7 +1730,7 @@
     $('tab-herramientas').addEventListener('click',function(){marcarPanel('herramientas');});
     var tema=$('selector-tema');
     var temaInicial=document.documentElement.dataset.tema||'clasico';
-    if(['clasico','ebano','ceruleo','obsidiana'].includes(temaInicial))
+    if(['clasico','ebano','ceruleo','obsidiana','violeta'].includes(temaInicial))
       tema.value=temaInicial;
     tema.addEventListener('change',function(){
       document.documentElement.dataset.tema=tema.value;
@@ -1726,13 +1753,41 @@
       fuentesGuardadas[$('juego').value]=fuentesNd20Activas();
       refrescarSelectores();
     });
+    $('ocultar-tutorial').addEventListener('click',function(){
+      $('tutorial-inicial').hidden=true;
+      try{localStorage.setItem('forja-tutorial-oculto','true');}
+      catch(error){/* El cierre de esta sesión sigue activo. */}
+    });
+    try{$('tutorial-inicial').hidden=localStorage.getItem('forja-tutorial-oculto')==='true';}
+    catch(error){/* Sin almacenamiento: permite cerrar durante la sesión. */}
+    $('copiar-semilla').addEventListener('click',function(){
+      if(ultimaReproduccion)copiar(ultimaReproduccion.semilla);
+    });
+    $('copiar-reproduccion').addEventListener('click',function(){
+      if(ultimaReproduccion)copiar(JSON.stringify(ultimaReproduccion,null,2));
+    });
+    $('aplicar-reproduccion').addEventListener('click',function(){
+      try{
+        aplicarReproduccion($('texto-reproduccion').value);
+        $('aviso-configuracion').textContent='';
+      }catch(error){
+        $('aviso-reproduccion').textContent=error.message;
+        $('aviso-configuracion').textContent=error.message;
+        $('aviso-reproduccion').focus?.();
+      }
+    });
     $('configuracion').addEventListener('submit',function(e) {
       e.preventDefault();
-      if(configurador.open)cerrarConfiguracion();
-      conControl(function () {
-        var c=config(),createRng=rngUnico(),items=[];
+      var c;
+      try{c=config();}
+      catch(error){mostrarErrorConfiguracion(error);return;}
+      $('aviso-configuracion').textContent='';
+      try{
+        var createRng=rngUnico(),items=[];
         for(var i=0;i<c.cantidad;i++){
-          var r=createRng(i),semillaPersonaje=null;
+          var r=createRng(i);
+          var nivelEfectivo=reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r,c.juego==='dh'?36:30);
+          var semillaPersonaje=null;
           // La elección de Herencia dual modifica un VA antes de subir Niveles.
           // Guardamos la semilla para reconstruir exactamente la misma creación
           // con la alternativa definitiva, sin parchear atributos al final.
@@ -1740,23 +1795,28 @@
             semillaPersonaje=Math.floor(r()*4294967296);
             r=reglas.aleatorioSemilla('forja-herencia:'+semillaPersonaje);
           }
-          var configFicha=semillaPersonaje===null?c:
-            Object.assign({},c,{herenciaPendiente:true,desarrolloPendiente:true});
+          var configFicha=Object.assign({},c,{nivel:nivelEfectivo});
+          if(semillaPersonaje!==null)
+            Object.assign(configFicha,{herenciaPendiente:true,desarrolloPendiente:true});
           var personaje=crearFicha(configFicha,r);
           if(c.juego==='dh'){items.push(personaje);continue;}
           var partes=personaje.descripcion.split(' · ');
-          var opciones=Object.assign({},c,{ocupacion:partes[0],especie:partes.slice(1).join(' · ')});
+          var opciones=Object.assign({},configFicha,{ocupacion:partes[0],especie:partes.slice(1).join(' · ')});
           var juegoDatos=c.juego==='nd20_cifi'?datos.cifi:
             c.juego==='nd20_nocturna'?datos.nocturna:datos.fantasia;
           var plan=poderes.planificar(opciones,juegoDatos,datos.catalogo,datos.progresiones);
           if(c.modo==='personalizado'&&plan.pasos.some(function(x){return !x.automatico;})){
             cerrarMenuMovil();
+            mostrarReproduccion($('semilla').value,c);
+            if(configurador.open)cerrarConfiguracion();
             prepararEditor(personaje,plan,r,
-              {config:c,semillaPersonaje:semillaPersonaje});return;
+              {config:configFicha,semillaPersonaje:semillaPersonaje});return;
           }
           items.push(poderes.registrar(personaje,plan,poderes.resolver(plan,null,r)));
         }
         items.forEach(function(p){agregar('ficha',p);});
+        mostrarReproduccion($('semilla').value,c);
+        if(configurador.open)cerrarConfiguracion();
         cerrarMenuMovil();
         // En móvil, las fichas están DEBAJO del formulario: mostrar el
         // resultado de la acción sin obligar a buscarlo haciendo scroll.
@@ -1769,7 +1829,7 @@
               block:'start'});
           });
         }
-      });
+      }catch(error){mostrarErrorConfiguracion(error);}
     });
     $('form-revision-elecciones').addEventListener('change',function(e){
       if(e.target.matches('select[data-revision-paso]'))refrescarRevision();
