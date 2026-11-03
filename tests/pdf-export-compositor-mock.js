@@ -12,6 +12,7 @@ class MockPage{
     this.draws.push(String(text));
   }
   drawCircle(){}
+  drawRectangle(){}
 }
 class MockDocument{
   constructor(){this.pages=[new MockPage()];}
@@ -33,21 +34,29 @@ function ficha(nivel){
     descripcion:'Guerrero · Humano común',nivel,
     atributos:attrs,
     recursos:[['Salud','25 (d8)'],['Esfuerzo',2],['Movimiento',6],['Potencia',1]],
-    equipo:['Espada','Escudo pequeño'],notas:[],
+    equipo:['Espada','Escudo pequeño'],notas:['Observación de prueba'],
     competencias:['Armas'],capacidades:nivel===30?
       Array.from({length:154},(_,i)=>'Talento de prueba '+String(i+1).padStart(3,'0')):['Recuperación'],
-    poderes:[],conjuros_preparados:[]
+    poderes:['[T] Ataque certero'],conjuros_preparados:['[T] Ataque certero']
   };
 }
 async function run(){
   for(const nivel of [1,30]){
     const p=ficha(nivel),before=JSON.stringify(p);
     const out=await exportar(p,{PDFLib,fontkit:{},fontBytes:Buffer.from('mock'),
-      plantilla:Buffer.from('main'),continuacion:Buffer.from('cont'),mapa:map});
+      plantilla:Buffer.from('main'),continuacion:Buffer.from('cont'),mapa:map,
+      consultarPoder:()=>({descripcion:'Obtienes +2 a la Tirada de Ataque y -2 a la Tirada de Daño.'})});
     assert.equal(JSON.stringify(p),before,'No debe mutar la ficha');
     assert(out.paginas>=1);
     const text=Buffer.from(out.bytes).toString('utf8');
     assert(text.includes('Personaje de pruebas'));
+    const observaciones=text.indexOf('OBSERVACIONES REGLAMENTARIAS');
+    const detalle=text.indexOf('EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES');
+    assert(observaciones>=0&&detalle>observaciones,
+      'El efecto de los Poderes aparece después de las Observaciones.');
+    assert(text.includes('Ataque certero:'));
+    assert.equal(text.split('Ataque certero:').length-1,1,
+      'El mismo Poder conocido y preparado solo se describe una vez.');
     if(nivel===30){
       assert(out.paginas>=2);
       for(let i=1;i<=154;i++)
