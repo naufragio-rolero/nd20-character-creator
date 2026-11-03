@@ -427,7 +427,7 @@
   function armasDisponibles(personaje,catalogo){
     var inventario=Array.isArray(personaje?.equipo)?personaje.equipo:[];
     var referencias=new Set(inventario.map(function(v){
-      return String(v).replace(/\\s+×\\d+$/,'').trim();
+      return String(v).replace(/\s+×\d+$/,'').trim();
     }));
     var nombres=new Set();
     return [['armas',catalogo?.armas],['varitas_defensa',catalogo?.varitas_defensa]]
