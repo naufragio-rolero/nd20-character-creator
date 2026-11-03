@@ -293,9 +293,14 @@ jobs:
           node - <<'NODE'
           const assert=require('node:assert/strict');
           const j=require('/tmp/forja-ylat.json');
-          assert.equal(j.entradas.length,33);
-          assert.ok(j.entradas.every(x=>x.tipo==='combinado'&&x.ambito==='Isla Tormenta'));
-          console.log('OK: cero registros externos; solo 33 variantes aprobadas de Ylat.');
+          assert.equal(j.entradas.length,295);
+          assert.equal(j.entradas.filter(x=>x.tipo==='documentado').length,262);
+          assert.equal(j.entradas.filter(x=>x.tipo==='combinado').length,33);
+          assert.equal(new Set(j.entradas.map(x=>x.nombre)).size,295);
+          assert.ok(j.entradas.every(x=>
+            ['documentado','combinado'].includes(x.tipo)&&
+            ['Ylat','Isla Tormenta'].includes(x.ambito)));
+          console.log('OK: cero registros externos; 262 nombres para consulta y 33 variantes para sorteo.');
           NODE
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/equipo-inicial.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-equipo.json
           node - <<'NODE'
