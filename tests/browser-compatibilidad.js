@@ -910,8 +910,7 @@ async function probar(nombre,tipo,url){
       assert.ok(registro&&registro.dano);
       await page.locator('#gestion-arma').selectOption(arma);
       assert.equal(await danoVisible(),registro.dano);
-      assert.match(await fichaTalentos.locator('.recurso-dano .recurso-arma').innerText(),
-        new RegExp(arma.replace(/[.*+?^$\{\}()|[\]\\]/g,'\\    const protecciones=fichaTalentos.locator('.protecciones-activas');')));
+      assert.equal(await fichaTalentos.locator('.recurso-dano .recurso-arma').innerText(),arma);
       await page.locator('#gestion-arma').selectOption('');
       assert.equal(await danoVisible(),'—');
     }
