@@ -771,6 +771,27 @@ html[data-tema=obsidiana] .icono-poder-lista{color:#f0f0f0}
   box-shadow:0 24px 72px #081a2980;
 }
 .dialogo-compras::backdrop{background:#061d32ab;backdrop-filter:blur(3px)}
+
+/* Editor de armamento: formularios compactos y adaptables, sin modal anidado. */
+.dialogo-armamento #form-armamento{padding:1.05rem 1.3rem 1.25rem}
+.dialogo-armamento #form-armamento .campo{margin:0 0 .75rem}
+.dialogo-armamento #form-armamento label{display:block;margin-bottom:.3rem;font-weight:700;font-size:.83rem}
+.dialogo-armamento #form-armamento select,
+.dialogo-armamento #form-armamento input{
+  display:block;width:100%;min-height:44px;border-radius:8px;border:1px solid var(--borde);
+  padding:.55rem .7rem;background:var(--superficie2);color:var(--texto);font:inherit
+}
+.dialogo-armamento #form-armamento :is(select,input):focus-visible{outline:3px solid var(--foco)}
+.dialogo-armamento #armamento-resumen{padding:.8rem;border:1px solid var(--borde);
+  border-radius:8px;background:var(--superficie2);white-space:pre-line;line-height:1.6}
+.dialogo-armamento #form-armamento section[hidden]{display:none!important}
+.dialogo-armamento #form-armamento section small{display:block;margin:.25rem 0 .8rem;line-height:1.5}
+.dialogo-armamento #form-armamento .botonera{display:grid;grid-template-columns:1fr auto;gap:.65rem}
+@media(max-width:550px){
+  .dialogo-armamento #form-armamento{padding:.85rem}
+  .dialogo-armamento #form-armamento .botonera{grid-template-columns:1fr}
+}
+
 .dialogo-compras .cabecera-compras{
   position:sticky;top:0;z-index:2;display:flex;align-items:flex-start;
   justify-content:space-between;gap:.7rem;padding:1rem 1.3rem .8rem;
