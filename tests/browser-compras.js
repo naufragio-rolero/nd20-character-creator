@@ -258,8 +258,10 @@ async function main(){
     assert.equal(await cdp.evalJS(
       "document.querySelectorAll('#fichas .revisar-elecciones').length"),2);
     await cdp.evalJS("document.querySelectorAll('.revisar-elecciones')[0].click()");
-    assert.equal(await cdp.evalJS(
-      "document.querySelector('#editor-revision-elecciones').open"),true);
+    const revisionAbierta=await cdp.evalJS("({abierta:document.querySelector('#editor-revision-elecciones').open,"+
+      "estado:document.querySelector('#estado').textContent,grupos:document.querySelectorAll('#revision-pasos-talentos select').length})");
+    assert.equal(revisionAbierta.abierta,true,
+      'La revisión debe abrirse: '+JSON.stringify(revisionAbierta));
     assert.equal(await cdp.evalJS(
       "document.querySelector('#revision-pasos-talentos select').dataset.revisionPaso"),
       'talento-guerrero');
