@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
-const {prepararDatos,detalleEquipo}=require('../assets/pdf-export-v2.js');
+const {prepararDatos,descripcionPoderes,detalleEquipo}=require('../assets/pdf-export-v2.js');
 const root=path.join(__dirname,'..');
 const catalog=JSON.parse(fs.readFileSync(path.join(root,'data/equipo-inicial.json'),'utf8'));
 const arma=catalog.armas.find(x=>x.nombre==='Hacha de batalla');
@@ -21,12 +21,32 @@ assert.equal(detalleEquipo('Objeto inventado',catalog),'Objeto inventado',
 const p={
   juego:'Naufragio d20 · Fantasía',descripcion:'Guerrero · Humano común',
   equipo:['Hacha de batalla','Armadura acolchada','Escudo pequeño','Objeto inventado'],
+  arma_equipada:'Hacha de batalla',
+  protecciones_equipadas:{armadura:'Armadura acolchada',escudo:'Escudo pequeño'},
+  poderes:['[T] Ataque certero'],conjuros_preparados:['[T] Ataque certero'],
   notas:['Observación extensa que debe ir a continuación'],recursos:[],
   competencias:['Armas'],riqueza:'234 mo restantes / 260 mo iniciales'
 };
-const before=JSON.stringify(p),out=prepararDatos(p,{valor:'d4'},catalog);
+const consultarPoder=function(nombre){
+  return nombre.includes('Ataque certero')?
+    {descripcion:'Obtienes +2 a la Tirada de Ataque y -2 a la Tirada de Daño (mínimo 1).'}:null;
+};
+const before=JSON.stringify(p),out=prepararDatos(p,{valor:'d4'},catalog,consultarPoder);
 assert.equal(JSON.stringify(p),before,'Ninguna mutación de la ficha');
 assert.equal(out._notas.length,1);
+assert.equal(out._arma_equ,'Hacha de batalla');
+assert.equal(out._dano_equ,'1d8');
+assert.equal(out._armadura_equ,'Armadura acolchada · Blindaje d4');
+assert.equal(out._detallesPoderes.length,1,'No repetir Poderes preparados y conocidos');
+assert(out._detallesPoderes[0].includes('Obtienes +2 a la Tirada de Ataque'));
+assert.deepEqual(descripcionPoderes({poderes:['[T] Ataque certero','Poder no registrado']},
+  consultarPoder),[
+    'Ataque certero: Obtienes +2 a la Tirada de Ataque y -2 a la Tirada de Daño (mínimo 1).',
+    'Poder no registrado: Descripción no documentada en el catálogo de La Forja.'
+  ]);
+const natural=prepararDatos(Object.assign({},p,{protecciones_equipadas:{}}),
+  {valor:'d6',natural:'Linaje documentado'},catalog);
+assert.equal(natural._armadura_equ,'Protección natural (Linaje documentado) · Blindaje d6');
 assert(!out._sections.some(x=>x.source==='notas'),
   'Las observaciones nunca entran en los bloques de la primera página.');
 assert.equal(out._sections.find(x=>x.source==='equipo').items[0],
@@ -42,6 +62,17 @@ assert(!html.includes('>Útiles</button>'));
 assert(html.includes('>Copiar</button>'));
 assert(html.indexOf('acciones-pie-ficha')<html.indexOf('fuentes-pie-ficha'));
 assert(html.includes('blindajePersonaje(entradaPdf.valor),datos.equipoInicial'));
+assert(html.includes("p[0]==='Blindaje'&&blindaje?.bonoEscudo"),
+  'La nota de bloqueo aparece dentro del bloque Blindaje.');
+const kpi=html.slice(html.indexOf('function htmlRecursos('),
+  html.indexOf('function htmlProteccionesEquipadas('));
+assert(kpi.indexOf("items.push(['Daño',dano.valor])")<
+  kpi.indexOf("items.push(['Blindaje'"));
+assert(kpi.indexOf("items.push(['Blindaje'")<
+  kpi.indexOf("items.push.apply(items,potencia)"),
+  'La segunda fila debe ser Daño, Blindaje y Potencia.');
+assert(css.includes('.recurso-texto>.recurso-nota-escudo'));
+assert(bridge.includes('consultarPoder:consultarPoder'));
 assert(css.includes('.acciones-pie-ficha'));
 assert(bridge.includes("RUTA+'icons/'+id+'.svg"));
 assert(bridge.includes('canvas.toBlob'));

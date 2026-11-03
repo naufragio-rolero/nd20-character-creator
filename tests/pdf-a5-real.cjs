@@ -21,10 +21,12 @@ function fixture(nivel){
     atributos:['Fuerza','Agilidad','Resistencia','Mente','Intuición','Presencia'].map(
       (nombre,i)=>({nombre,valor:11+i,dificultad:9-i,favorito:i===0})),
     recursos:[['Salud','25 (d8)'],['Esfuerzo',2],['Movimiento','Cerca'],['Potencia',1]],
-    equipo:['Hacha de batalla','Armadura acolchada','Escudo pequeño'],protecciones_equipadas:{armadura:'Armadura acolchada',escudo:'Escudo pequeño'},
+    equipo:['Hacha de batalla','Armadura acolchada','Escudo pequeño'],
+    arma_equipada:'Hacha de batalla',
+    protecciones_equipadas:{armadura:'Armadura acolchada',escudo:'Escudo pequeño'},
     competencias:['Armas'],capacidades:nivel===30?
       Array.from({length:154},(_,i)=>'Talento de prueba '+(i+1)):['Recuperación'],
-    poderes:[],conjuros_preparados:[],riqueza:'10 mo',
+    poderes:['[T] Ataque certero'],conjuros_preparados:[],riqueza:'10 mo',
     notas:['OBSERVACION_PAGINA_DOS: Comprobar ubicación y conservar texto íntegro.']
   };
 }
@@ -32,7 +34,8 @@ async function revisar(nivel){
   const p=fixture(nivel),original=JSON.stringify(p);
   const r=await exportar(p,{PDFLib:{PDFDocument,rgb},fontkit,fontBytes,
     plantilla,continuacion,mapa,catalogoEquipo,
-    consultarBlindaje:()=>({valor:'d4'})});
+    consultarBlindaje:()=>({valor:'d4'}),
+    consultarPoder:()=>({descripcion:'Obtienes +2 a la Tirada de Ataque y -2 a la Tirada de Daño (mínimo 1).'})});
   assert.equal(JSON.stringify(p),original,'No mutar personaje');
   assert(r.bytes.length>15000);
   const qaDir=path.join(root,'dist','pdf-a5-preimpresion');

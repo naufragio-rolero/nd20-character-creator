@@ -93,7 +93,7 @@
       .replace(/^-+|-+$/g,'').slice(0,55);
     return 'naufragio-d20-'+(fragmento||'personaje')+'-A5.pdf';
   }
-  async function exportar(personaje,consultaBlindaje,catalogoEquipo){
+  async function exportar(personaje,consultaBlindaje,catalogoEquipo,consultarPoder){
     if(!personaje||personaje.juego!=='Naufragio d20 · Fantasía')
       throw Error('El PDF A5 está disponible solo para personajes de Fantasía.');
     if(!root.NaufragioPdfExport||typeof root.NaufragioPdfExport.exportar!=='function')
@@ -102,7 +102,8 @@
     var opciones=Object.assign({},recursosDisponibles[1],{
       PDFLib:root.PDFLib,fontkit:root.fontkit,
       iconos:recursosDisponibles[2],catalogoEquipo:catalogoEquipo,
-      consultarBlindaje:function(){return consultaBlindaje;}
+      consultarBlindaje:function(){return consultaBlindaje;},
+      consultarPoder:consultarPoder
     });
     var resultado=await root.NaufragioPdfExport.exportar(personaje,opciones);
     if(!(resultado.bytes&&resultado.bytes.length&&resultado.paginas>=1))

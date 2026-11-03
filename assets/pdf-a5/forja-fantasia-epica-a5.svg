@@ -93,9 +93,9 @@
 <path d="M8 103.1L69 103.1" fill="none" stroke="#aaa9a5" stroke-width="0.24" stroke-linecap="round"/>
 <text x="76" y="99.0" font-size="2.13" font-family="Liberation Serif" font-weight="bold" text-anchor="start" fill="#141414" letter-spacing="0.15">ESCUDO EQUIPADO</text>
 <path d="M76 103.1L137 103.1" fill="none" stroke="#aaa9a5" stroke-width="0.24" stroke-linecap="round"/>
-<text x="8" y="109.1" font-size="2.13" font-family="Liberation Serif" font-weight="bold" text-anchor="start" fill="#141414" letter-spacing="0.15">BLINDAJE</text>
+<text x="8" y="109.1" font-size="2.13" font-family="Liberation Serif" font-weight="bold" text-anchor="start" fill="#141414" letter-spacing="0.15">ARMA EQUIPADA</text>
 <path d="M8 113.1L69 113.1" fill="none" stroke="#aaa9a5" stroke-width="0.24" stroke-linecap="round"/>
-<text x="76" y="109.1" font-size="2.13" font-family="Liberation Serif" font-weight="bold" text-anchor="start" fill="#141414" letter-spacing="0.15">PROTECCIÓN NATURAL</text>
+<text x="76" y="109.1" font-size="2.13" font-family="Liberation Serif" font-weight="bold" text-anchor="start" fill="#141414" letter-spacing="0.15">DAÑO</text>
 <path d="M76 113.1L137 113.1" fill="none" stroke="#aaa9a5" stroke-width="0.24" stroke-linecap="round"/>
 <path d="M8 121.9L140 121.9" fill="none" stroke="#96938e" stroke-width="0.36" stroke-linecap="round"/><rect x="50.39" y="116.39999999999999" width="47.22" height="5.6" rx="0" fill="#fefefc" stroke="none" stroke-width="0"/><text x="74" y="120.35" font-size="3.15" font-family="Liberation Serif" font-weight="bold" text-anchor="middle" fill="#141414" letter-spacing="0.22">RASGOS Y PERTENENCIAS</text><polygon points="9.70,121.15 10.35,121.52 10.35,122.27 9.70,122.65 9.05,122.27 9.05,121.52" fill="#fefefc" stroke="#141414" stroke-width="0.24" /><polygon points="138.30,121.15 138.95,121.52 138.95,122.27 138.30,122.65 137.65,122.27 137.65,121.52" fill="#fefefc" stroke="#141414" stroke-width="0.24" />
 <path d="M74 125L74 198" fill="none" stroke="#d2d0cb" stroke-width="0.22" stroke-linecap="round"/>

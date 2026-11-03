@@ -27,8 +27,15 @@ assert(browser.includes('SourceSerif4_400Regular.ttf'));
 assert(!/https?:\/\//.test(browser),'Ninguna dependencia se descarga desde CDN');
 assert(engine.includes("doc.copyPages(cont,[0])"));
 assert(engine.includes("await header(title,true)"),'Secciones extensas paginadas');
-assert(svg.includes('>BLINDAJE</text>'));
-assert(!svg.includes('BLINDAJE DOCUMENTADO'));
+assert(svg.includes('>ARMA EQUIPADA</text>'));
+assert(svg.includes('>DAÑO</text>'));
+assert(!svg.includes('>BLINDAJE</text>'));
+assert(!svg.includes('>PROTECCIÓN NATURAL</text>'));
+const ids=map.campos_fijos.map(x=>x.id);
+assert(ids.includes('arma_equipada')&&ids.includes('dano_equipado'));
+assert(!ids.includes('blindaje')&&!ids.includes('blindaje_natural'));
+assert(engine.includes("await section('EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES'"),
+  'Los Poderes se documentan después de las observaciones.');
 assert.equal(map.campos_fijos.length,32);
 const required=[
   'assets/pdf-a5/forja-fantasia-epica-a5.pdf',

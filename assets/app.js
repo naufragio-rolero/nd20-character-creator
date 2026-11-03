@@ -544,13 +544,16 @@
   function htmlRecursos(pares,personaje){
     var items=(pares||[]).slice(),blindaje=null,dano=null;
     if(personaje?.juego==='Naufragio d20 · Fantasía'){
-      blindaje=blindajePersonaje(personaje);
-      // La ausencia de armadura es un estado, no un dado de Blindaje.
-      // El selector y la copia textual mantienen el dato explícito.
-      if(blindaje)items.push(['Blindaje',
-        blindaje.valor==='Sin armadura'?'—':blindaje.valor]);
+      // La fila inferior ordena Daño, Blindaje y Potencia.
+      // Ningún recurso ni su valor cambian al reorganizar la vista.
+      var potencia=items.filter(function(p){return p[0]==='Potencia';});
+      items=items.filter(function(p){return p[0]!=='Potencia';});
       dano=danoPersonaje(personaje);
       items.push(['Daño',dano.valor]);
+      blindaje=blindajePersonaje(personaje);
+      if(blindaje)items.push(['Blindaje',
+        blindaje.valor==='Sin armadura'?'—':blindaje.valor]);
+      items.push.apply(items,potencia);
     }
     return '<div class="recursos recursos-rejilla'+(dano?' recursos-con-dano':'')+
       '" aria-label="Recursos del personaje">'+
@@ -563,11 +566,11 @@
           '<span class="recurso-texto"><span class="recurso-nombre">'+esc(p[0])+
           '</span><strong>'+esc(p[1])+'</strong>'+
           (esDano?'<small class="recurso-arma">'+esc(dano.arma||'Sin equipar')+'</small>':'')+
+          (p[0]==='Blindaje'&&blindaje?.bonoEscudo?
+            '<small class="recurso-nota-escudo">Escudo '+esc(blindaje.bonoEscudo)+
+            ' solo al bloquear</small>':'')+
           '</span></div>';
-      }).join('')+
-      (blindaje?.bonoEscudo?
-        '<small class="recurso-nota-escudo">Escudo '+esc(blindaje.bonoEscudo)+
-        ' solo al bloquear</small>':'')+'</div>';
+      }).join('')+'</div>';
   }
   function htmlProteccionesEquipadas(personaje,id){
     if(personaje.juego!=='Naufragio d20 · Fantasía'||
@@ -2012,7 +2015,8 @@
         pdf.disabled=true;
         aviso('Preparando PDF A5 de '+entradaPdf.valor.nombre+'…');
         window.NaufragioPdfBrowser.exportar(
-          entradaPdf.valor,blindajePersonaje(entradaPdf.valor),datos.equipoInicial
+          entradaPdf.valor,blindajePersonaje(entradaPdf.valor),datos.equipoInicial,
+          function(nombre){return infoUI?.consulta(nombre,'poder','nd20')||null;}
         ).then(function(paginas){
           aviso('PDF A5 preparado: '+paginas+' página(s).');
         }).catch(function(error){
