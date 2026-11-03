@@ -804,6 +804,20 @@ html[data-tema=obsidiana] .icono-poder-lista{color:#f0f0f0}
 }
 .dialogo-compras .envoltura-select select:hover{border-color:var(--oro2)}
 .dialogo-compras .envoltura-select select:focus-visible{outline:3px solid var(--foco)}
+.dialogo-compras .consulta-precio-equino{
+  margin:.7rem 0;padding:.65rem .8rem;border:1px solid var(--borde);
+  border-radius:8px;background:var(--superficie2);
+}
+.dialogo-compras .consulta-precio-equino[hidden]{display:none!important}
+.dialogo-compras .consulta-precio-equino summary{cursor:pointer;font-weight:700}
+.dialogo-compras .consulta-precio-equino summary:focus-visible{
+  outline:3px solid var(--foco);outline-offset:3px;
+}
+.dialogo-compras .consulta-precio-equino label{
+  display:block;margin:.7rem 0 .3rem;font-size:.84rem;
+}
+.dialogo-compras .consulta-precio-equino p{margin:.6rem 0;font-weight:650}
+.dialogo-compras .consulta-precio-equino small{display:block;line-height:1.5}
 .dialogo-compras #compras-anadir{min-height:40px}
 .dialogo-compras #compras-detalle{margin:.3rem 0 .9rem}
 .dialogo-compras h4{margin:1rem 0 .5rem;font-size:.88rem;color:var(--texto)}
