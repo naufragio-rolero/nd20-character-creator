@@ -1376,6 +1376,16 @@
     $('grupos-elecciones').querySelectorAll('select[data-paso]').forEach(function(sel){
       var paso=borrador.plan.pasos.find(function(p){return p.id===sel.dataset.paso;});
       var anterior=sel.value,disponibles=poderes.disponibles(paso,selecciones);
+      if(paso.tipo==='conjuro_conocido'&&!paso.repetibles){
+        // En un mismo Nivel del grimorio tampoco se aprende dos veces
+        // el mismo Conjuro. Se preserva el primer selector elegido.
+        var previos=Array.from($('grupos-elecciones')
+          .querySelectorAll('select[data-paso="'+paso.id+'"]'))
+          .filter(function(otro){
+            return otro!==sel&&Number(otro.dataset.orden)<Number(sel.dataset.orden);
+          }).map(function(otro){return otro.value;}).filter(Boolean);
+        disponibles=disponibles.filter(function(op){return !previos.includes(op.id);});
+      }
       sel.textContent='';
       var option=document.createElement('option');
       option.value='';option.textContent='— Elige una opción —';sel.appendChild(option);
