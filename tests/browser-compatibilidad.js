@@ -837,6 +837,9 @@ async function probar(nombre,tipo,url){
     assert.equal(bloquesFicha.find(x=>x.titulo==='Equipo')?.computadas,2,
       nombre+': Equipo utiliza dos columnas en escritorio');
     assert.equal(await fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas')
+      .first().getAttribute('role'),'list',
+      nombre+': lista accesible incluso sin marcadores visuales en Safari');
+    assert.equal(await fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas')
       .first().evaluate(el=>getComputedStyle(el).listStyleType),'none',
       nombre+': sin viñetas en la pseudotabla de listas');
     const alineacion=await fichaTalentos.locator('.bloque-ficha .linea-poder')
