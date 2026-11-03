@@ -1474,7 +1474,9 @@
     return cadena;
   }
   function rngUnico(semilla){
-    return function(i){return reglas.aleatorioSemilla(semilla+':'+i);};
+    // Los generadores de herramientas también pueden llamar sin parámetro.
+    var base=semilla===undefined?semillaGeneracion():semilla;
+    return function(i){return reglas.aleatorioSemilla(base+':'+i);};
   }
   function mostrarReproduccion(semilla,cfg){
     ultimaReproduccion={version:1,semilla:semilla,config:JSON.parse(JSON.stringify(cfg))};
