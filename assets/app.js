@@ -363,6 +363,9 @@
     aviso(texto,true);
     $('aviso-configuracion').textContent=texto;
     var dialogo=$('dialogo-configuracion');
+    // Un dialog anidado en el panel móvil no puede ser visible si su
+    // antecesor tiene display:none. Mostrar el panel antes del modal.
+    if(window.matchMedia('(max-width:830px)').matches)alternarMenu(true);
     if(!dialogo.open)dialogo.showModal();
     var destino=!validarNivelVisible()?$('nivel-min'):
       !validarFuentesVisibles()?
@@ -1621,6 +1624,10 @@
       refrescarGenerarFlotante();
     });
     function cerrarConfiguracion(){if(configurador.open)configurador.close();}
+    window.addEventListener('resize',function(){
+      if(configurador.open&&window.matchMedia('(max-width:830px)').matches)
+        alternarMenu(true);
+    },{passive:true});
     $('cerrar-configuracion').addEventListener('click',cerrarConfiguracion);
     $('aplicar-configuracion').addEventListener('click',function(){
       try{config();$('aviso-configuracion').textContent='';cerrarConfiguracion();}
