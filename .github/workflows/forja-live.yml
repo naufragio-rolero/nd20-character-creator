@@ -213,15 +213,22 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist/public-drs
+          # Nombre distinto en reintentos del mismo run para evitar colisiones.
+          name: github-pages-${{ github.run_attempt }}
       - name: Publicar Forja LIVE
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
       - name: Verificar el sitio público tras el despliegue
         env:
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
         shell: bash
         run: |
           set -euo pipefail
+          # Pages/CDN puede devolver 503 mientras propaga activos; repetir
+          # solo descargas transitorias, sin relajar ninguna aserción.
+          curl() { command curl --retry 4 --retry-delay 2 --retry-connrefused "$@"; }
           test -n "$PAGE_URL"
           echo "Comprobando que Pages sirve la consulta DRS compacta desde SHA fijado"
           # Verificar también la exportación A5 y su cadena de recursos sin CDN.
