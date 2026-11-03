@@ -143,6 +143,7 @@ async function run(name,origin){
     await page.locator('#nivel-min').fill('1');
     await page.locator('#nivel-max').fill('1');
     await page.locator('#semilla').fill('otra-secuencia');
+    await page.locator('#recuperar-reproduccion summary').click();
     await page.locator('#texto-reproduccion').fill(json);
     await page.locator('#aplicar-reproduccion').click();
     assert.equal(await page.locator('#semilla').inputValue(),semilla);
