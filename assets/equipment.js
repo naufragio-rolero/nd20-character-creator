@@ -233,8 +233,9 @@
   // Economía DRS: se opera en centésimas de moneda de oro (1 mc).
   // El catálogo puede mostrar "5 mc", pero nunca se pierde en redondeos.
   function centimos(precio){
-    var n=Number(precio);
-    if(!Number.isFinite(n)||n<0||!Number.isSafeInteger(Math.round(n*100))||
+    var n=precio;
+    if(typeof n!=='number'||!Number.isFinite(n)||n<0||
+       !Number.isSafeInteger(Math.round(n*100))||
        Math.abs(n*100-Math.round(n*100))>1e-7)
       throw Error('Precio no documentado o inferior a una moneda de cobre.');
     return Math.round(n*100);
