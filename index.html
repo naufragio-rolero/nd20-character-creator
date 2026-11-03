@@ -238,6 +238,31 @@
           </div>
         </form>
       </section>
+      <dialog id="editor-revision-elecciones" class="dialogo-compras dialogo-revision-elecciones" hidden aria-labelledby="titulo-revision-elecciones">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-revision-elecciones">Elegir Talentos y Poderes</h3>
+            <p id="revision-resumen" class="muted"></p>
+          </div>
+          <button type="button" id="revision-cerrar" class="cerrar-rejilla" aria-label="Cerrar selección de Talentos y Poderes">✕</button>
+        </div>
+        <form id="form-revision-elecciones">
+          <p class="ayuda revision-aclaracion">Puedes revisar las elecciones correspondientes al Nivel de creación de este personaje. No se añaden plazas nuevas ni se modifican los Conjuros preparados. Cada Conjuro conocido solo puede aprenderse una vez.</p>
+          <section id="revision-talentos" class="revision-grupo" aria-labelledby="revision-titulo-talentos">
+            <h4 id="revision-titulo-talentos">Talentos</h4>
+            <div id="revision-pasos-talentos"></div>
+          </section>
+          <section id="revision-poderes" class="revision-grupo" aria-labelledby="revision-titulo-poderes">
+            <h4 id="revision-titulo-poderes">Conjuros y Poderes conocidos</h4>
+            <div id="revision-pasos-poderes"></div>
+          </section>
+          <p id="revision-estado" class="ayuda" aria-live="polite"></p>
+          <div class="botonera">
+            <button type="submit" id="revision-confirmar" class="principal">Guardar elecciones</button>
+            <button type="button" id="revision-cancelar">Cancelar</button>
+          </div>
+        </form>
+      </dialog>
       <dialog id="editor-gestion-equipo" class="dialogo-compras dialogo-gestion-equipo" hidden aria-labelledby="titulo-gestion-equipo">
         <div class="cabecera-compras">
           <div>
