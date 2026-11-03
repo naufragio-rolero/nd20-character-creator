@@ -28,15 +28,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot unificado con dos generadores de nombres (PR #57)
+      - name: Obtener snapshot DRS aprobado con armamento editable (PR #59 y #60)
         uses: actions/checkout@v4
         with:
-          ref: aedb3233fe36fa5d8b3e107553dd5124b3555be4
+          ref: 1b688dd4994b975a2d1a32268b805062dfda3d8f
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "aedb3233fe36fa5d8b3e107553dd5124b3555be4"
-      # Snapshot validado: 35 SVG, PDF A5, genérico 1422 y Ylat 255 × 133.
+          test "$(git rev-parse HEAD)" = "1b688dd4994b975a2d1a32268b805062dfda3d8f"
+      # Snapshot validado: 35 SVG, PDF A5, genérico 1422, Ylat 255 × 133,
+      # cinco glosas de paquetes, armadura equina ×4, armamento manual y Dardo 5 mc.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
       - name: Auditar iconografia y funcionalidades fijadas
@@ -108,6 +109,22 @@ jobs:
           grep -Fq 'info.danioCompuesto?.dados_base' assets/tooltips.js
           grep -Fq '"blindaje": "d4"' data/equipo-inicial.json
           grep -Fq 'function blindajeFicha(personaje,catalogo)' assets/equipment.js
+          # Entrega PR #59/#60: controles funcionales del DRS, sin venta de regalos.
+          grep -Fq 'id="editor-armamento"' index.html
+          grep -Fq 'class="editar-armamento"' assets/app.js
+          grep -Fq 'function intercambiarEquipoInicial(' assets/equipment.js
+          grep -Fq 'function comprarArmamentoFantasia(' assets/equipment.js
+          grep -Fq 'compras_iniciales_intercambiables' assets/rules.js
+          node - <<'NODE'
+          const assert=require('node:assert/strict');
+          const e=require('./data/equipo-inicial.json');
+          const dardo=e.armas.find(x=>x.nombre==='Dardo');
+          assert.equal(dardo.precio,0.05);
+          assert.equal(dardo.precio_editorial,'5 mc');
+          assert.equal(e.componentes_paquetes_editoriales.length,5);
+          assert.equal(e.utiles_fantasia.equipo_monturas.find(x=>
+            x.nombre==='Armadura equina').regla_precio_autoral.multiplicador,4);
+          NODE
           grep -Fq 'class="recursos recursos-rejilla"' assets/app.js
           grep -Fq 'function iconoEquipo(nombre)' assets/app.js
           grep -Fq 'function descripcionConSexo(personaje)' assets/app.js
@@ -148,6 +165,7 @@ jobs:
       - name: Regresión editorial de nombres y esquema DRS
         run: |
           node tests/alcance-drs.js
+          node tests/armamento-edicion.js
           node tests/smoke.js
           node tests/fichas-drs-ux.js
           node tests/iconos-forja.js
@@ -228,6 +246,8 @@ jobs:
           ! grep -Fq 'data-juego="nd20_cifi"' /tmp/forja-live.html
           ! grep -Fq 'data-juego="nd20_nocturna"' /tmp/forja-live.html
           grep -Fq '<dialog id="editor-compras"' /tmp/forja-live.html
+          grep -Fq 'id="editor-armamento"' /tmp/forja-live.html
+          grep -Fq 'id="armamento-modo"' /tmp/forja-live.html
           grep -Fq 'id="compras-grupo"' /tmp/forja-live.html
           ! grep -Eiq 'niguac|niguaz' /tmp/forja-live.html
           ! grep -Fq '<option value="documentado"' /tmp/forja-live.html
@@ -310,6 +330,8 @@ jobs:
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/equipment.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-equipment.js
           grep -Fq 'function blindajeFicha(personaje,catalogo)' /tmp/forja-equipment.js
           grep -Fq 'proteccionesDisponibles:proteccionesDisponibles' /tmp/forja-equipment.js
+          grep -Fq 'function intercambiarEquipoInicial(' /tmp/forja-equipment.js
+          grep -Fq 'function comprarArmamentoFantasia(' /tmp/forja-equipment.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/rules.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-rules.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/sex.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-sex.js
           ! grep -Fq 'Forma del generador histórico de nombres de Ylat.' /tmp/forja-rules.js
@@ -335,6 +357,12 @@ jobs:
           const e=require('/tmp/forja-equipo.json');
           assert.deepEqual([e.armas.length,e.armaduras.length,e.escudos.length,e.varitas_defensa.length],
             [38,14,3,4]);
+          const dardo=e.armas.find(x=>x.nombre==='Dardo');
+          assert.equal(dardo.precio,0.05);
+          assert.equal(dardo.precio_editorial,'5 mc');
+          assert.equal(e.componentes_paquetes_editoriales.length,5);
+          assert.equal(e.utiles_fantasia.equipo_monturas.find(x=>
+            x.nombre==='Armadura equina').regla_precio_autoral.multiplicador,4);
           const buscar=(familia,nombre)=>e[familia].find(x=>x.nombre===nombre);
           const tela=buscar('armaduras','Armadura de tela');
           const pieles=buscar('armaduras','Armadura de pieles');
