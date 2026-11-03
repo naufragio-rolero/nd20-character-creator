@@ -254,6 +254,39 @@ async function main(){
       "document.querySelector('#fichas .tarjeta .otros-avisos')?.textContent?.includes('Talento de Ocupación — Recuperación:')!==true"),
       'La ficha no duplica el efecto de Recuperación al final');
     await cdp.evalJS("window.NaufragioInfoUI.cerrar()");
+    // La ficha terminada permite revisar una plaza real de Talento.
+    assert.equal(await cdp.evalJS(
+      "document.querySelectorAll('#fichas .revisar-elecciones').length"),2);
+    await cdp.evalJS("document.querySelectorAll('.revisar-elecciones')[0].click()");
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#editor-revision-elecciones').open"),true);
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#revision-pasos-talentos select').dataset.revisionPaso"),
+      'talento-guerrero');
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#revision-pasos-poderes').hidden"),true);
+    const talentoAntes=await cdp.evalJS(
+      "document.querySelector('#revision-pasos-talentos select').value");
+    await cdp.evalJS("(()=>{var s=document.querySelector('#revision-pasos-talentos select');"+
+      "s.value=s.options[0].value===s.value?s.options[1].value:s.options[0].value;"+
+      "s.dispatchEvent(new Event('change',{bubbles:true}));})()");
+    const talentoDespues=await cdp.evalJS(
+      "document.querySelector('#revision-pasos-talentos select').value");
+    assert.notEqual(talentoAntes,talentoDespues);
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#revision-confirmar').disabled"),false);
+    await cdp.evalJS("document.querySelector('#form-revision-elecciones').requestSubmit()");
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#editor-revision-elecciones').open"),false);
+    assert.match(await cdp.evalJS("document.querySelector('#estado').textContent"),
+      /Talentos y Poderes actualizados/);
+    assert.equal(await cdp.evalJS(
+      "document.activeElement.classList.contains('revisar-elecciones')"),true);
+    const habilidades=await cdp.evalJS(
+      "document.querySelector('#fichas .tarjeta').textContent");
+    const nombreTalento=talentoDespues;
+    assert.ok(habilidades.includes(nombreTalento),
+      'La ficha refleja el Talento elegido después de crear el personaje');
 
     let estado=await cdp.evalJS("Array.from(document.querySelectorAll('#fichas .tarjeta')).map(x=>({"+
       "id:x.dataset.id,html:x.innerHTML,riqueza:x.querySelector('.riqueza')?.textContent}))");
