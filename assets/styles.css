@@ -1243,3 +1243,40 @@ html[data-tema] .juegos-compactos button.sistema-logo.sistema-activo{
   .juegos-compactos button.sistema-logo{min-height:74px;padding:.45rem .3rem;--logo-alto:46px}
   .juegos-compactos button.sistema-logo[data-juego="dh"]{--logo-alto:36px}
 }
+
+
+/* Configuración compacta, errores persistentes y reproducción local. */
+.inicio-rapido{position:relative;padding-right:3.4rem}
+.inicio-rapido[hidden],.reproduccion-resultados[hidden]{display:none!important}
+.ocultar-tutorial{position:absolute;right:.55rem;top:.5rem;display:grid;place-items:center;
+  width:2rem;height:2rem;min-width:2rem;min-height:2rem;padding:0;border:1px solid var(--borde);
+  border-radius:6px;background:var(--superficie);color:var(--texto);font-size:1.4rem;line-height:1}
+.fila-campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+.fila-campos>.campo{min-width:0}
+.fila-identidad .abrir-rejilla{min-width:0;max-width:100%}
+.fila-identidad .abrir-rejilla>span:not(.simbolo-rejilla):not(.flecha-rejilla){
+  min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.fila-identidad .flecha-rejilla{flex:none}
+#opciones-fuentes[aria-invalid="true"],#opciones-dh[aria-invalid="true"]{border-color:var(--peligro)}
+.aviso-validacion,.aviso-validacion-nivel{color:var(--peligro);font-weight:700;font-size:.83rem}
+.aviso-validacion:empty,.aviso-validacion-nivel:empty{display:none}
+.reproduccion-resultados{border:1px solid var(--borde);background:var(--superficie);
+  border-radius:9px;padding:.8rem 1rem;margin:.55rem 0 1rem}
+.reproduccion-resultados p{margin:0 0 .5rem}
+.reproduccion-resultados code{overflow-wrap:anywhere;user-select:all}
+.reproduccion-resultados small{display:block;color:var(--secundario);margin-top:.55rem}
+.reproduccion-acciones{display:flex;flex-wrap:wrap;gap:.5rem}
+#texto-reproduccion{display:block;width:100%;min-height:5rem;max-width:100%;
+  resize:vertical;background:var(--tema-field-bg,var(--superficie));color:var(--texto);
+  border:1px solid var(--borde);border-radius:7px;padding:.65rem;margin:.6rem 0}
+@media(max-width:540px){.fila-campos{grid-template-columns:minmax(0,1fr)}}
+
+/* Violeta: marengo claro, superficies violetas y texto blanco. */
+html[data-tema=violeta]{
+  color-scheme:dark;
+  --fondo:#514d5b;--fondo2:#5a5365;--superficie:#625b70;--superficie2:#494354;
+  --borde:#a9a0c0;--texto:#fff;--secundario:#e0d8ec;--oro:#d9b7ff;
+  --oro2:#b28ce8;--oscuro:#292136;--foco:#f5d7ff;--peligro:#ffbfc9;
+  --tema-boton-texto:#292136;--tema-boton-hover:#74658c;--tema-field-bg:#484152;
+  --tema-ficha-bg:#f8f5fc;--tema-ficha-head:#e5daf2;--tema-ficha-text:#31283e;
+}
