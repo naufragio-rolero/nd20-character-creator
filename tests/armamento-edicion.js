@@ -76,6 +76,11 @@ assert.equal(dardo.restante,0);
 assert.throws(()=>api.comprarArmamentoFantasia(
   {...pj,saldo_mo:0.04},cat,guerrero,1,humano,[
     {grupo:'armas',nombre:'Dardo'}]),/supera el saldo/);
+// Un precio nulo no es una oferta gratuita (distinto de una decisión autoral).
+const sinPrecio={...cat,armas:cat.armas.map(x=>x.nombre!=='Dardo'?x:
+  {...x,precio:null})};
+assert.throws(()=>api.comprarArmamentoFantasia(p05,sinPrecio,guerrero,1,humano,[
+  {grupo:'armas',nombre:'Dardo'}]),/Precio no documentado/);
 assert.throws(()=>api.comprarArmamentoFantasia(pj,cat,guerrero,1,humano,[
   {grupo:'municion',nombre:'Flechas',cantidad:0}]),/cantidad/);
 // Varitas solo para las Ocupaciones con competencia explícita y Nivel.
