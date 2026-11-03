@@ -11,6 +11,7 @@
   var borrador = null;
   var compraBorrador = null;
   var armamentoBorrador = null;
+  var gestionBorrador = null;
   var fuentesGuardadas = {};
   var $ = function (id) {return document.getElementById(id);};
   function aviso(mensaje, esError) {
@@ -482,7 +483,7 @@
       if(/^Técnica aprendida, pendiente de uso:/.test(literal)){
         grupos.poderes.push(literal);return;
       }
-      if(/^Baja estatura: armas y armaduras |^Equipo DRS adquirido por/.test(literal)){
+      if(/^Baja estatura: armas y armaduras |^Equipo DRS (?:inicial )?adquirido por|^Compra adicional de (?:útiles|armamento):|^Cambio de equipo inicial:/.test(literal)){
         grupos.equipo.push(literal);return;
       }
       if(/^Riqueza adicional opcional:/.test(literal)){
@@ -519,26 +520,37 @@
   // con símbolos SVG locales. No se modifica el resultado de las tiradas.
   var iconosRecursos={Salud:'recurso-salud',Esfuerzo:'recurso-esfuerzo',
     Movimiento:'recurso-movimiento',Potencia:'recurso-potencia',
-    Esencia:'recurso-esencia',Blindaje:'recurso-blindaje'};
+    Esencia:'recurso-esencia',Blindaje:'recurso-blindaje',Daño:'equipo-espada'};
   function blindajePersonaje(personaje){
     return window.NaufragioEquipment?.blindajeFicha?.(personaje,datos.equipoInicial)||null;
   }
+  function danoPersonaje(personaje){
+    return window.NaufragioEquipment?.danoFicha?.(personaje,datos.equipoInicial)||
+      {valor:'—',arma:null,grupo:null};
+  }
   function htmlRecursos(pares,personaje){
-    var items=(pares||[]).slice(),blindaje=null;
+    var items=(pares||[]).slice(),blindaje=null,dano=null;
     if(personaje?.juego==='Naufragio d20 · Fantasía'){
       blindaje=blindajePersonaje(personaje);
       // La ausencia de armadura es un estado, no un dado de Blindaje.
       // El selector y la copia textual mantienen el dato explícito.
       if(blindaje)items.push(['Blindaje',
         blindaje.valor==='Sin armadura'?'—':blindaje.valor]);
+      dano=danoPersonaje(personaje);
+      items.push(['Daño',dano.valor]);
     }
-    return '<div class="recursos recursos-rejilla" aria-label="Recursos del personaje">'+
+    return '<div class="recursos recursos-rejilla'+(dano?' recursos-con-dano':'')+
+      '" aria-label="Recursos del personaje">'+
       items.map(function(p){
-        var icono=iconosRecursos[p[0]],simbolo=icono?
-          iconoDecorativo(icono,'icono-recurso'):'';
-        return '<div class="recurso-ficha">'+simbolo+
+        var esDano=p[0]==='Daño'&&dano;
+        var icono=esDano&&dano.grupo==='varitas_defensa'?
+          'equipo-varita':iconosRecursos[p[0]];
+        var simbolo=icono?iconoDecorativo(icono,'icono-recurso'):'';
+        return '<div class="recurso-ficha'+(esDano?' recurso-dano':'')+'">'+simbolo+
           '<span class="recurso-texto"><span class="recurso-nombre">'+esc(p[0])+
-          '</span><strong>'+esc(p[1])+'</strong></span></div>';
+          '</span><strong>'+esc(p[1])+'</strong>'+
+          (esDano?'<small class="recurso-arma">'+esc(dano.arma||'Sin equipar')+'</small>':'')+
+          '</span></div>';
       }).join('')+
       (blindaje?.bonoEscudo?
         '<small class="recurso-nota-escudo">Escudo '+esc(blindaje.bonoEscudo)+
@@ -600,7 +612,6 @@
       '<button class="icon-btn eliminar-ficha" data-id="' + id +
       '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div></div>' +
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
-      htmlContexto(notas.contexto) +
       '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos,personaje) +
       htmlLista('Competencias',personaje.competencias) +
       htmlLista('Talentos y capacidades',personaje.capacidades,'talento',
@@ -610,15 +621,13 @@
       htmlLista('Conjuros preparados',personaje.conjuros_preparados,'poder',sistemaFicha(personaje)) +
       htmlAvisos('Condiciones de uso',notas.poderes,'avisos-poderes') +
       htmlLista('Equipo',personaje.equipo,'equipo',sistemaFicha(personaje)) +
-      htmlProteccionesEquipadas(personaje,id) +
-      htmlAvisos('Reglas y compras de equipo',notas.equipo,'avisos-equipo') +
       (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
       htmlAvisos('Riqueza adicional',notas.riqueza,'avisos-riqueza') +
+      htmlContexto(notas.contexto) +
       htmlOtrosAvisos(notas.otras) +
       '<div class="pie-ficha"><div class="acciones-pie-ficha" role="group" aria-label="Acciones de la ficha">' +
       (personaje.juego==='Naufragio d20 · Fantasía'&&Number.isFinite(personaje.saldo_mo)?
-        '<button type="button" class="editar-armamento" data-id="'+id+'" title="Cambiar o comprar armamento" aria-label="Cambiar o comprar armamento">Armamento</button>'+
-        '<button type="button" class="comprar-utiles" data-id="'+id+'" title="Comprar útiles" aria-label="Comprar útiles">Útiles</button>':'')+
+        '<button type="button" class="gestionar-equipo" data-id="'+id+'" title="Equipar y gestionar el equipo" aria-label="Equipar y gestionar el equipo">Equipo</button>':'')+
       (personaje.juego==='Naufragio d20 · Fantasía'?
         '<button type="button" class="exportar-pdf-ficha" data-id="'+id+'" title="Exportar PDF A5" aria-label="Exportar ficha PDF A5">PDF</button>':'')+
       '<button type="button" class="copiar-ficha" data-id="' + id +
@@ -674,6 +683,8 @@
           ' ('+defensa.bonoEscudo+' solo al bloquear)');
         if(defensa.natural)str.push('Protección natural documentada: '+defensa.natural);
       }
+      var dano=danoPersonaje(p);
+      str.push('Arma equipada: '+(dano.arma||'Sin equipar')+'; Daño: '+dano.valor);
     }
     if(p.riqueza)str.push('Riqueza: '+p.riqueza);
     str.push(fuentesFicha(p));
@@ -843,7 +854,7 @@
     if(modal.open)modal.close();
     modal.hidden=true;
     if(id!==undefined){
-      var boton=$('fichas').querySelector('.editar-armamento[data-id="'+id+'"]');
+      var boton=$('fichas').querySelector('.gestionar-equipo[data-id="'+id+'"]');
       if(boton)boton.focus({preventScroll:true});
     }
   }
@@ -888,7 +899,7 @@
     dialogo.hidden=true;
     // El teclado vuelve a la ficha que abrió el editor, si sigue presente.
     if(id!==null&&id!==undefined){
-      var retorno=$('fichas').querySelector('.comprar-utiles[data-id="'+id+'"]');
+      var retorno=$('fichas').querySelector('.gestionar-equipo[data-id="'+id+'"]');
       if(retorno)retorno.focus({preventScroll:true});
     }
   }
@@ -1439,6 +1450,9 @@
             '; saldo '+dineroEquipo(resultado.restante)+'.';
         }
         personaje.saldo_mo=resultado.restante;
+        if(personaje.arma_equipada&&!compra.armasDisponibles(
+          personaje,datos.equipoInicial).some(function(x){return x.nombre===personaje.arma_equipada;}))
+          personaje.arma_equipada='';
         personaje.riqueza=resultado.restante+' mo restantes / '+
           personaje.capital_inicial_mo+' mo iniciales';
         // Si ya no se posee la protección que estaba equipada, limpiarla.
@@ -1536,7 +1550,7 @@
         cerrarCompra();
         dibujar();
         var boton=$('fichas').querySelector(
-          '.comprar-utiles[data-id="'+idComprador+'"]');
+          '.gestionar-equipo[data-id="'+idComprador+'"]');
         if(boton)boton.focus({preventScroll:true});
       });
     });
@@ -1588,26 +1602,22 @@
       });
     });
     $('fichas').addEventListener('click',function(e){
-      var editar=e.target.closest('.editar-armamento');
-      if(editar){
+      var gestionar=e.target.closest('.gestionar-equipo');
+      if(gestionar){
         conControl(function(){
-          var entrada=entradas.find(function(x){return String(x.id)===editar.dataset.id;});
-          if(!entrada)throw Error('Ficha no encontrada para editar su armamento.');
-          abrirArmamento(entrada);
-        });return;
-      }
-      var comprar=e.target.closest('.comprar-utiles');
-      if(comprar){
-        conControl(function(){
-          var entrada=entradas.find(function(x){return String(x.id)===comprar.dataset.id;});
-          if(!entrada)throw Error('Ficha no encontrada para comprar útiles.');
-          abrirCompra(entrada);
+          var entrada=entradas.find(function(x){return String(x.id)===gestionar.dataset.id;});
+          if(!entrada)throw Error('Ficha no encontrada para gestionar equipo.');
+          abrirGestionEquipo(entrada);
         });return;
       }
       var del=e.target.closest('.eliminar-ficha');
       if(del){
         if(compraBorrador&&String(compraBorrador.id)===del.dataset.id)
           cerrarCompra();
+        if(armamentoBorrador&&String(armamentoBorrador.id)===del.dataset.id)
+          cerrarArmamento();
+        if(gestionBorrador&&String(gestionBorrador.id)===del.dataset.id)
+          cerrarGestionEquipo();
         entradas=entradas.filter(function(x){return String(x.id)!==del.dataset.id;});
         dibujar();return;
       }
