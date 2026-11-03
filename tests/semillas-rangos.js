@@ -30,6 +30,9 @@ function generarDH(s,min,max,cantidad){
 }
 for(const [system,max,crear] of [['Naufragio d20',30,generarNd20],
                                  ['Dungeon Hack',36,generarDH]]){
+  const individual=crear(system+'-individual',5,5,1);
+  assert.deepEqual(individual,crear(system+'-individual',5,5,1),
+    'Reproducción individual de '+system);
   const mismo=crear(system+'-fijo',5,5,3);
   assert.deepEqual(mismo,crear(system+'-fijo',5,5,3),'Fijo y reproducible');
   assert.ok(mismo.every(p=>p.nivel===5));
