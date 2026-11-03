@@ -241,12 +241,8 @@ async function run(name,origin){
     assert.equal(await first().locator('.nivel-ficha').innerText(),'Nivel 36');
     await first().locator('.ver-reproduccion').click();
     assert.match(await page.locator('#reproduccion-personaje').innerText(),/./);
-    assert.equal(JSON.parse(await page.locator('#copiar-reproduccion').evaluate(async button=>{
-      window.__forjaCopiado='';
-      button.click();
-      await new Promise(r=>setTimeout(r,10));
-      return window.__forjaCopiado;
-    })).config.juego,'dh');
+    await page.locator('#copiar-reproduccion').click();
+    assert.equal(JSON.parse(await page.evaluate(()=>window.__forjaCopiado)).config.juego,'dh');
     await page.locator('#cerrar-reproduccion').click();
     await open();
     await page.locator('#juego').evaluate(x=>{x.value='nd20';x.dispatchEvent(new Event('change',{bubbles:true}));});
