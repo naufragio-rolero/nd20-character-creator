@@ -815,6 +815,7 @@
     var cambiar=$('armamento-modo').value==='cambiar';
     $('armamento-cambio').hidden=!cambiar;
     $('armamento-adicional').hidden=cambiar;
+    $('armamento-cantidad').disabled=cambiar;
     $('armamento-saldo').textContent='Personaje: '+personaje.nombre+
       ' · Saldo disponible: '+dineroEquipo(personaje.saldo_mo);
     var resultado='',validar=false,advertencia='';
