@@ -10,6 +10,7 @@
   var correlativo = 0;
   var borrador = null;
   var compraBorrador = null;
+  var armamentoBorrador = null;
   var fuentesGuardadas = {};
   var $ = function (id) {return document.getElementById(id);};
   function aviso(mensaje, esError) {
@@ -616,6 +617,7 @@
       htmlOtrosAvisos(notas.otras) +
       '<div class="pie-ficha"><div class="acciones-pie-ficha" role="group" aria-label="Acciones de la ficha">' +
       (personaje.juego==='Naufragio d20 · Fantasía'&&Number.isFinite(personaje.saldo_mo)?
+        '<button type="button" class="editar-armamento" data-id="'+id+'" title="Cambiar o comprar armamento" aria-label="Cambiar o comprar armamento">Armamento</button>'+
         '<button type="button" class="comprar-utiles" data-id="'+id+'" title="Comprar útiles" aria-label="Comprar útiles">Útiles</button>':'')+
       (personaje.juego==='Naufragio d20 · Fantasía'?
         '<button type="button" class="exportar-pdf-ficha" data-id="'+id+'" title="Exportar PDF A5" aria-label="Exportar ficha PDF A5">PDF</button>':'')+
