@@ -817,6 +817,23 @@ async function probar(nombre,tipo,url){
     await generar();
     const fichaTalentos=page.locator('#fichas .tarjeta').first();
     await fichaTalentos.waitFor();
+    // Las glosas de Talentos también deben abrirse por encima del diálogo
+    // nativo de revisión, en Gecko y WebKit (top layer).
+    await fichaTalentos.locator('.revisar-elecciones').click();
+    const revisionModal=page.locator('#editor-revision-elecciones');
+    assert.equal(await revisionModal.evaluate(e=>e.open),true);
+    const fichaRevision=revisionModal.locator(
+      '#revision-pasos-talentos .consultar-ficha-eleccion').first();
+    assert.equal(await fichaRevision.isVisible(),true);
+    await fichaRevision.click();
+    const popupRevision=page.locator('#ficha-emergente');
+    assert.equal(await popupRevision.isVisible(),true,
+      nombre+': Ver ficha aparece desde el editor modal');
+    assert.equal(await popupRevision.evaluate(e=>e.parentElement.id),
+      'editor-revision-elecciones',nombre+': la glosa pertenece al diálogo superior');
+    await popupRevision.locator('.info-cerrar').click();
+    await revisionModal.locator('#revision-cancelar').click();
+    assert.equal(await revisionModal.evaluate(e=>e.open),false);
     const atributosVista=await fichaTalentos.locator('.atributo .nombre-atributo')
       .allTextContents();
     assert.deepEqual(atributosVista.map(x=>x.replace('★','').trim()),
