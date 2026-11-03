@@ -6,8 +6,9 @@ Esta mejora reutiliza el generador de números seudoaleatorios `NaufragioRules.a
 
 ## Semilla y configuración
 
-- Cuando el usuario deja la semilla vacía, el navegador genera una, la coloca en el campo y la presenta en resultados. La creación automática de la semilla usa `crypto.getRandomValues` cuando está disponible. Esa aleatoriedad ocurre **antes** de comenzar la generación reproducible.
-- La semilla escrita por el usuario permanece vigente para futuras generaciones hasta que se cambie o se borre. Para generar una nueva automáticamente basta con dejar el campo vacío.
+- **Generar personaje** usa por defecto una semilla **nueva en cada pulsación**, creada mediante `crypto.getRandomValues` cuando está disponible. No la escribe automáticamente en el campo de configuración: se presenta en resultados y se puede copiar, junto con el JSON de reproducción.
+- Justo debajo de **Generar personaje** aparece el botón **Usar semilla**, desactivado por defecto y con estado accesible `aria-pressed`. Al activarlo abre Configuración, muestra la semilla y la mantiene fija para sucesivas generaciones. Si no hay texto, recupera la última semilla generada (o crea una cuando aún no existen resultados); pulsarlo de nuevo desactiva el modo fijo sin borrar el valor escrito.
+- Escribir o pegar una semilla en Configuración activa el modo fijo; vaciar el campo devuelve la generación aleatoria. **Importar un JSON de reproducción también activa la semilla**. Si el modo está desactivado, cualquier texto que permanezca en el campo se ignora: cada generación vuelve a ser diferente.
 - Cada ficha `i` de un lote recibe su propio flujo determinista `aleatorioSemilla(semilla + ':' + i)`, empezando en `i = 0`. Elegir el Nivel consume ese flujo **antes** de construir la ficha. La misma semilla y las mismas opciones producen las mismas fichas en el mismo orden y los mismos Niveles.
 - **Copiar semilla** solo copia la cadena utilizada.
 - **Copiar configuración de reproducción** copia un JSON local `{version:1, semilla, config}`, que contiene sistema, fuentes, procedencias, Nivel mínimo/máximo, número de fichas, modo, Ocupación/Clase, Especie, subconjuntos permitidos, sexo, coherencia narrativa, nombres y riqueza opcional.
@@ -29,7 +30,7 @@ La gestión de Equipo recupera su panel principal al cerrar un submenú de armam
 ## Pruebas y publicación
 
 - `node tests/semillas-rangos.js`: semillas iguales/diferentes, lotes reproducibles, rangos, límites, error de fuentes/procedencias y ausencia de azar externo a una semilla pasada al motor.
-- `node tests/browser-semillas-rangos.cjs chrome` y `node tests/browser-semillas-rangos.cjs firefox webkit`: E2E de UI, fuentes, Nivel, sistema, tutorial persistente, copia/restauración y navegación de Equipo. En CI se ejecutan asimismo sobre `FORJA_PUBLIC_ROOT=dist/public-drs`.
+- `node tests/browser-semillas-rangos.cjs chrome` y `node tests/browser-semillas-rangos.cjs firefox webkit`: E2E de UI, botón «Usar semilla», azar distinto en generaciones consecutivas, reproducción deliberada, fuentes, Nivel, sistema, tutorial persistente, copia/restauración y navegación de Equipo. En CI se ejecutan asimismo sobre `FORJA_PUBLIC_ROOT=dist/public-drs`.
 - Permanecen las pruebas de compras, talentos, Poderes, paquete DRS, PDF y compatibilidad, además de las verificaciones editoriales del paquete.
 
 **main no equivale a LIVE.** Los cambios se integran por rama y PR tras superar las pruebas. La publicación en GitHub Pages solo se hace por el flujo protegido de SHA aprobado y artefacto `dist/public-drs`; no se publica el árbol raíz ni se alteran las exclusiones.
