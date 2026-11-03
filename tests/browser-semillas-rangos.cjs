@@ -60,9 +60,15 @@ async function run(name,origin){
     assert.equal(cajas.length,2);
     assert.ok(cajas[1].left>cajas[0].left&&Math.abs(cajas[0].top-cajas[1].top)<3);
     await page.setViewportSize({width:390,height:850});
+    await page.waitForFunction(()=>innerWidth<=540);
     const apiladas=await page.locator('.fila-identidad>.campo').evaluateAll(nodes=>
       nodes.map(n=>{const r=n.getBoundingClientRect();return {left:r.left,top:r.top};}));
-    assert.ok(apiladas[1].top>apiladas[0].top);
+    const mobileCss=await page.locator('.fila-identidad').evaluate(el=>({
+      grid:getComputedStyle(el).gridTemplateColumns,
+      width:el.getBoundingClientRect().width,viewport:innerWidth
+    }));
+    assert.ok(apiladas[1].top>apiladas[0].top,
+      'Los campos deben apilarse en móvil: '+JSON.stringify({apiladas,mobileCss}));
     await page.setViewportSize({width:1320,height:920});
     // Rango inválido: no recortar, no perder lo escrito y mantener diálogo.
     await page.locator('#nivel-max').fill('2');
