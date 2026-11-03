@@ -98,6 +98,8 @@ assert.deepEqual(opciones('Guerrero',1,esp['Gnomo urbano'])
 assert.ok(opciones('Mago',1).find(x=>x.nombre==='Espadón').advertencia);
 assert.equal(opciones('Mago',1).some(x=>x.grupo==='escudos'),false,
   'La prohibición expresa del Mago impide ofrecer escudos');
+assert.equal(opciones('Mago',1).some(x=>x.grupo==='armaduras'&&x.nombre==='Coraza'),false,
+  'La Ocupación solo permite armaduras de tela');
 assert.equal(opciones('Clérigo',1).some(x=>x.grupo==='armas'&&x.nombre==='Arco corto'),false,
   'El Clérigo no puede equipar armas a distancia');
 // Protecciones disponibles: solo son equipables las que siguen en el inventario.
