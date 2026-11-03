@@ -266,7 +266,7 @@ async function main(){
       "document.querySelector('#revision-pasos-talentos select').dataset.revisionPaso"),
       'talento-guerrero');
     assert.equal(await cdp.evalJS(
-      "document.querySelector('#revision-pasos-poderes').hidden"),true);
+      "document.querySelector('#revision-poderes').hidden"),true);
     const talentoAntes=await cdp.evalJS(
       "document.querySelector('#revision-pasos-talentos select').value");
     await cdp.evalJS("(()=>{var s=document.querySelector('#revision-pasos-talentos select');"+
