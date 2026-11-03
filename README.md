@@ -45,6 +45,7 @@ Nunca publicar el directorio raíz: el único paquete público es el DRS depurad
 - Documentación editorial: `docs/enciclopedia/`.
 - Tareas de Forja 1.2: `docs/PLAN-FORJA-1-2.md`.
 - Iconografía de Equipo y configurador: `docs/ICONOS-Y-CONFIGURACION-FORJA.md`.
+- Semillas, intervalos de Nivel y reproducción de generaciones: `docs/SEMILLAS-RANGOS-REPRODUCCION.md`.
 - Requisitos de diseño para exportación futura a PDF: `docs/EXPORTACION-PDF-PLANTILLAS.md` (solo planificación; aún no implementado).
 
 Código GPL-3.0. Los textos originales conservan sus respectivas atribuciones y licencias.

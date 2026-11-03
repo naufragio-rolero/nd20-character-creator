@@ -14,6 +14,23 @@
   var gestionBorrador = null;
   var revisionBorrador = null;
   var fuentesGuardadas = {};
+  var ultimaReproduccion = null;
+  var volverGestionEquipo = null;
+  var sistemasVisibles={
+    nd20:'Naufragio d20 · Fantasía Épica',
+    nd20_nocturna:'Naufragio d20 · Nocturna',
+    nd20_cifi:'Naufragio d20 · CiFi',
+    dh:'Dungeon Hack'
+  };
+  function nombreSistema(id){return sistemasVisibles[id]||id;}
+  function sistemaPublicado(id){
+    // El catálogo y el botón editorial deben existir y estar habilitados.
+    // Una mera clave interna de sistema no lo publica en LIVE.
+    return !!sistemasVisibles[id]&&
+      Array.from($('juego').options).some(function(op){return op.value===id&&!op.disabled;})&&
+      Array.from(document.querySelectorAll('.juegos-compactos [data-juego]'))
+        .some(function(b){return b.dataset.juego===id&&!b.disabled&&!b.hidden;});
+  }
   var $ = function (id) {return document.getElementById(id);};
   function aviso(mensaje, esError) {
     $('estado').textContent = mensaje || '';
@@ -61,6 +78,36 @@
   // Varias candidatas permitidas, una sola Especie/Ocupación por personaje.
   // Ninguna marca significa aleatorio entre todas las disponibles.
   var candidatosSelector={ocupacion:[],especie:[]};
+  // Al quitar temporalmente todas las fuentes, los selectores se vacían.
+  // Conservar la elección anterior para recuperarla al corregir el error.
+  var seleccionesPausadas={};
+  function refrescarFuentesConPreservacion(){
+    var juego=$('juego').value,hayDisponibles=juego==='dh'?
+      origenesActivos().length>0:fuentesNd20Activas().length>0;
+    if(!hayDisponibles&&!seleccionesPausadas[juego]){
+      seleccionesPausadas[juego]={
+        ocupacion:candidatosSelector.ocupacion.slice(),
+        especie:candidatosSelector.especie.slice(),
+        ocupacionDirecta:$('ocupacion').value,
+        especieDirecta:$('especie').value
+      };
+    }
+    refrescarSelectores();
+    if(hayDisponibles&&seleccionesPausadas[juego]){
+      var anterior=seleccionesPausadas[juego];
+      ['ocupacion','especie'].forEach(function(tipo){
+        var disponibles=Array.from($(tipo).options).map(function(x){return x.value;});
+        var valor=anterior[tipo+'Directa'];
+        $(tipo).value=disponibles.includes(valor)?valor:'';
+        candidatosSelector[tipo]=anterior[tipo].filter(function(x){
+          return disponibles.includes(x);
+        });
+        marcarTarjetasSeleccionadas(tipo);
+      });
+      delete seleccionesPausadas[juego];
+      refrescarResumenCreacion();
+    }
+  }
   var borradorSelector={ocupacion:[],especie:[]};
   function marcarCeldas(tipo,seleccion){
     $('selector-visual-'+tipo).querySelectorAll('button.opcion-visual')
@@ -125,7 +172,11 @@
   // Resumen informativo de los ajustes activos en el diálogo.
   function refrescarResumenCreacion(){
     function poner(id,valor){$(id).textContent=String(valor);}
-    poner('resumen-nivel',$('nivel').value||'1');
+    var minimo=$('nivel-min').value,maximo=$('nivel-max').value;
+    poner('resumen-sistema',nombreSistema($('juego').value));
+    poner('resumen-nivel',minimo&&maximo?
+      (minimo===maximo?'Nivel '+minimo:'Niveles '+minimo+'–'+maximo):
+      'Intervalo sin completar');
     poner('resumen-ocupacion',$('valor-elegido-ocupacion').textContent);
     poner('resumen-especie',$('valor-elegido-especie').textContent);
     poner('resumen-sexo',$('sexo-pj').selectedOptions[0]?.textContent||'Aleatorio');
@@ -227,7 +278,7 @@
   }
   function refrescarSelectores() {
     if (!datos.dh) return;
-    if(!['nd20','dh'].includes($('juego').value))$('juego').value='nd20';
+    if(!sistemaPublicado($('juego').value))$('juego').value='nd20';
     var juego = $('juego').value, dh = juego === 'dh';
     refrescarBotonesSistema();
     $('opciones-dh').hidden = !dh;
@@ -238,9 +289,10 @@
     $('modos-creacion').hidden = dh;
     $('opciones-contexto-sexo').hidden=dh;
     $('generar-seguidor').disabled = !dh;
-    $('nivel').max = dh ? '36' : '30';
+    ['nivel-min','nivel-max'].forEach(function(id){
+      $(id).max=dh?'36':'30';
+    });
     $('rango-nivel').textContent = dh ? '1–36' : '1–30';
-    if (Number($('nivel').value) > Number($('nivel').max)) $('nivel').value = $('nivel').max;
     $('con-especie').disabled = !dh;
     $('especie').disabled = dh && !$('con-especie').checked;
     if (dh) {
@@ -279,6 +331,7 @@
     }
     refrescarTarjetasVisibles();
     validarNivelVisible();
+    validarFuentesVisibles();
     refrescarResumenCreacion();
     refrescarGenerarFlotante();
   }
@@ -288,33 +341,50 @@
     return document.querySelector('input[name="modo-creacion"]:checked').value;
   }
   function validarNivelVisible(){
-    var campo=$('nivel'),maximo=Number(campo.max);
-    var valido=Number.isInteger(campo.valueAsNumber)&&
-      campo.valueAsNumber>=1&&campo.valueAsNumber<=maximo;
-    var mensaje=valido?'':'Nivel no válido. Escribe un número entero entre 1 y '+
-      maximo+' para el sistema seleccionado.';
+    var campos=[$('nivel-min'),$('nivel-max')],maximo=Number(campos[0].max);
+    var validos=campos.every(function(c){return c.value.trim()!==''&&
+      Number.isInteger(c.valueAsNumber)&&c.valueAsNumber>=1&&c.valueAsNumber<=maximo;});
+    var invertido=validos&&campos[0].valueAsNumber>campos[1].valueAsNumber;
+    var mensaje=!validos?'Escribe dos Niveles enteros entre 1 y '+maximo+
+      ' para el sistema seleccionado.':invertido?
+      'El Nivel mínimo no puede superar al máximo.':'';
     $('aviso-nivel').textContent=mensaje;
-    if(valido)campo.removeAttribute('aria-invalid');
-    else campo.setAttribute('aria-invalid','true');
-    return valido;
+    campos.forEach(function(c){
+      if(mensaje)c.setAttribute('aria-invalid','true');
+      else c.removeAttribute('aria-invalid');
+    });
+    return !mensaje;
+  }
+  function validarFuentesVisibles(){
+    var dh=$('juego').value==='dh';
+    var field=$(dh?'opciones-dh':'opciones-fuentes');
+    var avisoCampo=$(dh?'aviso-origenes':'aviso-fuentes');
+    var validas=dh?origenesActivos():fuentesNd20Activas();
+    var mensaje=validas.length?'':dh?
+      'Marca al menos una procedencia para Dungeon Hack.':
+      'Selecciona al menos una fuente para generar personajes.';
+    avisoCampo.textContent=mensaje;
+    field.setAttribute('aria-invalid',String(!!mensaje));
+    $(dh?'aviso-fuentes':'aviso-origenes').textContent='';
+    $(dh?'opciones-fuentes':'opciones-dh').removeAttribute('aria-invalid');
+    return !mensaje;
   }
   function config() {
-    var juego=$('juego').value, nivel=Number($('nivel').value);
-    var cantidad=Number($('cantidad').value);
-    if (!Number.isInteger(nivel) || nivel < 1 || nivel > (juego === 'dh' ? 36 : 30))
-      throw Error('Indica un Nivel válido para el sistema elegido.');
+    var juego=$('juego').value, nivelMin=$('nivel-min').valueAsNumber,
+      nivelMax=$('nivel-max').valueAsNumber;
+    if(!validarNivelVisible())
+      throw Error($('aviso-nivel').textContent);
+    var cantidad=$('cantidad').valueAsNumber;
     if (!Number.isInteger(cantidad) || cantidad < 1 || cantidad > 12)
       throw Error('Puedes generar entre 1 y 12 fichas a la vez.');
-    var origenes=origenesActivos();
-    if (juego==='dh' && !origenes.length)
-      throw Error('Marca al menos una procedencia para Dungeon Hack.');
-    var fuentes=juego==='dh'?null:fuentesNd20Activas();
-    if(juego!=='dh'&&!fuentes.length)
-      throw Error('Marca al menos una fuente de Naufragio d20.');
+    var origenes=origenesActivos(),fuentes=juego==='dh'?null:fuentesNd20Activas();
+    if(!validarFuentesVisibles())
+      throw Error($(juego==='dh'?'aviso-origenes':'aviso-fuentes').textContent);
     var modo = dhModo(juego);
     if(modo==='personalizado' && cantidad!==1)
       throw Error('El modo Personalizado crea una ficha por vez. Selecciona cantidad 1.');
-    return {juego:juego, nivel:nivel, cantidad:cantidad, modo:modo,
+    return {juego:juego, nivel:nivelMin, nivelMin:nivelMin,nivelMax:nivelMax,
+      cantidad:cantidad, modo:modo,
       ocupacion:$('ocupacion').value, especie:$('especie').value,
       ocupacionesPermitidas:candidatosSelector.ocupacion.slice(),
       especiesPermitidas:candidatosSelector.especie.slice(),
@@ -325,6 +395,24 @@
       modoNombre:$('modo-nombre').value,
       riquezaPorNivel:(juego==='nd20'||juego==='nd20_cifi')&&
         $('riqueza-por-nivel').checked};
+  }
+  function mostrarErrorConfiguracion(error){
+    var texto=error?.message||String(error);
+    aviso(texto,true);
+    $('aviso-configuracion').textContent=texto;
+    var dialogo=$('dialogo-configuracion');
+    // Un dialog anidado en el panel móvil no puede ser visible si su
+    // antecesor tiene display:none. Mostrar el panel antes del modal.
+    if(window.matchMedia('(max-width:830px)').matches)alternarMenu(true);
+    if(!dialogo.open)dialogo.showModal();
+    var destino=!validarNivelVisible()?$('nivel-min'):
+      !validarFuentesVisibles()?
+        $(($('juego').value==='dh'?'origenes':'fuentes-nd20'))
+          .querySelector('input')||$('titulo-dialogo-configuracion'):
+        $('cantidad');
+    destino.focus({preventScroll:true});
+    destino.scrollIntoView({block:'center',behavior:'auto'});
+    refrescarGenerarFlotante();
   }
   function crearFicha(cfg, rng) {
     if (cfg.juego === 'dh') return reglas.eleccionDH(datos.dh,cfg,rng);
@@ -620,7 +708,7 @@
         '</span><span>' + cifra + '</span></div>';
     }).join('');
     return '<article class="tarjeta" data-id="' + id + '" data-nivel="' + esc(personaje.nivel) + '">' +
-      '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(personaje.juego) +
+      '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(nombreSistema(sistemaFicha(personaje))) +
       '</p><h3>' + esc(personaje.nombre) +
       '</h3><p class="descripcion-personaje">' + descripcionConSexo(personaje) + '</p></div>' +
       '<div class="acciones-cabecera-ficha"><span class="nivel-ficha" aria-label="Nivel '+
@@ -676,7 +764,7 @@
     return html;
   }
   function fichaTexto(p) {
-    var str=[p.nombre,p.juego,'Nivel: '+p.nivel,p.descripcion];
+    var str=[p.nombre,nombreSistema(sistemaFicha(p)),'Nivel: '+p.nivel,p.descripcion];
     if(p.sexo)str.push('Sexo: '+(p.sexo==='femenino'?'Femenino':'Masculino'));
     if(p.concepto)str.push('Concepto: '+p.concepto);
     str.push('', 'Atributos:');
@@ -877,9 +965,15 @@
   function cerrarArmamento(){
     var id=armamentoBorrador?.id;
     armamentoBorrador=null;
+    var regresar=volverGestionEquipo===id;
+    if(regresar)volverGestionEquipo=null;
     var modal=$('editor-armamento');
     if(modal.open)modal.close();
     modal.hidden=true;
+    if(regresar){
+      var entrada=entradas.find(function(x){return x.id===id;});
+      if(entrada){abrirGestionEquipo(entrada);return;}
+    }
     if(id!==undefined){
       var boton=$('fichas').querySelector('.gestionar-equipo[data-id="'+id+'"]');
       if(boton)boton.focus({preventScroll:true});
@@ -973,6 +1067,7 @@
   function abrirCompraDesdeGestion(tipo){
     var entrada=entradaGestionEquipo();
     cerrarGestionEquipo(false);
+    volverGestionEquipo=entrada.id;
     if(tipo==='armamento')abrirArmamento(entrada);
     else abrirCompra(entrada);
   }
@@ -1145,10 +1240,16 @@
   function cerrarCompra(){
     var id=compraBorrador&&compraBorrador.id;
     compraBorrador=null;
+    var regresar=volverGestionEquipo===id;
+    if(regresar)volverGestionEquipo=null;
     var dialogo=$('editor-compras');
     if(dialogo.open)dialogo.close();
     dialogo.hidden=true;
-    // El teclado vuelve a la ficha que abrió el editor, si sigue presente.
+    // Cerrar solamente el submenú; recuperar el panel principal de Equipo.
+    if(regresar){
+      var entrada=entradas.find(function(x){return x.id===id;});
+      if(entrada){abrirGestionEquipo(entrada);return;}
+    }
     if(id!==null&&id!==undefined){
       var retorno=$('fichas').querySelector('.gestionar-equipo[data-id="'+id+'"]');
       if(retorno)retorno.focus({preventScroll:true});
@@ -1343,10 +1444,83 @@
   function conControl(fn) {
     try { fn(); aviso(''); } catch(e) {aviso(e.message || 'No ha sido posible generar el resultado.',true);}
   }
-  function rngUnico() {
+  function semillaGeneracion(){
     var cadena=$('semilla').value.trim();
-    if(!cadena) cadena=String(Date.now())+':'+String(Math.random());
-    return function (i) {return reglas.aleatorioSemilla(cadena+':'+i);};
+    if(!cadena){
+      if(window.crypto?.getRandomValues){
+        var valores=new Uint32Array(4);
+        window.crypto.getRandomValues(valores);
+        cadena=Array.from(valores).map(function(n){return n.toString(16).padStart(8,'0');}).join('');
+      }else cadena='forja-'+Date.now().toString(36)+'-'+performance.now().toString(36);
+      $('semilla').value=cadena;
+    }
+    return cadena;
+  }
+  function rngUnico(){
+    var semilla=semillaGeneracion();
+    return function(i){return reglas.aleatorioSemilla(semilla+':'+i);};
+  }
+  function mostrarReproduccion(semilla,cfg){
+    ultimaReproduccion={version:1,semilla:semilla,config:JSON.parse(JSON.stringify(cfg))};
+    $('semilla-resultado').textContent=semilla;
+    $('reproduccion-resultados').hidden=false;
+  }
+  function aplicarReproduccion(texto){
+    var registro=JSON.parse(texto);
+    if(!registro||registro.version!==1||
+       typeof registro.semilla!=='string'||!registro.semilla.trim()||
+       registro.semilla.length>90||!registro.config)
+      throw Error('La configuración de reproducción no tiene un formato válido (versión 1).');
+    var c=registro.config;
+    if(!sistemaPublicado(c.juego))
+      throw Error('Este sistema no está disponible en la versión pública de La Forja.');
+    // La importación sustituye cualquier selección aplazada de fuentes vacías.
+    seleccionesPausadas={};
+    if(!Array.isArray(c.origenes)||!Array.isArray(c.ocupacionesPermitidas)||
+       !Array.isArray(c.especiesPermitidas)||
+       (c.juego!=='dh'&&!Array.isArray(c.fuentes)))
+      throw Error('El registro no conserva todas las opciones necesarias.');
+    $('juego').value=c.juego;
+    if(c.juego!=='dh')fuentesGuardadas[c.juego]=c.fuentes.slice();
+    $('origenes').querySelectorAll('input').forEach(function(e){
+      e.checked=c.origenes.map(String).includes(e.value);
+    });
+    refrescarSelectores();
+    if(c.juego!=='dh'){
+      var actuales=Array.from($('fuentes-nd20').querySelectorAll('input'));
+      if(c.fuentes.some(function(nombre){return !actuales.some(function(e){return e.value===nombre;});}))
+        throw Error('La reproducción incluye fuentes no publicadas o no disponibles.');
+      actuales.forEach(function(e){e.checked=c.fuentes.includes(e.value);});
+    }
+    $('nivel-min').value=String(c.nivelMin);
+    $('nivel-max').value=String(c.nivelMax);
+    $('cantidad').value=String(c.cantidad);
+    $('nombre-personaje').value=c.nombre||'';
+    $('sexo-pj').value=c.sexo||'aleatorio';
+    $('respetar-contexto-sexo').checked=c.respetarContextoSexo!==false;
+    $('modo-nombre').value=c.modoNombre||'generico';
+    $('con-especie').checked=c.conEspecie!==false;
+    $('riqueza-por-nivel').checked=c.riquezaPorNivel===true;
+    var modo=document.querySelector('input[name="modo-creacion"][value="'+c.modo+'"]');
+    if(!modo)throw Error('Modo de generación no documentado.');
+    modo.checked=true;
+    $('cantidad').disabled=c.modo==='personalizado';
+    refrescarSelectores();
+    ['ocupacion','especie'].forEach(function(tipo){
+      var value=c[tipo]||'';
+      var seleccion=c[tipo==='ocupacion'?'ocupacionesPermitidas':'especiesPermitidas'];
+      var disponibles=Array.from($(tipo).options).map(function(op){return op.value;});
+      if((value&&!disponibles.includes(value))||
+         seleccion.some(function(key){return !disponibles.includes(key);}))
+        throw Error('La selección de '+tipo+' no está disponible con las fuentes actuales.');
+      candidatosSelector[tipo]=seleccion.slice();
+      $(tipo).value=value;
+      marcarTarjetasSeleccionadas(tipo);
+    });
+    $('semilla').value=registro.semilla;
+    config();
+    refrescarResumenCreacion();
+    $('aviso-reproduccion').textContent='Configuración recuperada. Genera para reproducir el resultado.';
   }
   function descargar(nombre,contenido) {
     var blob=new Blob([contenido],{type:'text/plain;charset=utf-8'});
@@ -1486,12 +1660,19 @@
     var configurador=$('dialogo-configuracion'),abrirConfig=$('abrir-configuracion');
     abrirConfig.addEventListener('click',function(){
       configurador.showModal();
-      $('nivel').focus({preventScroll:true});
+      $('nivel-min').focus({preventScroll:true});
       refrescarGenerarFlotante();
     });
     function cerrarConfiguracion(){if(configurador.open)configurador.close();}
+    window.addEventListener('resize',function(){
+      if(configurador.open&&window.matchMedia('(max-width:830px)').matches)
+        alternarMenu(true);
+    },{passive:true});
     $('cerrar-configuracion').addEventListener('click',cerrarConfiguracion);
-    $('aplicar-configuracion').addEventListener('click',cerrarConfiguracion);
+    $('aplicar-configuracion').addEventListener('click',function(){
+      try{config();$('aviso-configuracion').textContent='';cerrarConfiguracion();}
+      catch(error){mostrarErrorConfiguracion(error);}
+    });
     configurador.addEventListener('close',function(){
       refrescarResumenCreacion();
       refrescarGenerarFlotante();
@@ -1503,19 +1684,23 @@
       if(e.clientX<r.left||e.clientX>r.right||
          e.clientY<r.top||e.clientY>r.bottom)cerrarConfiguracion();
     });
-    $('configuracion').addEventListener('input',refrescarResumenCreacion);
-    $('nivel').addEventListener('input',validarNivelVisible);
-    $('nivel').addEventListener('change',validarNivelVisible);
-    // HTML impide el submit de un campo fuera de rango antes de llegar
-    // al manejador de generación. Dar feedback incluso con el diálogo
-    // de configuración cerrado (botón Generar fijo/flotante).
+    $('configuracion').addEventListener('input',function(){
+      refrescarResumenCreacion();
+      validarNivelVisible();
+      if(validarFuentesVisibles()&&validarNivelVisible())
+        $('aviso-configuracion').textContent='';
+    });
+    ['nivel-min','nivel-max'].forEach(function(id){
+      $(id).addEventListener('input',validarNivelVisible);
+      $(id).addEventListener('change',validarNivelVisible);
+    });
+    // La validación nativa cancela submit antes de que llegue al manejador.
+    // Responder dentro del diálogo, incluso desde el botón principal o móvil.
     $('configuracion').addEventListener('invalid',function(event){
-      if(event.target.id==='nivel')validarNivelVisible();
-      aviso(event.target.id==='nivel'?
-        'El Nivel supera el rango permitido. Revisa el aviso de Nivel.':
-        'Revisa el campo de configuración no válido.',true);
-      if(!configurador.open)configurador.showModal();
+      event.preventDefault();
+      mostrarErrorConfiguracion(Error('Corrige el campo de configuración señalado.'));
       event.target.focus({preventScroll:true});
+      event.target.scrollIntoView({block:'center',behavior:'auto'});
     },true);
     $('configuracion').addEventListener('change',refrescarResumenCreacion);
     ['ocupacion','especie'].forEach(function(tipo){
@@ -1592,7 +1777,7 @@
     $('tab-herramientas').addEventListener('click',function(){marcarPanel('herramientas');});
     var tema=$('selector-tema');
     var temaInicial=document.documentElement.dataset.tema||'clasico';
-    if(['clasico','ebano','ceruleo','obsidiana'].includes(temaInicial))
+    if(['clasico','ebano','ceruleo','obsidiana','violeta'].includes(temaInicial))
       tema.value=temaInicial;
     tema.addEventListener('change',function(){
       document.documentElement.dataset.tema=tema.value;
@@ -1610,18 +1795,46 @@
       refrescarSelectores();
     });
     $('con-especie').addEventListener('change',refrescarSelectores);
-    $('origenes').addEventListener('change',refrescarSelectores);
+    $('origenes').addEventListener('change',refrescarFuentesConPreservacion);
     $('fuentes-nd20').addEventListener('change',function(){
       fuentesGuardadas[$('juego').value]=fuentesNd20Activas();
-      refrescarSelectores();
+      refrescarFuentesConPreservacion();
+    });
+    $('ocultar-tutorial').addEventListener('click',function(){
+      $('tutorial-inicial').hidden=true;
+      try{localStorage.setItem('forja-tutorial-oculto','true');}
+      catch(error){/* El cierre de esta sesión sigue activo. */}
+    });
+    try{$('tutorial-inicial').hidden=localStorage.getItem('forja-tutorial-oculto')==='true';}
+    catch(error){/* Sin almacenamiento: permite cerrar durante la sesión. */}
+    $('copiar-semilla').addEventListener('click',function(){
+      if(ultimaReproduccion)copiar(ultimaReproduccion.semilla);
+    });
+    $('copiar-reproduccion').addEventListener('click',function(){
+      if(ultimaReproduccion)copiar(JSON.stringify(ultimaReproduccion,null,2));
+    });
+    $('aplicar-reproduccion').addEventListener('click',function(){
+      try{
+        aplicarReproduccion($('texto-reproduccion').value);
+        $('aviso-configuracion').textContent='';
+      }catch(error){
+        $('aviso-reproduccion').textContent=error.message;
+        $('aviso-configuracion').textContent=error.message;
+        $('aviso-reproduccion').focus?.();
+      }
     });
     $('configuracion').addEventListener('submit',function(e) {
       e.preventDefault();
-      if(configurador.open)cerrarConfiguracion();
-      conControl(function () {
-        var c=config(),createRng=rngUnico(),items=[];
+      var c;
+      try{c=config();}
+      catch(error){mostrarErrorConfiguracion(error);return;}
+      $('aviso-configuracion').textContent='';
+      try{
+        var createRng=rngUnico(),items=[];
         for(var i=0;i<c.cantidad;i++){
-          var r=createRng(i),semillaPersonaje=null;
+          var r=createRng(i);
+          var nivelEfectivo=reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r,c.juego==='dh'?36:30);
+          var semillaPersonaje=null;
           // La elección de Herencia dual modifica un VA antes de subir Niveles.
           // Guardamos la semilla para reconstruir exactamente la misma creación
           // con la alternativa definitiva, sin parchear atributos al final.
@@ -1629,23 +1842,28 @@
             semillaPersonaje=Math.floor(r()*4294967296);
             r=reglas.aleatorioSemilla('forja-herencia:'+semillaPersonaje);
           }
-          var configFicha=semillaPersonaje===null?c:
-            Object.assign({},c,{herenciaPendiente:true,desarrolloPendiente:true});
+          var configFicha=Object.assign({},c,{nivel:nivelEfectivo});
+          if(semillaPersonaje!==null)
+            Object.assign(configFicha,{herenciaPendiente:true,desarrolloPendiente:true});
           var personaje=crearFicha(configFicha,r);
           if(c.juego==='dh'){items.push(personaje);continue;}
           var partes=personaje.descripcion.split(' · ');
-          var opciones=Object.assign({},c,{ocupacion:partes[0],especie:partes.slice(1).join(' · ')});
+          var opciones=Object.assign({},configFicha,{ocupacion:partes[0],especie:partes.slice(1).join(' · ')});
           var juegoDatos=c.juego==='nd20_cifi'?datos.cifi:
             c.juego==='nd20_nocturna'?datos.nocturna:datos.fantasia;
           var plan=poderes.planificar(opciones,juegoDatos,datos.catalogo,datos.progresiones);
           if(c.modo==='personalizado'&&plan.pasos.some(function(x){return !x.automatico;})){
             cerrarMenuMovil();
+            mostrarReproduccion($('semilla').value,c);
+            if(configurador.open)cerrarConfiguracion();
             prepararEditor(personaje,plan,r,
-              {config:c,semillaPersonaje:semillaPersonaje});return;
+              {config:configFicha,semillaPersonaje:semillaPersonaje});return;
           }
           items.push(poderes.registrar(personaje,plan,poderes.resolver(plan,null,r)));
         }
         items.forEach(function(p){agregar('ficha',p);});
+        mostrarReproduccion($('semilla').value,c);
+        if(configurador.open)cerrarConfiguracion();
         cerrarMenuMovil();
         // En móvil, las fichas están DEBAJO del formulario: mostrar el
         // resultado de la acción sin obligar a buscarlo haciendo scroll.
@@ -1658,7 +1876,7 @@
               block:'start'});
           });
         }
-      });
+      }catch(error){mostrarErrorConfiguracion(error);}
     });
     $('form-revision-elecciones').addEventListener('change',function(e){
       if(e.target.matches('select[data-revision-paso]'))refrescarRevision();
@@ -1990,6 +2208,8 @@
       }
       var del=e.target.closest('.eliminar-ficha');
       if(del){
+        // La ficha desaparece: no reabrir Equipo después de cancelar su submenú.
+        volverGestionEquipo=null;
         if(compraBorrador&&String(compraBorrador.id)===del.dataset.id)
           cerrarCompra();
         if(armamentoBorrador&&String(armamentoBorrador.id)===del.dataset.id)
@@ -2033,7 +2253,11 @@
       }
     });
     $('borrar').addEventListener('click',function(){
-      cerrarCompra();entradas=[];dibujar();aviso('Mesa despejada.');
+      volverGestionEquipo=null;
+      if(compraBorrador)cerrarCompra();
+      if(armamentoBorrador)cerrarArmamento();
+      if(gestionBorrador)cerrarGestionEquipo();
+      entradas=[];dibujar();aviso('Mesa despejada.');
     });
     $('exportar').addEventListener('click',function(){
       descargar('el-naufragio-fichas.txt',entradas.map(obtenerTexto).join('\n\n'+('=').repeat(60)+'\n\n'));

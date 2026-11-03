@@ -53,7 +53,7 @@ async function probar(nombre,tipo,url){
     }
     const nativeFill=page.fill.bind(page),nativeSelect=page.selectOption.bind(page);
     page.fill=async function(sel,...args){
-      if(['#nivel','#cantidad','#nombre-personaje','#semilla'].includes(sel))
+      if(['#nivel-min','#nivel-max','#cantidad','#nombre-personaje','#semilla'].includes(sel))
         await abrirConfig();
       return nativeFill(sel,...args);
     };
@@ -737,7 +737,8 @@ async function probar(nombre,tipo,url){
         nodes=>nodes.map(x=>x.value).filter(Boolean));
       if(razas.length)await page.selectOption('#especie',razas[0]);
       await page.fill('#nombre-personaje','Comprobación '+otro);
-      await page.fill('#nivel','1');
+      await page.fill('#nivel-max','1');
+       await page.fill('#nivel-min','1');
       await page.fill('#cantidad','1');
       await generar();
       await page.locator('#fichas .tarjeta').first().waitFor();
@@ -794,7 +795,8 @@ async function probar(nombre,tipo,url){
       await page.selectOption('#sexo-pj',sexoGenerico);
       await page.selectOption('#modo-nombre','generico');
       await page.fill('#nombre-personaje','');
-      await page.fill('#nivel','1');
+      await page.fill('#nivel-max','1');
+       await page.fill('#nivel-min','1');
       await page.fill('#semilla','Forja-generica-'+nombre+'-'+sexoGenerico);
       await generar();
       const tarjeta=page.locator('#fichas .tarjeta').first();
@@ -813,7 +815,8 @@ async function probar(nombre,tipo,url){
     await page.selectOption('#sexo-pj','femenino');
     await page.fill('#nombre-personaje','');
     await page.fill('#semilla','Forja-ylat-'+nombre);
-    await page.fill('#nivel','1');
+    await page.fill('#nivel-max','1');
+       await page.fill('#nivel-min','1');
     await generar();
     const tarjetaYlat=page.locator('#fichas .tarjeta').first();
     await tarjetaYlat.waitFor();
@@ -831,7 +834,8 @@ async function probar(nombre,tipo,url){
     await page.selectOption('#ocupacion','Guerrero');
     await page.selectOption('#especie','Mediano amable');
     await page.fill('#nombre-personaje','Prueba de Talentos');
-    await page.fill('#nivel','1');
+    await page.fill('#nivel-max','1');
+       await page.fill('#nivel-min','1');
     await page.fill('#semilla','Forja-popup-talentos-'+nombre);
     await generar();
     const fichaTalentos=page.locator('#fichas .tarjeta').first();
@@ -1064,7 +1068,8 @@ async function probar(nombre,tipo,url){
     for(const especie of ['Semielfo','Semiorco']){
       await page.selectOption('#ocupacion','Mago');
       await page.selectOption('#especie',especie);
-      await page.fill('#nivel','1');
+      await page.fill('#nivel-max','1');
+       await page.fill('#nivel-min','1');
       await page.fill('#nombre-personaje','Herencia '+especie);
       await page.fill('#semilla','forja-adquisicion-'+especie);
       await generar();
@@ -1100,7 +1105,8 @@ async function probar(nombre,tipo,url){
     await page.selectOption('#especie','Humano común');
     await page.fill('#nombre-personaje','Compatibilidad '+nombre);
     await page.fill('#semilla','Forja-compatibilidad-'+nombre);
-    await page.fill('#nivel','30');
+    await page.fill('#nivel-max','30');
+     await page.fill('#nivel-min','30');
     await page.locator('#riqueza-por-nivel').check();
     await generar();
     await page.locator('#fichas .tarjeta').first().waitFor();
@@ -1130,7 +1136,8 @@ async function probar(nombre,tipo,url){
     await page.locator('#selector-tema').selectOption('clasico');
     const inicial=precio(await ficha.locator('.riqueza').innerText());
     async function abrirUtilesDesdeFicha(){
-      await ficha.locator('.gestionar-equipo').click();
+      if(!await page.locator('#editor-gestion-equipo').evaluate(e=>e.open))
+        await ficha.locator('.gestionar-equipo').click();
       assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),true);
       await page.locator('#gestion-abrir-utiles').click();
       assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),false);
@@ -1156,6 +1163,8 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#compras-lista li').count(),1);
     assert.match(await page.locator('#compras-total').innerText(),/4\.00 mo/);
     await page.locator('#compras-cancelar').click();
+    assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),true,
+      nombre+': cancelar útiles deja abierto el panel Equipo');
     assert.equal(precio(await ficha.locator('.riqueza').innerText()),inicial,
       nombre+': cancelar no puede descontar dinero');
     assert.equal(await page.locator('#editor-compras').isHidden(),true);
@@ -1225,6 +1234,8 @@ async function probar(nombre,tipo,url){
     await page.locator('#editor-compras').scrollIntoViewIfNeeded();
     await page.screenshot({path:path.join(capturas,nombre+'-movil.png')});
     await page.locator('#compras-cancelar').click();
+    assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),true);
+    await page.locator('#gestion-cerrar').click();
     // Regresión de accesibilidad: el flotante no cubre el pie de página.
     await page.locator('.pie').scrollIntoViewIfNeeded();
     await page.waitForFunction(()=>document.querySelector('#generar-flotante').hidden);

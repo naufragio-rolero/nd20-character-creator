@@ -11,7 +11,7 @@
     (function(){
       try {
         var tema=localStorage.getItem('forja-tema');
-        if(['clasico','ebano','ceruleo','obsidiana'].includes(tema))
+        if(['clasico','ebano','ceruleo','obsidiana','violeta'].includes(tema))
           document.documentElement.dataset.tema=tema;
       } catch (error) { /* Sin almacenamiento: usar Clásico. */ }
     })();
@@ -44,6 +44,7 @@
         <option value="ebano">Ébano</option>
         <option value="ceruleo">Cerúleo</option>
         <option value="obsidiana">Obsidiana</option>
+        <option value="violeta">Violeta</option>
       </select>
     </label>
     <a class="enlace-github" href="https://github.com/naufragio-rolero/nd20-character-creator" target="_blank" rel="noopener noreferrer">Código y documentación</a></div>
@@ -71,7 +72,8 @@
           </select>
         </div>
       <div id="panel-personajes" role="tabpanel" aria-labelledby="tab-personajes">
-      <section class="inicio-rapido" aria-labelledby="titulo-inicio-rapido">
+      <section class="inicio-rapido" id="tutorial-inicial" aria-labelledby="titulo-inicio-rapido">
+        <button type="button" id="ocultar-tutorial" class="ocultar-tutorial" aria-label="Ocultar tutorial" title="Ocultar tutorial">×</button>
         <h3 id="titulo-inicio-rapido">Crea tu primer personaje</h3>
         <p>No hace falta configurar todo. Puedes dejar <strong>Nivel 1</strong>,
           <strong>Ocupación</strong> y <strong>Especie</strong> en sus valores iniciales
@@ -82,7 +84,8 @@
       <section class="resumen-creacion" aria-labelledby="titulo-resumen-creacion">
         <h3 id="titulo-resumen-creacion">Creación preparada</h3>
         <dl>
-          <div><dt>Nivel</dt><dd id="resumen-nivel">1</dd></div>
+          <div><dt>Sistema</dt><dd id="resumen-sistema">Naufragio d20 · Fantasía Épica</dd></div>
+          <div><dt>Nivel</dt><dd id="resumen-nivel">Nivel 1</dd></div>
           <div><dt>Ocupación</dt><dd id="resumen-ocupacion">Aleatoria</dd></div>
           <div><dt>Especie</dt><dd id="resumen-especie">Aleatoria</dd></div>
           <div><dt>Sexo</dt><dd id="resumen-sexo">Aleatorio</dd></div>
@@ -103,12 +106,20 @@
           <button id="cerrar-configuracion" type="button" aria-label="Cerrar configuración">✕</button>
         </div>
         <p class="ayuda-configuracion">Ajusta las opciones de la siguiente generación. Los cambios se reflejan en el resumen de la Forja.</p>
+        <p id="aviso-configuracion" class="aviso-validacion" role="alert" aria-live="assertive" tabindex="-1"></p>
       <form id="configuracion">
-        <div class="campo">
-          <label for="nivel">Nivel <span id="rango-nivel">1–30</span></label>
-          <input id="nivel" name="nivel" type="number" value="1" min="1" max="30" step="1" required aria-describedby="aviso-nivel">
-          <p id="aviso-nivel" class="ayuda aviso-validacion-nivel" role="status" aria-live="polite"></p>
+        <div class="fila-campos fila-niveles">
+          <div class="campo">
+            <label for="nivel-min">Nivel mínimo <span id="rango-nivel">1–30</span></label>
+            <input id="nivel-min" name="nivel-min" type="number" value="1" min="1" max="30" step="1" required aria-describedby="aviso-nivel">
+          </div>
+          <div class="campo">
+            <label for="nivel-max">Nivel máximo</label>
+            <input id="nivel-max" name="nivel-max" type="number" value="1" min="1" max="30" step="1" required aria-describedby="aviso-nivel">
+          </div>
         </div>
+        <p id="aviso-nivel" class="ayuda aviso-validacion-nivel" role="alert" aria-live="polite"></p>
+        <div class="fila-campos fila-identidad">
         <div class="campo">
           <label id="etiqueta-ocupacion" for="ocupacion">Ocupación / Clase</label>
           <button type="button" id="abrir-selector-ocupacion" class="abrir-rejilla" aria-haspopup="dialog" aria-controls="dialogo-ocupacion"><span class="simbolo-rejilla" aria-hidden="true">▦</span><span id="valor-elegido-ocupacion">Aleatoria</span><span class="flecha-rejilla" aria-hidden="true">▾</span></button>
@@ -131,16 +142,19 @@
             <div class="pie-dialogo-eleccion"><p>Marca las opciones que pueden salir. Sin marcas: todas.</p><button type="button" class="principal" data-confirmar-selector="especie">Confirmar</button></div>
           </dialog>
         </div>
+        </div>
         <fieldset id="opciones-dh" hidden>
           <legend>Opciones de Dungeon Hack</legend>
           <label class="casilla"><input id="con-especie" type="checkbox" checked> Aplicar especies</label>
           <p class="ayuda">Procedencias permitidas para clases y especies</p>
           <div id="origenes" class="origenes"></div>
+          <p id="aviso-origenes" class="aviso-validacion" role="alert" aria-live="polite"></p>
         </fieldset>
-        <fieldset id="opciones-fuentes" hidden>
+        <fieldset id="opciones-fuentes" aria-describedby="aviso-fuentes" hidden>
           <legend>Fuentes permitidas · Naufragio d20</legend>
           <p class="ayuda" id="aviso-alcance-drs" hidden>Solo DRS. Suplementos en revisión.</p>
           <div id="fuentes-nd20" class="origenes"></div>
+          <p id="aviso-fuentes" class="aviso-validacion" role="alert" aria-live="polite"></p>
         </fieldset>
         <div class="campo" id="opciones-sexo">
           <label for="sexo-pj">Sexo del personaje</label>
@@ -170,8 +184,17 @@
         </div>
         <div class="campo">
           <label for="semilla">Semilla opcional</label>
-          <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Para repetir resultados">
+          <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Se generará una automáticamente">
+          <small>La semilla reproduce el azar; para repetir una ficha también necesitas la configuración.</small>
         </div>
+        <details class="configuracion-avanzada" id="recuperar-reproduccion">
+          <summary>Recuperar configuración de reproducción</summary>
+          <label for="texto-reproduccion">Pega el JSON copiado de una generación anterior</label>
+          <textarea id="texto-reproduccion" rows="4" spellcheck="false"></textarea>
+          <button id="aplicar-reproduccion" type="button">Aplicar configuración de reproducción</button>
+          <p id="aviso-reproduccion" class="aviso-validacion" role="status" aria-live="polite"></p>
+          <small>Solo se recupera la configuración original: las elecciones manuales de Talentos y Poderes en modo Personalizado deben repetirse.</small>
+        </details>
         <fieldset id="modos-creacion">
           <legend>Modo de creación · Naufragio d20</legend>
           <label class="casilla"><input type="radio" name="modo-creacion" value="rapido" checked> <strong>Rápido:</strong> elecciones automáticas reglamentarias</label>
@@ -232,6 +255,11 @@
         </div>
       </div>
       <div id="estado" class="estado" role="status" aria-live="polite"></div>
+      <section id="reproduccion-resultados" class="reproduccion-resultados" aria-label="Reproducción de la generación" hidden>
+        <p><strong>Semilla:</strong> <code id="semilla-resultado"></code></p>
+        <div class="reproduccion-acciones"><button type="button" id="copiar-semilla">Copiar semilla</button><button type="button" id="copiar-reproduccion">Copiar configuración de reproducción</button></div>
+        <small>Misma semilla y configuración: mismo resultado original. Las modificaciones posteriores y elecciones manuales no se reconstruyen.</small>
+      </section>
       <section id="editor-elecciones" class="editor-elecciones" hidden aria-label="Personalizar personaje">
         <h3 id="editor-titulo">Personalizar personaje</h3>
         <p id="editor-resumen" class="muted"></p>
