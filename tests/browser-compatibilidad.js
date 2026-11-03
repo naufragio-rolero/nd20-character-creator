@@ -965,10 +965,13 @@ async function probar(nombre,tipo,url){
         nombre+': un escudo no se suma al dado permanente de Blindaje');
       assert.match(await recursos.locator('.recurso-nota-escudo').innerText(),
         /Escudo \+1 solo al bloquear/);
-      assert.equal(await recursos.locator('.recurso-ficha .recurso-nota-escudo').count(),0,
-        nombre+': la aclaración del escudo no agranda la tarjeta de Blindaje');
+      assert.equal(await recursos.locator('.recurso-ficha .recurso-nota-escudo').count(),1,
+        nombre+': la aclaración del escudo pertenece a una tarjeta de recursos');
+      assert.equal(await recursos.locator('.recurso-ficha')
+        .filter({hasText:'Blindaje'}).locator('.recurso-nota-escudo').count(),1,
+        nombre+': la aclaración figura dentro de la tarjeta Blindaje');
       assert.equal(await recursos.locator('.recurso-ficha').count(),6,
-        nombre+': seis tarjetas de Recursos y Daño de tamaño uniforme');
+        nombre+': se conservan las seis tarjetas DRS');
     }
     await page.locator('#gestion-terminar').click();
     const rejillaTalentos=fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas').first();
