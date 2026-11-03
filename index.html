@@ -268,6 +268,17 @@
               <input id="compras-nivel" type="number" min="1" max="30" step="1" value="1">
             </div>
           </div>
+          <details id="consulta-armadura-equina" class="consulta-precio-equino" hidden>
+            <summary>Consultar precio de armadura equina</summary>
+            <label for="compras-armadura-equina-base">Armadura común de referencia</label>
+            <div class="envoltura-select">
+              <select id="compras-armadura-equina-base">
+                <option value="">— Elige una armadura —</option>
+              </select>
+            </div>
+            <p id="compras-armadura-equina-resultado" aria-live="polite">Elige una armadura para consultar su precio.</p>
+            <small>Precio de referencia: armadura humana ×4. Solo consulta: no se compra ni se equipa automáticamente.</small>
+          </details>
           <p id="compras-detalle" class="ayuda" aria-live="polite"></p>
           <button type="button" id="compras-anadir">Añadir a la compra</button>
           <h4>Artículos seleccionados</h4>
