@@ -1203,3 +1203,43 @@ html[data-tema]:not([data-tema=clasico]) .recursos-rejilla .recurso-arma{
 html[data-tema]:not([data-tema=clasico]) .aviso-validacion-nivel:not(:empty){
   color:#ffb6aa;
 }
+
+
+/* Identidad de sistemas: activos WebP locales con escala y posición ajustables.
+   El área pulsable es idéntica para ambos, sin deformar sus proporciones. */
+.juegos-compactos{grid-template-columns:repeat(2,minmax(0,1fr))}
+.juegos-compactos button.sistema-logo{
+  --logo-alto:55px;--logo-ancho:100%;--logo-desplazamiento-y:0px;
+  --logo-fondo:#f7f5ed;
+  display:flex;flex-direction:row;align-items:center;justify-content:center;
+  min-width:0;min-height:84px;padding:.55rem .45rem;
+  background:var(--logo-fondo);border:2px solid var(--borde);
+  border-radius:9px;transition:border-color .15s,box-shadow .15s,filter .15s;
+}
+.juegos-compactos button.sistema-logo[data-juego="dh"]{
+  --logo-alto:43px;--logo-fondo:#252029;
+}
+.juegos-compactos button.sistema-logo .logotipo-sistema{
+  display:block;width:var(--logo-ancho);height:var(--logo-alto);
+  max-width:100%;max-height:100%;object-fit:contain;object-position:center;
+  transform:translateY(var(--logo-desplazamiento-y));
+  pointer-events:none;user-select:none;
+}
+html[data-tema] .juegos-compactos button.sistema-logo,
+html[data-tema] .juegos-compactos button.sistema-logo:hover:not(:disabled){
+  background:var(--logo-fondo);
+}
+html[data-tema] .juegos-compactos button.sistema-logo:hover:not(:disabled){
+  filter:brightness(1.07);
+}
+html[data-tema] .juegos-compactos button.sistema-logo.sistema-activo{
+  background:var(--logo-fondo);border-color:var(--foco);
+  box-shadow:inset 0 0 0 2px var(--oro),0 0 0 1px var(--foco);
+}
+.juegos-compactos button.sistema-logo:focus-visible{
+  outline:3px solid var(--foco);outline-offset:3px;
+}
+@media(max-width:390px){
+  .juegos-compactos button.sistema-logo{min-height:74px;padding:.45rem .3rem;--logo-alto:46px}
+  .juegos-compactos button.sistema-logo[data-juego="dh"]{--logo-alto:36px}
+}
