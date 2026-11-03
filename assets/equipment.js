@@ -335,6 +335,13 @@
     if(saldo+reembolso<coste)
       throw Error('Saldo insuficiente para intercambiar esta pieza inicial.');
     var inventario=personaje.equipo.slice();
+    // Un intercambio también compra una nueva pieza: no debe permitir
+    // saltarse el cupo adquirido en operaciones anteriores.
+    var sinOrigen=inventario.slice();
+    sinOrigen.splice(indice,1);
+    comprobarLimitesCompra(catalogo,sinOrigen,[{
+      grupo:nuevo.grupo,nombre:nuevo.nombre,cantidad:1
+    }]);
     inventario[indice]=nuevo.nombre;
     var nuevosRegistros=registros.map(function(r){
       return r.indice!==indice?Object.assign({},r):Object.assign({},r,{
