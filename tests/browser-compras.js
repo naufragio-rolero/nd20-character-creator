@@ -266,7 +266,9 @@ async function main(){
       "document.querySelector('#revision-pasos-talentos select').dataset.revisionPaso"),
       'talento-guerrero');
     assert.equal(await cdp.evalJS(
-      "document.querySelector('#revision-poderes').hidden"),true);
+      "document.querySelector('#revision-poderes').hidden === "+
+      "(document.querySelectorAll('#revision-pasos-poderes select').length===0)"),true,
+      'La sección de Poderes aparece si el Guerrero tiene elecciones adicionales documentadas');
     const talentoAntes=await cdp.evalJS(
       "document.querySelector('#revision-pasos-talentos select').value");
     await cdp.evalJS("(()=>{var s=document.querySelector('#revision-pasos-talentos select');"+
