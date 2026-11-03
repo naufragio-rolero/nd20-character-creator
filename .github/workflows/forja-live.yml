@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado con armamento editable (PR #59 y #60)
+      - name: Obtener snapshot DRS validado (hasta PR #64: Nivel y límites de compra)
         uses: actions/checkout@v4
         with:
-          ref: 1b688dd4994b975a2d1a32268b805062dfda3d8f
+          ref: ddc6d5f12f0eacedf63aca7d0edc6c412e588023
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "1b688dd4994b975a2d1a32268b805062dfda3d8f"
-      # Snapshot validado: 35 SVG, PDF A5, genérico 1422, Ylat 255 × 133,
+          test "$(git rev-parse HEAD)" = "ddc6d5f12f0eacedf63aca7d0edc6c412e588023"
+      # Snapshot aprobado para LIVE: 35 SVG, PDF A5, genérico 1422, Ylat 255 × 133,
       # cinco glosas de paquetes, armadura equina ×4, armamento manual y Dardo 5 mc.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
@@ -166,6 +166,8 @@ jobs:
         run: |
           node tests/alcance-drs.js
           node tests/armamento-edicion.js
+          node tests/limites-compra-ux.js
+          node tests/elecciones-poscreacion.js
           node tests/smoke.js
           node tests/fichas-drs-ux.js
           node tests/iconos-forja.js
