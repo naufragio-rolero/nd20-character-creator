@@ -1020,7 +1020,7 @@ for(const clase of chicas){
   assert.equal(sexoMotor.ocuparPermitida(clase,'masculino',catSexo,false),true);
   const opt={juego:'nd20',nivel:1,ocupacion:clase,especie:'Humano común',
     sexo:'aleatorio',respetarContextoSexo:true,catalogoSexo:catSexo,
-    tesauroYlat,modoNombre:'documentado'};
+    tesauroYlat,modoNombre:'especie'};
   for(const semilla of ['uno','dos','tres','cuatro']){
     const ficha=reglas.crearNd20(fantasiaExtendida,opt,
       reglas.aleatorioSemilla('sexo-'+clase+'-'+semilla));
