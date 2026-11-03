@@ -111,7 +111,7 @@ jobs:
           grep -Fq 'function blindajeFicha(personaje,catalogo)' assets/equipment.js
           # Entrega PR #59/#60: controles funcionales del DRS, sin venta de regalos.
           grep -Fq 'id="editor-armamento"' index.html
-          grep -Fq 'class="editar-armamento"' assets/app.js
+          grep -Fq 'class="gestionar-equipo"' assets/app.js
           grep -Fq 'function intercambiarEquipoInicial(' assets/equipment.js
           grep -Fq 'function comprarArmamentoFantasia(' assets/equipment.js
           grep -Fq 'compras_iniciales_intercambiables' assets/rules.js
@@ -125,7 +125,7 @@ jobs:
           assert.equal(e.utiles_fantasia.equipo_monturas.find(x=>
             x.nombre==='Armadura equina').regla_precio_autoral.multiplicador,4);
           NODE
-          grep -Fq 'class="recursos recursos-rejilla"' assets/app.js
+          grep -Fq 'class="recursos recursos-rejilla' assets/app.js
           grep -Fq 'function iconoEquipo(nombre)' assets/app.js
           grep -Fq 'function descripcionConSexo(personaje)' assets/app.js
           grep -Fq 'function nombreEquipoVisible(nombre)' assets/app.js
@@ -268,6 +268,7 @@ jobs:
           grep -Fq "var mesaVacia=entradas.length===0;" /tmp/forja-app.js
           grep -Fq "configurador.showModal();" /tmp/forja-app.js
           grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
+          grep -Fq 'class="gestionar-equipo"' /tmp/forja-app.js
           grep -Fq 'componentesYlat' /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/names.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-names.js
           grep -Fq 'function generico(banco,rng)' /tmp/forja-names.js
@@ -310,7 +311,7 @@ jobs:
           grep -Fq "ico-conjuro" /tmp/forja-app.js
           grep -Fq "grupo==='talento'||grupo==='poder'||grupo==='equipo'" /tmp/forja-app.js
           grep -Fq 'function htmlProteccionesEquipadas(personaje,id)' /tmp/forja-app.js
-          grep -Fq 'class="recursos recursos-rejilla"' /tmp/forja-app.js
+          grep -Fq 'class="recursos recursos-rejilla' /tmp/forja-app.js
           grep -Fq 'function iconoEquipo(nombre)' /tmp/forja-app.js
           grep -Fq "if(contiene(c.utiles_fantasia?.monturas))return 'equipo-caballo';" /tmp/forja-app.js
           grep -Fq 'par[0]==="monturas"?"Montura"' /tmp/forja-tooltips.js
