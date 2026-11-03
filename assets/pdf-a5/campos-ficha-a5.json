@@ -675,10 +675,10 @@
       "desbordamiento": "continuacion"
     },
     {
-      "id": "blindaje",
-      "origen": "NaufragioEquipment.blindajeFicha",
+      "id": "arma_equipada",
+      "origen": "arma_equipada (validada contra el inventario)",
       "pagina": "principal",
-      "descripcion": "blindaje",
+      "descripcion": "arma equipada",
       "mm_superior_izquierda": {
         "x": 8,
         "y": 109.2,
@@ -697,10 +697,10 @@
       "desbordamiento": "continuacion"
     },
     {
-      "id": "blindaje_natural",
-      "origen": "blindaje_natural + blindaje_natural_fuente",
+      "id": "dano_equipado",
+      "origen": "Daño documental del arma equipada",
       "pagina": "principal",
-      "descripcion": "blindaje natural",
+      "descripcion": "daño del arma equipada",
       "mm_superior_izquierda": {
         "x": 76,
         "y": 109.2,
