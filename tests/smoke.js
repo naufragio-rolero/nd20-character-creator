@@ -251,7 +251,7 @@ assert.ok(!/niguac|niguaz/i.test(JSON.stringify(tesauroYlat)));
 assert.equal(new Set(tesauroYlat.entradas.map(n=>n.nombre.toLocaleLowerCase('es'))).size,295,
   'No hay nombres duplicados');
 assert.ok(tesauroYlat.entradas.filter(n=>n.tipo==='documentado').every(n=>
-  n.fuente && n.fuente.archivo && (n.fuente.pagina>=1 || (Array.isArray(n.fuente.referencias)&&n.fuente.referencias.length>0&&n.fuente.referencias.every(r=>r.registro&&r.anexo))))),'Procedencia de nombres documentados');
+  n.fuente && n.fuente.archivo && (n.fuente.pagina>=1 || (Array.isArray(n.fuente.referencias)&&n.fuente.referencias.length>0&&n.fuente.referencias.every(r=>r.registro&&r.anexo)))),'Procedencia de nombres documentados');
 
 for(const [nivel,artes,blindaje] of [
   [1,1,'d6/d6'],[6,2,'d6/d6'],[12,3,'d8/d6'],[18,4,'d10/d6'],[30,4,'d10/d6']
