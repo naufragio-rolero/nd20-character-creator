@@ -128,8 +128,9 @@ const exportable=pdf.prepararDatos(pjPdf,null,cat);
 assert.equal(exportable._arma_equ,'Daga');
 assert.equal(exportable._dano_equ,'1d4');
 const itemsPDF=exportable._sections.find(x=>x.source==='equipo').items;
-assert.equal(itemsPDF.filter(x=>x.includes('Arma equipada')).length,1);
-assert.match(itemsPDF[0],/Daga.*Arma equipada/);
+assert.equal(itemsPDF.filter(x=>x.includes('Arma equipada')).length,0,
+  'El PDF muestra la pieza activa en su campo propio, sin duplicarla en inventario.');
+assert.match(itemsPDF[0],/Daga.*Daño 1d4/);
 assert.equal(pdf.prepararDatos({...pjPdf,arma_equipada:'Espadón'},null,cat)
   ._arma_equ,'');
 // Consulta y PDF de munición, varitas y compras múltiples.
