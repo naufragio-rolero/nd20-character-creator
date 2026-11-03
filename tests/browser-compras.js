@@ -185,9 +185,13 @@ async function main(){
       especies:9,ocupaciones:5,iconos:12,flotante:true,avanzada:false
     },'12 SVG, opciones aleatorias, flotante y vista compacta predeterminada');
     assert.equal(await cdp.evalJS("document.querySelector('#modo-nombre').value"),
-      'historico','Por defecto se ofrece el banco histórico de 1422 formas Ylat');
-    assert.equal(await cdp.evalJS("document.querySelector('#ambito-nombre').value"),
-      'todos','Sin procedencia restringida de forma implícita');
+      'generico','El generador genérico compone dos formas distintas por defecto');
+    assert.equal(await cdp.evalJS(
+      "document.querySelectorAll('#modo-nombre option').length"),2,
+      'Solo dos generadores visibles');
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#buscar-nombre-ylat')===null"),true,
+      'La lista documental ya no ocupa espacio en el generador');
     const tesauroPagina=await cdp.evalJS("(async()=>{"+
       "let r=await fetch('data/tesauro-ylat.json');return await r.json()})()");
     assert.equal(tesauroPagina.entradas.filter(x=>x.tipo==='combinado').length,33);
@@ -201,11 +205,15 @@ async function main(){
       process.env.FORJA_PUBLIC_ROOT?1422:1428);
     if(process.env.FORJA_PUBLIC_ROOT){
       assert.equal(tesauroPagina.entradas.length,295,
-        'Los 262 documentados están disponibles para consulta y los 33 combinados para sorteo');
+        'El archivo documental se conserva íntegro, aunque no exista listado visible');
       assert.equal(await cdp.evalJS(
         "document.querySelector('#modo-nombre option[value=documentado]')===null"),
         true,'La opción documentada no participa en el sorteo público');
     }
+    const componentes=await cdp.evalJS("(async()=>{"+
+      "let r=await fetch('data/componentes-nombres-ylat.json');return await r.json()})()");
+    assert.equal(componentes.nombres.length,255);
+    assert.equal(componentes.apellidos.length,133);
     await cdp.evalJS("(()=>{"+
       "document.querySelector('#ocupacion').value='Guerrero';"+
       "document.querySelector('#especie').value='Humano común';"+
