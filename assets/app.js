@@ -231,8 +231,6 @@
     $('opciones-fuentes').hidden = dh;
     $('aviso-alcance-drs').hidden = juego!=='nd20';
     $('opciones-nombres-ylat').hidden = juego!=='nd20';
-    $('opciones-ambito-nombre').hidden = juego!=='nd20'||
-      $('modo-nombre').value!=='combinado';
     $('opciones-riqueza-nivel').hidden=dh||juego==='nd20_nocturna';
     $('modos-creacion').hidden = dh;
     $('opciones-contexto-sexo').hidden=dh;
@@ -310,15 +308,14 @@
       sexo:$('sexo-pj').value,
       respetarContextoSexo:$('respetar-contexto-sexo').checked,
       modoNombre:$('modo-nombre').value,
-      ambitoNombre:$('modo-nombre').value==='combinado'?
-        $('ambito-nombre').value:'todos',
       riquezaPorNivel:(juego==='nd20'||juego==='nd20_cifi')&&
         $('riqueza-por-nivel').checked};
   }
   function crearFicha(cfg, rng) {
     if (cfg.juego === 'dh') return reglas.eleccionDH(datos.dh,cfg,rng);
     return reglas.crearNd20(datosJuego(cfg.juego),
-      Object.assign({},cfg,{aplazarElecciones:true,tesauroYlat:datos.tesauroYlat,
+      Object.assign({},cfg,{aplazarElecciones:true,
+        componentesYlat:datos.componentesYlat,
         nombresHistoricosYlat:datos.nombresHistoricosYlat,
         catalogoEquipo:datos.equipoInicial,catalogoSexo:datos.sexo}),rng);
   }
@@ -1094,11 +1091,6 @@
     });
     $('juego').addEventListener('change',refrescarSelectores);
     $('modo-nombre').addEventListener('change',refrescarSelectores);
-    $('buscar-nombre-ylat').addEventListener('input',mostrarConsultaNombres);
-    $('resultados-nombres-ylat').addEventListener('click',function(event){
-      var boton=event.target.closest('.copiar-nombre-ylat');
-      if(boton)copiar(boton.dataset.nombre);
-    });
     $('sexo-pj').addEventListener('change',function(){
       try{localStorage.setItem('forja-sexo-pj',$('sexo-pj').value);}catch(error){}
       refrescarSelectores();
@@ -1378,28 +1370,12 @@
       descargar('el-naufragio-fichas.txt',entradas.map(obtenerTexto).join('\n\n'+('=').repeat(60)+'\n\n'));
     });
   }
-  function mostrarConsultaNombres(){
-    var input=$('buscar-nombre-ylat'),lista=$('resultados-nombres-ylat');
-    if(!input||!lista||!datos.tesauroYlat)return;
-    var nombres=datos.tesauroYlat.entradas.filter(function(x){return x.tipo==='documentado';});
-    var termino=input.value.trim().toLocaleLowerCase('es');
-    var filtrados=nombres.filter(function(x){return x.nombre.toLocaleLowerCase('es').includes(termino);});
-    $('total-nombres-ylat').textContent=filtrados.length+' de '+nombres.length+' nombres documentados';
-    lista.innerHTML=filtrados.slice(0,60).map(function(x){
-      var origen=typeof x.fuente==='string'?x.fuente:
-        (x.fuente&&x.fuente.archivo)||'Fuente documentada';
-      return '<div class="consulta-nombre-item"><span><strong>'+esc(x.nombre)+
-        '</strong><small> · '+esc(origen)+'</small></span> '+
-        '<button type="button" class="copiar-nombre-ylat" data-nombre="'+esc(x.nombre)+
-        '" aria-label="Copiar '+esc(x.nombre)+'">Copiar</button></div>';
-    }).join('');
-  }
   async function cargar() {
     var archivos={
       especies:'data/especies.json',ocupaciones:'data/ocupaciones.json',
       especiesCifi:'data/especies_cifi.json',ocupacionesCifi:'data/ocupaciones_cifi.json',
       ampliado:'data/catalogo-ampliado.json',
-      tesauroYlat:'data/tesauro-ylat.json',
+      componentesYlat:'data/componentes-nombres-ylat.json',
       nombresHistoricosYlat:'data/nombres-historicos-ylat.json',
       sexoCatalogo:'data/sexo-personajes.json',
       catalogo:'data/catalogo-poderes.json',
@@ -1471,8 +1447,7 @@
     datos.catalogo=loaded.catalogo;
     datos.talentosDRS=loaded.talentosDRS;
     datos.aclaracionesTalentosDRS=loaded.aclaracionesTalentosDRS;
-    datos.tesauroYlat=loaded.tesauroYlat;
-    mostrarConsultaNombres();
+    datos.componentesYlat=loaded.componentesYlat;
     datos.nombresHistoricosYlat=loaded.nombresHistoricosYlat;
     datos.sexo=loaded.sexoCatalogo;
     datos.progresiones=loaded.progresiones;

@@ -1121,6 +1121,7 @@ require('./conjuros.js');
 
 /* Decisiones editoriales de onomástica de Ylat y pesos de variantes. */
 require('./onomastica-ylat.js');
+require('./nombres-generador.js');
 
 /* Manifiesto de la entrega base y compatibilidad de las futuras ampliaciones. */
 require('./alcance-drs.js');

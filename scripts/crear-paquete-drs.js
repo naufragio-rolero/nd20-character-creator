@@ -83,7 +83,7 @@ const especificas=[
   'assets/styles.css','assets/favicon.svg',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/equipment.js','assets/sex.js',
-  'assets/rules.js','assets/powers.js','assets/spell-magnitudes.js',
+  'assets/rules.js','assets/names.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/i18n.js',
   // PDF A5 Fantasía: solo plantillas reglamentarias y bibliotecas de terceros autorizadas.
   'assets/pdf-export-v2.js','assets/pdf-export-browser.js',
@@ -100,6 +100,7 @@ const especificas=[
   'data/especies.json','data/ocupaciones.json','data/especies_cifi.json',
   'data/ocupaciones_cifi.json','data/catalogo-ampliado.json',
   'data/tesauro-ylat.json','data/nombres-historicos-ylat.json',
+  'data/componentes-nombres-ylat.json',
   'data/sexo-personajes.json',
   'data/catalogo-poderes.json','data/conjuros-revisados-001-225.json',
   'data/conjuros-revisados-226-434.json',

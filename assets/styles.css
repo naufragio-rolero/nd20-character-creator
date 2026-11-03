@@ -1015,10 +1015,3 @@ html[data-tema=ceruleo] .tarjeta .icon-btn:hover:not(:disabled):not(.principal):
   .acciones-pie-ficha{gap:.35rem}
   .pie-ficha .acciones-pie-ficha button{min-width:0;flex:1}
 }
-
-/* Consulta documental de nombres, independiente del sorteo. */
-.consulta-nombres-resultados{max-height:16rem;overflow-y:auto;border:1px solid var(--borde,#777);border-radius:.4rem;padding:.4rem}
-.consulta-nombre-item{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.35rem .25rem;border-bottom:1px solid rgba(127,127,127,.2)}
-.consulta-nombre-item:last-child{border-bottom:0}
-.consulta-nombre-item small{font-size:.75rem;opacity:.8}
-.consulta-nombre-item button{flex-shrink:0}

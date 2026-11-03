@@ -3,10 +3,12 @@
   var api = factory(typeof module !== 'undefined' && module.exports ?
     require('./equipment.js') : root.NaufragioEquipment,
     typeof module !== 'undefined' && module.exports ?
-    require('./sex.js') : root.NaufragioSexo);
+    require('./sex.js') : root.NaufragioSexo,
+    typeof module !== 'undefined' && module.exports ?
+    require('./names.js') : root.NaufragioNombres);
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.NaufragioRules = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function (equipoApi, sexoApi) {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (equipoApi, sexoApi, nombresApi) {
   'use strict';
   var ATTR_ND = ['Fuerza', 'Agilidad', 'Resistencia', 'Mente', 'Intuición', 'Presencia'];
   var ATTR_DH = ['Fuerza', 'Destreza', 'Constitución', 'Inteligencia', 'Sabiduría', 'Carisma'];
@@ -270,7 +272,8 @@
         }).map(function(item){
           return {id:item.id,nombre:item.nombre,tipo:'historico'};
         });
-    }else if(config.juego==='nd20'&&config.modoNombre!=='especie'&&
+    }else if(config.juego==='nd20'&&
+             !['generico','ylat','especie'].includes(config.modoNombre)&&
              config.tesauroYlat){
       poolNombres=config.tesauroYlat.entradas.filter(function(item){
         return item.tipo===(config.modoNombre==='documentado'?'documentado':'combinado')&&
@@ -280,12 +283,16 @@
     var nombreYlat=config.modoNombre==='combinado'&&sexoApi&&
       sexoApi.elegirPonderado?sexoApi.elegirPonderado(poolNombres,rng):
       escoger(poolNombres,rng);
-    var nombreConSexo=sexoFuente&&sexoApi?
+    var nuevoModo=config.modoNombre==='generico'||config.modoNombre==='ylat';
+    var nombrePropuesto=!config.nombre&&config.juego==='nd20'&&nombresApi?
+      (config.modoNombre==='generico'?nombresApi.generico(config.nombresHistoricosYlat,rng):
+       config.modoNombre==='ylat'?nombresApi.ylat(config.componentesYlat,rng):null):null;
+    var nombreConSexo=!nuevoModo&&sexoFuente&&sexoApi?
       sexoApi.elegirNombre(config,especie,esp.nombres||[],poolNombres,sexo,sexoFuente,rng):null;
     if(nombreConSexo&&nombreConSexo.nota&&nombreConSexo.nota!=='Nombre elegido manualmente.')
       detalles.push(nombreConSexo.nota);
     var nombreDefinitivo=(nombreConSexo&&nombreConSexo.nombre)||
-      config.nombre || (nombreYlat&&nombreYlat.nombre) ||
+      config.nombre || nombrePropuesto || (nombreYlat&&nombreYlat.nombre) ||
       escoger(esp.nombres || [],rng) || 'Sin nombre';
     var registroNombre=!config.nombre&&poolNombres.find(function(item){
       return item.nombre===nombreDefinitivo;

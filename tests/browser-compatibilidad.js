@@ -58,7 +58,7 @@ async function probar(nombre,tipo,url){
       return nativeFill(sel,...args);
     };
     page.selectOption=async function(sel,...args){
-      if(['#ocupacion','#especie','#sexo-pj','#modo-nombre','#ambito-nombre'].includes(sel))
+      if(['#ocupacion','#especie','#sexo-pj','#modo-nombre'].includes(sel))
         await abrirConfig();
       return nativeSelect(sel,...args);
     };
@@ -744,89 +744,71 @@ async function probar(nombre,tipo,url){
       nodes=>nodes.map(x=>x.value).filter(Boolean).sort()),
       ['Clérigo','Guerrero','Ladrón','Mago'].sort(),
       nombre+': el cambio de sistema no filtra Ocupaciones DLC');
-    // Probar los nombres de Ylat sobre la distribución física: la opción
-    // los documentados son consultables, pero no sorteables.
-    const nombresYlat=await page.evaluate(async()=>{
-      const respuesta=await fetch('data/tesauro-ylat.json');
-      if(!respuesta.ok)throw Error('No se ha podido cargar el tesauro');
-      return respuesta.json();
+    // Los dos modos: parejas genéricas sin reemplazo y Ylat ponderado,
+    // sin reintroducir una lista aislada de Isla Tormenta.
+    const componentes=await page.evaluate(async()=>{
+      const r=await fetch('data/componentes-nombres-ylat.json');
+      if(!r.ok)throw Error('Banco ponderado de Ylat inaccesible');
+      return r.json();
     });
-    const combinados=nombresYlat.entradas.filter(x=>x.tipo==='combinado');
-    assert.equal(combinados.length,33);
-    assert.ok(nombresYlat.entradas.every(x=>x.ambito==='Isla Tormenta'||x.ambito==='Ylat'),
-      nombre+': el corpus de variantes no contiene el ámbito ajeno a Ylat');
-    assert.ok(!/niguac|niguaz/i.test(JSON.stringify(nombresYlat)),
-      nombre+': no hay datos del corpus excluido');
-    if(process.env.FORJA_PUBLIC_ROOT){
-      assert.equal(nombresYlat.entradas.length,295,
-        nombre+': consulta documental disponible en distribución');
-      assert.equal(await page.locator('#modo-nombre option[value="documentado"]').count(),0);
-    }
-    assert.equal(await page.locator('#modo-nombre').inputValue(),'historico');
-    assert.equal(await page.locator('#opciones-ambito-nombre').isHidden(),true);
+    assert.equal(componentes.nombres.length,255);
+    assert.equal(componentes.apellidos.length,133);
+    assert.ok(!/niguac|niguaz/i.test(JSON.stringify(componentes)));
+    assert.equal(await page.locator('#modo-nombre option').count(),2);
+    assert.equal(await page.locator('#modo-nombre').inputValue(),'generico');
+    assert.equal(await page.locator('#buscar-nombre-ylat').count(),0);
+    assert.equal(await page.locator('#ambito-nombre').count(),0);
     const bancoHistorico=await page.evaluate(async()=>{
-      const respuesta=await fetch('data/nombres-historicos-ylat.json');
-      if(!respuesta.ok)throw Error('Banco de nombres de Ylat inaccesible');
-      return respuesta.json();
+      const r=await fetch('data/nombres-historicos-ylat.json');
+      if(!r.ok)throw Error('Banco genérico inaccesible');
+      return r.json();
     });
     assert.equal(bancoHistorico.total_filas_fuente,1428);
     assert.equal(new Set(bancoHistorico.entradas.map(x=>x.nombre)).size,1422);
     assert.equal(bancoHistorico.entradas.length,
       process.env.FORJA_PUBLIC_ROOT?1422:1428);
+    const genericos=new Set(bancoHistorico.entradas.map(x=>x.nombre));
     await page.selectOption('#ocupacion','Guerrero');
     await page.selectOption('#especie','Humano común');
-    for(const sexoHistorico of ['masculino','femenino']){
+    for(const sexoGenerico of ['masculino','femenino']){
       await abrirConfig();
-      await page.selectOption('#sexo-pj',sexoHistorico);
+      await page.selectOption('#sexo-pj',sexoGenerico);
+      await page.selectOption('#modo-nombre','generico');
       await page.fill('#nombre-personaje','');
       await page.fill('#nivel','1');
-      await page.fill('#semilla','Forja-historica-'+nombre+'-'+sexoHistorico);
+      await page.fill('#semilla','Forja-generica-'+nombre+'-'+sexoGenerico);
       await generar();
       const tarjeta=page.locator('#fichas .tarjeta').first();
       await tarjeta.waitFor();
       assert.equal(await tarjeta.locator('.nivel-ficha').innerText(),'Nivel 1');
       assert.ok((await tarjeta.locator('.sexo-ficha .icono-svg').getAttribute('style'))
-        .includes('/assets/icons/sexo-'+sexoHistorico+'.svg)'),
-        nombre+': icono de sexo con ruta absoluta junto a Ocupación');
-      assert.doesNotMatch(await tarjeta.locator('.cabecera-ficha .etiqueta').innerText(),
-        /Nivel|Masculino|Femenino/,nombre+': cabecera despejada');
+        .includes('/assets/icons/sexo-'+sexoGenerico+'.svg)'));
       const elegido=await tarjeta.locator('h3').innerText();
-      assert.ok(bancoHistorico.entradas.some(x=>x.nombre===elegido),
-        nombre+': nombre histórico no reconocido: '+elegido);
-      const textoHistorico=await tarjeta.innerText();
-      assert.doesNotMatch(textoHistorico,/Forma del generador histórico/,
-        nombre+': sin avisos de procedencia técnica en Contexto');
-      assert.doesNotMatch(textoHistorico,/Nombre del banco histórico sin clasificación documental de sexo/,
-        nombre+': sin notas repetidas del banco histórico');
+      const par=elegido.split(' ');
+      assert.equal(par.length,2,nombre+': el genérico produce dos componentes');
+      assert.ok(genericos.has(par[0])&&genericos.has(par[1]));
+      assert.notEqual(par[0],par[1],nombre+': sin reemplazo');
       await page.locator('#borrar').click();
     }
-    await page.selectOption('#modo-nombre','combinado');
-    assert.equal(await page.locator('#opciones-ambito-nombre').isVisible(),true);
-    await page.selectOption('#ocupacion','Guerrero');
-    await page.selectOption('#especie','Humano común');
+    await page.selectOption('#modo-nombre','ylat');
     await page.selectOption('#sexo-pj','femenino');
-    assert.equal(await page.locator('#ambito-nombre option').count(),2,
-      nombre+': solo Todas e Isla Tormenta en el filtro de variantes');
-    for(const ambito of ['Isla Tormenta']){
-      await page.selectOption('#modo-nombre','combinado');
-      await page.selectOption('#ambito-nombre',ambito);
-      await page.fill('#nombre-personaje','');
-      await page.fill('#semilla','Forja-nombre-'+nombre+'-'+ambito);
-      await page.fill('#nivel','1');
-      await generar();
-      const tarjeta=page.locator('#fichas .tarjeta').first();
-      await tarjeta.waitFor();
-      const nombreGenerado=await tarjeta.locator('h3').innerText();
-      assert.ok(combinados.some(x=>x.ambito===ambito&&x.nombre===nombreGenerado),
-        nombre+': el nombre '+nombreGenerado+' debe proceder solo de '+ambito);
-      assert.match(await tarjeta.locator('.contexto-ficha').textContent(),
-        /No identifica un personaje canónico/);
-      await page.locator('#borrar').click();
-    }
+    await page.fill('#nombre-personaje','');
+    await page.fill('#semilla','Forja-ylat-'+nombre);
+    await page.fill('#nivel','1');
+    await generar();
+    const tarjetaYlat=page.locator('#fichas .tarjeta').first();
+    await tarjetaYlat.waitFor();
+    const generado=await tarjetaYlat.locator('h3').innerText();
+    assert.ok(componentes.nombres.some(x=>generado.startsWith(x.nombre+' ')),
+      nombre+': primer componente debe proceder de Ylat');
+    assert.ok(componentes.apellidos.some(x=>generado.endsWith(' '+x.nombre)),
+      nombre+': el apellido debe proceder de Ylat');
+    assert.ok(!componentes.identidades_documentadas.includes(generado));
+    await page.locator('#borrar').click();
     // Caso observado por el autor: Mediano amable + Guerrero.
     // Los efectos de Talentos deben abrirse JUNTO a su nombre; no quedarse
     // escondidos entre compras, envejecimiento y avisos al final.
-    await page.selectOption('#modo-nombre','especie');
+    await page.selectOption('#modo-nombre','ylat');
     await page.selectOption('#ocupacion','Guerrero');
     await page.selectOption('#especie','Mediano amable');
     await page.fill('#nombre-personaje','Prueba de Talentos');
@@ -1031,11 +1013,7 @@ async function probar(nombre,tipo,url){
         nombre+': debe seleccionarse una sola herencia, '+especie);
       await page.locator('#borrar').click();
     }
-    await page.selectOption('#modo-nombre','especie');
-    assert.equal(await page.locator('#opciones-ambito-nombre').isHidden(),true);
-    await page.selectOption('#modo-nombre','combinado');
-    assert.equal(await page.locator('#opciones-ambito-nombre').isVisible(),true);
-    await page.selectOption('#ambito-nombre','todos');
+    await page.selectOption('#modo-nombre','ylat');
     await page.selectOption('#sexo-pj','aleatorio');
     await page.selectOption('#ocupacion','Guerrero');
     await page.selectOption('#especie','Humano común');
