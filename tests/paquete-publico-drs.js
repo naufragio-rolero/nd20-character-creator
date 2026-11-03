@@ -175,7 +175,7 @@ assert.deepEqual(iluminacionDRS.map(x=>[x.nombre,x.precio,x.du]),[
   ['Linterna',10,'d6 (aceite)'],['Vela',0.01,'d4']
 ], 'El paquete público incorpora únicamente la iluminación documentada en el DRS');
 
-assert.equal(equipo.armas.find(x=>x.nombre==='Dardo').precio,0);
+assert.equal(equipo.armas.find(x=>x.nombre==='Dardo').precio,0.05);
 assert.equal(equipo.armas.find(x=>x.nombre==='Almádena').precio,60);
 assert.equal(equipo.utiles_fantasia.campamento.find(x=>x.nombre==='Martillo de campamento').precio,2);
 const marca=core.conjuros.find(x=>x.nombre==='Marca del dador oscuro');
