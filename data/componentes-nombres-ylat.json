@@ -1,7 +1,7 @@
 {
   "version": 1,
   "titulo": "Componentes creativos de nombres de Ylat",
-  "politica": "El generador toma un nombre y un segundo componente documentados de forma independiente. No se acredita genealogía, filiación, sexo ni especie. Se conservan intactos los archivos de testimonios y el tesauro. Se han excluido títulos, apodos, ordinales y convenciones eladrines. Los pesos son una decisión técnica editorial, no una frecuencia canónica.",
+  "politica": "El generador toma un nombre y un segundo componente documentados de forma independiente. No se acredita genealogía, filiación, sexo ni especie. Se conservan intactos los archivos de testimonios y el tesauro. Se han excluido títulos, apodos, ordinales y convenciones eladrines. Los pesos son una decisión técnica editorial, no una frecuencia canónica. Se omiten explícitamente los apodos individuales Violatesoros y Brasagorda como apellidos.",
   "fuentes": [
     "data/tesauro-ylat.json",
     "data/onomastica-ylat.json",
@@ -1710,14 +1710,6 @@
       "clasificacion": "segundo-elemento"
     },
     {
-      "nombre": "Brasagorda",
-      "peso_relativo": 30,
-      "origenes": [
-        "onomastica-documentada"
-      ],
-      "clasificacion": "segundo-elemento"
-    },
-    {
       "nombre": "Brice",
       "peso_relativo": 20,
       "origenes": [
@@ -2698,14 +2690,6 @@
         "onomastica-documentada"
       ],
       "clasificacion": "F"
-    },
-    {
-      "nombre": "Violatesoros",
-      "peso_relativo": 65,
-      "origenes": [
-        "onomastica-documentada"
-      ],
-      "clasificacion": "segundo-elemento"
     },
     {
       "nombre": "Vuelumbrío",
