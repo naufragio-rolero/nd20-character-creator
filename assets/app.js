@@ -779,6 +779,27 @@
       consumibles:'Consumibles',herramientas:'Herramientas',
       escritura:'Escritura',focos:'Focos de Conjuros'})[id]||id;
   }
+  // Solo consulta: el artículo de precio variable nunca entra al carrito.
+  function refrescarConsultaArmaduraEquina(){
+    var panel=$('consulta-armadura-equina');
+    panel.hidden=$('compras-grupo').value!=='equipo_monturas';
+    if(panel.hidden)return;
+    var opciones=window.NaufragioEquipment.consultarPreciosArmaduraEquina(
+      datos.equipoInicial);
+    var select=$('compras-armadura-equina-base');
+    if(select.options.length===1){
+      opciones.forEach(function(a){
+        var option=document.createElement('option');
+        option.value=a.nombre;option.textContent=a.nombre;
+        select.appendChild(option);
+      });
+    }
+    var elegida=opciones.find(function(a){return a.nombre===select.value;});
+    $('compras-armadura-equina-resultado').textContent=elegida?
+      elegida.nombre+': '+elegida.precio_base+' mo × 4 = '+
+        elegida.precio_equino+' mo (armadura equina)':
+      'Elige una armadura para consultar su precio.';
+  }
   function rellenarArticulosCompra(){
     var grupo=gruposCompra().find(function(par){
       return par[0]===$('compras-grupo').value;
@@ -795,6 +816,7 @@
     });
     if(Array.from(select.options).some(function(op){return op.value===previo;}))
       select.value=previo;
+    refrescarConsultaArmaduraEquina();
     refrescarCompra();
   }
   function articuloCompra(){
@@ -1202,6 +1224,7 @@
       conControl(function(){agregar('mazmorra',reglas.mazmorra({ancho:6,alto:6},rngUnico()(correlativo)));});
     });
     $('compras-grupo').addEventListener('change',rellenarArticulosCompra);
+    $('compras-armadura-equina-base').addEventListener('change',refrescarConsultaArmaduraEquina);
     $('compras-articulo').addEventListener('change',refrescarCompra);
     $('compras-cantidad').addEventListener('input',refrescarCompra);
     $('compras-nivel').addEventListener('input',refrescarCompra);
