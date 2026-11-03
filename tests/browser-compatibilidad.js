@@ -1009,8 +1009,12 @@ async function probar(nombre,tipo,url){
       nombre+': no duplicar descripciones completas al final en Observaciones');
     assert.equal(await fichaTalentos.locator('.avisos-talentos').count(),0,
       nombre+': el DRS sí tiene todos esos textos en sus popups');
-    assert.ok(await fichaTalentos.locator('.avisos-equipo').count()>=1,
-      nombre+': la regla de equipo de Baja estatura se conserva junto al equipo');
+    assert.equal(await fichaTalentos.locator('.avisos-equipo').count(),0,
+      nombre+': la ficha deja los avisos de equipo fuera del cuerpo principal');
+    await fichaTalentos.locator('.gestionar-equipo').click();
+    assert.ok(await page.locator('#gestion-reglas .avisos-equipo').count()>=1,
+      nombre+': el popup conserva la regla de Baja estatura y el historial DRS');
+    await page.locator('#gestion-terminar').click();
     await page.locator('#borrar').click();
     // Una vía de adquisición no sustituye el origen literal del Talento.
     // Probar ambos mestizos con el modo rápido y semilla reproducible.
