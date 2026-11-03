@@ -99,6 +99,10 @@
         Configurar creación
       </button>
       <button class="principal" id="generar" type="submit" form="configuracion" disabled>Generar personaje</button>
+      <button id="usar-semilla" class="usar-semilla" type="button" aria-pressed="false"
+        aria-controls="dialogo-configuracion">
+        Usar semilla <span id="estado-uso-semilla" class="estado-semilla">Desactivada</span>
+      </button>
       <dialog id="dialogo-configuracion" class="dialogo-configuracion"
         aria-labelledby="titulo-dialogo-configuracion">
         <div class="cabecera-configuracion">
@@ -183,9 +187,10 @@
           <input id="nombre-personaje" name="nombre-personaje" type="text" maxlength="90" placeholder="Si quieres elegirlo tú">
         </div>
         <div class="campo">
-          <label for="semilla">Semilla opcional</label>
-          <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Se generará una automáticamente">
-          <small>La semilla reproduce el azar; para repetir una ficha también necesitas la configuración.</small>
+          <label for="semilla">Semilla de reproducción</label>
+          <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Escribe o pega una semilla para repetir una creación">
+          <small id="ayuda-semilla">Azar nuevo en cada generación. La semilla usada se puede copiar desde los resultados.</small>
+          <small>Para repetir una ficha necesitas la misma semilla y configuración.</small>
         </div>
         <details class="configuracion-avanzada" id="recuperar-reproduccion">
           <summary>Recuperar configuración de reproducción</summary>

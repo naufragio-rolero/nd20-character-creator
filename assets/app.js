@@ -15,6 +15,7 @@
   var revisionBorrador = null;
   var fuentesGuardadas = {};
   var ultimaReproduccion = null;
+  var usarSemilla = false; // Generar personaje siempre usa azar nuevo salvo activación explícita.
   var volverGestionEquipo = null;
   var sistemasVisibles={
     nd20:'Naufragio d20 · Fantasía Épica',
@@ -1444,21 +1445,38 @@
   function conControl(fn) {
     try { fn(); aviso(''); } catch(e) {aviso(e.message || 'No ha sido posible generar el resultado.',true);}
   }
+  function nuevaSemilla(){
+    if(window.crypto?.getRandomValues){
+      var valores=new Uint32Array(4);
+      window.crypto.getRandomValues(valores);
+      return Array.from(valores).map(function(n){return n.toString(16).padStart(8,'0');}).join('');
+    }
+    return 'forja-'+Date.now().toString(36)+'-'+performance.now().toString(36);
+  }
+  function actualizarUsoSemilla(){
+    $('usar-semilla').setAttribute('aria-pressed',String(usarSemilla));
+    $('estado-uso-semilla').textContent=usarSemilla?'Activada':'Desactivada';
+    $('ayuda-semilla').textContent=usarSemilla?
+      'Semilla fija activada: se repetirá el mismo resultado mientras no cambies las opciones.':
+      'Azar nuevo en cada generación. La semilla usada se puede copiar desde los resultados.';
+  }
+  function cambiarUsoSemilla(activo){
+    usarSemilla=!!activo;
+    actualizarUsoSemilla();
+  }
   function semillaGeneracion(){
-    var cadena=$('semilla').value.trim();
+    // En modo normal nunca se conserva la semilla en el campo: cada clic es nuevo.
+    var cadena=usarSemilla?$('semilla').value.trim():'';
     if(!cadena){
-      if(window.crypto?.getRandomValues){
-        var valores=new Uint32Array(4);
-        window.crypto.getRandomValues(valores);
-        cadena=Array.from(valores).map(function(n){return n.toString(16).padStart(8,'0');}).join('');
-      }else cadena='forja-'+Date.now().toString(36)+'-'+performance.now().toString(36);
-      $('semilla').value=cadena;
+      cadena=nuevaSemilla();
+      if(usarSemilla)$('semilla').value=cadena;
     }
     return cadena;
   }
-  function rngUnico(){
-    var semilla=semillaGeneracion();
-    return function(i){return reglas.aleatorioSemilla(semilla+':'+i);};
+  function rngUnico(semilla){
+    // Los generadores de herramientas también pueden llamar sin parámetro.
+    var base=semilla===undefined?semillaGeneracion():semilla;
+    return function(i){return reglas.aleatorioSemilla(base+':'+i);};
   }
   function mostrarReproduccion(semilla,cfg){
     ultimaReproduccion={version:1,semilla:semilla,config:JSON.parse(JSON.stringify(cfg))};
@@ -1518,6 +1536,7 @@
       marcarTarjetasSeleccionadas(tipo);
     });
     $('semilla').value=registro.semilla;
+    cambiarUsoSemilla(true);
     config();
     refrescarResumenCreacion();
     $('aviso-reproduccion').textContent='Configuración recuperada. Genera para reproducir el resultado.';
@@ -1741,6 +1760,26 @@
         marcarTarjetasSeleccionadas(tipo);
       });
     });
+    $('usar-semilla').addEventListener('click',function(){
+      if(usarSemilla){
+        cambiarUsoSemilla(false);
+        return;
+      }
+      // Permite reutilizar la última semilla automáticamente si se acaba
+      // de generar una ficha, sin obligar a buscarla y copiarla.
+      if(!$('semilla').value.trim())
+        $('semilla').value=ultimaReproduccion?.semilla||nuevaSemilla();
+      cambiarUsoSemilla(true);
+      if(window.matchMedia('(max-width:830px)').matches)alternarMenu(true);
+      if(!configurador.open)configurador.showModal();
+      $('semilla').focus({preventScroll:true});
+      refrescarGenerarFlotante();
+    });
+    $('semilla').addEventListener('input',function(){
+      // Pegar una semilla activa la reproducción; vaciarla recupera el azar.
+      cambiarUsoSemilla(!!$('semilla').value.trim());
+    });
+    actualizarUsoSemilla();
     $('generar-flotante').addEventListener('click',function(){
       if($('generar-flotante').disabled)return;
       marcarPanel('personajes');
@@ -1830,7 +1869,7 @@
       catch(error){mostrarErrorConfiguracion(error);return;}
       $('aviso-configuracion').textContent='';
       try{
-        var createRng=rngUnico(),items=[];
+        var semillaUsada=semillaGeneracion(),createRng=rngUnico(semillaUsada),items=[];
         for(var i=0;i<c.cantidad;i++){
           var r=createRng(i);
           var nivelEfectivo=reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r,c.juego==='dh'?36:30);
@@ -1854,7 +1893,7 @@
           var plan=poderes.planificar(opciones,juegoDatos,datos.catalogo,datos.progresiones);
           if(c.modo==='personalizado'&&plan.pasos.some(function(x){return !x.automatico;})){
             cerrarMenuMovil();
-            mostrarReproduccion($('semilla').value,c);
+            mostrarReproduccion(semillaUsada,c);
             if(configurador.open)cerrarConfiguracion();
             prepararEditor(personaje,plan,r,
               {config:configFicha,semillaPersonaje:semillaPersonaje});return;
@@ -1862,7 +1901,7 @@
           items.push(poderes.registrar(personaje,plan,poderes.resolver(plan,null,r)));
         }
         items.forEach(function(p){agregar('ficha',p);});
-        mostrarReproduccion($('semilla').value,c);
+        mostrarReproduccion(semillaUsada,c);
         if(configurador.open)cerrarConfiguracion();
         cerrarMenuMovil();
         // En móvil, las fichas están DEBAJO del formulario: mostrar el
