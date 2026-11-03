@@ -28,16 +28,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado PR #72: semillas, Niveles y configuración
+      - name: Obtener snapshot DRS aprobado PR #74: azar nuevo y semilla voluntaria
         uses: actions/checkout@v4
         with:
-          ref: ae476f5d83e238419636b63fb9b78af2ba19fcb9
+          ref: 0421a90590e99ba64c899161fb60989ea177e430
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "ae476f5d83e238419636b63fb9b78af2ba19fcb9"
-      # Snapshot aprobado para LIVE: PR #72 con 35 SVG, dos logos WebP, PDF A5,
-      # semillas, intervalos de Nivel, configuración reproducible y tema Violeta.
+          test "$(git rev-parse HEAD)" = "0421a90590e99ba64c899161fb60989ea177e430"
+      # Snapshot aprobado para LIVE: PR #74 con 35 SVG, dos logos WebP, PDF A5,
+      # Nivel por intervalo, tema Violeta y semilla optativa, sin bloqueos de azar.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
@@ -156,10 +156,16 @@ jobs:
           grep -Fq 'id="nivel-min"' index.html
           grep -Fq 'id="nivel-max"' index.html
           grep -Fq 'id="copiar-semilla"' index.html
+          grep -Fq 'id="usar-semilla"' index.html
+          grep -Fq 'id="estado-uso-semilla"' index.html
           grep -Fq 'id="copiar-reproduccion"' index.html
           grep -Fq 'id="ocultar-tutorial"' index.html
           grep -Fq "html[data-tema=violeta]" assets/styles.css
-          grep -Fq "reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r" assets/app.js
+          grep -Fq 'var usarSemilla = false;' assets/app.js
+          grep -Fq 'var semillaUsada=semillaGeneracion()' assets/app.js
+          grep -Fq 'mostrarReproduccion(semillaUsada,c);' assets/app.js
+          grep -Fq 'function actualizarUsoSemilla()' assets/app.js
+          grep -Fq 'reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r' assets/app.js
           grep -Fq "recurso-nota-escudo" assets/app.js
           grep -Fq "info-primarios-objeto" assets/tooltip-ui.js
           ! grep -Fq 'nth-child(5):last-child{grid-column:1/-1}' assets/styles.css
@@ -267,6 +273,8 @@ jobs:
                grep -Fq 'id="nivel-min"' /tmp/forja-live.html &&
                grep -Fq 'id="nivel-max"' /tmp/forja-live.html &&
                grep -Fq 'id="copiar-semilla"' /tmp/forja-live.html &&
+               grep -Fq 'id="usar-semilla"' /tmp/forja-live.html &&
+               grep -Fq 'id="estado-uso-semilla"' /tmp/forja-live.html &&
                grep -Fq 'id="copiar-reproduccion"' /tmp/forja-live.html &&
                grep -Fq 'id="ocultar-tutorial"' /tmp/forja-live.html &&
                grep -Fq 'id="informacion-avanzada"' /tmp/forja-live.html &&
@@ -311,7 +319,11 @@ jobs:
           grep -Fq "var mesaVacia=entradas.length===0;" /tmp/forja-app.js
           grep -Fq "configurador.showModal();" /tmp/forja-app.js
           grep -Fq 'function mostrarReproduccion(semilla,cfg)' /tmp/forja-app.js
-          grep -Fq "reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r" /tmp/forja-app.js
+          grep -Fq 'var usarSemilla = false;' /tmp/forja-app.js
+          grep -Fq 'var semillaUsada=semillaGeneracion()' /tmp/forja-app.js
+          grep -Fq 'mostrarReproduccion(semillaUsada,c);' /tmp/forja-app.js
+          grep -Fq 'function actualizarUsoSemilla()' /tmp/forja-app.js
+          grep -Fq 'reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r' /tmp/forja-app.js
           grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
           grep -Fq 'class="gestionar-equipo"' /tmp/forja-app.js
           grep -Fq 'componentesYlat' /tmp/forja-app.js
@@ -459,6 +471,7 @@ jobs:
           grep -Fq ".recursos.recursos-rejilla{" /tmp/forja-estilos.css
           grep -Fq ".dialogo-configuracion{" /tmp/forja-estilos.css
           grep -Fq 'html[data-tema=violeta]' /tmp/forja-estilos.css
+          grep -Fq '.usar-semilla[aria-pressed=true]' /tmp/forja-estilos.css
           grep -Fq ".info-primarios.info-primarios-objeto{" /tmp/forja-estilos.css
           ! grep -Fq 'nth-child(5):last-child{grid-column:1/-1}' /tmp/forja-estilos.css
           grep -Fq 'grid-template-columns:repeat(4,minmax(0,1fr))' /tmp/forja-estilos.css
