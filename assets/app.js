@@ -1404,6 +1404,7 @@
     $('armamento-cantidad').addEventListener('input',refrescarArmamento);
     $('form-armamento').addEventListener('submit',function(event){
       event.preventDefault();
+      var mensajeConfirmacion='';
       conControl(function(){
         var entrada=entradaArmamento(),personaje=entrada.valor;
         var contexto=contextoArmamento(personaje);
@@ -1452,8 +1453,11 @@
         }
         if(!Array.isArray(personaje.notas))personaje.notas=[];
         personaje.notas.push(nota);
-        cerrarArmamento();dibujar();aviso('Equipo actualizado. '+nota);
+        cerrarArmamento();dibujar();
+        mensajeConfirmacion='Equipo actualizado. '+nota;
       });
+      // conControl limpia el aviso al finalizar; mostrar el éxito después.
+      if(mensajeConfirmacion)aviso(mensajeConfirmacion);
     });
     $('armamento-cancelar').addEventListener('click',cerrarArmamento);
     $('armamento-cerrar').addEventListener('click',cerrarArmamento);
