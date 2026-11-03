@@ -37,7 +37,7 @@ La interfaz recalcula inventario, riqueza, observaciones y protecciones tras cad
 
 ## 5. Pruebas y límites de publicación
 
-- `tests/armamento-edicion.js`: intercambio sucesivo, no duplicación de reembolsos, exclusión de paquetes, monedas fraccionarias, presupuesto, Varitas, restricciones DRS, Blinkaje y PDF.
+- `tests/armamento-edicion.js`: intercambio sucesivo, no duplicación de reembolsos, exclusión de paquetes, monedas fraccionarias, presupuesto, Varitas, restricciones DRS, Blindaje y PDF.
 - `tests/browser-compras.js`: apertura/cierre real del editor, foco, catálogo y Dardo con 5 mc.
 - `tests/alcance-drs.js` y `tests/paquete-publico-drs.js`: precio corregido y paquete de distribución.
 - Workflows de Conjuros/Forja, Chrome, Firefox/WebKit, PDF A5 y paquete público DRS antes de fusionar.
