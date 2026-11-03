@@ -735,6 +735,7 @@
   function dineroEquipo(valor){return Number(valor).toFixed(2)+' mo';}
   function etiquetaEquipo(item){
     return item.nombre+' · '+dineroEquipo(item.precio)+
+      (item.precio_editorial?' ('+item.precio_editorial+')':'')+
       (item.competente?'':' · Sin Competencia');
   }
   function llenarDestinoArmamento(){
