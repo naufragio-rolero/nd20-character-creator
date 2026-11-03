@@ -524,7 +524,7 @@ async function main(){
       "document.querySelector('#compras-anadir').click();})()");
     assert.equal(await cdp.evalJS("document.querySelector('#estado').classList.contains('error')"),true);
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),2);
-    await cdp.evalJS("document.querySelector('#form-compra-utiles').requestSubmit()");
+    await cdp.evalJS("document.querySelector('#compras-confirmar').click()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),false);
     assert.equal(await cdp.evalJS("document.activeElement.classList.contains('gestionar-equipo')"),true,
       'Confirmar la compra devuelve el foco a la ficha actualizada');
