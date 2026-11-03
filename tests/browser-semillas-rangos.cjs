@@ -53,6 +53,12 @@ async function run(name,origin){
     await newPage();
     assert.equal(await page.locator('#tutorial-inicial').isVisible(),false);
     assert.equal(await page.locator('#generar').isEnabled(),true);
+    await page.locator('#selector-tema').selectOption('violeta');
+    assert.equal(await page.locator('html').getAttribute('data-tema'),'violeta');
+    await newPage();
+    assert.equal(await page.locator('html').getAttribute('data-tema'),'violeta',
+      'Tema Violeta persiste al recargar');
+    await page.locator('#selector-tema').selectOption('clasico');
     await open();
     // Dos columnas escritorio; una columna en móvil.
     const cajas=await page.locator('.fila-identidad>.campo').evaluateAll(nodes=>
