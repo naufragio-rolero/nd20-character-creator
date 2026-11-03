@@ -28,16 +28,17 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado hasta PR #69: ficha A5, pie y logos WebP
+      - name: Obtener snapshot DRS aprobado PR #72: semillas, Niveles y configuración
         uses: actions/checkout@v4
         with:
-          ref: 2225177315e155ce8bdf78928d39a5aa3b82c5f1
+          ref: ae476f5d83e238419636b63fb9b78af2ba19fcb9
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "2225177315e155ce8bdf78928d39a5aa3b82c5f1"
-      # Snapshot aprobado para LIVE: 35 SVG, 2 logos WebP, PDF A5, genérico 1422, Ylat 255 × 133,
-      # cinco glosas de paquetes, armadura equina ×4, armamento manual y Dardo 5 mc.
+          test "$(git rev-parse HEAD)" = "ae476f5d83e238419636b63fb9b78af2ba19fcb9"
+      # Snapshot aprobado para LIVE: PR #72 con 35 SVG, dos logos WebP, PDF A5,
+      # semillas, intervalos de Nivel, configuración reproducible y tema Violeta.
+      # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
       - name: Auditar iconografia y funcionalidades fijadas
@@ -152,6 +153,13 @@ jobs:
           grep -Fq '"id": "iluminacion-antorcha"' data/equipo-inicial.json
           grep -Fq 'id="dialogo-configuracion"' index.html
           grep -Fq 'id="abrir-configuracion"' index.html
+          grep -Fq 'id="nivel-min"' index.html
+          grep -Fq 'id="nivel-max"' index.html
+          grep -Fq 'id="copiar-semilla"' index.html
+          grep -Fq 'id="copiar-reproduccion"' index.html
+          grep -Fq 'id="ocultar-tutorial"' index.html
+          grep -Fq "html[data-tema=violeta]" assets/styles.css
+          grep -Fq "reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r" assets/app.js
           grep -Fq "recurso-nota-escudo" assets/app.js
           grep -Fq "info-primarios-objeto" assets/tooltip-ui.js
           ! grep -Fq 'nth-child(5):last-child{grid-column:1/-1}' assets/styles.css
@@ -179,6 +187,7 @@ jobs:
           node tests/limites-compra-ux.js
           node tests/elecciones-poscreacion.js
           node tests/smoke.js
+          node tests/semillas-rangos.js
           node tests/fichas-drs-ux.js
           node tests/iconos-forja.js
       - name: Generar solo la carpeta DRS autorizada
@@ -191,18 +200,22 @@ jobs:
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
         run: node tests/pdf-a5-browser-e2e.cjs
-      - name: Verificar interacción real de Chrome
+      - name: Verificar interacción real de Chrome y semillas/rangos en paquete público
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
-        run: node tests/browser-compras.js
+        run: |
+          node tests/browser-compras.js
+          node tests/browser-semillas-rangos.cjs chrome
       - name: Preparar Firefox y WebKit conservando pdf-lib y fontkit
         run: |
           test -f node_modules/playwright/package.json
           npx playwright install --with-deps firefox webkit
-      - name: Verificar la distribución en Firefox y WebKit
+      - name: Verificar la distribución en Firefox y WebKit (incluidos rangos y reproducción)
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
-        run: node tests/browser-compatibilidad.js
+        run: |
+          node tests/browser-compatibilidad.js
+          node tests/browser-semillas-rangos.cjs firefox webkit
       - name: Exportación PDF A5 en Firefox y WebKit públicos
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
@@ -251,6 +264,11 @@ jobs:
                grep -Fq 'id="generar-flotante"' /tmp/forja-live.html &&
                grep -Fq 'id="dialogo-configuracion"' /tmp/forja-live.html &&
                grep -Fq 'id="abrir-configuracion"' /tmp/forja-live.html &&
+               grep -Fq 'id="nivel-min"' /tmp/forja-live.html &&
+               grep -Fq 'id="nivel-max"' /tmp/forja-live.html &&
+               grep -Fq 'id="copiar-semilla"' /tmp/forja-live.html &&
+               grep -Fq 'id="copiar-reproduccion"' /tmp/forja-live.html &&
+               grep -Fq 'id="ocultar-tutorial"' /tmp/forja-live.html &&
                grep -Fq 'id="informacion-avanzada"' /tmp/forja-live.html &&
                grep -Fq 'id="inicio-movil"' /tmp/forja-live.html &&
                grep -Fq 'assets/icons/sistema-nd20-faep.webp' /tmp/forja-live.html &&
@@ -292,6 +310,8 @@ jobs:
           # El CTA también se ofrece cuando la mesa no contiene fichas.
           grep -Fq "var mesaVacia=entradas.length===0;" /tmp/forja-app.js
           grep -Fq "configurador.showModal();" /tmp/forja-app.js
+          grep -Fq 'function mostrarReproduccion(semilla,cfg)' /tmp/forja-app.js
+          grep -Fq "reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r" /tmp/forja-app.js
           grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
           grep -Fq 'class="gestionar-equipo"' /tmp/forja-app.js
           grep -Fq 'componentesYlat' /tmp/forja-app.js
@@ -438,6 +458,7 @@ jobs:
           grep -Fq ".info-tabla-conjuro{" /tmp/forja-estilos.css
           grep -Fq ".recursos.recursos-rejilla{" /tmp/forja-estilos.css
           grep -Fq ".dialogo-configuracion{" /tmp/forja-estilos.css
+          grep -Fq 'html[data-tema=violeta]' /tmp/forja-estilos.css
           grep -Fq ".info-primarios.info-primarios-objeto{" /tmp/forja-estilos.css
           ! grep -Fq 'nth-child(5):last-child{grid-column:1/-1}' /tmp/forja-estilos.css
           grep -Fq 'grid-template-columns:repeat(4,minmax(0,1fr))' /tmp/forja-estilos.css
