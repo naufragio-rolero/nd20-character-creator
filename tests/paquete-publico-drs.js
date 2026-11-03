@@ -232,8 +232,8 @@ assert.ok(html.includes('Variantes de Ylat'));
 assert.ok(html.includes('Según Especie'));
 assert.ok(!html.includes('value="documentado"'),
   'El paquete no debe permitir seleccionar personajes documentados');
-assert.ok(!html.includes('Personajes documentados (51)'),
-  'No mostrar los 51 nombres de PNJ en el selector público');
+assert.ok(html.includes('id="buscar-nombre-ylat"') && html.includes('id="resultados-nombres-ylat"'),
+  'Consulta documental visible sin participar en el sorteo');
 assert.ok(html.includes('id="ambito-nombre"'));
 assert.ok(!/niguac|niguaz/i.test(html),
   'No debe existir un selector del ámbito excluido');
