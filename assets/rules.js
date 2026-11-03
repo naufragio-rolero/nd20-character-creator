@@ -326,7 +326,12 @@
       capacidades:capacidades,
       competencias:(oc.competencias || []).slice(), equipo:equipo, origen:tipo,
       ...(esFantasia?{saldo_mo:Number(compra.restante),
-        capital_inicial_mo:presupuesto}:{}),
+        capital_inicial_mo:presupuesto,
+        // Solo compra inicial documentada; regalos y paquetes nunca se reembolsan.
+        compras_iniciales_intercambiables:
+          (compra.compras_iniciales_intercambiables||[]).map(function(x){
+            return Object.assign({},x);
+          })}:{}),
       procedenciaOcupacion:(fuentes.ocupaciones||{})[ocupacion]||tipo,
       procedenciaEspecie:(fuentes.especies||{})[especie]||tipo,
       riqueza:riqueza,
