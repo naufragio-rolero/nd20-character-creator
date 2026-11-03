@@ -422,6 +422,35 @@
     return {equipo:equipo,detalles:detalles,gastado:gastado,
       restante:Math.round((presupuesto-gastado)*100)/100};
   }
+  // Daño visible: solo armas y varitas poseídas, con valor literal DRS.
+  // Equipar selecciona una referencia; no ejecuta ataques ni consume munición.
+  function armasDisponibles(personaje,catalogo){
+    var inventario=Array.isArray(personaje?.equipo)?personaje.equipo:[];
+    var referencias=new Set(inventario.map(function(v){
+      return String(v).replace(/\\s+×\\d+$/,'').trim();
+    }));
+    var nombres=new Set();
+    return [['armas',catalogo?.armas],['varitas_defensa',catalogo?.varitas_defensa]]
+      .flatMap(function(g){
+        return (g[1]||[]).filter(function(item){
+          if(!referencias.has(item.nombre)||!item.dano||nombres.has(item.nombre))
+            return false;
+          nombres.add(item.nombre);
+          return true;
+        }).map(function(item){
+          return {nombre:item.nombre,dano:item.dano,grupo:g[0],
+            tipo:item.tipo,municion:item.municion||item.municion_du||null};
+        });
+      });
+  }
+  function danoFicha(personaje,catalogo){
+    var nombre=String(personaje?.arma_equipada||'');
+    var arma=armasDisponibles(personaje,catalogo).find(function(x){
+      return x.nombre===nombre;
+    });
+    return arma?{valor:arma.dano,arma:arma.nombre,grupo:arma.grupo}:
+      {valor:'—',arma:null,grupo:null};
+  }
   // Solo inventario ya adquirido: poseer una protección no equivale
   // a llevarla puesta. No se equipan piezas de manera automática.
   function proteccionesDisponibles(personaje,catalogo){
@@ -489,5 +518,6 @@
     intercambiarEquipoInicial:intercambiarEquipoInicial,
     comprarArmamentoFantasia:comprarArmamentoFantasia,
     consultarPreciosArmaduraEquina:consultarPreciosArmaduraEquina,
+    armasDisponibles:armasDisponibles,danoFicha:danoFicha,
     proteccionesDisponibles:proteccionesDisponibles,blindajeFicha:blindajeFicha};
 });
