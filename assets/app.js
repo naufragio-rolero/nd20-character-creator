@@ -439,7 +439,7 @@
     var compacta=grupo==='talento'||grupo==='poder'||grupo==='equipo';
     return '<section class="bloque-ficha"><h4>' + esc(titulo) + '</h4>' +
       (grupo==='talento'?'<p class="pista-talentos">Pulsa un Talento ⓘ para consultar su efecto.</p>':'') +
-      '<ul'+(compacta?' class="lista-dos-columnas"':'')+'>' +
+      '<ul'+(compacta?' class="lista-dos-columnas" role="list"':'')+'>' +
       valores.map(function (v) {
         var procedencia=grupo==='talento'?
           procedenciaTalentoDRS(personaje,v):{fuente:'',adquisicion:''};
