@@ -231,8 +231,13 @@
       principal.drawRectangle({x:(x-.2)*PT,y:topToPdf(110.1),
         width:61.4*PT,height:3.7*PT,color:papel});
     });
+    // La plantilla utiliza rótulos serif en negrita; la fuente A5 embebida
+    // es regular. Una segunda pasada con desplazamiento submilimétrico
+    // mantiene el peso visual sin incorporar una fuente externa.
     draw(principal,8,109.1,'ARMA EQUIPADA',6,true);
+    draw(principal,8.065,109.1,'ARMA EQUIPADA',6,true);
     draw(principal,76,109.1,'DAÑO',6,true);
+    draw(principal,76.065,109.1,'DAÑO',6,true);
     fixed('arma_equipada',p._arma_equ);fixed('dano_equipado',p._dano_equ);
     var current=principal, region=0,x=8,y=124.5,width=63.8,bottom=198.1;
     async function changeRegion(){
