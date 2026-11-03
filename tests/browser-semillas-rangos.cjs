@@ -158,7 +158,7 @@ async function run(name,origin){
     const semillaDos=await page.locator('#semilla-resultado').textContent();
     assert.notEqual(semillaDos,semilla,'Cada clic normal requiere azar nuevo');
     assert.equal(await page.locator('#semilla').inputValue(),'');
-    const fichasDos=(await page.locator('#fichas .tarjeta').allInnerTexts()).slice(7);
+    const fichasDos=(await page.locator('#fichas .tarjeta').allInnerTexts()).slice(0,7);
     assert.notDeepEqual(fichasDos,fichasPrimera,'El segundo lote no repite el primero');
     // El botón optativo reutiliza la semilla del último lote y abre Configuración.
     await page.locator('#usar-semilla').click();
@@ -166,7 +166,7 @@ async function run(name,origin){
     assert.equal(await page.locator('#semilla').inputValue(),semillaDos);
     assert.equal(await config.evaluate(x=>x.open),true);
     await page.locator('#generar-dialogo').click();
-    const fichasTres=(await page.locator('#fichas .tarjeta').allInnerTexts()).slice(14);
+    const fichasTres=(await page.locator('#fichas .tarjeta').allInnerTexts()).slice(0,7);
     assert.deepEqual(fichasTres,fichasDos,'Usar semilla reproduce el último lote');
     assert.equal(await page.locator('#semilla-resultado').textContent(),semillaDos);
     // Desactivar la semilla mantiene el texto para uso futuro, pero NO repite.
