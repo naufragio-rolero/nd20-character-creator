@@ -617,12 +617,15 @@
       (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
       htmlAvisos('Riqueza adicional',notas.riqueza,'avisos-riqueza') +
       htmlOtrosAvisos(notas.otras) +
-      '<div class="pie-ficha"><small>' + esc(fuentesFicha(personaje)) +
-      '</small>' +
+      '<div class="pie-ficha"><div class="acciones-pie-ficha" role="group" aria-label="Acciones de la ficha">' +
       (personaje.juego==='Naufragio d20 · Fantasía'&&Number.isFinite(personaje.saldo_mo)?
-        '<button type="button" class="comprar-utiles" data-id="'+id+'">Comprar útiles</button>':'')+
+        '<button type="button" class="comprar-utiles" data-id="'+id+'" title="Comprar útiles" aria-label="Comprar útiles">Útiles</button>':'')+
+      (personaje.juego==='Naufragio d20 · Fantasía'?
+        '<button type="button" class="exportar-pdf-ficha" data-id="'+id+'" title="Exportar PDF A5" aria-label="Exportar ficha PDF A5">PDF</button>':'')+
       '<button type="button" class="copiar-ficha" data-id="' + id +
-      '">Copiar ficha</button></div></article>';
+      '" title="Copiar ficha" aria-label="Copiar ficha al portapapeles">Copiar</button></div>'+
+      '<small class="fuentes-pie-ficha">' + esc(fuentesFicha(personaje)) +
+      '</small></div></article>';
   }
   var tiles = {wall:['#172d39','Muro'],tile:['#d9d3bd','Suelo'],col:['#a7af9e','Columna'],
     trap:['#c98369','Trampa'],furn:['#b7a17f','Mobiliario']};
@@ -1337,6 +1340,30 @@
           cerrarCompra();
         entradas=entradas.filter(function(x){return String(x.id)!==del.dataset.id;});
         dibujar();return;
+      }
+      var pdf=e.target.closest('.exportar-pdf-ficha');
+      if(pdf){
+        var entradaPdf=entradas.find(function(x){
+          return x.tipo==='ficha'&&String(x.id)===pdf.dataset.id;
+        });
+        if(!entradaPdf||entradaPdf.valor.juego!=='Naufragio d20 · Fantasía'){
+          aviso('La ficha solicitada no admite exportación A5.',true);return;
+        }
+        if(!window.NaufragioPdfBrowser?.exportar){
+          aviso('El motor PDF A5 no está disponible.',true);return;
+        }
+        pdf.disabled=true;
+        aviso('Preparando PDF A5 de '+entradaPdf.valor.nombre+'…');
+        window.NaufragioPdfBrowser.exportar(
+          entradaPdf.valor,blindajePersonaje(entradaPdf.valor),datos.equipoInicial
+        ).then(function(paginas){
+          aviso('PDF A5 preparado: '+paginas+' página(s).');
+        }).catch(function(error){
+          aviso(error.message||'No se pudo exportar el PDF A5.',true);
+        }).finally(function(){
+          if(pdf.isConnected)pdf.disabled=false;
+        });
+        return;
       }
       var copy=e.target.closest('.copiar-ficha');
       if(copy){
