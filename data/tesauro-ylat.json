@@ -595,7 +595,19 @@
       "nombre": "Abdul Hassif",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C40, A1",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C40",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A1",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -608,7 +620,15 @@
       "nombre": "Abelio Floricarpio",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I01",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I01",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -620,7 +640,19 @@
       "nombre": "Acathia Masticadedos",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C39, A2",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C39",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A2",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -633,7 +665,19 @@
       "nombre": "Adaldust Alogers",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C84, A3",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C84",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A3",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -646,7 +690,15 @@
       "nombre": "Addare Skara",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C11",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C11",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -658,7 +710,19 @@
       "nombre": "Adhat la Tuerta",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C31, A4",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C31",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A4",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -671,7 +735,23 @@
       "nombre": "Aerandil del Atardecer Refulgente",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C107, A5, I02",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C107",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A5",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I02",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -685,7 +765,15 @@
       "nombre": "Aereth, la del Alba Fría",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MAereth",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MAereth",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -697,7 +785,15 @@
       "nombre": "Aeromund el Inquebrantable",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MAeromund",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MAeromund",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -709,7 +805,19 @@
       "nombre": "Akestu Fiercespada",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C104, A6",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C104",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A6",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -722,7 +830,23 @@
       "nombre": "Albert Lobeth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C97, A7, I03",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C97",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A7",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I03",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -736,7 +860,15 @@
       "nombre": "Alessia Cianci",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I04",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I04",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -748,7 +880,15 @@
       "nombre": "Alim de Mostagánem",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I05",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I05",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -760,7 +900,15 @@
       "nombre": "Amadeus",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · B",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "B",
+            "anexo": "biografias-personajes-cotejo.md"
+          }
+        ]
+      },
       "procedencia": [
         "biografias-personajes-cotejo.md"
       ],
@@ -772,7 +920,15 @@
       "nombre": "Amathur",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · B",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "B",
+            "anexo": "biografias-personajes-cotejo.md"
+          }
+        ]
+      },
       "procedencia": [
         "biografias-personajes-cotejo.md"
       ],
@@ -784,7 +940,23 @@
       "nombre": "Anasthore del Atardecer Luciente",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C105, A8, I06",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C105",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A8",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I06",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -798,7 +970,15 @@
       "nombre": "Anfingrem Sigvald",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C131",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C131",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -810,7 +990,15 @@
       "nombre": "Angus Burbridge",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · B",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "B",
+            "anexo": "biografias-personajes-cotejo.md"
+          }
+        ]
+      },
       "procedencia": [
         "biografias-personajes-cotejo.md"
       ],
@@ -822,7 +1010,19 @@
       "nombre": "Aradale Iraldsay",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C139, A9",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C139",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A9",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -835,7 +1035,15 @@
       "nombre": "Arlia Brahemfor",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I07",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I07",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -847,7 +1055,15 @@
       "nombre": "Arloth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · GP",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "GP",
+            "anexo": "corpus-gesta-personajes-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-gesta-personajes-ylat.md"
       ],
@@ -859,7 +1075,15 @@
       "nombre": "Armando Orovecchio",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I08",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I08",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -871,7 +1095,19 @@
       "nombre": "Asharod Nerese",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C28, A10",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C28",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A10",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -884,7 +1120,15 @@
       "nombre": "Astrid Sombralba",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · B",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "B",
+            "anexo": "biografias-personajes-cotejo.md"
+          }
+        ]
+      },
       "procedencia": [
         "biografias-personajes-cotejo.md"
       ],
@@ -896,7 +1140,19 @@
       "nombre": "Aurelius Ryszard",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C33, A11",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C33",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A11",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -909,7 +1165,19 @@
       "nombre": "Awara Tonunt",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C121, A12",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C121",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A12",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -922,7 +1190,19 @@
       "nombre": "Azael",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C136, A13",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C136",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A13",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -935,7 +1215,19 @@
       "nombre": "Balthyr Maplewilde",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C71, A14",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C71",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A14",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -948,7 +1240,19 @@
       "nombre": "Banelm Samdaw",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C55, A15",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C55",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A15",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -961,7 +1265,19 @@
       "nombre": "Bankingar Sonascama",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C20, A16",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C20",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A16",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -974,7 +1290,19 @@
       "nombre": "Baryn Violatesoros",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C19, A17",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C19",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A17",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -987,7 +1315,15 @@
       "nombre": "Belegur Sigvald «Furia»",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A18",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A18",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -999,7 +1335,15 @@
       "nombre": "Belril Sierpercana",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · F",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "F",
+            "anexo": "adenda-fuentes-historicas-y-alias.md"
+          }
+        ]
+      },
       "procedencia": [
         "adenda-fuentes-historicas-y-alias.md"
       ],
@@ -1011,7 +1355,19 @@
       "nombre": "Besyl Noccerado",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C30, A19",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C30",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A19",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1024,7 +1380,15 @@
       "nombre": "Bianca Leone",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I09",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I09",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1036,7 +1400,15 @@
       "nombre": "Bram Brasagorda",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · B",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "B",
+            "anexo": "biografias-personajes-cotejo.md"
+          }
+        ]
+      },
       "procedencia": [
         "biografias-personajes-cotejo.md"
       ],
@@ -1048,7 +1420,15 @@
       "nombre": "Branneth, el de la Larga Siembra",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MBranneth",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MBranneth",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -1060,7 +1440,15 @@
       "nombre": "Branwen Sigvald «Discordia»",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A20",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A20",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -1072,7 +1460,15 @@
       "nombre": "Bruto",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I10",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I10",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1084,7 +1480,19 @@
       "nombre": "Cabal Sireg",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C134, A21",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C134",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A21",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1097,7 +1505,15 @@
       "nombre": "Caefyn Verdimbre",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · F",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "F",
+            "anexo": "adenda-fuentes-historicas-y-alias.md"
+          }
+        ]
+      },
       "procedencia": [
         "adenda-fuentes-historicas-y-alias.md"
       ],
@@ -1109,7 +1525,23 @@
       "nombre": "Caelia Fulgentis",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C82, A22, B",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C82",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A22",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "B",
+            "anexo": "biografias-personajes-cotejo.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -1123,7 +1555,19 @@
       "nombre": "Caeloen Leahein",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C99, A23",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C99",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A23",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1136,7 +1580,19 @@
       "nombre": "Caisadi Fuegosombrío",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C51, A24",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C51",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A24",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1149,7 +1605,15 @@
       "nombre": "Calotgero Oroforte",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I11",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I11",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1161,7 +1625,15 @@
       "nombre": "Car'rt Oq'uatee",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C100",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C100",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -1173,7 +1645,19 @@
       "nombre": "Caramierda",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C45, A25",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C45",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A25",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1186,7 +1670,19 @@
       "nombre": "Celebriän Brisaolvidada",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C27, A26",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C27",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A26",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1199,7 +1695,19 @@
       "nombre": "Chrachack Fiercespada",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C37, A27",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C37",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A27",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1212,7 +1720,19 @@
       "nombre": "Chred Nichols",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C130, A28",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C130",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A28",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1225,7 +1745,19 @@
       "nombre": "Ciale Iraldsay",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C6, A29",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C6",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A29",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1238,7 +1770,19 @@
       "nombre": "Cromust Fiercespada",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C108, A30",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C108",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A30",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1251,7 +1795,19 @@
       "nombre": "Crujidor",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C77, A31",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C77",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A31",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1264,7 +1820,15 @@
       "nombre": "Cuthert Achgate",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MH",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MH",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -1276,7 +1840,15 @@
       "nombre": "Daeron Vardamir",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C106",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C106",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -1288,7 +1860,19 @@
       "nombre": "Damien Holdt",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C1, A32",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C1",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A32",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1301,7 +1885,19 @@
       "nombre": "Dan",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C120, A33",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C120",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A33",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1314,7 +1910,19 @@
       "nombre": "Daniel Alswick",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C10, A34",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C10",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A34",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1327,7 +1935,19 @@
       "nombre": "Darelon Thrathal",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C128, A35",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C128",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A35",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1340,7 +1960,19 @@
       "nombre": "Delril Torgal",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C22, A36",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C22",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A36",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1353,7 +1985,15 @@
       "nombre": "Demetrius Buelhorn",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I12",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I12",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1365,7 +2005,23 @@
       "nombre": "Denhat Lobeth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C5, A37, I13",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C5",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A37",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I13",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -1379,7 +2035,19 @@
       "nombre": "Dianne Smoth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C86, A38",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C86",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A38",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1392,7 +2060,15 @@
       "nombre": "Dora Verdiscente",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A39",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A39",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -1404,7 +2080,15 @@
       "nombre": "Draconio «Drake» Orovecchio",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I14",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I14",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1416,7 +2100,15 @@
       "nombre": "Drazoath",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C60",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C60",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -1428,7 +2120,19 @@
       "nombre": "Drother Tasano",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C74, A41",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C74",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A41",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1441,7 +2145,19 @@
       "nombre": "Drut'Jaal",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C113, A42",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C113",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A42",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1454,7 +2170,15 @@
       "nombre": "Edward Swordkey",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I15",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I15",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1466,7 +2190,15 @@
       "nombre": "Eilinn Brillonuevo",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C57",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C57",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -1478,7 +2210,19 @@
       "nombre": "Eld'mose Kinistis",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C50, A43",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C50",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A43",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1491,7 +2235,19 @@
       "nombre": "Eldburg Skara",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C96, A44",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C96",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A44",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1504,7 +2260,23 @@
       "nombre": "Elisia Jacenty",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C32, A45, I16",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C32",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A45",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I16",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -1518,7 +2290,19 @@
       "nombre": "Elrohir Vardamir",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C114, A46",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C114",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A46",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1531,7 +2315,15 @@
       "nombre": "Elthon Travole",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I17",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I17",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1543,7 +2335,19 @@
       "nombre": "Eman Iraldsay",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C41, A47",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C41",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A47",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1556,7 +2360,19 @@
       "nombre": "Engaw Brosul",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C3, A48",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C3",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A48",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1569,7 +2385,15 @@
       "nombre": "Enyra Petreius",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I18",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I18",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1581,7 +2405,19 @@
       "nombre": "Eomdyn Noreesh",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C43, A49",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C43",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A49",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1594,7 +2430,19 @@
       "nombre": "Essaetia Neulenthris",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C8, A50",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C8",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A50",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1607,7 +2455,19 @@
       "nombre": "Eurip Shadelgast",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C118, A51",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C118",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A51",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1620,7 +2480,15 @@
       "nombre": "Fabrizio Orovecchio",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I19",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I19",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1632,7 +2500,15 @@
       "nombre": "Fëanáro Vardamir",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A52",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A52",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -1644,7 +2520,15 @@
       "nombre": "Filotheus Achgate",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MH",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MH",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -1656,7 +2540,19 @@
       "nombre": "Findorian Alcanzarríos",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C49, A53",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C49",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A53",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1669,7 +2565,15 @@
       "nombre": "Francesca Martoni",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I20",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I20",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1681,7 +2585,19 @@
       "nombre": "Fredián Alogers",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C119, A54",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C119",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A54",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1694,7 +2610,23 @@
       "nombre": "Galeshra Adorasol",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C124, A55, I21",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C124",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A55",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I21",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -1708,7 +2640,15 @@
       "nombre": "Galibard Shadelgast",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C79",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C79",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -1720,7 +2660,19 @@
       "nombre": "Galibard Shadelgast II",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C80, A56",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C80",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A56",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1733,7 +2685,15 @@
       "nombre": "Galothertus Porach",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I22",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I22",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1745,7 +2705,15 @@
       "nombre": "Gerad Orovecchio",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I23",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I23",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1757,7 +2725,19 @@
       "nombre": "Gerad Silversea",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C68, A57",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C68",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A57",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1770,7 +2750,15 @@
       "nombre": "Gilraen Vardamir",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C109",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C109",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -1782,7 +2770,19 @@
       "nombre": "Godogene Alogers",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C65, A58",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C65",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A58",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1795,7 +2795,19 @@
       "nombre": "Góvan Gomelera",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C62, A60",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C62",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A60",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1808,7 +2820,19 @@
       "nombre": "Grogtk",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C72, A61",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C72",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A61",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1821,7 +2845,15 @@
       "nombre": "Gulfrik",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C9",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C9",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -1833,7 +2865,19 @@
       "nombre": "Gustaffon Olatheus",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A62, I24",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A62",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I24",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md",
         "corpus-complementario-isophius.md"
@@ -1846,7 +2890,19 @@
       "nombre": "Gwilherm Smoth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C85, A63",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C85",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A63",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1859,7 +2915,19 @@
       "nombre": "Hadewig Rocene",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C95, A64",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C95",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A64",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1872,7 +2940,15 @@
       "nombre": "Hadrik Achgate",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MH",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MH",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -1884,7 +2960,19 @@
       "nombre": "Halor Pelocobre",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C13, A65",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C13",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A65",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1897,7 +2985,19 @@
       "nombre": "Hansus Bronnhum",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C36, A66",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C36",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A66",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1910,7 +3010,15 @@
       "nombre": "Harlend Terrana, el Mediador",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MHarlend",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MHarlend",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -1922,7 +3030,19 @@
       "nombre": "Hassad Fadel",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C44, A67",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C44",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A67",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1935,7 +3055,19 @@
       "nombre": "Havindrin Mantodorado",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C34, A68",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C34",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A68",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1948,7 +3080,19 @@
       "nombre": "Hermilda Shadelgast",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C81, A69",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C81",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A69",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1961,7 +3105,15 @@
       "nombre": "Hijo de Pamela",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I25",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I25",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -1973,7 +3125,19 @@
       "nombre": "Hiller Iraldsay",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C140, A70",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C140",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A70",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1986,7 +3150,19 @@
       "nombre": "Hiyael el Huérfano",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C112, A71",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C112",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A71",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -1999,7 +3175,15 @@
       "nombre": "Hyarion Vardamir",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C115",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C115",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -2011,7 +3195,19 @@
       "nombre": "Idfaseya Ysheasa",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C94, A72",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C94",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A72",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2024,7 +3220,15 @@
       "nombre": "Ilythia",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · GP",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "GP",
+            "anexo": "corpus-gesta-personajes-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-gesta-personajes-ylat.md"
       ],
@@ -2036,7 +3240,15 @@
       "nombre": "Indalezius Dreedmist",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A73",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A73",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -2048,7 +3260,19 @@
       "nombre": "Inether Lowees",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C58, A74",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C58",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A74",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2061,7 +3285,15 @@
       "nombre": "Ingulph Ceolward",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · F",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "F",
+            "anexo": "adenda-fuentes-historicas-y-alias.md"
+          }
+        ]
+      },
       "procedencia": [
         "adenda-fuentes-historicas-y-alias.md"
       ],
@@ -2073,7 +3305,15 @@
       "nombre": "Iralde Terrana, la del Arado Rojo",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MIralde",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MIralde",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -2085,7 +3325,19 @@
       "nombre": "Isandra Bronnhum",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C47, A75",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C47",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A75",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2098,7 +3350,15 @@
       "nombre": "Iskadar el Segundo",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · H",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "H",
+            "anexo": "auditoria-shadaleen-eponimos-y-relatos.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-shadaleen-eponimos-y-relatos.md"
       ],
@@ -2110,7 +3370,19 @@
       "nombre": "Isspol Tonunt",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C12, A76",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C12",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A76",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2123,7 +3395,19 @@
       "nombre": "Jaleba Inversa",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C63, A77",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C63",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A77",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2136,7 +3420,15 @@
       "nombre": "Jérémie Alban",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C15",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C15",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -2148,7 +3440,15 @@
       "nombre": "Jiggalen Pamphilos",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I26",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I26",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2160,7 +3460,19 @@
       "nombre": "Jkoor Hiervescarcha",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C127, A78",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C127",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A78",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2173,7 +3485,15 @@
       "nombre": "Joan Orovecchio",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I27",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I27",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2185,7 +3505,15 @@
       "nombre": "Josah Buelhorn",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I28",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I28",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2197,7 +3525,15 @@
       "nombre": "Kaart Oquati",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A79",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A79",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -2209,7 +3545,15 @@
       "nombre": "Käbrius Festus",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · F",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "F",
+            "anexo": "adenda-fuentes-historicas-y-alias.md"
+          }
+        ]
+      },
       "procedencia": [
         "adenda-fuentes-historicas-y-alias.md"
       ],
@@ -2221,7 +3565,15 @@
       "nombre": "Kaelgor, el Estable",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MKaelgor",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MKaelgor",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -2233,7 +3585,19 @@
       "nombre": "Kineyie Gudrün",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C25, A82",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C25",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A82",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2246,7 +3610,15 @@
       "nombre": "Korgrán Nudillo Pétreo",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · Z",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "Z",
+            "anexo": "barrido-final-zonas-inistia.md"
+          }
+        ]
+      },
       "procedencia": [
         "barrido-final-zonas-inistia.md"
       ],
@@ -2258,7 +3630,19 @@
       "nombre": "Kranthrom Hiendeacero",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C123, A83",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C123",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A83",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2271,7 +3655,19 @@
       "nombre": "Kurzak Sendero Severo",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C116, A84",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C116",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A84",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2284,7 +3680,15 @@
       "nombre": "Laevinë Skara",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C52",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C52",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -2296,7 +3700,15 @@
       "nombre": "Lalis Floricarpio",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I30",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I30",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2308,7 +3720,15 @@
       "nombre": "Lathandos Snave",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · F",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "F",
+            "anexo": "adenda-fuentes-historicas-y-alias.md"
+          }
+        ]
+      },
       "procedencia": [
         "adenda-fuentes-historicas-y-alias.md"
       ],
@@ -2320,7 +3740,15 @@
       "nombre": "Leandro Bracco",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I31",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I31",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2332,7 +3760,15 @@
       "nombre": "Leezar Lockbruck",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I32",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I32",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2344,7 +3780,15 @@
       "nombre": "Lisandra",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I33",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I33",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2356,7 +3800,19 @@
       "nombre": "Lorif Samasi",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C23, A87",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C23",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A87",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2369,7 +3825,19 @@
       "nombre": "Loroohck Asheishi",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C2, A88",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C2",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A88",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2382,7 +3850,19 @@
       "nombre": "Lorss Duthmor",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C54, A89",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C54",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A89",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2395,7 +3875,19 @@
       "nombre": "Luresse Gomelera",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C102, A90",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C102",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A90",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2408,7 +3900,15 @@
       "nombre": "Lyran",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MH",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MH",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -2420,7 +3920,15 @@
       "nombre": "Malthus Haagenti",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I34",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I34",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2432,7 +3940,15 @@
       "nombre": "Marco",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I35",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I35",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2444,7 +3960,15 @@
       "nombre": "Mario Martoni",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I36",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I36",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2456,7 +3980,19 @@
       "nombre": "Mark Maxley",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C76, A91",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C76",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A91",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2469,7 +4005,19 @@
       "nombre": "Marlak Fuegosombrío",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C87, A92",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C87",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A92",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2482,7 +4030,23 @@
       "nombre": "Marten Lobeth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C88, A93, I37",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C88",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A93",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I37",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -2496,7 +4060,19 @@
       "nombre": "Martius Smoth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C91, A94",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C91",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A94",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2509,7 +4085,23 @@
       "nombre": "Mashera Skara",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C129, A95, I38",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C129",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A95",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I38",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -2523,7 +4115,15 @@
       "nombre": "Maurice Martoni",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I39",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I39",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2535,7 +4135,23 @@
       "nombre": "Maverae Adorasol",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C67, A96, I40",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C67",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A96",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I40",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -2549,7 +4165,15 @@
       "nombre": "Mirethia del Atardecer Coral",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · H",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "H",
+            "anexo": "auditoria-shadaleen-eponimos-y-relatos.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-shadaleen-eponimos-y-relatos.md"
       ],
@@ -2561,7 +4185,15 @@
       "nombre": "Modestia Jof «Esti»",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A97",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A97",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -2573,7 +4205,15 @@
       "nombre": "Mogg'Shattoth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I41",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I41",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2585,7 +4225,15 @@
       "nombre": "Morgarath Kultstein",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I42",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I42",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2597,7 +4245,19 @@
       "nombre": "Morgendärr",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C122, A98",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C122",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A98",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2610,7 +4270,19 @@
       "nombre": "Muhammad Sossei",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C38, A99",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C38",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A99",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2623,7 +4295,19 @@
       "nombre": "Nabeel Ungesavia",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C14, A100",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C14",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A100",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2636,7 +4320,19 @@
       "nombre": "Naeis Shadelgast",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A101, B",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A101",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "B",
+            "anexo": "biografias-personajes-cotejo.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md",
         "biografias-personajes-cotejo.md"
@@ -2649,7 +4345,15 @@
       "nombre": "Nahr Caelis, el Cortavientos",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MNahr",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MNahr",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -2661,7 +4365,19 @@
       "nombre": "Naleale Iraldsay",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C138, A102",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C138",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A102",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2674,7 +4390,15 @@
       "nombre": "Narelmayl",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · E",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "E",
+            "anexo": "cronologia-y-astroonimia-enciclopedia.md"
+          }
+        ]
+      },
       "procedencia": [
         "cronologia-y-astroonimia-enciclopedia.md"
       ],
@@ -2686,7 +4410,19 @@
       "nombre": "Narga Solarys",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · E, D",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "E",
+            "anexo": "cronologia-y-astroonimia-enciclopedia.md"
+          },
+          {
+            "registro": "D",
+            "anexo": "inventario-teonimos-y-epitetos.md"
+          }
+        ]
+      },
       "procedencia": [
         "cronologia-y-astroonimia-enciclopedia.md",
         "inventario-teonimos-y-epitetos.md"
@@ -2699,7 +4435,15 @@
       "nombre": "Nathan",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I43",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I43",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2711,7 +4455,15 @@
       "nombre": "Nebulashka",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A103",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A103",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -2723,7 +4475,15 @@
       "nombre": "Nêrra",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A104",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A104",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -2735,7 +4495,19 @@
       "nombre": "Nesaweyn Feebil",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C18, A105",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C18",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A105",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2748,7 +4520,15 @@
       "nombre": "Neurustho Forneustone",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I44",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I44",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2760,7 +4540,19 @@
       "nombre": "Neyney sin Apellido",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C73, A106",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C73",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A106",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2773,7 +4565,19 @@
       "nombre": "Nidrael Eldarien",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A107, Z",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A107",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "Z",
+            "anexo": "barrido-final-zonas-inistia.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md",
         "barrido-final-zonas-inistia.md"
@@ -2786,7 +4590,19 @@
       "nombre": "Nimara Vuelumbrío",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C125, A109",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C125",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A109",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2799,7 +4615,15 @@
       "nombre": "Norluth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · E",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "E",
+            "anexo": "cronologia-y-astroonimia-enciclopedia.md"
+          }
+        ]
+      },
       "procedencia": [
         "cronologia-y-astroonimia-enciclopedia.md"
       ],
@@ -2811,7 +4635,19 @@
       "nombre": "Notorius Anverso",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C4, A111",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C4",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A111",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2824,7 +4660,15 @@
       "nombre": "Nulsärax",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C117",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C117",
+            "anexo": "censo-pnj-historico.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md"
       ],
@@ -2836,7 +4680,15 @@
       "nombre": "Nyldryl",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A112",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A112",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -2848,7 +4700,19 @@
       "nombre": "Oelmi Beld",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C89, A113",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C89",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A113",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2861,7 +4725,19 @@
       "nombre": "Oenogs Roerraíces",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C48, A114",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C48",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A114",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2874,7 +4750,19 @@
       "nombre": "Ophilia Morcrick",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C75, A116",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C75",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A116",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2887,7 +4775,19 @@
       "nombre": "Ork",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C111, A117",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C111",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A117",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2900,7 +4800,15 @@
       "nombre": "Otho-Dekrll",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I45",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I45",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2912,7 +4820,15 @@
       "nombre": "Pamela",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I46",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I46",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2924,7 +4840,15 @@
       "nombre": "Paulina Orovecchio",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I47",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I47",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2936,7 +4860,15 @@
       "nombre": "Petro Grimaldi",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I48",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I48",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -2948,7 +4880,15 @@
       "nombre": "Quamara Rowes",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MH",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MH",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -2960,7 +4900,19 @@
       "nombre": "Quaon Arianhrod",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C26, A118",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C26",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A118",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2973,7 +4925,19 @@
       "nombre": "Radinel Soplotenue",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C78, A119",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C78",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A119",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2986,7 +4950,19 @@
       "nombre": "Rargar Ecala",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C132, A120",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C132",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A120",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -2999,7 +4975,15 @@
       "nombre": "Rewill Borney",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I49",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I49",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -3011,7 +4995,15 @@
       "nombre": "Richerento",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I50",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I50",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -3023,7 +5015,15 @@
       "nombre": "Robin Ranley",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · F",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "F",
+            "anexo": "adenda-fuentes-historicas-y-alias.md"
+          }
+        ]
+      },
       "procedencia": [
         "adenda-fuentes-historicas-y-alias.md"
       ],
@@ -3035,7 +5035,19 @@
       "nombre": "Roluj Buenacerveza",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C35, A121",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C35",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A121",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3048,7 +5060,19 @@
       "nombre": "Ryn'Acki",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C61, A122",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C61",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A122",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3061,7 +5085,19 @@
       "nombre": "Sadyiya Falaz",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C101, A123",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C101",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A123",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3074,7 +5110,23 @@
       "nombre": "Sarata Lobeth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C90, A124, I51",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C90",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A124",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I51",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -3088,7 +5140,19 @@
       "nombre": "Sashka Norvvind",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C110, A125",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C110",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A125",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3101,7 +5165,15 @@
       "nombre": "Scheziss",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I52",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I52",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -3113,7 +5185,15 @@
       "nombre": "Selvarn, el Nuboso",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MSelvarn",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MSelvarn",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -3125,7 +5205,19 @@
       "nombre": "Señor Calcetines",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C137, A126",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C137",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A126",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3138,7 +5230,19 @@
       "nombre": "Seruon el Esmeralda",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C46, A127",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C46",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A127",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3151,7 +5255,15 @@
       "nombre": "Shadel",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · E",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "E",
+            "anexo": "cronologia-y-astroonimia-enciclopedia.md"
+          }
+        ]
+      },
       "procedencia": [
         "cronologia-y-astroonimia-enciclopedia.md"
       ],
@@ -3163,7 +5275,15 @@
       "nombre": "Skörn Norvvind",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A128",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A128",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -3175,7 +5295,19 @@
       "nombre": "Sodyd Gomelera",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C103, A129",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C103",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A129",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3188,7 +5320,23 @@
       "nombre": "Stasi Giovanni",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C16, A130, I53",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C16",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A130",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I53",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -3202,7 +5350,15 @@
       "nombre": "Sumaeryn de las Mareas",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MSumaeryn",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MSumaeryn",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -3214,7 +5370,19 @@
       "nombre": "Syssbel Valanthis",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C24, A131",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C24",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A131",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3227,7 +5395,15 @@
       "nombre": "Tadeo Orovecchio",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I54",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I54",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -3239,7 +5415,15 @@
       "nombre": "Tayana Pamphilos",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I55",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I55",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -3251,7 +5435,19 @@
       "nombre": "Tegku Bagui Fénix",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C69, A133",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C69",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A133",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3264,7 +5460,19 @@
       "nombre": "Ternus Arper",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C42, A134",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C42",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A134",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3277,7 +5485,15 @@
       "nombre": "Tharn, el Viento Eterno",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MTharn",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MTharn",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -3289,7 +5505,15 @@
       "nombre": "Theren Bron",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · Z",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "Z",
+            "anexo": "barrido-final-zonas-inistia.md"
+          }
+        ]
+      },
       "procedencia": [
         "barrido-final-zonas-inistia.md"
       ],
@@ -3301,7 +5525,19 @@
       "nombre": "Thergan Ulvbane",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C126, A135",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C126",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A135",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3314,7 +5550,15 @@
       "nombre": "Thingrim Lockbruck",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A136",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A136",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -3326,7 +5570,15 @@
       "nombre": "Tomás Belardo",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · GP",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "GP",
+            "anexo": "corpus-gesta-personajes-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-gesta-personajes-ylat.md"
       ],
@@ -3338,7 +5590,15 @@
       "nombre": "Travis Engalei",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · Z",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "Z",
+            "anexo": "barrido-final-zonas-inistia.md"
+          }
+        ]
+      },
       "procedencia": [
         "barrido-final-zonas-inistia.md"
       ],
@@ -3350,7 +5610,19 @@
       "nombre": "Treban Tepoel",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C98, A137",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C98",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A137",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3363,7 +5635,15 @@
       "nombre": "Tuliëlle Skara",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A138",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A138",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
@@ -3375,7 +5655,19 @@
       "nombre": "Tyvoz Fluyeflauta",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C21, A139",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C21",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A139",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3388,7 +5680,19 @@
       "nombre": "Ubale Keefe",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C92, A140",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C92",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A140",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3401,7 +5705,15 @@
       "nombre": "Uragana Buelhorn",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · I56",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "I56",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-complementario-isophius.md"
       ],
@@ -3413,7 +5725,15 @@
       "nombre": "Varlyna, la Fundadora",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MVarlyna",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MVarlyna",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -3425,7 +5745,15 @@
       "nombre": "Velyn Maren, la de los Ojos de Espuma",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MVelyn",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MVelyn",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -3437,7 +5765,23 @@
       "nombre": "Viktor Kultstein",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C83, A142, I57",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C83",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A142",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I57",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -3451,7 +5795,19 @@
       "nombre": "Vrymmir Borgenrstâg",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C59, A143",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C59",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A143",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3464,7 +5820,15 @@
       "nombre": "Vrymmir Borgernstâg",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · B",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "B",
+            "anexo": "biografias-personajes-cotejo.md"
+          }
+        ]
+      },
       "procedencia": [
         "biografias-personajes-cotejo.md"
       ],
@@ -3476,7 +5840,23 @@
       "nombre": "Vysoben Veredron",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C133, A144, I58",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C133",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A144",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I58",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -3490,7 +5870,19 @@
       "nombre": "Warsam Nyser",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C7, A145",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C7",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A145",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3503,7 +5895,15 @@
       "nombre": "Weeheem Pinnotix",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · B",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "B",
+            "anexo": "biografias-personajes-cotejo.md"
+          }
+        ]
+      },
       "procedencia": [
         "biografias-personajes-cotejo.md"
       ],
@@ -3515,7 +5915,19 @@
       "nombre": "Werhilda Forjaplata",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C64, A146",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C64",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A146",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3528,7 +5940,15 @@
       "nombre": "Wilgils Ceolward",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MH",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MH",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -3540,7 +5960,19 @@
       "nombre": "William Gull",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A147, I59",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A147",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I59",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md",
         "corpus-complementario-isophius.md"
@@ -3553,7 +5985,19 @@
       "nombre": "Ybardonydd Acomanydd Unerrannor",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C70, A149",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C70",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A149",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3566,7 +6010,15 @@
       "nombre": "Ymobil",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · MH",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "MH",
+            "anexo": "linajes-historicos-malasthar.md"
+          }
+        ]
+      },
       "procedencia": [
         "linajes-historicos-malasthar.md"
       ],
@@ -3578,7 +6030,23 @@
       "nombre": "Yuno Lobeth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C93, A150, I60",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C93",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A150",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I60",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -3592,7 +6060,23 @@
       "nombre": "Zack Lobeth",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C135, A151, I61",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C135",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A151",
+            "anexo": "auditoria-aventuras-ylat.md"
+          },
+          {
+            "registro": "I61",
+            "anexo": "corpus-complementario-isophius.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md",
@@ -3606,7 +6090,15 @@
       "nombre": "Zarkon",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · GP",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "GP",
+            "anexo": "corpus-gesta-personajes-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "corpus-gesta-personajes-ylat.md"
       ],
@@ -3618,7 +6110,19 @@
       "nombre": "Zarzik Ceñóseo",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C56, A152",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C56",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A152",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3631,7 +6135,19 @@
       "nombre": "Zekogs Quiebrahielo",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · C17, A153",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "C17",
+            "anexo": "censo-pnj-historico.md"
+          },
+          {
+            "registro": "A153",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "censo-pnj-historico.md",
         "auditoria-aventuras-ylat.md"
@@ -3644,7 +6160,15 @@
       "nombre": "Zurari Hermous",
       "tipo": "documentado",
       "ambito": "Ylat",
-      "fuente": "Investigación onomástica de Ylat · A154",
+      "fuente": {
+        "archivo": "Índice maestro de testimonios onomásticos v2",
+        "referencias": [
+          {
+            "registro": "A154",
+            "anexo": "auditoria-aventuras-ylat.md"
+          }
+        ]
+      },
       "procedencia": [
         "auditoria-aventuras-ylat.md"
       ],
