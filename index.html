@@ -260,11 +260,21 @@
         </div>
       </div>
       <div id="estado" class="estado" role="status" aria-live="polite"></div>
-      <section id="reproduccion-resultados" class="reproduccion-resultados" aria-label="Reproducción de la generación" hidden>
-        <p><strong>Semilla:</strong> <code id="semilla-resultado"></code></p>
-        <div class="reproduccion-acciones"><button type="button" id="copiar-semilla">Copiar semilla</button><button type="button" id="copiar-reproduccion">Copiar configuración de reproducción</button></div>
-        <small>Misma semilla y configuración: mismo resultado original. Las modificaciones posteriores y elecciones manuales no se reconstruyen.</small>
-      </section>
+      <dialog id="dialogo-reproduccion" class="dialogo-compras dialogo-reproduccion"
+        aria-labelledby="titulo-dialogo-reproduccion" aria-describedby="reproduccion-personaje">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-dialogo-reproduccion">Semilla y reproducción</h3>
+            <p id="reproduccion-personaje" class="muted"></p>
+          </div>
+          <button id="cerrar-reproduccion" type="button" class="cerrar-rejilla" aria-label="Cerrar reproducción">✕</button>
+        </div>
+        <section id="reproduccion-resultados" class="reproduccion-resultados" aria-label="Reproducción de la ficha">
+          <p><strong>Semilla:</strong> <code id="semilla-resultado"></code></p>
+          <div class="reproduccion-acciones"><button type="button" id="copiar-semilla">Copiar semilla</button><button type="button" id="copiar-reproduccion">Copiar configuración de reproducción</button></div>
+          <small id="reproduccion-aviso">Misma semilla y configuración: mismo resultado original. Las modificaciones posteriores y elecciones manuales no se reconstruyen.</small>
+        </section>
+      </dialog>
       <section id="editor-elecciones" class="editor-elecciones" hidden aria-label="Personalizar personaje">
         <h3 id="editor-titulo">Personalizar personaje</h3>
         <p id="editor-resumen" class="muted"></p>
