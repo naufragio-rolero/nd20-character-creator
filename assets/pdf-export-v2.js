@@ -44,7 +44,29 @@
       datos.push('Durab. '+encontrado.durabilidad);
     return datos.length?original+' ('+datos.join(' · ')+')':original;
   }
-  function prepararDatos(personaje,consultaBlindaje,catalogoEquipo){
+  // No deducir efectos del nombre ni de las etiquetas: el índice de consulta
+  // entrega las descripciones documentadas que ya usa La Forja.
+  function descripcionPoderes(personaje,consultarPoder){
+    var entradas=(personaje.poderes||[]).concat(personaje.conjuros_preparados||[]);
+    var vistos=new Set(),textos=[];
+    entradas.forEach(function(raw){
+      var nombre=asText(raw).replace(/^\[[^\]]+\]\s*/,'')
+        .replace(/\s+\(C[1-8]\)/g,'').replace(/\s+·\s+[^\n]+$/,'').trim();
+      if(!nombre)return;
+      var clave=nombre.toLocaleLowerCase('es').normalize('NFD')
+        .replace(/[\u0300-\u036f]/g,'');
+      if(vistos.has(clave))return;
+      vistos.add(clave);
+      var ficha=typeof consultarPoder==='function'?consultarPoder(raw):null;
+      if(ficha&&typeof ficha.descripcion==='string'&&ficha.descripcion.trim()){
+        textos.push(nombre+': '+ficha.descripcion.trim());
+      }else{
+        textos.push(nombre+': Descripción no documentada en el catálogo de La Forja.');
+      }
+    });
+    return textos;
+  }
+  function prepararDatos(personaje,consultaBlindaje,catalogoEquipo,consultarPoder){
     if(!personaje||personaje.juego!=='Naufragio d20 · Fantasía')
       throw Error('La exportación solo admite fichas de Naufragio d20 Fantasía.');
     var out=clone(personaje), desc=asText(out.descripcion),pos=desc.indexOf(' · ');
@@ -66,8 +88,17 @@
     });
     out._arma_equ=elegida?elegida.nombre:'';
     out._dano_equ=elegida?elegida.dano:'';
-    out._blindaje=out._consultaBlindaje&&out._consultaBlindaje.valor!=='Sin armadura'?asText(out._consultaBlindaje.valor):'';
-    out._natural=(out.blindaje_natural_fuente&&out.blindaje_natural!=null)?asText(out.blindaje_natural):'';
+    var blindaje=out._consultaBlindaje;
+    // El Blindaje figura en el propio nombre de la armadura equipada.
+    // Si una futura ficha dispone de Protección natural documentada y no
+    // lleva armadura, se presenta en este mismo campo, nunca por duplicado.
+    if(out._armadura_equ&&blindaje&&blindaje.valor!=='Sin armadura')
+      out._armadura_equ+=' · Blindaje '+asText(blindaje.valor);
+    else if(!out._armadura_equ&&blindaje&&blindaje.natural&&
+      blindaje.valor!=='Sin armadura')
+      out._armadura_equ='Protección natural ('+asText(blindaje.natural)+
+        ') · Blindaje '+asText(blindaje.valor);
+    out._detallesPoderes=descripcionPoderes(out,consultarPoder);
     out._notas=(Array.isArray(out.notas)?out.notas:
       (out.notas?[out.notas]:[])).map(function(n){
       return Array.isArray(n)&&n.length>=2?asText(n[0])+': '+asText(n[1]):asText(n);
@@ -120,7 +151,7 @@
       throw Error('Faltan activos locales autorizados: PDFLib, fontkit, fuente Unicode, PDFs o mapa.');
     var api=opts.PDFLib;
     var consulta=opts.consultarBlindaje?opts.consultarBlindaje(personaje):null;
-    var p=prepararDatos(personaje,consulta,opts.catalogoEquipo);
+    var p=prepararDatos(personaje,consulta,opts.catalogoEquipo,opts.consultarPoder);
     var doc=await api.PDFDocument.load(opts.plantilla);
     doc.registerFontkit(opts.fontkit);
     var font=await doc.embedFont(opts.fontBytes,{subset:true});
@@ -150,7 +181,8 @@
       'CONJUROS PREPARADOS':'ico-conjuro',
       'INVENTARIO Y EQUIPO':'equipo-bolsa',
       'RIQUEZA':'equipo-bolsa',
-      'OBSERVACIONES REGLAMENTARIAS':'ico-configurar'
+      'OBSERVACIONES REGLAMENTARIAS':'ico-configurar',
+      'EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES':'ico-conjuro'
     };
     function draw(page,x,y,value,fs,isBold){
       var val=asText(value);if(!val)return;
@@ -191,7 +223,17 @@
       }
     });
     fixed('armadura_equipada',p._armadura_equ);fixed('escudo_equipado',p._escudo_equ);
-    fixed('blindaje',p._blindaje);fixed('blindaje_natural',p._natural);
+    // El PDF de plantilla anterior trae rótulos obsoletos en esta fila.
+    // Se cubren sin alterar sus líneas ni el resto del diseño y se dibujan
+    // los rótulos vigentes. El SVG editorial queda actualizado también.
+    var papel=api.rgb(254/255,254/255,252/255);
+    [8,76].forEach(function(x){
+      principal.drawRectangle({x:(x-.2)*PT,y:topToPdf(110.1),
+        width:61.4*PT,height:3.7*PT,color:papel});
+    });
+    draw(principal,8,109.1,'ARMA EQUIPADA',6,true);
+    draw(principal,76,109.1,'DAÑO',6,true);
+    fixed('arma_equipada',p._arma_equ);fixed('dano_equipado',p._dano_equ);
     var current=principal, region=0,x=8,y=124.5,width=63.8,bottom=198.1;
     async function changeRegion(){
       region++;
@@ -254,6 +296,12 @@
       while(region<2)await changeRegion();
       await section('OBSERVACIONES REGLAMENTARIAS',p._notas);
     }
+    // El detalle literal va después de todas las observaciones, nunca
+    // intercalado en la lista compacta de Poderes de la primera página.
+    if(p._detallesPoderes.length){
+      while(region<2)await changeRegion();
+      await section('EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES',p._detallesPoderes);
+    }
     if(overflow.length||p._descripcion_sin_dividir){
       while(region<2)await changeRegion();
       var extras=overflow.map(function(v){return v.id.toUpperCase()+': '+v.value;});
@@ -265,5 +313,5 @@
     var bytes=await doc.save();
     return {bytes:bytes,paginas:doc.getPageCount()};
   }
-  return {prepararDatos:prepararDatos,detalleEquipo:detalleEquipo,wrapText:wrapText,exportar:exportar};
+  return {prepararDatos:prepararDatos,descripcionPoderes:descripcionPoderes,detalleEquipo:detalleEquipo,wrapText:wrapText,exportar:exportar};
 });
