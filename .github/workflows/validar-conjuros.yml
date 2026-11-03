@@ -15,6 +15,10 @@ on:
       - 'data/ocupaciones.json'
       - 'docs/enciclopedia/78a-correcciones-geometria-conjuros-10.json'
       - 'docs/enciclopedia/82a-correcciones-confirmadas-conjuros.json'
+      - 'assets/equipment.js'
+      - 'data/equipo-inicial.json'
+      - 'assets/pdf-export-v2.js'
+      - 'tests/armamento-edicion.js'
       - 'assets/tooltips.js'
       - 'assets/tooltip-ui.js'
       - 'assets/spell-magnitudes.js'
@@ -47,6 +51,8 @@ jobs:
           node --check assets/spell-magnitudes.js
           node --check tests/conjuros.js
           node --check tests/alcance-drs.js
+          node --check tests/armamento-edicion.js
+          node --check assets/equipment.js
           node --check tests/sincronizacion-talentos.js
           node --check tests/fichas-drs-ux.js
       - name: Probar generador y los 434 Conjuros
@@ -54,4 +60,5 @@ jobs:
           node tests/smoke.js
           node tests/talentos-drs.js
           node tests/fichas-drs-ux.js
+          node tests/armamento-edicion.js
           node tests/sincronizacion-talentos.js
