@@ -1393,6 +1393,78 @@
     $('generar-mazmorra').addEventListener('click',function(){
       conControl(function(){agregar('mazmorra',reglas.mazmorra({ancho:6,alto:6},rngUnico()(correlativo)));});
     });
+    $('armamento-modo').addEventListener('change',refrescarArmamento);
+    $('armamento-origen').addEventListener('change',function(){
+      llenarDestinoArmamento();refrescarArmamento();
+    });
+    $('armamento-destino').addEventListener('change',refrescarArmamento);
+    $('armamento-grupo').addEventListener('change',llenarCompraArmamento);
+    $('armamento-articulo').addEventListener('change',refrescarArmamento);
+    $('armamento-cantidad').addEventListener('input',refrescarArmamento);
+    $('form-armamento').addEventListener('submit',function(event){
+      event.preventDefault();
+      conControl(function(){
+        var entrada=entradaArmamento(),personaje=entrada.valor;
+        var contexto=contextoArmamento(personaje);
+        var compra=window.NaufragioEquipment;
+        var resultado,nota;
+        if($('armamento-modo').value==='cambiar'){
+          var destino=JSON.parse($('armamento-destino').value||'null');
+          if(!Array.isArray(destino)||destino.length!==2)
+            throw Error('Selecciona una sustitución válida.');
+          resultado=compra.intercambiarEquipoInicial(
+            personaje,datos.equipoInicial,contexto.ocupacion,contexto.nivel,
+            contexto.especie,{indice:Number($('armamento-origen').value),
+              grupo:destino[0],nombre:destino[1]});
+          personaje.compras_iniciales_intercambiables=
+            resultado.compras_iniciales_intercambiables;
+          personaje.equipo=resultado.equipo;
+          nota='Cambio de equipo inicial: '+resultado.original+' → '+resultado.nuevo+
+            '; recuperadas '+dineroEquipo(resultado.reembolso)+
+            '; precio nuevo '+dineroEquipo(resultado.coste)+
+            '; saldo '+dineroEquipo(resultado.restante)+'.';
+        }else{
+          var articulo=JSON.parse($('armamento-articulo').value||'null');
+          if(!Array.isArray(articulo)||articulo.length!==2)
+            throw Error('Selecciona un artículo válido.');
+          resultado=compra.comprarArmamentoFantasia(
+            personaje,datos.equipoInicial,contexto.ocupacion,contexto.nivel,
+            contexto.especie,[{grupo:articulo[0],nombre:articulo[1],
+              cantidad:Number($('armamento-cantidad').value)}]);
+          personaje.equipo=resultado.equipo;
+          nota='Compra adicional de armamento: '+resultado.adquiridos.join(', ')+
+            '; gastadas '+dineroEquipo(resultado.gastado)+
+            '; saldo '+dineroEquipo(resultado.restante)+'.';
+        }
+        personaje.saldo_mo=resultado.restante;
+        personaje.riqueza=resultado.restante+' mo restantes / '+
+          personaje.capital_inicial_mo+' mo iniciales';
+        // Si ya no se posee la protección que estaba equipada, limpiarla.
+        var protecciones=compra.proteccionesDisponibles(personaje,datos.equipoInicial);
+        if(personaje.protecciones_equipadas){
+          ['armadura','escudo'].forEach(function(tipo){
+            var disponibles=tipo==='armadura'?protecciones.armaduras:protecciones.escudos;
+            var seleccionada=personaje.protecciones_equipadas[tipo];
+            if(seleccionada&&!disponibles.some(function(x){return x.nombre===seleccionada;}))
+              personaje.protecciones_equipadas[tipo]='';
+          });
+        }
+        if(!Array.isArray(personaje.notas))personaje.notas=[];
+        personaje.notas.push(nota);
+        cerrarArmamento();dibujar();aviso('Equipo actualizado. '+nota);
+      });
+    });
+    $('armamento-cancelar').addEventListener('click',cerrarArmamento);
+    $('armamento-cerrar').addEventListener('click',cerrarArmamento);
+    $('editor-armamento').addEventListener('cancel',function(e){
+      e.preventDefault();cerrarArmamento();
+    });
+    $('editor-armamento').addEventListener('click',function(e){
+      if(e.target!==this)return;
+      var r=this.getBoundingClientRect();
+      if(e.clientX<r.left||e.clientX>r.right||
+         e.clientY<r.top||e.clientY>r.bottom)cerrarArmamento();
+    });
     $('compras-grupo').addEventListener('change',rellenarArticulosCompra);
     $('compras-armadura-equina-base').addEventListener('change',refrescarConsultaArmaduraEquina);
     $('compras-articulo').addEventListener('change',refrescarCompra);
@@ -1511,6 +1583,14 @@
       });
     });
     $('fichas').addEventListener('click',function(e){
+      var editar=e.target.closest('.editar-armamento');
+      if(editar){
+        conControl(function(){
+          var entrada=entradas.find(function(x){return String(x.id)===editar.dataset.id;});
+          if(!entrada)throw Error('Ficha no encontrada para editar su armamento.');
+          abrirArmamento(entrada);
+        });return;
+      }
       var comprar=e.target.closest('.comprar-utiles');
       if(comprar){
         conControl(function(){
