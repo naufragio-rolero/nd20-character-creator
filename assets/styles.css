@@ -878,8 +878,8 @@ html[data-tema=clasico] .dialogo-compras #compras-total{background:#deeeff}
   .dialogo-compras .botonera{grid-template-columns:1fr 1fr}
   .dialogo-compras .botonera #compras-cancelar{padding:.65rem}
 }
-/* Recursos informativos: cuatro columnas de ancho uniforme con SVG compactos.
-   Las bonificaciones del escudo se explican fuera de las tarjetas. */
+/* Recursos informativos con SVG compactos. En Fantasía, el aviso de
+   bloqueo del escudo pertenece al bloque Blindaje. */
 .recursos.recursos-rejilla{
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
   gap:.45rem;padding:0 1.2rem 1rem;align-items:stretch;
@@ -901,9 +901,9 @@ html[data-tema=clasico] .dialogo-compras #compras-total{background:#deeeff}
 .recursos-rejilla .recurso-texto strong{
   font-size:.97rem;line-height:1.2;overflow-wrap:anywhere;
 }
-.recursos-rejilla>.recurso-nota-escudo{
-  grid-column:1/-1;margin:0;padding:.1rem .1rem 0;
-  font-size:.67rem;line-height:1.4;font-weight:550;
+.recursos-rejilla .recurso-texto>.recurso-nota-escudo{
+  display:block;margin:.12rem 0 0;
+  font-size:.65rem;line-height:1.35;font-weight:550;
   color:#425c71;overflow-wrap:anywhere;
 }
 .protecciones-activas{
