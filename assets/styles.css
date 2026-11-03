@@ -1192,3 +1192,14 @@ html[data-tema]:not([data-tema=clasico]) .recursos-rejilla .recurso-arma{
   .dialogo-revision-elecciones .grupo-poderes{grid-template-columns:minmax(0,1fr)}
   .dialogo-revision-elecciones .botonera{grid-template-columns:minmax(0,1fr)}
 }
+
+
+/* La validación del Nivel debe leerse en el diálogo; no basta el tooltip
+   nativo del campo, especialmente al generar desde el botón flotante. */
+.aviso-validacion-nivel:not(:empty){
+  color:#b32b2b;font-weight:700;line-height:1.45;margin:.4rem 0 .25rem;
+}
+#nivel[aria-invalid="true"]{border-color:#b32b2b;outline-offset:2px}
+html[data-tema]:not([data-tema=clasico]) .aviso-validacion-nivel:not(:empty){
+  color:#ffb6aa;
+}
