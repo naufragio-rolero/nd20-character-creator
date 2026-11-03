@@ -269,6 +269,20 @@ async function main(){
       "document.querySelector('#revision-poderes').hidden === "+
       "(document.querySelectorAll('#revision-pasos-poderes select').length===0)"),true,
       'La sección de Poderes aparece si el Guerrero tiene elecciones adicionales documentadas');
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#revision-pasos-talentos .consultar-ficha-eleccion').hidden"),
+      false,'Una elección de Talento documentada tiene su popup');
+    await cdp.evalJS("document.querySelector('#revision-pasos-talentos .consultar-ficha-eleccion').click()");
+    const vistaPopup=await cdp.evalJS("(()=>{var c=document.querySelector('#ficha-emergente');"+
+      "if(!c)return null;var r=c.getBoundingClientRect();"+
+      "var x=document.elementFromPoint(r.left+r.width/2,r.top+Math.min(18,r.height/2));"+
+      "return {visible:!c.hidden,contenedor:c.parentElement.id,"+
+      "accesible:c.contains(x),texto:c.textContent};})()");
+    assert.ok(vistaPopup?.visible&&vistaPopup.contenedor==='editor-revision-elecciones',
+      'Ver ficha debe mostrarse delante del editor modal');
+    assert.equal(vistaPopup.accesible,true,
+      'La ventana de glosa es interactiva y no queda detrás del diálogo');
+    await cdp.evalJS("window.NaufragioInfoUI.cerrar()");
     const talentoAntes=await cdp.evalJS(
       "document.querySelector('#revision-pasos-talentos select').value");
     await cdp.evalJS("(()=>{var s=document.querySelector('#revision-pasos-talentos select');"+
