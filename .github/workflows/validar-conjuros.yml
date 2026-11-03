@@ -61,4 +61,5 @@ jobs:
           node tests/talentos-drs.js
           node tests/fichas-drs-ux.js
           node tests/armamento-edicion.js
+          node tests/elecciones-poscreacion.js
           node tests/sincronizacion-talentos.js
