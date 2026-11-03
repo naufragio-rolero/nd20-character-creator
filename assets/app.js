@@ -1583,6 +1583,37 @@
         }
       });
     });
+    $('form-revision-elecciones').addEventListener('change',function(e){
+      if(e.target.matches('select[data-revision-paso]'))refrescarRevision();
+    });
+    $('form-revision-elecciones').addEventListener('submit',function(e){
+      e.preventDefault();
+      var mensaje='';
+      conControl(function(){
+        var entrada=entradaRevision();
+        var resultado=poderes.revisar(entrada.valor,seleccionesRevision());
+        entrada.valor=resultado.personaje;
+        cerrarRevisionElecciones();
+        dibujar();
+        var boton=$('fichas').querySelector('.revisar-elecciones[data-id="'+entrada.id+'"]');
+        if(boton)boton.focus({preventScroll:true});
+        mensaje='Talentos y Poderes actualizados.'+
+          (resultado.preparacionesRetiradas?
+            ' '+resultado.preparacionesRetiradas+' preparación(es) invalidadas retiradas.':'');
+      });
+      if(mensaje)aviso(mensaje);
+    });
+    $('revision-cerrar').addEventListener('click',cerrarRevisionElecciones);
+    $('revision-cancelar').addEventListener('click',cerrarRevisionElecciones);
+    $('editor-revision-elecciones').addEventListener('cancel',function(e){
+      e.preventDefault();cerrarRevisionElecciones();
+    });
+    $('editor-revision-elecciones').addEventListener('click',function(e){
+      if(e.target!==this)return;
+      var r=this.getBoundingClientRect();
+      if(e.clientX<r.left||e.clientX>r.right||
+         e.clientY<r.top||e.clientY>r.bottom)cerrarRevisionElecciones();
+    });
     $('form-elecciones').addEventListener('submit',function(event){
       event.preventDefault();
       conControl(function(){
