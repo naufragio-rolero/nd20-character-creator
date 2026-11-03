@@ -23,6 +23,7 @@ jobs:
         run: |
           node tests/alcance-drs.js
           node tests/smoke.js
+          node tests/semillas-rangos.js
           node tests/fichas-drs-ux.js
           node tests/armamento-edicion.js
           node tests/limites-compra-ux.js
@@ -44,7 +45,9 @@ jobs:
       - name: Recorrido de Chrome sobre los archivos PUBLICOS, no la raiz
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
-        run: node tests/browser-compras.js
+        run: |
+          node tests/browser-compras.js
+          node tests/browser-semillas-rangos.cjs chrome
       - name: Exportar PDF real de personaje DRS en Chrome (paquete)
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
@@ -56,7 +59,9 @@ jobs:
       - name: Probar los archivos PUBLICOS en Firefox y WebKit
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
-        run: node tests/browser-compatibilidad.js
+        run: |
+          node tests/browser-compatibilidad.js
+          node tests/browser-semillas-rangos.cjs firefox webkit
       - name: Exportar PDF real en Firefox y WebKit desde paquete
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
