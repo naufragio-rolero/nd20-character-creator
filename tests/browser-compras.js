@@ -268,7 +268,7 @@ async function main(){
     const talentoAntes=await cdp.evalJS(
       "document.querySelector('#revision-pasos-talentos select').value");
     await cdp.evalJS("(()=>{var s=document.querySelector('#revision-pasos-talentos select');"+
-      "s.value=s.options[0].value===s.value?s.options[1].value:s.options[0].value;"+
+      "s.value=Array.from(s.options).find(o=>o.value&&o.value!==s.value).value;"+
       "s.dispatchEvent(new Event('change',{bubbles:true}));})()");
     const talentoDespues=await cdp.evalJS(
       "document.querySelector('#revision-pasos-talentos select').value");
