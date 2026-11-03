@@ -836,11 +836,22 @@ async function probar(nombre,tipo,url){
       nombre+': Equipo usa la misma rejilla compacta que Talentos y Poderes');
     assert.equal(bloquesFicha.find(x=>x.titulo==='Equipo')?.computadas,2,
       nombre+': Equipo utiliza dos columnas en escritorio');
+    assert.equal(await fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas')
+      .first().evaluate(el=>getComputedStyle(el).listStyleType),'none',
+      nombre+': sin viñetas en la pseudotabla de listas');
+    const alineacion=await fichaTalentos.locator('.bloque-ficha .linea-poder')
+      .first().evaluate(el=>{
+        const icono=el.querySelector('.icono-svg');
+        const texto=el.querySelector('.referencia-glosario')||el.lastElementChild;
+        const centro=x=>{const r=x.getBoundingClientRect();return r.top+r.height/2;};
+        return icono&&texto?Math.abs(centro(icono)-centro(texto)):0;
+      });
+    assert.ok(alineacion<=5,nombre+': iconos y texto alineados verticalmente');
     const recursos=fichaTalentos.locator('.recursos-rejilla');
     assert.equal(await recursos.count(),1,nombre+': recursos en una sola cuadrícula');
     const columnasRecursos=()=>recursos.evaluate(el=>
       getComputedStyle(el).gridTemplateColumns.split(' ').length);
-    assert.equal(await columnasRecursos(),4,nombre+': Recursos muestran cuatro columnas');
+    assert.equal(await columnasRecursos(),3,nombre+': seis Recursos DRS muestran tres columnas');
     const dimensionesRecursos=()=>recursos.evaluate(el=>{
       const estilo=getComputedStyle(el);
       return {
@@ -857,7 +868,7 @@ async function probar(nombre,tipo,url){
       (await dimensionesRecursos()).primero)<=2,
       nombre+': el quinto recurso tiene el mismo ancho que el primero');
     await page.setViewportSize({width:531,height:844});
-    assert.equal(await columnasRecursos(),4,nombre+': cuatro columnas en ficha de 531px');
+    assert.equal(await columnasRecursos(),3,nombre+': tres columnas en ficha de 531px');
     assert.equal((await dimensionesRecursos()).desborda,false,
       nombre+': Recursos no desbordan a 531px');
     await page.setViewportSize({width:390,height:844});
@@ -866,7 +877,7 @@ async function probar(nombre,tipo,url){
       nombre+': Recursos no desbordan a 390px');
     await page.setViewportSize({width:1440,height:900});
     const valoresRecursos=await recursos.locator('.recurso-nombre').allTextContents();
-    for(const etiqueta of ['Salud','Esfuerzo','Movimiento','Potencia','Blindaje'])
+    for(const etiqueta of ['Salud','Esfuerzo','Movimiento','Potencia','Blindaje','Daño'])
       assert.ok(valoresRecursos.includes(etiqueta),nombre+': recurso '+etiqueta);
     assert.equal(await recursos.locator('.icono-svg.icono-recurso').count(),
       valoresRecursos.length,nombre+': cada recurso posee un SVG');
@@ -877,10 +888,34 @@ async function probar(nombre,tipo,url){
           valor.slice(4,-1).replace(/^["']|["']$/g,''):null;
         return fuente?new URL(fuente,document.baseURI).pathname:'';
       }));
-    assert.ok(mascarasRecursos.every(r=>r.includes('/assets/icons/recurso-')&&
-      !r.includes('/assets/assets/icons/')),
+    assert.ok(mascarasRecursos.every(r=>
+      (r.includes('/assets/icons/recurso-')||r.includes('/assets/icons/equipo-espada')||
+       r.includes('/assets/icons/equipo-varita'))&&!r.includes('/assets/assets/icons/')),
       nombre+': recursos con mascaras cargadas desde assets/icons');
-    const protecciones=fichaTalentos.locator('.protecciones-activas');
+    // Las opciones de equipo ya no se muestran entre los bloques de la ficha.
+    assert.equal(await fichaTalentos.locator('.protecciones-activas').count(),0);
+    assert.equal(await fichaTalentos.locator('.avisos-equipo').count(),0);
+    await fichaTalentos.locator('.gestionar-equipo').click();
+    assert.equal(await page.locator('#editor-gestion-equipo').evaluate(el=>el.open),true);
+    const opcionesArma=await page.locator('#gestion-arma option').evaluateAll(xs=>
+      xs.map(x=>x.value).filter(Boolean));
+    const danoVisible=()=>fichaTalentos.locator('.recurso-dano strong').innerText();
+    assert.equal(await danoVisible(),'—',
+      nombre+': no se elige arma automáticamente');
+    if(opcionesArma.length){
+      const arma=opcionesArma[0];
+      const cat=JSON.parse(fs.readFileSync(
+        path.join(raiz,'data/equipo-inicial.json'),'utf8'));
+      const registro=[...cat.armas,...cat.varitas_defensa].find(x=>x.nombre===arma);
+      assert.ok(registro&&registro.dano);
+      await page.locator('#gestion-arma').selectOption(arma);
+      assert.equal(await danoVisible(),registro.dano);
+      assert.match(await fichaTalentos.locator('.recurso-dano .recurso-arma').innerText(),
+        new RegExp(arma.replace(/[.*+?^$\{\}()|[\]\\]/g,'\\    const protecciones=fichaTalentos.locator('.protecciones-activas');')));
+      await page.locator('#gestion-arma').selectOption('');
+      assert.equal(await danoVisible(),'—');
+    }
+    const protecciones=page.locator('#editor-gestion-equipo .protecciones-activas');
     assert.equal(await protecciones.locator('select').count(),2);
     const opcionesArmadura=await protecciones.locator('select[data-tipo="armadura"] option')
       .evaluateAll(xs=>xs.map(x=>x.value).filter(Boolean));
@@ -913,9 +948,10 @@ async function probar(nombre,tipo,url){
         /Escudo \+1 solo al bloquear/);
       assert.equal(await recursos.locator('.recurso-ficha .recurso-nota-escudo').count(),0,
         nombre+': la aclaración del escudo no agranda la tarjeta de Blindaje');
-      assert.equal(await recursos.locator('.recurso-ficha').count(),5,
-        nombre+': las cinco tarjetas conservan tamaño uniforme');
+      assert.equal(await recursos.locator('.recurso-ficha').count(),6,
+        nombre+': seis tarjetas de Recursos y Daño de tamaño uniforme');
     }
+    await page.locator('#gestion-terminar').click();
     const rejillaTalentos=fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas').first();
     assert.equal(await rejillaTalentos.evaluate(el=>getComputedStyle(el).gridTemplateColumns
       .split(' ').length),2,nombre+': Talentos en dos columnas como Atributos');
