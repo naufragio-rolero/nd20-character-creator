@@ -219,12 +219,9 @@ for(const ruta of especificas){
     if(!html.includes('class="juegos-compactos"'))
       throw Error('No se encuentra el selector visual de sistemas.');
     html=html.replace('class="juegos-compactos"','class="juegos-compactos juegos-publicos"');
-    // Nunca distribuir opciones de PNJ documentados del tesauro interno.
-    if(!/<option value="documentado"(?:\s[^>]*)?>/.test(html))
-      throw Error('Falta la opción documental que debe excluirse.');
-    html=html.replace(/^[^\n]*<option value="documentado"(?:\s[^>]*)?>[^\n]*\n/m,'');
-    if(/<option value="documentado"(?:\s[^>]*)?>/.test(html))
-      throw Error('La opción documental sigue visible.');
+    // Consulta documental permitida; el selector de sorteo queda sin esa opción.
+    if(/<option value="documentado"(?:\\s[^>]*)?>/.test(html))
+      throw Error('El sorteo no debe ofrecer personajes documentados.');
     escribir(ruta,html);
   }else{
     fs.mkdirSync(path.dirname(path.join(destino,ruta)),{recursive:true});
