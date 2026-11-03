@@ -298,6 +298,7 @@ const contenidos=new Set(fs.readdirSync(rutaData));
 const esperados=new Set([
   'especies.json','ocupaciones.json','especies_cifi.json','ocupaciones_cifi.json',
   'catalogo-ampliado.json','tesauro-ylat.json','nombres-historicos-ylat.json',
+  'componentes-nombres-ylat.json',
   'sexo-personajes.json',
   'catalogo-poderes.json','conjuros-revisados-001-225.json',
   'conjuros-revisados-226-434.json','conjuros-magnitudes-literales.json',
