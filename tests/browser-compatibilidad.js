@@ -1170,9 +1170,17 @@ async function probar(nombre,tipo,url){
     await page.selectOption('#compras-articulo','herramienta-catalejo');
     await page.fill('#compras-cantidad','99');
     await page.locator('#compras-anadir').click();
-    assert.match(await page.locator('#estado').innerText(),/presupuesto/i);
+    assert.match(await page.locator('#estado').innerText(),/Límite de La Forja/i,
+      nombre+': la cantidad absurda se rechaza antes del presupuesto');
+    await page.fill('#compras-cantidad','10');
+    await page.locator('#compras-anadir').click();
+    assert.match(await page.locator('#estado').innerText(),/presupuesto/i,
+      nombre+': incluso dentro del cupo se respeta el saldo');
     assert.equal(await page.locator('#compras-lista li').count(),2,
-      nombre+': sobrepresupuesto deja carrito intacto');
+      nombre+': ambos errores dejan el carrito intacto');
+    // Una nueva cantidad inválida no impide confirmar los artículos
+    // legítimos ya seleccionados.
+    await page.fill('#compras-cantidad','99');
     await page.locator('#compras-confirmar').click();
     assert.equal(await page.locator('#editor-compras').isHidden(),true);
     assert.ok((await ficha.innerText()).includes('Martillo de campamento ×2'));
