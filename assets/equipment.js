@@ -360,7 +360,7 @@
   function contarInventario(inventario,nombre){
     return (Array.isArray(inventario)?inventario:[]).reduce(function(total,linea){
       var texto=String(linea).trim(),cantidad=1;
-      var lote=texto.match(/\\s+×(\\d+)$/);
+      var lote=texto.match(/\s+×(\d+)$/);
       if(lote){cantidad=Number(lote[1]);texto=texto.slice(0,lote.index).trim();}
       // Algunas piezas tienen anotaciones documentadas de DU o Nivel.
       if(texto===nombre||texto.startsWith(nombre+' (DU ')||
