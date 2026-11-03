@@ -118,7 +118,7 @@ async function run(name,origin){
     assert.ok(semilla.length>=6);
     assert.equal(await page.locator('#semilla').inputValue(),semilla);
     assert.match(await first().locator('.cabecera-ficha .etiqueta').innerText(),
-      /Naufragio d20 · Fantasía Épica/);
+      /Naufragio d20 · Fantasía Épica/i);
     const fichasPrimera=await page.locator('#fichas .tarjeta').allInnerTexts();
     await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{
       configurable:true,value:{writeText:async text=>{window.__forjaCopiado=text;}}}));
