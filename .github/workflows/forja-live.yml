@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot unificado de iconografía, PDF A5 y onomástica (PR #54)
+      - name: Obtener snapshot unificado con dos generadores de nombres (PR #57)
         uses: actions/checkout@v4
         with:
-          ref: a97a1cfdb01db5fb67dd2eb42e0e66b1fef9c765
+          ref: aedb3233fe36fa5d8b3e107553dd5124b3555be4
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "a97a1cfdb01db5fb67dd2eb42e0e66b1fef9c765"
-      # Snapshot de integración validado: 35 SVG, PDF A5 y consulta de 262 nombres.
+          test "$(git rev-parse HEAD)" = "aedb3233fe36fa5d8b3e107553dd5124b3555be4"
+      # Snapshot validado: 35 SVG, PDF A5, genérico 1422 y Ylat 255 × 133.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
       - name: Auditar iconografia y funcionalidades fijadas
@@ -71,7 +71,7 @@ jobs:
           ! grep -Fq 'Forma del generador histórico de nombres de Ylat.' assets/rules.js
           ! grep -Fq 'Nombre del banco histórico sin clasificación documental de sexo;' assets/sex.js
           grep -Fq "grupo==='talento'||grupo==='poder'||grupo==='equipo'" assets/app.js
-          # Guardia editorial: 262 documentados consultables y 33 combinados sorteables.
+          # Archivo documental íntegro; la generación usa el nuevo banco independiente.
           node - <<'NODE'
           const assert=require('node:assert/strict');
           const nombres=require('./data/tesauro-ylat.json').entradas;
@@ -80,10 +80,22 @@ jobs:
           assert.equal(nombres.filter(x=>x.tipo==='combinado').length,33);
           assert.equal(new Set(nombres.map(x=>x.nombre)).size,295);
           NODE
-          grep -Fq 'id="buscar-nombre-ylat"' index.html
-          grep -Fq 'id="resultados-nombres-ylat"' index.html
+          grep -Fq '<option value="generico">Nombres genéricos</option>' index.html
+          grep -Fq '<option value="ylat">Nombres de Ylat</option>' index.html
+          ! grep -Fq 'id="buscar-nombre-ylat"' index.html
+          ! grep -Fq 'id="ambito-nombre"' index.html
+          ! grep -Fq '<option value="combinado"' index.html
           ! grep -Fq '<option value="documentado"' index.html
-          grep -Fq 'copiar-nombre-ylat' assets/app.js
+          grep -Fq 'assets/names.js' index.html
+          grep -Fq 'componentesYlat' assets/app.js
+          node - <<'NODE'
+          const assert=require('node:assert/strict');
+          const c=require('./data/componentes-nombres-ylat.json');
+          assert.equal(c.nombres.length,255);
+          assert.equal(c.apellidos.length,133);
+          for(const apellido of ['Shadelgast','Bronnhum','Boll'])
+            assert.equal(c.apellidos.find(x=>x.nombre===apellido).peso_relativo,1);
+          NODE
           grep -Fq 'exportar-pdf-ficha' assets/app.js
           ! grep -Eiq 'niguac|niguaz' data/tesauro-ylat.json
           ! grep -Eiq 'niguac|niguaz' index.html
@@ -205,7 +217,8 @@ jobs:
                grep -Fq 'id="informacion-avanzada"' /tmp/forja-live.html &&
                grep -Fq 'id="inicio-movil"' /tmp/forja-live.html &&
                grep -Fq 'class="empezar-forja"' /tmp/forja-live.html &&
-               grep -Fq 'id="buscar-nombre-ylat"' /tmp/forja-live.html; then
+               grep -Fq '<option value="generico">Nombres genéricos</option>' /tmp/forja-live.html &&
+               grep -Fq '<option value="ylat">Nombres de Ylat</option>' /tmp/forja-live.html; then
               correcto=true
               break
             fi
@@ -218,6 +231,8 @@ jobs:
           grep -Fq 'id="compras-grupo"' /tmp/forja-live.html
           ! grep -Eiq 'niguac|niguaz' /tmp/forja-live.html
           ! grep -Fq '<option value="documentado"' /tmp/forja-live.html
+          ! grep -Fq '<option value="combinado"' /tmp/forja-live.html
+          ! grep -Fq 'id="buscar-nombre-ylat"' /tmp/forja-live.html
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/tesauro-ylat.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-ylat-live.json
           node - <<'NODE'
           const assert=require('node:assert/strict');
@@ -231,7 +246,19 @@ jobs:
           grep -Fq "var mesaVacia=entradas.length===0;" /tmp/forja-app.js
           grep -Fq "configurador.showModal();" /tmp/forja-app.js
           grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
-          grep -Fq 'copiar-nombre-ylat' /tmp/forja-app.js
+          grep -Fq 'componentesYlat' /tmp/forja-app.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/names.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-names.js
+          grep -Fq 'function generico(banco,rng)' /tmp/forja-names.js
+          grep -Fq 'function ylat(catalogo,rng)' /tmp/forja-names.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/componentes-nombres-ylat.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-componentes.json
+          node - <<'NODE'
+          const assert=require('node:assert/strict');
+          const d=require('/tmp/forja-componentes.json');
+          assert.equal(d.nombres.length,255);
+          assert.equal(d.apellidos.length,133);
+          assert.equal(d.identidades_documentadas.length,262);
+          assert.equal(d.combinaciones_previas.length,33);
+          NODE
           grep -Fq 'exportar-pdf-ficha' /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/tooltip-ui.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-tooltip-ui.js
           grep -Fq "if(a&&e.pointerType===\"mouse\"&&!fija" /tmp/forja-tooltip-ui.js
