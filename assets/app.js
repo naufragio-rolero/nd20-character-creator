@@ -889,6 +889,66 @@
     modal.hidden=false;modal.showModal();
     $('armamento-modo').focus({preventScroll:true});
   }
+  // Panel de equipo: una sola entrada por ficha, sin diálogos anidados.
+  function entradaGestionEquipo(){
+    var entrada=entradas.find(function(x){return x.id===gestionBorrador?.id;});
+    if(!entrada||entrada.tipo!=='ficha'||
+       entrada.valor.juego!=='Naufragio d20 · Fantasía'||
+       !Number.isFinite(entrada.valor.saldo_mo))
+      throw Error('No hay una ficha DRS válida para gestionar su equipo.');
+    return entrada;
+  }
+  function refrescarGestionEquipo(){
+    var entrada=entradaGestionEquipo(),p=entrada.valor;
+    $('gestion-resumen').textContent=p.nombre+' · Saldo '+dineroEquipo(p.saldo_mo);
+    var opciones=window.NaufragioEquipment.armasDisponibles(p,datos.equipoInicial);
+    var selector=$('gestion-arma');selector.replaceChildren();
+    var ninguna=document.createElement('option');
+    ninguna.value='';ninguna.textContent='Sin equipar';
+    selector.appendChild(ninguna);
+    opciones.forEach(function(x){
+      var opt=document.createElement('option');
+      opt.value=x.nombre;
+      opt.textContent=x.nombre+' · Daño '+x.dano;
+      selector.appendChild(opt);
+    });
+    selector.value=opciones.some(function(x){return x.nombre===p.arma_equipada;})?
+      p.arma_equipada:'';
+    var dano=danoPersonaje(p);
+    $('gestion-dano').textContent='Daño: '+dano.valor+
+      (dano.arma?' · '+dano.arma:' · Sin arma equipada');
+    $('gestion-protecciones').innerHTML=htmlProteccionesEquipadas(p,entrada.id);
+    $('gestion-reglas').innerHTML=htmlAvisos(
+      'Reglas y compras de equipo',organizarObservaciones(p).equipo,'avisos-equipo');
+  }
+  function cerrarGestionEquipo(devolverFoco){
+    var id=gestionBorrador?.id;
+    gestionBorrador=null;
+    var dialogo=$('editor-gestion-equipo');
+    if(dialogo.open)dialogo.close();
+    dialogo.hidden=true;
+    if(devolverFoco!==false&&id!==undefined){
+      var boton=$('fichas').querySelector('.gestionar-equipo[data-id="'+id+'"]');
+      if(boton)boton.focus({preventScroll:true});
+    }
+  }
+  function abrirGestionEquipo(entrada){
+    if(entrada?.tipo!=='ficha'||
+       entrada.valor.juego!=='Naufragio d20 · Fantasía'||
+       !window.NaufragioEquipment?.armasDisponibles)
+      throw Error('Solo hay gestión de equipo en fichas DRS de Fantasía.');
+    gestionBorrador={id:entrada.id};
+    refrescarGestionEquipo();
+    var dialogo=$('editor-gestion-equipo');
+    dialogo.hidden=false;dialogo.showModal();
+    $('gestion-arma').focus({preventScroll:true});
+  }
+  function abrirCompraDesdeGestion(tipo){
+    var entrada=entradaGestionEquipo();
+    cerrarGestionEquipo(false);
+    if(tipo==='armamento')abrirArmamento(entrada);
+    else abrirCompra(entrada);
+  }
   // Compras de útiles: la selección se valida con el motor antes de tocar
   // el inventario. Cada editor se vincula al ID único de una ficha DRS.
   function cerrarCompra(){
@@ -1574,7 +1634,20 @@
       $('abrir-configuracion').focus({preventScroll:true});
       refrescarGenerarFlotante();
     });
-    $('fichas').addEventListener('change',function(event){
+    $('editor-gestion-equipo').addEventListener('change',function(event){
+      if(event.target.id==='gestion-arma'){
+        conControl(function(){
+          var entrada=entradaGestionEquipo();
+          var opcion=event.target.value;
+          var validas=window.NaufragioEquipment.armasDisponibles(
+            entrada.valor,datos.equipoInicial);
+          if(opcion&&!validas.some(function(x){return x.nombre===opcion;}))
+            throw Error('El arma elegida no está en el inventario DRS.');
+          entrada.valor.arma_equipada=opcion;
+          dibujar();refrescarGestionEquipo();
+          $('gestion-arma').focus({preventScroll:true});
+        });return;
+      }
       var selector=event.target.closest('.seleccionar-proteccion');
       if(!selector)return;
       conControl(function(){
@@ -1595,11 +1668,28 @@
           entrada.valor.protecciones_equipadas={armadura:'',escudo:''};
         entrada.valor.protecciones_equipadas[tipo]=nombre;
         var id=entrada.id;
-        dibujar();
-        var nuevo=$('fichas').querySelector('.seleccionar-proteccion[data-id="'+
-          id+'"][data-tipo="'+tipo+'"]');
+        dibujar();refrescarGestionEquipo();
+        var nuevo=$('editor-gestion-equipo').querySelector(
+          '.seleccionar-proteccion[data-id="'+id+'"][data-tipo="'+tipo+'"]');
         if(nuevo)nuevo.focus({preventScroll:true});
       });
+    });
+    $('gestion-cerrar').addEventListener('click',function(){cerrarGestionEquipo();});
+    $('gestion-terminar').addEventListener('click',function(){cerrarGestionEquipo();});
+    $('gestion-abrir-armamento').addEventListener('click',function(){
+      conControl(function(){abrirCompraDesdeGestion('armamento');});
+    });
+    $('gestion-abrir-utiles').addEventListener('click',function(){
+      conControl(function(){abrirCompraDesdeGestion('utiles');});
+    });
+    $('editor-gestion-equipo').addEventListener('cancel',function(e){
+      e.preventDefault();cerrarGestionEquipo();
+    });
+    $('editor-gestion-equipo').addEventListener('click',function(e){
+      if(e.target!==this)return;
+      var r=this.getBoundingClientRect();
+      if(e.clientX<r.left||e.clientX>r.right||
+         e.clientY<r.top||e.clientY>r.bottom)cerrarGestionEquipo();
     });
     $('fichas').addEventListener('click',function(e){
       var gestionar=e.target.closest('.gestionar-equipo');
