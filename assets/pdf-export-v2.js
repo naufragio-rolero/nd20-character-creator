@@ -58,6 +58,14 @@
     var prot=out.protecciones_equipadas||{};
     out._armadura_equ=prot.armadura&&owns(prot.armadura)?prot.armadura:'';
     out._escudo_equ=prot.escudo&&owns(prot.escudo)?prot.escudo:'';
+    // La elección del arma es informativa; no suma dados ni cambia el combate.
+    const armas=[...(catalogoEquipo?.armas||[]),
+      ...(catalogoEquipo?.varitas_defensa||[])];
+    const elegida=armas.find(function(a){
+      return a.nombre===out.arma_equipada&&owns(a.nombre)&&a.dano;
+    });
+    out._arma_equ=elegida?elegida.nombre:'';
+    out._dano_equ=elegida?elegida.dano:'';
     out._blindaje=out._consultaBlindaje&&out._consultaBlindaje.valor!=='Sin armadura'?asText(out._consultaBlindaje.valor):'';
     out._natural=(out.blindaje_natural_fuente&&out.blindaje_natural!=null)?asText(out.blindaje_natural):'';
     out._notas=(Array.isArray(out.notas)?out.notas:
@@ -70,7 +78,11 @@
       var items=Array.isArray(v)?v.map(function(x){
         return Array.isArray(x)&&x.length>=2?asText(x[0])+': '+asText(x[1]):asText(x);
       }):[asText(v)];
-      if(k[1]==='equipo')items=items.map(function(x){return detalleEquipo(x,catalogoEquipo);});
+      if(k[1]==='equipo')items=items.map(function(x){
+        var base=x.replace(/\\s+×\\s*\\d+\\s*$/,'').trim();
+        return detalleEquipo(x,catalogoEquipo)+
+          (out._arma_equ&&out._arma_equ===base?' · Arma equipada':'');
+      });
       return items.length?{title:k[0],source:k[1],items:items}:null;
     }).filter(Boolean);
     return out;

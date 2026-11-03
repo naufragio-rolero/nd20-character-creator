@@ -238,6 +238,33 @@
           </div>
         </form>
       </section>
+      <dialog id="editor-gestion-equipo" class="dialogo-compras dialogo-gestion-equipo" hidden aria-labelledby="titulo-gestion-equipo">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-gestion-equipo">Equipo del personaje</h3>
+            <p id="gestion-resumen" class="muted" aria-live="polite"></p>
+          </div>
+          <button type="button" id="gestion-cerrar" class="cerrar-rejilla" aria-label="Cerrar gestión de equipo">✕</button>
+        </div>
+        <section class="gestion-equipo-contenido" aria-label="Configuración de equipo">
+          <div class="campo">
+            <label for="gestion-arma">Arma equipada</label>
+            <select id="gestion-arma" aria-describedby="gestion-dano"></select>
+            <p id="gestion-dano" class="ayuda" aria-live="polite">Daño: —</p>
+            <small>Solo se muestra el Daño documentado del arma elegida. No se efectúan tiradas ni ataques.</small>
+          </div>
+          <div id="gestion-protecciones"></div>
+          <div id="gestion-reglas"></div>
+          <div class="gestion-equipo-compras" aria-label="Comprar o cambiar equipo">
+            <h4>Compras y cambios</h4>
+            <div class="botonera">
+              <button type="button" id="gestion-abrir-armamento" class="editar-armamento">Armas y protecciones</button>
+              <button type="button" id="gestion-abrir-utiles" class="comprar-utiles">Útiles y objetos</button>
+            </div>
+          </div>
+          <button type="button" id="gestion-terminar">Volver a la ficha</button>
+        </section>
+      </dialog>
       <dialog id="editor-compras" class="dialogo-compras" hidden aria-labelledby="titulo-editor-compras">
         <div class="cabecera-compras">
           <div>

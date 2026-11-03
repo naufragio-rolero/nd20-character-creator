@@ -836,11 +836,25 @@ async function probar(nombre,tipo,url){
       nombre+': Equipo usa la misma rejilla compacta que Talentos y Poderes');
     assert.equal(bloquesFicha.find(x=>x.titulo==='Equipo')?.computadas,2,
       nombre+': Equipo utiliza dos columnas en escritorio');
+    assert.equal(await fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas')
+      .first().getAttribute('role'),'list',
+      nombre+': lista accesible incluso sin marcadores visuales en Safari');
+    assert.equal(await fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas')
+      .first().evaluate(el=>getComputedStyle(el).listStyleType),'none',
+      nombre+': sin viñetas en la pseudotabla de listas');
+    const alineacion=await fichaTalentos.locator('.bloque-ficha .linea-poder')
+      .first().evaluate(el=>{
+        const icono=el.querySelector('.icono-svg');
+        const texto=el.querySelector('.referencia-glosario')||el.lastElementChild;
+        const centro=x=>{const r=x.getBoundingClientRect();return r.top+r.height/2;};
+        return icono&&texto?Math.abs(centro(icono)-centro(texto)):0;
+      });
+    assert.ok(alineacion<=5,nombre+': iconos y texto alineados verticalmente');
     const recursos=fichaTalentos.locator('.recursos-rejilla');
     assert.equal(await recursos.count(),1,nombre+': recursos en una sola cuadrícula');
     const columnasRecursos=()=>recursos.evaluate(el=>
       getComputedStyle(el).gridTemplateColumns.split(' ').length);
-    assert.equal(await columnasRecursos(),4,nombre+': Recursos muestran cuatro columnas');
+    assert.equal(await columnasRecursos(),3,nombre+': seis Recursos DRS muestran tres columnas');
     const dimensionesRecursos=()=>recursos.evaluate(el=>{
       const estilo=getComputedStyle(el);
       return {
@@ -857,7 +871,7 @@ async function probar(nombre,tipo,url){
       (await dimensionesRecursos()).primero)<=2,
       nombre+': el quinto recurso tiene el mismo ancho que el primero');
     await page.setViewportSize({width:531,height:844});
-    assert.equal(await columnasRecursos(),4,nombre+': cuatro columnas en ficha de 531px');
+    assert.equal(await columnasRecursos(),3,nombre+': tres columnas en ficha de 531px');
     assert.equal((await dimensionesRecursos()).desborda,false,
       nombre+': Recursos no desbordan a 531px');
     await page.setViewportSize({width:390,height:844});
@@ -866,7 +880,7 @@ async function probar(nombre,tipo,url){
       nombre+': Recursos no desbordan a 390px');
     await page.setViewportSize({width:1440,height:900});
     const valoresRecursos=await recursos.locator('.recurso-nombre').allTextContents();
-    for(const etiqueta of ['Salud','Esfuerzo','Movimiento','Potencia','Blindaje'])
+    for(const etiqueta of ['Salud','Esfuerzo','Movimiento','Potencia','Blindaje','Daño'])
       assert.ok(valoresRecursos.includes(etiqueta),nombre+': recurso '+etiqueta);
     assert.equal(await recursos.locator('.icono-svg.icono-recurso').count(),
       valoresRecursos.length,nombre+': cada recurso posee un SVG');
@@ -877,10 +891,33 @@ async function probar(nombre,tipo,url){
           valor.slice(4,-1).replace(/^["']|["']$/g,''):null;
         return fuente?new URL(fuente,document.baseURI).pathname:'';
       }));
-    assert.ok(mascarasRecursos.every(r=>r.includes('/assets/icons/recurso-')&&
-      !r.includes('/assets/assets/icons/')),
+    assert.ok(mascarasRecursos.every(r=>
+      (r.includes('/assets/icons/recurso-')||r.includes('/assets/icons/equipo-espada')||
+       r.includes('/assets/icons/equipo-varita'))&&!r.includes('/assets/assets/icons/')),
       nombre+': recursos con mascaras cargadas desde assets/icons');
-    const protecciones=fichaTalentos.locator('.protecciones-activas');
+    // Las opciones de equipo ya no se muestran entre los bloques de la ficha.
+    assert.equal(await fichaTalentos.locator('.protecciones-activas').count(),0);
+    assert.equal(await fichaTalentos.locator('.avisos-equipo').count(),0);
+    await fichaTalentos.locator('.gestionar-equipo').click();
+    assert.equal(await page.locator('#editor-gestion-equipo').evaluate(el=>el.open),true);
+    const opcionesArma=await page.locator('#gestion-arma option').evaluateAll(xs=>
+      xs.map(x=>x.value).filter(Boolean));
+    const danoVisible=()=>fichaTalentos.locator('.recurso-dano strong').innerText();
+    assert.equal(await danoVisible(),'—',
+      nombre+': no se elige arma automáticamente');
+    if(opcionesArma.length){
+      const arma=opcionesArma[0];
+      const cat=JSON.parse(fs.readFileSync(
+        path.join(raiz,'data/equipo-inicial.json'),'utf8'));
+      const registro=[...cat.armas,...cat.varitas_defensa].find(x=>x.nombre===arma);
+      assert.ok(registro&&registro.dano);
+      await page.locator('#gestion-arma').selectOption(arma);
+      assert.equal(await danoVisible(),registro.dano);
+      assert.equal(await fichaTalentos.locator('.recurso-dano .recurso-arma').innerText(),arma);
+      await page.locator('#gestion-arma').selectOption('');
+      assert.equal(await danoVisible(),'—');
+    }
+    const protecciones=page.locator('#editor-gestion-equipo .protecciones-activas');
     assert.equal(await protecciones.locator('select').count(),2);
     const opcionesArmadura=await protecciones.locator('select[data-tipo="armadura"] option')
       .evaluateAll(xs=>xs.map(x=>x.value).filter(Boolean));
@@ -913,9 +950,10 @@ async function probar(nombre,tipo,url){
         /Escudo \+1 solo al bloquear/);
       assert.equal(await recursos.locator('.recurso-ficha .recurso-nota-escudo').count(),0,
         nombre+': la aclaración del escudo no agranda la tarjeta de Blindaje');
-      assert.equal(await recursos.locator('.recurso-ficha').count(),5,
-        nombre+': las cinco tarjetas conservan tamaño uniforme');
+      assert.equal(await recursos.locator('.recurso-ficha').count(),6,
+        nombre+': seis tarjetas de Recursos y Daño de tamaño uniforme');
     }
+    await page.locator('#gestion-terminar').click();
     const rejillaTalentos=fichaTalentos.locator('.bloque-ficha ul.lista-dos-columnas').first();
     assert.equal(await rejillaTalentos.evaluate(el=>getComputedStyle(el).gridTemplateColumns
       .split(' ').length),2,nombre+': Talentos en dos columnas como Atributos');
@@ -974,8 +1012,12 @@ async function probar(nombre,tipo,url){
       nombre+': no duplicar descripciones completas al final en Observaciones');
     assert.equal(await fichaTalentos.locator('.avisos-talentos').count(),0,
       nombre+': el DRS sí tiene todos esos textos en sus popups');
-    assert.ok(await fichaTalentos.locator('.avisos-equipo').count()>=1,
-      nombre+': la regla de equipo de Baja estatura se conserva junto al equipo');
+    assert.equal(await fichaTalentos.locator('.avisos-equipo').count(),0,
+      nombre+': la ficha deja los avisos de equipo fuera del cuerpo principal');
+    await fichaTalentos.locator('.gestionar-equipo').click();
+    assert.ok(await page.locator('#gestion-reglas .avisos-equipo').count()>=1,
+      nombre+': el popup conserva la regla de Baja estatura y el historial DRS');
+    await page.locator('#gestion-terminar').click();
     await page.locator('#borrar').click();
     // Una vía de adquisición no sustituye el origen literal del Talento.
     // Probar ambos mestizos con el modo rápido y semilla reproducible.
@@ -1033,7 +1075,7 @@ async function probar(nombre,tipo,url){
     assert.ok(cabeceraMedidas.nivelDerecha<=cabeceraMedidas.cerrarIzquierda,
       nombre+': el Nivel está inmediatamente a la izquierda de cerrar');
     await page.locator('#selector-tema').selectOption('ceruleo');
-    for(const clase of ['.comprar-utiles','.copiar-ficha','.eliminar-ficha']){
+    for(const clase of ['.gestionar-equipo','.copiar-ficha','.eliminar-ficha']){
       const boton=ficha.locator(clase);
       await boton.hover();
       await page.waitForTimeout(220); // estabilizar transición CSS de 150 ms
@@ -1048,7 +1090,13 @@ async function probar(nombre,tipo,url){
     }
     await page.locator('#selector-tema').selectOption('clasico');
     const inicial=precio(await ficha.locator('.riqueza').innerText());
-    await ficha.locator('.comprar-utiles').click();
+    async function abrirUtilesDesdeFicha(){
+      await ficha.locator('.gestionar-equipo').click();
+      assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),true);
+      await page.locator('#gestion-abrir-utiles').click();
+      assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),false);
+    }
+    await abrirUtilesDesdeFicha();
     assert.equal(await page.locator('#editor-compras').isVisible(),true);
     assert.equal(await page.locator('#editor-compras').evaluate(el=>el.open),true,
       nombre+': las compras se muestran en un diálogo modal');
@@ -1074,7 +1122,7 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#editor-compras').isHidden(),true);
 
     // Volver a abrir: el carrito se vacía y se puede editar por línea.
-    await ficha.locator('.comprar-utiles').click();
+    await abrirUtilesDesdeFicha();
     assert.equal(await page.locator('#compras-lista li').count(),0);
     await page.selectOption('#compras-grupo','campamento');
     await page.selectOption('#compras-articulo','campamento-martillo');
@@ -1115,7 +1163,7 @@ async function probar(nombre,tipo,url){
     const despues=precio(await ficha.locator('.riqueza').innerText());
     assert.ok(Math.abs(inicial-despues-4.03)<.001,
       nombre+': descontar exactamente 4,03 mo al confirmar');
-    await ficha.locator('.comprar-utiles').click();
+    await abrirUtilesDesdeFicha();
     assert.match(await page.locator('#resumen-compras').innerText(),
       new RegExp(despues.toFixed(2)+' mo'),'Saldo actualizado al reabrir');
     await page.setViewportSize({width:390,height:844});

@@ -1305,7 +1305,12 @@ for(const id of ['editor-compras','titulo-editor-compras','form-compra-utiles',
   assert.ok(comprasHtml.includes('id="'+id+'"'),'Elemento visible de compra: '+id);
   assert.ok(comprasApp.includes("$('"+id+"')"),'Elemento de compra conectado a JS: '+id);
 }
-assert.ok(comprasApp.includes('class="comprar-utiles"'));
+assert.ok(comprasApp.includes('class="gestionar-equipo"'));
+assert.ok(comprasApp.includes('function abrirGestionEquipo(entrada)'));
+assert.ok(comprasApp.includes("personaje.arma_equipada"));
+assert.ok(comprasApp.includes("htmlContexto(notas.contexto)"));
+assert.ok(!comprasApp.includes("htmlProteccionesEquipadas(personaje,id) +"));
+assert.ok(estilosCompra.includes("lista-dos-columnas li::marker"));
 assert.ok(comprasApp.includes("personaje.saldo_mo=compra.restante"));
 assert.ok(comprasApp.includes("personaje.riqueza=compra.restante"));
 assert.ok(comprasApp.includes("cerrarCompra();"));

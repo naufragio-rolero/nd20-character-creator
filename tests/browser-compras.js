@@ -259,10 +259,16 @@ async function main(){
       "id:x.dataset.id,html:x.innerHTML,riqueza:x.querySelector('.riqueza')?.textContent}))");
     const primera=estado[0],segunda=estado[1];
     assert.ok(primera.riqueza&&segunda.riqueza);
-    assert.equal(await cdp.evalJS("document.querySelectorAll('.comprar-utiles').length"),2);
+    assert.equal(await cdp.evalJS("document.querySelectorAll('.gestionar-equipo').length"),2);
     // El nuevo editor de armamento es independiente de comprar Útiles.
-    assert.equal(await cdp.evalJS("document.querySelectorAll('.editar-armamento').length"),2);
-    await cdp.evalJS("document.querySelectorAll('.editar-armamento')[0].click()");
+    assert.equal(await cdp.evalJS("document.querySelectorAll('.gestionar-equipo').length"),2);
+    await cdp.evalJS("document.querySelectorAll('.gestionar-equipo')[0].click()");
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-gestion-equipo').open"),true);
+    assert.equal(await cdp.evalJS("document.querySelector('#fichas .protecciones-activas')===null"),true);
+    assert.equal(await cdp.evalJS("document.querySelectorAll('#gestion-protecciones select').length"),2);
+    assert.ok(await cdp.evalJS("document.querySelector('#gestion-arma option')!==null"));
+    await cdp.evalJS("document.querySelector('#gestion-abrir-armamento').click()");
+    assert.equal(await cdp.evalJS("document.querySelector('#editor-gestion-equipo').open"),false);
     assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),true);
     assert.ok(await cdp.evalJS("document.querySelector('#armamento-origen option')!==null"),
       'La propuesta inicial identifica piezas con precio recuperable');
@@ -278,9 +284,9 @@ async function main(){
     assert.equal(await cdp.evalJS("document.querySelector('#armamento-confirmar').disabled"),false);
     await cdp.evalJS("document.querySelector('#armamento-cancelar').click()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),false);
-    assert.ok(await cdp.evalJS("document.activeElement.classList.contains('editar-armamento')"),
+    assert.ok(await cdp.evalJS("document.activeElement.classList.contains('gestionar-equipo')"),
       'Cancelar devuelve el foco al botón de Armamento');
-    await cdp.evalJS("document.querySelectorAll('.comprar-utiles')[0].click()");
+    await cdp.evalJS("(()=>{document.querySelectorAll('.gestionar-equipo')[0].click();document.querySelector('#gestion-abrir-utiles').click()})()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),true,
       'Comprar útiles abre un diálogo nativo y modal');
     assert.equal(await cdp.evalJS("document.activeElement.id"),'compras-articulo',
@@ -342,10 +348,10 @@ async function main(){
       .includes('8.00 mo'));
     await cdp.evalJS("document.querySelector('#compras-cancelar').click()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),false);
-    assert.equal(await cdp.evalJS("document.activeElement.classList.contains('comprar-utiles')"),true,
+    assert.equal(await cdp.evalJS("document.activeElement.classList.contains('gestionar-equipo')"),true,
       'Cancelar devuelve el foco al botón de compras del personaje');
     // Escape también cancela: no confirma, y el foco vuelve a la ficha.
-    await cdp.evalJS("document.querySelectorAll('.comprar-utiles')[0].click()");
+    await cdp.evalJS("(()=>{document.querySelectorAll('.gestionar-equipo')[0].click();document.querySelector('#gestion-abrir-utiles').click()})()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),true);
     await cdp.enviar('Input.dispatchKeyEvent',{
       type:'keyDown',key:'Escape',code:'Escape',windowsVirtualKeyCode:27});
@@ -357,7 +363,7 @@ async function main(){
     assert.equal(estado[0],primera.html,'Cancelar no modifica la primera ficha');
     assert.equal(estado[1],segunda.html,'Cancelar no modifica la ficha ajena');
     // Compra confirmada: 2 martillos + 3 tizas = 4,03 mo.
-    await cdp.evalJS("document.querySelectorAll('.comprar-utiles')[0].click()");
+    await cdp.evalJS("(()=>{document.querySelectorAll('.gestionar-equipo')[0].click();document.querySelector('#gestion-abrir-utiles').click()})()");
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),0);
     await cdp.evalJS("(()=>{var s=document.querySelector('#compras-articulo');"+
       "document.querySelector('#compras-grupo').value='campamento';document.querySelector('#compras-grupo').dispatchEvent(new Event('change',{bubbles:true}));s.value='campamento-martillo';s.dispatchEvent(new Event('change',{bubbles:true}));"+
@@ -425,7 +431,7 @@ async function main(){
     assert.equal(await cdp.evalJS("document.querySelectorAll('#compras-lista li').length"),2);
     await cdp.evalJS("document.querySelector('#form-compra-utiles').requestSubmit()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-compras').open"),false);
-    assert.equal(await cdp.evalJS("document.activeElement.classList.contains('comprar-utiles')"),true,
+    assert.equal(await cdp.evalJS("document.activeElement.classList.contains('gestionar-equipo')"),true,
       'Confirmar la compra devuelve el foco a la ficha actualizada');
     estado=await cdp.evalJS("Array.from(document.querySelectorAll('#fichas .tarjeta')).map(x=>({"+
       "html:x.innerHTML,riqueza:x.querySelector('.riqueza')?.textContent}))");
@@ -454,7 +460,7 @@ async function main(){
     assert.ok(exportado.includes('Tiza ×3'));
     assert.ok(exportado.includes('4.03 mo'));
     // Reabrir tras comprar debe reflejar el saldo actualizado, no el original.
-    await cdp.evalJS("document.querySelectorAll('.comprar-utiles')[0].click()");
+    await cdp.evalJS("(()=>{document.querySelectorAll('.gestionar-equipo')[0].click();document.querySelector('#gestion-abrir-utiles').click()})()");
     assert.ok((await cdp.evalJS("document.querySelector('#resumen-compras').textContent"))
       .includes(dinero(estado[0].riqueza).toFixed(2)+' mo'));
     await cdp.evalJS("document.querySelector('#fichas .tarjeta .eliminar-ficha').click()");
@@ -464,10 +470,10 @@ async function main(){
     await cdp.enviar('Emulation.setDeviceMetricsOverride',{
       width:390,height:844,deviceScaleFactor:1,mobile:true});
     const movil=await cdp.evalJS("({ancho:document.documentElement.scrollWidth,"+
-      "ventana:window.innerWidth,botones:document.querySelectorAll('.comprar-utiles').length})");
+      "ventana:window.innerWidth,botones:document.querySelectorAll('.gestionar-equipo').length})");
     assert.ok(movil.ancho<=movil.ventana+2,'La página no debe desbordar horizontalmente en móvil');
     assert.equal(movil.botones,1);
-    await cdp.evalJS("document.querySelector('.comprar-utiles').click()");
+    await cdp.evalJS("(()=>{document.querySelector('.gestionar-equipo').click();document.querySelector('#gestion-abrir-utiles').click()})()");
     const movilEditor=await cdp.evalJS("({ancho:document.documentElement.scrollWidth,"+
       "ventana:window.innerWidth,visible:document.querySelector('#editor-compras').open,"+
       "campo:document.querySelector('#compras-articulo').getBoundingClientRect().width})");
@@ -490,7 +496,7 @@ async function main(){
     // Compra confirmada en móvil: la ficha y el saldo reflejan exactamente 5 mc.
     const saldoArmasAntes=await cdp.evalJS(
       "Number(document.querySelector('#fichas .tarjeta .riqueza').textContent.match(/([0-9.]+) mo restantes/)[1])");
-    await cdp.evalJS("document.querySelector('.editar-armamento').click()");
+    await cdp.evalJS("(()=>{document.querySelector('.gestionar-equipo').click();document.querySelector('#gestion-abrir-armamento').click()})()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),true);
     const anchoArmamento=await cdp.evalJS(
       "document.querySelector('#editor-armamento').getBoundingClientRect().width");
@@ -510,7 +516,7 @@ async function main(){
       'Comprar Dardo consume 5 mc sin redondeo a cero ni doble cargo');
     assert.equal(await cdp.evalJS("document.querySelector('#estado').textContent.includes('Compra adicional de armamento')"),true);
     // Cambiar de verdad una pieza inicial sin tocar los útiles ni el inventario restante.
-    await cdp.evalJS("document.querySelector('.editar-armamento').click()");
+    await cdp.evalJS("(()=>{document.querySelector('.gestionar-equipo').click();document.querySelector('#gestion-abrir-armamento').click()})()");
     const tienePieza=await cdp.evalJS(
       "document.querySelector('#armamento-origen').options.length>0");
     assert.ok(tienePieza,'La generación conserva registros de compra inicial');
