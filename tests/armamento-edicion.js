@@ -91,6 +91,10 @@ assert.throws(()=>api.comprarArmamentoFantasia(pj,cat,guerrero,1,humano,[
 assert.deepEqual(opciones('Guerrero',1,esp['Gnomo urbano'])
   .filter(x=>x.grupo==='escudos').map(x=>x.nombre),['Escudo pequeño']);
 assert.ok(opciones('Mago',1).find(x=>x.nombre==='Espadón').advertencia);
+assert.equal(opciones('Mago',1).some(x=>x.grupo==='escudos'),false,
+  'La prohibición expresa del Mago impide ofrecer escudos');
+assert.equal(opciones('Clérigo',1).some(x=>x.grupo==='armas'&&x.nombre==='Arco corto'),false,
+  'El Clérigo no puede equipar armas a distancia');
 // Protecciones disponibles: solo son equipables las que siguen en el inventario.
 const defensa=api.blindajeFicha({...pjLanza,
   protecciones_equipadas:{armadura:'Pechera de algodón',escudo:''}},cat);
