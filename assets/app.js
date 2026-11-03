@@ -953,6 +953,170 @@
     if(tipo==='armamento')abrirArmamento(entrada);
     else abrirCompra(entrada);
   }
+  // Una segunda oportunidad para elegir las plazas documentadas al generar,
+  // con fichas informativas, sin conceder progresión ni preparar Conjuros.
+  function entradaRevision(){
+    var entrada=entradas.find(function(x){return x.id===revisionBorrador?.id;});
+    if(!entrada||entrada.tipo!=='ficha'||
+       entrada.valor.juego!=='Naufragio d20 · Fantasía')
+      throw Error('Esta ficha no tiene elecciones DRS revisables.');
+    return entrada;
+  }
+  function cerrarRevisionElecciones(){
+    var id=revisionBorrador?.id;
+    revisionBorrador=null;
+    var dialogo=$('editor-revision-elecciones');
+    if(dialogo.open)dialogo.close();
+    dialogo.hidden=true;
+    if(id!==undefined){
+      var boton=$('fichas').querySelector('.revisar-elecciones[data-id="'+id+'"]');
+      if(boton)boton.focus({preventScroll:true});
+    }
+  }
+  function opcionesRevision(paso,decisiones){
+    return poderes.disponibles(paso,decisiones);
+  }
+  function actualizarConsultaRevision(selector,opciones,paso,nivel){
+    var boton=selector.parentElement.querySelector('.consultar-ficha-eleccion');
+    if(!boton)return;
+    var elegida=opciones.find(function(x){return x.id===selector.value;});
+    var grupo=paso.tipo==='talento'?'talento':'poder';
+    var porId=elegida&&infoUI?.consultaPorId?.(elegida.id,grupo,'nd20');
+    var esConjuro=elegida&&/^conjuro-/.test(elegida.id);
+    var encontrada=porId||(esConjuro?null:elegida&&
+      infoUI?.consulta(elegida.nombre,grupo,'nd20'));
+    boton.hidden=!encontrada;
+    if(encontrada){
+      boton.dataset.glosaNombre=elegida.nombre;
+      boton.dataset.glosaGrupo=grupo;
+      boton.dataset.glosaSistema='nd20';
+      boton.dataset.glosaNivel=String(nivel);
+      if(porId)boton.dataset.glosaId=elegida.id;
+      else delete boton.dataset.glosaId;
+    }else{
+      delete boton.dataset.glosaId;
+      delete boton.dataset.glosaNombre;
+    }
+  }
+  function refrescarRevision(){
+    var entrada=entradaRevision(),p=entrada.valor;
+    var registro=p.elecciones_registradas,decisiones=JSON.parse(
+      JSON.stringify(registro.decisiones));
+    var pasos=poderes.opcionesRevisables(p);
+    var cantidad=0,valido=pasos.length>0;
+    pasos.forEach(function(paso){
+      var selectors=Array.from($('form-revision-elecciones')
+        .querySelectorAll('select[data-revision-paso="'+paso.id+'"]'));
+      var usados=new Set(),valores=[];
+      selectors.forEach(function(sel){
+        var anterior=sel.value;
+        var permitidas=opcionesRevision(paso,decisiones).filter(function(x){
+          return !usados.has(x.id);
+        });
+        sel.replaceChildren();
+        var vacio=document.createElement('option');
+        vacio.value='';vacio.textContent='— Elige una opción —';
+        sel.appendChild(vacio);
+        permitidas.forEach(function(op){
+          var opt=document.createElement('option');
+          opt.value=op.id;
+          opt.textContent=poderes.nombreEtiquetado(paso.tipo,paso.titulo,op.nombre)+
+            (op.circulo?' · C'+op.circulo:'')+
+            poderes.origenConjuro(paso.tipo,paso.titulo,op.origen);
+          sel.appendChild(opt);
+        });
+        if(permitidas.some(function(x){return x.id===anterior;})){
+          sel.value=anterior;usados.add(anterior);valores.push(anterior);
+        }else{
+          sel.value='';valido=false;
+        }
+        actualizarConsultaRevision(sel,permitidas,paso,p.nivel);
+      });
+      cantidad+=selectors.length;
+      decisiones[paso.id]=valores;
+      if(valores.length!==paso.cantidad)valido=false;
+    });
+    $('revision-confirmar').disabled=!valido;
+    $('revision-estado').textContent=!pasos.length?
+      'No hay elecciones manuales de Talentos ni Poderes conocidos en la progresión DRS de esta ficha.':
+      valido?cantidad+' plazas documentadas. Preparar Conjuros es una operación distinta.':
+      'Completa las plazas pendientes; no se permiten Conjuros conocidos repetidos.';
+  }
+  function seleccionesRevision(){
+    var p=entradaRevision().valor,resultado={};
+    poderes.opcionesRevisables(p).forEach(function(paso){
+      resultado[paso.id]=Array.from($('form-revision-elecciones')
+        .querySelectorAll('select[data-revision-paso="'+paso.id+'"]'))
+        .map(function(sel){return sel.value;});
+      if(resultado[paso.id].length!==paso.cantidad||
+         resultado[paso.id].some(function(x){return !x;}))
+        throw Error('Completa las elecciones de '+paso.titulo+'.');
+    });
+    return resultado;
+  }
+  function abrirRevisionElecciones(entrada){
+    if(!poderes?.opcionesRevisables||!poderes?.revisar)
+      throw Error('El editor de Poderes y Talentos no está cargado.');
+    revisionBorrador={id:entrada.id};
+    var p=entradaRevision().valor,reg=p.elecciones_registradas;
+    var pasos=poderes.opcionesRevisables(p);
+    $('revision-resumen').textContent=p.nombre+' · Nivel '+p.nivel;
+    var talentos=$('revision-pasos-talentos'),otros=$('revision-pasos-poderes');
+    talentos.replaceChildren();otros.replaceChildren();
+    $('revision-talentos').hidden=!pasos.some(function(x){return x.tipo==='talento';});
+    $('revision-poderes').hidden=!pasos.some(function(x){return x.tipo!=='talento';});
+    pasos.forEach(function(paso){
+      var field=document.createElement('fieldset');
+      field.className='grupo-poderes';
+      var leyenda=document.createElement('legend');
+      leyenda.textContent=paso.titulo+' ('+paso.cantidad+')';
+      field.appendChild(leyenda);
+      for(var i=0;i<paso.cantidad;i++){
+        var label=document.createElement('label');
+        label.className='eleccion-poder';
+        label.textContent=(i+1)+'. ';
+        var sel=document.createElement('select');
+        sel.dataset.revisionPaso=paso.id;sel.dataset.orden=String(i);
+        sel.required=true;
+        var inicial=(reg.decisiones[paso.id]||[])[i];
+        // Se asigna después de construir el conjunto de opciones.
+        sel.dataset.inicial=inicial||'';
+        label.appendChild(sel);
+        var ver=document.createElement('button');
+        ver.type='button';ver.className='consultar-ficha-eleccion';
+        ver.textContent='Ver ficha';ver.hidden=true;
+        ver.setAttribute('aria-label','Consultar la ficha de la opción elegida');
+        label.appendChild(ver);field.appendChild(label);
+      }
+      (paso.tipo==='talento'?talentos:otros).appendChild(field);
+    });
+    // Primero se crean todas las opciones con las mismas restricciones del
+    // editor original, después se recupera cada selección registrada.
+    pasos.forEach(function(paso){
+      var sels=Array.from($('form-revision-elecciones')
+        .querySelectorAll('select[data-revision-paso="'+paso.id+'"]'));
+      var usados=new Set();
+      sels.forEach(function(sel){
+        var pool=opcionesRevision(paso,reg.decisiones).filter(function(op){
+          return !usados.has(op.id);
+        });
+        var inicial=sel.dataset.inicial;
+        pool.forEach(function(op){
+          var option=document.createElement('option');
+          option.value=op.id;option.textContent=op.nombre;sel.appendChild(option);
+        });
+        if(pool.some(function(op){return op.id===inicial;})){
+          sel.value=inicial;usados.add(inicial);
+        }else sel.value='';
+        delete sel.dataset.inicial;
+      });
+    });
+    refrescarRevision();
+    var dialogo=$('editor-revision-elecciones');
+    dialogo.hidden=false;dialogo.showModal();
+    var primero=dialogo.querySelector('select[data-revision-paso]');
+    (primero||$('revision-cerrar')).focus({preventScroll:true});
+  }
   // Compras de útiles: la selección se valida con el motor antes de tocar
   // el inventario. Cada editor se vincula al ID único de una ficha DRS.
   function cerrarCompra(){
