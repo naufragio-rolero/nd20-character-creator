@@ -1466,6 +1466,8 @@
     var c=registro.config;
     if(!['nd20','dh'].includes(c.juego))
       throw Error('Este sistema no está disponible en la versión pública de La Forja.');
+    // La importación sustituye cualquier selección aplazada de fuentes vacías.
+    seleccionesPausadas={};
     if(!Array.isArray(c.origenes)||!Array.isArray(c.ocupacionesPermitidas)||
        !Array.isArray(c.especiesPermitidas)||
        (c.juego==='nd20'&&!Array.isArray(c.fuentes)))
