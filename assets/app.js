@@ -23,6 +23,14 @@
     dh:'Dungeon Hack'
   };
   function nombreSistema(id){return sistemasVisibles[id]||id;}
+  function sistemaPublicado(id){
+    // El catálogo y el botón editorial deben existir y estar habilitados.
+    // Una mera clave interna de sistema no lo publica en LIVE.
+    return !!sistemasVisibles[id]&&
+      Array.from($('juego').options).some(function(op){return op.value===id&&!op.disabled;})&&
+      Array.from(document.querySelectorAll('.juegos-compactos [data-juego]'))
+        .some(function(b){return b.dataset.juego===id&&!b.disabled&&!b.hidden;});
+  }
   var $ = function (id) {return document.getElementById(id);};
   function aviso(mensaje, esError) {
     $('estado').textContent = mensaje || '';
@@ -270,7 +278,7 @@
   }
   function refrescarSelectores() {
     if (!datos.dh) return;
-    if(!['nd20','dh'].includes($('juego').value))$('juego').value='nd20';
+    if(!sistemaPublicado($('juego').value))$('juego').value='nd20';
     var juego = $('juego').value, dh = juego === 'dh';
     refrescarBotonesSistema();
     $('opciones-dh').hidden = !dh;
@@ -1464,13 +1472,13 @@
        registro.semilla.length>90||!registro.config)
       throw Error('La configuración de reproducción no tiene un formato válido (versión 1).');
     var c=registro.config;
-    if(!['nd20','dh'].includes(c.juego))
+    if(!sistemaPublicado(c.juego))
       throw Error('Este sistema no está disponible en la versión pública de La Forja.');
     // La importación sustituye cualquier selección aplazada de fuentes vacías.
     seleccionesPausadas={};
     if(!Array.isArray(c.origenes)||!Array.isArray(c.ocupacionesPermitidas)||
        !Array.isArray(c.especiesPermitidas)||
-       (c.juego==='nd20'&&!Array.isArray(c.fuentes)))
+       (c.juego!=='dh'&&!Array.isArray(c.fuentes)))
       throw Error('El registro no conserva todas las opciones necesarias.');
     $('juego').value=c.juego;
     if(c.juego!=='dh')fuentesGuardadas[c.juego]=c.fuentes.slice();
