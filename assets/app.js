@@ -14,6 +14,15 @@
   var gestionBorrador = null;
   var revisionBorrador = null;
   var fuentesGuardadas = {};
+  var ultimaReproduccion = null;
+  var volverGestionEquipo = null;
+  var sistemasVisibles={
+    nd20:'Naufragio d20 · Fantasía Épica',
+    nd20_nocturna:'Naufragio d20 · Nocturna',
+    nd20_cifi:'Naufragio d20 · CiFi',
+    dh:'Dungeon Hack'
+  };
+  function nombreSistema(id){return sistemasVisibles[id]||id;}
   var $ = function (id) {return document.getElementById(id);};
   function aviso(mensaje, esError) {
     $('estado').textContent = mensaje || '';
@@ -125,7 +134,11 @@
   // Resumen informativo de los ajustes activos en el diálogo.
   function refrescarResumenCreacion(){
     function poner(id,valor){$(id).textContent=String(valor);}
-    poner('resumen-nivel',$('nivel').value||'1');
+    var minimo=$('nivel-min').value,maximo=$('nivel-max').value;
+    poner('resumen-sistema',nombreSistema($('juego').value));
+    poner('resumen-nivel',minimo&&maximo?
+      (minimo===maximo?'Nivel '+minimo:'Niveles '+minimo+'–'+maximo):
+      'Intervalo sin completar');
     poner('resumen-ocupacion',$('valor-elegido-ocupacion').textContent);
     poner('resumen-especie',$('valor-elegido-especie').textContent);
     poner('resumen-sexo',$('sexo-pj').selectedOptions[0]?.textContent||'Aleatorio');
@@ -238,9 +251,10 @@
     $('modos-creacion').hidden = dh;
     $('opciones-contexto-sexo').hidden=dh;
     $('generar-seguidor').disabled = !dh;
-    $('nivel').max = dh ? '36' : '30';
+    ['nivel-min','nivel-max'].forEach(function(id){
+      $(id).max=dh?'36':'30';
+    });
     $('rango-nivel').textContent = dh ? '1–36' : '1–30';
-    if (Number($('nivel').value) > Number($('nivel').max)) $('nivel').value = $('nivel').max;
     $('con-especie').disabled = !dh;
     $('especie').disabled = dh && !$('con-especie').checked;
     if (dh) {
@@ -279,6 +293,7 @@
     }
     refrescarTarjetasVisibles();
     validarNivelVisible();
+    validarFuentesVisibles();
     refrescarResumenCreacion();
     refrescarGenerarFlotante();
   }
@@ -288,33 +303,50 @@
     return document.querySelector('input[name="modo-creacion"]:checked').value;
   }
   function validarNivelVisible(){
-    var campo=$('nivel'),maximo=Number(campo.max);
-    var valido=Number.isInteger(campo.valueAsNumber)&&
-      campo.valueAsNumber>=1&&campo.valueAsNumber<=maximo;
-    var mensaje=valido?'':'Nivel no válido. Escribe un número entero entre 1 y '+
-      maximo+' para el sistema seleccionado.';
+    var campos=[$('nivel-min'),$('nivel-max')],maximo=Number(campos[0].max);
+    var validos=campos.every(function(c){return c.value.trim()!==''&&
+      Number.isInteger(c.valueAsNumber)&&c.valueAsNumber>=1&&c.valueAsNumber<=maximo;});
+    var invertido=validos&&campos[0].valueAsNumber>campos[1].valueAsNumber;
+    var mensaje=!validos?'Escribe dos Niveles enteros entre 1 y '+maximo+
+      ' para el sistema seleccionado.':invertido?
+      'El Nivel mínimo no puede superar al máximo.':'';
     $('aviso-nivel').textContent=mensaje;
-    if(valido)campo.removeAttribute('aria-invalid');
-    else campo.setAttribute('aria-invalid','true');
-    return valido;
+    campos.forEach(function(c){
+      if(mensaje)c.setAttribute('aria-invalid','true');
+      else c.removeAttribute('aria-invalid');
+    });
+    return !mensaje;
+  }
+  function validarFuentesVisibles(){
+    var dh=$('juego').value==='dh';
+    var field=$(dh?'opciones-dh':'opciones-fuentes');
+    var avisoCampo=$(dh?'aviso-origenes':'aviso-fuentes');
+    var validas=dh?origenesActivos():fuentesNd20Activas();
+    var mensaje=validas.length?'':dh?
+      'Marca al menos una procedencia para Dungeon Hack.':
+      'Selecciona al menos una fuente para generar personajes.';
+    avisoCampo.textContent=mensaje;
+    field.setAttribute('aria-invalid',String(!!mensaje));
+    $(dh?'aviso-fuentes':'aviso-origenes').textContent='';
+    $(dh?'opciones-fuentes':'opciones-dh').removeAttribute('aria-invalid');
+    return !mensaje;
   }
   function config() {
-    var juego=$('juego').value, nivel=Number($('nivel').value);
-    var cantidad=Number($('cantidad').value);
-    if (!Number.isInteger(nivel) || nivel < 1 || nivel > (juego === 'dh' ? 36 : 30))
-      throw Error('Indica un Nivel válido para el sistema elegido.');
+    var juego=$('juego').value, nivelMin=$('nivel-min').valueAsNumber,
+      nivelMax=$('nivel-max').valueAsNumber;
+    if(!validarNivelVisible())
+      throw Error($('aviso-nivel').textContent);
+    var cantidad=$('cantidad').valueAsNumber;
     if (!Number.isInteger(cantidad) || cantidad < 1 || cantidad > 12)
       throw Error('Puedes generar entre 1 y 12 fichas a la vez.');
-    var origenes=origenesActivos();
-    if (juego==='dh' && !origenes.length)
-      throw Error('Marca al menos una procedencia para Dungeon Hack.');
-    var fuentes=juego==='dh'?null:fuentesNd20Activas();
-    if(juego!=='dh'&&!fuentes.length)
-      throw Error('Marca al menos una fuente de Naufragio d20.');
+    var origenes=origenesActivos(),fuentes=juego==='dh'?null:fuentesNd20Activas();
+    if(!validarFuentesVisibles())
+      throw Error($(juego==='dh'?'aviso-origenes':'aviso-fuentes').textContent);
     var modo = dhModo(juego);
     if(modo==='personalizado' && cantidad!==1)
       throw Error('El modo Personalizado crea una ficha por vez. Selecciona cantidad 1.');
-    return {juego:juego, nivel:nivel, cantidad:cantidad, modo:modo,
+    return {juego:juego, nivel:nivelMin, nivelMin:nivelMin,nivelMax:nivelMax,
+      cantidad:cantidad, modo:modo,
       ocupacion:$('ocupacion').value, especie:$('especie').value,
       ocupacionesPermitidas:candidatosSelector.ocupacion.slice(),
       especiesPermitidas:candidatosSelector.especie.slice(),
@@ -325,6 +357,20 @@
       modoNombre:$('modo-nombre').value,
       riquezaPorNivel:(juego==='nd20'||juego==='nd20_cifi')&&
         $('riqueza-por-nivel').checked};
+  }
+  function mostrarErrorConfiguracion(error){
+    var texto=error?.message||String(error);
+    aviso(texto,true);
+    var dialogo=$('dialogo-configuracion');
+    if(!dialogo.open)dialogo.showModal();
+    var destino=!validarNivelVisible()?$('nivel-min'):
+      !validarFuentesVisibles()?
+        $(($('juego').value==='dh'?'origenes':'fuentes-nd20'))
+          .querySelector('input')||$('titulo-dialogo-configuracion'):
+        $('cantidad');
+    destino.focus({preventScroll:true});
+    destino.scrollIntoView({block:'center',behavior:'auto'});
+    refrescarGenerarFlotante();
   }
   function crearFicha(cfg, rng) {
     if (cfg.juego === 'dh') return reglas.eleccionDH(datos.dh,cfg,rng);
@@ -620,7 +666,7 @@
         '</span><span>' + cifra + '</span></div>';
     }).join('');
     return '<article class="tarjeta" data-id="' + id + '" data-nivel="' + esc(personaje.nivel) + '">' +
-      '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(personaje.juego) +
+      '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(nombreSistema(sistemaFicha(personaje))) +
       '</p><h3>' + esc(personaje.nombre) +
       '</h3><p class="descripcion-personaje">' + descripcionConSexo(personaje) + '</p></div>' +
       '<div class="acciones-cabecera-ficha"><span class="nivel-ficha" aria-label="Nivel '+
@@ -676,7 +722,7 @@
     return html;
   }
   function fichaTexto(p) {
-    var str=[p.nombre,p.juego,'Nivel: '+p.nivel,p.descripcion];
+    var str=[p.nombre,nombreSistema(sistemaFicha(p)),'Nivel: '+p.nivel,p.descripcion];
     if(p.sexo)str.push('Sexo: '+(p.sexo==='femenino'?'Femenino':'Masculino'));
     if(p.concepto)str.push('Concepto: '+p.concepto);
     str.push('', 'Atributos:');
@@ -1343,10 +1389,75 @@
   function conControl(fn) {
     try { fn(); aviso(''); } catch(e) {aviso(e.message || 'No ha sido posible generar el resultado.',true);}
   }
-  function rngUnico() {
+  function semillaGeneracion(){
     var cadena=$('semilla').value.trim();
-    if(!cadena) cadena=String(Date.now())+':'+String(Math.random());
-    return function (i) {return reglas.aleatorioSemilla(cadena+':'+i);};
+    if(!cadena){
+      if(window.crypto?.getRandomValues){
+        var valores=new Uint32Array(4);
+        window.crypto.getRandomValues(valores);
+        cadena=Array.from(valores).map(function(n){return n.toString(16).padStart(8,'0');}).join('');
+      }else cadena='forja-'+Date.now().toString(36)+'-'+performance.now().toString(36);
+      $('semilla').value=cadena;
+    }
+    return cadena;
+  }
+  function rngUnico(){
+    var semilla=semillaGeneracion();
+    return function(i){return reglas.aleatorioSemilla(semilla+':'+i);};
+  }
+  function mostrarReproduccion(semilla,cfg){
+    ultimaReproduccion={version:1,semilla:semilla,config:JSON.parse(JSON.stringify(cfg))};
+    $('semilla-resultado').textContent=semilla;
+    $('reproduccion-resultados').hidden=false;
+  }
+  function aplicarReproduccion(texto){
+    var registro=JSON.parse(texto);
+    if(!registro||registro.version!==1||
+       typeof registro.semilla!=='string'||!registro.semilla.trim()||
+       registro.semilla.length>90||!registro.config)
+      throw Error('La configuración de reproducción no tiene un formato válido (versión 1).');
+    var c=registro.config;
+    if(!['nd20','dh'].includes(c.juego))
+      throw Error('Este sistema no está disponible en la versión pública de La Forja.');
+    if(!Array.isArray(c.origenes)||!Array.isArray(c.ocupacionesPermitidas)||
+       !Array.isArray(c.especiesPermitidas)||
+       (c.juego==='nd20'&&!Array.isArray(c.fuentes)))
+      throw Error('El registro no conserva todas las opciones necesarias.');
+    $('juego').value=c.juego;
+    if(c.juego!=='dh')fuentesGuardadas[c.juego]=c.fuentes.slice();
+    $('origenes').querySelectorAll('input').forEach(function(e){
+      e.checked=c.origenes.map(String).includes(e.value);
+    });
+    refrescarSelectores();
+    $('nivel-min').value=String(c.nivelMin);
+    $('nivel-max').value=String(c.nivelMax);
+    $('cantidad').value=String(c.cantidad);
+    $('nombre-personaje').value=c.nombre||'';
+    $('sexo-pj').value=c.sexo||'aleatorio';
+    $('respetar-contexto-sexo').checked=c.respetarContextoSexo!==false;
+    $('modo-nombre').value=c.modoNombre||'generico';
+    $('con-especie').checked=c.conEspecie!==false;
+    $('riqueza-por-nivel').checked=c.riquezaPorNivel===true;
+    var modo=document.querySelector('input[name="modo-creacion"][value="'+c.modo+'"]');
+    if(!modo)throw Error('Modo de generación no documentado.');
+    modo.checked=true;
+    $('cantidad').disabled=c.modo==='personalizado';
+    refrescarSelectores();
+    ['ocupacion','especie'].forEach(function(tipo){
+      var value=c[tipo]||'';
+      var seleccion=c[tipo==='ocupacion'?'ocupacionesPermitidas':'especiesPermitidas'];
+      var disponibles=Array.from($(tipo).options).map(function(op){return op.value;});
+      if((value&&!disponibles.includes(value))||
+         seleccion.some(function(key){return !disponibles.includes(key);}))
+        throw Error('La selección de '+tipo+' no está disponible con las fuentes actuales.');
+      candidatosSelector[tipo]=seleccion.slice();
+      $(tipo).value=value;
+      marcarTarjetasSeleccionadas(tipo);
+    });
+    $('semilla').value=registro.semilla;
+    config();
+    refrescarResumenCreacion();
+    $('aviso-reproduccion').textContent='Configuración recuperada. Genera para reproducir el resultado.';
   }
   function descargar(nombre,contenido) {
     var blob=new Blob([contenido],{type:'text/plain;charset=utf-8'});
