@@ -350,11 +350,11 @@ async function run(name,origin){
     await page.locator('#nombre-personaje').fill('Mago E2E');
     await page.locator('#generar-dialogo').click();
     await first().locator('.revisar-elecciones').click();
-    const acciones=await page.locator('#form-revision-elecciones .botonera button:visible')
+    const accionesRevision=await page.locator('#form-revision-elecciones .botonera button:visible')
       .evaluateAll(items=>items.map(b=>({text:b.textContent.trim(),top:b.getBoundingClientRect().top})));
-    assert.equal(acciones.length,3,'Mago: tres acciones disponibles');
-    assert(acciones.some(a=>a.text==='Guardar y preparar'));
-    assert(Math.max(...acciones.map(x=>x.top))-Math.min(...acciones.map(x=>x.top))<4,
+    assert.equal(accionesRevision.length,3,'Mago: tres acciones disponibles');
+    assert(accionesRevision.some(a=>a.text==='Guardar y preparar'));
+    assert(Math.max(...accionesRevision.map(x=>x.top))-Math.min(...accionesRevision.map(x=>x.top))<4,
       'Las tres acciones deben quedar alineadas en escritorio');
     const conocido=page.locator('#revision-pasos-poderes select').first();
     const conocidoOriginal=await conocido.inputValue();
