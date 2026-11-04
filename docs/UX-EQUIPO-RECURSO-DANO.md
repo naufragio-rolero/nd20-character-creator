@@ -17,7 +17,9 @@ La ficha mostraba «Contexto del personaje» antes de los Atributos, dos selecto
 
 `assets/equipment.js > armasDisponibles` devuelve únicamente armas y Varitas de defensa **efectivamente presentes en el inventario**, tanto piezas individuales como cantidades `×N`; no considera los regalos de nombre compuesto una coincidencia. `danoFicha` identifica por nombre exacto la elección `arma_equipada` y devuelve el campo `dano` de `data/equipo-inicial.json`.
 
-El Recurso «Daño» se muestra en la rejilla superior: **dado literal y nombre del arma activa**. Sin selección o sin posesión muestra «— / Sin equipar». El cambio y el intercambio de equipo invalidan una elección si la pieza ya no se posee. No se ejecutan ataques, no se aplican modificaciones de Atributo o Nivel, no se consumen recursos y no se inventa daño por uso sin armas. El PDF A5 identifica la pieza activa dentro del inventario, sin cambiar reglas ni plantilla de combate.
+El Recurso «Daño» se muestra en la rejilla superior: **dados de daño del arma adaptados a la Potencia del PJ y nombre del arma activa**. El daño base del catálogo se conserva (Espada larga 1d8; Potencia 2 → 2d8; Potencia 3 → 3d8). También se actualizan los daños ofrecidos en el selector de armas del diálogo, la copia de ficha y el PDF A5 (campo de arma equipada e inventario, este último con indicación explícita de Potencia). Los seguidores y los Poderes no adquieren este multiplicador. Las conversiones de Potencia 0 o negativa siguen literalmente la tabla del DRS y no se deducen equivalencias no documentadas.
+
+Antes, el Recurso «Daño» mostraba el **dado literal y nombre del arma activa**. Sin selección o sin posesión muestra «— / Sin equipar». El cambio y el intercambio de equipo invalidan una elección si la pieza ya no se posee. No se ejecutan ataques, no se aplican modificaciones de Atributo o Nivel, no se consumen recursos y no se inventa daño por uso sin armas. El PDF A5 identifica la pieza activa dentro del inventario, sin cambiar reglas ni plantilla de combate.
 
 ## Verificación
 

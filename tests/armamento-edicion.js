@@ -118,6 +118,30 @@ assert.deepEqual(equipables.map(x=>x.nombre),['Daga','Arco corto','Varita de cer
 assert.deepEqual(api.danoFicha({...pj,equipo:['Daga'],arma_equipada:'Daga'},cat),
   {valor:'1d4',arma:'Daga',grupo:'armas'});
 assert.equal(api.danoFicha({...pj,equipo:['Daga'],arma_equipada:'Espadón'},cat).valor,'—');
+// El multiplicador de Potencia adapta dados, no resultados ni catálogo.
+const potente=function(valor,arma,extra){
+  return {...pj,juego:'Naufragio d20 · Fantasía',
+    equipo:[arma],arma_equipada:arma,recursos:[['Potencia',valor]],...extra};
+};
+assert.equal(api.danoFicha(potente(1,'Espada larga'),cat).valor,'1d8');
+assert.equal(api.danoFicha(potente(2,'Espada larga'),cat).valor,'2d8');
+assert.equal(api.danoFicha(potente(3,'Espada larga'),cat).valor,'3d8');
+assert.equal(api.danoFicha(potente(3,'Arco corto'),cat).valor,'3d6');
+assert.equal(api.danoFicha(potente(2,'Varita de cerezo'),cat).valor,'2d3');
+assert.equal(api.danoFicha(potente(3,'Espada larga',{tipo_ficha:'seguidor_drs'}),cat)
+  .valor,'1d8','PNJ sin Potencia multiplicadora');
+assert.equal(api.danoFicha(potente(2,'Espada larga',
+  {juego:'Naufragio d20 · CiFi'}),cat).valor,'1d8');
+assert.equal(api.danoFicha(potente(2,'Espada larga',{recursos:[]}),cat).valor,
+  '1d8','Sin Potencia documentada no se inventan dados');
+assert.equal(api.danoConPotencia('1d8',potente(0,'Espada larga')),'1d6');
+assert.equal(api.danoConPotencia('1d12',potente(-1,'Espada larga')),'1d8');
+assert.equal(api.danoConPotencia('1d6',potente(-2,'Espada larga')),'1');
+assert.equal(api.danoConPotencia('1d10',potente(-4,'Espada larga')),'1');
+assert.match(api.danoConPotencia('1d3',potente(-1,'Varita de cerezo')),
+  /Sin equivalencia DRS/,'No inventar dados ausentes de la tabla negativa');
+assert.equal(cat.armas.find(x=>x.nombre==='Espada larga').dano,'1d8',
+  'La fuente original nunca cambia');
 assert.deepEqual(api.danoFicha({...pj,equipo:['Varita de cerezo'],
   arma_equipada:'Varita de cerezo'},cat),
   {valor:'1d3',arma:'Varita de cerezo',grupo:'varitas_defensa'});
@@ -138,4 +162,11 @@ assert.equal(pdf.prepararDatos({...pjPdf,arma_equipada:'Espadón'},null,cat)
 assert.match(pdf.detalleEquipo('Flechas ×2',cat),/DU d8/);
 assert.match(pdf.detalleEquipo('Varita de cerezo',cat),/Munición DU d6/);
 assert.match(pdf.detalleEquipo('Lanza',cat),/Daño 1d6/);
+const p2={...pjPdf,recursos:[['Potencia',2]]};
+const pdfPotente=pdf.prepararDatos(p2,null,cat);
+assert.equal(pdfPotente._arma_equ,'Daga (2d4) · Penetración +1 · Durabilidad d8');
+assert.equal(pdfPotente._dano_equ,'2d4');
+assert.match(pdfPotente._sections.find(x=>x.source==='equipo').items[0],
+  /Daño 2d4 \(Potencia 2\)/);
+assert.equal(p2.recursos[0][1],2,'El PDF no altera la Potencia');
 console.log('OK · Intercambios iniciales, 5 mc, compras, Competencias, Blindaje y PDF.');
