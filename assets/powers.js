@@ -794,8 +794,17 @@
     }
     return {personaje:copia,preparacionesRetiradas:retiradas};
   }
+  function preparacionesRevisables(personaje){
+    var reg=personaje&&personaje.elecciones_registradas;
+    if(!reg||personaje.juego!=="Naufragio d20 · Fantasía"||
+       !reg.plan||!reg.plan.pasos||!reg.decisiones||!reg.base)return [];
+    return reg.plan.pasos.filter(function(paso){
+      return paso.tipo==="conjuro_preparado"&&!paso.automatico;
+    });
+  }
   return {planificar:planificar,resolver:resolver,aplicar:aplicar,disponibles:disponibles,
     registrar:registrar,opcionesRevisables:opcionesRevisables,revisar:revisar,
+    preparacionesRevisables:preparacionesRevisables,
     codigoPoder:codigoPoder,nombreEtiquetado:nombreEtiquetado,
     origenConjuro:origenConjuro,estadoUsoVA:estadoUsoVA};
 });
