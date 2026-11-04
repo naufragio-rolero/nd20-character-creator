@@ -285,6 +285,12 @@ async function main(){
       "document.querySelector('#revision-pasos-talentos select').dataset.revisionPaso"),
       'talento-guerrero');
     assert.equal(await cdp.evalJS(
+      "Array.from(document.querySelectorAll('#revision-pasos-poderes option')).some(o=>o.textContent.includes('Ataque sorpresa'))"),
+      false,'Guerrero nunca puede elegir la Técnica exclusiva del Ladrón');
+    assert.equal(await cdp.evalJS(
+      "Array.from(document.querySelectorAll('#revision-pasos-poderes option')).some(o=>o.textContent.includes('Rajar'))"),
+      true,'Rajar sigue aprendible: Nivel 6+ solo afecta a su uso');
+    assert.equal(await cdp.evalJS(
       "document.querySelector('#revision-poderes').hidden === "+
       "(document.querySelectorAll('#revision-pasos-poderes select').length===0)"),true,
       'La sección de Poderes aparece si el Guerrero tiene elecciones adicionales documentadas');
