@@ -111,6 +111,11 @@ const especiesPermitidas=new Set([...Object.keys(leer(salida,'especies.json')),
 assert.ok(Object.keys(sexo.femeninos_por_especie).every(x=>especiesPermitidas.has(x)));
 assert.deepEqual(sexo.ocupaciones_contexto_femenino,{});
 assert.deepEqual(sexo.especies_preferencia_femenino,{});
+const formasSeguidorOriginal=leer(raiz,'sexo-personajes.json').seguidores_profesiones_drs;
+assert.deepEqual(sexo.seguidores_profesiones_drs,formasSeguidorOriginal,
+  'Las formas masculina y femenina de los doce oficios siguen publicadas en el DRS');
+assert.equal(Object.keys(sexo.seguidores_profesiones_drs).length,12);
+assert.equal(sexo.seguidores_profesiones_drs.Mensajero.femenino,'Mensajera');
 const fichas=leer(salida,'fichas-documentales.json');
 assert.ok(Object.values(fichas).every(x=>x.sistema!=='nd20'||
   (x.fuente||'').includes('NaufragioD20DRS')),

@@ -11,6 +11,8 @@ const datos={especies,ocupaciones};
 const equipo=require('../data/equipo-inicial.json');
 const nombresGenericos=require('../data/nombres-historicos-ylat.json');
 const nombresYlat=require('../data/componentes-nombres-ylat.json');
+const sexoCatalogo=require('../data/sexo-personajes.json');
+const equipoApi=require('../assets/equipment.js');
 
 // Tabla DRS 1.1.12: orden d12, precio, Moral, Salud y disponibilidad.
 const tabla=[
@@ -32,7 +34,8 @@ assert.deepEqual(reglas.seguidoresDRS().map(x=>[
 ]),tabla,'Doce filas literales y en orden d12');
 for(const [nombre,precio,moral,dado,aventura] of tabla){
  const cfg={tipo:nombre,nivel:1,sexo:'femenino',modoNombre:'generico',
-   nombresHistoricosYlat:nombresGenericos,catalogoEquipo:equipo};
+   nombresHistoricosYlat:nombresGenericos,catalogoEquipo:equipo,
+   catalogoSexo:sexoCatalogo};
  const a=reglas.seguidorNd20(cfg,reglas.aleatorioSemilla('seguidor-drs-'+nombre));
  const b=reglas.seguidorNd20(cfg,reglas.aleatorioSemilla('seguidor-drs-'+nombre));
  assert.deepEqual(a,b,'Seguidor reproducible '+nombre);
@@ -46,11 +49,13 @@ for(const [nombre,precio,moral,dado,aventura] of tabla){
  assert.deepEqual(a.atributos.map(x=>x.nombre),['Ataque','Defensa']);
  assert.ok(a.atributos.every(x=>x.valor>=4&&x.valor<=9&&
    x.valor+x.dificultad===20&&!x.favorito),'VA y DA calculados como PJ');
- assert.equal(a.recursos.length,3,'Salud, Moral y KPI de Aventuras');
+ assert.equal(a.recursos.length,2,'Aventuras ya no es un KPI');
  assert.equal(a.recursos[1][1],moral);
  assert.equal(a.recursos[0][1],dado+' (d'+dado+')','Dado de Salud inicial al máximo como PJ');
- assert.ok(['Sí','No'].includes(a.recursos[2][1]));
- if(aventura!=='Depende')assert.equal(a.recursos[2][1],aventura);
+ assert.ok(['Sí','No'].includes(a.aventuras));
+ if(aventura!=='Depende')assert.equal(a.aventuras,aventura);
+ assert.equal(a.profesion_mostrada,sexoCatalogo.seguidores_profesiones_drs[nombre].femenino);
+ assert.equal(a.descripcion,'Seguidora · '+a.profesion_mostrada);
  assert.equal(a.riqueza,precio+'/día');
  assert.deepEqual(a.notas,[],'Sin historial de operaciones ni otros avisos');
  assert(a.equipo.length>0,'Equipo propuesto para '+nombre);
@@ -67,12 +72,44 @@ for(const seed of ['A','B','C']){
  assert.deepEqual(a,b,'d12 aleatorio reproducible');
  assert.ok(tabla.some(x=>x[0]===a.profesion));
 }
+// DRS: doce claves inmutables; presentación femenina/masculina desde JSON.
+assert.deepEqual(Object.keys(sexoCatalogo.seguidores_profesiones_drs),
+ tabla.map(x=>x[0]));
+for(const oficio of tabla.map(x=>x[0])){
+ const formas=sexoCatalogo.seguidores_profesiones_drs[oficio];
+ for(const sexo of ['femenino','masculino']){
+   assert.ok(typeof formas[sexo]==='string'&&formas[sexo].length);
+   const persona=reglas.seguidorNd20({tipo:oficio,sexo,catalogoSexo:sexoCatalogo,
+     catalogoEquipo:equipo},reglas.aleatorioSemilla('formas-'+oficio+'-'+sexo));
+   assert.equal(persona.profesion,oficio,'La clave DRS no cambia');
+   assert.equal(persona.profesion_mostrada,formas[sexo]);
+   assert.equal(persona.descripcion,
+     (sexo==='femenino'?'Seguidora':'Seguidor')+' · '+formas[sexo]);
+ }
+}
+assert.equal(sexoCatalogo.seguidores_profesiones_drs.Mensajero.femenino,'Mensajera');
+assert.equal(sexoCatalogo.seguidores_profesiones_drs.Sacerdote.femenino,'Sacerdotisa');
+const femenina=reglas.seguidorNd20({tipo:'Mercenario',sexo:'femenino',
+ catalogoSexo:sexoCatalogo,catalogoEquipo:equipo},()=>.1);
+assert.equal(femenina.descripcion,'Seguidora · Mercenaria');
+assert.ok(femenina.arma_equipada&&femenina.protecciones_equipadas.armadura);
+assert.ok(femenina.equipo.includes(femenina.arma_equipada));
+assert.ok(femenina.equipo.includes(femenina.protecciones_equipadas.armadura));
+assert.notEqual(equipoApi.danoFicha(femenina,equipo).valor,'—');
+assert.notEqual(equipoApi.blindajeFicha(femenina,equipo).valor,'Sin armadura');
+const mensajera=reglas.seguidorNd20({tipo:'Mensajero',sexo:'femenino',
+ catalogoSexo:sexoCatalogo,catalogoEquipo:equipo},()=>.1);
+assert.equal(mensajera.descripcion,'Seguidora · Mensajera');
+assert.equal(equipoApi.danoFicha(mensajera,equipo).valor,'—');
+assert.equal(equipoApi.blindajeFicha(mensajera,equipo).valor,'Sin armadura');
+assert.equal(mensajera.aventuras,'Sí');
 const primera=reglas.seguidoresDRS();
 primera[0].precio='alterado';
 assert.equal(reglas.seguidoresDRS()[0].precio,'20 mo','La tabla está protegida ante cambios externos');
 // Hitos: 1, 4, 8 y 12. Se mejora cada Atributo una vez cada cuatro Niveles.
 const cfgN={tipo:'Mercenario',nivel:12,sexo:'masculino',
-  modoNombre:'ylat',componentesYlat:nombresYlat,catalogoEquipo:equipo};
+  modoNombre:'ylat',componentesYlat:nombresYlat,catalogoEquipo:equipo,
+  catalogoSexo:sexoCatalogo};
 const n12=reglas.seguidorNd20(cfgN,()=>.999);
 assert.equal(n12.nivel,12);
 assert.equal(n12.sexo,'masculino');
@@ -99,10 +136,10 @@ for(const arma of ['Espada larga','Hacha de batalla','Maza']){
 }
 for(const respuesta of [['si','Sí'],['no','No']]){
  const a=reglas.seguidorNd20({tipo:'Arcanista',aventuras:respuesta[0]},()=>.2);
- assert.equal(a.recursos[2][1],respuesta[1]);
+ assert.equal(a.aventuras,respuesta[1]);
 }
 assert.equal(reglas.seguidorNd20({tipo:'Sacerdote',aventuras:'si'},()=>.2)
-  .recursos[2][1],'No','No se sobrescribe una disponibilidad fija DRS');
+  .aventuras,'No','No se sobrescribe una disponibilidad fija DRS');
 assert.throws(()=>reglas.seguidorNd20({nivelMin:8,nivelMax:4},()=>.5),
   /intervalo de Niveles/);
 assert.throws(()=>reglas.seguidorNd20({nivel:31},()=>.5),/Nivel no válido/);

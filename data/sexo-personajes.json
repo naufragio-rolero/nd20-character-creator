@@ -537,5 +537,55 @@
   "configuracion": {
     "sexo_por_defecto": "aleatorio",
     "respetar_contexto": true
+  },
+  "seguidores_profesiones_drs": {
+    "Arcanista": {
+      "masculino": "Arcanista",
+      "femenino": "Arcanista"
+    },
+    "Artesano": {
+      "masculino": "Artesano",
+      "femenino": "Artesana"
+    },
+    "Cazador": {
+      "masculino": "Cazador",
+      "femenino": "Cazadora"
+    },
+    "Escriba": {
+      "masculino": "Escriba",
+      "femenino": "Escriba"
+    },
+    "Escudero": {
+      "masculino": "Escudero",
+      "femenino": "Escudera"
+    },
+    "Guardia": {
+      "masculino": "Guardia",
+      "femenino": "Guardia"
+    },
+    "Ladrón": {
+      "masculino": "Ladrón",
+      "femenino": "Ladrona"
+    },
+    "Mensajero": {
+      "masculino": "Mensajero",
+      "femenino": "Mensajera"
+    },
+    "Mercenario": {
+      "masculino": "Mercenario",
+      "femenino": "Mercenaria"
+    },
+    "Portantorchas": {
+      "masculino": "Portantorchas",
+      "femenino": "Portantorchas"
+    },
+    "Porteador": {
+      "masculino": "Porteador",
+      "femenino": "Porteadora"
+    },
+    "Sacerdote": {
+      "masculino": "Sacerdote",
+      "femenino": "Sacerdotisa"
+    }
   }
 }
