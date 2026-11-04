@@ -68,6 +68,11 @@ assert.equal(out._sections.find(x=>x.source==='equipo').items[0],
   'Hacha de batalla (Daño 1d8 · Durab. d10)');
 const html=fs.readFileSync(path.join(root,'assets/app.js'),'utf8');
 const css=fs.readFileSync(path.join(root,'assets/styles.css'),'utf8');
+const editado=prepararDatos({...p,descripcion_mostrada:'Guerrera · Elfa agreste',
+  concepto_mostrado:'Guardiana del bosque'},null,catalog,consultarPoder);
+assert.equal(editado._ocupacion,'Guerrera');
+assert.equal(editado._especie,'Elfa agreste');
+assert.equal(editado.concepto,'Guardiana del bosque');
 const bridge=fs.readFileSync(path.join(root,'assets/pdf-export-browser.js'),'utf8');
 assert(html.includes('acciones-pie-ficha'));
 assert(html.includes('class="exportar-pdf-ficha accion-icono"'));
