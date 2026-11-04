@@ -4994,6 +4994,8 @@
       "nombre": "Rajar",
       "categoria": "Fuerza bruta",
       "requisito": "Guerrero, Nivel 6+",
+      "ocupaciones_permitidas": ["Guerrero"],
+      "requisitos_uso": [{"tipo": "nivel", "minimo": 6}],
       "coste": "",
       "fuente": "Naufragio d20 DRS"
     },
@@ -5018,6 +5020,8 @@
       "nombre": "Ataque sorpresa",
       "categoria": "Trucos sucios",
       "requisito": "Ladrón",
+      "ocupaciones_permitidas": ["Ladrón"],
+      "requisitos_uso": [],
       "coste": "",
       "fuente": "Naufragio d20 DRS"
     },
