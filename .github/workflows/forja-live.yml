@@ -28,16 +28,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado PR #86: seguidores y ajustes PDF A5
+      - name: Obtener snapshot DRS aprobado PR #88: generación directa de seguidores
         uses: actions/checkout@v4
         with:
-          ref: 55c1baca6eea6fade9742e40038096f7efba54c9
+          ref: 573cca5cf7593eac97150803849c452e4e43a314
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "55c1baca6eea6fade9742e40038096f7efba54c9"
-      # Snapshot aprobado para LIVE: PR #86, con 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
-      # efectos de Talentos en sección propia y seguidores con Nivel, género, nombres y equipo contextual.
+          test "$(git rev-parse HEAD)" = "573cca5cf7593eac97150803849c452e4e43a314"
+      # Snapshot aprobado para LIVE: PR #88, con 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
+      # seguidores con configuración separada, resumen de opciones y generación directa.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
@@ -66,6 +66,11 @@ jobs:
           grep -Fq 'longitudNombreDestacado' assets/pdf-export-v2.js
           grep -Fq 'function equipoSeguidor(oficio,catalogo,rng)' assets/rules.js
           grep -Fq 'id="dialogo-seguidores"' index.html
+          grep -Fq 'id="configurar-seguidores"' index.html
+          grep -Fq 'id="resumen-seguidores"' index.html
+          grep -Fq 'id="aplicar-seguidores"' index.html
+          grep -Fq 'function generarSeguidoresActivos()' assets/app.js
+          grep -Fq 'function refrescarResumenSeguidores()' assets/app.js
           grep -Fq 'id="seguidor-nivel-min"' index.html
           grep -Fq 'id="seguidor-nivel-max"' index.html
           grep -Fq 'id="seguidor-genero"' index.html
@@ -307,6 +312,9 @@ jobs:
                grep -Fq 'id="copiar-semilla"' /tmp/forja-live.html &&
                grep -Fq 'Guardar y preparar' /tmp/forja-live.html &&
                grep -Fq 'id="dialogo-seguidores"' /tmp/forja-live.html &&
+               grep -Fq 'id="configurar-seguidores"' /tmp/forja-live.html &&
+               grep -Fq 'id="resumen-seguidores"' /tmp/forja-live.html &&
+               grep -Fq 'id="aplicar-seguidores"' /tmp/forja-live.html &&
                grep -Fq 'id="seguidor-nivel-min"' /tmp/forja-live.html &&
                grep -Fq 'id="seguidor-nivel-max"' /tmp/forja-live.html &&
                grep -Fq 'La semilla no guarda cambios posteriores.' /tmp/forja-live.html &&
@@ -370,6 +378,8 @@ jobs:
           grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
           grep -Fq 'function guardarRevision(continuarPreparacion)' /tmp/forja-app.js
           grep -Fq 'dialogo-seguidores' /tmp/forja-app.js
+          grep -Fq 'function generarSeguidoresActivos()' /tmp/forja-app.js
+          grep -Fq 'function refrescarResumenSeguidores()' /tmp/forja-app.js
           grep -Fq 'class="gestionar-equipo accion-icono"' /tmp/forja-app.js
           grep -Fq 'componentesYlat' /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/names.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-names.js
