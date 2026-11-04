@@ -1,6 +1,6 @@
 # Hoja de ruta — mejoras de La Forja (noviembre de 2026)
 
-**Estado:** Tanda 1 implementada y verificada en `main` mediante [PR #78](https://github.com/naufragio-rolero/nd20-character-creator/pull/78) (cinco suites CI en verde); **NO publicada en LIVE**. Tanda 2 desarrollada en [PR #79](https://github.com/naufragio-rolero/nd20-character-creator/pull/79), pendiente de cierre de QA y sin publicar en LIVE. Tanda 3 sigue planificada.  
+**Estado:** Tanda 1 implementada y verificada en `main` mediante [PR #78](https://github.com/naufragio-rolero/nd20-character-creator/pull/78) (cinco suites CI en verde); **NO publicada en LIVE**. Tanda 2 implementada e integrada en `main` mediante [PR #79](https://github.com/naufragio-rolero/nd20-character-creator/pull/79), con cinco suites de CI superadas y **sin publicar en LIVE**. Tanda 3 sigue planificada.  
 **Ámbito público:** Naufragio d20 Fantasía DRS v1.1.12 y Dungeon Hack. CiFi, Nocturna y los suplementos no publicados siguen fuera de LIVE.  
 **Fuente reglamentaria:** `NaufragioD20DRS` / [DRS 1.1.12](https://docs.google.com/document/d/1W69x5V_982IGg2AL0TltZ200aSt2khXu_VCa7gMI3zY/edit). Las decisiones de UX no son reglas.
 
@@ -14,7 +14,7 @@
 
 **Criterios para cerrar Tanda 1:** pruebas Node de equipo/reglas/iconos, navegación Chrome/Firefox/WebKit (incluido móvil y temas), recursos SVG 1:1 y licencia, y empaquetado `dist/public-drs` con auditoría sin DLC. El commit puede integrarse en desarrollo; **no cambiar el SHA aprobado de `.github/workflows/forja-live.yml` ni desplegar LIVE** sin un pedido posterior.
 
-## Tanda 2 — reglas y utilidades de personaje, **en revisión (no LIVE)**
+## Tanda 2 — reglas y utilidades de personaje, **completada en desarrollo (no LIVE)**
 
 6. **Generar seguidores de Naufragio d20 DRS.** Reutilizar componentes de ficha y organización de herramientas, pero introducir generador reglamentario independiente de `seguidorDH`. El DRS especifica doce profesiones con precio/día, Moral, disponibilidad para aventuras y dados de Salud propios: **d4**, **d6** o **d8** según la tabla, **no d6 para todos**. Sus únicos Atributos son **Ataque y Defensa**: Ataque (ataques y lanzamientos; Fuerza/Agilidad/Mente) y Defensa (esquivas, salvaciones; Resistencia/Intuición/Presencia). Sin Esfuerzo ni seis Atributos ni progresión por Niveles de Dungeon Hack trasplantada. No atribuir capacidades, equipo, costes o bonificaciones ausentes en el DRS.
 7. **Modificar los Conjuros preparados.** Un editor distinto de «Talentos y Poderes»: mostrar las plazas y Círculos documentados, permitir preparaciones repetidas cuando la progresión lo admita y limitar al grimorio conocido del Mago; conservar la distinción entre conocer/aprender y preparar. DRS: el Clérigo elige tras un Intervalo matinal; el Mago prepara tras dos Intervalos de estudio. Mostrar estas condiciones sin automatizar tiempo o combate; comprobar que cambiar un conocido no deje preparados ilegales. Añadir pruebas de regeneración y de conservación de compras y elecciones posteriores.
