@@ -404,7 +404,7 @@ async function run(name,origin){
     assert.match(await first().locator('.recurso-ficha').last().innerText(),/Sí/);
     assert.match(await first().textContent(),/Porteador/);
     assert.ok((await first().locator('h3').first().innerText()).split(' ').length>=2);
-    assert.match(await first().innerText(),/Femenino/);
+    assert.equal(await first().locator('.sexo-ficha[aria-label="Sexo: Femenino"]').count(),1);
     assert.equal(await first().locator('.exportar-pdf-ficha').count(),0);
     assert.equal(await first().locator('.gestionar-equipo').count(),0);
     assert.equal(await first().locator('.revisar-elecciones').count(),0);
