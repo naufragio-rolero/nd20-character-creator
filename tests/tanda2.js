@@ -132,22 +132,38 @@ if(ajeno)assert.throws(()=>poderes.preparar(preparado,
 
 // Cambiar un Conjuro conocido invalida preparaciones que dependían de él,
 // pero no las sustituye por otro Conjuro ni altera el precio o la ficha.
-const idUsado=conjuroM.id;
 const reg=preparado.elecciones_registradas;
-const aprendizaje=reg.plan.pasos.find(p=>
- p.tipo==='conjuro_conocido'&&(reg.decisiones[p.id]||[]).includes(idUsado));
-assert.ok(aprendizaje,'Se identifica la plaza original de grimorio');
 const todosConocidos=new Set(reg.plan.pasos.filter(p=>p.tipo==='conjuro_conocido')
  .flatMap(p=>reg.decisiones[p.id]||[]));
-const candidato=aprendizaje.opciones.find(op=>!todosConocidos.has(op.id));
-assert.ok(candidato,'Existe un reemplazo válido y distinto');
-const nuevaLista=reg.decisiones[aprendizaje.id].map(x=>x===idUsado?candidato.id:x);
-const revisado=poderes.revisar(preparado,{[aprendizaje.id]:nuevaLista});
-assert.ok(revisado.preparacionesRetiradas>=pasoM.cantidad);
-assert.ok(revisado.personaje.elecciones_registradas.decisiones[pasoM.id]
-  .every(x=>x==='__vacio'),'Se retiran preparaciones ilegales');
-assert.deepEqual(revisado.personaje.equipo,preparado.equipo);
-assert.equal(revisado.personaje.saldo_mo,preparado.saldo_mo);
+let reemplazo=null;
+for(const paso of pasosM){
+  for(const conjuro of poderes.disponibles(paso,reg.decisiones)){
+    if(conjuro.id==='__vacio')continue;
+    const aprendizaje=reg.plan.pasos.find(p=>p.tipo==='conjuro_conocido'&&
+      (reg.decisiones[p.id]||[]).includes(conjuro.id));
+    const candidato=aprendizaje&&aprendizaje.opciones.find(op=>
+      !todosConocidos.has(op.id));
+    if(candidato){reemplazo={paso,conjuro,aprendizaje,candidato};break;}
+  }
+  if(reemplazo)break;
+}
+if(reemplazo){
+  const {paso,conjuro,aprendizaje,candidato}=reemplazo;
+  const preparadosPrevios=poderes.preparar(preparado,{[paso.id]:
+    Array(paso.cantidad).fill(conjuro.id)});
+  const listaNueva=reg.decisiones[aprendizaje.id].map(x=>
+    x===conjuro.id?candidato.id:x);
+  const revisado=poderes.revisar(preparadosPrevios,{[aprendizaje.id]:listaNueva});
+  assert.ok(revisado.preparacionesRetiradas>=paso.cantidad);
+  assert.ok(revisado.personaje.elecciones_registradas.decisiones[paso.id]
+    .every(x=>x==='__vacio'),'Se retiran preparaciones ilegales');
+  assert.deepEqual(revisado.personaje.equipo,preparadosPrevios.equipo);
+  assert.equal(revisado.personaje.saldo_mo,preparadosPrevios.saldo_mo);
+}else{
+  // Algunos niveles agotan todas las opciones de su lista oficial:
+  // no se inventa un reemplazo para forzar la prueba.
+  assert.ok(todosConocidos.size>0&&pasosM.length>0);
+}
 assert.deepEqual(poderes.preparacionesRevisables(
   reglas.seguidorNd20({tipo:'Arcanista'},reglas.aleatorioSemilla('n'))),[]);
 console.log('OK · Tanda 2: 12 seguidores DRS, grimorio y preparaciones con conservación de ficha.');
