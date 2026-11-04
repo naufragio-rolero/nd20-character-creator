@@ -29,11 +29,22 @@ Las dos fichas añaden los campos opcionales `ocupaciones_permitidas` (lista de 
 **Ejemplos vigentes:**
 
 ```json
-{"id":"tecnica-06","nombre":"Rajar","requisito":"Guerrero, Nivel 6+",
- "ocupaciones_permitidas":["Guerrero"],
- "requisitos_uso":[{"tipo":"nivel","minimo":6}]}
-{"id":"tecnica-09","nombre":"Ataque sorpresa","requisito":"Ladrón",
- "ocupaciones_permitidas":["Ladrón"],"requisitos_uso":[]}
+[
+  {
+    "id": "tecnica-06",
+    "nombre": "Rajar",
+    "requisito": "Guerrero, Nivel 6+",
+    "ocupaciones_permitidas": ["Guerrero"],
+    "requisitos_uso": [{"tipo": "nivel", "minimo": 6}]
+  },
+  {
+    "id": "tecnica-09",
+    "nombre": "Ataque sorpresa",
+    "requisito": "Ladrón",
+    "ocupaciones_permitidas": ["Ladrón"],
+    "requisitos_uso": []
+  }
+]
 ```
 
 ## Compras e intercambios de armamento
