@@ -13,6 +13,7 @@
   var armamentoBorrador = null;
   var gestionBorrador = null;
   var revisionBorrador = null;
+  var preparacionBorrador = null;
   var fuentesGuardadas = {};
   var ultimaReproduccion = null;
   var reproduccionActiva = null;
@@ -296,7 +297,8 @@
     $('opciones-riqueza-nivel').hidden=dh||juego==='nd20_nocturna';
     $('modos-creacion').hidden = dh;
     $('opciones-contexto-sexo').hidden=dh;
-    $('generar-seguidor').disabled = !dh;
+    $('generar-seguidor').disabled = !(dh||juego==='nd20');
+    $('selector-seguidor-drs').hidden=juego!=='nd20';
     ['nivel-min','nivel-max'].forEach(function(id){
       $(id).max=dh?'36':'30';
     });
@@ -433,6 +435,8 @@
   function fuentesFicha(personaje){
     var ocupacion=personaje.procedenciaOcupacion||personaje.origen||'Sin especificar';
     var especie=personaje.procedenciaEspecie;
+    if(personaje.tipo_ficha==='seguidor_drs')
+      return 'Fuente · Seguidores: '+personaje.origen;
     return 'Fuente · Ocupación: '+ocupacion+(especie?' · Especie: '+especie:'');
   }
   function alternarMenu(abierto){
@@ -639,7 +643,7 @@
   }
   function htmlRecursos(pares,personaje){
     var items=(pares||[]).slice(),blindaje=null,dano=null;
-    if(personaje?.juego==='Naufragio d20 · Fantasía'){
+    if(personaje?.juego==='Naufragio d20 · Fantasía'&&!personaje.tipo_ficha){
       // La fila inferior ordena Daño, Blindaje y Potencia.
       // Ningún recurso ni su valor cambian al reorganizar la vista.
       var potencia=items.filter(function(p){return p[0]==='Potencia';});
@@ -715,12 +719,15 @@
         (a.favorito ? ' <span title="Atributo favorito" aria-label="Favorito">★</span>' : '') +
         '</span><span>' + cifra + '</span></div>';
     }).join('');
-    return '<article class="tarjeta" data-id="' + id + '" data-nivel="' + esc(personaje.nivel) + '">' +
+    return '<article class="tarjeta'+(personaje.tipo_ficha==='seguidor_drs'?' tarjeta-seguidor':'')+
+      '" data-id="' + id + '"' +
+      (personaje.nivel==null?'':' data-nivel="'+esc(personaje.nivel)+'"')+'>' +
       '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(nombreSistema(sistemaFicha(personaje))) +
       '</p><h3>' + esc(personaje.nombre) +
       '</h3><p class="descripcion-personaje">' + descripcionConSexo(personaje) + '</p></div>' +
-      '<div class="acciones-cabecera-ficha"><span class="nivel-ficha" aria-label="Nivel '+
-      esc(personaje.nivel)+'">Nivel '+esc(personaje.nivel)+'</span>'+
+      '<div class="acciones-cabecera-ficha">'+
+      (personaje.nivel==null?'':'<span class="nivel-ficha" aria-label="Nivel '+
+        esc(personaje.nivel)+'">Nivel '+esc(personaje.nivel)+'</span>')+
       '<button class="icon-btn eliminar-ficha" data-id="' + id +
       '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div></div>' +
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
@@ -733,7 +740,9 @@
       htmlLista('Conjuros preparados',personaje.conjuros_preparados,'poder',sistemaFicha(personaje)) +
       htmlAvisos('Condiciones de uso',notas.poderes,'avisos-poderes') +
       htmlLista('Equipo',personaje.equipo,'equipo',sistemaFicha(personaje)) +
-      (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
+      (personaje.riqueza ? '<p class="riqueza"><strong>'+
+        (personaje.tipo_ficha==='seguidor_drs'?'Precio recomendado':'Riqueza')+
+        ':</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
       htmlAvisos('Riqueza adicional',notas.riqueza,'avisos-riqueza') +
       htmlContexto(notas.contexto) +
       htmlOtrosAvisos(notas.otras) +
@@ -743,7 +752,7 @@
       (personaje.juego==='Naufragio d20 · Fantasía'&&personaje.elecciones_registradas?
         '<button type="button" class="revisar-elecciones accion-icono" data-id="'+id+
         '" title="Revisar Talentos y Poderes elegidos" aria-label="Revisar Talentos y Poderes"><span class="icono-accion accion-talentos" aria-hidden="true"></span></button>':'')+
-      (personaje.juego==='Naufragio d20 · Fantasía'?
+      (personaje.juego==='Naufragio d20 · Fantasía'&&!personaje.tipo_ficha?
         '<button type="button" class="exportar-pdf-ficha accion-icono" data-id="'+id+'" title="Exportar PDF A5" aria-label="Exportar ficha PDF A5"><span class="icono-accion accion-pdf" aria-hidden="true"></span></button>':'')+
       (reproduccion?
          '<button type="button" class="ver-reproduccion accion-icono" data-id="'+id+
@@ -755,7 +764,9 @@
       '</small></div></article>';
   }
   function fichaTexto(p) {
-    var str=[p.nombre,nombreSistema(sistemaFicha(p)),'Nivel: '+p.nivel,p.descripcion];
+    var str=[p.nombre,nombreSistema(sistemaFicha(p))];
+    if(p.nivel!=null)str.push('Nivel: '+p.nivel);
+    str.push(p.descripcion);
     if(p.sexo)str.push('Sexo: '+(p.sexo==='femenino'?'Femenino':'Masculino'));
     if(p.concepto)str.push('Concepto: '+p.concepto);
     str.push('', 'Atributos:');
@@ -772,7 +783,7 @@
         p[key].forEach(function(v){str.push('- '+(Array.isArray(v)?v[0]+': '+v[1]:v));});
       }
     });
-    if(p.juego==='Naufragio d20 · Fantasía'){
+    if(p.juego==='Naufragio d20 · Fantasía'&&!p.tipo_ficha){
       var defensa=blindajePersonaje(p);
       if(defensa){
         str.push('Blindaje: '+defensa.valor);
@@ -784,7 +795,8 @@
       var dano=danoPersonaje(p);
       str.push('Arma equipada: '+(dano.arma||'Sin equipar')+'; Daño: '+dano.valor);
     }
-    if(p.riqueza)str.push('Riqueza: '+p.riqueza);
+    if(p.riqueza)str.push((p.tipo_ficha==='seguidor_drs'?
+      'Precio recomendado: ':'Riqueza: ')+p.riqueza);
     str.push(fuentesFicha(p));
     return str.join('\n');
   }
@@ -1168,6 +1180,8 @@
     talentos.replaceChildren();otros.replaceChildren();
     $('revision-talentos').hidden=!pasos.some(function(x){return x.tipo==='talento';});
     $('revision-poderes').hidden=!pasos.some(function(x){return x.tipo!=='talento';});
+    $('revision-abrir-preparacion').hidden=
+      !poderes.preparacionesRevisables(p).length;
     pasos.forEach(function(paso){
       var field=document.createElement('fieldset');
       field.className='grupo-poderes';
@@ -1219,6 +1233,89 @@
     dialogo.hidden=false;dialogo.showModal();
     var primero=dialogo.querySelector('select[data-revision-paso]');
     (primero||$('revision-cerrar')).focus({preventScroll:true});
+  }
+  // Editor independiente: cambia las preparaciones originales documentadas
+  // sin convertirlas en Conjuros conocidos ni alterar compras posteriores.
+  function entradaPreparacion(){
+    var entrada=entradas.find(function(x){return x.id===preparacionBorrador?.id;});
+    if(!entrada||entrada.tipo!=='ficha'||
+       !poderes.preparacionesRevisables(entrada.valor).length)
+      throw Error('Esta ficha no tiene Espacios de Conjuro DRS preparables.');
+    return entrada;
+  }
+  function cerrarPreparacion(){
+    var id=preparacionBorrador?.id;
+    preparacionBorrador=null;
+    var dialogo=$('editor-preparacion');
+    if(dialogo.open)dialogo.close();
+    dialogo.hidden=true;
+    var boton=$('fichas').querySelector('.revisar-elecciones[data-id="'+id+'"]');
+    if(boton)boton.focus({preventScroll:true});
+  }
+  function abrirPreparacion(entrada){
+    var pasos=poderes.preparacionesRevisables(entrada.valor);
+    if(!pasos.length)throw Error('No hay Espacios de Conjuro disponibles.');
+    preparacionBorrador={id:entrada.id};
+    var p=entrada.valor,decisiones=p.elecciones_registradas.decisiones;
+    var mago=p.descripcion.startsWith('Mago · ');
+    $('preparacion-resumen').textContent=p.nombre+' · Nivel '+p.nivel;
+    $('preparacion-reglas').textContent=mago?
+      'Mago: requiere dos Intervalos de estudio y solo puede preparar Conjuros de su libro.':
+      'Clérigo: prepara durante un Intervalo, por la mañana, a partir de su lista DRS.';
+    var contenedor=$('preparacion-circulos');
+    contenedor.replaceChildren();
+    pasos.forEach(function(paso){
+      var campo=document.createElement('fieldset');
+      campo.className='grupo-poderes';
+      var leyenda=document.createElement('legend');
+      leyenda.textContent=paso.titulo+' · '+paso.cantidad+' espacio(s)';
+      campo.appendChild(leyenda);
+      var opciones=poderes.disponibles(paso,decisiones);
+      for(var i=0;i<paso.cantidad;i++){
+        var label=document.createElement('label');
+        label.className='eleccion-poder';
+        label.textContent='Espacio '+(i+1)+': ';
+        var sel=document.createElement('select');
+        sel.dataset.preparacionPaso=paso.id;
+        sel.dataset.indice=String(i);
+        sel.setAttribute('aria-label',paso.titulo+' · Espacio '+(i+1));
+        opciones.forEach(function(op){
+          var option=document.createElement('option');
+          option.value=op.id;
+          option.textContent=op.id==='__vacio'?'Sin preparar':
+            op.nombre+' (C'+paso.circulo+')'+
+              poderes.origenConjuro(paso.tipo,paso.titulo,op.origen);
+          sel.appendChild(option);
+        });
+        var inicial=(decisiones[paso.id]||[])[i]||'__vacio';
+        if(opciones.some(function(x){return x.id===inicial;}))
+          sel.value=inicial;
+        else sel.value='__vacio';
+        label.appendChild(sel);
+        campo.appendChild(label);
+      }
+      contenedor.appendChild(campo);
+    });
+    refrescarEstadoPreparacion();
+    var dialogo=$('editor-preparacion');
+    dialogo.hidden=false;dialogo.showModal();
+    (dialogo.querySelector('select')||$('preparacion-cerrar'))
+      .focus({preventScroll:true});
+  }
+  function leerPreparaciones(){
+    var p=entradaPreparacion().valor,nuevas={};
+    poderes.preparacionesRevisables(p).forEach(function(paso){
+      nuevas[paso.id]=Array.from($('form-preparacion')
+        .querySelectorAll('select[data-preparacion-paso="'+paso.id+'"]'))
+        .map(function(select){return select.value;});
+    });
+    return nuevas;
+  }
+  function refrescarEstadoPreparacion(){
+    var selects=Array.from($('preparacion-circulos').querySelectorAll('select'));
+    var ocupados=selects.filter(function(x){return x.value!=='__vacio';}).length;
+    $('preparacion-estado').textContent=ocupados+' de '+selects.length+
+      ' Espacios preparados. Repetir un Conjuro consume otra plaza.';
   }
   // Compras de útiles: la selección se valida con el motor antes de tocar
   // el inventario. Cada editor se vincula al ID único de una ficha DRS.
@@ -1962,6 +2059,37 @@
       });
       if(mensaje)aviso(mensaje);
     });
+    $('revision-abrir-preparacion').addEventListener('click',function(){
+      conControl(function(){
+        var entrada=entradaRevision();
+        cerrarRevisionElecciones();
+        abrirPreparacion(entrada);
+      });
+    });
+    $('form-preparacion').addEventListener('change',refrescarEstadoPreparacion);
+    $('form-preparacion').addEventListener('submit',function(event){
+      event.preventDefault();
+      conControl(function(){
+        var entrada=entradaPreparacion();
+        entrada.valor=poderes.preparar(entrada.valor,leerPreparaciones());
+        cerrarPreparacion();
+        dibujar();
+        var boton=$('fichas').querySelector('.revisar-elecciones[data-id="'+entrada.id+'"]');
+        if(boton)boton.focus({preventScroll:true});
+        aviso('Preparaciones de Conjuros actualizadas; Talentos y grimorio intactos.');
+      });
+    });
+    $('preparacion-cerrar').addEventListener('click',cerrarPreparacion);
+    $('preparacion-cancelar').addEventListener('click',cerrarPreparacion);
+    $('editor-preparacion').addEventListener('cancel',function(event){
+      event.preventDefault();cerrarPreparacion();
+    });
+    $('editor-preparacion').addEventListener('click',function(event){
+      if(event.target!==this)return;
+      var r=this.getBoundingClientRect();
+      if(event.clientX<r.left||event.clientX>r.right||
+         event.clientY<r.top||event.clientY>r.bottom)cerrarPreparacion();
+    });
     $('revision-cerrar').addEventListener('click',cerrarRevisionElecciones);
     $('revision-cancelar').addEventListener('click',cerrarRevisionElecciones);
     $('editor-revision-elecciones').addEventListener('cancel',function(e){
@@ -2013,8 +2141,14 @@
     });
     $('generar-seguidor').addEventListener('click',function(){
       conControl(function(){
-        var c=config();if(c.juego!=='dh')throw Error('Elige Dungeon Hack para generar seguidores.');
-        c.nivel=Math.min(30,c.nivel);
+        var juego=$('juego').value;
+        if(juego==='nd20'){
+          agregar('ficha',reglas.seguidorNd20(
+            {tipo:$('tipo-seguidor-drs').value},rngUnico()(correlativo)));
+          return;
+        }
+        if(juego!=='dh')throw Error('Elige un sistema publicado para generar seguidores.');
+        var c=config();c.nivel=Math.min(30,c.nivel);
         agregar('ficha',reglas.seguidorDH(datos.dh,c,rngUnico()(correlativo)));
       });
     });
@@ -2290,6 +2424,8 @@
           cerrarGestionEquipo();
         if(revisionBorrador&&String(revisionBorrador.id)===del.dataset.id)
           cerrarRevisionElecciones();
+        if(preparacionBorrador&&String(preparacionBorrador.id)===del.dataset.id)
+          cerrarPreparacion();
         entradas=entradas.filter(function(x){return String(x.id)!==del.dataset.id;});
         dibujar();return;
       }
@@ -2330,6 +2466,8 @@
       if(compraBorrador)cerrarCompra();
       if(armamentoBorrador)cerrarArmamento();
       if(gestionBorrador)cerrarGestionEquipo();
+      if(revisionBorrador)cerrarRevisionElecciones();
+      if(preparacionBorrador)cerrarPreparacion();
       entradas=[];dibujar();aviso('Mesa despejada.');
     });
     $('exportar').addEventListener('click',function(){
@@ -2436,6 +2574,14 @@
       infoUI.configurar(indice);
     }
     datos.dh=loaded.dungeon;
+    var selectorSeguidores=$('tipo-seguidor-drs');
+    reglas.seguidoresDRS().forEach(function(tipo){
+      var opcion=document.createElement('option');
+      opcion.value=tipo.nombre;
+      opcion.textContent=tipo.nombre+' · Moral '+tipo.moral+
+        ' · d'+tipo.dado+' Salud · '+tipo.precio+'/día';
+      selectorSeguidores.appendChild(opcion);
+    });
     $('origenes').textContent='';
     datos.dh.origins.forEach(function(nombre,index){
       var label=document.createElement('label');

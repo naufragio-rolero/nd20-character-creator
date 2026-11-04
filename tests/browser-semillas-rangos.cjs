@@ -306,6 +306,99 @@ async function run(name,origin){
     await page.locator('#armamento-cancelar').click();
     assert.equal(await page.locator('#editor-gestion-equipo').evaluate(x=>x.open),true);
     await page.locator('#gestion-cerrar').click();
+    // Tanda 2: el editor de preparación es independiente del de Talentos.
+    await open();
+    await page.locator('#ocupacion').selectOption('Clérigo');
+    await page.locator('#nivel-min').fill('12');
+    await page.locator('#nivel-max').fill('12');
+    await page.locator('#nombre-personaje').fill('Clérigo E2E');
+    await page.locator('#generar-dialogo').click();
+    assert.match(await first().locator('h3').first().innerText(),/Clérigo E2E/);
+    await first().locator('.revisar-elecciones').click();
+    assert.equal(await page.locator('#revision-abrir-preparacion').isVisible(),true,
+      'La preparación aparece en el editor actual de Poderes, no como sexto icono');
+    await page.locator('#revision-abrir-preparacion').click();
+    assert.equal(await page.locator('#editor-revision-elecciones').evaluate(el=>el.open),false);
+    assert.equal(await page.locator('#editor-preparacion').evaluate(el=>el.open),true);
+    assert.match(await page.locator('#preparacion-reglas').innerText(),/Intervalo/);
+    const primerCirculo=page.locator('#preparacion-circulos fieldset').first();
+    const plazas=primerCirculo.locator('select[data-preparacion-paso]');
+    assert.ok(await plazas.count()>1);
+    const opcion=await plazas.first().locator('option').nth(1).getAttribute('value');
+    await plazas.nth(0).selectOption(opcion);
+    await plazas.nth(1).selectOption(opcion);
+    assert.match(await page.locator('#preparacion-estado').innerText(),/Espacios preparados/);
+    await page.locator('#preparacion-confirmar').click();
+    assert.equal(await page.locator('#editor-preparacion').evaluate(el=>el.open),false);
+    const titulosPreparacion=await first().locator('.bloque-ficha h4').allTextContents();
+    assert.ok(titulosPreparacion.includes('Conjuros preparados'),
+      'La ficha muestra Conjuros preparados: '+JSON.stringify(titulosPreparacion));
+    await first().locator('.revisar-elecciones').click();
+    await page.locator('#revision-abrir-preparacion').click();
+    const plazasOtra=page.locator('#preparacion-circulos fieldset').first()
+      .locator('select[data-preparacion-paso]');
+    assert.equal(await plazasOtra.nth(0).inputValue(),opcion);
+    assert.equal(await plazasOtra.nth(1).inputValue(),opcion,
+      'Repeticiones conservadas tras cerrar y reabrir');
+    await plazasOtra.nth(0).selectOption('__vacio');
+    await page.locator('#preparacion-confirmar').click();
+    assert.match(await first().textContent(),/Espacio\(s\) de Conjuro sin preparar/);
+    // Mago: las listas del editor proceden exclusivamente del grimorio.
+    await open();
+    await page.locator('#ocupacion').selectOption('Mago');
+    await page.locator('#nombre-personaje').fill('Mago E2E');
+    await page.locator('#generar-dialogo').click();
+    await first().locator('.revisar-elecciones').click();
+    await page.locator('#revision-abrir-preparacion').click();
+    assert.match(await page.locator('#preparacion-reglas').innerText(),/dos Intervalos/);
+    const opcionesMago=await page.locator('#preparacion-circulos select').first()
+      .locator('option').allTextContents();
+    assert.ok(opcionesMago[0]==='Sin preparar'&&opcionesMago.length>=2);
+    await page.locator('#preparacion-cancelar').click();
+    assert.equal(await page.locator('#editor-preparacion').evaluate(x=>x.open),false);
+
+    // Seguidores: seleccionar uno de los 12 tipos DRS, sin heredar Nivel ni Esfuerzo.
+    await page.locator('#tab-herramientas').click();
+    assert.equal(await page.locator('#selector-seguidor-drs').isVisible(),true);
+    assert.equal(await page.locator('#tipo-seguidor-drs option').count(),13);
+    await page.locator('#tipo-seguidor-drs').selectOption('Porteador');
+    await page.locator('#generar-seguidor').click();
+    await first().locator('.atributo').first().waitFor();
+    assert.deepEqual(await first().locator('.nombre-atributo').allTextContents(),
+      ['Ataque','Defensa']);
+    assert.equal(await first().locator('.nivel-ficha').count(),0,
+      'Un seguidor DRS no tiene Nivel');
+    assert.deepEqual(await first().locator('.recurso-nombre').allTextContents(),
+      ['Salud','Moral']);
+    assert.match(await first().innerText(),/7 mp\/día/);
+    assert.match(await first().textContent(),/Disponibilidad para aventuras: Sí/);
+    assert.equal(await first().locator('.exportar-pdf-ficha').count(),0,
+      'La plantilla PDF A5 de PJ no se aplica a un seguidor sin seis Atributos');
+    assert.equal(await first().locator('.gestionar-equipo').count(),0);
+    assert.equal(await first().locator('.revisar-elecciones').count(),0);
+    await page.locator('#tipo-seguidor-drs').selectOption('Arcanista');
+    await page.locator('#generar-seguidor').click();
+    assert.match(await first().innerText(),/20 mo\/día/);
+    assert.match(await first().locator('.recurso-ficha').first().innerText(),/d4/);
+    await page.setViewportSize({width:390,height:850});
+    if(!await page.locator('#panel-forja').isVisible())
+      await page.locator('#alternar-menu').click();
+    assert.equal(await page.locator('#selector-seguidor-drs').isVisible(),true,
+      'Selector DRS funcional desde la pestaña Herramientas en móvil');
+    await page.setViewportSize({width:1320,height:920});
+
+    // El sistema de seguidores de Dungeon Hack sigue siendo el de antes.
+    await page.locator('#tab-personajes').click();
+    await open();
+    await page.locator('#juego').evaluate(x=>{
+      x.value='dh';x.dispatchEvent(new Event('change',{bubbles:true}));
+    });
+    await close();
+    await page.locator('#tab-herramientas').click();
+    assert.equal(await page.locator('#selector-seguidor-drs').isVisible(),false);
+    await page.locator('#generar-seguidor').click();
+    assert.equal(await first().locator('.nombre-atributo').count(),2);
+    assert.match(await first().innerText(),/Dungeon Hack/i);
     assert.deepEqual(errors,[],'Sin errores JavaScript');
     console.log('OK: E2E '+name+' '+(process.env.FORJA_PUBLIC_ROOT?'DRS público':'repositorio'));
   }finally{await browser.close();}

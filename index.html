@@ -232,11 +232,18 @@
       </div>
       <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
         <h3>Herramientas del Cronista</h3>
+        <div id="selector-seguidor-drs" class="campo" hidden>
+          <label for="tipo-seguidor-drs">Seguidor de Naufragio d20</label>
+          <select id="tipo-seguidor-drs">
+            <option value="">Tipo aleatorio (d12)</option>
+          </select>
+          <small>Doce tipos del DRS. Cada uno tiene su precio diario, Moral y dado de Salud. Sin Nivel ni Esfuerzo.</small>
+        </div>
         <div class="botonera">
           <button id="generar-seguidor" type="button">Generar seguidor</button>
           <button id="generar-matriz" type="button">Matriz de Atributos</button>
         </div>
-        <small>Los seguidores son propios de Dungeon Hack. Las matrices son ayudas independientes.</small>
+        <small>Seguidores disponibles para Naufragio d20 DRS y Dungeon Hack, con reglas independientes. La matriz es una ayuda separada.</small>
       </section>
     </aside>
     <section class="resultados" aria-labelledby="titulo-resultados">
@@ -308,7 +315,29 @@
           <p id="revision-estado" class="ayuda" aria-live="polite"></p>
           <div class="botonera">
             <button type="submit" id="revision-confirmar" class="principal">Guardar elecciones</button>
+            <button type="button" id="revision-abrir-preparacion" hidden>Preparar Conjuros</button>
             <button type="button" id="revision-cancelar">Cancelar</button>
+          </div>
+        </form>
+      </dialog>
+      <dialog id="editor-preparacion" class="dialogo-compras dialogo-revision-elecciones dialogo-preparacion"
+        hidden aria-labelledby="titulo-preparacion">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-preparacion">Preparar Conjuros</h3>
+            <p id="preparacion-resumen" class="muted"></p>
+          </div>
+          <button type="button" id="preparacion-cerrar" class="cerrar-rejilla"
+            aria-label="Cerrar preparación de Conjuros">✕</button>
+        </div>
+        <form id="form-preparacion">
+          <p id="preparacion-reglas" class="ayuda revision-aclaracion"></p>
+          <p class="ayuda revision-aclaracion">Puedes cambiar cada Espacio dentro de su Círculo, repetir Conjuros o dejarlo sin preparar. No se modifican los Conjuros conocidos, Talentos, equipo ni compras.</p>
+          <div id="preparacion-circulos"></div>
+          <p id="preparacion-estado" class="ayuda" aria-live="polite"></p>
+          <div class="botonera">
+            <button type="submit" id="preparacion-confirmar" class="principal">Guardar preparaciones</button>
+            <button type="button" id="preparacion-cancelar">Cancelar</button>
           </div>
         </form>
       </dialog>

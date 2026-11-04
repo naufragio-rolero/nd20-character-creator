@@ -484,6 +484,47 @@
       notas:notas
     };
   }
+  // Tabla literal Seguidores del DRS v1.1.12: d12, precio diario,
+  // Moral, dado de Salud y disponibilidad para acompañar aventuras.
+  // No comparte Nivel, progresión ni equipo con los seguidores de Dungeon Hack.
+  var SEGUIDORES_DRS=[
+    {nombre:'Arcanista',precio:'20 mo',moral:8,dado:4,aventura:'Depende'},
+    {nombre:'Artesano',precio:'1 mo',moral:6,dado:4,aventura:'No'},
+    {nombre:'Cazador',precio:'2 mo',moral:9,dado:8,aventura:'Sí'},
+    {nombre:'Escriba',precio:'1 mo',moral:6,dado:4,aventura:'Depende'},
+    {nombre:'Escudero',precio:'1 mp',moral:7,dado:6,aventura:'Sí'},
+    {nombre:'Guardia',precio:'2 mo',moral:9,dado:8,aventura:'Sí'},
+    {nombre:'Ladrón',precio:'1 mo',moral:7,dado:4,aventura:'Depende'},
+    {nombre:'Mensajero',precio:'5 mo',moral:8,dado:6,aventura:'Sí'},
+    {nombre:'Mercenario',precio:'5 mo',moral:9,dado:8,aventura:'Sí'},
+    {nombre:'Portantorchas',precio:'8 mc',moral:6,dado:6,aventura:'Sí'},
+    {nombre:'Porteador',precio:'7 mp',moral:7,dado:6,aventura:'Sí'},
+    {nombre:'Sacerdote',precio:'3 mo',moral:10,dado:4,aventura:'No'}
+  ];
+  function seguidoresDRS(){return SEGUIDORES_DRS.map(function(x){return Object.assign({},x);});}
+  function seguidorNd20(config,rng){
+    config=config||{};rng=rng||Math.random;
+    var tipo=config.tipo||'';
+    var oficio=tipo?SEGUIDORES_DRS.find(function(x){return x.nombre===tipo;}):
+      SEGUIDORES_DRS[Math.floor(rng()*SEGUIDORES_DRS.length)];
+    if(!oficio)throw Error('El tipo de seguidor no está en la tabla DRS.');
+    // El DRS indica que Ataque/Defensa se calculan como Atributos PJ:
+    // VA 3+d6, DA 20-VA, sin ajustes de Especie ni progresión de Nivel.
+    var atributos=['Ataque','Defensa'].map(function(nombre){
+      var va=3+dado(6,rng);
+      return {nombre:nombre,valor:va,dificultad:20-va,favorito:false};
+    });
+    return {
+      tipo_ficha:'seguidor_drs',juego:'Naufragio d20 · Fantasía',
+      nombre:oficio.nombre,descripcion:'Seguidor · DRS',nivel:null,concepto:'',
+      origen:'NaufragioD20DRS v1.1.12',atributos:atributos,
+      recursos:[['Salud',dado(oficio.dado,rng)+' (d'+oficio.dado+')'],
+        ['Moral',oficio.moral]],
+      competencias:[],capacidades:[],poderes:[],conjuros_preparados:[],
+      equipo:[],riqueza:oficio.precio+'/día',
+      notas:['Disponibilidad para aventuras: '+oficio.aventura+'.']
+    };
+  }
   function seguidorDH(datos, config, rng) {
     var nivel = clamp(Math.floor(Number(config.nivel) || 1), 1, 30);
     var origenes = Array.isArray(config.origenes) ? config.origenes.map(Number) : null;
@@ -527,5 +568,6 @@
   }
   return {hash:hash, aleatorioSemilla:aleatorioSemilla, nivelAleatorio:nivelAleatorio,
     dado:dado, crearNd20:crearNd20,
-    eleccionDH:eleccionDH, seguidorDH:seguidorDH, matriz:matriz};
+    eleccionDH:eleccionDH, seguidorDH:seguidorDH,
+    seguidorNd20:seguidorNd20,seguidoresDRS:seguidoresDRS,matriz:matriz};
 });

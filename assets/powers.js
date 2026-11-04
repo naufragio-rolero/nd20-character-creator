@@ -794,8 +794,58 @@
     }
     return {personaje:copia,preparacionesRetiradas:retiradas};
   }
+  function preparacionesRevisables(personaje){
+    var reg=personaje&&personaje.elecciones_registradas;
+    if(!reg||personaje.juego!=="Naufragio d20 · Fantasía"||
+       !reg.plan||!reg.plan.pasos||!reg.decisiones||!reg.base)return [];
+    return reg.plan.pasos.filter(function(paso){
+      return paso.tipo==="conjuro_preparado"&&!paso.automatico;
+    });
+  }
+  function preparar(personaje,cambios){
+    var pasos=preparacionesRevisables(personaje);
+    if(!pasos.length)throw Error("Esta ficha carece de Espacios de Conjuro DRS.");
+    if(!cambios||typeof cambios!=="object"||Array.isArray(cambios))
+      throw Error("Las preparaciones deben identificarse por Círculo.");
+    var permitidos=new Set(pasos.map(function(paso){return paso.id;}));
+    Object.keys(cambios).forEach(function(id){
+      if(!permitidos.has(id))throw Error("No existe esa plaza: "+id);
+    });
+    var registro=personaje.elecciones_registradas;
+    var decisiones=JSON.parse(JSON.stringify(registro.decisiones));
+    pasos.forEach(function(paso){
+      if(!Object.hasOwn(cambios,paso.id))return;
+      var nuevos=cambios[paso.id];
+      if(!Array.isArray(nuevos)||nuevos.length!==paso.cantidad)
+        throw Error("Cantidad de Espacios incorrecta: "+paso.titulo);
+      var opciones=disponibles(paso,decisiones);
+      if(nuevos.some(function(id){return !opciones.some(function(x){return x.id===id;});}))
+        throw Error("Conjuro fuera del Círculo o grimorio: "+paso.titulo);
+      decisiones[paso.id]=nuevos.slice();
+    });
+    var resultado=resolver(registro.plan,decisiones,function(){return 0;});
+    var base=JSON.parse(JSON.stringify(registro.base));
+    var temporal=aplicar(base,registro.plan,resultado);
+    var copia=JSON.parse(JSON.stringify(personaje));
+    copia.conjuros_preparados=temporal.conjuros_preparados;
+    // Mantener observaciones y compras posteriores, pero actualizar el número
+    // de espacios vacíos, sin dejar advertencias obsoletas.
+    var marca=' Espacio(s) de Conjuro sin preparar.';
+    copia.notas=(copia.notas||[]).filter(function(n){
+      return !(n.endsWith(marca)&&Number.isInteger(Number(n.slice(0,-marca.length))));
+    });
+    var vacios=pasos.reduce(function(total,paso){
+      return total+(decisiones[paso.id]||[]).filter(function(id){return id==='__vacio';}).length;
+    },0);
+    if(vacios)copia.notas.push(vacios+marca);
+    copia.elecciones_registradas={
+      plan:registro.plan,base:registro.base,decisiones:decisiones
+    };
+    return copia;
+  }
   return {planificar:planificar,resolver:resolver,aplicar:aplicar,disponibles:disponibles,
     registrar:registrar,opcionesRevisables:opcionesRevisables,revisar:revisar,
+    preparacionesRevisables:preparacionesRevisables,preparar:preparar,
     codigoPoder:codigoPoder,nombreEtiquetado:nombreEtiquetado,
     origenConjuro:origenConjuro,estadoUsoVA:estadoUsoVA};
 });

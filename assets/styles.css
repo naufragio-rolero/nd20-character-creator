@@ -1173,7 +1173,7 @@ html[data-tema]:not([data-tema=clasico]) .recursos-rejilla .recurso-arma{
 
 
 /* Edición posterior: plazas documentadas con consulta inmediata de glosas.
-   Los formularios de creación y de preparación de Conjuros no se modifican. */
+   La preparación independiente reutiliza estas casillas y conserva la creación. */
 .dialogo-revision-elecciones #form-revision-elecciones{
   padding:1rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.8rem;
 }
@@ -1214,6 +1214,23 @@ html[data-tema]:not([data-tema=clasico]) .recursos-rejilla .recurso-arma{
   .dialogo-revision-elecciones .botonera{grid-template-columns:minmax(0,1fr)}
 }
 
+
+/* Preparación de Conjuros: incluso a Nivel 30 el diálogo mantiene
+   navegación por teclado, desplazamiento y campos de 44 px en móvil. */
+.dialogo-preparacion #form-preparacion{
+  padding:1rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.85rem;
+  max-height:min(70vh,640px);overflow-y:auto;
+}
+.dialogo-preparacion #preparacion-circulos{display:grid;gap:.65rem}
+.dialogo-preparacion #preparacion-estado{line-height:1.45;margin:0}
+.herramientas #selector-seguidor-drs{margin:0 0 1rem}
+.herramientas #tipo-seguidor-drs{
+  width:100%;min-height:44px;max-width:100%;background:var(--superficie2);
+  color:var(--texto);border:1px solid var(--borde);border-radius:8px;padding:.5rem
+}
+@media(max-width:560px){
+  .dialogo-preparacion #form-preparacion{padding:.75rem;max-height:75vh}
+}
 
 /* La validación del Nivel debe leerse en el diálogo; no basta el tooltip
    nativo del campo, especialmente al generar desde el botón flotante. */
