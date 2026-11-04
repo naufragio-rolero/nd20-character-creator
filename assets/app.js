@@ -2025,8 +2025,14 @@
     });
     $('generar-seguidor').addEventListener('click',function(){
       conControl(function(){
-        var c=config();if(c.juego!=='dh')throw Error('Elige Dungeon Hack para generar seguidores.');
-        c.nivel=Math.min(30,c.nivel);
+        var juego=$('juego').value;
+        if(juego==='nd20'){
+          agregar('ficha',reglas.seguidorNd20(
+            {tipo:$('tipo-seguidor-drs').value},rngUnico()(correlativo)));
+          return;
+        }
+        if(juego!=='dh')throw Error('Elige un sistema publicado para generar seguidores.');
+        var c=config();c.nivel=Math.min(30,c.nivel);
         agregar('ficha',reglas.seguidorDH(datos.dh,c,rngUnico()(correlativo)));
       });
     });
@@ -2448,6 +2454,14 @@
       infoUI.configurar(indice);
     }
     datos.dh=loaded.dungeon;
+    var selectorSeguidores=$('tipo-seguidor-drs');
+    reglas.seguidoresDRS().forEach(function(tipo){
+      var opcion=document.createElement('option');
+      opcion.value=tipo.nombre;
+      opcion.textContent=tipo.nombre+' · Moral '+tipo.moral+
+        ' · d'+tipo.dado+' Salud · '+tipo.precio+'/día';
+      selectorSeguidores.appendChild(opcion);
+    });
     $('origenes').textContent='';
     datos.dh.origins.forEach(function(nombre,index){
       var label=document.createElement('label');
