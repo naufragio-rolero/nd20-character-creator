@@ -203,6 +203,23 @@
         'El inventario inicial requiere el catálogo de equipo contrastado.'
       ]};
     var equipo = compra.equipo.slice();
+    // La compra inicial no concede equipo gratis: solo activar la pieza que ya
+    // figura en inventario, comprobada por los lectores de Equipo DRS.
+    var armaInicial='',armaduraInicial='';
+    if(esFantasia&&equipoApi&&config.catalogoEquipo){
+      var cambiables=compra.compras_iniciales_intercambiables||[];
+      var candidataArma=cambiables.find(function(x){
+        return x.grupo==='armas'||x.grupo==='varitas_defensa';
+      });
+      var candidataArmadura=cambiables.find(function(x){return x.grupo==='armaduras';});
+      var inventarioInicial={equipo:equipo};
+      if(candidataArma&&equipoApi.armasDisponibles(inventarioInicial,config.catalogoEquipo)
+         .some(function(x){return x.nombre===candidataArma.nombre;}))
+        armaInicial=candidataArma.nombre;
+      if(candidataArmadura&&equipoApi.proteccionesDisponibles(inventarioInicial,config.catalogoEquipo)
+         .armaduras.some(function(x){return x.nombre===candidataArmadura.nombre;}))
+        armaduraInicial=candidataArmadura.nombre;
+    }
     detalles = detalles.concat(compra.notas);
     var recuerdo = escoger(esp.objetos_emocionales || [], rng);
     if (recuerdo) equipo.push('Recuerdo: '+recuerdo);
@@ -343,6 +360,8 @@
       competencias:(oc.competencias || []).slice(), equipo:equipo, origen:tipo,
       ...(esFantasia?{saldo_mo:Number(compra.restante),
         capital_inicial_mo:presupuesto,
+        arma_equipada:armaInicial,
+        protecciones_equipadas:{armadura:armaduraInicial,escudo:''},
         // Solo compra inicial documentada; regalos y paquetes nunca se reembolsan.
         compras_iniciales_intercambiables:
           (compra.compras_iniciales_intercambiables||[]).map(function(x){
@@ -506,26 +525,7 @@
       }),
       recursos:[], capacidades:[], competencias:[], equipo:[], notas:[], riqueza:''};
   }
-  function mazmorra(config,rng) {
-    var ancho=clamp(Math.floor(Number(config.ancho)||6),3,20);
-    var alto=clamp(Math.floor(Number(config.alto)||6),3,20);
-    var tipos=[['tile',75],['col',10],['trap',5],['furn',10]];
-    var filas=[];
-    for(var y=0;y<alto+2;y++){
-      var fila=[];
-      for(var x=0;x<ancho+2;x++){
-        if(!y||!x||y===alto+1||x===ancho+1) fila.push('wall');
-        else {
-          var r = Math.floor(rng()*100),tipo='tile';
-          for(var i=0;i<tipos.length;i++){r-=tipos[i][1];if(r<0){tipo=tipos[i][0];break;}}
-          fila.push(tipo);
-        }
-      }
-      filas.push(fila);
-    }
-    return filas;
-  }
   return {hash:hash, aleatorioSemilla:aleatorioSemilla, nivelAleatorio:nivelAleatorio,
     dado:dado, crearNd20:crearNd20,
-    eleccionDH:eleccionDH, seguidorDH:seguidorDH, matriz:matriz, mazmorra:mazmorra};
+    eleccionDH:eleccionDH, seguidorDH:seguidorDH, matriz:matriz};
 });
