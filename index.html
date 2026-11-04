@@ -232,6 +232,23 @@
       </div>
       <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
         <h3>Herramientas del Cronista</h3>
+        <section id="resumen-seguidores" class="resumen-creacion resumen-seguidores"
+          aria-labelledby="titulo-resumen-seguidores">
+          <h4 id="titulo-resumen-seguidores">Seguidores preparados</h4>
+          <dl>
+            <div><dt>Nivel</dt><dd id="resumen-seguidor-nivel">Nivel 1</dd></div>
+            <div><dt>Profesión</dt><dd id="resumen-seguidor-profesion">Aleatoria (d12)</dd></div>
+            <div><dt>Género</dt><dd id="resumen-seguidor-genero">Aleatorio</dd></div>
+            <div><dt>Nombres</dt><dd id="resumen-seguidor-nombres">Genéricos de Nd20</dd></div>
+            <div><dt>Cantidad</dt><dd id="resumen-seguidor-cantidad">1</dd></div>
+            <div><dt>Aventuras</dt><dd id="resumen-seguidor-aventuras">Según el DRS</dd></div>
+          </dl>
+        </section>
+        <button id="configurar-seguidores" type="button" class="configurar-creacion"
+          aria-haspopup="dialog" aria-controls="dialogo-seguidores">
+          <span class="icono-svg" aria-hidden="true"></span>
+          Configurar seguidores
+        </button>
         <div class="botonera">
           <button id="generar-seguidor" type="button">Generar seguidor</button>
           <button id="generar-matriz" type="button">Matriz de Atributos</button>
@@ -243,7 +260,7 @@
       aria-labelledby="titulo-seguidores">
       <div class="cabecera-compras">
         <div>
-          <h3 id="titulo-seguidores">Crear seguidores · Naufragio d20</h3>
+          <h3 id="titulo-seguidores">Configurar seguidores · Naufragio d20</h3>
           <p class="muted">Dos Atributos: Ataque y Defensa. Elige un rango de Nivel, un nombre y una profesión.</p>
         </div>
         <button type="button" id="cerrar-seguidores" class="cerrar-rejilla"
@@ -284,7 +301,8 @@
         </div>
         <p id="aviso-seguidores" class="ayuda" role="status" aria-live="polite"></p>
         <div class="botonera">
-          <button type="submit" id="crear-seguidores" class="principal">Generar seguidores</button>
+          <button type="button" id="aplicar-seguidores" class="principal">Aplicar opciones</button>
+          <button type="submit" id="crear-seguidores">Generar seguidores</button>
           <button type="button" id="cancelar-seguidores">Cancelar</button>
         </div>
       </form>

@@ -376,15 +376,23 @@ async function run(name,origin){
     await page.locator('#preparacion-cancelar').click();
     assert.equal(await page.locator('#editor-preparacion').evaluate(x=>x.open),false);
 
-    // Seguidores: modal propio con Nivel, género, nombre y oficio visual.
+    // Seguidores usan el mismo esquema que Personajes: resumir, configurar
+    // cuando haga falta y generar directamente con las opciones activas.
     await page.locator('#tab-herramientas').click();
+    assert.equal(await page.locator('#configurar-seguidores').isVisible(),true);
+    assert.match(await page.locator('#resumen-seguidor-nivel').innerText(),/Nivel 1/);
+    const antesDirecto=await page.locator('#fichas .tarjeta').count();
     await page.locator('#generar-seguidor').click();
+    assert.equal(await page.locator('#dialogo-seguidores').evaluate(x=>x.open),false,
+      'Generar seguidor no debe abrir el diálogo');
+    assert.equal(await page.locator('#fichas .tarjeta').count(),antesDirecto+1,
+      'La generación directa usa los valores por defecto');
+
+    await page.locator('#configurar-seguidores').click();
     assert.equal(await page.locator('#dialogo-seguidores').evaluate(x=>x.open),true);
     assert.equal(await page.locator('#tipo-seguidor-drs option').count(),13);
     assert.equal(await page.locator('#profesiones-seguidores button').count(),13);
-    const iconos=await page.locator('#profesiones-seguidores .icono-profesion-seguidor')
-      .count();
-    assert.equal(iconos,13,'Todas las profesiones reutilizan un icono genérico');
+    assert.equal(await page.locator('#profesiones-seguidores .icono-profesion-seguidor').count(),13);
     await page.locator('#seguidor-nivel-min').fill('8');
     await page.locator('#seguidor-nivel-max').fill('8');
     await page.locator('#seguidor-genero').selectOption('femenino');
@@ -392,7 +400,15 @@ async function run(name,origin){
     await page.locator('#seguidor-cantidad').fill('1');
     await page.locator('#profesiones-seguidores [data-oficio="Porteador"]').click();
     assert.equal(await page.locator('#tipo-seguidor-drs').inputValue(),'Porteador');
-    await page.locator('#crear-seguidores').click();
+    const antesAplicar=await page.locator('#fichas .tarjeta').count();
+    await page.locator('#aplicar-seguidores').click();
+    assert.equal(await page.locator('#dialogo-seguidores').evaluate(x=>x.open),false);
+    assert.equal(await page.locator('#fichas .tarjeta').count(),antesAplicar,
+      'Aplicar opciones no crea seguidores');
+    assert.equal(await page.locator('#resumen-seguidor-nivel').innerText(),'Nivel 8');
+    assert.equal(await page.locator('#resumen-seguidor-profesion').innerText(),'Porteador');
+
+    await page.locator('#generar-seguidor').click();
     assert.equal(await page.locator('#dialogo-seguidores').evaluate(x=>x.open),false);
     await first().locator('.atributo').first().waitFor();
     assert.deepEqual(await first().locator('.nombre-atributo').allTextContents(),
@@ -409,20 +425,45 @@ async function run(name,origin){
     assert.equal(await first().locator('.gestionar-equipo').count(),0);
     assert.equal(await first().locator('.revisar-elecciones').count(),0);
     assert.ok(await first().locator('.bloque-ficha').filter({hasText:'Equipo'}).count()>0);
-    await page.locator('#generar-seguidor').click();
+
+    // Cancelar y cerrar no deben modificar las opciones ya aplicadas.
+    await page.locator('#configurar-seguidores').click();
+    assert.equal(await page.locator('#seguidor-nivel-min').inputValue(),'8');
+    assert.equal(await page.locator('#tipo-seguidor-drs').inputValue(),'Porteador');
+    await page.locator('#seguidor-nivel-min').fill('15');
+    await page.locator('#tipo-seguidor-drs').selectOption('Mercenario');
+    await page.locator('#cancelar-seguidores').click();
+    assert.equal(await page.locator('#resumen-seguidor-nivel').innerText(),'Nivel 8');
+    assert.equal(await page.locator('#resumen-seguidor-profesion').innerText(),'Porteador');
+    await page.locator('#configurar-seguidores').click();
+    assert.equal(await page.locator('#seguidor-nivel-min').inputValue(),'8',
+      'Un borrador cancelado no se conserva');
+    assert.equal(await page.locator('#tipo-seguidor-drs').inputValue(),'Porteador');
+
+    // Generar desde el formulario aplica y genera en una sola acción.
     await page.locator('#seguidor-nivel-min').fill('12');
     await page.locator('#seguidor-nivel-max').fill('12');
     await page.locator('#seguidor-genero').selectOption('masculino');
     await page.locator('#seguidor-aventuras').selectOption('si');
     await page.locator('#tipo-seguidor-drs').selectOption('Arcanista');
     await page.locator('#crear-seguidores').click();
+    assert.equal(await page.locator('#dialogo-seguidores').evaluate(x=>x.open),false);
+    assert.equal(await page.locator('#resumen-seguidor-nivel').innerText(),'Nivel 12');
+    assert.equal(await page.locator('#resumen-seguidor-profesion').innerText(),'Arcanista');
     assert.match(await first().innerText(),/20 mo\/día/);
     assert.equal(await first().locator('.nivel-ficha').innerText(),'Nivel 12');
     assert.match(await first().locator('.recurso-ficha').last().innerText(),/Sí/);
+    const antesRepetir=await page.locator('#fichas .tarjeta').count();
+    await page.locator('#generar-seguidor').click();
+    assert.equal(await page.locator('#dialogo-seguidores').evaluate(x=>x.open),false);
+    assert.equal(await page.locator('#fichas .tarjeta').count(),antesRepetir+1,
+      'La generación rápida reutiliza lo aplicado desde el diálogo');
+
     await page.setViewportSize({width:390,height:850});
     if(!await page.locator('#panel-forja').isVisible())
       await page.locator('#alternar-menu').click();
-    await page.locator('#generar-seguidor').click();
+    assert.equal(await page.locator('#configurar-seguidores').isVisible(),true);
+    await page.locator('#configurar-seguidores').click();
     assert.equal(await page.locator('#dialogo-seguidores').evaluate(x=>x.open),true);
     assert.equal(await page.locator('#profesiones-seguidores [data-oficio="Mercenario"]')
       .isVisible(),true,'Profesiones disponibles en móvil');
@@ -438,6 +479,8 @@ async function run(name,origin){
     await close();
     await page.locator('#tab-herramientas').click();
     assert.equal(await page.locator('#selector-seguidor-drs').isVisible(),false);
+    assert.equal(await page.locator('#configurar-seguidores').isVisible(),false,
+      'El generador de Dungeon Hack sigue siendo independiente');
     await page.locator('#generar-seguidor').click();
     assert.equal(await first().locator('.nombre-atributo').count(),2);
     assert.match(await first().innerText(),/Dungeon Hack/i);
