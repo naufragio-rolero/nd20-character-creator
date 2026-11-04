@@ -53,7 +53,7 @@ completo.capacidades=Array.from({length:154},(_,i)=>'Capacidad de prueba '+(i+1)
 const extendido=modelo.preparar(completo);
 assert.equal(extendido.secciones.find(s=>s.origen==='capacidades').items.length,154);
 assert.equal(JSON.stringify(completo).includes('Capacidad de prueba 154'),true);
-const presentado=modelo.prepar({...original,descripcion_mostrada:'Guerrera · Elfa agreste',
+const presentado=modelo.preparar({...original,descripcion_mostrada:'Guerrera · Elfa agreste',
   concepto_mostrado:'Guardiana del bosque'},null);
 assert.equal(presentado.ocupacion,'Guerrera');
 assert.equal(presentado.especie,'Elfa agreste');
