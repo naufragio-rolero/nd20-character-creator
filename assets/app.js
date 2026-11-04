@@ -652,6 +652,20 @@
   }
   function htmlRecursos(pares,personaje){
     var items=(pares||[]).slice(),blindaje=null,dano=null;
+    if(personaje?.tipo_ficha==='seguidor_drs'){
+      // Aventuras no es un recurso: se lee junto al precio recomendado.
+      items=items.filter(function(p){return p[0]!=='Aventuras';});
+      var ataque=danoPersonaje(personaje);
+      if(ataque.arma){
+        dano=ataque;
+        items.push(['Daño',dano.valor]);
+      }
+      var proteccion=blindajePersonaje(personaje);
+      if(proteccion&&(proteccion.armadura||proteccion.natural)){
+        blindaje=proteccion;
+        items.push(['Blindaje',proteccion.valor]);
+      }
+    }
     if(personaje?.juego==='Naufragio d20 · Fantasía'&&!personaje.tipo_ficha){
       // La fila inferior ordena Daño, Blindaje y Potencia.
       // Ningún recurso ni su valor cambian al reorganizar la vista.
@@ -710,6 +724,10 @@
   }
   function fichaHTML(personaje, id, reproduccion) {
     var notas=organizarObservaciones(personaje);
+    var aventuras=personaje.tipo_ficha==='seguidor_drs'?
+      (personaje.aventuras||((personaje.recursos||[]).find(function(r){
+        return r[0]==='Aventuras';
+      })||[])[1]):null;
     var esDungeonHack = personaje.juego.indexOf('Dungeon Hack') === 0;
     // Orden de lectura en la ficha Nd20, independiente del orden del modelo.
     // Dungeon Hack conserva su presentación sin alterar su sistema.
@@ -752,6 +770,8 @@
       (personaje.riqueza ? '<p class="riqueza"><strong>'+
         (personaje.tipo_ficha==='seguidor_drs'?'Precio recomendado':'Riqueza')+
         ':</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
+      (aventuras?'<p class="riqueza aventuras-seguidor"><strong>Aventuras:</strong> '+
+        esc(aventuras)+'</p>':'') +
       htmlAvisos('Riqueza adicional',notas.riqueza,'avisos-riqueza') +
       htmlContexto(notas.contexto) +
       htmlOtrosAvisos(notas.otras) +
@@ -804,8 +824,23 @@
       var dano=danoPersonaje(p);
       str.push('Arma equipada: '+(dano.arma||'Sin equipar')+'; Daño: '+dano.valor);
     }
+    if(p.tipo_ficha==='seguidor_drs'){
+      var danoSeguidor=danoPersonaje(p);
+      if(danoSeguidor.arma)
+        str.push('Arma equipada: '+danoSeguidor.arma+'; Daño: '+danoSeguidor.valor);
+      var proteccionSeguidor=blindajePersonaje(p);
+      if(proteccionSeguidor&&(proteccionSeguidor.armadura||proteccionSeguidor.natural))
+        str.push('Blindaje: '+proteccionSeguidor.valor+
+          (proteccionSeguidor.armadura?' · '+proteccionSeguidor.armadura:''));
+    }
     if(p.riqueza)str.push((p.tipo_ficha==='seguidor_drs'?
       'Precio recomendado: ':'Riqueza: ')+p.riqueza);
+    if(p.tipo_ficha==='seguidor_drs'){
+      var aventuras=p.aventuras||((p.recursos||[]).find(function(r){
+        return r[0]==='Aventuras';
+      })||[])[1];
+      if(aventuras)str.push('Aventuras: '+aventuras);
+    }
     str.push(fuentesFicha(p));
     return str.join('\n');
   }
@@ -2160,10 +2195,22 @@
         $('cantidad').disabled=radio.checked && radio.value==='personalizado';
       });
     });
+    function nombreProfesionSeguidor(tipo,genero){
+      return datos.sexo?.seguidores_profesiones_drs?.[tipo]?.[genero]||tipo;
+    }
     function refrescarProfesionSeguidor(){
       var elegido=$('tipo-seguidor-drs').value;
+      var genero=$('seguidor-genero').value;
       $('profesiones-seguidores').querySelectorAll('button[data-oficio]').forEach(function(b){
         b.setAttribute('aria-pressed',String(b.dataset.oficio===elegido));
+        b.querySelector('strong').textContent=b.dataset.oficio?
+          nombreProfesionSeguidor(b.dataset.oficio,genero):'Aleatoria';
+      });
+      Array.from($('tipo-seguidor-drs').options).forEach(function(op){
+        if(!op.value)return;
+        var oficio=reglas.seguidoresDRS().find(function(f){return f.nombre===op.value;});
+        if(oficio)op.textContent=nombreProfesionSeguidor(oficio.nombre,genero)+
+          ' · Moral '+oficio.moral+' · d'+oficio.dado+' Salud · '+oficio.precio+'/día';
       });
     }
     function mostrarConfiguracionSeguidores(conf){
@@ -2199,7 +2246,8 @@
       var c=configuracionSeguidoresActiva;
       $('resumen-seguidor-nivel').textContent=c.nivelMin===c.nivelMax?
         'Nivel '+c.nivelMin:'Niveles '+c.nivelMin+'–'+c.nivelMax;
-      $('resumen-seguidor-profesion').textContent=c.tipo||'Aleatoria (d12)';
+      $('resumen-seguidor-profesion').textContent=c.tipo?
+        nombreProfesionSeguidor(c.tipo,c.sexo):'Aleatoria (d12)';
       $('resumen-seguidor-genero').textContent=c.sexo==='aleatorio'?'Aleatorio':
         c.sexo==='femenino'?'Femenino':'Masculino';
       $('resumen-seguidor-nombres').textContent=c.modoNombre==='ylat'?
@@ -2218,7 +2266,8 @@
           tipo:c.tipo,nivelMin:c.nivelMin,nivelMax:c.nivelMax,
           sexo:c.sexo,modoNombre:c.modoNombre,aventuras:c.aventuras,
           nombresHistoricosYlat:datos.nombresHistoricosYlat,
-          componentesYlat:datos.componentesYlat,catalogoEquipo:datos.equipoInicial
+          componentesYlat:datos.componentesYlat,catalogoEquipo:datos.equipoInicial,
+          catalogoSexo:datos.sexo
         },generador(inicial+i)));
       }
       creados.forEach(function(p){agregar('ficha',p);});
@@ -2257,6 +2306,7 @@
       $('seguidor-nivel-min').focus({preventScroll:true});
     });
     $('tipo-seguidor-drs').addEventListener('change',refrescarProfesionSeguidor);
+    $('seguidor-genero').addEventListener('change',refrescarProfesionSeguidor);
     $('profesiones-seguidores').addEventListener('click',function(event){
       var boton=event.target.closest('button[data-oficio]');
       if(!boton)return;

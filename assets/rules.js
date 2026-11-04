@@ -596,15 +596,36 @@
         aventura=rng()<.5?'Sí':'No';
       else throw Error('La disponibilidad para aventuras no es válida.');
     }
+    // La tabla DRS mantiene claves estables (Mercenario, Mensajero...);
+    // el JSON editorial recoge únicamente sus formas de presentación.
+    var formas=config.catalogoSexo?.seguidores_profesiones_drs?.[oficio.nombre];
+    var profesionVisible=formas?.[genero]||oficio.nombre;
+    // El equipo propuesto es también el equipo en uso al generar la ficha.
+    // Las funciones de consulta vuelven a verificar su posesión al pintar KPI.
+    var inventario=equipoSeguidor(oficio.nombre,config.catalogoEquipo,rng);
+    function equipadoEn(grupos){
+      for(var grupo of grupos){
+        var encontrado=(config.catalogoEquipo?.[grupo]||[]).find(function(item){
+          return inventario.includes(item.nombre);
+        });
+        if(encontrado)return encontrado.nombre;
+      }
+      return '';
+    }
+    var armaduraEquipada=equipadoEn(['armaduras']);
+    var escudoEquipado=equipadoEn(['escudos']);
     return {
       tipo_ficha:'seguidor_drs',juego:'Naufragio d20 · Fantasía',
       nombre:nombre,sexo:genero,profesion:oficio.nombre,
-      descripcion:'Seguidor · '+oficio.nombre,nivel:nivel,concepto:'',
+      profesion_mostrada:profesionVisible,
+      descripcion:(genero==='femenino'?'Seguidora':'Seguidor')+' · '+profesionVisible,
+      nivel:nivel,concepto:'',
       origen:'NaufragioD20DRS v1.1.12',atributos:atributos,
-      recursos:[['Salud',salud+' (d'+oficio.dado+')'],
-        ['Moral',oficio.moral],['Aventuras',aventura]],
+      recursos:[['Salud',salud+' (d'+oficio.dado+')'],['Moral',oficio.moral]],
+      aventuras:aventura,
       competencias:[],capacidades:[],poderes:[],conjuros_preparados:[],
-      equipo:equipoSeguidor(oficio.nombre,config.catalogoEquipo,rng),
+      equipo:inventario,arma_equipada:equipadoEn(['armas','varitas_defensa']),
+      protecciones_equipadas:{armadura:armaduraEquipada,escudo:escudoEquipado},
       riqueza:oficio.precio+'/día',notas:[]
     };
   }
