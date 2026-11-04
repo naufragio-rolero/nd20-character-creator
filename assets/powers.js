@@ -95,10 +95,20 @@
           !(habilitarAmpliacion&&t.fuente==="Naufragio d20 Ocupaciones"))
         return false;
       if(juego==="nd20_cifi" && /Ocupaciones$/.test(t.fuente))return false;
-      // Los requisitos de Atributo y equipo son para el uso; una Ocupación específica sí restringe.
+      // Una Ocupación en el requisito restringe quién puede APRENDER la
+      // Técnica, incluso si su categoría está permitida (Guerrero vs Ladrón).
+      // Identificar términos completos evita coincidencias accidentales en
+      // requisitos de uso o nombres de poderes. VA, equipo y Nivel quedan
+      // documentados como condiciones de USO, no de aprendizaje.
       var req=t.requisito||"";
-      var exclusivas=["Valquiria","Guerrero","Derviche","Cronómaca","Celador","Pugilista"];
-      if(exclusivas.some(function(nombre){return req.indexOf(nombre)!==-1&&ocupacion!==nombre;}))return false;
+      var ocupacionesRequisito=[
+        "Clérigo","Guerrero","Mago","Ladrón",
+        "Valquiria","Derviche","Cronómaca","Celador","Pugilista"
+      ];
+      var exigidas=req.split(/[,;]/).map(function(parte){
+        return parte.trim().replace(/^Ocupación(?: de origen)?\s*:\s*/i,"");
+      }).filter(function(parte){return ocupacionesRequisito.includes(parte);});
+      if(exigidas.length&&!exigidas.includes(ocupacion))return false;
       return true;
     }).map(function(t){return {id:t.id,nombre:t.nombre,categoria:t.categoria,requisito:t.requisito};});
   }

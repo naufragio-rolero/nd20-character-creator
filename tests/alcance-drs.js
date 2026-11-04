@@ -866,8 +866,20 @@ for(const ocupacion of ['Clérigo','Guerrero','Mago','Ladrón']){
         x.includes('Faltan '+(nivel>=29?2:1)+' opciones')),
         'Aviso honesto de técnicas insuficientes en el DRS: Nivel '+nivel);
     }
-    if(ocupacion==='Guerrero')assert.equal(tecnicas.opciones.length,10,
-      'El Guerrero accede a las diez Técnicas oficiales sin añadir DLC');
+    if(ocupacion==='Guerrero'){
+      assert.equal(tecnicas.opciones.length,9,
+        'El Guerrero accede a nueve Técnicas DRS: Ataque sorpresa exige Ladrón');
+      assert.ok(!tecnicas.opciones.some(t=>t.id==='tecnica-09'),
+        'El requisito exclusivo Ladrón prevalece sobre la categoría Trucos sucios');
+      assert.ok(tecnicas.opciones.some(t=>t.id==='tecnica-06'),
+        'Rajar sigue disponible para aprender por Guerrero; Nivel 6+ exige para usar');
+    }
+    if(ocupacion==='Ladrón'){
+      assert.ok(tecnicas.opciones.some(t=>t.id==='tecnica-09'),
+        'Ataque sorpresa está disponible para la Ocupación Ladrón');
+      assert.ok(!tecnicas.opciones.some(t=>t.id==='tecnica-06'),
+        'El Ladrón no adquiere Rajar, que exige Guerrero');
+    }
   }
 }
 console.log('OK · 120 filas de progresión DRS cotejadas; Potencia y 9 Talentos de Ocupación; Técnica DRS estricta.');

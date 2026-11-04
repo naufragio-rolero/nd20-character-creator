@@ -844,14 +844,13 @@
   }
   function opcionesArmamento(personaje){
     var c=contextoArmamento(personaje);
-    return window.NaufragioEquipment.informacionEquipo(
+    return window.NaufragioEquipment.opcionesCompraCompetentes(
       datos.equipoInicial,c.ocupacion,c.nivel,c.especie);
   }
   function dineroEquipo(valor){return Number(valor).toFixed(2)+' mo';}
   function etiquetaEquipo(item){
     return item.nombre+' · '+dineroEquipo(item.precio)+
-      (item.precio_editorial?' ('+item.precio_editorial+')':'')+
-      (item.competente?'':' · Sin Competencia');
+      (item.precio_editorial?' ('+item.precio_editorial+')':'');
   }
   function llenarDestinoArmamento(){
     var personaje=entradaArmamento().valor;

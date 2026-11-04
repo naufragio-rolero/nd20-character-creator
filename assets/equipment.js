@@ -300,6 +300,15 @@
       });
     });
   }
+  // La consulta general conserva artículos sin Competencia para describir
+  // las penalizaciones DRS. La Forja ofrece comprar/intercambiar únicamente
+  // los autorizados por las Competencias vigentes (Ocupación, Nivel y Especie).
+  // Este filtro es una decisión de usabilidad, NO una prohibición del DRS.
+  function opcionesCompraCompetentes(catalogo,ocupacion,nivel,especie){
+    return informacionEquipo(catalogo,ocupacion,nivel,especie).filter(function(item){
+      return item.competente;
+    });
+  }
   function encontrarOpcion(opciones,grupo,nombre){
     var x=opciones.filter(function(o){return o.grupo===grupo&&o.nombre===nombre;});
     if(x.length!==1)throw Error('Artículo no disponible en el catálogo DRS: '+nombre);
@@ -324,7 +333,7 @@
     });
     if(original.length!==1||centimos(original[0].precio)!==centimos(origen.precio))
       throw Error('El valor reembolsable no coincide con el catálogo documentado.');
-    var opciones=informacionEquipo(catalogo,ocupacion,nivel,especie);
+    var opciones=opcionesCompraCompetentes(catalogo,ocupacion,nivel,especie);
     var nuevo=encontrarOpcion(opciones,seleccion.grupo,seleccion.nombre);
     var claseOrigen=['armas','varitas_defensa'].includes(origen.grupo)?'arma':origen.grupo;
     var claseNueva=['armas','varitas_defensa'].includes(nuevo.grupo)?'arma':nuevo.grupo;
@@ -406,7 +415,7 @@
     if(personaje?.juego!=='Naufragio d20 · Fantasía'||
        !Array.isArray(personaje.equipo)||!Array.isArray(seleccion))
       throw Error('Compra adicional solo disponible en Fantasía DRS.');
-    var opciones=informacionEquipo(catalogo,ocupacion,nivel,especie),
+    var opciones=opcionesCompraCompetentes(catalogo,ocupacion,nivel,especie),
       disponible=centimos(personaje.saldo_mo),total=0,objetos=[],detalles=[];
     var solicitudes=[];
     seleccion.forEach(function(s){
@@ -577,6 +586,7 @@
     compraUtilesFantasia:compraUtilesFantasia,
     cupoCompraFantasia:cupoCompraFantasia,
     informacionEquipo:informacionEquipo,
+    opcionesCompraCompetentes:opcionesCompraCompetentes,
     intercambiarEquipoInicial:intercambiarEquipoInicial,
     comprarArmamentoFantasia:comprarArmamentoFantasia,
     consultarPreciosArmaduraEquina:consultarPreciosArmaduraEquina,

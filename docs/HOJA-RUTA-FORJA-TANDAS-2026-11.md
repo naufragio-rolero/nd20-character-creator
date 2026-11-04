@@ -1,6 +1,6 @@
 # Hoja de ruta — mejoras de La Forja (noviembre de 2026)
 
-**Estado:** Tanda 1 implementada y verificada en `main` mediante [PR #78](https://github.com/naufragio-rolero/nd20-character-creator/pull/78) (cinco suites CI en verde); **NO publicada en LIVE**. Tanda 2 implementada e integrada en `main` mediante [PR #79](https://github.com/naufragio-rolero/nd20-character-creator/pull/79), con cinco suites de CI superadas y **sin publicar en LIVE**. Tanda 3 sigue planificada.  
+**Estado:** Tanda 1 implementada y verificada en `main` mediante [PR #78](https://github.com/naufragio-rolero/nd20-character-creator/pull/78) (cinco suites CI en verde); **NO publicada en LIVE**. Tanda 2 implementada e integrada en `main` mediante [PR #79](https://github.com/naufragio-rolero/nd20-character-creator/pull/79), con cinco suites de CI superadas y **sin publicar en LIVE**. La Tanda 3 de Atributos se descarta sin cambios, por decisión editorial; prioridad siguiente: elegibilidad de Técnicas y equipo.  
 **Ámbito público:** Naufragio d20 Fantasía DRS v1.1.12 y Dungeon Hack. CiFi, Nocturna y los suplementos no publicados siguen fuera de LIVE.  
 **Fuente reglamentaria:** `NaufragioD20DRS` / [DRS 1.1.12](https://docs.google.com/document/d/1W69x5V_982IGg2AL0TltZ200aSt2khXu_VCa7gMI3zY/edit). Las decisiones de UX no son reglas.
 
@@ -21,13 +21,25 @@
 
 **Criterios:** pruebas de regla y de UI separadas por sistema, coste/moral/dado según el DRS, validación de Círculos y listas, PDF/exportación sin datos inventados, QA del paquete DRS.
 
-## Tanda 3 — personalización de Atributos, **pendiente de decisión editorial**
+## Tanda 3 — personalización de Atributos, **descartada (sin cambios)**
+
+**Decisión editorial — 4 de noviembre de 2026:** no implementar redistribución, intercambio retroactivo ni editor libre de Atributos. La complejidad y los efectos sobre requisitos y progresión superan el beneficio previsto. Los puntos siguientes se mantienen únicamente como registro de propuestas **descartadas**, no como tareas pendientes.
 
 8. **Intercambio reglamentario.** El DRS permite **intercambiar la DA y el VA de dos Atributos durante la creación**, no transferir puntos libremente. Implementar intercambio de pares completos respetando `VA + DA = 20`, requisitos de Especie y efectos de Atributo favorito; no recalcular retroactivamente progresión de Niveles como si fuera una regla nueva.
 9. **Ajuste manual de puntos (opcional; no DRS).** La propuesta de transferir un punto (por ejemplo VA 7 → 8 restando uno a otro) **no consta en el DRS**. Requiere aprobación editorial expresa como modificación manual fuera de reglas, etiquetado permanente y validaciones de límites/coherencia. Definir antes de implementar si se permite a Niveles altos, si se recalculan otros efectos y qué sucede con requisitos de Especie.
 10. **Integridad de la reproducción.** La semilla y el JSON guardan el personaje generado **antes** de intervenciones manuales. Nunca afirmar que el modo reproducible reconstruye intercambios, reasignaciones o adquisiciones posteriores; exportación y PDF deben reflejar el estado editado de la ficha, distinguiendo su origen del ajuste.
 
 **Criterios:** aprobaciones reglamentarias documentadas, operaciones reversibles, no pérdida de tiradas/semillas ni datos derivados; E2E y control de manualizaciones.
+
+## Nueva prioridad — elegibilidad de Técnicas y compras de armamento
+
+Sustituye la prioridad de la Tanda 3. Es una mejora independiente y estrictamente limitada al DRS, descrita en [Elegibilidad de Técnicas y armamento](ELEGIBILIDAD-TECNICAS-Y-ARMAMENTO.md).
+
+1. Técnicas: una Ocupación expresamente exigida en el Requisito limita **quién aprende** la Técnica (por ejemplo, Ataque sorpresa exige Ladrón). Los requisitos de VA, Nivel y equipo documentados siguen rigiendo **su uso**, sin introducir prohibiciones de aprendizaje nuevas.
+2. Armamento: en compras e intercambios, ofrecer exclusivamente artículos para los que existe Competencia de Ocupación y Nivel, respetando excepciones de Varitas de defensa y Baja estatura. Mantener el catálogo consultable completo y el DRS sin alterar: utilizar un objeto sin Competencia sigue causando Desventaja.
+3. Rechazar también en el motor cualquier compra o intercambio no competente, sin depender del selector. Verificar DRS, DLC excluidos, moneda, equipo inicial, pruebas de UI y seguridad del paquete público.
+
+**Entrega:** desarrollo mediante PR con CI completo; sin publicación LIVE, y sin modificar el workflow protegido.
 
 ## Límites comunes
 

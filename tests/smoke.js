@@ -1147,3 +1147,6 @@ require('./iconos-forja.js');
 
 /* Seguidores DRS, Conjuros preparados y conservación de estado posterior. */
 require('./tanda2.js');
+
+/* Compra competente y Técnicas exclusivas, sin inventar requisitos de uso. */
+require('./elegibilidad-tecnicas-armamento.js');
