@@ -636,6 +636,7 @@ async function main(){
     assert.equal(await cdp.evalJS("document.querySelector('#estado').textContent.includes('Cambio de equipo inicial')"),true);
     // La tienda de un Mago no debe ofrecer Espadones ni armaduras pesadas,
     // aunque el catálogo informativo DRS los conserve.
+    await cdp.evalJS("if(document.querySelector('#editor-gestion-equipo').open)document.querySelector('#gestion-cerrar').click()");
     await cdp.evalJS("(()=>{"+
       "var o=document.querySelector('#ocupacion');o.value='Mago';"+
       "o.dispatchEvent(new Event('change',{bubbles:true}));"+
