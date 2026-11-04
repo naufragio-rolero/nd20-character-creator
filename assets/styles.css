@@ -1362,3 +1362,46 @@ html[data-tema=violeta]{
   font-size:.82rem;color:var(--texto);
 }
 .dialogo-reproduccion .reproduccion-limite strong{font-weight:800}
+
+/* Seguidores: formulario independiente, mismas herramientas editoriales
+   sin arrastrar las opciones de PJ ni añadir iconos por profesión. */
+.dialogo-seguidores{width:min(850px,calc(100vw - 1rem))}
+.dialogo-seguidores #form-seguidor-drs{padding:1rem 1.25rem 1.3rem}
+.dialogo-seguidores .configuracion-seguidores{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.1rem .9rem
+}
+.dialogo-seguidores .campo{margin-bottom:.7rem;min-width:0}
+.dialogo-seguidores .campo>label{font-weight:700;font-size:.83rem;margin-bottom:.25rem}
+.dialogo-seguidores input,.dialogo-seguidores select{
+  width:100%;min-width:0;min-height:44px;background:var(--superficie2);
+  color:var(--texto);border:1px solid var(--borde);border-radius:8px;padding:.5rem .7rem
+}
+.dialogo-seguidores .profesiones-seguidores{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:.55rem;margin:.65rem 0
+}
+.dialogo-seguidores .profesion-seguidor{
+  display:flex;align-items:center;flex-direction:column;justify-content:center;
+  min-width:0;min-height:100px;gap:.3rem;padding:.65rem .3rem;
+  border:1px solid var(--borde);background:var(--superficie2);
+  color:var(--texto);border-radius:10px
+}
+.dialogo-seguidores .profesion-seguidor[aria-pressed=true]{
+  border:2px solid var(--oro);box-shadow:inset 0 0 0 1px var(--oro)
+}
+.dialogo-seguidores .profesion-seguidor strong{font-size:.78rem;text-align:center;overflow-wrap:anywhere}
+.dialogo-seguidores .profesion-seguidor small{font-size:.68rem;color:var(--secundario)}
+.dialogo-seguidores .icono-profesion-seguidor{
+  width:26px;height:26px;background:currentColor;
+  -webkit-mask:url(icons/ico-configurar.svg) center/contain no-repeat;
+  mask:url(icons/ico-configurar.svg) center/contain no-repeat
+}
+.dialogo-seguidores .botonera{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.dialogo-seguidores .botonera button{width:100%;min-height:44px;margin:0}
+.dialogo-seguidores #aviso-seguidores:not(:empty){color:var(--peligro);font-weight:700}
+@media(max-width:560px){
+  .dialogo-seguidores #form-seguidor-drs{padding:.8rem}
+  .dialogo-seguidores .profesiones-seguidores{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dialogo-seguidores .configuracion-seguidores{grid-template-columns:1fr}
+  .dialogo-seguidores .botonera{grid-template-columns:1fr}
+}

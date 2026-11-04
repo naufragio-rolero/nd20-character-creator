@@ -633,6 +633,7 @@
   // con símbolos SVG locales. No se modifica el resultado de las tiradas.
   var iconosRecursos={Salud:'recurso-salud',Esfuerzo:'recurso-esfuerzo',
     Movimiento:'recurso-movimiento',Potencia:'recurso-potencia',
+    Aventuras:'ico-configurar',Moral:'recurso-potencia',
     Esencia:'recurso-esencia',Blindaje:'recurso-blindaje',Daño:'equipo-espada'};
   function blindajePersonaje(personaje){
     return window.NaufragioEquipment?.blindajeFicha?.(personaje,datos.equipoInicial)||null;
@@ -2151,18 +2152,72 @@
         $('cantidad').disabled=radio.checked && radio.value==='personalizado';
       });
     });
+    function refrescarProfesionSeguidor(){
+      var elegido=$('tipo-seguidor-drs').value;
+      $('profesiones-seguidores').querySelectorAll('button[data-oficio]').forEach(function(b){
+        b.setAttribute('aria-pressed',String(b.dataset.oficio===elegido));
+      });
+    }
     $('generar-seguidor').addEventListener('click',function(){
       conControl(function(){
         var juego=$('juego').value;
         if(juego==='nd20'){
-          agregar('ficha',reglas.seguidorNd20(
-            {tipo:$('tipo-seguidor-drs').value},rngUnico()(correlativo)));
+          $('aviso-seguidores').textContent='';
+          $('dialogo-seguidores').showModal();
+          refrescarProfesionSeguidor();
+          $('seguidor-nivel-min').focus({preventScroll:true});
           return;
         }
         if(juego!=='dh')throw Error('Elige un sistema publicado para generar seguidores.');
         var c=config();c.nivel=Math.min(30,c.nivel);
         agregar('ficha',reglas.seguidorDH(datos.dh,c,rngUnico()(correlativo)));
       });
+    });
+    $('tipo-seguidor-drs').addEventListener('change',refrescarProfesionSeguidor);
+    $('profesiones-seguidores').addEventListener('click',function(event){
+      var boton=event.target.closest('button[data-oficio]');
+      if(!boton)return;
+      $('tipo-seguidor-drs').value=boton.dataset.oficio;
+      refrescarProfesionSeguidor();
+    });
+    function cerrarSeguidores(){
+      if($('dialogo-seguidores').open)$('dialogo-seguidores').close();
+      $('generar-seguidor').focus({preventScroll:true});
+    }
+    $('cerrar-seguidores').addEventListener('click',cerrarSeguidores);
+    $('cancelar-seguidores').addEventListener('click',cerrarSeguidores);
+    $('dialogo-seguidores').addEventListener('cancel',function(e){
+      e.preventDefault();cerrarSeguidores();
+    });
+    $('form-seguidor-drs').addEventListener('submit',function(event){
+      event.preventDefault();
+      var mensaje=$('aviso-seguidores');
+      mensaje.textContent='';
+      try{
+        var minimo=Number($('seguidor-nivel-min').value),
+          maximo=Number($('seguidor-nivel-max').value),
+          cantidad=Number($('seguidor-cantidad').value);
+        if(!Number.isInteger(minimo)||!Number.isInteger(maximo)||
+           minimo<1||maximo>30||minimo>maximo)
+          throw Error('Elige un rango de Niveles válido entre 1 y 30.');
+        if(!Number.isInteger(cantidad)||cantidad<1||cantidad>12)
+          throw Error('La cantidad de seguidores debe estar entre 1 y 12.');
+        var semilla=semillaGeneracion(),generador=rngUnico(semilla),
+          inicial=correlativo,creados=[];
+        for(var i=0;i<cantidad;i++){
+          creados.push(reglas.seguidorNd20({
+            tipo:$('tipo-seguidor-drs').value,nivelMin:minimo,nivelMax:maximo,
+            sexo:$('seguidor-genero').value,modoNombre:$('seguidor-nombres').value,
+            aventuras:$('seguidor-aventuras').value,
+            nombresHistoricosYlat:datos.nombresHistoricosYlat,
+            componentesYlat:datos.componentesYlat,catalogoEquipo:datos.equipoInicial
+          },generador(inicial+i)));
+        }
+        creados.forEach(function(p){agregar('ficha',p);});
+        cerrarSeguidores();
+        cerrarMenuMovil();
+        aviso(cantidad+' seguidor(es) generado(s), Niveles '+minimo+'–'+maximo+'.');
+      }catch(error){mensaje.textContent=error.message||String(error);}
     });
     $('generar-matriz').addEventListener('click',function(){
       conControl(function(){agregar('ficha',reglas.matriz(config(),rngUnico()(correlativo)));});
@@ -2591,12 +2646,29 @@
     }
     datos.dh=loaded.dungeon;
     var selectorSeguidores=$('tipo-seguidor-drs');
+    var rejilla=$('profesiones-seguidores');
+    function tarjetaOficio(nombre,subtitulo){
+      var boton=document.createElement('button');
+      boton.type='button';boton.className='profesion-seguidor';
+      boton.dataset.oficio=nombre;
+      boton.setAttribute('aria-pressed',String(nombre===''));
+      var icono=document.createElement('span');
+      icono.className='icono-profesion-seguidor';
+      icono.setAttribute('aria-hidden','true');
+      var titulo=document.createElement('strong');
+      titulo.textContent=nombre||'Aleatoria';
+      var detalle=document.createElement('small');detalle.textContent=subtitulo;
+      boton.append(icono,titulo,detalle);
+      rejilla.appendChild(boton);
+    }
+    tarjetaOficio('','Tabla d12');
     reglas.seguidoresDRS().forEach(function(tipo){
       var opcion=document.createElement('option');
       opcion.value=tipo.nombre;
       opcion.textContent=tipo.nombre+' · Moral '+tipo.moral+
         ' · d'+tipo.dado+' Salud · '+tipo.precio+'/día';
       selectorSeguidores.appendChild(opcion);
+      tarjetaOficio(tipo.nombre,'d'+tipo.dado+' · Moral '+tipo.moral);
     });
     $('origenes').textContent='';
     datos.dh.origins.forEach(function(nombre,index){
