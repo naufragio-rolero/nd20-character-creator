@@ -1232,6 +1232,89 @@
     var primero=dialogo.querySelector('select[data-revision-paso]');
     (primero||$('revision-cerrar')).focus({preventScroll:true});
   }
+  // Editor independiente: cambia las preparaciones originales documentadas
+  // sin convertirlas en Conjuros conocidos ni alterar compras posteriores.
+  function entradaPreparacion(){
+    var entrada=entradas.find(function(x){return x.id===preparacionBorrador?.id;});
+    if(!entrada||entrada.tipo!=='ficha'||
+       !poderes.preparacionesRevisables(entrada.valor).length)
+      throw Error('Esta ficha no tiene Espacios de Conjuro DRS preparables.');
+    return entrada;
+  }
+  function cerrarPreparacion(){
+    var id=preparacionBorrador?.id;
+    preparacionBorrador=null;
+    var dialogo=$('editor-preparacion');
+    if(dialogo.open)dialogo.close();
+    dialogo.hidden=true;
+    var boton=$('fichas').querySelector('.revisar-elecciones[data-id="'+id+'"]');
+    if(boton)boton.focus({preventScroll:true});
+  }
+  function abrirPreparacion(entrada){
+    var pasos=poderes.preparacionesRevisables(entrada.valor);
+    if(!pasos.length)throw Error('No hay Espacios de Conjuro disponibles.');
+    preparacionBorrador={id:entrada.id};
+    var p=entrada.valor,decisiones=p.elecciones_registradas.decisiones;
+    var mago=p.descripcion.startsWith('Mago · ');
+    $('preparacion-resumen').textContent=p.nombre+' · Nivel '+p.nivel;
+    $('preparacion-reglas').textContent=mago?
+      'Mago: requiere dos Intervalos de estudio y solo puede preparar Conjuros de su libro.':
+      'Clérigo: prepara durante un Intervalo, por la mañana, a partir de su lista DRS.';
+    var contenedor=$('preparacion-circulos');
+    contenedor.replaceChildren();
+    pasos.forEach(function(paso){
+      var campo=document.createElement('fieldset');
+      campo.className='grupo-poderes';
+      var leyenda=document.createElement('legend');
+      leyenda.textContent=paso.titulo+' · '+paso.cantidad+' espacio(s)';
+      campo.appendChild(leyenda);
+      var opciones=poderes.disponibles(paso,decisiones);
+      for(var i=0;i<paso.cantidad;i++){
+        var label=document.createElement('label');
+        label.className='eleccion-poder';
+        label.textContent='Espacio '+(i+1)+': ';
+        var sel=document.createElement('select');
+        sel.dataset.preparacionPaso=paso.id;
+        sel.dataset.indice=String(i);
+        sel.setAttribute('aria-label',paso.titulo+' · Espacio '+(i+1));
+        opciones.forEach(function(op){
+          var option=document.createElement('option');
+          option.value=op.id;
+          option.textContent=op.id==='__vacio'?'Sin preparar':
+            op.nombre+' (C'+paso.circulo+')'+
+              poderes.origenConjuro(paso.tipo,paso.titulo,op.origen);
+          sel.appendChild(option);
+        });
+        var inicial=(decisiones[paso.id]||[])[i]||'__vacio';
+        if(opciones.some(function(x){return x.id===inicial;}))
+          sel.value=inicial;
+        else sel.value='__vacio';
+        label.appendChild(sel);
+        campo.appendChild(label);
+      }
+      contenedor.appendChild(campo);
+    });
+    refrescarEstadoPreparacion();
+    var dialogo=$('editor-preparacion');
+    dialogo.hidden=false;dialogo.showModal();
+    (dialogo.querySelector('select')||$('preparacion-cerrar'))
+      .focus({preventScroll:true});
+  }
+  function leerPreparaciones(){
+    var p=entradaPreparacion().valor,nuevas={};
+    poderes.preparacionesRevisables(p).forEach(function(paso){
+      nuevas[paso.id]=Array.from($('form-preparacion')
+        .querySelectorAll('select[data-preparacion-paso="'+paso.id+'"]'))
+        .map(function(select){return select.value;});
+    });
+    return nuevas;
+  }
+  function refrescarEstadoPreparacion(){
+    var selects=Array.from($('preparacion-circulos').querySelectorAll('select'));
+    var ocupados=selects.filter(function(x){return x.value!=='__vacio';}).length;
+    $('preparacion-estado').textContent=ocupados+' de '+selects.length+
+      ' Espacios preparados. Repetir un Conjuro consume otra plaza.';
+  }
   // Compras de útiles: la selección se valida con el motor antes de tocar
   // el inventario. Cada editor se vincula al ID único de una ficha DRS.
   function cerrarCompra(){
