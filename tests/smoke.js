@@ -1144,3 +1144,6 @@ require('./fichas-drs-ux.js');
 
 /* Iconografía autónoma 1:1 de la Forja. */
 require('./iconos-forja.js');
+
+/* Seguidores DRS, Conjuros preparados y conservación de estado posterior. */
+require('./tanda2.js');
