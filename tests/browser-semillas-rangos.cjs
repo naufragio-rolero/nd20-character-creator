@@ -85,6 +85,16 @@ async function run(name,origin){
       'Tema Violeta persiste al recargar');
     await page.locator('#selector-tema').selectOption('clasico');
     await open();
+    await page.locator('#sexo-pj').selectOption('femenino');
+    assert.match(await page.locator('#ocupacion option[value="Guerrero"]').innerText(),
+      /^Guerrera \(/,'Ocupación visible en femenino; clave DRS intacta');
+    assert.match(await page.locator('#especie option[value="Elfo agreste"]').innerText(),
+      /^Elfa agreste \(/,'Especie visible en femenino; clave DRS intacta');
+    await page.locator('#ocupacion').selectOption('Guerrero');
+    await page.locator('#especie').selectOption('Elfo agreste');
+    assert.match(await page.locator('#resumen-ocupacion').innerText(),/Guerrera/);
+    assert.match(await page.locator('#resumen-especie').innerText(),/Elfa agreste/);
+    await page.locator('#sexo-pj').selectOption('aleatorio');
     await page.locator('#modo-nombre').selectOption('ylat');
     await check(page,'#resumen-nombre','Nombres de Ylat');
     await page.locator('#nombre-personaje').fill('Alyra de Ylat');
@@ -477,6 +487,16 @@ async function run(name,origin){
     assert.deepEqual(await first().locator('.recurso-nombre').allTextContents(),
       ['Salud','Moral','Daño','Blindaje']);
     assert.match(await first().locator('.recurso-arma').innerText(),/Espada|Hacha|Maza/);
+    const cuatroKpi=await first().locator('.recursos-rejilla').evaluate(el=>{
+      const tiles=[...el.querySelectorAll('.recurso-ficha')];
+      return {columns:getComputedStyle(el).gridTemplateColumns.split(/\s+/).length,
+        tops:tiles.map(t=>t.getBoundingClientRect().top),
+        fits:tiles.every(t=>t.scrollWidth<=t.clientWidth+1)};
+    });
+    assert.equal(cuatroKpi.columns,4,'Cuatro KPI en una fila de escritorio');
+    assert(Math.max(...cuatroKpi.tops)-Math.min(...cuatroKpi.tops)<3,
+      'Salud, Moral, Daño y Blindaje alineados horizontalmente');
+    assert.equal(cuatroKpi.fits,true,'Sin desbordamientos horizontales de las tarjetas');
 
     // Lisandra o cualquier otro nombre femenino: «Seguidora · Mensajera».
     await page.locator('#configurar-seguidores').click();
@@ -491,8 +511,18 @@ async function run(name,origin){
     assert.equal(ordenPrecios.length,2);
     assert.match(ordenPrecios[0],/^Precio recomendado/);
     assert.match(ordenPrecios[1],/^Aventuras:\s*Sí/);
+    const espacios=await first().locator('p.riqueza').evaluateAll(es=>{
+      const a=getComputedStyle(es[0]),b=getComputedStyle(es[1]);
+      return {bottom:parseFloat(a.marginBottom),top:parseFloat(b.marginTop)};
+    });
+    assert.equal(espacios.bottom,0,'El precio no deja margen extra');
+    assert(espacios.top<=4,'Aventuras queda visualmente junto al precio');
 
     await page.setViewportSize({width:390,height:850});
+    // Comprimir en escritorio no debe impedir dos columnas en móvil.
+    const tarjetasMovil=await page.locator('#fichas .tarjeta-seguidor .recursos-rejilla')
+      .first().evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(/\s+/).length);
+    assert.equal(tarjetasMovil,2,'Los KPI de Seguidores respetan el espacio móvil');
     if(!await page.locator('#panel-forja').isVisible())
       await page.locator('#alternar-menu').click();
     assert.equal(await page.locator('#configurar-seguidores').isVisible(),true);
