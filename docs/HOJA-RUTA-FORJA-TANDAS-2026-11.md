@@ -1,10 +1,10 @@
 # Hoja de ruta — mejoras de La Forja (noviembre de 2026)
 
-**Estado:** Tanda 1 en implementación; tandas 2 y 3 planificadas, no autorizadas para desarrollo en este cambio.  
+**Estado:** Tanda 1 implementada y verificada en `main` mediante [PR #78](https://github.com/naufragio-rolero/nd20-character-creator/pull/78) (cinco suites CI en verde); **NO publicada en LIVE**. Tandas 2 y 3 planificadas, sin implementar.  
 **Ámbito público:** Naufragio d20 Fantasía DRS v1.1.12 y Dungeon Hack. CiFi, Nocturna y los suplementos no publicados siguen fuera de LIVE.  
 **Fuente reglamentaria:** `NaufragioD20DRS` / [DRS 1.1.12](https://docs.google.com/document/d/1W69x5V_982IGg2AL0TltZ200aSt2khXu_VCa7gMI3zY/edit). Las decisiones de UX no son reglas.
 
-## Tanda 1 — legibilidad y limpieza, **en curso**
+## Tanda 1 — legibilidad y limpieza, **completada en desarrollo (no LIVE)**
 
 1. **Iconos del pie de ficha.** Reemplazar las cinco etiquetas visibles «Equipo», «Talentos y Poderes», «PDF», «Semilla» y «Copiar» por botones SVG monocromáticos y homogéneos (celda de al menos 44 × 44 px). Mantener `aria-label`, `title`, foco y accesibilidad táctil; respetar botones condicionales por sistema y ficha. Origen: Tabler Icons v3.50.0, licencia MIT; conservar la licencia y usar archivos locales en el paquete depurado.
 2. **Equipo inicial equipado.** En Naufragio d20 Fantasía DRS, el arma y la armadura que se **hayan comprado realmente** durante la creación se marcan como equipadas, usando `arma_equipada` y `protecciones_equipadas.armadura` ya existentes. Nunca inventar un arma/armadura gratuita ni equipar una pieza no disponible; un escudo sigue siendo una selección aparte. Recalcular Daño/Blindaje mediante los lectores existentes; respetar intercambio de equipo y edición manual posterior. En Dungeon Hack no se aplica la compra inicial de Fantasía.
