@@ -13,6 +13,7 @@
   var armamentoBorrador = null;
   var gestionBorrador = null;
   var revisionBorrador = null;
+  var preparacionBorrador = null;
   var fuentesGuardadas = {};
   var ultimaReproduccion = null;
   var reproduccionActiva = null;
@@ -296,7 +297,8 @@
     $('opciones-riqueza-nivel').hidden=dh||juego==='nd20_nocturna';
     $('modos-creacion').hidden = dh;
     $('opciones-contexto-sexo').hidden=dh;
-    $('generar-seguidor').disabled = !dh;
+    $('generar-seguidor').disabled = !(dh||juego==='nd20');
+    $('selector-seguidor-drs').hidden=juego!=='nd20';
     ['nivel-min','nivel-max'].forEach(function(id){
       $(id).max=dh?'36':'30';
     });
@@ -433,6 +435,8 @@
   function fuentesFicha(personaje){
     var ocupacion=personaje.procedenciaOcupacion||personaje.origen||'Sin especificar';
     var especie=personaje.procedenciaEspecie;
+    if(personaje.tipo_ficha==='seguidor_drs')
+      return 'Fuente · Seguidores: '+personaje.origen;
     return 'Fuente · Ocupación: '+ocupacion+(especie?' · Especie: '+especie:'');
   }
   function alternarMenu(abierto){
@@ -639,7 +643,7 @@
   }
   function htmlRecursos(pares,personaje){
     var items=(pares||[]).slice(),blindaje=null,dano=null;
-    if(personaje?.juego==='Naufragio d20 · Fantasía'){
+    if(personaje?.juego==='Naufragio d20 · Fantasía'&&!personaje.tipo_ficha){
       // La fila inferior ordena Daño, Blindaje y Potencia.
       // Ningún recurso ni su valor cambian al reorganizar la vista.
       var potencia=items.filter(function(p){return p[0]==='Potencia';});
@@ -715,12 +719,15 @@
         (a.favorito ? ' <span title="Atributo favorito" aria-label="Favorito">★</span>' : '') +
         '</span><span>' + cifra + '</span></div>';
     }).join('');
-    return '<article class="tarjeta" data-id="' + id + '" data-nivel="' + esc(personaje.nivel) + '">' +
+    return '<article class="tarjeta'+(personaje.tipo_ficha==='seguidor_drs'?' tarjeta-seguidor':'')+
+      '" data-id="' + id + '"' +
+      (personaje.nivel==null?'':' data-nivel="'+esc(personaje.nivel)+'"')+'>' +
       '<div class="cabecera-ficha"><div><p class="etiqueta">' + esc(nombreSistema(sistemaFicha(personaje))) +
       '</p><h3>' + esc(personaje.nombre) +
       '</h3><p class="descripcion-personaje">' + descripcionConSexo(personaje) + '</p></div>' +
-      '<div class="acciones-cabecera-ficha"><span class="nivel-ficha" aria-label="Nivel '+
-      esc(personaje.nivel)+'">Nivel '+esc(personaje.nivel)+'</span>'+
+      '<div class="acciones-cabecera-ficha">'+
+      (personaje.nivel==null?'':'<span class="nivel-ficha" aria-label="Nivel '+
+        esc(personaje.nivel)+'">Nivel '+esc(personaje.nivel)+'</span>')+
       '<button class="icon-btn eliminar-ficha" data-id="' + id +
       '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div></div>' +
       (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
@@ -733,7 +740,9 @@
       htmlLista('Conjuros preparados',personaje.conjuros_preparados,'poder',sistemaFicha(personaje)) +
       htmlAvisos('Condiciones de uso',notas.poderes,'avisos-poderes') +
       htmlLista('Equipo',personaje.equipo,'equipo',sistemaFicha(personaje)) +
-      (personaje.riqueza ? '<p class="riqueza"><strong>Riqueza:</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
+      (personaje.riqueza ? '<p class="riqueza"><strong>'+
+        (personaje.tipo_ficha==='seguidor_drs'?'Precio recomendado':'Riqueza')+
+        ':</strong> ' + esc(personaje.riqueza) + '</p>' : '') +
       htmlAvisos('Riqueza adicional',notas.riqueza,'avisos-riqueza') +
       htmlContexto(notas.contexto) +
       htmlOtrosAvisos(notas.otras) +
@@ -743,7 +752,7 @@
       (personaje.juego==='Naufragio d20 · Fantasía'&&personaje.elecciones_registradas?
         '<button type="button" class="revisar-elecciones accion-icono" data-id="'+id+
         '" title="Revisar Talentos y Poderes elegidos" aria-label="Revisar Talentos y Poderes"><span class="icono-accion accion-talentos" aria-hidden="true"></span></button>':'')+
-      (personaje.juego==='Naufragio d20 · Fantasía'?
+      (personaje.juego==='Naufragio d20 · Fantasía'&&!personaje.tipo_ficha?
         '<button type="button" class="exportar-pdf-ficha accion-icono" data-id="'+id+'" title="Exportar PDF A5" aria-label="Exportar ficha PDF A5"><span class="icono-accion accion-pdf" aria-hidden="true"></span></button>':'')+
       (reproduccion?
          '<button type="button" class="ver-reproduccion accion-icono" data-id="'+id+
@@ -755,7 +764,9 @@
       '</small></div></article>';
   }
   function fichaTexto(p) {
-    var str=[p.nombre,nombreSistema(sistemaFicha(p)),'Nivel: '+p.nivel,p.descripcion];
+    var str=[p.nombre,nombreSistema(sistemaFicha(p))];
+    if(p.nivel!=null)str.push('Nivel: '+p.nivel);
+    str.push(p.descripcion);
     if(p.sexo)str.push('Sexo: '+(p.sexo==='femenino'?'Femenino':'Masculino'));
     if(p.concepto)str.push('Concepto: '+p.concepto);
     str.push('', 'Atributos:');
@@ -772,7 +783,7 @@
         p[key].forEach(function(v){str.push('- '+(Array.isArray(v)?v[0]+': '+v[1]:v));});
       }
     });
-    if(p.juego==='Naufragio d20 · Fantasía'){
+    if(p.juego==='Naufragio d20 · Fantasía'&&!p.tipo_ficha){
       var defensa=blindajePersonaje(p);
       if(defensa){
         str.push('Blindaje: '+defensa.valor);
@@ -784,7 +795,8 @@
       var dano=danoPersonaje(p);
       str.push('Arma equipada: '+(dano.arma||'Sin equipar')+'; Daño: '+dano.valor);
     }
-    if(p.riqueza)str.push('Riqueza: '+p.riqueza);
+    if(p.riqueza)str.push((p.tipo_ficha==='seguidor_drs'?
+      'Precio recomendado: ':'Riqueza: ')+p.riqueza);
     str.push(fuentesFicha(p));
     return str.join('\n');
   }
