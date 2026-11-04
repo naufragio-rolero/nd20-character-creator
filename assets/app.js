@@ -1151,9 +1151,10 @@
       if(valores.length!==paso.cantidad)valido=false;
     });
     $('revision-confirmar').disabled=!valido;
+    $('revision-abrir-preparacion').disabled=!!pasos.length&&!valido;
     $('revision-estado').textContent=!pasos.length?
-      'No hay elecciones manuales de Talentos ni Poderes conocidos en la progresión DRS de esta ficha.':
-      valido?cantidad+' plazas documentadas. Preparar Conjuros es una operación distinta.':
+      'No hay elecciones manuales en esta ficha. Puedes preparar los Conjuros documentados desde aquí.':
+      valido?cantidad+' plazas documentadas. «Guardar y preparar» conserva las elecciones antes de abrir los Espacios de Conjuro.':
       'Completa las plazas pendientes; no se permiten Conjuros conocidos repetidos.';
   }
   function seleccionesRevision(){
@@ -1179,8 +1180,12 @@
     talentos.replaceChildren();otros.replaceChildren();
     $('revision-talentos').hidden=!pasos.some(function(x){return x.tipo==='talento';});
     $('revision-poderes').hidden=!pasos.some(function(x){return x.tipo!=='talento';});
-    $('revision-abrir-preparacion').hidden=
-      !poderes.preparacionesRevisables(p).length;
+    var admitePreparacion=!!poderes.preparacionesRevisables(p).length;
+    $('revision-abrir-preparacion').hidden=!admitePreparacion;
+    $('revision-abrir-preparacion').textContent=pasos.length?
+      'Guardar y preparar':'Preparar Conjuros';
+    $('form-revision-elecciones').querySelector('.botonera')
+      .classList.toggle('dos-acciones',!admitePreparacion);
     pasos.forEach(function(paso){
       var field=document.createElement('fieldset');
       field.className='grupo-poderes';
@@ -1574,8 +1579,8 @@
     $('reproduccion-personaje').textContent=entrada.valor.nombre+
       (total>1?' · Personaje '+(entrada.indiceReproduccion+1)+' de '+total:'');
     $('reproduccion-aviso').textContent=(total>1?
-      'Este registro reproduce el lote original completo, en el mismo orden. ':'')+
-      'Las modificaciones posteriores y elecciones manuales no se reconstruyen.';
+      'Reproduce el lote original completo, en el mismo orden. ':'')+
+      'Repite el personaje tal como salió al generarlo, no sus Talentos cambiados, Conjuros preparados, equipo, compras ni otras ediciones posteriores.';
     $('dialogo-reproduccion').showModal();
     $('cerrar-reproduccion').focus({preventScroll:true});
   }
@@ -2041,29 +2046,37 @@
     $('form-revision-elecciones').addEventListener('change',function(e){
       if(e.target.matches('select[data-revision-paso]'))refrescarRevision();
     });
+    // Aplicar primero las elecciones cuando se continúa a preparación evita
+    // tener que abrir dos veces el popup y usa el grimorio ya actualizado.
+    function guardarRevision(continuarPreparacion){
+      var entrada=entradaRevision(),pasos=poderes.opcionesRevisables(entrada.valor);
+      var resultado=pasos.length?poderes.revisar(entrada.valor,seleccionesRevision()):
+        {personaje:entrada.valor,preparacionesRetiradas:0};
+      if(continuarPreparacion&&!poderes.preparacionesRevisables(resultado.personaje).length)
+        throw Error('Este personaje no dispone de Espacios de Conjuro preparables.');
+      entrada.valor=resultado.personaje;
+      cerrarRevisionElecciones();
+      dibujar();
+      if(continuarPreparacion)abrirPreparacion(entrada);
+      else {
+        var boton=$('fichas').querySelector('.revisar-elecciones[data-id="'+entrada.id+'"]');
+        if(boton)boton.focus({preventScroll:true});
+      }
+      return 'Talentos y Poderes actualizados.'+
+        (resultado.preparacionesRetiradas?
+          ' '+resultado.preparacionesRetiradas+' preparación(es) invalidadas retiradas.':'')+
+        (continuarPreparacion?' Ahora puedes preparar los Conjuros.':'');
+    }
     $('form-revision-elecciones').addEventListener('submit',function(e){
       e.preventDefault();
       var mensaje='';
-      conControl(function(){
-        var entrada=entradaRevision();
-        var resultado=poderes.revisar(entrada.valor,seleccionesRevision());
-        entrada.valor=resultado.personaje;
-        cerrarRevisionElecciones();
-        dibujar();
-        var boton=$('fichas').querySelector('.revisar-elecciones[data-id="'+entrada.id+'"]');
-        if(boton)boton.focus({preventScroll:true});
-        mensaje='Talentos y Poderes actualizados.'+
-          (resultado.preparacionesRetiradas?
-            ' '+resultado.preparacionesRetiradas+' preparación(es) invalidadas retiradas.':'');
-      });
+      conControl(function(){mensaje=guardarRevision(false);});
       if(mensaje)aviso(mensaje);
     });
     $('revision-abrir-preparacion').addEventListener('click',function(){
-      conControl(function(){
-        var entrada=entradaRevision();
-        cerrarRevisionElecciones();
-        abrirPreparacion(entrada);
-      });
+      var mensaje='';
+      conControl(function(){mensaje=guardarRevision(true);});
+      if(mensaje)aviso(mensaje);
     });
     $('form-preparacion').addEventListener('change',refrescarEstadoPreparacion);
     $('form-preparacion').addEventListener('submit',function(event){
