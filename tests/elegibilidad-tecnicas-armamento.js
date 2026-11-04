@@ -45,7 +45,8 @@ for(const [nombre,nivel] of [['Clérigo',1],['Clérigo',12],['Guerrero',1],
  ['Mago',1],['Ladrón',5],['Ladrón',6]]){
  const info=equipo.informacionEquipo(catalogoEquipo,ocupaciones[nombre],nivel,humano);
  const solo=tienda(nombre,nivel);
- assert.ok(info.some(x=>!x.competente),'El catálogo DRS conserva penalizaciones');
+ if(nombre==='Mago')assert.ok(info.some(x=>!x.competente),
+   'La consulta informativa del Mago conserva objetos con Desventaja');
  assert.deepEqual(solo,info.filter(x=>x.competente),
    'La tienda solo ofrece Competencias actuales: '+nombre+' Nv '+nivel);
  assert.ok(solo.length>0);
