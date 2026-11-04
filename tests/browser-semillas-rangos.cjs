@@ -340,7 +340,7 @@ async function run(name,origin){
       'Repeticiones conservadas tras cerrar y reabrir');
     await plazasOtra.nth(0).selectOption('__vacio');
     await page.locator('#preparacion-confirmar').click();
-    assert.match(await first().innerText(),/Espacio\\(s\\) de Conjuro sin preparar/);
+    assert.match(await first().innerText(),/Espacio\(s\) de Conjuro sin preparar/);
     // Mago: las listas del editor proceden exclusivamente del grimorio.
     await open();
     await page.locator('#ocupacion').selectOption('Mago');
@@ -368,7 +368,7 @@ async function run(name,origin){
       'Un seguidor DRS no tiene Nivel');
     assert.deepEqual(await first().locator('.recurso-nombre').allTextContents(),
       ['Salud','Moral']);
-    assert.match(await first().innerText(),/7 mp\\/día/);
+    assert.match(await first().innerText(),/7 mp\/día/);
     assert.match(await first().innerText(),/Disponibilidad para aventuras: Sí/);
     assert.equal(await first().locator('.exportar-pdf-ficha').count(),0,
       'La plantilla PDF A5 de PJ no se aplica a un seguidor sin seis Atributos');
@@ -376,7 +376,7 @@ async function run(name,origin){
     assert.equal(await first().locator('.revisar-elecciones').count(),0);
     await page.locator('#tipo-seguidor-drs').selectOption('Arcanista');
     await page.locator('#generar-seguidor').click();
-    assert.match(await first().innerText(),/20 mo\\/día/);
+    assert.match(await first().innerText(),/20 mo\/día/);
     assert.match(await first().locator('.recurso-ficha').first().innerText(),/d4/);
     await page.setViewportSize({width:390,height:850});
     assert.equal(await page.locator('#selector-seguidor-drs').isVisible(),true,
