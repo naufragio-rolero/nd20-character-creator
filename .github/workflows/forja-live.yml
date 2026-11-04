@@ -28,16 +28,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado PR #84: UX de elecciones y PDF A5
+      - name: Obtener snapshot DRS aprobado PR #86: seguidores y ajustes PDF A5
         uses: actions/checkout@v4
         with:
-          ref: 0bf0e687916b579ece0bdc4d6de9b95555e50c5d
+          ref: 55c1baca6eea6fade9742e40038096f7efba54c9
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "0bf0e687916b579ece0bdc4d6de9b95555e50c5d"
-      # Snapshot aprobado para LIVE: PR #84, con 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
-      # semillas explicadas, edición encadenada Talentos-Conjuros y equipo completo con fuente A5 Bold.
+          test "$(git rev-parse HEAD)" = "55c1baca6eea6fade9742e40038096f7efba54c9"
+      # Snapshot aprobado para LIVE: PR #86, con 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
+      # efectos de Talentos en sección propia y seguidores con Nivel, género, nombres y equipo contextual.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
@@ -62,6 +62,15 @@ jobs:
           grep -Fq 'Creador de personajes para Naufragio d20.' index.html
           grep -Fq "items.push(['Daño',dano.valor])" assets/app.js
           grep -Fq 'EFECTOS DE PODERES' assets/pdf-export-v2.js
+          grep -Fq 'EFECTOS DE TALENTOS' assets/pdf-export-v2.js
+          grep -Fq 'longitudNombreDestacado' assets/pdf-export-v2.js
+          grep -Fq 'function equipoSeguidor(oficio,catalogo,rng)' assets/rules.js
+          grep -Fq 'id="dialogo-seguidores"' index.html
+          grep -Fq 'id="seguidor-nivel-min"' index.html
+          grep -Fq 'id="seguidor-nivel-max"' index.html
+          grep -Fq 'id="seguidor-genero"' index.html
+          grep -Fq 'id="seguidor-nombres"' index.html
+          grep -Fq 'id="profesiones-seguidores"' index.html
           grep -Fq 'PODERES CONOCIDOS' assets/pdf-export-v2.js
           grep -Fq 'longitudNombreDestacado' assets/pdf-export-v2.js
           grep -Fq 'SourceSerif4_700Bold.ttf' scripts/preparar-vendor-pdf-a5.cjs
@@ -278,6 +287,7 @@ jobs:
           grep -Fq 'function prepararDatos' /tmp/forja-pdf-engine.js
           grep -Fq 'detalleEquipo' /tmp/forja-pdf-engine.js
           grep -Fq 'EFECTOS DE PODERES' /tmp/forja-pdf-engine.js
+          grep -Fq 'EFECTOS DE TALENTOS' /tmp/forja-pdf-engine.js
           grep -Fq 'PODERES CONOCIDOS' /tmp/forja-pdf-engine.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-a5/forja-fantasia-epica-a5.pdf?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-plantilla-a5.pdf
           test "$(head -c 5 /tmp/forja-plantilla-a5.pdf)" = '%PDF-'
@@ -296,6 +306,9 @@ jobs:
                grep -Fq 'id="nivel-max"' /tmp/forja-live.html &&
                grep -Fq 'id="copiar-semilla"' /tmp/forja-live.html &&
                grep -Fq 'Guardar y preparar' /tmp/forja-live.html &&
+               grep -Fq 'id="dialogo-seguidores"' /tmp/forja-live.html &&
+               grep -Fq 'id="seguidor-nivel-min"' /tmp/forja-live.html &&
+               grep -Fq 'id="seguidor-nivel-max"' /tmp/forja-live.html &&
                grep -Fq 'La semilla no guarda cambios posteriores.' /tmp/forja-live.html &&
                grep -Fq 'id="dialogo-reproduccion"' /tmp/forja-live.html &&
                grep -Fq 'id="cerrar-reproduccion"' /tmp/forja-live.html &&
@@ -356,6 +369,7 @@ jobs:
           grep -Fq 'reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r' /tmp/forja-app.js
           grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
           grep -Fq 'function guardarRevision(continuarPreparacion)' /tmp/forja-app.js
+          grep -Fq "$('dialogo-seguidores').showModal();" /tmp/forja-app.js
           grep -Fq 'class="gestionar-equipo accion-icono"' /tmp/forja-app.js
           grep -Fq 'componentesYlat' /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/names.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-names.js
