@@ -967,8 +967,8 @@ assert.ok(tab>=0&&tab<system&&system<panel&&panel<tools,
 assert.ok(appTemas.includes("marcarPanel('herramientas')"));
 assert.ok(!/refrescarSelectores\(\);\s*marcarPanel\('personajes'\)/.test(appTemas),
   'Cambiar sistema no debe expulsar al usuario de Herramientas');
-assert.ok(appTemas.includes("'generar-seguidor').disabled = !dh"),
-  'Generar seguidor deshabilitado fuera de Dungeon Hack');
+assert.ok(appTemas.includes("'generar-seguidor').disabled = !(dh||juego==='nd20')"),
+  'Seguidores disponibles en Nd20 y DH, no en CiFi ni Nocturna');
 const favicon=fs.readFileSync(path.join(__dirname,'..','assets','favicon.svg'),'utf8');
 assert.ok(htmlTemas.includes('rel="icon" type="image/svg+xml" href="assets/favicon.svg"'));
 assert.ok(favicon.includes('viewBox="0 0 64 64"')&&favicon.includes('D20'),
