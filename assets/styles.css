@@ -1418,3 +1418,30 @@ html[data-tema=violeta]{
 @media(max-width:560px){
   .dialogo-seguidores .botonera{grid-template-columns:1fr}
 }
+
+/* Ficha de seguidores: cuatro recursos en una sola fila de escritorio.
+   No altera los seis KPI de PJ ni la presentación de Dungeon Hack. */
+.tarjeta-seguidor .recursos.recursos-rejilla,
+.tarjeta-seguidor .recursos.recursos-rejilla.recursos-con-dano{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:.35rem;padding:0 .8rem .65rem;
+}
+.tarjeta-seguidor .recursos-rejilla>.recurso-ficha{
+  min-width:0;padding:.5rem .34rem;gap:.28rem;
+}
+.tarjeta-seguidor .recursos-rejilla .icono-recurso{
+  width:1rem;height:1rem;flex-basis:1rem;
+}
+.tarjeta-seguidor .recursos-rejilla .recurso-texto strong{font-size:.92rem}
+.tarjeta-seguidor .recursos-rejilla .recurso-arma,
+.tarjeta-seguidor .recursos-rejilla .recurso-nota-escudo{
+  font-size:.61rem;line-height:1.25;overflow-wrap:anywhere;
+}
+.tarjeta-seguidor .riqueza:not(.aventuras-seguidor){margin-bottom:0}
+.tarjeta-seguidor .aventuras-seguidor{margin-top:.14rem}
+@media(max-width:440px){
+  .tarjeta-seguidor .recursos.recursos-rejilla,
+  .tarjeta-seguidor .recursos.recursos-rejilla.recursos-con-dano{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
