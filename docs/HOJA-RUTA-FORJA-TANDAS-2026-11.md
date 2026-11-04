@@ -39,7 +39,7 @@ Sustituye la prioridad de la Tanda 3. Es una mejora independiente y estrictament
 2. Armamento: en compras e intercambios, ofrecer exclusivamente artículos para los que existe Competencia de Ocupación y Nivel, respetando excepciones de Varitas de defensa y Baja estatura. Mantener el catálogo consultable completo y el DRS sin alterar: utilizar un objeto sin Competencia sigue causando Desventaja.
 3. Rechazar también en el motor cualquier compra o intercambio no competente, sin depender del selector. Verificar DRS, DLC excluidos, moneda, equipo inicial, pruebas de UI y seguridad del paquete público.
 
-**Entrega:** desarrollo mediante PR con CI completo; sin publicación LIVE, y sin modificar el workflow protegido.
+**Entrega completada en desarrollo:** [PR #80](https://github.com/naufragio-rolero/nd20-character-creator/pull/80) fusionada en `main` con cinco suites CI verdes. **Sin publicación LIVE** y sin modificar el workflow protegido.
 
 ## Límites comunes
 
