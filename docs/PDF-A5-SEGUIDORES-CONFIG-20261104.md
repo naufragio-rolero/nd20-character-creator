@@ -20,7 +20,11 @@ La pestaña **Herramientas del Cronista** muestra un resumen de las opciones vig
 
 La ficha contiene **Ataque y Defensa** (VA = 3 + d6, DA = 20 − VA) como únicos Atributos; a Niveles 4, 8, 12, etc. cada uno obtiene una oportunidad de mejora mediante tirada de d20 superior al VA y límite VA 18. La **Salud** emplea el dado de oficio con primer dado completo, tirada adicional por Nivel 2–11 y bonificación fija por Nivel desde el 12, igual que la progresión de Salud del PJ. No concede Esfuerzo, Talentos, Poderes ni Conjuros.
 
-**Aventuras** es un KPI visible con «Sí» o «No». Los valores fijos del DRS permanecen fijos; los tres oficios marcados «Depende» se pueden resolver expresamente o por azar determinista. No se presenta esta resolución como valor literal del DRS.
+**Aventuras** se presenta con «Sí» o «No» debajo de **Precio recomendado**, con su mismo estilo; deja de ser un KPI. La rejilla de seguidores incorpora **Daño** y **Blindaje** únicamente cuando disponen de un arma o varita y una armadura realmente equipadas, respectivamente. El inventario por profesión registra expresamente las piezas activas; no se añade Blindaje pasivo de escudos ni se muestra «—» por equipo inexistente.
+
+El JSON `data/sexo-personajes.json` incorpora el mapa editorial `seguidores_profesiones_drs`: las doce profesiones cuentan con sus formas masculina y femenina, sin modificar sus identificadores reglamentarios ni los costes. La ficha, el selector y el resumen de configuración utilizan la forma elegida: «Seguidora · Mensajera», «Seguidora · Mercenaria», «Seguidora · Sacerdotisa», etc. Los nombres de género invariable, como «Escriba» y «Arcanista», conservan su grafía. La selección de nombre propio permanece independiente de la flexión de la profesión.
+
+**Aventuras** Los valores fijos del DRS permanecen fijos; los tres oficios marcados «Depende» se pueden resolver expresamente o por azar determinista. No se presenta esta resolución como valor literal del DRS.
 
 El equipo inicial se escoge de propuestas asociadas a la profesión, validadas por nombre contra `data/equipo-inicial.json`. El generador no compra ni modifica dinero por estas propuestas, no concede Competencias ni utiliza listas de suplementos. Todos los nombres se obtienen de los catálogos existentes. La especie no interviene en la generación de seguidores.
 
