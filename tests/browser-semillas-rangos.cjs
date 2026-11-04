@@ -398,7 +398,7 @@ async function run(name,origin){
     assert.equal(await page.locator('#selector-seguidor-drs').isVisible(),false);
     await page.locator('#generar-seguidor').click();
     assert.equal(await first().locator('.nombre-atributo').count(),2);
-    assert.match(await first().innerText(),/Dungeon Hack/);
+    assert.match(await first().innerText(),/Dungeon Hack/i);
     assert.deepEqual(errors,[],'Sin errores JavaScript');
     console.log('OK: E2E '+name+' '+(process.env.FORJA_PUBLIC_ROOT?'DRS público':'repositorio'));
   }finally{await browser.close();}
