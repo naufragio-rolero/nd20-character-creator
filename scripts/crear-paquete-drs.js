@@ -69,6 +69,20 @@ const especiesAdmitidas=new Set([
   ...Object.keys(especiesCifi),
   ...Object.keys(ampliado.nocturna.especies||{})
 ]);
+const ocupacionesCifi=JSON.parse(fs.readFileSync(path.join(raiz,'data/ocupaciones_cifi.json')));
+const ocupacionesAdmitidas=new Set([
+  ...Object.keys(baseOcupaciones),
+  ...Object.keys(ocupacionesCifi),
+  ...Object.keys(ampliado.nocturna.ocupaciones||{})
+]);
+// Las formas editoriales tampoco deben revelar los Conceptos de suplementos
+// no publicados. Se obtiene el conjunto solo de las fichas que viajan.
+const conceptosAdmitidos=new Set([
+  ...Object.values(baseOcupaciones),...Object.values(baseEspecies),
+  ...Object.values(ocupacionesCifi),...Object.values(especiesCifi),
+  ...Object.values(ampliado.nocturna.ocupaciones||{}),
+  ...Object.values(ampliado.nocturna.especies||{})
+].flatMap(x=>x.conceptos||[]));
 const iconosForja=[
   'esp-elfo', 'esp-enano', 'esp-humano', 'esp-mediano', 'esp-gnomo',
   'esp-semielfo', 'esp-orco', 'esp-semiorco', 'ocu-clerigo', 'ocu-guerrero',
@@ -166,6 +180,17 @@ const transformaciones={
       .filter(([nombre])=>especiesAdmitidas.has(nombre)));
     d.sexo_por_especie_neutral=(d.sexo_por_especie_neutral||[])
       .filter(nombre=>especiesAdmitidas.has(nombre));
+    // El catálogo completo del proyecto también documenta las variantes
+    // de DLC. A LIVE solo llegan las formas de las fuentes autorizadas.
+    d.ocupaciones_formas_genero=Object.fromEntries(
+      Object.entries(d.ocupaciones_formas_genero||{})
+        .filter(([nombre])=>ocupacionesAdmitidas.has(nombre)));
+    d.especies_formas_genero=Object.fromEntries(
+      Object.entries(d.especies_formas_genero||{})
+        .filter(([nombre])=>especiesAdmitidas.has(nombre)));
+    d.conceptos_formas_genero=Object.fromEntries(
+      Object.entries(d.conceptos_formas_genero||{})
+        .filter(([nombre])=>conceptosAdmitidos.has(nombre)));
     return d;
   },
   'data/fichas-documentales.json'(d){

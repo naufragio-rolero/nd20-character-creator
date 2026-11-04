@@ -69,7 +69,9 @@
   function prepararDatos(personaje,consultaBlindaje,catalogoEquipo,consultarPoder,consultarTalento){
     if(!personaje||personaje.juego!=='Naufragio d20 · Fantasía')
       throw Error('La exportación solo admite fichas de Naufragio d20 Fantasía.');
-    var out=clone(personaje), desc=asText(out.descripcion),pos=desc.indexOf(' · ');
+    var out=clone(personaje),desc=asText(out.descripcion_mostrada||out.descripcion),
+      pos=desc.indexOf(' · ');
+    out.concepto=out.concepto_mostrado||out.concepto;
     out._ocupacion=pos===-1?'':desc.slice(0,pos);
     out._especie=pos===-1?'':desc.slice(pos+3);
     out._descripcion_sin_dividir=pos===-1?desc:'';

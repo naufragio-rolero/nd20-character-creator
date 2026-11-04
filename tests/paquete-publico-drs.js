@@ -116,6 +116,35 @@ assert.deepEqual(sexo.seguidores_profesiones_drs,formasSeguidorOriginal,
   'Las formas masculina y femenina de los doce oficios siguen publicadas en el DRS');
 assert.equal(Object.keys(sexo.seguidores_profesiones_drs).length,12);
 assert.equal(sexo.seguidores_profesiones_drs.Mensajero.femenino,'Mensajera');
+// El catálogo editorial no puede adelantar las Ocupaciones, Especies
+// ni Conceptos de Fantasía ampliada al paquete público DRS.
+const ocupacionesPermitidas=new Set([
+  ...Object.keys(leer(salida,'ocupaciones.json')),
+  ...Object.keys(leer(salida,'ocupaciones_cifi.json')),
+  ...Object.keys(exterior.nocturna.ocupaciones||{})
+]);
+const conceptosPermitidos=new Set([
+  ...Object.values(leer(salida,'ocupaciones.json')),
+  ...Object.values(leer(salida,'especies.json')),
+  ...Object.values(leer(salida,'ocupaciones_cifi.json')),
+  ...Object.values(leer(salida,'especies_cifi.json')),
+  ...Object.values(exterior.nocturna.ocupaciones||{}),
+  ...Object.values(exterior.nocturna.especies||{})
+].flatMap(x=>x.conceptos||[]));
+assert.deepEqual(new Set(Object.keys(sexo.ocupaciones_formas_genero)),ocupacionesPermitidas,
+  'Solo Ocupaciones autorizadas presentes en el JSON editorial publicado');
+assert.deepEqual(new Set(Object.keys(sexo.especies_formas_genero)),especiesPermitidas,
+  'Solo Especies autorizadas presentes en el JSON editorial publicado');
+assert.ok(Object.keys(sexo.conceptos_formas_genero).every(x=>conceptosPermitidos.has(x)),
+  'No filtrar por mero nombre de Concepto: cotejar el catálogo permitido');
+assert.equal(sexo.ocupaciones_formas_genero.Guerrero.femenino,'Guerrera');
+assert.equal(sexo.especies_formas_genero['Elfo agreste'].femenino,'Elfa agreste');
+assert.equal(sexo.conceptos_formas_genero['Valiente defensor'].femenino,
+  'Valiente defensora');
+assert(!Object.hasOwn(sexo.ocupaciones_formas_genero,'Truhán'),
+  'Truhán, de suplemento no publicado, no puede viajar en LIVE');
+assert(!Object.hasOwn(sexo.especies_formas_genero,'Dracónido'),
+  'Dracónido, de suplemento no publicado, no puede viajar en LIVE');
 const fichas=leer(salida,'fichas-documentales.json');
 assert.ok(Object.values(fichas).every(x=>x.sistema!=='nd20'||
   (x.fuente||'').includes('NaufragioD20DRS')),

@@ -343,7 +343,7 @@
       sexo==='masculino'&&!coherencia)
       detalles.push('Excepción narrativa elegida: '+ocupacion+
         ' se describe en femenino, pero el manual no declara prohibición mecánica.');
-    return {
+    var personaje={
       juego:tipo, nombre:nombreDefinitivo, sexo:sexo,
       descripcion:ocupacion + ' · ' + especie, nivel:nivel,
       concepto:escoger(conceptos, rng) || 'Aventurero',
@@ -373,6 +373,16 @@
       notas:detalles.concat((oc.poderes || []).length ? ['Poderes declarados: ' + oc.poderes.join(', ') + '.'] : [],
         config.aplazarElecciones ? [] : ['El generador no asigna Conjuros ni Técnicas por Nivel.'])
     };
+    // Derivar vistas DESPUÉS de finalizar las tiradas: concepto original,
+    // Ocupación y Especie conservan claves DRS y semilla intactas.
+    if(sexoApi&&sexoFuente){
+      personaje.descripcion_mostrada=
+        sexoApi.ocupacionVisible(ocupacion,sexo,sexoFuente)+' · '+
+        sexoApi.especieVisible(especie,sexo,sexoFuente);
+      personaje.concepto_mostrado=
+        sexoApi.conceptoVisible(personaje.concepto,sexo,sexoFuente);
+    }
+    return personaje;
   }
   function dificultadDH(rng) {
     var tres = [dado(6, rng), dado(6, rng), dado(6, rng)].sort(function(a,b){return a-b;});

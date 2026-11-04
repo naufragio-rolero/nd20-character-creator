@@ -339,12 +339,14 @@
           (sexoElegido!=='masculino'||!respetar||!sexoApi||
             sexoApi.ocuparPermitida(key,'masculino',datos.sexo,true));
       }).map(function(key){
-        return {key:key,nombre:key+' ('+d.fuentes.ocupaciones[key]+')'};
+        var visible=sexoApi?.ocupacionVisible(key,sexoElegido,datos.sexo)||key;
+        return {key:key,nombre:visible+' ('+d.fuentes.ocupaciones[key]+')'};
       }).sort(ordenar),true);
       selecciones('especie',Object.keys(d.especies).filter(function(key){
         return fuentes.indexOf(d.fuentes.especies[key])!==-1;
       }).map(function(key){
-        return {key:key,nombre:key+' ('+d.fuentes.especies[key]+')'};
+        var visible=sexoApi?.especieVisible(key,sexoElegido,datos.sexo)||key;
+        return {key:key,nombre:visible+' ('+d.fuentes.especies[key]+')'};
       }).sort(ordenar),true);
     }
     refrescarTarjetasVisibles();
@@ -549,7 +551,7 @@
       '" title="Sexo: '+leyenda+'">'+iconoDecorativo(id,'')+'</span>';
   }
   function descripcionConSexo(personaje){
-    var descripcion=String(personaje.descripcion||'');
+    var descripcion=String(personaje.descripcion_mostrada||personaje.descripcion||'');
     var separacion=descripcion.indexOf(' · ');
     var ocupacion=separacion<0?descripcion:descripcion.slice(0,separacion);
     return esc(ocupacion)+' '+sexoVisible(personaje)+
@@ -757,7 +759,8 @@
         esc(personaje.nivel)+'">Nivel '+esc(personaje.nivel)+'</span>')+
       '<button class="icon-btn eliminar-ficha" data-id="' + id +
       '" aria-label="Eliminar esta ficha" title="Eliminar">×</button></div></div>' +
-      (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' + esc(personaje.concepto) + '</p>' : '') +
+      (personaje.concepto ? '<p class="concepto"><strong>Concepto:</strong> ' +
+        esc(personaje.concepto_mostrado||personaje.concepto) + '</p>' : '') +
       '<div class="atributos">' + attrs + '</div>' + htmlRecursos(personaje.recursos,personaje) +
       htmlLista('Competencias',personaje.competencias) +
       htmlLista('Talentos y capacidades',personaje.capacidades,'talento',
@@ -795,9 +798,9 @@
   function fichaTexto(p) {
     var str=[p.nombre,nombreSistema(sistemaFicha(p))];
     if(p.nivel!=null)str.push('Nivel: '+p.nivel);
-    str.push(p.descripcion);
+    str.push(p.descripcion_mostrada||p.descripcion);
     if(p.sexo)str.push('Sexo: '+(p.sexo==='femenino'?'Femenino':'Masculino'));
-    if(p.concepto)str.push('Concepto: '+p.concepto);
+    if(p.concepto)str.push('Concepto: '+(p.concepto_mostrado||p.concepto));
     str.push('', 'Atributos:');
     var esDH = p.juego.indexOf('Dungeon Hack') === 0;
     p.atributos.forEach(function(a){

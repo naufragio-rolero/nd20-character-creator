@@ -34,7 +34,7 @@
       throw Error('La exportación PDF A5 solo admite fichas de Naufragio d20 Fantasía.');
     // La copia preserva el original incluso si cambia posteriormente el exportador.
     var p=JSON.parse(JSON.stringify(personaje));
-    var descripcion=texto(p.descripcion);
+    var descripcion=texto(p.descripcion_mostrada||p.descripcion);
     var separador=descripcion.indexOf(' · ');
     var ocupacion=separador>=0?descripcion.slice(0,separador):'';
     var especie=separador>=0?descripcion.slice(separador+3):'';
@@ -66,7 +66,7 @@
     }).filter(Boolean):[];
     return {
       juego:p.juego,nombre:texto(p.nombre),nivel:p.nivel,sexo:texto(p.sexo),
-      concepto:texto(p.concepto),descripcion_completa:descripcion,
+      concepto:texto(p.concepto_mostrado||p.concepto),descripcion_completa:descripcion,
       ocupacion:ocupacion,especie:especie,
       atributos:atributos,recursos:recursos,
       protecciones:{armadura:armadura,escudo:escudo,blindaje:blindaje,
