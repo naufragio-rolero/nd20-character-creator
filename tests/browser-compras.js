@@ -634,6 +634,38 @@ async function main(){
     await cdp.evalJS("document.querySelector('#form-armamento').requestSubmit()");
     assert.equal(await cdp.evalJS("document.querySelector('#editor-armamento').open"),false);
     assert.equal(await cdp.evalJS("document.querySelector('#estado').textContent.includes('Cambio de equipo inicial')"),true);
+    // La tienda de un Mago no debe ofrecer Espadones ni armaduras pesadas,
+    // aunque el catálogo informativo DRS los conserve.
+    await cdp.evalJS("(()=>{"+
+      "var o=document.querySelector('#ocupacion');o.value='Mago';"+
+      "o.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "document.querySelector('#nivel-min').value='1';"+
+      "document.querySelector('#nivel-max').value='1';"+
+      "document.querySelector('#cantidad').value='1';"+
+      "document.querySelector('#nombre-personaje').value='Mago elegibilidad';"+
+      "document.querySelector('#generar-flotante').click();})()");
+    await cdp.esperar("document.querySelector('#fichas .tarjeta h3')?.textContent.includes('Mago elegibilidad')",
+      'ficha de Mago con tienda competente');
+    await cdp.evalJS("(()=>{document.querySelector('#fichas .tarjeta .gestionar-equipo').click();"+
+      "document.querySelector('#gestion-abrir-armamento').click();"+
+      "var m=document.querySelector('#armamento-modo');m.value='comprar';"+
+      "m.dispatchEvent(new Event('change',{bubbles:true}));"+
+      "var g=document.querySelector('#armamento-grupo');g.value='armas';"+
+      "g.dispatchEvent(new Event('change',{bubbles:true}));})()");
+    const armasMago=await cdp.evalJS(
+      "Array.from(document.querySelector('#armamento-articulo').options).map(x=>JSON.parse(x.value)[1])");
+    assert.ok(armasMago.includes('Bastón')&&armasMago.includes('Daga'));
+    assert.ok(!armasMago.includes('Espadón'),'Mago no puede comprar Espadón desde La Forja');
+    assert.equal(await cdp.evalJS(
+      "document.querySelector('#armamento-articulo').textContent.includes('Sin Competencia')"),false);
+    const categoriasMago=await cdp.evalJS(
+      "Array.from(document.querySelector('#armamento-grupo').options).map(x=>x.value)");
+    assert.ok(categoriasMago.includes('varitas_defensa'));
+    await cdp.evalJS("(()=>{var g=document.querySelector('#armamento-grupo');"+
+      "g.value='armaduras';g.dispatchEvent(new Event('change',{bubbles:true}));})()");
+    assert.equal(await cdp.evalJS(
+      "Array.from(document.querySelector('#armamento-articulo').options).some(x=>x.textContent.includes('Armadura completa de placas'))"),false);
+    await cdp.evalJS("document.querySelector('#armamento-cancelar').click()");
     assert.deepEqual(cdp.errores,[],'El navegador no debe lanzar errores JS');
     console.log('OK · Chromium real: datos DRS, dos fichas, cancelar, importe 4,03 mo,'+
       ' Antídoto por Nivel, sobrepresupuesto, copiar, exportar, borrar y móvil.');
