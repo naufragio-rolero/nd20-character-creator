@@ -828,6 +828,16 @@
     var temporal=aplicar(base,registro.plan,resultado);
     var copia=JSON.parse(JSON.stringify(personaje));
     copia.conjuros_preparados=temporal.conjuros_preparados;
+    // Mantener observaciones y compras posteriores, pero actualizar el número
+    // de espacios vacíos, sin dejar advertencias obsoletas.
+    var marca=' Espacio(s) de Conjuro sin preparar.';
+    copia.notas=(copia.notas||[]).filter(function(n){
+      return !(n.endsWith(marca)&&Number.isInteger(Number(n.slice(0,-marca.length))));
+    });
+    var vacios=pasos.reduce(function(total,paso){
+      return total+(decisiones[paso.id]||[]).filter(function(id){return id==='__vacio';}).length;
+    },0);
+    if(vacios)copia.notas.push(vacios+marca);
     copia.elecciones_registradas={
       plan:registro.plan,base:registro.base,decisiones:decisiones
     };
