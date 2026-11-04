@@ -492,7 +492,38 @@
     return {equipo:equipo,detalles:detalles,gastado:gastado,
       restante:Math.round((presupuesto-gastado)*100)/100};
   }
-  // Daño visible: solo armas y varitas poseídas, con valor literal DRS.
+  // Potencia: exclusiva de PJ de Fantasía, no modifica catálogo ni PNJ.
+  function potenciaFicha(personaje){
+    if(!personaje||personaje.juego!=='Naufragio d20 · Fantasía'||
+       personaje.tipo_ficha)return null;
+    var registro=(personaje.recursos||[]).find(function(p){
+      return Array.isArray(p)&&p[0]==='Potencia';
+    });
+    var valor=registro===undefined?NaN:Number(registro[1]);
+    return Number.isInteger(valor)?valor:null;
+  }
+  // Tabla documental «Potencia negativa» del DRS. Para Potencia positiva
+  // se multiplica la cantidad de dados, nunca el resultado de las tiradas.
+  var reduccionesPotencia={
+    0:{4:2,6:4,8:6,10:8,12:10},
+    '-1':{4:1,6:2,8:4,10:6,12:8},
+    '-2':{4:1,6:1,8:2,10:4,12:6},
+    '-3':{4:1,6:1,8:1,10:2,12:4},
+    '-4':{4:1,6:1,8:1,10:1,12:2}
+  };
+  function danoConPotencia(dano,personaje){
+    var base=String(dano==null?'':dano);
+    var potencia=potenciaFicha(personaje);
+    if(potencia===null||potencia===1)return base;
+    var dados=base.match(/^1d([0-9]+)$/i);
+    if(potencia>1)return dados?potencia+'d'+dados[1]:base;
+    var rango=dados?reduccionesPotencia[potencia]?.[Number(dados[1])]:undefined;
+    // No inventar conversiones ausentes (p. ej. Potencia 0 con d3).
+    if(rango===undefined)return 'Sin equivalencia DRS (Potencia '+potencia+')';
+    return rango===1?'1':'1d'+rango;
+  }
+  // Daño visible: solo armas y varitas poseídas, con valor DRS adaptado
+  // a la Potencia del PJ cuando está documentada.
   // Equipar selecciona una referencia; no ejecuta ataques ni consume munición.
   function armasDisponibles(personaje,catalogo){
     var inventario=Array.isArray(personaje?.equipo)?personaje.equipo:[];
@@ -518,7 +549,8 @@
     var arma=armasDisponibles(personaje,catalogo).find(function(x){
       return x.nombre===nombre;
     });
-    return arma?{valor:arma.dano,arma:arma.nombre,grupo:arma.grupo}:
+    return arma?{valor:danoConPotencia(arma.dano,personaje),
+      arma:arma.nombre,grupo:arma.grupo}:
       {valor:'—',arma:null,grupo:null};
   }
   // Solo inventario ya adquirido: poseer una protección no equivale
@@ -591,5 +623,6 @@
     comprarArmamentoFantasia:comprarArmamentoFantasia,
     consultarPreciosArmaduraEquina:consultarPreciosArmaduraEquina,
     armasDisponibles:armasDisponibles,danoFicha:danoFicha,
+    danoConPotencia:danoConPotencia,potenciaFicha:potenciaFicha,
     proteccionesDisponibles:proteccionesDisponibles,blindajeFicha:blindajeFicha};
 });

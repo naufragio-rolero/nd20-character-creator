@@ -1073,7 +1073,8 @@
     opciones.forEach(function(x){
       var opt=document.createElement('option');
       opt.value=x.nombre;
-      opt.textContent=x.nombre+' · Daño '+x.dano;
+      opt.textContent=x.nombre+' · Daño '+
+        window.NaufragioEquipment.danoConPotencia(x.dano,p);
       selector.appendChild(opt);
     });
     selector.value=opciones.some(function(x){return x.nombre===p.arma_equipada;})?

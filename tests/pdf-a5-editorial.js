@@ -12,6 +12,9 @@ assert.equal(detalleEquipo('Hacha de batalla',catalog),
   'Hacha de batalla (Daño 1d8 · Durab. d10)');
 assert.equal(detalleEquipo('Hacha de batalla ×2',catalog),
   'Hacha de batalla ×2 (Daño 1d8 · Durab. d10)');
+assert.equal(detalleEquipo('Hacha de batalla',catalog,
+  {juego:'Naufragio d20 · Fantasía',recursos:[['Potencia',2]]}),
+  'Hacha de batalla (Daño 2d8 (Potencia 2) · Durab. d10)');
 assert.equal(detalleEquipo('Escudo pequeño',catalog),
   'Escudo pequeño (Bloqueo +1 · Durab. d6)');
 assert.equal(detalleEquipo('Armadura acolchada',catalog),
@@ -37,6 +40,13 @@ assert.equal(out._notas.length,1);
 assert.deepEqual(out._detallesTalentos,[]);
 assert.equal(out._arma_equ,'Hacha de batalla (1d8) · Penetración +1 · Durabilidad d10');
 assert.equal(out._dano_equ,'1d8');
+const p3=prepararDatos({...p,recursos:[['Potencia',3]]},
+  null,catalog,consultarPoder);
+assert.equal(p3._arma_equ,
+  'Hacha de batalla (3d8) · Penetración +1 · Durabilidad d10');
+assert.equal(p3._dano_equ,'3d8');
+assert.match(p3._sections.find(x=>x.source==='equipo').items[0],
+  /Daño 3d8 \(Potencia 3\)/);
 assert.equal(out._armadura_equ,'Armadura acolchada (Blindaje d4 · Durabilidad d4)');
 assert.equal(out._escudo_equ,'Escudo pequeño (Bloqueo +1 · Durabilidad d6) · Daño d3');
 assert.equal(out._detallesPoderes.length,1,'No repetir Poderes preparados y conocidos');

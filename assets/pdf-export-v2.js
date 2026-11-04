@@ -4,9 +4,10 @@
  * Copyright El Naufragio. Revisión editorial pendiente.
  */
 (function(root,factory){
-  if(typeof module==='object'&&module.exports)module.exports=factory();
-  else root.NaufragioPdfExport=factory();
-})(typeof window!=='undefined'?window:undefined,function(){
+  if(typeof module==='object'&&module.exports)
+    module.exports=factory(require('./equipment.js'));
+  else root.NaufragioPdfExport=factory(root.NaufragioEquipment);
+})(typeof window!=='undefined'?window:undefined,function(equipment){
   'use strict';
   var PT=72/25.4,HEIGHT=210*PT;
   var sectionKeys=[
@@ -21,7 +22,7 @@
   function clone(x){return JSON.parse(JSON.stringify(x));}
   // Datos de equipo tomados exclusivamente del catálogo DRS servido a la Forja.
   // No inventar daño, durabilidad ni bonificaciones para objetos ausentes.
-  function detalleEquipo(nombre,catalogo){
+  function detalleEquipo(nombre,catalogo,personaje){
     var original=asText(nombre),base=original.replace(/\s+×\s*\d+\s*$/,'').trim();
     if(!catalogo||!base)return original;
     var grupos=[['armas','arma'],['varitas_defensa','varita'],
@@ -33,7 +34,12 @@
     }
     if(!encontrado)return original;
     var datos=[];
-    if(['arma','varita'].includes(tipo)&&encontrado.dano)datos.push('Daño '+encontrado.dano);
+    if(['arma','varita'].includes(tipo)&&encontrado.dano){
+      var efectivo=equipment.danoConPotencia(encontrado.dano,personaje);
+      var potencia=equipment.potenciaFicha(personaje);
+      datos.push('Daño '+efectivo+(efectivo!==encontrado.dano&&potencia!==null?
+        ' (Potencia '+potencia+')':''));
+    }
     if(tipo==='municion'&&encontrado.du)datos.push('DU '+encontrado.du);
     if(tipo==='varita'&&encontrado.municion_du)
       datos.push('Munición DU '+encontrado.municion_du);
@@ -91,19 +97,21 @@
     });
     if(out._escudo_equ&&escudoCatalogo?.dano)
       out._escudo_equ+=' · Daño '+asText(escudoCatalogo.dano);
-    // La elección del arma es informativa; no suma dados ni cambia el combate.
+    // La elección del arma es informativa: el daño mostrado refleja la
+    // Potencia del PJ, sin ejecutar tiradas ni alterar la ficha.
     const armas=[...(catalogoEquipo?.armas||[]),
       ...(catalogoEquipo?.varitas_defensa||[])];
     const elegida=armas.find(function(a){
       return a.nombre===out.arma_equipada&&owns(a.nombre)&&a.dano;
     });
-    out._arma_equ=elegida?elegida.nombre+' ('+asText(elegida.dano)+')'+
+    var danoEquipado=elegida?equipment.danoConPotencia(elegida.dano,out):'';
+    out._arma_equ=elegida?elegida.nombre+' ('+asText(danoEquipado)+')'+
       (elegida.penetracion!=null&&elegida.penetracion!==0?
         ' · Penetración '+(elegida.penetracion>0?'+':'')+asText(elegida.penetracion):'')+
       (elegida.durabilidad&&elegida.durabilidad!=='-'?
         ' · Durabilidad '+asText(elegida.durabilidad):''):'';
     // Dato original conservado para adaptadores, sin duplicarlo en el A5.
-    out._dano_equ=elegida?elegida.dano:'';
+    out._dano_equ=danoEquipado;
     var blindaje=out._consultaBlindaje;
     // El Blindaje figura en el propio nombre de la armadura equipada.
     // Si una futura ficha dispone de Protección natural documentada y no
@@ -156,7 +164,7 @@
       // El campo Arma equipada ya indica qué pieza está activa; no
       // repetir esa etiqueta en el inventario del PDF.
       if(k[1]==='equipo')items=items.map(function(x){
-        return detalleEquipo(x,catalogoEquipo);
+        return detalleEquipo(x,catalogoEquipo,out);
       });
       return items.length?{title:k[0],source:k[1],items:items}:null;
     }).filter(Boolean);
