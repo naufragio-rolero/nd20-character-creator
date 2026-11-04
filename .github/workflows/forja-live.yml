@@ -28,16 +28,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado PR #76: reproducción desde cada ficha
+      - name: Obtener snapshot DRS aprobado PR #81: requisitos estructurados de Técnicas
         uses: actions/checkout@v4
         with:
-          ref: 1359d878a4fdb3012e09b3da3be6d7aaa3b4e065
+          ref: 466976657e19a541af492fbe610b3a31da25afd2
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "1359d878a4fdb3012e09b3da3be6d7aaa3b4e065"
-      # Snapshot aprobado para LIVE: PR #76 con 35 SVG, dos logos WebP, PDF A5,
-      # Nivel por intervalo, tema Violeta y reproducción por ficha, sin recuadro fijo.
+          test "$(git rev-parse HEAD)" = "466976657e19a541af492fbe610b3a31da25afd2"
+      # Snapshot aprobado para LIVE: PR #81, con 35 SVG, dos logos WebP, PDF A5,
+      # semillas, intervalos, reproducción por ficha y elegibilidad DRS de Técnicas.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
