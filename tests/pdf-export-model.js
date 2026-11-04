@@ -58,6 +58,6 @@ const presentado=modelo.preparar({...original,descripcion_mostrada:'Guerrera · 
 assert.equal(presentado.ocupacion,'Guerrera');
 assert.equal(presentado.especie,'Elfa agreste');
 assert.equal(presentado.concepto,'Guardiana del bosque');
-assert.equal(p.descripcion,'Guerrero · Humano común',
+assert.equal(original.descripcion,'Guerrero · Humano común',
   'La transformación de datos de presentación no muta las reglas');
 console.log('OK: modelo PDF A5 puro, protegidas las reglas, 154 entradas intactas.');
