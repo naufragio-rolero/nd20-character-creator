@@ -126,7 +126,27 @@
     var frontera=Math.ceil(list.length/2);
     return sexo==="femenino"?list.slice(0,frontera):list.slice(frontera);
   }
-  return {forma:forma,preferenciaOcupacion:preferenciaOcupacion,
+  // Las denominaciones visibles se resuelven exclusivamente con el
+  // catálogo editorial: ninguna flexión de sufijos se inventa en runtime.
+  // El identificador original sigue siendo la clave de reglas y de semilla.
+  function formaEditorial(nombre,sexo,registros){
+    var original=String(nombre||'');
+    if(sexo!=='masculino'&&sexo!=='femenino')return original;
+    var documentada=registros?.[original]?.[sexo];
+    return typeof documentada==='string'&&documentada.trim()?documentada:original;
+  }
+  function ocupacionVisible(nombre,sexo,datos){
+    return formaEditorial(nombre,sexo,datos?.ocupaciones_formas_genero);
+  }
+  function especieVisible(nombre,sexo,datos){
+    return formaEditorial(nombre,sexo,datos?.especies_formas_genero);
+  }
+  function conceptoVisible(nombre,sexo,datos){
+    return formaEditorial(nombre,sexo,datos?.conceptos_formas_genero);
+  }
+  return {forma:forma,ocupacionVisible:ocupacionVisible,
+    especieVisible:especieVisible,conceptoVisible:conceptoVisible,
+    preferenciaOcupacion:preferenciaOcupacion,
     ocuparPermitida:ocuparPermitida,resolverSexo:resolverSexo,primerNombre:primerNombre,
     nombresEspecie:nombresEspecie,nombresDocumentados:nombresDocumentados,
     elegirPonderado:elegirPonderado,elegirNombre:elegirNombre,nombresDH:nombresDH};
