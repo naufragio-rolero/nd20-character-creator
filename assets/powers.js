@@ -95,22 +95,50 @@
           !(habilitarAmpliacion&&t.fuente==="Naufragio d20 Ocupaciones"))
         return false;
       if(juego==="nd20_cifi" && /Ocupaciones$/.test(t.fuente))return false;
-      // Una Ocupación en el requisito restringe quién puede APRENDER la
-      // Técnica, incluso si su categoría está permitida (Guerrero vs Ladrón).
-      // Identificar términos completos evita coincidencias accidentales en
-      // requisitos de uso o nombres de poderes. VA, equipo y Nivel quedan
-      // documentados como condiciones de USO, no de aprendizaje.
-      var req=t.requisito||"";
-      var ocupacionesRequisito=[
-        "Clérigo","Guerrero","Mago","Ladrón",
-        "Valquiria","Derviche","Cronómaca","Celador","Pugilista"
-      ];
-      var exigidas=req.split(/[,;]/).map(function(parte){
-        return parte.trim().replace(/^Ocupación(?: de origen)?\s*:\s*/i,"");
-      }).filter(function(parte){return ocupacionesRequisito.includes(parte);});
+      // Las nuevas fichas declaran ocupaciones_permitidas explícitamente.
+      // El campo, si existe, tiene prioridad sobre el requisito narrativo.
+      // Las fichas anteriores siguen interpretándose con su filtro legacy.
+      // requisitos_uso es metadato para la partida, NUNCA impide aprender:
+      // VA, equipo y Nivel no son bloqueos de adquisición según el DRS.
+      var tieneLista=Object.prototype.hasOwnProperty.call(t,"ocupaciones_permitidas");
+      var exigidas;
+      if(tieneLista){
+        if(!Array.isArray(t.ocupaciones_permitidas)||
+           !t.ocupaciones_permitidas.length||
+           t.ocupaciones_permitidas.some(function(x){
+             return typeof x!=="string"||x!==x.trim()||!x;
+           })||new Set(t.ocupaciones_permitidas).size!==t.ocupaciones_permitidas.length)
+          throw Error("Ocupaciones permitidas inválidas: "+t.nombre);
+        exigidas=t.ocupaciones_permitidas;
+      }else{
+        var req=t.requisito||"";
+        var ocupacionesRequisito=[
+          "Clérigo","Guerrero","Mago","Ladrón",
+          "Valquiria","Derviche","Cronómaca","Celador","Pugilista"
+        ];
+        exigidas=req.split(/[,;]/).map(function(parte){
+          return parte.trim().replace(/^Ocupación(?: de origen)?\s*:\s*/i,"");
+        }).filter(function(parte){return ocupacionesRequisito.includes(parte);});
+      }
+      if(Object.prototype.hasOwnProperty.call(t,"requisitos_uso")&&
+         (!Array.isArray(t.requisitos_uso)||
+           t.requisitos_uso.some(function(x){
+             return !x||typeof x!=="object"||Array.isArray(x)||
+               typeof x.tipo!=="string"||!x.tipo.trim()||
+               (x.tipo==="nivel"&&(!Number.isInteger(x.minimo)||
+                 x.minimo<1||x.minimo>30));
+           })))
+        throw Error("Requisitos de uso inválidos: "+t.nombre);
       if(exigidas.length&&!exigidas.includes(ocupacion))return false;
       return true;
-    }).map(function(t){return {id:t.id,nombre:t.nombre,categoria:t.categoria,requisito:t.requisito};});
+    }).map(function(t){
+      var opcion={id:t.id,nombre:t.nombre,categoria:t.categoria,requisito:t.requisito};
+      if(Array.isArray(t.ocupaciones_permitidas))
+        opcion.ocupaciones_permitidas=t.ocupaciones_permitidas.slice();
+      if(Array.isArray(t.requisitos_uso))
+        opcion.requisitos_uso=t.requisitos_uso.map(function(x){return Object.assign({},x);});
+      return opcion;
+    });
   }
 
   function columna(tabla,fila,patron) {

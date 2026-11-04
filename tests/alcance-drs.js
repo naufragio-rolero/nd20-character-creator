@@ -841,6 +841,15 @@ const drsConjuros=new Set(catalogo.conjuros.filter(x=>
   x.origen==='Nd20').map(x=>x.id));
 assert.equal(drsTecnicas.size,10);
 assert.equal(drsConjuros.size,64);
+// Exactitud DRS: elegibilidad explícita y condiciones de USO separadas.
+const rajDRS=catalogo.tecnicas.find(x=>x.id==='tecnica-06');
+const sorpresaDRS=catalogo.tecnicas.find(x=>x.id==='tecnica-09');
+assert.deepEqual(rajDRS.ocupaciones_permitidas,['Guerrero']);
+assert.deepEqual(rajDRS.requisitos_uso,[{tipo:'nivel',minimo:6}]);
+assert.equal(rajDRS.requisito,'Guerrero, Nivel 6+');
+assert.deepEqual(sorpresaDRS.ocupaciones_permitidas,['Ladrón']);
+assert.deepEqual(sorpresaDRS.requisitos_uso,[]);
+assert.equal(sorpresaDRS.requisito,'Ladrón');
 for(const ocupacion of ['Clérigo','Guerrero','Mago','Ladrón']){
   for(const nivel of [1,12,24,25,29,30]){
     const plan=planificadorDRS.planificar({

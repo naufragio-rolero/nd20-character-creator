@@ -15,6 +15,58 @@ function tecnicas(ocupacion,nivel,fuentes=['DRS']){
    especie:'Humano común',nivel,fuentes},datos,catalogoPoderes,progresiones);
  return plan.pasos.find(p=>p.tipo==='tecnica').opciones;
 }
+// Metadatos estructurados: conservan las glosas literales originales.
+const raj= catalogoPoderes.tecnicas.find(x=>x.id==='tecnica-06');
+const sorpresa=catalogoPoderes.tecnicas.find(x=>x.id==='tecnica-09');
+assert.deepEqual(raj.ocupaciones_permitidas,['Guerrero']);
+assert.deepEqual(raj.requisitos_uso,[{tipo:'nivel',minimo:6}]);
+assert.equal(raj.requisito,'Guerrero, Nivel 6+');
+assert.deepEqual(sorpresa.ocupaciones_permitidas,['Ladrón']);
+assert.deepEqual(sorpresa.requisitos_uso,[]);
+assert.equal(sorpresa.requisito,'Ladrón');
+assert.equal(catalogoPoderes.tecnicas.filter(x=>
+ Object.hasOwn(x,'ocupaciones_permitidas')).length,2,
+ 'Solo las dos Técnicas aprobadas llevan el nuevo esquema');
+// Las mismas técnicas llegan al plan de generación con sus metadatos intactos.
+const opcionesGuerreroNv1=tecnicas('Guerrero',1);
+const rajNv1=opcionesGuerreroNv1.find(x=>x.id==='tecnica-06');
+assert.deepEqual(rajNv1.ocupaciones_permitidas,['Guerrero']);
+assert.deepEqual(rajNv1.requisitos_uso,[{tipo:'nivel',minimo:6}]);
+assert.deepEqual(tecnicas('Ladrón',1).find(x=>x.id==='tecnica-09').requisitos_uso,[]);
+assert.ok(rajNv1,'El requisito de uso de Nivel 6 no bloquea aprendizaje en Nivel 1');
+
+// Modificar la elegibilidad declarativa no requiere cambiar el JavaScript.
+function conCatalogo(ocupacion,cat){
+ const plan=poderes.planificar({juego:'nd20',ocupacion,
+   especie:'Humano común',nivel:6,fuentes:['DRS']},datos,cat,progresiones);
+ return plan.pasos.find(x=>x.tipo==='tecnica').opciones;
+}
+const alternativo=JSON.parse(JSON.stringify(catalogoPoderes));
+const cambiada=alternativo.tecnicas.find(x=>x.id==='tecnica-09');
+cambiada.ocupaciones_permitidas=['Guerrero','Ladrón'];
+assert.ok(conCatalogo('Guerrero',alternativo).some(x=>x.id==='tecnica-09'),
+ 'Una lista de dos Ocupaciones habilita ambas sin modificar el motor');
+assert.ok(conCatalogo('Ladrón',alternativo).some(x=>x.id==='tecnica-09'));
+cambiada.ocupaciones_permitidas=['Guerrero'];
+assert.ok(!conCatalogo('Ladrón',alternativo).some(x=>x.id==='tecnica-09'),
+ 'El campo estructurado prevalece sobre el texto literal anterior');
+const rajAlternativo=alternativo.tecnicas.find(x=>x.id==='tecnica-06');
+rajAlternativo.ocupaciones_permitidas=['Ladrón'];
+assert.ok(!conCatalogo('Guerrero',alternativo).some(x=>x.id==='tecnica-06'),
+ 'Rajar ya no es aprendible por Guerrero al cambiar su lista');
+assert.ok(!conCatalogo('Ladrón',alternativo).some(x=>x.id==='tecnica-06'),
+ 'La categoría Fuerza bruta sigue excluida para Ladrón, incluso si figura como autorizado');
+rajAlternativo.categoria='Trucos sucios';
+assert.ok(conCatalogo('Ladrón',alternativo).some(x=>x.id==='tecnica-06'),
+ 'Tras ajustar categoría y Ocupación, no se necesitan cambios de código');
+rajAlternativo.ocupaciones_permitidas=[];
+assert.throws(()=>conCatalogo('Ladrón',alternativo),/Ocupaciones permitidas inválidas/,
+ 'Un esquema vacío no se interpreta como libre acceso');
+rajAlternativo.ocupaciones_permitidas=['Ladrón'];
+rajAlternativo.requisitos_uso=[{tipo:'nivel',minimo:0}];
+assert.throws(()=>conCatalogo('Ladrón',alternativo),/Requisitos de uso inválidos/,
+ 'Una condición de Nivel malformada no entra silenciosamente en el catálogo');
+
 for(const nivel of [1,5,6,12,24,30]){
  const guerrero=tecnicas('Guerrero',nivel),ladron=tecnicas('Ladrón',nivel);
  assert.equal(guerrero.length,9);
