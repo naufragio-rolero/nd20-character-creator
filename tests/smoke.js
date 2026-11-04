@@ -67,11 +67,7 @@ for(let n=1;n<=30;n++) {
 }
 const matriz = reglas.matriz({juego:'dh'},reglas.aleatorioSemilla('matriz'));
 assert.equal(matriz.atributos.length,6);
-const mapa = reglas.mazmorra({ancho:6,alto:6},reglas.aleatorioSemilla('mapa'));
-assert.equal(mapa.length,8);
-assert.ok(mapa.every((f)=>f.length===8));
-assert.ok(mapa[0].every((x)=>x==='wall'));
-total+=2;
+total++;
 console.log('OK · '+total+' comprobaciones de generación superadas.');
 
 
@@ -634,6 +630,23 @@ for(const [nombre,ocupacion] of Object.entries(fantasiaExtendida.ocupaciones)){
       'Objetos de provisiones individuales: '+nombre+'/'+nivel);
     assert.ok(!uno.equipo.some(x=>x.startsWith('Paquete ')),
       'El paquete adquirido nunca aparece como una sola entrada');
+    const compradas=uno.compras_iniciales_intercambiables||[];
+    const armaInicial=compradas.find(x=>x.grupo==='armas'||x.grupo==='varitas_defensa');
+    const armaduraInicial=compradas.find(x=>x.grupo==='armaduras');
+    const armasReales=equipoApi.armasDisponibles(uno,equipoDRS);
+    const armadurasReales=equipoApi.proteccionesDisponibles(uno,equipoDRS).armaduras;
+    const armaEsperada=armaInicial&&armasReales.some(x=>x.nombre===armaInicial.nombre)?
+      armaInicial.nombre:'';
+    const armaduraEsperada=armaduraInicial&&armadurasReales.some(x=>x.nombre===armaduraInicial.nombre)?
+      armaduraInicial.nombre:'';
+    assert.equal(uno.arma_equipada,armaEsperada,
+      'Solo se equipa un arma comprada y disponible: '+nombre+'/'+nivel);
+    assert.equal(uno.protecciones_equipadas.armadura,armaduraEsperada,
+      'Solo se equipa la armadura inicial comprada: '+nombre+'/'+nivel);
+    assert.equal(uno.protecciones_equipadas.escudo,'',
+      'El escudo es una selección independiente, no un bono permanente');
+    assert.equal(equipoApi.danoFicha(uno,equipoDRS).arma,armaEsperada||null);
+    assert.equal(equipoApi.blindajeFicha(uno,equipoDRS).armadura,armaduraEsperada||null);
     pruebasEquipo++;
   }
 }

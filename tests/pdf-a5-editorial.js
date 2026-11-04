@@ -55,11 +55,11 @@ const html=fs.readFileSync(path.join(root,'assets/app.js'),'utf8');
 const css=fs.readFileSync(path.join(root,'assets/styles.css'),'utf8');
 const bridge=fs.readFileSync(path.join(root,'assets/pdf-export-browser.js'),'utf8');
 assert(html.includes('acciones-pie-ficha'));
-assert(html.includes('>PDF</button>'));
-assert(html.includes('>Equipo</button>'));
-assert(html.includes('class="gestionar-equipo"'));
+assert(html.includes('class="exportar-pdf-ficha accion-icono"'));
+assert(html.includes('class="gestionar-equipo accion-icono"'));
+assert(html.includes('aria-label="Equipar y gestionar el equipo"'));
 assert(!html.includes('>Útiles</button>'));
-assert(html.includes('>Copiar</button>'));
+assert(html.includes('class="copiar-ficha accion-icono"'));
 assert(html.indexOf('acciones-pie-ficha')<html.indexOf('fuentes-pie-ficha'));
 assert(html.includes('blindajePersonaje(entradaPdf.valor),datos.equipoInicial'));
 assert(html.includes("p[0]==='Blindaje'&&blindaje?.bonoEscudo"),

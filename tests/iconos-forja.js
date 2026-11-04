@@ -39,9 +39,17 @@ const ids=[
   "sexo-femenino",
   "sexo-indeterminado"
 ];
+const acciones={
+  'accion-equipo':'backpack',
+  'accion-talentos':'sparkles',
+  'accion-pdf':'file-type-pdf',
+  'accion-semilla':'fingerprint',
+  'accion-copiar':'copy'
+};
 assert.deepEqual(
   fs.readdirSync(dir).filter(x=>x.endsWith('.svg')).sort(),
-  ids.map(x=>x+'.svg').sort(),'35 archivos autónomos sin iconos ajenos');
+  ids.concat(Object.keys(acciones)).map(x=>x+'.svg').sort(),
+  '40 SVG autónomos: 35 aprobados + 5 acciones MIT');
 const originalesPropios=new Set(["ico-configurar","recurso-salud","recurso-esfuerzo","recurso-movimiento","recurso-potencia","recurso-esencia","recurso-blindaje"]);
 assert.equal(originalesPropios.size,7,'7 iconos originales propios en el catálogo');
 for(const id of ids){
@@ -59,12 +67,32 @@ for(const id of ids){
   assert.ok(!/<symbol\b|<image\b|<use\b|<script\b/i.test(svg),
     id+': SVG independiente sin recursos remotos');
 }
+for(const [id,original] of Object.entries(acciones)){
+  const svg=fs.readFileSync(path.join(dir,id+'.svg'),'utf8');
+  assert.match(svg,/viewBox="0 0 24 24"/,id+': lienzo cuadrado 1:1');
+  assert.ok(svg.includes('stroke="currentColor"'),id+': trazo monocromático');
+  assert.ok(svg.includes('width="24"')&&svg.includes('height="24"'));
+  assert.ok(!/<script\b|<image\b|<use\b|<foreignObject\b/i.test(svg),
+    id+': sin scripts, dependencias ni recursos remotos');
+  assert.ok(svg.includes('</svg>'),id+': fuente SVG local integra');
+  assert.ok(original,'Icono Tabler documentado');
+}
+const licencia=fs.readFileSync(path.join(dir,'LICENCIA-TABLER.txt'),'utf8');
+assert.match(licencia,/Tabler Icons v3\.50\.0/);
+assert.match(licencia,/MIT License/);
+assert.match(licencia,/Copyright \(c\) 2020-2026 Paweł Kuna/);
+for(const nombre of Object.values(acciones))assert.ok(licencia.includes(nombre),
+  nombre+': fuente upstream registrada');
 for(const archivo of ['assets/app.js','index.html'])
   assert.ok(!fs.readFileSync(path.join(raiz,archivo),'utf8').includes('icons-forja.svg'),
     archivo+': no referencia el sprite');
 assert.equal(fs.existsSync(path.join(raiz,'assets','icons-forja.svg')),false);
 const css=fs.readFileSync(path.join(raiz,'assets','styles.css'),'utf8');
 assert.ok(css.includes('.icono-svg{')&&css.includes('mask:var(--icono-svg)'));
+for(const id of Object.keys(acciones))
+  assert.ok(css.includes('url(icons/'+id+'.svg)'),id+': máscara local en CSS');
+assert.ok(css.includes('button.accion-icono')&&css.includes('width:44px'),
+  'Los botones de acciones usan zona táctil de 44px');
 assert.ok(css.includes('url(icons/ico-configurar.svg)'),
   'El boton de configurar resuelve el SVG desde la hoja assets/styles.css');
 const appJs=fs.readFileSync(path.join(raiz,'assets','app.js'),'utf8');
@@ -120,7 +148,12 @@ assert.ok(fs.readFileSync(path.join(dir,'ocu-mago.svg'),'utf8').includes('pointy
 assert.ok(fs.existsSync(path.join(rutaOrigen,'darkzaitzev','big-gear.svg')),
   'El SVG original big-gear se conserva como fuente');
 
-assert.ok(fs.readFileSync(path.join(raiz,'index.html'),'utf8')
-  .includes('assets/icons/CREDITOS-GAME-ICONS.txt'),'Créditos enlazados desde la Forja');
+const index=fs.readFileSync(path.join(raiz,'index.html'),'utf8');
+assert.ok(index.includes('assets/icons/CREDITOS-GAME-ICONS.txt'),
+  'Créditos Game-icons enlazados desde La Forja');
+assert.ok(index.includes('assets/icons/LICENCIA-TABLER.txt'),
+  'Licencia MIT Tabler enlazada desde La Forja');
+for(const nombre of Object.keys(acciones))
+  assert.ok(appJs.includes('icono-accion '+nombre),nombre+': pie de ficha con pictograma');
 
-console.log('OK · 35 SVG 1:1 (7 originales propios + 28 derivados), créditos y originales archivados.');
+console.log('OK · 40 SVG 1:1 (35 anteriores + 5 Tabler MIT), licencias y máscaras CSS.');

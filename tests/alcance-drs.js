@@ -1305,7 +1305,7 @@ for(const id of ['editor-compras','titulo-editor-compras','form-compra-utiles',
   assert.ok(comprasHtml.includes('id="'+id+'"'),'Elemento visible de compra: '+id);
   assert.ok(comprasApp.includes("$('"+id+"')"),'Elemento de compra conectado a JS: '+id);
 }
-assert.ok(comprasApp.includes('class="gestionar-equipo"'));
+assert.ok(comprasApp.includes('class="gestionar-equipo accion-icono"'));
 assert.ok(comprasApp.includes('function abrirGestionEquipo(entrada)'));
 assert.ok(comprasApp.includes("personaje.arma_equipada"));
 assert.ok(comprasApp.includes("htmlContexto(notas.contexto)"));

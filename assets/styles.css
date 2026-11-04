@@ -223,15 +223,6 @@ html[data-tema]:not([data-tema=clasico]) .tarjeta :is(.avisos-ficha h4,.contexto
 .pie-ficha small{color:#5f686b;font-size:.7rem}
 .pie-ficha button{color:#142e39;border:1px solid #adb1aa;background:#e5dfd0;font-size:.75rem;padding:.4rem .65rem;white-space:nowrap}
 .pie-ficha button:hover{background:#eed9ae}
-.mapa-wrap{overflow-x:auto;padding:1rem}
-.mapa{border-collapse:separate;border-spacing:2px;table-layout:fixed;margin:auto}
-.celda{min-width:19px;width:19px;height:19px;border:1px solid #8b917a}
-.celda-wall{background:#172d39;border-color:#172d39}
-.celda-tile{background:#d9d3bd}
-.celda-col{background:#a7af9e;border:4px solid #63776d}
-.celda-trap{background:#c98369}
-.celda-furn{background:#b7a17f}
-.leyenda{margin:0 1rem 1.4rem;font-size:.7rem;text-align:center;color:#54626b}
 .pie{font-size:.75rem;color:var(--secundario);padding-top:2rem}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 [hidden]{display:none!important}
@@ -346,7 +337,7 @@ html[data-tema]:not([data-tema=clasico]) .tarjeta{
 html[data-tema]:not([data-tema=clasico]) .cabecera-ficha{
   background:var(--tema-ficha-head);border-color:var(--borde)
 }
-html[data-tema]:not([data-tema=clasico]) .tarjeta :is(.cabecera-ficha p:last-child,.etiqueta,.concepto,.bloque-ficha h4,.atributo small,.recursos span,.pie-ficha small,.leyenda){
+html[data-tema]:not([data-tema=clasico]) .tarjeta :is(.cabecera-ficha p:last-child,.etiqueta,.concepto,.bloque-ficha h4,.atributo small,.recursos span,.pie-ficha small){
   color:var(--tema-ficha-text);opacity:.78
 }
 html[data-tema]:not([data-tema=clasico]) .tarjeta :is(.atributos,.atributo,.recursos,.pie-ficha){border-color:var(--borde)}
@@ -1059,6 +1050,27 @@ html[data-tema=ceruleo] .tarjeta .icon-btn:hover:not(:disabled):not(.principal):
   .acciones-pie-ficha{gap:.35rem}
   .pie-ficha .acciones-pie-ficha button{min-width:0;flex:1}
 }
+/* Acciones del pie: iconos Tabler 24x24 centrados en casillas tactiles 44x44.
+   Las mascaras SVG locales heredan el color de texto en cada tema. */
+.pie-ficha .acciones-pie-ficha button.accion-icono{
+  display:grid;place-items:center;flex:0 0 44px;
+  width:44px;min-width:44px;height:44px;min-height:44px;padding:0;
+}
+.icono-accion{
+  display:block;width:24px;height:24px;flex:none;background:currentColor;
+  -webkit-mask-image:var(--icono-accion);mask-image:var(--icono-accion);
+  -webkit-mask-size:contain;mask-size:contain;
+  -webkit-mask-position:center;mask-position:center;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+}
+.accion-equipo{--icono-accion:url(icons/accion-equipo.svg)}
+.accion-talentos{--icono-accion:url(icons/accion-talentos.svg)}
+.accion-pdf{--icono-accion:url(icons/accion-pdf.svg)}
+.accion-semilla{--icono-accion:url(icons/accion-semilla.svg)}
+.accion-copiar{--icono-accion:url(icons/accion-copiar.svg)}
+.pie-ficha .acciones-pie-ficha button.accion-icono:focus-visible{
+  outline:3px solid var(--foco,#0099cc);outline-offset:2px
+}
 
 
 /* Ficha UX: lista semántica con apariencia de pseudotabla a dos columnas.
@@ -1258,8 +1270,12 @@ html[data-tema] .juegos-compactos button.sistema-logo.sistema-activo{
 .inicio-rapido{position:relative;padding-right:3.4rem}
 .inicio-rapido[hidden],.reproduccion-resultados[hidden]{display:none!important}
 .ocultar-tutorial{position:absolute;right:.55rem;top:.5rem;display:grid;place-items:center;
-  width:2rem;height:2rem;min-width:2rem;min-height:2rem;padding:0;border:1px solid var(--borde);
+  width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:1px solid var(--borde);
   border-radius:6px;background:var(--superficie);color:var(--texto);font-size:1.4rem;line-height:1}
+@media(max-width:830px){
+  .inicio-movil{position:relative}
+  .inicio-movil h2{padding-right:2.5rem}
+}
 .fila-campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
 .fila-campos>.campo{min-width:0}
 .fila-identidad .abrir-rejilla{min-width:0;max-width:100%}

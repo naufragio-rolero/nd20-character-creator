@@ -4,7 +4,7 @@
 
 ## Iconos SVG individuales y lienzo cuadrado
 
-Los 35 pictogramas son archivos autónomos en `assets/icons/ID.svg`.
+Los 35 pictogramas originales de selección, Recursos y Equipo se conservan en `assets/icons/ID.svg`. La primera tanda suma **5 SVG de acciones**, hasta **40 archivos autónomos**.
 Todos tienen `viewBox="0 0 24 24"`, anchura y altura idénticas,
 figura centrada y proporciones conservadas. Los 28 iconos derivados de Game-icons.net ocupan una huella máxima de 19,5 unidades; los siete diseños propios utilizan su geometría original aprobada, optimizada para lectura a 16 px.
 
@@ -29,11 +29,16 @@ se mantienen las etiquetas accesibles.
 - Recursos: `recurso-salud`, `recurso-esfuerzo`, `recurso-movimiento`, `recurso-potencia`, `recurso-esencia`, `recurso-blindaje`.
 - Equipo: `equipo-espada`, `equipo-arco`, `equipo-varita`, `equipo-bolsa`, `equipo-caballo`, `equipo-mochila`, `equipo-orbe`, `equipo-libro`, `equipo-armadura`, `equipo-escudo`, `equipo-municion`.
 - Sexo: `sexo-masculino`, `sexo-femenino`, `sexo-indeterminado`.
+- Acciones del pie: `accion-equipo`, `accion-talentos`, `accion-pdf`, `accion-semilla`, `accion-copiar`. SVG del conjunto **Tabler Icons v3.50.0** (24×24, trazo 2), enmascarados por CSS (`--icono-accion`), con botón 44×44, `title`, `aria-label` y foco visible.
 
 **Publicación DRS:** las listas blancas de construcción y auditoría
-incluyen los 35 SVG, sin el sprite antiguo. La entrega LIVE conserva
+incluyen los 40 SVG y la licencia MIT de Tabler, sin el sprite antiguo. La entrega LIVE conserva
 la revisión fijada por SHA; integrar esta mejora no despliega DLC ni
 altera automáticamente el sitio publicado.
+
+## Iconos de acciones (Tabler Icons, MIT)
+
+Los cinco SVG nuevos se copiaron del tag [Tabler Icons v3.50.0](https://github.com/tabler/tabler-icons/tree/v3.50.0/icons/outline): `backpack` (Equipo), `sparkles` (Talentos y Poderes), `file-type-pdf` (PDF), `fingerprint` (Semilla) y `copy` (Copiar). Se conservan las fuentes originales, sin símbolos remotos. La licencia íntegra y el copyright de Paweł Kuna se incluyen en `assets/icons/LICENCIA-TABLER.txt`, también enlazada desde el pie de la página. Son **iconos de navegación**, no reglas ni componentes del mundo ficticio. Los 35 pictogramas anteriores mantienen sus créditos originales.
 
 ## Nueva iconografía Game-icons.net (atribución y adaptación)
 

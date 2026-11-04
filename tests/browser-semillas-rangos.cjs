@@ -47,11 +47,30 @@ async function run(name,origin){
     await ready();
     await check(page,'#resumen-sistema','Naufragio d20 · Fantasía Épica');
     await check(page,'#resumen-nivel','Nivel 1');
-    assert.equal(await page.locator('#tutorial-inicial').isVisible(),true);
-    await page.locator('#ocultar-tutorial').click();
+    await check(page,'#resumen-nombre','Nombres genéricos');
+    assert.equal(await page.locator('#generar-mazmorra').count(),0);
+    // El tutorial en móvil es distinto al lateral: cerrar uno oculta ambos
+    // y persiste incluso al recargar o volver a limpiar la mesa.
+    await page.setViewportSize({width:390,height:850});
+    assert.equal(await page.locator('#inicio-movil').isVisible(),true);
+    const cerrarMovil=page.locator('#ocultar-inicio-movil');
+    assert.ok((await cerrarMovil.boundingBox()).width>=44);
+    await cerrarMovil.click();
+    assert.equal(await page.locator('#inicio-movil').isVisible(),false);
     assert.equal(await page.locator('#tutorial-inicial').isVisible(),false);
     await newPage();
+    assert.equal(await page.locator('#inicio-movil').isVisible(),false);
+    await page.setViewportSize({width:1320,height:920});
     assert.equal(await page.locator('#tutorial-inicial').isVisible(),false);
+    // El cierre del tutorial lateral usa exactamente la misma preferencia.
+    await page.evaluate(()=>localStorage.removeItem('forja-tutorial-oculto'));
+    await newPage();
+    await page.locator('#ocultar-tutorial').click();
+    await newPage();
+    assert.equal(await page.locator('#tutorial-inicial').isVisible(),false);
+    await page.setViewportSize({width:390,height:850});
+    assert.equal(await page.locator('#inicio-movil').isVisible(),false);
+    await page.setViewportSize({width:1320,height:920});
     assert.equal(await page.locator('#generar').isEnabled(),true);
     assert.equal(await page.locator('#usar-semilla').getAttribute('aria-pressed'),'false');
     const botones=await page.locator('#generar, #usar-semilla').evaluateAll(elements=>
@@ -66,6 +85,14 @@ async function run(name,origin){
       'Tema Violeta persiste al recargar');
     await page.locator('#selector-tema').selectOption('clasico');
     await open();
+    await page.locator('#modo-nombre').selectOption('ylat');
+    await check(page,'#resumen-nombre','Nombres de Ylat');
+    await page.locator('#nombre-personaje').fill('Alyra de Ylat');
+    await check(page,'#resumen-nombre','Nombre personalizado: Alyra de Ylat');
+    await page.locator('#nombre-personaje').fill('');
+    await check(page,'#resumen-nombre','Nombres de Ylat');
+    await page.locator('#modo-nombre').selectOption('generico');
+    await check(page,'#resumen-nombre','Nombres genéricos');
     // Dos columnas escritorio; una columna en móvil.
     const cajas=await page.locator('.fila-identidad>.campo').evaluateAll(nodes=>
       nodes.map(n=>{const r=n.getBoundingClientRect();return {left:r.left,top:r.top,width:r.width};}));
@@ -130,6 +157,18 @@ async function run(name,origin){
     await page.locator('#generar-dialogo').click();
     await page.locator('#fichas .tarjeta').first().waitFor();
     assert.equal(await page.locator('#fichas .tarjeta').count(),7);
+    const acciones=await first().locator('.acciones-pie-ficha .accion-icono')
+      .evaluateAll(botones=>botones.map(b=>{
+        const caja=b.getBoundingClientRect(),icono=b.querySelector('.icono-accion');
+        const mascara=icono&&getComputedStyle(icono).maskImage;
+        return {width:caja.width,height:caja.height,
+          label:b.getAttribute('aria-label'),title:b.getAttribute('title'),
+          decorative:icono?.getAttribute('aria-hidden'),mascara};
+      }));
+    assert.ok(acciones.length>=4,'Equipo, PDF, Semilla y Copiar usan SVG');
+    assert.ok(acciones.every(x=>x.width>=44&&x.height>=44&&x.label&&x.title&&
+      x.decorative==='true'&&x.mascara?.includes('/assets/icons/accion-')),
+      'Todos los iconos de ficha son cuadrados, legibles y accesibles');
     const niveles=await page.locator('#fichas .nivel-ficha').allTextContents();
     assert.ok(niveles.every(t=>/^Nivel (?:[3-9]|10)$/.test(t)));
     assert.equal(await page.locator('#reproduccion-resultados').isVisible(),false,
@@ -200,6 +239,10 @@ async function run(name,origin){
     await page.locator('#cerrar-reproduccion').click();
     assert.equal(await page.locator('#semilla').inputValue(),semillaDos);
     await page.locator('#borrar').click();
+    await page.setViewportSize({width:390,height:850});
+    assert.equal(await page.locator('#inicio-movil').isVisible(),false,
+      'Limpiar mesa no vuelve a mostrar el tutorial cerrado');
+    await page.setViewportSize({width:1320,height:920});
     await open();
     await page.locator('#nivel-min').fill('1');
     await page.locator('#nivel-max').fill('1');
@@ -233,6 +276,7 @@ async function run(name,origin){
     await open();
     await page.locator('#juego').evaluate(x=>{x.value='dh';x.dispatchEvent(new Event('change',{bubbles:true}));});
     await check(page,'#resumen-sistema','Dungeon Hack');
+    await check(page,'#resumen-nombre','Lista de Dungeon Hack');
     await page.locator('#nivel-max').fill('36');
     await page.locator('#nivel-min').fill('36');
     await page.locator('#cantidad').fill('1');

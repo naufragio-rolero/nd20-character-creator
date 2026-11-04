@@ -18,6 +18,7 @@
   var reproduccionActiva = null;
   var reproduccionAbiertaId = null;
   var usarSemilla = false; // Generar personaje siempre usa azar nuevo salvo activación explícita.
+  var tutorialOculto = false;
   var volverGestionEquipo = null;
   var sistemasVisibles={
     nd20:'Naufragio d20 · Fantasía Épica',
@@ -183,6 +184,10 @@
     poner('resumen-ocupacion',$('valor-elegido-ocupacion').textContent);
     poner('resumen-especie',$('valor-elegido-especie').textContent);
     poner('resumen-sexo',$('sexo-pj').selectedOptions[0]?.textContent||'Aleatorio');
+    var nombreManual=$('nombre-personaje').value.trim();
+    poner('resumen-nombre',nombreManual?'Nombre personalizado: '+nombreManual:
+      $('juego').value==='dh'?'Lista de Dungeon Hack':
+      $('modo-nombre').value==='ylat'?'Nombres de Ylat':'Nombres genéricos');
     poner('resumen-modo',dhModo($('juego').value)==='personalizado'?'Personalizado':'Rápido');
     poner('resumen-cantidad',$('cantidad').value||'1');
   }
@@ -734,41 +739,20 @@
       htmlOtrosAvisos(notas.otras) +
       '<div class="pie-ficha"><div class="acciones-pie-ficha" role="group" aria-label="Acciones de la ficha">' +
       (personaje.juego==='Naufragio d20 · Fantasía'&&Number.isFinite(personaje.saldo_mo)?
-        '<button type="button" class="gestionar-equipo" data-id="'+id+'" title="Equipar y gestionar el equipo" aria-label="Equipar y gestionar el equipo">Equipo</button>':'')+
+        '<button type="button" class="gestionar-equipo accion-icono" data-id="'+id+'" title="Equipar y gestionar el equipo" aria-label="Equipar y gestionar el equipo"><span class="icono-accion accion-equipo" aria-hidden="true"></span></button>':'')+
       (personaje.juego==='Naufragio d20 · Fantasía'&&personaje.elecciones_registradas?
-        '<button type="button" class="revisar-elecciones" data-id="'+id+
-        '" title="Revisar Talentos y Poderes elegidos" aria-label="Revisar Talentos y Poderes">Talentos y Poderes</button>':'')+
+        '<button type="button" class="revisar-elecciones accion-icono" data-id="'+id+
+        '" title="Revisar Talentos y Poderes elegidos" aria-label="Revisar Talentos y Poderes"><span class="icono-accion accion-talentos" aria-hidden="true"></span></button>':'')+
       (personaje.juego==='Naufragio d20 · Fantasía'?
-        '<button type="button" class="exportar-pdf-ficha" data-id="'+id+'" title="Exportar PDF A5" aria-label="Exportar ficha PDF A5">PDF</button>':'')+
+        '<button type="button" class="exportar-pdf-ficha accion-icono" data-id="'+id+'" title="Exportar PDF A5" aria-label="Exportar ficha PDF A5"><span class="icono-accion accion-pdf" aria-hidden="true"></span></button>':'')+
       (reproduccion?
-         '<button type="button" class="ver-reproduccion" data-id="'+id+
-         '" title="Consultar la semilla y las opciones originales" aria-haspopup="dialog"'+
-         ' aria-controls="dialogo-reproduccion">Semilla</button>':'')+
-      '<button type="button" class="copiar-ficha" data-id="' + id +
-      '" title="Copiar ficha" aria-label="Copiar ficha al portapapeles">Copiar</button></div>'+
+         '<button type="button" class="ver-reproduccion accion-icono" data-id="'+id+
+         '" title="Consultar la semilla y las opciones originales" aria-label="Consultar semilla y configuración de reproducción" aria-haspopup="dialog"'+
+         ' aria-controls="dialogo-reproduccion"><span class="icono-accion accion-semilla" aria-hidden="true"></span></button>':'')+
+      '<button type="button" class="copiar-ficha accion-icono" data-id="' + id +
+      '" title="Copiar ficha" aria-label="Copiar ficha al portapapeles"><span class="icono-accion accion-copiar" aria-hidden="true"></span></button></div>'+
       '<small class="fuentes-pie-ficha">' + esc(fuentesFicha(personaje)) +
       '</small></div></article>';
-  }
-  var tiles = {wall:['#172d39','Muro'],tile:['#d9d3bd','Suelo'],col:['#a7af9e','Columna'],
-    trap:['#c98369','Trampa'],furn:['#b7a17f','Mobiliario']};
-  function mazmorraHTML(filas,id) {
-    var html = '<article class="tarjeta tarjeta-mapa" data-id="'+id+'"><div class="cabecera-ficha"><div>' +
-      '<p class="etiqueta">Dungeon Hack · Herramienta</p><h3>Mazmorra rápida</h3>' +
-      '<p>Distribución aleatoria de salas; no garantiza caminos conectados.</p></div>' +
-      '<button class="icon-btn eliminar-ficha" data-id="'+id+'" aria-label="Eliminar esta mazmorra" title="Eliminar">×</button></div>' +
-      '<div class="mapa-wrap"><table class="mapa" aria-label="Mazmorra procedural"><tbody>';
-    filas.forEach(function (fila) {
-      html += '<tr>';
-      fila.forEach(function (idTile) {
-        var tile=tiles[idTile]||tiles.tile;
-        html+='<td class="celda celda-'+esc(idTile)+'" title="'+esc(tile[1])+'"><span class="sr-only">'+esc(tile[1])+'</span></td>';
-      });
-      html+='</tr>';
-    });
-    html+='</tbody></table></div><p class="leyenda">Muro · Suelo · Columna · Trampa · Mobiliario</p>' +
-      '<div class="pie-ficha"><small>Generador conceptual, no mapa táctico definitivo.</small>' +
-      '<button type="button" class="copiar-ficha" data-id="'+id+'">Copiar mapa</button></div></article>';
-    return html;
   }
   function fichaTexto(p) {
     var str=[p.nombre,nombreSistema(sistemaFicha(p)),'Nivel: '+p.nivel,p.descripcion];
@@ -804,28 +788,21 @@
     str.push(fuentesFicha(p));
     return str.join('\n');
   }
-  function mapaTexto(filas) {
-    var icons={wall:'#',tile:'.',col:'O',trap:'!',furn:'F'};
-    return 'Mazmorra rápida · Dungeon Hack\n'+filas.map(function(f){
-      return f.map(function(c){return icons[c]||'?';}).join(' ');
-    }).join('\n')+'\nLeyenda: # Muro, . Suelo, O Columna, ! Trampa, F Mobiliario.';
-  }
   function obtenerTexto(entrada) {
-    return entrada.tipo==='mazmorra'?mapaTexto(entrada.valor):fichaTexto(entrada.valor);
+    return fichaTexto(entrada.valor);
   }
   function dibujar() {
     var fichas=$('fichas');
     fichas.innerHTML='';
     entradas.forEach(function (e) {
-      fichas.insertAdjacentHTML('beforeend',e.tipo==='mazmorra' ?
-        mazmorraHTML(e.valor,e.id) : fichaHTML(e.valor,e.id,e.reproduccion));
+      fichas.insertAdjacentHTML('beforeend',fichaHTML(e.valor,e.id,e.reproduccion));
     });
     $('contador').textContent=entradas.length ?
       entradas.length+' elemento(s) en la mesa.' : 'Todavía no has generado ninguna ficha.';
     $('titulo-resultados').textContent=entradas.length?'Fichas de la mesa':'La mesa está preparada';
     $('borrar').disabled=!entradas.length;
     $('exportar').disabled=!entradas.length;
-    $('inicio-movil').hidden=entradas.length>0;
+    $('inicio-movil').hidden=entradas.length>0||tutorialOculto;
     if(!entradas.length) fichas.innerHTML='<div class="vacio"><span class="emblema" aria-hidden="true">◇</span>'+
       '<p>Aquí aparecerá tu personaje</p><p class="muted">Deja las opciones iniciales o elige Nivel, Ocupación y Especie. Pulsa «Generar personaje» en la Forja: aquí verás el resultado.</p></div>';
     refrescarGenerarFlotante();
@@ -1850,6 +1827,7 @@
     });
     $('juego').addEventListener('change',refrescarSelectores);
     $('modo-nombre').addEventListener('change',refrescarSelectores);
+    $('nombre-personaje').addEventListener('input',refrescarResumenCreacion);
     $('sexo-pj').addEventListener('change',function(){
       try{localStorage.setItem('forja-sexo-pj',$('sexo-pj').value);}catch(error){}
       refrescarSelectores();
@@ -1865,13 +1843,19 @@
       fuentesGuardadas[$('juego').value]=fuentesNd20Activas();
       refrescarFuentesConPreservacion();
     });
-    $('ocultar-tutorial').addEventListener('click',function(){
+    function ocultarTutoriales(){
+      tutorialOculto=true;
       $('tutorial-inicial').hidden=true;
+      $('inicio-movil').hidden=true;
       try{localStorage.setItem('forja-tutorial-oculto','true');}
-      catch(error){/* El cierre de esta sesión sigue activo. */}
-    });
-    try{$('tutorial-inicial').hidden=localStorage.getItem('forja-tutorial-oculto')==='true';}
-    catch(error){/* Sin almacenamiento: permite cerrar durante la sesión. */}
+      catch(error){/* La preferencia persiste en esta sesión aunque falle el almacenamiento. */}
+    }
+    $('ocultar-tutorial').addEventListener('click',ocultarTutoriales);
+    $('ocultar-inicio-movil').addEventListener('click',ocultarTutoriales);
+    try{tutorialOculto=localStorage.getItem('forja-tutorial-oculto')==='true';}
+    catch(error){tutorialOculto=false;}
+    $('tutorial-inicial').hidden=tutorialOculto;
+    $('inicio-movil').hidden=tutorialOculto;
     $('copiar-semilla').addEventListener('click',function(){
       if(reproduccionActiva)copiar(reproduccionActiva.semilla);
     });
@@ -2036,9 +2020,6 @@
     });
     $('generar-matriz').addEventListener('click',function(){
       conControl(function(){agregar('ficha',reglas.matriz(config(),rngUnico()(correlativo)));});
-    });
-    $('generar-mazmorra').addEventListener('click',function(){
-      conControl(function(){agregar('mazmorra',reglas.mazmorra({ancho:6,alto:6},rngUnico()(correlativo)));});
     });
     $('armamento-modo').addEventListener('change',refrescarArmamento);
     $('armamento-origen').addEventListener('change',function(){

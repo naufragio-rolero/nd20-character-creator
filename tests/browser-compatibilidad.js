@@ -185,13 +185,18 @@ async function probar(nombre,tipo,url){
       "ico-configurar",
       "sexo-masculino",
       "sexo-femenino",
-      "sexo-indeterminado"
+      "sexo-indeterminado",
+      "accion-equipo",
+      "accion-talentos",
+      "accion-pdf",
+      "accion-semilla",
+      "accion-copiar"
     ];
     const iconos=await page.evaluate(async ids=>Promise.all(ids.map(async id=>{
       const respuesta=await fetch('assets/icons/'+id+'.svg');
       return {id,status:respuesta.status,contenido:await respuesta.text()};
     })),idsIconos);
-    assert.equal(iconos.length,35);
+    assert.equal(iconos.length,40);
     for(const icono of iconos){
       assert.equal(icono.status,200,nombre+': icono '+icono.id);
       assert.ok(icono.contenido.includes('viewBox="0 0 24 24"'),
@@ -943,8 +948,13 @@ async function probar(nombre,tipo,url){
     const opcionesArma=await page.locator('#gestion-arma option').evaluateAll(xs=>
       xs.map(x=>x.value).filter(Boolean));
     const danoVisible=()=>fichaTalentos.locator('.recurso-dano strong').innerText();
-    assert.equal(await danoVisible(),'—',
-      nombre+': no se elige arma automáticamente');
+    const armaInicial=await page.locator('#gestion-arma').inputValue();
+    const catalogoEquipamiento=JSON.parse(fs.readFileSync(
+      path.join(raiz,'data/equipo-inicial.json'),'utf8'));
+    const registroArmaInicial=[...catalogoEquipamiento.armas,
+      ...catalogoEquipamiento.varitas_defensa].find(x=>x.nombre===armaInicial);
+    assert.equal(await danoVisible(),registroArmaInicial?registroArmaInicial.dano:'—',
+      nombre+': el arma inicial equipada refleja su daño documental o queda vacía');
     if(opcionesArma.length){
       const arma=opcionesArma[0];
       const cat=JSON.parse(fs.readFileSync(
@@ -963,8 +973,13 @@ async function probar(nombre,tipo,url){
       .evaluateAll(xs=>xs.map(x=>x.value).filter(Boolean));
     const blindajeVisible=()=>fichaTalentos.locator('.recurso-ficha')
       .filter({hasText:'Blindaje'}).locator('strong').innerText();
-    assert.equal(await blindajeVisible(),'—',
-      nombre+': ninguna armadura se equipa automáticamente');
+    const armaduraInicial=await protecciones.locator(
+      'select[data-tipo="armadura"]').inputValue();
+    const registroInicial=catalogoEquipamiento.armaduras.find(
+      x=>x.nombre===armaduraInicial);
+    assert.equal(await blindajeVisible(),registroInicial?
+      String(registroInicial.blindaje):'—',
+      nombre+': la armadura inicial equipada refleja su Blindaje o queda vacía');
     if(opcionesArmadura.length){
       const elegida=opcionesArmadura[0];
       const catalogo=JSON.parse(fs.readFileSync(

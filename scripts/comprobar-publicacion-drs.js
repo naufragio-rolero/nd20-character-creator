@@ -33,11 +33,13 @@ const iconosForja=[
   'equipo-espada', 'equipo-arco', 'equipo-varita', 'equipo-bolsa', 'equipo-caballo',
   'equipo-mochila', 'equipo-orbe', 'equipo-libro', 'equipo-armadura', 'equipo-escudo',
   'equipo-municion', 'ico-configurar', 'sexo-masculino', 'sexo-femenino', 'sexo-indeterminado',
+  'accion-equipo', 'accion-talentos', 'accion-pdf', 'accion-semilla', 'accion-copiar',
 ];
 const requeridos=[
   'index.html','assets/styles.css',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
-  'assets/icons/CREDITOS-GAME-ICONS.txt','assets/equipment.js','assets/sex.js',
+  'assets/icons/CREDITOS-GAME-ICONS.txt','assets/icons/LICENCIA-TABLER.txt',
+  'assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/names.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/favicon.svg',
   // PDF A5: si el botón existe, todos sus recursos deben estar presentes.

@@ -259,7 +259,20 @@ assert.equal(templateA5.subarray(0,5).toString('ascii'),'%PDF-');
 assert.deepEqual(JSON.parse(fs.readFileSync(path.join(salida,'assets/pdf-a5/campos-ficha-a5.json'))).campos_fijos.length,32);
 const iconosPublicos=fs.readdirSync(path.join(salida,'assets','icons'))
   .filter(nombre=>nombre.endsWith('.svg'));
-assert.equal(iconosPublicos.length,35,'El paquete contiene exactamente 35 SVG');
+assert.equal(iconosPublicos.length,40,'El paquete contiene exactamente 40 SVG (35 + 5 acciones)');
+const cssAcciones=fs.readFileSync(path.join(salida,'assets/styles.css'),'utf8');
+for(const nombre of ['accion-equipo','accion-talentos','accion-pdf',
+  'accion-semilla','accion-copiar']){
+  const fichero=nombre+'.svg';
+  assert.ok(iconosPublicos.includes(fichero),nombre+': icono del pie publicado');
+  assert.ok(cssAcciones.includes('url(icons/'+fichero+')'),nombre+': mascara CSS en el paquete');
+}
+const licenciaTabler=fs.readFileSync(
+  path.join(salida,'assets/icons/LICENCIA-TABLER.txt'),'utf8');
+assert.match(licenciaTabler,/MIT License/);
+assert.match(licenciaTabler,/Copyright \(c\) 2020-2026 Paweł Kuna/);
+assert.ok(html.includes('assets/icons/LICENCIA-TABLER.txt'),'Licencia MIT enlazada en público');
+assert.ok(!html.includes('id="generar-mazmorra"'),'Sin herramienta legacy en DRS');
 // Logos de identidad de sistema: exactamente dos WebP locales, sin DLC.
 // Cada archivo distribuido debe ser idéntico al aprobado en la rama.
 const logosWebp=['sistema-nd20-faep.webp','sistema-dh.webp'];
