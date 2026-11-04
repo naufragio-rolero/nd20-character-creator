@@ -14,6 +14,28 @@ Las categorías permitidas siguen definidas por la Ocupación y su progresión: 
 
 **Recuento DRS:** Guerrero tiene nueve Técnicas aprendibles del catálogo base de diez; Ladrón conserva seis. No se alteran las plazas de progresión ni se introducen opciones no documentadas. La UI y el motor usan el mismo plan elegible, también en la revisión posterior de Talentos/Poderes.
 
+## Requisitos estructurados de Técnicas — evolución del catálogo
+
+**Primera migración: `tecnica-06` (Rajar) y `tecnica-09` (Ataque sorpresa).** No se ha cambiado la glosa literal DRS, el coste, la categoría, la fuente o la progresión de ninguna Técnica.
+
+Las dos fichas añaden los campos opcionales `ocupaciones_permitidas` (lista de una o varias Ocupaciones autorizadas para **aprender**) y `requisitos_uso` (lista informativa de condiciones para **usar** la Técnica). En el caso de **Rajar** la segunda lista contiene `{"tipo":"nivel","minimo":6}`; en **Ataque sorpresa** está vacía. El campo `requisito` permanece íntegro como texto visible de fuente, no es sustituido por una regla generada.
+
+- Si existe `ocupaciones_permitidas`, el motor utiliza esa lista para **elegibilidad al aprender**, con prioridad sobre el texto libre. Se admiten varias Ocupaciones y se siguen respetando las **categorías** que cada una puede aprender y las fuentes publicables. Listas vacías, malformadas o duplicadas provocan error: no conceden acceso accidental.
+- Cuando una Técnica todavía no tiene el nuevo campo, el motor mantiene la interpretación anterior de los requisitos literales de Ocupación, sin exigir una migración masiva de los suplementos.
+- `requisitos_uso` **no se evalúa para aprender** la Técnica ni automatiza el combate. El editor muestra el requisito original; el Cronista comprueba las condiciones de uso durante la partida. El esquema registra el Nivel mínimo de Rajar sin bloquear su aprendizaje en niveles anteriores.
+- Para modificar qué Ocupaciones aprenden una Técnica ya migrada, editar la lista en `data/catalogo-poderes.json` y **actualizar también el texto `requisito` cuando cambie el reglamento**: ese texto continúa siendo la descripción visible y nunca debe quedar contradictorio. Para ampliar una nueva categoría u Ocupación deben seguir respetándose sus tablas de progreso y las fuentes autorizadas.
+- La copia al paquete `dist/public-drs` conserva los campos de ambas Técnicas sin publicar las Técnicas inéditas de suplementos. El paquete y el motor se verifican mediante pruebas de regresión.
+
+**Ejemplos vigentes:**
+
+```json
+{"id":"tecnica-06","nombre":"Rajar","requisito":"Guerrero, Nivel 6+",
+ "ocupaciones_permitidas":["Guerrero"],
+ "requisitos_uso":[{"tipo":"nivel","minimo":6}]}
+{"id":"tecnica-09","nombre":"Ataque sorpresa","requisito":"Ladrón",
+ "ocupaciones_permitidas":["Ladrón"],"requisitos_uso":[]}
+```
+
 ## Compras e intercambios de armamento
 
 El catálogo general `informacionEquipo()` mantiene todas las entradas y las advertencias de **uso sin Competencia**. El DRS no prohíbe adquirir o usar ese equipo: **utilizarlo sin Competencia causa Desventaja** conforme a «Competencias».
