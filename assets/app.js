@@ -1180,6 +1180,8 @@
     talentos.replaceChildren();otros.replaceChildren();
     $('revision-talentos').hidden=!pasos.some(function(x){return x.tipo==='talento';});
     $('revision-poderes').hidden=!pasos.some(function(x){return x.tipo!=='talento';});
+    $('revision-abrir-preparacion').hidden=
+      !poderes.preparacionesRevisables(p).length;
     pasos.forEach(function(paso){
       var field=document.createElement('fieldset');
       field.className='grupo-poderes';
@@ -2057,6 +2059,37 @@
       });
       if(mensaje)aviso(mensaje);
     });
+    $('revision-abrir-preparacion').addEventListener('click',function(){
+      conControl(function(){
+        var entrada=entradaRevision();
+        cerrarRevisionElecciones();
+        abrirPreparacion(entrada);
+      });
+    });
+    $('form-preparacion').addEventListener('change',refrescarEstadoPreparacion);
+    $('form-preparacion').addEventListener('submit',function(event){
+      event.preventDefault();
+      conControl(function(){
+        var entrada=entradaPreparacion();
+        entrada.valor=poderes.preparar(entrada.valor,leerPreparaciones());
+        cerrarPreparacion();
+        dibujar();
+        var boton=$('fichas').querySelector('.revisar-elecciones[data-id="'+entrada.id+'"]');
+        if(boton)boton.focus({preventScroll:true});
+        aviso('Preparaciones de Conjuros actualizadas; Talentos y grimorio intactos.');
+      });
+    });
+    $('preparacion-cerrar').addEventListener('click',cerrarPreparacion);
+    $('preparacion-cancelar').addEventListener('click',cerrarPreparacion);
+    $('editor-preparacion').addEventListener('cancel',function(event){
+      event.preventDefault();cerrarPreparacion();
+    });
+    $('editor-preparacion').addEventListener('click',function(event){
+      if(event.target!==this)return;
+      var r=this.getBoundingClientRect();
+      if(event.clientX<r.left||event.clientX>r.right||
+         event.clientY<r.top||event.clientY>r.bottom)cerrarPreparacion();
+    });
     $('revision-cerrar').addEventListener('click',cerrarRevisionElecciones);
     $('revision-cancelar').addEventListener('click',cerrarRevisionElecciones);
     $('editor-revision-elecciones').addEventListener('cancel',function(e){
@@ -2391,6 +2424,8 @@
           cerrarGestionEquipo();
         if(revisionBorrador&&String(revisionBorrador.id)===del.dataset.id)
           cerrarRevisionElecciones();
+        if(preparacionBorrador&&String(preparacionBorrador.id)===del.dataset.id)
+          cerrarPreparacion();
         entradas=entradas.filter(function(x){return String(x.id)!==del.dataset.id;});
         dibujar();return;
       }
@@ -2431,6 +2466,8 @@
       if(compraBorrador)cerrarCompra();
       if(armamentoBorrador)cerrarArmamento();
       if(gestionBorrador)cerrarGestionEquipo();
+      if(revisionBorrador)cerrarRevisionElecciones();
+      if(preparacionBorrador)cerrarPreparacion();
       entradas=[];dibujar();aviso('Mesa despejada.');
     });
     $('exportar').addEventListener('click',function(){
