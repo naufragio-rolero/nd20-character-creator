@@ -306,7 +306,8 @@ async function run(name,origin){
     await page.locator('#armamento-cancelar').click();
     assert.equal(await page.locator('#editor-gestion-equipo').evaluate(x=>x.open),true);
     await page.locator('#gestion-cerrar').click();
-    // Tanda 2: el editor de preparación es independiente del de Talentos.
+    // Preparar Conjuros sigue siendo una decisión diferente, pero ahora
+    // la revisión puede guardar y continuar sin cerrar el flujo.
     await open();
     await page.locator('#ocupacion').selectOption('Clérigo');
     await page.locator('#nivel-min').fill('12');
@@ -349,8 +350,26 @@ async function run(name,origin){
     await page.locator('#nombre-personaje').fill('Mago E2E');
     await page.locator('#generar-dialogo').click();
     await first().locator('.revisar-elecciones').click();
+    const acciones=await page.locator('#form-revision-elecciones .botonera button:visible')
+      .evaluateAll(items=>items.map(b=>({text:b.textContent.trim(),top:b.getBoundingClientRect().top})));
+    assert.equal(acciones.length,3,'Mago: tres acciones disponibles');
+    assert(acciones.some(a=>a.text==='Guardar y preparar'));
+    assert(Math.max(...acciones.map(x=>x.top))-Math.min(...acciones.map(x=>x.top))<4,
+      'Las tres acciones deben quedar alineadas en escritorio');
+    const conocido=page.locator('#revision-pasos-poderes select').first();
+    const conocidoOriginal=await conocido.inputValue();
+    const alternativo=await conocido.locator('option').evaluateAll((items,prev)=>
+      items.map(o=>o.value).find(v=>v&&v!==prev),conocidoOriginal);
+    assert(alternativo&&alternativo!==conocidoOriginal,
+      'El Mago tiene un Conjuro conocido alternativo DRS');
+    await conocido.selectOption(alternativo);
+    assert.equal(await page.locator('#revision-abrir-preparacion').isEnabled(),true);
     await page.locator('#revision-abrir-preparacion').click();
+    assert.equal(await page.locator('#editor-revision-elecciones').evaluate(x=>x.open),false);
+    assert.equal(await page.locator('#editor-preparacion').evaluate(x=>x.open),true);
     assert.match(await page.locator('#preparacion-reglas').innerText(),/dos Intervalos/);
+    assert.equal(await page.locator('#preparacion-circulos select option[value="'+alternativo+'"]')
+      .count()>0,true,'Conjuro recién aprendido disponible para preparar sin reabrir');
     const opcionesMago=await page.locator('#preparacion-circulos select').first()
       .locator('option').allTextContents();
     assert.ok(opcionesMago[0]==='Sin preparar'&&opcionesMago.length>=2);
