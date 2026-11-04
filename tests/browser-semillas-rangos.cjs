@@ -330,7 +330,9 @@ async function run(name,origin){
     assert.match(await page.locator('#preparacion-estado').innerText(),/Espacios preparados/);
     await page.locator('#preparacion-confirmar').click();
     assert.equal(await page.locator('#editor-preparacion').evaluate(el=>el.open),false);
-    assert.ok((await first().innerText()).includes('Conjuros preparados'));
+    const titulosPreparacion=await first().locator('.bloque-ficha h4').allTextContents();
+    assert.ok(titulosPreparacion.includes('Conjuros preparados'),
+      'La ficha muestra Conjuros preparados: '+JSON.stringify(titulosPreparacion));
     await first().locator('.revisar-elecciones').click();
     await page.locator('#revision-abrir-preparacion').click();
     const plazasOtra=page.locator('#preparacion-circulos fieldset').first()
@@ -340,7 +342,7 @@ async function run(name,origin){
       'Repeticiones conservadas tras cerrar y reabrir');
     await plazasOtra.nth(0).selectOption('__vacio');
     await page.locator('#preparacion-confirmar').click();
-    assert.match(await first().innerText(),/Espacio\(s\) de Conjuro sin preparar/);
+    assert.match(await first().textContent(),/Espacio\(s\) de Conjuro sin preparar/);
     // Mago: las listas del editor proceden exclusivamente del grimorio.
     await open();
     await page.locator('#ocupacion').selectOption('Mago');
@@ -369,7 +371,7 @@ async function run(name,origin){
     assert.deepEqual(await first().locator('.recurso-nombre').allTextContents(),
       ['Salud','Moral']);
     assert.match(await first().innerText(),/7 mp\/día/);
-    assert.match(await first().innerText(),/Disponibilidad para aventuras: Sí/);
+    assert.match(await first().textContent(),/Disponibilidad para aventuras: Sí/);
     assert.equal(await first().locator('.exportar-pdf-ficha').count(),0,
       'La plantilla PDF A5 de PJ no se aplica a un seguidor sin seis Atributos');
     assert.equal(await first().locator('.gestionar-equipo').count(),0);
