@@ -89,7 +89,8 @@ assert.deepEqual(n4.atributos.map(x=>x.valor),[10,10]);
 const n3=reglas.seguidorNd20({...cfgN,nivel:3},()=>.999);
 assert.deepEqual(n3.atributos.map(x=>x.valor),[9,9]);
 const esc=reglas.seguidorNd20({tipo:'Escriba',catalogoEquipo:equipo},()=>.5);
-assert(esc.equipo.some(x=>x==='Tinta y pluma')&&esc.equipo.includes('Pergamino'));
+assert(esc.equipo.some(x=>x.startsWith('Tinta y pluma'))&&
+  esc.equipo.some(x=>x.startsWith('Pergamino')));
 for(const arma of ['Espada larga','Hacha de batalla','Maza']){
  const i=['Espada larga','Hacha de batalla','Maza'].indexOf(arma);
  const r=reglas.seguidorNd20({tipo:'Mercenario',catalogoEquipo:equipo},

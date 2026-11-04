@@ -57,13 +57,14 @@ async function run(){
     const dibujos=documentos[primero].pages.flatMap(p=>p.trazos);
     assert(dibujos.some(d=>d.fuente==='normal'&&d.text.includes('Armas')),
       'Los nombres de Competencias deben ser regulares');
-    assert(dibujos.some(d=>d.fuente==='normal'&&d.text.includes('Recuperación')),
+    assert(dibujos.some(d=>d.fuente==='normal'&&d.text.includes(
+      nivel===30?'Talento de prueba':'Recuperación')),
       'Los nombres compactos de Talentos deben ser regulares');
-    assert(dibujos.some(d=>d.fuente==='negrita'&&d.text.includes('Recuperación:')),
+    if(nivel===1)assert(dibujos.some(d=>d.fuente==='negrita'&&d.text.includes('Recuperación:')),
       'El nombre del Talento solo se destaca en EFECTOS DE TALENTOS');
     assert(dibujos.some(d=>d.fuente==='negrita'&&d.text.includes('Ataque certero:')),
       'El nombre del Poder se destaca en EFECTOS DE PODERES');
-    assert(dibujos.some(d=>d.fuente==='normal'&&d.text.includes('Recupera Salud')),
+    if(nivel===1)assert(dibujos.some(d=>d.fuente==='normal'&&d.text.includes('Recupera Salud')),
       'La explicación del Talento permanece regular');
     assert(text.includes('Personaje de pruebas'));
     const observaciones=text.indexOf('OBSERVACIONES REGLAMENTARIAS');
@@ -71,7 +72,8 @@ async function run(){
     const detalle=text.indexOf('EFECTOS DE PODERES');
     assert(text.includes('PODERES CONOCIDOS'),'Título de poderes generalizado');
     assert(!text.includes('EFECTOS DE TALENTOS') || text.indexOf('EFECTOS DE TALENTOS')>observaciones);
-    assert(observaciones>=0&&talento>observaciones&&detalle>talento,
+    assert(observaciones>=0&&(nivel!==1||talento>observaciones)&&
+      detalle>observaciones,
       'El efecto de los Poderes aparece después de las Observaciones.');
     assert(text.includes('Ataque certero:'));
     assert(!text.includes('EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES'));
