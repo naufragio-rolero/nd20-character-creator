@@ -19,6 +19,22 @@ assert.deepEqual(core.conjuros,
   original.conjuros.filter(x=>x.origen==='Nd20'),
   'Ningún Conjuro básico se pierde ni se modifica en el paquete público');
 assert.equal(core.tecnicas.length,14);
+for(const id of ['tecnica-06','tecnica-09']){
+  const publicado=core.tecnicas.find(x=>x.id===id);
+  const origen=original.tecnicas.find(x=>x.id===id);
+  assert.ok(publicado&&origen,'Técnica DRS presente en ambos catálogos: '+id);
+  assert.deepEqual(publicado,origen,
+    'Las condiciones estructuradas y el texto original se conservan en el paquete: '+id);
+  assert.ok(Array.isArray(publicado.ocupaciones_permitidas)&&
+    publicado.ocupaciones_permitidas.length===1,
+    'La Ocupación permitida es explícita en el paquete público: '+id);
+  assert.ok(Array.isArray(publicado.requisitos_uso),
+    'Los requisitos de uso siguen separados de la adquisición: '+id);
+}
+assert.deepEqual(core.tecnicas.find(x=>x.id==='tecnica-06').requisitos_uso,
+  [{tipo:'nivel',minimo:6}],'Nivel 6+ de Rajar disponible como requisito de uso');
+assert.deepEqual(core.tecnicas.find(x=>x.id==='tecnica-09').requisitos_uso,[],
+  'Ataque sorpresa conserva una lista de requisitos de uso vacía');
 assert.ok(core.tecnicas.every(x=>['Naufragio d20 DRS',
   'Naufragio d20 CiFi'].includes(x.fuente)));
 assert.deepEqual(Object.keys(core.especiales),['version'],
