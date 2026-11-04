@@ -28,16 +28,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado PR #88: generación directa de seguidores
+      - name: Obtener snapshot DRS aprobado PR #90: KPI y género de seguidores
         uses: actions/checkout@v4
         with:
-          ref: 573cca5cf7593eac97150803849c452e4e43a314
+          ref: 48613c1d9d932645b25eb2601f331b23ee955cb9
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "573cca5cf7593eac97150803849c452e4e43a314"
-      # Snapshot aprobado para LIVE: PR #88, con 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
-      # seguidores con configuración separada, resumen de opciones y generación directa.
+          test "$(git rev-parse HEAD)" = "48613c1d9d932645b25eb2601f331b23ee955cb9"
+      # Snapshot aprobado para LIVE: PR #90, con 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
+      # Daño/Blindaje condicionales en seguidores, Aventuras tras el precio y profesiones por género.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
@@ -70,6 +70,10 @@ jobs:
           grep -Fq 'id="resumen-seguidores"' index.html
           grep -Fq 'id="aplicar-seguidores"' index.html
           grep -Fq 'function generarSeguidoresActivos()' assets/app.js
+          grep -Fq "if(personaje?.tipo_ficha==='seguidor_drs')" assets/app.js
+          grep -Fq 'aventuras-seguidor' assets/app.js
+          grep -Fq 'function nombreProfesionSeguidor(tipo,genero)' assets/app.js
+          grep -Fq 'seguidores_profesiones_drs' data/sexo-personajes.json
           grep -Fq 'function refrescarResumenSeguidores()' assets/app.js
           grep -Fq 'id="seguidor-nivel-min"' index.html
           grep -Fq 'id="seguidor-nivel-max"' index.html
@@ -379,9 +383,21 @@ jobs:
           grep -Fq 'function guardarRevision(continuarPreparacion)' /tmp/forja-app.js
           grep -Fq 'dialogo-seguidores' /tmp/forja-app.js
           grep -Fq 'function generarSeguidoresActivos()' /tmp/forja-app.js
+          grep -Fq 'aventuras-seguidor' /tmp/forja-app.js
+          grep -Fq 'function nombreProfesionSeguidor(tipo,genero)' /tmp/forja-app.js
           grep -Fq 'function refrescarResumenSeguidores()' /tmp/forja-app.js
           grep -Fq 'class="gestionar-equipo accion-icono"' /tmp/forja-app.js
           grep -Fq 'componentesYlat' /tmp/forja-app.js
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/sexo-personajes.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-sexo-live.json
+          node - <<'NODE'
+          const assert=require('node:assert/strict'),fs=require('node:fs');
+          const forms=JSON.parse(fs.readFileSync('/tmp/forja-sexo-live.json','utf8'))
+            .seguidores_profesiones_drs;
+          assert.equal(Object.keys(forms).length,12);
+          assert.equal(forms.Mensajero.femenino,'Mensajera');
+          assert.equal(forms.Mercenario.femenino,'Mercenaria');
+          assert.equal(forms.Sacerdote.femenino,'Sacerdotisa');
+          NODE
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/names.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-names.js
           grep -Fq 'function generico(banco,rng)' /tmp/forja-names.js
           grep -Fq 'function ylat(catalogo,rng)' /tmp/forja-names.js
@@ -449,6 +465,7 @@ jobs:
           grep -Fq 'function comprarArmamentoFantasia(' /tmp/forja-equipment.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/rules.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-rules.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/sex.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-sex.js
+          grep -Fq 'seguidores_profesiones_drs' /tmp/forja-rules.js
           ! grep -Fq 'Forma del generador histórico de nombres de Ylat.' /tmp/forja-rules.js
           ! grep -Fq 'Nombre del banco histórico sin clasificación documental de sexo;' /tmp/forja-sex.js
           ! grep -Eiq 'niguac|niguaz' /tmp/forja-rules.js
