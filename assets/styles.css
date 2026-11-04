@@ -1405,3 +1405,16 @@ html[data-tema=violeta]{
   .dialogo-seguidores .configuracion-seguidores{grid-template-columns:1fr}
   .dialogo-seguidores .botonera{grid-template-columns:1fr}
 }
+
+/* Herramientas mantiene el mismo recorrido que Personajes: resumen visible,
+   configuración separada y generación directa con las opciones activas. */
+.herramientas .resumen-seguidores{margin:.85rem 0}
+.herramientas .resumen-seguidores[hidden],
+.herramientas #configurar-seguidores[hidden]{display:none!important}
+.herramientas #configurar-seguidores{
+  width:100%;margin:.45rem 0 .8rem;
+}
+.dialogo-seguidores .botonera{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:560px){
+  .dialogo-seguidores .botonera{grid-template-columns:1fr}
+}

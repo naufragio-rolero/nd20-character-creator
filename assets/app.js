@@ -14,6 +14,11 @@
   var gestionBorrador = null;
   var revisionBorrador = null;
   var preparacionBorrador = null;
+  // Al igual que Personajes, las opciones activas viven fuera del diálogo.
+  var configuracionSeguidoresActiva={
+    tipo:'',nivelMin:1,nivelMax:1,sexo:'aleatorio',modoNombre:'generico',
+    cantidad:1,aventuras:'aleatorio'
+  };
   var fuentesGuardadas = {};
   var ultimaReproduccion = null;
   var reproduccionActiva = null;
@@ -299,6 +304,9 @@
     $('opciones-contexto-sexo').hidden=dh;
     $('generar-seguidor').disabled = !(dh||juego==='nd20');
     $('selector-seguidor-drs').hidden=juego!=='nd20';
+    $('resumen-seguidores').hidden=juego!=='nd20';
+    $('configurar-seguidores').hidden=juego!=='nd20';
+    $('configurar-seguidores').disabled=juego!=='nd20';
     ['nivel-min','nivel-max'].forEach(function(id){
       $(id).max=dh?'36':'30';
     });
@@ -2158,20 +2166,95 @@
         b.setAttribute('aria-pressed',String(b.dataset.oficio===elegido));
       });
     }
+    function mostrarConfiguracionSeguidores(conf){
+      $('tipo-seguidor-drs').value=conf.tipo;
+      $('seguidor-nivel-min').value=conf.nivelMin;
+      $('seguidor-nivel-max').value=conf.nivelMax;
+      $('seguidor-genero').value=conf.sexo;
+      $('seguidor-nombres').value=conf.modoNombre;
+      $('seguidor-cantidad').value=conf.cantidad;
+      $('seguidor-aventuras').value=conf.aventuras;
+      refrescarProfesionSeguidor();
+    }
+    function leerConfiguracionSeguidores(){
+      var minimo=$('seguidor-nivel-min').value,
+        maximo=$('seguidor-nivel-max').value,
+        cantidad=$('seguidor-cantidad').value;
+      var c={
+        tipo:$('tipo-seguidor-drs').value,
+        nivelMin:Number(minimo),nivelMax:Number(maximo),
+        sexo:$('seguidor-genero').value,modoNombre:$('seguidor-nombres').value,
+        cantidad:Number(cantidad),aventuras:$('seguidor-aventuras').value
+      };
+      if(!minimo||!maximo||!Number.isInteger(c.nivelMin)||!Number.isInteger(c.nivelMax)||
+         c.nivelMin<1||c.nivelMax>30||c.nivelMin>c.nivelMax)
+        throw Error('Elige un rango de Niveles válido entre 1 y 30.');
+      if(!cantidad||!Number.isInteger(c.cantidad)||c.cantidad<1||c.cantidad>12)
+        throw Error('La cantidad de seguidores debe estar entre 1 y 12.');
+      if(!reglas.seguidoresDRS().some(function(o){return o.nombre===c.tipo;})&&c.tipo!=='')
+        throw Error('Selecciona una profesión de la tabla de seguidores.');
+      return c;
+    }
+    function refrescarResumenSeguidores(){
+      var c=configuracionSeguidoresActiva;
+      $('resumen-seguidor-nivel').textContent=c.nivelMin===c.nivelMax?
+        'Nivel '+c.nivelMin:'Niveles '+c.nivelMin+'–'+c.nivelMax;
+      $('resumen-seguidor-profesion').textContent=c.tipo||'Aleatoria (d12)';
+      $('resumen-seguidor-genero').textContent=c.sexo==='aleatorio'?'Aleatorio':
+        c.sexo==='femenino'?'Femenino':'Masculino';
+      $('resumen-seguidor-nombres').textContent=c.modoNombre==='ylat'?
+        'Nombres de Ylat':'Genéricos de Nd20';
+      $('resumen-seguidor-cantidad').textContent=String(c.cantidad);
+      $('resumen-seguidor-aventuras').textContent=c.aventuras==='aleatorio'?
+        'Según el DRS (azar si depende)':c.aventuras==='si'?'Sí si depende':'No si depende';
+      $('generar-seguidor').textContent=c.cantidad>1?'Generar seguidores':'Generar seguidor';
+    }
+    function generarSeguidoresActivos(){
+      var c=configuracionSeguidoresActiva;
+      var semilla=semillaGeneracion(),generador=rngUnico(semilla),
+        inicial=correlativo,creados=[];
+      for(var i=0;i<c.cantidad;i++){
+        creados.push(reglas.seguidorNd20({
+          tipo:c.tipo,nivelMin:c.nivelMin,nivelMax:c.nivelMax,
+          sexo:c.sexo,modoNombre:c.modoNombre,aventuras:c.aventuras,
+          nombresHistoricosYlat:datos.nombresHistoricosYlat,
+          componentesYlat:datos.componentesYlat,catalogoEquipo:datos.equipoInicial
+        },generador(inicial+i)));
+      }
+      creados.forEach(function(p){agregar('ficha',p);});
+      cerrarMenuMovil();
+      aviso(c.cantidad+' seguidor(es) generado(s), Niveles '+c.nivelMin+'–'+c.nivelMax+'.');
+    }
+    function cerrarSeguidores(){
+      if($('dialogo-seguidores').open)$('dialogo-seguidores').close();
+      $('configurar-seguidores').focus({preventScroll:true});
+    }
+    function aplicarConfiguracionSeguidores(generar){
+      var mensaje=$('aviso-seguidores');
+      mensaje.textContent='';
+      try{
+        var c=leerConfiguracionSeguidores();
+        configuracionSeguidoresActiva=c;
+        refrescarResumenSeguidores();
+        cerrarSeguidores();
+        if(generar)generarSeguidoresActivos();
+      }catch(error){mensaje.textContent=error.message||String(error);}
+    }
     $('generar-seguidor').addEventListener('click',function(){
       conControl(function(){
         var juego=$('juego').value;
-        if(juego==='nd20'){
-          $('aviso-seguidores').textContent='';
-          $('dialogo-seguidores').showModal();
-          refrescarProfesionSeguidor();
-          $('seguidor-nivel-min').focus({preventScroll:true});
-          return;
-        }
+        if(juego==='nd20'){generarSeguidoresActivos();return;}
         if(juego!=='dh')throw Error('Elige un sistema publicado para generar seguidores.');
         var c=config();c.nivel=Math.min(30,c.nivel);
         agregar('ficha',reglas.seguidorDH(datos.dh,c,rngUnico()(correlativo)));
       });
+    });
+    $('configurar-seguidores').addEventListener('click',function(){
+      if($('juego').value!=='nd20')return;
+      $('aviso-seguidores').textContent='';
+      mostrarConfiguracionSeguidores(configuracionSeguidoresActiva);
+      $('dialogo-seguidores').showModal();
+      $('seguidor-nivel-min').focus({preventScroll:true});
     });
     $('tipo-seguidor-drs').addEventListener('change',refrescarProfesionSeguidor);
     $('profesiones-seguidores').addEventListener('click',function(event){
@@ -2180,45 +2263,19 @@
       $('tipo-seguidor-drs').value=boton.dataset.oficio;
       refrescarProfesionSeguidor();
     });
-    function cerrarSeguidores(){
-      if($('dialogo-seguidores').open)$('dialogo-seguidores').close();
-      $('generar-seguidor').focus({preventScroll:true});
-    }
     $('cerrar-seguidores').addEventListener('click',cerrarSeguidores);
     $('cancelar-seguidores').addEventListener('click',cerrarSeguidores);
     $('dialogo-seguidores').addEventListener('cancel',function(e){
       e.preventDefault();cerrarSeguidores();
     });
+    $('aplicar-seguidores').addEventListener('click',function(){
+      aplicarConfiguracionSeguidores(false);
+    });
     $('form-seguidor-drs').addEventListener('submit',function(event){
       event.preventDefault();
-      var mensaje=$('aviso-seguidores');
-      mensaje.textContent='';
-      try{
-        var minimo=Number($('seguidor-nivel-min').value),
-          maximo=Number($('seguidor-nivel-max').value),
-          cantidad=Number($('seguidor-cantidad').value);
-        if(!Number.isInteger(minimo)||!Number.isInteger(maximo)||
-           minimo<1||maximo>30||minimo>maximo)
-          throw Error('Elige un rango de Niveles válido entre 1 y 30.');
-        if(!Number.isInteger(cantidad)||cantidad<1||cantidad>12)
-          throw Error('La cantidad de seguidores debe estar entre 1 y 12.');
-        var semilla=semillaGeneracion(),generador=rngUnico(semilla),
-          inicial=correlativo,creados=[];
-        for(var i=0;i<cantidad;i++){
-          creados.push(reglas.seguidorNd20({
-            tipo:$('tipo-seguidor-drs').value,nivelMin:minimo,nivelMax:maximo,
-            sexo:$('seguidor-genero').value,modoNombre:$('seguidor-nombres').value,
-            aventuras:$('seguidor-aventuras').value,
-            nombresHistoricosYlat:datos.nombresHistoricosYlat,
-            componentesYlat:datos.componentesYlat,catalogoEquipo:datos.equipoInicial
-          },generador(inicial+i)));
-        }
-        creados.forEach(function(p){agregar('ficha',p);});
-        cerrarSeguidores();
-        cerrarMenuMovil();
-        aviso(cantidad+' seguidor(es) generado(s), Niveles '+minimo+'–'+maximo+'.');
-      }catch(error){mensaje.textContent=error.message||String(error);}
+      aplicarConfiguracionSeguidores(true);
     });
+    refrescarResumenSeguidores();
     $('generar-matriz').addEventListener('click',function(){
       conControl(function(){agregar('ficha',reglas.matriz(config(),rngUnico()(correlativo)));});
     });
