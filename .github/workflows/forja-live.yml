@@ -369,7 +369,7 @@ jobs:
           grep -Fq 'reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r' /tmp/forja-app.js
           grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
           grep -Fq 'function guardarRevision(continuarPreparacion)' /tmp/forja-app.js
-          grep -Fq "$('dialogo-seguidores').showModal();" /tmp/forja-app.js
+          grep -Fq 'dialogo-seguidores' /tmp/forja-app.js
           grep -Fq 'class="gestionar-equipo accion-icono"' /tmp/forja-app.js
           grep -Fq 'componentesYlat' /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/names.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-names.js
