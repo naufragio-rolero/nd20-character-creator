@@ -12,7 +12,7 @@
   var sectionKeys=[
     ['COMPETENCIAS','competencias'],
     ['TALENTOS Y CAPACIDADES','capacidades'],
-    ['CONJUROS Y PODERES CONOCIDOS','poderes'],
+    ['PODERES CONOCIDOS','poderes'],
     ['CONJUROS PREPARADOS','conjuros_preparados'],
     ['INVENTARIO Y EQUIPO','equipo'],
     ['RIQUEZA','riqueza']
@@ -78,21 +78,36 @@
       return (out.equipo||[]).some(function(e){return e===name||e.indexOf(name+' ×')===0;});
     };
     var prot=out.protecciones_equipadas||{};
-    out._armadura_equ=prot.armadura&&owns(prot.armadura)?prot.armadura:'';
-    out._escudo_equ=prot.escudo&&owns(prot.escudo)?prot.escudo:'';
+    out._armadura_equ=prot.armadura&&owns(prot.armadura)?
+      detalleEquipo(prot.armadura,catalogoEquipo).replace('Durab. ','Durabilidad '):'';
+    out._escudo_equ=prot.escudo&&owns(prot.escudo)?
+      detalleEquipo(prot.escudo,catalogoEquipo).replace('Durab. ','Durabilidad '):'';
+    // Daño del escudo, cuando la fuente lo documenta, separado del bono
+    // de Bloqueo: nunca se suma al Blindaje pasivo.
+    var escudoCatalogo=(catalogoEquipo?.escudos||[]).find(function(s){
+      return s.nombre===prot.escudo;
+    });
+    if(out._escudo_equ&&escudoCatalogo?.dano)
+      out._escudo_equ+=' · Daño '+asText(escudoCatalogo.dano);
     // La elección del arma es informativa; no suma dados ni cambia el combate.
     const armas=[...(catalogoEquipo?.armas||[]),
       ...(catalogoEquipo?.varitas_defensa||[])];
     const elegida=armas.find(function(a){
       return a.nombre===out.arma_equipada&&owns(a.nombre)&&a.dano;
     });
-    out._arma_equ=elegida?elegida.nombre:'';
+    out._arma_equ=elegida?elegida.nombre+' ('+asText(elegida.dano)+')'+
+      (elegida.penetracion!=null&&elegida.penetracion!==0?
+        ' · Penetración '+(elegida.penetracion>0?'+':'')+asText(elegida.penetracion):'')+
+      (elegida.durabilidad&&elegida.durabilidad!=='-'?
+        ' · Durabilidad '+asText(elegida.durabilidad):''):'';
+    // Dato original conservado para adaptadores, sin duplicarlo en el A5.
     out._dano_equ=elegida?elegida.dano:'';
     var blindaje=out._consultaBlindaje;
     // El Blindaje figura en el propio nombre de la armadura equipada.
     // Si una futura ficha dispone de Protección natural documentada y no
     // lleva armadura, se presenta en este mismo campo, nunca por duplicado.
-    if(out._armadura_equ&&blindaje&&blindaje.valor!=='Sin armadura')
+    if(out._armadura_equ&&blindaje&&blindaje.valor!=='Sin armadura'&&
+       !out._armadura_equ.includes('Blindaje '))
       out._armadura_equ+=' · Blindaje '+asText(blindaje.valor);
     else if(!out._armadura_equ&&blindaje&&blindaje.natural&&
       blindaje.valor!=='Sin armadura')
@@ -177,16 +192,25 @@
     var iconoSeccion={
       'COMPETENCIAS':'ico-tecnica',
       'TALENTOS Y CAPACIDADES':'recurso-potencia',
-      'CONJUROS Y PODERES CONOCIDOS':'ico-conjuro',
+      'PODERES CONOCIDOS':'ico-conjuro',
       'CONJUROS PREPARADOS':'ico-conjuro',
       'INVENTARIO Y EQUIPO':'equipo-bolsa',
       'RIQUEZA':'equipo-bolsa',
       'OBSERVACIONES REGLAMENTARIAS':'ico-configurar',
-      'EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES':'ico-conjuro'
+      'EFECTOS DE PODERES':'ico-conjuro'
     };
     function draw(page,x,y,value,fs,isBold){
       var val=asText(value);if(!val)return;
       page.drawText(val,{x:x*PT,y:topToPdf(y),size:fs,font:isBold?bold:font,color:shade});
+    }
+    function longitudNombreDestacado(item,titulo){
+      if(!['COMPETENCIAS','TALENTOS Y CAPACIDADES','PODERES CONOCIDOS',
+        'CONJUROS PREPARADOS','EFECTOS DE PODERES'].includes(titulo))return 0;
+      var primerSeparador=asText(item).indexOf(':');
+      // Prefijos de ficha "Nombre: descripción"; las entradas que solo
+      // contienen nombre se destacan enteras, sin inventar descripciones.
+      return primerSeparador>0&&primerSeparador<90?
+        primerSeparador+1:asText(item).length;
     }
     function fixed(id,value){
       if(value===undefined||value===null||value==='')return;
@@ -223,22 +247,16 @@
       }
     });
     fixed('armadura_equipada',p._armadura_equ);fixed('escudo_equipado',p._escudo_equ);
-    // El PDF de plantilla anterior trae rótulos obsoletos en esta fila.
-    // Se cubren sin alterar sus líneas ni el resto del diseño y se dibujan
-    // los rótulos vigentes. El SVG editorial queda actualizado también.
+    // Unificar el dato del arma en todo el ancho de la fila A5. La
+    // plantilla binaria anterior conserva "DAÑO"; se cubre con el fondo
+    // y se reconstruyen etiqueta y subrayado sin alterar el resto.
     var papel=api.rgb(254/255,254/255,252/255);
-    [8,76].forEach(function(x){
-      principal.drawRectangle({x:(x-.2)*PT,y:topToPdf(110.1),
-        width:61.4*PT,height:3.7*PT,color:papel});
-    });
-    // La plantilla utiliza rótulos serif en negrita; la fuente A5 embebida
-    // es regular. Una segunda pasada con desplazamiento submilimétrico
-    // mantiene el peso visual sin incorporar una fuente externa.
+    principal.drawRectangle({x:7.7*PT,y:topToPdf(114.35),
+      width:130*PT,height:8.5*PT,color:papel});
+    principal.drawRectangle({x:8*PT,y:topToPdf(113.26),
+      width:129*PT,height:.24*PT,color:api.rgb(.67,.66,.65)});
     draw(principal,8,109.1,'ARMA EQUIPADA',6,true);
-    draw(principal,8.065,109.1,'ARMA EQUIPADA',6,true);
-    draw(principal,76,109.1,'DAÑO',6,true);
-    draw(principal,76.065,109.1,'DAÑO',6,true);
-    fixed('arma_equipada',p._arma_equ);fixed('dano_equipado',p._dano_equ);
+    fixed('arma_equipada',p._arma_equ);
     var current=principal, region=0,x=8,y=124.5,width=63.8,bottom=198.1;
     async function changeRegion(){
       region++;
@@ -277,7 +295,8 @@
           needsTitle=false;
         }
         var fs=region<2?6.65:7.05;
-        var lines=wrapText(item,(width-3.4)*PT,font,fs);
+        var texto=asText(item),destacado=longitudNombreDestacado(texto,title);
+        var lines=wrapText(texto,(width-3.4)*PT,font,fs),busqueda=0;
         for(var j=0;j<lines.length;j++){
           if(y+(region<2?3.23:3.56)>bottom){
             await changeRegion();
@@ -287,7 +306,17 @@
           if(j===0){
             current.drawCircle({x:(x+.7)*PT,y:topToPdf(y+1.1),size:.2*PT,color:shade});
           }
-          draw(current,x+2.8,y+2.2,lines[j],fs);
+          // Partir cada línea en nombre (negrita real) y descripción
+          // (regular), sin truncar texto ni cambiar los saltos de página.
+          var posicion=texto.indexOf(lines[j],busqueda);
+          if(posicion<0)posicion=busqueda;
+          busqueda=posicion+lines[j].length;
+          var longitud=Math.min(lines[j].length,Math.max(0,destacado-posicion));
+          var nombre=lines[j].slice(0,longitud),resto=lines[j].slice(longitud);
+          if(nombre)draw(current,x+2.8,y+2.2,nombre,fs,true);
+          if(resto)draw(current,x+2.8+
+            (nombre?bold.widthOfTextAtSize(nombre,fs)/PT:0),
+            y+2.2,resto,fs,false);
           y+=region<2?3.23:3.56;
         }
         y+=.55;count++;
@@ -305,7 +334,7 @@
     // intercalado en la lista compacta de Poderes de la primera página.
     if(p._detallesPoderes.length){
       while(region<2)await changeRegion();
-      await section('EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES',p._detallesPoderes);
+      await section('EFECTOS DE PODERES',p._detallesPoderes);
     }
     if(overflow.length||p._descripcion_sin_dividir){
       while(region<2)await changeRegion();

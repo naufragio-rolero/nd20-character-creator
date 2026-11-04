@@ -1203,15 +1203,28 @@ html[data-tema]:not([data-tema=clasico]) .recursos-rejilla .recurso-arma{
   margin:0;line-height:1.45;
 }
 .dialogo-revision-elecciones .botonera{
-  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.6rem;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:stretch;gap:.6rem;
 }
+.dialogo-revision-elecciones #form-revision-elecciones .botonera.dos-acciones{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.dialogo-revision-elecciones .botonera button{
+  width:100%;min-width:0;min-height:46px;margin:0;line-height:1.35;
+  white-space:normal;
+}
+.dialogo-preparacion .botonera{grid-template-columns:repeat(2,minmax(0,1fr));}
 .dialogo-revision-elecciones :is(button,select):focus-visible{
   outline:3px solid #0099cc;outline-offset:2px;
 }
 @media(max-width:560px){
   .dialogo-revision-elecciones #form-revision-elecciones{padding:.8rem}
   .dialogo-revision-elecciones .grupo-poderes{grid-template-columns:minmax(0,1fr)}
-  .dialogo-revision-elecciones .botonera{grid-template-columns:minmax(0,1fr)}
+  .dialogo-revision-elecciones .botonera,
+  .dialogo-preparacion .botonera,
+  .dialogo-revision-elecciones #form-revision-elecciones .botonera.dos-acciones{
+    grid-template-columns:minmax(0,1fr);
+  }
 }
 
 
@@ -1341,3 +1354,11 @@ html[data-tema=violeta]{
 @media(max-width:830px){
   #panel-forja:has(#dialogo-configuracion[open]){display:block}
 }
+
+/* El registro de semilla describe una generación, no una partida guardada. */
+.dialogo-reproduccion .reproduccion-limite{
+  margin:.85rem 0 .25rem;padding:.75rem .9rem;line-height:1.5;
+  border-left:3px solid var(--oro);background:var(--superficie2);
+  font-size:.82rem;color:var(--texto);
+}
+.dialogo-reproduccion .reproduccion-limite strong{font-weight:800}

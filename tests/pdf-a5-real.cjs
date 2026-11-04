@@ -11,6 +11,7 @@ const read=f=>fs.readFileSync(path.join(root,f));
 const plantilla=read('assets/pdf-a5/forja-fantasia-epica-a5.pdf');
 const continuacion=read('assets/pdf-a5/forja-continuacion-a5.pdf');
 const fontBytes=read('assets/pdf-a5/SourceSerif4_400Regular.ttf');
+const boldFontBytes=read('assets/pdf-a5/SourceSerif4_700Bold.ttf');
 const mapa=JSON.parse(read('assets/pdf-a5/campos-ficha-a5.json').toString('utf8'));
 const catalogoEquipo=JSON.parse(read('data/equipo-inicial.json').toString('utf8'));
 function fixture(nivel){
@@ -32,7 +33,7 @@ function fixture(nivel){
 }
 async function revisar(nivel){
   const p=fixture(nivel),original=JSON.stringify(p);
-  const r=await exportar(p,{PDFLib:{PDFDocument,rgb},fontkit,fontBytes,
+  const r=await exportar(p,{PDFLib:{PDFDocument,rgb},fontkit,fontBytes,boldFontBytes,
     plantilla,continuacion,mapa,catalogoEquipo,
     consultarBlindaje:()=>({valor:'d4'}),
     consultarPoder:()=>({descripcion:'Obtienes +2 a la Tirada de Ataque y -2 a la Tirada de Daño (mínimo 1).'})});

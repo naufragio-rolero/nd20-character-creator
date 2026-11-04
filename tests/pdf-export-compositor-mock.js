@@ -51,10 +51,13 @@ async function run(){
     const text=Buffer.from(out.bytes).toString('utf8');
     assert(text.includes('Personaje de pruebas'));
     const observaciones=text.indexOf('OBSERVACIONES REGLAMENTARIAS');
-    const detalle=text.indexOf('EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES');
+    const detalle=text.indexOf('EFECTOS DE PODERES');
+    assert(text.includes('PODERES CONOCIDOS'),'Título de poderes generalizado');
     assert(observaciones>=0&&detalle>observaciones,
       'El efecto de los Poderes aparece después de las Observaciones.');
     assert(text.includes('Ataque certero:'));
+    assert(!text.includes('EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES'));
+    assert(!text.includes('CONJUROS Y PODERES CONOCIDOS'));
     assert.equal(text.split('Ataque certero:').length-1,1,
       'El mismo Poder conocido y preparado solo se describe una vez.');
     if(nivel===30){

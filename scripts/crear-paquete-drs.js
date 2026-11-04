@@ -94,6 +94,7 @@ const especificas=[
   'assets/pdf-a5/forja-continuacion-a5.pdf',
   'assets/pdf-a5/campos-ficha-a5.json',
   'assets/pdf-a5/SourceSerif4_400Regular.ttf',
+  'assets/pdf-a5/SourceSerif4_700Bold.ttf',
   'assets/pdf-a5/OFL-SourceSerif4.txt',
   'assets/vendor/pdf-lib.min.js',
   'assets/vendor/fontkit.umd.min.js',

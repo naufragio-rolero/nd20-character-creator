@@ -191,7 +191,7 @@
           <label for="semilla">Semilla de reproducción</label>
           <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Escribe o pega una semilla para repetir una creación">
           <small id="ayuda-semilla">Azar nuevo en cada generación. La semilla usada se puede copiar desde los resultados.</small>
-          <small>Para repetir una ficha necesitas la misma semilla y configuración.</small>
+          <small>La semilla y la configuración reproducen la generación original, pero no guardan las ediciones posteriores de la ficha.</small>
         </div>
         <details class="configuracion-avanzada" id="recuperar-reproduccion">
           <summary>Recuperar configuración de reproducción</summary>
@@ -280,7 +280,7 @@
         <section id="reproduccion-resultados" class="reproduccion-resultados" aria-label="Reproducción de la ficha">
           <p><strong>Semilla:</strong> <code id="semilla-resultado"></code></p>
           <div class="reproduccion-acciones"><button type="button" id="copiar-semilla">Copiar semilla</button><button type="button" id="copiar-reproduccion">Copiar configuración de reproducción</button></div>
-          <small id="reproduccion-aviso">Misma semilla y configuración: mismo resultado original. Las modificaciones posteriores y elecciones manuales no se reconstruyen.</small>
+          <p class="reproduccion-limite" role="note"><strong>La semilla no guarda cambios posteriores.</strong> <span id="reproduccion-aviso">Permite repetir la generación original con la misma configuración, no recuperar ediciones del personaje.</span></p>
         </section>
       </dialog>
       <section id="editor-elecciones" class="editor-elecciones" hidden aria-label="Personalizar personaje">
@@ -303,19 +303,19 @@
           <button type="button" id="revision-cerrar" class="cerrar-rejilla" aria-label="Cerrar selección de Talentos y Poderes">✕</button>
         </div>
         <form id="form-revision-elecciones">
-          <p class="ayuda revision-aclaracion">Puedes revisar las elecciones correspondientes al Nivel de creación de este personaje. No se añaden plazas nuevas ni se modifican los Conjuros preparados. Cada Conjuro conocido solo puede aprenderse una vez.</p>
+          <p class="ayuda revision-aclaracion">Puedes revisar las elecciones correspondientes al Nivel de creación de este personaje. No se añaden plazas nuevas. Cada Conjuro conocido solo puede aprenderse una vez. «Guardar y preparar» aplica primero estos cambios y después abre los Espacios de Conjuro.</p>
           <section id="revision-talentos" class="revision-grupo" aria-labelledby="revision-titulo-talentos">
             <h4 id="revision-titulo-talentos">Talentos</h4>
             <div id="revision-pasos-talentos"></div>
           </section>
           <section id="revision-poderes" class="revision-grupo" aria-labelledby="revision-titulo-poderes">
-            <h4 id="revision-titulo-poderes">Conjuros y Poderes conocidos</h4>
+            <h4 id="revision-titulo-poderes">Poderes conocidos</h4>
             <div id="revision-pasos-poderes"></div>
           </section>
           <p id="revision-estado" class="ayuda" aria-live="polite"></p>
           <div class="botonera">
             <button type="submit" id="revision-confirmar" class="principal">Guardar elecciones</button>
-            <button type="button" id="revision-abrir-preparacion" hidden>Preparar Conjuros</button>
+            <button type="button" id="revision-abrir-preparacion" hidden>Guardar y preparar</button>
             <button type="button" id="revision-cancelar">Cancelar</button>
           </div>
         </form>

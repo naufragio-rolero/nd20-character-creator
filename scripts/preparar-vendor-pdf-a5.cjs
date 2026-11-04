@@ -23,6 +23,11 @@ const targets=[
     license:'SIL OFL-1.1 · Source Serif 4 · Adobe'
   },
   {
+    source:'node_modules/@expo-google-fonts/source-serif-4/700Bold/SourceSerif4_700Bold.ttf',
+    target:'assets/pdf-a5/SourceSerif4_700Bold.ttf',
+    license:'SIL OFL-1.1 · Source Serif 4 · Adobe'
+  },
+  {
     source:'node_modules/@expo-google-fonts/source-serif-4/LICENSE_FONT',
     target:'assets/pdf-a5/OFL-SourceSerif4.txt',
     license:'SIL OFL-1.1 · Source Serif 4'

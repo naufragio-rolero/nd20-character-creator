@@ -1,8 +1,8 @@
 {
   "version": "0.3.0-fantasia-epica-v2",
   "dimensiones_mm": {
-    "width": 148.0,
-    "height": 210.0
+    "width": 148,
+    "height": 210
   },
   "dimensiones_pdf_pt": {
     "width": 419.5276,
@@ -23,7 +23,7 @@
         "x": 29,
         "y": 9.7,
         "width": 46,
-        "height": 3.0
+        "height": 3
       },
       "pdf_inferior_izquierda": {
         "x": 82.205,
@@ -45,7 +45,7 @@
         "x": 29,
         "y": 14.75,
         "width": 46,
-        "height": 3.0
+        "height": 3
       },
       "pdf_inferior_izquierda": {
         "x": 82.205,
@@ -548,7 +548,7 @@
       "pagina": "principal",
       "descripcion": "Recurso literal (Salud incluye el dado)",
       "mm_superior_izquierda": {
-        "x": 10.0,
+        "x": 10,
         "y": 79,
         "width": 26.3,
         "height": 8
@@ -678,11 +678,11 @@
       "id": "arma_equipada",
       "origen": "arma_equipada (validada contra el inventario)",
       "pagina": "principal",
-      "descripcion": "arma equipada",
+      "descripcion": "Arma equipada con daño, penetración y Durabilidad documentados; fila unificada",
       "mm_superior_izquierda": {
         "x": 8,
         "y": 109.2,
-        "width": 61,
+        "width": 129,
         "height": 3.7
       },
       "pdf_inferior_izquierda": {
@@ -700,7 +700,7 @@
       "id": "dano_equipado",
       "origen": "Daño documental del arma equipada",
       "pagina": "principal",
-      "descripcion": "daño del arma equipada",
+      "descripcion": "Campo histórico sin uso: el daño se muestra junto al arma equipada",
       "mm_superior_izquierda": {
         "x": 76,
         "y": 109.2,

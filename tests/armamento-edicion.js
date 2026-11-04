@@ -125,7 +125,8 @@ assert.deepEqual(api.danoFicha({...pj,equipo:['Varita de cerezo'],
 const pjPdf={...pj,equipo:['Daga','Arco corto'],arma_equipada:'Daga',
   descripcion:'Guerrero · Humano común',recursos:[],atributos:[]};
 const exportable=pdf.prepararDatos(pjPdf,null,cat);
-assert.equal(exportable._arma_equ,'Daga');
+assert.equal(exportable._arma_equ,'Daga (1d4) · Penetración +1 · Durabilidad d8',
+  'El PDF reúne los datos documentados del arma equipada en una sola línea');
 assert.equal(exportable._dano_equ,'1d4');
 const itemsPDF=exportable._sections.find(x=>x.source==='equipo').items;
 assert.equal(itemsPDF.filter(x=>x.includes('Arma equipada')).length,0,
