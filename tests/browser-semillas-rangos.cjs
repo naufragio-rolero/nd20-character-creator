@@ -379,16 +379,20 @@ async function run(name,origin){
     assert.match(await first().innerText(),/20 mo\/día/);
     assert.match(await first().locator('.recurso-ficha').first().innerText(),/d4/);
     await page.setViewportSize({width:390,height:850});
+    if(!await page.locator('#panel-forja').isVisible())
+      await page.locator('#alternar-menu').click();
     assert.equal(await page.locator('#selector-seguidor-drs').isVisible(),true,
       'Selector DRS funcional desde la pestaña Herramientas en móvil');
     await page.setViewportSize({width:1320,height:920});
 
     // El sistema de seguidores de Dungeon Hack sigue siendo el de antes.
+    await page.locator('#tab-personajes').click();
     await open();
     await page.locator('#juego').evaluate(x=>{
       x.value='dh';x.dispatchEvent(new Event('change',{bubbles:true}));
     });
     await close();
+    await page.locator('#tab-herramientas').click();
     assert.equal(await page.locator('#selector-seguidor-drs').isVisible(),false);
     await page.locator('#generar-seguidor').click();
     assert.equal(await first().locator('.nombre-atributo').count(),2);
