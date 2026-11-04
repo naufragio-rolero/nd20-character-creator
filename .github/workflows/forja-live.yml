@@ -28,16 +28,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado PR #81: requisitos estructurados de Técnicas
+      - name: Obtener snapshot DRS aprobado PR #84: UX de elecciones y PDF A5
         uses: actions/checkout@v4
         with:
-          ref: 466976657e19a541af492fbe610b3a31da25afd2
+          ref: 0bf0e687916b579ece0bdc4d6de9b95555e50c5d
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "466976657e19a541af492fbe610b3a31da25afd2"
-      # Snapshot aprobado para LIVE: PR #81, con 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
-      # semillas, intervalos, reproducción por ficha y elegibilidad DRS de Técnicas.
+          test "$(git rev-parse HEAD)" = "0bf0e687916b579ece0bdc4d6de9b95555e50c5d"
+      # Snapshot aprobado para LIVE: PR #84, con 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
+      # semillas explicadas, edición encadenada Talentos-Conjuros y equipo completo con fuente A5 Bold.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
       # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
@@ -61,7 +61,13 @@ jobs:
           done
           grep -Fq 'Creador de personajes para Naufragio d20.' index.html
           grep -Fq "items.push(['Daño',dano.valor])" assets/app.js
-          grep -Fq 'EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES' assets/pdf-export-v2.js
+          grep -Fq 'EFECTOS DE PODERES' assets/pdf-export-v2.js
+          grep -Fq 'PODERES CONOCIDOS' assets/pdf-export-v2.js
+          grep -Fq 'longitudNombreDestacado' assets/pdf-export-v2.js
+          grep -Fq 'SourceSerif4_700Bold.ttf' scripts/preparar-vendor-pdf-a5.cjs
+          grep -Fq 'function guardarRevision(continuarPreparacion)' assets/app.js
+          grep -Fq 'Guardar y preparar' index.html
+          grep -Fq 'La semilla no guarda cambios posteriores.' index.html
           test -f assets/icons/CREDITOS-GAME-ICONS.txt
           grep -Fq 'CC BY 3.0' assets/icons/CREDITOS-GAME-ICONS.txt
           grep -Fq 'goblin-head.svg' assets/icons/CREDITOS-GAME-ICONS.txt
@@ -194,6 +200,7 @@ jobs:
             pdf-lib@1.17.1 @pdf-lib/fontkit@1.1.1 \
             @expo-google-fonts/source-serif-4@0.4.1 playwright@1.56.1
           node scripts/preparar-vendor-pdf-a5.cjs
+          test -s assets/pdf-a5/SourceSerif4_700Bold.ttf
           node tests/pdf-a5-real.cjs
           node tests/pdf-a5-etiquetas.js
           node tests/pdf-a5-integracion.js
@@ -266,12 +273,15 @@ jobs:
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-export-browser.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-pdf-browser.js
           grep -Fq 'NaufragioPdfBrowser' /tmp/forja-pdf-browser.js
           grep -Fq 'rasterizarIcono' /tmp/forja-pdf-browser.js
+          grep -Fq 'SourceSerif4_700Bold.ttf' /tmp/forja-pdf-browser.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-export-v2.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-pdf-engine.js
           grep -Fq 'function prepararDatos' /tmp/forja-pdf-engine.js
           grep -Fq 'detalleEquipo' /tmp/forja-pdf-engine.js
+          grep -Fq 'EFECTOS DE PODERES' /tmp/forja-pdf-engine.js
+          grep -Fq 'PODERES CONOCIDOS' /tmp/forja-pdf-engine.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-a5/forja-fantasia-epica-a5.pdf?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-plantilla-a5.pdf
           test "$(head -c 5 /tmp/forja-plantilla-a5.pdf)" = '%PDF-'
-          for activo in assets/vendor/pdf-lib.min.js assets/vendor/fontkit.umd.min.js assets/pdf-a5/SourceSerif4_400Regular.ttf assets/pdf-a5/OFL-SourceSerif4.txt; do
+          for activo in assets/vendor/pdf-lib.min.js assets/vendor/fontkit.umd.min.js assets/pdf-a5/SourceSerif4_400Regular.ttf assets/pdf-a5/SourceSerif4_700Bold.ttf assets/pdf-a5/OFL-SourceSerif4.txt; do
             curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/${activo}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-recurso-pdf-a5
             test -s /tmp/forja-recurso-pdf-a5
           done
@@ -285,6 +295,8 @@ jobs:
                grep -Fq 'id="nivel-min"' /tmp/forja-live.html &&
                grep -Fq 'id="nivel-max"' /tmp/forja-live.html &&
                grep -Fq 'id="copiar-semilla"' /tmp/forja-live.html &&
+               grep -Fq 'Guardar y preparar' /tmp/forja-live.html &&
+               grep -Fq 'La semilla no guarda cambios posteriores.' /tmp/forja-live.html &&
                grep -Fq 'id="dialogo-reproduccion"' /tmp/forja-live.html &&
                grep -Fq 'id="cerrar-reproduccion"' /tmp/forja-live.html &&
                grep -Fq 'aria-label="Reproducción de la ficha"' /tmp/forja-live.html &&
@@ -343,6 +355,7 @@ jobs:
           grep -Fq 'function actualizarUsoSemilla()' /tmp/forja-app.js
           grep -Fq 'reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r' /tmp/forja-app.js
           grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
+          grep -Fq 'function guardarRevision(continuarPreparacion)' /tmp/forja-app.js
           grep -Fq 'class="gestionar-equipo accion-icono"' /tmp/forja-app.js
           grep -Fq 'componentesYlat' /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/names.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-names.js
