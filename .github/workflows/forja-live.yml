@@ -36,7 +36,7 @@ jobs:
       - name: Comprobar la revisión exacta de la entrega
         run: |
           test "$(git rev-parse HEAD)" = "466976657e19a541af492fbe610b3a31da25afd2"
-      # Snapshot aprobado para LIVE: PR #81, con 35 SVG, dos logos WebP, PDF A5,
+      # Snapshot aprobado para LIVE: PR #81, con 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
       # semillas, intervalos, reproducción por ficha y elegibilidad DRS de Técnicas.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -46,8 +46,13 @@ jobs:
         run: |
           set -euo pipefail
           test ! -e assets/icons-forja.svg
-          test "$(find assets/icons -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 35
+          test "$(find assets/icons -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 40
           test "$(find assets/icons -maxdepth 1 -name '*.webp' -type f | wc -l)" -eq 2
+          # Mantener las 35 piezas históricas y verificar los cinco iconos nuevos de acciones.
+          for accion in accion-copiar accion-equipo accion-pdf accion-semilla accion-talentos; do
+            test -s "assets/icons/${accion}.svg"
+            grep -Fq 'viewBox="0 0 24 24"' "assets/icons/${accion}.svg"
+          done
           for logo in sistema-nd20-faep.webp sistema-dh.webp; do
             test -s "assets/icons/$logo"
             test "$(head -c 4 "assets/icons/$logo")" = "RIFF"
@@ -122,7 +127,7 @@ jobs:
           grep -Fq 'function blindajeFicha(personaje,catalogo)' assets/equipment.js
           # Entrega PR #59/#60: controles funcionales del DRS, sin venta de regalos.
           grep -Fq 'id="editor-armamento"' index.html
-          grep -Fq 'class="gestionar-equipo"' assets/app.js
+          grep -Fq 'class="gestionar-equipo accion-icono"' assets/app.js
           grep -Fq 'function intercambiarEquipoInicial(' assets/equipment.js
           grep -Fq 'function comprarArmamentoFantasia(' assets/equipment.js
           grep -Fq 'compras_iniciales_intercambiables' assets/rules.js
@@ -170,7 +175,7 @@ jobs:
           grep -Fq 'var registroGeneracion=mostrarReproduccion(semillaUsada,c);' assets/app.js
           grep -Fq 'var registroPersonalizado=mostrarReproduccion(semillaUsada,c);' assets/app.js
           grep -Fq 'function abrirReproduccion(entrada)' assets/app.js
-          grep -Fq 'class="ver-reproduccion"' assets/app.js
+          grep -Fq 'class="ver-reproduccion accion-icono"' assets/app.js
           grep -Fq 'function actualizarUsoSemilla()' assets/app.js
           grep -Fq 'reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r' assets/app.js
           grep -Fq "recurso-nota-escudo" assets/app.js
@@ -334,11 +339,11 @@ jobs:
           grep -Fq 'var registroGeneracion=mostrarReproduccion(semillaUsada,c);' /tmp/forja-app.js
           grep -Fq 'var registroPersonalizado=mostrarReproduccion(semillaUsada,c);' /tmp/forja-app.js
           grep -Fq 'function abrirReproduccion(entrada)' /tmp/forja-app.js
-          grep -Fq 'class="ver-reproduccion"' /tmp/forja-app.js
+          grep -Fq 'class="ver-reproduccion accion-icono"' /tmp/forja-app.js
           grep -Fq 'function actualizarUsoSemilla()' /tmp/forja-app.js
           grep -Fq 'reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r' /tmp/forja-app.js
           grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
-          grep -Fq 'class="gestionar-equipo"' /tmp/forja-app.js
+          grep -Fq 'class="gestionar-equipo accion-icono"' /tmp/forja-app.js
           grep -Fq 'componentesYlat' /tmp/forja-app.js
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/names.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-names.js
           grep -Fq 'function generico(banco,rng)' /tmp/forja-names.js
@@ -549,6 +554,11 @@ jobs:
                 ;;
             esac
           done
+          # Los cinco iconos adicionales de las acciones de ficha también deben servirse.
+          for accion in accion-copiar accion-equipo accion-pdf accion-semilla accion-talentos; do
+            curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/${accion}.svg?forja_release=${GITHUB_RUN_ID}" -o "/tmp/forja-accion.svg"
+            grep -Fq 'viewBox="0 0 24 24"' /tmp/forja-accion.svg
+          done
           # Asegurar que la web muestra los SVG definitivos de Gnomo, Mago y Mediano.
           grep -Fq 'big-gear' /tmp/forja-esp-gnomo.svg
           grep -Fq 'pointy-hat' /tmp/forja-ocu-mago.svg
@@ -562,4 +572,4 @@ jobs:
           node -e "const e=require('/tmp/forja-especies.json');if(Object.keys(e).length!==8)process.exit(1)"
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/aclaraciones-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-aclaraciones.json
           node -e "const a=require('/tmp/forja-aclaraciones.json');const ids=a.registros.map(x=>x.id_talento).sort();const expected=['talento-drs-especie-mediano-amable-salvese-quien-pueda','talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes'].sort();if(a.estado!=='aprobacion_autoral'||JSON.stringify(ids)!==JSON.stringify(expected))process.exit(1)"
-          echo "OK: Forja DRS completa en vivo, 10 Técnicas, 24 Talentos, 111 descripciones, 8 Especies, 35 SVG, dos aclaraciones y CiFi/Nocturna excluidos."
+          echo "OK: Forja DRS completa en vivo, 10 Técnicas, 24 Talentos, 111 descripciones, 8 Especies, 40 SVG, dos aclaraciones y CiFi/Nocturna excluidos."
