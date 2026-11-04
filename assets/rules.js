@@ -502,27 +502,110 @@
     {nombre:'Sacerdote',precio:'3 mo',moral:10,dado:4,aventura:'No'}
   ];
   function seguidoresDRS(){return SEGUIDORES_DRS.map(function(x){return Object.assign({},x);});}
+  // Propuestas de equipo del generador, no adquisiciones automáticas ni
+  // obligaciones reglamentarias. Se validan contra el catálogo DRS cargado.
+  var EQUIPO_POR_OFICIO_DRS={
+    Arcanista:{arma:['Varita de cerezo','Varita de roble'],fijos:['Libro de conjuros','Tinta y pluma']},
+    Artesano:{fijos:['Martillo de campamento','Piedra de afilar','Bolsa de cuero']},
+    Cazador:{arma:['Arco corto','Arco largo'],armadura:['Armadura de cuero','Armadura de pieles'],
+      fijos:['Flechas','Cuerda','Ración de alimento']},
+    Escriba:{fijos:['Pergamino','Tinta y pluma','Estuche de pergaminos vacío']},
+    Escudero:{arma:['Espada corta','Maza'],armadura:['Armadura acolchada','Armadura de cuero'],
+      escudo:['Escudo pequeño'],fijos:['Ropa de viaje']},
+    Guardia:{arma:['Lanza','Maza','Espada corta'],armadura:['Armadura acolchada','Armadura de cuero'],
+      escudo:['Escudo pequeño']},
+    Ladrón:{arma:['Daga','Espada corta'],armadura:['Armadura de cuero'],
+      fijos:['Ganzúas','Cuerda','Bolsa de cuero']},
+    Mensajero:{fijos:['Ropa de viaje','Bolsa de cuero','Odre de agua']},
+    Mercenario:{arma:['Espada larga','Hacha de batalla','Maza'],armadura:['Armadura de cuero','Armadura de bandas'],
+      fijos:['Ración de alimento']},
+    Portantorchas:{fijos:['Antorcha','Yesquero','Odre de agua']},
+    Porteador:{fijos:['Mochila','Cuerda','Manta','Odre de agua']},
+    Sacerdote:{arma:['Maza','Martillo ligero'],fijos:['Símbolo sagrado','Túnica','Libro']}
+  };
+  function equipoSeguidor(oficio,catalogo,rng){
+    var perfil=EQUIPO_POR_OFICIO_DRS[oficio]||{},resultado=[];
+    if(!catalogo)return resultado;
+    function buscar(nombre){
+      var colecciones=['armas','varitas_defensa','armaduras','escudos','municion',
+        'componentes_paquetes_editoriales'];
+      var lista=colecciones.flatMap(function(k){return catalogo[k]||[];});
+      Object.keys(catalogo.utiles_fantasia||{}).forEach(function(k){
+        lista.push.apply(lista,catalogo.utiles_fantasia[k]||[]);
+      });
+      return lista.find(function(x){return x.nombre===nombre;});
+    }
+    function agregar(nombre){
+      var obj=buscar(nombre);
+      if(!obj)return;
+      var representacion=nombre+(obj.du?' (DU '+obj.du+')':'');
+      if(!resultado.includes(representacion))resultado.push(representacion);
+    }
+    ['arma','armadura','escudo'].forEach(function(tipo){
+      if(perfil[tipo]&&perfil[tipo].length)
+        agregar(escoger(perfil[tipo],rng));
+    });
+    (perfil.fijos||[]).forEach(agregar);
+    return resultado;
+  }
   function seguidorNd20(config,rng){
     config=config||{};rng=rng||Math.random;
     var tipo=config.tipo||'';
     var oficio=tipo?SEGUIDORES_DRS.find(function(x){return x.nombre===tipo;}):
       SEGUIDORES_DRS[Math.floor(rng()*SEGUIDORES_DRS.length)];
     if(!oficio)throw Error('El tipo de seguidor no está en la tabla DRS.');
-    // El DRS indica que Ataque/Defensa se calculan como Atributos PJ:
-    // VA 3+d6, DA 20-VA, sin ajustes de Especie ni progresión de Nivel.
+    var nivel=config.nivel!==undefined?nivelExacto(config,30):
+      nivelAleatorio(config.nivelMin===undefined?1:config.nivelMin,
+        config.nivelMax===undefined?1:config.nivelMax,rng,30);
+    var genero=sexoApi?sexoApi.forma(config.sexo):
+      (config.sexo==='masculino'||config.sexo==='femenino'?config.sexo:'aleatorio');
+    if(genero==='aleatorio')genero=rng()<.5?'femenino':'masculino';
+    var modoNombre=config.modoNombre||'generico';
+    if(!['generico','ylat'].includes(modoNombre))
+      throw Error('Lista de nombres de seguidor no válida.');
+    var nombre=modoNombre==='ylat'?
+      nombresApi?.ylat(config.componentesYlat,rng):
+      nombresApi?.generico(config.nombresHistoricosYlat,rng);
+    // Los nombres genéricos no tienen género inferido: el género se
+    // determina por separado y nunca se inventan etimologías.
+    if(!nombre)nombre='Seguidor';
     var atributos=['Ataque','Defensa'].map(function(nombre){
       var va=3+dado(6,rng);
       return {nombre:nombre,valor:va,dificultad:20-va,favorito:false};
     });
+    // Adaptación solicitada para La Forja: una oportunidad de mejora de
+    // ambos Atributos simplificados al alcanzar Niveles 4, 8, 12...
+    // Se conserva la tirada contra VA y el tope 18 del avance de PJ.
+    for(var hito=4;hito<=nivel;hito+=4){
+      atributos.forEach(function(a){
+        if(a.valor<18&&dado(20,rng)>a.valor){
+          a.valor++;a.dificultad=20-a.valor;
+        }
+      });
+    }
+    // Mismo tratamiento de Salud por Nivel que el PJ: primer dado al
+    // máximo, dados posteriores y aumento fijo documentado desde Nivel 12.
+    var salud=oficio.dado;
+    for(var n=2;n<=nivel;n++)
+      salud+=n<12?dado(oficio.dado,rng):SALUD_ALTA[oficio.dado];
+    var aventura=oficio.aventura;
+    if(aventura==='Depende'){
+      if(config.aventuras==='si')aventura='Sí';
+      else if(config.aventuras==='no')aventura='No';
+      else if(config.aventuras===undefined||config.aventuras==='aleatorio')
+        aventura=rng()<.5?'Sí':'No';
+      else throw Error('La disponibilidad para aventuras no es válida.');
+    }
     return {
       tipo_ficha:'seguidor_drs',juego:'Naufragio d20 · Fantasía',
-      nombre:oficio.nombre,descripcion:'Seguidor · DRS',nivel:null,concepto:'',
+      nombre:nombre,sexo:genero,profesion:oficio.nombre,
+      descripcion:'Seguidor · '+oficio.nombre,nivel:nivel,concepto:'',
       origen:'NaufragioD20DRS v1.1.12',atributos:atributos,
-      recursos:[['Salud',dado(oficio.dado,rng)+' (d'+oficio.dado+')'],
-        ['Moral',oficio.moral]],
+      recursos:[['Salud',salud+' (d'+oficio.dado+')'],
+        ['Moral',oficio.moral],['Aventuras',aventura]],
       competencias:[],capacidades:[],poderes:[],conjuros_preparados:[],
-      equipo:[],riqueza:oficio.precio+'/día',
-      notas:['Disponibilidad para aventuras: '+oficio.aventura+'.']
+      equipo:equipoSeguidor(oficio.nombre,config.catalogoEquipo,rng),
+      riqueza:oficio.precio+'/día',notas:[]
     };
   }
   function seguidorDH(datos, config, rng) {

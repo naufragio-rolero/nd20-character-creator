@@ -66,7 +66,7 @@
     });
     return textos;
   }
-  function prepararDatos(personaje,consultaBlindaje,catalogoEquipo,consultarPoder){
+  function prepararDatos(personaje,consultaBlindaje,catalogoEquipo,consultarPoder,consultarTalento){
     if(!personaje||personaje.juego!=='Naufragio d20 · Fantasía')
       throw Error('La exportación solo admite fichas de Naufragio d20 Fantasía.');
     var out=clone(personaje), desc=asText(out.descripcion),pos=desc.indexOf(' · ');
@@ -114,9 +114,36 @@
       out._armadura_equ='Protección natural ('+asText(blindaje.natural)+
         ') · Blindaje '+asText(blindaje.valor);
     out._detallesPoderes=descripcionPoderes(out,consultarPoder);
-    out._notas=(Array.isArray(out.notas)?out.notas:
+    // El PDF no es un registro de operaciones: se retiran auditorías de
+    // sustitución de equipo y de revisión de grimorio, sin tocar la ficha.
+    // Los efectos de Talentos se muestran en su propia sección posterior.
+    var notas=(Array.isArray(out.notas)?out.notas:
       (out.notas?[out.notas]:[])).map(function(n){
       return Array.isArray(n)&&n.length>=2?asText(n[0])+': '+asText(n[1]):asText(n);
+    });
+    out._detallesTalentos=[];
+    var documentados=new Set();
+    out._notas=notas.filter(function(nota){
+      if(/^Revisión de Conjuros conocidos\s*:|^Cambio de equipo inicial\s*:/i.test(nota))
+        return false;
+      var talento=nota.match(/^Talento de (?:Especie|Ocupación)\s*—\s*([^:]+):\s*(.+)$/);
+      if(!talento)return true;
+      var nombre=talento[1].trim();
+      // Ignorar efectos de Talentos sustituidos al editar, si quedan
+      // anotaciones históricas en una ficha anterior.
+      if((out.capacidades||[]).includes(nombre)&&!documentados.has(nombre)){
+        out._detallesTalentos.push(nombre+': '+talento[2].trim());
+        documentados.add(nombre);
+      }
+      return false;
+    });
+    (out.capacidades||[]).forEach(function(nombre){
+      if(documentados.has(nombre))return;
+      var ficha=typeof consultarTalento==='function'?consultarTalento(nombre):null;
+      if(ficha&&typeof ficha.descripcion==='string'&&ficha.descripcion.trim()){
+        out._detallesTalentos.push(nombre+': '+ficha.descripcion.trim());
+        documentados.add(nombre);
+      }
     });
     out._sections=sectionKeys.map(function(k){
       var v=out[k[1]];
@@ -166,7 +193,8 @@
       throw Error('Faltan activos locales autorizados: PDFLib, fontkit, fuente Unicode, PDFs o mapa.');
     var api=opts.PDFLib;
     var consulta=opts.consultarBlindaje?opts.consultarBlindaje(personaje):null;
-    var p=prepararDatos(personaje,consulta,opts.catalogoEquipo,opts.consultarPoder);
+    var p=prepararDatos(personaje,consulta,opts.catalogoEquipo,opts.consultarPoder,
+      opts.consultarTalento);
     var doc=await api.PDFDocument.load(opts.plantilla);
     doc.registerFontkit(opts.fontkit);
     var font=await doc.embedFont(opts.fontBytes,{subset:true});
@@ -197,6 +225,7 @@
       'INVENTARIO Y EQUIPO':'equipo-bolsa',
       'RIQUEZA':'equipo-bolsa',
       'OBSERVACIONES REGLAMENTARIAS':'ico-configurar',
+      'EFECTOS DE TALENTOS':'recurso-potencia',
       'EFECTOS DE PODERES':'ico-conjuro'
     };
     function draw(page,x,y,value,fs,isBold){
@@ -204,8 +233,8 @@
       page.drawText(val,{x:x*PT,y:topToPdf(y),size:fs,font:isBold?bold:font,color:shade});
     }
     function longitudNombreDestacado(item,titulo){
-      if(!['COMPETENCIAS','TALENTOS Y CAPACIDADES','PODERES CONOCIDOS',
-        'CONJUROS PREPARADOS','EFECTOS DE PODERES'].includes(titulo))return 0;
+      if(!['OBSERVACIONES REGLAMENTARIAS','EFECTOS DE TALENTOS',
+        'EFECTOS DE PODERES'].includes(titulo))return 0;
       var primerSeparador=asText(item).indexOf(':');
       // Prefijos de ficha "Nombre: descripción"; las entradas que solo
       // contienen nombre se destacan enteras, sin inventar descripciones.
@@ -271,7 +300,7 @@
     async function header(title,continuado){
       var label=continuado?title+' (CONT.)':title;
       var fs=region<2?7.1:8.1;
-      var id=iconoSeccion[title],offset=imagenes[id]?4.1:0;
+      var id=iconoSeccion[title],offset=4.1;
       var titulo=wrapText(label,(width-1-offset)*PT,bold,fs);
       var paso=region<2?3.3:3.8;
       if(y+titulo.length*paso+3.2>bottom){
@@ -280,7 +309,7 @@
         titulo=wrapText(label,(width-1-offset)*PT,bold,fs);
         paso=region<2?3.3:3.8;
       }
-      if(offset)icono(current,id,x,y-.1,2.8);
+      if(imagenes[id])icono(current,id,x+.25,y+.12,2.7);
       for(var parte of titulo){
         draw(current,x+offset,y+2.7,parte,fs,true);
         y+=paso;
@@ -296,7 +325,16 @@
         }
         var fs=region<2?6.65:7.05;
         var texto=asText(item),destacado=longitudNombreDestacado(texto,title);
-        var lines=wrapText(texto,(width-3.4)*PT,font,fs),busqueda=0;
+        // Medir la anchura real de la negrita antes de partir líneas:
+        // los nombres largos no deben desbordar el margen del A5.
+        var metrica=destacado?{widthOfTextAtSize:function(fragmento,tamano){
+          var inicio=texto.indexOf(fragmento);
+          if(inicio<0)inicio=0;
+          var enNegrita=Math.min(fragmento.length,Math.max(0,destacado-inicio));
+          return bold.widthOfTextAtSize(fragmento.slice(0,enNegrita),tamano)+
+            font.widthOfTextAtSize(fragmento.slice(enNegrita),tamano);
+        }}:font;
+        var lines=wrapText(texto,(width-3.4)*PT,metrica,fs),busqueda=0;
         for(var j=0;j<lines.length;j++){
           if(y+(region<2?3.23:3.56)>bottom){
             await changeRegion();
@@ -330,8 +368,12 @@
       while(region<2)await changeRegion();
       await section('OBSERVACIONES REGLAMENTARIAS',p._notas);
     }
-    // El detalle literal va después de todas las observaciones, nunca
-    // intercalado en la lista compacta de Poderes de la primera página.
+    // Efectos completos después de las observaciones y fuera del bloque
+    // compacto de la primera página: nombre resaltado, explicación normal.
+    if(p._detallesTalentos.length){
+      while(region<2)await changeRegion();
+      await section('EFECTOS DE TALENTOS',p._detallesTalentos);
+    }
     if(p._detallesPoderes.length){
       while(region<2)await changeRegion();
       await section('EFECTOS DE PODERES',p._detallesPoderes);

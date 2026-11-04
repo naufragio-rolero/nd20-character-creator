@@ -376,34 +376,57 @@ async function run(name,origin){
     await page.locator('#preparacion-cancelar').click();
     assert.equal(await page.locator('#editor-preparacion').evaluate(x=>x.open),false);
 
-    // Seguidores: seleccionar uno de los 12 tipos DRS, sin heredar Nivel ni Esfuerzo.
+    // Seguidores: modal propio con Nivel, género, nombre y oficio visual.
     await page.locator('#tab-herramientas').click();
-    assert.equal(await page.locator('#selector-seguidor-drs').isVisible(),true);
-    assert.equal(await page.locator('#tipo-seguidor-drs option').count(),13);
-    await page.locator('#tipo-seguidor-drs').selectOption('Porteador');
     await page.locator('#generar-seguidor').click();
+    assert.equal(await page.locator('#dialogo-seguidores').evaluate(x=>x.open),true);
+    assert.equal(await page.locator('#tipo-seguidor-drs option').count(),13);
+    assert.equal(await page.locator('#profesiones-seguidores button').count(),13);
+    const iconos=await page.locator('#profesiones-seguidores .icono-profesion-seguidor')
+      .count();
+    assert.equal(iconos,13,'Todas las profesiones reutilizan un icono genérico');
+    await page.locator('#seguidor-nivel-min').fill('8');
+    await page.locator('#seguidor-nivel-max').fill('8');
+    await page.locator('#seguidor-genero').selectOption('femenino');
+    await page.locator('#seguidor-nombres').selectOption('generico');
+    await page.locator('#seguidor-cantidad').fill('1');
+    await page.locator('#profesiones-seguidores [data-oficio="Porteador"]').click();
+    assert.equal(await page.locator('#tipo-seguidor-drs').inputValue(),'Porteador');
+    await page.locator('#crear-seguidores').click();
+    assert.equal(await page.locator('#dialogo-seguidores').evaluate(x=>x.open),false);
     await first().locator('.atributo').first().waitFor();
     assert.deepEqual(await first().locator('.nombre-atributo').allTextContents(),
       ['Ataque','Defensa']);
-    assert.equal(await first().locator('.nivel-ficha').count(),0,
-      'Un seguidor DRS no tiene Nivel');
+    assert.equal(await first().locator('.nivel-ficha').innerText(),'Nivel 8');
     assert.deepEqual(await first().locator('.recurso-nombre').allTextContents(),
-      ['Salud','Moral']);
+      ['Salud','Moral','Aventuras']);
     assert.match(await first().innerText(),/7 mp\/día/);
-    assert.match(await first().textContent(),/Disponibilidad para aventuras: Sí/);
-    assert.equal(await first().locator('.exportar-pdf-ficha').count(),0,
-      'La plantilla PDF A5 de PJ no se aplica a un seguidor sin seis Atributos');
+    assert.match(await first().locator('.recurso-ficha').last().innerText(),/Sí/);
+    assert.match(await first().textContent(),/Porteador/);
+    assert.ok((await first().locator('h3').first().innerText()).split(' ').length>=2);
+    assert.equal(await first().locator('.sexo-ficha[aria-label="Sexo: Femenino"]').count(),1);
+    assert.equal(await first().locator('.exportar-pdf-ficha').count(),0);
     assert.equal(await first().locator('.gestionar-equipo').count(),0);
     assert.equal(await first().locator('.revisar-elecciones').count(),0);
-    await page.locator('#tipo-seguidor-drs').selectOption('Arcanista');
+    assert.ok(await first().locator('.bloque-ficha').filter({hasText:'Equipo'}).count()>0);
     await page.locator('#generar-seguidor').click();
+    await page.locator('#seguidor-nivel-min').fill('12');
+    await page.locator('#seguidor-nivel-max').fill('12');
+    await page.locator('#seguidor-genero').selectOption('masculino');
+    await page.locator('#seguidor-aventuras').selectOption('si');
+    await page.locator('#tipo-seguidor-drs').selectOption('Arcanista');
+    await page.locator('#crear-seguidores').click();
     assert.match(await first().innerText(),/20 mo\/día/);
-    assert.match(await first().locator('.recurso-ficha').first().innerText(),/d4/);
+    assert.equal(await first().locator('.nivel-ficha').innerText(),'Nivel 12');
+    assert.match(await first().locator('.recurso-ficha').last().innerText(),/Sí/);
     await page.setViewportSize({width:390,height:850});
     if(!await page.locator('#panel-forja').isVisible())
       await page.locator('#alternar-menu').click();
-    assert.equal(await page.locator('#selector-seguidor-drs').isVisible(),true,
-      'Selector DRS funcional desde la pestaña Herramientas en móvil');
+    await page.locator('#generar-seguidor').click();
+    assert.equal(await page.locator('#dialogo-seguidores').evaluate(x=>x.open),true);
+    assert.equal(await page.locator('#profesiones-seguidores [data-oficio="Mercenario"]')
+      .isVisible(),true,'Profesiones disponibles en móvil');
+    await page.locator('#cancelar-seguidores').click();
     await page.setViewportSize({width:1320,height:920});
 
     // El sistema de seguidores de Dungeon Hack sigue siendo el de antes.

@@ -38,6 +38,7 @@ assert(!svg.includes('>PROTECCIÓN NATURAL</text>'));
 const ids=map.campos_fijos.map(x=>x.id);
 assert(ids.includes('arma_equipada')&&ids.includes('dano_equipado'));
 assert(!ids.includes('blindaje')&&!ids.includes('blindaje_natural'));
+assert(engine.includes("await section('EFECTOS DE TALENTOS'"));
 assert(engine.includes("await section('EFECTOS DE PODERES'"),
   'Los Poderes se documentan después de las observaciones.');
 assert.equal(map.campos_fijos.length,32);

@@ -232,13 +232,6 @@
       </div>
       <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
         <h3>Herramientas del Cronista</h3>
-        <div id="selector-seguidor-drs" class="campo" hidden>
-          <label for="tipo-seguidor-drs">Seguidor de Naufragio d20</label>
-          <select id="tipo-seguidor-drs">
-            <option value="">Tipo aleatorio (d12)</option>
-          </select>
-          <small>Doce tipos del DRS. Cada uno tiene su precio diario, Moral y dado de Salud. Sin Nivel ni Esfuerzo.</small>
-        </div>
         <div class="botonera">
           <button id="generar-seguidor" type="button">Generar seguidor</button>
           <button id="generar-matriz" type="button">Matriz de Atributos</button>
@@ -246,6 +239,56 @@
         <small>Seguidores disponibles para Naufragio d20 DRS y Dungeon Hack, con reglas independientes. La matriz es una ayuda separada.</small>
       </section>
     </aside>
+    <dialog id="dialogo-seguidores" class="dialogo-compras dialogo-seguidores"
+      aria-labelledby="titulo-seguidores">
+      <div class="cabecera-compras">
+        <div>
+          <h3 id="titulo-seguidores">Crear seguidores · Naufragio d20</h3>
+          <p class="muted">Dos Atributos: Ataque y Defensa. Elige un rango de Nivel, un nombre y una profesión.</p>
+        </div>
+        <button type="button" id="cerrar-seguidores" class="cerrar-rejilla"
+          aria-label="Cerrar configuración de seguidores">✕</button>
+      </div>
+      <form id="form-seguidor-drs">
+        <div class="configuracion-seguidores">
+          <div class="campo"><label for="seguidor-nivel-min">Nivel mínimo</label>
+            <input id="seguidor-nivel-min" type="number" min="1" max="30" step="1" value="1" required></div>
+          <div class="campo"><label for="seguidor-nivel-max">Nivel máximo</label>
+            <input id="seguidor-nivel-max" type="number" min="1" max="30" step="1" value="1" required></div>
+          <div class="campo"><label for="seguidor-genero">Género</label>
+            <select id="seguidor-genero">
+              <option value="aleatorio">Aleatorio</option>
+              <option value="femenino">Femenino</option>
+              <option value="masculino">Masculino</option>
+            </select></div>
+          <div class="campo"><label for="seguidor-nombres">Lista de nombres</label>
+            <select id="seguidor-nombres">
+              <option value="generico">Nombres genéricos de Nd20</option>
+              <option value="ylat">Nombres de Ylat</option>
+            </select></div>
+          <div class="campo"><label for="seguidor-cantidad">Cantidad</label>
+            <input id="seguidor-cantidad" type="number" min="1" max="12" step="1" value="1" required></div>
+          <div class="campo"><label for="seguidor-aventuras">Aventuras cuando el DRS indica «Depende»</label>
+            <select id="seguidor-aventuras">
+              <option value="aleatorio">Resolver al azar</option>
+              <option value="si">Sí</option>
+              <option value="no">No</option>
+            </select></div>
+        </div>
+        <div id="selector-seguidor-drs" class="campo">
+          <label for="tipo-seguidor-drs">Profesión</label>
+          <select id="tipo-seguidor-drs"><option value="">Profesión aleatoria (d12)</option></select>
+          <div id="profesiones-seguidores" class="profesiones-seguidores"
+            role="group" aria-label="Profesiones de los seguidores"></div>
+          <small>Los doce oficios conservan sus valores de Moral, precio diario y dado de Salud.</small>
+        </div>
+        <p id="aviso-seguidores" class="ayuda" role="status" aria-live="polite"></p>
+        <div class="botonera">
+          <button type="submit" id="crear-seguidores" class="principal">Generar seguidores</button>
+          <button type="button" id="cancelar-seguidores">Cancelar</button>
+        </div>
+      </form>
+    </dialog>
     <section class="resultados" aria-labelledby="titulo-resultados">
       <section id="inicio-movil" class="inicio-movil" aria-labelledby="titulo-inicio-movil">
         <button id="ocultar-inicio-movil" class="ocultar-tutorial" type="button" aria-label="Ocultar tutorial" title="Ocultar tutorial">×</button>

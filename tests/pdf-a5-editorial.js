@@ -34,6 +34,7 @@ const consultarPoder=function(nombre){
 const before=JSON.stringify(p),out=prepararDatos(p,{valor:'d4'},catalog,consultarPoder);
 assert.equal(JSON.stringify(p),before,'Ninguna mutación de la ficha');
 assert.equal(out._notas.length,1);
+assert.deepEqual(out._detallesTalentos,[]);
 assert.equal(out._arma_equ,'Hacha de batalla (1d8) · Penetración +1 · Durabilidad d10');
 assert.equal(out._dano_equ,'1d8');
 assert.equal(out._armadura_equ,'Armadura acolchada (Blindaje d4 · Durabilidad d4)');
@@ -49,6 +50,15 @@ assert.deepEqual(descripcionPoderes({poderes:['[T] Ataque certero','Poder no reg
     'Ataque certero: Obtienes +2 a la Tirada de Ataque y -2 a la Tirada de Daño (mínimo 1).',
     'Poder no registrado: Descripción no documentada en el catálogo de La Forja.'
   ]);
+const efectos=prepararDatos({...p,capacidades:['Meditación'],notas:[
+  'Envejecimiento de Especie: desde los 70 años.',
+  'Talento de Ocupación — Meditación: Recuperas un Conjuro que hayas lanzado.',
+  'Revisión de Conjuros conocidos: 1 preparación(es) retiradas.',
+  'Cambio de equipo inicial: Espada por Daga.'
+]},null,catalog,consultarPoder);
+assert.deepEqual(efectos._notas,['Envejecimiento de Especie: desde los 70 años.']);
+assert.deepEqual(efectos._detallesTalentos,
+  ['Meditación: Recuperas un Conjuro que hayas lanzado.']);
 const natural=prepararDatos(Object.assign({},p,{protecciones_equipadas:{}}),
   {valor:'d6',natural:'Linaje documentado'},catalog);
 assert.equal(natural._armadura_equ,'Protección natural (Linaje documentado) · Blindaje d6');
