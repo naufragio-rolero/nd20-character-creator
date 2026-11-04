@@ -17,7 +17,8 @@ assert(html.indexOf('src="assets/pdf-export-v2.js"')>0);
 assert(html.indexOf('src="assets/pdf-export-browser.js"')>0);
 assert(html.indexOf('src="assets/pdf-export-browser.js"')<
   html.indexOf('src="assets/app.js"'));
-assert(app.includes("personaje.juego==='Naufragio d20 · Fantasía'?"));
+assert(app.includes("personaje.juego==='Naufragio d20 · Fantasía'&&!personaje.tipo_ficha?"),
+  'El PDF A5 conserva el formato de PJ y excluye las fichas compactas de seguidor');
 assert(app.includes('exportar-pdf-ficha'));
 assert(app.includes('NaufragioPdfBrowser.exportar('));
 assert(app.includes('el-naufragio-fichas.txt'),
