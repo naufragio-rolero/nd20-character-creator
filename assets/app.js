@@ -2456,7 +2456,11 @@
         aviso('Preparando PDF A5 de '+entradaPdf.valor.nombre+'…');
         window.NaufragioPdfBrowser.exportar(
           entradaPdf.valor,blindajePersonaje(entradaPdf.valor),datos.equipoInicial,
-          function(nombre){return infoUI?.consulta(nombre,'poder','nd20')||null;}
+          function(nombre){return infoUI?.consulta(nombre,'poder','nd20')||null;},
+          function(nombre){
+            var origen=procedenciaTalentoDRS(entradaPdf.valor,nombre);
+            return infoUI?.consulta(nombre,'talento','nd20',origen.fuente)||null;
+          }
         ).then(function(paginas){
           aviso('PDF A5 preparado: '+paginas+' página(s).');
         }).catch(function(error){

@@ -53,6 +53,7 @@ async function run(){
     const observaciones=text.indexOf('OBSERVACIONES REGLAMENTARIAS');
     const detalle=text.indexOf('EFECTOS DE PODERES');
     assert(text.includes('PODERES CONOCIDOS'),'Título de poderes generalizado');
+    assert(!text.includes('EFECTOS DE TALENTOS') || text.indexOf('EFECTOS DE TALENTOS')>observaciones);
     assert(observaciones>=0&&detalle>observaciones,
       'El efecto de los Poderes aparece después de las Observaciones.');
     assert(text.includes('Ataque certero:'));
