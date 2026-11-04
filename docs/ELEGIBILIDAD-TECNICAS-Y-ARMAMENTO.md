@@ -1,6 +1,6 @@
 # La Forja — Elegibilidad de Técnicas y armamento (DRS)
 
-**Estado:** mejora implementada en rama de desarrollo; no autoriza publicación LIVE.  
+**Estado:** implementada e integrada en `main` mediante [PR #80](https://github.com/naufragio-rolero/nd20-character-creator/pull/80), con cinco suites de CI superadas. **No publicada en LIVE.**  
 **Fuente:** [Naufragio d20 DRS v1.1.12](https://docs.google.com/document/d/1W69x5V_982IGg2AL0TltZ200aSt2khXu_VCa7gMI3zY/edit), apartados «Competencias», «Técnicas de batalla» y las Ocupaciones Guerrero y Ladrón. La hoja de ruta original [Tanda 3](HOJA-RUTA-FORJA-TANDAS-2026-11.md) de redistribución de Atributos queda **descartada por decisión editorial**; esta mejora sustituye esa prioridad, no convierte la redistribución en regla.
 
 ## Adquisición de Técnicas
