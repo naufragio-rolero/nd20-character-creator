@@ -44,6 +44,7 @@ Nunca publicar el directorio raíz: el único paquete público es el DRS depurad
 - Internacionalización: `assets/i18n.js` (otros idiomas pendientes).
 - Documentación editorial: `docs/enciclopedia/`.
 - Tareas de Forja 1.2: `docs/PLAN-FORJA-1-2.md`.
+- Hoja de ruta de mejoras, tres tandas (legibilidad, seguidores/conjuros y Atributos): `docs/HOJA-RUTA-FORJA-TANDAS-2026-11.md`.
 - Iconografía de Equipo y configurador: `docs/ICONOS-Y-CONFIGURACION-FORJA.md`.
 - Semillas, intervalos de Nivel y reproducción de generaciones: `docs/SEMILLAS-RANGOS-REPRODUCCION.md`.
 - Requisitos de diseño para exportación futura a PDF: `docs/EXPORTACION-PDF-PLANTILLAS.md` (solo planificación; aún no implementado).
