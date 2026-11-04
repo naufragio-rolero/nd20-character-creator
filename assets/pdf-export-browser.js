@@ -43,9 +43,10 @@
         obtener(RUTA+'pdf-a5/forja-fantasia-epica-a5.pdf').then(function(r){return r.arrayBuffer();}),
         obtener(RUTA+'pdf-a5/forja-continuacion-a5.pdf').then(function(r){return r.arrayBuffer();}),
         obtener(RUTA+'pdf-a5/campos-ficha-a5.json').then(function(r){return r.json();}),
-        obtener(RUTA+'pdf-a5/SourceSerif4_400Regular.ttf').then(function(r){return r.arrayBuffer();})
+        obtener(RUTA+'pdf-a5/SourceSerif4_400Regular.ttf').then(function(r){return r.arrayBuffer();}),
+        obtener(RUTA+'pdf-a5/SourceSerif4_700Bold.ttf').then(function(r){return r.arrayBuffer();})
       ]).then(function(a){
-        return {plantilla:a[0],continuacion:a[1],mapa:a[2],fontBytes:a[3]};
+        return {plantilla:a[0],continuacion:a[1],mapa:a[2],fontBytes:a[3],boldFontBytes:a[4]};
       }).catch(function(error){recursos=null;throw error;});
     }
     return recursos;

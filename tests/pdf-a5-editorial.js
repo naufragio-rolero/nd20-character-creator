@@ -34,11 +34,16 @@ const consultarPoder=function(nombre){
 const before=JSON.stringify(p),out=prepararDatos(p,{valor:'d4'},catalog,consultarPoder);
 assert.equal(JSON.stringify(p),before,'Ninguna mutación de la ficha');
 assert.equal(out._notas.length,1);
-assert.equal(out._arma_equ,'Hacha de batalla');
+assert.equal(out._arma_equ,'Hacha de batalla (1d8) · Penetración +1 · Durabilidad d10');
 assert.equal(out._dano_equ,'1d8');
-assert.equal(out._armadura_equ,'Armadura acolchada · Blindaje d4');
+assert.equal(out._armadura_equ,'Armadura acolchada (Blindaje d4 · Durabilidad d4)');
+assert.equal(out._escudo_equ,'Escudo pequeño (Bloqueo +1 · Durabilidad d6) · Daño d3');
 assert.equal(out._detallesPoderes.length,1,'No repetir Poderes preparados y conocidos');
 assert(out._detallesPoderes[0].includes('Obtienes +2 a la Tirada de Ataque'));
+assert(out._sections.some(x=>x.title==='PODERES CONOCIDOS'));
+assert(!out._sections.some(x=>x.title==='CONJUROS Y PODERES CONOCIDOS'));
+const sinCatalogo=prepararDatos(p,{valor:'d4'},null,consultarPoder);
+assert.equal(sinCatalogo._arma_equ,'','No inventar datos de un arma sin catálogo');
 assert.deepEqual(descripcionPoderes({poderes:['[T] Ataque certero','Poder no registrado']},
   consultarPoder),[
     'Ataque certero: Obtienes +2 a la Tirada de Ataque y -2 a la Tirada de Daño (mínimo 1).',

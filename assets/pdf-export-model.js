@@ -12,7 +12,7 @@
   var COLUMNAS=[
     ['Competencias','competencias'],
     ['Talentos y capacidades','capacidades'],
-    ['Conjuros y Poderes conocidos','poderes'],
+    ['Poderes conocidos','poderes'],
     ['Conjuros preparados','conjuros_preparados'],
     ['Inventario y Equipo','equipo'],
     ['Riqueza','riqueza'],

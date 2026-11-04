@@ -25,17 +25,20 @@ assert(app.includes('el-naufragio-fichas.txt'),
   'La exportación TXT permanece independiente');
 assert(browser.includes('assets/'));
 assert(browser.includes('SourceSerif4_400Regular.ttf'));
+assert(browser.includes('SourceSerif4_700Bold.ttf'),
+  'Los nombres de Talentos y Poderes se exportan con fuente negrita local');
 assert(!/https?:\/\//.test(browser),'Ninguna dependencia se descarga desde CDN');
 assert(engine.includes("doc.copyPages(cont,[0])"));
 assert(engine.includes("await header(title,true)"),'Secciones extensas paginadas');
 assert(svg.includes('>ARMA EQUIPADA</text>'));
-assert(svg.includes('>DAÑO</text>'));
+assert(!svg.includes('>DAÑO</text>'));
+assert(map.campos_fijos.find(x=>x.id==='arma_equipada').mm_superior_izquierda.width===129);
 assert(!svg.includes('>BLINDAJE</text>'));
 assert(!svg.includes('>PROTECCIÓN NATURAL</text>'));
 const ids=map.campos_fijos.map(x=>x.id);
 assert(ids.includes('arma_equipada')&&ids.includes('dano_equipado'));
 assert(!ids.includes('blindaje')&&!ids.includes('blindaje_natural'));
-assert(engine.includes("await section('EFECTOS DOCUMENTADOS DE CONJUROS Y PODERES'"),
+assert(engine.includes("await section('EFECTOS DE PODERES'"),
   'Los Poderes se documentan después de las observaciones.');
 assert.equal(map.campos_fijos.length,32);
 const required=[
