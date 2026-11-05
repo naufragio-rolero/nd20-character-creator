@@ -98,4 +98,16 @@ assert.throws(()=>parser.descomponerTexto('x'.repeat(120001)),/demasiado largo/)
 assert.equal(modelo.revisar(ylat.criatura).valida,true);
 assert.equal(parser.separarAtaques('aplastamiento (20 o especial) y mordisco (40)')
   .trozos.length,2);
+const brote = parser.descomponerTexto(
+  'Brote de rosa negra\nVegetal de Nivel 2, Salud 8\n' +
+  'Ataques: estallido de espinas (4) – Trampa: cuando una criatura pisa o se acerca demasiado, ' +
+  'el brote libera una ráfaga de espinas afiladas (Alcance 2 m, un solo uso).');
+assert.equal(brote.criatura.ataques.length,1);
+assert.equal(brote.criatura.ataques[0].nombre,'estallido de espinas');
+assert.equal(brote.criatura.ataques[0].danoNumerico,4);
+assert.equal(brote.criatura.talentos.length,1);
+assert.equal(brote.criatura.talentos[0].nombre,'Trampa');
+assert.ok(brote.criatura.talentos[0].descripcion.includes('criatura pisa'));
+assert.ok(brote.advertencias.some(x=>x.codigo==='habilidad_inline_en_ataques'));
+
 console.log('OK · Importación Nd20 DRS/Ylat, casos especiales y texto pendiente.');

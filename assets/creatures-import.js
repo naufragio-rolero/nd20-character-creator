@@ -35,6 +35,10 @@
     return encontro;
   }
   function separarAtaques(literal) {
+    // Algunas fichas insertan «– Habilidad: explicación» en la línea Ataques.
+    // Esa aclaración NO es otra opción de ataque.
+    var anexo = literal.match(/^(.*?)\s+[–—]\s+([^:]{2,70}):\s*(.+)$/);
+    if (anexo) literal = anexo[1];
     var trozos = [], conector = 'Inicio', inicio = 0, profundidad = 0;
     var irregular = false;
     for (var i = 0; i < literal.length; i++) {
@@ -64,7 +68,12 @@
     if (ultima) trozos.push({conectorAnterior:conector, literal:ultima});
     else irregular = true;
     if (profundidad) irregular = true;
-    return {trozos:trozos, irregular:irregular};
+    return {trozos:trozos, irregular:irregular,
+      habilidadEnLinea:anexo ? {
+        nombre:anexo[2].trim(),
+        descripcion:anexo[3].trim(),
+        textoOriginal:anexo[2].trim() + ': ' + anexo[3].trim()
+      } : null};
   }
   function leerAtaques(literal, advertencias, numeroLinea) {
     var resultado = separarAtaques(literal);
@@ -163,6 +172,12 @@
         huboAtaques = true; huboEstadisticas = true;
         zona = 'estadisticas'; seccion = 'ataques';
         if (lineaAtaques[1].trim()) {
+          var anexoAtaques = separarAtaques(lineaAtaques[1]).habilidadEnLinea;
+          if (anexoAtaques) {
+            ficha.talentos.push(modelo.talento(anexoAtaques));
+            advertir(advertencias, lineaNum, 'habilidad_inline_en_ataques',
+              'Hay una habilidad especial en la misma línea que los ataques.');
+          }
           var nuevos = leerAtaques(lineaAtaques[1], advertencias, lineaNum);
           nuevos.forEach(function (a) {
             a.id = 'ataque-' + (ficha.ataques.length + 1);
