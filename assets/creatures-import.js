@@ -180,6 +180,18 @@
         }
         continue;
       }
+      var talentosEnLinea = linea.match(/^(?:Talentos|Habilidades especiales)\s*:\s*(.+)$/i);
+      if (talentosEnLinea) {
+        ficha.camposNoInterpretados.push(lineas[i]);
+        advertir(advertencias, lineaNum, 'talentos_en_linea',
+          'Revisar la lista de Talentos antes de asignar nombres o efectos.');
+        continue;
+      }
+      var notasEnLinea = linea.match(/^(?:Notas|Observaciones)\s*:\s*(.+)$/i);
+      if (notasEnLinea) {
+        ficha.notas += (ficha.notas ? '\n' : '') + notasEnLinea[1];
+        continue;
+      }
       var descripcionEtiquetada = linea.match(/^Descripci[oó]n\s*:\s*(.+)$/i);
       if (descripcionEtiquetada) {
         zona = 'descripcion'; seccion = 'descripcion';
@@ -214,7 +226,7 @@
         huboEstadisticas = true; zona = 'estadisticas'; seccion = 'categoria';
         continue;
       }
-      if (zona === 'estadisticas' && huboAtaques) {
+      if (zona === 'estadisticas' && (huboAtaques || seccion === 'habilidades')) {
         var habilidad = linea.match(/^([^:]{2,90}):\s*(.+)$/);
         if (habilidad) {
           ficha.talentos.push(modelo.talento({

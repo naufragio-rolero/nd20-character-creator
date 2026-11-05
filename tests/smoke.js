@@ -1153,3 +1153,7 @@ require('./elegibilidad-tecnicas-armamento.js');
 
 /* Editor de criaturas: contrato semántico fase 1. */
 require('./criaturas-modelo.js');
+
+/* Editor de criaturas: importación y biblioteca local (fase 2). */
+require('./criaturas-import.js');
+require('./criaturas-biblioteca.js');
