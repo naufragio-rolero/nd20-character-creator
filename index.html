@@ -59,7 +59,7 @@
       <div class="pestanas-panel" role="tablist" aria-label="Panel de la forja">
         <button type="button" id="tab-personajes" role="tab" aria-controls="panel-personajes" aria-selected="true" class="activa">Personajes</button>
         <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false" tabindex="-1">Seguidores</button>
-        <button type="button" id="tab-criaturas" role="tab" aria-controls="panel-criaturas" aria-selected="false" tabindex="-1">Criaturas</button>
+        <button type="button" id="tab-criaturas" role="tab" aria-controls="panel-criaturas" aria-selected="false" tabindex="-1">Adversarios</button>
       </div>
       <div class="campo campo-sistema-global" id="selector-sistema-global">
           <label id="etiqueta-sistema" for="juego">Sistema</label>
@@ -259,6 +259,7 @@
               aria-label="Configurar seguidores" title="Configurar seguidores"
               aria-haspopup="dialog" aria-controls="dialogo-seguidores">
               <span class="icono-svg" aria-hidden="true"></span>
+              <span>Configurar seguidores</span>
             </button>
           </div>
           <dl>
@@ -276,8 +277,7 @@
         <small>Seguidores disponibles para Naufragio d20 DRS y Dungeon Hack, con reglas independientes.</small>
       </section>
       <section id="panel-criaturas" role="tabpanel" aria-labelledby="tab-criaturas" class="herramientas" hidden>
-        <h3>Criaturas · Naufragio d20</h3>
-        <p class="muted">Crea adversarios propios, revisa una ficha pegada o recupera tu biblioteca local.</p>
+        <h3>Adversarios · Naufragio d20</h3>
         <div class="criaturas-navegacion">
           <button type="button" id="criaturas-nueva-panel" class="principal">Nueva criatura</button>
           <button type="button" id="criaturas-ir-importar">Pegar criatura</button>
@@ -574,7 +574,7 @@
     <section id="editor-criaturas" class="resultados editor-criaturas" aria-labelledby="titulo-editor-criaturas" hidden>
       <header class="criaturas-cabecera">
         <p class="sobrelinea">EDITOR DEL CRONISTA / NAUFRAGIO D20</p>
-        <h2 id="titulo-editor-criaturas" tabindex="-1">Criaturas</h2>
+        <h2 id="titulo-editor-criaturas" tabindex="-1">Adversarios</h2>
         <p class="muted">Crea fichas propias a mano o revisa los datos extraídos de una criatura pegada. Sin generación aleatoria ni automatización de combate.</p>
       </header>
       <p id="criaturas-estado" class="estado" role="status" aria-live="polite"></p>
