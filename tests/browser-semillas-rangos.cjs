@@ -54,7 +54,10 @@ async function run(name,origin){
     await page.setViewportSize({width:390,height:850});
     assert.equal(await page.locator('#inicio-movil').isVisible(),true);
     const cerrarMovil=page.locator('#ocultar-inicio-movil');
-    assert.ok((await cerrarMovil.boundingBox()).width>=44);
+    const cajaCierre=await cerrarMovil.boundingBox();
+    assert.ok(cajaCierre && cajaCierre.width>=44,
+      name+': control táctil móvil del tutorial = '+(cajaCierre&&cajaCierre.width)+
+      ' px, CSS: '+await cerrarMovil.evaluate(e=>getComputedStyle(e).width));
     await cerrarMovil.click();
     assert.equal(await page.locator('#inicio-movil').isVisible(),false);
     assert.equal(await page.locator('#tutorial-inicial').isVisible(),false);
