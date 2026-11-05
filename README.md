@@ -38,7 +38,7 @@ Nunca publicar el directorio raíz: el único paquete público es el DRS depurad
 
 **Mantenimiento documental puntual:** una corrección exclusivamente de documentación, solicitada expresamente y sin cambios de aplicación, datos ni workflows, puede registrarse directamente en `main` después de revisar el diff. Los cambios funcionales mantienen su revisión por rama/PR. No modificar el workflow LIVE para adelantar una publicación.
 
-Editor de criaturas propias de Naufragio d20: fase 2 técnica disponible en el repositorio (importador y biblioteca local). La sección «Criaturas» se añadirá dentro de La Forja en fase 3; el bestiario oficial continúa en https://naufragiod20.naufragio.net/. Véase `docs/EDITOR-CRIATURAS-FASES.md`. No hay automatización de combate.
+Editor de criaturas propias de Naufragio d20: sección **«Criaturas» dentro de La Forja** con formulario, importación de ficha pegada y revisión previa, biblioteca local y JSON de intercambio. El bestiario oficial continúa en https://naufragiod20.naufragio.net/. Véase `docs/EDITOR-CRIATURAS-FASES.md`. No hay generación aleatoria ni automatización de combate.
 
 ## Editar y traducir
 - Textos: `locales/es.json` y `index.html`.

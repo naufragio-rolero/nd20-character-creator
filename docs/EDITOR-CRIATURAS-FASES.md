@@ -1,7 +1,7 @@
 # La Forja — Editor de criaturas Nd20
 
 **Seguimiento:** https://github.com/naufragio-rolero/nd20-character-creator/issues/96  
-**Estado:** fase 2 · Importación conservadora y biblioteca local implementadas. Interfaz visible pendiente de fase 3; sin publicación LIVE.
+**Estado:** fases 1–3 implementadas y verificadas en CI; fase 4 pendiente de auditoría final y publicación. Sin despliegue LIVE.
 
 ## Principio de producto
 
@@ -109,3 +109,13 @@ La fase 2 NO incluye todavía la pestaña y formularios visibles de «Criaturas�
 ### Contraste extendido de las 326 líneas auditadas
 
 En la fase 2 se ha ejecutado una verificación de lectura sobre las 326 líneas originales de la pestaña de auditoría de ataques y se han comparado los resultados con los 576 registros de la tabla estructurada. Resultado: **326/326 fichas con el número exacto de opciones (576/576 segmentos)** y **cero discrepancias en nombre, cantidad, conector o valor de daño numérico**. El motor mantiene intencionadamente el daño literal completo (por ejemplo, «20 o especial» o «30 * 3») y separa las anotaciones sin aplicar cálculo alguno. Se corrigieron la habilidad «Trampa» incluida dentro de una línea de ataques, los puntos finales tras paréntesis y las notas de alcance/cantidad. Este contraste es de **lectura**, no una incorporación del bestiario a La Forja ni una modificación de la hoja de origen.
+
+
+## Fase 3 — Integración de la interfaz (implementada)
+
+- Tercera pestaña «Criaturas» dentro de La Forja; se oculta el selector global de Dungeon Hack/otras ediciones mientras se editan criaturas Nd20.
+- Formulario para Nombre, Categoría, Familia/Subcategoría y Subtipo, las seis puntuaciones, ataques con cantidad/conector/daño literal y numérico, Talentos, descripción, notas y fragmentos pendientes.
+- El pegado exige primero vista previa y revisión; se conserva íntegro el original. No se guarda automáticamente hasta pulsar «Guardar criatura».
+- Biblioteca local: crear, editar, duplicar, eliminar y exportar/importar JSON. Exportación individual disponible sin almacenamiento.
+- Los módulos se incluyen en la lista blanca del empaquetador DRS, sin incorporar el bestiario oficial ni automatizar acciones de combate. La generación aleatoria queda fuera de esta fase.
+- QA de la integración: navegador Firefox y WebKit (pantallas de escritorio y móvil), pegado con revisión previa, CRUD, JSON de ficha/biblioteca, duplicación, recuperación tras recarga, convivencia con Personajes y candidato DRS depurado. Cinco suites CI verdes en PR #99. No hay despliegue LIVE en esta fase.

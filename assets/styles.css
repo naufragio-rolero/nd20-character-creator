@@ -1300,7 +1300,7 @@ html[data-tema] .juegos-compactos button.sistema-logo.sistema-activo{
 .inicio-rapido{position:relative;padding-right:3.4rem}
 .inicio-rapido[hidden],.reproduccion-resultados[hidden]{display:none!important}
 .ocultar-tutorial{position:absolute;right:.55rem;top:.5rem;display:grid;place-items:center;
-  width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:1px solid var(--borde);
+  width:46px;height:46px;min-width:46px;min-height:46px;padding:0;border:1px solid var(--borde);
   border-radius:6px;background:var(--superficie);color:var(--texto);font-size:1.4rem;line-height:1}
 @media(max-width:830px){
   .inicio-movil{position:relative}
@@ -1444,4 +1444,75 @@ html[data-tema=violeta]{
   .tarjeta-seguidor .recursos.recursos-rejilla.recursos-con-dano{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
+}
+
+
+/* Editor de criaturas Nd20 — fase 3. Las tarjetas no dependen de los temas. */
+#editor-criaturas[hidden],#resultados-personajes[hidden],
+#panel-criaturas[hidden],#selector-sistema-global[hidden]{display:none!important}
+.pestanas-panel{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pestanas-panel button{min-width:0;font-size:.82rem;overflow-wrap:anywhere}
+.criaturas-navegacion{display:grid;gap:.55rem;margin:.95rem 0 1rem}
+.criaturas-navegacion button{text-align:left}
+.editor-criaturas{min-width:0;display:grid;gap:1.25rem}
+.criaturas-cabecera h2{margin:.3rem 0 .5rem}
+.criaturas-cabecera p{line-height:1.5}
+.criaturas-bloque{border:1px solid var(--borde);border-radius:12px;padding:1.3rem;min-width:0;background:var(--superficie)}
+.criaturas-bloque h3{margin:0 0 .7rem;font-family:"Exo",system-ui,sans-serif}
+.criaturas-bloque h4{margin:1rem 0 .55rem;font-size:1rem}
+.criaturas-bloque label{display:block;margin:.35rem 0;font-weight:700;font-size:.88rem}
+.criaturas-bloque .campo label{margin:0}
+.criaturas-bloque input[type="text"],.criaturas-bloque input[type="number"],
+.criaturas-bloque textarea,.criaturas-bloque select{width:100%;min-width:0}
+.criaturas-bloque textarea{resize:vertical;line-height:1.4}
+.criaturas-acciones{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-top:.75rem}
+.criaturas-acciones button{min-height:42px}
+.criaturas-archivo{position:relative;display:inline-flex!important;align-items:center;
+  border:1px solid var(--borde);border-radius:7px;padding:.65rem .85rem;
+  cursor:pointer;font-size:.85rem!important;font-weight:700;min-height:42px;margin:0!important}
+.criaturas-archivo:focus-within{outline:2px solid var(--oro);outline-offset:2px}
+.criaturas-archivo input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.criaturas-ayuda-json{font-size:.78rem;color:var(--secundario);line-height:1.5}
+.criaturas-lista{display:grid;gap:.6rem}
+.criaturas-lista-item{border:1px solid var(--borde);border-radius:9px;padding:.8rem;
+  display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap}
+.criaturas-lista-item strong{display:block;overflow-wrap:anywhere}
+.criaturas-lista-item small{display:block;color:var(--secundario);margin-top:.2rem}
+.criaturas-lista-acciones{display:flex;gap:.45rem;flex-wrap:wrap}
+.criaturas-lista-acciones button{min-height:38px;padding:.45rem .55rem;font-size:.78rem}
+.criaturas-edicion-cabecera,.criaturas-subcabecera{display:flex;align-items:center;
+  justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.criaturas-edicion-cabecera h3{margin-bottom:.25rem}
+.criaturas-campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem}
+.criaturas-campos .campo{min-width:0}
+.criaturas-numeros{grid-template-columns:repeat(3,minmax(0,1fr))}
+.criaturas-repetidos{display:grid;gap:.8rem;margin:.65rem 0 1.3rem}
+.criaturas-repetido{min-width:0;border:1px solid var(--borde);border-radius:9px;padding:1rem;
+  background:var(--superficie2)}
+.criaturas-repetido-cabecera{display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+.criaturas-repetido-campos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.55rem .8rem}
+.criaturas-repetido-campos .criaturas-ancho{grid-column:span 2}
+.criaturas-repetido-campos label{min-width:0;font-size:.8rem}
+.criaturas-repetido-campos label input,.criaturas-repetido-campos label select,
+.criaturas-repetido-campos label textarea{margin-top:.3rem}
+.criaturas-origen{margin:1rem 0;border:1px solid var(--borde);border-radius:8px;padding:.65rem}
+.criaturas-origen summary{cursor:pointer;font-weight:700}
+.criaturas-origen textarea{margin-top:.3rem}
+.criaturas-avisos{font-size:.84rem;line-height:1.5}
+.criaturas-avisos ul{padding-left:1.3rem;margin:.4rem 0}
+.criaturas-avisos .error{font-weight:700}
+#criaturas-vista-previa{margin-top:1rem;padding:1rem;border-radius:8px;border:1px dashed var(--borde)}
+#criaturas-resumen-previa{white-space:pre-wrap;overflow-wrap:anywhere;
+  font:inherit;font-size:.88rem;line-height:1.5;margin:.6rem 0;
+  max-height:370px;overflow:auto}
+.criaturas-bloque [hidden]{display:none!important}
+@media(max-width:650px){
+  .criaturas-bloque{padding:1rem}
+  .criaturas-numeros{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .criaturas-repetido-campos{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:440px){
+  .criaturas-campos,.criaturas-repetido-campos{grid-template-columns:1fr}
+  .criaturas-repetido-campos .criaturas-ancho{grid-column:auto}
+  .criaturas-acciones button,.criaturas-archivo{width:100%;justify-content:center}
 }

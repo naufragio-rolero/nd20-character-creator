@@ -62,6 +62,10 @@ jobs:
         run: |
           node tests/browser-compatibilidad.js
           node tests/browser-semillas-rangos.cjs firefox webkit
+      - name: Probar editor Nd20 sobre paquete DRS depurado
+        env:
+          FORJA_PUBLIC_ROOT: dist/public-drs
+        run: node tests/browser-criaturas.cjs
       - name: Exportar PDF real en Firefox y WebKit desde paquete
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs

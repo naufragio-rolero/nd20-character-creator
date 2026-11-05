@@ -242,11 +242,16 @@
     });
   }
   function marcarPanel(nombre){
-    var tools=nombre==='herramientas';
-    $('panel-personajes').hidden=tools;
-    $('panel-herramientas').hidden=!tools;
+    var criaturas=nombre==='criaturas';
+    $('panel-personajes').hidden=nombre!=='personajes';
+    $('panel-herramientas').hidden=nombre!=='herramientas';
+    $('panel-criaturas').hidden=!criaturas;
+    $('resultados-personajes').hidden=criaturas;
+    $('editor-criaturas').hidden=!criaturas;
+    $('selector-sistema-global').hidden=criaturas;
+    if(criaturas) window.NaufragioCriaturasUI?.iniciar?.();
     refrescarGenerarFlotante();
-    ['personajes','herramientas'].forEach(function(key){
+    ['personajes','herramientas','criaturas'].forEach(function(key){
       var button=$('tab-'+key),selected=key===nombre;
       button.classList.toggle('activa',selected);
       button.setAttribute('aria-selected',String(selected));
@@ -1966,6 +1971,18 @@
     });
     $('tab-personajes').addEventListener('click',function(){marcarPanel('personajes');});
     $('tab-herramientas').addEventListener('click',function(){marcarPanel('herramientas');});
+    $('tab-criaturas').addEventListener('click',function(){marcarPanel('criaturas');});
+    document.querySelector('.pestanas-panel').addEventListener('keydown',function(event){
+      if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+      var tabs=Array.from(document.querySelectorAll('.pestanas-panel [role="tab"]'));
+      var indice=tabs.indexOf(document.activeElement);
+      if(indice<0)return;
+      event.preventDefault();
+      var nuevo=event.key==='Home'?0:event.key==='End'?tabs.length-1:
+        (indice+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
+      tabs[nuevo].focus();
+      tabs[nuevo].click();
+    });
     var tema=$('selector-tema');
     var temaInicial=document.documentElement.dataset.tema||'clasico';
     if(['clasico','ebano','ceruleo','obsidiana','violeta'].includes(temaInicial))
