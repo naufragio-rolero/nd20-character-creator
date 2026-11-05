@@ -140,6 +140,14 @@ const transformaciones={
        d.registros.length!==106||
        d.registros.some(r=>r.fuente!=='Naufragio d20 DRS'))
       throw Error('El bestiario público debe contener exclusivamente los 106 adversarios del DRS.');
+    d.registros.forEach(function(registro){
+      var f=registro.ficha,p=f&&f.puntuaciones;
+      if(p&&Number.isSafeInteger(p.blindaje)&&p.blindaje<0){
+        f.saludAjuste=p.blindaje;
+        f.saludModo='manual';
+        p.blindaje=null;
+      }
+    });
     return d;
   },
   'data/catalogo-ampliado.json'(d){
