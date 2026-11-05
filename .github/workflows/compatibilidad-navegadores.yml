@@ -25,6 +25,8 @@ jobs:
         run: npx playwright install --with-deps firefox webkit
       - name: Probar Forja en Gecko y WebKit
         run: node tests/browser-compatibilidad.js
+      - name: Probar editor Nd20 en Firefox y WebKit
+        run: node tests/browser-criaturas.cjs
       - name: Adjuntar capturas de compatibilidad
         if: always()
         uses: actions/upload-artifact@v4
