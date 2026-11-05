@@ -288,9 +288,15 @@ for(const modulo of ['creatures.js','creatures-import.js',
   assert.ok(html.includes(ruta),'El HTML incluye '+ruta);
   assert.ok(fs.existsSync(path.join(salida,ruta)),'El paquete sirve '+ruta);
 }
+const catalogoOficial=leer(salida,'adversarios-drs.json');
+assert.equal(catalogoOficial.fuente,'Naufragio d20 DRS');
+assert.equal(catalogoOficial.registros.length,106,
+  'El nuevo encargo autoriza solo los 106 adversarios documentados del DRS');
+assert.equal(new Set(catalogoOficial.registros.map(x=>x.id)).size,106);
+assert.ok(catalogoOficial.registros.every(x=>x.fuente==='Naufragio d20 DRS'));
 assert.deepEqual(fs.readdirSync(path.join(salida,'data'))
   .filter(nombre=>/^(?:criaturas|bestiario)/i.test(nombre)),[],
-  'El paquete DRS no publica el bestiario oficial ni tablas de auditoría.');
+  'No publicar otros bestiarios ni volcados de auditoría externos.');
 // El PDF A5 se distribuye completo con el paquete DRS; no depende de CDN ni del árbol de desarrollo.
 const pdfA5=[
   'assets/pdf-export-v2.js','assets/pdf-export-browser.js',
