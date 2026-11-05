@@ -1,7 +1,7 @@
 # La Forja — Editor de criaturas Nd20
 
 **Seguimiento:** https://github.com/naufragio-rolero/nd20-character-creator/issues/96  
-**Estado:** fases 1–3 implementadas y verificadas en CI; fase 4 pendiente de auditoría final y publicación. Sin despliegue LIVE.
+**Estado:** fases 1–4 auditadas y fusionadas (PR #100, commit `d90fe62bb58588be9e66c4b2099f80f9b41be308`). Todas las cinco suites de la PR #100 superadas, incluidas las pruebas Firefox/WebKit del paquete público real. Publicación LIVE pendiente de ejecutar y verificar mediante SHA aprobado.
 
 ## Principio de producto
 
@@ -117,7 +117,9 @@ En la fase 2 se ha ejecutado una verificación de lectura sobre las 326 líneas 
 - Contrastadas 28 fichas documentadas en la pestaña «[Fuente] Fichas verificadas» mediante entradas sintéticas formadas solo con sus campos textuales; las dos fichas con Moral `—` requieren dejarla como `null`, no convertir el guion en cero.
 - Se endurece la validación de JSON v1: las propiedades desconocidas dejan de aceptarse para que la edición no pierda campos que la interfaz no puede representar; los enteros de origen externo tienen que ser seguros en JavaScript. No son límites reglamentarios.
 - Los textos pegados que cambian después del análisis invalidan la previsualización. Se advierte al eliminar la criatura abierta si hay modificaciones sin guardar. La importación de JSON idénticos sigue siendo opcional, pero exige confirmación previa.
-- Pendiente de comprobación en GitHub Actions: suites de Node, Firefox y WebKit, E2E de compras y paquete público DRS. **No se aprueba LIVE hasta superarlas sobre el candidato final y revisar la lista blanca.**
+- **QA confirmado:** cinco suites de la PR #100 en verde, incluido el candidato público DRS depurado con Firefox/WebKit, E2E de criaturas y exportación PDF A5. Merge en `main`: `d90fe62bb58588be9e66c4b2099f80f9b41be308`.
+- En `main` se vuelve a ejecutar la validación tras integrar; se mantiene bloqueado LIVE hasta superar esa comprobación y revisar la PR de promoción del SHA. El paquete solo contiene recursos de la lista blanca y no incluye los datos oficiales de auditoría.
+- PR específica de publicación: promoción controlada de la versión aprobada mediante `.github/workflows/forja-live.yml`, con E2E del paquete DRS previo al despliegue y smoke real del Editor sobre Pages posterior. No cambia el comportamiento seguro de checkout por SHA ni se distribuye la raíz del repositorio.
 
 ## Fase 3 — Integración de la interfaz (implementada)
 
