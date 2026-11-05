@@ -105,6 +105,17 @@ async function probar(nombre,tipo,url){
     await page.locator('#criaturas-ficha-duplicar').click();
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),2);
     assert.match(await page.locator('#criaturas-ficha-titulo').textContent(),/\(copia\)$/);
+    // La colección PDF debe funcionar también con más de una ficha y
+    // mantener cada adversario diferenciado en la composición.
+    if(fs.existsSync(path.join(raiz,'assets/vendor/pdf-lib.min.js'))){
+      await page.locator('#criaturas-cerrar-ficha').click();
+      const pdfColeccion=page.waitForEvent('download',{timeout:60000});
+      await page.locator('#criaturas-exportar-pdf-coleccion').click();
+      const bytes=fs.readFileSync(await (await pdfColeccion).path());
+      assert.equal(bytes.subarray(0,5).toString('ascii'),'%PDF-',
+        nombre+': colección PDF real con dos adversarios');
+      await page.locator('#criaturas-lista .criaturas-cromo').last().click();
+    }
     page.once('dialog',d=>d.accept());
     await page.locator('#criaturas-ficha-eliminar').click();
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),1);
