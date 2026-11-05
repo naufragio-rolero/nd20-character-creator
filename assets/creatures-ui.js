@@ -13,7 +13,7 @@
   if (!modelo || !importador || !apiBiblioteca) throw Error('Faltan módulos del Editor de criaturas Nd20.');
   var iniciado = false, biblioteca = null, idActual = null, idConsulta = null, ficha = null;
   var pendiente = null, cambios = false, secuenciaAtaques = 0;
-  var catalogoDRS = null, oficialesCargados = false;
+  var catalogoDRS = null, oficialesCargados = false, tipoPropio = null;
   var d = null;
   function $(id) { return d.getElementById(id); }
   function ele(nodo,clase,texto) {
@@ -278,6 +278,8 @@
            !modelo.revisar(r.ficha,{paraExportar:true}).valida;
        }))throw Error('El catálogo DRS no ha superado la validación.');
     catalogoDRS=datos;
+    if($('criaturas-buscar-ataque').value)sugerirEntradas('ataques');
+    if($('criaturas-buscar-talento').value)sugerirEntradas('talentos');
     var subcategorias=Array.from(new Set(datos.registros.map(function(r){
       return r.ficha.subcategoria;
     }).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,'es');});
@@ -296,6 +298,97 @@
       mostrarEstado('106 adversarios oficiales del DRS disponibles para consulta; tu biblioteca sigue intacta.');
       irA('criaturas-biblioteca');
     }catch(error){mostrarEstado('No se pudo cargar el DRS: '+error.message,true);}
+  }
+  function catalogoEntradas(tipo) {
+    var salida=[];
+    if(catalogoDRS){
+      catalogoDRS.registros.forEach(function(r){
+        (r.ficha[tipo]||[]).forEach(function(v){
+          salida.push({dato:v,fuente:r.nombre+' · DRS'});
+        });
+      });
+    }
+    if(biblioteca&&biblioteca.catalogoPersonal){
+      biblioteca.catalogoPersonal()[tipo].forEach(function(v){
+        salida.push({dato:v,fuente:'Creación propia'});
+      });
+    }
+    return salida;
+  }
+  function sugerirEntradas(tipo) {
+    var nombre=tipo==='ataques'?'ataque':'talento';
+    var term=$('criaturas-buscar-'+nombre).value.trim().toLocaleLowerCase('es');
+    var salida=$('criaturas-coincidencias-'+tipo);
+    salida.textContent='';
+    if(term.length<2)return;
+    var resultados=catalogoEntradas(tipo).filter(function(e){
+      return e.dato.nombre.toLocaleLowerCase('es').includes(term);
+    }).slice(0,16);
+    if(!resultados.length){
+      salida.appendChild(ele('p','muted','No hay coincidencias documentadas. Puedes crear una entrada propia.'));
+      return;
+    }
+    resultados.forEach(function(entrada) {
+      var boton=ele('button','criaturas-coincidencia');
+      boton.type='button';
+      var dato=entrada.dato;
+      boton.appendChild(ele('strong','',dato.nombre+
+        (tipo==='ataques'&&dato.danoLiteral?' · '+dato.danoLiteral+' daño':'')));
+      if(tipo==='talentos'&&dato.descripcion)
+        boton.appendChild(ele('span','',dato.descripcion));
+      boton.appendChild(ele('small','muted',entrada.fuente));
+      boton.addEventListener('click',function(){
+        if(tipo==='ataques'){
+          var a=modelo.ataque(dato);
+          a.id='';
+          a.conectorAnterior=$('criaturas-ataques').children.length?'y':'Inicio';
+          agregarAtaque(a);
+        }else agregarTalento(modelo.talento(dato));
+        cambios=true;
+        avisarRevision();
+        $('criaturas-buscar-'+nombre).value='';
+        salida.textContent='';
+      });
+      salida.appendChild(boton);
+    });
+  }
+  function abrirElementoPropio(tipo) {
+    tipoPropio=tipo;
+    $('criaturas-elemento-titulo').textContent=tipo==='ataques'?'Crear ataque propio':
+      'Crear Talento o habilidad especial';
+    $('criaturas-elemento-campos-ataque').hidden=tipo!=='ataques';
+    $('criaturas-elemento-form').reset();
+    $('criaturas-elemento-error').textContent='';
+    $('criaturas-elemento-propio').showModal();
+    $('criaturas-elemento-nombre').focus();
+  }
+  function guardarElementoPropio(event) {
+    event.preventDefault();
+    try{
+      if(!biblioteca)throw Error('No está disponible el almacenamiento local.');
+      var nombre=$('criaturas-elemento-nombre').value.trim();
+      if(!nombre)throw Error('La entrada necesita un nombre.');
+      var descripcion=$('criaturas-elemento-descripcion').value.trim();
+      var plantilla;
+      if(tipoPropio==='ataques'){
+        plantilla=biblioteca.guardarPlantilla('ataques',{
+          nombre:nombre,conectorAnterior:'Inicio',
+          cantidad:aEntero($('criaturas-elemento-cantidad').value,'Cantidad'),
+          danoLiteral:$('criaturas-elemento-dano').value.trim(),
+          notas:descripcion
+        });
+        plantilla.conectorAnterior=$('criaturas-ataques').children.length?'y':'Inicio';
+        agregarAtaque(plantilla);
+      }else if(tipoPropio==='talentos'){
+        plantilla=biblioteca.guardarPlantilla('talentos',{
+          nombre:nombre,descripcion:descripcion,referencia:'Creación propia'
+        });
+        agregarTalento(plantilla);
+      }else throw Error('Tipo de entrada desconocido.');
+      $('criaturas-elemento-propio').close();
+      cambios=true;avisarRevision();
+      mostrarEstado('Entrada propia incorporada al borrador y disponible para reutilizarse.');
+    }catch(error){$('criaturas-elemento-error').textContent=error.message;}
   }
   function dibujarBiblioteca() {
     var lista=$('criaturas-lista');
@@ -608,7 +701,9 @@
       }
       var ids=biblioteca.importarJson(contenido); // Añade: nunca reemplaza sin autorización.
       dibujarBiblioteca();
-      mostrarEstado('Importación completada: '+ids.length+' criaturas añadidas.');
+      mostrarEstado('Importación completada: '+ids.length+' adversarios añadidos.');
+      if($('criaturas-buscar-ataque').value)sugerirEntradas('ataques');
+      if($('criaturas-buscar-talento').value)sugerirEntradas('talentos');
     }catch(error){mostrarEstado('No se pudo importar el JSON: '+error.message,true);}
     finally{event.target.value='';}
   }
@@ -678,6 +773,19 @@
       }catch(error){mostrarEstado(error.message,true);}
     });
     $('criaturas-ir-biblioteca').addEventListener('click',function(){irA('criaturas-biblioteca');});
+    ['ataques','talentos'].forEach(function(tipo){
+      var nombre=tipo==='ataques'?'ataque':'talento';
+      $('criaturas-buscar-'+nombre).addEventListener('input',function(){
+        sugerirEntradas(tipo);
+      });
+      $('criaturas-crear-'+nombre).addEventListener('click',function(){
+        abrirElementoPropio(tipo);
+      });
+    });
+    $('criaturas-elemento-form').addEventListener('submit',guardarElementoPropio);
+    $('criaturas-elemento-cerrar').addEventListener('click',function(){
+      $('criaturas-elemento-propio').close();
+    });
     $('criaturas-cargar-drs').addEventListener('click',cargarAdversariosDRS);
     // Cargar solo referencias en memoria: la mesa sigue vacía hasta que se solicite el DRS.
     asegurarCatalogoDRS().catch(function(){
