@@ -111,6 +111,14 @@ La fase 2 NO incluye todavía la pestaña y formularios visibles de «Criaturas�
 En la fase 2 se ha ejecutado una verificación de lectura sobre las 326 líneas originales de la pestaña de auditoría de ataques y se han comparado los resultados con los 576 registros de la tabla estructurada. Resultado: **326/326 fichas con el número exacto de opciones (576/576 segmentos)** y **cero discrepancias en nombre, cantidad, conector o valor de daño numérico**. El motor mantiene intencionadamente el daño literal completo (por ejemplo, «20 o especial» o «30 * 3») y separa las anotaciones sin aplicar cálculo alguno. Se corrigieron la habilidad «Trampa» incluida dentro de una línea de ataques, los puntos finales tras paréntesis y las notas de alcance/cantidad. Este contraste es de **lectura**, no una incorporación del bestiario a La Forja ni una modificación de la hoja de origen.
 
 
+## Fase 4 — Auditoría de consolidación (05/11/2026)
+
+- Contrastadas **326 líneas originales de ataques** contra **576 segmentos** de la hoja de auditoría en lectura; el importador conserva los segmentos literales, incluyendo multiplicadores, daño alternativo y alcance, aunque la tabla tenga columnas numéricas separadas. Las variantes `Ataque:` y `Ataques:` están soportadas. El cotejo no importa ni publica el corpus oficial.
+- Contrastadas 28 fichas documentadas en la pestaña «[Fuente] Fichas verificadas» mediante entradas sintéticas formadas solo con sus campos textuales; las dos fichas con Moral `—` requieren dejarla como `null`, no convertir el guion en cero.
+- Se endurece la validación de JSON v1: las propiedades desconocidas dejan de aceptarse para que la edición no pierda campos que la interfaz no puede representar; los enteros de origen externo tienen que ser seguros en JavaScript. No son límites reglamentarios.
+- Los textos pegados que cambian después del análisis invalidan la previsualización. Se advierte al eliminar la criatura abierta si hay modificaciones sin guardar. La importación de JSON idénticos sigue siendo opcional, pero exige confirmación previa.
+- Pendiente de comprobación en GitHub Actions: suites de Node, Firefox y WebKit, E2E de compras y paquete público DRS. **No se aprueba LIVE hasta superarlas sobre el candidato final y revisar la lista blanca.**
+
 ## Fase 3 — Integración de la interfaz (implementada)
 
 - Tercera pestaña «Criaturas» dentro de La Forja; se oculta el selector global de Dungeon Hack/otras ediciones mientras se editan criaturas Nd20.
