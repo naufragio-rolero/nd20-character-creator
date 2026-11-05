@@ -416,9 +416,14 @@
       var existentes=new Set(biblioteca.listar().map(function(r){
         return JSON.stringify(modelo.nuevaCriatura(biblioteca.obtener(r.id)));
       }));
-      var duplicados=fichas.filter(function(r){
-        return r && r.ficha && existentes.has(JSON.stringify(modelo.nuevaCriatura(r.ficha)));
-      }).length;
+      var importados=new Set(), duplicados=0;
+      fichas.forEach(function(r){
+        if(!r || !r.ficha ||
+            !modelo.revisar(r.ficha,{paraExportar:true}).valida)return;
+        var huella=JSON.stringify(modelo.nuevaCriatura(r.ficha));
+        if(existentes.has(huella)||importados.has(huella))duplicados++;
+        importados.add(huella);
+      });
       if(duplicados && (typeof root.confirm!=='function' ||
           !root.confirm('El archivo contiene '+duplicados+' criaturas ya presentes. '+
             '¿Quieres importar otras copias?'))) {
