@@ -62,6 +62,23 @@ assert.ok(c.revisar(c.nuevaCriatura({nombre:'Error',
 assert.ok(c.revisar(c.nuevaCriatura({nombre:'Error',
   ataques:[{nombre:'primero'}, {nombre:'segundo',conectorAnterior:'Inicio'}]})).errores
   .some(x=>x.campo==='ataques[1].conectorAnterior'));
+const metadatos=c.nuevaCriatura({nombre:'JSON con campos de otra versión'});
+metadatos.reglaInventada='ninguna';
+assert.ok(c.revisar(metadatos,{paraExportar:true}).errores.some(x=>x.campo==='reglaInventada'));
+delete metadatos.reglaInventada;
+metadatos.puntuaciones.nivel=Number.MAX_SAFE_INTEGER+1;
+assert.equal(c.revisar(metadatos).valida,false);
+metadatos.puntuaciones.nivel=0;
+metadatos.ataques=[c.ataque({nombre:'golpe',cantidad:1})];
+metadatos.ataques[0].propiedadExtra='no perder';
+assert.ok(c.revisar(metadatos).errores.some(x=>x.campo==='ataques[0].propiedadExtra'));
+delete metadatos.ataques[0].propiedadExtra;
+metadatos.talentos=[c.talento({nombre:'Prueba'})];
+metadatos.talentos[0].incompatible=true;
+assert.ok(c.revisar(metadatos).errores.some(x=>x.campo==='talentos[0].incompatible'));
+delete metadatos.talentos[0].incompatible;
+metadatos.origen.sesion='desconocida';
+assert.ok(c.revisar(metadatos).errores.some(x=>x.campo==='origen.sesion'));
 const antes=JSON.stringify(ficha);
 c.revisar(ficha);
 assert.equal(JSON.stringify(ficha),antes,'La validación no debe modificar fichas.');
