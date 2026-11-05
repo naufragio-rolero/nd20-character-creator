@@ -110,4 +110,21 @@ assert.equal(brote.criatura.talentos[0].nombre,'Trampa');
 assert.ok(brote.criatura.talentos[0].descripcion.includes('criatura pisa'));
 assert.ok(brote.advertencias.some(x=>x.codigo==='habilidad_inline_en_ataques'));
 
+const puntuacionAnotada = parser.descomponerTexto(
+  'Criatura propia\nBestia de Nivel 4, Salud 16\n' +
+  'Ataques: 2 látigos de vid (6 cada uno, Alcance 8 m).');
+assert.equal(puntuacionAnotada.criatura.ataques[0].nombre,'látigos de vid');
+assert.equal(puntuacionAnotada.criatura.ataques[0].cantidad,2);
+assert.equal(puntuacionAnotada.criatura.ataques[0].danoLiteral,
+  '6 cada uno, Alcance 8 m');
+assert.equal(puntuacionAnotada.criatura.ataques[0].danoNumerico,6);
+assert.equal(puntuacionAnotada.criatura.ataques[0].notas,'cada uno, Alcance 8 m');
+
+const fragmentos = parser.descomponerTexto(
+  'Criatura propia\nBestia de Nivel 4, Salud 16\n' +
+  'Ataques: golpe descomunal (48) o lluvia de fragmentos (30 * 3)');
+assert.equal(fragmentos.criatura.ataques[1].danoNumerico,30);
+assert.equal(fragmentos.criatura.ataques[1].danoLiteral,'30 * 3');
+assert.equal(fragmentos.criatura.ataques[1].notas,'* 3');
+
 console.log('OK · Importación Nd20 DRS/Ylat, casos especiales y texto pendiente.');

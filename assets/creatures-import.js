@@ -81,8 +81,9 @@
       advertir(advertencias, numeroLinea, 'ataques_incompletos',
         'Los paréntesis o conectores de la línea de ataques necesitan revisión.');
     return resultado.trozos.map(function (pieza, indice) {
-      var base = pieza.literal, cantidad = 1, nombre = base, dano = '';
-      var partes = base.match(/^(.*?)\s*\(([^()]*)\)\s*$/);
+      var base = pieza.literal, lectura = base.replace(/[.!?]\s*$/, '').trim();
+      var cantidad = 1, nombre = lectura, dano = '', notas = '';
+      var partes = lectura.match(/^(.*?)\s*\(([^()]*)\)\s*$/);
       if (partes) { nombre = partes[1].trim(); dano = partes[2].trim(); }
       else if (base.includes('(') || base.includes(')'))
         advertir(advertencias, numeroLinea, 'segmento_complejo',
@@ -98,8 +99,11 @@
       }
       var numerico = null, exacto = dano.match(/^\d+$/);
       var alternativo = dano.match(/^(\d+)\s+o\s+especial$/i);
+      // Separa el número de anotaciones explícitas sin calcular ni ejecutar daño.
+      var anotado = dano.match(/^(\d+)\s*(\*\s*\d+|cada uno(?:\s*,\s*.*)?|,\s*Alcance\s+.*)$/i);
       if (exacto) numerico = Number(dano);
-      else if (alternativo) numerico = Number(alternativo[1]);
+      else if (alternativo) { numerico = Number(alternativo[1]); notas = 'o especial'; }
+      else if (anotado) { numerico = Number(anotado[1]); notas = anotado[2].trim().replace(/^,\s*/, ''); }
       if (numerico !== null && !Number.isSafeInteger(numerico)) numerico = null;
       if (dano && numerico === null)
         advertir(advertencias, numeroLinea, 'dano_no_numerico',
@@ -111,6 +115,7 @@
         nombre:nombre,
         danoLiteral:dano,
         danoNumerico:numerico,
+        notas:notas,
         segmentoOriginal:base
       });
     });
