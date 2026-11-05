@@ -1150,3 +1150,6 @@ require('./tanda2.js');
 
 /* Compra competente y Técnicas exclusivas, sin inventar requisitos de uso. */
 require('./elegibilidad-tecnicas-armamento.js');
+
+/* Editor de criaturas: contrato semántico fase 1. */
+require('./criaturas-modelo.js');
