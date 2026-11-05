@@ -31,11 +31,11 @@ jobs:
       - name: Obtener snapshot DRS aprobado - Editor de criaturas fase 4 (PR #100)
         uses: actions/checkout@v4
         with:
-          ref: d90fe62bb58588be9e66c4b2099f80f9b41be308
+          ref: 873574f73b81f1101ec667ce7062e7086da2d013
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "d90fe62bb58588be9e66c4b2099f80f9b41be308"
+          test "$(git rev-parse HEAD)" = "873574f73b81f1101ec667ce7062e7086da2d013"
       # Snapshot aprobado para LIVE: PR #100, con Editor Nd20, 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
