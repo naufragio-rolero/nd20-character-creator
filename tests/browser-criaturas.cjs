@@ -106,6 +106,7 @@ async function probar(nombre,tipo,url){
     await page.locator('#criaturas-archivo-json').setInputFiles({
       name:'roto.json',mimeType:'application/json',buffer:Buffer.from('{json inválido')
     });
+    await page.locator('#criaturas-estado').getByText('JSON válido',{exact:false}).waitFor();
     assert.match(await page.locator('#criaturas-estado').textContent(),/JSON válido/);
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),1);
     const incompatible=structuredClone(backup);
@@ -114,6 +115,7 @@ async function probar(nombre,tipo,url){
       name:'incompatible.json',mimeType:'application/json',
       buffer:Buffer.from(JSON.stringify(incompatible),'utf8')
     });
+    await page.locator('#criaturas-estado').getByText('Campo JSON desconocido',{exact:false}).waitFor();
     assert.match(await page.locator('#criaturas-estado').textContent(),/Campo JSON desconocido/);
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),1);
     page.once('dialog',d=>d.dismiss()); // Una copia duplicada rechazada no cambia la biblioteca.
@@ -121,6 +123,9 @@ async function probar(nombre,tipo,url){
       name:'duplicado-rechazado.json',mimeType:'application/json',
       buffer:Buffer.from(JSON.stringify(backup),'utf8')
     });
+    // setInputFiles no espera a los awaits internos del manejador change:
+    // aguardar a que se resuelva el primer dialog antes del siguiente listener.
+    await page.locator('#criaturas-estado').getByText('Importación cancelada',{exact:false}).waitFor();
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),1);
     page.once('dialog',d=>d.accept()); // Importación duplicada explícitamente aceptada.
     await page.locator('#criaturas-archivo-json').setInputFiles({
