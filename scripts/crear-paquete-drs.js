@@ -104,6 +104,7 @@ const especificas=[
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/i18n.js',
   'assets/creatures.js','assets/creatures-import.js',
   'assets/creatures-library.js','assets/creatures-ui.js',
+  'assets/adversarios-pdf.js',
   // PDF A5 Fantasía: solo plantillas reglamentarias y bibliotecas de terceros autorizadas.
   'assets/pdf-export-v2.js','assets/pdf-export-browser.js',
   'assets/pdf-a5/forja-fantasia-epica-a5.pdf',
@@ -130,9 +131,25 @@ const especificas=[
   'data/talentos-drs-literales.json','data/aclaraciones-talentos-drs.json',
   'data/tecnicas-drs-literales.json','data/glosas-talentos-drs.json',
   'data/glosas-equipo-drs.json',
+  'data/adversarios-drs.json',
   'data/dungeon-hack.json'
 ];
 const transformaciones={
+  'data/adversarios-drs.json'(d){
+    if(d.fuente!=='Naufragio d20 DRS'||!Array.isArray(d.registros)||
+       d.registros.length!==106||
+       d.registros.some(r=>r.fuente!=='Naufragio d20 DRS'))
+      throw Error('El bestiario público debe contener exclusivamente los 106 adversarios del DRS.');
+    d.registros.forEach(function(registro){
+      var f=registro.ficha,p=f&&f.puntuaciones;
+      if(p&&Number.isSafeInteger(p.blindaje)&&p.blindaje<0){
+        f.saludAjuste=p.blindaje;
+        f.saludModo='manual';
+        p.blindaje=null;
+      }
+    });
+    return d;
+  },
   'data/catalogo-ampliado.json'(d){
     d.fantasia={especies:{},ocupaciones:{}};
     return d; // CiFi y Nocturna conservan sus fuentes originales.

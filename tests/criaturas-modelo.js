@@ -82,4 +82,21 @@ assert.ok(c.revisar(metadatos).errores.some(x=>x.campo==='origen.sesion'));
 const antes=JSON.stringify(ficha);
 c.revisar(ficha);
 assert.equal(JSON.stringify(ficha),antes,'La validación no debe modificar fichas.');
+assert.equal(c.CATEGORIAS.length,16);
+assert.equal(c.CATEGORIAS.includes('Muerto viviente'),true);
+for(const [nivel,ajuste,esperada] of [[4,0,16],[4,1,20],[4,-1,12],[4,2,24],[4,-2,8]])
+  assert.equal(c.saludMedia(nivel,ajuste),esperada,'Salud media documentada');
+assert.throws(()=>c.saludMedia(101,0),/Nivel o ajuste/);
+const saludPersonalizada=c.nuevaCriatura({nombre:'Documentada',
+  puntuaciones:{nivel:4,salud:37},saludModo:'manual',saludAjuste:-2});
+assert.equal(saludPersonalizada.puntuaciones.salud,37,
+  'La Salud documentada no puede ser reemplazada por una media');
+assert.equal(c.revisar(saludPersonalizada).valida,true);
+const ampliacion=JSON.parse(JSON.stringify(saludPersonalizada));
+ampliacion.saludAjuste='-2';
+assert.equal(c.revisar(ampliacion).valida,false,'No admitir ajustes sin validar');
+const versionAnterior=JSON.parse(JSON.stringify(saludPersonalizada));
+delete versionAnterior.saludModo;delete versionAnterior.saludAjuste;
+assert.equal(c.revisar(versionAnterior).valida,true,
+  'Los JSON v1 anteriores siguen siendo válidos');
 console.log('OK · Modelo de criaturas Nd20 (fase 1).');

@@ -1312,6 +1312,40 @@ async function probar(nombre,tipo,url){
     }finally{
       await tactil.close();
     }
+    // Reorganización de la Forja: Seguidores y Matriz desde Personajes.
+    // Se prueba en una página aislada para no alterar la sesión principal de QA.
+    const interfaz=await context.newPage();
+    try{
+      await interfaz.goto(url,{waitUntil:'domcontentloaded'});
+      await interfaz.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      assert.equal((await interfaz.locator('#tab-herramientas').innerText()).trim(),'Seguidores',
+        nombre+': pestaña Seguidores visible');
+      await interfaz.locator('#abrir-matriz').click();
+      assert.equal(await interfaz.locator('#dialogo-matriz').evaluate(x=>x.open),true,
+        nombre+': Matriz abre modal desde Personajes');
+      await interfaz.locator('#generar-matriz').click();
+      assert.equal(await interfaz.locator('#vista-matriz .atributo').count(),6,
+        nombre+': vista previa de los seis Atributos de la Matriz');
+      assert.equal(await interfaz.locator('#fichas .tarjeta').count(),1,
+        nombre+': Matriz conserva la ficha original en la mesa');
+      await interfaz.keyboard.press('Escape');
+      await interfaz.waitForFunction(()=>!document.querySelector('#dialogo-matriz').open);
+      assert.equal(await interfaz.locator('#abrir-matriz').evaluate(x=>document.activeElement===x),true,
+        nombre+': Escape devuelve el foco al acceso de la Matriz');
+      await interfaz.locator('#tab-herramientas').click();
+      assert.ok(!(await interfaz.locator('#panel-herramientas').innerText())
+        .includes('Herramientas del Cronista'),
+        nombre+': encabezado antiguo eliminado');
+      assert.equal(await interfaz.locator('#configurar-seguidores').getAttribute('aria-label'),
+        'Configurar seguidores',nombre+': rueda dentada accesible');
+      await interfaz.locator('#configurar-seguidores').click();
+      assert.equal(await interfaz.locator('#dialogo-seguidores').evaluate(x=>x.open),true,
+        nombre+': rueda dentada abre las opciones de Seguidores');
+      await interfaz.keyboard.press('Escape');
+      await interfaz.waitForFunction(()=>!document.querySelector('#dialogo-seguidores').open);
+    }finally{
+      await interfaz.close();
+    }
     assert.deepEqual(fallos,[],nombre+': no debe haber excepciones no capturadas');
     console.log('OK · '+nombre+': 4 Ocupaciones, 8 Especies, compras, Intro, cancelar,'+
       ' precio por Nivel, quitar, presupuesto, móvil y cero excepciones.');

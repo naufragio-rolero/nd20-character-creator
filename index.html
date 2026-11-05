@@ -33,6 +33,7 @@
   <script defer src="assets/creatures-import.js"></script>
   <script defer src="assets/creatures-library.js"></script>
   <script defer src="assets/creatures-ui.js"></script>
+  <script defer src="assets/adversarios-pdf.js"></script>
   <script defer src="assets/app.js"></script>
 </head>
 <body>
@@ -58,8 +59,8 @@
       <h2>La forja</h2>
       <div class="pestanas-panel" role="tablist" aria-label="Panel de la forja">
         <button type="button" id="tab-personajes" role="tab" aria-controls="panel-personajes" aria-selected="true" class="activa">Personajes</button>
-        <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false" tabindex="-1">Herramientas</button>
-        <button type="button" id="tab-criaturas" role="tab" aria-controls="panel-criaturas" aria-selected="false" tabindex="-1">Criaturas</button>
+        <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false" tabindex="-1">Seguidores</button>
+        <button type="button" id="tab-criaturas" role="tab" aria-controls="panel-criaturas" aria-selected="false" tabindex="-1">Adversarios</button>
       </div>
       <div class="campo campo-sistema-global" id="selector-sistema-global">
           <label id="etiqueta-sistema" for="juego">Sistema</label>
@@ -109,6 +110,7 @@
         aria-controls="dialogo-configuracion">
         Usar semilla <span id="estado-uso-semilla" class="estado-semilla">Desactivada</span>
       </button>
+      <button id="abrir-matriz" type="button" class="configurar-creacion" aria-haspopup="dialog" aria-controls="dialogo-matriz">Matriz de Atributos</button>
       <dialog id="dialogo-configuracion" class="dialogo-configuracion"
         aria-labelledby="titulo-dialogo-configuracion">
         <div class="cabecera-configuracion">
@@ -234,12 +236,33 @@
         </div>
       </form>
       </dialog>
+      <dialog id="dialogo-matriz" class="dialogo-compras dialogo-matriz" aria-labelledby="titulo-dialogo-matriz">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-dialogo-matriz">Matriz de Atributos</h3>
+            <p class="muted">Genera seis Atributos con las reglas del sistema seleccionado. Cada resultado también se incorpora a la mesa.</p>
+          </div>
+          <button id="cerrar-matriz" type="button" class="cerrar-rejilla" aria-label="Cerrar Matriz de Atributos">✕</button>
+        </div>
+        <div class="matriz-acciones">
+          <button id="generar-matriz" type="button" class="principal">Generar matriz</button>
+        </div>
+        <p id="aviso-matriz" role="alert" class="aviso-validacion" aria-live="assertive"></p>
+        <div id="vista-matriz" class="vista-matriz" tabindex="-1" hidden></div>
+      </dialog>
       </div>
       <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
-        <h3>Herramientas del Cronista</h3>
         <section id="resumen-seguidores" class="resumen-creacion resumen-seguidores"
           aria-labelledby="titulo-resumen-seguidores">
-          <h4 id="titulo-resumen-seguidores">Seguidores preparados</h4>
+          <div class="cabecera-resumen-seguidores">
+            <h4 id="titulo-resumen-seguidores">Seguidores preparados</h4>
+            <button id="configurar-seguidores" type="button" class="configurar-seguidores-icono"
+              aria-label="Configurar seguidores" title="Configurar seguidores"
+              aria-haspopup="dialog" aria-controls="dialogo-seguidores">
+              <span class="icono-svg" aria-hidden="true"></span>
+              <span>Configurar seguidores</span>
+            </button>
+          </div>
           <dl>
             <div><dt>Nivel</dt><dd id="resumen-seguidor-nivel">Nivel 1</dd></div>
             <div><dt>Profesión</dt><dd id="resumen-seguidor-profesion">Aleatoria (d12)</dd></div>
@@ -249,26 +272,27 @@
             <div><dt>Aventuras</dt><dd id="resumen-seguidor-aventuras">Según el DRS</dd></div>
           </dl>
         </section>
-        <button id="configurar-seguidores" type="button" class="configurar-creacion"
-          aria-haspopup="dialog" aria-controls="dialogo-seguidores">
-          <span class="icono-svg" aria-hidden="true"></span>
-          Configurar seguidores
-        </button>
         <div class="botonera">
           <button id="generar-seguidor" type="button">Generar seguidor</button>
-          <button id="generar-matriz" type="button">Matriz de Atributos</button>
         </div>
-        <small>Seguidores disponibles para Naufragio d20 DRS y Dungeon Hack, con reglas independientes. La matriz es una ayuda separada.</small>
+        <small>Seguidores disponibles para Naufragio d20 DRS y Dungeon Hack, con reglas independientes.</small>
       </section>
       <section id="panel-criaturas" role="tabpanel" aria-labelledby="tab-criaturas" class="herramientas" hidden>
-        <h3>Criaturas · Naufragio d20</h3>
-        <p class="muted">Crea adversarios propios, revisa una ficha pegada o recupera tu biblioteca local.</p>
-        <div class="criaturas-navegacion">
-          <button type="button" id="criaturas-nueva-panel" class="principal">Nueva criatura</button>
-          <button type="button" id="criaturas-ir-importar">Pegar criatura</button>
-          <button type="button" id="criaturas-ir-biblioteca">Mi biblioteca</button>
+        <section class="resumen-creacion resumen-adversarios" aria-labelledby="titulo-resumen-adversarios">
+          <h3 id="titulo-resumen-adversarios">Bestiario preparado</h3>
+          <dl>
+            <div><dt>Sistema</dt><dd>Naufragio d20 · Fantasía Épica</dd></div>
+            <div><dt>Adversarios</dt><dd id="criaturas-contador-menu">0</dd></div>
+            <div><dt>Almacenamiento</dt><dd>Este navegador</dd></div>
+          </dl>
+        </section>
+        <button type="button" id="criaturas-nueva-panel" class="configurar-creacion"><span class="icono-svg" aria-hidden="true"></span>Añadir adversario</button>
+        <div class="botonera">
+          <button type="button" id="criaturas-ir-importar">Pegar ficha de adversario</button>
+          <button type="button" id="criaturas-ir-biblioteca">Ver galería</button>
+          <button type="button" id="criaturas-cargar-drs">Cargar adversarios del DRS</button>
         </div>
-        <small>Editor exclusivo de Naufragio d20. No contiene el bestiario oficial ni automatiza el combate. Los datos permanecen en este navegador salvo que los exportes.</small>
+        <small>El bestiario es local. No se automatizan combates ni tiradas. Exporta una copia JSON para conservar tus creaciones.</small>
       </section>
     </aside>
     <dialog id="dialogo-seguidores" class="dialogo-compras dialogo-seguidores"
@@ -559,21 +583,21 @@
     <section id="editor-criaturas" class="resultados editor-criaturas" aria-labelledby="titulo-editor-criaturas" hidden>
       <header class="criaturas-cabecera">
         <p class="sobrelinea">EDITOR DEL CRONISTA / NAUFRAGIO D20</p>
-        <h2 id="titulo-editor-criaturas" tabindex="-1">Criaturas</h2>
-        <p class="muted">Crea fichas propias a mano o revisa los datos extraídos de una criatura pegada. Sin generación aleatoria ni automatización de combate.</p>
+        <h2 id="titulo-editor-criaturas" tabindex="-1">Adversarios</h2>
+        <p class="muted">Tu bestiario personal de Naufragio d20.</p>
       </header>
       <p id="criaturas-estado" class="estado" role="status" aria-live="polite"></p>
-      <section class="criaturas-bloque" id="criaturas-importacion" aria-labelledby="criaturas-titulo-importacion">
-        <h3 id="criaturas-titulo-importacion">Pegar una ficha</h3>
-        <p class="muted">Pega el texto de una sola criatura Nd20. Analizaremos sus puntuaciones, ataques y Talentos; nada se guardará hasta que revises el borrador.</p>
-        <label for="criaturas-texto">Texto completo de la criatura</label>
-        <textarea id="criaturas-texto" rows="6" spellcheck="false" placeholder="Nombre de la criatura&#10;Bestia de Nivel 4 [Moral 8], Salud 20&#10;Ataques: 2 garras (6) o mordisco (9)"></textarea>
+      <section class="criaturas-bloque" id="criaturas-importacion" hidden aria-labelledby="criaturas-titulo-importacion">
+        <div class="criaturas-subcabecera"><h3 id="criaturas-titulo-importacion">Pegar una ficha</h3><button type="button" id="criaturas-cerrar-importacion">Cerrar</button></div>
+        <p class="muted">Pega el texto de un adversario Nd20. Analizaremos sus puntuaciones, ataques y Talentos; nada se guardará hasta que revises el borrador.</p>
+        <label for="criaturas-texto">Texto completo del adversario</label>
+        <textarea id="criaturas-texto" rows="6" spellcheck="false" placeholder="Nombre del adversario&#10;Bestia de Nivel 4 [Moral 8], Salud 20&#10;Ataques: 2 garras (6) o mordisco (9)"></textarea>
         <div class="criaturas-acciones">
           <button type="button" id="criaturas-analizar" class="principal">Analizar ficha pegada</button>
         </div>
         <section id="criaturas-vista-previa" aria-labelledby="criaturas-titulo-previa" hidden>
           <h4 id="criaturas-titulo-previa">Vista previa del desglose</h4>
-          <p class="muted">Los campos marcados como dudosos requieren revisión. Aceptar esta vista previa no guarda todavía la criatura.</p>
+          <p class="muted">Los campos marcados como dudosos requieren revisión. Aceptar esta vista previa no guarda todavía el adversario.</p>
           <pre id="criaturas-resumen-previa"></pre>
           <div id="criaturas-advertencias-previa" class="criaturas-avisos" aria-live="polite"></div>
           <div class="criaturas-acciones">
@@ -582,45 +606,75 @@
           </div>
         </section>
       </section>
-      <section class="criaturas-bloque" id="criaturas-biblioteca" aria-labelledby="criaturas-titulo-biblioteca">
-        <h3 id="criaturas-titulo-biblioteca">Mi biblioteca</h3>
-        <p class="muted">Solo criaturas creadas o importadas por ti, guardadas en este navegador. Guarda una copia JSON para trasladarlas a otro dispositivo.</p>
+      <section class="criaturas-bloque criaturas-mesa" id="criaturas-biblioteca" aria-labelledby="criaturas-titulo-biblioteca">
+        <div class="criaturas-subcabecera">
+          <div><p class="sobrelinea">BESTIARIO PERSONAL</p><h3 id="criaturas-titulo-biblioteca">Galería de adversarios</h3></div>
+          <span id="criaturas-cantidad" class="muted">0 adversarios</span>
+        </div>
+        <div class="campo criaturas-sistema"><label for="criaturas-sistema">Sistema del bestiario</label>
+          <select id="criaturas-sistema"><option value="adversarios-drs">Naufragio d20 · Fantasía Épica</option></select></div>
         <div class="criaturas-acciones">
-          <button type="button" id="criaturas-exportar-biblioteca">Exportar biblioteca JSON</button>
+          <button type="button" id="criaturas-exportar-biblioteca" disabled>Exportar colección JSON</button>
+          <button type="button" id="criaturas-exportar-pdf-coleccion" disabled>Exportar colección PDF</button>
           <label class="criaturas-archivo" for="criaturas-archivo-json">Importar JSON
             <input type="file" id="criaturas-archivo-json" accept=".json,application/json">
           </label>
         </div>
-        <p class="criaturas-ayuda-json">La importación añade criaturas sin sobrescribir las existentes. Los registros se validan antes de guardarlos.</p>
+        <p class="criaturas-ayuda-json">La importación añade adversarios sin sobrescribir los existentes. Los registros se validan antes de guardarlos.</p>
         <div id="criaturas-lista" class="criaturas-lista" aria-live="polite">
-          <p class="muted">Todavía no has guardado criaturas.</p>
+          <p class="muted">Todavía no has guardado adversarios.</p>
         </div>
       </section>
-      <section class="criaturas-bloque" id="criaturas-edicion" aria-labelledby="criaturas-titulo-edicion">
+      <dialog class="criaturas-bloque dialogo-adversario" id="criaturas-edicion" aria-labelledby="criaturas-titulo-edicion">
         <div class="criaturas-edicion-cabecera">
           <div>
-            <h3 id="criaturas-titulo-edicion">Nueva criatura</h3>
+            <h3 id="criaturas-titulo-edicion">Nuevo adversario</h3>
             <p id="criaturas-edicion-nota" class="muted">Los campos desconocidos pueden quedar sin indicar.</p>
           </div>
-          <button type="button" id="criaturas-nueva">Nueva criatura</button>
+          <div class="criaturas-acciones"><button type="button" id="criaturas-nueva">Nuevo adversario</button><button type="button" id="criaturas-cerrar-editor" class="cerrar-rejilla" aria-label="Cerrar editor de adversarios">✕</button></div>
         </div>
         <form id="criaturas-formulario" novalidate>
           <div class="criaturas-campos">
             <div class="campo criaturas-nombre"><label for="criaturas-nombre">Nombre *</label>
               <input id="criaturas-nombre" type="text" maxlength="160" required></div>
-            <div class="campo"><label for="criaturas-categoria">Categoría</label>
-              <input id="criaturas-categoria" type="text" maxlength="160" autocomplete="off"></div>
+            <div class="campo"><label for="criaturas-categoria">Categoría *</label>
+              <input id="criaturas-filtrar-categoria" type="search" autocomplete="off"
+                aria-label="Buscar entre las 16 categorías oficiales" placeholder="Buscar categoría…">
+              <select id="criaturas-categoria" required>
+                <option value="">Selecciona categoría</option>
+                <option value="Aberrante">Aberrante</option>
+                <option value="Alimaña">Alimaña</option>
+                <option value="Autómata">Autómata</option>
+                <option value="Bestia">Bestia</option>
+                <option value="Celestial">Celestial</option>
+                <option value="Demonio">Demonio</option>
+                <option value="Dragón">Dragón</option>
+                <option value="Elemental">Elemental</option>
+                <option value="Fata">Fata</option>
+                <option value="Gigante">Gigante</option>
+                <option value="Humanoide">Humanoide</option>
+                <option value="Monstruo">Monstruo</option>
+                <option value="Muerto viviente">Muerto viviente</option>
+                <option value="Limo">Limo</option>
+                <option value="Reptil">Reptil</option>
+                <option value="Vegetal">Vegetal</option>
+              </select></div>
             <div class="campo"><label for="criaturas-subcategoria">Familia / subcategoría</label>
-              <input id="criaturas-subcategoria" type="text" maxlength="160" autocomplete="off"></div>
+              <input id="criaturas-subcategoria" type="text" maxlength="160" list="criaturas-subcategorias" autocomplete="off"><datalist id="criaturas-subcategorias"></datalist></div>
             <div class="campo"><label for="criaturas-subtipo">Subtipo</label>
               <input id="criaturas-subtipo" type="text" maxlength="160" autocomplete="off"></div>
           </div>
           <h4>Puntuaciones</h4>
           <p class="muted">Se guardan exactamente los valores indicados. Un campo vacío significa que no está documentado.</p>
           <div class="criaturas-campos criaturas-numeros">
-            <div class="campo"><label for="criaturas-nivel">Nivel</label><input id="criaturas-nivel" type="number" min="0" step="1"></div>
+            <div class="campo"><label for="criaturas-nivel">Nivel</label><input id="criaturas-nivel" type="number" min="0" max="100" step="1"></div>
             <div class="campo"><label for="criaturas-moral">Moral</label><input id="criaturas-moral" type="number" min="0" step="1"></div>
             <div class="campo"><label for="criaturas-salud">Salud</label><input id="criaturas-salud" type="number" min="0" step="1"></div>
+            <div class="campo"><label for="criaturas-salud-modo">Cálculo de Salud</label>
+              <select id="criaturas-salud-modo"><option value="automatico">Media automática</option><option value="manual">Valor manual/documentado</option></select></div>
+            <div class="campo"><label for="criaturas-salud-ajuste">Ajuste de protección / Salud</label>
+              <input id="criaturas-salud-ajuste" type="number" step="1" value="0"></div>
+            <p id="criaturas-salud-desglose" class="muted criaturas-salud-desglose" aria-live="polite">Media: Nivel × 4 + ajuste × 4</p>
             <div class="campo"><label for="criaturas-blindaje">Blindaje</label><input id="criaturas-blindaje" type="number" min="0" step="1"></div>
             <div class="campo"><label for="criaturas-movimiento">Movimiento</label><input id="criaturas-movimiento" type="number" min="0" step="1"></div>
             <div class="campo"><label for="criaturas-tamano">Tamaño</label><input id="criaturas-tamano" type="number" min="0" step="1"></div>
@@ -630,14 +684,22 @@
             <button type="button" id="criaturas-anadir-ataque">Añadir ataque</button>
           </div>
           <p class="muted">«y» indica ataques simultáneos, «o» alternativas. Las comas y mezclas pueden requerir revisión. El daño literal no se calcula.</p>
+          <div class="campo"><label for="criaturas-buscar-ataque">Buscar ataque documentado o propio</label>
+            <input id="criaturas-buscar-ataque" type="search" autocomplete="off" placeholder="Busca por nombre de ataque…"></div>
+          <div id="criaturas-coincidencias-ataques" class="criaturas-coincidencias" aria-live="polite"></div>
+          <button id="criaturas-crear-ataque" type="button">Crear ataque propio</button>
           <div id="criaturas-ataques" class="criaturas-repetidos"></div>
           <div class="criaturas-subcabecera">
             <h4>Talentos y habilidades especiales</h4>
             <button type="button" id="criaturas-anadir-talento">Añadir Talento</button>
           </div>
           <p class="muted">Talentos independientes de los ataques. Ningún efecto se inventa a partir del nombre.</p>
+          <div class="campo"><label for="criaturas-buscar-talento">Buscar Talento o habilidad especial documentada</label>
+            <input id="criaturas-buscar-talento" type="search" autocomplete="off" placeholder="Busca por nombre de habilidad…"></div>
+          <div id="criaturas-coincidencias-talentos" class="criaturas-coincidencias" aria-live="polite"></div>
+          <button id="criaturas-crear-talento" type="button">Crear Talento propio</button>
           <div id="criaturas-talentos" class="criaturas-repetidos"></div>
-          <div class="campo"><label for="criaturas-descripcion">Descripción</label>
+          <div class="campo"><label for="criaturas-descripcion">Descripción *</label>
             <textarea id="criaturas-descripcion" rows="5"></textarea></div>
           <div class="campo"><label for="criaturas-notas">Notas propias</label>
             <textarea id="criaturas-notas" rows="3"></textarea></div>
@@ -651,12 +713,47 @@
           </details>
           <div id="criaturas-advertencias-formulario" class="criaturas-avisos" aria-live="polite"></div>
           <div class="criaturas-acciones criaturas-guardar">
-            <button type="submit" id="criaturas-guardar" class="principal">Guardar criatura</button>
+            <button type="submit" id="criaturas-guardar" class="principal">Guardar adversario</button>
             <button type="button" id="criaturas-exportar-ficha">Exportar esta ficha JSON</button>
             <button type="button" id="criaturas-descartar-cambios">Descartar cambios</button>
           </div>
         </form>
-      </section>
+      </dialog>
+      <dialog id="criaturas-elemento-propio" class="dialogo-compras dialogo-adversario-catalogo"
+        aria-labelledby="criaturas-elemento-titulo">
+        <div class="cabecera-compras">
+          <h3 id="criaturas-elemento-titulo">Crear entrada</h3>
+          <button id="criaturas-elemento-cerrar" type="button" class="cerrar-rejilla" aria-label="Cerrar creación de entrada">✕</button>
+        </div>
+        <form id="criaturas-elemento-form">
+          <div class="campo"><label for="criaturas-elemento-nombre">Nombre *</label>
+            <input id="criaturas-elemento-nombre" type="text" maxlength="200" required></div>
+          <div id="criaturas-elemento-campos-ataque">
+            <div class="campo"><label for="criaturas-elemento-dano">Daño literal (si está definido)</label>
+              <input id="criaturas-elemento-dano" type="text" maxlength="180"></div>
+            <div class="campo"><label for="criaturas-elemento-cantidad">Cantidad</label>
+              <input id="criaturas-elemento-cantidad" type="number" min="1" step="1" value="1" required></div>
+          </div>
+          <div class="campo"><label for="criaturas-elemento-descripcion">Descripción o notas (sin reglas inventadas)</label>
+            <textarea id="criaturas-elemento-descripcion" rows="4"></textarea></div>
+          <p id="criaturas-elemento-error" class="aviso-validacion" role="alert"></p>
+          <button type="submit" class="principal">Guardar e incorporar</button>
+        </form>
+      </dialog>
+      <dialog id="criaturas-ficha-dialogo" class="dialogo-compras dialogo-ficha-adversario" aria-labelledby="criaturas-ficha-titulo">
+        <div class="cabecera-compras">
+          <h3 id="criaturas-ficha-titulo">Ficha de adversario</h3>
+          <button type="button" id="criaturas-cerrar-ficha" class="cerrar-rejilla" aria-label="Cerrar ficha">✕</button>
+        </div>
+        <div id="criaturas-ficha-contenido"></div>
+        <div class="criaturas-acciones criaturas-ficha-acciones">
+          <button type="button" id="criaturas-ficha-editar" class="principal">Editar</button>
+          <button type="button" id="criaturas-ficha-duplicar">Duplicar</button>
+          <button type="button" id="criaturas-ficha-json">Exportar JSON</button>
+          <button type="button" id="criaturas-ficha-pdf">Exportar PDF</button>
+          <button type="button" id="criaturas-ficha-eliminar">Eliminar</button>
+        </div>
+      </dialog>
     </section>
   </main>
   <button id="generar-flotante" class="generar-flotante" type="button" disabled hidden

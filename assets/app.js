@@ -2347,8 +2347,37 @@
       aplicarConfiguracionSeguidores(true);
     });
     refrescarResumenSeguidores();
+    $('abrir-matriz').addEventListener('click',function(){
+      $('vista-matriz').hidden=true;
+      $('vista-matriz').textContent='';
+      $('aviso-matriz').textContent='';
+      $('generar-matriz').textContent='Generar matriz';
+      $('dialogo-matriz').showModal();
+    });
+    $('cerrar-matriz').addEventListener('click',function(){
+      $('dialogo-matriz').close();
+    });
+    $('dialogo-matriz').addEventListener('close',function(){
+      if(!$('panel-personajes').hidden)$('abrir-matriz').focus({preventScroll:true});
+    });
     $('generar-matriz').addEventListener('click',function(){
-      conControl(function(){agregar('ficha',reglas.matriz(config(),rngUnico()(correlativo)));});
+      $('aviso-matriz').textContent='';
+      try{
+        // Reutiliza el generador y el renderizador originales: no replica reglas.
+        var matriz=reglas.matriz(config(),rngUnico()(correlativo));
+        agregar('ficha',matriz);
+        var vista=$('vista-matriz');
+        vista.innerHTML=fichaHTML(matriz,correlativo);
+        var acciones=vista.querySelector('.acciones-cabecera-ficha');
+        if(acciones)acciones.remove();
+        var pie=vista.querySelector('.pie-ficha');
+        if(pie)pie.remove();
+        vista.hidden=false;
+        $('generar-matriz').textContent='Generar otra matriz';
+        vista.focus({preventScroll:true});
+      }catch(error){
+        $('aviso-matriz').textContent=error.message||String(error);
+      }
     });
     $('armamento-modo').addEventListener('change',refrescarArmamento);
     $('armamento-origen').addEventListener('change',function(){
