@@ -130,9 +130,17 @@ const especificas=[
   'data/talentos-drs-literales.json','data/aclaraciones-talentos-drs.json',
   'data/tecnicas-drs-literales.json','data/glosas-talentos-drs.json',
   'data/glosas-equipo-drs.json',
+  'data/adversarios-drs.json',
   'data/dungeon-hack.json'
 ];
 const transformaciones={
+  'data/adversarios-drs.json'(d){
+    if(d.fuente!=='Naufragio d20 DRS'||!Array.isArray(d.registros)||
+       d.registros.length!==106||
+       d.registros.some(r=>r.fuente!=='Naufragio d20 DRS'))
+      throw Error('El bestiario público debe contener exclusivamente los 106 adversarios del DRS.');
+    return d;
+  },
   'data/catalogo-ampliado.json'(d){
     d.fantasia={especies:{},ocupaciones:{}};
     return d; // CiFi y Nocturna conservan sus fuentes originales.
