@@ -11,7 +11,8 @@
   var CLAVE = 'forja-criaturas-usuario-v1';
   var TIPO = 'biblioteca_criaturas_nd20';
   function copia(objeto) { return JSON.parse(JSON.stringify(objeto)); }
-  function inicial() { return {version:1, tipo:TIPO, siguienteId:1, criaturas:[]}; }
+  function inicial() { return {version:1, tipo:TIPO, siguienteId:1,
+    criaturas:[], catalogoPersonalizado:{ataques:[],talentos:[]}}; }
   function validarFicha(ficha) {
     var resultado = modelo.revisar(ficha, {paraExportar:true});
     if (!resultado.valida)
@@ -26,6 +27,23 @@
         !Array.isArray(datos.criaturas))
       throw Error('El formato de biblioteca de criaturas no es válido o no está soportado.');
     var ids = new Set();
+    if(datos.catalogoPersonalizado!==undefined){
+      var cat=datos.catalogoPersonalizado;
+      if(!cat||!Array.isArray(cat.ataques)||!Array.isArray(cat.talentos))
+        throw Error('El catálogo personal del JSON es incompatible.');
+      cat.ataques.forEach(function(a) {
+        if(!a||typeof a.nombre!=='string'||!a.nombre.trim()||
+            !modelo.revisar(modelo.nuevaCriatura({nombre:'Validación',
+              ataques:[modelo.ataque(a)]}),{paraExportar:true}).valida)
+          throw Error('Plantilla de ataque no válida.');
+      });
+      cat.talentos.forEach(function(t){
+        if(!t||typeof t.nombre!=='string'||!t.nombre.trim()||
+            !modelo.revisar(modelo.nuevaCriatura({nombre:'Validación',
+              talentos:[modelo.talento(t)]}),{paraExportar:true}).valida)
+          throw Error('Plantilla de Talento no válida.');
+      });
+    }
     datos.criaturas.forEach(function (registro) {
       if (!registro || typeof registro !== 'object' || typeof registro.id !== 'string' ||
           !/^criatura-\d+$/.test(registro.id) || ids.has(registro.id))
@@ -99,6 +117,27 @@
       escribir(datos);
       return true;
     }
+    function catalogoPersonal(){
+      var c=leer().catalogoPersonalizado||{ataques:[],talentos:[]};
+      return copia(c);
+    }
+    function guardarPlantilla(tipo,plantilla){
+      if(tipo!=='ataques'&&tipo!=='talentos')
+        throw Error('Tipo de catálogo personal no admitido.');
+      var normalizada=tipo==='ataques'?modelo.ataque(plantilla):modelo.talento(plantilla);
+      var ensayo=modelo.nuevaCriatura({nombre:'Validación'});
+      ensayo[tipo]=[normalizada];
+      var revision=modelo.revisar(ensayo,{paraExportar:true});
+      if(!normalizada.nombre.trim()||!revision.valida)
+        throw Error('La plantilla personalizada no es válida.');
+      var datos=leer();
+      if(!datos.catalogoPersonalizado)datos.catalogoPersonalizado={ataques:[],talentos:[]};
+      var lista=datos.catalogoPersonalizado[tipo];
+      if(!lista.some(function(x){return JSON.stringify(x)===JSON.stringify(normalizada);}))
+        lista.push(normalizada);
+      escribir(datos);
+      return copia(normalizada);
+    }
     function exportarJson(id) {
       if (id === undefined || id === null)
         return JSON.stringify(leer(), null, 2);
@@ -127,15 +166,27 @@
       fichas = fichas.map(validarFicha);
       // Todas las fichas se comprueban antes de escribir: importación atómica.
       var datos = opciones.reemplazar === true ? inicial() : leer();
+      if(entrada && entrada.tipo===TIPO&&entrada.catalogoPersonalizado){
+        if(!datos.catalogoPersonalizado)datos.catalogoPersonalizado={ataques:[],talentos:[]};
+        ['ataques','talentos'].forEach(function(tipo){
+          entrada.catalogoPersonalizado[tipo].forEach(function(valor){
+            var actual=datos.catalogoPersonalizado[tipo];
+            if(!actual.some(function(x){return JSON.stringify(x)===JSON.stringify(valor);}))
+              actual.push(copia(valor));
+          });
+        });
+      }
       var ids = fichas.map(function (ficha) {
         var id = nuevoId(datos);
         datos.criaturas.push({id:id, ficha:ficha});
         return id;
       });
-      if (fichas.length || opciones.reemplazar === true) escribir(datos);
+      if (fichas.length || opciones.reemplazar === true||
+          !!(entrada&&entrada.catalogoPersonalizado)) escribir(datos);
       return ids;
     }
     return {listar:listar, obtener:obtener, guardar:guardar, eliminar:eliminar,
+      catalogoPersonal:catalogoPersonal,guardarPlantilla:guardarPlantilla,
       exportarJson:exportarJson, importarJson:importarJson};
   }
   return {CLAVE:CLAVE, TIPO:TIPO, crearBiblioteca:crearBiblioteca};
