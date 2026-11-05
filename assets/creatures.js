@@ -45,6 +45,18 @@
       referencia: opcional(d.referencia)
     };
   }
+  function normalizarFuenteDRS(registro) {
+    var copia=JSON.parse(JSON.stringify(registro));
+    var ficha=copia&&copia.ficha||copia;
+    if(ficha&&ficha.origen&&ficha.origen.tipo==='drs_oficial' &&
+       ficha.puntuaciones&&Number.isSafeInteger(ficha.puntuaciones.blindaje)&&
+       ficha.puntuaciones.blindaje<0){
+      ficha.saludAjuste=ficha.puntuaciones.blindaje;
+      ficha.puntuaciones.blindaje=null;
+      ficha.saludModo='manual';
+    }
+    return copia;
+  }
   function nuevaCriatura(d) {
     d = d || {};
     var puntuaciones = {};
@@ -203,6 +215,7 @@
   }
   return {VERSION:VERSION, CONECTORES:CONECTORES.slice(),
     CATEGORIAS:CATEGORIAS.slice(),saludMedia:saludMedia,
+    normalizarFuenteDRS:normalizarFuenteDRS,
     PUNTUACIONES:PUNTUACIONES.slice(), nuevaCriatura:nuevaCriatura,
     ataque:ataque, talento:talento, revisar:revisar};
 });
