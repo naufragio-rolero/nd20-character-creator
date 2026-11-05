@@ -392,6 +392,31 @@
       mostrarEstado('Entrada propia incorporada al borrador y disponible para reutilizarse.');
     }catch(error){$('criaturas-elemento-error').textContent=error.message;}
   }
+  function filtrarCategorias(){
+    var select=$('criaturas-categoria');
+    var actual=select.value;
+    var filtro=$('criaturas-filtrar-categoria').value.trim()
+      .toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    if(!select.dataset.originalOptions){
+      select.dataset.originalOptions=JSON.stringify(Array.from(select.options).map(
+        function(o){return [o.value,o.textContent];}));
+    }
+    var opciones=JSON.parse(select.dataset.originalOptions);
+    // Los valores heredados de JSON antiguos no desaparecen del desplegable.
+    Array.from(select.options).filter(function(o){return o.dataset.heredada;})
+      .forEach(function(o){
+        if(!opciones.some(function(x){return x[0]===o.value;}))
+          opciones.push([o.value,o.textContent]);
+      });
+    select.textContent='';
+    opciones.filter(function(par){return !filtro||!par[0]||
+      par[1].toLocaleLowerCase('es').normalize('NFD')
+        .replace(/[\u0300-\u036f]/g,'').includes(filtro)||par[0]===actual;
+    }).forEach(function(par){
+      var o=ele('option','',par[1]);o.value=par[0];select.appendChild(o);
+    });
+    select.value=actual;
+  }
   function dibujarBiblioteca() {
     var lista=$('criaturas-lista');
     lista.textContent='';
@@ -410,6 +435,8 @@
       $('criaturas-contador-menu').textContent=String(registros.length);
       $('criaturas-cantidad').textContent=propios.length+' propios'+
         (oficialesCargados?' · 106 DRS':'');
+      $('criaturas-exportar-biblioteca').disabled=propios.length===0;
+      $('criaturas-exportar-pdf-coleccion').disabled=registros.length===0;
       if(!registros.length) {
         lista.appendChild(ele('p','muted vacio-adversarios',
           'Tu mesa está vacía. Utiliza «Añadir adversario» en el menú de la izquierda.'));
@@ -769,6 +796,7 @@
         ' Puedes editar y exportar fichas individuales.',true);
     }
     $('criaturas-nueva').addEventListener('click',nueva);
+    $('criaturas-filtrar-categoria').addEventListener('input',filtrarCategorias);
     $('criaturas-nueva-panel').addEventListener('click',nueva);
     $('criaturas-ir-importar').addEventListener('click',function(){irA('criaturas-importacion');$('criaturas-texto').focus();});
     $('criaturas-cerrar-importacion').addEventListener('click',function(){
