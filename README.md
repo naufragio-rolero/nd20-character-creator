@@ -45,6 +45,7 @@ Editor de criaturas propias de Naufragio d20: fase 2 técnica disponible en el r
 - Mensajes generados: `assets/app.js`.
 - Internacionalización: `assets/i18n.js` (otros idiomas pendientes).
 - Documentación editorial: `docs/enciclopedia/`.
+- Fuentes canónicas y auditoría de las cuatro pestañas del Bestiario de Ylat: `docs/FUENTES-CANONICAS.md`.
 - Tareas de Forja 1.2: `docs/PLAN-FORJA-1-2.md`.
 - Hoja de ruta de mejoras, tres tandas (legibilidad, seguidores/conjuros y Atributos): `docs/HOJA-RUTA-FORJA-TANDAS-2026-11.md`.
 - Seguidores DRS y preparación de Conjuros (Tanda 2): `docs/SEGUIDORES-Y-CONJUROS-TANDA2.md`.
