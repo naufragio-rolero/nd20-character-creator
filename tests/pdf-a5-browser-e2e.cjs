@@ -57,6 +57,11 @@ async function main(){
       const {width,height}=pg.getSize();
       assert(Math.abs(width-419.528)<1&&Math.abs(height-595.276)<1);
     }
+    // Regresión fase 4: la tercera pestaña no altera la ficha ni su PDF.
+    await page.locator('#tab-criaturas').click();
+    assert.equal(await page.locator('#editor-criaturas').isVisible(),true);
+    await page.locator('#tab-personajes').click();
+    assert.equal(await page.locator('.exportar-pdf-ficha').count(),1);
     assert.deepEqual(errores,[]);
     console.log('OK: navegador Chrome, descarga real '+fname+
       ', '+pdf.getPageCount()+' páginas A5 ('+bytes.length+' bytes)');
