@@ -38,6 +38,10 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#panel-criaturas').isVisible(),true);
     assert.equal(await page.locator('#tab-criaturas').getAttribute('aria-selected'),'true');
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),0);
+    assert.equal((await page.locator('#tab-criaturas').innerText()).trim(),'Adversarios');
+    assert.equal(await page.locator('#criaturas-edicion').evaluate(x=>x.open),false,
+      'La mesa se abre sin mostrar el formulario.');
+    await page.locator('#criaturas-ir-importar').click();
     const texto=[
       'Araña peluda',
       'Alimaña de Nivel 2 [Moral 8], Salud 12',
@@ -66,7 +70,9 @@ async function probar(nombre,tipo,url){
     await page.locator('#criaturas-subcategoria').fill('Animales');
     await page.locator('#criaturas-subtipo').fill('Arácnido');
     await page.locator('#criaturas-guardar').click();
-    await page.locator('#criaturas-estado').getByText('guardada',{exact:false}).waitFor();
+    await page.locator('#criaturas-estado').getByText('guardado',{exact:false}).waitFor();
+    assert.equal(await page.locator('#criaturas-edicion').evaluate(x=>x.open),false);
+    assert.equal(await page.locator('#criaturas-ficha-dialogo').evaluate(x=>x.open),true);
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),1);
     const ficha=await page.evaluate(()=>{
       return JSON.parse(localStorage.getItem('forja-criaturas-usuario-v1')).criaturas[0].ficha;
@@ -78,6 +84,7 @@ async function probar(nombre,tipo,url){
     assert.equal(ficha.talentos[0].nombre,'Tela de araña');
     assert.equal(ficha.origen.textoOriginal,texto);
 
+    await page.locator('#criaturas-ficha-editar').click();
     await page.locator('.criatura-ataque').first().locator('[data-campo="danoLiteral"]')
       .fill('especial');
     assert.equal(await page.locator('.criatura-ataque').first()
@@ -87,16 +94,19 @@ async function probar(nombre,tipo,url){
       localStorage.getItem('forja-criaturas-usuario-v1')).criaturas[0].ficha.ataques[0]);
     assert.equal(editada.danoLiteral,'especial');
     assert.equal(editada.danoNumerico,null);
+    await page.locator('#criaturas-ficha-editar').click();
     const bajar=page.waitForEvent('download');
     await page.locator('#criaturas-exportar-ficha').click();
     const descarga=await bajar;
     assert.equal(JSON.parse(fs.readFileSync(await descarga.path(),'utf8')).nombre,'Araña peluda');
 
-    await page.locator('#criaturas-lista [data-accion="duplicar"]').first().click();
+    await page.locator('#criaturas-cerrar-editor').click();
+    await page.locator('#criaturas-lista .criaturas-cromo').first().click();
+    await page.locator('#criaturas-ficha-duplicar').click();
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),2);
-    assert.match(await page.locator('#criaturas-nombre').inputValue(),/\(copia\)$/);
+    assert.match(await page.locator('#criaturas-ficha-titulo').textContent(),/\(copia\)$/);
     page.once('dialog',d=>d.accept());
-    await page.locator('#criaturas-lista [data-accion="eliminar"]').last().click();
+    await page.locator('#criaturas-ficha-eliminar').click();
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),1);
 
     const bajarTodo=page.waitForEvent('download');
@@ -138,12 +148,14 @@ async function probar(nombre,tipo,url){
     await page.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
     await page.locator('#tab-criaturas').click();
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),2);
-    await page.locator('#criaturas-lista [data-accion="editar"]').first().click();
+    await page.locator('#criaturas-lista .criaturas-cromo').first().click();
+    await page.locator('#criaturas-ficha-editar').click();
     const nombrePrevio=await page.locator('#criaturas-nombre').inputValue();
     await page.locator('#criaturas-nombre').fill('Sin guardar');
     page.once('dialog',d=>d.accept());
     await page.locator('#criaturas-descartar-cambios').click();
     assert.equal(await page.locator('#criaturas-nombre').inputValue(),nombrePrevio);
+    await page.locator('#criaturas-cerrar-editor').click();
     await page.locator('#tab-personajes').click();
     assert.equal(await page.locator('#editor-criaturas').isHidden(),true);
     assert.equal(await page.locator('#resultados-personajes').isVisible(),true);
