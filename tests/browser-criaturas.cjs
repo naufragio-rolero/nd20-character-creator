@@ -103,6 +103,25 @@ async function probar(nombre,tipo,url){
     await page.locator('#criaturas-exportar-biblioteca').click();
     const backup=JSON.parse(fs.readFileSync(await (await bajarTodo).path(),'utf8'));
     assert.equal(backup.criaturas.length,1);
+    await page.locator('#criaturas-archivo-json').setInputFiles({
+      name:'roto.json',mimeType:'application/json',buffer:Buffer.from('{json inválido')
+    });
+    assert.match(await page.locator('#criaturas-estado').textContent(),/JSON válido/);
+    assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),1);
+    const incompatible=structuredClone(backup);
+    incompatible.criaturas[0].ficha.campoDesconocido='prohibido perder';
+    await page.locator('#criaturas-archivo-json').setInputFiles({
+      name:'incompatible.json',mimeType:'application/json',
+      buffer:Buffer.from(JSON.stringify(incompatible),'utf8')
+    });
+    assert.match(await page.locator('#criaturas-estado').textContent(),/Campo JSON desconocido/);
+    assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),1);
+    page.once('dialog',d=>d.dismiss()); // Una copia duplicada rechazada no cambia la biblioteca.
+    await page.locator('#criaturas-archivo-json').setInputFiles({
+      name:'duplicado-rechazado.json',mimeType:'application/json',
+      buffer:Buffer.from(JSON.stringify(backup),'utf8')
+    });
+    assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),1);
     page.once('dialog',d=>d.accept()); // Importación duplicada explícitamente aceptada.
     await page.locator('#criaturas-archivo-json').setInputFiles({
       name:'respaldo.json',mimeType:'application/json',
