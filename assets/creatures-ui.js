@@ -13,6 +13,7 @@
   if (!modelo || !importador || !apiBiblioteca) throw Error('Faltan módulos del Editor de criaturas Nd20.');
   var iniciado = false, biblioteca = null, idActual = null, idConsulta = null, ficha = null;
   var pendiente = null, cambios = false, secuenciaAtaques = 0;
+  var catalogoDRS = null, oficialesCargados = false;
   var d = null;
   function $(id) { return d.getElementById(id); }
   function ele(nodo,clase,texto) {
@@ -256,6 +257,46 @@
     mostrarEstado('Nuevo borrador preparado. Aún no hay nada guardado.');
     abrirEditor();
   }
+  function obtenerFichaConsulta(id){
+    if(String(id).startsWith('drs-')){
+      var registro=catalogoDRS && catalogoDRS.registros.find(function(r){
+        return 'drs-'+r.id===id;
+      });
+      return registro?modelo.nuevaCriatura(registro.ficha):null;
+    }
+    return biblioteca?biblioteca.obtener(id):null;
+  }
+  async function asegurarCatalogoDRS(){
+    if(catalogoDRS)return catalogoDRS;
+    var response=await root.fetch('data/adversarios-drs.json',{cache:'no-store'});
+    if(!response.ok)throw Error('No se pudo consultar el catálogo oficial.');
+    var datos=await response.json();
+    if(datos.fuente!=='Naufragio d20 DRS'||!Array.isArray(datos.registros)||
+       datos.registros.length!==106||
+       datos.registros.some(function(r){
+         return r.fuente!=='Naufragio d20 DRS' ||
+           !modelo.revisar(r.ficha,{paraExportar:true}).valida;
+       }))throw Error('El catálogo DRS no ha superado la validación.');
+    catalogoDRS=datos;
+    var subcategorias=Array.from(new Set(datos.registros.map(function(r){
+      return r.ficha.subcategoria;
+    }).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,'es');});
+    var sugerencias=$('criaturas-subcategorias');
+    sugerencias.textContent='';
+    subcategorias.forEach(function(nombre){
+      var op=ele('option');op.value=nombre;sugerencias.appendChild(op);
+    });
+    return datos;
+  }
+  async function cargarAdversariosDRS(){
+    try {
+      await asegurarCatalogoDRS();
+      oficialesCargados=true;
+      dibujarBiblioteca();
+      mostrarEstado('106 adversarios oficiales del DRS disponibles para consulta; tu biblioteca sigue intacta.');
+      irA('criaturas-biblioteca');
+    }catch(error){mostrarEstado('No se pudo cargar el DRS: '+error.message,true);}
+  }
   function dibujarBiblioteca() {
     var lista=$('criaturas-lista');
     lista.textContent='';
@@ -265,10 +306,15 @@
       return;
     }
     try {
-      var registros=biblioteca.listar();
+      var propios=biblioteca.listar();
+      var registros=propios.concat(oficialesCargados&&catalogoDRS?
+        catalogoDRS.registros.map(function(r) {
+          return {id:'drs-'+r.id,nombre:r.nombre,categoria:r.ficha.categoria,
+            nivel:r.ficha.puntuaciones.nivel,oficial:true};
+        }):[]);
       $('criaturas-contador-menu').textContent=String(registros.length);
-      $('criaturas-cantidad').textContent=registros.length+
-        (registros.length===1?' adversario':' adversarios');
+      $('criaturas-cantidad').textContent=propios.length+' propios'+
+        (oficialesCargados?' · 106 DRS':'');
       if(!registros.length) {
         lista.appendChild(ele('p','muted vacio-adversarios',
           'Tu mesa está vacía. Utiliza «Añadir adversario» en el menú de la izquierda.'));
@@ -282,13 +328,16 @@
         item.dataset.categoria=(registro.categoria||'').toLocaleLowerCase('es')
           .normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,'-');
         item.setAttribute('aria-label','Consultar '+registro.nombre+
-          ', '+(registro.nivel==null?'Nivel sin indicar':'Nivel '+registro.nivel));
+          ', '+(registro.nivel==null?'Nivel sin indicar':'Nivel '+registro.nivel)+
+          (registro.oficial?', ficha oficial DRS':''));
+        if(registro.oficial)item.dataset.oficial='true';
         var sigla=(registro.categoria||'?').split(/\s+/).map(function(p){return p[0];})
           .join('').slice(0,2).toLocaleUpperCase('es');
         item.appendChild(ele('span','criaturas-emblema',sigla));
         item.appendChild(ele('span','criaturas-nombre',registro.nombre));
         item.appendChild(ele('span','criaturas-nivel',
-          registro.nivel==null?'Nivel —':'Nivel '+registro.nivel));
+          (registro.oficial?'DRS · ':'')+
+          (registro.nivel==null?'Nivel —':'Nivel '+registro.nivel)));
         lista.appendChild(item);
       });
     } catch(error) {
@@ -296,8 +345,7 @@
     }
   }
   function mostrarFichaCompleta(id) {
-    if(!biblioteca)return;
-    var dato=biblioteca.obtener(id);
+    var dato=obtenerFichaConsulta(id);
     if(!dato){mostrarEstado('Este adversario ya no existe.',true);return;}
     idConsulta=id;
     var cont=$('criaturas-ficha-contenido');
@@ -355,7 +403,11 @@
       articulo.appendChild(ele('p','',dato.camposNoInterpretados.join('\n')));
     }
     cont.appendChild(articulo);
-    $('criaturas-ficha-titulo').textContent=dato.nombre;
+    $('criaturas-ficha-titulo').textContent=dato.nombre+
+      (String(id).startsWith('drs-')?' · DRS oficial':'');
+    $('criaturas-ficha-editar').textContent=String(id).startsWith('drs-')?
+      'Crear copia editable':'Editar';
+    $('criaturas-ficha-eliminar').hidden=String(id).startsWith('drs-');
     $('criaturas-ficha-dialogo').showModal();
   }
   function irA(id) {
@@ -470,8 +522,14 @@
   function recuperar(id) {
     if(!biblioteca || !permitirDescartar()) return;
     try{
-      var datos=biblioteca.obtener(id);
+      var oficial=String(id).startsWith('drs-');
+      var datos=obtenerFichaConsulta(id);
       if(!datos)throw Error('La ficha ya no existe.');
+      if(oficial){
+        datos.origen.tipo='drs_copia_personal';
+        id=biblioteca.guardar(datos);
+        dibujarBiblioteca();
+      }
       renderizarFicha(datos,id);
       irA('criaturas-edicion');
       mostrarEstado('Adversario recuperado de la biblioteca.');
@@ -480,7 +538,7 @@
   function duplicar(id) {
     if(!biblioteca || !permitirDescartar())return;
     try {
-      var datos=biblioteca.obtener(id);
+      var datos=obtenerFichaConsulta(id);
       if(!datos)throw Error('La ficha ya no existe.');
       datos.nombre+=' (copia)';
       var nuevoId=biblioteca.guardar(datos);
@@ -614,12 +672,17 @@
     });
     $('criaturas-ficha-json').addEventListener('click',function(){
       try{
-        var dato=biblioteca.obtener(idConsulta);
+        var dato=obtenerFichaConsulta(idConsulta);
         descargar('adversario-'+idConsulta+'.json',JSON.stringify(dato,null,2));
         mostrarEstado('Ficha exportada como JSON.');
       }catch(error){mostrarEstado(error.message,true);}
     });
     $('criaturas-ir-biblioteca').addEventListener('click',function(){irA('criaturas-biblioteca');});
+    $('criaturas-cargar-drs').addEventListener('click',cargarAdversariosDRS);
+    // Cargar solo referencias en memoria: la mesa sigue vacía hasta que se solicite el DRS.
+    asegurarCatalogoDRS().catch(function(){
+      // La biblioteca local sigue siendo utilizable sin el catálogo de referencia.
+    });
     $('criaturas-analizar').addEventListener('click',vistaPrevia);
     $('criaturas-texto').addEventListener('input',function(){
       if(!pendiente)return;
