@@ -69,6 +69,16 @@
     function aviso(campo, codigo, mensaje) {
       advertencias.push({campo:campo, codigo:codigo, mensaje:mensaje});
     }
+    // Un JSON de versión 1 con propiedades desconocidas no puede editarse
+    // sin perderlas: rechazarlo explícitamente antes de incorporarlo.
+    function comprobarCampos(objeto, admitidos, prefijo) {
+      if (!objeto || typeof objeto !== 'object' || Array.isArray(objeto)) return;
+      Object.keys(objeto).forEach(function (clave) {
+        if (admitidos.indexOf(clave) === -1)
+          error(prefijo ? prefijo + '.' + clave : clave,
+            'Campo JSON desconocido en la versión 1; no se ha descartado.');
+      });
+    }
     if (!c || typeof c !== 'object' || Array.isArray(c)) {
       error('', 'La criatura debe ser un objeto.');
       return {valida:false, errores:errores, advertencias:advertencias};
@@ -76,6 +86,9 @@
     if (c.version !== VERSION) error('version', 'Versión de ficha desconocida.');
     if (c.sistema !== 'nd20') error('sistema', 'Sistema no admitido.');
     if (c.tipo !== 'criatura_usuario') error('tipo', 'Solo criaturas creadas por usuarios.');
+    comprobarCampos(c, ['version','sistema','tipo','nombre','categoria',
+      'subcategoria','subtipo','puntuaciones','ataques','talentos',
+      'descripcion','notas','camposNoInterpretados','origen'], '');
     ['nombre','categoria','subcategoria','subtipo','descripcion','notas'].forEach(function (k) {
       if (typeof c[k] !== 'string') error(k, 'Debe ser texto.');
     });
@@ -86,9 +99,10 @@
         Array.isArray(c.puntuaciones)) {
       error('puntuaciones', 'Faltan las puntuaciones.');
     } else {
+      comprobarCampos(c.puntuaciones, PUNTUACIONES, 'puntuaciones');
       PUNTUACIONES.forEach(function (k) {
         var v = c.puntuaciones[k];
-        if (v !== null && v !== undefined && (!Number.isInteger(v) || v < 0))
+        if (v !== null && v !== undefined && (!Number.isSafeInteger(v) || v < 0))
           error('puntuaciones.' + k, 'Debe ser un entero no negativo o quedar sin indicar.');
       });
     }
@@ -102,6 +116,9 @@
           error(p, 'El ataque debe ser un objeto.');
           return;
         }
+        comprobarCampos(a, ['id','conectorAnterior','cantidad','nombre',
+          'danoLiteral','danoNumerico','notas','segmentoOriginal',
+          'talentoRelacionado'], p);
         if (CONECTORES.indexOf(a.conectorAnterior) === -1)
           error(p + '.conectorAnterior', 'Conector desconocido.');
         if ((i === 0 && a.conectorAnterior !== 'Inicio') ||
@@ -112,13 +129,13 @@
         if (a.conectorAnterior === ',')
           aviso(p + '.conectorAnterior', 'coma_por_revisar',
             'La coma no permite determinar la agrupación sin revisión.');
-        if (!Number.isInteger(a.cantidad) || a.cantidad < 1)
+        if (!Number.isSafeInteger(a.cantidad) || a.cantidad < 1)
           error(p + '.cantidad', 'La cantidad debe ser un entero positivo.');
         ['id','nombre','danoLiteral','notas','segmentoOriginal'].forEach(function (k) {
           if (typeof a[k] !== 'string') error(p + '.' + k, 'Debe ser texto.');
         });
         if (a.danoNumerico !== null && a.danoNumerico !== undefined &&
-            (!Number.isInteger(a.danoNumerico) || a.danoNumerico < 0))
+            (!Number.isSafeInteger(a.danoNumerico) || a.danoNumerico < 0))
           error(p + '.danoNumerico', 'Debe ser un entero no negativo o nulo.');
         if (a.talentoRelacionado != null && typeof a.talentoRelacionado !== 'string')
           error(p + '.talentoRelacionado', 'Debe ser texto o nulo.');
@@ -142,6 +159,7 @@
         error(p, 'Debe ser un objeto.');
         return;
       }
+      comprobarCampos(t, ['nombre','descripcion','textoOriginal','referencia'], p);
       ['nombre','descripcion','textoOriginal'].forEach(function (k) {
         if (typeof t[k] !== 'string') error(p + '.' + k, 'Debe ser texto.');
       });
@@ -154,6 +172,7 @@
     else if (c.camposNoInterpretados.length)
       aviso('camposNoInterpretados', 'contenido_pendiente',
         'Hay campos sin interpretar que necesitan revisión.');
+    comprobarCampos(c.origen, ['tipo','textoOriginal'], 'origen');
     if (!c.origen || typeof c.origen.tipo !== 'string' ||
         typeof c.origen.textoOriginal !== 'string')
       error('origen', 'Hay que conservar la procedencia y el original.');
