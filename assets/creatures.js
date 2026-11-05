@@ -8,6 +8,16 @@
   'use strict';
   var VERSION = 1;
   var CONECTORES = ['Inicio', 'y', 'o', ','];
+  // Nombres documentados del DRS. La lista es cerrada en la creación.
+  var CATEGORIAS = ['Aberrante','Alimaña','Autómata','Bestia','Celestial',
+    'Demonio','Dragón','Elemental','Fata','Gigante','Humanoide',
+    'Monstruo','Muerto viviente','Limo','Reptil','Vegetal'];
+  function saludMedia(nivel,ajuste) {
+    if (!Number.isSafeInteger(nivel) || nivel < 0 || nivel > 100 ||
+        !Number.isSafeInteger(ajuste))
+      throw Error('Nivel o ajuste de Salud no válidos.');
+    return (nivel * 4) + (ajuste * 4);
+  }
   var PUNTUACIONES = ['nivel', 'moral', 'salud', 'blindaje', 'movimiento', 'tamano'];
 
   function texto(v) { return typeof v === 'string' ? v : ''; }
@@ -50,6 +60,10 @@
       subcategoria: texto(d.subcategoria),
       subtipo: texto(d.subtipo),
       puntuaciones: puntuaciones,
+      // Opcionales dentro del JSON v1: los JSON antiguos mantienen su Salud literal.
+      saludModo: d.saludModo === 'automatico' || d.saludModo === 'manual' ?
+        d.saludModo : puntuaciones.salud == null ? 'automatico' : 'manual',
+      saludAjuste: Number.isSafeInteger(d.saludAjuste) ? d.saludAjuste : 0,
       ataques: Array.isArray(d.ataques) ? d.ataques.map(ataque) : [],
       talentos: Array.isArray(d.talentos) ? d.talentos.map(talento) : [],
       descripcion: texto(d.descripcion),
@@ -88,7 +102,16 @@
     if (c.tipo !== 'criatura_usuario') error('tipo', 'Solo criaturas creadas por usuarios.');
     comprobarCampos(c, ['version','sistema','tipo','nombre','categoria',
       'subcategoria','subtipo','puntuaciones','ataques','talentos',
-      'descripcion','notas','camposNoInterpretados','origen'], '');
+      'descripcion','notas','camposNoInterpretados','origen',
+      'saludModo','saludAjuste'], '');
+    if (c.saludModo !== undefined &&
+        c.saludModo !== 'automatico' && c.saludModo !== 'manual')
+      error('saludModo', 'Modo de Salud no admitido.');
+    if (c.saludAjuste !== undefined && !Number.isSafeInteger(c.saludAjuste))
+      error('saludAjuste', 'El ajuste de Salud debe ser un entero (puede ser negativo).');
+    if (c.puntuaciones && Number.isSafeInteger(c.puntuaciones.nivel) &&
+        c.puntuaciones.nivel > 100)
+      error('puntuaciones.nivel', 'El límite documentado para adversarios es Nivel 100.');
     ['nombre','categoria','subcategoria','subtipo','descripcion','notas'].forEach(function (k) {
       if (typeof c[k] !== 'string') error(k, 'Debe ser texto.');
     });
@@ -179,6 +202,7 @@
     return {valida:errores.length === 0, errores:errores, advertencias:advertencias};
   }
   return {VERSION:VERSION, CONECTORES:CONECTORES.slice(),
+    CATEGORIAS:CATEGORIAS.slice(),saludMedia:saludMedia,
     PUNTUACIONES:PUNTUACIONES.slice(), nuevaCriatura:nuevaCriatura,
     ataque:ataque, talento:talento, revisar:revisar};
 });
