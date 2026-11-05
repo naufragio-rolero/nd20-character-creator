@@ -33,6 +33,7 @@
   <script defer src="assets/creatures-import.js"></script>
   <script defer src="assets/creatures-library.js"></script>
   <script defer src="assets/creatures-ui.js"></script>
+  <script defer src="assets/adversarios-pdf.js"></script>
   <script defer src="assets/app.js"></script>
 </head>
 <body>
@@ -614,6 +615,7 @@
           <select id="criaturas-sistema"><option value="nd20">Naufragio d20 · Fantasía Épica</option></select></div>
         <div class="criaturas-acciones">
           <button type="button" id="criaturas-exportar-biblioteca">Exportar colección JSON</button>
+          <button type="button" id="criaturas-exportar-pdf-coleccion">Exportar colección PDF</button>
           <label class="criaturas-archivo" for="criaturas-archivo-json">Importar JSON
             <input type="file" id="criaturas-archivo-json" accept=".json,application/json">
           </label>
@@ -746,6 +748,7 @@
           <button type="button" id="criaturas-ficha-editar" class="principal">Editar</button>
           <button type="button" id="criaturas-ficha-duplicar">Duplicar</button>
           <button type="button" id="criaturas-ficha-json">Exportar JSON</button>
+          <button type="button" id="criaturas-ficha-pdf">Exportar PDF</button>
           <button type="button" id="criaturas-ficha-eliminar">Eliminar</button>
         </div>
       </dialog>
