@@ -563,6 +563,31 @@
       mostrarEstado('Biblioteca exportada como JSON.');
     } catch(error){mostrarEstado('No se pudo exportar: '+error.message,true);}
   }
+  async function exportarPdfIndividual(){
+    try{
+      var ficha=obtenerFichaConsulta(idConsulta);
+      if(!ficha)throw Error('No se encuentra la ficha solicitada.');
+      var paginas=await root.NaufragioPdfAdversarios.descargar([ficha],
+        'adversario-'+root.NaufragioPdfAdversarios.slug(ficha.nombre)+'.pdf');
+      mostrarEstado('PDF individual preparado ('+paginas+' páginas).');
+    }catch(error){mostrarEstado('No se pudo exportar el PDF: '+error.message,true);}
+  }
+  async function exportarPdfColeccion(){
+    try{
+      var fichas=biblioteca?biblioteca.listar().map(function(x){
+        return biblioteca.obtener(x.id);
+      }):[];
+      if(oficialesCargados&&catalogoDRS)
+        fichas=fichas.concat(catalogoDRS.registros.map(function(r){
+          return modelo.nuevaCriatura(r.ficha);
+        }));
+      if(!fichas.length)throw Error('La mesa de adversarios está vacía.');
+      var paginas=await root.NaufragioPdfAdversarios.descargar(fichas,
+        'naufragio-d20-coleccion-adversarios.pdf');
+      mostrarEstado('Colección PDF preparada: '+fichas.length+
+        ' adversarios en '+paginas+' páginas.');
+    }catch(error){mostrarEstado('No se pudo exportar la colección PDF: '+error.message,true);}
+  }
   function vistaPrevia() {
     try {
       var analisis=importador.descomponerTexto($('criaturas-texto').value);
@@ -839,6 +864,8 @@
     $('criaturas-formulario').addEventListener('submit',guardar);
     $('criaturas-exportar-ficha').addEventListener('click',exportarFicha);
     $('criaturas-exportar-biblioteca').addEventListener('click',exportarBiblioteca);
+    $('criaturas-exportar-pdf-coleccion').addEventListener('click',exportarPdfColeccion);
+    $('criaturas-ficha-pdf').addEventListener('click',exportarPdfIndividual);
     $('criaturas-archivo-json').addEventListener('change',importarJson);
     $('criaturas-lista').addEventListener('click',gestionarLista);
     $('criaturas-descartar-cambios').addEventListener('click',descartarCambios);
