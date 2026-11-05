@@ -1151,7 +1151,10 @@ require('./tanda2.js');
 /* Compra competente y Técnicas exclusivas, sin inventar requisitos de uso. */
 require('./elegibilidad-tecnicas-armamento.js');
 
-/* Editor de criaturas: contrato semántico fase 1. */
+/* Editor de criaturas: fase 4 no debe precargar adversarios oficiales. */
+const modeloCriaturas=require('../assets/creatures.js');
+assert.deepEqual(modeloCriaturas.nuevaCriatura().ataques,[]);
+assert.deepEqual(modeloCriaturas.nuevaCriatura().talentos,[]);
 require('./criaturas-modelo.js');
 
 /* Editor de criaturas: importación y biblioteca local (fase 2). */

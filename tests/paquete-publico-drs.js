@@ -281,6 +281,16 @@ assert.ok(html.includes('id="abrir-configuracion"'));
 assert.ok(html.includes('id="dialogo-configuracion"'));
 assert.ok(html.includes('id="resumen-nivel"'));
 assert.ok(html.includes('id="informacion-avanzada"'));
+assert.ok(html.includes('id="tab-criaturas"'));
+for(const modulo of ['creatures.js','creatures-import.js',
+  'creatures-library.js','creatures-ui.js']){
+  const ruta='assets/'+modulo;
+  assert.ok(html.includes(ruta),'El HTML incluye '+ruta);
+  assert.ok(fs.existsSync(path.join(salida,ruta)),'El paquete sirve '+ruta);
+}
+assert.deepEqual(fs.readdirSync(path.join(salida,'data'))
+  .filter(nombre=>/^(?:criaturas|bestiario)/i.test(nombre)),[],
+  'El paquete DRS no publica el bestiario oficial ni tablas de auditoría.');
 // El PDF A5 se distribuye completo con el paquete DRS; no depende de CDN ni del árbol de desarrollo.
 const pdfA5=[
   'assets/pdf-export-v2.js','assets/pdf-export-browser.js',
@@ -423,6 +433,13 @@ const temporal=fs.mkdtempSync(
 try{
   fs.cpSync(salida,temporal,{recursive:true});
   const scriptGuardia=path.join(raiz,'scripts','comprobar-publicacion-drs.js');
+  const moduloCriaturas=path.join(temporal,'assets','creatures-ui.js');
+  fs.rmSync(moduloCriaturas);
+  const sinEditor=spawnSync(process.execPath,[scriptGuardia,temporal],
+    {encoding:'utf8'});
+  assert.equal(sinEditor.status,1,'Un Editor incompleto bloquea el paquete DRS');
+  assert.match(sinEditor.stderr,/Falta archivo requerido.*creatures-ui\.js/);
+  fs.copyFileSync(path.join(salida,'assets','creatures-ui.js'),moduloCriaturas);
   const archivoUno=path.join(temporal,'data','conjuros-revisados-001-225.json');
   const originalUno=fs.readFileSync(archivoUno,'utf8');
   const mutado=JSON.parse(originalUno);

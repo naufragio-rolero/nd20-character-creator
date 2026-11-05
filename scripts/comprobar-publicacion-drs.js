@@ -39,6 +39,8 @@ const requeridos=[
   'index.html','assets/styles.css',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/icons/LICENCIA-TABLER.txt',
+  'assets/creatures.js','assets/creatures-import.js',
+  'assets/creatures-library.js','assets/creatures-ui.js',
   'assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/names.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/favicon.svg',
@@ -97,6 +99,12 @@ const encabezadoPdf=fs.existsSync(path.join(raiz,'index.html'))?
   fs.readFileSync(path.join(raiz,'index.html'),'utf8'):'';
 afirmar(!encabezadoPdf.includes('assets/pdf-export-browser.js'),
   'Falta módulo de descarga PDF A5 en el HTML público.');
+afirmar(!encabezadoPdf.includes('id="tab-criaturas"'),
+  'El paquete no incluye la pestaña pública del Editor de criaturas.');
+for(const modulo of ['creatures.js','creatures-import.js',
+  'creatures-library.js','creatures-ui.js'])
+  afirmar(!encabezadoPdf.includes('assets/'+modulo),
+    'Falta carga del módulo público del Editor: '+modulo);
 // El lanzamiento público habilita exclusivamente Fantasía DRS y Dungeon Hack.
 // No basta ocultar botones por CSS: tampoco deben existir opciones nativas.
 const indexHtml=fs.existsSync(path.join(raiz,'index.html'))?

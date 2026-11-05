@@ -333,7 +333,14 @@
     }
   }
   function aplicarPrevia() {
-    if(!pendiente || !permitirDescartar())return;
+    if(!pendiente)return;
+    if(pendiente.criatura.origen.textoOriginal!==$('criaturas-texto').value){
+      pendiente=null;
+      $('criaturas-vista-previa').hidden=true;
+      mostrarEstado('El texto ha cambiado. Analízalo de nuevo antes de aplicarlo.',true);
+      return;
+    }
+    if(!permitirDescartar())return;
     var resultado=pendiente;
     renderizarFicha(resultado.criatura,null);
     cambios=true;
@@ -367,6 +374,7 @@
     }catch(error){mostrarEstado('No se pudo duplicar: '+error.message,true);}
   }
   function eliminar(id) {
+    if(idActual===id && !permitirDescartar())return;
     if(!biblioteca || typeof root.confirm!=='function' ||
       !root.confirm('¿Eliminar esta criatura de tu biblioteca local? Esta acción no se puede deshacer.'))return;
     try {
@@ -399,6 +407,29 @@
       if(!biblioteca)throw Error('No se dispone de almacenamiento local.');
       if(archivo.size>5000000)throw Error('El JSON supera el límite de 5 MB.');
       var contenido=await archivo.text();
+      // Las copias idénticas son legítimas, pero nunca deben añadirse sin aviso.
+      var importado;
+      try { importado=JSON.parse(contenido); } catch(error) { importado=null; }
+      var fichas=importado && importado.tipo===apiBiblioteca.TIPO ?
+        importado.criaturas : importado && importado.tipo==='criatura_usuario' ?
+        [{ficha:importado}] : [];
+      var existentes=new Set(biblioteca.listar().map(function(r){
+        return JSON.stringify(modelo.nuevaCriatura(biblioteca.obtener(r.id)));
+      }));
+      var importados=new Set(), duplicados=0;
+      fichas.forEach(function(r){
+        if(!r || !r.ficha ||
+            !modelo.revisar(r.ficha,{paraExportar:true}).valida)return;
+        var huella=JSON.stringify(modelo.nuevaCriatura(r.ficha));
+        if(existentes.has(huella)||importados.has(huella))duplicados++;
+        importados.add(huella);
+      });
+      if(duplicados && (typeof root.confirm!=='function' ||
+          !root.confirm('El archivo contiene '+duplicados+' criaturas ya presentes. '+
+            '¿Quieres importar otras copias?'))) {
+        mostrarEstado('Importación cancelada: no se han modificado las criaturas.');
+        return;
+      }
       var ids=biblioteca.importarJson(contenido); // Añade: nunca reemplaza sin autorización.
       dibujarBiblioteca();
       mostrarEstado('Importación completada: '+ids.length+' criaturas añadidas.');
@@ -444,6 +475,12 @@
     $('criaturas-ir-importar').addEventListener('click',function(){irA('criaturas-importacion');$('criaturas-texto').focus();});
     $('criaturas-ir-biblioteca').addEventListener('click',function(){irA('criaturas-biblioteca');});
     $('criaturas-analizar').addEventListener('click',vistaPrevia);
+    $('criaturas-texto').addEventListener('input',function(){
+      if(!pendiente)return;
+      pendiente=null;
+      $('criaturas-vista-previa').hidden=true;
+      mostrarEstado('El texto pegado ha cambiado. Analízalo de nuevo.');
+    });
     $('criaturas-aplicar-previa').addEventListener('click',aplicarPrevia);
     $('criaturas-descartar-previa').addEventListener('click',function(){
       pendiente=null;$('criaturas-vista-previa').hidden=true;
