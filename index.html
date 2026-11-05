@@ -614,8 +614,8 @@
         <div class="campo criaturas-sistema"><label for="criaturas-sistema">Sistema del bestiario</label>
           <select id="criaturas-sistema"><option value="adversarios-drs">Naufragio d20 · Fantasía Épica</option></select></div>
         <div class="criaturas-acciones">
-          <button type="button" id="criaturas-exportar-biblioteca">Exportar colección JSON</button>
-          <button type="button" id="criaturas-exportar-pdf-coleccion">Exportar colección PDF</button>
+          <button type="button" id="criaturas-exportar-biblioteca" disabled>Exportar colección JSON</button>
+          <button type="button" id="criaturas-exportar-pdf-coleccion" disabled>Exportar colección PDF</button>
           <label class="criaturas-archivo" for="criaturas-archivo-json">Importar JSON
             <input type="file" id="criaturas-archivo-json" accept=".json,application/json">
           </label>
@@ -638,6 +638,8 @@
             <div class="campo criaturas-nombre"><label for="criaturas-nombre">Nombre *</label>
               <input id="criaturas-nombre" type="text" maxlength="160" required></div>
             <div class="campo"><label for="criaturas-categoria">Categoría *</label>
+              <input id="criaturas-filtrar-categoria" type="search" autocomplete="off"
+                aria-label="Buscar entre las 16 categorías oficiales" placeholder="Buscar categoría…">
               <select id="criaturas-categoria" required>
                 <option value="">Selecciona categoría</option>
                 <option value="Aberrante">Aberrante</option>
