@@ -58,7 +58,7 @@
       <h2>La forja</h2>
       <div class="pestanas-panel" role="tablist" aria-label="Panel de la forja">
         <button type="button" id="tab-personajes" role="tab" aria-controls="panel-personajes" aria-selected="true" class="activa">Personajes</button>
-        <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false" tabindex="-1">Herramientas</button>
+        <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false" tabindex="-1">Seguidores</button>
         <button type="button" id="tab-criaturas" role="tab" aria-controls="panel-criaturas" aria-selected="false" tabindex="-1">Criaturas</button>
       </div>
       <div class="campo campo-sistema-global" id="selector-sistema-global">
@@ -109,6 +109,7 @@
         aria-controls="dialogo-configuracion">
         Usar semilla <span id="estado-uso-semilla" class="estado-semilla">Desactivada</span>
       </button>
+      <button id="abrir-matriz" type="button" class="configurar-creacion" aria-haspopup="dialog" aria-controls="dialogo-matriz">Matriz de Atributos</button>
       <dialog id="dialogo-configuracion" class="dialogo-configuracion"
         aria-labelledby="titulo-dialogo-configuracion">
         <div class="cabecera-configuracion">
@@ -234,12 +235,32 @@
         </div>
       </form>
       </dialog>
+      <dialog id="dialogo-matriz" class="dialogo-compras dialogo-matriz" aria-labelledby="titulo-dialogo-matriz">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-dialogo-matriz">Matriz de Atributos</h3>
+            <p class="muted">Genera seis Atributos con las reglas del sistema seleccionado. Cada resultado también se incorpora a la mesa.</p>
+          </div>
+          <button id="cerrar-matriz" type="button" class="cerrar-rejilla" aria-label="Cerrar Matriz de Atributos">✕</button>
+        </div>
+        <div class="matriz-acciones">
+          <button id="generar-matriz" type="button" class="principal">Generar matriz</button>
+        </div>
+        <p id="aviso-matriz" role="alert" class="aviso-validacion" aria-live="assertive"></p>
+        <div id="vista-matriz" class="vista-matriz" tabindex="-1" hidden></div>
+      </dialog>
       </div>
       <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
-        <h3>Herramientas del Cronista</h3>
         <section id="resumen-seguidores" class="resumen-creacion resumen-seguidores"
           aria-labelledby="titulo-resumen-seguidores">
-          <h4 id="titulo-resumen-seguidores">Seguidores preparados</h4>
+          <div class="cabecera-resumen-seguidores">
+            <h4 id="titulo-resumen-seguidores">Seguidores preparados</h4>
+            <button id="configurar-seguidores" type="button" class="configurar-seguidores-icono"
+              aria-label="Configurar seguidores" title="Configurar seguidores"
+              aria-haspopup="dialog" aria-controls="dialogo-seguidores">
+              <span class="icono-svg" aria-hidden="true"></span>
+            </button>
+          </div>
           <dl>
             <div><dt>Nivel</dt><dd id="resumen-seguidor-nivel">Nivel 1</dd></div>
             <div><dt>Profesión</dt><dd id="resumen-seguidor-profesion">Aleatoria (d12)</dd></div>
@@ -249,16 +270,10 @@
             <div><dt>Aventuras</dt><dd id="resumen-seguidor-aventuras">Según el DRS</dd></div>
           </dl>
         </section>
-        <button id="configurar-seguidores" type="button" class="configurar-creacion"
-          aria-haspopup="dialog" aria-controls="dialogo-seguidores">
-          <span class="icono-svg" aria-hidden="true"></span>
-          Configurar seguidores
-        </button>
         <div class="botonera">
           <button id="generar-seguidor" type="button">Generar seguidor</button>
-          <button id="generar-matriz" type="button">Matriz de Atributos</button>
         </div>
-        <small>Seguidores disponibles para Naufragio d20 DRS y Dungeon Hack, con reglas independientes. La matriz es una ayuda separada.</small>
+        <small>Seguidores disponibles para Naufragio d20 DRS y Dungeon Hack, con reglas independientes.</small>
       </section>
       <section id="panel-criaturas" role="tabpanel" aria-labelledby="tab-criaturas" class="herramientas" hidden>
         <h3>Criaturas · Naufragio d20</h3>
