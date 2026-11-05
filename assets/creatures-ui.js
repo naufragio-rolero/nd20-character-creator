@@ -271,6 +271,8 @@
     var response=await root.fetch('data/adversarios-drs.json',{cache:'no-store'});
     if(!response.ok)throw Error('No se pudo consultar el catálogo oficial.');
     var datos=await response.json();
+    if(Array.isArray(datos.registros))datos.registros=datos.registros.map(
+      modelo.normalizarFuenteDRS);
     if(datos.fuente!=='Naufragio d20 DRS'||!Array.isArray(datos.registros)||
        datos.registros.length!==106||
        datos.registros.some(function(r){
