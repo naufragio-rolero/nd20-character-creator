@@ -43,6 +43,14 @@ const mal=JSON.parse(antes);
 mal.criaturas.push({id:'criatura-99',ficha:modelo.nuevaCriatura()});
 assert.throws(()=>biblioteca.importarJson(JSON.stringify(mal)),/necesita un nombre/);
 assert.equal(biblioteca.exportarJson(),antes);
+const futura=modelo.nuevaCriatura({nombre:'Ficha con datos adicionales'});
+futura.desconocido={texto:'no descartar'};
+assert.throws(()=>biblioteca.importarJson(JSON.stringify(futura)),/Campo JSON desconocido/);
+assert.equal(biblioteca.exportarJson(),antes);
+const cuotas=api.crearBiblioteca({getItem:()=>null,
+  setItem:()=>{throw Error('QuotaExceededError');},removeItem:()=>{}});
+assert.throws(()=>cuotas.guardar(ficha),/No se pudo guardar/);
+assert.deepEqual(cuotas.listar(),[]);
 assert.deepEqual(biblioteca.importarJson(biblioteca.exportarJson('criatura-2'),
   {reemplazar:true}),['criatura-1']);
 assert.equal(biblioteca.listar().length,1);
