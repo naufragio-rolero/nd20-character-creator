@@ -589,15 +589,15 @@
       <p id="criaturas-estado" class="estado" role="status" aria-live="polite"></p>
       <section class="criaturas-bloque" id="criaturas-importacion" hidden aria-labelledby="criaturas-titulo-importacion">
         <div class="criaturas-subcabecera"><h3 id="criaturas-titulo-importacion">Pegar una ficha</h3><button type="button" id="criaturas-cerrar-importacion">Cerrar</button></div>
-        <p class="muted">Pega el texto de una sola criatura Nd20. Analizaremos sus puntuaciones, ataques y Talentos; nada se guardará hasta que revises el borrador.</p>
-        <label for="criaturas-texto">Texto completo de la criatura</label>
-        <textarea id="criaturas-texto" rows="6" spellcheck="false" placeholder="Nombre de la criatura&#10;Bestia de Nivel 4 [Moral 8], Salud 20&#10;Ataques: 2 garras (6) o mordisco (9)"></textarea>
+        <p class="muted">Pega el texto de un adversario Nd20. Analizaremos sus puntuaciones, ataques y Talentos; nada se guardará hasta que revises el borrador.</p>
+        <label for="criaturas-texto">Texto completo del adversario</label>
+        <textarea id="criaturas-texto" rows="6" spellcheck="false" placeholder="Nombre del adversario&#10;Bestia de Nivel 4 [Moral 8], Salud 20&#10;Ataques: 2 garras (6) o mordisco (9)"></textarea>
         <div class="criaturas-acciones">
           <button type="button" id="criaturas-analizar" class="principal">Analizar ficha pegada</button>
         </div>
         <section id="criaturas-vista-previa" aria-labelledby="criaturas-titulo-previa" hidden>
           <h4 id="criaturas-titulo-previa">Vista previa del desglose</h4>
-          <p class="muted">Los campos marcados como dudosos requieren revisión. Aceptar esta vista previa no guarda todavía la criatura.</p>
+          <p class="muted">Los campos marcados como dudosos requieren revisión. Aceptar esta vista previa no guarda todavía el adversario.</p>
           <pre id="criaturas-resumen-previa"></pre>
           <div id="criaturas-advertencias-previa" class="criaturas-avisos" aria-live="polite"></div>
           <div class="criaturas-acciones">
@@ -620,15 +620,15 @@
             <input type="file" id="criaturas-archivo-json" accept=".json,application/json">
           </label>
         </div>
-        <p class="criaturas-ayuda-json">La importación añade criaturas sin sobrescribir las existentes. Los registros se validan antes de guardarlos.</p>
+        <p class="criaturas-ayuda-json">La importación añade adversarios sin sobrescribir los existentes. Los registros se validan antes de guardarlos.</p>
         <div id="criaturas-lista" class="criaturas-lista" aria-live="polite">
-          <p class="muted">Todavía no has guardado criaturas.</p>
+          <p class="muted">Todavía no has guardado adversarios.</p>
         </div>
       </section>
       <dialog class="criaturas-bloque dialogo-adversario" id="criaturas-edicion" aria-labelledby="criaturas-titulo-edicion">
         <div class="criaturas-edicion-cabecera">
           <div>
-            <h3 id="criaturas-titulo-edicion">Nueva criatura</h3>
+            <h3 id="criaturas-titulo-edicion">Nuevo adversario</h3>
             <p id="criaturas-edicion-nota" class="muted">Los campos desconocidos pueden quedar sin indicar.</p>
           </div>
           <div class="criaturas-acciones"><button type="button" id="criaturas-nueva">Nuevo adversario</button><button type="button" id="criaturas-cerrar-editor" class="cerrar-rejilla" aria-label="Cerrar editor de adversarios">✕</button></div>
@@ -665,7 +665,7 @@
           <h4>Puntuaciones</h4>
           <p class="muted">Se guardan exactamente los valores indicados. Un campo vacío significa que no está documentado.</p>
           <div class="criaturas-campos criaturas-numeros">
-            <div class="campo"><label for="criaturas-nivel">Nivel</label><input id="criaturas-nivel" type="number" min="0" step="1"></div>
+            <div class="campo"><label for="criaturas-nivel">Nivel</label><input id="criaturas-nivel" type="number" min="0" max="100" step="1"></div>
             <div class="campo"><label for="criaturas-moral">Moral</label><input id="criaturas-moral" type="number" min="0" step="1"></div>
             <div class="campo"><label for="criaturas-salud">Salud</label><input id="criaturas-salud" type="number" min="0" step="1"></div>
             <div class="campo"><label for="criaturas-salud-modo">Cálculo de Salud</label>
