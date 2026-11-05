@@ -1,7 +1,7 @@
 # La Forja — Editor de criaturas Nd20
 
 **Seguimiento:** https://github.com/naufragio-rolero/nd20-character-creator/issues/96  
-**Estado:** fase 2 · Importación conservadora y biblioteca local en rama de desarrollo. Sin interfaz visible ni publicación LIVE.
+**Estado:** fase 2 · Importación conservadora y biblioteca local implementadas. Interfaz visible pendiente de fase 3; sin publicación LIVE.
 
 ## Principio de producto
 
@@ -105,3 +105,7 @@ Esto es un motor local, sin cuentas, nube, envío de criaturas ni repositorio co
 - node tests/smoke.js: ejecuta también estas dos suites además de todas las pruebas existentes.
 
 La fase 2 NO incluye todavía la pestaña y formularios visibles de «Criaturas», confirmación de un desglose ni publicación LIVE. Esas partes siguen asignadas a las fases 3 y 4. El bestiario permanece exclusivamente en la documentación oficial.
+
+### Contraste extendido de las 326 líneas auditadas
+
+En la fase 2 se ha ejecutado una verificación de lectura sobre las 326 líneas originales de la pestaña de auditoría de ataques y se han comparado los resultados con los 576 registros de la tabla estructurada. Resultado: **326/326 fichas con el número exacto de opciones (576/576 segmentos)** y **cero discrepancias en nombre, cantidad, conector o valor de daño numérico**. El motor mantiene intencionadamente el daño literal completo (por ejemplo, «20 o especial» o «30 * 3») y separa las anotaciones sin aplicar cálculo alguno. Se corrigieron la habilidad «Trampa» incluida dentro de una línea de ataques, los puntos finales tras paréntesis y las notas de alcance/cantidad. Este contraste es de **lectura**, no una incorporación del bestiario a La Forja ni una modificación de la hoja de origen.
