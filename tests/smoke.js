@@ -962,6 +962,19 @@ const tab=htmlTemas.indexOf('id="tab-herramientas"');
 const system=htmlTemas.indexOf('id="etiqueta-sistema"');
 const panel=htmlTemas.indexOf('id="panel-personajes"');
 const tools=htmlTemas.indexOf('id="panel-herramientas"');
+assert.ok(/id="tab-herramientas"[^>]*>Seguidores<\/button>/.test(htmlTemas),
+  'La pestaña muestra Seguidores y conserva los identificadores compatibles');
+assert.ok(!htmlTemas.includes('<h3>Herramientas del Cronista</h3>'),
+  'Seguidores no muestra el encabezado de Herramientas del Cronista');
+assert.ok(/id="configurar-seguidores"[^>]*aria-label="Configurar seguidores"/.test(htmlTemas),
+  'La rueda dentada de Seguidores tiene un nombre accesible');
+assert.ok(cssTemas.includes('#configurar-seguidores .icono-svg') &&
+  cssTemas.includes('icons/ico-configurar.svg'),
+  'Seguidores reutiliza el icono de configuración');
+assert.ok(htmlTemas.includes('id="abrir-matriz"') &&
+  htmlTemas.includes('id="dialogo-matriz"') &&
+  appTemas.includes("reglas.matriz(config(),rngUnico()(correlativo))"),
+  'Matriz trasladada a Personajes sin duplicar el cálculo');
 assert.ok(tab>=0&&tab<system&&system<panel&&panel<tools,
   'Sistema queda visible en ambas pestañas del menú');
 assert.ok(appTemas.includes("marcarPanel('herramientas')"));
