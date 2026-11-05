@@ -680,12 +680,20 @@
             <button type="button" id="criaturas-anadir-ataque">Añadir ataque</button>
           </div>
           <p class="muted">«y» indica ataques simultáneos, «o» alternativas. Las comas y mezclas pueden requerir revisión. El daño literal no se calcula.</p>
+          <div class="campo"><label for="criaturas-buscar-ataque">Buscar ataque documentado o propio</label>
+            <input id="criaturas-buscar-ataque" type="search" autocomplete="off" placeholder="Busca por nombre de ataque…"></div>
+          <div id="criaturas-coincidencias-ataques" class="criaturas-coincidencias" aria-live="polite"></div>
+          <button id="criaturas-crear-ataque" type="button">Crear ataque propio</button>
           <div id="criaturas-ataques" class="criaturas-repetidos"></div>
           <div class="criaturas-subcabecera">
             <h4>Talentos y habilidades especiales</h4>
             <button type="button" id="criaturas-anadir-talento">Añadir Talento</button>
           </div>
           <p class="muted">Talentos independientes de los ataques. Ningún efecto se inventa a partir del nombre.</p>
+          <div class="campo"><label for="criaturas-buscar-talento">Buscar Talento o habilidad especial documentada</label>
+            <input id="criaturas-buscar-talento" type="search" autocomplete="off" placeholder="Busca por nombre de habilidad…"></div>
+          <div id="criaturas-coincidencias-talentos" class="criaturas-coincidencias" aria-live="polite"></div>
+          <button id="criaturas-crear-talento" type="button">Crear Talento propio</button>
           <div id="criaturas-talentos" class="criaturas-repetidos"></div>
           <div class="campo"><label for="criaturas-descripcion">Descripción *</label>
             <textarea id="criaturas-descripcion" rows="5"></textarea></div>
@@ -705,6 +713,27 @@
             <button type="button" id="criaturas-exportar-ficha">Exportar esta ficha JSON</button>
             <button type="button" id="criaturas-descartar-cambios">Descartar cambios</button>
           </div>
+        </form>
+      </dialog>
+      <dialog id="criaturas-elemento-propio" class="dialogo-compras dialogo-adversario-catalogo"
+        aria-labelledby="criaturas-elemento-titulo">
+        <div class="cabecera-compras">
+          <h3 id="criaturas-elemento-titulo">Crear entrada</h3>
+          <button id="criaturas-elemento-cerrar" type="button" class="cerrar-rejilla" aria-label="Cerrar creación de entrada">✕</button>
+        </div>
+        <form id="criaturas-elemento-form">
+          <div class="campo"><label for="criaturas-elemento-nombre">Nombre *</label>
+            <input id="criaturas-elemento-nombre" type="text" maxlength="200" required></div>
+          <div id="criaturas-elemento-campos-ataque">
+            <div class="campo"><label for="criaturas-elemento-dano">Daño literal (si está definido)</label>
+              <input id="criaturas-elemento-dano" type="text" maxlength="180"></div>
+            <div class="campo"><label for="criaturas-elemento-cantidad">Cantidad</label>
+              <input id="criaturas-elemento-cantidad" type="number" min="1" step="1" value="1" required></div>
+          </div>
+          <div class="campo"><label for="criaturas-elemento-descripcion">Descripción o notas (sin reglas inventadas)</label>
+            <textarea id="criaturas-elemento-descripcion" rows="4"></textarea></div>
+          <p id="criaturas-elemento-error" class="aviso-validacion" role="alert"></p>
+          <button type="submit" class="principal">Guardar e incorporar</button>
         </form>
       </dialog>
       <dialog id="criaturas-ficha-dialogo" class="dialogo-compras dialogo-ficha-adversario" aria-labelledby="criaturas-ficha-titulo">
