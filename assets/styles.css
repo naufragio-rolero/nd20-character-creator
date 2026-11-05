@@ -1416,9 +1416,10 @@ html[data-tema=violeta]{
 .cabecera-resumen-seguidores{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:.65rem}
 .cabecera-resumen-seguidores h4{margin:0;font:600 .98rem "Exo",system-ui,sans-serif}
 .configurar-seguidores-icono{
-  width:44px;height:44px;min-width:44px;display:grid;place-items:center;
-  background:var(--superficie);color:var(--texto);border:1px solid var(--borde);
-  border-radius:9px;cursor:pointer
+  min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:.5rem .7rem;background:var(--superficie);color:var(--texto);
+  border:1px solid var(--borde);border-radius:9px;cursor:pointer;
+  font-size:.78rem;font-weight:700
 }
 .configurar-seguidores-icono:hover{border-color:var(--oro)}
 .configurar-seguidores-icono .icono-svg{width:1.3rem;height:1.3rem}
@@ -1530,4 +1531,64 @@ html[data-tema=violeta]{
   .criaturas-campos,.criaturas-repetido-campos{grid-template-columns:1fr}
   .criaturas-repetido-campos .criaturas-ancho{grid-column:auto}
   .criaturas-acciones button,.criaturas-archivo{width:100%;justify-content:center}
+}
+
+
+/* Adversarios — mesa de cromos y ficha de consulta. Mantener los IDs de criaturas
+   preserva los JSON v1 y sus integraciones existentes. */
+#panel-criaturas #criaturas-nueva-panel .icono-svg{--icono-svg:url(icons/ico-configurar.svg);width:1.15rem;height:1.15rem}
+.resumen-adversarios{margin:.85rem 0}
+.criaturas-mesa{min-height:380px}
+.criaturas-mesa .criaturas-subcabecera h3{margin:.25rem 0}
+.criaturas-sistema{max-width:330px;margin:1rem 0}
+.criaturas-lista{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:.6rem}
+.criaturas-lista>.vacio-adversarios{grid-column:1/-1;padding:4rem 1rem;
+  text-align:center;border:1px dashed var(--borde);border-radius:12px}
+.criaturas-cromo{appearance:none;display:flex;flex-direction:column;align-items:center;
+  justify-content:flex-start;gap:.4rem;min-width:0;min-height:140px;width:100%;
+  padding:.65rem .3rem;border:1px solid var(--borde);border-radius:10px;
+  background:var(--superficie2);color:var(--texto);cursor:pointer;text-align:center}
+.criaturas-cromo:hover,.criaturas-cromo:focus-visible{border-color:var(--oro);outline-offset:2px}
+.criaturas-cromo .criaturas-emblema{display:grid;place-items:center;width:55px;height:55px;
+  border:2px solid currentColor;border-radius:13px;color:var(--oro);
+  background:var(--superficie);font:700 1.2rem "Exo",system-ui,sans-serif}
+.criaturas-cromo .criaturas-nombre{font-size:.75rem;font-weight:700;line-height:1.25;
+  overflow-wrap:anywhere;max-width:100%}
+.criaturas-cromo .criaturas-nivel{font-size:.72rem;color:var(--secundario)}
+.criaturas-cromo[data-categoria="muerto-viviente"] .criaturas-emblema,
+.criaturas-cromo[data-categoria="demonio"] .criaturas-emblema{color:var(--peligro)}
+.criaturas-cromo[data-categoria="vegetal"] .criaturas-emblema,
+.criaturas-cromo[data-categoria="bestia"] .criaturas-emblema{color:var(--foco)}
+#criaturas-importacion[hidden]{display:none!important}
+.dialogo-adversario{width:min(960px,calc(100vw - 1rem));max-height:calc(100dvh - 1rem);
+  overflow:auto;margin:auto;color:var(--texto);background:var(--superficie);
+  border:1px solid var(--oro);box-shadow:0 18px 60px #0008}
+.dialogo-adversario::backdrop,.dialogo-ficha-adversario::backdrop{
+  background:#061d32c2;backdrop-filter:blur(3px)}
+.dialogo-adversario .criaturas-edicion-cabecera{position:sticky;top:-1.3rem;z-index:4;
+  padding:.5rem 0;background:var(--superficie);border-bottom:1px solid var(--borde)}
+.dialogo-adversario .criaturas-guardar{position:sticky;bottom:-1.3rem;padding:.8rem 0;
+  background:var(--superficie);border-top:1px solid var(--borde);z-index:3}
+.dialogo-adversario .criaturas-campos{max-width:100%}
+.dialogo-adversario .criaturas-salud-desglose{grid-column:1/-1;margin:.2rem 0 .65rem}
+.dialogo-ficha-adversario{width:min(760px,calc(100vw - 1rem));max-height:calc(100dvh - 1rem);
+  overflow:auto;border:1px solid var(--oro);border-radius:12px;
+  color:var(--texto);background:var(--superficie);padding:1.1rem}
+.dialogo-ficha-adversario .cabecera-compras{position:sticky;top:0;z-index:2;
+  background:var(--superficie)}
+.dialogo-ficha-adversario .criaturas-ficha-acciones{position:sticky;bottom:0;
+  padding:.8rem 0;background:var(--superficie)}
+.criaturas-ficha-completa h4{margin:1rem 0 .35rem;font-family:"Exo",system-ui,sans-serif}
+.criaturas-ficha-completa .criaturas-metricas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem;margin:1rem 0}
+.criaturas-metrica{padding:.75rem .4rem;background:var(--superficie2);border:1px solid var(--borde);
+  text-align:center;border-radius:8px}
+.criaturas-metrica strong{display:block;font-size:1.2rem}
+.criaturas-metrica small{font-size:.68rem;color:var(--secundario)}
+.criaturas-ficha-completa p,.criaturas-ficha-completa li{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55}
+@media(max-width:1150px){.criaturas-lista{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media(max-width:800px){.criaturas-lista{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:480px){
+ .criaturas-lista{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .criaturas-ficha-completa .criaturas-metricas{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .cabecera-resumen-seguidores{align-items:flex-start}
 }
