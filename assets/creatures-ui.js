@@ -1,0 +1,490 @@
+/* Editor de criaturas Nd20 integrado en La Forja.
+ * Los borradores y las operaciones de biblioteca no se conectan al generador
+ * de personajes ni consultan el bestiario oficial. */
+(function(root, factory) {
+  var api = factory(root,
+    typeof module !== 'undefined' && module.exports ? require('./creatures.js') : root.NaufragioCriaturas,
+    typeof module !== 'undefined' && module.exports ? require('./creatures-import.js') : root.NaufragioImportadorCriaturas,
+    typeof module !== 'undefined' && module.exports ? require('./creatures-library.js') : root.NaufragioBibliotecaCriaturas);
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.NaufragioCriaturasUI = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function(root, modelo, importador, apiBiblioteca) {
+  'use strict';
+  if (!modelo || !importador || !apiBiblioteca) throw Error('Faltan módulos del Editor de criaturas Nd20.');
+  var iniciado = false, biblioteca = null, idActual = null, ficha = null;
+  var pendiente = null, cambios = false, secuenciaAtaques = 0;
+  var d = null;
+  function $(id) { return d.getElementById(id); }
+  function ele(nodo,clase,texto) {
+    var e=d.createElement(nodo);
+    if(clase) e.className=clase;
+    if(texto!==undefined) e.textContent=String(texto);
+    return e;
+  }
+  function mostrarEstado(texto,error) {
+    var e=$('criaturas-estado');
+    e.textContent=texto||'';
+    e.className='estado'+(error?' error':'');
+  }
+  function avisosEn(contenedor,errores,advertencias) {
+    var destino=$(contenedor);
+    destino.textContent='';
+    var total=(errores||[]).length+(advertencias||[]).length;
+    if(!total) return;
+    var titulo=ele('p','',((errores||[]).length?
+      (errores.length+' errores y '):'')+(advertencias||[]).length+' avisos para revisar:');
+    destino.appendChild(titulo);
+    var lista=ele('ul');
+    (errores||[]).forEach(function(x){
+      lista.appendChild(ele('li','error',(x.campo?x.campo+': ':'')+x.mensaje));
+    });
+    (advertencias||[]).forEach(function(x){
+      lista.appendChild(ele('li','',(x.linea?'Línea '+x.linea+': ':'')+
+        (x.campo?x.campo+': ':'')+x.mensaje));
+    });
+    destino.appendChild(lista);
+  }
+  function permitirDescartar() {
+    return !cambios || (typeof root.confirm === 'function' &&
+      root.confirm('Hay cambios de esta criatura sin guardar. ¿Quieres descartarlos?'));
+  }
+  function aEntero(texto,campo) {
+    var valor=String(texto==null?'':texto).trim();
+    if(!valor) return null;
+    if(!/^\d+$/.test(valor) || !Number.isSafeInteger(Number(valor)))
+      throw Error(campo+' debe ser un entero no negativo o quedar vacío.');
+    return Number(valor);
+  }
+  function datosFormulario() {
+    var base=modelo.nuevaCriatura(ficha);
+    ['nombre','categoria','subcategoria','subtipo','descripcion','notas'].forEach(function(c){
+      base[c] = $('criaturas-'+c).value.trim();
+    });
+    modelo.PUNTUACIONES.forEach(function(c){
+      base.puntuaciones[c]=aEntero($('criaturas-'+c).value,c);
+    });
+    base.camposNoInterpretados=$('criaturas-pendientes').value.split(/\r?\n/)
+      .filter(function(x){return x.trim().length>0;});
+    base.ataques=Array.from($('criaturas-ataques').children).map(function(fila,indice){
+      var v=function(c){return fila.querySelector('[data-campo="'+c+'"]').value;};
+      var nombre=v('nombre').trim();
+      if(!nombre) throw Error('Falta el nombre del ataque '+(indice+1)+'.');
+      return modelo.ataque({
+        id:fila.dataset.ataqueId || 'ataque-'+(indice+1),
+        conectorAnterior:indice===0?'Inicio':v('conector'),
+        cantidad:aEntero(v('cantidad'),'Cantidad de ataque '+(indice+1)),
+        nombre:nombre,
+        danoLiteral:v('danoLiteral').trim(),
+        danoNumerico:aEntero(v('danoNumerico'),'Daño numérico de ataque '+(indice+1)),
+        notas:v('notas').trim(),
+        segmentoOriginal:fila.dataset.segmentoOriginal||'',
+        talentoRelacionado:v('talentoRelacionado').trim()||null
+      });
+    });
+    base.talentos=Array.from($('criaturas-talentos').children).map(function(fila,indice){
+      var v=function(c){return fila.querySelector('[data-campo="'+c+'"]').value;};
+      if(!v('nombre').trim()) throw Error('Falta el nombre del Talento '+(indice+1)+'.');
+      return modelo.talento({
+        nombre:v('nombre').trim(),
+        descripcion:v('descripcion').trim(),
+        textoOriginal:fila.dataset.textoOriginal||'',
+        referencia:v('referencia').trim()||null
+      });
+    });
+    return base;
+  }
+  function avisarRevision() {
+    try {
+      var val=modelo.revisar(datosFormulario(),{paraExportar:true});
+      avisosEn('criaturas-advertencias-formulario',val.errores,val.advertencias);
+      return val;
+    } catch(error) {
+      avisosEn('criaturas-advertencias-formulario',[{campo:'',mensaje:error.message}],[]);
+      return {valida:false,errores:[{mensaje:error.message}],advertencias:[]};
+    }
+  }
+  function plantillaAtaque() {
+    return '<div class="criaturas-repetido-cabecera"><strong class="criaturas-fila-titulo"></strong>'+
+      '<button type="button" data-accion="quitar-ataque">Quitar ataque</button></div>'+
+      '<div class="criaturas-repetido-campos">'+
+      '<label>Conector<select data-campo="conector"><option value="Inicio">Inicio</option>'+
+      '<option value="y">y · simultáneo</option><option value="o">o · alternativa</option>'+
+      '<option value=",">, · revisar agrupación</option></select></label>'+
+      '<label>Cantidad<input data-campo="cantidad" type="number" min="1" step="1" required></label>'+
+      '<label class="criaturas-ancho">Nombre del ataque<input data-campo="nombre" type="text" maxlength="200" required></label>'+
+      '<label>Daño literal<input data-campo="danoLiteral" type="text" maxlength="180" placeholder="6, especial, 20 o especial…"></label>'+
+      '<label>Daño numérico (opcional)<input data-campo="danoNumerico" type="number" min="0" step="1"></label>'+
+      '<label>Talento relacionado (opcional)<input data-campo="talentoRelacionado" type="text" maxlength="200"></label>'+
+      '<label class="criaturas-ancho">Notas<input data-campo="notas" type="text" maxlength="500"></label>'+
+      '</div><small class="criaturas-texto-original"></small>';
+  }
+  function plantillaTalento() {
+    return '<div class="criaturas-repetido-cabecera"><strong class="criaturas-fila-titulo"></strong>'+
+      '<button type="button" data-accion="quitar-talento">Quitar Talento</button></div>'+
+      '<div class="criaturas-repetido-campos">'+
+      '<label class="criaturas-ancho">Nombre del Talento<input data-campo="nombre" type="text" maxlength="200" required></label>'+
+      '<label>Referencia (opcional)<input data-campo="referencia" type="text" maxlength="250"></label>'+
+      '<label class="criaturas-ancho">Descripción<textarea data-campo="descripcion" rows="3"></textarea></label>'+
+      '</div><small class="criaturas-texto-original"></small>';
+  }
+  function reajustarAtaques() {
+    Array.from($('criaturas-ataques').children).forEach(function(fila,i){
+      fila.querySelector('.criaturas-fila-titulo').textContent='Ataque '+(i+1);
+      var con=fila.querySelector('[data-campo="conector"]');
+      var inicio=con.querySelector('option[value="Inicio"]');
+      inicio.disabled=i!==0;
+      if(i===0){con.value='Inicio';con.disabled=true;}
+      else {
+        con.disabled=false;
+        if(con.value==='Inicio') con.value='y';
+      }
+    });
+  }
+  function agregarAtaque(datos) {
+    var a=modelo.ataque(datos||{});
+    var fila=ele('div','criaturas-repetido criatura-ataque');
+    fila.innerHTML=plantillaAtaque(); // Estructura HTML estática, sin interpolar contenido pegado.
+    fila.dataset.ataqueId=a.id || 'ataque-'+(++secuenciaAtaques);
+    fila.dataset.segmentoOriginal=a.segmentoOriginal;
+    var poner=function(c,valor){fila.querySelector('[data-campo="'+c+'"]').value=
+      valor===null||valor===undefined?'':String(valor);};
+    poner('conector',a.conectorAnterior);
+    poner('cantidad',a.cantidad);
+    poner('nombre',a.nombre);
+    poner('danoLiteral',a.danoLiteral);
+    poner('danoNumerico',a.danoNumerico);
+    poner('notas',a.notas);
+    poner('talentoRelacionado',a.talentoRelacionado);
+    fila.querySelector('.criaturas-texto-original').textContent=a.segmentoOriginal?
+      'Segmento original: '+a.segmentoOriginal:'';
+    $('criaturas-ataques').appendChild(fila);
+    reajustarAtaques();
+    return fila;
+  }
+  function agregarTalento(datos) {
+    var t=modelo.talento(datos||{});
+    var fila=ele('div','criaturas-repetido criatura-talento');
+    fila.innerHTML=plantillaTalento(); // Solo plantilla propia.
+    fila.dataset.textoOriginal=t.textoOriginal;
+    var poner=function(c,valor){fila.querySelector('[data-campo="'+c+'"]').value=
+      valor==null?'':String(valor);};
+    poner('nombre',t.nombre);poner('descripcion',t.descripcion);poner('referencia',t.referencia);
+    fila.querySelector('.criaturas-fila-titulo').textContent=
+      'Talento '+($('criaturas-talentos').children.length+1);
+    fila.querySelector('.criaturas-texto-original').textContent=t.textoOriginal?
+      'Línea original: '+t.textoOriginal:'';
+    $('criaturas-talentos').appendChild(fila);
+    return fila;
+  }
+  function renderizarFicha(datos,id) {
+    ficha=modelo.nuevaCriatura(datos||{});
+    idActual=id||null;
+    secuenciaAtaques=0;
+    ['nombre','categoria','subcategoria','subtipo','descripcion','notas'].forEach(function(c){
+      $('criaturas-'+c).value=ficha[c];
+    });
+    modelo.PUNTUACIONES.forEach(function(c) {
+      $('criaturas-'+c).value=ficha.puntuaciones[c]===null?'':String(ficha.puntuaciones[c]);
+    });
+    $('criaturas-pendientes').value=ficha.camposNoInterpretados.join('\n');
+    $('criaturas-original').value=ficha.origen.textoOriginal;
+    $('criaturas-ataques').textContent='';
+    $('criaturas-talentos').textContent='';
+    ficha.ataques.forEach(agregarAtaque);
+    ficha.talentos.forEach(agregarTalento);
+    $('criaturas-titulo-edicion').textContent=idActual?
+      'Editar · '+(ficha.nombre||'Criatura'):'Nueva criatura';
+    $('criaturas-edicion-nota').textContent=idActual?
+      'Guardada en tu biblioteca. Los cambios no se aplican hasta pulsar «Guardar criatura».':
+      'Borrador no guardado. Los campos desconocidos pueden quedar sin indicar.';
+    cambios=false;
+    avisarRevision();
+  }
+  function nueva() {
+    if(!permitirDescartar()) return;
+    renderizarFicha(modelo.nuevaCriatura(),null);
+    mostrarEstado('Nuevo borrador preparado. Aún no hay nada guardado.');
+    $('criaturas-nombre').focus();
+  }
+  function dibujarBiblioteca() {
+    var lista=$('criaturas-lista');
+    lista.textContent='';
+    if(!biblioteca) {
+      lista.appendChild(ele('p','muted','No se dispone de almacenamiento local en este navegador. Puedes editar y exportar una ficha individual.'));
+      return;
+    }
+    try {
+      var registros=biblioteca.listar();
+      if(!registros.length) {
+        lista.appendChild(ele('p','muted','Todavía no has guardado criaturas.'));
+        return;
+      }
+      registros.forEach(function(registro) {
+        var item=ele('article','criaturas-lista-item');
+        var info=ele('div');
+        info.appendChild(ele('strong','',registro.nombre));
+        var detalles=[registro.categoria||'Sin categoría',
+          registro.nivel==null?'Nivel no indicado':'Nivel '+registro.nivel,
+          registro.ataques+' ataques',registro.talentos+' Talentos'].join(' · ');
+        info.appendChild(ele('small','',detalles));
+        var acciones=ele('div','criaturas-lista-acciones');
+        [['editar','Editar'],['duplicar','Duplicar'],['exportar','JSON'],['eliminar','Eliminar']]
+          .forEach(function(pareja) {
+            var boton=ele('button','',pareja[1]);
+            boton.type='button';
+            boton.dataset.accion=pareja[0];
+            boton.dataset.id=registro.id;
+            boton.setAttribute('aria-label',pareja[1]+' '+registro.nombre);
+            acciones.appendChild(boton);
+          });
+        item.append(info,acciones);
+        lista.appendChild(item);
+      });
+    } catch(error) {
+      lista.appendChild(ele('p','error','No se pudo leer la biblioteca: '+error.message));
+    }
+  }
+  function irA(id) {
+    var elemento=$(id);
+    elemento.scrollIntoView({block:'start',behavior:'auto'});
+    (elemento.querySelector('h3')||elemento).focus?.({preventScroll:true});
+  }
+  function guardar(event) {
+    if(event) event.preventDefault();
+    try {
+      if(!$('criaturas-formulario').checkValidity()){
+        $('criaturas-formulario').reportValidity();
+        mostrarEstado('Revisa los campos incompletos o incorrectos.',true);
+        return;
+      }
+      var datos=datosFormulario();
+      var revision=modelo.revisar(datos,{paraExportar:true});
+      avisosEn('criaturas-advertencias-formulario',revision.errores,revision.advertencias);
+      if(!revision.valida) {
+        mostrarEstado('La ficha tiene errores que impiden guardarla.',true);
+        return;
+      }
+      if(!biblioteca) throw Error('No hay almacenamiento local disponible. Exporta esta ficha JSON para conservarla.');
+      var id=biblioteca.guardar(datos,idActual);
+      renderizarFicha(datos,id);
+      dibujarBiblioteca();
+      mostrarEstado('Criatura guardada en este navegador'+
+        (revision.advertencias.length?' con '+revision.advertencias.length+' avisos para revisar.':'.'));
+    } catch(error) { mostrarEstado('No se pudo guardar: '+error.message,true); }
+  }
+  function descargar(nombre,texto) {
+    var enlace=d.createElement('a');
+    var blob=new root.Blob([texto],{type:'application/json;charset=utf-8'});
+    var url=root.URL.createObjectURL(blob);
+    enlace.href=url;enlace.download=nombre;enlace.hidden=true;
+    d.body.appendChild(enlace);enlace.click();enlace.remove();
+    root.setTimeout(function(){root.URL.revokeObjectURL(url);},1500);
+  }
+  function exportarFicha() {
+    try {
+      var datos=datosFormulario();
+      var revision=modelo.revisar(datos,{paraExportar:true});
+      avisosEn('criaturas-advertencias-formulario',revision.errores,revision.advertencias);
+      if(!revision.valida) throw Error('Corrige los errores de la ficha antes de exportarla.');
+      var nombre=datos.nombre.toLowerCase().normalize('NFD')
+        .replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9_-]+/g,'-').slice(0,70) || 'criatura';
+      descargar('criatura-'+nombre+'.json',JSON.stringify(datos,null,2));
+      mostrarEstado('Ficha JSON exportada. La descarga no guarda los cambios en la biblioteca.');
+    } catch(error) {mostrarEstado('No se pudo exportar: '+error.message,true);}
+  }
+  function exportarBiblioteca() {
+    try {
+      if(!biblioteca)throw Error('No hay almacenamiento local disponible.');
+      descargar('forja-biblioteca-criaturas.json',biblioteca.exportarJson());
+      mostrarEstado('Biblioteca exportada como JSON.');
+    } catch(error){mostrarEstado('No se pudo exportar: '+error.message,true);}
+  }
+  function vistaPrevia() {
+    try {
+      var analisis=importador.descomponerTexto($('criaturas-texto').value);
+      pendiente=analisis;
+      var c=analisis.criatura;
+      var campos=modelo.PUNTUACIONES.filter(function(p){return c.puntuaciones[p]!==null;})
+        .map(function(p){return p+': '+c.puntuaciones[p];});
+      var ataques=c.ataques.map(function(a,i) {
+        return (i>0?a.conectorAnterior+' ':'')+(a.cantidad>1?a.cantidad+' ':'')+a.nombre+
+          (a.danoLiteral?' ('+a.danoLiteral+')':'');
+      });
+      var talentos=c.talentos.map(function(t){return t.nombre+': '+t.descripcion;});
+      $('criaturas-resumen-previa').textContent=[
+        'Nombre: '+(c.nombre||'Sin reconocer'),
+        'Categoría: '+(c.categoria||'Sin reconocer'),
+        'Puntuaciones: '+(campos.join(' · ')||'Sin reconocer'),
+        'Ataques ('+ataques.length+'): '+(ataques.join(' | ')||'Sin reconocer'),
+        'Talentos ('+talentos.length+'): '+(talentos.join(' | ')||'Sin reconocer'),
+        'Descripción: '+(c.descripcion||'No detectada'),
+        'Fragmentos pendientes ('+c.camposNoInterpretados.length+'): '+
+          (c.camposNoInterpretados.join(' | ')||'Ninguno')
+      ].join('\n');
+      avisosEn('criaturas-advertencias-previa',analisis.errores,analisis.advertencias);
+      $('criaturas-vista-previa').hidden=false;
+      mostrarEstado('Desglose preparado. Revísalo antes de pasarlo al formulario.');
+      $('criaturas-vista-previa').scrollIntoView({block:'start',behavior:'auto'});
+    }catch(error){
+      pendiente=null;$('criaturas-vista-previa').hidden=true;
+      mostrarEstado('No se pudo analizar: '+error.message,true);
+    }
+  }
+  function aplicarPrevia() {
+    if(!pendiente || !permitirDescartar())return;
+    var resultado=pendiente;
+    renderizarFicha(resultado.criatura,null);
+    cambios=true;
+    $('criaturas-vista-previa').hidden=true;
+    pendiente=null;
+    avisosEn('criaturas-advertencias-formulario',resultado.errores,resultado.advertencias);
+    mostrarEstado('Ficha trasladada al editor. Revisa los campos y pulsa «Guardar criatura» cuando esté lista.');
+    irA('criaturas-edicion');
+  }
+  function recuperar(id) {
+    if(!biblioteca || !permitirDescartar()) return;
+    try{
+      var datos=biblioteca.obtener(id);
+      if(!datos)throw Error('La ficha ya no existe.');
+      renderizarFicha(datos,id);
+      irA('criaturas-edicion');
+      mostrarEstado('Criatura recuperada de la biblioteca.');
+    }catch(error){mostrarEstado('No se pudo abrir: '+error.message,true);}
+  }
+  function duplicar(id) {
+    if(!biblioteca || !permitirDescartar())return;
+    try {
+      var datos=biblioteca.obtener(id);
+      if(!datos)throw Error('La ficha ya no existe.');
+      datos.nombre+=' (copia)';
+      var nuevoId=biblioteca.guardar(datos);
+      dibujarBiblioteca();
+      renderizarFicha(datos,nuevoId);
+      irA('criaturas-edicion');
+      mostrarEstado('Copia creada y guardada de forma independiente.');
+    }catch(error){mostrarEstado('No se pudo duplicar: '+error.message,true);}
+  }
+  function eliminar(id) {
+    if(!biblioteca || typeof root.confirm!=='function' ||
+      !root.confirm('¿Eliminar esta criatura de tu biblioteca local? Esta acción no se puede deshacer.'))return;
+    try {
+      if(!biblioteca.eliminar(id))throw Error('La ficha ya no existe.');
+      if(idActual===id)renderizarFicha(modelo.nuevaCriatura(),null);
+      dibujarBiblioteca();
+      mostrarEstado('Criatura eliminada de esta biblioteca.');
+    }catch(error){mostrarEstado('No se pudo eliminar: '+error.message,true);}
+  }
+  function gestionarLista(event) {
+    var boton=event.target.closest('button[data-accion]');
+    if(!boton)return;
+    var id=boton.dataset.id;
+    if(boton.dataset.accion==='editar')recuperar(id);
+    if(boton.dataset.accion==='duplicar')duplicar(id);
+    if(boton.dataset.accion==='eliminar')eliminar(id);
+    if(boton.dataset.accion==='exportar') {
+      try {
+        var fichaExportable=biblioteca.obtener(id);
+        if(!fichaExportable)throw Error('La ficha ya no existe.');
+        descargar('criatura-'+id+'.json',JSON.stringify(fichaExportable,null,2));
+        mostrarEstado('Criatura exportada en JSON.');
+      }catch(error){mostrarEstado('No se pudo exportar: '+error.message,true);}
+    }
+  }
+  async function importarJson(event) {
+    var archivo=event.target.files&&event.target.files[0];
+    if(!archivo)return;
+    try{
+      if(!biblioteca)throw Error('No se dispone de almacenamiento local.');
+      if(archivo.size>5000000)throw Error('El JSON supera el límite de 5 MB.');
+      var contenido=await archivo.text();
+      var ids=biblioteca.importarJson(contenido); // Añade: nunca reemplaza sin autorización.
+      dibujarBiblioteca();
+      mostrarEstado('Importación completada: '+ids.length+' criaturas añadidas.');
+    }catch(error){mostrarEstado('No se pudo importar el JSON: '+error.message,true);}
+    finally{event.target.value='';}
+  }
+  function manejarEliminacion(event,contenedor,accion) {
+    var boton=event.target.closest('button[data-accion="'+accion+'"]');
+    if(!boton)return;
+    boton.closest('.criaturas-repetido').remove();
+    if(accion==='quitar-ataque')reajustarAtaques();
+    else Array.from($(contenedor).children).forEach(function(fila,i){
+      fila.querySelector('.criaturas-fila-titulo').textContent='Talento '+(i+1);
+    });
+    cambios=true;avisarRevision();
+  }
+  function descartarCambios() {
+    if(!permitirDescartar())return;
+    if(idActual && biblioteca) {
+      try {
+        var guardado=biblioteca.obtener(idActual);
+        if(guardado){renderizarFicha(guardado,idActual);mostrarEstado('Cambios descartados.');return;}
+      }catch(error){mostrarEstado('No se pudo recuperar la ficha: '+error.message,true);return;}
+    }
+    renderizarFicha(modelo.nuevaCriatura(),null);
+    mostrarEstado('Borrador descartado.');
+  }
+  function iniciar() {
+    if(iniciado) return;
+    d=root.document;
+    if(!d || !$('editor-criaturas'))return;
+    iniciado=true;
+    try {
+      biblioteca=apiBiblioteca.crearBiblioteca(root.localStorage);
+      biblioteca.listar(); // Detectar aquí una base dañada sin modificarla.
+    }catch(error) {
+      biblioteca=null;
+      mostrarEstado('La biblioteca no está disponible: '+error.message+
+        ' Puedes editar y exportar fichas individuales.',true);
+    }
+    $('criaturas-nueva').addEventListener('click',nueva);
+    $('criaturas-nueva-panel').addEventListener('click',function(){nueva();irA('criaturas-edicion');});
+    $('criaturas-ir-importar').addEventListener('click',function(){irA('criaturas-importacion');$('criaturas-texto').focus();});
+    $('criaturas-ir-biblioteca').addEventListener('click',function(){irA('criaturas-biblioteca');});
+    $('criaturas-analizar').addEventListener('click',vistaPrevia);
+    $('criaturas-aplicar-previa').addEventListener('click',aplicarPrevia);
+    $('criaturas-descartar-previa').addEventListener('click',function(){
+      pendiente=null;$('criaturas-vista-previa').hidden=true;
+      mostrarEstado('Vista previa descartada. No se ha guardado nada.');
+    });
+    $('criaturas-anadir-ataque').addEventListener('click',function(){
+      agregarAtaque({conectorAnterior:$('criaturas-ataques').children.length?'y':'Inicio'});
+      cambios=true;avisarRevision();
+    });
+    $('criaturas-anadir-talento').addEventListener('click',function(){
+      agregarTalento();
+      cambios=true;avisarRevision();
+    });
+    $('criaturas-ataques').addEventListener('click',function(e){
+      manejarEliminacion(e,'criaturas-ataques','quitar-ataque');
+    });
+    $('criaturas-talentos').addEventListener('click',function(e){
+      manejarEliminacion(e,'criaturas-talentos','quitar-talento');
+    });
+    $('criaturas-formulario').addEventListener('input',function(event){
+      if(event.target.matches('[data-campo="danoLiteral"]')) {
+        var num=event.target.closest('.criaturas-repetido')
+          .querySelector('[data-campo="danoNumerico"]');
+        var valor=event.target.value.trim();
+        num.value=/^\d+$/.test(valor)?valor:'';
+      }
+      cambios=true;
+      avisarRevision();
+    });
+    $('criaturas-formulario').addEventListener('change',function(){cambios=true;avisarRevision();});
+    $('criaturas-formulario').addEventListener('submit',guardar);
+    $('criaturas-exportar-ficha').addEventListener('click',exportarFicha);
+    $('criaturas-exportar-biblioteca').addEventListener('click',exportarBiblioteca);
+    $('criaturas-archivo-json').addEventListener('change',importarJson);
+    $('criaturas-lista').addEventListener('click',gestionarLista);
+    $('criaturas-descartar-cambios').addEventListener('click',descartarCambios);
+    root.addEventListener('beforeunload',function(event) {
+      if(!cambios) return;
+      event.preventDefault();
+      event.returnValue='';
+    });
+    renderizarFicha(modelo.nuevaCriatura(),null);
+    dibujarBiblioteca();
+  }
+  return {iniciar:iniciar,aEntero:aEntero};
+});
