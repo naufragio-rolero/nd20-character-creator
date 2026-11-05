@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado PR #94: Daño con Potencia visible
+      - name: Obtener snapshot DRS aprobado - Editor de criaturas fase 4 (PR #100)
         uses: actions/checkout@v4
         with:
-          ref: 7e4fafbe227e7620b1422cbbd28c8c36a27489f4
+          ref: 873574f73b81f1101ec667ce7062e7086da2d013
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "7e4fafbe227e7620b1422cbbd28c8c36a27489f4"
-      # Snapshot aprobado para LIVE: PR #94, con 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
+          test "$(git rev-parse HEAD)" = "873574f73b81f1101ec667ce7062e7086da2d013"
+      # Snapshot aprobado para LIVE: PR #100, con Editor Nd20, 40 SVG (35 de ficha y 5 de acciones), dos logos WebP, PDF A5,
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -46,6 +46,12 @@ jobs:
         run: |
           set -euo pipefail
           test ! -e assets/icons-forja.svg
+          grep -Fq 'id="tab-criaturas"' index.html
+          grep -Fq 'id="editor-criaturas"' index.html
+          for modulo in creatures.js creatures-import.js creatures-library.js creatures-ui.js; do
+            test -s "assets/${modulo}"
+            grep -Fq "assets/${modulo}" index.html
+          done
           test "$(find assets/icons -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 40
           test "$(find assets/icons -maxdepth 1 -name '*.webp' -type f | wc -l)" -eq 2
           # Mantener las 35 piezas históricas y verificar los cinco iconos nuevos de acciones.
@@ -275,6 +281,10 @@ jobs:
         run: |
           node tests/browser-compatibilidad.js
           node tests/browser-semillas-rangos.cjs firefox webkit
+      - name: Probar Editor Nd20 sobre el paquete PUBLICO en Firefox y WebKit
+        env:
+          FORJA_PUBLIC_ROOT: dist/public-drs
+        run: node tests/browser-criaturas.cjs
       - name: Exportación PDF A5 en Firefox y WebKit públicos
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
@@ -360,6 +370,13 @@ jobs:
             sleep 5
           done
           test "$correcto" = true
+          grep -Fq 'id="tab-criaturas"' /tmp/forja-live.html
+          grep -Fq 'id="editor-criaturas"' /tmp/forja-live.html
+          for modulo in creatures.js creatures-import.js creatures-library.js creatures-ui.js; do
+            curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/${modulo}?forja_release=${GITHUB_RUN_ID}" -o "/tmp/forja-${modulo}"
+            test -s "/tmp/forja-${modulo}"
+          done
+          grep -Fq 'root.NaufragioCriaturasUI = api;' /tmp/forja-creatures-ui.js
           for logo in sistema-nd20-faep.webp sistema-dh.webp; do
             curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/${logo}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-logo-webp
             test "$(head -c 4 /tmp/forja-logo-webp)" = "RIFF"
@@ -677,3 +694,58 @@ jobs:
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/aclaraciones-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-aclaraciones.json
           node -e "const a=require('/tmp/forja-aclaraciones.json');const ids=a.registros.map(x=>x.id_talento).sort();const expected=['talento-drs-especie-mediano-amable-salvese-quien-pueda','talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes'].sort();if(a.estado!=='aprobacion_autoral'||JSON.stringify(ids)!==JSON.stringify(expected))process.exit(1)"
           echo "OK: Forja DRS completa en vivo, 10 Técnicas, 24 Talentos, 111 descripciones, 8 Especies, 40 SVG, dos aclaraciones y CiFi/Nocturna excluidos."
+
+      - name: Verificar Editor LIVE mediante creación local en Firefox y WebKit
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          node - <<'NODE'
+          const assert=require('node:assert/strict');
+          const {firefox,webkit}=require('playwright');
+          async function verificar(nombre,motor){
+            const browser=await motor.launch({headless:true});
+            try {
+              const context=await browser.newContext({viewport:{width:1280,height:900}});
+              const page=await context.newPage();
+              const errores=[];
+              page.on('pageerror',err=>errores.push(err.message));
+              // Cada recurso se solicita a la revisión LIVE recién distribuida.
+              await page.route('**/*',route=>{
+                const url=new URL(route.request().url());
+                if(url.origin===new URL(process.env.PAGE_URL).origin &&
+                    !url.searchParams.has('forja_release')){
+                  url.searchParams.set('forja_release',process.env.GITHUB_RUN_ID);
+                  return route.continue({url:url.toString()});
+                }
+                return route.continue();
+              });
+              await page.goto(process.env.PAGE_URL,{waitUntil:'domcontentloaded'});
+              await page.locator('#estado').getByText('Datos listos',{exact:false})
+                .waitFor({timeout:45000});
+              await page.locator('#tab-criaturas').click();
+              assert.equal(await page.locator('#editor-criaturas').isVisible(),true);
+              await page.locator('#criaturas-nombre').fill('Comprobación LIVE local');
+              await page.locator('#criaturas-categoria').fill('Prueba de interfaz');
+              await page.locator('#criaturas-nivel').fill('0');
+              await page.locator('#criaturas-guardar').click();
+              await page.locator('#criaturas-estado').getByText('guardada',{exact:false})
+                .waitFor({timeout:15000});
+              const guardado=await page.evaluate(()=>JSON.parse(
+                localStorage.getItem('forja-criaturas-usuario-v1')));
+              assert.equal(guardado.criaturas.length,1);
+              assert.equal(guardado.criaturas[0].ficha.puntuaciones.nivel,0);
+              await page.reload({waitUntil:'domcontentloaded'});
+              await page.locator('#estado').getByText('Datos listos',{exact:false})
+                .waitFor({timeout:45000});
+              await page.locator('#tab-criaturas').click();
+              assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item')
+                .count(),1);
+              assert.deepEqual(errores,[],nombre+': errores JS en LIVE');
+              console.log('OK LIVE '+nombre+': Editor visible, guardado y recarga');
+            } finally { await browser.close(); }
+          }
+          (async()=>{
+            await verificar('Firefox',firefox);
+            await verificar('WebKit',webkit);
+          })().catch(error=>{console.error(error);process.exitCode=1;});
+          NODE
