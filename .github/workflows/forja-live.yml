@@ -28,7 +28,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado: Editor de criaturas fase 4 (PR #100)
+      - name: Obtener snapshot DRS aprobado - Editor de criaturas fase 4 (PR #100)
         uses: actions/checkout@v4
         with:
           ref: d90fe62bb58588be9e66c4b2099f80f9b41be308
