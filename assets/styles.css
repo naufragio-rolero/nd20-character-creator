@@ -1478,7 +1478,7 @@ html[data-tema=violeta]{
 .criaturas-bloque h4{margin:1rem 0 .55rem;font-size:1rem}
 .criaturas-bloque label{display:block;margin:.35rem 0;font-weight:700;font-size:.88rem}
 .criaturas-bloque .campo label{margin:0}
-.criaturas-bloque input[type="text"],.criaturas-bloque input[type="number"],
+.criaturas-bloque input[type="text"],.criaturas-bloque input[type="search"],.criaturas-bloque input[type="number"],
 .criaturas-bloque textarea,.criaturas-bloque select{width:100%;min-width:0}
 .criaturas-bloque textarea{resize:vertical;line-height:1.4}
 .criaturas-acciones{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-top:.75rem}
