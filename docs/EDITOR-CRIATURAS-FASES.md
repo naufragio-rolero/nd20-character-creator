@@ -1,7 +1,7 @@
 # La Forja — Editor de criaturas Nd20
 
 **Seguimiento:** https://github.com/naufragio-rolero/nd20-character-creator/issues/96  
-**Estado:** fase 1 · Contrato de datos y auditoría semántica. No publicado en LIVE.
+**Estado:** fase 2 · Importación conservadora y biblioteca local en rama de desarrollo. Sin interfaz visible ni publicación LIVE.
 
 ## Principio de producto
 
@@ -56,3 +56,52 @@ Casos de contraste: «2 garras (4) y mordisco (4) o aliento», «aplastamiento (
 Pruebas: **node tests/criaturas-modelo.js**, ejecutadas también desde **node tests/smoke.js**. Verifican borrador, exportación, cantidades, daño nulo, alternativas, mezcla de conectores, comas, separación ataque/Talento, conservación literal e inmutabilidad.
 
 **Fuera de fase 1:** parser de ficha completa, persistencia, formularios, exportación visible y LIVE. No añadir assets/creatures.js al paquete público DRS hasta que el Editor esté terminado y validado.
+
+
+## Decisión confirmada: sección Criaturas en la misma Forja
+
+El usuario ha elegido que el Editor de criaturas sea una sección **Criaturas** dentro de La Forja, junto a Personajes y Herramientas. No será otra página ni otro repositorio. La inserción de la pestaña visible, los formularios, la previsualización y el diseño responsive corresponden a la fase 3. No se publicará una pestaña vacía en fase 2.
+
+## Fase 2 — Importación por texto y biblioteca local
+
+### Motor de lectura
+
+Módulo: assets/creatures-import.js. API: NaufragioImportadorCriaturas.descomponerTexto(texto).
+
+Devuelve una propuesta editable con los datos: criatura, valida, errores, advertencias y detectado. Está disponible en Node y navegador mediante el mismo patrón de módulos de la aplicación, sin servidores externos ni carga del bestiario.
+
+La lectura admite fichas compactas del DRS: nombre, «Categoría de Nivel N [Moral M], Salud S», línea de Ataques, habilidades especiales «Nombre: descripción» y narrativa. También admite fichas ampliadas de Ylat con secciones «Descripción», «Orígenes», «Etimología», «Estadísticas», «Mejoras de Nivel» y líneas independientes como «Nivel N — Moral M», «Salud N» o «Reptil neutral Grande (4)».
+
+Los valores de Nivel, Moral, Salud, Blindaje, Movimiento y Tamaño solo se recogen cuando figuran explícitamente. Los que faltan son nulos: no se calculan. El tamaño con categoría compuesta queda advertido para revisión.
+
+Los ataques se dividen por «y», «o» o coma **fuera de paréntesis**; el importador guarda cantidad, nombre, daño literal, daño numérico cuando inequívoco y texto exacto de cada segmento. «20 o especial» conserva ambas posibilidades. Un «1d6» no se reduce a un daño entero. Ningún valor se tira, multiplica ni aplica a un encuentro.
+
+Las líneas de habilidades con nombre y descripción se guardan en la lista de Talentos, independiente de los ataques; no se inventan enlaces entre ambas listas. Una enumeración «Talentos: varios nombres» se conserva para revisión, sin asignar descripciones inexistentes.
+
+Las descripciones narrativas quedan en el campo descripción. Las progresiones, etimologías y continuaciones dudosas se preservan como campos no interpretados con advertencias. El origen conserva **la cadena pegada íntegra**: nada que el parser no entienda se pierde. No se automatiza la aceptación de los datos.
+
+Solo se analiza una criatura por operación: no se transforma el corpus oficial en un catálogo para La Forja.
+
+### Biblioteca de usuario
+
+Módulo: assets/creatures-library.js. API: NaufragioBibliotecaCriaturas.crearBiblioteca(almacenamiento). El almacenamiento del navegador se inyectará desde el panel de la fase 3. Clave prevista: forja-criaturas-usuario-v1, exclusivamente en el dispositivo del usuario.
+
+Operaciones:
+- listar(): índice de criaturas guardadas con resumen.
+- obtener(id): copia independiente para poder editar sin sobrescribir.
+- guardar(ficha, id opcional): crear una criatura propia o editar una existente por su identificador.
+- eliminar(id): borrar solo la seleccionada.
+- exportarJson(id opcional): exportar una criatura o toda la biblioteca en JSON.
+- importarJson(texto, opciones): importa una criatura o biblioteca, añadiendo nuevas fichas por defecto, y solo reemplaza el conjunto si se pide explícitamente con reemplazar verdadero.
+
+El formato de biblioteca es biblioteca_criaturas_nd20 versión 1. Una ficha es criatura_usuario versión 1. Las importaciones validan **todas** las fichas antes de efectuar una sola escritura; nunca silencian errores de versión ni destruyen una biblioteca local corrupta. Los identificadores de importación se reasignan para no sobrescribir fichas del navegador.
+
+Esto es un motor local, sin cuentas, nube, envío de criaturas ni repositorio común de adversarios.
+
+### Pruebas de fase 2
+
+- node tests/criaturas-import.js: fichas DRS y Ylat, falta de Moral, cantidad de ataques, puntuaciones sueltas, daño especial, coma, mezcla «y/o», Talentos, descripciones, notas, progresiones y líneas dudosas.
+- node tests/criaturas-biblioteca.js: crear, editar, recuperar, borrar, exportar e importar, sin pérdida ni sobrescritura accidental, incluida validación atómica de JSON corrupto.
+- node tests/smoke.js: ejecuta también estas dos suites además de todas las pruebas existentes.
+
+La fase 2 NO incluye todavía la pestaña y formularios visibles de «Criaturas», confirmación de un desglose ni publicación LIVE. Esas partes siguen asignadas a las fases 3 y 4. El bestiario permanece exclusivamente en la documentación oficial.
