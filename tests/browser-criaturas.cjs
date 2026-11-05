@@ -168,7 +168,8 @@ async function probar(nombre,tipo,url){
       document.documentElement.scrollWidth>innerWidth+3),false,
       nombre+': no debe haber desplazamiento horizontal en móvil.');
     // Cargar oficialmente DRS sin contaminar la colección particular.
-    const segunda=await contexto.newPage();
+    const otraContexto=await browser.newContext({viewport:{width:1440,height:900},acceptDownloads:true});
+    const segunda=await otraContexto.newPage();
     try{
       await segunda.goto(url,{waitUntil:'domcontentloaded'});
       await segunda.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
@@ -209,7 +210,7 @@ async function probar(nombre,tipo,url){
         const bytes=fs.readFileSync(await (await descargar).path());
         assert.equal(bytes.subarray(0,5).toString('ascii'),'%PDF-');
       }
-    }finally{await segunda.close();}
+    }finally{await otraContexto.close();}
     assert.deepEqual(errores,[],nombre+': sin errores JS.');
     console.log('OK · '+nombre+': editor, pegado, CRUD, JSON, recarga y móvil.');
   }finally{
