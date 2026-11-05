@@ -167,6 +167,49 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.evaluate(()=>
       document.documentElement.scrollWidth>innerWidth+3),false,
       nombre+': no debe haber desplazamiento horizontal en móvil.');
+    // Cargar oficialmente DRS sin contaminar la colección particular.
+    const segunda=await contexto.newPage();
+    try{
+      await segunda.goto(url,{waitUntil:'domcontentloaded'});
+      await segunda.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      await segunda.locator('#tab-criaturas').click();
+      assert.equal(await segunda.locator('.criaturas-cromo').count(),0);
+      await segunda.locator('#criaturas-cargar-drs').click();
+      await segunda.waitForFunction(()=>
+        document.querySelectorAll('#criaturas-lista .criaturas-cromo').length===106);
+      assert.equal(await segunda.locator('.criaturas-cromo[data-oficial="true"]').count(),106);
+      await segunda.locator('.criaturas-cromo[data-oficial="true"]').first().click();
+      assert.match(await segunda.locator('#criaturas-ficha-titulo').textContent(),/DRS oficial/);
+      await segunda.locator('#criaturas-ficha-editar').click();
+      assert.equal(await segunda.locator('#criaturas-edicion').evaluate(x=>x.open),true);
+      assert.equal(await segunda.locator('.criaturas-cromo[data-oficial="true"]').count(),106);
+      assert.equal(await segunda.locator('.criaturas-cromo').count(),107);
+      await segunda.locator('#criaturas-cerrar-editor').click();
+      await segunda.locator('#criaturas-nueva-panel').click();
+      await segunda.locator('#criaturas-nombre').fill('Ejemplo de ajuste negativo');
+      await segunda.locator('#criaturas-categoria').selectOption('Bestia');
+      await segunda.locator('#criaturas-nivel').fill('4');
+      await segunda.locator('#criaturas-salud-ajuste').fill('-2');
+      assert.equal(await segunda.locator('#criaturas-salud').inputValue(),'8');
+      await segunda.locator('#criaturas-salud-modo').selectOption('manual');
+      await segunda.locator('#criaturas-salud').fill('19');
+      await segunda.locator('#criaturas-descripcion').fill('Descripción completa de prueba.');
+      await segunda.locator('#criaturas-guardar').click();
+      assert.equal(await segunda.locator('#criaturas-ficha-dialogo').evaluate(x=>x.open),true);
+      const salud=await segunda.evaluate(()=>{
+        const d=JSON.parse(localStorage.getItem('forja-criaturas-usuario-v1'));
+        return d.criaturas.find(x=>x.ficha.nombre==='Ejemplo de ajuste negativo').ficha;
+      });
+      assert.equal(salud.puntuaciones.salud,19);
+      assert.equal(salud.saludAjuste,-2);
+      assert.equal(salud.saludModo,'manual');
+      if(fs.existsSync(path.join(raiz,'assets/vendor/pdf-lib.min.js'))){
+        const descargar=segunda.waitForEvent('download',{timeout:60000});
+        await segunda.locator('#criaturas-ficha-pdf').click();
+        const bytes=fs.readFileSync(await (await descargar).path());
+        assert.equal(bytes.subarray(0,5).toString('ascii'),'%PDF-');
+      }
+    }finally{await segunda.close();}
     assert.deepEqual(errores,[],nombre+': sin errores JS.');
     console.log('OK · '+nombre+': editor, pegado, CRUD, JSON, recarga y móvil.');
   }finally{
