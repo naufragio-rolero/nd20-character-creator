@@ -1300,7 +1300,7 @@ html[data-tema] .juegos-compactos button.sistema-logo.sistema-activo{
 .inicio-rapido{position:relative;padding-right:3.4rem}
 .inicio-rapido[hidden],.reproduccion-resultados[hidden]{display:none!important}
 .ocultar-tutorial{position:absolute;right:.55rem;top:.5rem;display:grid;place-items:center;
-  width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:1px solid var(--borde);
+  width:46px;height:46px;min-width:46px;min-height:46px;padding:0;border:1px solid var(--borde);
   border-radius:6px;background:var(--superficie);color:var(--texto);font-size:1.4rem;line-height:1}
 @media(max-width:830px){
   .inicio-movil{position:relative}
