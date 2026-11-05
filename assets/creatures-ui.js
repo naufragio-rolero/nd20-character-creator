@@ -144,7 +144,8 @@
     var a=modelo.ataque(datos||{});
     var fila=ele('div','criaturas-repetido criatura-ataque');
     fila.innerHTML=plantillaAtaque(); // Estructura HTML estática, sin interpolar contenido pegado.
-    fila.dataset.ataqueId=a.id || 'ataque-'+(++secuenciaAtaques);
+    secuenciaAtaques++;
+    fila.dataset.ataqueId=a.id || 'ataque-ui-'+secuenciaAtaques;
     fila.dataset.segmentoOriginal=a.segmentoOriginal;
     var poner=function(c,valor){fila.querySelector('[data-campo="'+c+'"]').value=
       valor===null||valor===undefined?'':String(valor);};
@@ -247,7 +248,8 @@
   function irA(id) {
     var elemento=$(id);
     elemento.scrollIntoView({block:'start',behavior:'auto'});
-    (elemento.querySelector('h3')||elemento).focus?.({preventScroll:true});
+    var titulo=elemento.querySelector('h3');
+    if(titulo){titulo.tabIndex=-1;titulo.focus({preventScroll:true});}
   }
   function guardar(event) {
     if(event) event.preventDefault();
