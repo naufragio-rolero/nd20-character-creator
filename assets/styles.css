@@ -1592,3 +1592,23 @@ html[data-tema=violeta]{
  .criaturas-ficha-completa .criaturas-metricas{grid-template-columns:repeat(2,minmax(0,1fr))}
  .cabecera-resumen-seguidores{align-items:flex-start}
 }
+
+
+.criaturas-coincidencias{display:grid;gap:.4rem;margin:.4rem 0 .7rem;max-height:300px;overflow:auto}
+.criaturas-coincidencia{display:flex;flex-direction:column;align-items:flex-start;gap:.2rem;
+  width:100%;min-height:44px;text-align:left;padding:.6rem .8rem;
+  border:1px solid var(--borde);border-radius:7px;background:var(--superficie2);
+  color:var(--texto);cursor:pointer;white-space:normal;overflow-wrap:anywhere}
+.criaturas-coincidencia:hover,.criaturas-coincidencia:focus-visible{border-color:var(--oro)}
+.criaturas-coincidencia>span{font-size:.8rem;white-space:pre-wrap}
+.criaturas-coincidencia small{font-size:.7rem}
+.dialogo-adversario-catalogo{width:min(560px,calc(100vw - 1rem));max-height:calc(100dvh - 1rem);
+  overflow:auto;border:1px solid var(--oro);border-radius:12px;
+  background:var(--superficie);color:var(--texto);padding:1rem}
+.dialogo-adversario-catalogo::backdrop{background:#061d32c2;backdrop-filter:blur(3px)}
+.dialogo-adversario-catalogo .campo{margin:.8rem 0}
+.dialogo-adversario-catalogo .campo input,.dialogo-adversario-catalogo .campo textarea{width:100%}
+.dialogo-adversario-catalogo [hidden]{display:none!important}
+.criaturas-habilidad{padding:.5rem 0;border-bottom:1px solid var(--borde)}
+.criaturas-habilidad p{margin:.35rem 0}
+.criaturas-cromo[data-oficial=true]{border-style:dashed}
