@@ -93,7 +93,7 @@ html[data-tema=ebano] .inicio-movil strong{color:#243946}
   mask:var(--icono-svg) center / contain no-repeat;
 }
 /* Ruta relativa a esta hoja (assets/styles.css), no al documento. */
-#abrir-configuracion .icono-svg{--icono-svg:url(icons/ico-configurar.svg)}
+#abrir-configuracion .icono-svg,#configurar-seguidores .icono-svg{--icono-svg:url(icons/ico-configurar.svg)}
 .icono-eleccion{display:block;width:29px;height:29px;flex:none;color:var(--oro)}
 .icono-azar{display:grid;place-items:center;font-size:1.25rem;font-weight:700;
   height:29px;color:var(--oro)}
@@ -1409,14 +1409,26 @@ html[data-tema=violeta]{
   .dialogo-seguidores .botonera{grid-template-columns:1fr}
 }
 
-/* Herramientas mantiene el mismo recorrido que Personajes: resumen visible,
-   configuración separada y generación directa con las opciones activas. */
+/* Seguidores: ajustes desde la rueda dentada junto al resumen. */
 .herramientas .resumen-seguidores{margin:.85rem 0}
 .herramientas .resumen-seguidores[hidden],
 .herramientas #configurar-seguidores[hidden]{display:none!important}
-.herramientas #configurar-seguidores{
-  width:100%;margin:.45rem 0 .8rem;
+.cabecera-resumen-seguidores{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:.65rem}
+.cabecera-resumen-seguidores h4{margin:0;font:600 .98rem "Exo",system-ui,sans-serif}
+.configurar-seguidores-icono{
+  width:44px;height:44px;min-width:44px;display:grid;place-items:center;
+  background:var(--superficie);color:var(--texto);border:1px solid var(--borde);
+  border-radius:9px;cursor:pointer
 }
+.configurar-seguidores-icono:hover{border-color:var(--oro)}
+.configurar-seguidores-icono .icono-svg{width:1.3rem;height:1.3rem}
+.dialogo-matriz{width:min(700px,calc(100vw - 1rem));max-height:calc(100dvh - 1rem);overflow-y:auto}
+.dialogo-matriz .matriz-acciones{display:flex;justify-content:flex-end;gap:.5rem;margin:.8rem 0}
+.dialogo-matriz .matriz-acciones button{min-height:44px}
+.dialogo-matriz .vista-matriz[hidden]{display:none!important}
+.dialogo-matriz .vista-matriz{margin:1rem 0;min-width:0}
+.dialogo-matriz .vista-matriz .tarjeta{width:100%;max-width:none}
+@media(max-width:560px){.dialogo-matriz .matriz-acciones button{width:100%}}
 .dialogo-seguidores .botonera{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:560px){
   .dialogo-seguidores .botonera{grid-template-columns:1fr}
