@@ -102,6 +102,8 @@ const especificas=[
   'assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/names.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/i18n.js',
+  'assets/creatures.js','assets/creatures-import.js',
+  'assets/creatures-library.js','assets/creatures-ui.js',
   // PDF A5 Fantasía: solo plantillas reglamentarias y bibliotecas de terceros autorizadas.
   'assets/pdf-export-v2.js','assets/pdf-export-browser.js',
   'assets/pdf-a5/forja-fantasia-epica-a5.pdf',
