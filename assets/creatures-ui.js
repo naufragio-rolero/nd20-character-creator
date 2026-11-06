@@ -277,7 +277,8 @@
     root.localStorage.setItem(CLAVE_OFICIALES,JSON.stringify(Array.from(nueva)));
     oficialesSeleccionados=nueva;
     dibujarBiblioteca();
-    actualizarSelectorDRS();
+    $('criaturas-selector-estado').textContent=oficialesSeleccionados.size+
+      ' adversarios de Naufragio d20 - Épica en tu galería';
   }
   function obtenerFichaConsulta(id){
     if(String(id).startsWith('drs-')){
@@ -929,6 +930,12 @@
       try{
         var anadir=boton.dataset.seleccionado!=='true';
         actualizarSeleccionOficial(boton.dataset.id,anadir);
+        // Actualizar el botón en su sitio: no eliminarlo durante su propio click
+        // evita un segundo disparo por reintentos de WebKit/Playwright.
+        boton.dataset.seleccionado=String(anadir);
+        boton.textContent=anadir?'Quitar':'Añadir';
+        boton.setAttribute('aria-label',(anadir?'Quitar ':'Añadir ')+
+          boton.closest('.criaturas-selector-fila').querySelector('strong').textContent);
         mostrarEstado((anadir?'Añadido a':'Retirado de')+' tu galería. El catálogo original no se modifica.');
       }catch(error){mostrarEstado('No se pudo guardar la selección: '+error.message,true);}
     });
