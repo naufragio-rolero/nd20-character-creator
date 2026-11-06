@@ -25,7 +25,7 @@
         d.notas,d.segmentoOriginal,d.talentoRelacionado]);
     return JSON.stringify([d.nombre,d.descripcion,d.textoOriginal,d.referencia]);
   }
-  function crearCatalogo(fuentes,plantillas,relaciones){
+  function crearCatalogo(fuentes,plantillas,relaciones,criaturasPersonales){
     fuentes=fuentes||[];
     plantillas=plantillas||{ataques:[],talentos:[]};
     relaciones=relaciones||{version:1,sistema:'nd20',fuenteId:'drs',relaciones:[]};
@@ -75,6 +75,24 @@
           oficial:false});
       });
     });
+    // Las fichas propias ya guardadas también son componentes reutilizables,
+    // sin crear una copia de la biblioteca ni modificar sus datos originales.
+    (criaturasPersonales||[]).forEach(function(registro){
+      if(!registro||!registro.id||!registro.ficha)return;
+      ['ataques','talentos'].forEach(function(tipo){
+        (registro.ficha[tipo]||[]).forEach(function(item,indice){
+          var dato=tipo==='ataques'?modelo.ataque(item):modelo.talento(item);
+          if(!dato.nombre.trim())return;
+          var id='personal:criatura:'+registro.id+':'+tipo+':'+
+            (tipo==='ataques'&&dato.id?slug(dato.id):slug(dato.nombre)+'-'+hash(firma(tipo,dato)));
+          // Fichas antiguas podrían contener dos segmentos con el mismo ID.
+          if(mapa.has(id))id+='-'+indice;
+          poner({id:id,tipo:tipo,dato:dato,fuenteId:'personal',
+            fuente:'Bestiario personal',origen:'Personal',
+            criatura:registro.ficha.nombre,criaturaId:registro.id,oficial:false});
+        });
+      });
+    });
     var pares=new Set();
     relaciones.relaciones.forEach(function(rel){
       if(!rel||typeof rel.criaturaId!=='string'||
@@ -121,7 +139,8 @@
       var d=entrada.tipo==='ataques'?modelo.ataque(entrada.dato):
         modelo.talento(entrada.dato);
       if(entrada.tipo==='ataques'){
-        d.id='';d.conectorAnterior=esPrimero?'Inicio':'y';
+        d.id='';d.conectorAnterior=esPrimero?'Inicio':
+          (['y','o',','].includes(d.conectorAnterior)?d.conectorAnterior:'y');
       }
       d.catalogoId=entrada.id;
       d.fuenteId=entrada.fuenteId;
@@ -130,7 +149,8 @@
     function yaExiste(entrada,actuales){
       return (actuales||[]).some(function(d){
         if(d.catalogoId&&d.catalogoId===entrada.id)return true;
-        if(d.catalogoId&&d.catalogoId!==entrada.id)return false;
+        if(d.catalogoId&&d.catalogoId!==entrada.id&&
+           !(entrada.fuenteId==='personal'&&d.fuenteId==='personal'))return false;
         if(d.fuenteId&&d.fuenteId!==entrada.fuenteId)return false;
         return firma(entrada.tipo,d)===firma(entrada.tipo,entrada.dato);
       });
