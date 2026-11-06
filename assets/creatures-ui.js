@@ -200,14 +200,14 @@
     base.ataques=Array.from($('criaturas-ataques').children).map(function(fila,indice){
       var v=function(c){return fila.querySelector('[data-campo="'+c+'"]').value;};
       var nombre=v('nombre').trim();
-      if(!nombre) throw Error('Falta el nombre del ataque '+(indice+1)+'.');
+      if(!nombre) throw Error('Falta el nombre de la acción '+(indice+1)+'.');
       return modelo.ataque({
         id:fila.dataset.ataqueId || 'ataque-'+(indice+1),
         conectorAnterior:indice===0?'Inicio':v('conector'),
-        cantidad:aEntero(v('cantidad'),'Cantidad de ataque '+(indice+1)),
+        cantidad:aEntero(v('cantidad'),'Cantidad de la acción '+(indice+1)),
         nombre:nombre,
         danoLiteral:v('danoLiteral').trim(),
-        danoNumerico:aEntero(v('danoNumerico'),'Daño numérico de ataque '+(indice+1)),
+        danoNumerico:aEntero(v('danoNumerico'),'Daño numérico de la acción '+(indice+1)),
         notas:v('notas').trim(),
         segmentoOriginal:fila.dataset.segmentoOriginal||'',
         talentoRelacionado:v('talentoRelacionado').trim()||null,
@@ -241,13 +241,13 @@
   }
   function plantillaAtaque() {
     return '<div class="criaturas-repetido-cabecera"><strong class="criaturas-fila-titulo"></strong>'+
-      '<button type="button" data-accion="quitar-ataque">Quitar ataque</button></div>'+
+      '<button type="button" data-accion="quitar-ataque">Quitar acción</button></div>'+
       '<div class="criaturas-repetido-campos">'+
       '<label>Conector<select data-campo="conector"><option value="Inicio">Inicio</option>'+
       '<option value="y">y · simultáneo</option><option value="o">o · alternativa</option>'+
       '<option value=",">, · revisar agrupación</option></select></label>'+
       '<label>Cantidad<input data-campo="cantidad" type="number" min="1" step="1" required></label>'+
-      '<label class="criaturas-ancho">Nombre del ataque<input data-campo="nombre" type="text" maxlength="200" required></label>'+
+      '<label class="criaturas-ancho">Nombre de la acción<input data-campo="nombre" type="text" maxlength="200" required></label>'+
       '<label>Daño literal<input data-campo="danoLiteral" type="text" maxlength="180" placeholder="6, especial, 20 o especial…"></label>'+
       '<label>Daño numérico (opcional)<input data-campo="danoNumerico" type="number" min="0" step="1"></label>'+
       '<label>Talento relacionado (opcional)<input data-campo="talentoRelacionado" type="text" maxlength="200"></label>'+
@@ -265,7 +265,7 @@
   }
   function reajustarAtaques() {
     Array.from($('criaturas-ataques').children).forEach(function(fila,i){
-      fila.querySelector('.criaturas-fila-titulo').textContent='Ataque '+(i+1);
+      fila.querySelector('.criaturas-fila-titulo').textContent='Acción '+(i+1);
       var con=fila.querySelector('[data-campo="conector"]');
       var inicio=con.querySelector('option[value="Inicio"]');
       inicio.disabled=i!==0;
@@ -732,9 +732,9 @@
       var info=ele('div');
       info.appendChild(ele('strong','',rel.dato.nombre));
       info.appendChild(ele('small','',rel.tipo==='ataques'?
-        'Ataque · '+(rel.dato.danoLiteral||'Sin daño documentado'):
+        'Acción · '+(rel.dato.danoLiteral||'Sin daño documentado'):
         'Talento · '+(rel.dato.descripcion||'Sin descripción')));
-      var btn=ele('button','',ya?'Ya incorporado':'Añadir '+(rel.tipo==='ataques'?'ataque':'Talento'));
+      var btn=ele('button','',ya?'Ya incorporado':'Añadir '+(rel.tipo==='ataques'?'acción':'Talento'));
       btn.type='button';btn.disabled=ya;
       btn.addEventListener('click',function(){
         try{
@@ -906,7 +906,7 @@
   }
   function abrirElementoPropio(tipo) {
     tipoPropio=tipo;
-    $('criaturas-elemento-titulo').textContent=tipo==='ataques'?'Crear ataque propio':
+    $('criaturas-elemento-titulo').textContent=tipo==='ataques'?'Crear acción propia':
       'Crear Talento o habilidad especial';
     $('criaturas-elemento-campos-ataque').hidden=tipo!=='ataques';
     $('criaturas-elemento-form').reset();
@@ -1108,7 +1108,7 @@
       articulo.appendChild(h);
     }
     if(dato.ataques.length){
-      encabezadoApartado('Ataques','criaturas-icono-ataque');
+      encabezadoApartado('Acciones','criaturas-icono-ataque');
       var lista=ele('ol','criaturas-ataques-consulta');
       root.NaufragioFormatoAdversarios.lineasAtaque(dato.ataques)
         .forEach(function(linea){
@@ -1279,7 +1279,7 @@
         'Nombre: '+(c.nombre||'Sin reconocer'),
         'Categoría: '+(c.categoria||'Sin reconocer'),
         'Puntuaciones: '+(campos.join(' · ')||'Sin reconocer'),
-        'Ataques ('+ataques.length+'): '+(ataques.join(' | ')||'Sin reconocer'),
+        'Acciones extraídas ('+ataques.length+'): '+(ataques.join(' | ')||'Sin reconocer'),
         'Talentos ('+talentos.length+'): '+(talentos.join(' | ')||'Sin reconocer'),
         'Descripción: '+(c.descripcion||'No detectada'),
         'Fragmentos pendientes ('+c.camposNoInterpretados.length+'): '+
