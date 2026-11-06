@@ -40,7 +40,7 @@ const requeridos=[
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/icons/LICENCIA-TABLER.txt',
   'assets/creatures.js','assets/creatures-import.js',
-  'assets/creatures-library.js','assets/creatures-ui.js',
+  'assets/creatures-library.js','assets/creatures-components.js','assets/creatures-ui.js',
   'assets/adversarios-formato.js','assets/adversarios-pdf.js',
   'assets/adversarios-iconos.json',
   'assets/equipment.js','assets/sex.js',
@@ -69,7 +69,7 @@ const requeridos=[
   'data/progresiones-oficiales.json','data/equipo-inicial.json',
   'data/fichas-documentales.json','data/talentos-drs-literales.json',
   'data/aclaraciones-talentos-drs.json','data/dungeon-hack.json',
-  'data/adversarios-fuentes.json',
+  'data/adversarios-fuentes.json','data/adversarios-relaciones-drs.json',
   'data/tecnicas-drs-literales.json','data/glosas-talentos-drs.json',
   'data/glosas-equipo-drs.json'
 ];
