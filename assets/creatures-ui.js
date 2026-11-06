@@ -662,9 +662,12 @@
       await cargaRelacionesComponentes;
     }
     // Reconstruir con las plantillas actuales; no alterar ni migrar storage.
+    var personales=biblioteca?biblioteca.listar().map(function(r){
+      return {id:r.id,ficha:biblioteca.obtener(r.id)};
+    }):[];
     bibliotecaComponentes=componentes.crearCatalogo(fuentesOficiales,
       biblioteca?biblioteca.catalogoPersonal():{ataques:[],talentos:[]},
-      relacionesComponentes);
+      relacionesComponentes,personales);
     return bibliotecaComponentes;
   }
   function estadoBibliotecaComponentes(mensaje){
