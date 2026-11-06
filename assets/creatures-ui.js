@@ -342,7 +342,9 @@
       boton.dataset.id=id;
       boton.dataset.seleccionado=String(seleccionado);
       boton.setAttribute('aria-label',(seleccionado?'Quitar':'Añadir')+' '+registro.nombre);
+      boton.dataset.enlazado='true';
       boton.addEventListener('click',function(){
+        boton.dataset.pulsado='true';
         try{
           var anadir=boton.dataset.seleccionado!=='true';
           actualizarSeleccionOficial(id,anadir);
