@@ -16,6 +16,9 @@
   var catalogoDRS = null, fuentesOficiales = null, cargaFuentes = null;
   var oficialesSeleccionados = new Set(), tipoPropio = null;
   var imagenProcesando = false, tokenImagen = 0;
+  var ilustracionesOficiales = {}, ilustracionesBloqueadas = false;
+  var tokenImagenOficial = 0;
+  var CLAVE_ILUSTRACIONES_OFICIALES = 'forja-adversarios-ilustraciones-oficiales-v1';
   var CLAVE_OFICIALES = 'forja-adversarios-oficiales-v1';
   // El manifiesto solo contiene nombres de archivos SVG públicos.
   // Ningún icono forma parte de la ficha reglamentaria o del JSON personal.
@@ -380,6 +383,68 @@
     $('criaturas-selector-estado').textContent=oficialesSeleccionados.size+
       ' perfiles oficiales añadidos a tu mesa';
   }
+  function imagenIncrustadaValida(url){
+    return typeof url==='string'&&url.length<=280000&&
+      /^data:image\/(?:webp|jpeg|png);base64,[A-Za-z0-9+/]+={0,2}$/.test(url);
+  }
+  function cargarIlustracionesOficiales(){
+    try{
+      var raw=root.localStorage.getItem(CLAVE_ILUSTRACIONES_OFICIALES);
+      if(!raw){ilustracionesOficiales={};return;}
+      var datos=JSON.parse(raw);
+      if(!datos||typeof datos!=='object'||Array.isArray(datos)||
+         Object.keys(datos).some(function(id){
+           return !/^[a-z0-9-]+-[a-z0-9_]+$/.test(id)||
+             !imagenIncrustadaValida(datos[id]);
+         }))
+        throw Error('El archivo de ilustraciones tiene datos incompatibles.');
+      ilustracionesOficiales=datos;
+    }catch(error){
+      // Proteger los datos dañados, no sobrescribirlos sin autorización.
+      ilustracionesOficiales={};
+      ilustracionesBloqueadas=true;
+      mostrarEstado('No se han podido leer las ilustraciones oficiales guardadas: '+
+        error.message,true);
+    }
+  }
+  function actualizarIlustracionOficial(id,url){
+    if(ilustracionesBloqueadas)
+      throw Error('Hay ilustraciones guardadas con errores. No se han sobrescrito.');
+    if(!esFichaOficial(id))
+      throw Error('Solo pueden personalizarse perfiles oficiales presentes en el catálogo.');
+    if(url!==''&&!imagenIncrustadaValida(url))
+      throw Error('La imagen preparada tiene un formato incompatible.');
+    var siguiente=Object.assign({},ilustracionesOficiales);
+    if(url)siguiente[id]=url;else delete siguiente[id];
+    // Persistir primero: un error de cuota nunca altera la vista anterior.
+    root.localStorage.setItem(CLAVE_ILUSTRACIONES_OFICIALES,JSON.stringify(siguiente));
+    ilustracionesOficiales=siguiente;
+    dibujarBiblioteca();
+    mostrarFichaCompleta(id);
+  }
+  async function subirIlustracionOficial(event){
+    var archivo=event.target.files&&event.target.files[0];
+    if(!archivo)return;
+    var id=idConsulta, token=++tokenImagenOficial;
+    $('criaturas-ficha-ilustracion-archivo').disabled=true;
+    $('criaturas-ficha-ilustracion-quitar').disabled=true;
+    mostrarEstado('Procesando ilustración oficial 16:9…');
+    try{
+      var url=await convertirIlustracion(archivo);
+      if(token!==tokenImagenOficial)return;
+      actualizarIlustracionOficial(id,url);
+      mostrarEstado('Ilustración personalizada guardada. Los datos oficiales siguen intactos.');
+    }catch(error){
+      if(token===tokenImagenOficial)
+        mostrarEstado('No se pudo guardar la ilustración: '+error.message,true);
+    }finally{
+      event.target.value='';
+      if(token===tokenImagenOficial){
+        $('criaturas-ficha-ilustracion-archivo').disabled=false;
+        $('criaturas-ficha-ilustracion-quitar').disabled=false;
+      }
+    }
+  }
   // Manifiesto editorial de fuentes: solo ficheros JSON locales enumerados.
   // Cada fuente incorpora su procedencia y tiene identificadores estables.
   function registrosOficiales() {
@@ -400,8 +465,12 @@
   }
   function obtenerFichaConsulta(id){
     var oficial=registroOficial(String(id));
-    return oficial?modelo.nuevaCriatura(oficial.ficha):
-      biblioteca?biblioteca.obtener(id):null;
+    if(oficial){
+      var personal=modelo.nuevaCriatura(oficial.ficha);
+      personal.imagen=ilustracionesOficiales[id]||personal.imagen||'';
+      return personal;
+    }
+    return biblioteca?biblioteca.obtener(id):null;
   }
   async function asegurarCatalogoDRS(){
     if(catalogoDRS && fuentesOficiales)return catalogoDRS;
@@ -721,7 +790,8 @@
           return oficialesSeleccionados.has(r.id);
         }).map(function(r){
           return {id:r.id,nombre:r.nombre,categoria:r.ficha.categoria,
-            nivel:r.ficha.puntuaciones.nivel,oficial:true,fuente:r.fuente.titulo};
+            nivel:r.ficha.puntuaciones.nivel,oficial:true,fuente:r.fuente.titulo,
+            imagen:ilustracionesOficiales[r.id]||''};
         });
       var registros=propios.concat(oficiales);
       $('criaturas-contador-menu').textContent=String(registros.length);
@@ -869,7 +939,9 @@
       'Crear copia editable':'Editar';
     $('criaturas-ficha-eliminar').hidden=esFichaOficial(id);
     $('criaturas-ficha-retirar').hidden=!esFichaOficial(id);
-    $('criaturas-ficha-dialogo').showModal();
+    $('criaturas-ficha-ilustracion-acciones').hidden=!esFichaOficial(id);
+    $('criaturas-ficha-ilustracion-quitar').disabled=!ilustracionesOficiales[id];
+    if(!$('criaturas-ficha-dialogo').open)$('criaturas-ficha-dialogo').showModal();
   }
   function irA(id) {
     if(id==='criaturas-edicion'){abrirEditor();return;}
@@ -1145,6 +1217,15 @@
         ' Puedes editar y exportar fichas individuales.',true);
     }
     $('criaturas-nueva').addEventListener('click',nueva);
+    $('criaturas-ficha-ilustracion-archivo')
+      .addEventListener('change',subirIlustracionOficial);
+    $('criaturas-ficha-ilustracion-quitar').addEventListener('click',function(){
+      tokenImagenOficial++;
+      try{
+        actualizarIlustracionOficial(idConsulta,'');
+        mostrarEstado('Ilustración retirada; el perfil oficial no se ha modificado.');
+      }catch(error){mostrarEstado(error.message,true);}
+    });
     $('criaturas-imagen-archivo').addEventListener('change',subirIlustracion);
     $('criaturas-imagen-quitar').addEventListener('click',function(){
       tokenImagen++;
@@ -1292,6 +1373,7 @@
       event.returnValue='';
     });
     cargarSeleccionOficial();
+    cargarIlustracionesOficiales();
     renderizarFicha(modelo.nuevaCriatura(),null);
     dibujarBiblioteca();
     cargarIconosGaleria();
