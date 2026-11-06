@@ -134,7 +134,7 @@
                 return n.nombre+': '+n.texto;
               }).join('; '):'');
           }).join('\n');
-        bloque('Ataques',ataques);
+        bloque('Acciones',ataques);
       }
       if(f.talentos.length)bloque('Talentos y habilidades especiales',
         f.talentos.map(function(t){return t.nombre+': '+t.descripcion;}).join('\n\n'));
