@@ -133,7 +133,7 @@ const especificas=[
   'data/tecnicas-drs-literales.json','data/glosas-talentos-drs.json',
   'data/glosas-equipo-drs.json',
   'data/adversarios-drs.json','data/adversarios-fuentes.json',
-  'data/adversarios-relaciones-drs.json',
+  'data/adversarios-relaciones-drs.json','data/adversarios-talentos-indice-drs.json',
   'data/dungeon-hack.json'
 ];
 // Ilustraciones opcionales: solo los SVG declarados en un manifiesto editorial
