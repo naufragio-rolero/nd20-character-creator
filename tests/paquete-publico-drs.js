@@ -288,6 +288,11 @@ for(const modulo of ['creatures.js','creatures-import.js',
   assert.ok(html.includes(ruta),'El HTML incluye '+ruta);
   assert.ok(fs.existsSync(path.join(salida,ruta)),'El paquete sirve '+ruta);
 }
+const fuentesPublicas=leer(salida,'adversarios-fuentes.json');
+assert.equal(fuentesPublicas.sistema,'nd20');
+assert.equal(fuentesPublicas.fuentes.length,1);
+assert.equal(fuentesPublicas.fuentes[0].id,'drs');
+assert.equal(fuentesPublicas.fuentes[0].total,106);
 const catalogoOficial=leer(salida,'adversarios-drs.json');
 assert.equal(catalogoOficial.fuente,'Naufragio d20 DRS');
 assert.equal(catalogoOficial.registros.length,106,
