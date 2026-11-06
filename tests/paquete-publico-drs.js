@@ -424,6 +424,19 @@ const esperados=new Set([
 ]);
 assert.deepEqual(contenidos,esperados,
   'La distribución solo contiene archivos JSON explícitamente autorizados');
+const iconosAdversarios=JSON.parse(fs.readFileSync(
+  path.join(salida,'assets/adversarios-iconos.json'),'utf8'));
+const iconosOrigen=JSON.parse(fs.readFileSync(
+  path.join(raiz,'assets/adversarios-iconos.json'),'utf8'));
+assert.deepEqual(iconosAdversarios,iconosOrigen,
+  'La publicación no altera las asignaciones de SVG de la galería.');
+const iconosEsperados=new Set(Object.values(iconosAdversarios.iconos));
+const directorioIconos=path.join(salida,'assets/adversarios/iconos');
+const iconosPresentes=fs.existsSync(directorioIconos)?
+  new Set(fs.readdirSync(directorioIconos).filter(x=>x.endsWith('.svg'))):new Set();
+assert.deepEqual(iconosPresentes,iconosEsperados,
+  'Solo se publican los SVG registrados, ningún archivo extra.');
+
 // El build debe fallar en lugar de destruir por error un directorio fuente.
 const {spawnSync}=require('node:child_process');
 for(const directorio of ['data','assets','.']){
