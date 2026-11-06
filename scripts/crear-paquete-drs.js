@@ -103,7 +103,7 @@ const especificas=[
   'assets/rules.js','assets/names.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/i18n.js',
   'assets/creatures.js','assets/creatures-import.js',
-  'assets/creatures-library.js','assets/creatures-ui.js',
+  'assets/creatures-library.js','assets/creatures-components.js','assets/creatures-ui.js',
   'assets/adversarios-formato.js','assets/adversarios-pdf.js',
   'assets/adversarios-iconos.json',
   // PDF A5 Fantasía: solo plantillas reglamentarias y bibliotecas de terceros autorizadas.
@@ -133,6 +133,7 @@ const especificas=[
   'data/tecnicas-drs-literales.json','data/glosas-talentos-drs.json',
   'data/glosas-equipo-drs.json',
   'data/adversarios-drs.json','data/adversarios-fuentes.json',
+  'data/adversarios-relaciones-drs.json',
   'data/dungeon-hack.json'
 ];
 // Ilustraciones opcionales: solo los SVG declarados en un manifiesto editorial
