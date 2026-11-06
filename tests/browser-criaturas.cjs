@@ -217,19 +217,80 @@ async function probar(nombre,tipo,url){
         })))+' errores JS: '+JSON.stringify(erroresSegunda));
       await segunda.locator('#criaturas-selector-cerrar').click();
       await segunda.locator('.criaturas-cromo[data-oficial="true"]').click();
-      assert.match(await segunda.locator('#criaturas-ficha-titulo').textContent(),
-        /Naufragio d20 - Épica/);
+      assert.equal((await segunda.locator('#criaturas-ficha-titulo').textContent()).trim(),
+        'Goblin con tirachinas','La cabecera muestra solo el nombre del adversario.');
       assert.equal(await segunda.locator('.criaturas-metrica').count(),3);
       assert.doesNotMatch(await segunda.locator('#criaturas-ficha-contenido').innerText(),
         /Protección|Habilidad relacionada|chinazo_51/);
       assert.match(await segunda.locator('#criaturas-ficha-contenido').innerText(),
         /Chinazo - 6 de daño/);
       assert.match(await segunda.locator('.criaturas-fuente').innerText(),
-        /Fuente: Naufragio d20 DRS/);
+        /Fuente: Naufragio d20 - Épica · DRS/);
       assert.equal(await segunda.locator('.criaturas-icono-apartado').count(),2);
+      assert.equal(await segunda.locator('.criaturas-metrica-icono').count(),3,
+        'Nivel, Salud y Moral muestran Potencia, Salud y Esfuerzo.');
+      assert.equal((await segunda.locator('.criaturas-taxonomia').innerText()).trim(),
+        'Humanoide - Goblin');
+      const orden=await segunda.evaluate(()=>{
+        const a=document.querySelector('.criaturas-metricas');
+        const b=document.querySelector('.criaturas-taxonomia');
+        return !!(a.compareDocumentPosition(b)&Node.DOCUMENT_POSITION_FOLLOWING);
+      });
+      assert.equal(orden,true,'La taxonomía se sitúa bajo los KPI.');
+      const emblema=segunda.locator('.criaturas-cromo[data-oficial="true"] .criaturas-emblema');
+      assert.equal(await emblema.innerText(),'','El placeholder no muestra iniciales.');
+      assert.equal(await segunda.locator('.criaturas-cromo[data-oficial="true"] img').count(),0);
+      const estilo=await emblema.evaluate(x=>({
+        fondo:getComputedStyle(x).backgroundColor,
+        ancho:x.getBoundingClientRect().width,
+        alto:x.getBoundingClientRect().height
+      }));
+      assert.equal(estilo.fondo,'rgb(11, 11, 11)');
+      assert.equal(estilo.ancho,estilo.alto,'Placeholder negro 1:1');
+      // Una ilustración SVG futura puede asignarse mediante el manifiesto,
+      // sin modificar las fichas ni incorporar iconos por defecto.
+      const pruebaSVG=await otraContexto.newPage();
+      try{
+        await pruebaSVG.route('**/assets/adversarios-iconos.json',route=>route.fulfill({
+          status:200,contentType:'application/json',
+          body:JSON.stringify({version:1,iconos:{
+            'drs-goblin_con_tirachinas':'goblin.svg'
+          }})
+        }));
+        await pruebaSVG.route('**/assets/adversarios/iconos/goblin.svg',route=>route.fulfill({
+          status:200,contentType:'image/svg+xml',
+          body:'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#ffffff"/></svg>'
+        }));
+        await pruebaSVG.goto(url,{waitUntil:'domcontentloaded'});
+        await pruebaSVG.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+        await pruebaSVG.locator('#tab-criaturas').click();
+        await pruebaSVG.waitForFunction(()=>{
+          const img=document.querySelector('.criaturas-cromo[data-oficial="true"] img');
+          return img&&img.complete&&img.naturalWidth>0;
+        });
+        assert.equal(await pruebaSVG.locator('.criaturas-cromo[data-icono="svg"]').count(),1);
+      }finally{await pruebaSVG.close();}
       await segunda.locator('#criaturas-ficha-retirar').click();
       assert.equal(await segunda.locator('.criaturas-cromo').count(),0,
         'Retirar una selección oficial debe vaciar la galería.');
+      await segunda.locator('#criaturas-cargar-drs').click();
+      await segunda.locator('#criaturas-selector-busqueda').fill('Necrotótamo');
+      assert.equal(await segunda.locator('.criaturas-selector-fila').count(),1);
+      await segunda.locator('.criaturas-selector-fila button').click();
+      await segunda.locator('#criaturas-selector-cerrar').click();
+      await segunda.locator('.criaturas-cromo[data-oficial="true"]').click();
+      assert.equal((await segunda.locator('#criaturas-ficha-titulo').innerText()).trim(),
+        'Necrotótamo');
+      assert.equal((await segunda.locator('.criaturas-taxonomia').innerText()).trim(),
+        'Monstruo - Bestias mitológicas');
+      assert.equal(await segunda.locator('.criaturas-ataques-consulta li').count(),2,
+        'Los ataques alternativos se dividen en dos opciones.');
+      const ataqueTexto=await segunda.locator('.criaturas-ataques-consulta').innerText();
+      assert.match(ataqueTexto,/Coletazos - 14 de daño/);
+      assert.match(ataqueTexto,/Mirada pétrea - especial/);
+      assert.doesNotMatch(ataqueTexto,/^\s*o Mirada/m);
+      await segunda.locator('#criaturas-ficha-retirar').click();
+
       await segunda.reload({waitUntil:'domcontentloaded'});
       await segunda.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
       await segunda.locator('#tab-criaturas').click();

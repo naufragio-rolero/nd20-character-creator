@@ -53,6 +53,32 @@ CiFi ni otros suplementos. La lista blanca de `dist/public-drs` admite solo
 `data/adversarios-drs.json` y el compositor PDF específico de este apartado.
 La consulta muestra Nivel, Salud y Moral (y otros datos documentados, excepto\nProtección); normaliza los ataques, oculta vínculos técnicos de Talentos,\nsepara con iconos espada/libro y presenta la fuente en un pie discreto.\n`assets/adversarios-formato.js` comparte el formato de los ataques entre web\ny PDF sin alterar `danoLiteral` ni las fichas de origen.\nNo hay automatización de combate.
 
+
+## Presentación de las fichas y cromos (revisión estética)
+
+La cabecera de la ficha de consulta muestra únicamente el nombre del adversario.
+Los KPI reutilizan los iconos locales del personaje: **Nivel → Potencia**,
+**Salud → Salud** y **Moral → Esfuerzo**. La clasificación va justo después,
+con el formato `Categoría - Subcategoría (Subtipo)`, omitiendo los segmentos
+que no estén documentados. El origen oficial se identifica exclusivamente
+en el pie discreto: `Fuente: Naufragio d20 - Épica · DRS`.
+
+`assets/adversarios-formato.js` agrupa las entradas de Ataques solo a nivel
+visual: `o` separa opciones numeradas; `y` conserva los ataques simultáneos
+en **una sola opción**; la coma conserva su puntuación. Las cantidades,
+expresiones de daño, notas, Talentos y conectores originales continúan intactos
+en la ficha JSON, y web y PDF A5 consumen la misma función de formato.
+
+Los cromos muestran un **cuadrado negro de 56 × 56 píxeles, 1:1**, por defecto,
+sin letras ni emblemas inventados. Las futuras ilustraciones SVG se guardan en
+`assets/adversarios/iconos/` y se asignan mediante
+`assets/adversarios-iconos.json`. La clave por ID oficial es
+`drs-<id>`; para nombres propios o compartidos se usa
+`nombre-<nombre-normalizado>`. Un icono ausente, no registrado o que falle
+al cargarse deja el cuadrado negro, y su imagen jamás modifica los datos de
+la ficha. La exportación pública incorpora solo archivos SVG explícitamente
+registrados y validados, no copia directorios de imágenes sin auditar.
+
 ## PDF y regresión
 
 `assets/adversarios-pdf.js` reutiliza `pdf-lib`, `fontkit` y las tipografías

@@ -105,6 +105,7 @@ const especificas=[
   'assets/creatures.js','assets/creatures-import.js',
   'assets/creatures-library.js','assets/creatures-ui.js',
   'assets/adversarios-formato.js','assets/adversarios-pdf.js',
+  'assets/adversarios-iconos.json',
   // PDF A5 Fantasía: solo plantillas reglamentarias y bibliotecas de terceros autorizadas.
   'assets/pdf-export-v2.js','assets/pdf-export-browser.js',
   'assets/pdf-a5/forja-fantasia-epica-a5.pdf',
@@ -134,6 +135,33 @@ const especificas=[
   'data/adversarios-drs.json',
   'data/dungeon-hack.json'
 ];
+// Ilustraciones opcionales: solo los SVG declarados en un manifiesto editorial
+// y presentes en el repositorio pueden llegar al paquete público.
+const iconosAdversarios=JSON.parse(fs.readFileSync(
+  path.join(raiz,'assets/adversarios-iconos.json'),'utf8'));
+if(iconosAdversarios.version!==1||!iconosAdversarios.iconos||
+   Array.isArray(iconosAdversarios.iconos)||
+   typeof iconosAdversarios.iconos!=='object')
+  throw Error('Manifiesto de iconos de Adversarios incompatible.');
+for(const [clave,nombre] of Object.entries(iconosAdversarios.iconos)){
+  if(!/^(?:drs-[a-z0-9_]+|nombre-[a-z0-9-]+)$/.test(clave)||
+     typeof nombre!=='string'||!/^[a-z0-9][a-z0-9_-]*\.svg$/.test(nombre))
+    throw Error('Referencia de icono SVG no válida: '+clave);
+  const ruta='assets/adversarios/iconos/'+nombre;
+  if(especificas.includes(ruta))continue;
+  const archivo=path.join(raiz,ruta);
+  if(!fs.existsSync(archivo)||!fs.statSync(archivo).isFile()||
+     fs.statSync(archivo).size>250000)
+    throw Error('Icono SVG inexistente o demasiado grande: '+ruta);
+  const svg=fs.readFileSync(archivo,'utf8');
+  if(!/<svg\b/i.test(svg)||
+     /<(?:script|foreignObject|iframe|object|embed)\b/i.test(svg)||
+     /\bon[a-z]+\s*=/i.test(svg)||
+     /(?:href|xlink:href)\s*=\s*["'](?:https?:|\/\/|data:|javascript:)/i.test(svg)||
+     /@import\b/i.test(svg))
+    throw Error('SVG con contenido activo o referencias externas: '+ruta);
+  especificas.push(ruta);
+}
 const transformaciones={
   'data/adversarios-drs.json'(d){
     if(d.fuente!=='Naufragio d20 DRS'||!Array.isArray(d.registros)||

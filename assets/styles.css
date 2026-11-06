@@ -1549,16 +1549,16 @@ html[data-tema=violeta]{
   padding:.65rem .3rem;border:1px solid var(--borde);border-radius:10px;
   background:var(--superficie2);color:var(--texto);cursor:pointer;text-align:center}
 .criaturas-cromo:hover,.criaturas-cromo:focus-visible{border-color:var(--oro);outline-offset:2px}
-.criaturas-cromo .criaturas-emblema{display:grid;place-items:center;width:55px;height:55px;
-  border:2px solid currentColor;border-radius:13px;color:var(--oro);
-  background:var(--superficie);font:700 1.2rem "Exo",system-ui,sans-serif}
+.criaturas-cromo .criaturas-emblema{
+  display:grid;place-items:center;flex:none;width:56px;height:56px;
+  border:1px solid #515151;border-radius:3px;background:#0b0b0b;overflow:hidden
+}
+.criaturas-cromo .criaturas-icono-svg{
+  display:block;width:100%;height:100%;object-fit:contain
+}
 .criaturas-cromo .criaturas-nombre{font-size:.75rem;font-weight:700;line-height:1.25;
   overflow-wrap:anywhere;max-width:100%}
 .criaturas-cromo .criaturas-nivel{font-size:.72rem;color:var(--secundario)}
-.criaturas-cromo[data-categoria="muerto-viviente"] .criaturas-emblema,
-.criaturas-cromo[data-categoria="demonio"] .criaturas-emblema{color:var(--peligro)}
-.criaturas-cromo[data-categoria="vegetal"] .criaturas-emblema,
-.criaturas-cromo[data-categoria="bestia"] .criaturas-emblema{color:var(--foco)}
 #criaturas-importacion[hidden]{display:none!important}
 .dialogo-adversario{width:min(960px,calc(100vw - 1rem));max-height:calc(100dvh - 1rem);
   overflow:auto;margin:auto;color:var(--texto);background:var(--superficie);
@@ -1579,17 +1579,34 @@ html[data-tema=violeta]{
 .dialogo-ficha-adversario .criaturas-ficha-acciones{position:sticky;bottom:0;
   padding:.8rem 0;background:var(--superficie)}
 .criaturas-ficha-completa h4{margin:1rem 0 .35rem;font-family:"Exo",system-ui,sans-serif}
-.criaturas-ficha-completa .criaturas-metricas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin:1rem 0}
-.criaturas-metrica{padding:.75rem .4rem;background:var(--superficie2);border:1px solid var(--borde);
-  text-align:center;border-radius:8px}
-.criaturas-metrica strong{display:block;font-size:1.2rem}
-.criaturas-metrica small{font-size:.68rem;color:var(--secundario)}
+.criaturas-ficha-completa .criaturas-metricas{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.55rem;margin:1.1rem 0 .6rem
+}
+.criaturas-metrica{
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+  min-width:0;min-height:72px;padding:.65rem .7rem;
+  background:var(--superficie2);border:1px solid var(--borde);
+  border-radius:10px 4px;text-align:left
+}
+.criaturas-metrica .criaturas-metrica-icono{
+  display:block;flex:0 0 1.55rem;width:1.55rem;height:1.55rem;color:var(--oro)
+}
+.criaturas-metrica-detalle{display:flex;flex-direction:column;gap:.08rem;min-width:0}
+.criaturas-metrica strong{display:block;font-size:1.12rem;line-height:1.25}
+.criaturas-metrica small{display:block;font-size:.71rem;color:var(--secundario);font-weight:650}
+.criaturas-taxonomia{
+  font-size:.84rem;font-weight:650;color:var(--secundario);
+  letter-spacing:.015em;margin:.35rem 0 1.55rem
+}
 .criaturas-ficha-completa p,.criaturas-ficha-completa li{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55}
 @media(max-width:1150px){.criaturas-lista{grid-template-columns:repeat(6,minmax(0,1fr))}}
 @media(max-width:800px){.criaturas-lista{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:480px){
  .criaturas-lista{grid-template-columns:repeat(2,minmax(0,1fr))}
  .criaturas-ficha-completa .criaturas-metricas{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .criaturas-metrica{justify-content:flex-start;min-height:65px;padding:.55rem .6rem}
+ .criaturas-metrica .criaturas-metrica-icono{flex-basis:1.2rem;width:1.2rem;height:1.2rem}
  .cabecera-resumen-seguidores{align-items:flex-start}
 }
 

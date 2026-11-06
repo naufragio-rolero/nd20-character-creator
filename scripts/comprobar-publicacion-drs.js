@@ -41,6 +41,8 @@ const requeridos=[
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/icons/LICENCIA-TABLER.txt',
   'assets/creatures.js','assets/creatures-import.js',
   'assets/creatures-library.js','assets/creatures-ui.js',
+  'assets/adversarios-formato.js','assets/adversarios-pdf.js',
+  'assets/adversarios-iconos.json',
   'assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/names.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/favicon.svg',
@@ -74,6 +76,20 @@ for(const ruta of requeridos)
   if(!fs.existsSync(path.join(raiz,ruta)))
     alertas.push('Falta archivo requerido por el arranque de Forja: '+ruta+
       '. No declarar publicable un paquete incompleto.');
+const manifiesto=dato('assets/adversarios-iconos.json');
+if(manifiesto){
+  if(manifiesto.version!==1||!manifiesto.iconos||
+     Array.isArray(manifiesto.iconos)||
+     typeof manifiesto.iconos!=='object')
+    alertas.push('Manifiesto SVG de Adversarios incompatible.');
+  else for(const [clave,nombre] of Object.entries(manifiesto.iconos)){
+    if(!/^(?:drs-[a-z0-9_]+|nombre-[a-z0-9-]+)$/.test(clave)||
+       typeof nombre!=='string'||!/^[a-z0-9][a-z0-9_-]*\.svg$/.test(nombre))
+      alertas.push('Referencia inválida de icono de Adversarios: '+clave);
+    else if(!fs.existsSync(path.join(raiz,'assets/adversarios/iconos',nombre)))
+      alertas.push('Falta SVG del manifiesto de Adversarios: '+nombre);
+  }
+}
 // Comprobar MIME/contenido y tamaño físico de los activos de descarga,
  // para evitar una distribución que muestra el botón y falla en ejecución.
 for(const ruta of [
