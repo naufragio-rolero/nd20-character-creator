@@ -342,6 +342,19 @@
       boton.dataset.id=id;
       boton.dataset.seleccionado=String(seleccionado);
       boton.setAttribute('aria-label',(seleccionado?'Quitar':'Añadir')+' '+registro.nombre);
+      boton.addEventListener('click',function(){
+        try{
+          var anadir=boton.dataset.seleccionado!=='true';
+          actualizarSeleccionOficial(id,anadir);
+          boton.dataset.seleccionado=String(anadir);
+          boton.textContent=anadir?'Quitar':'Añadir';
+          boton.setAttribute('aria-label',(anadir?'Quitar ':'Añadir ')+registro.nombre);
+          mostrarEstado((anadir?'Añadido a':'Retirado de')+
+            ' tu galería. El catálogo original no se modifica.');
+        }catch(error){
+          mostrarEstado('No se pudo guardar la selección: '+error.message,true);
+        }
+      });
       fila.append(titulo,boton);
       lista.appendChild(fila);
     });
@@ -924,21 +937,7 @@
       $(id).addEventListener('input',actualizarSelectorDRS);
       $(id).addEventListener('change',actualizarSelectorDRS);
     });
-    $('criaturas-selector-lista').addEventListener('click',function(event){
-      var boton=event.target.closest('button[data-id]');
-      if(!boton)return;
-      try{
-        var anadir=boton.dataset.seleccionado!=='true';
-        actualizarSeleccionOficial(boton.dataset.id,anadir);
-        // Actualizar el botón en su sitio: no eliminarlo durante su propio click
-        // evita un segundo disparo por reintentos de WebKit/Playwright.
-        boton.dataset.seleccionado=String(anadir);
-        boton.textContent=anadir?'Quitar':'Añadir';
-        boton.setAttribute('aria-label',(anadir?'Quitar ':'Añadir ')+
-          boton.closest('.criaturas-selector-fila').querySelector('strong').textContent);
-        mostrarEstado((anadir?'Añadido a':'Retirado de')+' tu galería. El catálogo original no se modifica.');
-      }catch(error){mostrarEstado('No se pudo guardar la selección: '+error.message,true);}
-    });
+
     $('criaturas-ficha-retirar').addEventListener('click',function(){
       try{
         actualizarSeleccionOficial(idConsulta,false);
