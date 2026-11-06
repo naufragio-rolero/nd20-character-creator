@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - auditoría 106 adversarios (PR #109)
+      - name: Obtener snapshot DRS aprobado - UX adversarios (PR #110)
         uses: actions/checkout@v4
         with:
-          ref: b748734dade84ae6428f18487856f02e35b25092
+          ref: c09cb302f8c1eb2c1cb8e1b75109b3999fa763e3
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "b748734dade84ae6428f18487856f02e35b25092"
-      # Snapshot aprobado para LIVE: PR #109, auditoría completa 106 adversarios DRS; conserva KPI, ataques agrupados, iconos y PDFs A5,
+          test "$(git rev-parse HEAD)" = "c09cb302f8c1eb2c1cb8e1b75109b3999fa763e3"
+      # Snapshot aprobado para LIVE: PR #110, cinco CI verdes y DRS auditado con 106 adversarios; conserva KPI, ataques agrupados, iconos y PDFs A5,
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -56,8 +56,12 @@ jobs:
           grep -Fq 'id="criaturas-cargar-drs"' index.html
           grep -Fq 'id="criaturas-selector-drs"' index.html
           grep -Fq 'id="criaturas-ficha-retirar"' index.html
-          grep -Fq 'Naufragio d20 - Épica' index.html
+          grep -Fq 'Perfiles oficiales' index.html
           grep -Fq 'id="criaturas-ficha-pdf"' index.html
+          grep -Fq 'id="criaturas-ficha-ilustracion-archivo"' index.html
+          grep -Fq 'id="criaturas-selector-subcategoria"' index.html
+          grep -Fq 'id="criaturas-selector-fuente"' index.html
+          node -e "const m=require('./data/adversarios-fuentes.json');if(m.version!==1||m.sistema!=='nd20'||m.fuentes.length!==1||m.fuentes[0].id!=='drs'||m.fuentes[0].total!==106)process.exit(1)"
           node -e "const m=require('./assets/adversarios-iconos.json');if(m.version!==1||!m.iconos||Array.isArray(m.iconos))process.exit(1)"
           grep -Fq 'lineasAtaque' assets/adversarios-formato.js
           grep -Fq 'criaturas-metrica-icono' assets/creatures-ui.js
@@ -391,9 +395,11 @@ jobs:
           grep -Fq 'id="criaturas-cargar-drs"' /tmp/forja-live.html
           grep -Fq 'id="criaturas-selector-drs"' /tmp/forja-live.html
           grep -Fq 'id="criaturas-ficha-retirar"' /tmp/forja-live.html
-          grep -Fq 'Naufragio d20 - Épica' /tmp/forja-live.html
+          grep -Fq 'Perfiles oficiales' /tmp/forja-live.html
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/adversarios-iconos.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-iconos-adversarios.json
           node -e "const m=require('/tmp/forja-iconos-adversarios.json');if(m.version!==1||!m.iconos||Array.isArray(m.iconos))process.exit(1)"
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/adversarios-fuentes.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-fuentes-adversarios.json
+          node -e "const m=require('/tmp/forja-fuentes-adversarios.json');if(m.version!==1||m.sistema!=='nd20'||m.fuentes.length!==1||m.fuentes[0].id!=='drs'||m.fuentes[0].total!==106)process.exit(1)"
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/adversarios-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-adversarios.json
           node -e "const d=require('/tmp/forja-adversarios.json');if(d.fuente!=='Naufragio d20 DRS'||d.registros.length!==106||d.registros.some(x=>x.fuente!=='Naufragio d20 DRS'||x.ficha.puntuaciones.blindaje<0))process.exit(1)"
           grep -Fq 'root.NaufragioCriaturasUI = api;' /tmp/forja-creatures-ui.js
@@ -743,6 +749,8 @@ jobs:
               await page.locator('#estado').getByText('Datos listos',{exact:false})
                 .waitFor({timeout:45000});
               await page.locator('#tab-criaturas').click();
+              assert.equal(await page.locator('.juegos-compactos [data-juego="nd20"]').isVisible(),true);
+              assert.equal(await page.locator('.juegos-compactos [data-juego="dh"]').isHidden(),true);
               assert.equal((await page.locator('#tab-criaturas').innerText()).trim(),
                 'Adversarios');
               assert.equal(await page.locator('#editor-criaturas').isVisible(),true);
@@ -791,7 +799,7 @@ jobs:
               assert.equal((await page.locator('.criaturas-taxonomia').innerText()).trim(),
                 'Humanoide - Goblin');
               assert.match(await page.locator('.criaturas-fuente').innerText(),
-                /Fuente: Naufragio d20 - Épica · DRS/);
+                /Fuente: Naufragio d20 · Fantasía Épica · DRS/);
               assert.match(await page.locator('#criaturas-ficha-contenido').innerText(),
                 /Chinazo - 6 de daño/);
               assert.doesNotMatch(await page.locator('#criaturas-ficha-contenido').innerText(),
@@ -804,8 +812,9 @@ jobs:
                 alto:x.getBoundingClientRect().height,
                 fondo:getComputedStyle(x).backgroundColor
               }));
-              assert.equal(medidas.ancho,medidas.alto,'El cromo es 1:1');
-              assert.equal(medidas.fondo,'rgb(11, 11, 11)');
+              assert.ok(medidas.ancho>medidas.alto,'La tarjeta oficial es panorámica.');
+              assert.ok(Math.abs(medidas.ancho/medidas.alto-16/9)<0.12,
+                'La ilustración de adversarios respeta el recorte 16:9.');
               await page.locator('#criaturas-ficha-retirar').click();
               assert.equal(await page.locator('.criaturas-cromo').count(),1);
               await page.locator('#criaturas-cargar-drs').click();
