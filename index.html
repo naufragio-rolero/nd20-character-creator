@@ -254,15 +254,7 @@
       <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
         <section id="resumen-seguidores" class="resumen-creacion resumen-seguidores"
           aria-labelledby="titulo-resumen-seguidores">
-          <div class="cabecera-resumen-seguidores">
-            <h4 id="titulo-resumen-seguidores">Seguidores preparados</h4>
-            <button id="configurar-seguidores" type="button" class="configurar-seguidores-icono"
-              aria-label="Configurar seguidores" title="Configurar seguidores"
-              aria-haspopup="dialog" aria-controls="dialogo-seguidores">
-              <span class="icono-svg" aria-hidden="true"></span>
-              <span>Configurar seguidores</span>
-            </button>
-          </div>
+          <h4 id="titulo-resumen-seguidores">Seguidores preparados</h4>
           <dl>
             <div><dt>Nivel</dt><dd id="resumen-seguidor-nivel">Nivel 1</dd></div>
             <div><dt>Profesión</dt><dd id="resumen-seguidor-profesion">Aleatoria (d12)</dd></div>
@@ -272,6 +264,11 @@
             <div><dt>Aventuras</dt><dd id="resumen-seguidor-aventuras">Según el DRS</dd></div>
           </dl>
         </section>
+        <button id="configurar-seguidores" type="button" class="configurar-creacion"
+          aria-haspopup="dialog" aria-controls="dialogo-seguidores">
+          <span class="icono-svg" aria-hidden="true"></span>
+          Configurar seguidores
+        </button>
         <div class="botonera">
           <button id="generar-seguidor" type="button">Generar seguidor</button>
         </div>
@@ -290,7 +287,8 @@
         <div class="botonera">
           <button type="button" id="criaturas-ir-importar">Pegar ficha de adversario</button>
           <button type="button" id="criaturas-ir-biblioteca">Ver galería</button>
-          <button type="button" id="criaturas-cargar-drs">Cargar adversarios del DRS</button>
+          <button type="button" id="criaturas-cargar-drs" aria-haspopup="dialog"
+            aria-controls="criaturas-selector-drs">Elegir adversarios de Naufragio d20 - Épica</button>
         </div>
         <small>El bestiario es local. No se automatizan combates ni tiradas. Exporta una copia JSON para conservar tus creaciones.</small>
       </section>
@@ -740,6 +738,26 @@
           <button type="submit" class="principal">Guardar e incorporar</button>
         </form>
       </dialog>
+      <dialog id="criaturas-selector-drs" class="dialogo-compras dialogo-selector-drs"
+        aria-labelledby="criaturas-selector-titulo">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="criaturas-selector-titulo">Elegir adversarios · Naufragio d20 - Épica</h3>
+            <p class="muted">Añade únicamente los adversarios que necesites. Puedes retirarlos de la galería sin perder el catálogo original.</p>
+          </div>
+          <button id="criaturas-selector-cerrar" type="button" class="cerrar-rejilla"
+            aria-label="Cerrar selector de adversarios">✕</button>
+        </div>
+        <div class="criaturas-selector-filtros">
+          <div class="campo"><label for="criaturas-selector-busqueda">Buscar adversario</label>
+            <input id="criaturas-selector-busqueda" type="search" autocomplete="off"
+              placeholder="Nombre, categoría o familia"></div>
+          <div class="campo"><label for="criaturas-selector-categoria">Categoría</label>
+            <select id="criaturas-selector-categoria"><option value="">Todas</option></select></div>
+        </div>
+        <p id="criaturas-selector-estado" class="muted" role="status" aria-live="polite"></p>
+        <div id="criaturas-selector-lista" class="criaturas-selector-lista"></div>
+      </dialog>
       <dialog id="criaturas-ficha-dialogo" class="dialogo-compras dialogo-ficha-adversario" aria-labelledby="criaturas-ficha-titulo">
         <div class="cabecera-compras">
           <h3 id="criaturas-ficha-titulo">Ficha de adversario</h3>
@@ -752,6 +770,7 @@
           <button type="button" id="criaturas-ficha-json">Exportar JSON</button>
           <button type="button" id="criaturas-ficha-pdf">Exportar PDF</button>
           <button type="button" id="criaturas-ficha-eliminar">Eliminar</button>
+          <button type="button" id="criaturas-ficha-retirar" hidden>Quitar de la galería</button>
         </div>
       </dialog>
     </section>
