@@ -935,8 +935,11 @@
     }
     cont.appendChild(articulo);
     $('criaturas-ficha-titulo').textContent=dato.nombre;
-    $('criaturas-ficha-editar').textContent=esFichaOficial(id)?
-      'Crear copia editable':'Editar';
+    // Las acciones son iconos: actualizar el nombre accesible sin destruir
+    // el SVG ni la máscara del botón al abrir otra ficha.
+    var tituloEdicion=esFichaOficial(id)?'Crear copia editable':'Editar adversario';
+    $('criaturas-ficha-editar').setAttribute('aria-label',tituloEdicion);
+    $('criaturas-ficha-editar').title=tituloEdicion;
     $('criaturas-ficha-eliminar').hidden=esFichaOficial(id);
     $('criaturas-ficha-retirar').hidden=!esFichaOficial(id);
     $('criaturas-ficha-ilustracion-acciones').hidden=!esFichaOficial(id);
