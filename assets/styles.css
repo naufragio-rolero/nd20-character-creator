@@ -1576,8 +1576,46 @@ html[data-tema=violeta]{
   color:var(--texto);background:var(--superficie);padding:1.1rem}
 .dialogo-ficha-adversario .cabecera-compras{position:sticky;top:0;z-index:2;
   background:var(--superficie)}
-.dialogo-ficha-adversario .criaturas-ficha-acciones{position:sticky;bottom:0;
-  padding:.8rem 0;background:var(--superficie)}
+/* Pie de consulta: las cinco acciones ocupan una sola línea, igual que
+   las acciones iconográficas de Personajes. Nunca aplicar aquí el ancho
+   del botón principal ni la regla móvil de formularios. */
+.dialogo-ficha-adversario .criaturas-ficha-acciones{
+  position:sticky;bottom:-1.1rem;z-index:2;
+  display:flex;align-items:center;justify-content:flex-end;
+  flex-wrap:nowrap;gap:.4rem;
+  margin-top:.55rem;padding:.45rem .1rem .55rem;
+  border-top:1px solid var(--borde);
+  background:var(--superficie)
+}
+.dialogo-ficha-adversario .criaturas-ficha-acciones button.accion-icono{
+  display:grid;place-items:center;flex:0 0 40px;
+  width:40px;min-width:40px;max-width:40px;
+  height:40px;min-height:40px;
+  margin:0;padding:0;border-radius:8px;
+  line-height:1;white-space:nowrap
+}
+.dialogo-ficha-adversario .criaturas-ficha-acciones button[hidden]{display:none!important}
+.dialogo-ficha-adversario .criaturas-ficha-acciones .criaturas-icono-accion{
+  display:block;flex:none;width:21px;height:21px
+}
+.dialogo-ficha-adversario .criaturas-ficha-acciones .icono-accion{
+  width:21px;height:21px
+}
+.dialogo-ficha-adversario .criaturas-ficha-acciones .accion-adversario-editar{
+  color:var(--oro);border-color:var(--oro)
+}
+.dialogo-ficha-adversario .criaturas-ficha-acciones .accion-adversario-peligro{
+  color:var(--peligro)
+}
+.dialogo-ficha-adversario .criaturas-ficha-acciones button:focus-visible{
+  outline:3px solid var(--foco);outline-offset:2px
+}
+@media(max-width:440px){
+  .dialogo-ficha-adversario .criaturas-ficha-acciones{gap:.3rem}
+  .dialogo-ficha-adversario .criaturas-ficha-acciones button.accion-icono{
+    flex-basis:40px;width:40px;min-width:40px;max-width:40px
+  }
+}
 .criaturas-ficha-completa h4{margin:1rem 0 .35rem;font-family:"Exo",system-ui,sans-serif}
 .criaturas-ficha-completa .criaturas-metricas{
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
