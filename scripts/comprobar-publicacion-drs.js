@@ -46,6 +46,7 @@ const requeridos=[
   'assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/names.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/favicon.svg',
+  'assets/branding/naufragio.svg',
   // PDF A5: si el botón existe, todos sus recursos deben estar presentes.
   'assets/pdf-export-v2.js','assets/pdf-export-browser.js',
   'assets/pdf-a5/forja-fantasia-epica-a5.pdf',

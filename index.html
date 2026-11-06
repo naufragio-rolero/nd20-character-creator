@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#122532">
-  <meta name="description" content="Generador de personajes, seguidores y herramientas para Naufragio d20 y Dungeon Hack.">
-  <title>El Naufragio · Forja de personajes</title>
+  <meta name="description" content="Forja de Naufragio d20: personajes, seguidores y adversarios para Naufragio d20 y Dungeon Hack.">
+  <title>Forja de Naufragio d20 · El Naufragio</title>
   <script>
     // Antes del CSS y de la primera pintura: evita el destello del tema Clásico.
     (function(){
@@ -41,9 +41,9 @@
 <body>
   <header class="encabezado">
     <div class="marca">
-      <p class="sobrelinea">EL NAUFRAGIO / HERRAMIENTAS DE ROL</p>
-      <h1>Forja de personajes</h1>
-      <p class="subtitulo">Naufragio d20 y Dungeon Hack. Personajes y herramientas en una misma forja.</p>
+      <img class="marca-logotipo" src="assets/branding/naufragio.svg"
+        alt="Logotipo de El Naufragio" width="290" height="119" decoding="async">
+      <h1>Forja de Naufragio d20</h1>
     </div>
     <div class="cabecera-acciones"><button id="alternar-menu" class="boton-menu" type="button" aria-controls="panel-forja" aria-expanded="false" aria-label="Abrir menú de la forja"><span class="lineas-menu" aria-hidden="true"><span></span><span></span><span></span></span><span>Menú</span></button><label class="tema-control" for="selector-tema">Tema
       <select id="selector-tema" aria-label="Tema visual">
@@ -587,7 +587,7 @@
       <p id="criaturas-estado" class="estado" role="status" aria-live="polite"></p>
       <section class="criaturas-bloque" id="criaturas-importacion" hidden aria-labelledby="criaturas-titulo-importacion">
         <div class="criaturas-subcabecera"><h3 id="criaturas-titulo-importacion">Pegar una ficha</h3><button type="button" id="criaturas-cerrar-importacion">Cerrar</button></div>
-        <p class="muted">Pega el texto de un adversario Nd20. Analizaremos sus puntuaciones, ataques y Talentos; nada se guardará hasta que revises el borrador.</p>
+        <p class="muted">Pega el texto de un adversario Nd20. Analizaremos sus puntuaciones, Acciones y Talentos; nada se guardará hasta que revises el borrador.</p>
         <label for="criaturas-texto">Texto completo del adversario</label>
         <textarea id="criaturas-texto" rows="6" spellcheck="false" placeholder="Nombre del adversario&#10;Bestia de Nivel 4 [Moral 8], Salud 20&#10;Ataques: 2 garras (6) o mordisco (9)"></textarea>
         <div class="criaturas-acciones">
@@ -691,20 +691,20 @@
             <div class="campo"><label for="criaturas-tamano">Tamaño</label><input id="criaturas-tamano" type="number" min="0" step="1"></div>
           </div>
           <div class="criaturas-subcabecera">
-            <h4>Ataques</h4>
-            <button type="button" id="criaturas-anadir-ataque">Añadir ataque</button>
+            <h4>Acciones</h4>
+            <button type="button" id="criaturas-anadir-ataque">Añadir acción</button>
           </div>
-          <p class="muted">«y» indica ataques simultáneos, «o» alternativas. Las comas y mezclas pueden requerir revisión. El daño literal no se calcula.</p>
-          <div class="campo"><label for="criaturas-buscar-ataque">Buscar ataque documentado o propio</label>
-            <input id="criaturas-buscar-ataque" type="search" autocomplete="off" placeholder="Busca por nombre de ataque…"></div>
+          <p class="muted">«y» indica acciones simultáneas, «o» opciones alternativas. Las comas y mezclas pueden requerir revisión. El daño literal no se calcula.</p>
+          <div class="campo"><label for="criaturas-buscar-ataque">Buscar acción documentada o propia</label>
+            <input id="criaturas-buscar-ataque" type="search" autocomplete="off" placeholder="Busca por nombre de acción…"></div>
           <div id="criaturas-coincidencias-ataques" class="criaturas-coincidencias" aria-live="polite"></div>
-          <div class="criaturas-comp-accesos"><button id="criaturas-explorar-ataques" type="button">Explorar biblioteca de Ataques</button><button id="criaturas-crear-ataque" type="button">Crear ataque propio</button></div>
+          <div class="criaturas-comp-accesos"><button id="criaturas-explorar-ataques" type="button">Explorar biblioteca de Acciones</button><button id="criaturas-crear-ataque" type="button">Crear acción propia</button></div>
           <div id="criaturas-ataques" class="criaturas-repetidos"></div>
           <div class="criaturas-subcabecera">
             <h4>Talentos y habilidades especiales</h4>
             <button type="button" id="criaturas-anadir-talento">Añadir Talento</button>
           </div>
-          <p class="muted">Talentos independientes de los ataques. Ningún efecto se inventa a partir del nombre.</p>
+          <p class="muted">Los Talentos describen efectos y propiedades. Ningún efecto se inventa a partir del nombre.</p>
           <div class="campo"><label for="criaturas-buscar-talento">Buscar Talento o habilidad especial documentada</label>
             <input id="criaturas-buscar-talento" type="search" autocomplete="off" placeholder="Busca por nombre de habilidad…"></div>
           <div id="criaturas-coincidencias-talentos" class="criaturas-coincidencias" aria-live="polite"></div>
@@ -755,18 +755,18 @@
       <dialog id="criaturas-componentes-dialogo" class="dialogo-compras dialogo-adversario-componentes"
         aria-labelledby="criaturas-componentes-titulo">
         <div class="cabecera-compras">
-          <div><h3 id="criaturas-componentes-titulo">Biblioteca de Ataques y Talentos</h3>
+          <div><h3 id="criaturas-componentes-titulo">Biblioteca de Acciones y Talentos</h3>
             <p class="muted">Consulta y añade componentes documentados. Las relaciones se proponen, nunca se imponen.</p></div>
           <button id="criaturas-componentes-cerrar" type="button" class="cerrar-rejilla" aria-label="Cerrar biblioteca de componentes">✕</button>
         </div>
         <div class="criaturas-comp-pestanas" role="group" aria-label="Tipo de componente">
-          <button type="button" id="criaturas-componentes-tab-ataques" aria-pressed="true">Ataques</button>
+          <button type="button" id="criaturas-componentes-tab-ataques" aria-pressed="true">Acciones</button>
           <button type="button" id="criaturas-componentes-tab-talentos" aria-pressed="false">Talentos</button>
         </div>
         <div class="criaturas-comp-filtros">
           <div class="campo criaturas-comp-busqueda">
             <label for="criaturas-componentes-busqueda">Buscar por nombre o descripción</label>
-            <input type="search" id="criaturas-componentes-busqueda" autocomplete="off" placeholder="Busca un ataque, efecto o criatura…">
+            <input type="search" id="criaturas-componentes-busqueda" autocomplete="off" placeholder="Busca una acción, efecto o criatura…">
           </div>
           <div class="campo"><label for="criaturas-componentes-fuente">Fuente</label>
             <select id="criaturas-componentes-fuente"><option value="">Todas</option></select></div>

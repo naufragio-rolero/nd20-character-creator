@@ -1844,3 +1844,25 @@ html[data-tema=violeta]{
 .criaturas-comp-clasificacion[hidden]{display:none!important}
 .criaturas-comp-filtros{grid-template-columns:2fr repeat(3,minmax(0,1fr))}
 @media(max-width:620px){.criaturas-comp-filtros{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Marca del kit de prensa, cabecera reducida y adaptable a cinco temas. */
+.encabezado{align-items:center;padding:1.25rem 2.4rem 1.15rem;gap:1rem 1.5rem}
+.encabezado .marca{display:flex;align-items:center;gap:1rem;min-width:0}
+.marca-logotipo{display:block;width:clamp(108px,11vw,150px);height:auto;flex:0 0 auto}
+.encabezado .marca h1{font-size:clamp(1.55rem,2.5vw,2.55rem);line-height:1.13;
+  letter-spacing:-.035em;margin:0}
+html[data-tema=ceruleo] .marca-logotipo,
+html[data-tema=obsidiana] .marca-logotipo,
+html[data-tema=violeta] .marca-logotipo{filter:brightness(0) invert(1)}
+@media(max-width:830px){
+  .encabezado{flex-direction:row;flex-wrap:wrap;align-items:center;
+    padding:1rem 1rem .85rem;gap:.8rem}
+  .encabezado .marca{flex:1 1 100%;gap:.8rem}
+  .marca-logotipo{width:clamp(90px,24vw,118px)}
+  .encabezado .marca h1{font-size:clamp(1.5rem,4.5vw,2rem)}
+  .encabezado .cabecera-acciones{width:100%;justify-content:flex-start;gap:.65rem}
+}
+@media(max-width:390px){
+  .encabezado .marca h1{font-size:1.4rem}
+  .marca-logotipo{width:88px}
+}
