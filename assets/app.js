@@ -234,7 +234,7 @@
     });
   }
   function refrescarBotonesSistema() {
-    var juego=$('juego').value;
+    var juego=$('panel-forja').dataset.seccion==='criaturas'?'nd20':$('juego').value;
     document.querySelectorAll('.juegos-compactos [data-juego]').forEach(function(button){
       var activo=button.dataset.juego===juego;
       button.classList.toggle('sistema-activo',activo);
@@ -248,7 +248,10 @@
     $('panel-criaturas').hidden=!criaturas;
     $('resultados-personajes').hidden=criaturas;
     $('editor-criaturas').hidden=!criaturas;
-    $('selector-sistema-global').hidden=criaturas;
+    // El selector abre siempre el menú: en Adversarios solo es válido Nd20,
+    // sin modificar el sistema elegido para Personajes o Seguidores.
+    $('panel-forja').dataset.seccion=nombre;
+    $('selector-sistema-global').hidden=false;
     if(criaturas) window.NaufragioCriaturasUI?.iniciar?.();
     refrescarGenerarFlotante();
     ['personajes','herramientas','criaturas'].forEach(function(key){
@@ -1965,6 +1968,7 @@
     });
     document.querySelectorAll('.juegos-compactos [data-juego]').forEach(function(button){
       button.addEventListener('click',function(){
+        if($('panel-forja').dataset.seccion==='criaturas')return;
         $('juego').value=button.dataset.juego;
         refrescarSelectores();
       });
