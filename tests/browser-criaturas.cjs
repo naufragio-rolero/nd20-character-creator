@@ -187,15 +187,43 @@ async function probar(nombre,tipo,url){
       await segunda.locator('#tab-criaturas').click();
       assert.equal(await segunda.locator('.criaturas-cromo').count(),0);
       await segunda.locator('#criaturas-cargar-drs').click();
-      await segunda.waitForFunction(()=>
-        document.querySelectorAll('#criaturas-lista .criaturas-cromo').length===106);
-      assert.equal(await segunda.locator('.criaturas-cromo[data-oficial="true"]').count(),106);
-      await segunda.locator('.criaturas-cromo[data-oficial="true"]').first().click();
-      assert.match(await segunda.locator('#criaturas-ficha-titulo').textContent(),/DRS oficial/);
+      assert.equal(await segunda.locator('#criaturas-selector-drs').evaluate(x=>x.open),true);
+      assert.equal(await segunda.locator('.criaturas-selector-fila').count(),106);
+      assert.equal(await segunda.locator('.criaturas-cromo').count(),0,
+        'Abrir el catálogo nunca importa los 106 de golpe.');
+      await segunda.locator('#criaturas-selector-busqueda').fill('Goblin con tirachinas');
+      assert.equal(await segunda.locator('.criaturas-selector-fila').count(),1);
+      await segunda.locator('.criaturas-selector-fila button').click();
+      assert.equal(await segunda.locator('.criaturas-cromo[data-oficial="true"]').count(),1);
+      await segunda.locator('#criaturas-selector-cerrar').click();
+      await segunda.locator('.criaturas-cromo[data-oficial="true"]').click();
+      assert.match(await segunda.locator('#criaturas-ficha-titulo').textContent(),
+        /Naufragio d20 - Épica/);
+      assert.equal(await segunda.locator('.criaturas-metrica').count(),3);
+      assert.doesNotMatch(await segunda.locator('#criaturas-ficha-contenido').innerText(),
+        /Protección|Habilidad relacionada|chinazo_51/);
+      assert.match(await segunda.locator('#criaturas-ficha-contenido').innerText(),
+        /Chinazo - 6 de daño/);
+      assert.match(await segunda.locator('.criaturas-fuente').innerText(),
+        /Fuente: Naufragio d20 DRS/);
+      assert.equal(await segunda.locator('.criaturas-icono-apartado').count(),2);
+      await segunda.locator('#criaturas-ficha-retirar').click();
+      assert.equal(await segunda.locator('.criaturas-cromo').count(),0,
+        'Retirar una selección oficial debe vaciar la galería.');
+      await segunda.reload({waitUntil:'domcontentloaded'});
+      await segunda.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      await segunda.locator('#tab-criaturas').click();
+      assert.equal(await segunda.locator('.criaturas-cromo').count(),0,
+        'La retirada debe persistir al recargar.');
+      await segunda.locator('#criaturas-cargar-drs').click();
+      await segunda.locator('#criaturas-selector-busqueda').fill('Goblin con tirachinas');
+      await segunda.locator('.criaturas-selector-fila button').click();
+      await segunda.locator('#criaturas-selector-cerrar').click();
+      await segunda.locator('.criaturas-cromo[data-oficial="true"]').click();
       await segunda.locator('#criaturas-ficha-editar').click();
       assert.equal(await segunda.locator('#criaturas-edicion').evaluate(x=>x.open),true);
-      assert.equal(await segunda.locator('.criaturas-cromo[data-oficial="true"]').count(),106);
-      assert.equal(await segunda.locator('.criaturas-cromo').count(),107);
+      assert.equal(await segunda.locator('.criaturas-cromo[data-oficial="true"]').count(),1);
+      assert.equal(await segunda.locator('.criaturas-cromo').count(),2);
       await segunda.locator('#criaturas-cerrar-editor').click();
       await segunda.locator('#criaturas-nueva-panel').click();
       await segunda.locator('#criaturas-nombre').fill('Ejemplo de ajuste negativo');
