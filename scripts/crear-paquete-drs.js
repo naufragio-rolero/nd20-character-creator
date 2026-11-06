@@ -95,7 +95,7 @@ const iconosForja=[
 ];
 const especificas=[
   'index.html',
-  'assets/styles.css','assets/favicon.svg',
+  'assets/styles.css','assets/favicon.svg','assets/branding/naufragio.svg',
   'assets/icons/sistema-nd20-faep.webp','assets/icons/sistema-dh.webp',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/icons/LICENCIA-TABLER.txt',
