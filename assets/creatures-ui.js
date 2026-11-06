@@ -15,6 +15,9 @@
   var pendiente = null, cambios = false, secuenciaAtaques = 0;
   var catalogoDRS = null, oficialesSeleccionados = new Set(), tipoPropio = null;
   var CLAVE_OFICIALES = 'forja-adversarios-oficiales-v1';
+  // El manifiesto solo contiene nombres de archivos SVG públicos.
+  // Ningún icono forma parte de la ficha reglamentaria o del JSON personal.
+  var iconosGaleria = {};
   var d = null;
   function $(id) { return d.getElementById(id); }
   function ele(nodo,clase,texto) {
@@ -491,6 +494,33 @@
     });
     select.value=actual;
   }
+  function slugIcono(nombre) {
+    return String(nombre||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .toLocaleLowerCase('es').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  }
+  function rutaIcono(registro) {
+    var nombre='nombre-'+slugIcono(registro.nombre);
+    var archivo=iconosGaleria[registro.id]||iconosGaleria[nombre];
+    if(typeof archivo!=='string'||!/^[a-z0-9][a-z0-9_-]*\.svg$/.test(archivo))
+      return null;
+    return 'assets/adversarios/iconos/'+archivo;
+  }
+  function cargarIconosGaleria() {
+    return root.fetch('assets/adversarios-iconos.json',{cache:'no-store'})
+      .then(function(respuesta){
+        if(!respuesta.ok)throw Error('No hay manifiesto SVG.');
+        return respuesta.json();
+      }).then(function(datos){
+        if(!datos||datos.version!==1||!datos.iconos||
+            Array.isArray(datos.iconos)||typeof datos.iconos!=='object')
+          throw Error('Manifiesto SVG incompatible.');
+        iconosGaleria=datos.iconos;
+        dibujarBiblioteca();
+      }).catch(function(){
+        // Un icono opcional jamás impide utilizar el bestiario.
+        iconosGaleria={};
+      });
+  }
   function dibujarBiblioteca() {
     var lista=$('criaturas-lista');
     lista.textContent='';
@@ -529,9 +559,23 @@
           ', '+(registro.nivel==null?'Nivel sin indicar':'Nivel '+registro.nivel)+
           (registro.oficial?', Naufragio d20 - Épica':''));
         if(registro.oficial)item.dataset.oficial='true';
-        var sigla=(registro.categoria||'?').split(/\s+/).map(function(p){return p[0];})
-          .join('').slice(0,2).toLocaleUpperCase('es');
-        item.appendChild(ele('span','criaturas-emblema',sigla));
+        var emblema=ele('span','criaturas-emblema');
+        emblema.setAttribute('aria-hidden','true');
+        var ruta=rutaIcono(registro);
+        item.dataset.icono=ruta?'svg':'placeholder';
+        if(ruta){
+          var imagen=ele('img','criaturas-icono-svg');
+          imagen.alt='';
+          imagen.loading='lazy';
+          imagen.decoding='async';
+          imagen.src=ruta;
+          imagen.addEventListener('error',function(){
+            imagen.remove();
+            item.dataset.icono='placeholder';
+          });
+          emblema.appendChild(imagen);
+        }
+        item.appendChild(emblema);
         item.appendChild(ele('span','criaturas-nombre',registro.nombre));
         item.appendChild(ele('span','criaturas-nivel',
           (registro.oficial?'Épica · ':'')+
@@ -549,21 +593,30 @@
     var cont=$('criaturas-ficha-contenido');
     cont.textContent='';
     var articulo=ele('article','criaturas-ficha-completa');
-    var categoria=[dato.categoria,dato.subcategoria,dato.subtipo]
-      .filter(Boolean).join(' · ');
-    articulo.appendChild(ele('p','sobrelinea',categoria||'Sin categoría documentada'));
     var metricas=ele('div','criaturas-metricas');
-    [['Nivel',dato.puntuaciones.nivel],['Salud',dato.puntuaciones.salud],
-      ['Moral',dato.puntuaciones.moral],['Movimiento',dato.puntuaciones.movimiento],
-      ['Tamaño',dato.puntuaciones.tamano]]
+    [['Nivel','recurso-potencia',dato.puntuaciones.nivel],
+      ['Salud','recurso-salud',dato.puntuaciones.salud],
+      ['Moral','recurso-esfuerzo',dato.puntuaciones.moral],
+      ['Movimiento','recurso-movimiento',dato.puntuaciones.movimiento],
+      ['Tamaño',null,dato.puntuaciones.tamano]]
       .forEach(function(par) {
-        if(par[1]==null)return;
+        if(par[2]==null)return;
         var caja=ele('div','criaturas-metrica');
-        caja.appendChild(ele('strong','',par[1]));
-        caja.appendChild(ele('small','',par[0]));
+        if(par[1]){
+          var simbolo=ele('span','icono-svg criaturas-metrica-icono');
+          simbolo.setAttribute('aria-hidden','true');
+          simbolo.style.setProperty('--icono-svg','url(icons/'+par[1]+'.svg)');
+          caja.appendChild(simbolo);
+        }
+        var detalle=ele('span','criaturas-metrica-detalle');
+        detalle.appendChild(ele('small','',par[0]));
+        detalle.appendChild(ele('strong','',par[2]));
+        caja.appendChild(detalle);
         metricas.appendChild(caja);
       });
     articulo.appendChild(metricas);
+    articulo.appendChild(ele('p','criaturas-taxonomia',
+      root.NaufragioFormatoAdversarios.taxonomia(dato)||'Sin categoría documentada'));
     function encabezadoApartado(nombre,icono){
       var h=ele('h4','criaturas-titulo-apartado');
       var simbolo=ele('span','criaturas-icono-apartado '+icono);
@@ -575,12 +628,14 @@
     if(dato.ataques.length){
       encabezadoApartado('Ataques','criaturas-icono-ataque');
       var lista=ele('ol','criaturas-ataques-consulta');
-      dato.ataques.forEach(function(a,i){
-        var etiqueta=root.NaufragioFormatoAdversarios.ataque(a,i);
-        var item=ele('li','',etiqueta);
-        if(a.notas)item.appendChild(ele('p','muted',a.notas));
-        lista.appendChild(item);
-      });
+      root.NaufragioFormatoAdversarios.lineasAtaque(dato.ataques)
+        .forEach(function(linea){
+          var item=ele('li','',linea.texto);
+          linea.notas.forEach(function(nota){
+            item.appendChild(ele('p','muted',nota.nombre+': '+nota.texto));
+          });
+          lista.appendChild(item);
+        });
       articulo.appendChild(lista);
     }
     if(dato.talentos.length){
@@ -607,11 +662,11 @@
     if(dato.origen&&dato.origen.tipo!=='manual' &&
        (dato.origen.tipo==='drs_oficial'||dato.origen.tipo==='drs_copia_personal' ||
         String(id).startsWith('drs-'))){
-      articulo.appendChild(ele('p','criaturas-fuente','Fuente: Naufragio d20 DRS'));
+      articulo.appendChild(ele('p','criaturas-fuente',
+        'Fuente: Naufragio d20 - Épica · DRS'));
     }
     cont.appendChild(articulo);
-    $('criaturas-ficha-titulo').textContent=dato.nombre+
-      (String(id).startsWith('drs-')?' · Naufragio d20 - Épica':'');
+    $('criaturas-ficha-titulo').textContent=dato.nombre;
     $('criaturas-ficha-editar').textContent=String(id).startsWith('drs-')?
       'Crear copia editable':'Editar';
     $('criaturas-ficha-eliminar').hidden=String(id).startsWith('drs-');
@@ -1011,6 +1066,7 @@
     cargarSeleccionOficial();
     renderizarFicha(modelo.nuevaCriatura(),null);
     dibujarBiblioteca();
+    cargarIconosGaleria();
     // No llenar la galería automáticamente: solo leer el catálogo para búsquedas
     // y recuperar los adversarios previamente seleccionados.
     asegurarCatalogoDRS().then(dibujarBiblioteca).catch(function(){});
