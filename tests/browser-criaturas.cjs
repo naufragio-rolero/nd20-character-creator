@@ -304,6 +304,8 @@ async function probar(nombre,tipo,url){
       assert.equal(await segunda.locator('.criaturas-cromo').count(),0,
         'Retirar una selección oficial debe vaciar la galería.');
       await segunda.locator('#criaturas-cargar-drs').click();
+      await segunda.locator('#criaturas-selector-limpiar').click();
+      assert.equal(await segunda.locator('.criaturas-selector-fila').count(),106);
       await segunda.locator('#criaturas-selector-busqueda').fill('Necrotótamo');
       assert.equal(await segunda.locator('.criaturas-selector-fila').count(),1);
       await segunda.locator('.criaturas-selector-fila button').click();
