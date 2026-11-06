@@ -134,7 +134,7 @@ async function probar(nombre,tipo,url){
     await page.locator('#criaturas-texto').fill(texto);
     await page.locator('#criaturas-analizar').click();
     assert.equal(await page.locator('#criaturas-vista-previa').isVisible(),true);
-    assert.match(await page.locator('#criaturas-resumen-previa').textContent(),/Ataques \(2\)/);
+    assert.match(await page.locator('#criaturas-resumen-previa').textContent(),/Acciones extraídas \(2\)/);
     assert.match(await page.locator('#criaturas-resumen-previa').textContent(),/Talentos \(1\)/);
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),0,
       'El pegado no guarda ni importa automáticamente.');
