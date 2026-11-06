@@ -342,9 +342,7 @@
       boton.dataset.id=id;
       boton.dataset.seleccionado=String(seleccionado);
       boton.setAttribute('aria-label',(seleccionado?'Quitar':'Añadir')+' '+registro.nombre);
-      boton.dataset.enlazado='true';
       boton.addEventListener('click',function(){
-        boton.dataset.pulsado='true';
         try{
           var anadir=boton.dataset.seleccionado!=='true';
           actualizarSeleccionOficial(id,anadir);
@@ -935,10 +933,11 @@
     $('criaturas-selector-cerrar').addEventListener('click',function(){
       $('criaturas-selector-drs').close();
     });
-    ['criaturas-selector-busqueda','criaturas-selector-categoria'].forEach(function(id){
-      $(id).addEventListener('input',actualizarSelectorDRS);
-      $(id).addEventListener('change',actualizarSelectorDRS);
-    });
+    // El campo de búsqueda se actualiza solo con 'input'. Escuchar también
+    // 'change' reconstruye los botones al perder el foco (mousedown/blur)
+    // y destruye el botón antes del click en Firefox/WebKit.
+    $('criaturas-selector-busqueda').addEventListener('input',actualizarSelectorDRS);
+    $('criaturas-selector-categoria').addEventListener('change',actualizarSelectorDRS);
 
     $('criaturas-ficha-retirar').addEventListener('click',function(){
       try{
