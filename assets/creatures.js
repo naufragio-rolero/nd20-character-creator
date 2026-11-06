@@ -24,7 +24,7 @@
   function opcional(v) { return v === undefined ? null : v; }
   function ataque(d) {
     d = d || {};
-    return {
+    var componente = {
       id: texto(d.id),
       conectorAnterior: d.conectorAnterior === undefined ? 'Inicio' : d.conectorAnterior,
       cantidad: d.cantidad === undefined ? 1 : d.cantidad,
@@ -35,15 +35,21 @@
       segmentoOriginal: texto(d.segmentoOriginal),
       talentoRelacionado: opcional(d.talentoRelacionado)
     };
+    if (d.catalogoId !== undefined) componente.catalogoId = texto(d.catalogoId);
+    if (d.fuenteId !== undefined) componente.fuenteId = texto(d.fuenteId);
+    return componente;
   }
   function talento(d) {
     d = d || {};
-    return {
+    var componente = {
       nombre: texto(d.nombre),
       descripcion: texto(d.descripcion),
       textoOriginal: texto(d.textoOriginal),
       referencia: opcional(d.referencia)
     };
+    if (d.catalogoId !== undefined) componente.catalogoId = texto(d.catalogoId);
+    if (d.fuenteId !== undefined) componente.fuenteId = texto(d.fuenteId);
+    return componente;
   }
   function normalizarFuenteDRS(registro) {
     var copia=JSON.parse(JSON.stringify(registro));
@@ -164,7 +170,7 @@
         }
         comprobarCampos(a, ['id','conectorAnterior','cantidad','nombre',
           'danoLiteral','danoNumerico','notas','segmentoOriginal',
-          'talentoRelacionado'], p);
+          'talentoRelacionado','catalogoId','fuenteId'], p);
         if (CONECTORES.indexOf(a.conectorAnterior) === -1)
           error(p + '.conectorAnterior', 'Conector desconocido.');
         if ((i === 0 && a.conectorAnterior !== 'Inicio') ||
@@ -185,6 +191,10 @@
           error(p + '.danoNumerico', 'Debe ser un entero no negativo o nulo.');
         if (a.talentoRelacionado != null && typeof a.talentoRelacionado !== 'string')
           error(p + '.talentoRelacionado', 'Debe ser texto o nulo.');
+        ['catalogoId','fuenteId'].forEach(function(k){
+          if(a[k]!==undefined && (typeof a[k]!=='string'||a[k].length>250))
+            error(p+'.'+k,'La referencia de catálogo debe ser texto breve.');
+        });
         if (typeof a.danoLiteral === 'string') {
           if (/\bo\s+especial\b/i.test(a.danoLiteral))
             aviso(p + '.danoLiteral', 'dano_alternativo',
@@ -205,12 +215,16 @@
         error(p, 'Debe ser un objeto.');
         return;
       }
-      comprobarCampos(t, ['nombre','descripcion','textoOriginal','referencia'], p);
+      comprobarCampos(t, ['nombre','descripcion','textoOriginal','referencia','catalogoId','fuenteId'], p);
       ['nombre','descripcion','textoOriginal'].forEach(function (k) {
         if (typeof t[k] !== 'string') error(p + '.' + k, 'Debe ser texto.');
       });
       if (t.referencia != null && typeof t.referencia !== 'string')
         error(p + '.referencia', 'Debe ser texto o nulo.');
+      ['catalogoId','fuenteId'].forEach(function(k){
+        if(t[k]!==undefined && (typeof t[k]!=='string'||t[k].length>250))
+          error(p+'.'+k,'La referencia de catálogo debe ser texto breve.');
+      });
     });
     if (!Array.isArray(c.camposNoInterpretados) ||
         c.camposNoInterpretados.some(function (x) {return typeof x !== 'string';}))
