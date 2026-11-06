@@ -32,6 +32,7 @@
   <script defer src="assets/creatures.js"></script>
   <script defer src="assets/creatures-import.js"></script>
   <script defer src="assets/creatures-library.js"></script>
+  <script defer src="assets/creatures-components.js"></script>
   <script defer src="assets/adversarios-formato.js"></script>
   <script defer src="assets/creatures-ui.js"></script>
   <script defer src="assets/adversarios-pdf.js"></script>
@@ -697,7 +698,7 @@
           <div class="campo"><label for="criaturas-buscar-ataque">Buscar ataque documentado o propio</label>
             <input id="criaturas-buscar-ataque" type="search" autocomplete="off" placeholder="Busca por nombre de ataque…"></div>
           <div id="criaturas-coincidencias-ataques" class="criaturas-coincidencias" aria-live="polite"></div>
-          <button id="criaturas-crear-ataque" type="button">Crear ataque propio</button>
+          <div class="criaturas-comp-accesos"><button id="criaturas-explorar-ataques" type="button">Explorar biblioteca de Ataques</button><button id="criaturas-crear-ataque" type="button">Crear ataque propio</button></div>
           <div id="criaturas-ataques" class="criaturas-repetidos"></div>
           <div class="criaturas-subcabecera">
             <h4>Talentos y habilidades especiales</h4>
@@ -707,7 +708,7 @@
           <div class="campo"><label for="criaturas-buscar-talento">Buscar Talento o habilidad especial documentada</label>
             <input id="criaturas-buscar-talento" type="search" autocomplete="off" placeholder="Busca por nombre de habilidad…"></div>
           <div id="criaturas-coincidencias-talentos" class="criaturas-coincidencias" aria-live="polite"></div>
-          <button id="criaturas-crear-talento" type="button">Crear Talento propio</button>
+          <div class="criaturas-comp-accesos"><button id="criaturas-explorar-talentos" type="button">Explorar biblioteca de Talentos</button><button id="criaturas-crear-talento" type="button">Crear Talento propio</button></div>
           <div id="criaturas-talentos" class="criaturas-repetidos"></div>
           <div class="campo"><label for="criaturas-descripcion">Descripción *</label>
             <textarea id="criaturas-descripcion" rows="5"></textarea></div>
@@ -749,6 +750,39 @@
           <p id="criaturas-elemento-error" class="aviso-validacion" role="alert"></p>
           <button type="submit" class="principal">Guardar e incorporar</button>
         </form>
+      </dialog>
+
+      <dialog id="criaturas-componentes-dialogo" class="dialogo-compras dialogo-adversario-componentes"
+        aria-labelledby="criaturas-componentes-titulo">
+        <div class="cabecera-compras">
+          <div><h3 id="criaturas-componentes-titulo">Biblioteca de Ataques y Talentos</h3>
+            <p class="muted">Consulta y añade componentes documentados. Las relaciones se proponen, nunca se imponen.</p></div>
+          <button id="criaturas-componentes-cerrar" type="button" class="cerrar-rejilla" aria-label="Cerrar biblioteca de componentes">✕</button>
+        </div>
+        <div class="criaturas-comp-pestanas" role="group" aria-label="Tipo de componente">
+          <button type="button" id="criaturas-componentes-tab-ataques" aria-pressed="true">Ataques</button>
+          <button type="button" id="criaturas-componentes-tab-talentos" aria-pressed="false">Talentos</button>
+        </div>
+        <div class="criaturas-comp-filtros">
+          <div class="campo criaturas-comp-busqueda">
+            <label for="criaturas-componentes-busqueda">Buscar por nombre o descripción</label>
+            <input type="search" id="criaturas-componentes-busqueda" autocomplete="off" placeholder="Busca un ataque, efecto o criatura…">
+          </div>
+          <div class="campo"><label for="criaturas-componentes-fuente">Fuente</label>
+            <select id="criaturas-componentes-fuente"><option value="">Todas</option></select></div>
+          <div class="campo"><label for="criaturas-componentes-origen">Origen</label>
+            <select id="criaturas-componentes-origen"><option value="">Todos</option></select></div>
+          <label class="criaturas-comp-relacionados-filtro">
+            <input type="checkbox" id="criaturas-componentes-solo-relacionados"> Solo con relaciones documentadas
+          </label>
+        </div>
+        <p id="criaturas-componentes-estado" role="status" aria-live="polite" class="muted"></p>
+        <div id="criaturas-componentes-lista" class="criaturas-comp-lista"></div>
+        <section id="criaturas-componentes-vinculos" class="criaturas-comp-vinculos" aria-labelledby="criaturas-componentes-vinculos-titulo" hidden>
+          <h4 id="criaturas-componentes-vinculos-titulo">Elementos relacionados</h4>
+          <p class="muted">Elige cuáles incorporar. Los elementos existentes no se duplicarán.</p>
+          <div id="criaturas-componentes-vinculos-lista"></div>
+        </section>
       </dialog>
       <dialog id="criaturas-selector-drs" class="dialogo-compras dialogo-selector-drs"
         aria-labelledby="criaturas-selector-titulo">
