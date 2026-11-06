@@ -68,6 +68,8 @@
       sistema: 'nd20',
       tipo: 'criatura_usuario',
       nombre: texto(d.nombre),
+      // Ilustración personal opcional; independiente del texto reglamentario.
+      imagen: texto(d.imagen),
       categoria: texto(d.categoria),
       subcategoria: texto(d.subcategoria),
       subtipo: texto(d.subtipo),
@@ -115,7 +117,13 @@
     comprobarCampos(c, ['version','sistema','tipo','nombre','categoria',
       'subcategoria','subtipo','puntuaciones','ataques','talentos',
       'descripcion','notas','camposNoInterpretados','origen',
-      'saludModo','saludAjuste'], '');
+      'saludModo','saludAjuste','imagen'], '');
+    // Nunca almacenar URLs, SVG o contenido activo como ilustración.
+    // Las fichas JSON v1 antiguas siguen siendo válidas sin este campo.
+    if(c.imagen !== undefined && (typeof c.imagen !== 'string' ||
+       c.imagen.length > 280000 ||
+       (c.imagen.length>0 && !/^data:image\/(?:webp|jpeg|png);base64,[A-Za-z0-9+/]+={0,2}$/.test(c.imagen))))
+      error('imagen','La ilustración debe ser un PNG, JPEG o WebP local reducido.');
     if (c.saludModo !== undefined &&
         c.saludModo !== 'automatico' && c.saludModo !== 'manual')
       error('saludModo', 'Modo de Salud no admitido.');
