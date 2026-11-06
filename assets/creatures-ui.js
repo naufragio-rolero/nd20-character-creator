@@ -16,6 +16,7 @@
   var pendiente = null, cambios = false, secuenciaAtaques = 0;
   var catalogoDRS = null, fuentesOficiales = null, cargaFuentes = null;
   var bibliotecaComponentes=null, relacionesComponentes=null, cargaRelacionesComponentes=null;
+  var indiceTalentosDRS=null, cargaIndiceTalentosDRS=null;
   var tipoBibliotecaComponentes='ataques', limiteComponentes=40;
   var oficialesSeleccionados = new Set(), tipoPropio = null;
   var imagenProcesando = false, tokenImagen = 0;
@@ -661,13 +662,24 @@
       }
       await cargaRelacionesComponentes;
     }
+    if(!indiceTalentosDRS){
+      if(!cargaIndiceTalentosDRS){
+        cargaIndiceTalentosDRS=root.fetch('data/adversarios-talentos-indice-drs.json',
+          {cache:'no-store'}).then(function(res){
+            if(!res.ok)throw Error('No se ha podido leer el índice DRS de Talentos.');
+            return res.json();
+          }).then(function(datos){indiceTalentosDRS=datos;return datos;})
+            .catch(function(error){cargaIndiceTalentosDRS=null;throw error;});
+      }
+      await cargaIndiceTalentosDRS;
+    }
     // Reconstruir con las plantillas actuales; no alterar ni migrar storage.
     var personales=biblioteca?biblioteca.listar().map(function(r){
       return {id:r.id,ficha:biblioteca.obtener(r.id)};
     }):[];
     bibliotecaComponentes=componentes.crearCatalogo(fuentesOficiales,
       biblioteca?biblioteca.catalogoPersonal():{ataques:[],talentos:[]},
-      relacionesComponentes,personales);
+      relacionesComponentes,personales,indiceTalentosDRS);
     return bibliotecaComponentes;
   }
   function estadoBibliotecaComponentes(mensaje){
@@ -758,10 +770,14 @@
       entradas.map(function(e){return e.fuenteId;}));
     opcionesBibliotecaComponentes('criaturas-componentes-origen',
       entradas.map(function(e){return e.origen;}));
+    $('criaturas-componentes-clasificacion-campo').hidden=tab!=='talentos';
+    opcionesBibliotecaComponentes('criaturas-componentes-clasificacion',
+      entradas.map(function(e){return e.categoriaEditorial;}));
     var filtro=bibliotecaComponentes.filtrar(tab,{
       texto:$('criaturas-componentes-busqueda').value,
       fuenteId:$('criaturas-componentes-fuente').value,
       origen:$('criaturas-componentes-origen').value,
+      categoriaEditorial:tab==='talentos'?$('criaturas-componentes-clasificacion').value:'',
       soloRelacionados:$('criaturas-componentes-solo-relacionados').checked
     });
     var lista=$('criaturas-componentes-lista');lista.textContent='';
@@ -778,7 +794,8 @@
       var cab=ele('header'),identidad=ele('div','criaturas-comp-identidad');
       identidad.appendChild(ele('strong','',dato.nombre));
       var detalle=entrada.fuente+' · '+(entrada.criatura||'Plantilla personal')+
-        (tab==='ataques'?' · '+dato.cantidad+' × '+(dato.danoLiteral||'Daño no documentado'):'');
+        (tab==='ataques'?' · '+dato.cantidad+' × '+(dato.danoLiteral||'Daño no documentado'):'')+
+        (entrada.categoriaEditorial?' · '+entrada.categoriaEditorial:'');
       identidad.appendChild(ele('small','',detalle));
       var boton=ele('button','',ya?'Ya incorporado':'Añadir');
       boton.type='button';boton.disabled=ya;
@@ -802,6 +819,8 @@
       var des=ele('details'),sum=ele('summary','',
         'Consultar propiedades y texto original');
       des.appendChild(sum);
+      if(entrada.talentoFuenteId)des.appendChild(ele('p','criaturas-comp-etiqueta',
+        'ID editorial DRS: '+entrada.talentoFuenteId));
       var partes=tab==='ataques'?
         ['Cantidad: '+dato.cantidad,
           'Daño literal: '+(dato.danoLiteral||'No documentado'),
@@ -836,6 +855,7 @@
       $('criaturas-componentes-busqueda').value=termino||'';
       $('criaturas-componentes-fuente').value='';
       $('criaturas-componentes-origen').value='';
+      $('criaturas-componentes-clasificacion').value='';
       $('criaturas-componentes-solo-relacionados').checked=false;
       $('criaturas-componentes-vinculos').hidden=true;
       actualizarBibliotecaComponentes();
@@ -1499,13 +1519,14 @@
         $('criaturas-componentes-vinculos').hidden=true;
         $('criaturas-componentes-fuente').value='';
         $('criaturas-componentes-origen').value='';
+        $('criaturas-componentes-clasificacion').value='';
         actualizarBibliotecaComponentes();
       });
     });
     $('criaturas-componentes-busqueda').addEventListener('input',function(){
       limiteComponentes=40;actualizarBibliotecaComponentes();
     });
-    ['fuente','origen'].forEach(function(k){
+    ['fuente','origen','clasificacion'].forEach(function(k){
       $('criaturas-componentes-'+k).addEventListener('change',function(){
         limiteComponentes=40;actualizarBibliotecaComponentes();
       });
