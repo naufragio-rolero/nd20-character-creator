@@ -195,6 +195,13 @@ async function probar(nombre,tipo,url){
         'Abrir el catálogo nunca importa los 106 de golpe.');
       await segunda.locator('#criaturas-selector-busqueda').fill('Goblin con tirachinas');
       assert.equal(await segunda.locator('.criaturas-selector-fila').count(),1);
+      await segunda.evaluate(()=>{
+        window.__adversariosEventos=[];
+        document.addEventListener('click',e=>window.__adversariosEventos.push(
+          'click '+e.target.tagName+' '+(e.target.textContent||'').slice(0,40)),true);
+        document.addEventListener('pointerup',e=>window.__adversariosEventos.push(
+          'pointerup '+e.target.tagName),true);
+      });
       await segunda.locator('.criaturas-selector-fila button').click();
       assert.equal(await segunda.locator('.criaturas-cromo[data-oficial="true"]').count(),1,
         'Diagnóstico: '+JSON.stringify(await segunda.evaluate(()=>({
@@ -202,7 +209,10 @@ async function probar(nombre,tipo,url){
           lista:document.querySelector('#criaturas-lista').textContent.slice(0,250),
           almacen:localStorage.getItem('forja-adversarios-oficiales-v1'),
           selector:document.querySelector('#criaturas-selector-estado').textContent,
-          boton:document.querySelector('.criaturas-selector-fila button')?.outerHTML
+          boton:document.querySelector('.criaturas-selector-fila button')?.outerHTML,
+          abierto:document.querySelector('#criaturas-selector-drs').open,
+          eventos:window.__adversariosEventos,
+          foco:document.activeElement?.outerHTML?.slice(0,150)
         })))+' errores JS: '+JSON.stringify(erroresSegunda));
       await segunda.locator('#criaturas-selector-cerrar').click();
       await segunda.locator('.criaturas-cromo[data-oficial="true"]').click();
