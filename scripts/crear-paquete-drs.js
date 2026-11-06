@@ -132,7 +132,7 @@ const especificas=[
   'data/talentos-drs-literales.json','data/aclaraciones-talentos-drs.json',
   'data/tecnicas-drs-literales.json','data/glosas-talentos-drs.json',
   'data/glosas-equipo-drs.json',
-  'data/adversarios-drs.json',
+  'data/adversarios-drs.json','data/adversarios-fuentes.json',
   'data/dungeon-hack.json'
 ];
 // Ilustraciones opcionales: solo los SVG declarados en un manifiesto editorial
@@ -163,6 +163,16 @@ for(const [clave,nombre] of Object.entries(iconosAdversarios.iconos)){
   especificas.push(ruta);
 }
 const transformaciones={
+  // Aunque el editor pueda consumir ampliaciones futuras, el paquete
+  // público actual solo publica la fuente DRS expresamente autorizada.
+  'data/adversarios-fuentes.json'(d){
+    if(!d||d.version!==1||d.sistema!=='nd20'||
+       !Array.isArray(d.fuentes)||d.fuentes.length!==1||
+       d.fuentes[0].id!=='drs'||d.fuentes[0].archivo!=='adversarios-drs.json'||
+       d.fuentes[0].fuente!=='Naufragio d20 DRS'||d.fuentes[0].total!==106)
+      throw Error('Fuentes oficiales ajenas al DRS no autorizadas para LIVE.');
+    return d;
+  },
   'data/adversarios-drs.json'(d){
     if(d.fuente!=='Naufragio d20 DRS'||!Array.isArray(d.registros)||
        d.registros.length!==106||

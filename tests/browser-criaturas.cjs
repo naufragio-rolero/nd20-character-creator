@@ -35,7 +35,9 @@ async function probar(nombre,tipo,url){
     await page.locator('#tab-criaturas').click();
     assert.equal(await page.locator('#editor-criaturas').isVisible(),true);
     assert.equal(await page.locator('#resultados-personajes').isHidden(),true);
-    assert.equal(await page.locator('#selector-sistema-global').isHidden(),true);
+    assert.equal(await page.locator('#selector-sistema-global').isVisible(),true);
+    assert.equal(await page.locator('.juegos-compactos [data-juego="nd20"]').isVisible(),true);
+    assert.equal(await page.locator('.juegos-compactos [data-juego="dh"]').isHidden(),true);
     assert.equal(await page.locator('#panel-criaturas').isVisible(),true);
     assert.equal(await page.locator('#tab-criaturas').getAttribute('aria-selected'),'true');
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),0);
@@ -86,6 +88,19 @@ async function probar(nombre,tipo,url){
     assert.equal(ficha.origen.textoOriginal,texto);
 
     await page.locator('#criaturas-ficha-editar').click();
+    const png=await page.evaluate(()=>{
+      const c=document.createElement('canvas');
+      c.width=320;c.height=180;
+      const x=c.getContext('2d');
+      x.fillStyle='#8a3be8';x.fillRect(0,0,320,180);
+      return c.toDataURL('image/png');
+    });
+    await page.locator('#criaturas-imagen-archivo').setInputFiles({
+      name:'prueba.png',mimeType:'image/png',
+      buffer:Buffer.from(png.split(',')[1],'base64')
+    });
+    await page.locator('#criaturas-estado').getByText('Ilustración preparada',{exact:false}).waitFor();
+    assert.equal(await page.locator('#criaturas-imagen-previa img').count(),1);
     await page.locator('.criatura-ataque').first().locator('[data-campo="danoLiteral"]')
       .fill('especial');
     assert.equal(await page.locator('.criatura-ataque').first()
@@ -95,6 +110,12 @@ async function probar(nombre,tipo,url){
       localStorage.getItem('forja-criaturas-usuario-v1')).criaturas[0].ficha.ataques[0]);
     assert.equal(editada.danoLiteral,'especial');
     assert.equal(editada.danoNumerico,null);
+    const imagenAlmacenada=await page.evaluate(()=>JSON.parse(
+      localStorage.getItem('forja-criaturas-usuario-v1')).criaturas[0].ficha.imagen);
+    assert.match(imagenAlmacenada,/^data:image\/(webp|jpeg);base64,/);
+    assert.ok(imagenAlmacenada.length<280000);
+    assert.equal(await page.locator('.criaturas-cromo[data-icono="imagen"]').count(),1);
+    assert.equal(await page.locator('.criaturas-ficha-imagen').count(),1);
     await page.locator('#criaturas-ficha-editar').click();
     const bajar=page.waitForEvent('download');
     await page.locator('#criaturas-exportar-ficha').click();
@@ -194,6 +215,14 @@ async function probar(nombre,tipo,url){
       assert.equal(await segunda.locator('.criaturas-selector-fila').count(),106);
       assert.equal(await segunda.locator('.criaturas-cromo').count(),0,
         'Abrir el catálogo nunca importa los 106 de golpe.');
+      // Categoría, subcategoría, Nivel, procedencia y búsqueda son combinables.
+      await segunda.locator('#criaturas-selector-categoria').selectOption('Humanoide');
+      await segunda.locator('#criaturas-selector-subcategoria').selectOption('Goblin');
+      await segunda.locator('#criaturas-selector-fuente')
+        .selectOption({label:'Naufragio d20 · Fantasía Épica'});
+      await segunda.locator('#criaturas-selector-origen').selectOption('DRS');
+      await segunda.locator('#criaturas-selector-nivel-min').fill('0');
+      await segunda.locator('#criaturas-selector-nivel-max').fill('100');
       await segunda.locator('#criaturas-selector-busqueda').fill('Goblin con tirachinas');
       assert.equal(await segunda.locator('.criaturas-selector-fila').count(),1);
       await segunda.evaluate(()=>{
@@ -225,7 +254,7 @@ async function probar(nombre,tipo,url){
       assert.match(await segunda.locator('#criaturas-ficha-contenido').innerText(),
         /Chinazo - 6 de daño/);
       assert.match(await segunda.locator('.criaturas-fuente').innerText(),
-        /Fuente: Naufragio d20 - Épica · DRS/);
+        /Fuente: Naufragio d20 · Fantasía Épica · DRS/);
       assert.equal(await segunda.locator('.criaturas-icono-apartado').count(),2);
       assert.equal(await segunda.locator('.criaturas-metrica-icono').count(),3,
         'Nivel, Salud y Moral muestran Potencia, Salud y Esfuerzo.');
@@ -245,8 +274,9 @@ async function probar(nombre,tipo,url){
         ancho:x.getBoundingClientRect().width,
         alto:x.getBoundingClientRect().height
       }));
-      assert.equal(estilo.fondo,'rgb(11, 11, 11)');
-      assert.equal(estilo.ancho,estilo.alto,'Placeholder negro 1:1');
+      assert.ok(estilo.ancho>estilo.alto,'Cabecera de cromo panorámica.');
+      assert.ok(Math.abs(estilo.ancho/estilo.alto-16/9)<0.12,
+        'Cabecera 16:9, también sin ilustración.');
       // Una ilustración SVG futura puede asignarse mediante el manifiesto,
       // sin modificar las fichas ni incorporar iconos por defecto.
       const pruebaSVG=await otraContexto.newPage();
@@ -270,10 +300,42 @@ async function probar(nombre,tipo,url){
         });
         assert.equal(await pruebaSVG.locator('.criaturas-cromo[data-icono="svg"]').count(),1);
       }finally{await pruebaSVG.close();}
+      // Una ilustración puede personalizarse sobre el perfil oficial,
+      // sin tocar el registro DRS ni crear una ficha duplicada.
+      await segunda.locator('#criaturas-ficha-ilustracion-archivo').setInputFiles({
+        name:'goblin.png',mimeType:'image/png',
+        buffer:Buffer.from(png.split(',')[1],'base64')
+      });
+      await segunda.locator('#criaturas-estado')
+        .getByText('Ilustración personalizada guardada',{exact:false}).waitFor();
+      assert.equal(await segunda.locator('.criaturas-cromo[data-icono="imagen"]').count(),1);
+      assert.equal(await segunda.locator('.criaturas-ficha-imagen').count(),1);
+      const mapaIlustraciones=await segunda.evaluate(()=>JSON.parse(
+        localStorage.getItem('forja-adversarios-ilustraciones-oficiales-v1')));
+      assert.match(mapaIlustraciones['drs-goblin_con_tirachinas'],
+        /^data:image\/(?:webp|jpeg);base64,/);
+      assert.equal(await segunda.evaluate(()=>JSON.parse(
+        localStorage.getItem('forja-criaturas-usuario-v1')||'{"criaturas":[]}').criaturas.length),0);
+      const original=await segunda.evaluate(async()=>{
+        const r=await (await fetch('data/adversarios-drs.json')).json();
+        return r.registros.find(x=>x.id==='goblin_con_tirachinas').ficha.imagen;
+      });
+      assert.equal(original,undefined,'No se reescribe la ficha reglamentaria.');
+      await segunda.reload({waitUntil:'domcontentloaded'});
+      await segunda.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      await segunda.locator('#tab-criaturas').click();
+      await segunda.locator('.criaturas-cromo[data-oficial="true"]').click();
+      assert.equal(await segunda.locator('.criaturas-ficha-imagen').count(),1,
+        'La ilustración oficial persiste tras recargar.');
+      await segunda.locator('#criaturas-ficha-ilustracion-quitar').click();
+      assert.equal(await segunda.locator('.criaturas-ficha-imagen').count(),0);
+      assert.equal(await segunda.locator('.criaturas-cromo[data-icono="placeholder"]').count(),1);
       await segunda.locator('#criaturas-ficha-retirar').click();
       assert.equal(await segunda.locator('.criaturas-cromo').count(),0,
         'Retirar una selección oficial debe vaciar la galería.');
       await segunda.locator('#criaturas-cargar-drs').click();
+      await segunda.locator('#criaturas-selector-limpiar').click();
+      assert.equal(await segunda.locator('.criaturas-selector-fila').count(),106);
       await segunda.locator('#criaturas-selector-busqueda').fill('Necrotótamo');
       assert.equal(await segunda.locator('.criaturas-selector-fila').count(),1);
       await segunda.locator('.criaturas-selector-fila button').click();

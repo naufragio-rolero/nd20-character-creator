@@ -100,4 +100,22 @@ assert.ok(html.indexOf('id="configurar-seguidores"')>
 assert.ok(html.indexOf('id="configurar-seguidores"')<
   html.indexOf('id="generar-seguidor"'));
 assert.ok(css.includes('equipo-espada.svg')&&css.includes('equipo-libro.svg'));
+const indiceFuentes=JSON.parse(leer('data/adversarios-fuentes.json'));
+assert.equal(indiceFuentes.version,1);
+assert.deepEqual(indiceFuentes.fuentes.map(x=>x.id),['drs']);
+assert.equal(indiceFuentes.fuentes[0].total,106);
+assert.ok(drs.includes("'data/adversarios-fuentes.json'"));
+assert.ok(html.indexOf('id="selector-sistema-global"')<
+  html.indexOf('class="pestanas-panel"'));
+assert.ok(!html.includes('id="criaturas-ir-biblioteca"'));
+assert.match(html,/id="criaturas-cargar-drs"[^>]*>[\s\S]*Perfiles oficiales<\/button>/);
+for(const id of ['criaturas-selector-subcategoria','criaturas-selector-nivel-min',
+  'criaturas-selector-nivel-max','criaturas-selector-fuente',
+  'criaturas-selector-origen','criaturas-selector-limpiar',
+  'criaturas-imagen-archivo','criaturas-imagen-previa','criaturas-imagen-quitar']){
+  assert.ok(html.includes('id="'+id+'"'),'UX adversarios: '+id);
+}
+assert.match(ui,/convertirIlustracion/);
+assert.match(ui,/registrosOficiales/);
+assert.match(css,/aspect-ratio:16\/9/);
 console.log('OK · UI criaturas: panel, controles y lista blanca DRS.');

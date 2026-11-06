@@ -69,6 +69,7 @@ const requeridos=[
   'data/progresiones-oficiales.json','data/equipo-inicial.json',
   'data/fichas-documentales.json','data/talentos-drs-literales.json',
   'data/aclaraciones-talentos-drs.json','data/dungeon-hack.json',
+  'data/adversarios-fuentes.json',
   'data/tecnicas-drs-literales.json','data/glosas-talentos-drs.json',
   'data/glosas-equipo-drs.json'
 ];
@@ -76,6 +77,14 @@ for(const ruta of requeridos)
   if(!fs.existsSync(path.join(raiz,ruta)))
     alertas.push('Falta archivo requerido por el arranque de Forja: '+ruta+
       '. No declarar publicable un paquete incompleto.');
+const fuentesAdversarios=dato('data/adversarios-fuentes.json');
+if(fuentesAdversarios && (fuentesAdversarios.version!==1||
+   fuentesAdversarios.sistema!=='nd20'||
+   !Array.isArray(fuentesAdversarios.fuentes)||fuentesAdversarios.fuentes.length!==1||
+   fuentesAdversarios.fuentes[0].id!=='drs'||
+   fuentesAdversarios.fuentes[0].archivo!=='adversarios-drs.json'||
+   fuentesAdversarios.fuentes[0].total!==106))
+  alertas.push('La distribución DRS solo autoriza la fuente oficial de 106 adversarios.');
 const manifiesto=dato('assets/adversarios-iconos.json');
 if(manifiesto){
   if(manifiesto.version!==1||!manifiesto.iconos||

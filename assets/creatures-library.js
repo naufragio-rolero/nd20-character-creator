@@ -87,7 +87,7 @@
         var ficha = registro.ficha;
         return {id:registro.id, nombre:ficha.nombre, categoria:ficha.categoria,
           nivel:ficha.puntuaciones.nivel, ataques:ficha.ataques.length,
-          talentos:ficha.talentos.length};
+          talentos:ficha.talentos.length, imagen:ficha.imagen||''};
       });
     }
     function obtener(id) {

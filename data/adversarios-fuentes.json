@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "sistema": "nd20",
+  "fuentes": [
+    {
+      "id": "drs",
+      "titulo": "Naufragio d20 · Fantasía Épica",
+      "origen": "DRS",
+      "fuente": "Naufragio d20 DRS",
+      "archivo": "adversarios-drs.json",
+      "total": 106
+    }
+  ]
+}

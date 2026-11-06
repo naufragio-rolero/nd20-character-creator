@@ -975,8 +975,8 @@ assert.ok(htmlTemas.includes('id="abrir-matriz"') &&
   htmlTemas.includes('id="dialogo-matriz"') &&
   appTemas.includes("reglas.matriz(config(),rngUnico()(correlativo))"),
   'Matriz trasladada a Personajes sin duplicar el cálculo');
-assert.ok(tab>=0&&tab<system&&system<panel&&panel<tools,
-  'Sistema queda visible en ambas pestañas del menú');
+assert.ok(system>=0&&system<tab&&tab<panel&&panel<tools,
+  'Los sistemas aparecen primero, antes de las pestañas del menú');
 assert.ok(appTemas.includes("marcarPanel('herramientas')"));
 assert.ok(!/refrescarSelectores\(\);\s*marcarPanel\('personajes'\)/.test(appTemas),
   'Cambiar sistema no debe expulsar al usuario de Herramientas');
