@@ -99,4 +99,19 @@ const versionAnterior=JSON.parse(JSON.stringify(saludPersonalizada));
 delete versionAnterior.saludModo;delete versionAnterior.saludAjuste;
 assert.equal(c.revisar(versionAnterior).valida,true,
   'Los JSON v1 anteriores siguen siendo válidos');
+// Ilustraciones opcionales en fichas personales, no fuentes ni reglas.
+const ilustrada=c.nuevaCriatura({nombre:'Ilustrada',
+  imagen:'data:image/png;base64,aGVsbG8='});
+assert.equal(c.revisar(ilustrada,{paraExportar:true}).valida,true);
+assert.equal(c.nuevaCriatura(ilustrada).imagen,ilustrada.imagen);
+for(const nociva of ['https://example.com/imagen.png',
+  'data:image/svg+xml;base64,PHN2Zz4=', 'data:text/html;base64,PHA+',
+  'data:image/png;base64,'+'a'.repeat(280010)]){
+  const sospechosa=c.nuevaCriatura({nombre:'Ilustración inválida',imagen:nociva});
+  assert.ok(c.revisar(sospechosa).errores.some(x=>x.campo==='imagen'));
+}
+const sinImagen=JSON.parse(JSON.stringify(ilustrada));
+delete sinImagen.imagen;
+assert.equal(c.revisar(sinImagen,{paraExportar:true}).valida,true,
+  'Las fichas de versiones anteriores carecen de imagen sin perder validez.');
 console.log('OK · Modelo de criaturas Nd20 (fase 1).');
