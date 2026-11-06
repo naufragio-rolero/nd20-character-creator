@@ -49,6 +49,46 @@ assert.equal(formato.ataque({nombre:'mordisco',cantidad:2,danoLiteral:'1d6'},1),
 assert.equal(formato.ataque({nombre:'mirada',cantidad:1,danoLiteral:'especial'},0),
   'Mirada - especial');
 assert.equal(formato.ataque({nombre:'vuelo',cantidad:1},0),'Vuelo');
+assert.deepEqual(formato.lineasAtaque([
+  {nombre:'garra',cantidad:1,danoLiteral:'7',conectorAnterior:'Inicio'},
+  {nombre:'patada',cantidad:1,danoLiteral:'3',conectorAnterior:'o'}
+]).map(x=>x.texto),['Garra - 7 de daño','Patada - 3 de daño'],
+  'Los ataques alternativos ocupan dos opciones, sin «o» al principio.');
+assert.deepEqual(formato.lineasAtaque([
+  {nombre:'garra',cantidad:1,danoLiteral:'3',conectorAnterior:'Inicio'},
+  {nombre:'beso',cantidad:1,danoLiteral:'3',conectorAnterior:'y'}
+]).map(x=>x.texto),['Garra - 3 de daño y Beso - 3 de daño'],
+  'Los ataques simultáneos forman una sola opción.');
+assert.deepEqual(formato.lineasAtaque([
+  {nombre:'garra',cantidad:1,danoLiteral:'3',conectorAnterior:'Inicio'},
+  {nombre:'beso',cantidad:1,danoLiteral:'3',conectorAnterior:'y'},
+  {nombre:'mirada',cantidad:1,danoLiteral:'especial',conectorAnterior:'o'}
+]).map(x=>x.texto),[
+  'Garra - 3 de daño y Beso - 3 de daño',
+  'Mirada - especial'
+],'Las combinaciones mantienen las alternativas y la simultaneidad.');
+assert.deepEqual(formato.lineasAtaque([
+  {nombre:'garra',cantidad:1,conectorAnterior:'Inicio',notas:'Agarra al objetivo'},
+  {nombre:'mordisco',cantidad:1,conectorAnterior:',',notas:'Veneno documentado'}
+])[0].notas.map(x=>x.texto),['Agarra al objetivo','Veneno documentado'],
+  'Las notas originales siguen asociadas a los ataques agrupados.');
+assert.equal(formato.taxonomia({
+  categoria:'Monstruo',subcategoria:'Bestias mitológicas',subtipo:'Pétreo'
+}),'Monstruo - Bestias mitológicas (Pétreo)');
+assert.equal(formato.taxonomia({
+  categoria:'Monstruo',subcategoria:'Bestias mitológicas'
+}),'Monstruo - Bestias mitológicas');
+const manifest=JSON.parse(leer('assets/adversarios-iconos.json'));
+assert.equal(manifest.version,1);
+assert.ok(manifest.iconos&&!Array.isArray(manifest.iconos));
+assert.match(ui,/cargarIconosGaleria/);
+assert.match(ui,/criaturas-metrica-icono/);
+assert.match(ui,/lineasAtaque\(dato\.ataques\)/);
+assert.match(ui,/\$\('criaturas-ficha-titulo'\)\.textContent=dato\.nombre/);
+assert.match(css,/\.criaturas-cromo \.criaturas-emblema/);
+assert.match(css,/background:#0b0b0b/);
+assert.match(css,/recurso-potencia|criaturas-metrica-icono/);
+
 assert.doesNotMatch(ui,/Habilidad relacionada: /);
 assert.match(ui,/forja-adversarios-oficiales-v1/);
 for(const id of ['criaturas-selector-drs','criaturas-selector-busqueda',
