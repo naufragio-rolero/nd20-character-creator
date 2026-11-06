@@ -87,6 +87,36 @@ async function probar(nombre,tipo,url){
     assert.equal(ficha.talentos[0].nombre,'Tela de araña');
     assert.equal(ficha.origen.textoOriginal,texto);
 
+    // El pie debe ocupar una sola fila en escritorio y móvil, con SVG,
+    // nombres accesibles y el borrado fuera de las fichas oficiales.
+    async function comprobarAcciones(vista){
+      const b=await page.locator('.criaturas-ficha-acciones').evaluate(n=>{
+        const visible=Array.from(n.querySelectorAll('button'))
+          .filter(x=>!x.hidden&&getComputedStyle(x).display!=='none');
+        const r=visible.map(x=>x.getBoundingClientRect());
+        return {count:visible.length,names:visible.map(x=>x.getAttribute('aria-label')),
+          icons:visible.map(x=>!!x.querySelector('svg, .icono-accion')),
+          minX:Math.min(...r.map(x=>x.left)),
+          maxX:Math.max(...r.map(x=>x.right)),
+          topRange:Math.max(...r.map(x=>x.top))-Math.min(...r.map(x=>x.top)),
+          maxHeight:Math.max(...r.map(x=>x.height)),
+          boxHeight:n.getBoundingClientRect().height,viewport:innerWidth};
+      });
+      assert.equal(b.count,5,vista+': hay cinco acciones visibles.');
+      assert.ok(b.names.every(Boolean)&&b.icons.every(Boolean),
+        vista+': cinco iconos con etiquetas accesibles.');
+      assert.ok(b.topRange<2&&b.maxHeight<=45&&b.boxHeight<=80,
+        vista+': acciones en una sola fila compacta: '+JSON.stringify(b));
+      assert.ok(b.minX>=0&&b.maxX<=b.viewport+1,
+        vista+': sin botones fuera de la pantalla: '+JSON.stringify(b));
+    }
+    await comprobarAcciones('Escritorio');
+    assert.equal(await page.locator('#criaturas-ficha-editar').getAttribute('aria-label'),
+      'Editar adversario');
+    await page.setViewportSize({width:390,height:844});
+    await comprobarAcciones('Móvil 390px');
+    await page.setViewportSize({width:1440,height:900});
+
     await page.locator('#criaturas-ficha-editar').click();
     const png=await page.evaluate(()=>{
       const c=document.createElement('canvas');
@@ -248,6 +278,20 @@ async function probar(nombre,tipo,url){
       await segunda.locator('.criaturas-cromo[data-oficial="true"]').click();
       assert.equal((await segunda.locator('#criaturas-ficha-titulo').textContent()).trim(),
         'Goblin con tirachinas','La cabecera muestra solo el nombre del adversario.');
+      assert.equal(await segunda.locator('#criaturas-ficha-editar').getAttribute('aria-label'),
+        'Crear copia editable','El perfil oficial indica que se editará una copia.');
+      assert.equal(await segunda.locator('#criaturas-ficha-editar svg').count(),1,
+        'El icono de editar se conserva al abrir la ficha oficial.');
+      assert.equal(await segunda.locator('#criaturas-ficha-eliminar').isHidden(),true);
+      assert.equal(await segunda.locator('#criaturas-ficha-retirar').isVisible(),true);
+      const accionesOficiales=await segunda.locator('.criaturas-ficha-acciones').evaluate(n=>{
+        const visible=Array.from(n.querySelectorAll('button'))
+          .filter(x=>!x.hidden&&getComputedStyle(x).display!=='none');
+        const top=visible.map(x=>x.getBoundingClientRect().top);
+        return {cantidad:visible.length,desfase:Math.max(...top)-Math.min(...top)};
+      });
+      assert.equal(accionesOficiales.cantidad,5);
+      assert.ok(accionesOficiales.desfase<2,'El perfil oficial usa la misma fila compacta.');
       assert.equal(await segunda.locator('.criaturas-metrica').count(),3);
       assert.doesNotMatch(await segunda.locator('#criaturas-ficha-contenido').innerText(),
         /Protección|Habilidad relacionada|chinazo_51/);
