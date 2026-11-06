@@ -76,10 +76,16 @@ async function probar(nombre,tipo,url){
       assert.equal(await componentesPage.locator('.criatura-talento').count(),1,
         'Retirar un ataque no debe arrastrar un Talento vinculado.');
       await componentesPage.locator('#criaturas-explorar-talentos').click();
+      await componentesPage.locator('#criaturas-componentes-clasificacion')
+        .selectOption('Reacción');
+      assert.match(await componentesPage.locator('#criaturas-componentes-estado').innerText(),
+        /componentes encontrados/);
       await componentesPage.locator('#criaturas-componentes-busqueda').fill('Veneno');
       const talentoGuiverna=componentesPage.locator('.criaturas-comp-item')
         .filter({hasText:'Guiverna manto azur'}).filter({
           has:componentesPage.getByText('Veneno',{exact:true})}).first();
+      await talentoGuiverna.locator('summary').click();
+      assert.match(await talentoGuiverna.innerText(),/ID editorial DRS: veneno_184/);
       await talentoGuiverna.getByRole('button',{name:'Ver relaciones'}).click();
       assert.equal(await componentesPage.locator('.criaturas-comp-vinculo').count(),1);
       assert.match(await componentesPage.locator('#criaturas-componentes-vinculos').innerText(),
