@@ -34,9 +34,19 @@
       var conector=indice===0?'Inicio':String(a&&a.conectorAnterior||'Inicio');
       var unir=lineas.length>0&&(conector==='y'||conector===',');
       var texto=ataque(a,0);
-      if(!unir)lineas.push({texto:texto,notas:[]});
-      else lineas[lineas.length-1].texto+=
-        (conector===','?', ':' y ')+texto;
+      var nombre=capitalizar(a&&a.nombre);
+      var cantidad=Number.isSafeInteger(a&&a.cantidad)&&a.cantidad>1?
+        a.cantidad+' × ':'';
+      var separador=unir?(conector===','?', ':' y '):'';
+      // Fragmentos de presentación: permiten destacar el nombre sin
+      // analizar cadenas ni introducir HTML en textos del usuario.
+      var parte={separador:separador,cantidad:cantidad,nombre:nombre,
+        detalle:texto.slice(cantidad.length+nombre.length)};
+      if(!unir)lineas.push({texto:texto,notas:[],partes:[parte]});
+      else{
+        lineas[lineas.length-1].texto+=separador+texto;
+        lineas[lineas.length-1].partes.push(parte);
+      }
       if(a&&a.notas){
         lineas[lineas.length-1].notas.push({
           nombre:capitalizar(a.nombre),texto:String(a.notas)
