@@ -5,15 +5,18 @@
   var api = factory(root,
     typeof module !== 'undefined' && module.exports ? require('./creatures.js') : root.NaufragioCriaturas,
     typeof module !== 'undefined' && module.exports ? require('./creatures-import.js') : root.NaufragioImportadorCriaturas,
-    typeof module !== 'undefined' && module.exports ? require('./creatures-library.js') : root.NaufragioBibliotecaCriaturas);
+    typeof module !== 'undefined' && module.exports ? require('./creatures-library.js') : root.NaufragioBibliotecaCriaturas,
+    typeof module !== 'undefined' && module.exports ? require('./creatures-components.js') : root.NaufragioComponentesCriaturas);
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.NaufragioCriaturasUI = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function(root, modelo, importador, apiBiblioteca) {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function(root, modelo, importador, apiBiblioteca, componentes) {
   'use strict';
-  if (!modelo || !importador || !apiBiblioteca) throw Error('Faltan módulos del Editor de criaturas Nd20.');
+  if (!modelo || !importador || !apiBiblioteca || !componentes) throw Error('Faltan módulos del Editor de criaturas Nd20.');
   var iniciado = false, biblioteca = null, idActual = null, idConsulta = null, ficha = null;
   var pendiente = null, cambios = false, secuenciaAtaques = 0;
   var catalogoDRS = null, fuentesOficiales = null, cargaFuentes = null;
+  var bibliotecaComponentes=null, relacionesComponentes=null, cargaRelacionesComponentes=null;
+  var tipoBibliotecaComponentes='ataques', limiteComponentes=40;
   var oficialesSeleccionados = new Set(), tipoPropio = null;
   var imagenProcesando = false, tokenImagen = 0;
   var ilustracionesOficiales = {}, ilustracionesBloqueadas = false;
@@ -206,7 +209,9 @@
         danoNumerico:aEntero(v('danoNumerico'),'Daño numérico de ataque '+(indice+1)),
         notas:v('notas').trim(),
         segmentoOriginal:fila.dataset.segmentoOriginal||'',
-        talentoRelacionado:v('talentoRelacionado').trim()||null
+        talentoRelacionado:v('talentoRelacionado').trim()||null,
+        ...(fila.dataset.catalogoId?{catalogoId:fila.dataset.catalogoId}:{}),
+        ...(fila.dataset.fuenteId?{fuenteId:fila.dataset.fuenteId}:{})
       });
     });
     base.talentos=Array.from($('criaturas-talentos').children).map(function(fila,indice){
@@ -216,7 +221,9 @@
         nombre:v('nombre').trim(),
         descripcion:v('descripcion').trim(),
         textoOriginal:fila.dataset.textoOriginal||'',
-        referencia:v('referencia').trim()||null
+        referencia:v('referencia').trim()||null,
+        ...(fila.dataset.catalogoId?{catalogoId:fila.dataset.catalogoId}:{}),
+        ...(fila.dataset.fuenteId?{fuenteId:fila.dataset.fuenteId}:{})
       });
     });
     return base;
@@ -275,6 +282,8 @@
     secuenciaAtaques++;
     fila.dataset.ataqueId=a.id || 'ataque-ui-'+secuenciaAtaques;
     fila.dataset.segmentoOriginal=a.segmentoOriginal;
+    if(a.catalogoId)fila.dataset.catalogoId=a.catalogoId;
+    if(a.fuenteId)fila.dataset.fuenteId=a.fuenteId;
     var poner=function(c,valor){fila.querySelector('[data-campo="'+c+'"]').value=
       valor===null||valor===undefined?'':String(valor);};
     poner('conector',a.conectorAnterior);
@@ -295,6 +304,8 @@
     var fila=ele('div','criaturas-repetido criatura-talento');
     fila.innerHTML=plantillaTalento(); // Solo plantilla propia.
     fila.dataset.textoOriginal=t.textoOriginal;
+    if(t.catalogoId)fila.dataset.catalogoId=t.catalogoId;
+    if(t.fuenteId)fila.dataset.fuenteId=t.fuenteId;
     var poner=function(c,valor){fila.querySelector('[data-campo="'+c+'"]').value=
       valor==null?'':String(valor);};
     poner('nombre',t.nombre);poner('descripcion',t.descripcion);poner('referencia',t.referencia);
@@ -635,55 +646,242 @@
       $('criaturas-selector-drs').showModal();
     }catch(error){mostrarEstado('No se pudo abrir el catálogo: '+error.message,true);}
   }
-  function catalogoEntradas(tipo) {
-    var salida=[];
-    registrosOficiales().forEach(function(r){
-      (r.ficha[tipo]||[]).forEach(function(v){
-        salida.push({dato:v,fuente:r.nombre+' · '+r.fuente.titulo});
-      });
-    });
-    if(biblioteca&&biblioteca.catalogoPersonal){
-      biblioteca.catalogoPersonal()[tipo].forEach(function(v){
-        salida.push({dato:v,fuente:'Creación propia'});
-      });
+  async function asegurarBibliotecaComponentes(){
+    await asegurarCatalogoDRS();
+    if(!relacionesComponentes){
+      if(!cargaRelacionesComponentes){
+        cargaRelacionesComponentes=root.fetch('data/adversarios-relaciones-drs.json',
+          {cache:'no-store'}).then(function(res){
+            if(!res.ok)throw Error('No se ha podido leer la matriz DRS de relaciones.');
+            return res.json();
+          }).then(function(datos){
+            relacionesComponentes=datos;
+            return datos;
+          }).catch(function(error){cargaRelacionesComponentes=null;throw error;});
+      }
+      await cargaRelacionesComponentes;
     }
-    return salida;
+    // Reconstruir con las plantillas actuales; no alterar ni migrar storage.
+    var personales=biblioteca?biblioteca.listar().map(function(r){
+      return {id:r.id,ficha:biblioteca.obtener(r.id)};
+    }):[];
+    bibliotecaComponentes=componentes.crearCatalogo(fuentesOficiales,
+      biblioteca?biblioteca.catalogoPersonal():{ataques:[],talentos:[]},
+      relacionesComponentes,personales);
+    return bibliotecaComponentes;
   }
-  function sugerirEntradas(tipo) {
-    var nombre=tipo==='ataques'?'ataque':'talento';
-    var term=$('criaturas-buscar-'+nombre).value.trim().toLocaleLowerCase('es');
-    var salida=$('criaturas-coincidencias-'+tipo);
-    salida.textContent='';
-    if(term.length<2)return;
-    var resultados=catalogoEntradas(tipo).filter(function(e){
-      return e.dato.nombre.toLocaleLowerCase('es').includes(term);
-    }).slice(0,16);
-    if(!resultados.length){
-      salida.appendChild(ele('p','muted','No hay coincidencias documentadas. Puedes crear una entrada propia.'));
-      return;
-    }
-    resultados.forEach(function(entrada) {
-      var boton=ele('button','criaturas-coincidencia');
-      boton.type='button';
-      var dato=entrada.dato;
-      boton.appendChild(ele('strong','',dato.nombre+
-        (tipo==='ataques'&&dato.danoLiteral?' · '+dato.danoLiteral+' daño':'')));
-      if(tipo==='talentos'&&dato.descripcion)
-        boton.appendChild(ele('span','',dato.descripcion));
-      boton.appendChild(ele('small','muted',entrada.fuente));
-      boton.addEventListener('click',function(){
-        if(tipo==='ataques'){
-          var a=modelo.ataque(dato);
-          a.id='';
-          a.conectorAnterior=$('criaturas-ataques').children.length?'y':'Inicio';
-          agregarAtaque(a);
-        }else agregarTalento(modelo.talento(dato));
-        cambios=true;
-        avisarRevision();
-        $('criaturas-buscar-'+nombre).value='';
-        salida.textContent='';
+  function estadoBibliotecaComponentes(mensaje){
+    $('criaturas-componentes-estado').textContent=mensaje||'';
+  }
+  function entradasFormulario(tipo){
+    var contenedor=$(tipo==='ataques'?'criaturas-ataques':'criaturas-talentos');
+    return Array.from(contenedor.children).map(function(fila){
+      var v=function(k){return fila.querySelector('[data-campo="'+k+'"]').value;};
+      var base=tipo==='ataques'?modelo.ataque({
+        nombre:v('nombre').trim(),cantidad:Number(v('cantidad')),
+        danoLiteral:v('danoLiteral').trim(),danoNumerico:v('danoNumerico').trim()===''?
+          null:Number(v('danoNumerico')),notas:v('notas').trim(),
+        segmentoOriginal:fila.dataset.segmentoOriginal||'',
+        talentoRelacionado:v('talentoRelacionado').trim()||null
+      }):modelo.talento({
+        nombre:v('nombre').trim(),descripcion:v('descripcion').trim(),
+        textoOriginal:fila.dataset.textoOriginal||'',
+        referencia:v('referencia').trim()||null
       });
-      salida.appendChild(boton);
+      if(fila.dataset.catalogoId)base.catalogoId=fila.dataset.catalogoId;
+      if(fila.dataset.fuenteId)base.fuenteId=fila.dataset.fuenteId;
+      return base;
+    });
+  }
+  function incorporarComponente(entrada,origen){
+    if(!bibliotecaComponentes)throw Error('No se ha cargado la biblioteca.');
+    if(bibliotecaComponentes.yaExiste(entrada,entradasFormulario(entrada.tipo))){
+      return false;
+    }
+    var primero=entrada.tipo==='ataques'&&!$('criaturas-ataques').children.length;
+    var dato=bibliotecaComponentes.preparar(entrada,primero);
+    if(entrada.tipo==='ataques')agregarAtaque(dato);
+    else agregarTalento(dato);
+    cambios=true;avisarRevision();
+    return true;
+  }
+  function mostrarRelacionesComponente(entrada){
+    var lista=$('criaturas-componentes-vinculos-lista');
+    var panel=$('criaturas-componentes-vinculos');
+    lista.textContent='';
+    var relacionadas=bibliotecaComponentes.relacionados(entrada.id);
+    panel.hidden=!relacionadas.length;
+    if(!relacionadas.length)return;
+    $('criaturas-componentes-vinculos-titulo').textContent=
+      'Relacionado con «'+entrada.dato.nombre+'»';
+    relacionadas.forEach(function(rel){
+      var ya=bibliotecaComponentes.yaExiste(rel,entradasFormulario(rel.tipo));
+      var fila=ele('div','criaturas-comp-vinculo');
+      var info=ele('div');
+      info.appendChild(ele('strong','',rel.dato.nombre));
+      info.appendChild(ele('small','',rel.tipo==='ataques'?
+        'Ataque · '+(rel.dato.danoLiteral||'Sin daño documentado'):
+        'Talento · '+(rel.dato.descripcion||'Sin descripción')));
+      var btn=ele('button','',ya?'Ya incorporado':'Añadir '+(rel.tipo==='ataques'?'ataque':'Talento'));
+      btn.type='button';btn.disabled=ya;
+      btn.addEventListener('click',function(){
+        try{
+          var correcto=incorporarComponente(rel,'vinculo');
+          estadoBibliotecaComponentes(correcto?
+            'Componente relacionado incorporado; los demás siguen disponibles.':
+            'El componente ya está en esta ficha.');
+          mostrarRelacionesComponente(entrada);
+          actualizarBibliotecaComponentes();
+        }catch(error){estadoBibliotecaComponentes(error.message);}
+      });
+      fila.append(info,btn);lista.appendChild(fila);
+    });
+  }
+  function opcionesBibliotecaComponentes(id,valores){
+    var select=$(id),ant=select.value;select.textContent='';
+    var op=ele('option','',id.endsWith('-origen')?'Todos':'Todas');
+    op.value='';select.appendChild(op);
+    Array.from(new Set(valores.filter(Boolean)))
+      .sort(function(a,b){return a.localeCompare(b,'es');}).forEach(function(v){
+        var e=ele('option','',v);e.value=v;select.appendChild(e);
+      });
+    select.value=Array.from(select.options).some(function(o){return o.value===ant;})?ant:'';
+  }
+  function actualizarBibliotecaComponentes(){
+    if(!bibliotecaComponentes)return;
+    var tab=tipoBibliotecaComponentes;
+    ['ataques','talentos'].forEach(function(t){
+      $('criaturas-componentes-tab-'+t).setAttribute('aria-pressed',String(tab===t));
+    });
+    var entradas=bibliotecaComponentes.listar(tab);
+    opcionesBibliotecaComponentes('criaturas-componentes-fuente',
+      entradas.map(function(e){return e.fuenteId;}));
+    opcionesBibliotecaComponentes('criaturas-componentes-origen',
+      entradas.map(function(e){return e.origen;}));
+    var filtro=bibliotecaComponentes.filtrar(tab,{
+      texto:$('criaturas-componentes-busqueda').value,
+      fuenteId:$('criaturas-componentes-fuente').value,
+      origen:$('criaturas-componentes-origen').value,
+      soloRelacionados:$('criaturas-componentes-solo-relacionados').checked
+    });
+    var lista=$('criaturas-componentes-lista');lista.textContent='';
+    estadoBibliotecaComponentes(filtro.length+' componentes encontrados · '+
+      Math.min(limiteComponentes,filtro.length)+' visibles.');
+    if(!filtro.length){
+      lista.appendChild(ele('p','muted','No hay componentes que cumplan los filtros.'));
+    }
+    filtro.slice(0,limiteComponentes).forEach(function(entrada){
+      var dato=entrada.dato;
+      var ya=bibliotecaComponentes.yaExiste(entrada,entradasFormulario(tab));
+      var vinculados=bibliotecaComponentes.relacionados(entrada.id);
+      var item=ele('article','criaturas-comp-item');
+      var cab=ele('header'),identidad=ele('div','criaturas-comp-identidad');
+      identidad.appendChild(ele('strong','',dato.nombre));
+      var detalle=entrada.fuente+' · '+(entrada.criatura||'Plantilla personal')+
+        (tab==='ataques'?' · '+dato.cantidad+' × '+(dato.danoLiteral||'Daño no documentado'):'');
+      identidad.appendChild(ele('small','',detalle));
+      var boton=ele('button','',ya?'Ya incorporado':'Añadir');
+      boton.type='button';boton.disabled=ya;
+      boton.setAttribute('aria-label',(ya?'Ya incorporado: ':'Añadir: ')+dato.nombre);
+      boton.addEventListener('click',function(){
+        try{
+          var ok=incorporarComponente(entrada,'biblioteca');
+          mostrarRelacionesComponente(entrada);
+          actualizarBibliotecaComponentes();
+          estadoBibliotecaComponentes(ok?
+            '«'+dato.nombre+'» incorporado. Puedes seguir seleccionando.':
+            'La ficha ya contiene «'+dato.nombre+'».');
+        }catch(error){estadoBibliotecaComponentes(error.message);}
+      });
+      cab.append(identidad,boton);item.appendChild(cab);
+      if(vinculados.length){
+        item.appendChild(ele('p','criaturas-comp-etiqueta',
+          vinculados.length+' relación'+(vinculados.length>1?'es':'')+' documentada'+
+          (vinculados.length>1?'s':'')));
+      }
+      var des=ele('details'),sum=ele('summary','',
+        'Consultar propiedades y texto original');
+      des.appendChild(sum);
+      var partes=tab==='ataques'?
+        ['Cantidad: '+dato.cantidad,
+          'Daño literal: '+(dato.danoLiteral||'No documentado'),
+          dato.notas?'Notas: '+dato.notas:'',
+          dato.segmentoOriginal?'Segmento original: '+dato.segmentoOriginal:'']:
+        [dato.descripcion||'Sin descripción documentada',
+          dato.textoOriginal?'Texto original: '+dato.textoOriginal:''];
+      partes.filter(Boolean).forEach(function(p){
+        des.appendChild(ele('p','criaturas-comp-descripcion',p));
+      });
+      item.appendChild(des);
+      if(vinculados.length){
+        var ver=ele('button','', 'Ver relaciones');
+        ver.type='button';
+        ver.addEventListener('click',function(){mostrarRelacionesComponente(entrada);});
+        item.appendChild(ver);
+      }
+      lista.appendChild(item);
+    });
+    if(limiteComponentes<filtro.length){
+      var mas=ele('button','', 'Mostrar '+Math.min(40,filtro.length-limiteComponentes)+' más');
+      mas.type='button';
+      mas.addEventListener('click',function(){limiteComponentes+=40;actualizarBibliotecaComponentes();});
+      lista.appendChild(mas);
+    }
+  }
+  async function abrirBibliotecaComponentes(tipo,termino){
+    try{
+      tipoBibliotecaComponentes=tipo;
+      await asegurarBibliotecaComponentes();
+      limiteComponentes=40;
+      $('criaturas-componentes-busqueda').value=termino||'';
+      $('criaturas-componentes-fuente').value='';
+      $('criaturas-componentes-origen').value='';
+      $('criaturas-componentes-solo-relacionados').checked=false;
+      $('criaturas-componentes-vinculos').hidden=true;
+      actualizarBibliotecaComponentes();
+      $('criaturas-componentes-dialogo').showModal();
+      $('criaturas-componentes-busqueda').focus();
+    }catch(error){mostrarEstado('No se pudo abrir la biblioteca: '+error.message,true);}
+  }
+  function sugerirEntradas(tipo){
+    var nombre=tipo==='ataques'?'ataque':'talento';
+    var campo=$('criaturas-buscar-'+nombre);
+    var term=campo.value.trim();
+    var destino=$('criaturas-coincidencias-'+tipo);destino.textContent='';
+    if(term.length<2)return;
+    asegurarBibliotecaComponentes().then(function(cat){
+      if(campo.value.trim()!==term)return;
+      var entradas=cat.filtrar(tipo,{texto:term}).slice(0,16);
+      if(!entradas.length){
+        destino.appendChild(ele('p','muted','Sin coincidencias. Consulta la biblioteca o crea una entrada.'));
+        return;
+      }
+      entradas.forEach(function(entrada){
+        var boton=ele('button','criaturas-coincidencia');
+        boton.type='button';
+        boton.appendChild(ele('strong','',entrada.dato.nombre+
+          (tipo==='ataques'&&entrada.dato.danoLiteral?' · '+entrada.dato.danoLiteral+' daño':'')));
+        if(tipo==='talentos'&&entrada.dato.descripcion)
+          boton.appendChild(ele('span','',entrada.dato.descripcion));
+        boton.appendChild(ele('small','muted',entrada.fuente+
+          (cat.relacionados(entrada.id).length?' · Con relaciones':'') ));
+        boton.addEventListener('click',function(){
+          try{
+            if(!incorporarComponente(entrada,'busqueda')){
+              mostrarEstado('Este componente ya estaba incorporado.');
+              return;
+            }
+            campo.value='';destino.textContent='';
+            if(cat.relacionados(entrada.id).length)abrirBibliotecaComponentes(tipo,entrada.dato.nombre)
+              .then(function(){mostrarRelacionesComponente(entrada);});
+            else mostrarEstado('Componente documentado incorporado.');
+          }catch(error){mostrarEstado(error.message,true);}
+        });
+        destino.appendChild(boton);
+      });
+    }).catch(function(error){
+      destino.textContent='';
+      destino.appendChild(ele('p','muted','No se pudo consultar la biblioteca: '+error.message));
     });
   }
   function abrirElementoPropio(tipo) {
@@ -720,6 +918,7 @@
         agregarTalento(plantilla);
       }else throw Error('Tipo de entrada desconocido.');
       $('criaturas-elemento-propio').close();
+      bibliotecaComponentes=null;
       cambios=true;avisarRevision();
       mostrarEstado('Entrada propia incorporada al borrador y disponible para reutilizarse.');
     }catch(error){$('criaturas-elemento-error').textContent=error.message;}
@@ -1287,6 +1486,32 @@
       $('criaturas-crear-'+nombre).addEventListener('click',function(){
         abrirElementoPropio(tipo);
       });
+      $('criaturas-explorar-'+tipo).addEventListener('click',function(){
+        abrirBibliotecaComponentes(tipo);
+      });
+    });
+    $('criaturas-componentes-cerrar').addEventListener('click',function(){
+      $('criaturas-componentes-dialogo').close();
+    });
+    ['ataques','talentos'].forEach(function(tipo){
+      $('criaturas-componentes-tab-'+tipo).addEventListener('click',function(){
+        tipoBibliotecaComponentes=tipo;limiteComponentes=40;
+        $('criaturas-componentes-vinculos').hidden=true;
+        $('criaturas-componentes-fuente').value='';
+        $('criaturas-componentes-origen').value='';
+        actualizarBibliotecaComponentes();
+      });
+    });
+    $('criaturas-componentes-busqueda').addEventListener('input',function(){
+      limiteComponentes=40;actualizarBibliotecaComponentes();
+    });
+    ['fuente','origen'].forEach(function(k){
+      $('criaturas-componentes-'+k).addEventListener('change',function(){
+        limiteComponentes=40;actualizarBibliotecaComponentes();
+      });
+    });
+    $('criaturas-componentes-solo-relacionados').addEventListener('change',function(){
+      limiteComponentes=40;actualizarBibliotecaComponentes();
     });
     $('criaturas-elemento-form').addEventListener('submit',guardarElementoPropio);
     $('criaturas-elemento-cerrar').addEventListener('click',function(){
@@ -1358,6 +1583,13 @@
         $('criaturas-salud-modo').value='manual';
     });
     $('criaturas-formulario').addEventListener('input',function(event){
+      // Una edición manual del contenido rompe la identidad del catálogo,
+      // pero conserva la referencia de procedencia y el texto original.
+      var fila=event.target.closest('.criaturas-repetido');
+      if(fila && event.target.matches('[data-campo]') &&
+         !event.target.matches('[data-campo="conector"]')){
+        delete fila.dataset.catalogoId;
+      }
       if(event.target.matches('[data-campo="danoLiteral"]')) {
         var num=event.target.closest('.criaturas-repetido')
           .querySelector('[data-campo="danoNumerico"]');

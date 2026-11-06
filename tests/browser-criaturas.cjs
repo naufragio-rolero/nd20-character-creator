@@ -44,6 +44,55 @@ async function probar(nombre,tipo,url){
     assert.equal((await page.locator('#tab-criaturas').innerText()).trim(),'Adversarios');
     assert.equal(await page.locator('#criaturas-edicion').evaluate(x=>x.open),false,
       'La mesa se abre sin mostrar el formulario.');
+    // Catálogo íntegro de componentes: Chrome, Firefox y WebKit, también móvil.
+    // No se toca la mesa ni las fichas del recorrido original.
+    const componentesPage=await contexto.newPage();
+    try{
+      await componentesPage.goto(url,{waitUntil:'domcontentloaded'});
+      await componentesPage.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      await componentesPage.locator('#tab-criaturas').click();
+      await componentesPage.locator('#criaturas-nueva-panel').click();
+      await componentesPage.locator('#criaturas-explorar-ataques').click();
+      await componentesPage.locator('#criaturas-componentes-dialogo').waitFor({state:'visible'});
+      assert.equal(await componentesPage.locator('#criaturas-componentes-dialogo').evaluate(x=>x.open),true);
+      await componentesPage.locator('#criaturas-componentes-busqueda').fill('dardos venenosos');
+      const itemDardos=componentesPage.locator('.criaturas-comp-item')
+        .filter({has:componentesPage.getByText('dardos venenosos',{exact:true})}).first();
+      await itemDardos.locator('summary').click();
+      assert.match(await itemDardos.innerText(),/18/);
+      await itemDardos.getByRole('button',{name:'Añadir: dardos venenosos'}).click();
+      assert.equal(await componentesPage.locator('.criatura-ataque').count(),1);
+      assert.equal(await componentesPage.locator('.criatura-ataque [data-campo="danoLiteral"]').inputValue(),'18');
+      assert.equal(await componentesPage.locator('#criaturas-componentes-vinculos').isVisible(),true);
+      assert.equal(await componentesPage.locator('.criaturas-comp-vinculo').count(),2);
+      const vinculoVeneno=componentesPage.locator('.criaturas-comp-vinculo')
+        .filter({has:componentesPage.getByText('Veneno',{exact:true})});
+      await vinculoVeneno.getByRole('button',{name:'Añadir Talento'}).click();
+      assert.equal(await componentesPage.locator('.criatura-talento').count(),1);
+      assert.equal(await vinculoVeneno.getByRole('button',{name:'Ya incorporado'}).isDisabled(),true);
+      await componentesPage.locator('#criaturas-componentes-cerrar').click();
+      await componentesPage.locator('.criatura-ataque [data-accion="quitar-ataque"]').click();
+      assert.equal(await componentesPage.locator('.criatura-ataque').count(),0);
+      assert.equal(await componentesPage.locator('.criatura-talento').count(),1,
+        'Retirar un ataque no debe arrastrar un Talento vinculado.');
+      await componentesPage.locator('#criaturas-explorar-talentos').click();
+      await componentesPage.locator('#criaturas-componentes-busqueda').fill('Veneno');
+      const talentoGuiverna=componentesPage.locator('.criaturas-comp-item')
+        .filter({hasText:'Guiverna manto azur'}).filter({
+          has:componentesPage.getByText('Veneno',{exact:true})}).first();
+      await talentoGuiverna.getByRole('button',{name:'Ver relaciones'}).click();
+      assert.equal(await componentesPage.locator('.criaturas-comp-vinculo').count(),1);
+      assert.match(await componentesPage.locator('#criaturas-componentes-vinculos').innerText(),
+        /dardos venenosos/i);
+      await componentesPage.locator('#criaturas-componentes-cerrar').click();
+      await componentesPage.setViewportSize({width:390,height:844});
+      await componentesPage.locator('#criaturas-explorar-talentos').click();
+      assert.equal(await componentesPage.locator('#criaturas-componentes-dialogo').isVisible(),true);
+      assert.equal(await componentesPage.locator('#criaturas-componentes-tab-talentos').getAttribute('aria-pressed'),'true');
+      const ancho=await componentesPage.locator('#criaturas-componentes-dialogo').evaluate(x=>({
+        width:x.getBoundingClientRect().width,view:window.innerWidth}));
+      assert.ok(ancho.width<=ancho.view,'Diálogo de componentes sin desbordamiento horizontal móvil');
+    }finally{await componentesPage.close();}
     await page.locator('#criaturas-ir-importar').click();
     const texto=[
       'Araña peluda',

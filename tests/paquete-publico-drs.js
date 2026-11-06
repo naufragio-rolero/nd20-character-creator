@@ -283,7 +283,7 @@ assert.ok(html.includes('id="resumen-nivel"'));
 assert.ok(html.includes('id="informacion-avanzada"'));
 assert.ok(html.includes('id="tab-criaturas"'));
 for(const modulo of ['creatures.js','creatures-import.js',
-  'creatures-library.js','creatures-ui.js']){
+  'creatures-library.js','creatures-components.js','creatures-ui.js']){
   const ruta='assets/'+modulo;
   assert.ok(html.includes(ruta),'El HTML incluye '+ruta);
   assert.ok(fs.existsSync(path.join(salida,ruta)),'El paquete sirve '+ruta);
@@ -294,6 +294,17 @@ assert.equal(fuentesPublicas.fuentes.length,1);
 assert.equal(fuentesPublicas.fuentes[0].id,'drs');
 assert.equal(fuentesPublicas.fuentes[0].total,106);
 const catalogoOficial=leer(salida,'adversarios-drs.json');
+const relacionesPublicas=leer(salida,'adversarios-relaciones-drs.json');
+assert.deepEqual(relacionesPublicas,leer(raiz,'adversarios-relaciones-drs.json'),
+  'El paquete DRS contiene exclusivamente los vínculos oficiales verificados.');
+assert.equal(relacionesPublicas.relaciones.length,77);
+const componentesPublicos=require(path.join(salida,'assets','creatures-components.js'));
+const componentesDRS=componentesPublicos.crearCatalogo([{
+  info:fuentesPublicas.fuentes[0],registros:leer(salida,'adversarios-drs.json').registros
+}],{ataques:[],talentos:[]},relacionesPublicas);
+assert.deepEqual(componentesDRS.resumen(),{ataques:182,talentos:188,relaciones:77},
+  'Ninguna expansión entra en la biblioteca pública DRS.');
+
 assert.equal(catalogoOficial.fuente,'Naufragio d20 DRS');
 assert.equal(catalogoOficial.registros.length,106,
   'El nuevo encargo autoriza solo los 106 adversarios documentados del DRS');
@@ -424,7 +435,7 @@ const esperados=new Set([
   'talentos-drs-literales.json','aclaraciones-talentos-drs.json',
   'tecnicas-drs-literales.json','glosas-talentos-drs.json',
   'glosas-equipo-drs.json',
-  'adversarios-drs.json','adversarios-fuentes.json',
+  'adversarios-drs.json','adversarios-fuentes.json','adversarios-relaciones-drs.json',
   'dungeon-hack.json'
 ]);
 assert.deepEqual(contenidos,esperados,
