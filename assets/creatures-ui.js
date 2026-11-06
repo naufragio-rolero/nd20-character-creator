@@ -15,7 +15,7 @@
   var pendiente = null, cambios = false, secuenciaAtaques = 0;
   var catalogoDRS = null, fuentesOficiales = null, cargaFuentes = null;
   var oficialesSeleccionados = new Set(), tipoPropio = null;
-  var imagenProcesando = false;
+  var imagenProcesando = false, tokenImagen = 0;
   var CLAVE_OFICIALES = 'forja-adversarios-oficiales-v1';
   // El manifiesto solo contiene nombres de archivos SVG públicos.
   // Ningún icono forma parte de la ficha reglamentaria o del JSON personal.
@@ -85,6 +85,97 @@
       $('criaturas-salud').value=calculada!==null&&calculada>=0?String(calculada):'';
       if(calculada!==null&&calculada<0)
         desglose.textContent+=' El resultado negativo no se puede usar como Salud.';
+    }
+  }
+  function mostrarImagenEditor(){
+    var contenedor=$('criaturas-imagen-previa');
+    contenedor.textContent='';
+    var url=ficha&&ficha.imagen||'';
+    if(url){
+      var imagen=ele('img');
+      imagen.src=url;
+      imagen.alt='';
+      contenedor.appendChild(imagen);
+      contenedor.setAttribute('aria-label','Ilustración añadida');
+    }else{
+      contenedor.textContent='Sin ilustración';
+      contenedor.setAttribute('aria-label','Sin ilustración');
+    }
+    $('criaturas-imagen-quitar').disabled=!url;
+  }
+  // Rasterización local: recorte centrado 16:9, sin subir archivos a servidores.
+  // El lienzo elimina metadatos de la foto antes de incrustarla en el JSON.
+  function convertirIlustracion(archivo){
+    return new Promise(function(resolve,reject){
+      if(!archivo||!['image/jpeg','image/png','image/webp'].includes(archivo.type)){
+        reject(Error('Elige una imagen JPG, PNG o WebP.'));return;
+      }
+      if(archivo.size>5*1024*1024){
+        reject(Error('El archivo supera los 5 MB.'));return;
+      }
+      var lector=new root.FileReader();
+      lector.onerror=function(){reject(Error('No se pudo leer la imagen.'));};
+      lector.onload=function(){
+        var imagen=new root.Image();
+        imagen.onerror=function(){reject(Error('El archivo no es una imagen legible.'));};
+        imagen.onload=function(){
+          try{
+            var ancho=imagen.naturalWidth,alto=imagen.naturalHeight;
+            if(!ancho||!alto||ancho*alto>40000000)
+              throw Error('La imagen tiene dimensiones no compatibles.');
+            var propor=16/9,recAncho=ancho,recAlto=alto;
+            if(ancho/alto>propor)recAncho=alto*propor;
+            else recAlto=ancho/propor;
+            var lienzo=d.createElement('canvas');
+            var contexto=lienzo.getContext('2d');
+            if(!contexto)throw Error('Tu navegador no admite el procesamiento de imágenes.');
+            var resultado='';
+            [960,800,640,480].some(function(max){
+              lienzo.width=Math.min(max,ancho);
+              lienzo.height=Math.max(1,Math.round(lienzo.width*9/16));
+              contexto.clearRect(0,0,lienzo.width,lienzo.height);
+              contexto.drawImage(imagen,(ancho-recAncho)/2,(alto-recAlto)/2,
+                recAncho,recAlto,0,0,lienzo.width,lienzo.height);
+              return [0.82,0.7,0.58].some(function(calidad){
+                var dato=lienzo.toDataURL('image/webp',calidad);
+                if(!dato.startsWith('data:image/webp;base64,'))
+                  dato=lienzo.toDataURL('image/jpeg',calidad);
+                if(dato.length<=280000){resultado=dato;return true;}
+                return false;
+              });
+            });
+            if(!resultado)throw Error('No se pudo reducir la imagen al tamaño permitido.');
+            resolve(resultado);
+          }catch(error){reject(error);}
+        };
+        imagen.src=String(lector.result);
+      };
+      lector.readAsDataURL(archivo);
+    });
+  }
+  async function subirIlustracion(event){
+    var archivo=event.target.files&&event.target.files[0];
+    if(!archivo)return;
+    var token=++tokenImagen;
+    imagenProcesando=true;
+    $('criaturas-guardar').disabled=true;
+    mostrarEstado('Preparando ilustración en formato 16:9…');
+    try{
+      var url=await convertirIlustracion(archivo);
+      if(token!==tokenImagen)return;
+      ficha.imagen=url;
+      cambios=true;
+      mostrarImagenEditor();
+      avisarRevision();
+      mostrarEstado('Ilustración preparada. Guarda el adversario para conservarla.');
+    }catch(error){
+      if(token===tokenImagen)mostrarEstado('No se pudo añadir la ilustración: '+error.message,true);
+    }finally{
+      event.target.value='';
+      if(token===tokenImagen){
+        imagenProcesando=false;
+        $('criaturas-guardar').disabled=false;
+      }
     }
   }
   function datosFormulario() {
@@ -213,6 +304,10 @@
   }
   function renderizarFicha(datos,id) {
     ficha=modelo.nuevaCriatura(datos||{});
+    tokenImagen++;
+    imagenProcesando=false;
+    if($('criaturas-guardar'))$('criaturas-guardar').disabled=false;
+    mostrarImagenEditor();
     idActual=id||null;
     secuenciaAtaques=0;
     ['nombre','categoria','subcategoria','subtipo','descripcion','notas'].forEach(function(c){
@@ -783,6 +878,9 @@
   }
   function guardar(event) {
     if(event) event.preventDefault();
+    if(imagenProcesando){
+      mostrarEstado('La ilustración aún se está preparando.',true);return;
+    }
     try {
       if(!$('criaturas-formulario').checkValidity()){
         $('criaturas-formulario').reportValidity();
@@ -815,6 +913,9 @@
     root.setTimeout(function(){root.URL.revokeObjectURL(url);},1500);
   }
   function exportarFicha() {
+    if(imagenProcesando){
+      mostrarEstado('La ilustración aún se está preparando.',true);return;
+    }
     try {
       var datos=datosFormulario();
       var revision=modelo.revisar(datos,{paraExportar:true});
@@ -1038,6 +1139,18 @@
         ' Puedes editar y exportar fichas individuales.',true);
     }
     $('criaturas-nueva').addEventListener('click',nueva);
+    $('criaturas-imagen-archivo').addEventListener('change',subirIlustracion);
+    $('criaturas-imagen-quitar').addEventListener('click',function(){
+      tokenImagen++;
+      imagenProcesando=false;
+      $('criaturas-guardar').disabled=false;
+      if(!ficha||!ficha.imagen)return;
+      ficha.imagen='';
+      mostrarImagenEditor();
+      cambios=true;
+      avisarRevision();
+      mostrarEstado('Ilustración retirada del borrador. Guarda para confirmar.');
+    });
     $('criaturas-filtrar-categoria').addEventListener('input',filtrarCategorias);
     $('criaturas-nueva-panel').addEventListener('click',nueva);
     $('criaturas-ir-importar').addEventListener('click',function(){irA('criaturas-importacion');$('criaturas-texto').focus();});
