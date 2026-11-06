@@ -72,6 +72,23 @@ assert.deepEqual(formato.lineasAtaque([
   {nombre:'mordisco',cantidad:1,conectorAnterior:',',notas:'Veneno documentado'}
 ])[0].notas.map(x=>x.texto),['Agarra al objetivo','Veneno documentado'],
   'Las notas originales siguen asociadas a los ataques agrupados.');
+// La vista HTML obtiene fragmentos estructurados para resaltar SOLO
+// el nombre; el texto reglamentario que comparten UI y PDF no cambia.
+const combinados=formato.lineasAtaque([
+  {nombre:'garra',cantidad:2,danoLiteral:'1d6',conectorAnterior:'Inicio'},
+  {nombre:'mordisco',cantidad:1,danoLiteral:'especial',conectorAnterior:'y'},
+  {nombre:'mirada',cantidad:1,danoLiteral:'5',conectorAnterior:'o'}
+]);
+assert.deepEqual(combinados[0].partes,[
+  {separador:'',cantidad:'2 × ',nombre:'Garra',detalle:' - 1d6 de daño'},
+  {separador:' y ',cantidad:'',nombre:'Mordisco',detalle:' - especial'}
+]);
+assert.deepEqual(combinados[1].partes,[
+  {separador:'',cantidad:'',nombre:'Mirada',detalle:' - 5 de daño'}
+]);
+assert.deepEqual(combinados.map(linea=>linea.partes.map(p=>
+  p.separador+p.cantidad+p.nombre+p.detalle).join('')),combinados.map(x=>x.texto));
+assert.match(ui,/ele\('strong','criaturas-nombre-ataque',parte\.nombre\)/);
 assert.equal(formato.taxonomia({
   categoria:'Monstruo',subcategoria:'Bestias mitológicas',subtipo:'Pétreo'
 }),'Monstruo - Bestias mitológicas (Pétreo)');

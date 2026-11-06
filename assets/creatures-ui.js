@@ -893,7 +893,13 @@
       var lista=ele('ol','criaturas-ataques-consulta');
       root.NaufragioFormatoAdversarios.lineasAtaque(dato.ataques)
         .forEach(function(linea){
-          var item=ele('li','',linea.texto);
+          var item=ele('li');
+          linea.partes.forEach(function(parte){
+            if(parte.separador)item.appendChild(d.createTextNode(parte.separador));
+            if(parte.cantidad)item.appendChild(d.createTextNode(parte.cantidad));
+            item.appendChild(ele('strong','criaturas-nombre-ataque',parte.nombre));
+            if(parte.detalle)item.appendChild(d.createTextNode(parte.detalle));
+          });
           linea.notas.forEach(function(nota){
             item.appendChild(ele('p','muted',nota.nombre+': '+nota.texto));
           });

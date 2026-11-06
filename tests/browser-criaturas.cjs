@@ -297,6 +297,11 @@ async function probar(nombre,tipo,url){
         /Protección|Habilidad relacionada|chinazo_51/);
       assert.match(await segunda.locator('#criaturas-ficha-contenido').innerText(),
         /Chinazo - 6 de daño/);
+      assert.deepEqual(
+        await segunda.locator('.criaturas-ataques-consulta strong.criaturas-nombre-ataque').allTextContents(),
+        ['Chinazo'],'Solo el nombre del ataque se destaca en negrita.');
+      assert.equal(await segunda.locator('.criaturas-ataques-consulta li').first().innerText(),
+        'Chinazo - 6 de daño','El daño conserva exactamente su texto.');
       assert.match(await segunda.locator('.criaturas-fuente').innerText(),
         /Fuente: Naufragio d20 · Fantasía Épica · DRS/);
       assert.equal(await segunda.locator('.criaturas-icono-apartado').count(),2);
@@ -394,6 +399,9 @@ async function probar(nombre,tipo,url){
       const ataqueTexto=await segunda.locator('.criaturas-ataques-consulta').innerText();
       assert.match(ataqueTexto,/Coletazos - 14 de daño/);
       assert.match(ataqueTexto,/Mirada pétrea - especial/);
+      assert.deepEqual(
+        await segunda.locator('.criaturas-ataques-consulta strong.criaturas-nombre-ataque').allTextContents(),
+        ['Coletazos','Mirada pétrea']);
       assert.doesNotMatch(ataqueTexto,/^\s*o Mirada/m);
       await segunda.locator('#criaturas-ficha-retirar').click();
 
