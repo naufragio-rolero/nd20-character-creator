@@ -541,7 +541,7 @@
     var metricas=ele('div','criaturas-metricas');
     [['Nivel',dato.puntuaciones.nivel],['Salud',dato.puntuaciones.salud],
       ['Moral',dato.puntuaciones.moral],['Movimiento',dato.puntuaciones.movimiento],
-      ['Protección',dato.puntuaciones.blindaje],['Tamaño',dato.puntuaciones.tamano]]
+      ['Tamaño',dato.puntuaciones.tamano]]
       .forEach(function(par) {
         if(par[1]==null)return;
         var caja=ele('div','criaturas-metrica');
@@ -550,27 +550,31 @@
         metricas.appendChild(caja);
       });
     articulo.appendChild(metricas);
+    function encabezadoApartado(nombre,icono){
+      var h=ele('h4','criaturas-titulo-apartado');
+      var simbolo=ele('span','criaturas-icono-apartado '+icono);
+      simbolo.setAttribute('aria-hidden','true');
+      h.appendChild(simbolo);
+      h.appendChild(d.createTextNode(nombre));
+      articulo.appendChild(h);
+    }
     if(dato.ataques.length){
-      articulo.appendChild(ele('h4','','Ataques'));
-      var lista=ele('ol');
+      encabezadoApartado('Ataques','criaturas-icono-ataque');
+      var lista=ele('ol','criaturas-ataques-consulta');
       dato.ataques.forEach(function(a,i){
-        var etiqueta=(i?a.conectorAnterior+' ':'')+(a.cantidad>1?a.cantidad+' ':'')+
-          a.nombre+(a.danoLiteral?' ('+a.danoLiteral+')':'');
+        var etiqueta=root.NaufragioFormatoAdversarios.ataque(a,i);
         var item=ele('li','',etiqueta);
         if(a.notas)item.appendChild(ele('p','muted',a.notas));
-        if(a.talentoRelacionado)item.appendChild(ele('p','muted',
-          'Habilidad relacionada: '+a.talentoRelacionado));
         lista.appendChild(item);
       });
       articulo.appendChild(lista);
     }
     if(dato.talentos.length){
-      articulo.appendChild(ele('h4','','Talentos y habilidades especiales'));
+      encabezadoApartado('Talentos y habilidades especiales','criaturas-icono-talento');
       dato.talentos.forEach(function(t){
         var bloque=ele('section','criaturas-habilidad');
         bloque.appendChild(ele('strong','',t.nombre));
         if(t.descripcion)bloque.appendChild(ele('p','',t.descripcion));
-        if(t.referencia)bloque.appendChild(ele('small','muted',t.referencia));
         articulo.appendChild(bloque);
       });
     }
@@ -585,6 +589,11 @@
     if(dato.camposNoInterpretados.length){
       articulo.appendChild(ele('h4','','Fragmentos conservados'));
       articulo.appendChild(ele('p','',dato.camposNoInterpretados.join('\n')));
+    }
+    if(dato.origen&&dato.origen.tipo!=='manual' &&
+       (dato.origen.tipo==='drs_oficial'||dato.origen.tipo==='drs_copia_personal' ||
+        String(id).startsWith('drs-'))){
+      articulo.appendChild(ele('p','criaturas-fuente','Fuente: Naufragio d20 DRS'));
     }
     cont.appendChild(articulo);
     $('criaturas-ficha-titulo').textContent=dato.nombre+
