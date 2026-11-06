@@ -13,7 +13,9 @@
   if (!modelo || !importador || !apiBiblioteca) throw Error('Faltan módulos del Editor de criaturas Nd20.');
   var iniciado = false, biblioteca = null, idActual = null, idConsulta = null, ficha = null;
   var pendiente = null, cambios = false, secuenciaAtaques = 0;
-  var catalogoDRS = null, oficialesSeleccionados = new Set(), tipoPropio = null;
+  var catalogoDRS = null, fuentesOficiales = null, cargaFuentes = null;
+  var oficialesSeleccionados = new Set(), tipoPropio = null;
+  var imagenProcesando = false;
   var CLAVE_OFICIALES = 'forja-adversarios-oficiales-v1';
   // El manifiesto solo contiene nombres de archivos SVG públicos.
   // Ningún icono forma parte de la ficha reglamentaria o del JSON personal.
@@ -281,70 +283,169 @@
     oficialesSeleccionados=nueva;
     dibujarBiblioteca();
     $('criaturas-selector-estado').textContent=oficialesSeleccionados.size+
-      ' adversarios de Naufragio d20 - Épica en tu galería';
+      ' perfiles oficiales añadidos a tu mesa';
+  }
+  // Manifiesto editorial de fuentes: solo ficheros JSON locales enumerados.
+  // Cada fuente incorpora su procedencia y tiene identificadores estables.
+  function registrosOficiales() {
+    var salida=[];
+    (fuentesOficiales||[]).forEach(function(fuente){
+      fuente.registros.forEach(function(registro){
+        salida.push({id:fuente.info.id+'-'+registro.id,nombre:registro.nombre,
+          ficha:registro.ficha,fuente:fuente.info});
+      });
+    });
+    return salida;
+  }
+  function registroOficial(id) {
+    return registrosOficiales().find(function(r){return r.id===id;})||null;
+  }
+  function esFichaOficial(id) {
+    return !!registroOficial(String(id||''));
   }
   function obtenerFichaConsulta(id){
-    if(String(id).startsWith('drs-')){
-      var registro=catalogoDRS && catalogoDRS.registros.find(function(r){
-        return 'drs-'+r.id===id;
-      });
-      return registro?modelo.nuevaCriatura(registro.ficha):null;
-    }
-    return biblioteca?biblioteca.obtener(id):null;
+    var oficial=registroOficial(String(id));
+    return oficial?modelo.nuevaCriatura(oficial.ficha):
+      biblioteca?biblioteca.obtener(id):null;
   }
   async function asegurarCatalogoDRS(){
-    if(catalogoDRS)return catalogoDRS;
-    var response=await root.fetch('data/adversarios-drs.json',{cache:'no-store'});
-    if(!response.ok)throw Error('No se pudo consultar el catálogo oficial.');
-    var datos=await response.json();
-    if(Array.isArray(datos.registros))datos.registros=datos.registros.map(
-      modelo.normalizarFuenteDRS);
-    if(datos.fuente!=='Naufragio d20 DRS'||!Array.isArray(datos.registros)||
-       datos.registros.length!==106||
-       datos.registros.some(function(r){
-         return r.fuente!=='Naufragio d20 DRS' ||
-           !modelo.revisar(r.ficha,{paraExportar:true}).valida;
-       }))throw Error('El catálogo DRS no ha superado la validación.');
-    catalogoDRS=datos;
-    if($('criaturas-buscar-ataque').value)sugerirEntradas('ataques');
-    if($('criaturas-buscar-talento').value)sugerirEntradas('talentos');
-    var subcategorias=Array.from(new Set(datos.registros.map(function(r){
-      return r.ficha.subcategoria;
-    }).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,'es');});
-    var sugerencias=$('criaturas-subcategorias');
-    sugerencias.textContent='';
-    subcategorias.forEach(function(nombre){
-      var op=ele('option');op.value=nombre;sugerencias.appendChild(op);
-    });
-    return datos;
+    if(catalogoDRS && fuentesOficiales)return catalogoDRS;
+    if(cargaFuentes)return cargaFuentes;
+    cargaFuentes=(async function(){
+      var respuesta=await root.fetch('data/adversarios-fuentes.json',{cache:'no-store'});
+      if(!respuesta.ok)throw Error('No se pudo consultar el índice de fuentes oficiales.');
+      var manifiesto=await respuesta.json();
+      if(!manifiesto||manifiesto.version!==1||manifiesto.sistema!=='nd20'||
+         !Array.isArray(manifiesto.fuentes)||!manifiesto.fuentes.length)
+        throw Error('El manifiesto de fuentes oficiales no es compatible.');
+      var ids=new Set(), archivos=new Set();
+      manifiesto.fuentes.forEach(function(f){
+        if(!f||typeof f.id!=='string'||!/^[a-z0-9-]+$/.test(f.id)||
+           typeof f.titulo!=='string'||!f.titulo.trim()||
+           typeof f.origen!=='string'||!f.origen.trim()||
+           typeof f.fuente!=='string'||!f.fuente.trim()||
+           typeof f.archivo!=='string'||
+           !/^adversarios-[a-z0-9-]+\.json$/.test(f.archivo)||
+           !Number.isSafeInteger(f.total)||f.total<1||ids.has(f.id)||
+           archivos.has(f.archivo))
+          throw Error('Entrada incompatible o repetida en el índice de fuentes.');
+        ids.add(f.id);archivos.add(f.archivo);
+      });
+      var fuentes=await Promise.all(manifiesto.fuentes.map(async function(info){
+        var res=await root.fetch('data/'+info.archivo,{cache:'no-store'});
+        if(!res.ok)throw Error('No se pudo consultar la fuente '+info.titulo+'.');
+        var datos=await res.json();
+        if(!datos||datos.sistema!=='nd20'||datos.fuente!==info.fuente||
+           !Array.isArray(datos.registros)||datos.registros.length!==info.total)
+          throw Error('La fuente '+info.titulo+' no coincide con su manifiesto.');
+        if(info.id==='drs')datos.registros=datos.registros.map(modelo.normalizarFuenteDRS);
+        var registroIds=new Set();
+        datos.registros.forEach(function(r){
+          if(!r||typeof r.id!=='string'||!/^[a-z0-9_-]+$/.test(r.id)||
+             registroIds.has(r.id)||r.fuente!==info.fuente||
+             !r.ficha||!modelo.revisar(r.ficha,{paraExportar:true}).valida)
+            throw Error('Ficha o ID incompatible en la fuente '+info.titulo+'.');
+          registroIds.add(r.id);
+        });
+        return {info:info,registros:datos.registros,datos:datos};
+      }));
+      var drs=fuentes.find(function(f){return f.info.id==='drs';});
+      if(!drs||drs.registros.length!==106||
+         drs.info.fuente!=='Naufragio d20 DRS')
+        throw Error('Los 106 adversarios originales del DRS deben permanecer disponibles.');
+      fuentesOficiales=fuentes;
+      catalogoDRS=drs.datos;
+      if($('criaturas-buscar-ataque').value)sugerirEntradas('ataques');
+      if($('criaturas-buscar-talento').value)sugerirEntradas('talentos');
+      var subcategorias=Array.from(new Set(registrosOficiales().map(function(r){
+        return r.ficha.subcategoria;
+      }).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,'es');});
+      var sugerencias=$('criaturas-subcategorias');
+      sugerencias.textContent='';
+      subcategorias.forEach(function(nombre){
+        var op=ele('option');op.value=nombre;sugerencias.appendChild(op);
+      });
+      return catalogoDRS;
+    })().catch(function(error){cargaFuentes=null;throw error;});
+    return cargaFuentes;
+  }
+  function opcionesFiltro(id,valores,todas){
+    var control=$(id),anterior=control.value;
+    control.textContent='';
+    var primera=ele('option','',todas||'Todas');primera.value='';
+    control.appendChild(primera);
+    Array.from(new Set(valores.filter(Boolean)))
+      .sort(function(a,b){return a.localeCompare(b,'es');})
+      .forEach(function(valor){
+        var opcion=ele('option','',valor);opcion.value=valor;
+        control.appendChild(opcion);
+      });
+    control.value=Array.from(control.options).some(function(o){
+      return o.value===anterior;
+    })?anterior:'';
+  }
+  function prepararFiltrosOficiales(){
+    var todos=registrosOficiales();
+    opcionesFiltro('criaturas-selector-categoria',
+      todos.map(function(r){return r.ficha.categoria;}),'Todas');
+    opcionesFiltro('criaturas-selector-fuente',
+      todos.map(function(r){return r.fuente.titulo;}),'Todas');
+    opcionesFiltro('criaturas-selector-origen',
+      todos.map(function(r){return r.fuente.origen;}),'Todos');
   }
   function actualizarSelectorDRS(){
-    if(!catalogoDRS)return;
-    var filtro=$('criaturas-selector-busqueda').value.trim().toLocaleLowerCase('es');
+    if(!fuentesOficiales)return;
+    var busqueda=$('criaturas-selector-busqueda').value.trim().toLocaleLowerCase('es');
     var categoria=$('criaturas-selector-categoria').value;
+    var fuente=$('criaturas-selector-fuente').value;
+    var origen=$('criaturas-selector-origen').value;
+    var minTexto=$('criaturas-selector-nivel-min').value.trim();
+    var maxTexto=$('criaturas-selector-nivel-max').value.trim();
+    var nivelMin=minTexto===''?null:Number(minTexto);
+    var nivelMax=maxTexto===''?null:Number(maxTexto);
+    var base=registrosOficiales().filter(function(r){
+      return (!categoria||r.ficha.categoria===categoria)&&
+        (!fuente||r.fuente.titulo===fuente)&&
+        (!origen||r.fuente.origen===origen);
+    });
+    opcionesFiltro('criaturas-selector-subcategoria',
+      base.map(function(r){return r.ficha.subcategoria;}),'Todas');
+    var subcategoria=$('criaturas-selector-subcategoria').value;
+    var registros=base.filter(function(r){
+      var nivel=r.ficha.puntuaciones.nivel;
+      return (!subcategoria||r.ficha.subcategoria===subcategoria)&&
+        (nivelMin===null||(nivel!==null&&nivel>=nivelMin))&&
+        (nivelMax===null||(nivel!==null&&nivel<=nivelMax))&&
+        (!busqueda||[r.nombre,r.ficha.categoria,r.ficha.subcategoria,
+          r.ficha.subtipo,r.fuente.titulo,r.fuente.origen]
+          .filter(Boolean).join(' ').toLocaleLowerCase('es').includes(busqueda));
+    });
     var lista=$('criaturas-selector-lista');
     lista.textContent='';
-    var registros=catalogoDRS.registros.filter(function(r){
-      return (!categoria||r.ficha.categoria===categoria)&&
-        (!filtro||[r.nombre,r.ficha.categoria,r.ficha.subcategoria,r.ficha.subtipo]
-          .filter(Boolean).join(' ').toLocaleLowerCase('es').includes(filtro));
-    });
     $('criaturas-selector-estado').textContent=registros.length+
-      ' resultados · '+oficialesSeleccionados.size+' en tu galería';
+      ' resultados de '+registrosOficiales().length+
+      ' perfiles · '+oficialesSeleccionados.size+' añadidos a tu mesa';
+    if(!registros.length){
+      lista.appendChild(ele('p','muted','No hay perfiles que cumplan estos filtros.'));
+      return;
+    }
     registros.forEach(function(registro){
-      var id='drs-'+registro.id;
+      var id=registro.id;
       var seleccionado=oficialesSeleccionados.has(id);
       var fila=ele('div','criaturas-selector-fila');
       var titulo=ele('div','criaturas-selector-identidad');
       titulo.appendChild(ele('strong','',registro.nombre));
-      titulo.appendChild(ele('small','muted',(registro.ficha.categoria||'Sin categoría')+
+      titulo.appendChild(ele('small','muted',
+        (registro.ficha.categoria||'Sin categoría')+
+        (registro.ficha.subcategoria?' / '+registro.ficha.subcategoria:'')+
         ' · Nivel '+(registro.ficha.puntuaciones.nivel==null?
-          'no indicado':registro.ficha.puntuaciones.nivel)));
+          'no indicado':registro.ficha.puntuaciones.nivel)+
+        ' · '+registro.fuente.titulo));
       var boton=ele('button','',seleccionado?'Quitar':'Añadir');
       boton.type='button';
       boton.dataset.id=id;
       boton.dataset.seleccionado=String(seleccionado);
-      boton.setAttribute('aria-label',(seleccionado?'Quitar':'Añadir')+' '+registro.nombre);
+      boton.setAttribute('aria-label',(seleccionado?'Quitar ':'Añadir ')+registro.nombre);
       boton.addEventListener('click',function(){
         try{
           var anadir=boton.dataset.seleccionado!=='true';
@@ -353,7 +454,7 @@
           boton.textContent=anadir?'Quitar':'Añadir';
           boton.setAttribute('aria-label',(anadir?'Quitar ':'Añadir ')+registro.nombre);
           mostrarEstado((anadir?'Añadido a':'Retirado de')+
-            ' tu galería. El catálogo original no se modifica.');
+            ' tu mesa. El catálogo original no se modifica.');
         }catch(error){
           mostrarEstado('No se pudo guardar la selección: '+error.message,true);
         }
@@ -365,15 +466,7 @@
   async function cargarAdversariosDRS(){
     try {
       await asegurarCatalogoDRS();
-      var categorias=Array.from(new Set(catalogoDRS.registros.map(function(r){
-        return r.ficha.categoria;
-      }).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,'es');});
-      var select=$('criaturas-selector-categoria');
-      select.textContent='';
-      var todas=ele('option','', 'Todas');todas.value='';select.appendChild(todas);
-      categorias.forEach(function(c){
-        var op=ele('option','',c);op.value=c;select.appendChild(op);
-      });
+      prepararFiltrosOficiales();
       actualizarSelectorDRS();
       $('criaturas-selector-drs').showModal();
     }catch(error){mostrarEstado('No se pudo abrir el catálogo: '+error.message,true);}
