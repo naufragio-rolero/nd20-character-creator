@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - KPI, ataques e iconos (PR #107)
+      - name: Obtener snapshot DRS aprobado - auditoría 106 adversarios (PR #109)
         uses: actions/checkout@v4
         with:
-          ref: 35009d775b3cea10934d223a47e3661d835f96ff
+          ref: b748734dade84ae6428f18487856f02e35b25092
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "35009d775b3cea10934d223a47e3661d835f96ff"
-      # Snapshot aprobado para LIVE: PR #107, KPI de Adversarios, ataques agrupados y manifiesto SVG, 40 SVG base y PDFs A5,
+          test "$(git rev-parse HEAD)" = "b748734dade84ae6428f18487856f02e35b25092"
+      # Snapshot aprobado para LIVE: PR #109, auditoría completa 106 adversarios DRS; conserva KPI, ataques agrupados, iconos y PDFs A5,
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
