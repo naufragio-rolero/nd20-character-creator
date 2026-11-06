@@ -251,6 +251,7 @@
     // El selector abre siempre el menú: en Adversarios solo es válido Nd20,
     // sin modificar el sistema elegido para Personajes o Seguidores.
     $('panel-forja').dataset.seccion=nombre;
+    refrescarBotonesSistema();
     $('selector-sistema-global').hidden=false;
     if(criaturas) window.NaufragioCriaturasUI?.iniciar?.();
     refrescarGenerarFlotante();
