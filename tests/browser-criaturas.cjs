@@ -22,7 +22,8 @@ const server=http.createServer((req,res)=>{
   });
 });
 async function probar(nombre,tipo,url){
-  const browser=await tipo.launch({headless:true});
+  const browser=await tipo.launch(nombre==='chrome'||nombre==='chromium'?
+    {channel:'chrome',headless:true,args:['--no-sandbox']}:{headless:true});
   let contexto;
   try{
     contexto=await browser.newContext({viewport:{width:1440,height:900},acceptDownloads:true});
