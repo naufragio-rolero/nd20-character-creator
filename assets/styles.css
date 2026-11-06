@@ -1579,7 +1579,7 @@ html[data-tema=violeta]{
 .dialogo-ficha-adversario .criaturas-ficha-acciones{position:sticky;bottom:0;
   padding:.8rem 0;background:var(--superficie)}
 .criaturas-ficha-completa h4{margin:1rem 0 .35rem;font-family:"Exo",system-ui,sans-serif}
-.criaturas-ficha-completa .criaturas-metricas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem;margin:1rem 0}
+.criaturas-ficha-completa .criaturas-metricas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin:1rem 0}
 .criaturas-metrica{padding:.75rem .4rem;background:var(--superficie2);border:1px solid var(--borde);
   text-align:center;border-radius:8px}
 .criaturas-metrica strong{display:block;font-size:1.2rem}
@@ -1612,3 +1612,51 @@ html[data-tema=violeta]{
 .criaturas-habilidad{padding:.5rem 0;border-bottom:1px solid var(--borde)}
 .criaturas-habilidad p{margin:.35rem 0}
 .criaturas-cromo[data-oficial=true]{border-style:dashed}
+
+/* Presentación de Adversarios y selección granular DRS */
+.criaturas-ficha-completa .criaturas-titulo-apartado{
+  display:flex;align-items:center;gap:.65rem;margin:1.8rem 0 .85rem;
+  padding-bottom:.55rem;border-bottom:1px solid var(--borde);
+  font-family:"Exo",system-ui,sans-serif;font-size:1.07rem;
+}
+.criaturas-ficha-completa .criaturas-titulo-apartado:first-of-type{margin-top:1.2rem}
+.criaturas-icono-apartado{
+  display:inline-block;flex:none;width:1.45rem;height:1.45rem;
+  background-color:var(--oro);-webkit-mask-size:contain;mask-size:contain;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:center;mask-position:center
+}
+.criaturas-icono-ataque{-webkit-mask-image:url(icons/equipo-espada.svg);mask-image:url(icons/equipo-espada.svg)}
+.criaturas-icono-talento{-webkit-mask-image:url(icons/equipo-libro.svg);mask-image:url(icons/equipo-libro.svg)}
+.criaturas-ataques-consulta{margin:0 0 1.5rem;padding-left:1.5rem}
+.criaturas-ataques-consulta li{padding:.15rem 0 .35rem;line-height:1.65}
+.criaturas-habilidad{margin:.6rem 0;padding:.7rem 0}
+.criaturas-habilidad>strong{display:block;margin-bottom:.3rem}
+.criaturas-fuente{font-size:.74rem;line-height:1.4;font-style:italic;
+  color:var(--secundario);margin:1.9rem 0 .2rem;padding-top:.7rem;
+  border-top:1px solid var(--borde)}
+.dialogo-selector-drs{
+  width:min(770px,calc(100vw - 1rem));max-height:calc(100dvh - 1rem);
+  overflow:auto;border:1px solid var(--oro);border-radius:12px;
+  background:var(--superficie);color:var(--texto);padding:1.2rem
+}
+.dialogo-selector-drs::backdrop{background:#061d32c2;backdrop-filter:blur(3px)}
+.dialogo-selector-drs .cabecera-compras{position:sticky;top:0;background:var(--superficie);
+  z-index:1;align-items:flex-start}
+.criaturas-selector-filtros{display:grid;grid-template-columns:2fr 1fr;gap:.8rem;margin:1rem 0}
+.criaturas-selector-filtros :is(input,select){width:100%;min-height:44px}
+.criaturas-selector-lista{display:grid;gap:.4rem}
+.criaturas-selector-fila{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  padding:.6rem .7rem;border:1px solid var(--borde);border-radius:8px
+}
+.criaturas-selector-identidad{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.criaturas-selector-identidad strong{overflow-wrap:anywhere}
+.criaturas-selector-fila button{min-width:84px;min-height:44px;flex:none}
+.criaturas-selector-fila button[data-seleccionado="true"]{border-color:var(--oro);color:var(--oro)}
+#panel-herramientas #configurar-seguidores{width:100%;margin:.8rem 0 .65rem;min-height:44px}
+@media(max-width:560px){
+ .criaturas-selector-filtros{grid-template-columns:1fr}
+ .criaturas-selector-fila{align-items:flex-start}
+ .criaturas-selector-fila button{min-width:75px}
+}
