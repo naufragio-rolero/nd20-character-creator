@@ -4,7 +4,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const http=require('node:http');
-const {firefox,webkit}=require('playwright');
+const {chromium,firefox,webkit}=require('playwright');
 const raiz=path.resolve(process.env.FORJA_PUBLIC_ROOT||path.resolve(__dirname,'..'));
 const tipos={'.html':'text/html','.css':'text/css','.js':'text/javascript',
   '.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp'};
@@ -282,8 +282,13 @@ async function main(){
   });
   try{
     const url='http://127.0.0.1:'+server.address().port+'/index.html';
-    for(const [nombre,tipo] of [['firefox',firefox],['webkit',webkit]])
-      await probar(nombre,tipo,url);
+    const seleccion=process.argv.slice(2);
+    const motores={chrome:chromium,chromium:chromium,firefox:firefox,webkit:webkit};
+    const nombres=seleccion.length?seleccion:['firefox','webkit'];
+    for(const nombre of nombres) {
+      if(!motores[nombre])throw Error('Motor no admitido: '+nombre);
+      await probar(nombre,motores[nombre],url);
+    }
   }finally{
     await new Promise(resolve=>server.close(resolve));
   }
