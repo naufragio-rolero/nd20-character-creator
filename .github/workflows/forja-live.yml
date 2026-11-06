@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - Talentos cotejados con hoja (PR #118)
+      - name: Obtener snapshot DRS aprobado - cabecera y Acciones (PR #120)
         uses: actions/checkout@v4
         with:
-          ref: d119c2ce6332d00583d5f3276035130fabb3e2bf
+          ref: 72bf5438880e6032e073e2cd46714d60d35dfa01
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "d119c2ce6332d00583d5f3276035130fabb3e2bf"
-      # Snapshot aprobado para LIVE: PR #118, pruebas Chromium, Firefox y WebKit verdes, DRS auditado con 106 adversarios, 188 Talentos indexados y 77 enlaces Ataque/Talento trazados; conserva KPI, ataques agrupados, iconos y PDFs A5,
+          test "$(git rev-parse HEAD)" = "72bf5438880e6032e073e2cd46714d60d35dfa01"
+      # Snapshot aprobado para LIVE: PR #120, pruebas Chromium, Firefox y WebKit verdes; SVG de marca oficial, Acciones y Talentos y DRS con 106 adversarios, 188 Talentos y 77 relaciones; conserva KPI, ataques agrupados, iconos y PDFs A5,
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -67,6 +67,11 @@ jobs:
           grep -Fq 'id="criaturas-selector-subcategoria"' index.html
           grep -Fq 'id="criaturas-selector-fuente"' index.html
           grep -Fq 'id="criaturas-componentes-dialogo"' index.html
+          grep -Fq '<h1>Forja de Naufragio d20</h1>' index.html
+          grep -Fq 'Biblioteca de Acciones y Talentos' index.html
+          grep -Fq 'id="criaturas-componentes-tab-ataques" aria-pressed="true">Acciones</button>' index.html
+          test -s assets/branding/naufragio.svg
+          echo '9389af421bd7006089dabe72c94834dabe9c3184dcbc595473b4b88e6c295874  assets/branding/naufragio.svg' | sha256sum -c -
           grep -Fq 'id="criaturas-componentes-clasificacion"' index.html
           grep -Fq 'id="criaturas-explorar-ataques"' index.html
           grep -Fq 'id="criaturas-explorar-talentos"' index.html
@@ -410,6 +415,11 @@ jobs:
           grep -Fq 'id="criaturas-ficha-retirar"' /tmp/forja-live.html
           grep -Fq 'Perfiles oficiales' /tmp/forja-live.html
           grep -Fq 'id="criaturas-componentes-dialogo"' /tmp/forja-live.html
+          grep -Fq '<h1>Forja de Naufragio d20</h1>' /tmp/forja-live.html
+          grep -Fq 'Biblioteca de Acciones y Talentos' /tmp/forja-live.html
+          grep -Fq 'id="criaturas-componentes-tab-ataques" aria-pressed="true">Acciones</button>' /tmp/forja-live.html
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/branding/naufragio.svg?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-marca.svg
+          echo '9389af421bd7006089dabe72c94834dabe9c3184dcbc595473b4b88e6c295874  /tmp/forja-marca.svg' | sha256sum -c -
           grep -Fq 'id="criaturas-componentes-clasificacion"' /tmp/forja-live.html
           grep -Fq 'id="criaturas-explorar-ataques"' /tmp/forja-live.html
           grep -Fq 'id="criaturas-explorar-talentos"' /tmp/forja-live.html
@@ -425,6 +435,7 @@ jobs:
           node -e "const m=require('/tmp/forja-talentos-indice.json');if(m.version!==1||m.fuenteId!=='drs'||m.registros.length!==188||new Set(m.registros.map(x=>x.criaturaId+'|'+x.talentoId)).size!==188)process.exit(1)"
           grep -Fq 'data/adversarios-talentos-indice-drs.json' /tmp/forja-creatures-ui.js
           grep -Fq 'root.NaufragioCriaturasUI = api;' /tmp/forja-creatures-ui.js
+          grep -Fq "encabezadoApartado('Acciones'" /tmp/forja-creatures-ui.js
           grep -Fq 'NaufragioComponentesCriaturas' /tmp/forja-creatures-components.js
           for logo in sistema-nd20-faep.webp sistema-dh.webp; do
             curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/${logo}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-logo-webp
