@@ -57,12 +57,6 @@
   </header>
   <main class="disposicion">
     <aside class="panel" id="panel-forja" aria-label="Opciones de generación">
-      <h2>La forja</h2>
-      <div class="pestanas-panel" role="tablist" aria-label="Panel de la forja">
-        <button type="button" id="tab-personajes" role="tab" aria-controls="panel-personajes" aria-selected="true" class="activa">Personajes</button>
-        <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false" tabindex="-1">Seguidores</button>
-        <button type="button" id="tab-criaturas" role="tab" aria-controls="panel-criaturas" aria-selected="false" tabindex="-1">Adversarios</button>
-      </div>
       <div class="campo campo-sistema-global" id="selector-sistema-global">
           <label id="etiqueta-sistema" for="juego">Sistema</label>
           <div class="juegos-compactos" role="group" aria-labelledby="etiqueta-sistema">
@@ -78,6 +72,11 @@
             <option value="dh">Dungeon Hack</option>
           </select>
         </div>
+      <div class="pestanas-panel" role="tablist" aria-label="Panel de la forja">
+        <button type="button" id="tab-personajes" role="tab" aria-controls="panel-personajes" aria-selected="true" class="activa">Personajes</button>
+        <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false" tabindex="-1">Seguidores</button>
+        <button type="button" id="tab-criaturas" role="tab" aria-controls="panel-criaturas" aria-selected="false" tabindex="-1">Adversarios</button>
+      </div>
       <div id="panel-personajes" role="tabpanel" aria-labelledby="tab-personajes">
       <section class="inicio-rapido" id="tutorial-inicial" aria-labelledby="titulo-inicio-rapido">
         <button type="button" id="ocultar-tutorial" class="ocultar-tutorial" aria-label="Ocultar tutorial" title="Ocultar tutorial">×</button>
@@ -287,9 +286,8 @@
         <button type="button" id="criaturas-nueva-panel" class="configurar-creacion"><span class="icono-svg" aria-hidden="true"></span>Añadir adversario</button>
         <div class="botonera">
           <button type="button" id="criaturas-ir-importar">Pegar ficha de adversario</button>
-          <button type="button" id="criaturas-ir-biblioteca">Ver galería</button>
           <button type="button" id="criaturas-cargar-drs" aria-haspopup="dialog"
-            aria-controls="criaturas-selector-drs">Elegir adversarios de Naufragio d20 - Épica</button>
+            aria-controls="criaturas-selector-drs">Perfiles oficiales</button>
         </div>
         <small>El bestiario es local. No se automatizan combates ni tiradas. Exporta una copia JSON para conservar tus creaciones.</small>
       </section>
@@ -607,7 +605,7 @@
       </section>
       <section class="criaturas-bloque criaturas-mesa" id="criaturas-biblioteca" aria-labelledby="criaturas-titulo-biblioteca">
         <div class="criaturas-subcabecera">
-          <div><p class="sobrelinea">BESTIARIO PERSONAL</p><h3 id="criaturas-titulo-biblioteca">Galería de adversarios</h3></div>
+          <div><p class="sobrelinea">BESTIARIO PERSONAL</p><h3 id="criaturas-titulo-biblioteca">Mesa de adversarios</h3></div>
           <span id="criaturas-cantidad" class="muted">0 adversarios</span>
         </div>
         <div class="campo criaturas-sistema"><label for="criaturas-sistema">Sistema del bestiario</label>
@@ -636,6 +634,19 @@
           <div class="criaturas-campos">
             <div class="campo criaturas-nombre"><label for="criaturas-nombre">Nombre *</label>
               <input id="criaturas-nombre" type="text" maxlength="160" required></div>
+            <div class="campo criaturas-imagen-campo">
+              <label for="criaturas-imagen-archivo">Ilustración del adversario (opcional)</label>
+              <div class="criaturas-imagen-controles">
+                <div id="criaturas-imagen-previa" class="criaturas-imagen-previa" role="img" aria-label="Sin ilustración">Sin ilustración</div>
+                <div class="criaturas-imagen-botones">
+                  <label class="criaturas-archivo" for="criaturas-imagen-archivo">Subir imagen
+                    <input id="criaturas-imagen-archivo" type="file" accept="image/jpeg,image/png,image/webp">
+                  </label>
+                  <button type="button" id="criaturas-imagen-quitar">Quitar imagen</button>
+                </div>
+              </div>
+              <small>Se recorta al formato 16:9 y se guarda con la ficha en este navegador. También viaja en su JSON. Máximo 5 MB de archivo.</small>
+            </div>
             <div class="campo"><label for="criaturas-categoria">Categoría *</label>
               <input id="criaturas-filtrar-categoria" type="search" autocomplete="off"
                 aria-label="Buscar entre las 16 categorías oficiales" placeholder="Buscar categoría…">
@@ -743,8 +754,8 @@
         aria-labelledby="criaturas-selector-titulo">
         <div class="cabecera-compras">
           <div>
-            <h3 id="criaturas-selector-titulo">Elegir adversarios · Naufragio d20 - Épica</h3>
-            <p class="muted">Añade únicamente los adversarios que necesites. Puedes retirarlos de la galería sin perder el catálogo original.</p>
+            <h3 id="criaturas-selector-titulo">Perfiles oficiales</h3>
+            <p class="muted">Explora las fuentes publicadas y añade los perfiles que necesites a tu mesa. Las fichas originales no se alteran.</p>
           </div>
           <button id="criaturas-selector-cerrar" type="button" class="cerrar-rejilla"
             aria-label="Cerrar selector de adversarios">✕</button>
@@ -755,6 +766,17 @@
               placeholder="Nombre, categoría o familia"></div>
           <div class="campo"><label for="criaturas-selector-categoria">Categoría</label>
             <select id="criaturas-selector-categoria"><option value="">Todas</option></select></div>
+          <div class="campo"><label for="criaturas-selector-subcategoria">Subcategoría</label>
+            <select id="criaturas-selector-subcategoria"><option value="">Todas</option></select></div>
+          <div class="campo"><label for="criaturas-selector-nivel-min">Nivel mínimo</label>
+            <input id="criaturas-selector-nivel-min" type="number" min="0" max="100" step="1" placeholder="Cualquiera"></div>
+          <div class="campo"><label for="criaturas-selector-nivel-max">Nivel máximo</label>
+            <input id="criaturas-selector-nivel-max" type="number" min="0" max="100" step="1" placeholder="Cualquiera"></div>
+          <div class="campo"><label for="criaturas-selector-fuente">Fuente</label>
+            <select id="criaturas-selector-fuente"><option value="">Todas</option></select></div>
+          <div class="campo"><label for="criaturas-selector-origen">Origen editorial</label>
+            <select id="criaturas-selector-origen"><option value="">Todos</option></select></div>
+          <button type="button" id="criaturas-selector-limpiar">Limpiar filtros</button>
         </div>
         <p id="criaturas-selector-estado" class="muted" role="status" aria-live="polite"></p>
         <div id="criaturas-selector-lista" class="criaturas-selector-lista"></div>
