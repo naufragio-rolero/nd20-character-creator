@@ -50,28 +50,16 @@ jobs:
         run: |
           node tests/browser-compras.js
           node tests/browser-semillas-rangos.cjs chrome
+          node tests/browser-criaturas.cjs chrome
       - name: Exportar PDF real de personaje DRS en Chrome (paquete)
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
         run: node tests/pdf-a5-browser-e2e.cjs
-      - name: Instalar motores de compatibilidad solo en CI
-        run: |
-          test -f node_modules/playwright/package.json
-          npx playwright install --with-deps firefox webkit
-      - name: Probar los archivos PUBLICOS en Firefox y WebKit
-        env:
-          FORJA_PUBLIC_ROOT: dist/public-drs
-        run: |
-          node tests/browser-compatibilidad.js
-          node tests/browser-semillas-rangos.cjs firefox webkit
-      - name: Probar editor Nd20 sobre paquete DRS depurado
-        env:
-          FORJA_PUBLIC_ROOT: dist/public-drs
-        run: node tests/browser-criaturas.cjs
-      - name: Exportar PDF real en Firefox y WebKit desde paquete
-        env:
-          FORJA_PUBLIC_ROOT: dist/public-drs
-        run: node tests/pdf-a5-multimotor.cjs
+      # Firefox y WebKit se validan de forma íntegra en
+      # compatibilidad-navegadores.yml (también el editor de Adversarios).
+      # Este job comprueba que el paquete DEPURADO funciona en Chromium;
+      # la promoción LIVE conserva sus verificaciones multimotor sobre el
+      # paquete público antes y después del despliegue.
       - name: Conservar paquete candidato, nunca desplegar
         if: success()
         uses: actions/upload-artifact@v4
