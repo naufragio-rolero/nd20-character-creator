@@ -48,7 +48,7 @@ Se restaura la grafía literal antigua en el registro fuente y en la capacidad a
 
 ## Incidencias propias de Google Sheets
 - 29 entradas del DRS carecen de Moral explícita, pero la hoja mostraba el valor auxiliar **12**. Se han vaciado los 29 valores de la columna M de `[Table] Criaturas`, conservando Nivel y Salud.
-- La relación `llamada_condenacion_200` + `tirano_espliego` en `[Table] Bridge Criaturas Talentos` duplica semánticamente la variante completa `llamada_condenacion_103`. No confundir «capacidades» con el número de vínculos: la variante `_103` conserva los cuatro resultados. **Pendiente confirmar la eliminación efectiva en la hoja**, pues algunas peticiones de limpieza devolvieron éxito sin cambiar la celda.
+- La relación `llamada_condenacion_200` + `tirano_espliego` en `[Table] Bridge Criaturas Talentos` duplica semánticamente la variante completa `llamada_condenacion_103`. No confundir «capacidades» con el número de vínculos: la variante `_103` conserva los cuatro resultados. **Resuelto:** se eliminó la fila duplicada (originalmente A298:C298) mediante eliminación de dimensión; una lectura posterior confirmó que el Tirano de espliego tiene siete asociaciones, conservando solo la variante completa `_103`. La limpieza de celdas aisladas no tuvo efecto.
 
 ## Regresión y criterios de liberación
 - `tests/adversarios-drs.js` ahora exige 106 fichas, 182 ataques y 188 Talentos; coteja encabezados, cantidades/conectores y el contenido de cada línea documental.
