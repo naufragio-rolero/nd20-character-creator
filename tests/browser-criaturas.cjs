@@ -32,6 +32,16 @@ async function probar(nombre,tipo,url){
     page.on('pageerror',e=>errores.push(e.message));
     await page.goto(url,{waitUntil:'domcontentloaded'});
     await page.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+    // La cabecera de marca y el glosario son presentación, no cambios del modelo.
+    assert.equal(await page.title(),'Forja de Naufragio d20 · El Naufragio');
+    assert.equal(await page.locator('header.encabezado h1').innerText(),
+      'Forja de Naufragio d20');
+    assert.equal(await page.locator('header.encabezado .sobrelinea').count(),0);
+    const logoMarca=page.locator('header.encabezado img.marca-logotipo');
+    await logoMarca.evaluate(img=>img.decode());
+    assert.equal(await logoMarca.evaluate(img=>img.naturalWidth>0),true,
+      'Debe mostrarse el SVG autorizado del kit de prensa.');
+
     await page.locator('#tab-criaturas').click();
     assert.equal(await page.locator('#editor-criaturas').isVisible(),true);
     assert.equal(await page.locator('#resultados-personajes').isHidden(),true);
@@ -52,9 +62,17 @@ async function probar(nombre,tipo,url){
       await componentesPage.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
       await componentesPage.locator('#tab-criaturas').click();
       await componentesPage.locator('#criaturas-nueva-panel').click();
+      assert.equal(await componentesPage.locator('#criaturas-anadir-ataque').innerText(),
+        'Añadir acción');
+      assert.equal(await componentesPage.locator('#criaturas-explorar-ataques').innerText(),
+        'Explorar biblioteca de Acciones');
       await componentesPage.locator('#criaturas-explorar-ataques').click();
       await componentesPage.locator('#criaturas-componentes-dialogo').waitFor({state:'visible'});
       assert.equal(await componentesPage.locator('#criaturas-componentes-dialogo').evaluate(x=>x.open),true);
+      assert.equal(await componentesPage.locator('#criaturas-componentes-titulo').innerText(),
+        'Biblioteca de Acciones y Talentos');
+      assert.equal(await componentesPage.locator('#criaturas-componentes-tab-ataques').innerText(),
+        'Acciones');
       await componentesPage.locator('#criaturas-componentes-busqueda').fill('dardos venenosos');
       const itemDardos=componentesPage.locator('.criaturas-comp-item')
         .filter({has:componentesPage.getByText('dardos venenosos',{exact:true})}).first();
@@ -92,6 +110,12 @@ async function probar(nombre,tipo,url){
         /dardos venenosos/i);
       await componentesPage.locator('#criaturas-componentes-cerrar').click();
       await componentesPage.setViewportSize({width:390,height:844});
+      const cabecera=await componentesPage.locator('header.encabezado').evaluate(el=>({
+        ancho:el.getBoundingClientRect().width,
+        ventana:window.innerWidth
+      }));
+      assert.ok(cabecera.ancho<=cabecera.ventana+1,'Cabecera de marca adaptada a móvil');
+      assert.equal(await componentesPage.locator('header.encabezado h1').isVisible(),true);
       await componentesPage.locator('#criaturas-explorar-talentos').click();
       assert.equal(await componentesPage.locator('#criaturas-componentes-dialogo').isVisible(),true);
       assert.equal(await componentesPage.locator('#criaturas-componentes-tab-talentos').getAttribute('aria-pressed'),'true');
