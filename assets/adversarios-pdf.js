@@ -97,8 +97,6 @@
       nombres.forEach(function(n){
         asegurar(23);page.drawText(n,{x:M,y:y,font:negrita,size:18,color:color(AZUL)});y-=23;
       });
-      var taxonomia=[ficha.categoria,ficha.subcategoria,ficha.subtipo].filter(Boolean).join('  ·  ');
-      if(taxonomia){page.drawText(taxonomia,{x:M,y:y,font:regular,size:9,color:color(GRIS)});y-=19;}
       var p=ficha.puntuaciones;
       var datos=[['Nivel',p.nivel],['Salud',p.salud],['Moral',p.moral],
         ['Movimiento',p.movimiento],['Tamaño',p.tamano]]
@@ -114,16 +112,28 @@
         });
         y-=37;
       }
-      y-=5;
+      var taxonomia=root.NaufragioFormatoAdversarios.taxonomia(ficha);
+      if(taxonomia){
+        y-=3;
+        lineas(taxonomia,regular,9,ancho).forEach(function(linea){
+          asegurar(13);
+          page.drawText(linea,{x:M,y:y,font:regular,size:9,color:color(GRIS)});
+          y-=13;
+        });
+      }
+      y-=8;
     }
     function ficha(f){
       paginaNueva();
       encabezado(f);
       if(f.ataques.length){
-        var ataques=f.ataques.map(function(a,i){
-          return root.NaufragioFormatoAdversarios.ataque(a,i)+
-            (a.notas?' — '+a.notas:'');
-        }).join('\n');
+        var ataques=root.NaufragioFormatoAdversarios.lineasAtaque(f.ataques)
+          .map(function(linea,i){
+            return (i+1)+'. '+linea.texto+
+              (linea.notas.length?' — '+linea.notas.map(function(n){
+                return n.nombre+': '+n.texto;
+              }).join('; '):'');
+          }).join('\n');
         bloque('Ataques',ataques);
       }
       if(f.talentos.length)bloque('Talentos y habilidades especiales',
@@ -136,7 +146,7 @@
       if(f.origen&&['drs_oficial','drs_copia_personal'].includes(f.origen.tipo)){
         asegurar(24);
         y-=7;
-        page.drawText('Fuente: Naufragio d20 DRS',{
+        page.drawText('Fuente: Naufragio d20 - Épica · DRS',{
           x:M,y:y,font:regular,size:7.8,color:color(GRIS)});
         y-=11;
       }
