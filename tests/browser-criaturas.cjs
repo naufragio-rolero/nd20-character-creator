@@ -53,6 +53,7 @@ async function probar(nombre,tipo,url){
       await componentesPage.locator('#tab-criaturas').click();
       await componentesPage.locator('#criaturas-nueva-panel').click();
       await componentesPage.locator('#criaturas-explorar-ataques').click();
+      await componentesPage.locator('#criaturas-componentes-dialogo').waitFor({state:'visible'});
       assert.equal(await componentesPage.locator('#criaturas-componentes-dialogo').evaluate(x=>x.open),true);
       await componentesPage.locator('#criaturas-componentes-busqueda').fill('dardos venenosos');
       const itemDardos=componentesPage.locator('.criaturas-comp-item')
