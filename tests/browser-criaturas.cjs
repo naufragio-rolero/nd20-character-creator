@@ -181,6 +181,8 @@ async function probar(nombre,tipo,url){
     // Cargar oficialmente DRS sin contaminar la colección particular.
     const otraContexto=await browser.newContext({viewport:{width:1440,height:900},acceptDownloads:true});
     const segunda=await otraContexto.newPage();
+    const erroresSegunda=[];
+    segunda.on('pageerror',e=>erroresSegunda.push(e.message));
     try{
       await segunda.goto(url,{waitUntil:'domcontentloaded'});
       await segunda.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
@@ -199,8 +201,9 @@ async function probar(nombre,tipo,url){
           estado:document.querySelector('#criaturas-estado').textContent,
           lista:document.querySelector('#criaturas-lista').textContent.slice(0,250),
           almacen:localStorage.getItem('forja-adversarios-oficiales-v1'),
-          selector:document.querySelector('#criaturas-selector-estado').textContent
-        }))));
+          selector:document.querySelector('#criaturas-selector-estado').textContent,
+          boton:document.querySelector('.criaturas-selector-fila button')?.outerHTML
+        })))+' errores JS: '+JSON.stringify(erroresSegunda));
       await segunda.locator('#criaturas-selector-cerrar').click();
       await segunda.locator('.criaturas-cromo[data-oficial="true"]').click();
       assert.match(await segunda.locator('#criaturas-ficha-titulo').textContent(),
