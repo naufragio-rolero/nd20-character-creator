@@ -1727,3 +1727,13 @@ html[data-tema=violeta]{
   .criaturas-cromo{min-height:155px;padding:.35rem}
   .criaturas-cromo .criaturas-nombre{font-size:.76rem}
 }
+.criaturas-ilustracion-acciones{
+  display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+  margin:.8rem 0;padding:.7rem;border:1px solid var(--borde);
+  border-radius:8px;background:var(--superficie2)
+}
+.criaturas-ilustracion-acciones[hidden]{display:none!important}
+.criaturas-ilustracion-acciones small{
+  flex-basis:100%;color:var(--secundario);font-size:.75rem;line-height:1.5
+}
+.criaturas-ilustracion-acciones button{min-height:42px}
