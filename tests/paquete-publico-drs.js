@@ -261,6 +261,21 @@ assert.ok(aclaracionesPublicas.registros.find(a=>a.nombre==='Expulsar muertos vi
 assert.ok(aclaracionesPublicas.registros.find(a=>a.nombre==='¡Sálvese quien pueda!')
   .texto.includes('Parálisis o Miedo'));
 const html=fs.readFileSync(path.join(salida,'index.html'),'utf8');
+assert.ok(html.includes('<h1>Forja de Naufragio d20</h1>'));
+assert.ok(html.includes('<title>Forja de Naufragio d20 · El Naufragio</title>'));
+assert.ok(html.includes('src="assets/branding/naufragio.svg"'));
+assert.ok(!html.includes('EL NAUFRAGIO / HERRAMIENTAS DE ROL'));
+assert.ok(!html.includes('<h1>Forja de personajes</h1>'));
+assert.ok(html.includes('Biblioteca de Acciones y Talentos'));
+assert.ok(html.includes('id="criaturas-componentes-tab-ataques" aria-pressed="true">Acciones</button>'));
+assert.ok(html.includes('placeholder="Nombre del adversario&#10;Bestia de Nivel 4 [Moral 8], Salud 20&#10;Ataques:'),
+  'El texto original Ataques: conserva su sintaxis de importación.');
+const svgMarca=fs.readFileSync(path.join(salida,'assets/branding/naufragio.svg'));
+assert.equal(crypto.createHash('sha256').update(svgMarca).digest('hex'),
+  '9389af421bd7006089dabe72c94834dabe9c3184dcbc595473b4b88e6c295874',
+  'El paquete sirve el SVG oficial íntegro del kit de prensa.');
+assert.ok(!/<(?:script|foreignObject|iframe)\\b/i.test(svgMarca.toString('utf8')));
+
 assert.ok(!html.includes('Doncella de la Espada'));
 assert.ok(html.includes('class="juegos-compactos juegos-publicos"'));
 assert.ok(html.includes('data-juego="nd20"'));
