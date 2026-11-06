@@ -300,6 +300,36 @@ async function probar(nombre,tipo,url){
         });
         assert.equal(await pruebaSVG.locator('.criaturas-cromo[data-icono="svg"]').count(),1);
       }finally{await pruebaSVG.close();}
+      // Una ilustración puede personalizarse sobre el perfil oficial,
+      // sin tocar el registro DRS ni crear una ficha duplicada.
+      await segunda.locator('#criaturas-ficha-ilustracion-archivo').setInputFiles({
+        name:'goblin.png',mimeType:'image/png',
+        buffer:Buffer.from(png.split(',')[1],'base64')
+      });
+      await segunda.locator('#criaturas-estado')
+        .getByText('Ilustración personalizada guardada',{exact:false}).waitFor();
+      assert.equal(await segunda.locator('.criaturas-cromo[data-icono="imagen"]').count(),1);
+      assert.equal(await segunda.locator('.criaturas-ficha-imagen').count(),1);
+      const mapaIlustraciones=await segunda.evaluate(()=>JSON.parse(
+        localStorage.getItem('forja-adversarios-ilustraciones-oficiales-v1')));
+      assert.match(mapaIlustraciones['drs-goblin_con_tirachinas'],
+        /^data:image\/(?:webp|jpeg);base64,/);
+      assert.equal(await segunda.evaluate(()=>JSON.parse(
+        localStorage.getItem('forja-criaturas-usuario-v1')||'{"criaturas":[]}').criaturas.length),0);
+      const original=await segunda.evaluate(async()=>{
+        const r=await (await fetch('data/adversarios-drs.json')).json();
+        return r.registros.find(x=>x.id==='goblin_con_tirachinas').ficha.imagen;
+      });
+      assert.equal(original,undefined,'No se reescribe la ficha reglamentaria.');
+      await segunda.reload({waitUntil:'domcontentloaded'});
+      await segunda.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      await segunda.locator('#tab-criaturas').click();
+      await segunda.locator('.criaturas-cromo[data-oficial="true"]').click();
+      assert.equal(await segunda.locator('.criaturas-ficha-imagen').count(),1,
+        'La ilustración oficial persiste tras recargar.');
+      await segunda.locator('#criaturas-ficha-ilustracion-quitar').click();
+      assert.equal(await segunda.locator('.criaturas-ficha-imagen').count(),0);
+      assert.equal(await segunda.locator('.criaturas-cromo[data-icono="placeholder"]').count(),1);
       await segunda.locator('#criaturas-ficha-retirar').click();
       assert.equal(await segunda.locator('.criaturas-cromo').count(),0,
         'Retirar una selección oficial debe vaciar la galería.');
