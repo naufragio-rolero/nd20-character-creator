@@ -254,7 +254,7 @@ async function probar(nombre,tipo,url){
       assert.match(await segunda.locator('#criaturas-ficha-contenido').innerText(),
         /Chinazo - 6 de daño/);
       assert.match(await segunda.locator('.criaturas-fuente').innerText(),
-        /Fuente: Naufragio d20 - Épica · DRS/);
+        /Fuente: Naufragio d20 · Fantasía Épica · DRS/);
       assert.equal(await segunda.locator('.criaturas-icono-apartado').count(),2);
       assert.equal(await segunda.locator('.criaturas-metrica-icono').count(),3,
         'Nivel, Salud y Moral muestran Potencia, Salud y Esfuerzo.');
