@@ -30,6 +30,7 @@ jobs:
           node tests/elecciones-poscreacion.js
           node tests/iconos-forja.js
           node tests/adversarios-drs.js
+          node tests/criaturas-componentes.js
           node tests/adversarios-pdf.js
       - name: Preparar activos locales PDF y fuentes con licencias
         run: |
