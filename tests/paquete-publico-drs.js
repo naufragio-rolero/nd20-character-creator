@@ -283,7 +283,7 @@ assert.ok(html.includes('id="resumen-nivel"'));
 assert.ok(html.includes('id="informacion-avanzada"'));
 assert.ok(html.includes('id="tab-criaturas"'));
 for(const modulo of ['creatures.js','creatures-import.js',
-  'creatures-library.js','creatures-ui.js']){
+  'creatures-library.js','creatures-components.js','creatures-ui.js']){
   const ruta='assets/'+modulo;
   assert.ok(html.includes(ruta),'El HTML incluye '+ruta);
   assert.ok(fs.existsSync(path.join(salida,ruta)),'El paquete sirve '+ruta);
