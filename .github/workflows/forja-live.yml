@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - Selección de Adversarios Épica (PR #105)
+      - name: Obtener snapshot DRS aprobado - KPI, ataques e iconos (PR #107)
         uses: actions/checkout@v4
         with:
-          ref: ceaff52fcb940560fde13a401c0109dd1d7ec338
+          ref: 35009d775b3cea10934d223a47e3661d835f96ff
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "ceaff52fcb940560fde13a401c0109dd1d7ec338"
-      # Snapshot aprobado para LIVE: PR #105, selector reversible de Adversarios Épica, Seguidores, Matriz, 40 SVG y PDFs A5,
+          test "$(git rev-parse HEAD)" = "35009d775b3cea10934d223a47e3661d835f96ff"
+      # Snapshot aprobado para LIVE: PR #107, KPI de Adversarios, ataques agrupados y manifiesto SVG, 40 SVG base y PDFs A5,
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -58,6 +58,10 @@ jobs:
           grep -Fq 'id="criaturas-ficha-retirar"' index.html
           grep -Fq 'Naufragio d20 - Épica' index.html
           grep -Fq 'id="criaturas-ficha-pdf"' index.html
+          node -e "const m=require('./assets/adversarios-iconos.json');if(m.version!==1||!m.iconos||Array.isArray(m.iconos))process.exit(1)"
+          grep -Fq 'lineasAtaque' assets/adversarios-formato.js
+          grep -Fq 'criaturas-metrica-icono' assets/creatures-ui.js
+          grep -Fq 'background:#0b0b0b' assets/styles.css
           node -e "const c=require('./data/adversarios-drs.json');if(c.fuente!=='Naufragio d20 DRS'||c.registros.length!==106||c.registros.some(r=>r.fuente!=='Naufragio d20 DRS'))process.exit(1)"
           test "$(find assets/icons -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 40
           test "$(find assets/icons -maxdepth 1 -name '*.webp' -type f | wc -l)" -eq 2
@@ -388,6 +392,8 @@ jobs:
           grep -Fq 'id="criaturas-selector-drs"' /tmp/forja-live.html
           grep -Fq 'id="criaturas-ficha-retirar"' /tmp/forja-live.html
           grep -Fq 'Naufragio d20 - Épica' /tmp/forja-live.html
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/adversarios-iconos.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-iconos-adversarios.json
+          node -e "const m=require('/tmp/forja-iconos-adversarios.json');if(m.version!==1||!m.iconos||Array.isArray(m.iconos))process.exit(1)"
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/adversarios-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-adversarios.json
           node -e "const d=require('/tmp/forja-adversarios.json');if(d.fuente!=='Naufragio d20 DRS'||d.registros.length!==106||d.registros.some(x=>x.fuente!=='Naufragio d20 DRS'||x.ficha.puntuaciones.blindaje<0))process.exit(1)"
           grep -Fq 'root.NaufragioCriaturasUI = api;' /tmp/forja-creatures-ui.js
@@ -778,14 +784,43 @@ jobs:
               assert.equal(await page.locator('.criaturas-cromo[data-oficial="true"]').count(),1);
               await page.locator('#criaturas-selector-cerrar').click();
               await page.locator('.criaturas-cromo[data-oficial="true"]').click();
-              assert.match(await page.locator('#criaturas-ficha-titulo').innerText(),
-                /Naufragio d20 - Épica/);
+              assert.equal((await page.locator('#criaturas-ficha-titulo').innerText()).trim(),
+                'Goblin con tirachinas');
               assert.equal(await page.locator('.criaturas-metrica').count(),3);
+              assert.equal(await page.locator('.criaturas-metrica-icono').count(),3);
+              assert.equal((await page.locator('.criaturas-taxonomia').innerText()).trim(),
+                'Humanoide - Goblin');
+              assert.match(await page.locator('.criaturas-fuente').innerText(),
+                /Fuente: Naufragio d20 - Épica · DRS/);
               assert.match(await page.locator('#criaturas-ficha-contenido').innerText(),
                 /Chinazo - 6 de daño/);
               assert.doesNotMatch(await page.locator('#criaturas-ficha-contenido').innerText(),
                 /Protección|Habilidad relacionada|chinazo_51/);
               assert.equal(await page.locator('.criaturas-icono-apartado').count(),2);
+              const icono=page.locator('.criaturas-cromo[data-oficial="true"] .criaturas-emblema');
+              assert.equal(await icono.innerText(),'');
+              const medidas=await icono.evaluate(x=>({
+                ancho:x.getBoundingClientRect().width,
+                alto:x.getBoundingClientRect().height,
+                fondo:getComputedStyle(x).backgroundColor
+              }));
+              assert.equal(medidas.ancho,medidas.alto,'El cromo es 1:1');
+              assert.equal(medidas.fondo,'rgb(11, 11, 11)');
+              await page.locator('#criaturas-ficha-retirar').click();
+              assert.equal(await page.locator('.criaturas-cromo').count(),1);
+              await page.locator('#criaturas-cargar-drs').click();
+              await page.locator('#criaturas-selector-busqueda').fill('Necrotótamo');
+              await page.locator('.criaturas-selector-fila button').click();
+              await page.locator('#criaturas-selector-cerrar').click();
+              await page.locator('.criaturas-cromo[data-oficial="true"]').click();
+              assert.equal((await page.locator('#criaturas-ficha-titulo').innerText()).trim(),
+                'Necrotótamo');
+              assert.equal((await page.locator('.criaturas-taxonomia').innerText()).trim(),
+                'Monstruo - Bestias mitológicas');
+              assert.equal(await page.locator('.criaturas-ataques-consulta li').count(),2,
+                'Coletazos y mirada pétrea son dos alternativas.');
+              assert.doesNotMatch(await page.locator('.criaturas-ataques-consulta').innerText(),
+                /^\s*o Mirada/m);
               await page.locator('#criaturas-ficha-retirar').click();
               assert.equal(await page.locator('.criaturas-cromo').count(),1);
               await page.reload({waitUntil:'domcontentloaded'});
@@ -804,7 +839,7 @@ jobs:
               assert.deepEqual(orden,[4,4],'Configurar seguidores está entre resumen y generación.');
               assert.deepEqual(errores,[],nombre+': errores JS en LIVE');
               console.log('OK LIVE '+nombre+
-                ': Adversarios Épica, selección reversible, Salud, PDF y Seguidores');
+                ': KPI ilustrados, taxonomía, ataques opcionales, SVG, PDF y Seguidores');
             } finally { await browser.close(); }
           }
           (async()=>{
