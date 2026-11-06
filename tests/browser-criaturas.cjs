@@ -194,7 +194,13 @@ async function probar(nombre,tipo,url){
       await segunda.locator('#criaturas-selector-busqueda').fill('Goblin con tirachinas');
       assert.equal(await segunda.locator('.criaturas-selector-fila').count(),1);
       await segunda.locator('.criaturas-selector-fila button').click();
-      assert.equal(await segunda.locator('.criaturas-cromo[data-oficial="true"]').count(),1);
+      assert.equal(await segunda.locator('.criaturas-cromo[data-oficial="true"]').count(),1,
+        'Diagnóstico: '+JSON.stringify(await segunda.evaluate(()=>({
+          estado:document.querySelector('#criaturas-estado').textContent,
+          lista:document.querySelector('#criaturas-lista').textContent.slice(0,250),
+          almacen:localStorage.getItem('forja-adversarios-oficiales-v1'),
+          selector:document.querySelector('#criaturas-selector-estado').textContent
+        }))));
       await segunda.locator('#criaturas-selector-cerrar').click();
       await segunda.locator('.criaturas-cromo[data-oficial="true"]').click();
       assert.match(await segunda.locator('#criaturas-ficha-titulo').textContent(),
