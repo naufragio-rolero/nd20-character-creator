@@ -86,7 +86,10 @@
         d.camposNoInterpretados.slice() : [],
       origen: {
         tipo: texto(d.origen && d.origen.tipo) || 'usuario',
-        textoOriginal: texto(d.origen && d.origen.textoOriginal)
+        textoOriginal: texto(d.origen && d.origen.textoOriginal),
+        // Atribución editorial opcional de copias oficiales.
+        fuenteId: texto(d.origen && d.origen.fuenteId),
+        fuente: texto(d.origen && d.origen.fuente)
       }
     };
   }
@@ -215,10 +218,13 @@
     else if (c.camposNoInterpretados.length)
       aviso('camposNoInterpretados', 'contenido_pendiente',
         'Hay campos sin interpretar que necesitan revisión.');
-    comprobarCampos(c.origen, ['tipo','textoOriginal'], 'origen');
+    comprobarCampos(c.origen, ['tipo','textoOriginal','fuenteId','fuente'], 'origen');
     if (!c.origen || typeof c.origen.tipo !== 'string' ||
         typeof c.origen.textoOriginal !== 'string')
       error('origen', 'Hay que conservar la procedencia y el original.');
+    if(c.origen && ((c.origen.fuenteId!==undefined&&typeof c.origen.fuenteId!=='string')||
+       (c.origen.fuente!==undefined&&typeof c.origen.fuente!=='string')))
+      error('origen.fuente','La referencia editorial debe ser texto.');
     return {valida:errores.length === 0, errores:errores, advertencias:advertencias};
   }
   return {VERSION:VERSION, CONECTORES:CONECTORES.slice(),
