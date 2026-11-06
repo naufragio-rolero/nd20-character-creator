@@ -915,6 +915,7 @@
         agregarTalento(plantilla);
       }else throw Error('Tipo de entrada desconocido.');
       $('criaturas-elemento-propio').close();
+      bibliotecaComponentes=null;
       cambios=true;avisarRevision();
       mostrarEstado('Entrada propia incorporada al borrador y disponible para reutilizarse.');
     }catch(error){$('criaturas-elemento-error').textContent=error.message;}
@@ -1482,6 +1483,32 @@
       $('criaturas-crear-'+nombre).addEventListener('click',function(){
         abrirElementoPropio(tipo);
       });
+      $('criaturas-explorar-'+tipo).addEventListener('click',function(){
+        abrirBibliotecaComponentes(tipo);
+      });
+    });
+    $('criaturas-componentes-cerrar').addEventListener('click',function(){
+      $('criaturas-componentes-dialogo').close();
+    });
+    ['ataques','talentos'].forEach(function(tipo){
+      $('criaturas-componentes-tab-'+tipo).addEventListener('click',function(){
+        tipoBibliotecaComponentes=tipo;limiteComponentes=40;
+        $('criaturas-componentes-vinculos').hidden=true;
+        $('criaturas-componentes-fuente').value='';
+        $('criaturas-componentes-origen').value='';
+        actualizarBibliotecaComponentes();
+      });
+    });
+    $('criaturas-componentes-busqueda').addEventListener('input',function(){
+      limiteComponentes=40;actualizarBibliotecaComponentes();
+    });
+    ['fuente','origen'].forEach(function(k){
+      $('criaturas-componentes-'+k).addEventListener('change',function(){
+        limiteComponentes=40;actualizarBibliotecaComponentes();
+      });
+    });
+    $('criaturas-componentes-solo-relacionados').addEventListener('change',function(){
+      limiteComponentes=40;actualizarBibliotecaComponentes();
     });
     $('criaturas-elemento-form').addEventListener('submit',guardarElementoPropio);
     $('criaturas-elemento-cerrar').addEventListener('click',function(){
@@ -1553,6 +1580,13 @@
         $('criaturas-salud-modo').value='manual';
     });
     $('criaturas-formulario').addEventListener('input',function(event){
+      // Una edición manual del contenido rompe la identidad del catálogo,
+      // pero conserva la referencia de procedencia y el texto original.
+      var fila=event.target.closest('.criaturas-repetido');
+      if(fila && event.target.matches('[data-campo]') &&
+         !event.target.matches('[data-campo="conector"]')){
+        delete fila.dataset.catalogoId;
+      }
       if(event.target.matches('[data-campo="danoLiteral"]')) {
         var num=event.target.closest('.criaturas-repetido')
           .querySelector('[data-campo="danoNumerico"]');
