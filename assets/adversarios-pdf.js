@@ -58,6 +58,8 @@
       if(!f||!f.nombre||!f.puntuaciones||!Array.isArray(f.ataques)||
          !Array.isArray(f.talentos))throw Error('Ficha de adversario no válida.');
     });
+    if(!root.NaufragioFormatoAdversarios)
+      throw Error('Falta el módulo de formato de ataques.');
     var archivos=await dependencias();
     var PDF=root.PDFLib,pdf=await PDF.PDFDocument.create();
     pdf.registerFontkit(root.fontkit);
@@ -99,7 +101,7 @@
       if(taxonomia){page.drawText(taxonomia,{x:M,y:y,font:regular,size:9,color:color(GRIS)});y-=19;}
       var p=ficha.puntuaciones;
       var datos=[['Nivel',p.nivel],['Salud',p.salud],['Moral',p.moral],
-        ['Protección',p.blindaje],['Movimiento',p.movimiento],['Tamaño',p.tamano]]
+        ['Movimiento',p.movimiento],['Tamaño',p.tamano]]
         .filter(function(par){return par[1]!==null&&par[1]!==undefined;});
       for(var i=0;i<datos.length;i+=3){
         asegurar(32);
@@ -119,22 +121,25 @@
       encabezado(f);
       if(f.ataques.length){
         var ataques=f.ataques.map(function(a,i){
-          return (i?a.conectorAnterior+' ':'')+(a.cantidad>1?a.cantidad+' × ':'')+
-            a.nombre+(a.danoLiteral?' ('+a.danoLiteral+')':'')+
-            (a.notas?' — '+a.notas:'')+
-            (a.talentoRelacionado?' [Talento relacionado: '+a.talentoRelacionado+']':'');
+          return root.NaufragioFormatoAdversarios.ataque(a,i)+
+            (a.notas?' — '+a.notas:'');
         }).join('\n');
         bloque('Ataques',ataques);
       }
       if(f.talentos.length)bloque('Talentos y habilidades especiales',
-        f.talentos.map(function(t){return t.nombre+': '+t.descripcion+
-          (t.referencia?' ['+t.referencia+']':'');}).join('\n\n'));
+        f.talentos.map(function(t){return t.nombre+': '+t.descripcion;}).join('\n\n'));
       bloque('Descripción',f.descripcion);
       bloque('Notas',f.notas);
       if(f.camposNoInterpretados&&f.camposNoInterpretados.length)
         bloque('Fragmentos no interpretados',f.camposNoInterpretados.join('\n'));
-      if(f.origen&&f.origen.textoOriginal)
-        bloque('Texto fuente conservado',f.origen.textoOriginal);
+      // La transcripción permanece en JSON, no ocupa varias páginas del PDF.
+      if(f.origen&&['drs_oficial','drs_copia_personal'].includes(f.origen.tipo)){
+        asegurar(24);
+        y-=7;
+        page.drawText('Fuente: Naufragio d20 DRS',{
+          x:M,y:y,font:regular,size:7.8,color:color(GRIS)});
+        y-=11;
+      }
     }
     entradas.slice().sort(function(a,b){return a.nombre.localeCompare(b.nombre,'es');})
       .forEach(ficha);
