@@ -25,5 +25,32 @@
       (a.conectorAnterior===','?', ':' '+a.conectorAnterior+' '):'';
     return conector+nombre+sufijo;
   }
-  return {ataque:ataque,capitalizar:capitalizar};
+  // Los conectores describen la relación entre ataques, no prefijos de lista:
+  // «o» significa otra opción; «y» indica acciones de una misma opción.
+  // Las comas se conservan como puntuación, sin deducir mecánicas nuevas.
+  function lineasAtaque(ataques){
+    var lineas=[];
+    (Array.isArray(ataques)?ataques:[]).forEach(function(a,indice){
+      var conector=indice===0?'Inicio':String(a&&a.conectorAnterior||'Inicio');
+      var unir=lineas.length>0&&(conector==='y'||conector===',');
+      var texto=ataque(a,0);
+      if(!unir)lineas.push({texto:texto,notas:[]});
+      else lineas[lineas.length-1].texto+=
+        (conector===','?', ':' y ')+texto;
+      if(a&&a.notas){
+        lineas[lineas.length-1].notas.push({
+          nombre:capitalizar(a.nombre),texto:String(a.notas)
+        });
+      }
+    });
+    return lineas;
+  }
+  function taxonomia(ficha){
+    var datos=ficha||{};
+    var principal=[datos.categoria,datos.subcategoria].filter(Boolean).join(' - ');
+    var subtipo=String(datos.subtipo||'').trim();
+    return principal+(subtipo?(principal?' ':'')+'('+subtipo+')':'');
+  }
+  return {ataque:ataque,capitalizar:capitalizar,
+    lineasAtaque:lineasAtaque,taxonomia:taxonomia};
 });
