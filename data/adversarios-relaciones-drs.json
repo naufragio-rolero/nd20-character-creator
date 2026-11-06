@@ -11,7 +11,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "toque_espectral_176"
-      }
+      },
+      "talentoFuenteId": "toque_espectral_176"
     },
     {
       "criaturaId": "arana_peluda",
@@ -20,7 +21,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "tela_arana_169"
-      }
+      },
+      "talentoFuenteId": "tela_arana_169"
     },
     {
       "criaturaId": "arbol_pugilista",
@@ -29,7 +31,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Inmóvil: no puede moverse; su ataque de ramalazo tiene un alcance de 8m."
-      }
+      },
+      "talentoFuenteId": "inmovil_90"
     },
     {
       "criaturaId": "arcanista_errante",
@@ -38,7 +41,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "rayo_energia_158"
-      }
+      },
+      "talentoFuenteId": "rayo_energia_158"
     },
     {
       "criaturaId": "asaltacaminos",
@@ -47,7 +51,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "ballesta_33"
-      }
+      },
+      "talentoFuenteId": "ballesta_33"
     },
     {
       "criaturaId": "avatar_elemental",
@@ -56,7 +61,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "aniquilacion_elemental_19"
-      }
+      },
+      "talentoFuenteId": "aniquilacion_elemental_19"
     },
     {
       "criaturaId": "baluarte_piedra",
@@ -65,7 +71,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "estrujon_75"
-      }
+      },
+      "talentoFuenteId": "estrujon_75"
     },
     {
       "criaturaId": "bandada_craneos_fantasmales",
@@ -74,7 +81,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Mordedura maldita: cualquier criatura que sufra daño de su ataque mordisco ha de superar una Tirada de Presencia o ser incapaz de atacar durante el próximo Turno."
-      }
+      },
+      "talentoFuenteId": "mordedura_maldita_125"
     },
     {
       "criaturaId": "calavera_ardiente",
@@ -83,7 +91,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Mordedura maldita: cualquier criatura que sufra daño de su ataque mordisco ha de superar una Tirada de Presencia o ser incapaz de atacar durante el próximo Turno."
-      }
+      },
+      "talentoFuenteId": "mordedura_maldita_125"
     },
     {
       "criaturaId": "cantor_rata_punzante",
@@ -92,7 +101,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "laser_virulento_97"
-      }
+      },
+      "talentoFuenteId": "laser_virulento_97"
     },
     {
       "criaturaId": "cara_miseria",
@@ -101,7 +111,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "vomito_acido_187"
-      }
+      },
+      "talentoFuenteId": "vomito_acido_187"
     },
     {
       "criaturaId": "catador_cerebros",
@@ -110,7 +121,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "festin_cerebral_78"
-      }
+      },
+      "talentoFuenteId": "festin_cerebral_78"
     },
     {
       "criaturaId": "catoblepas",
@@ -119,7 +131,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "carga_49"
-      }
+      },
+      "talentoFuenteId": "carga_49"
     },
     {
       "criaturaId": "catoblepas",
@@ -128,7 +141,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "halito_ponzonoso_82"
-      }
+      },
+      "talentoFuenteId": "halito_ponzonoso_82"
     },
     {
       "criaturaId": "cobra_bifida",
@@ -137,7 +151,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Encéfalofisura: cuando su Salud desciende a ½ o menos, una de sus cabezas se divide en dos, obteniendo un nuevo ataque de mordisco —con el mismo daño—. Cada cabeza solo se puede dividir una vez, y solo ocurre una vez por Turno."
-      }
+      },
+      "talentoFuenteId": "encefalofisura_67"
     },
     {
       "criaturaId": "cobra_bifida",
@@ -146,7 +161,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Neuroveneno: cualquier criatura herida por su ataque mordisco ha de superar una Tirada de Resistencia o sufrir Desventaja en todas las Tiradas de Mente durante 1d4 Intervalos."
-      }
+      },
+      "talentoFuenteId": "neuroveneno_143"
     },
     {
       "criaturaId": "coloso_cristalino",
@@ -155,7 +171,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "rayo_cristal_157"
-      }
+      },
+      "talentoFuenteId": "rayo_cristal_157"
     },
     {
       "criaturaId": "comensal_palido",
@@ -164,7 +181,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "mordisco_letal_127"
-      }
+      },
+      "talentoFuenteId": "mordisco_letal_127"
     },
     {
       "criaturaId": "comensal_palido",
@@ -173,7 +191,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "terror_inminente_174"
-      }
+      },
+      "talentoFuenteId": "terror_inminente_174"
     },
     {
       "criaturaId": "corcel_malefico",
@@ -182,7 +201,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Quemadura infernal: cualquier criatura herida por su ataque mordisco ha de superar una Tirada de Resistencia o sufrir Desventaja en todas las Tiradas de Fuerza durante 1d4 Turnos."
-      }
+      },
+      "talentoFuenteId": "quemadura_infernal_156"
     },
     {
       "criaturaId": "cria_dragon",
@@ -191,7 +211,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "aliento_15"
-      }
+      },
+      "talentoFuenteId": "aliento_15"
     },
     {
       "criaturaId": "culebra_rastrera",
@@ -200,7 +221,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Veneno: cualquier criatura herida por su ataque de mordisco ha de superar una Tirada de Resistencia o quedar afligida por un Veneno de Nivel 1."
-      }
+      },
+      "talentoFuenteId": "veneno_182"
     },
     {
       "criaturaId": "dragon_adolescente",
@@ -209,7 +231,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "aliento_16"
-      }
+      },
+      "talentoFuenteId": "aliento_16"
     },
     {
       "criaturaId": "dragon_adulto",
@@ -218,7 +241,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "aliento_17"
-      }
+      },
+      "talentoFuenteId": "aliento_17"
     },
     {
       "criaturaId": "dragon_anciano",
@@ -227,7 +251,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "aliento_18"
-      }
+      },
+      "talentoFuenteId": "aliento_18"
     },
     {
       "criaturaId": "el_segador",
@@ -236,7 +261,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "toque_muerte_175"
-      }
+      },
+      "talentoFuenteId": "toque_muerte_175"
     },
     {
       "criaturaId": "enredadera_sangrienta",
@@ -245,7 +271,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Agarre: si hiere a una criatura con su latigazo, ésta ha de superar una Tirada de Fuerza para evitar ser atrapada; la Enredadera sangrienta absorbe 9 de Salud cada Turno de la criatura que tenga atrapada, pero no puede atacar."
-      }
+      },
+      "talentoFuenteId": "agarre_10"
     },
     {
       "criaturaId": "enredadera_sangrienta",
@@ -254,7 +281,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Inmóvil: no puede moverse; su ataque de latigazo tiene un alcance de 4m."
-      }
+      },
+      "talentoFuenteId": "inmovil_91"
     },
     {
       "criaturaId": "enredadera_sangrienta",
@@ -263,7 +291,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "agarre_10"
-      }
+      },
+      "talentoFuenteId": "agarre_10"
     },
     {
       "criaturaId": "espectro_aullante",
@@ -272,7 +301,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "aranazo_espectral_20"
-      }
+      },
+      "talentoFuenteId": "aranazo_espectral_20"
     },
     {
       "criaturaId": "esqueleto_arquero",
@@ -281,7 +311,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "flechazo_79"
-      }
+      },
+      "talentoFuenteId": "flechazo_79"
     },
     {
       "criaturaId": "goblin_con_tirachinas",
@@ -290,7 +321,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "chinazo_51"
-      }
+      },
+      "talentoFuenteId": "chinazo_51"
     },
     {
       "criaturaId": "guardian_gnomico",
@@ -299,7 +331,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "rayo_laser_161"
-      }
+      },
+      "talentoFuenteId": "rayo_laser_161"
     },
     {
       "criaturaId": "guiverna_ala_bronce",
@@ -308,7 +341,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Veneno: cualquier criatura herida por su ataque de aguijón ha de superar una Tirada de Resistencia con un -2 o quedar afligida por un Veneno de Nivel 12."
-      }
+      },
+      "talentoFuenteId": "veneno_183"
     },
     {
       "criaturaId": "guiverna_manto_azur",
@@ -317,7 +351,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "dardos_venenosos_53"
-      }
+      },
+      "talentoFuenteId": "dardos_venenosos_53"
     },
     {
       "criaturaId": "guiverna_manto_azur",
@@ -326,7 +361,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Veneno: cualquier criatura herida por sus dardos venenosos ha de superar una Tirada de Resistencia o quedar afligida por un Veneno de Nivel 8."
-      }
+      },
+      "talentoFuenteId": "veneno_184"
     },
     {
       "criaturaId": "hambriento",
@@ -335,7 +371,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Devorador de carne: cualquier criatura viva que sufra daño de su mordisco terrible debe superar una Tirada de Resistencia o perder 1d4 Puntos de Salud máximos."
-      }
+      },
+      "talentoFuenteId": "devorador_carne_61"
     },
     {
       "criaturaId": "heraldo_tormenta",
@@ -344,7 +381,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "descarga_tormentosa_60"
-      }
+      },
+      "talentoFuenteId": "descarga_tormentosa_60"
     },
     {
       "criaturaId": "hidra_tornasolada",
@@ -353,7 +391,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Boca solar: los ataques de mordisco de la hidra tornasolada son afines al fuego."
-      }
+      },
+      "talentoFuenteId": "boca_solar_36"
     },
     {
       "criaturaId": "hidra_tornasolada",
@@ -362,7 +401,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Encéfalofisura: cuando su Salud desciende a ¾ o menos, una de sus cabezas se divide en dos, obteniendo un nuevo ataque de mordisco —con el mismo daño—. Cada cabeza solo se puede dividir una vez, y solo ocurre una vez por Turno."
-      }
+      },
+      "talentoFuenteId": "encefalofisura_201"
     },
     {
       "criaturaId": "hombre_rata",
@@ -371,7 +411,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Portador de la plaga: cualquier criatura herida por su mordisco ha de superar una Tirada de Resistencia o contraer una Enfermedad de Nivel 6."
-      }
+      },
+      "talentoFuenteId": "portador_plaga_155"
     },
     {
       "criaturaId": "jefe_goblin",
@@ -380,7 +421,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "lanza_resorte_96"
-      }
+      },
+      "talentoFuenteId": "lanza_resorte_96"
     },
     {
       "criaturaId": "kobold_asaltante",
@@ -389,7 +431,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Somanta: si otro kóbold ha atacado al objetivo en este mismo Turno, provoca Desventaja para esquivar su ataque de lanza."
-      }
+      },
+      "talentoFuenteId": "somanta_167"
     },
     {
       "criaturaId": "kobold_chaman",
@@ -398,7 +441,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "vapor_dragon_181"
-      }
+      },
+      "talentoFuenteId": "vapor_dragon_181"
     },
     {
       "criaturaId": "kobold_trampero",
@@ -407,7 +451,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Somanta: si otro kóbold ha atacado al objetivo en este mismo Turno, provoca Desventaja para esquivar su ataque de cuchillo de hueso."
-      }
+      },
+      "talentoFuenteId": "somanta_168"
     },
     {
       "criaturaId": "lobo_alfa",
@@ -416,7 +461,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Manada: si otro lobo ha atacado al objetivo en este mismo Turno, provoca Desventaja para esquivar su ataque de mordisco."
-      }
+      },
+      "talentoFuenteId": "manada_120"
     },
     {
       "criaturaId": "lobo_alfa",
@@ -425,7 +471,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Derribo: si una criatura es herida por su ataque de placaje, ésta deberá superar una Tirada de Resistencia o caer derribada al suelo."
-      }
+      },
+      "talentoFuenteId": "derribo_58"
     },
     {
       "criaturaId": "lobo_gris",
@@ -434,7 +481,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Manada: si otro lobo ha atacado al objetivo en este mismo Turno, provoca Desventaja para esquivar su ataque de mordisco."
-      }
+      },
+      "talentoFuenteId": "manada_120"
     },
     {
       "criaturaId": "lobo_terrible",
@@ -443,7 +491,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Manada: si otro lobo ha atacado al objetivo en este mismo Turno, provoca Desventaja para esquivar su ataque de mordisco."
-      }
+      },
+      "talentoFuenteId": "manada_120"
     },
     {
       "criaturaId": "lobo_terrible",
@@ -452,7 +501,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Derribo: si una criatura es herida por su ataque de placaje, ésta deberá superar una Tirada de Resistencia con un -2 o caer derribada al suelo."
-      }
+      },
+      "talentoFuenteId": "derribo_59"
     },
     {
       "criaturaId": "mancebo_cornudo",
@@ -461,7 +511,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "bromista_37"
-      }
+      },
+      "talentoFuenteId": "bromista_37"
     },
     {
       "criaturaId": "mandamas_orco",
@@ -470,7 +521,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "ataque_salvaje_25"
-      }
+      },
+      "talentoFuenteId": "ataque_salvaje_25"
     },
     {
       "criaturaId": "necrototamo",
@@ -479,7 +531,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "mirada_petrea_124"
-      }
+      },
+      "talentoFuenteId": "mirada_petrea_124"
     },
     {
       "criaturaId": "opresor_sahumado",
@@ -488,7 +541,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "toque_maldito_177"
-      }
+      },
+      "talentoFuenteId": "rayo_panico_160"
     },
     {
       "criaturaId": "opresor_sahumado",
@@ -497,7 +551,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "rayo_panico_160"
-      }
+      },
+      "talentoFuenteId": "rayo_panico_160"
     },
     {
       "criaturaId": "orco_batidor",
@@ -506,7 +561,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "flechazo_80"
-      }
+      },
+      "talentoFuenteId": "flechazo_80"
     },
     {
       "criaturaId": "orco_batidor",
@@ -515,7 +571,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Marcar para morir: cualquier criatura herida por sus flechazos sufre 2 puntos más de daño de ataques cuerpo a cuerpo durante 1 Intervalo."
-      }
+      },
+      "talentoFuenteId": "marcar_para_morir_123"
     },
     {
       "criaturaId": "oso_grizzly",
@@ -524,7 +581,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Agarre: si hiere a una criatura con dos ataques de garra, ésta ha de superar una Tirada de Fuerza para evitar ser atrapada; el oso grizzly causa 30 puntos de daño cada Turno a la criatura que tenga atrapada, pero no puede atacar."
-      }
+      },
+      "talentoFuenteId": "agarre_11"
     },
     {
       "criaturaId": "oso_negro",
@@ -533,7 +591,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Agarre: si hiere a una criatura con dos ataques de garra, ésta ha de superar una Tirada de Fuerza para evitar ser atrapada; el oso negro causa 20 puntos de daño cada Turno a la criatura que tenga atrapada, pero no puede atacar."
-      }
+      },
+      "talentoFuenteId": "agarre_12"
     },
     {
       "criaturaId": "oso_pardo",
@@ -542,7 +601,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Agarre: si hiere a una criatura con dos ataques de garra, ésta ha de superar una Tirada de Fuerza para evitar ser atrapada; el oso pardo causa 15 puntos de daño cada Turno a la criatura que tenga atrapada, pero no puede atacar."
-      }
+      },
+      "talentoFuenteId": "agarre_13"
     },
     {
       "criaturaId": "oso_polar",
@@ -551,7 +611,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Agarre: si hiere a una criatura con dos ataques de garra, ésta ha de superar una Tirada de Fuerza para evitar ser atrapada; el oso polar causa 24 puntos de daño cada Turno a la criatura que tenga atrapada, pero no puede atacar."
-      }
+      },
+      "talentoFuenteId": "agarre_14"
     },
     {
       "criaturaId": "rata_glotona",
@@ -560,7 +621,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Enfermedad: cualquier criatura herida por su mordisco ha de superar una Tirada de Resistencia o quedar enferma."
-      }
+      },
+      "talentoFuenteId": "enfermedad_69"
     },
     {
       "criaturaId": "rata_mutante",
@@ -569,7 +631,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Tósigo enfermizo: cualquier criatura herida por su mordisco ha de superar una Tirada de Resistencia o quedar enferma y envenenada con un Veneno de Nivel 4."
-      }
+      },
+      "talentoFuenteId": "tosigo_enfermizo_180"
     },
     {
       "criaturaId": "ratido_tunelero",
@@ -578,7 +641,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Enfermedad: cualquier criatura herida por su mordisco ha de superar una Tirada de Resistencia o quedar enferma."
-      }
+      },
+      "talentoFuenteId": "enfermedad_69"
     },
     {
       "criaturaId": "senor_los_vampiros",
@@ -587,7 +651,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Ponzoña de la oscuridad: cualquier criatura que muera tras haber sido herida por su ataque de mordisco se levantará como un vampiro en las próximas 72 horas."
-      }
+      },
+      "talentoFuenteId": "ponzona_oscuridad_153"
     },
     {
       "criaturaId": "senor_los_vampiros",
@@ -596,7 +661,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "disparo_sangre_63"
-      }
+      },
+      "talentoFuenteId": "disparo_sangre_63"
     },
     {
       "criaturaId": "senor_los_vampiros",
@@ -605,7 +671,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "bandada_murcielagos_sanguinos_34"
-      }
+      },
+      "talentoFuenteId": "bandada_murcielagos_sanguinos_34"
     },
     {
       "criaturaId": "serpiente_venenosa",
@@ -614,7 +681,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Veneno: cualquier criatura herida por su mordisco ha de superar una Tirada de Resistencia o quedar envenenada con un Veneno de Nivel 2."
-      }
+      },
+      "talentoFuenteId": "veneno_185"
     },
     {
       "criaturaId": "seta_alarmante",
@@ -623,7 +691,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "chillido_50"
-      }
+      },
+      "talentoFuenteId": "chillido_50"
     },
     {
       "criaturaId": "tirano_espliego",
@@ -632,7 +701,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Toque maldito: cualquier criatura herida por este ataque debe superar una Tirada de Resistencia o quedar Paralizada durante 2d6 meses."
-      }
+      },
+      "talentoFuenteId": "toque_maldito_178"
     },
     {
       "criaturaId": "tirano_espliego",
@@ -641,7 +711,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "rayo_muerte_159"
-      }
+      },
+      "talentoFuenteId": "rayo_muerte_159"
     },
     {
       "criaturaId": "tiranosaurio",
@@ -650,7 +721,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Devorar: devora por completo a su objetivo si se obtiene un 1 o un 2 en la tirada de esquiva del ataque mordisco. Una criatura devorada por el tiranosaurio sufre 6 puntos de daño cada Turno (ignoran Blindaje) y no puede hacer nada salvo intentar escaparse (Tirada de Fuerza con Desventaja, con éxito el tiranosaurio lo vomita)."
-      }
+      },
+      "talentoFuenteId": "devorar_62"
     },
     {
       "criaturaId": "tiranosaurio",
@@ -659,7 +731,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "arrollar_23"
-      }
+      },
+      "talentoFuenteId": "arrollar_23"
     },
     {
       "criaturaId": "triceratops",
@@ -668,7 +741,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "arrollar_23"
-      }
+      },
+      "talentoFuenteId": "arrollar_23"
     },
     {
       "criaturaId": "vampiro_adulto",
@@ -677,7 +751,8 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Ponzoña de la oscuridad: cualquier criatura que muera tras haber sido herida por su ataque de mordisco se levantará como un rebaño vampírico en las próximas 24 horas."
-      }
+      },
+      "talentoFuenteId": "ponzona_oscuridad_154"
     },
     {
       "criaturaId": "vampiro_adulto",
@@ -686,7 +761,8 @@
       "evidencia": {
         "campo": "ataques.talentoRelacionado",
         "valor": "bandada_murcielagos_sanguinos_34"
-      }
+      },
+      "talentoFuenteId": "bandada_murcielagos_sanguinos_34"
     },
     {
       "criaturaId": "viuda_toxica",
@@ -695,7 +771,9 @@
       "evidencia": {
         "campo": "talentos.textoOriginal",
         "valor": "Veneno: cualquier criatura herida por su mordisco ha de superar una Tirada de Resistencia o morir envenenada durante las próximas 24 horas."
-      }
+      },
+      "talentoFuenteId": "veneno_186"
     }
-  ]
+  ],
+  "procedenciaIndice": "data/adversarios-talentos-indice-drs.json"
 }

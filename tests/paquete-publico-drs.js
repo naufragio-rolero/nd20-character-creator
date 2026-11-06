@@ -295,13 +295,15 @@ assert.equal(fuentesPublicas.fuentes[0].id,'drs');
 assert.equal(fuentesPublicas.fuentes[0].total,106);
 const catalogoOficial=leer(salida,'adversarios-drs.json');
 const relacionesPublicas=leer(salida,'adversarios-relaciones-drs.json');
+ const indicePublico=leer(salida,'adversarios-talentos-indice-drs.json');
+ assert.equal(indicePublico.registros.length,188);
 assert.deepEqual(relacionesPublicas,leer(raiz,'adversarios-relaciones-drs.json'),
   'El paquete DRS contiene exclusivamente los vínculos oficiales verificados.');
 assert.equal(relacionesPublicas.relaciones.length,77);
 const componentesPublicos=require(path.join(salida,'assets','creatures-components.js'));
 const componentesDRS=componentesPublicos.crearCatalogo([{
   info:fuentesPublicas.fuentes[0],registros:leer(salida,'adversarios-drs.json').registros
-}],{ataques:[],talentos:[]},relacionesPublicas);
+}],{ataques:[],talentos:[]},relacionesPublicas,[],indicePublico);
 assert.deepEqual(componentesDRS.resumen(),{ataques:182,talentos:188,relaciones:77},
   'Ninguna expansión entra en la biblioteca pública DRS.');
 
@@ -436,6 +438,7 @@ const esperados=new Set([
   'tecnicas-drs-literales.json','glosas-talentos-drs.json',
   'glosas-equipo-drs.json',
   'adversarios-drs.json','adversarios-fuentes.json','adversarios-relaciones-drs.json',
+  'adversarios-talentos-indice-drs.json',
   'dungeon-hack.json'
 ]);
 assert.deepEqual(contenidos,esperados,

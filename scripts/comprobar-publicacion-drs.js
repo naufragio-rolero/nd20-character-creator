@@ -70,6 +70,7 @@ const requeridos=[
   'data/fichas-documentales.json','data/talentos-drs-literales.json',
   'data/aclaraciones-talentos-drs.json','data/dungeon-hack.json',
   'data/adversarios-fuentes.json','data/adversarios-relaciones-drs.json',
+  'data/adversarios-talentos-indice-drs.json',
   'data/tecnicas-drs-literales.json','data/glosas-talentos-drs.json',
   'data/glosas-equipo-drs.json'
 ];

@@ -7,12 +7,32 @@ const componentes=require('../assets/creatures-components.js');
 const bibliotecaApi=require('../assets/creatures-library.js');
 const leer=(ruta)=>JSON.parse(fs.readFileSync(path.join(__dirname,'..',ruta),'utf8'));
 const drs=leer('data/adversarios-drs.json'),matriz=leer('data/adversarios-relaciones-drs.json');
+const indice=leer('data/adversarios-talentos-indice-drs.json');
 const info=leer('data/adversarios-fuentes.json').fuentes[0];
 const fuentes=[{info,registros:drs.registros}];
 assert.equal(drs.registros.length,106);
-const c=componentes.crearCatalogo(fuentes,{ataques:[],talentos:[]},matriz);
+const c=componentes.crearCatalogo(fuentes,{ataques:[],talentos:[]},matriz,[],indice);
 assert.deepEqual(c.resumen(),{ataques:182,talentos:188,relaciones:77});
 assert.equal(matriz.relaciones.length,77);
+assert.equal(indice.registros.length,188);
+assert.equal(new Set(indice.registros.map(r=>r.talentoId+'|'+r.criaturaId)).size,188);
+const metaGuiverna=c.obtener('drs:guiverna_manto_azur:talento:veneno');
+assert.equal(metaGuiverna.talentoFuenteId,'veneno_184');
+assert.equal(metaGuiverna.categoriaEditorial,'Reacción');
+assert.ok(c.filtrar('talentos',{categoriaEditorial:'Reacción'})
+  .some(r=>r.id===metaGuiverna.id));
+assert.equal(c.filtrar('talentos',{texto:'veneno_184'}).some(r=>r.id===metaGuiverna.id),true);
+assert.equal(c.obtener('drs:tentacion_alada:talento:demonio').talentoFuenteId,'demonio_199');
+assert.equal(c.obtener('drs:hidra_tornasolada:talento:encefalofisura').talentoFuenteId,'encefalofisura_201');
+assert.ok(matriz.relaciones.every(r=>r.talentoFuenteId&&
+  indice.registros.some(t=>t.criaturaId===r.criaturaId&&t.talentoId===r.talentoFuenteId)));
+assert.throws(()=>componentes.crearCatalogo(fuentes,{ataques:[],talentos:[]},matriz,[],
+  {...indice,registros:indice.registros.filter(t=>t.criaturaId!=='guiverna_manto_azur')}),
+  /sin correspondencia editorial/);
+assert.throws(()=>componentes.crearCatalogo(fuentes,{ataques:[],talentos:[]},
+  {...matriz,relaciones:matriz.relaciones.map((r,i)=>i===0?
+    {...r,talentoFuenteId:'variante_incorrecta'}:r)},[],indice),
+  /no apunta al ID de Talento verificado/);
 assert.equal(c.listar('ataques').length,182);
 assert.equal(c.listar('talentos').length,188);
 assert.ok(c.filtrar('talentos',{texto:'resistencia'}).length>0,

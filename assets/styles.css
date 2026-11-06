@@ -1839,3 +1839,8 @@ html[data-tema=violeta]{
   .criaturas-comp-vinculo button{width:100%}
   .criaturas-comp-vinculos{padding:.65rem}
 }
+
+/* El tipo procede del índice editorial DRS, no es una regla adicional. */
+.criaturas-comp-clasificacion[hidden]{display:none!important}
+.criaturas-comp-filtros{grid-template-columns:2fr repeat(3,minmax(0,1fr))}
+@media(max-width:620px){.criaturas-comp-filtros{grid-template-columns:repeat(2,minmax(0,1fr))}}

@@ -25,7 +25,7 @@
         d.notas,d.segmentoOriginal,d.talentoRelacionado]);
     return JSON.stringify([d.nombre,d.descripcion,d.textoOriginal,d.referencia]);
   }
-  function crearCatalogo(fuentes,plantillas,relaciones,criaturasPersonales){
+  function crearCatalogo(fuentes,plantillas,relaciones,criaturasPersonales,indiceTalentos){
     fuentes=fuentes||[];
     plantillas=plantillas||{ataques:[],talentos:[]};
     relaciones=relaciones||{version:1,sistema:'nd20',fuenteId:'drs',relaciones:[]};
@@ -33,6 +33,20 @@
        relaciones.fuenteId!=='drs'||!Array.isArray(relaciones.relaciones))
       throw Error('La matriz de relaciones documentadas no es compatible.');
     var entradas=[],mapa=new Map(),ataques=new Map(),talentos=new Map(),conexiones=new Map();
+    var indice=new Map(),indexados=0;
+    if(indiceTalentos!==undefined&&indiceTalentos!==null){
+      if(indiceTalentos.version!==1||indiceTalentos.sistema!=='nd20'||
+         indiceTalentos.fuenteId!=='drs'||!Array.isArray(indiceTalentos.registros))
+        throw Error('Índice de Talentos DRS incompatible.');
+      indiceTalentos.registros.forEach(function(r){
+        if(!r||typeof r.criaturaId!=='string'||typeof r.nombre!=='string'||
+           typeof r.talentoId!=='string'||!r.talentoId.trim())
+          throw Error('Identidad documental de Talento incompleta.');
+        var k=r.criaturaId+'|'+slug(r.nombre);
+        if(indice.has(k))throw Error('Índice con Talento repetido: '+k);
+        indice.set(k,r);
+      });
+    }
     function poner(entrada){
       if(mapa.has(entrada.id))throw Error('Identificador de componente duplicado: '+entrada.id);
       mapa.set(entrada.id,entrada);entradas.push(entrada);
@@ -52,13 +66,24 @@
         });
         (r.ficha.talentos||[]).forEach(function(t){
           var id=f.info.id+':'+r.id+':talento:'+slug(t.nombre);
+          var meta=f.info.id==='drs'?indice.get(r.id+'|'+slug(t.nombre)):null;
+          if(indiceTalentos&&f.info.id==='drs'&&(!meta||meta.nombre!==t.nombre))
+            throw Error('Talento DRS sin correspondencia editorial: '+id);
+          if(meta)indexados++;
+          // El ID del catálogo existente permanece intacto: no rompe
+          // personajes guardados previamente ni exportaciones JSON v1.
           var e={id:id,tipo:'talentos',dato:modelo.talento(t),fuenteId:f.info.id,
             fuente:f.info.titulo,origen:f.info.origen,criatura:r.nombre,
-            criaturaId:r.id,oficial:true};
+            criaturaId:r.id,oficial:true,
+            talentoFuenteId:meta?meta.talentoId:null,
+            categoriaEditorial:meta?meta.categoriaEditorial:null,
+            subcategoriaEditorial:meta?meta.subcategoriaEditorial:null};
           poner(e);talentos.set(id,e);
         });
       });
     });
+    if(indiceTalentos&&indexados!==indice.size)
+      throw Error('El índice DRS incluye Talentos ajenos a las fichas publicadas.');
     ['ataques','talentos'].forEach(function(tipo){
       (plantillas[tipo]||[]).forEach(function(item){
         var dato=tipo==='ataques'?modelo.ataque(item):modelo.talento(item);
@@ -103,6 +128,8 @@
       var t=talentos.get(rel.talentoId);
       if(!a||!t||a.criaturaId!==t.criaturaId||a.fuenteId!==t.fuenteId)
         throw Error('Relación entre componentes inexistentes: '+rel.ataqueId);
+      if(indiceTalentos&&rel.talentoFuenteId!==t.talentoFuenteId)
+        throw Error('La relación no apunta al ID de Talento verificado: '+rel.ataqueId);
       if((rel.evidencia.campo==='ataques.talentoRelacionado'&&
           a.dato.talentoRelacionado!==rel.evidencia.valor)||
          (rel.evidencia.campo==='talentos.textoOriginal'&&
@@ -127,11 +154,13 @@
       return entradas.filter(function(e){
         if(e.tipo!==tipo||op.fuenteId&&e.fuenteId!==op.fuenteId||
            op.origen&&e.origen!==op.origen||
+           op.categoriaEditorial&&e.categoriaEditorial!==op.categoriaEditorial||
            op.soloRelacionados&&!relacionados(e.id).length)return false;
         if(!texto)return true;
         var d=e.dato;
         return sinAcentos([d.nombre,d.descripcion,d.notas,d.segmentoOriginal,
-          d.textoOriginal,d.danoLiteral,e.criatura,e.fuente,e.origen]
+          d.textoOriginal,d.danoLiteral,e.criatura,e.fuente,e.origen,
+          e.talentoFuenteId,e.categoriaEditorial,e.subcategoriaEditorial]
           .filter(Boolean).join(' ')).includes(texto);
       });
     }
