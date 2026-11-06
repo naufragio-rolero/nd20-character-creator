@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - UX adversarios (PR #110)
+      - name: Obtener snapshot DRS aprobado - acciones iconográficas (PR #112)
         uses: actions/checkout@v4
         with:
-          ref: c09cb302f8c1eb2c1cb8e1b75109b3999fa763e3
+          ref: 2018dabc517f65bbec2cb7d7aa46d39cd7dba258
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "c09cb302f8c1eb2c1cb8e1b75109b3999fa763e3"
-      # Snapshot aprobado para LIVE: PR #110, cinco CI verdes y DRS auditado con 106 adversarios; conserva KPI, ataques agrupados, iconos y PDFs A5,
+          test "$(git rev-parse HEAD)" = "2018dabc517f65bbec2cb7d7aa46d39cd7dba258"
+      # Snapshot aprobado para LIVE: PR #112, pruebas Chromium, Firefox y WebKit verdes, DRS auditado con 106 adversarios; conserva KPI, ataques agrupados, iconos y PDFs A5,
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -58,6 +58,10 @@ jobs:
           grep -Fq 'id="criaturas-ficha-retirar"' index.html
           grep -Fq 'Perfiles oficiales' index.html
           grep -Fq 'id="criaturas-ficha-pdf"' index.html
+          grep -Fq 'class="criaturas-acciones criaturas-ficha-acciones" role="group"' index.html
+          grep -Fq 'id="criaturas-ficha-editar" class="accion-icono' index.html
+          grep -Fq 'id="criaturas-ficha-pdf" class="accion-icono' index.html
+          grep -Fq 'criaturas-ficha-acciones button.accion-icono' assets/styles.css
           grep -Fq 'id="criaturas-ficha-ilustracion-archivo"' index.html
           grep -Fq 'id="criaturas-selector-subcategoria"' index.html
           grep -Fq 'id="criaturas-selector-fuente"' index.html
@@ -766,6 +770,19 @@ jobs:
               await page.locator('#criaturas-guardar').click();
               await page.locator('#criaturas-estado').getByText('guardado',{exact:false})
                 .waitFor({timeout:15000});
+              const barra=await page.locator('.criaturas-ficha-acciones').evaluate(el=>{
+                const botones=[...el.querySelectorAll('button')].filter(b=>!b.hidden&&
+                  getComputedStyle(b).display!=='none');
+                const cuadros=botones.map(b=>b.getBoundingClientRect());
+                return {cantidad:botones.length,iconos:botones.every(b=>b.querySelector('svg,.icono-accion')),
+                  etiquetas:botones.every(b=>b.getAttribute('aria-label')),
+                  diferencia:Math.max(...cuadros.map(r=>r.top))-Math.min(...cuadros.map(r=>r.top)),
+                  altura:el.getBoundingClientRect().height};
+              });
+              assert.equal(barra.cantidad,5,'Cinco acciones de adversario.');
+              assert.ok(barra.iconos&&barra.etiquetas,'Iconos accesibles.');
+              assert.ok(barra.diferencia<2&&barra.altura<80,
+                'Una sola fila compacta de iconos.');
               const guardado=await page.evaluate(()=>JSON.parse(
                 localStorage.getItem('forja-criaturas-usuario-v1')));
               assert.equal(guardado.criaturas.length,1);
@@ -794,6 +811,11 @@ jobs:
               await page.locator('.criaturas-cromo[data-oficial="true"]').click();
               assert.equal((await page.locator('#criaturas-ficha-titulo').innerText()).trim(),
                 'Goblin con tirachinas');
+              assert.equal(await page.locator('#criaturas-ficha-editar').getAttribute('aria-label'),
+                'Crear copia editable');
+              assert.equal(await page.locator('#criaturas-ficha-editar svg').count(),1);
+              assert.equal(await page.locator('#criaturas-ficha-eliminar').isHidden(),true);
+              assert.equal(await page.locator('#criaturas-ficha-retirar').isVisible(),true);
               assert.equal(await page.locator('.criaturas-metrica').count(),3);
               assert.equal(await page.locator('.criaturas-metrica-icono').count(),3);
               assert.equal((await page.locator('.criaturas-taxonomia').innerText()).trim(),
