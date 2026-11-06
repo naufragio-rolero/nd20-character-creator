@@ -856,6 +856,9 @@
     if(procedencia){
       articulo.appendChild(ele('p','criaturas-fuente',
         'Fuente: '+procedencia.fuente.titulo+' · '+procedencia.fuente.origen));
+    }else if(dato.origen && dato.origen.fuente){
+      articulo.appendChild(ele('p','criaturas-fuente',
+        'Fuente: '+dato.origen.fuente+' (copia personal)'));
     }else if(dato.origen && ['drs_oficial','drs_copia_personal'].includes(dato.origen.tipo)){
       articulo.appendChild(ele('p','criaturas-fuente',
         'Fuente: Naufragio d20 - Épica · DRS (copia personal)'));
@@ -1016,7 +1019,10 @@
       var datos=obtenerFichaConsulta(id);
       if(!datos)throw Error('La ficha ya no existe.');
       if(oficial){
-        datos.origen.tipo='drs_copia_personal';
+        var fuente=registroOficial(id).fuente;
+        datos.origen.tipo=fuente.id==='drs'?'drs_copia_personal':'fuente_copia_personal';
+        datos.origen.fuenteId=fuente.id;
+        datos.origen.fuente=fuente.titulo;
         id=biblioteca.guardar(datos);
         dibujarBiblioteca();
       }
