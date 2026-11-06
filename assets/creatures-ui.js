@@ -13,7 +13,8 @@
   if (!modelo || !importador || !apiBiblioteca) throw Error('Faltan módulos del Editor de criaturas Nd20.');
   var iniciado = false, biblioteca = null, idActual = null, idConsulta = null, ficha = null;
   var pendiente = null, cambios = false, secuenciaAtaques = 0;
-  var catalogoDRS = null, oficialesCargados = false, tipoPropio = null;
+  var catalogoDRS = null, oficialesSeleccionados = new Set(), tipoPropio = null;
+  var CLAVE_OFICIALES = 'forja-adversarios-oficiales-v1';
   var d = null;
   function $(id) { return d.getElementById(id); }
   function ele(nodo,clase,texto) {
@@ -257,6 +258,28 @@
     mostrarEstado('Nuevo borrador preparado. Aún no hay nada guardado.');
     abrirEditor();
   }
+  function cargarSeleccionOficial() {
+    try {
+      var raw=root.localStorage.getItem(CLAVE_OFICIALES);
+      var ids=raw?JSON.parse(raw):[];
+      if(!Array.isArray(ids)||ids.some(function(id){return typeof id!=='string';}))
+        throw Error('La selección guardada no es válida.');
+      oficialesSeleccionados=new Set(ids);
+    } catch(error) {
+      oficialesSeleccionados=new Set();
+      mostrarEstado('No se pudo recuperar la selección oficial: '+error.message,true);
+    }
+  }
+  function actualizarSeleccionOficial(id,anadir) {
+    var nueva=new Set(oficialesSeleccionados);
+    if(anadir)nueva.add(id);else nueva.delete(id);
+    // Escritura atómica: si falla el almacenamiento, no cambiar la mesa.
+    root.localStorage.setItem(CLAVE_OFICIALES,JSON.stringify(Array.from(nueva)));
+    oficialesSeleccionados=nueva;
+    dibujarBiblioteca();
+    $('criaturas-selector-estado').textContent=oficialesSeleccionados.size+
+      ' adversarios de Naufragio d20 - Épica en tu galería';
+  }
   function obtenerFichaConsulta(id){
     if(String(id).startsWith('drs-')){
       var registro=catalogoDRS && catalogoDRS.registros.find(function(r){
@@ -292,14 +315,65 @@
     });
     return datos;
   }
+  function actualizarSelectorDRS(){
+    if(!catalogoDRS)return;
+    var filtro=$('criaturas-selector-busqueda').value.trim().toLocaleLowerCase('es');
+    var categoria=$('criaturas-selector-categoria').value;
+    var lista=$('criaturas-selector-lista');
+    lista.textContent='';
+    var registros=catalogoDRS.registros.filter(function(r){
+      return (!categoria||r.ficha.categoria===categoria)&&
+        (!filtro||[r.nombre,r.ficha.categoria,r.ficha.subcategoria,r.ficha.subtipo]
+          .filter(Boolean).join(' ').toLocaleLowerCase('es').includes(filtro));
+    });
+    $('criaturas-selector-estado').textContent=registros.length+
+      ' resultados · '+oficialesSeleccionados.size+' en tu galería';
+    registros.forEach(function(registro){
+      var id='drs-'+registro.id;
+      var seleccionado=oficialesSeleccionados.has(id);
+      var fila=ele('div','criaturas-selector-fila');
+      var titulo=ele('div','criaturas-selector-identidad');
+      titulo.appendChild(ele('strong','',registro.nombre));
+      titulo.appendChild(ele('small','muted',(registro.ficha.categoria||'Sin categoría')+
+        ' · Nivel '+(registro.ficha.puntuaciones.nivel==null?
+          'no indicado':registro.ficha.puntuaciones.nivel)));
+      var boton=ele('button','',seleccionado?'Quitar':'Añadir');
+      boton.type='button';
+      boton.dataset.id=id;
+      boton.dataset.seleccionado=String(seleccionado);
+      boton.setAttribute('aria-label',(seleccionado?'Quitar':'Añadir')+' '+registro.nombre);
+      boton.addEventListener('click',function(){
+        try{
+          var anadir=boton.dataset.seleccionado!=='true';
+          actualizarSeleccionOficial(id,anadir);
+          boton.dataset.seleccionado=String(anadir);
+          boton.textContent=anadir?'Quitar':'Añadir';
+          boton.setAttribute('aria-label',(anadir?'Quitar ':'Añadir ')+registro.nombre);
+          mostrarEstado((anadir?'Añadido a':'Retirado de')+
+            ' tu galería. El catálogo original no se modifica.');
+        }catch(error){
+          mostrarEstado('No se pudo guardar la selección: '+error.message,true);
+        }
+      });
+      fila.append(titulo,boton);
+      lista.appendChild(fila);
+    });
+  }
   async function cargarAdversariosDRS(){
     try {
       await asegurarCatalogoDRS();
-      oficialesCargados=true;
-      dibujarBiblioteca();
-      mostrarEstado('106 adversarios oficiales del DRS disponibles para consulta; tu biblioteca sigue intacta.');
-      irA('criaturas-biblioteca');
-    }catch(error){mostrarEstado('No se pudo cargar el DRS: '+error.message,true);}
+      var categorias=Array.from(new Set(catalogoDRS.registros.map(function(r){
+        return r.ficha.categoria;
+      }).filter(Boolean))).sort(function(a,b){return a.localeCompare(b,'es');});
+      var select=$('criaturas-selector-categoria');
+      select.textContent='';
+      var todas=ele('option','', 'Todas');todas.value='';select.appendChild(todas);
+      categorias.forEach(function(c){
+        var op=ele('option','',c);op.value=c;select.appendChild(op);
+      });
+      actualizarSelectorDRS();
+      $('criaturas-selector-drs').showModal();
+    }catch(error){mostrarEstado('No se pudo abrir el catálogo: '+error.message,true);}
   }
   function catalogoEntradas(tipo) {
     var salida=[];
@@ -427,14 +501,16 @@
     }
     try {
       var propios=biblioteca.listar();
-      var registros=propios.concat(oficialesCargados&&catalogoDRS?
-        catalogoDRS.registros.map(function(r) {
+      var registros=propios.concat(catalogoDRS?
+        catalogoDRS.registros.filter(function(r){
+          return oficialesSeleccionados.has('drs-'+r.id);
+        }).map(function(r){
           return {id:'drs-'+r.id,nombre:r.nombre,categoria:r.ficha.categoria,
             nivel:r.ficha.puntuaciones.nivel,oficial:true};
         }):[]);
       $('criaturas-contador-menu').textContent=String(registros.length);
-      $('criaturas-cantidad').textContent=propios.length+' propios'+
-        (oficialesCargados?' · 106 DRS':'');
+      $('criaturas-cantidad').textContent=propios.length+' propios · '+
+        oficialesSeleccionados.size+' de Naufragio d20 - Épica';
       $('criaturas-exportar-biblioteca').disabled=propios.length===0;
       $('criaturas-exportar-pdf-coleccion').disabled=registros.length===0;
       if(!registros.length) {
@@ -451,14 +527,14 @@
           .normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,'-');
         item.setAttribute('aria-label','Consultar '+registro.nombre+
           ', '+(registro.nivel==null?'Nivel sin indicar':'Nivel '+registro.nivel)+
-          (registro.oficial?', ficha oficial DRS':''));
+          (registro.oficial?', Naufragio d20 - Épica':''));
         if(registro.oficial)item.dataset.oficial='true';
         var sigla=(registro.categoria||'?').split(/\s+/).map(function(p){return p[0];})
           .join('').slice(0,2).toLocaleUpperCase('es');
         item.appendChild(ele('span','criaturas-emblema',sigla));
         item.appendChild(ele('span','criaturas-nombre',registro.nombre));
         item.appendChild(ele('span','criaturas-nivel',
-          (registro.oficial?'DRS · ':'')+
+          (registro.oficial?'Épica · ':'')+
           (registro.nivel==null?'Nivel —':'Nivel '+registro.nivel)));
         lista.appendChild(item);
       });
@@ -479,7 +555,7 @@
     var metricas=ele('div','criaturas-metricas');
     [['Nivel',dato.puntuaciones.nivel],['Salud',dato.puntuaciones.salud],
       ['Moral',dato.puntuaciones.moral],['Movimiento',dato.puntuaciones.movimiento],
-      ['Protección',dato.puntuaciones.blindaje],['Tamaño',dato.puntuaciones.tamano]]
+      ['Tamaño',dato.puntuaciones.tamano]]
       .forEach(function(par) {
         if(par[1]==null)return;
         var caja=ele('div','criaturas-metrica');
@@ -488,27 +564,31 @@
         metricas.appendChild(caja);
       });
     articulo.appendChild(metricas);
+    function encabezadoApartado(nombre,icono){
+      var h=ele('h4','criaturas-titulo-apartado');
+      var simbolo=ele('span','criaturas-icono-apartado '+icono);
+      simbolo.setAttribute('aria-hidden','true');
+      h.appendChild(simbolo);
+      h.appendChild(d.createTextNode(nombre));
+      articulo.appendChild(h);
+    }
     if(dato.ataques.length){
-      articulo.appendChild(ele('h4','','Ataques'));
-      var lista=ele('ol');
+      encabezadoApartado('Ataques','criaturas-icono-ataque');
+      var lista=ele('ol','criaturas-ataques-consulta');
       dato.ataques.forEach(function(a,i){
-        var etiqueta=(i?a.conectorAnterior+' ':'')+(a.cantidad>1?a.cantidad+' ':'')+
-          a.nombre+(a.danoLiteral?' ('+a.danoLiteral+')':'');
+        var etiqueta=root.NaufragioFormatoAdversarios.ataque(a,i);
         var item=ele('li','',etiqueta);
         if(a.notas)item.appendChild(ele('p','muted',a.notas));
-        if(a.talentoRelacionado)item.appendChild(ele('p','muted',
-          'Habilidad relacionada: '+a.talentoRelacionado));
         lista.appendChild(item);
       });
       articulo.appendChild(lista);
     }
     if(dato.talentos.length){
-      articulo.appendChild(ele('h4','','Talentos y habilidades especiales'));
+      encabezadoApartado('Talentos y habilidades especiales','criaturas-icono-talento');
       dato.talentos.forEach(function(t){
         var bloque=ele('section','criaturas-habilidad');
         bloque.appendChild(ele('strong','',t.nombre));
         if(t.descripcion)bloque.appendChild(ele('p','',t.descripcion));
-        if(t.referencia)bloque.appendChild(ele('small','muted',t.referencia));
         articulo.appendChild(bloque);
       });
     }
@@ -524,12 +604,18 @@
       articulo.appendChild(ele('h4','','Fragmentos conservados'));
       articulo.appendChild(ele('p','',dato.camposNoInterpretados.join('\n')));
     }
+    if(dato.origen&&dato.origen.tipo!=='manual' &&
+       (dato.origen.tipo==='drs_oficial'||dato.origen.tipo==='drs_copia_personal' ||
+        String(id).startsWith('drs-'))){
+      articulo.appendChild(ele('p','criaturas-fuente','Fuente: Naufragio d20 DRS'));
+    }
     cont.appendChild(articulo);
     $('criaturas-ficha-titulo').textContent=dato.nombre+
-      (String(id).startsWith('drs-')?' · DRS oficial':'');
+      (String(id).startsWith('drs-')?' · Naufragio d20 - Épica':'');
     $('criaturas-ficha-editar').textContent=String(id).startsWith('drs-')?
       'Crear copia editable':'Editar';
     $('criaturas-ficha-eliminar').hidden=String(id).startsWith('drs-');
+    $('criaturas-ficha-retirar').hidden=!String(id).startsWith('drs-');
     $('criaturas-ficha-dialogo').showModal();
   }
   function irA(id) {
@@ -606,8 +692,10 @@
       var fichas=biblioteca?biblioteca.listar().map(function(x){
         return biblioteca.obtener(x.id);
       }):[];
-      if(oficialesCargados&&catalogoDRS)
-        fichas=fichas.concat(catalogoDRS.registros.map(function(r){
+      if(catalogoDRS)
+        fichas=fichas.concat(catalogoDRS.registros.filter(function(r){
+          return oficialesSeleccionados.has('drs-'+r.id);
+        }).map(function(r){
           return modelo.nuevaCriatura(r.ficha);
         }));
       if(!fichas.length)throw Error('La mesa de adversarios está vacía.');
@@ -842,6 +930,22 @@
       $('criaturas-elemento-propio').close();
     });
     $('criaturas-cargar-drs').addEventListener('click',cargarAdversariosDRS);
+    $('criaturas-selector-cerrar').addEventListener('click',function(){
+      $('criaturas-selector-drs').close();
+    });
+    // El campo de búsqueda se actualiza solo con 'input'. Escuchar también
+    // 'change' reconstruye los botones al perder el foco (mousedown/blur)
+    // y destruye el botón antes del click en Firefox/WebKit.
+    $('criaturas-selector-busqueda').addEventListener('input',actualizarSelectorDRS);
+    $('criaturas-selector-categoria').addEventListener('change',actualizarSelectorDRS);
+
+    $('criaturas-ficha-retirar').addEventListener('click',function(){
+      try{
+        actualizarSeleccionOficial(idConsulta,false);
+        $('criaturas-ficha-dialogo').close();
+        mostrarEstado('Adversario retirado de tu galería. Puedes volver a añadirlo.');
+      }catch(error){mostrarEstado(error.message,true);}
+    });
     // Cargar solo referencias en memoria: la mesa sigue vacía hasta que se solicite el DRS.
     asegurarCatalogoDRS().catch(function(){
       // La biblioteca local sigue siendo utilizable sin el catálogo de referencia.
@@ -904,8 +1008,12 @@
       event.preventDefault();
       event.returnValue='';
     });
+    cargarSeleccionOficial();
     renderizarFicha(modelo.nuevaCriatura(),null);
     dibujarBiblioteca();
+    // No llenar la galería automáticamente: solo leer el catálogo para búsquedas
+    // y recuperar los adversarios previamente seleccionados.
+    asegurarCatalogoDRS().then(dibujarBiblioteca).catch(function(){});
   }
   return {iniciar:iniciar,aEntero:aEntero};
 });
