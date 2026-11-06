@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - biblioteca de componentes (PR #116)
+      - name: Obtener snapshot DRS aprobado - Talentos cotejados con hoja (PR #118)
         uses: actions/checkout@v4
         with:
-          ref: 0983b319193adbe7955622d9b43a756475b8c73b
+          ref: d119c2ce6332d00583d5f3276035130fabb3e2bf
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "0983b319193adbe7955622d9b43a756475b8c73b"
-      # Snapshot aprobado para LIVE: PR #116, pruebas Chromium, Firefox y WebKit verdes, DRS auditado con 106 adversarios y 77 enlaces Ataque/Talento trazados; conserva KPI, ataques agrupados, iconos y PDFs A5,
+          test "$(git rev-parse HEAD)" = "d119c2ce6332d00583d5f3276035130fabb3e2bf"
+      # Snapshot aprobado para LIVE: PR #118, pruebas Chromium, Firefox y WebKit verdes, DRS auditado con 106 adversarios, 188 Talentos indexados y 77 enlaces Ataque/Talento trazados; conserva KPI, ataques agrupados, iconos y PDFs A5,
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -67,9 +67,11 @@ jobs:
           grep -Fq 'id="criaturas-selector-subcategoria"' index.html
           grep -Fq 'id="criaturas-selector-fuente"' index.html
           grep -Fq 'id="criaturas-componentes-dialogo"' index.html
+          grep -Fq 'id="criaturas-componentes-clasificacion"' index.html
           grep -Fq 'id="criaturas-explorar-ataques"' index.html
           grep -Fq 'id="criaturas-explorar-talentos"' index.html
           node tests/criaturas-componentes.js
+          node -e "const m=require('./data/adversarios-talentos-indice-drs.json');if(m.registros.length!==188||new Set(m.registros.map(x=>x.criaturaId+'|'+x.talentoId)).size!==188)process.exit(1)"
           node -e "const m=require('./data/adversarios-relaciones-drs.json');if(m.version!==1||m.sistema!=='nd20'||m.fuenteId!=='drs'||m.relaciones.length!==77)process.exit(1)"
           node -e "const m=require('./data/adversarios-fuentes.json');if(m.version!==1||m.sistema!=='nd20'||m.fuentes.length!==1||m.fuentes[0].id!=='drs'||m.fuentes[0].total!==106)process.exit(1)"
           node -e "const m=require('./assets/adversarios-iconos.json');if(m.version!==1||!m.iconos||Array.isArray(m.iconos))process.exit(1)"
@@ -408,6 +410,7 @@ jobs:
           grep -Fq 'id="criaturas-ficha-retirar"' /tmp/forja-live.html
           grep -Fq 'Perfiles oficiales' /tmp/forja-live.html
           grep -Fq 'id="criaturas-componentes-dialogo"' /tmp/forja-live.html
+          grep -Fq 'id="criaturas-componentes-clasificacion"' /tmp/forja-live.html
           grep -Fq 'id="criaturas-explorar-ataques"' /tmp/forja-live.html
           grep -Fq 'id="criaturas-explorar-talentos"' /tmp/forja-live.html
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/adversarios-iconos.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-iconos-adversarios.json
@@ -417,7 +420,10 @@ jobs:
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/adversarios-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-adversarios.json
           node -e "const d=require('/tmp/forja-adversarios.json');if(d.fuente!=='Naufragio d20 DRS'||d.registros.length!==106||d.registros.some(x=>x.fuente!=='Naufragio d20 DRS'||x.ficha.puntuaciones.blindaje<0))process.exit(1)"
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/adversarios-relaciones-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-relaciones.json
-          node -e "const m=require('/tmp/forja-relaciones.json');if(m.version!==1||m.sistema!=='nd20'||m.fuenteId!=='drs'||m.relaciones.length!==77)process.exit(1)"
+          node -e "const m=require('/tmp/forja-relaciones.json');if(m.version!==1||m.sistema!=='nd20'||m.fuenteId!=='drs'||m.relaciones.length!==77||m.relaciones.some(r=>!r.talentoFuenteId))process.exit(1)"
+          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/adversarios-talentos-indice-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-talentos-indice.json
+          node -e "const m=require('/tmp/forja-talentos-indice.json');if(m.version!==1||m.fuenteId!=='drs'||m.registros.length!==188||new Set(m.registros.map(x=>x.criaturaId+'|'+x.talentoId)).size!==188)process.exit(1)"
+          grep -Fq 'data/adversarios-talentos-indice-drs.json' /tmp/forja-creatures-ui.js
           grep -Fq 'root.NaufragioCriaturasUI = api;' /tmp/forja-creatures-ui.js
           grep -Fq 'NaufragioComponentesCriaturas' /tmp/forja-creatures-components.js
           for logo in sistema-nd20-faep.webp sistema-dh.webp; do
