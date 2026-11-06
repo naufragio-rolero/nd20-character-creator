@@ -274,7 +274,7 @@ const svgMarca=fs.readFileSync(path.join(salida,'assets/branding/naufragio.svg')
 assert.equal(crypto.createHash('sha256').update(svgMarca).digest('hex'),
   '9389af421bd7006089dabe72c94834dabe9c3184dcbc595473b4b88e6c295874',
   'El paquete sirve el SVG oficial íntegro del kit de prensa.');
-assert.ok(!/<(?:script|foreignObject|iframe)\\b/i.test(svgMarca.toString('utf8')));
+assert.ok(!/<(?:script|foreignObject|iframe)\b/i.test(svgMarca.toString('utf8')));
 
 assert.ok(!html.includes('Doncella de la Espada'));
 assert.ok(html.includes('class="juegos-compactos juegos-publicos"'));
