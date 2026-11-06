@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - Adversarios y Seguidores (PR #103)
+      - name: Obtener snapshot DRS aprobado - Selección de Adversarios Épica (PR #105)
         uses: actions/checkout@v4
         with:
-          ref: eaf9e91bad02b6fd452d2bd63147e9186f448515
+          ref: ceaff52fcb940560fde13a401c0109dd1d7ec338
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "eaf9e91bad02b6fd452d2bd63147e9186f448515"
-      # Snapshot aprobado para LIVE: PR #103, con Adversarios, Seguidores, Matriz modal, 40 SVG, dos logos WebP y PDFs A5,
+          test "$(git rev-parse HEAD)" = "ceaff52fcb940560fde13a401c0109dd1d7ec338"
+      # Snapshot aprobado para LIVE: PR #105, selector reversible de Adversarios Épica, Seguidores, Matriz, 40 SVG y PDFs A5,
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -48,12 +48,15 @@ jobs:
           test ! -e assets/icons-forja.svg
           grep -Fq 'id="tab-criaturas"' index.html
           grep -Fq 'id="editor-criaturas"' index.html
-          for modulo in creatures.js creatures-import.js creatures-library.js creatures-ui.js adversarios-pdf.js; do
+          for modulo in creatures.js creatures-import.js creatures-library.js adversarios-formato.js creatures-ui.js adversarios-pdf.js; do
             test -s "assets/${modulo}"
             grep -Fq "assets/${modulo}" index.html
           done
           grep -Fq '>Adversarios</button>' index.html
           grep -Fq 'id="criaturas-cargar-drs"' index.html
+          grep -Fq 'id="criaturas-selector-drs"' index.html
+          grep -Fq 'id="criaturas-ficha-retirar"' index.html
+          grep -Fq 'Naufragio d20 - Épica' index.html
           grep -Fq 'id="criaturas-ficha-pdf"' index.html
           node -e "const c=require('./data/adversarios-drs.json');if(c.fuente!=='Naufragio d20 DRS'||c.registros.length!==106||c.registros.some(r=>r.fuente!=='Naufragio d20 DRS'))process.exit(1)"
           test "$(find assets/icons -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 40
@@ -376,12 +379,15 @@ jobs:
           test "$correcto" = true
           grep -Fq 'id="tab-criaturas"' /tmp/forja-live.html
           grep -Fq 'id="editor-criaturas"' /tmp/forja-live.html
-          for modulo in creatures.js creatures-import.js creatures-library.js creatures-ui.js adversarios-pdf.js; do
+          for modulo in creatures.js creatures-import.js creatures-library.js adversarios-formato.js creatures-ui.js adversarios-pdf.js; do
             curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/${modulo}?forja_release=${GITHUB_RUN_ID}" -o "/tmp/forja-${modulo}"
             test -s "/tmp/forja-${modulo}"
           done
           grep -Fq '>Adversarios</button>' /tmp/forja-live.html
           grep -Fq 'id="criaturas-cargar-drs"' /tmp/forja-live.html
+          grep -Fq 'id="criaturas-selector-drs"' /tmp/forja-live.html
+          grep -Fq 'id="criaturas-ficha-retirar"' /tmp/forja-live.html
+          grep -Fq 'Naufragio d20 - Épica' /tmp/forja-live.html
           curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/adversarios-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-adversarios.json
           node -e "const d=require('/tmp/forja-adversarios.json');if(d.fuente!=='Naufragio d20 DRS'||d.registros.length!==106||d.registros.some(x=>x.fuente!=='Naufragio d20 DRS'||x.ficha.puntuaciones.blindaje<0))process.exit(1)"
           grep -Fq 'root.NaufragioCriaturasUI = api;' /tmp/forja-creatures-ui.js
@@ -761,13 +767,44 @@ jobs:
                 .waitFor({timeout:45000});
               await page.locator('#tab-criaturas').click();
               assert.equal(await page.locator('#criaturas-lista .criaturas-cromo').count(),1);
+              // El catálogo es optativo: abrirlo no debe cargar ninguna ficha.
               await page.locator('#criaturas-cargar-drs').click();
-              await page.waitForFunction(()=>document.querySelectorAll(
-                '#criaturas-lista .criaturas-cromo').length===107,undefined,{timeout:45000});
-              assert.equal(await page.locator('.criaturas-cromo[data-oficial="true"]').count(),106);
+              assert.equal(await page.locator('#criaturas-selector-drs').evaluate(x=>x.open),true);
+              assert.equal(await page.locator('.criaturas-selector-fila').count(),106);
+              assert.equal(await page.locator('.criaturas-cromo').count(),1);
+              await page.locator('#criaturas-selector-busqueda').fill('Goblin con tirachinas');
+              assert.equal(await page.locator('.criaturas-selector-fila').count(),1);
+              await page.locator('.criaturas-selector-fila button').click();
+              assert.equal(await page.locator('.criaturas-cromo[data-oficial="true"]').count(),1);
+              await page.locator('#criaturas-selector-cerrar').click();
+              await page.locator('.criaturas-cromo[data-oficial="true"]').click();
+              assert.match(await page.locator('#criaturas-ficha-titulo').innerText(),
+                /Naufragio d20 - Épica/);
+              assert.equal(await page.locator('.criaturas-metrica').count(),3);
+              assert.match(await page.locator('#criaturas-ficha-contenido').innerText(),
+                /Chinazo - 6 de daño/);
+              assert.doesNotMatch(await page.locator('#criaturas-ficha-contenido').innerText(),
+                /Protección|Habilidad relacionada|chinazo_51/);
+              assert.equal(await page.locator('.criaturas-icono-apartado').count(),2);
+              await page.locator('#criaturas-ficha-retirar').click();
+              assert.equal(await page.locator('.criaturas-cromo').count(),1);
+              await page.reload({waitUntil:'domcontentloaded'});
+              await page.locator('#estado').getByText('Datos listos',{exact:false})
+                .waitFor({timeout:45000});
+              await page.locator('#tab-criaturas').click();
+              assert.equal(await page.locator('.criaturas-cromo').count(),1,
+                'La retirada de la ficha DRS persiste al recargar.');
+              await page.locator('#tab-herramientas').click();
+              const orden=await page.evaluate(()=>[
+                document.querySelector('#resumen-seguidores').compareDocumentPosition(
+                  document.querySelector('#configurar-seguidores'))&Node.DOCUMENT_POSITION_FOLLOWING,
+                document.querySelector('#configurar-seguidores').compareDocumentPosition(
+                  document.querySelector('#generar-seguidor'))&Node.DOCUMENT_POSITION_FOLLOWING
+              ]);
+              assert.deepEqual(orden,[4,4],'Configurar seguidores está entre resumen y generación.');
               assert.deepEqual(errores,[],nombre+': errores JS en LIVE');
               console.log('OK LIVE '+nombre+
-                ': Adversarios, guardado/recarga, DRS oficial y PDF individual');
+                ': Adversarios Épica, selección reversible, Salud, PDF y Seguidores');
             } finally { await browser.close(); }
           }
           (async()=>{
