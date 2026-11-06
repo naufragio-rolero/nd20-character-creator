@@ -84,7 +84,7 @@ if(manifiesto){
     alertas.push('Manifiesto SVG de Adversarios incompatible.');
   else for(const [clave,nombre] of Object.entries(manifiesto.iconos)){
     if(!/^(?:drs-[a-z0-9_]+|nombre-[a-z0-9-]+)$/.test(clave)||
-       typeof nombre!=='string'||!/^[a-z0-9][a-z0-9_-]*\\.svg$/.test(nombre))
+       typeof nombre!=='string'||!/^[a-z0-9][a-z0-9_-]*\.svg$/.test(nombre))
       alertas.push('Referencia inválida de icono de Adversarios: '+clave);
     else if(!fs.existsSync(path.join(raiz,'assets/adversarios/iconos',nombre)))
       alertas.push('Falta SVG del manifiesto de Adversarios: '+nombre);
