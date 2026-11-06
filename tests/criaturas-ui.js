@@ -118,4 +118,17 @@ for(const id of ['criaturas-selector-subcategoria','criaturas-selector-nivel-min
 assert.match(ui,/convertirIlustracion/);
 assert.match(ui,/registrosOficiales/);
 assert.match(css,/aspect-ratio:16\/9/);
+// El pie de consulta utiliza los mismos iconos SVG accesibles que las
+// acciones de Personajes: cinco botones visibles, nunca una fila principal.
+const actions=html.match(/<div class="criaturas-acciones criaturas-ficha-acciones"[\s\S]*?<\/div>/);
+assert.ok(actions,'Existe la barra de consulta de adversarios.');
+for(const id of ['editar','duplicar','json','pdf','eliminar','retirar']){
+  assert.match(actions[0],new RegExp('id="criaturas-ficha-'+id+'"[^>]*class="accion-icono'));
+}
+assert.match(actions[0],/role="group" aria-label="Acciones de la ficha de adversario"/);
+assert.match(actions[0],/class="icono-accion accion-pdf"/);
+assert.doesNotMatch(actions[0],/class="principal"|>Editar<\/button>|>Exportar JSON<\/button>/);
+assert.match(css,/\.dialogo-ficha-adversario \.criaturas-ficha-acciones button\[hidden\]\{display:none!important\}/);
+assert.match(css,/\.criaturas-ficha-acciones\{[\s\S]*?flex-wrap:nowrap/);
+assert.match(ui,/setAttribute\('aria-label',tituloEdicion\)/);
 console.log('OK · UI criaturas: panel, controles y lista blanca DRS.');
