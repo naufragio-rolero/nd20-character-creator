@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - cabecera y Acciones (PR #120)
+      - name: Obtener snapshot DRS aprobado - UX de Adversarios (PR #122)
         uses: actions/checkout@v4
         with:
-          ref: 72bf5438880e6032e073e2cd46714d60d35dfa01
+          ref: 012918f49a1834db544d6233b6c81cab6a6ff502
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "72bf5438880e6032e073e2cd46714d60d35dfa01"
-      # Snapshot aprobado para LIVE: PR #120, pruebas Chromium, Firefox y WebKit verdes; SVG de marca oficial, Acciones y Talentos y DRS con 106 adversarios, 188 Talentos y 77 relaciones; conserva KPI, ataques agrupados, iconos y PDFs A5,
+          test "$(git rev-parse HEAD)" = "012918f49a1834db544d6233b6c81cab6a6ff502"
+      # Snapshot aprobado para LIVE: PR #122, sobre la base de PR #120; controles 16:9, navegación de adversarios, secciones y acciones compactas. Candidato Chromium/Firefox/WebKit y DRS validado. Conserva KPI, ataques agrupados, iconos y PDFs A5,
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
