@@ -5,7 +5,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const raiz=path.resolve(__dirname,'..');
 const leer=x=>fs.readFileSync(path.join(raiz,x),'utf8');
-const html=leer('index.html'),app=leer('assets/app.js');
+const html=leer('index.html'),app=leer('assets/app.js'),uiAdversarios=leer('assets/creatures-ui.js');
 const estilos=leer('assets/styles.css');
 assert.match(html,/<h2 id="titulo-resultados" tabindex="-1">Personajes y seguidores<\/h2>/);
 assert.match(html,/<h2 id="titulo-editor-criaturas" tabindex="-1">Adversarios<\/h2>/);
@@ -23,4 +23,15 @@ for(const id of ['estado','criaturas-estado','borrar','exportar','criaturas-expo
   'criaturas-exportar-pdf-coleccion','criaturas-cantidad']){
  assert.ok(html.includes('id="'+id+'"'),id+' conserva su control o estado');
 }
-console.log('OK: encabezados normalizados sin perder contadores, avisos ni controles.');
+assert.match(html,/<h3 id="titulo-resumen-creacion">Opciones actuales<\/h3>/);
+assert.match(html,/<h4 id="titulo-resumen-seguidores">Opciones actuales<\/h4>/);
+assert.match(html,/<h3 id="titulo-resumen-adversarios">Colección actual<\/h3>/);
+assert.match(html,/id="criaturas-nueva-panel" class="configurar-creacion principal">Crear adversario<\/button>/);
+assert.match(html,/id="generar-seguidor" type="button" class="principal">Generar seguidor<\/button>/);
+assert.match(html,/id="criaturas-ir-importar">Importar desde texto<\/button>/);
+assert.match(html,/id="criaturas-exportar-biblioteca" disabled>Exportar fichas propias \(JSON\)<\/button>/);
+assert.match(estilos,/\.pestanas-panel\{display:grid;grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
+assert.match(estilos,/\.resumen-creacion :is\(h3,h4\)/);
+assert.doesNotMatch(uiAdversarios,/Guardar criatura/);
+assert.doesNotMatch(html,/Seguidores preparados|Bestiario preparado|Creación preparada|Pegar ficha de adversario/);
+console.log('OK: encabezados, nomenclatura y acciones coherentes en las tres secciones.');

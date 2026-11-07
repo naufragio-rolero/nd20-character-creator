@@ -403,8 +403,8 @@
     $('criaturas-titulo-edicion').textContent=idActual?
       'Editar · '+(ficha.nombre||'Adversario'):'Nuevo adversario';
     $('criaturas-edicion-nota').textContent=idActual?
-      'Guardada en tu biblioteca. Los cambios no se aplican hasta pulsar «Guardar criatura».':
-      'Borrador no guardado. Los campos desconocidos pueden quedar sin indicar.';
+      'Los cambios se aplicarán al pulsar «Guardar adversario».':
+      'Los campos sin datos pueden quedar vacíos.';
     cambios=false;
     avisarRevision();
   }
@@ -420,7 +420,7 @@
   function nueva() {
     if(!permitirDescartar()) return;
     renderizarFicha(modelo.nuevaCriatura(),null);
-    mostrarEstado('Nuevo borrador preparado. Aún no hay nada guardado.');
+    mostrarEstado('');
     abrirEditor();
   }
   function cargarSeleccionOficial() {
@@ -1093,7 +1093,7 @@
       $('criaturas-exportar-pdf-coleccion').disabled=registros.length===0;
       if(!registros.length) {
         lista.appendChild(ele('p','muted vacio-adversarios',
-          'Tu mesa está vacía. Crea un adversario o elige uno desde «Perfiles oficiales».'));
+          'Crea un adversario o elige un perfil oficial para empezar la colección.'));
         return;
       }
       registros.forEach(function(registro) {
@@ -1399,7 +1399,7 @@
     $('criaturas-vista-previa').hidden=true;
     pendiente=null;
     avisosEn('criaturas-advertencias-formulario',resultado.errores,resultado.advertencias);
-    mostrarEstado('Ficha trasladada al editor. Revisa los campos y pulsa «Guardar criatura» cuando esté lista.');
+    mostrarEstado('Ficha trasladada al editor. Revisa los campos y pulsa «Guardar adversario».');
     irA('criaturas-edicion');
   }
   function recuperar(id) {

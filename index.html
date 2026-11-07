@@ -86,11 +86,9 @@
         <p>No hace falta configurar todo. Puedes dejar <strong>Nivel 1</strong>,
           <strong>Ocupación</strong> y <strong>Especie</strong> en sus valores iniciales
           y pulsar <strong>Generar personaje</strong>.</p>
-        <p>Las opciones actuales se resumen debajo. Pulsa <strong>Configurar creación</strong>
-          para modificarlas, o genera directamente con los valores mostrados.</p>
       </section>
       <section class="resumen-creacion" aria-labelledby="titulo-resumen-creacion">
-        <h3 id="titulo-resumen-creacion">Creación preparada</h3>
+        <h3 id="titulo-resumen-creacion">Opciones actuales</h3>
         <dl>
           <div><dt>Sistema</dt><dd id="resumen-sistema">Naufragio d20 · Fantasía Épica</dd></div>
           <div><dt>Nivel</dt><dd id="resumen-nivel">Nivel 1</dd></div>
@@ -119,7 +117,7 @@
           <h3 id="titulo-dialogo-configuracion">Configurar creación</h3>
           <button id="cerrar-configuracion" type="button" aria-label="Cerrar configuración">✕</button>
         </div>
-        <p class="ayuda-configuracion">Ajusta las opciones de la siguiente generación. Los cambios se reflejan en el resumen de la Forja.</p>
+        <p class="ayuda-configuracion">Estos ajustes se aplicarán a la siguiente generación.</p>
         <p id="aviso-configuracion" class="aviso-validacion" role="alert" aria-live="assertive" tabindex="-1"></p>
       <form id="configuracion">
         <div class="fila-campos fila-niveles">
@@ -199,8 +197,7 @@
         <div class="campo">
           <label for="semilla">Semilla de reproducción</label>
           <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Escribe o pega una semilla para repetir una creación">
-          <small id="ayuda-semilla">Azar nuevo en cada generación. La semilla usada se puede copiar desde los resultados.</small>
-          <small>La semilla y la configuración reproducen la generación original, pero no guardan las ediciones posteriores de la ficha.</small>
+          <small id="ayuda-semilla">Sin una semilla fija se usa azar nuevo. Para repetir el resultado necesitas la semilla y la configuración; no se conservan las ediciones posteriores.</small>
         </div>
         <details class="configuracion-avanzada" id="recuperar-reproduccion">
           <summary>Recuperar configuración de reproducción</summary>
@@ -256,7 +253,7 @@
       <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
         <section id="resumen-seguidores" class="resumen-creacion resumen-seguidores"
           aria-labelledby="titulo-resumen-seguidores">
-          <h4 id="titulo-resumen-seguidores">Seguidores preparados</h4>
+          <h4 id="titulo-resumen-seguidores">Opciones actuales</h4>
           <dl>
             <div><dt>Nivel</dt><dd id="resumen-seguidor-nivel">Nivel 1</dd></div>
             <div><dt>Profesión</dt><dd id="resumen-seguidor-profesion">Aleatoria (d12)</dd></div>
@@ -272,26 +269,25 @@
           Configurar seguidores
         </button>
         <div class="botonera">
-          <button id="generar-seguidor" type="button">Generar seguidor</button>
+          <button id="generar-seguidor" type="button" class="principal">Generar seguidor</button>
         </div>
-        <small>Seguidores disponibles para Naufragio d20 DRS y Dungeon Hack, con reglas independientes.</small>
       </section>
       <section id="panel-criaturas" role="tabpanel" aria-labelledby="tab-criaturas" class="herramientas" hidden>
         <section class="resumen-creacion resumen-adversarios" aria-labelledby="titulo-resumen-adversarios">
-          <h3 id="titulo-resumen-adversarios">Bestiario preparado</h3>
+          <h3 id="titulo-resumen-adversarios">Colección actual</h3>
           <dl>
             <div><dt>Sistema</dt><dd>Naufragio d20 · Fantasía Épica</dd></div>
             <div><dt>Adversarios</dt><dd id="criaturas-contador-menu">0</dd></div>
             <div><dt>Almacenamiento</dt><dd>Este navegador</dd></div>
           </dl>
         </section>
-        <button type="button" id="criaturas-nueva-panel" class="configurar-creacion"><span class="icono-svg" aria-hidden="true"></span>Añadir adversario</button>
+        <button type="button" id="criaturas-nueva-panel" class="configurar-creacion principal">Crear adversario</button>
         <div class="botonera">
-          <button type="button" id="criaturas-ir-importar">Pegar ficha de adversario</button>
+          <button type="button" id="criaturas-ir-importar">Importar desde texto</button>
           <button type="button" id="criaturas-cargar-drs" aria-haspopup="dialog"
             aria-controls="criaturas-selector-drs">Perfiles oficiales</button>
         </div>
-        <small>El bestiario es local. No se automatizan combates ni tiradas. Exporta una copia JSON para conservar tus creaciones.</small>
+        <small>Las fichas propias se guardan en este navegador y pueden exportarse en JSON.</small>
       </section>
     </aside>
     <dialog id="dialogo-seguidores" class="dialogo-compras dialogo-seguidores"
@@ -299,7 +295,7 @@
       <div class="cabecera-compras">
         <div>
           <h3 id="titulo-seguidores">Configurar seguidores · Naufragio d20</h3>
-          <p class="muted">Dos Atributos: Ataque y Defensa. Elige un rango de Nivel, un nombre y una profesión.</p>
+          <p class="muted">Elige Nivel, nombre y profesión. Ataque y Defensa se calculan según el sistema seleccionado.</p>
         </div>
         <button type="button" id="cerrar-seguidores" class="cerrar-rejilla"
           aria-label="Cerrar configuración de seguidores">✕</button>
@@ -335,7 +331,6 @@
           <select id="tipo-seguidor-drs"><option value="">Profesión aleatoria (d12)</option></select>
           <div id="profesiones-seguidores" class="profesiones-seguidores"
             role="group" aria-label="Profesiones de los seguidores"></div>
-          <small>Los doce oficios conservan sus valores de Moral, precio diario y dado de Salud.</small>
         </div>
         <p id="aviso-seguidores" class="ayuda" role="status" aria-live="polite"></p>
         <div class="botonera">
@@ -586,16 +581,16 @@
       </header>
       <p id="criaturas-estado" class="estado" role="status" aria-live="polite"></p>
       <section class="criaturas-bloque" id="criaturas-importacion" hidden aria-labelledby="criaturas-titulo-importacion">
-        <div class="criaturas-subcabecera"><h3 id="criaturas-titulo-importacion">Pegar una ficha</h3><button type="button" id="criaturas-cerrar-importacion">Cerrar</button></div>
-        <p class="muted">Pega el texto de un adversario Nd20. Analizaremos sus puntuaciones, Acciones y Talentos; nada se guardará hasta que revises el borrador.</p>
+        <div class="criaturas-subcabecera"><h3 id="criaturas-titulo-importacion">Importar desde texto</h3><button type="button" id="criaturas-cerrar-importacion">Cerrar</button></div>
+        <p class="muted">Pega una ficha de Naufragio d20. Revisa el desglose antes de abrir el editor; no se guarda automáticamente.</p>
         <label for="criaturas-texto">Texto completo del adversario</label>
         <textarea id="criaturas-texto" rows="6" spellcheck="false" placeholder="Nombre del adversario&#10;Bestia de Nivel 4 [Moral 8], Salud 20&#10;Ataques: 2 garras (6) o mordisco (9)"></textarea>
         <div class="criaturas-acciones">
           <button type="button" id="criaturas-analizar" class="principal">Analizar ficha pegada</button>
         </div>
         <section id="criaturas-vista-previa" aria-labelledby="criaturas-titulo-previa" hidden>
-          <h4 id="criaturas-titulo-previa">Vista previa del desglose</h4>
-          <p class="muted">Los campos marcados como dudosos requieren revisión. Aceptar esta vista previa no guarda todavía el adversario.</p>
+          <h4 id="criaturas-titulo-previa">Revisar desglose</h4>
+          <p class="muted">Revisa los campos dudosos antes de pasar al editor.</p>
           <pre id="criaturas-resumen-previa"></pre>
           <div id="criaturas-advertencias-previa" class="criaturas-avisos" aria-live="polite"></div>
           <div class="criaturas-acciones">
@@ -612,22 +607,22 @@
         <div class="campo criaturas-sistema"><label for="criaturas-sistema">Sistema del bestiario</label>
           <select id="criaturas-sistema"><option value="adversarios-drs">Naufragio d20 · Fantasía Épica</option></select></div>
         <div class="criaturas-acciones">
-          <button type="button" id="criaturas-exportar-biblioteca" disabled>Exportar colección JSON</button>
-          <button type="button" id="criaturas-exportar-pdf-coleccion" disabled>Exportar colección PDF</button>
+          <button type="button" id="criaturas-exportar-biblioteca" disabled>Exportar fichas propias (JSON)</button>
+          <button type="button" id="criaturas-exportar-pdf-coleccion" disabled>Exportar colección (PDF)</button>
           <label class="criaturas-archivo" for="criaturas-archivo-json">Importar JSON
             <input type="file" id="criaturas-archivo-json" accept=".json,application/json">
           </label>
         </div>
-        <p class="criaturas-ayuda-json">La importación añade adversarios sin sobrescribir los existentes. Los registros se validan antes de guardarlos.</p>
+        <p class="criaturas-ayuda-json">Los archivos JSON se validan antes de importarse y no sobrescriben fichas existentes.</p>
         <div id="criaturas-lista" class="criaturas-lista" aria-live="polite">
-          <p class="muted">Todavía no has guardado adversarios.</p>
+          <p class="muted">Crea un adversario o elige un perfil oficial para empezar la colección.</p>
         </div>
       </section>
       <dialog class="criaturas-bloque dialogo-adversario" id="criaturas-edicion" aria-labelledby="criaturas-titulo-edicion">
         <div class="criaturas-edicion-cabecera">
           <div>
             <h3 id="criaturas-titulo-edicion">Nuevo adversario</h3>
-            <p id="criaturas-edicion-nota" class="muted">Los campos desconocidos pueden quedar sin indicar.</p>
+            <p id="criaturas-edicion-nota" class="muted">Los campos sin datos pueden quedar vacíos.</p>
           </div>
           <div class="criaturas-acciones"><button type="button" id="criaturas-nueva">Nuevo adversario</button><button type="button" id="criaturas-cerrar-editor" class="cerrar-rejilla" aria-label="Cerrar editor de adversarios">✕</button></div>
         </div>
@@ -684,7 +679,7 @@
           </section>
           <section class="criaturas-editor-seccion" aria-labelledby="criaturas-puntuaciones-titulo">
           <h4 id="criaturas-puntuaciones-titulo">Puntuaciones</h4>
-          <p class="muted">Se guardan exactamente los valores indicados. Un campo vacío significa que no está documentado.</p>
+          <p class="muted">Deja vacíos los valores no documentados.</p>
           <div class="criaturas-campos criaturas-numeros">
             <div class="campo"><label for="criaturas-nivel">Nivel</label><input id="criaturas-nivel" type="number" min="0" max="100" step="1"></div>
             <div class="campo"><label for="criaturas-moral">Moral</label><input id="criaturas-moral" type="number" min="0" step="1"></div>
@@ -716,7 +711,7 @@
             <h4>Talentos y habilidades especiales</h4>
             <button type="button" id="criaturas-anadir-talento">Añadir Talento</button>
           </div>
-          <p class="muted">Los Talentos describen efectos y propiedades. Ningún efecto se inventa a partir del nombre.</p>
+          <p class="muted">Introduce solo efectos documentados.</p>
           <div class="campo"><label for="criaturas-buscar-talento">Buscar Talento o habilidad especial documentada</label>
             <input id="criaturas-buscar-talento" type="search" autocomplete="off" placeholder="Busca por nombre de habilidad…"></div>
           <div id="criaturas-coincidencias-talentos" class="criaturas-coincidencias" aria-live="polite"></div>
@@ -828,7 +823,7 @@
         <div class="cabecera-compras">
           <div>
             <h3 id="criaturas-selector-titulo">Perfiles oficiales</h3>
-            <p class="muted">Explora las fuentes publicadas y añade los perfiles que necesites a tu mesa. Las fichas originales no se alteran.</p>
+            <p class="muted">Selecciona perfiles publicados para incorporarlos a la colección. Los originales no se modifican.</p>
           </div>
           <button id="criaturas-selector-cerrar" type="button" class="cerrar-rejilla"
             aria-label="Cerrar selector de adversarios">✕</button>
