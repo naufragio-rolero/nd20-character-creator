@@ -219,7 +219,7 @@ async function probar(nombre,tipo,url){
       name:'prueba.png',mimeType:'image/png',
       buffer:Buffer.from(png.split(',')[1],'base64')
     });
-    assert.equal(await page.locator('#criaturas-imagen-ajuste').evaluate(x=>x.open),true);
+    await page.locator('#criaturas-imagen-ajuste').waitFor({state:'visible'});
     assert.equal(await page.locator('#criaturas-imagen-lienzo').evaluate(x=>x.width),960);
     await page.locator('#criaturas-imagen-encajar').click();
     assert.equal(await page.locator('#criaturas-imagen-encajar').getAttribute('aria-pressed'),'true');
@@ -466,7 +466,7 @@ async function probar(nombre,tipo,url){
         name:'goblin.png',mimeType:'image/png',
         buffer:Buffer.from(png.split(',')[1],'base64')
       });
-      assert.equal(await segunda.locator('#criaturas-imagen-ajuste').evaluate(x=>x.open),true);
+      await segunda.locator('#criaturas-imagen-ajuste').waitFor({state:'visible'});
       await segunda.locator('#criaturas-imagen-cancelar').click();
       assert.equal(await segunda.locator('.criaturas-ficha-imagen').count(),0,
         'Cancelar no modifica la imagen del perfil oficial.');
