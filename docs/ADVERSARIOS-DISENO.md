@@ -69,15 +69,13 @@ en **una sola opción**; la coma conserva su puntuación. Las cantidades,
 expresiones de daño, notas, Talentos y conectores originales continúan intactos
 en la ficha JSON, y web y PDF A5 consumen la misma función de formato.
 
-Los cromos muestran un **cuadrado negro de 56 × 56 píxeles, 1:1**, por defecto,
-sin letras ni emblemas inventados. Las futuras ilustraciones SVG se guardan en
-`assets/adversarios/iconos/` y se asignan mediante
-`assets/adversarios-iconos.json`. La clave por ID oficial es
-`drs-<id>`; para nombres propios o compartidos se usa
-`nombre-<nombre-normalizado>`. Un icono ausente, no registrado o que falle
-al cargarse deja el cuadrado negro, y su imagen jamás modifica los datos de
-la ficha. La exportación pública incorpora solo archivos SVG explícitamente
-registrados y validados, no copia directorios de imágenes sin auditar.
+Las **16 categorias originales del DRS** permanecen independientes en las fichas, filtros y exportaciones. La capa de interfaz `assets/adversarios-categorias.js` las representa con **12 iconos SVG compartidos**, sin modificar ninguna regla ni subcategoria. Las correspondencias aprobadas son: Alimaña/Bestia/Reptil → paw; Gigante/Humanoide → character; Limo/Monstruo → monster-grasp; las demas categorias mantienen su icono especifico.
+
+La galeria conserva la portada **16:9**. Cuando no existe una ilustracion personalizada ni un SVG especifico, muestra el emblema de categoria sobre fondo oscuro, enmascarado con el color editorial de su grupo y dentro de un lienzo 1:1. Se incluyen tambien los iconos en el nombre de cada cromo, en la cabecera de la ficha completa, junto a la taxonomia y en los resultados del selector oficial. Los pictogramas son decorativos (`aria-hidden`) y no reemplazan los nombres accesibles.
+
+Los doce SVG aprobados se guardan como `assets/adversarios/iconos/categoria-*.svg`, sin el fondo negro de Game Icons. `assets/adversarios-iconos.json` sigue admitiendo iconos individuales por ID (`drs-<id>`) o por nombre, con prioridad sobre el emblema de categoria. Las ilustraciones locales del usuario prevalecen sobre todos ellos. Un fallo al cargar la imagen individual muestra el icono de categoria; una categoria desconocida no se reclasifica de oficio.
+
+Los iconos de categoria forman parte de la lista blanca de la distribucion DRS. Se han incorporado comprobaciones de que solo se publican los doce SVG aprobados mas los individuales declarados, y se conservan creditos con enlace, autor y licencia CC BY 3.0.
 
 ## PDF y regresión
 

@@ -35,12 +35,18 @@ const iconosForja=[
   'equipo-municion', 'ico-configurar', 'sexo-masculino', 'sexo-femenino', 'sexo-indeterminado',
   'accion-equipo', 'accion-talentos', 'accion-pdf', 'accion-semilla', 'accion-copiar',
 ];
+const iconosCategoriasAdversarios=[
+  'aberrante','automata','bestia','celestial','demonio','dragon','elemental',
+  'fata','humanoide','monstruo','muerto-viviente','vegetal'
+];
 const requeridos=[
   'index.html','assets/styles.css',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/icons/LICENCIA-TABLER.txt',
   'assets/creatures.js','assets/creatures-import.js',
-  'assets/creatures-library.js','assets/creatures-components.js','assets/creatures-ui.js',
+  'assets/creatures-library.js','assets/creatures-components.js',
+  'assets/adversarios-categorias.js','assets/creatures-ui.js',
+  ...iconosCategoriasAdversarios.map(k=>'assets/adversarios/iconos/categoria-'+k+'.svg'),
   'assets/adversarios-formato.js','assets/adversarios-pdf.js',
   'assets/adversarios-iconos.json',
   'assets/equipment.js','assets/sex.js',

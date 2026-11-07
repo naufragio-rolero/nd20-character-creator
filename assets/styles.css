@@ -2007,7 +2007,6 @@ html[data-tema=violeta] .marca-logotipo{filter:brightness(0) invert(1)}
 .criaturas-selector-nombre .criaturas-icono-lista{
   width:1.2rem;height:1.2rem;
 }
-html[data-tema=clasico] .criaturas-icono-categoria,
 html[data-tema=ceruleo] .criaturas-icono-categoria,
 html[data-tema=obsidiana] .criaturas-icono-categoria,
 html[data-tema=violeta] .criaturas-icono-categoria{

@@ -1,11 +1,21 @@
-# Iconos de Adversarios — La Forja
+# Iconos de adversarios — La Forja
 
-Este directorio admite ilustraciones SVG **cuadradas (1:1)** para los cromos de la galería. Hasta que se asigne una imagen, el cromo muestra un **cuadrado negro** sin iniciales.
+La Forja conserva las **16 categorias reglamentarias** del DRS y emplea **12 siluetas SVG compartidas** en la representacion visual, sin cambiar el JSON ni los Talentos.
 
-## Incorporar un icono
+El archivo `assets/adversarios-categorias.js` define una correspondencia por categoria, el icono aprobado y sus dos colores (tinta para superficies claras y brillo para fondos oscuros). Los 12 archivos `categoria-*.svg` se distribuyen siempre en el paquete publico y se muestran como mascaras CSS 1:1, sin la capa negra del SVG original.
 
-1. Guarda aquí un archivo SVG propio, p. ej. `necrototamo.svg`, preferentemente con `viewBox="0 0 64 64"` y sin referencias externas.
-2. Registra su nombre en `assets/adversarios-iconos.json` (sin rutas):
+## Prioridad visual
+
+1. Ilustracion personal de la ficha, si existe.
+2. Icono especifico por ID o nombre del adversario, si se registra en el manifiesto.
+3. Icono compartido de la categoria.
+4. Recuadro neutro solo para categorias desconocidas y sin icono propio.
+
+Las ilustraciones oficiales asociadas al navegador tienen prioridad sobre los SVG. Si falta un SVG individual, se recupera automaticamente el icono de categoria.
+
+## Iconos por ficha opcionales
+
+`assets/adversarios-iconos.json` admite asignaciones especiales:
 
 ```json
 {
@@ -17,6 +27,6 @@ Este directorio admite ilustraciones SVG **cuadradas (1:1)** para los cromos de 
 }
 ```
 
-Las claves `drs-<id_del_adversario>` apuntan a los IDs de `data/adversarios-drs.json`; `nombre-<slug>` sirve para fichas personales o imágenes compartidas por nombre, en minúsculas, sin tildes y con guiones. La clave por ID tiene prioridad. No hace falta crear el icono para todos los adversarios. Solo se copian al paquete público los SVG **referenciados por el manifiesto** y validados.
+Las claves por ID tienen prioridad sobre las de nombre. El manifiesto sigue siendo opcional y no controla los 12 SVG de categoria.
 
-Los SVG se presentan como `<img>` (sin inyectar su código en la página); los archivos inexistentes o no registrados dejan visible el cuadrado negro. Las ilustraciones no afectan al JSON de las fichas, reglas ni exportación de personajes.
+Las fuentes Game Icons tienen licencia CC BY 3.0; su origen y autor constan en `assets/icons/CREDITOS-GAME-ICONS.txt`, publicado y accesible desde la web. Los SVG originales se preservan en `docs/iconografia/originales/game-icons/`.

@@ -18,7 +18,7 @@ assert.throws(()=>mod.aEntero('-5','Nivel'),/entero/);
 assert.throws(()=>mod.aEntero('Infinity','Nivel'),/entero/);
 assert.throws(()=>mod.aEntero('9999999999999999999','Nivel'),/entero/);
 for(const file of ['creatures.js','creatures-import.js','creatures-library.js',
-  'adversarios-formato.js','creatures-ui.js','adversarios-pdf.js']){
+  'adversarios-formato.js','adversarios-categorias.js','creatures-ui.js','adversarios-pdf.js']){
   assert.ok(html.includes('defer src="assets/'+file+'"'),'Script UI: '+file);
   assert.ok(drs.includes("'assets/"+file+"'"),'Paquete público: '+file);
 }
@@ -101,7 +101,9 @@ assert.ok(manifest.iconos&&!Array.isArray(manifest.iconos));
 assert.match(ui,/cargarIconosGaleria/);
 assert.match(ui,/criaturas-metrica-icono/);
 assert.match(ui,/lineasAtaque\(dato\.ataques\)/);
-assert.match(ui,/\$\('criaturas-ficha-titulo'\)\.textContent=dato\.nombre/);
+assert.match(ui,/var tituloFicha=\$\('criaturas-ficha-titulo'\)/);
+assert.match(ui,/iconoCategoria\(dato\.categoria,'criaturas-icono-titulo'\)/);
+assert.match(ui,/iconoCategoria\(dato\.categoria,'criaturas-icono-taxonomia'\)/);
 assert.match(css,/\.criaturas-cromo \.criaturas-emblema/);
 assert.match(css,/background:#0b0b0b/);
 assert.match(css,/recurso-potencia|criaturas-metrica-icono/);

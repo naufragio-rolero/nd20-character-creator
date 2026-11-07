@@ -464,12 +464,16 @@ const iconosOrigen=JSON.parse(fs.readFileSync(
   path.join(raiz,'assets/adversarios-iconos.json'),'utf8'));
 assert.deepEqual(iconosAdversarios,iconosOrigen,
   'La publicación no altera las asignaciones de SVG de la galería.');
-const iconosEsperados=new Set(Object.values(iconosAdversarios.iconos));
+const categoriasVisuales=require('../assets/adversarios-categorias.js');
+const iconosCategorias=new Set(Object.values(categoriasVisuales.grupos)
+  .map(x=>x.archivo));
+assert.equal(iconosCategorias.size,12,'Doce iconos de categoria compartidos.');
+const iconosEsperados=new Set([...iconosCategorias,...Object.values(iconosAdversarios.iconos)]);
 const directorioIconos=path.join(salida,'assets/adversarios/iconos');
 const iconosPresentes=fs.existsSync(directorioIconos)?
   new Set(fs.readdirSync(directorioIconos).filter(x=>x.endsWith('.svg'))):new Set();
 assert.deepEqual(iconosPresentes,iconosEsperados,
-  'Solo se publican los SVG registrados, ningún archivo extra.');
+  'Solo se publican los 12 iconos de categoria y los SVG especificos registrados.');
 
 // El build debe fallar en lugar de destruir por error un directorio fuente.
 const {spawnSync}=require('node:child_process');

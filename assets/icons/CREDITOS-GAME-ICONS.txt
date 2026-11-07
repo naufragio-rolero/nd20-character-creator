@@ -56,3 +56,19 @@ El original goblin-head.svg queda reservado para un posible goblin futuro; no se
 El mago conserva pointy-hat de Lorc; el gnomo utiliza big-gear de DarkZaitzev. Los símbolos ya no se repiten entre ambas opciones.
 
 Este documento acredita únicamente la iconografía indicada. No modifica las licencias del código, las marcas ni los textos originales de Naufragio d20.
+
+ICONOS DE CATEGORIA DE ADVERSARIOS (12 SVG; 16 CATEGORIAS REGLAMENTARIAS)
+Se publican versiones transparentes para mascara CSS, derivadas de las siluetas originales Game Icons (Creative Commons Atribucion 3.0 / CC BY 3.0).
+categoria-aberrante.svg — eyestalk — Lorc — https://game-icons.net/1x1/lorc/eyestalk.html
+categoria-automata.svg — gears — Lorc — https://game-icons.net/1x1/lorc/gears.html
+categoria-bestia.svg — paw — Lorc — https://game-icons.net/1x1/lorc/paw.html
+categoria-celestial.svg — angel-wings — Lorc — https://game-icons.net/1x1/lorc/angel-wings.html
+categoria-demonio.svg — daemon-skull — Lorc — https://game-icons.net/1x1/lorc/daemon-skull.html
+categoria-dragon.svg — dragon-head — Lorc — https://game-icons.net/1x1/lorc/dragon-head.html
+categoria-elemental.svg — frostfire — Lorc — https://game-icons.net/1x1/lorc/frostfire.html
+categoria-fata.svg — fairy — Lorc — https://game-icons.net/1x1/lorc/fairy.html
+categoria-humanoide.svg — character — Delapouite — https://game-icons.net/1x1/delapouite/character.html
+categoria-monstruo.svg — monster-grasp — Lorc — https://game-icons.net/1x1/lorc/monster-grasp.html
+categoria-muerto-viviente.svg — death-skull — sbed — https://game-icons.net/1x1/sbed/death-skull.html
+categoria-vegetal.svg — tree-branch — Lorc — https://game-icons.net/1x1/lorc/tree-branch.html
+Las fuentes originales se preservan en docs/iconografia/originales/game-icons/<autor>/<nombre>.svg y no se incluyen en el paquete publico.
