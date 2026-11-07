@@ -536,8 +536,10 @@ async function probar(nombre,tipo,url){
       const titulosMesa=await page.evaluate(()=>{
         const propiedades=id=>{
           const css=getComputedStyle(document.getElementById(id));
+          // WebKit redondea el margen de elementos ocultos con distinta
+          // precisión subpíxel (5,59375px frente a 5,6px).
           return [css.fontFamily,css.fontSize,css.fontWeight,css.lineHeight,
-            css.letterSpacing,css.marginBottom];
+            css.letterSpacing,Number.parseFloat(css.marginBottom).toFixed(1)];
         };
         return [propiedades('titulo-resultados'),propiedades('titulo-editor-criaturas')];
       });
