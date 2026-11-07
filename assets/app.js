@@ -865,14 +865,14 @@
     entradas.forEach(function (e) {
       fichas.insertAdjacentHTML('beforeend',fichaHTML(e.valor,e.id,e.reproduccion));
     });
+    $('contador').hidden=entradas.length===0;
     $('contador').textContent=entradas.length ?
-      entradas.length+' elemento(s) en la mesa.' : 'Todavía no has generado ninguna ficha.';
-    $('titulo-resultados').textContent=entradas.length?'Fichas de la mesa':'La mesa está preparada';
+      entradas.length+' ficha'+(entradas.length===1?'':'s')+' en la mesa.' : '';
     $('borrar').disabled=!entradas.length;
     $('exportar').disabled=!entradas.length;
     $('inicio-movil').hidden=entradas.length>0||tutorialOculto;
     if(!entradas.length) fichas.innerHTML='<div class="vacio"><span class="emblema" aria-hidden="true">◇</span>'+
-      '<p>Aquí aparecerá tu personaje</p><p class="muted">Deja las opciones iniciales o elige Nivel, Ocupación y Especie. Pulsa «Generar personaje» en la Forja: aquí verás el resultado.</p></div>';
+      '<p>La mesa está vacía</p><p class="muted">Genera un personaje o un seguidor para añadir la primera ficha.</p></div>';
     refrescarGenerarFlotante();
   }
   function agregar(tipo,valor,reproduccion,indiceReproduccion) {
@@ -2701,7 +2701,7 @@
       if(gestionBorrador)cerrarGestionEquipo();
       if(revisionBorrador)cerrarRevisionElecciones();
       if(preparacionBorrador)cerrarPreparacion();
-      entradas=[];dibujar();aviso('Mesa despejada.');
+      entradas=[];dibujar();aviso('');
     });
     $('exportar').addEventListener('click',function(){
       descargar('el-naufragio-fichas.txt',entradas.map(obtenerTexto).join('\n\n'+('=').repeat(60)+'\n\n'));

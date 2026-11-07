@@ -29,6 +29,7 @@ jobs:
           node tests/limites-compra-ux.js
           node tests/elecciones-poscreacion.js
           node tests/iconos-forja.js
+          node tests/encabezados-mesas.js
           node tests/adversarios-categorias.js
           node tests/criaturas-ui.js
           node tests/adversarios-drs.js

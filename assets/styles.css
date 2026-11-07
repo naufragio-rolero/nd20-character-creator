@@ -1471,7 +1471,7 @@ html[data-tema=violeta]{
 .criaturas-navegacion{display:grid;gap:.55rem;margin:.95rem 0 1rem}
 .criaturas-navegacion button{text-align:left}
 .editor-criaturas{min-width:0;display:grid;gap:1.25rem}
-.criaturas-cabecera h2{margin:.3rem 0 .5rem}
+.criaturas-cabecera h2{margin:0 0 .35rem}
 .criaturas-cabecera p{line-height:1.5}
 .criaturas-bloque{border:1px solid var(--borde);border-radius:12px;padding:1.3rem;min-width:0;background:var(--superficie)}
 .criaturas-bloque h3{margin:0 0 .7rem;font-family:"Exo",system-ui,sans-serif}
@@ -2015,3 +2015,12 @@ html[data-tema=violeta] .criaturas-icono-categoria{
 .criaturas-cromo .criaturas-icono-portada{
   background-color:var(--criaturas-brillo-categoria);
 }
+
+/* Encabezados de las mesas: un solo titulo, explicacion breve y estados no intrusivos. */
+.barra-resultados>div:first-child,
+.criaturas-cabecera{min-width:0}
+.barra-resultados>div:first-child>p.muted,
+.criaturas-cabecera>p.muted{max-width:68ch;line-height:1.5}
+#resultados-personajes>#estado:empty,
+#editor-criaturas>#criaturas-estado:empty{display:none}
+#resultados-personajes #contador[hidden]{display:none!important}
