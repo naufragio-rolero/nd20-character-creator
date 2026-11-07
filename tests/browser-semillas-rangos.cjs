@@ -75,12 +75,11 @@ async function run(name,origin){
     assert.equal(await page.locator('#inicio-movil').isVisible(),false);
     await page.setViewportSize({width:1320,height:920});
     assert.equal(await page.locator('#generar').isEnabled(),true);
-    assert.equal(await page.locator('#usar-semilla').getAttribute('aria-pressed'),'false');
-    const botones=await page.locator('#generar, #usar-semilla').evaluateAll(elements=>
-      elements.map(x=>({id:x.id,top:x.getBoundingClientRect().top,
-        bottom:x.getBoundingClientRect().bottom})));
-    assert.deepEqual(botones.map(b=>b.id),['generar','usar-semilla']);
-    assert.ok(botones[1].top>=botones[0].bottom,'Usar semilla queda debajo de Generar personaje');
+    assert.equal(await page.locator('#usar-semilla, #estado-uso-semilla').count(),0,
+      'La mesa no duplica los controles de semilla');
+    assert.equal(await page.locator('#panel-personajes>#generar').count(),1);
+    assert.equal(await page.locator('#configuracion #semilla').count(),1,
+      'La semilla solo se configura desde el formulario');
     await page.locator('#selector-tema').selectOption('violeta');
     assert.equal(await page.locator('html').getAttribute('data-tema'),'violeta');
     await newPage();
@@ -195,7 +194,7 @@ async function run(name,origin){
     assert.ok(semilla.length>=6);
     assert.equal(await page.locator('#semilla').inputValue(),'',
       'Generar al azar NO debe fijar la semilla en Configuración');
-    assert.equal(await page.locator('#usar-semilla').getAttribute('aria-pressed'),'false');
+    assert.equal(await page.locator('#usar-semilla').count(),0);
     assert.match(await first().locator('.cabecera-ficha .etiqueta').innerText(),
       /Naufragio d20 · Fantasía Épica/i);
     const fichasPrimera=await page.locator('#fichas .tarjeta').allInnerTexts();
@@ -232,25 +231,26 @@ async function run(name,origin){
     assert.equal(await page.locator('#semilla').inputValue(),'');
     const fichasDos=(await page.locator('#fichas .tarjeta').allInnerTexts()).slice(0,7);
     assert.notDeepEqual(fichasDos,fichasPrimera,'El segundo lote no repite el primero');
-    // El botón optativo reutiliza la semilla del último lote y abre Configuración.
-    await page.locator('#usar-semilla').click();
-    assert.equal(await page.locator('#usar-semilla').getAttribute('aria-pressed'),'true');
+    // La semilla del último lote se introduce desde Configuración.
+    await open();
+    await page.locator('#semilla').fill(semillaDos);
     assert.equal(await page.locator('#semilla').inputValue(),semillaDos);
     assert.equal(await config.evaluate(x=>x.open),true);
     await page.locator('#generar-dialogo').click();
     const fichasTres=(await page.locator('#fichas .tarjeta').allInnerTexts()).slice(0,7);
-    assert.deepEqual(fichasTres,fichasDos,'Usar semilla reproduce el último lote');
+    assert.deepEqual(fichasTres,fichasDos,'La semilla escrita en Configuración reproduce el último lote');
     await first().locator('.ver-reproduccion').click();
     assert.equal(await page.locator('#semilla-resultado').textContent(),semillaDos);
     await page.locator('#cerrar-reproduccion').click();
-    // Desactivar la semilla mantiene el texto para uso futuro, pero NO repite.
-    await page.locator('#usar-semilla').click();
-    assert.equal(await page.locator('#usar-semilla').getAttribute('aria-pressed'),'false');
+    // Vaciar el campo devuelve el azar sin alterar los registros anteriores.
+    await open();
+    await page.locator('#semilla').fill('');
+    await page.locator('#aplicar-configuracion').click();
     await page.locator('#generar').click();
     await first().locator('.ver-reproduccion').click();
     assert.notEqual(await page.locator('#semilla-resultado').textContent(),semillaDos);
     await page.locator('#cerrar-reproduccion').click();
-    assert.equal(await page.locator('#semilla').inputValue(),semillaDos);
+    assert.equal(await page.locator('#semilla').inputValue(),'');
     await page.locator('#borrar').click();
     await page.setViewportSize({width:390,height:850});
     assert.equal(await page.locator('#inicio-movil').isVisible(),false,
@@ -264,8 +264,8 @@ async function run(name,origin){
     await page.locator('#texto-reproduccion').fill(json);
     await page.locator('#aplicar-reproduccion').click();
     assert.equal(await page.locator('#semilla').inputValue(),semilla);
-    assert.equal(await page.locator('#usar-semilla').getAttribute('aria-pressed'),'true',
-      'Importar un JSON activa automáticamente su semilla');
+    assert.equal(await page.locator('#semilla').inputValue(),semilla,
+      'Importar el JSON restaura la semilla fija');
     await page.locator('#generar-dialogo').click();
     await page.locator('#fichas .tarjeta').first().waitFor();
     const fichasSegunda=await page.locator('#fichas .tarjeta').allInnerTexts();
@@ -279,8 +279,8 @@ async function run(name,origin){
     await page.locator('#borrar').click();
     await open();
     await page.locator('#semilla').fill('otra-secuencia');
-    assert.equal(await page.locator('#usar-semilla').getAttribute('aria-pressed'),'true',
-      'Escribir una semilla activa el modo reproducible');
+    assert.equal(await page.locator('#semilla').inputValue(),'otra-secuencia',
+      'Escribir una semilla en Configuración basta para fijarla');
     await page.locator('#generar-dialogo').click();
     await page.locator('#fichas .tarjeta').first().waitFor();
     assert.notDeepEqual(await page.locator('#fichas .tarjeta').allInnerTexts(),
