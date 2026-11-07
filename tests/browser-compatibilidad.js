@@ -75,6 +75,16 @@ async function probar(nombre,tipo,url){
       /La mesa está vacía[\s\S]*Genera un personaje o un seguidor/,
       nombre+': explicar cómo añadir la primera ficha sin repetir la cabecera');
     assert.equal(await page.locator('#generar').textContent(),'Generar personaje');
+    assert.equal((await page.locator('#criaturas-nueva-panel').innerText()).trim(),
+      'Crear adversario',nombre+': Crear se reserva a fichas editadas');
+    assert.equal((await page.locator('#criaturas-ir-importar').innerText()).trim(),
+      'Importar desde texto',nombre+': importar texto no es generar');
+    assert.equal(await page.locator('#generar-seguidor').getAttribute('class'),
+      'principal',nombre+': Generar es la acción principal de Seguidores');
+    const pestañas=await Promise.all(['personajes','herramientas','criaturas'].map(
+      id=>page.locator('#tab-'+id).boundingBox()));
+    assert.ok(pestañas.every(x=>x&&Math.abs(x.y-pestañas[0].y)<2),
+      nombre+': las tres pestañas comparten una fila');
     await page.locator('#selector-tema').selectOption('ebano');
     const contrasteEbano=await page.locator('.inicio-rapido strong').first().evaluate(el=>{
       const fg=getComputedStyle(el).color;
@@ -124,6 +134,10 @@ async function probar(nombre,tipo,url){
       nombre+': crear personaje disponible con mesa vacía');
     await page.screenshot({path:path.join(capturas,nombre+'-inicio-movil.png')});
     await page.locator('.empezar-forja').click();
+    const pestañasMovil=await Promise.all(['personajes','herramientas','criaturas'].map(
+      id=>page.locator('#tab-'+id).boundingBox()));
+    assert.ok(pestañasMovil.every(x=>x&&Math.abs(x.y-pestañasMovil[0].y)<2),
+      nombre+': las tres pestañas también forman una fila en móvil');
     assert.equal(await page.locator('#panel-forja').isVisible(),true,
       nombre+': Empezar abre la Forja en móvil');
     assert.equal(await page.locator('#alternar-menu').getAttribute('aria-expanded'),'true');

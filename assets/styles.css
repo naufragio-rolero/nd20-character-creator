@@ -74,7 +74,7 @@ html[data-tema=ebano] .inicio-movil strong{color:#243946}
   border-bottom:1px solid var(--borde)}
 .cabecera-dialogo-eleccion h3{margin:0;font:600 1.25rem "Exo",system-ui,sans-serif}
 .cerrar-rejilla{border:1px solid var(--borde);background:var(--superficie);
-  color:var(--texto);border-radius:7px;min-width:38px;min-height:38px}
+  color:var(--texto);border-radius:7px;min-width:44px;min-height:44px}
 .leyenda-dialogo-eleccion{font-size:.82rem;color:var(--secundario);margin:.8rem 0}
 .selector-visual{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
   gap:.5rem;margin:.3rem 0}
@@ -135,7 +135,7 @@ select.selector-alternativo{position:absolute;width:1px;height:1px;
 }
 .campo label span{font-size:.76rem;color:var(--secundario);font-weight:400;float:right}
 .campo small,.herramientas small{display:block;color:var(--secundario);font-size:.75rem;line-height:1.5}
-select,input[type=number],input[type=text]{display:block;width:100%;min-height:42px;padding:.55rem .8rem;border:1px solid #61737a;background:#0c1c26;color:var(--texto);border-radius:6px}
+select,input[type=number],input[type=text],input[type=search]{display:block;width:100%;min-height:44px;padding:.55rem .8rem;border:1px solid #61737a;background:#0c1c26;color:var(--texto);border-radius:6px}
 select:hover,input:hover{border-color:var(--oro2)}
 button{border:1px solid #617781;background:transparent;color:var(--texto);border-radius:6px;padding:.65rem .9rem;font-size:.85rem;font-weight:650;transition:background .15s,border-color .15s}
 button:hover:not(:disabled){background:#294552;border-color:var(--oro)}
@@ -167,7 +167,7 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 .estado{color:var(--foco);font-size:.87rem;min-height:1.4rem;margin-bottom:1rem}
 .estado.error{color:var(--peligro)}
 .fichas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
-.vacio{grid-column:1/-1;min-height:390px;border:1px dashed #56717c;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:#10222a77;padding:2rem}
+.vacio{grid-column:1/-1;min-height:clamp(210px,32vh,330px);border:1px dashed #56717c;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:#10222a77;padding:2rem}
 .vacio>p:not(.muted){font:1.5rem "Exo",system-ui,sans-serif;margin:.7rem 0}
 .vacio .muted{max-width:44ch;line-height:1.65}
 
@@ -277,8 +277,8 @@ html[data-tema]:not([data-tema=clasico]) .tarjeta :is(.avisos-ficha h4,.contexto
 .campo-sistema-global{margin-top:.9rem;margin-bottom:1.15rem}
 .tema-control{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--secundario);font-weight:700}
 .tema-control select{width:auto;min-width:130px;min-height:38px;padding:.4rem .6rem}
-.pestanas-panel{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;margin:-.55rem 0 1.1rem}
-.pestanas-panel button{border-radius:7px;padding:.55rem .45rem}
+.pestanas-panel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.35rem;margin:-.55rem 0 1.1rem}
+.pestanas-panel button{border-radius:7px;padding:.55rem .3rem;min-width:0;font-size:.82rem;overflow-wrap:anywhere}
 .pestanas-panel button.activa{background:var(--oro);color:var(--oscuro);border-color:var(--oro)}
 .juegos-compactos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.35rem}
 .juegos-compactos.juegos-publicos{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -286,6 +286,8 @@ html[data-tema]:not([data-tema=clasico]) .tarjeta :is(.avisos-ficha h4,.contexto
 .juegos-compactos button span{font-size:1.5rem;line-height:1.25}
 .juegos-compactos .sistema-activo{background:var(--oro);color:var(--oscuro);border-color:var(--oro);box-shadow:inset 0 -3px 0 var(--oro2)}
 .herramientas{margin-top:0;padding-top:0;border-top:0;min-height:180px}
+.herramientas .botonera button.principal{margin:0;min-height:44px}
+.herramientas .configurar-creacion.principal{margin:.75rem 0}
 #juego.sr-only{min-height:0;padding:0;border:0}
 /* Tokens de tema: Clásico conserva el diseño ya publicado.
    Cerúleo toma la paleta #050150 / #000066 / #33cccc de Heaven's Gate. */
@@ -319,7 +321,7 @@ html[data-tema]:not([data-tema=clasico]) body{
 html[data-tema]:not([data-tema=clasico]) .panel{
   background:var(--superficie);box-shadow:0 7px 26px #0002;
 }
-html[data-tema]:not([data-tema=clasico]) :is(select,input[type=number],input[type=text],.eleccion-poder select){
+html[data-tema]:not([data-tema=clasico]) :is(select,input[type=number],input[type=text],input[type=search],.eleccion-poder select){
   border-color:var(--borde);background:var(--tema-field-bg);color:var(--texto)
 }
 html[data-tema]:not([data-tema=clasico]) button:hover:not(:disabled):not(.principal):not(.sistema-activo):not(.activa){
@@ -587,7 +589,8 @@ html[data-tema=clasico] .inicio-rapido{
 html[data-tema=clasico] .inicio-rapido strong{color:#15467c}
 html[data-tema=clasico] select,
 html[data-tema=clasico] input[type=number],
-html[data-tema=clasico] input[type=text]{
+html[data-tema=clasico] input[type=text],
+html[data-tema=clasico] input[type=search]{
   background:#fff;color:#203447;border-color:#a6c1dd;
 }
 html[data-tema=clasico] .eleccion-poder select{
@@ -963,7 +966,7 @@ html[data-tema]:not([data-tema=clasico]) .protecciones-activas :is(h4,p){
 /* Forja · configuración modal y resumen compacto de solo lectura. */
 .resumen-creacion{margin:.2rem 0 .85rem;padding:.85rem .9rem;
   border:1px solid var(--borde);border-radius:10px;background:var(--superficie2)}
-.resumen-creacion h3{font:600 .98rem "Exo",system-ui,sans-serif;margin:0 0 .65rem}
+.resumen-creacion :is(h3,h4){font:600 .98rem "Exo",system-ui,sans-serif;margin:0 0 .65rem}
 .resumen-creacion dl{margin:0;display:grid;gap:.45rem}
 .resumen-creacion dl>div{display:flex;justify-content:space-between;gap:.75rem;
   border-bottom:1px solid var(--borde);padding-bottom:.4rem;font-size:.79rem}
@@ -984,7 +987,7 @@ html[data-tema]:not([data-tema=clasico]) .protecciones-activas :is(h4,p){
   justify-content:space-between;gap:1rem;position:sticky;top:-1.1rem;z-index:2;
   background:var(--superficie);padding:.2rem 0 .7rem;border-bottom:1px solid var(--borde)}
 .dialogo-configuracion .cabecera-configuracion h3{font:600 1.4rem "Exo",system-ui,sans-serif;margin:0}
-.dialogo-configuracion #cerrar-configuracion{min-width:38px;min-height:38px}
+.dialogo-configuracion #cerrar-configuracion{min-width:44px;min-height:44px}
 .ayuda-configuracion{color:var(--secundario);font-size:.8rem;margin:.7rem 0 1rem}
 .dialogo-configuracion #configuracion{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
   gap:.6rem 1.25rem}
@@ -1466,8 +1469,6 @@ html[data-tema=violeta]{
 /* Editor de criaturas Nd20 — fase 3. Las tarjetas no dependen de los temas. */
 #editor-criaturas[hidden],#resultados-personajes[hidden],
 #panel-criaturas[hidden],#selector-sistema-global[hidden]{display:none!important}
-.pestanas-panel{grid-template-columns:repeat(3,minmax(0,1fr))}
-.pestanas-panel button{min-width:0;font-size:.82rem;overflow-wrap:anywhere}
 .criaturas-navegacion{display:grid;gap:.55rem;margin:.95rem 0 1rem}
 .criaturas-navegacion button{text-align:left}
 .editor-criaturas{min-width:0;display:grid;gap:1.25rem}
@@ -1536,13 +1537,12 @@ html[data-tema=violeta]{
 
 /* Adversarios — mesa de cromos y ficha de consulta. Mantener los IDs de criaturas
    preserva los JSON v1 y sus integraciones existentes. */
-#panel-criaturas #criaturas-nueva-panel .icono-svg{--icono-svg:url(icons/ico-configurar.svg);width:1.15rem;height:1.15rem}
 .resumen-adversarios{margin:.85rem 0}
-.criaturas-mesa{min-height:380px}
+.criaturas-mesa{min-height:250px}
 .criaturas-mesa .criaturas-subcabecera h3{margin:.25rem 0}
 .criaturas-sistema{max-width:330px;margin:1rem 0}
 .criaturas-lista{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:.6rem}
-.criaturas-lista>.vacio-adversarios{grid-column:1/-1;padding:4rem 1rem;
+.criaturas-lista>.vacio-adversarios{grid-column:1/-1;padding:2rem 1rem;
   text-align:center;border:1px dashed var(--borde);border-radius:12px}
 .criaturas-cromo{appearance:none;display:flex;flex-direction:column;align-items:center;
   justify-content:flex-start;gap:.4rem;min-width:0;min-height:140px;width:100%;
@@ -1588,9 +1588,9 @@ html[data-tema=violeta]{
   background:var(--superficie)
 }
 .dialogo-ficha-adversario .criaturas-ficha-acciones button.accion-icono{
-  display:grid;place-items:center;flex:0 0 40px;
-  width:40px;min-width:40px;max-width:40px;
-  height:40px;min-height:40px;
+  display:grid;place-items:center;flex:0 0 44px;
+  width:44px;min-width:44px;max-width:44px;
+  height:44px;min-height:44px;
   margin:0;padding:0;border-radius:8px;
   line-height:1;white-space:nowrap
 }
@@ -1613,7 +1613,7 @@ html[data-tema=violeta]{
 @media(max-width:440px){
   .dialogo-ficha-adversario .criaturas-ficha-acciones{gap:.3rem}
   .dialogo-ficha-adversario .criaturas-ficha-acciones button.accion-icono{
-    flex-basis:40px;width:40px;min-width:40px;max-width:40px
+    flex-basis:44px;width:44px;min-width:44px;max-width:44px
   }
 }
 .criaturas-ficha-completa h4{margin:1rem 0 .35rem;font-family:"Exo",system-ui,sans-serif}
@@ -1906,8 +1906,8 @@ html[data-tema=violeta] .marca-logotipo{filter:brightness(0) invert(1)}
   flex-wrap:nowrap
 }
 .dialogo-adversario .criaturas-guardar button.accion-icono{
-  flex:0 0 42px;width:42px;min-width:42px;max-width:42px;
-  height:42px;min-height:42px;margin:0;padding:0;
+  flex:0 0 44px;width:44px;min-width:44px;max-width:44px;
+  height:44px;min-height:44px;margin:0;padding:0;
   display:grid;place-items:center;border-radius:8px
 }
 .dialogo-adversario .criaturas-guardar button.accion-icono svg{
@@ -2024,3 +2024,9 @@ html[data-tema=violeta] .criaturas-icono-categoria{
 #resultados-personajes>#estado:empty,
 #editor-criaturas>#criaturas-estado:empty{display:none}
 #resultados-personajes #contador[hidden]{display:none!important}
+
+/* Estados vacíos más compactos en pantallas pequeñas. */
+@media(max-width:440px){
+  .vacio{min-height:190px;padding:1.25rem}
+  .criaturas-mesa{min-height:0}
+}
