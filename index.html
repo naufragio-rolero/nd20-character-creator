@@ -632,22 +632,12 @@
           <div class="criaturas-acciones"><button type="button" id="criaturas-nueva">Nuevo adversario</button><button type="button" id="criaturas-cerrar-editor" class="cerrar-rejilla" aria-label="Cerrar editor de adversarios">✕</button></div>
         </div>
         <form id="criaturas-formulario" novalidate>
-          <div class="criaturas-campos">
+          <section class="criaturas-editor-seccion criaturas-editor-identidad" aria-labelledby="criaturas-identidad-titulo">
+            <div class="criaturas-editor-datos">
+              <h4 id="criaturas-identidad-titulo">Identidad</h4>
+              <div class="criaturas-campos">
             <div class="campo criaturas-nombre"><label for="criaturas-nombre">Nombre *</label>
               <input id="criaturas-nombre" type="text" maxlength="160" required></div>
-            <div class="campo criaturas-imagen-campo">
-              <label for="criaturas-imagen-archivo">Ilustración del adversario (opcional)</label>
-              <div class="criaturas-imagen-controles">
-                <div id="criaturas-imagen-previa" class="criaturas-imagen-previa" role="img" aria-label="Sin ilustración">Sin ilustración</div>
-                <div class="criaturas-imagen-botones">
-                  <label class="criaturas-archivo" for="criaturas-imagen-archivo">Subir imagen
-                    <input id="criaturas-imagen-archivo" type="file" accept="image/jpeg,image/png,image/webp">
-                  </label>
-                  <button type="button" id="criaturas-imagen-quitar">Quitar imagen</button>
-                </div>
-              </div>
-              <small>Se recorta al formato 16:9 y se guarda con la ficha en este navegador. También viaja en su JSON. Máximo 5 MB de archivo.</small>
-            </div>
             <div class="campo"><label for="criaturas-categoria">Categoría *</label>
               <input id="criaturas-filtrar-categoria" type="search" autocomplete="off"
                 aria-label="Buscar entre las 16 categorías oficiales" placeholder="Buscar categoría…">
@@ -674,8 +664,26 @@
               <input id="criaturas-subcategoria" type="text" maxlength="160" list="criaturas-subcategorias" autocomplete="off"><datalist id="criaturas-subcategorias"></datalist></div>
             <div class="campo"><label for="criaturas-subtipo">Subtipo</label>
               <input id="criaturas-subtipo" type="text" maxlength="160" autocomplete="off"></div>
-          </div>
-          <h4>Puntuaciones</h4>
+              </div>
+            </div>
+            <div class="criaturas-editor-arte">
+              <h4>Ilustración (opcional)</h4>
+            <div class="campo criaturas-imagen-campo">
+              <div class="criaturas-imagen-controles">
+                <div id="criaturas-imagen-previa" class="criaturas-imagen-previa" role="img" aria-label="Sin ilustración">Sin ilustración</div>
+                <div class="criaturas-imagen-botones">
+                  <label class="criaturas-archivo" for="criaturas-imagen-archivo">Subir imagen
+                    <input id="criaturas-imagen-archivo" type="file" accept="image/jpeg,image/png,image/webp">
+                  </label>
+                  <button type="button" id="criaturas-imagen-quitar">Quitar imagen</button>
+                </div>
+              </div>
+              <small>Se ajusta a 16:9 con recorte o encaje y se guarda en este navegador. También viaja en su JSON. Máximo 5 MB de archivo.</small>
+            </div>
+            </div>
+          </section>
+          <section class="criaturas-editor-seccion" aria-labelledby="criaturas-puntuaciones-titulo">
+          <h4 id="criaturas-puntuaciones-titulo">Puntuaciones</h4>
           <p class="muted">Se guardan exactamente los valores indicados. Un campo vacío significa que no está documentado.</p>
           <div class="criaturas-campos criaturas-numeros">
             <div class="campo"><label for="criaturas-nivel">Nivel</label><input id="criaturas-nivel" type="number" min="0" max="100" step="1"></div>
@@ -690,6 +698,8 @@
             <div class="campo"><label for="criaturas-movimiento">Movimiento</label><input id="criaturas-movimiento" type="number" min="0" step="1"></div>
             <div class="campo"><label for="criaturas-tamano">Tamaño</label><input id="criaturas-tamano" type="number" min="0" step="1"></div>
           </div>
+          </section>
+          <section class="criaturas-editor-seccion" aria-label="Acciones">
           <div class="criaturas-subcabecera">
             <h4>Acciones</h4>
             <button type="button" id="criaturas-anadir-ataque">Añadir acción</button>
@@ -700,6 +710,8 @@
           <div id="criaturas-coincidencias-ataques" class="criaturas-coincidencias" aria-live="polite"></div>
           <div class="criaturas-comp-accesos"><button id="criaturas-explorar-ataques" type="button">Explorar biblioteca de Acciones</button><button id="criaturas-crear-ataque" type="button">Crear acción propia</button></div>
           <div id="criaturas-ataques" class="criaturas-repetidos"></div>
+          </section>
+          <section class="criaturas-editor-seccion" aria-label="Talentos y habilidades especiales">
           <div class="criaturas-subcabecera">
             <h4>Talentos y habilidades especiales</h4>
             <button type="button" id="criaturas-anadir-talento">Añadir Talento</button>
@@ -710,6 +722,9 @@
           <div id="criaturas-coincidencias-talentos" class="criaturas-coincidencias" aria-live="polite"></div>
           <div class="criaturas-comp-accesos"><button id="criaturas-explorar-talentos" type="button">Explorar biblioteca de Talentos</button><button id="criaturas-crear-talento" type="button">Crear Talento propio</button></div>
           <div id="criaturas-talentos" class="criaturas-repetidos"></div>
+          </section>
+          <section class="criaturas-editor-seccion criaturas-editor-descripcion" aria-label="Descripción y notas">
+          <h4>Descripción y notas</h4>
           <div class="campo"><label for="criaturas-descripcion">Descripción *</label>
             <textarea id="criaturas-descripcion" rows="5"></textarea></div>
           <div class="campo"><label for="criaturas-notas">Notas propias</label>
@@ -722,13 +737,34 @@
             <label for="criaturas-original">Texto fuente conservado</label>
             <textarea id="criaturas-original" rows="5" readonly spellcheck="false"></textarea>
           </details>
+          </section>
           <div id="criaturas-advertencias-formulario" class="criaturas-avisos" aria-live="polite"></div>
-          <div class="criaturas-acciones criaturas-guardar">
-            <button type="submit" id="criaturas-guardar" class="principal">Guardar adversario</button>
-            <button type="button" id="criaturas-exportar-ficha">Exportar esta ficha JSON</button>
-            <button type="button" id="criaturas-descartar-cambios">Descartar cambios</button>
+          <div class="criaturas-acciones criaturas-guardar" role="group" aria-label="Guardar y gestionar el borrador">
+            <button type="submit" id="criaturas-guardar" class="principal accion-icono" title="Guardar adversario" aria-label="Guardar adversario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h13l3 3v15H4z"/><path d="M7 3v7h10V3M7 21v-8h10v8"/></svg></button>
+            <button type="button" id="criaturas-exportar-ficha" class="accion-icono" title="Exportar ficha JSON" aria-label="Exportar ficha JSON"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6m-10 4-2 2 2 2m4-4 2 2-2 2"/></svg></button>
+            <button type="button" id="criaturas-descartar-cambios" class="accion-icono" title="Descartar cambios" aria-label="Descartar cambios"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 5v7h7"/></svg></button>
           </div>
         </form>
+      </dialog>
+      <dialog id="criaturas-imagen-ajuste" class="dialogo-compras dialogo-adversario-imagen" aria-labelledby="criaturas-imagen-ajuste-titulo">
+        <div class="cabecera-compras">
+          <div><h3 id="criaturas-imagen-ajuste-titulo">Ajustar ilustración</h3><p class="muted">Arrastra la imagen para elegir el encuadre 16:9.</p></div>
+          <button type="button" id="criaturas-imagen-ajuste-cerrar" class="cerrar-rejilla" aria-label="Cancelar ajuste de imagen">✕</button>
+        </div>
+        <canvas id="criaturas-imagen-lienzo" width="960" height="540" role="img" aria-label="Vista previa del encuadre de la ilustración"></canvas>
+        <div class="criaturas-imagen-herramientas">
+          <div class="criaturas-imagen-modos" role="group" aria-label="Modo de encuadre">
+            <button type="button" id="criaturas-imagen-rellenar" aria-pressed="true">Rellenar y recortar</button>
+            <button type="button" id="criaturas-imagen-encajar" aria-pressed="false">Encajar completa</button>
+          </div>
+          <div class="campo"><label for="criaturas-imagen-zoom">Ampliación <output id="criaturas-imagen-zoom-valor" for="criaturas-imagen-zoom">100 %</output></label>
+            <input type="range" id="criaturas-imagen-zoom" min="1" max="3" step="0.05" value="1"></div>
+          <button type="button" id="criaturas-imagen-restablecer">Restablecer encuadre</button>
+        </div>
+        <div class="criaturas-imagen-pie">
+          <button type="button" id="criaturas-imagen-cancelar">Cancelar</button>
+          <button type="button" id="criaturas-imagen-confirmar" class="principal">Aplicar encuadre</button>
+        </div>
       </dialog>
       <dialog id="criaturas-elemento-propio" class="dialogo-compras dialogo-adversario-catalogo"
         aria-labelledby="criaturas-elemento-titulo">
@@ -821,6 +857,11 @@
       <dialog id="criaturas-ficha-dialogo" class="dialogo-compras dialogo-ficha-adversario" aria-labelledby="criaturas-ficha-titulo">
         <div class="cabecera-compras">
           <h3 id="criaturas-ficha-titulo">Ficha de adversario</h3>
+          <div class="criaturas-ficha-navegador" role="group" aria-label="Navegar entre adversarios">
+            <button type="button" id="criaturas-ficha-anterior" class="accion-icono" title="Adversario anterior (←)" aria-label="Adversario anterior" aria-keyshortcuts="ArrowLeft"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+            <span id="criaturas-ficha-posicion" class="muted" aria-live="polite"></span>
+            <button type="button" id="criaturas-ficha-siguiente" class="accion-icono" title="Adversario siguiente (→)" aria-label="Adversario siguiente" aria-keyshortcuts="ArrowRight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+          </div>
           <button type="button" id="criaturas-cerrar-ficha" class="cerrar-rejilla" aria-label="Cerrar ficha">✕</button>
         </div>
         <div id="criaturas-ficha-contenido"></div>

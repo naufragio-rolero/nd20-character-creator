@@ -22,6 +22,7 @@
   var imagenProcesando = false, tokenImagen = 0;
   var ilustracionesOficiales = {}, ilustracionesBloqueadas = false;
   var tokenImagenOficial = 0;
+  var edicionImagen = null;
   var CLAVE_ILUSTRACIONES_OFICIALES = 'forja-adversarios-ilustraciones-oficiales-v1';
   var CLAVE_OFICIALES = 'forja-adversarios-oficiales-v1';
   // El manifiesto solo contiene nombres de archivos SVG públicos.
@@ -110,8 +111,58 @@
     }
     $('criaturas-imagen-quitar').disabled=!url;
   }
-  // Rasterización local: recorte centrado 16:9, sin subir archivos a servidores.
-  // El lienzo elimina metadatos de la foto antes de incrustarla en el JSON.
+  // Encuadre local 16:9: la misma composición se utiliza en vista previa y exportación.
+  // No hay servidor, cambios de esquema JSON ni modificaciones a la fuente oficial.
+  function pintarIlustracion(lienzo,imagen,ajuste){
+    var c=lienzo.getContext('2d');
+    if(!c)throw Error('Tu navegador no admite el procesamiento de imágenes.');
+    var w=lienzo.width,h=lienzo.height,iw=imagen.naturalWidth,ih=imagen.naturalHeight;
+    var escala=(ajuste.modo==='encajar'?
+      Math.min(w/iw,h/ih):Math.max(w/iw,h/ih))*ajuste.zoom;
+    var dw=iw*escala,dh=ih*escala;
+    var limiteX=Math.abs(w-dw)/(2*w),limiteY=Math.abs(h-dh)/(2*h);
+    ajuste.x=Math.max(-limiteX,Math.min(limiteX,ajuste.x));
+    ajuste.y=Math.max(-limiteY,Math.min(limiteY,ajuste.y));
+    c.clearRect(0,0,w,h);
+    c.fillStyle='#ffffff';c.fillRect(0,0,w,h);
+    c.drawImage(imagen,(w-dw)/2+ajuste.x*w,(h-dh)/2+ajuste.y*h,dw,dh);
+  }
+  function vistaPreviaEncuadre(){
+    if(!edicionImagen)return;
+    pintarIlustracion($('criaturas-imagen-lienzo'),edicionImagen.imagen,edicionImagen);
+    $('criaturas-imagen-zoom-valor').textContent=Math.round(edicionImagen.zoom*100)+' %';
+    $('criaturas-imagen-rellenar').setAttribute('aria-pressed',String(edicionImagen.modo==='rellenar'));
+    $('criaturas-imagen-encajar').setAttribute('aria-pressed',String(edicionImagen.modo==='encajar'));
+  }
+  function rasterizarEncuadre(imagen,ajuste){
+    var lienzo=d.createElement('canvas'),resultado='';
+    [960,800,640,480].some(function(max){
+      lienzo.width=Math.min(max,imagen.naturalWidth);
+      lienzo.height=Math.max(1,Math.round(lienzo.width*9/16));
+      // No alterar el estado por el redondeo de cada tamaño de salida.
+      pintarIlustracion(lienzo,imagen,{
+        modo:ajuste.modo,zoom:ajuste.zoom,x:ajuste.x,y:ajuste.y
+      });
+      return [0.82,0.7,0.58].some(function(calidad){
+        var dato=lienzo.toDataURL('image/webp',calidad);
+        if(!dato.startsWith('data:image/webp;base64,'))
+          dato=lienzo.toDataURL('image/jpeg',calidad);
+        if(dato.length<=280000){resultado=dato;return true;}
+        return false;
+      });
+    });
+    if(!resultado)throw Error('No se pudo reducir la imagen al tamaño permitido.');
+    return resultado;
+  }
+  function finalizarEncuadre(aceptar){
+    if(!edicionImagen)return;
+    var pendienteImagen=edicionImagen;
+    edicionImagen=null;
+    if($('criaturas-imagen-ajuste').open)$('criaturas-imagen-ajuste').close();
+    if(!aceptar){pendienteImagen.resolve(null);return;}
+    try{pendienteImagen.resolve(rasterizarEncuadre(pendienteImagen.imagen,pendienteImagen));}
+    catch(error){pendienteImagen.reject(error);}
+  }
   function convertirIlustracion(archivo){
     return new Promise(function(resolve,reject){
       if(!archivo||!['image/jpeg','image/png','image/webp'].includes(archivo.type)){
@@ -120,40 +171,23 @@
       if(archivo.size>5*1024*1024){
         reject(Error('El archivo supera los 5 MB.'));return;
       }
+      if(edicionImagen){reject(Error('Ya hay una ilustración pendiente de ajuste.'));return;}
       var lector=new root.FileReader();
       lector.onerror=function(){reject(Error('No se pudo leer la imagen.'));};
       lector.onload=function(){
         var imagen=new root.Image();
         imagen.onerror=function(){reject(Error('El archivo no es una imagen legible.'));};
         imagen.onload=function(){
-          try{
-            var ancho=imagen.naturalWidth,alto=imagen.naturalHeight;
-            if(!ancho||!alto||ancho*alto>40000000)
-              throw Error('La imagen tiene dimensiones no compatibles.');
-            var propor=16/9,recAncho=ancho,recAlto=alto;
-            if(ancho/alto>propor)recAncho=alto*propor;
-            else recAlto=ancho/propor;
-            var lienzo=d.createElement('canvas');
-            var contexto=lienzo.getContext('2d');
-            if(!contexto)throw Error('Tu navegador no admite el procesamiento de imágenes.');
-            var resultado='';
-            [960,800,640,480].some(function(max){
-              lienzo.width=Math.min(max,ancho);
-              lienzo.height=Math.max(1,Math.round(lienzo.width*9/16));
-              contexto.clearRect(0,0,lienzo.width,lienzo.height);
-              contexto.drawImage(imagen,(ancho-recAncho)/2,(alto-recAlto)/2,
-                recAncho,recAlto,0,0,lienzo.width,lienzo.height);
-              return [0.82,0.7,0.58].some(function(calidad){
-                var dato=lienzo.toDataURL('image/webp',calidad);
-                if(!dato.startsWith('data:image/webp;base64,'))
-                  dato=lienzo.toDataURL('image/jpeg',calidad);
-                if(dato.length<=280000){resultado=dato;return true;}
-                return false;
-              });
-            });
-            if(!resultado)throw Error('No se pudo reducir la imagen al tamaño permitido.');
-            resolve(resultado);
-          }catch(error){reject(error);}
+          if(!imagen.naturalWidth||!imagen.naturalHeight||
+              imagen.naturalWidth*imagen.naturalHeight>40000000){
+            reject(Error('La imagen tiene dimensiones no compatibles.'));return;
+          }
+          edicionImagen={imagen:imagen,resolve:resolve,reject:reject,
+            modo:'rellenar',zoom:1,x:0,y:0,arrastre:null};
+          $('criaturas-imagen-zoom').value='1';
+          vistaPreviaEncuadre();
+          $('criaturas-imagen-ajuste').showModal();
+          $('criaturas-imagen-confirmar').focus();
         };
         imagen.src=String(lector.result);
       };
@@ -170,6 +204,7 @@
     try{
       var url=await convertirIlustracion(archivo);
       if(token!==tokenImagen)return;
+      if(!url){mostrarEstado('Ajuste de ilustración cancelado.');return;}
       ficha.imagen=url;
       cambios=true;
       mostrarImagenEditor();
@@ -444,6 +479,7 @@
     try{
       var url=await convertirIlustracion(archivo);
       if(token!==tokenImagenOficial)return;
+      if(!url){mostrarEstado('Ajuste de ilustración cancelado.');return;}
       actualizarIlustracionOficial(id,url);
       mostrarEstado('Ilustración personalizada guardada. Los datos oficiales siguen intactos.');
     }catch(error){
@@ -995,6 +1031,24 @@
         iconosGaleria={};
       });
   }
+  function idsMesaAdversarios(){
+    var propios=biblioteca?biblioteca.listar().map(function(r){return r.id;}):[];
+    var oficiales=registrosOficiales().filter(function(r){
+      return oficialesSeleccionados.has(r.id);
+    }).map(function(r){return r.id;});
+    return propios.concat(oficiales);
+  }
+  function actualizarNavegadorFicha(id){
+    var ids=idsMesaAdversarios(),indice=ids.indexOf(id);
+    $('criaturas-ficha-anterior').disabled=indice<=0;
+    $('criaturas-ficha-siguiente').disabled=indice<0||indice>=ids.length-1;
+    $('criaturas-ficha-posicion').textContent=indice<0?'':(indice+1)+' / '+ids.length;
+  }
+  function navegarFicha(sentido){
+    if(!$('criaturas-ficha-dialogo').open||$('criaturas-imagen-ajuste').open)return;
+    var ids=idsMesaAdversarios(),i=ids.indexOf(idConsulta),siguiente=i+sentido;
+    if(i>=0&&siguiente>=0&&siguiente<ids.length)mostrarFichaCompleta(ids[siguiente]);
+  }
   function dibujarBiblioteca() {
     var lista=$('criaturas-lista');
     lista.textContent='';
@@ -1160,6 +1214,7 @@
     }
     cont.appendChild(articulo);
     $('criaturas-ficha-titulo').textContent=dato.nombre;
+    actualizarNavegadorFicha(id);
     // Las acciones son iconos: actualizar el nombre accesible sin destruir
     // el SVG ni la máscara del botón al abrir otra ficha.
     var tituloEdicion=esFichaOficial(id)?'Crear copia editable':'Editar adversario';
@@ -1445,6 +1500,60 @@
         ' Puedes editar y exportar fichas individuales.',true);
     }
     $('criaturas-nueva').addEventListener('click',nueva);
+    // El diálogo de encuadre es compartido por fichas personales y oficiales.
+    $('criaturas-imagen-ajuste-cerrar').addEventListener('click',function(){finalizarEncuadre(false);});
+    $('criaturas-imagen-cancelar').addEventListener('click',function(){finalizarEncuadre(false);});
+    $('criaturas-imagen-confirmar').addEventListener('click',function(){finalizarEncuadre(true);});
+    $('criaturas-imagen-ajuste').addEventListener('cancel',function(event){
+      event.preventDefault();finalizarEncuadre(false);
+    });
+    ['rellenar','encajar'].forEach(function(modo){
+      $('criaturas-imagen-'+modo).addEventListener('click',function(){
+        if(!edicionImagen)return;
+        edicionImagen.modo=modo;edicionImagen.x=0;edicionImagen.y=0;
+        vistaPreviaEncuadre();
+      });
+    });
+    $('criaturas-imagen-restablecer').addEventListener('click',function(){
+      if(!edicionImagen)return;
+      edicionImagen.zoom=1;edicionImagen.x=0;edicionImagen.y=0;
+      $('criaturas-imagen-zoom').value='1';vistaPreviaEncuadre();
+    });
+    $('criaturas-imagen-zoom').addEventListener('input',function(event){
+      if(!edicionImagen)return;
+      edicionImagen.zoom=Number(event.target.value);vistaPreviaEncuadre();
+    });
+    var lienzoAjuste=$('criaturas-imagen-lienzo');
+    lienzoAjuste.addEventListener('pointerdown',function(event){
+      if(!edicionImagen||event.button!==0)return;
+      edicionImagen.arrastre={id:event.pointerId,x:event.clientX,y:event.clientY};
+      lienzoAjuste.setPointerCapture(event.pointerId);
+    });
+    lienzoAjuste.addEventListener('pointermove',function(event){
+      var e=edicionImagen,a=e&&e.arrastre;
+      if(!a||a.id!==event.pointerId)return;
+      var rect=lienzoAjuste.getBoundingClientRect();
+      e.x+=(event.clientX-a.x)/rect.width;
+      e.y+=(event.clientY-a.y)/rect.height;
+      a.x=event.clientX;a.y=event.clientY;
+      vistaPreviaEncuadre();
+    });
+    ['pointerup','pointercancel','lostpointercapture'].forEach(function(tipo){
+      lienzoAjuste.addEventListener(tipo,function(){
+        if(edicionImagen)edicionImagen.arrastre=null;
+      });
+    });
+    $('criaturas-ficha-anterior').addEventListener('click',function(){navegarFicha(-1);});
+    $('criaturas-ficha-siguiente').addEventListener('click',function(){navegarFicha(1);});
+    d.addEventListener('keydown',function(event){
+      if(event.key!=='ArrowLeft'&&event.key!=='ArrowRight')return;
+      if(event.altKey||event.ctrlKey||event.metaKey||event.shiftKey||event.isComposing)return;
+      if(!$('criaturas-ficha-dialogo').open||$('criaturas-imagen-ajuste').open)return;
+      if(event.target&&typeof event.target.closest==='function'&&
+          event.target.closest('input,textarea,select,[contenteditable]'))return;
+      event.preventDefault();
+      navegarFicha(event.key==='ArrowLeft'?-1:1);
+    });
     $('criaturas-ficha-ilustracion-archivo')
       .addEventListener('change',subirIlustracionOficial);
     $('criaturas-ficha-ilustracion-quitar').addEventListener('click',function(){
