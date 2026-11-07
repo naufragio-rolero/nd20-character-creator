@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - Auditoría UX y naming (PR #128)
+      - name: Obtener snapshot DRS aprobado - Cabeceras y simplificación de Personajes (PR #130)
         uses: actions/checkout@v4
         with:
-          ref: 916fa13dc317d605f101fc4e40b1befba9758e07
+          ref: 95b135f72008969e5a45244ba32e49a5dc033e18
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "916fa13dc317d605f101fc4e40b1befba9758e07"
-      # Snapshot aprobado para LIVE: PR #128, tras QA Chromium, Firefox, WebKit, DRS y PDF. UX y naming coherentes en Personajes, Seguidores y Adversarios; sin cambios de reglas, exportaciones ni almacenamiento.
+          test "$(git rev-parse HEAD)" = "95b135f72008969e5a45244ba32e49a5dc033e18"
+      # Snapshot aprobado para LIVE: PR #130, tras QA Chromium, Firefox, WebKit, DRS y PDF. Cabeceras unificadas, sin Matriz ni boton externo de semilla; el configurador conserva las semillas reproducibles.
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -247,23 +247,25 @@ jobs:
           grep -Fq 'id="abrir-configuracion"' index.html
           grep -Fq 'id="nivel-min"' index.html
           grep -Fq 'id="nivel-max"' index.html
+          grep -Fq 'id="semilla"' index.html
+          ! grep -Fq 'id="abrir-matriz"' index.html
           grep -Fq 'id="copiar-semilla"' index.html
           grep -Fq 'id="dialogo-reproduccion"' index.html
           grep -Fq 'id="cerrar-reproduccion"' index.html
           grep -Fq 'aria-label="Reproducción de la ficha"' index.html
           ! grep -Fq 'aria-label="Reproducción de la generación" hidden' index.html
-          grep -Fq 'id="usar-semilla"' index.html
-          grep -Fq 'id="estado-uso-semilla"' index.html
+          ! grep -Fq 'id="usar-semilla"' index.html
+          ! grep -Fq 'id="estado-uso-semilla"' index.html
           grep -Fq 'id="copiar-reproduccion"' index.html
           grep -Fq 'id="ocultar-tutorial"' index.html
           grep -Fq "html[data-tema=violeta]" assets/styles.css
-          grep -Fq 'var usarSemilla = false;' assets/app.js
+          ! grep -Fq 'var usarSemilla = false;' assets/app.js
           grep -Fq 'var semillaUsada=semillaGeneracion()' assets/app.js
           grep -Fq 'var registroGeneracion=mostrarReproduccion(semillaUsada,c);' assets/app.js
           grep -Fq 'var registroPersonalizado=mostrarReproduccion(semillaUsada,c);' assets/app.js
           grep -Fq 'function abrirReproduccion(entrada)' assets/app.js
           grep -Fq 'class="ver-reproduccion accion-icono"' assets/app.js
-          grep -Fq 'function actualizarUsoSemilla()' assets/app.js
+          ! grep -Fq 'function actualizarUsoSemilla()' assets/app.js
           grep -Fq 'reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r' assets/app.js
           grep -Fq "recurso-nota-escudo" assets/app.js
           grep -Fq "info-primarios-objeto" assets/tooltip-ui.js
@@ -397,8 +399,8 @@ jobs:
                grep -Fq 'id="dialogo-reproduccion"' /tmp/forja-live.html &&
                grep -Fq 'id="cerrar-reproduccion"' /tmp/forja-live.html &&
                grep -Fq 'aria-label="Reproducción de la ficha"' /tmp/forja-live.html &&
-               grep -Fq 'id="usar-semilla"' /tmp/forja-live.html &&
-               grep -Fq 'id="estado-uso-semilla"' /tmp/forja-live.html &&
+               ! grep -Fq 'id="usar-semilla"' /tmp/forja-live.html &&
+               ! grep -Fq 'id="estado-uso-semilla"' /tmp/forja-live.html &&
                grep -Fq 'id="copiar-reproduccion"' /tmp/forja-live.html &&
                grep -Fq 'id="ocultar-tutorial"' /tmp/forja-live.html &&
                grep -Fq 'id="informacion-avanzada"' /tmp/forja-live.html &&
@@ -682,7 +684,7 @@ jobs:
           grep -Fq '.tarjeta-seguidor .aventuras-seguidor{margin-top:.14rem}' /tmp/forja-estilos.css
           grep -Fq ".dialogo-configuracion{" /tmp/forja-estilos.css
           grep -Fq 'html[data-tema=violeta]' /tmp/forja-estilos.css
-          grep -Fq '.usar-semilla[aria-pressed=true]' /tmp/forja-estilos.css
+          grep -Fq '.barra-resultados h2,.criaturas-cabecera h2{' /tmp/forja-estilos.css
           grep -Fq '.dialogo-reproduccion{width:min(' /tmp/forja-estilos.css
           grep -Fq ".info-primarios.info-primarios-objeto{" /tmp/forja-estilos.css
           ! grep -Fq 'nth-child(5):last-child{grid-column:1/-1}' /tmp/forja-estilos.css
