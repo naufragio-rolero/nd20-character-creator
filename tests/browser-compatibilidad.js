@@ -134,9 +134,12 @@ async function probar(nombre,tipo,url){
       nombre+': crear personaje disponible con mesa vacía');
     await page.screenshot({path:path.join(capturas,nombre+'-inicio-movil.png')});
     await page.locator('.empezar-forja').click();
-    const pestañasMovil=await Promise.all(['personajes','herramientas','criaturas'].map(
-      id=>page.locator('#tab-'+id).boundingBox()));
-    assert.ok(pestañasMovil.every(x=>x&&Math.abs(x.y-pestañasMovil[0].y)<2),
+    // Leer las tres posiciones en un mismo fotograma: WebKit aún anima
+    // la apertura del panel móvil cuando Playwright devuelve el clic.
+    const pestañasMovil=await page.locator('.pestanas-panel button').evaluateAll(
+      nodos=>nodos.map(n=>n.getBoundingClientRect().top));
+    assert.equal(pestañasMovil.length,3);
+    assert.ok(pestañasMovil.every(y=>Math.abs(y-pestañasMovil[0])<2),
       nombre+': las tres pestañas también forman una fila en móvil');
     assert.equal(await page.locator('#panel-forja').isVisible(),true,
       nombre+': Empezar abre la Forja en móvil');
