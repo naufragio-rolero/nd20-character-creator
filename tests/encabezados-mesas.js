@@ -14,9 +14,9 @@ assert.match(html,/Las fichas generadas se reúnen aquí para consultarlas y exp
 assert.match(html,/Crea tus propias fichas o incorpora perfiles oficiales a tu colección\./);
 assert.doesNotMatch(html,/EDITOR DEL CRONISTA|<p class="sobrelinea">RESULTADOS<\/p>|BESTIARIO PERSONAL|Tu bestiario personal/);
 assert.doesNotMatch(html,/Todavía no has generado ninguna ficha/);
-assert.doesNotMatch(app,/\$('titulo-resultados'\)\.textContent/);
+assert.doesNotMatch(app,/\$\('titulo-resultados'\)\.textContent/);
 assert.doesNotMatch(app,/Todavía no has generado ninguna ficha|Mesa despejada\./);
-assert.match(app,/\$('contador'\)\.hidden=entradas\.length===0/);
+assert.match(app,/\$\('contador'\)\.hidden=entradas\.length===0/);
 assert.match(app,/Genera un personaje o un seguidor para añadir la primera ficha/);
 assert.match(estilos,/#editor-criaturas>#criaturas-estado:empty\{display:none\}/);
 for(const id of ['estado','criaturas-estado','borrar','exportar','criaturas-exportar-biblioteca',
