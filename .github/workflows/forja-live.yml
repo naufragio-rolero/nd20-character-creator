@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - UX de Adversarios (PR #122)
+      - name: Obtener snapshot DRS aprobado - Iconos de categorías de Adversarios (PR #124)
         uses: actions/checkout@v4
         with:
-          ref: 012918f49a1834db544d6233b6c81cab6a6ff502
+          ref: 45d92b795f28fa8984cd2d649294751b3b241c2e
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "012918f49a1834db544d6233b6c81cab6a6ff502"
-      # Snapshot aprobado para LIVE: PR #122, sobre la base de PR #120; controles 16:9, navegación de adversarios, secciones y acciones compactas. Candidato Chromium/Firefox/WebKit y DRS validado. Conserva KPI, ataques agrupados, iconos y PDFs A5,
+          test "$(git rev-parse HEAD)" = "45d92b795f28fa8984cd2d649294751b3b241c2e"
+      # Snapshot aprobado para LIVE: PR #124, sobre base ya publicada de UX de Adversarios. Doce iconos SVG para dieciséis categorías originales; Chromium/Firefox/WebKit y DRS validados, sin modificación mecánica.
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -58,6 +58,12 @@ jobs:
           grep -Fq 'id="criaturas-ficha-retirar"' index.html
           grep -Fq 'Perfiles oficiales' index.html
           grep -Fq 'id="criaturas-ficha-pdf"' index.html
+          grep -Fq 'assets/adversarios-categorias.js' index.html
+          test -s assets/adversarios-categorias.js
+          test "$(find assets/adversarios/iconos -maxdepth 1 -name 'categoria-*.svg' -type f | wc -l)" -eq 12
+          grep -Fq 'categoria-muerto-viviente.svg' assets/adversarios-categorias.js
+          grep -Fq 'categoria-vegetal.svg' assets/adversarios-categorias.js
+          grep -Fq 'categoria-humanoide.svg' assets/adversarios-categorias.js
           grep -Fq 'class="criaturas-acciones criaturas-ficha-acciones" role="group"' index.html
           grep -Fq 'id="criaturas-ficha-editar" class="accion-icono' index.html
           grep -Fq 'id="criaturas-ficha-pdf" class="accion-icono' index.html
@@ -287,6 +293,8 @@ jobs:
           node tests/semillas-rangos.js
           node tests/fichas-drs-ux.js
           node tests/iconos-forja.js
+          node tests/adversarios-categorias.js
+          node tests/criaturas-ui.js
       - name: Generar solo la carpeta DRS autorizada
         run: node scripts/crear-paquete-drs.js
       - name: Detener la publicación ante DLC o sistemas no autorizados
