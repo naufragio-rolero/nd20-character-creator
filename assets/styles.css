@@ -1974,3 +1974,45 @@ html[data-tema=violeta] .marca-logotipo{filter:brightness(0) invert(1)}
   .dialogo-ficha-adversario .cabecera-compras h3{flex-basis:100%}
   .criaturas-ficha-navegador{margin-left:0}
 }
+
+/* Adversarios · 16 categorias originales / 12 pictogramas Game Icons, 
+   coloreados por categoria y sin alterar los datos de las fichas. */
+.criaturas-icono-categoria{
+  display:inline-block;flex:none;width:1.15em;height:1.15em;
+  vertical-align:-.16em;background-color:var(--criaturas-tinta-categoria);
+  -webkit-mask:var(--criaturas-svg-categoria) center / contain no-repeat;
+  mask:var(--criaturas-svg-categoria) center / contain no-repeat;
+}
+.criaturas-cromo[data-icono="categoria"] .criaturas-emblema{
+  background:radial-gradient(ellipse at 50% 45%,#304050 0%,#192330 60%,#111820 100%);
+  border-color:#4b6074;
+}
+.criaturas-cromo .criaturas-icono-portada{
+  width:min(42%,102px);height:auto;aspect-ratio:1;
+  background-color:var(--criaturas-brillo-categoria);
+}
+.criaturas-cromo .criaturas-icono-nombre{
+  width:1.04rem;height:1.04rem;margin-right:.32rem;
+}
+.dialogo-ficha-adversario #criaturas-ficha-titulo{
+  display:flex;align-items:center;gap:.5rem;min-width:0;
+}
+.dialogo-ficha-adversario #criaturas-ficha-titulo .criaturas-icono-titulo{
+  width:1.35rem;height:1.35rem;
+}
+.criaturas-taxonomia .criaturas-icono-taxonomia{
+  width:1.1rem;height:1.1rem;margin-right:.35rem;
+}
+.criaturas-selector-nombre{display:flex;align-items:center;gap:.45rem;min-width:0}
+.criaturas-selector-nombre .criaturas-icono-lista{
+  width:1.2rem;height:1.2rem;
+}
+html[data-tema=clasico] .criaturas-icono-categoria,
+html[data-tema=ceruleo] .criaturas-icono-categoria,
+html[data-tema=obsidiana] .criaturas-icono-categoria,
+html[data-tema=violeta] .criaturas-icono-categoria{
+  background-color:var(--criaturas-brillo-categoria);
+}
+.criaturas-cromo .criaturas-icono-portada{
+  background-color:var(--criaturas-brillo-categoria);
+}

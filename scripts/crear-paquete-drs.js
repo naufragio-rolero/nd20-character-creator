@@ -103,7 +103,7 @@ const especificas=[
   'assets/rules.js','assets/names.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/i18n.js',
   'assets/creatures.js','assets/creatures-import.js',
-  'assets/creatures-library.js','assets/creatures-components.js','assets/creatures-ui.js',
+  'assets/creatures-library.js','assets/creatures-components.js','assets/adversarios-categorias.js','assets/creatures-ui.js',
   'assets/adversarios-formato.js','assets/adversarios-pdf.js',
   'assets/adversarios-iconos.json',
   // PDF A5 Fantasía: solo plantillas reglamentarias y bibliotecas de terceros autorizadas.
@@ -136,6 +136,25 @@ const especificas=[
   'data/adversarios-relaciones-drs.json','data/adversarios-talentos-indice-drs.json',
   'data/dungeon-hack.json'
 ];
+// Iconos de categoria aprobados: siempre se publican los 12 SVG necesarios.
+const iconosCategoriasAdversarios=[
+  'aberrante','automata','bestia','celestial','demonio','dragon','elemental',
+  'fata','humanoide','monstruo','muerto-viviente','vegetal'
+];
+for(const categoria of iconosCategoriasAdversarios){
+  const ruta='assets/adversarios/iconos/categoria-'+categoria+'.svg';
+  const archivo=path.join(raiz,ruta);
+  if(!fs.existsSync(archivo)||!fs.statSync(archivo).isFile()||
+     fs.statSync(archivo).size>250000)
+    throw Error('Falta icono SVG de categoria: '+ruta);
+  const svg=fs.readFileSync(archivo,'utf8');
+  if(!/<svg\b/i.test(svg)||
+     /<(?:script|foreignObject|iframe|object|embed)\b/i.test(svg)||
+     /\bon[a-z]+\s*=/i.test(svg)||
+     /(?:href|xlink:href)\s*=\s*["'](?:https?:|\/\/|data:|javascript:)/i.test(svg))
+    throw Error('Icono de categoria SVG no seguro: '+ruta);
+  especificas.push(ruta);
+}
 // Ilustraciones opcionales: solo los SVG declarados en un manifiesto editorial
 // y presentes en el repositorio pueden llegar al paquete público.
 const iconosAdversarios=JSON.parse(fs.readFileSync(
