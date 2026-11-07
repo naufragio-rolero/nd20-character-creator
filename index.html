@@ -357,9 +357,9 @@
       </section>
       <div class="barra-resultados">
         <div>
-          <p class="sobrelinea">RESULTADOS</p>
-          <h2 id="titulo-resultados" tabindex="-1">La mesa está preparada</h2>
-          <p id="contador" class="muted">Todavía no has generado ninguna ficha.</p>
+          <h2 id="titulo-resultados" tabindex="-1">Personajes y seguidores</h2>
+          <p class="muted">Las fichas generadas se reúnen aquí para consultarlas y exportarlas.</p>
+          <p id="contador" class="muted" aria-live="polite" hidden></p>
         </div>
         <div class="acciones-resultados">
           <button id="exportar" type="button" disabled>Exportar .txt</button>
@@ -573,17 +573,16 @@
       <div id="fichas" class="fichas" aria-live="off">
         <div class="vacio" id="vacio">
           <span class="emblema" aria-hidden="true">◇</span>
-          <p>Aquí aparecerá tu personaje</p>
-          <p class="muted">Puedes generar con las opciones resumidas en la Forja o modificarlas desde «Configurar creación».</p>
+          <p>La mesa está vacía</p>
+          <p class="muted">Genera un personaje o un seguidor para añadir la primera ficha.</p>
         </div>
       </div>
       <footer class="pie">Creador de personajes para Naufragio d20. <a href="https://naufragio.net/" target="_blank" rel="noopener noreferrer">El Naufragio</a>. Iconografía original de El Naufragio y otros iconos adaptados de <a href="assets/icons/CREDITOS-GAME-ICONS.txt" target="_blank" rel="noopener noreferrer">Game-icons.net — autoría y licencia CC BY 3.0</a>. Acciones de ficha: <a href="assets/icons/LICENCIA-TABLER.txt" target="_blank" rel="noopener noreferrer">Tabler Icons · MIT</a>.</footer>
     </section>
     <section id="editor-criaturas" class="resultados editor-criaturas" aria-labelledby="titulo-editor-criaturas" hidden>
       <header class="criaturas-cabecera">
-        <p class="sobrelinea">EDITOR DEL CRONISTA / NAUFRAGIO D20</p>
         <h2 id="titulo-editor-criaturas" tabindex="-1">Adversarios</h2>
-        <p class="muted">Tu bestiario personal de Naufragio d20.</p>
+        <p class="muted">Crea tus propias fichas o incorpora perfiles oficiales a tu colección.</p>
       </header>
       <p id="criaturas-estado" class="estado" role="status" aria-live="polite"></p>
       <section class="criaturas-bloque" id="criaturas-importacion" hidden aria-labelledby="criaturas-titulo-importacion">
@@ -607,7 +606,7 @@
       </section>
       <section class="criaturas-bloque criaturas-mesa" id="criaturas-biblioteca" aria-labelledby="criaturas-titulo-biblioteca">
         <div class="criaturas-subcabecera">
-          <div><p class="sobrelinea">BESTIARIO PERSONAL</p><h3 id="criaturas-titulo-biblioteca">Mesa de adversarios</h3></div>
+          <h3 id="criaturas-titulo-biblioteca">Colección</h3>
           <span id="criaturas-cantidad" class="muted">0 adversarios</span>
         </div>
         <div class="campo criaturas-sistema"><label for="criaturas-sistema">Sistema del bestiario</label>
