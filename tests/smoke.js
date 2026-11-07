@@ -971,10 +971,13 @@ assert.ok(/id="configurar-seguidores"[^>]*aria-label="Configurar seguidores"/.te
 assert.ok(cssTemas.includes('#configurar-seguidores .icono-svg') &&
   cssTemas.includes('icons/ico-configurar.svg'),
   'Seguidores reutiliza el icono de configuración');
-assert.ok(htmlTemas.includes('id="abrir-matriz"') &&
-  htmlTemas.includes('id="dialogo-matriz"') &&
-  appTemas.includes("reglas.matriz(config(),rngUnico()(correlativo))"),
-  'Matriz trasladada a Personajes sin duplicar el cálculo');
+assert.ok(!/id="(?:abrir|cerrar|generar|dialogo|vista)-matriz"/.test(htmlTemas) &&
+  !appTemas.includes("$('abrir-matriz')") && !cssTemas.includes('.dialogo-matriz'),
+  'La Matriz ya no está disponible en la interfaz');
+assert.ok(!htmlTemas.includes('id="usar-semilla"') &&
+  !htmlTemas.includes('id="estado-uso-semilla"') &&
+  appTemas.includes("return $('semilla').value.trim()||nuevaSemilla();"),
+  'El configurador contiene el único control de semilla');
 assert.ok(system>=0&&system<tab&&tab<panel&&panel<tools,
   'Los sistemas aparecen primero, antes de las pestañas del menú');
 assert.ok(appTemas.includes("marcarPanel('herramientas')"));
