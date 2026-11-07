@@ -23,7 +23,6 @@
   var ultimaReproduccion = null;
   var reproduccionActiva = null;
   var reproduccionAbiertaId = null;
-  var usarSemilla = false; // Generar personaje siempre usa azar nuevo salvo activación explícita.
   var tutorialOculto = false;
   var volverGestionEquipo = null;
   var sistemasVisibles={
@@ -1595,25 +1594,10 @@
     }
     return 'forja-'+Date.now().toString(36)+'-'+performance.now().toString(36);
   }
-  function actualizarUsoSemilla(){
-    $('usar-semilla').setAttribute('aria-pressed',String(usarSemilla));
-    $('estado-uso-semilla').textContent=usarSemilla?'Activada':'Desactivada';
-    $('ayuda-semilla').textContent=usarSemilla?
-      'Semilla fija activada: se repetirá el mismo resultado mientras no cambies las opciones.':
-      'Azar nuevo en cada generación. La semilla usada se consulta y copia desde cada ficha.';
-  }
-  function cambiarUsoSemilla(activo){
-    usarSemilla=!!activo;
-    actualizarUsoSemilla();
-  }
   function semillaGeneracion(){
-    // En modo normal nunca se conserva la semilla en el campo: cada clic es nuevo.
-    var cadena=usarSemilla?$('semilla').value.trim():'';
-    if(!cadena){
-      cadena=nuevaSemilla();
-      if(usarSemilla)$('semilla').value=cadena;
-    }
-    return cadena;
+    // Campo vacío: azar nuevo cada vez. Con texto: reproducir la semilla fija.
+    // No se rellena el campo al generar automáticamente.
+    return $('semilla').value.trim()||nuevaSemilla();
   }
   function rngUnico(semilla){
     // Los generadores de herramientas también pueden llamar sin parámetro.
@@ -1697,7 +1681,6 @@
       marcarTarjetasSeleccionadas(tipo);
     });
     $('semilla').value=registro.semilla;
-    cambiarUsoSemilla(true);
     config();
     refrescarResumenCreacion();
     $('aviso-reproduccion').textContent='Configuración recuperada. Genera para reproducir el resultado.';
@@ -1921,26 +1904,6 @@
         marcarTarjetasSeleccionadas(tipo);
       });
     });
-    $('usar-semilla').addEventListener('click',function(){
-      if(usarSemilla){
-        cambiarUsoSemilla(false);
-        return;
-      }
-      // Permite reutilizar la última semilla automáticamente si se acaba
-      // de generar una ficha, sin obligar a buscarla y copiarla.
-      if(!$('semilla').value.trim())
-        $('semilla').value=ultimaReproduccion?.semilla||nuevaSemilla();
-      cambiarUsoSemilla(true);
-      if(window.matchMedia('(max-width:830px)').matches)alternarMenu(true);
-      if(!configurador.open)configurador.showModal();
-      $('semilla').focus({preventScroll:true});
-      refrescarGenerarFlotante();
-    });
-    $('semilla').addEventListener('input',function(){
-      // Pegar una semilla activa la reproducción; vaciarla recupera el azar.
-      cambiarUsoSemilla(!!$('semilla').value.trim());
-    });
-    actualizarUsoSemilla();
     $('generar-flotante').addEventListener('click',function(){
       if($('generar-flotante').disabled)return;
       marcarPanel('personajes');
@@ -2352,38 +2315,6 @@
       aplicarConfiguracionSeguidores(true);
     });
     refrescarResumenSeguidores();
-    $('abrir-matriz').addEventListener('click',function(){
-      $('vista-matriz').hidden=true;
-      $('vista-matriz').textContent='';
-      $('aviso-matriz').textContent='';
-      $('generar-matriz').textContent='Generar matriz';
-      $('dialogo-matriz').showModal();
-    });
-    $('cerrar-matriz').addEventListener('click',function(){
-      $('dialogo-matriz').close();
-    });
-    $('dialogo-matriz').addEventListener('close',function(){
-      if(!$('panel-personajes').hidden)$('abrir-matriz').focus({preventScroll:true});
-    });
-    $('generar-matriz').addEventListener('click',function(){
-      $('aviso-matriz').textContent='';
-      try{
-        // Reutiliza el generador y el renderizador originales: no replica reglas.
-        var matriz=reglas.matriz(config(),rngUnico()(correlativo));
-        agregar('ficha',matriz);
-        var vista=$('vista-matriz');
-        vista.innerHTML=fichaHTML(matriz,correlativo);
-        var acciones=vista.querySelector('.acciones-cabecera-ficha');
-        if(acciones)acciones.remove();
-        var pie=vista.querySelector('.pie-ficha');
-        if(pie)pie.remove();
-        vista.hidden=false;
-        $('generar-matriz').textContent='Generar otra matriz';
-        vista.focus({preventScroll:true});
-      }catch(error){
-        $('aviso-matriz').textContent=error.message||String(error);
-      }
-    });
     $('armamento-modo').addEventListener('change',refrescarArmamento);
     $('armamento-origen').addEventListener('change',function(){
       llenarDestinoArmamento();refrescarArmamento();

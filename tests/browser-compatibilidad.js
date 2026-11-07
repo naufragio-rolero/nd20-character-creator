@@ -533,6 +533,18 @@ async function probar(nombre,tipo,url){
     assert.equal(await popup.locator('.info-categoria').textContent(),'Acción');
     for(const tema of ['clasico','ebano','ceruleo','obsidiana']){
       await page.locator('#selector-tema').selectOption(tema);
+      const titulosMesa=await page.evaluate(()=>{
+        const propiedades=id=>{
+          const css=getComputedStyle(document.getElementById(id));
+          // WebKit redondea el margen de elementos ocultos con distinta
+          // precisión subpíxel (5,59375px frente a 5,6px).
+          return [css.fontFamily,css.fontSize,css.fontWeight,css.lineHeight,
+            css.letterSpacing,Number.parseFloat(css.marginBottom).toFixed(1)];
+        };
+        return [propiedades('titulo-resultados'),propiedades('titulo-editor-criaturas')];
+      });
+      assert.deepEqual(titulosMesa[0],titulosMesa[1],
+        nombre+': cabeceras h2 iguales en tema '+tema);
       await page.locator('#e2e-talento').click();
       assert.equal(await popup.locator('.info-categoria').textContent(),'Acción',
         nombre+': categoría visible en tema '+tema);
@@ -1329,26 +1341,21 @@ async function probar(nombre,tipo,url){
     }finally{
       await tactil.close();
     }
-    // Reorganización de la Forja: Seguidores y Matriz desde Personajes.
-    // Se prueba en una página aislada para no alterar la sesión principal de QA.
+    // Accesos de Personajes y Seguidores simplificados.
+    // Página aislada para no alterar la sesión principal de QA.
     const interfaz=await context.newPage();
     try{
       await interfaz.goto(url,{waitUntil:'domcontentloaded'});
       await interfaz.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
       assert.equal((await interfaz.locator('#tab-herramientas').innerText()).trim(),'Seguidores',
         nombre+': pestaña Seguidores visible');
-      await interfaz.locator('#abrir-matriz').click();
-      assert.equal(await interfaz.locator('#dialogo-matriz').evaluate(x=>x.open),true,
-        nombre+': Matriz abre modal desde Personajes');
-      await interfaz.locator('#generar-matriz').click();
-      assert.equal(await interfaz.locator('#vista-matriz .atributo').count(),6,
-        nombre+': vista previa de los seis Atributos de la Matriz');
-      assert.equal(await interfaz.locator('#fichas .tarjeta').count(),1,
-        nombre+': Matriz conserva la ficha original en la mesa');
+      assert.equal(await interfaz.locator('#abrir-matriz, #dialogo-matriz, #usar-semilla').count(),0,
+        nombre+': no se muestran controles de Matriz ni semilla externos');
+      await interfaz.locator('#abrir-configuracion').click();
+      assert.equal(await interfaz.locator('#configuracion #semilla').isVisible(),true,
+        nombre+': semilla en Configuración');
       await interfaz.keyboard.press('Escape');
-      await interfaz.waitForFunction(()=>!document.querySelector('#dialogo-matriz').open);
-      assert.equal(await interfaz.locator('#abrir-matriz').evaluate(x=>document.activeElement===x),true,
-        nombre+': Escape devuelve el foco al acceso de la Matriz');
+      await interfaz.waitForFunction(()=>!document.querySelector('#dialogo-configuracion').open);
       await interfaz.locator('#tab-herramientas').click();
       assert.ok(!(await interfaz.locator('#panel-herramientas').innerText())
         .includes('Herramientas del Cronista'),

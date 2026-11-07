@@ -141,15 +141,6 @@ button{border:1px solid #617781;background:transparent;color:var(--texto);border
 button:hover:not(:disabled){background:#294552;border-color:var(--oro)}
 button.principal{display:block;width:100%;background:var(--oro);border-color:var(--oro);color:var(--oscuro);font-weight:800;padding:.9rem 1rem;margin-top:1.3rem}
 button.principal:hover{background:#ffe3a5;color:#091923}
-/* Acción secundaria en el menú: la generación normal no queda anclada a una semilla. */
-.usar-semilla{display:flex;align-items:center;justify-content:space-between;gap:.65rem;
-  width:100%;min-height:42px;margin:.55rem 0 0;padding:.65rem .85rem;
-  border:1px solid var(--borde);background:var(--superficie2);color:var(--texto);
-  text-align:left;font-weight:700}
-.usar-semilla[aria-pressed=true]{border-color:var(--oro);box-shadow:inset 3px 0 0 var(--oro)}
-.estado-semilla{font-size:.73rem;font-weight:600;color:var(--secundario)}
-.usar-semilla[aria-pressed=true] .estado-semilla{color:var(--oro)}
-
 fieldset{border:1px solid var(--borde);border-radius:6px;margin:0 0 1rem;padding:.85rem}
 legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 .casilla{display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;font-size:.84rem;line-height:1.3;cursor:pointer}
@@ -161,7 +152,10 @@ legend{font-size:.83rem;font-weight:750;padding:0 .2rem}
 .botonera{display:grid;grid-template-columns:1fr;gap:.5rem;margin-bottom:.75rem}
 .resultados{min-width:0}
 .barra-resultados{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
-.barra-resultados h2{font-family:"Exo",system-ui,sans-serif;font-weight:500;font-size:1.9rem;margin:0 0 .2rem}
+.barra-resultados h2,.criaturas-cabecera h2{
+  font-family:"Exo",system-ui,sans-serif;font-weight:500;font-size:1.9rem;
+  line-height:1.3;letter-spacing:normal;margin:0 0 .35rem
+}
 .muted{color:var(--secundario);font-size:.9rem;margin:0}
 .acciones-resultados{display:flex;gap:.5rem;flex-wrap:wrap}
 .estado{color:var(--foco);font-size:.87rem;min-height:1.4rem;margin-bottom:1rem}
@@ -1426,13 +1420,6 @@ html[data-tema=violeta]{
 }
 .configurar-seguidores-icono:hover{border-color:var(--oro)}
 .configurar-seguidores-icono .icono-svg{width:1.3rem;height:1.3rem}
-.dialogo-matriz{width:min(700px,calc(100vw - 1rem));max-height:calc(100dvh - 1rem);overflow-y:auto}
-.dialogo-matriz .matriz-acciones{display:flex;justify-content:flex-end;gap:.5rem;margin:.8rem 0}
-.dialogo-matriz .matriz-acciones button{min-height:44px}
-.dialogo-matriz .vista-matriz[hidden]{display:none!important}
-.dialogo-matriz .vista-matriz{margin:1rem 0;min-width:0}
-.dialogo-matriz .vista-matriz .tarjeta{width:100%;max-width:none}
-@media(max-width:560px){.dialogo-matriz .matriz-acciones button{width:100%}}
 .dialogo-seguidores .botonera{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:560px){
   .dialogo-seguidores .botonera{grid-template-columns:1fr}
@@ -1472,7 +1459,6 @@ html[data-tema=violeta]{
 .criaturas-navegacion{display:grid;gap:.55rem;margin:.95rem 0 1rem}
 .criaturas-navegacion button{text-align:left}
 .editor-criaturas{min-width:0;display:grid;gap:1.25rem}
-.criaturas-cabecera h2{margin:0 0 .35rem}
 .criaturas-cabecera p{line-height:1.5}
 .criaturas-bloque{border:1px solid var(--borde);border-radius:12px;padding:1.3rem;min-width:0;background:var(--superficie)}
 .criaturas-bloque h3{margin:0 0 .7rem;font-family:"Exo",system-ui,sans-serif}
