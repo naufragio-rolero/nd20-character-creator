@@ -50,7 +50,7 @@ recurso-esencia.svg — diseño original propio, versión aprobada v1
 recurso-blindaje.svg — diseño original propio, versión aprobada v1
 
 REFERENCIAS HISTÓRICAS
-Se conservan 40 fuentes SVG originales del catálogo Game-icons.net en docs/iconografia/originales/game-icons/<autor>/<nombre>.svg; no forman parte del paquete DRS distribuido.
+Se conservan 51 fuentes SVG originales del catálogo Game-icons.net en docs/iconografia/originales/game-icons/<autor>/<nombre>.svg (40 históricas y 11 nuevas); no forman parte del paquete DRS distribuido.
 Los cuatro bocetos propios de especies anteriormente aprobados y sustituidos posteriormente por decisión editorial se conservan en docs/iconografia/prototipos-especies-v1/. Tampoco se publican.
 El original goblin-head.svg queda reservado para un posible goblin futuro; no se asigna al semiorco.
 El mago conserva pointy-hat de Lorc; el gnomo utiliza big-gear de DarkZaitzev. Los símbolos ya no se repiten entre ambas opciones.

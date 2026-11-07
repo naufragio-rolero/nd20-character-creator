@@ -104,7 +104,7 @@ assert.ok(!appJs.includes("'url(assets/icons/"),
 const rutaOrigen=path.join(raiz,'docs','iconografia','originales','game-icons');
 const originales=fs.readdirSync(rutaOrigen).flatMap(autor=>
   fs.readdirSync(path.join(rutaOrigen,autor)).filter(x=>x.endsWith('.svg')));
-assert.equal(originales.length,40,'40 SVG fuente históricos, incluido Goblin head reservado');
+assert.equal(originales.length,51,'40 SVG históricos mas 11 nuevas fuentes de categorias; Goblin en reserva');
 assert.ok(fs.existsSync(path.join(rutaOrigen,'delapouite','goblin-head.svg')),
   'El original de goblin queda en reserva, no asignado al semiorco');
 const semiorco=fs.readFileSync(path.join(dir,'esp-semiorco.svg'),'utf8');
@@ -116,7 +116,7 @@ for(const id of ids){
 }
 const creditos=fs.readFileSync(path.join(dir,'CREDITOS-GAME-ICONS.txt'),'utf8');
 for(const id of ids) assert.ok(creditos.includes(id+'.svg'),'Crédito '+id);
-assert.equal(creditos.split('\n').filter(line=>line.includes(' — https://game-icons.net/1x1/')).length,28,
+assert.equal(creditos.split('\n').filter(line=>line.includes(' — https://game-icons.net/1x1/')&&!line.startsWith('categoria-')).length,28,
   '28 iconos derivados con sus enlaces originales');
 for(const id of originalesPropios) assert.ok(creditos.includes(id+'.svg — diseño original propio'),
   'Atribucion como diseño propio '+id);
