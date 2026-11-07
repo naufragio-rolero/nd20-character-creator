@@ -148,4 +148,23 @@ assert.doesNotMatch(actions[0],/class="principal"|>Editar<\/button>|>Exportar JS
 assert.match(css,/\.dialogo-ficha-adversario \.criaturas-ficha-acciones button\[hidden\]\{display:none!important\}/);
 assert.match(css,/\.criaturas-ficha-acciones\{[\s\S]*?flex-wrap:nowrap/);
 assert.match(ui,/setAttribute\('aria-label',tituloEdicion\)/);
+// La reorganización es puramente visual: conservamos todos los campos e IDs.
+for(const id of ['criaturas-imagen-ajuste','criaturas-imagen-lienzo',
+  'criaturas-imagen-rellenar','criaturas-imagen-encajar',
+  'criaturas-imagen-zoom','criaturas-imagen-restablecer',
+  'criaturas-imagen-confirmar','criaturas-imagen-cancelar',
+  'criaturas-ficha-anterior','criaturas-ficha-siguiente','criaturas-ficha-posicion']){
+  assert.ok(html.includes('id="'+id+'"'),'Encuadre y navegación: '+id);
+}
+assert.match(html,/class="criaturas-editor-seccion criaturas-editor-identidad"/);
+assert.match(html,/class="criaturas-acciones criaturas-guardar" role="group"/);
+assert.match(html,/id="criaturas-guardar" class="principal accion-icono"/);
+assert.match(ui,/function pintarIlustracion\(/);
+assert.match(ui,/function rasterizarEncuadre\(/);
+assert.match(ui,/function finalizarEncuadre\(/);
+assert.match(ui,/function navegarFicha\(/);
+assert.match(ui,/event\.key==='ArrowLeft'/);
+assert.match(ui,/event\.target\.closest\('input,textarea,select,\[contenteditable\]'\)/);
+assert.match(css,/\.dialogo-adversario \.criaturas-guardar button\.accion-icono/);
+assert.match(css,/#criaturas-imagen-lienzo/);
 console.log('OK · UI criaturas: panel, controles y lista blanca DRS.');
