@@ -106,11 +106,6 @@
         Configurar creación
       </button>
       <button class="principal" id="generar" type="submit" form="configuracion" disabled>Generar personaje</button>
-      <button id="usar-semilla" class="usar-semilla" type="button" aria-pressed="false"
-        aria-controls="dialogo-configuracion">
-        Usar semilla <span id="estado-uso-semilla" class="estado-semilla">Desactivada</span>
-      </button>
-      <button id="abrir-matriz" type="button" class="configurar-creacion" aria-haspopup="dialog" aria-controls="dialogo-matriz">Matriz de Atributos</button>
       <dialog id="dialogo-configuracion" class="dialogo-configuracion"
         aria-labelledby="titulo-dialogo-configuracion">
         <div class="cabecera-configuracion">
@@ -197,7 +192,7 @@
         <div class="campo">
           <label for="semilla">Semilla de reproducción</label>
           <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Escribe o pega una semilla para repetir una creación">
-          <small id="ayuda-semilla">Sin una semilla fija se usa azar nuevo. Para repetir el resultado necesitas la semilla y la configuración; no se conservan las ediciones posteriores.</small>
+          <small id="ayuda-semilla">Deja este campo vacío para utilizar azar nuevo en cada generación. Escribe una semilla fija para repetir el resultado con la misma configuración; no se conservan las ediciones posteriores.</small>
         </div>
         <details class="configuracion-avanzada" id="recuperar-reproduccion">
           <summary>Recuperar configuración de reproducción</summary>
@@ -234,20 +229,6 @@
           <button type="submit" id="generar-dialogo" class="generar-desde-dialogo">Generar personaje</button>
         </div>
       </form>
-      </dialog>
-      <dialog id="dialogo-matriz" class="dialogo-compras dialogo-matriz" aria-labelledby="titulo-dialogo-matriz">
-        <div class="cabecera-compras">
-          <div>
-            <h3 id="titulo-dialogo-matriz">Matriz de Atributos</h3>
-            <p class="muted">Genera seis Atributos con las reglas del sistema seleccionado. Cada resultado también se incorpora a la mesa.</p>
-          </div>
-          <button id="cerrar-matriz" type="button" class="cerrar-rejilla" aria-label="Cerrar Matriz de Atributos">✕</button>
-        </div>
-        <div class="matriz-acciones">
-          <button id="generar-matriz" type="button" class="principal">Generar matriz</button>
-        </div>
-        <p id="aviso-matriz" role="alert" class="aviso-validacion" aria-live="assertive"></p>
-        <div id="vista-matriz" class="vista-matriz" tabindex="-1" hidden></div>
       </dialog>
       </div>
       <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
