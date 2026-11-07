@@ -72,8 +72,8 @@ async function probar(nombre,tipo,url){
       /No hace falta configurar todo/,
       nombre+': explicar el camino sencillo a una persona nueva');
     assert.match(await page.locator('#fichas .vacio').innerText(),
-      /Aquí aparecerá tu personaje/,
-      nombre+': explicar qué encontrará en Resultados');
+      /La mesa está vacía[\s\S]*Genera un personaje o un seguidor/,
+      nombre+': explicar cómo añadir la primera ficha sin repetir la cabecera');
     assert.equal(await page.locator('#generar').textContent(),'Generar personaje');
     await page.locator('#selector-tema').selectOption('ebano');
     const contrasteEbano=await page.locator('.inicio-rapido strong').first().evaluate(el=>{
