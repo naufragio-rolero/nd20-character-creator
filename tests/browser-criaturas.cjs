@@ -451,6 +451,14 @@ async function probar(nombre,tipo,url){
       const emblema=segunda.locator('.criaturas-cromo[data-oficial="true"] .criaturas-emblema');
       assert.equal(await emblema.innerText(),'','El placeholder no muestra iniciales.');
       assert.equal(await segunda.locator('.criaturas-cromo[data-oficial="true"] img').count(),0);
+      assert.equal(await segunda.locator('.criaturas-cromo[data-icono="categoria"]').count(),1,
+        'Sin ilustracion se representa el simbolo de la categoria, no un bloque vacio.');
+      assert.equal(await emblema.locator('.criaturas-icono-portada').count(),1);
+      assert.equal(await segunda.locator('#criaturas-ficha-titulo .criaturas-icono-titulo').count(),1);
+      assert.equal(await segunda.locator('.criaturas-taxonomia .criaturas-icono-taxonomia').count(),1);
+      const mascara=await emblema.locator('.criaturas-icono-portada').evaluate(x=>
+        getComputedStyle(x).maskImage||getComputedStyle(x).webkitMaskImage);
+      assert.match(mascara,/categoria-humanoide\.svg/);
       const estilo=await emblema.evaluate(x=>({
         fondo:getComputedStyle(x).backgroundColor,
         ancho:x.getBoundingClientRect().width,
@@ -459,8 +467,8 @@ async function probar(nombre,tipo,url){
       assert.ok(estilo.ancho>estilo.alto,'Cabecera de cromo panorámica.');
       assert.ok(Math.abs(estilo.ancho/estilo.alto-16/9)<0.12,
         'Cabecera 16:9, también sin ilustración.');
-      // Una ilustración SVG futura puede asignarse mediante el manifiesto,
-      // sin modificar las fichas ni incorporar iconos por defecto.
+      // Un SVG especifico por ID tiene prioridad sobre el icono de categoria,
+      // sin modificar las fichas ni las asignaciones generales.
       const pruebaSVG=await otraContexto.newPage();
       try{
         await pruebaSVG.route('**/assets/adversarios-iconos.json',route=>route.fulfill({
@@ -521,7 +529,8 @@ async function probar(nombre,tipo,url){
         'La ilustración oficial persiste tras recargar.');
       await segunda.locator('#criaturas-ficha-ilustracion-quitar').click();
       assert.equal(await segunda.locator('.criaturas-ficha-imagen').count(),0);
-      assert.equal(await segunda.locator('.criaturas-cromo[data-icono="placeholder"]').count(),1);
+      assert.equal(await segunda.locator('.criaturas-cromo[data-icono="categoria"]').count(),1,
+        'Al quitar la imagen personal reaparece el icono de categoria.');
       await segunda.locator('#criaturas-ficha-retirar').click();
       assert.equal(await segunda.locator('.criaturas-cromo').count(),0,
         'Retirar una selección oficial debe vaciar la galería.');

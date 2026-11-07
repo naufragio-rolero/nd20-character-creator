@@ -6,12 +6,13 @@
     typeof module !== 'undefined' && module.exports ? require('./creatures.js') : root.NaufragioCriaturas,
     typeof module !== 'undefined' && module.exports ? require('./creatures-import.js') : root.NaufragioImportadorCriaturas,
     typeof module !== 'undefined' && module.exports ? require('./creatures-library.js') : root.NaufragioBibliotecaCriaturas,
-    typeof module !== 'undefined' && module.exports ? require('./creatures-components.js') : root.NaufragioComponentesCriaturas);
+    typeof module !== 'undefined' && module.exports ? require('./creatures-components.js') : root.NaufragioComponentesCriaturas,
+    typeof module !== 'undefined' && module.exports ? require('./adversarios-categorias.js') : root.NaufragioCategoriasAdversarios);
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.NaufragioCriaturasUI = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function(root, modelo, importador, apiBiblioteca, componentes) {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function(root, modelo, importador, apiBiblioteca, componentes, categoriasVisuales) {
   'use strict';
-  if (!modelo || !importador || !apiBiblioteca || !componentes) throw Error('Faltan módulos del Editor de criaturas Nd20.');
+  if (!modelo || !importador || !apiBiblioteca || !componentes || !categoriasVisuales) throw Error('Faltan módulos del Editor de criaturas Nd20.');
   var iniciado = false, biblioteca = null, idActual = null, idConsulta = null, ficha = null;
   var pendiente = null, cambios = false, secuenciaAtaques = 0;
   var catalogoDRS = null, fuentesOficiales = null, cargaFuentes = null;
@@ -35,6 +36,20 @@
     if(clase) e.className=clase;
     if(texto!==undefined) e.textContent=String(texto);
     return e;
+  }
+  // SVG de categoria: mascara 1:1 coloreada desde el mismo registro editorial.
+  // URL absoluta para no resolver assets/assets al aplicar la mascara CSS.
+  function iconoCategoria(categoria,clase){
+    var visual=categoriasVisuales.obtener(categoria);
+    if(!visual)return null;
+    var icono=ele('span','criaturas-icono-categoria'+(clase?' '+clase:''));
+    var base=d.baseURI||(root.location&&root.location.href)||'http://localhost/';
+    var svg=new URL('assets/adversarios/iconos/'+visual.archivo,base).href;
+    icono.setAttribute('aria-hidden','true');
+    icono.style.setProperty('--criaturas-svg-categoria','url("'+svg+'")');
+    icono.style.setProperty('--criaturas-tinta-categoria',visual.tinta);
+    icono.style.setProperty('--criaturas-brillo-categoria',visual.brillo);
+    return icono;
   }
   function mostrarEstado(texto,error) {
     var e=$('criaturas-estado');
@@ -646,7 +661,11 @@
       var seleccionado=oficialesSeleccionados.has(id);
       var fila=ele('div','criaturas-selector-fila');
       var titulo=ele('div','criaturas-selector-identidad');
-      titulo.appendChild(ele('strong','',registro.nombre));
+      var nombreSelector=ele('span','criaturas-selector-nombre');
+      var insigniaSelector=iconoCategoria(registro.ficha.categoria,'criaturas-icono-lista');
+      if(insigniaSelector)nombreSelector.appendChild(insigniaSelector);
+      nombreSelector.appendChild(ele('strong','',registro.nombre));
+      titulo.appendChild(nombreSelector);
       titulo.appendChild(ele('small','muted',
         (registro.ficha.categoria||'Sin categoría')+
         (registro.ficha.subcategoria?' / '+registro.ficha.subcategoria:'')+
@@ -1092,7 +1111,8 @@
         emblema.setAttribute('aria-hidden','true');
         var ruta=rutaIcono(registro);
         var imagenPersonal=registro.imagen||'';
-        item.dataset.icono=imagenPersonal?'imagen':ruta?'svg':'placeholder';
+        var categoriaPortada=iconoCategoria(registro.categoria,'criaturas-icono-portada');
+        item.dataset.icono=imagenPersonal?'imagen':ruta?'svg':categoriaPortada?'categoria':'placeholder';
         if(imagenPersonal||ruta){
           var imagen=ele('img','criaturas-icono-svg');
           imagen.alt='';
@@ -1101,12 +1121,19 @@
           imagen.src=imagenPersonal||ruta;
           imagen.addEventListener('error',function(){
             imagen.remove();
-            item.dataset.icono='placeholder';
+            item.dataset.icono=categoriaPortada?'categoria':'placeholder';
+            if(categoriaPortada)emblema.appendChild(categoriaPortada);
           });
           emblema.appendChild(imagen);
+        }else if(categoriaPortada){
+          emblema.appendChild(categoriaPortada);
         }
         item.appendChild(emblema);
-        item.appendChild(ele('span','criaturas-nombre',registro.nombre));
+        var nombreCromo=ele('span','criaturas-nombre');
+        var insigniaNombre=iconoCategoria(registro.categoria,'criaturas-icono-nombre');
+        if(insigniaNombre)nombreCromo.appendChild(insigniaNombre);
+        nombreCromo.appendChild(d.createTextNode(registro.nombre));
+        item.appendChild(nombreCromo);
         item.appendChild(ele('span','criaturas-nivel',
           (registro.oficial?'Épica · ':'')+
           (registro.nivel==null?'Nivel —':'Nivel '+registro.nivel)));
@@ -1151,8 +1178,12 @@
         metricas.appendChild(caja);
       });
     articulo.appendChild(metricas);
-    articulo.appendChild(ele('p','criaturas-taxonomia',
+    var taxonomia=ele('p','criaturas-taxonomia');
+    var insigniaTaxonomia=iconoCategoria(dato.categoria,'criaturas-icono-taxonomia');
+    if(insigniaTaxonomia)taxonomia.appendChild(insigniaTaxonomia);
+    taxonomia.appendChild(d.createTextNode(
       root.NaufragioFormatoAdversarios.taxonomia(dato)||'Sin categoría documentada'));
+    articulo.appendChild(taxonomia);
     function encabezadoApartado(nombre,icono){
       var h=ele('h4','criaturas-titulo-apartado');
       var simbolo=ele('span','criaturas-icono-apartado '+icono);
@@ -1213,7 +1244,11 @@
         'Fuente: Naufragio d20 - Épica · DRS (copia personal)'));
     }
     cont.appendChild(articulo);
-    $('criaturas-ficha-titulo').textContent=dato.nombre;
+    var tituloFicha=$('criaturas-ficha-titulo');
+    tituloFicha.textContent='';
+    var insigniaTitulo=iconoCategoria(dato.categoria,'criaturas-icono-titulo');
+    if(insigniaTitulo)tituloFicha.appendChild(insigniaTitulo);
+    tituloFicha.appendChild(d.createTextNode(dato.nombre));
     actualizarNavegadorFicha(id);
     // Las acciones son iconos: actualizar el nombre accesible sin destruir
     // el SVG ni la máscara del botón al abrir otra ficha.
