@@ -208,6 +208,17 @@ async function probar(nombre,tipo,url){
       name:'prueba.png',mimeType:'image/png',
       buffer:Buffer.from(png.split(',')[1],'base64')
     });
+    assert.equal(await page.locator('#criaturas-imagen-ajuste').evaluate(x=>x.open),true);
+    assert.equal(await page.locator('#criaturas-imagen-lienzo').evaluate(x=>x.width),960);
+    await page.locator('#criaturas-imagen-encajar').click();
+    assert.equal(await page.locator('#criaturas-imagen-encajar').getAttribute('aria-pressed'),'true');
+    await page.locator('#criaturas-imagen-zoom').evaluate(x=>{
+      x.value='1.5';x.dispatchEvent(new Event('input',{bubbles:true}));
+    });
+    assert.equal(await page.locator('#criaturas-imagen-zoom-valor').textContent(),'150 %');
+    await page.locator('#criaturas-imagen-restablecer').click();
+    assert.equal(await page.locator('#criaturas-imagen-zoom-valor').textContent(),'100 %');
+    await page.locator('#criaturas-imagen-confirmar').click();
     await page.locator('#criaturas-estado').getByText('Ilustración preparada',{exact:false}).waitFor();
     assert.equal(await page.locator('#criaturas-imagen-previa img').count(),1);
     await page.locator('.criatura-ataque').first().locator('[data-campo="danoLiteral"]')
@@ -236,6 +247,16 @@ async function probar(nombre,tipo,url){
     await page.locator('#criaturas-ficha-duplicar').click();
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),2);
     assert.match(await page.locator('#criaturas-ficha-titulo').textContent(),/\(copia\)$/);
+    assert.equal(await page.locator('#criaturas-ficha-posicion').textContent(),'2 / 2');
+    assert.equal(await page.locator('#criaturas-ficha-siguiente').isDisabled(),true);
+    await page.keyboard.press('ArrowLeft');
+    assert.equal(await page.locator('#criaturas-ficha-titulo').textContent(),'Araña peluda');
+    assert.equal(await page.locator('#criaturas-ficha-anterior').isDisabled(),true);
+    await page.keyboard.press('ArrowRight');
+    assert.match(await page.locator('#criaturas-ficha-titulo').textContent(),/\(copia\)$/);
+    await page.locator('#criaturas-ficha-anterior').click();
+    assert.equal(await page.locator('#criaturas-ficha-posicion').textContent(),'1 / 2');
+    await page.locator('#criaturas-ficha-siguiente').click();
     // La colección PDF debe funcionar también con más de una ficha y
     // mantener cada adversario diferenciado en la composición.
     if(fs.existsSync(path.join(raiz,'assets/vendor/pdf-lib.min.js'))){
@@ -434,6 +455,16 @@ async function probar(nombre,tipo,url){
         name:'goblin.png',mimeType:'image/png',
         buffer:Buffer.from(png.split(',')[1],'base64')
       });
+      assert.equal(await segunda.locator('#criaturas-imagen-ajuste').evaluate(x=>x.open),true);
+      await segunda.locator('#criaturas-imagen-cancelar').click();
+      assert.equal(await segunda.locator('.criaturas-ficha-imagen').count(),0,
+        'Cancelar no modifica la imagen del perfil oficial.');
+      await segunda.locator('#criaturas-ficha-ilustracion-archivo').setInputFiles({
+        name:'goblin.png',mimeType:'image/png',
+        buffer:Buffer.from(png.split(',')[1],'base64')
+      });
+      await segunda.locator('#criaturas-imagen-rellenar').click();
+      await segunda.locator('#criaturas-imagen-confirmar').click();
       await segunda.locator('#criaturas-estado')
         .getByText('Ilustración personalizada guardada',{exact:false}).waitFor();
       assert.equal(await segunda.locator('.criaturas-cromo[data-icono="imagen"]').count(),1);
