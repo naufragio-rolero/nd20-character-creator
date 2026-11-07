@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - Encabezados de las mesas (PR #126)
+      - name: Obtener snapshot DRS aprobado - Auditoría UX y naming (PR #128)
         uses: actions/checkout@v4
         with:
-          ref: a172ccb01d68b4ba0052e00431958eb8c10ccb3a
+          ref: 916fa13dc317d605f101fc4e40b1befba9758e07
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "a172ccb01d68b4ba0052e00431958eb8c10ccb3a"
-      # Snapshot aprobado para LIVE: PR #126 sobre los 12 iconos previos. Cabeceras claras para Personajes/Seguidores y Adversarios; sin cambios reglamentarios, de exportacion ni de almacenamiento.
+          test "$(git rev-parse HEAD)" = "916fa13dc317d605f101fc4e40b1befba9758e07"
+      # Snapshot aprobado para LIVE: PR #128, tras QA Chromium, Firefox, WebKit, DRS y PDF. UX y naming coherentes en Personajes, Seguidores y Adversarios; sin cambios de reglas, exportaciones ni almacenamiento.
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
