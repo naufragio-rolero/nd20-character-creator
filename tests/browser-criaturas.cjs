@@ -215,20 +215,42 @@ async function probar(nombre,tipo,url){
       x.fillStyle='#8a3be8';x.fillRect(0,0,320,180);
       return c.toDataURL('image/png');
     });
+    // Imagen vertical con dos bandas cromáticas: prueba real de encajar,
+    // cubrir y mover el contenido, no solo la presencia del diálogo.
+    const vertical=await page.evaluate(()=>{
+      const c=document.createElement('canvas');c.width=200;c.height=400;
+      const x=c.getContext('2d');
+      x.fillStyle='#f03030';x.fillRect(0,0,200,200);
+      x.fillStyle='#204be0';x.fillRect(0,200,200,200);
+      return c.toDataURL('image/png');
+    });
     await page.locator('#criaturas-imagen-archivo').setInputFiles({
-      name:'prueba.png',mimeType:'image/png',
-      buffer:Buffer.from(png.split(',')[1],'base64')
+      name:'vertical.png',mimeType:'image/png',
+      buffer:Buffer.from(vertical.split(',')[1],'base64')
     });
     await page.locator('#criaturas-imagen-ajuste').waitFor({state:'visible'});
     assert.equal(await page.locator('#criaturas-imagen-lienzo').evaluate(x=>x.width),960);
     await page.locator('#criaturas-imagen-encajar').click();
     assert.equal(await page.locator('#criaturas-imagen-encajar').getAttribute('aria-pressed'),'true');
+    const margen=await page.locator('#criaturas-imagen-lienzo').evaluate(c=>
+      Array.from(c.getContext('2d').getImageData(20,270,1,1).data).slice(0,3));
+    assert.deepEqual(margen,[255,255,255],'Encajar conserva bandas laterales blancas.');
     await page.locator('#criaturas-imagen-zoom').evaluate(x=>{
       x.value='1.5';x.dispatchEvent(new Event('input',{bubbles:true}));
     });
     assert.equal(await page.locator('#criaturas-imagen-zoom-valor').textContent(),'150 %');
     await page.locator('#criaturas-imagen-restablecer').click();
     assert.equal(await page.locator('#criaturas-imagen-zoom-valor').textContent(),'100 %');
+    await page.locator('#criaturas-imagen-rellenar').click();
+    const lienzo=page.locator('#criaturas-imagen-lienzo');
+    const antes=await lienzo.evaluate(c=>c.toDataURL('image/png'));
+    const box=await lienzo.boundingBox();
+    await page.mouse.move(box.x+box.width/2,box.y+box.height/2);
+    await page.mouse.down();
+    await page.mouse.move(box.x+box.width/2,box.y+box.height/5,{steps:6});
+    await page.mouse.up();
+    assert.notEqual(await lienzo.evaluate(c=>c.toDataURL('image/png')),antes,
+      'Arrastrar debe cambiar realmente el recorte.');
     await page.locator('#criaturas-imagen-confirmar').click();
     await page.locator('#criaturas-estado').getByText('Ilustración preparada',{exact:false}).waitFor();
     assert.equal(await page.locator('#criaturas-imagen-previa img').count(),1);
