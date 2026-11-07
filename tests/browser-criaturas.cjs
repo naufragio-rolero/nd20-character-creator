@@ -151,6 +151,17 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#criaturas-original').inputValue(),texto);
     await page.locator('#criaturas-subcategoria').fill('Animales');
     await page.locator('#criaturas-subtipo').fill('Arácnido');
+    const barraEditor=await page.locator('.criaturas-guardar').evaluate(n=>{
+      const botones=Array.from(n.querySelectorAll('button'));
+      const rects=botones.map(x=>x.getBoundingClientRect());
+      return {cantidad:botones.length,anchos:rects.map(r=>r.width),
+        niveles:rects.map(r=>r.top),
+        etiquetas:botones.map(x=>x.getAttribute('aria-label'))};
+    });
+    assert.equal(barraEditor.cantidad,3);
+    assert.ok(barraEditor.anchos.every(x=>x>=38&&x<=48));
+    assert.ok(barraEditor.niveles.every(x=>Math.abs(x-barraEditor.niveles[0])<2));
+    assert.ok(barraEditor.etiquetas.every(Boolean));
     await page.locator('#criaturas-guardar').click();
     await page.locator('#criaturas-estado').getByText('guardado',{exact:false}).waitFor();
     assert.equal(await page.locator('#criaturas-edicion').evaluate(x=>x.open),false);
