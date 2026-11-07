@@ -479,13 +479,13 @@ jobs:
           grep -Fq "var mesaVacia=entradas.length===0;" /tmp/forja-app.js
           grep -Fq "configurador.showModal();" /tmp/forja-app.js
           grep -Fq 'function mostrarReproduccion(semilla,cfg)' /tmp/forja-app.js
-          grep -Fq 'var usarSemilla = false;' /tmp/forja-app.js
+          ! grep -Fq 'var usarSemilla = false;' /tmp/forja-app.js
           grep -Fq 'var semillaUsada=semillaGeneracion()' /tmp/forja-app.js
           grep -Fq 'var registroGeneracion=mostrarReproduccion(semillaUsada,c);' /tmp/forja-app.js
           grep -Fq 'var registroPersonalizado=mostrarReproduccion(semillaUsada,c);' /tmp/forja-app.js
           grep -Fq 'function abrirReproduccion(entrada)' /tmp/forja-app.js
           grep -Fq 'class="ver-reproduccion accion-icono"' /tmp/forja-app.js
-          grep -Fq 'function actualizarUsoSemilla()' /tmp/forja-app.js
+          ! grep -Fq 'function actualizarUsoSemilla()' /tmp/forja-app.js
           grep -Fq 'reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r' /tmp/forja-app.js
           grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
           grep -Fq 'danoConPotencia(x.dano,p)' /tmp/forja-app.js
