@@ -95,6 +95,12 @@ assert.equal(seg.criatura.descripcion,'Una criatura de cavernas.');
 assert.ok(seg.advertencias.some(x=>x.codigo==='continuacion_dudosa'));
 assert.throws(()=>parser.descomponerTexto(''),/Pega el texto/);
 assert.throws(()=>parser.descomponerTexto('x'.repeat(120001)),/demasiado largo/);
+const sinSalud=parser.descomponerTexto(
+  'Adversario sin Salud documentada\nHumanoide de Nivel 4 [Moral 7]\nAtaques: mordisco (6)');
+assert.equal(sinSalud.criatura.saludModo,'manual');
+assert.equal(sinSalud.criatura.puntuaciones.salud,null);
+assert.equal(sinSalud.criatura.puntuaciones.nivel,4);
+assert.equal(sinSalud.criatura.descripcion,'');
 assert.equal(modelo.revisar(ylat.criatura).valida,true);
 assert.equal(parser.separarAtaques('aplastamiento (20 o especial) y mordisco (40)')
   .trozos.length,2);

@@ -299,9 +299,12 @@
       '<label>Cantidad<input data-campo="cantidad" type="number" min="1" step="1" required></label>'+
       '<label class="criaturas-ancho">Nombre de la acción<input data-campo="nombre" type="text" maxlength="200" required></label>'+
       '<label>Daño literal<input data-campo="danoLiteral" type="text" maxlength="180" placeholder="6, especial, 20 o especial…"></label>'+
-      '<label>Daño numérico (opcional)<input data-campo="danoNumerico" type="number" min="0" step="1"></label>'+
-      '<label>Talento relacionado (opcional)<input data-campo="talentoRelacionado" type="text" maxlength="200"></label>'+
       '<label class="criaturas-ancho">Notas<input data-campo="notas" type="text" maxlength="500"></label>'+
+      '<details class="criaturas-ataque-avanzado"><summary>Desglose avanzado (opcional)</summary>'+
+      '<div class="criaturas-ataque-avanzado-campos">'+
+      '<label>Daño numérico interpretado<input data-campo="danoNumerico" type="number" min="0" step="1"></label>'+
+      '<label>Talento relacionado<input data-campo="talentoRelacionado" type="text" maxlength="200"></label>'+
+      '</div><small>El número es auxiliar; no sustituye al daño literal ni calcula encuentros.</small></details>'+
       '</div><small class="criaturas-texto-original"></small>';
   }
   function plantillaTalento() {
@@ -392,7 +395,7 @@
     });
     $('criaturas-salud-modo').value=ficha.saludModo;
     $('criaturas-salud-ajuste').value=String(ficha.saludAjuste);
-    $('criaturas-descripcion').required=true;
+    $('criaturas-descripcion').required=false;
     actualizarSalud();
     $('criaturas-pendientes').value=ficha.camposNoInterpretados.join('\n');
     $('criaturas-original').value=ficha.origen.textoOriginal;
@@ -1050,12 +1053,28 @@
         iconosGaleria={};
       });
   }
+  function textoBusqueda(valor){
+    return String(valor||'').toLocaleLowerCase('es').normalize('NFD')
+      .replace(/[\u0300-\u036f]/g,'');
+  }
+  function coincideColeccion(registro){
+    var origen=$('criaturas-coleccion-origen').value;
+    if(origen==='propios'&&registro.oficial)return false;
+    if(origen==='oficiales'&&!registro.oficial)return false;
+    var consulta=textoBusqueda($('criaturas-coleccion-busqueda').value.trim());
+    return !consulta||textoBusqueda([registro.nombre,registro.categoria,
+      registro.fuente].join(' ')).includes(consulta);
+  }
   function idsMesaAdversarios(){
-    var propios=biblioteca?biblioteca.listar().map(function(r){return r.id;}):[];
+    var propios=biblioteca?biblioteca.listar():[];
     var oficiales=registrosOficiales().filter(function(r){
       return oficialesSeleccionados.has(r.id);
-    }).map(function(r){return r.id;});
-    return propios.concat(oficiales);
+    }).map(function(r){
+      return {id:r.id,nombre:r.nombre,categoria:r.ficha.categoria,
+        fuente:r.fuente.titulo,oficial:true};
+    });
+    return propios.concat(oficiales).filter(coincideColeccion)
+      .map(function(r){return r.id;});
   }
   function actualizarNavegadorFicha(id){
     var ids=idsMesaAdversarios(),indice=ids.indexOf(id);
@@ -1086,6 +1105,12 @@
             imagen:ilustracionesOficiales[r.id]||''};
         });
       var registros=propios.concat(oficiales);
+      var visibles=registros.filter(coincideColeccion);
+      var filtroActivo=!!$('criaturas-coleccion-busqueda').value.trim()||
+        !!$('criaturas-coleccion-origen').value;
+      $('criaturas-coleccion-limpiar').hidden=!filtroActivo;
+      $('criaturas-coleccion-resultado').textContent=filtroActivo?
+        visibles.length+' de '+registros.length+' adversarios encontrados.':'';
       $('criaturas-contador-menu').textContent=String(registros.length);
       $('criaturas-cantidad').textContent=propios.length+' propios · '+
         oficiales.length+' perfiles oficiales';
@@ -1096,7 +1121,12 @@
           'Crea un adversario o elige un perfil oficial para empezar la colección.'));
         return;
       }
-      registros.forEach(function(registro) {
+      if(!visibles.length) {
+        lista.appendChild(ele('p','muted vacio-adversarios',
+          'No hay adversarios que coincidan. Cambia o limpia los filtros.'));
+        return;
+      }
+      visibles.forEach(function(registro) {
         var item=ele('button','criaturas-cromo criaturas-lista-item');
         item.type='button';
         item.dataset.accion='ver';
@@ -1366,14 +1396,23 @@
       });
       var talentos=c.talentos.map(function(t){return t.nombre+': '+t.descripcion;});
       $('criaturas-resumen-previa').textContent=[
+        '1. INFORMACIÓN RECONOCIDA',
         'Nombre: '+(c.nombre||'Sin reconocer'),
         'Categoría: '+(c.categoria||'Sin reconocer'),
         'Puntuaciones: '+(campos.join(' · ')||'Sin reconocer'),
+        'Descripción: '+(c.descripcion||'No detectada'),
+        '',
+        '2. INTERPRETACIONES QUE REQUIEREN ATENCIÓN',
+        (analisis.errores.length+' errores · '+analisis.advertencias.length+' avisos'),
+        'Consulta los avisos detallados debajo de este resumen; no se aplica ninguna corrección automática.',
+        '',
+        '3. FRAGMENTOS PARA REVISAR MANUALMENTE ('+c.camposNoInterpretados.length+')',
+        c.camposNoInterpretados.join('\n')||'Ninguno',
+        '',
+        '4. DATOS QUE PASARÁN AL EDITOR (TODAVÍA SIN GUARDAR)',
         'Acciones extraídas ('+ataques.length+'): '+(ataques.join(' | ')||'Sin reconocer'),
         'Talentos ('+talentos.length+'): '+(talentos.join(' | ')||'Sin reconocer'),
-        'Descripción: '+(c.descripcion||'No detectada'),
-        'Fragmentos pendientes ('+c.camposNoInterpretados.length+'): '+
-          (c.camposNoInterpretados.join(' | ')||'Ninguno')
+        'El texto original íntegro se conservará junto a la propuesta.'
       ].join('\n');
       avisosEn('criaturas-advertencias-previa',analisis.errores,analisis.advertencias);
       $('criaturas-vista-previa').hidden=false;
@@ -1611,6 +1650,14 @@
       mostrarEstado('Ilustración retirada del borrador. Guarda para confirmar.');
     });
     $('criaturas-filtrar-categoria').addEventListener('input',filtrarCategorias);
+    $('criaturas-coleccion-busqueda').addEventListener('input',dibujarBiblioteca);
+    $('criaturas-coleccion-origen').addEventListener('change',dibujarBiblioteca);
+    $('criaturas-coleccion-limpiar').addEventListener('click',function(){
+      $('criaturas-coleccion-busqueda').value='';
+      $('criaturas-coleccion-origen').value='';
+      dibujarBiblioteca();
+      $('criaturas-coleccion-busqueda').focus();
+    });
     $('criaturas-nueva-panel').addEventListener('click',nueva);
     $('criaturas-ir-importar').addEventListener('click',function(){irA('criaturas-importacion');$('criaturas-texto').focus();});
     $('criaturas-cerrar-importacion').addEventListener('click',function(){

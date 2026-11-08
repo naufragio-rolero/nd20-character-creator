@@ -2016,3 +2016,20 @@ html[data-tema=violeta] .criaturas-icono-categoria{
   .vacio{min-height:190px;padding:1.25rem}
   .criaturas-mesa{min-height:0}
 }
+
+/* Colección de adversarios: filtro ligero, accesible y adaptativo. */
+.criaturas-coleccion-filtros{
+  display:flex;flex-wrap:wrap;gap:.75rem;align-items:flex-end;margin:.7rem 0 .25rem;
+}
+.criaturas-coleccion-filtros label{
+  display:flex;flex-direction:column;gap:.3rem;flex:1 1 190px;min-width:0;
+}
+.criaturas-coleccion-filtros input,
+.criaturas-coleccion-filtros select{width:100%;max-width:100%}
+.criaturas-coleccion-filtros button{flex:0 0 auto}
+.criaturas-ataque-avanzado{grid-column:1/-1;margin-top:.2rem}
+.criaturas-ataque-avanzado summary{cursor:pointer}
+.criaturas-ataque-avanzado-campos{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.6rem}
+.criaturas-ataque-avanzado-campos label{flex:1 1 180px;min-width:0}
+
+#criaturas-resumen-previa{white-space:pre-wrap;overflow-wrap:anywhere}

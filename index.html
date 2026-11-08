@@ -585,6 +585,18 @@
           <h3 id="criaturas-titulo-biblioteca">Colección</h3>
           <span id="criaturas-cantidad" class="muted">0 adversarios</span>
         </div>
+        <div class="criaturas-coleccion-filtros" role="search" aria-label="Filtrar colección de adversarios">
+          <label for="criaturas-coleccion-busqueda">Buscar en la colección
+            <input id="criaturas-coleccion-busqueda" type="search" autocomplete="off" placeholder="Nombre, categoría o fuente…"></label>
+          <label for="criaturas-coleccion-origen">Mostrar
+            <select id="criaturas-coleccion-origen">
+              <option value="">Todos los adversarios</option>
+              <option value="propios">Solo fichas propias</option>
+              <option value="oficiales">Solo perfiles oficiales</option>
+            </select></label>
+          <button type="button" id="criaturas-coleccion-limpiar" hidden>Limpiar filtros</button>
+        </div>
+        <p id="criaturas-coleccion-resultado" class="muted" role="status" aria-live="polite"></p>
         <div class="campo criaturas-sistema"><label for="criaturas-sistema">Sistema del bestiario</label>
           <select id="criaturas-sistema"><option value="adversarios-drs">Naufragio d20 · Fantasía Épica</option></select></div>
         <div class="criaturas-acciones">
@@ -635,11 +647,11 @@
                 <option value="Limo">Limo</option>
                 <option value="Reptil">Reptil</option>
                 <option value="Vegetal">Vegetal</option>
-              </select></div>
+              </select><small>Clasificación oficial: una de las 16 categorías del DRS.</small></div>
             <div class="campo"><label for="criaturas-subcategoria">Familia / subcategoría</label>
-              <input id="criaturas-subcategoria" type="text" maxlength="160" list="criaturas-subcategorias" autocomplete="off"><datalist id="criaturas-subcategorias"></datalist></div>
+              <input id="criaturas-subcategoria" type="text" maxlength="160" list="criaturas-subcategorias" autocomplete="off"><datalist id="criaturas-subcategorias"></datalist><small>Agrupación más concreta, solo si consta en la fuente o la defines para tu ficha.</small></div>
             <div class="campo"><label for="criaturas-subtipo">Subtipo</label>
-              <input id="criaturas-subtipo" type="text" maxlength="160" autocomplete="off"></div>
+              <input id="criaturas-subtipo" type="text" maxlength="160" autocomplete="off"><small>Variante particular dentro de la familia; puede quedar vacía.</small></div>
               </div>
             </div>
             <div class="criaturas-editor-arte">
@@ -660,13 +672,13 @@
           </section>
           <section class="criaturas-editor-seccion" aria-labelledby="criaturas-puntuaciones-titulo">
           <h4 id="criaturas-puntuaciones-titulo">Puntuaciones</h4>
-          <p class="muted">Deja vacíos los valores no documentados.</p>
+          <p class="muted">Deja vacíos los valores no documentados. La Salud nunca se calcula por importar una ficha: activa expresamente «Calcular media» si estás diseñando una criatura propia.</p>
           <div class="criaturas-campos criaturas-numeros">
             <div class="campo"><label for="criaturas-nivel">Nivel</label><input id="criaturas-nivel" type="number" min="0" max="100" step="1"></div>
             <div class="campo"><label for="criaturas-moral">Moral</label><input id="criaturas-moral" type="number" min="0" step="1"></div>
             <div class="campo"><label for="criaturas-salud">Salud</label><input id="criaturas-salud" type="number" min="0" step="1"></div>
             <div class="campo"><label for="criaturas-salud-modo">Cálculo de Salud</label>
-              <select id="criaturas-salud-modo"><option value="automatico">Media automática</option><option value="manual">Valor manual/documentado</option></select></div>
+              <select id="criaturas-salud-modo"><option value="manual">Valor manual/documentado (predeterminado)</option><option value="automatico">Calcular media (a petición)</option></select></div>
             <div class="campo"><label for="criaturas-salud-ajuste">Ajuste de protección / Salud</label>
               <input id="criaturas-salud-ajuste" type="number" step="1" value="0"></div>
             <p id="criaturas-salud-desglose" class="muted criaturas-salud-desglose" aria-live="polite">Media: Nivel × 4 + ajuste × 4</p>
@@ -680,7 +692,7 @@
             <h4>Acciones</h4>
             <button type="button" id="criaturas-anadir-ataque">Añadir acción</button>
           </div>
-          <p class="muted">«y» indica acciones simultáneas, «o» opciones alternativas. Las comas y mezclas pueden requerir revisión. El daño literal no se calcula.</p>
+          <p class="muted">Añade una fila por ataque: «2 garras (4)» son dos garras de 4 de daño cada una. «y» une ataques simultáneos, «o» ofrece alternativas y la coma queda pendiente de revisión. Conservamos el daño tal como está escrito.</p>
           <div class="campo"><label for="criaturas-buscar-ataque">Buscar acción documentada o propia</label>
             <input id="criaturas-buscar-ataque" type="search" autocomplete="off" placeholder="Busca por nombre de acción…"></div>
           <div id="criaturas-coincidencias-ataques" class="criaturas-coincidencias" aria-live="polite"></div>
@@ -701,7 +713,7 @@
           </section>
           <section class="criaturas-editor-seccion criaturas-editor-descripcion" aria-label="Descripción y notas">
           <h4>Descripción y notas</h4>
-          <div class="campo"><label for="criaturas-descripcion">Descripción *</label>
+          <div class="campo"><label for="criaturas-descripcion">Descripción (opcional)</label>
             <textarea id="criaturas-descripcion" rows="5"></textarea></div>
           <div class="campo"><label for="criaturas-notas">Notas propias</label>
             <textarea id="criaturas-notas" rows="3"></textarea></div>
