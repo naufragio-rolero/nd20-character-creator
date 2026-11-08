@@ -7,12 +7,13 @@
     typeof module !== 'undefined' && module.exports ? require('./creatures-import.js') : root.NaufragioImportadorCriaturas,
     typeof module !== 'undefined' && module.exports ? require('./creatures-library.js') : root.NaufragioBibliotecaCriaturas,
     typeof module !== 'undefined' && module.exports ? require('./creatures-components.js') : root.NaufragioComponentesCriaturas,
+    typeof module !== 'undefined' && module.exports ? require('./creatures-random.js') : root.NaufragioGeneradorAdversarios,
     typeof module !== 'undefined' && module.exports ? require('./adversarios-categorias.js') : root.NaufragioCategoriasAdversarios);
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   root.NaufragioCriaturasUI = api;
-})(typeof globalThis !== 'undefined' ? globalThis : this, function(root, modelo, importador, apiBiblioteca, componentes, categoriasVisuales) {
+})(typeof globalThis !== 'undefined' ? globalThis : this, function(root, modelo, importador, apiBiblioteca, componentes, generador, categoriasVisuales) {
   'use strict';
-  if (!modelo || !importador || !apiBiblioteca || !componentes || !categoriasVisuales) throw Error('Faltan módulos del Editor de criaturas Nd20.');
+  if (!modelo || !importador || !apiBiblioteca || !componentes || !generador || !categoriasVisuales) throw Error('Faltan módulos del Editor de criaturas Nd20.');
   var iniciado = false, biblioteca = null, idActual = null, idConsulta = null, ficha = null;
   var pendiente = null, cambios = false, secuenciaAtaques = 0;
   var catalogoDRS = null, fuentesOficiales = null, cargaFuentes = null;
@@ -425,6 +426,72 @@
     renderizarFicha(modelo.nuevaCriatura(),null);
     mostrarEstado('');
     abrirEditor();
+  }
+  function prepararCategoriasGenerador(){
+    var destino=$('criaturas-generar-categorias');
+    if(destino.childElementCount)return;
+    modelo.CATEGORIAS.forEach(function(nombre){
+      var etiqueta=ele('label','criaturas-generar-categoria');
+      var casilla=ele('input');
+      casilla.type='checkbox';casilla.name='categorias-generador';
+      casilla.value=nombre;casilla.checked=true;
+      etiqueta.append(casilla,d.createTextNode(' '+nombre));
+      destino.appendChild(etiqueta);
+    });
+  }
+  function abrirGenerador(){
+    prepararCategoriasGenerador();
+    $('criaturas-generar-estado').textContent='';
+    if(!$('criaturas-generar-dialogo').open)$('criaturas-generar-dialogo').showModal();
+    $('criaturas-generar-min').focus({preventScroll:true});
+  }
+  function semillaNuevaGenerador(){
+    if(!root.crypto||typeof root.crypto.getRandomValues!=='function')
+      throw Error('Este navegador no dispone de generación segura de semillas. Escribe una semilla.');
+    var numeros=new Uint32Array(2);
+    root.crypto.getRandomValues(numeros);
+    return Array.from(numeros).map(function(n){return n.toString(16).padStart(8,'0');}).join('');
+  }
+  async function generarAdversario(event){
+    event.preventDefault();
+    var estado=$('criaturas-generar-estado');
+    estado.textContent='';
+    if(!permitirDescartar())return;
+    var boton=$('criaturas-generar-ejecutar');
+    boton.disabled=true;
+    try{
+      var categorias=Array.from($('criaturas-generar-categorias')
+        .querySelectorAll('input[type="checkbox"]:checked')).map(function(e){return e.value;});
+      var semilla=$('criaturas-generar-semilla').value.trim();
+      if(!semilla)semilla=semillaNuevaGenerador();
+      var opciones={
+        semilla:semilla,
+        nivelMin:aEntero($('criaturas-generar-min').value,'Nivel mínimo'),
+        nivelMax:aEntero($('criaturas-generar-max').value,'Nivel máximo'),
+        categorias:categorias,
+        modo:$('criaturas-generar-modo').value,
+        acciones:aEntero($('criaturas-generar-acciones').value,'Número de Acciones'),
+        talentos:aEntero($('criaturas-generar-talentos').value,'Número de Talentos'),
+        conector:$('criaturas-generar-conector').value
+      };
+      generador.validarOpciones(opciones);
+      var catalogo=await asegurarBibliotecaComponentes();
+      var propios=biblioteca?biblioteca.listar().map(function(r){
+        return {id:r.id,ficha:biblioteca.obtener(r.id)};
+      }):[];
+      var resultado=generador.generar(catalogo,fuentesOficiales,propios,opciones);
+      // No persistir ni modificar originales. Siempre abrir un borrador nuevo.
+      $('criaturas-generar-semilla').value=semilla;
+      renderizarFicha(resultado.ficha,null);
+      cambios=true;
+      $('criaturas-generar-dialogo').close();
+      abrirEditor();
+      mostrarEstado('Adversario generado con semilla '+semilla+
+        '. Es un borrador sin guardar; revisa la combinación antes de conservarla.');
+    }catch(error){
+      estado.textContent=error.message;
+      estado.className='estado error';
+    }finally{boton.disabled=false;}
   }
   function cargarSeleccionOficial() {
     try {
@@ -1659,6 +1726,19 @@
       $('criaturas-coleccion-busqueda').focus();
     });
     $('criaturas-nueva-panel').addEventListener('click',nueva);
+    $('criaturas-generar-panel').addEventListener('click',abrirGenerador);
+    $('criaturas-generar-cerrar').addEventListener('click',function(){
+      $('criaturas-generar-dialogo').close();
+    });
+    $('criaturas-generar-todas').addEventListener('click',function(){
+      $('criaturas-generar-categorias').querySelectorAll('input')
+        .forEach(function(c){c.checked=true;});
+    });
+    $('criaturas-generar-ninguna').addEventListener('click',function(){
+      $('criaturas-generar-categorias').querySelectorAll('input')
+        .forEach(function(c){c.checked=false;});
+    });
+    $('criaturas-generar-form').addEventListener('submit',generarAdversario);
     $('criaturas-ir-importar').addEventListener('click',function(){irA('criaturas-importacion');$('criaturas-texto').focus();});
     $('criaturas-cerrar-importacion').addEventListener('click',function(){
       $('criaturas-importacion').hidden=true;
