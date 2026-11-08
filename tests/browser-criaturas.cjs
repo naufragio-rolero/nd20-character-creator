@@ -620,6 +620,9 @@ async function probar(nombre,tipo,url){
       await segunda.locator('#criaturas-categoria').selectOption('Bestia');
       await segunda.locator('#criaturas-nivel').fill('4');
       await segunda.locator('#criaturas-salud-ajuste').fill('-2');
+      assert.equal(await segunda.locator('#criaturas-salud').inputValue(),'',
+        'No calcular Salud sin una solicitud expresa.');
+      await segunda.locator('#criaturas-salud-modo').selectOption('automatico');
       assert.equal(await segunda.locator('#criaturas-salud').inputValue(),'8');
       await segunda.locator('#criaturas-salud-modo').selectOption('manual');
       await segunda.locator('#criaturas-salud').fill('19');
