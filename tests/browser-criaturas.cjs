@@ -52,6 +52,45 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#tab-criaturas').getAttribute('aria-selected'),'true');
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),0);
     assert.equal((await page.locator('#tab-criaturas').innerText()).trim(),'Adversarios');
+    // Generación combinatoria: flujo real en Chrome/Firefox/WebKit, sin persistencia.
+    const aleatorioPage=await contexto.newPage();
+    try{
+      await aleatorioPage.goto(url,{waitUntil:'domcontentloaded'});
+      await aleatorioPage.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      await aleatorioPage.locator('#tab-criaturas').click();
+      await aleatorioPage.locator('#criaturas-generar-panel').click();
+      assert.equal(await aleatorioPage.locator('#criaturas-generar-dialogo')
+        .evaluate(x=>x.open),true);
+      await aleatorioPage.locator('#criaturas-generar-min').fill('12');
+      await aleatorioPage.locator('#criaturas-generar-max').fill('12');
+      await aleatorioPage.locator('#criaturas-generar-ninguna').click();
+      await aleatorioPage.locator('.criaturas-generar-categoria')
+        .filter({hasText:'Dragón'}).locator('input').check();
+      await aleatorioPage.locator('#criaturas-generar-modo').selectOption('libre');
+      await aleatorioPage.locator('#criaturas-generar-acciones').fill('2');
+      await aleatorioPage.locator('#criaturas-generar-talentos').fill('2');
+      await aleatorioPage.locator('#criaturas-generar-semilla')
+        .fill('dragon-robot-browser');
+      await aleatorioPage.setViewportSize({width:390,height:844});
+      const medidas=await aleatorioPage.locator('#criaturas-generar-dialogo')
+        .evaluate(x=>({ancho:x.getBoundingClientRect().width,ventana:innerWidth}));
+      assert.ok(medidas.ancho<=medidas.ventana+1,
+        'Generador adaptado a pantallas estrechas.');
+      await aleatorioPage.locator('#criaturas-generar-ejecutar').click();
+      await aleatorioPage.locator('#criaturas-edicion').waitFor({state:'visible'});
+      assert.equal(await aleatorioPage.locator('#criaturas-nivel').inputValue(),'12');
+      assert.equal(await aleatorioPage.locator('#criaturas-salud').inputValue(),'48');
+      assert.equal(await aleatorioPage.locator('#criaturas-categoria').inputValue(),'Dragón');
+      assert.equal(await aleatorioPage.locator('.criatura-ataque').count(),2);
+      assert.equal(await aleatorioPage.locator('.criatura-talento').count(),2);
+      assert.match(await aleatorioPage.locator('#criaturas-notas').inputValue(),
+        /semilla: dragon-robot-browser/);
+      assert.equal(await aleatorioPage.locator('#criaturas-lista .criaturas-lista-item').count(),0,
+        'Generar no guarda ni incorpora adversarios automáticamente.');
+      assert.equal(await aleatorioPage.locator('.criatura-ataque').first()
+        .getAttribute('data-catalogo-id')!==null,true,
+        'Conservar el ID de origen de las Acciones mezcladas.');
+    }finally{await aleatorioPage.close();}
     // Regresión: una cabecera con Nivel pero sin Salud nunca recibe la media
     // durante el pegado. La descripción tampoco es requisito de las fichas.
     const sinSalud=await contexto.newPage();

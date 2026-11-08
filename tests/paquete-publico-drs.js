@@ -298,7 +298,7 @@ assert.ok(html.includes('id="resumen-nivel"'));
 assert.ok(html.includes('id="informacion-avanzada"'));
 assert.ok(html.includes('id="tab-criaturas"'));
 for(const modulo of ['creatures.js','creatures-import.js',
-  'creatures-library.js','creatures-components.js','creatures-ui.js']){
+  'creatures-library.js','creatures-components.js','creatures-random.js','creatures-ui.js']){
   const ruta='assets/'+modulo;
   assert.ok(html.includes(ruta),'El HTML incluye '+ruta);
   assert.ok(fs.existsSync(path.join(salida,ruta)),'El paquete sirve '+ruta);
@@ -316,6 +316,8 @@ assert.deepEqual(relacionesPublicas,leer(raiz,'adversarios-relaciones-drs.json')
   'El paquete DRS contiene exclusivamente los vínculos oficiales verificados.');
 assert.equal(relacionesPublicas.relaciones.length,77);
 const componentesPublicos=require(path.join(salida,'assets','creatures-components.js'));
+const generadorPublicado=require(path.join(salida,'assets','creatures-random.js'));
+assert.equal(typeof generadorPublicado.generar,'function');
 const componentesDRS=componentesPublicos.crearCatalogo([{
   info:fuentesPublicas.fuentes[0],registros:leer(salida,'adversarios-drs.json').registros
 }],{ataques:[],talentos:[]},relacionesPublicas,[],indicePublico);
