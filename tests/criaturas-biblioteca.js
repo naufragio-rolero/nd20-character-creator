@@ -43,6 +43,19 @@ const mal=JSON.parse(antes);
 mal.criaturas.push({id:'criatura-99',ficha:modelo.nuevaCriatura()});
 assert.throws(()=>biblioteca.importarJson(JSON.stringify(mal)),/necesita un nombre/);
 assert.equal(biblioteca.exportarJson(),antes);
+const metadatosNoRepresentados=JSON.parse(antes);
+metadatosNoRepresentados.origenExterno='sin soporte';
+assert.throws(()=>biblioteca.importarJson(JSON.stringify(metadatosNoRepresentados)),
+  /Campo JSON desconocido en biblioteca/);
+delete metadatosNoRepresentados.origenExterno;
+metadatosNoRepresentados.criaturas[0].metadatos='no descartar';
+assert.throws(()=>biblioteca.importarJson(JSON.stringify(metadatosNoRepresentados)),
+  /Campo JSON desconocido en registro/);
+delete metadatosNoRepresentados.criaturas[0].metadatos;
+metadatosNoRepresentados.catalogoPersonalizado.departamento='ajeno';
+assert.throws(()=>biblioteca.importarJson(JSON.stringify(metadatosNoRepresentados)),
+  /Campo JSON desconocido en catálogo/);
+assert.equal(biblioteca.exportarJson(),antes,'Ninguna importación incompatible modifica la colección');
 const futura=modelo.nuevaCriatura({nombre:'Ficha con datos adicionales'});
 futura.desconocido={texto:'no descartar'};
 assert.throws(()=>biblioteca.importarJson(JSON.stringify(futura)),/Campo JSON desconocido/);
