@@ -12,14 +12,16 @@ No se crean nuevos ataques, efectos, daños ni mecánicas.
 - **Semilla reproducible**: el mismo texto, opciones y catálogo ordenado devuelven
   el mismo borrador. Sin texto, el navegador genera una semilla aleatoria segura,
   la muestra en el formulario y la consigna en las notas del borrador.
-- **«Rellenar al azar»**: botón independiente en el diálogo. Sugerirá el rango
-  de Nivel, entre una y cinco categorías, el modo libre/restringido, la unión
-  de Acciones y las cantidades de componentes a partir de su disponibilidad
-  real. La configuración se puede revisar y modificar **antes** de generar.
-  La elección de controles es una conveniencia editorial, no una nueva tabla
-  de aleatoriedad del DRS. Sin semilla escrita se crea una nueva al pulsar
-  (las pulsaciones consecutivas crean otras combinaciones). Con semilla
-  introducida manualmente, el mismo catálogo devuelve las mismas opciones.
+- **Flujo unificado**: «Generar adversario» abre un único menú para elegir
+  **«Crear manualmente»** (editor vacío) o **«Crear al azar»** (el diálogo
+  de configuración existente). En el popup aleatorio se ajustan los parámetros
+  y se pulsa **«Continuar»**: se genera directamente el borrador con su
+  nombre compuesto, Acciones y Talentos. **«Cancelar»**, la X o Escape
+  regresan al menú sin generar ni guardar nada. No hay botón de
+  «Rellenar al azar» ni un segundo paso intermedio.
+- **Configuración**: el rango, categorías, modo, conector y cantidades siguen
+  siendo editables en el popup como antes. La selección final de componentes
+  se sortea al continuar. Son controles editoriales, no tablas del DRS.
 - **Nivel**: intervalo inclusivo 0–100 del modelo vigente. Selección uniforme.
 - **Categorías posibles**: 1–16 de las oficiales. Se sortea una de las categorías
   seleccionadas que disponga de componentes suficientes para las cantidades elegidas.
@@ -57,7 +59,9 @@ No se crean nuevos ataques, efectos, daños ni mecánicas.
   oficiales de Naufragio d20. Se obtiene con la misma semilla que la ficha,
   usando un flujo independiente del sorteo de componentes para que editar
   su número o categoría no cambie el nombre. La interfaz presenta el
-  nombre sugerido y permite editarlo posteriormente en el Editor.
+  nombre sugerido cuando se introduce una semilla; si queda vacía,
+  el nombre aparece junto con el resto del borrador al continuar.
+  Puede editarse posteriormente en el Editor.
   No se inventa subcategoría ni subtipo.
 - **Procedencia**: ficha nueva de usuario, no oficial; los componentes individuales
   siguen señalando sus orígenes. La configuración completa se conserva como notas.
@@ -75,8 +79,9 @@ no hay cambios en su JSON ni en su distribución.
 - Prueba Node: semillas, Nivel y Salud, dos modos, categorías, Moral excepcional,
   igualdad de los componentes originales y rechazo de configuraciones inválidas;
   80 rellenos reproducibles, válidos contra el catálogo y con nombres concordantes.
-- E2E en Chrome, Firefox y WebKit: diálogo, móvil, generación, valores, procedencia
-  y ausencia de persistencia automática.
+- E2E en Chrome, Firefox y WebKit: menú único, creación manual,
+  abrir configuración aleatoria, Cancelar y Escape, Continuar, móvil,
+  nombre generado, procedencia y ausencia de persistencia automática.
 - Paquete DRS: el nuevo módulo JS entra explícitamente en la lista blanca y en
   el detector de integridad. No se agregan fuentes ni reglas ajenas al DRS.
 - El merge de la funcionalidad **no implica** publicarla LIVE. El flujo LIVE
