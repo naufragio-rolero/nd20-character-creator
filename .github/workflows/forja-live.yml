@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - Nombres y configuración aleatoria de Adversarios (PR #136)
+      - name: Obtener snapshot DRS aprobado - Menú unificado de creación de Adversarios (PR #138)
         uses: actions/checkout@v4
         with:
-          ref: 2d182bd3b4c7dea6b3e349d923308c404e9c93e3
+          ref: 4ae26c028916965e77866088e7b3d5bc54d62c9e
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "2d182bd3b4c7dea6b3e349d923308c404e9c93e3"
-      # Snapshot aprobado para LIVE: PR #136, tras QA Chrome, Firefox, WebKit, DRS y PDF. Suma nombres concordantes y relleno aleatorio reproducible sin cambiar las fichas oficiales.
+          test "$(git rev-parse HEAD)" = "4ae26c028916965e77866088e7b3d5bc54d62c9e"
+      # Snapshot aprobado para LIVE: PR #138, tras QA Chrome, Firefox, WebKit, DRS y PDF. Acceso único a creación manual o aleatoria y generación directa con Continuar; perfiles DRS intactos.
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -55,11 +55,16 @@ jobs:
           grep -Fq '>Adversarios</button>' index.html
           grep -Fq 'id="criaturas-cargar-drs"' index.html
           grep -Fq 'id="criaturas-coleccion-busqueda"' index.html
-          grep -Fq 'id="criaturas-generar-panel"' index.html
+          grep -Fq 'id="criaturas-nueva-panel"' index.html
+          grep -Fq 'id="criaturas-crear-dialogo"' index.html
+          grep -Fq 'id="criaturas-crear-manual"' index.html
+          grep -Fq 'id="criaturas-crear-aleatorio"' index.html
           grep -Fq 'id="criaturas-generar-dialogo"' index.html
+          grep -Fq 'id="criaturas-generar-cancelar"' index.html
           grep -Fq 'id="criaturas-generar-semilla"' index.html
-          grep -Fq 'id="criaturas-generar-aleatorizar"' index.html
           grep -Fq 'id="criaturas-generar-nombre-previa"' index.html
+          ! grep -Fq 'id="criaturas-generar-panel"' index.html
+          ! grep -Fq 'id="criaturas-generar-aleatorizar"' index.html
           node tests/criaturas-generador.js
           grep -Fq 'id="criaturas-coleccion-origen"' index.html
           grep -Fq 'id="criaturas-selector-drs"' index.html
@@ -814,6 +819,9 @@ jobs:
               assert.equal(await page.locator('#editor-criaturas').isVisible(),true);
               assert.equal(await page.locator('#criaturas-lista .criaturas-cromo').count(),0);
               await page.locator('#criaturas-nueva-panel').click();
+              assert.equal(await page.locator('#criaturas-crear-dialogo').evaluate(x=>x.open),true);
+              await page.locator('#criaturas-crear-manual').click();
+              await page.locator('#criaturas-edicion').waitFor({state:'visible'});
               await page.locator('#criaturas-nombre').fill('Comprobación LIVE local');
               await page.locator('#criaturas-categoria').selectOption('Bestia');
               await page.locator('#criaturas-nivel').fill('4');
@@ -932,14 +940,16 @@ jobs:
               await page.locator('#tab-criaturas').click();
               const guardadosPrevios=await page.evaluate(()=>JSON.parse(
                 localStorage.getItem('forja-criaturas-usuario-v1')).criaturas.length);
-              await page.locator('#criaturas-generar-panel').click();
+              await page.locator('#criaturas-nueva-panel').click();
+              assert.equal(await page.locator('#criaturas-crear-dialogo').evaluate(x=>x.open),true);
+              await page.locator('#criaturas-crear-aleatorio').click();
               assert.equal(await page.locator('#criaturas-generar-dialogo').evaluate(x=>x.open),true);
-              await page.locator('#criaturas-generar-aleatorizar').click();
-              await page.locator('#criaturas-generar-estado')
-                .getByText('Configuración rellenada',{exact:false}).waitFor();
-              const semillaSorteada=await page.locator('#criaturas-generar-semilla').inputValue();
-              assert.match(semillaSorteada,/^[a-f0-9]{16}$/,
-                'Rellenar al azar debe crear una semilla reproducible en LIVE.');
+              assert.equal(await page.locator('#criaturas-crear-dialogo').evaluate(x=>x.open),false);
+              assert.equal(await page.locator('#criaturas-generar-aleatorizar').count(),0);
+              await page.locator('#criaturas-generar-cancelar').click();
+              assert.equal(await page.locator('#criaturas-crear-dialogo').evaluate(x=>x.open),true,
+                'Cancelar la configuración debe regresar al menú, sin crear nada.');
+              await page.locator('#criaturas-crear-aleatorio').click();
               await page.locator('#criaturas-generar-min').fill('12');
               await page.locator('#criaturas-generar-max').fill('12');
               await page.locator('#criaturas-generar-modo').selectOption('libre');
