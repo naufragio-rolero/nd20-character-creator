@@ -61,6 +61,40 @@ async function probar(nombre,tipo,url){
       await aleatorioPage.locator('#criaturas-generar-panel').click();
       assert.equal(await aleatorioPage.locator('#criaturas-generar-dialogo')
         .evaluate(x=>x.open),true);
+      await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
+      const primeraSemilla=await aleatorioPage.locator('#criaturas-generar-semilla')
+        .inputValue();
+      assert.match(primeraSemilla,/^[a-f0-9]{16}$/);
+      assert.match(await aleatorioPage.locator('#criaturas-generar-nombre-previa')
+        .innerText(),/^Nombre propuesto: \S+ \S+$/);
+      await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
+      assert.notEqual(await aleatorioPage.locator('#criaturas-generar-semilla')
+        .inputValue(),primeraSemilla,
+        'Pulsaciones sucesivas con semilla automática producen nuevas combinaciones.');
+      await aleatorioPage.locator('#criaturas-generar-semilla')
+        .fill('configuracion-reproducible');
+      await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
+      const primeraConfig=await aleatorioPage.evaluate(()=>({
+        min:document.getElementById('criaturas-generar-min').value,
+        max:document.getElementById('criaturas-generar-max').value,
+        modo:document.getElementById('criaturas-generar-modo').value,
+        acciones:document.getElementById('criaturas-generar-acciones').value,
+        talentos:document.getElementById('criaturas-generar-talentos').value,
+        categorias:[...document.querySelectorAll('#criaturas-generar-categorias input:checked')]
+          .map(e=>e.value)
+      }));
+      await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
+      const segundaConfig=await aleatorioPage.evaluate(()=>({
+        min:document.getElementById('criaturas-generar-min').value,
+        max:document.getElementById('criaturas-generar-max').value,
+        modo:document.getElementById('criaturas-generar-modo').value,
+        acciones:document.getElementById('criaturas-generar-acciones').value,
+        talentos:document.getElementById('criaturas-generar-talentos').value,
+        categorias:[...document.querySelectorAll('#criaturas-generar-categorias input:checked')]
+          .map(e=>e.value)
+      }));
+      assert.deepEqual(segundaConfig,primeraConfig,
+        'El botón debe rellenar idénticamente si la semilla es manual.');
       await aleatorioPage.locator('#criaturas-generar-min').fill('12');
       await aleatorioPage.locator('#criaturas-generar-max').fill('12');
       await aleatorioPage.locator('#criaturas-generar-ninguna').click();
@@ -71,6 +105,9 @@ async function probar(nombre,tipo,url){
       await aleatorioPage.locator('#criaturas-generar-talentos').fill('2');
       await aleatorioPage.locator('#criaturas-generar-semilla')
         .fill('dragon-robot-browser');
+      const nombrePrevisto=(await aleatorioPage.locator('#criaturas-generar-nombre-previa')
+        .innerText()).replace('Nombre propuesto: ','');
+      assert.match(nombrePrevisto,/^\S+ \S+$/);
       await aleatorioPage.setViewportSize({width:390,height:844});
       const medidas=await aleatorioPage.locator('#criaturas-generar-dialogo')
         .evaluate(x=>({ancho:x.getBoundingClientRect().width,ventana:innerWidth}));
@@ -81,6 +118,8 @@ async function probar(nombre,tipo,url){
       assert.equal(await aleatorioPage.locator('#criaturas-nivel').inputValue(),'12');
       assert.equal(await aleatorioPage.locator('#criaturas-salud').inputValue(),'48');
       assert.equal(await aleatorioPage.locator('#criaturas-categoria').inputValue(),'Dragón');
+      assert.equal(await aleatorioPage.locator('#criaturas-nombre').inputValue(),nombrePrevisto,
+        'El nombre generado y la vista previa coinciden exactamente.');
       assert.equal(await aleatorioPage.locator('.criatura-ataque').count(),2);
       assert.equal(await aleatorioPage.locator('.criatura-talento').count(),2);
       assert.match(await aleatorioPage.locator('#criaturas-notas').inputValue(),
