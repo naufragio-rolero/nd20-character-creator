@@ -160,6 +160,7 @@ async function probar(nombre,tipo,url){
       await componentesPage.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
       await componentesPage.locator('#tab-criaturas').click();
       await componentesPage.locator('#criaturas-nueva-panel').click();
+      await componentesPage.locator('#criaturas-crear-manual').click();
       assert.equal(await componentesPage.locator('#criaturas-anadir-ataque').innerText(),
         'Añadir acción');
       assert.equal(await componentesPage.locator('#criaturas-explorar-ataques').innerText(),
@@ -691,6 +692,7 @@ async function probar(nombre,tipo,url){
       assert.equal(await segunda.locator('.criaturas-cromo').count(),2);
       await segunda.locator('#criaturas-cerrar-editor').click();
       await segunda.locator('#criaturas-nueva-panel').click();
+      await segunda.locator('#criaturas-crear-manual').click();
       await segunda.locator('#criaturas-nombre').fill('Ejemplo de ajuste negativo');
       await segunda.locator('#criaturas-categoria').selectOption('Bestia');
       await segunda.locator('#criaturas-nivel').fill('4');
