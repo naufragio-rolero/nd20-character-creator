@@ -82,7 +82,7 @@
       puntuaciones: puntuaciones,
       // Opcionales dentro del JSON v1: los JSON antiguos mantienen su Salud literal.
       saludModo: d.saludModo === 'automatico' || d.saludModo === 'manual' ?
-        d.saludModo : puntuaciones.salud == null ? 'automatico' : 'manual',
+        d.saludModo : 'manual',
       saludAjuste: Number.isSafeInteger(d.saludAjuste) ? d.saludAjuste : 0,
       ataques: Array.isArray(d.ataques) ? d.ataques.map(ataque) : [],
       talentos: Array.isArray(d.talentos) ? d.talentos.map(talento) : [],
