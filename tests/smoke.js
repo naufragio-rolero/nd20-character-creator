@@ -1178,3 +1178,4 @@ require('./criaturas-import.js');
 require('./criaturas-biblioteca.js');
 
 require('./criaturas-ui.js');
+require('./criaturas-generador.js');
