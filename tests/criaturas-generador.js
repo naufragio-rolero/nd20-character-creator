@@ -91,7 +91,7 @@ for(const entradas of [
   {...cfg,semilla:''}
 ])assert.throws(()=>motor.generar(catalogo,[fuente],[],entradas));
 assert.throws(()=>motor.generar(catalogo,[fuente],[],{
-  ...cfg,modo:'restringido',categorias:['Dragón'],acciones:8,talentos:8
+  ...cfg,modo:'restringido',categorias:['Limo'],acciones:8,talentos:8
 }),/suficientes Acciones y Talentos/);
 const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
 const ui=fs.readFileSync(path.join(__dirname,'../assets/creatures-ui.js'),'utf8');
