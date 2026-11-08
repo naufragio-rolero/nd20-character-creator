@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - Consolidación del Editor de Adversarios (PR #132)
+      - name: Obtener snapshot DRS aprobado - Generador aleatorio de Adversarios (PR #134)
         uses: actions/checkout@v4
         with:
-          ref: 940b6a2307db27e3075c97dacf7219d3c41d9b19
+          ref: d0553ba8a1ed3a4f65bcf0053839c3580f00f25d
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "940b6a2307db27e3075c97dacf7219d3c41d9b19"
-      # Snapshot aprobado para LIVE: PR #132, tras QA Chromium, Firefox, WebKit, DRS y PDF. Cabeceras unificadas, sin Matriz ni boton externo de semilla; el configurador conserva las semillas reproducibles.
+          test "$(git rev-parse HEAD)" = "d0553ba8a1ed3a4f65bcf0053839c3580f00f25d"
+      # Snapshot aprobado para LIVE: PR #134, tras QA Chromium, Firefox, WebKit, DRS y PDF. El generador de adversarios mezcla componentes DRS existentes y preserva el Editor y las semillas.
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -48,13 +48,17 @@ jobs:
           test ! -e assets/icons-forja.svg
           grep -Fq 'id="tab-criaturas"' index.html
           grep -Fq 'id="editor-criaturas"' index.html
-          for modulo in creatures.js creatures-import.js creatures-library.js creatures-components.js adversarios-formato.js creatures-ui.js adversarios-pdf.js; do
+          for modulo in creatures.js creatures-import.js creatures-library.js creatures-components.js creatures-random.js adversarios-formato.js creatures-ui.js adversarios-pdf.js; do
             test -s "assets/${modulo}"
             grep -Fq "assets/${modulo}" index.html
           done
           grep -Fq '>Adversarios</button>' index.html
           grep -Fq 'id="criaturas-cargar-drs"' index.html
           grep -Fq 'id="criaturas-coleccion-busqueda"' index.html
+          grep -Fq 'id="criaturas-generar-panel"' index.html
+          grep -Fq 'id="criaturas-generar-dialogo"' index.html
+          grep -Fq 'id="criaturas-generar-semilla"' index.html
+          node tests/criaturas-generador.js
           grep -Fq 'id="criaturas-coleccion-origen"' index.html
           grep -Fq 'id="criaturas-selector-drs"' index.html
           grep -Fq 'id="criaturas-ficha-retirar"' index.html
@@ -421,7 +425,7 @@ jobs:
           test "$correcto" = true
           grep -Fq 'id="tab-criaturas"' /tmp/forja-live.html
           grep -Fq 'id="editor-criaturas"' /tmp/forja-live.html
-          for modulo in creatures.js creatures-import.js creatures-library.js creatures-components.js adversarios-formato.js creatures-ui.js adversarios-pdf.js; do
+          for modulo in creatures.js creatures-import.js creatures-library.js creatures-components.js creatures-random.js adversarios-formato.js creatures-ui.js adversarios-pdf.js; do
             curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/${modulo}?forja_release=${GITHUB_RUN_ID}" -o "/tmp/forja-${modulo}"
             test -s "/tmp/forja-${modulo}"
           done
@@ -922,6 +926,29 @@ jobs:
                   document.querySelector('#generar-seguidor'))&Node.DOCUMENT_POSITION_FOLLOWING
               ]);
               assert.deepEqual(orden,[4,4],'Configurar seguidores está entre resumen y generación.');
+              // Generación aleatoria sobre la versión LIVE real, sin persistir.
+              await page.locator('#tab-criaturas').click();
+              const guardadosPrevios=await page.evaluate(()=>JSON.parse(
+                localStorage.getItem('forja-criaturas-usuario-v1')).criaturas.length);
+              await page.locator('#criaturas-generar-panel').click();
+              assert.equal(await page.locator('#criaturas-generar-dialogo').evaluate(x=>x.open),true);
+              await page.locator('#criaturas-generar-min').fill('12');
+              await page.locator('#criaturas-generar-max').fill('12');
+              await page.locator('#criaturas-generar-modo').selectOption('libre');
+              await page.locator('#criaturas-generar-semilla').fill('smoke-live-adversarios');
+              await page.locator('#criaturas-generar-ejecutar').click();
+              await page.locator('#criaturas-edicion').waitFor({state:'visible'});
+              assert.equal(await page.locator('#criaturas-nivel').inputValue(),'12');
+              assert.equal(await page.locator('#criaturas-salud').inputValue(),'48');
+              assert.equal(await page.locator('.criatura-ataque').count(),2);
+              assert.equal(await page.locator('.criatura-talento').count(),2);
+              assert.match(await page.locator('#criaturas-notas').inputValue(),
+                /semilla: smoke-live-adversarios/);
+              const guardadosDespues=await page.evaluate(()=>JSON.parse(
+                localStorage.getItem('forja-criaturas-usuario-v1')).criaturas.length);
+              assert.equal(guardadosDespues,guardadosPrevios,
+                'La generación aleatoria en LIVE no modifica la biblioteca.');
+
               assert.deepEqual(errores,[],nombre+': errores JS en LIVE');
               console.log('OK LIVE '+nombre+
                 ': KPI ilustrados, taxonomía, ataques opcionales, SVG, PDF y Seguidores');
