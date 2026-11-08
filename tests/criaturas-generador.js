@@ -130,17 +130,22 @@ assert.throws(()=>motor.generar(catalogo,[fuente],[],{
 }),/suficientes Acciones y Talentos/);
 const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
 const ui=fs.readFileSync(path.join(__dirname,'../assets/creatures-ui.js'),'utf8');
-for(const id of ['criaturas-generar-panel','criaturas-generar-dialogo',
+for(const id of ['criaturas-nueva-panel','criaturas-crear-dialogo',
+  'criaturas-crear-manual','criaturas-crear-aleatorio','criaturas-crear-cerrar',
+  'criaturas-generar-cancelar','criaturas-generar-dialogo',
   'criaturas-generar-min','criaturas-generar-max','criaturas-generar-modo',
   'criaturas-generar-conector','criaturas-generar-acciones',
   'criaturas-generar-talentos','criaturas-generar-semilla',
   'criaturas-generar-categorias','criaturas-generar-ejecutar',
-  'criaturas-generar-aleatorizar','criaturas-generar-nombre-previa']){
+  'criaturas-generar-nombre-previa']){
   assert.ok(html.includes('id="'+id+'"'),'Interfaz accesible: '+id);
 }
-assert.match(ui,/rellenarConfiguracionGenerador/);
-assert.match(ui,/generador\.opcionesAlAzar/);
+assert.match(ui,/abrirMenuCrear/);
+assert.match(ui,/crearManualDesdeMenu/);
+assert.match(ui,/cancelarGenerador/);
 assert.match(ui,/generador\.nombreAleatorio/);
+assert.doesNotMatch(html,/id="criaturas-generar-panel"|Rellenar al azar/);
+assert.doesNotMatch(ui,/rellenarConfiguracionGenerador|criaturas-generar-aleatorizar/);
 assert.match(ui,/asegurarBibliotecaComponentes\(\)/);
 assert.match(ui,/renderizarFicha\(resultado\.ficha,null\)/);
 assert.match(ui,/cambios=true;/);
