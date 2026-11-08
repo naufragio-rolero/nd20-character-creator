@@ -28,15 +28,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - Cabeceras y simplificación de Personajes (PR #130)
+      - name: Obtener snapshot DRS aprobado - Consolidación del Editor de Adversarios (PR #132)
         uses: actions/checkout@v4
         with:
-          ref: 95b135f72008969e5a45244ba32e49a5dc033e18
+          ref: 940b6a2307db27e3075c97dacf7219d3c41d9b19
           persist-credentials: false
       - name: Comprobar la revisión exacta de la entrega
         run: |
-          test "$(git rev-parse HEAD)" = "95b135f72008969e5a45244ba32e49a5dc033e18"
-      # Snapshot aprobado para LIVE: PR #130, tras QA Chromium, Firefox, WebKit, DRS y PDF. Cabeceras unificadas, sin Matriz ni boton externo de semilla; el configurador conserva las semillas reproducibles.
+          test "$(git rev-parse HEAD)" = "940b6a2307db27e3075c97dacf7219d3c41d9b19"
+      # Snapshot aprobado para LIVE: PR #132, tras QA Chromium, Firefox, WebKit, DRS y PDF. Cabeceras unificadas, sin Matriz ni boton externo de semilla; el configurador conserva las semillas reproducibles.
       # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
       # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
       # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
@@ -54,6 +54,8 @@ jobs:
           done
           grep -Fq '>Adversarios</button>' index.html
           grep -Fq 'id="criaturas-cargar-drs"' index.html
+          grep -Fq 'id="criaturas-coleccion-busqueda"' index.html
+          grep -Fq 'id="criaturas-coleccion-origen"' index.html
           grep -Fq 'id="criaturas-selector-drs"' index.html
           grep -Fq 'id="criaturas-ficha-retirar"' index.html
           grep -Fq 'Perfiles oficiales' index.html
@@ -425,6 +427,8 @@ jobs:
           done
           grep -Fq '>Adversarios</button>' /tmp/forja-live.html
           grep -Fq 'id="criaturas-cargar-drs"' /tmp/forja-live.html
+          grep -Fq 'id="criaturas-coleccion-busqueda"' /tmp/forja-live.html
+          grep -Fq 'id="criaturas-coleccion-origen"' /tmp/forja-live.html
           grep -Fq 'id="criaturas-selector-drs"' /tmp/forja-live.html
           grep -Fq 'id="criaturas-ficha-retirar"' /tmp/forja-live.html
           grep -Fq 'Perfiles oficiales' /tmp/forja-live.html
@@ -808,6 +812,9 @@ jobs:
               await page.locator('#criaturas-categoria').selectOption('Bestia');
               await page.locator('#criaturas-nivel').fill('4');
               await page.locator('#criaturas-salud-ajuste').fill('-2');
+              assert.equal(await page.locator('#criaturas-salud').inputValue(),'',
+                'LIVE no debe inventar Salud al introducir Nivel.');
+              await page.locator('#criaturas-salud-modo').selectOption('automatico');
               assert.equal(await page.locator('#criaturas-salud').inputValue(),'8');
               await page.locator('#criaturas-descripcion').fill(
                 'Adversario creado durante la prueba pública de LIVE.');
