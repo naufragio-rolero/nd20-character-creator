@@ -26,11 +26,23 @@
         !Number.isSafeInteger(datos.siguienteId) || datos.siguienteId < 1 ||
         !Array.isArray(datos.criaturas))
       throw Error('El formato de biblioteca de criaturas no es válido o no está soportado.');
+    // Rechazar metadatos desconocidos: importar y reexportar nunca los perderá en silencio.
+    function camposConocidos(objeto,permitidos,contexto){
+      if(!objeto||typeof objeto!=='object'||Array.isArray(objeto))
+        throw Error('Estructura JSON incorrecta en '+contexto+'.');
+      Object.keys(objeto).forEach(function(k){
+        if(!permitidos.includes(k))
+          throw Error('Campo JSON desconocido en '+contexto+': '+k+'. No se ha descartado.');
+      });
+    }
+    camposConocidos(datos,['version','tipo','siguienteId','criaturas',
+      'catalogoPersonalizado'],'biblioteca');
     var ids = new Set();
     if(datos.catalogoPersonalizado!==undefined){
       var cat=datos.catalogoPersonalizado;
       if(!cat||!Array.isArray(cat.ataques)||!Array.isArray(cat.talentos))
         throw Error('El catálogo personal del JSON es incompatible.');
+      camposConocidos(cat,['ataques','talentos'],'catálogo personal');
       cat.ataques.forEach(function(a) {
         if(!a||typeof a.nombre!=='string'||!a.nombre.trim()||
             !modelo.revisar(modelo.nuevaCriatura({nombre:'Validación',
@@ -48,6 +60,7 @@
       if (!registro || typeof registro !== 'object' || typeof registro.id !== 'string' ||
           !/^criatura-\d+$/.test(registro.id) || ids.has(registro.id))
         throw Error('Hay identificadores repetidos o incorrectos en la biblioteca.');
+      camposConocidos(registro,['id','ficha'],'registro de criatura');
       ids.add(registro.id);
       validarFicha(registro.ficha);
     });
