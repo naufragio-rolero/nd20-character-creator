@@ -103,7 +103,7 @@ const especificas=[
   'assets/rules.js','assets/names.js','assets/powers.js','assets/spell-magnitudes.js',
   'assets/tooltips.js','assets/tooltip-ui.js','assets/app.js','assets/i18n.js',
   'assets/creatures.js','assets/creatures-import.js',
-  'assets/creatures-library.js','assets/creatures-components.js','assets/adversarios-categorias.js','assets/creatures-ui.js',
+  'assets/creatures-library.js','assets/creatures-components.js','assets/creatures-random.js','assets/adversarios-categorias.js','assets/creatures-ui.js',
   'assets/adversarios-formato.js','assets/adversarios-pdf.js',
   'assets/adversarios-iconos.json',
   // PDF A5 Fantasía: solo plantillas reglamentarias y bibliotecas de terceros autorizadas.
