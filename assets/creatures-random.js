@@ -97,7 +97,8 @@
       null:elegir(morales,rng);
     var selecciones={};
     ['ataques','talentos'].forEach(function(tipo){
-      selecciones[tipo]=muestrear(seleccion.pools[tipo],op[tipo],rng);
+      selecciones[tipo]=muestrear(seleccion.pools[tipo],
+        tipo==='ataques'?op.acciones:op.talentos,rng);
     });
     var ataques=selecciones.ataques.map(function(e,i){
       var a=catalogo.preparar(e,i===0);
