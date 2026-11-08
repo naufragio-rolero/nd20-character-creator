@@ -1524,6 +1524,32 @@ html[data-tema=violeta]{
 /* Adversarios — mesa de cromos y ficha de consulta. Mantener los IDs de criaturas
    preserva los JSON v1 y sus integraciones existentes. */
 .resumen-adversarios{margin:.85rem 0}
+/* Generador: configuración independiente del formulario y de la galería. */
+.dialogo-adversario-generador{width:min(760px,calc(100vw - 1rem));max-height:calc(100dvh - 1rem);
+  overflow-y:auto;margin:auto;padding:1.1rem;color:var(--texto);
+  background:var(--superficie);border:1px solid var(--oro);border-radius:12px}
+.dialogo-adversario-generador::backdrop{background:#061d32c2;backdrop-filter:blur(3px)}
+.dialogo-adversario-generador .cabecera-compras{position:sticky;top:-1.1rem;
+  z-index:2;background:var(--superficie)}
+.criaturas-generar-campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem 1rem}
+.criaturas-generar-campos .campo{min-width:0}
+.criaturas-generar-campos input,.criaturas-generar-campos select{width:100%;max-width:100%}
+.criaturas-generar-semilla{grid-column:1/-1}
+.criaturas-generar-categorias{margin:1rem 0;padding:.8rem;
+  border:1px solid var(--borde);border-radius:8px;min-width:0}
+.criaturas-generar-categorias legend{font-weight:700;padding:0 .3rem}
+.criaturas-generar-rejilla{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.25rem .6rem}
+.criaturas-generar-categoria{display:flex;align-items:center;gap:.35rem;
+  min-width:0;padding:.25rem 0;font-size:.88rem;cursor:pointer}
+.criaturas-generar-categoria input{flex:none}
+@media(max-width:650px){
+  .criaturas-generar-rejilla{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:440px){
+  .criaturas-generar-campos{grid-template-columns:1fr}
+  .criaturas-generar-semilla{grid-column:auto}
+}
+
 .criaturas-mesa{min-height:250px}
 .criaturas-mesa .criaturas-subcabecera h3{margin:.25rem 0}
 .criaturas-sistema{max-width:330px;margin:1rem 0}
