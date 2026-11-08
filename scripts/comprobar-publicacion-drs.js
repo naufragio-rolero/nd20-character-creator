@@ -44,7 +44,7 @@ const requeridos=[
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/icons/LICENCIA-TABLER.txt',
   'assets/creatures.js','assets/creatures-import.js',
-  'assets/creatures-library.js','assets/creatures-components.js',
+  'assets/creatures-library.js','assets/creatures-components.js','assets/creatures-random.js',
   'assets/adversarios-categorias.js','assets/creatures-ui.js',
   ...iconosCategoriasAdversarios.map(k=>'assets/adversarios/iconos/categoria-'+k+'.svg'),
   'assets/adversarios-formato.js','assets/adversarios-pdf.js',
@@ -135,7 +135,7 @@ afirmar(!encabezadoPdf.includes('assets/pdf-export-browser.js'),
 afirmar(!encabezadoPdf.includes('id="tab-criaturas"'),
   'El paquete no incluye la pestaña pública del Editor de criaturas.');
 for(const modulo of ['creatures.js','creatures-import.js',
-  'creatures-library.js','creatures-ui.js'])
+  'creatures-library.js','creatures-random.js','creatures-ui.js'])
   afirmar(!encabezadoPdf.includes('assets/'+modulo),
     'Falta carga del módulo público del Editor: '+modulo);
 // El lanzamiento público habilita exclusivamente Fantasía DRS y Dungeon Hack.
