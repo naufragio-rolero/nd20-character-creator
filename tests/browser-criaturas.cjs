@@ -62,18 +62,24 @@ async function probar(nombre,tipo,url){
       assert.equal(await aleatorioPage.locator('#criaturas-generar-dialogo')
         .evaluate(x=>x.open),true);
       await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
+      await aleatorioPage.locator('#criaturas-generar-estado')
+        .getByText('Configuración rellenada',{exact:false}).waitFor();
       const primeraSemilla=await aleatorioPage.locator('#criaturas-generar-semilla')
         .inputValue();
       assert.match(primeraSemilla,/^[a-f0-9]{16}$/);
       assert.match(await aleatorioPage.locator('#criaturas-generar-nombre-previa')
         .innerText(),/^Nombre propuesto: \S+ \S+$/);
       await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
+      await aleatorioPage.waitForFunction(anterior=>
+        document.getElementById('criaturas-generar-semilla').value!==anterior,primeraSemilla);
       assert.notEqual(await aleatorioPage.locator('#criaturas-generar-semilla')
         .inputValue(),primeraSemilla,
         'Pulsaciones sucesivas con semilla automática producen nuevas combinaciones.');
       await aleatorioPage.locator('#criaturas-generar-semilla')
         .fill('configuracion-reproducible');
       await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
+      await aleatorioPage.locator('#criaturas-generar-estado')
+        .getByText('Configuración rellenada',{exact:false}).waitFor();
       const primeraConfig=await aleatorioPage.evaluate(()=>({
         min:document.getElementById('criaturas-generar-min').value,
         max:document.getElementById('criaturas-generar-max').value,
@@ -84,6 +90,8 @@ async function probar(nombre,tipo,url){
           .map(e=>e.value)
       }));
       await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
+      await aleatorioPage.locator('#criaturas-generar-estado')
+        .getByText('Configuración rellenada',{exact:false}).waitFor();
       const segundaConfig=await aleatorioPage.evaluate(()=>({
         min:document.getElementById('criaturas-generar-min').value,
         max:document.getElementById('criaturas-generar-max').value,
