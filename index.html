@@ -621,6 +621,10 @@
           <button type="button" id="criaturas-generar-cerrar" class="cerrar-rejilla" aria-label="Cerrar generador">✕</button>
         </div>
         <form id="criaturas-generar-form">
+          <div class="criaturas-generar-aleatorio">
+            <button type="button" id="criaturas-generar-aleatorizar">Rellenar al azar</button>
+            <small>Puedes ajustar cualquier opción después. Si has escrito una semilla, el relleno será reproducible; sin ella, se crea una nueva en cada pulsación.</small>
+          </div>
           <div class="criaturas-generar-campos">
             <div class="campo"><label for="criaturas-generar-min">Nivel mínimo</label>
               <input id="criaturas-generar-min" type="number" min="0" max="100" step="1" value="1" required></div>
@@ -641,7 +645,8 @@
             <div class="campo"><label for="criaturas-generar-talentos">Número de Talentos</label>
               <input id="criaturas-generar-talentos" type="number" min="0" max="8" step="1" value="2" required></div>
             <div class="campo criaturas-generar-semilla"><label for="criaturas-generar-semilla">Semilla reproducible (opcional)</label>
-              <input id="criaturas-generar-semilla" type="text" maxlength="128" autocomplete="off" placeholder="Vacía = crear semilla nueva"></div>
+              <input id="criaturas-generar-semilla" type="text" maxlength="128" autocomplete="off" placeholder="Vacía = crear semilla nueva">
+              <output id="criaturas-generar-nombre-previa" for="criaturas-generar-semilla" class="muted" role="status" aria-live="polite">Se sorteará un nombre al generar el adversario.</output></div>
           </div>
           <fieldset class="criaturas-generar-categorias">
             <legend>Categorías posibles (elige una o varias)</legend>
@@ -651,6 +656,7 @@
             </div>
             <div id="criaturas-generar-categorias" class="criaturas-generar-rejilla"></div>
           </fieldset>
+          <p class="muted">El nombre se compone de un sustantivo y un adjetivo concordantes (por ejemplo, «Topo tumefacto» o «Grulla acerada»). Es una combinación creativa, no una criatura nueva del canon. Puedes editarlo después.</p>
           <p class="muted">El Nivel se sortea dentro del intervalo y la Salud usa la media documentada (Nivel × 4). La Moral se elige entre valores existentes de esa categoría cuando procede; los demás valores sin base quedan vacíos. Los conectores son una decisión de configuración, no una regla nueva.</p>
           <p id="criaturas-generar-estado" class="estado" role="alert" aria-live="polite"></p>
           <div class="criaturas-acciones">

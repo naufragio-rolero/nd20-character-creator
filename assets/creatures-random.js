@@ -13,6 +13,83 @@
     throw Error('Faltan el modelo o el generador de semillas de La Forja.');
   var MODOS=['restringido','libre'];
   var CONECTORES=['o','y'];
+  // Léxico recreativo del generador, no contenido del DRS ni nuevas especies.
+  // Pares de adjetivos en masculino y femenino para evitar incoherencias.
+  var NOMBRES=[
+    ['Topo','m'],['Grulla','f'],['Caracol','m'],['Mosca','f'],
+    ['Cuervo','m'],['Serpiente','f'],['Búho','m'],['Rana','f'],
+    ['Lobo','m'],['Polilla','f'],['Escarabajo','m'],['Garza','f'],
+    ['Tejón','m'],['Salamandra','f'],['Erizo','m'],['Libélula','f'],
+    ['Cangrejo','m'],['Hormiga','f'],['Jabalí','m'],['Trucha','f'],
+    ['Alacrán','m'],['Mantis','f'],['Murciélago','m'],['Gaviota','f']
+  ];
+  var ADJETIVOS=[
+    ['tumefacto','tumefacta'],['acerado','acerada'],
+    ['herrumbroso','herrumbrosa'],['viscoso','viscosa'],
+    ['desvelado','desvelada'],['torcido','torcida'],
+    ['afilado','afilada'],['granítico','granítica'],
+    ['pétreo','pétrea'],['marchito','marchita'],
+    ['furioso','furiosa'],['ígneo','ígnea'],
+    ['azogado','azogada'],['enloquecido','enloquecida'],
+    ['ceniciento','cenicienta'],['neblinoso','neblinosa'],
+    ['cristalino','cristalina'],['iracundo','iracunda'],
+    ['arisco','arisca'],['sombrío','sombría'],
+    ['dorado','dorada'],['encrespado','encrespada'],
+    ['mustio','mustia'],['sulfuroso','sulfurosa']
+  ];
+  function nombreAleatorio(semilla){
+    if(typeof semilla!=='string'||!semilla.trim()||semilla.length>128)
+      throw Error('Indica una semilla válida para nombrar al adversario.');
+    // Flujo propio: cambiar la selección de componentes no altera el nombre.
+    var rng=reglas.aleatorioSemilla('nombre-adversario-v1|'+semilla);
+    var sustantivo=elegir(NOMBRES,rng),adjetivo=elegir(ADJETIVOS,rng);
+    return sustantivo[0]+' '+adjetivo[sustantivo[1]==='f'?1:0];
+  }
+  function opcionesAlAzar(catalogo,fuentes,personales,semilla){
+    if(typeof semilla!=='string'||!semilla.trim()||semilla.length>128)
+      throw Error('Indica una semilla válida para rellenar la configuración.');
+    if(!catalogo||typeof catalogo.listar!=='function')
+      throw Error('La biblioteca de Acciones y Talentos no está preparada.');
+    var rng=reglas.aleatorioSemilla('configuracion-adversario-v1|'+semilla);
+    var modo=elegir(MODOS,rng),conector=elegir(CONECTORES,rng);
+    var referencias=extraerFuentes(fuentes,personales);
+    var entradas={ataques:catalogo.listar('ataques'),talentos:catalogo.listar('talentos')};
+    // Para la mezcla restringida solo entran categorías con componentes reales.
+    var disponibles=modelo.CATEGORIAS.filter(function(c){
+      if(modo==='libre')
+        return entradas.ataques.length+entradas.talentos.length>0;
+      return ['ataques','talentos'].some(function(tipo){
+        return entradas[tipo].some(function(e){
+          return referencias.categorias.get(e.fuenteId+'|'+e.criaturaId)===c;
+        });
+      });
+    });
+    if(!disponibles.length)
+      throw Error('No existen componentes elegibles para rellenar la configuración.');
+    var ancla=elegir(disponibles,rng);
+    var cantidadCategorias=1+Math.floor(rng()*Math.min(5,disponibles.length));
+    var categorias=[ancla].concat(muestrear(disponibles.filter(function(c){
+      return c!==ancla;
+    }),cantidadCategorias-1,rng));
+    // La categoría ancla garantiza que al menos un resultado sea generable.
+    var capacidad={};
+    ['ataques','talentos'].forEach(function(tipo){
+      capacidad[tipo]=modo==='libre'?entradas[tipo].length:
+        entradas[tipo].filter(function(e){
+          return referencias.categorias.get(e.fuenteId+'|'+e.criaturaId)===ancla;
+        }).length;
+    });
+    var acciones=capacidad.ataques?
+      1+Math.floor(rng()*Math.min(4,capacidad.ataques)):0;
+    var talentos=capacidad.talentos?
+      1+Math.floor(rng()*Math.min(4,capacidad.talentos)):0;
+    var a=Math.floor(rng()*101),b=Math.floor(rng()*101);
+    var opciones={semilla:semilla,nivelMin:Math.min(a,b),nivelMax:Math.max(a,b),
+      categorias:modelo.CATEGORIAS.filter(function(c){return categorias.includes(c);}),
+      modo:modo,conector:conector,acciones:acciones,talentos:talentos};
+    validarOpciones(opciones);
+    return opciones;
+  }
   function validarOpciones(op){
     if(!op||typeof op!=='object')throw Error('Indica la configuración del adversario.');
     if(!Number.isSafeInteger(op.nivelMin)||!Number.isSafeInteger(op.nivelMax)||
@@ -116,7 +193,7 @@
       ' · Talentos: '+op.talentos+' · conector: '+op.conector+
       '. Combinación editorial; no es una ficha oficial.';
     var ficha=modelo.nuevaCriatura({
-      nombre:categoria+' aleatorio · '+op.semilla.slice(0,18),
+      nombre:nombreAleatorio(op.semilla),
       categoria:categoria,
       puntuaciones:{nivel:nivel,salud:modelo.saludMedia(nivel,0),moral:moral},
       saludModo:'automatico',saludAjuste:0,
@@ -133,5 +210,6 @@
       categoriasDisponibles:elegibles.map(function(c){return c.categoria;}),
       advertencias:revision.advertencias};
   }
-  return {generar:generar,validarOpciones:validarOpciones,MODOS:MODOS.slice()};
+  return {generar:generar,validarOpciones:validarOpciones,
+    opcionesAlAzar:opcionesAlAzar,nombreAleatorio:nombreAleatorio,MODOS:MODOS.slice()};
 });

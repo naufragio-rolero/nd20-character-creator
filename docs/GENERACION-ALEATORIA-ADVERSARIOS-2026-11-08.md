@@ -12,6 +12,14 @@ No se crean nuevos ataques, efectos, daños ni mecánicas.
 - **Semilla reproducible**: el mismo texto, opciones y catálogo ordenado devuelven
   el mismo borrador. Sin texto, el navegador genera una semilla aleatoria segura,
   la muestra en el formulario y la consigna en las notas del borrador.
+- **«Rellenar al azar»**: botón independiente en el diálogo. Sugerirá el rango
+  de Nivel, entre una y cinco categorías, el modo libre/restringido, la unión
+  de Acciones y las cantidades de componentes a partir de su disponibilidad
+  real. La configuración se puede revisar y modificar **antes** de generar.
+  La elección de controles es una conveniencia editorial, no una nueva tabla
+  de aleatoriedad del DRS. Sin semilla escrita se crea una nueva al pulsar
+  (las pulsaciones consecutivas crean otras combinaciones). Con semilla
+  introducida manualmente, el mismo catálogo devuelve las mismas opciones.
 - **Nivel**: intervalo inclusivo 0–100 del modelo vigente. Selección uniforme.
 - **Categorías posibles**: 1–16 de las oficiales. Se sortea una de las categorías
   seleccionadas que disponga de componentes suficientes para las cantidades elegidas.
@@ -42,8 +50,15 @@ No se crean nuevos ataques, efectos, daños ni mecánicas.
   textos completos, identificadores, fuentes y segmentos originales. Las relaciones
   documentadas no se transforman en relaciones ficticias; una referencia literal a
   un Talento puede quedar sin éste después de mezclar y requiere revisión.
-- **Nombre**: marcador de borrador con la categoría y semilla. No describe una
-  especie canónica ni inventa taxonomía, subcategoría o subtipo.
+- **Nombre**: combinación seudoaleatoria de un sustantivo de animal y un
+  adjetivo descriptivo en concordancia gramatical, por ejemplo
+  «Topo tumefacto» o «Grulla acerada». Este pequeño repertorio es
+  **creación editorial lúdica**, no nombres de especies o criaturas
+  oficiales de Naufragio d20. Se obtiene con la misma semilla que la ficha,
+  usando un flujo independiente del sorteo de componentes para que editar
+  su número o categoría no cambie el nombre. La interfaz presenta el
+  nombre sugerido y permite editarlo posteriormente en el Editor.
+  No se inventa subcategoría ni subtipo.
 - **Procedencia**: ficha nueva de usuario, no oficial; los componentes individuales
   siguen señalando sus orígenes. La configuración completa se conserva como notas.
 
@@ -58,7 +73,8 @@ no hay cambios en su JSON ni en su distribución.
 ## Regresión y publicación
 
 - Prueba Node: semillas, Nivel y Salud, dos modos, categorías, Moral excepcional,
-  igualdad de los componentes originales y rechazo de configuraciones inválidas.
+  igualdad de los componentes originales y rechazo de configuraciones inválidas;
+  80 rellenos reproducibles, válidos contra el catálogo y con nombres concordantes.
 - E2E en Chrome, Firefox y WebKit: diálogo, móvil, generación, valores, procedencia
   y ausencia de persistencia automática.
 - Paquete DRS: el nuevo módulo JS entra explícitamente en la lista blanca y en

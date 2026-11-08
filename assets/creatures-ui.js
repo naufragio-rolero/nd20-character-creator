@@ -20,6 +20,7 @@
   var bibliotecaComponentes=null, relacionesComponentes=null, cargaRelacionesComponentes=null;
   var indiceTalentosDRS=null, cargaIndiceTalentosDRS=null;
   var tipoBibliotecaComponentes='ataques', limiteComponentes=40;
+  var semillaAutoGenerador='';
   var oficialesSeleccionados = new Set(), tipoPropio = null;
   var imagenProcesando = false, tokenImagen = 0;
   var ilustracionesOficiales = {}, ilustracionesBloqueadas = false;
@@ -442,6 +443,7 @@
   function abrirGenerador(){
     prepararCategoriasGenerador();
     $('criaturas-generar-estado').textContent='';
+    actualizarNombreGenerador();
     if(!$('criaturas-generar-dialogo').open)$('criaturas-generar-dialogo').showModal();
     $('criaturas-generar-min').focus({preventScroll:true});
   }
@@ -451,6 +453,45 @@
     var numeros=new Uint32Array(2);
     root.crypto.getRandomValues(numeros);
     return Array.from(numeros).map(function(n){return n.toString(16).padStart(8,'0');}).join('');
+  }
+  function actualizarNombreGenerador(){
+    var semilla=$('criaturas-generar-semilla').value.trim();
+    $('criaturas-generar-nombre-previa').textContent=semilla?
+      'Nombre propuesto: '+generador.nombreAleatorio(semilla):
+      'Se sorteará un nombre al generar el adversario.';
+  }
+  async function rellenarConfiguracionGenerador(){
+    var estado=$('criaturas-generar-estado'),boton=$('criaturas-generar-aleatorizar');
+    estado.textContent='';
+    boton.disabled=true;
+    try{
+      var entrada=$('criaturas-generar-semilla').value.trim();
+      // Una semilla escrita reproduce el relleno. Un valor autogenerado
+      // provoca un nuevo sorteo al volver a pulsar el botón.
+      var automatica=!entrada||entrada===semillaAutoGenerador;
+      var semilla=automatica?semillaNuevaGenerador():entrada;
+      var catalogo=await asegurarBibliotecaComponentes();
+      var propios=biblioteca?biblioteca.listar().map(function(r){
+        return {id:r.id,ficha:biblioteca.obtener(r.id)};
+      }):[];
+      var opciones=generador.opcionesAlAzar(catalogo,fuentesOficiales,propios,semilla);
+      $('criaturas-generar-min').value=String(opciones.nivelMin);
+      $('criaturas-generar-max').value=String(opciones.nivelMax);
+      $('criaturas-generar-modo').value=opciones.modo;
+      $('criaturas-generar-conector').value=opciones.conector;
+      $('criaturas-generar-acciones').value=String(opciones.acciones);
+      $('criaturas-generar-talentos').value=String(opciones.talentos);
+      $('criaturas-generar-categorias').querySelectorAll('input[type="checkbox"]')
+        .forEach(function(e){e.checked=opciones.categorias.includes(e.value);});
+      $('criaturas-generar-semilla').value=semilla;
+      semillaAutoGenerador=automatica?semilla:'';
+      actualizarNombreGenerador();
+      estado.className='estado';
+      estado.textContent='Configuración rellenada. Revisa las opciones o genera el borrador.';
+    }catch(error){
+      estado.className='estado error';
+      estado.textContent=error.message;
+    }finally{boton.disabled=false;}
   }
   async function generarAdversario(event){
     event.preventDefault();
@@ -463,7 +504,10 @@
       var categorias=Array.from($('criaturas-generar-categorias')
         .querySelectorAll('input[type="checkbox"]:checked')).map(function(e){return e.value;});
       var semilla=$('criaturas-generar-semilla').value.trim();
-      if(!semilla)semilla=semillaNuevaGenerador();
+      if(!semilla){
+        semilla=semillaNuevaGenerador();
+        semillaAutoGenerador=semilla;
+      }
       var opciones={
         semilla:semilla,
         nivelMin:aEntero($('criaturas-generar-min').value,'Nivel mínimo'),
@@ -482,6 +526,7 @@
       var resultado=generador.generar(catalogo,fuentesOficiales,propios,opciones);
       // No persistir ni modificar originales. Siempre abrir un borrador nuevo.
       $('criaturas-generar-semilla').value=semilla;
+      actualizarNombreGenerador();
       renderizarFicha(resultado.ficha,null);
       cambios=true;
       $('criaturas-generar-dialogo').close();
@@ -1727,6 +1772,8 @@
     });
     $('criaturas-nueva-panel').addEventListener('click',nueva);
     $('criaturas-generar-panel').addEventListener('click',abrirGenerador);
+    $('criaturas-generar-aleatorizar').addEventListener('click',rellenarConfiguracionGenerador);
+    $('criaturas-generar-semilla').addEventListener('input',actualizarNombreGenerador);
     $('criaturas-generar-cerrar').addEventListener('click',function(){
       $('criaturas-generar-dialogo').close();
     });
