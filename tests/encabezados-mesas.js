@@ -26,7 +26,9 @@ for(const id of ['estado','criaturas-estado','borrar','exportar','criaturas-expo
 assert.match(html,/<h3 id="titulo-resumen-creacion">Opciones actuales<\/h3>/);
 assert.match(html,/<h4 id="titulo-resumen-seguidores">Opciones actuales<\/h4>/);
 assert.match(html,/<h3 id="titulo-resumen-adversarios">Colección actual<\/h3>/);
-assert.match(html,/id="criaturas-nueva-panel" class="configurar-creacion principal">Crear adversario<\/button>/);
+assert.match(html,/id="criaturas-nueva-panel" class="configurar-creacion principal"[\s\S]*?aria-controls="criaturas-crear-dialogo">Generar adversario<\/button>/);
+assert.match(html,/id="criaturas-crear-dialogo"[\s\S]*?id="criaturas-crear-manual"/);
+assert.match(html,/id="criaturas-crear-aleatorio"/);
 assert.match(html,/id="generar-seguidor" type="button" class="principal">Generar seguidor<\/button>/);
 assert.match(html,/id="criaturas-ir-importar">Importar desde texto<\/button>/);
 assert.match(html,/id="criaturas-exportar-biblioteca" disabled>Exportar fichas propias \(JSON\)<\/button>/);

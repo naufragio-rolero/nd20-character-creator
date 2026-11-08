@@ -1524,6 +1524,24 @@ html[data-tema=violeta]{
 /* Adversarios — mesa de cromos y ficha de consulta. Mantener los IDs de criaturas
    preserva los JSON v1 y sus integraciones existentes. */
 .resumen-adversarios{margin:.85rem 0}
+/* Acceso unificado al Editor: elegir modalidad y luego configurar la aleatoria. */
+.dialogo-adversario-inicio{width:min(560px,calc(100vw - 1rem));
+  max-height:calc(100dvh - 1rem);overflow-y:auto;margin:auto;padding:1.1rem;
+  color:var(--texto);background:var(--superficie);border:1px solid var(--oro);
+  border-radius:12px}
+.dialogo-adversario-inicio::backdrop{background:#061d32c2;backdrop-filter:blur(3px)}
+.criaturas-opciones-creacion{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.75rem;margin-top:1.1rem}
+.criaturas-opciones-creacion button{display:flex;flex-direction:column;align-items:flex-start;
+  gap:.5rem;min-width:0;min-height:120px;padding:1rem;text-align:left;
+  color:var(--texto);background:var(--superficie2);border:1px solid var(--borde);
+  border-radius:10px;cursor:pointer}
+.criaturas-opciones-creacion button:hover,
+.criaturas-opciones-creacion button:focus-visible{border-color:var(--oro);outline-offset:2px}
+.criaturas-opciones-creacion button strong{font-size:1.05rem}
+.criaturas-opciones-creacion button small{line-height:1.5}
+@media(max-width:440px){.criaturas-opciones-creacion{grid-template-columns:1fr}
+  .criaturas-opciones-creacion button{min-height:85px}}
 /* Generador: configuración independiente del formulario y de la galería. */
 .dialogo-adversario-generador{width:min(760px,calc(100vw - 1rem));max-height:calc(100dvh - 1rem);
   overflow-y:auto;margin:auto;padding:1.1rem;color:var(--texto);
@@ -1531,11 +1549,8 @@ html[data-tema=violeta]{
 .dialogo-adversario-generador::backdrop{background:#061d32c2;backdrop-filter:blur(3px)}
 .dialogo-adversario-generador .cabecera-compras{position:sticky;top:-1.1rem;
   z-index:2;background:var(--superficie)}
-.criaturas-generar-aleatorio{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
-  padding:.65rem .75rem;margin:.75rem 0 1rem;border:1px solid var(--borde);border-radius:8px;
-  background:var(--superficie2)}
-.criaturas-generar-aleatorio button{min-height:44px;flex:none;font-weight:700}
-.criaturas-generar-aleatorio small{flex:1 1 230px;line-height:1.4}
+ .criaturas-generar-pie{display:flex;justify-content:flex-end;gap:.6rem;flex-wrap:wrap}
+.criaturas-generar-pie button{min-height:44px}
 #criaturas-generar-nombre-previa{display:block;margin:.25rem 0;font-weight:700}
 .criaturas-generar-campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem 1rem}
 .criaturas-generar-campos .campo{min-width:0}

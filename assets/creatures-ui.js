@@ -440,12 +440,36 @@
       destino.appendChild(etiqueta);
     });
   }
+  function abrirMenuCrear(){
+    if(!$('criaturas-crear-dialogo').open)$('criaturas-crear-dialogo').showModal();
+    $('criaturas-crear-manual').focus({preventScroll:true});
+  }
+  function crearManualDesdeMenu(){
+    // No cerrar el menú si el usuario rechaza descartar su edición anterior.
+    if(!permitirDescartar())return;
+    $('criaturas-crear-dialogo').close();
+    renderizarFicha(modelo.nuevaCriatura(),null);
+    mostrarEstado('');
+    abrirEditor();
+  }
   function abrirGenerador(){
     prepararCategoriasGenerador();
+    // Una semilla creada automáticamente no debe repetirse en la próxima ficha.
+    if($('criaturas-generar-semilla').value.trim()===semillaAutoGenerador){
+      $('criaturas-generar-semilla').value='';
+      semillaAutoGenerador='';
+    }
     $('criaturas-generar-estado').textContent='';
+    $('criaturas-generar-estado').className='estado';
     actualizarNombreGenerador();
+    if($('criaturas-crear-dialogo').open)$('criaturas-crear-dialogo').close();
     if(!$('criaturas-generar-dialogo').open)$('criaturas-generar-dialogo').showModal();
     $('criaturas-generar-min').focus({preventScroll:true});
+  }
+  function cancelarGenerador(){
+    if($('criaturas-generar-dialogo').open)$('criaturas-generar-dialogo').close();
+    abrirMenuCrear();
+    $('criaturas-crear-aleatorio').focus({preventScroll:true});
   }
   function semillaNuevaGenerador(){
     if(!root.crypto||typeof root.crypto.getRandomValues!=='function')
@@ -459,39 +483,6 @@
     $('criaturas-generar-nombre-previa').textContent=semilla?
       'Nombre propuesto: '+generador.nombreAleatorio(semilla):
       'Se sorteará un nombre al generar el adversario.';
-  }
-  async function rellenarConfiguracionGenerador(){
-    var estado=$('criaturas-generar-estado'),boton=$('criaturas-generar-aleatorizar');
-    estado.textContent='';
-    boton.disabled=true;
-    try{
-      var entrada=$('criaturas-generar-semilla').value.trim();
-      // Una semilla escrita reproduce el relleno. Un valor autogenerado
-      // provoca un nuevo sorteo al volver a pulsar el botón.
-      var automatica=!entrada||entrada===semillaAutoGenerador;
-      var semilla=automatica?semillaNuevaGenerador():entrada;
-      var catalogo=await asegurarBibliotecaComponentes();
-      var propios=biblioteca?biblioteca.listar().map(function(r){
-        return {id:r.id,ficha:biblioteca.obtener(r.id)};
-      }):[];
-      var opciones=generador.opcionesAlAzar(catalogo,fuentesOficiales,propios,semilla);
-      $('criaturas-generar-min').value=String(opciones.nivelMin);
-      $('criaturas-generar-max').value=String(opciones.nivelMax);
-      $('criaturas-generar-modo').value=opciones.modo;
-      $('criaturas-generar-conector').value=opciones.conector;
-      $('criaturas-generar-acciones').value=String(opciones.acciones);
-      $('criaturas-generar-talentos').value=String(opciones.talentos);
-      $('criaturas-generar-categorias').querySelectorAll('input[type="checkbox"]')
-        .forEach(function(e){e.checked=opciones.categorias.includes(e.value);});
-      $('criaturas-generar-semilla').value=semilla;
-      semillaAutoGenerador=automatica?semilla:'';
-      actualizarNombreGenerador();
-      estado.className='estado';
-      estado.textContent='Configuración rellenada. Revisa las opciones o genera el borrador.';
-    }catch(error){
-      estado.className='estado error';
-      estado.textContent=error.message;
-    }finally{boton.disabled=false;}
   }
   async function generarAdversario(event){
     event.preventDefault();
@@ -1770,12 +1761,21 @@
       dibujarBiblioteca();
       $('criaturas-coleccion-busqueda').focus();
     });
-    $('criaturas-nueva-panel').addEventListener('click',nueva);
-    $('criaturas-generar-panel').addEventListener('click',abrirGenerador);
-    $('criaturas-generar-aleatorizar').addEventListener('click',rellenarConfiguracionGenerador);
-    $('criaturas-generar-semilla').addEventListener('input',actualizarNombreGenerador);
-    $('criaturas-generar-cerrar').addEventListener('click',function(){
-      $('criaturas-generar-dialogo').close();
+    $('criaturas-nueva-panel').addEventListener('click',abrirMenuCrear);
+    $('criaturas-crear-manual').addEventListener('click',crearManualDesdeMenu);
+    $('criaturas-crear-aleatorio').addEventListener('click',abrirGenerador);
+    $('criaturas-crear-cerrar').addEventListener('click',function(){
+      $('criaturas-crear-dialogo').close();
+    });
+    $('criaturas-generar-semilla').addEventListener('input',function(){
+      semillaAutoGenerador='';
+      actualizarNombreGenerador();
+    });
+    $('criaturas-generar-cerrar').addEventListener('click',cancelarGenerador);
+    $('criaturas-generar-cancelar').addEventListener('click',cancelarGenerador);
+    $('criaturas-generar-dialogo').addEventListener('cancel',function(event){
+      event.preventDefault();
+      cancelarGenerador();
     });
     $('criaturas-generar-todas').addEventListener('click',function(){
       $('criaturas-generar-categorias').querySelectorAll('input')

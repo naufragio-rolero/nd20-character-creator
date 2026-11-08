@@ -76,7 +76,9 @@ async function probar(nombre,tipo,url){
       nombre+': explicar cómo añadir la primera ficha sin repetir la cabecera');
     assert.equal(await page.locator('#generar').textContent(),'Generar personaje');
     assert.equal((await page.locator('#criaturas-nueva-panel').innerText()).trim(),
-      'Crear adversario',nombre+': Crear se reserva a fichas editadas');
+      'Generar adversario',nombre+': entrada única de generación de adversarios');
+    assert.equal(await page.locator('#criaturas-nueva-panel').getAttribute('aria-controls'),
+      'criaturas-crear-dialogo',nombre+': el menú de modalidades es accesible');
     assert.equal((await page.locator('#criaturas-ir-importar').innerText()).trim(),
       'Importar desde texto',nombre+': importar texto no es generar');
     assert.equal(await page.locator('#generar-seguidor').getAttribute('class'),

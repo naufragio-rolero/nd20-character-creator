@@ -263,8 +263,8 @@
             <div><dt>Almacenamiento</dt><dd>Este navegador</dd></div>
           </dl>
         </section>
-        <button type="button" id="criaturas-nueva-panel" class="configurar-creacion principal">Crear adversario</button>
-        <button type="button" id="criaturas-generar-panel" class="configurar-creacion">Generar adversario aleatorio</button>
+        <button type="button" id="criaturas-nueva-panel" class="configurar-creacion principal"
+          aria-haspopup="dialog" aria-controls="criaturas-crear-dialogo">Generar adversario</button>
         <div class="botonera">
           <button type="button" id="criaturas-ir-importar">Importar desde texto</button>
           <button type="button" id="criaturas-cargar-drs" aria-haspopup="dialog"
@@ -613,18 +613,34 @@
           <p class="muted">Crea un adversario o elige un perfil oficial para empezar la colección.</p>
         </div>
       </section>
+      <dialog id="criaturas-crear-dialogo" class="dialogo-compras dialogo-adversario-inicio"
+        aria-labelledby="criaturas-crear-titulo">
+        <div class="cabecera-compras">
+          <div><h3 id="criaturas-crear-titulo">Generar adversario</h3>
+            <p class="muted">Elige cómo quieres preparar la ficha de tu adversario.</p></div>
+          <button type="button" id="criaturas-crear-cerrar" class="cerrar-rejilla"
+            aria-label="Cerrar creación de adversario">✕</button>
+        </div>
+        <div class="criaturas-opciones-creacion" role="group" aria-label="Método de creación">
+          <button type="button" id="criaturas-crear-manual">
+            <strong>Crear manualmente</strong>
+            <small>Empieza con una ficha en blanco y añade sus datos.</small>
+          </button>
+          <button type="button" id="criaturas-crear-aleatorio">
+            <strong>Crear al azar</strong>
+            <small>Configura el sorteo de Nivel, categorías, Acciones y Talentos; después genera un adversario con nombre propio.</small>
+          </button>
+        </div>
+      </dialog>
       <dialog id="criaturas-generar-dialogo" class="dialogo-compras dialogo-adversario-generador"
         aria-labelledby="criaturas-generar-titulo">
         <div class="cabecera-compras">
-          <div><h3 id="criaturas-generar-titulo">Generador aleatorio de adversarios</h3>
-            <p class="muted">Mezcla Acciones y Talentos ya presentes en la biblioteca. No inventa daño ni reglas. El resultado se abre como borrador editable, sin guardar.</p></div>
-          <button type="button" id="criaturas-generar-cerrar" class="cerrar-rejilla" aria-label="Cerrar generador">✕</button>
+          <div><h3 id="criaturas-generar-titulo">Configurar adversario aleatorio</h3>
+            <p class="muted">Elige las opciones de generación. Al continuar se creará la ficha completa, con nombre aleatorio, sin guardar automáticamente ni inventar reglas.</p></div>
+          <button type="button" id="criaturas-generar-cerrar" class="cerrar-rejilla"
+            aria-label="Cancelar y volver al menú de creación">✕</button>
         </div>
         <form id="criaturas-generar-form">
-          <div class="criaturas-generar-aleatorio">
-            <button type="button" id="criaturas-generar-aleatorizar">Rellenar al azar</button>
-            <small>Puedes ajustar cualquier opción después. Si has escrito una semilla, el relleno será reproducible; sin ella, se crea una nueva en cada pulsación.</small>
-          </div>
           <div class="criaturas-generar-campos">
             <div class="campo"><label for="criaturas-generar-min">Nivel mínimo</label>
               <input id="criaturas-generar-min" type="number" min="0" max="100" step="1" value="1" required></div>
@@ -659,8 +675,9 @@
           <p class="muted">El nombre se compone de un sustantivo y un adjetivo concordantes (por ejemplo, «Topo tumefacto» o «Grulla acerada»). Es una combinación creativa, no una criatura nueva del canon. Puedes editarlo después.</p>
           <p class="muted">El Nivel se sortea dentro del intervalo y la Salud usa la media documentada (Nivel × 4). La Moral se elige entre valores existentes de esa categoría cuando procede; los demás valores sin base quedan vacíos. Los conectores son una decisión de configuración, no una regla nueva.</p>
           <p id="criaturas-generar-estado" class="estado" role="alert" aria-live="polite"></p>
-          <div class="criaturas-acciones">
-            <button type="submit" id="criaturas-generar-ejecutar" class="principal">Generar y revisar borrador</button>
+          <div class="criaturas-acciones criaturas-generar-pie">
+            <button type="button" id="criaturas-generar-cancelar">Cancelar</button>
+            <button type="submit" id="criaturas-generar-ejecutar" class="principal">Continuar</button>
           </div>
         </form>
       </dialog>

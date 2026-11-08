@@ -58,51 +58,40 @@ async function probar(nombre,tipo,url){
       await aleatorioPage.goto(url,{waitUntil:'domcontentloaded'});
       await aleatorioPage.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
       await aleatorioPage.locator('#tab-criaturas').click();
-      await aleatorioPage.locator('#criaturas-generar-panel').click();
+      assert.equal(await aleatorioPage.locator('#criaturas-generar-panel').count(),0,
+        'Solo debe existir un acceso principal a la generación de adversarios.');
+      await aleatorioPage.locator('#criaturas-nueva-panel').click();
+      assert.equal(await aleatorioPage.locator('#criaturas-crear-dialogo')
+        .evaluate(x=>x.open),true);
+      assert.equal(await aleatorioPage.locator('#criaturas-generar-dialogo')
+        .evaluate(x=>x.open),false);
+      // La opción manual mantiene el editor en blanco.
+      await aleatorioPage.locator('#criaturas-crear-manual').click();
+      await aleatorioPage.locator('#criaturas-edicion').waitFor({state:'visible'});
+      assert.equal(await aleatorioPage.locator('#criaturas-nombre').inputValue(),'');
+      assert.equal(await aleatorioPage.locator('#criaturas-crear-dialogo')
+        .evaluate(x=>x.open),false);
+      await aleatorioPage.locator('#criaturas-cerrar-editor').click();
+      // Crear al azar abre la configuración, nunca un borrador intermedio.
+      await aleatorioPage.locator('#criaturas-nueva-panel').click();
+      await aleatorioPage.locator('#criaturas-crear-aleatorio').click();
       assert.equal(await aleatorioPage.locator('#criaturas-generar-dialogo')
         .evaluate(x=>x.open),true);
-      await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
-      await aleatorioPage.locator('#criaturas-generar-estado')
-        .getByText('Configuración rellenada',{exact:false}).waitFor();
-      const primeraSemilla=await aleatorioPage.locator('#criaturas-generar-semilla')
-        .inputValue();
-      assert.match(primeraSemilla,/^[a-f0-9]{16}$/);
-      assert.match(await aleatorioPage.locator('#criaturas-generar-nombre-previa')
-        .innerText(),/^Nombre propuesto: \S+ \S+$/);
-      await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
-      await aleatorioPage.waitForFunction(anterior=>
-        document.getElementById('criaturas-generar-semilla').value!==anterior,primeraSemilla);
-      assert.notEqual(await aleatorioPage.locator('#criaturas-generar-semilla')
-        .inputValue(),primeraSemilla,
-        'Pulsaciones sucesivas con semilla automática producen nuevas combinaciones.');
-      await aleatorioPage.locator('#criaturas-generar-semilla')
-        .fill('configuracion-reproducible');
-      await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
-      await aleatorioPage.locator('#criaturas-generar-estado')
-        .getByText('Configuración rellenada',{exact:false}).waitFor();
-      const primeraConfig=await aleatorioPage.evaluate(()=>({
-        min:document.getElementById('criaturas-generar-min').value,
-        max:document.getElementById('criaturas-generar-max').value,
-        modo:document.getElementById('criaturas-generar-modo').value,
-        acciones:document.getElementById('criaturas-generar-acciones').value,
-        talentos:document.getElementById('criaturas-generar-talentos').value,
-        categorias:[...document.querySelectorAll('#criaturas-generar-categorias input:checked')]
-          .map(e=>e.value)
-      }));
-      await aleatorioPage.locator('#criaturas-generar-aleatorizar').click();
-      await aleatorioPage.locator('#criaturas-generar-estado')
-        .getByText('Configuración rellenada',{exact:false}).waitFor();
-      const segundaConfig=await aleatorioPage.evaluate(()=>({
-        min:document.getElementById('criaturas-generar-min').value,
-        max:document.getElementById('criaturas-generar-max').value,
-        modo:document.getElementById('criaturas-generar-modo').value,
-        acciones:document.getElementById('criaturas-generar-acciones').value,
-        talentos:document.getElementById('criaturas-generar-talentos').value,
-        categorias:[...document.querySelectorAll('#criaturas-generar-categorias input:checked')]
-          .map(e=>e.value)
-      }));
-      assert.deepEqual(segundaConfig,primeraConfig,
-        'El botón debe rellenar idénticamente si la semilla es manual.');
+      assert.equal(await aleatorioPage.locator('#criaturas-crear-dialogo')
+        .evaluate(x=>x.open),false);
+      assert.equal(await aleatorioPage.locator('#criaturas-generar-aleatorizar').count(),0,
+        'No debe existir un paso adicional para rellenar opciones al azar.');
+      assert.equal(await aleatorioPage.locator('#criaturas-edicion').evaluate(x=>x.open),false);
+      await aleatorioPage.locator('#criaturas-generar-cancelar').click();
+      assert.equal(await aleatorioPage.locator('#criaturas-generar-dialogo').evaluate(x=>x.open),false);
+      assert.equal(await aleatorioPage.locator('#criaturas-crear-dialogo').evaluate(x=>x.open),true,
+        'Cancelar vuelve a la elección de modalidad.');
+      await aleatorioPage.locator('#criaturas-crear-aleatorio').click();
+      await aleatorioPage.keyboard.press('Escape');
+      assert.equal(await aleatorioPage.locator('#criaturas-generar-dialogo').evaluate(x=>x.open),false);
+      assert.equal(await aleatorioPage.locator('#criaturas-crear-dialogo').evaluate(x=>x.open),true,
+        'Escape también vuelve al menú de creación.');
+      await aleatorioPage.locator('#criaturas-crear-aleatorio').click();
       await aleatorioPage.locator('#criaturas-generar-min').fill('12');
       await aleatorioPage.locator('#criaturas-generar-max').fill('12');
       await aleatorioPage.locator('#criaturas-generar-ninguna').click();
@@ -171,6 +160,7 @@ async function probar(nombre,tipo,url){
       await componentesPage.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
       await componentesPage.locator('#tab-criaturas').click();
       await componentesPage.locator('#criaturas-nueva-panel').click();
+      await componentesPage.locator('#criaturas-crear-manual').click();
       assert.equal(await componentesPage.locator('#criaturas-anadir-ataque').innerText(),
         'Añadir acción');
       assert.equal(await componentesPage.locator('#criaturas-explorar-ataques').innerText(),
@@ -702,6 +692,7 @@ async function probar(nombre,tipo,url){
       assert.equal(await segunda.locator('.criaturas-cromo').count(),2);
       await segunda.locator('#criaturas-cerrar-editor').click();
       await segunda.locator('#criaturas-nueva-panel').click();
+      await segunda.locator('#criaturas-crear-manual').click();
       await segunda.locator('#criaturas-nombre').fill('Ejemplo de ajuste negativo');
       await segunda.locator('#criaturas-categoria').selectOption('Bestia');
       await segunda.locator('#criaturas-nivel').fill('4');
