@@ -1531,6 +1531,12 @@ html[data-tema=violeta]{
 .dialogo-adversario-generador::backdrop{background:#061d32c2;backdrop-filter:blur(3px)}
 .dialogo-adversario-generador .cabecera-compras{position:sticky;top:-1.1rem;
   z-index:2;background:var(--superficie)}
+.criaturas-generar-aleatorio{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+  padding:.65rem .75rem;margin:.75rem 0 1rem;border:1px solid var(--borde);border-radius:8px;
+  background:var(--superficie2)}
+.criaturas-generar-aleatorio button{min-height:44px;flex:none;font-weight:700}
+.criaturas-generar-aleatorio small{flex:1 1 230px;line-height:1.4}
+#criaturas-generar-nombre-previa{display:block;margin:.25rem 0;font-weight:700}
 .criaturas-generar-campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem 1rem}
 .criaturas-generar-campos .campo{min-width:0}
 .criaturas-generar-campos input,.criaturas-generar-campos select{width:100%;max-width:100%}
