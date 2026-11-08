@@ -1410,8 +1410,8 @@
         c.camposNoInterpretados.join('\n')||'Ninguno',
         '',
         '4. DATOS QUE PASARÁN AL EDITOR (TODAVÍA SIN GUARDAR)',
-        'Acciones ('+ataques.length+'): '+(ataques.join(' | ')||'Sin reconocer'),
-        'Talentos y habilidades ('+talentos.length+'): '+(talentos.join(' | ')||'Sin reconocer'),
+        'Acciones extraídas ('+ataques.length+'): '+(ataques.join(' | ')||'Sin reconocer'),
+        'Talentos ('+talentos.length+'): '+(talentos.join(' | ')||'Sin reconocer'),
         'El texto original íntegro se conservará junto a la propuesta.'
       ].join('\n');
       avisosEn('criaturas-advertencias-previa',analisis.errores,analisis.advertencias);
