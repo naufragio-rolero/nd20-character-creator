@@ -2031,3 +2031,5 @@ html[data-tema=violeta] .criaturas-icono-categoria{
 .criaturas-ataque-avanzado summary{cursor:pointer}
 .criaturas-ataque-avanzado-campos{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.6rem}
 .criaturas-ataque-avanzado-campos label{flex:1 1 180px;min-width:0}
+
+#criaturas-resumen-previa{white-space:pre-wrap;overflow-wrap:anywhere}
