@@ -52,6 +52,29 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#tab-criaturas').getAttribute('aria-selected'),'true');
     assert.equal(await page.locator('#criaturas-lista .criaturas-lista-item').count(),0);
     assert.equal((await page.locator('#tab-criaturas').innerText()).trim(),'Adversarios');
+    // Regresión: una cabecera con Nivel pero sin Salud nunca recibe la media
+    // durante el pegado. La descripción tampoco es requisito de las fichas.
+    const sinSalud=await contexto.newPage();
+    try{
+      await sinSalud.goto(url,{waitUntil:'domcontentloaded'});
+      await sinSalud.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      await sinSalud.locator('#tab-criaturas').click();
+      await sinSalud.locator('#criaturas-ir-importar').click();
+      await sinSalud.locator('#criaturas-texto').fill([
+        'Criatura sin Salud documentada',
+        'Humanoide de Nivel 4 [Moral 7]',
+        'Ataques: mordisco (6)'
+      ].join('\n'));
+      await sinSalud.locator('#criaturas-analizar').click();
+      const resumen=await sinSalud.locator('#criaturas-resumen-previa').innerText();
+      assert.match(resumen,/1\. INFORMACIÓN RECONOCIDA/);
+      assert.match(resumen,/4\. DATOS QUE PASARÁN AL EDITOR/);
+      await sinSalud.locator('#criaturas-aplicar-previa').click();
+      assert.equal(await sinSalud.locator('#criaturas-salud').inputValue(),'');
+      assert.equal(await sinSalud.locator('#criaturas-salud-modo').inputValue(),'manual');
+      assert.equal(await sinSalud.locator('#criaturas-descripcion').evaluate(x=>x.required),false);
+      assert.equal(await sinSalud.locator('#criaturas-formulario').evaluate(x=>x.checkValidity()),true);
+    }finally{await sinSalud.close();}
     assert.equal(await page.locator('#criaturas-edicion').evaluate(x=>x.open),false,
       'La mesa se abre sin mostrar el formulario.');
     // Catálogo íntegro de componentes: Chrome, Firefox y WebKit, también móvil.
@@ -176,6 +199,26 @@ async function probar(nombre,tipo,url){
     assert.equal(ficha.ataques[1].danoNumerico,null);
     assert.equal(ficha.talentos[0].nombre,'Tela de araña');
     assert.equal(ficha.origen.textoOriginal,texto);
+    const filtros=await contexto.newPage();
+    try{
+      await filtros.goto(url,{waitUntil:'domcontentloaded'});
+      await filtros.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      await filtros.locator('#tab-criaturas').click();
+      assert.equal(await filtros.locator('#criaturas-lista .criaturas-lista-item').count(),1);
+      await filtros.locator('#criaturas-coleccion-busqueda').fill('NO EXISTE');
+      assert.equal(await filtros.locator('#criaturas-lista .criaturas-lista-item').count(),0);
+      assert.match(await filtros.locator('#criaturas-coleccion-resultado').innerText(),/0 de 1/);
+      await filtros.locator('#criaturas-coleccion-busqueda').fill('arana peluda');
+      assert.equal(await filtros.locator('#criaturas-lista .criaturas-lista-item').count(),1,
+        'Búsqueda sin acentos en nombres propios.');
+      await filtros.locator('#criaturas-coleccion-origen').selectOption('oficiales');
+      assert.equal(await filtros.locator('#criaturas-lista .criaturas-lista-item').count(),0);
+      await filtros.locator('#criaturas-coleccion-origen').selectOption('propios');
+      assert.equal(await filtros.locator('#criaturas-lista .criaturas-lista-item').count(),1);
+      await filtros.locator('#criaturas-coleccion-limpiar').click();
+      assert.equal(await filtros.locator('#criaturas-coleccion-busqueda').inputValue(),'');
+      assert.equal(await filtros.locator('#criaturas-lista .criaturas-lista-item').count(),1);
+    }finally{await filtros.close();}
 
     // El pie debe ocupar una sola fila en escritorio y móvil, con SVG,
     // nombres accesibles y el borrado fuera de las fichas oficiales.
