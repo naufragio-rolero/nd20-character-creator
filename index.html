@@ -33,6 +33,7 @@
   <script defer src="assets/creatures-import.js"></script>
   <script defer src="assets/creatures-library.js"></script>
   <script defer src="assets/creatures-components.js"></script>
+  <script defer src="assets/creatures-random.js"></script>
   <script defer src="assets/adversarios-categorias.js"></script>
   <script defer src="assets/adversarios-formato.js"></script>
   <script defer src="assets/creatures-ui.js"></script>
@@ -263,6 +264,7 @@
           </dl>
         </section>
         <button type="button" id="criaturas-nueva-panel" class="configurar-creacion principal">Crear adversario</button>
+        <button type="button" id="criaturas-generar-panel" class="configurar-creacion">Generar adversario aleatorio</button>
         <div class="botonera">
           <button type="button" id="criaturas-ir-importar">Importar desde texto</button>
           <button type="button" id="criaturas-cargar-drs" aria-haspopup="dialog"
@@ -611,6 +613,51 @@
           <p class="muted">Crea un adversario o elige un perfil oficial para empezar la colección.</p>
         </div>
       </section>
+      <dialog id="criaturas-generar-dialogo" class="dialogo-compras dialogo-adversario-generador"
+        aria-labelledby="criaturas-generar-titulo">
+        <div class="cabecera-compras">
+          <div><h3 id="criaturas-generar-titulo">Generador aleatorio de adversarios</h3>
+            <p class="muted">Mezcla Acciones y Talentos ya presentes en la biblioteca. No inventa daño ni reglas. El resultado se abre como borrador editable, sin guardar.</p></div>
+          <button type="button" id="criaturas-generar-cerrar" class="cerrar-rejilla" aria-label="Cerrar generador">✕</button>
+        </div>
+        <form id="criaturas-generar-form">
+          <div class="criaturas-generar-campos">
+            <div class="campo"><label for="criaturas-generar-min">Nivel mínimo</label>
+              <input id="criaturas-generar-min" type="number" min="0" max="100" step="1" value="1" required></div>
+            <div class="campo"><label for="criaturas-generar-max">Nivel máximo</label>
+              <input id="criaturas-generar-max" type="number" min="0" max="100" step="1" value="12" required></div>
+            <div class="campo"><label for="criaturas-generar-modo">Elección de Acciones y Talentos</label>
+              <select id="criaturas-generar-modo">
+                <option value="libre">Mezcla libre entre todos los componentes existentes</option>
+                <option value="restringido">Restringir a componentes de la categoría elegida</option>
+              </select></div>
+            <div class="campo"><label for="criaturas-generar-conector">Combinar Acciones como</label>
+              <select id="criaturas-generar-conector">
+                <option value="o">Alternativas (o)</option>
+                <option value="y">Simultáneas (y)</option>
+              </select></div>
+            <div class="campo"><label for="criaturas-generar-acciones">Número de Acciones</label>
+              <input id="criaturas-generar-acciones" type="number" min="0" max="8" step="1" value="2" required></div>
+            <div class="campo"><label for="criaturas-generar-talentos">Número de Talentos</label>
+              <input id="criaturas-generar-talentos" type="number" min="0" max="8" step="1" value="2" required></div>
+            <div class="campo criaturas-generar-semilla"><label for="criaturas-generar-semilla">Semilla reproducible (opcional)</label>
+              <input id="criaturas-generar-semilla" type="text" maxlength="128" autocomplete="off" placeholder="Vacía = crear semilla nueva"></div>
+          </div>
+          <fieldset class="criaturas-generar-categorias">
+            <legend>Categorías posibles (elige una o varias)</legend>
+            <div class="criaturas-acciones">
+              <button type="button" id="criaturas-generar-todas">Todas</button>
+              <button type="button" id="criaturas-generar-ninguna">Ninguna</button>
+            </div>
+            <div id="criaturas-generar-categorias" class="criaturas-generar-rejilla"></div>
+          </fieldset>
+          <p class="muted">El Nivel se sortea dentro del intervalo y la Salud usa la media documentada (Nivel × 4). La Moral se elige entre valores existentes de esa categoría cuando procede; los demás valores sin base quedan vacíos. Los conectores son una decisión de configuración, no una regla nueva.</p>
+          <p id="criaturas-generar-estado" class="estado" role="alert" aria-live="polite"></p>
+          <div class="criaturas-acciones">
+            <button type="submit" id="criaturas-generar-ejecutar" class="principal">Generar y revisar borrador</button>
+          </div>
+        </form>
+      </dialog>
       <dialog class="criaturas-bloque dialogo-adversario" id="criaturas-edicion" aria-labelledby="criaturas-titulo-edicion">
         <div class="criaturas-edicion-cabecera">
           <div>
