@@ -272,7 +272,7 @@ async function cargar(){
     cargaCompleta=true;conectar();
     if(lib.listas.length)seleccionar(lib.listas[lib.listas.length-1].id);
     else abrirNueva();
-    mensajeCarga('DRS '+catalogo.versionDRS+' · '+catalogo.conjuros.length+' Conjuros verificados. Las listas son personales, no reglas oficiales.');
+    mensajeCarga('DRS '+catalogo.versionDRS+' · '+catalogo.conjuros.length+' Conjuros verificados.');
   }catch(e){
     mensajeCarga('No se pudo abrir Conjuros: '+e.message,true);
     $('form-herramienta').hidden=true;
