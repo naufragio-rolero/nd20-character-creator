@@ -95,3 +95,15 @@
   .forja-cabecera .marca-logotipo{width:85px}
   .forja-cabecera .cabecera-acciones.forja-cabecera-acciones{justify-content:space-between}
 }
+
+/* Mismo eje de alineación para el contenido, sin imponer la misma anchura
+   a listas de hechizos que a un escritorio con panel lateral. */
+.pagina-portal .portal-contenido,.pagina-conjuros .conjuros-simple{
+  width:100%;max-width:1550px;margin:0 auto;padding:2rem 2.4rem 5rem}
+.pagina-portal .portal-tarjetas,.pagina-conjuros #form-herramienta{
+  max-width:1200px}
+.pagina-portal .portal-contenido h2{font-size:1.9rem;font-weight:500}
+@media(max-width:830px){
+  .pagina-portal .portal-contenido,.pagina-conjuros .conjuros-simple{
+    padding:1.3rem 1rem 3rem}
+}
