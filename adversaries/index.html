@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <base href="../">
+  <title>Adversarios · La Forja</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+    (function(){
+      // En la etapa modular inicial, Adversarios conserva el motor de Personajes.
+      // El fragmento nunca se envía a un servidor ni se pierde en la transición.
+      var destino=new URL('characters-nd20/',document.baseURI);
+      destino.hash=window.location.hash;
+      window.location.replace(destino.href);
+    })();
+  </script>
+</head>
+<body>
+  <main class="disposicion"><p>Abriendo el editor de Adversarios… <a href="characters-nd20/">Entrar en la Forja</a>.</p></main>
+</body>
+</html>
