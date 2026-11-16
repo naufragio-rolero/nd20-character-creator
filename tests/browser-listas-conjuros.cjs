@@ -11,6 +11,8 @@ const server=http.createServer((req,res)=>{
   let pathname;
   try{pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);}
   catch(e){res.writeHead(400).end();return;}
+  // Emular la resolución de index.html de GitHub Pages para rutas /spells/.
+  if(pathname.endsWith('/'))pathname+='index.html';
   const archivo=path.resolve(raiz,'.'+pathname);
   if(!archivo.startsWith(raiz+path.sep)){res.writeHead(403).end();return;}
   fs.readFile(archivo,(error,bytes)=>{
