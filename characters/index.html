@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="es" data-tema="clasico">
+<head>
+  <base href="../">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#122532">
+  <meta name="description" content="Forja de Naufragio d20: personajes, seguidores y adversarios para Naufragio d20 y Dungeon Hack.">
+  <title>Personajes · La Forja · El Naufragio</title>
+  <script>
+    // Antes del CSS y de la primera pintura: evita el destello del tema Clásico.
+    (function(){
+      try {
+        var tema=localStorage.getItem('forja-tema');
+        if(['clasico','ebano','ceruleo','obsidiana','violeta'].includes(tema))
+          document.documentElement.dataset.tema=tema;
+      } catch (error) { /* Sin almacenamiento: usar Clásico. */ }
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/forja-header.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <script defer src="assets/i18n.js"></script>
+  <script defer src="assets/equipment.js"></script>
+  <script defer src="assets/sex.js"></script>
+  <script defer src="assets/names.js"></script>
+  <script defer src="assets/rules.js"></script>
+  <script defer src="assets/powers.js"></script>
+  <script defer src="assets/spell-magnitudes.js"></script>
+  <script defer src="assets/tooltips.js"></script>
+  <script defer src="assets/tooltip-ui.js"></script>
+  <script defer src="assets/pdf-export-v2.js"></script>
+  <script defer src="assets/pdf-export-browser.js"></script>
+  <script defer src="assets/creatures.js"></script>
+  <script defer src="assets/creatures-import.js"></script>
+  <script defer src="assets/creatures-library.js"></script>
+  <script defer src="assets/creatures-components.js"></script>
+  <script defer src="assets/creatures-random.js"></script>
+  <script defer src="assets/adversarios-categorias.js"></script>
+  <script defer src="assets/adversarios-formato.js"></script>
+  <script defer src="assets/creatures-ui.js"></script>
+  <script defer src="assets/adversarios-pdf.js"></script>
+  <script defer src="assets/share-links.js"></script>
+  <script defer src="assets/app.js"></script>
+  <script defer src="assets/theme-picker.js"></script>
+<meta name="robots" content="noindex,nofollow,noarchive"><style id="forja-preview-css">#forja-marca-preview{position:fixed;right:10px;bottom:10px;z-index:2147483647;padding:7px 11px;border-radius:7px;background:#171821;color:#fff;border:1px solid #ffce66;box-shadow:0 2px 12px #0008;font:600 12px/1.3 system-ui,sans-serif;pointer-events:none}</style></head>
+<body><div id="forja-marca-preview" role="status" aria-label="Versión de pruebas, no es LIVE">PREVIEW · NO LIVE · DATOS DE PRUEBA</div>
+  <header class="encabezado forja-cabecera">
+    <div class="marca forja-marca">
+      <img class="marca-logotipo" src="assets/branding/naufragio.svg"
+        alt="El Naufragio" width="290" height="119" decoding="async">
+      <div class="forja-marca-texto">
+        <h1>La Forja</h1>
+        <p class="forja-subtitulo">Crea personajes, seguidores y adversarios.</p>
+      </div>
+    </div>
+    <div class="cabecera-acciones forja-cabecera-acciones">
+      <button id="alternar-menu" class="boton-menu" type="button"
+        aria-controls="panel-forja" aria-expanded="false" aria-label="Abrir menú de la forja">
+        <span class="lineas-menu" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>Menú</span>
+      </button>
+      <a class="forja-volver" href="index.html" title="Volver al hub" aria-label="Volver al hub">
+        <svg class="forja-icono-inicio" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="m3 10 9-7 9 7"/>
+          <path d="M5 9.5V21h14V9.5"/>
+          <path d="M9 21v-7h6v7"/>
+        </svg>
+      </a>
+      <div class="forja-temas" data-forja-temas data-tema-actual="clasico">
+        <button type="button" class="forja-temas-abrir" aria-expanded="false" aria-controls="opciones-temas">
+          <span class="forja-temas-muestra" aria-hidden="true"></span>
+          <span>Tema</span><span class="forja-tema-nombre">Clásico</span>
+          <span class="forja-temas-flecha" aria-hidden="true"></span>
+        </button>
+        <div id="opciones-temas" class="forja-temas-opciones" role="group" aria-label="Paleta de temas" hidden>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="clasico" aria-label="Clásico" title="Clásico" aria-pressed="true">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Clásico</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ebano" aria-label="Ébano" title="Ébano" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Ébano</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ceruleo" aria-label="Cerúleo" title="Cerúleo" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Cerúleo</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="obsidiana" aria-label="Obsidiana" title="Obsidiana" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Obsidiana</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="violeta" aria-label="Violeta" title="Violeta" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Violeta</span>
+          </button>
+        </div>
+        <select id="selector-tema" class="forja-temas-nativo" aria-hidden="true" tabindex="-1" aria-label="Tema visual">
+          <option value="clasico">Clásico</option>
+          <option value="ebano">Ébano</option>
+          <option value="ceruleo">Cerúleo</option>
+          <option value="obsidiana">Obsidiana</option>
+          <option value="violeta">Violeta</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <main class="disposicion">
+    <aside class="panel" id="panel-forja" aria-label="Opciones de generación">
+      <div class="campo campo-sistema-global" id="selector-sistema-global">
+          <label id="etiqueta-sistema" for="juego">Sistema</label>
+          <div class="juegos-compactos juegos-publicos" role="group" aria-labelledby="etiqueta-sistema">
+            <button type="button" data-juego="nd20" class="sistema-logo sistema-activo" aria-pressed="true" aria-label="Naufragio d20 · Fantasía Épica" title="Naufragio d20 · Fantasía Épica">
+              <img class="logotipo-sistema" src="assets/icons/sistema-nd20-faep.webp" alt="" aria-hidden="true" width="400" height="152" decoding="async">
+            </button>
+            <button type="button" data-juego="dh" class="sistema-logo" aria-pressed="false" aria-label="Dungeon Hack" title="Dungeon Hack">
+              <img class="logotipo-sistema" src="assets/icons/sistema-dh.webp" alt="" aria-hidden="true" width="400" height="90" decoding="async">
+            </button>
+          </div>
+          <select id="juego" name="juego" class="sr-only" tabindex="-1" aria-hidden="true">
+            <option value="nd20">Naufragio d20 · Fantasía</option>
+            <option value="dh">Dungeon Hack</option>
+          </select>
+        </div>
+      <div class="pestanas-panel" role="tablist" aria-label="Panel de la forja">
+        <button type="button" id="tab-personajes" role="tab" aria-controls="panel-personajes" aria-selected="true" class="activa">Personajes</button>
+        <button type="button" id="tab-herramientas" role="tab" aria-controls="panel-herramientas" aria-selected="false" tabindex="-1">Seguidores</button>
+        <button type="button" id="tab-criaturas" role="tab" aria-controls="panel-criaturas" aria-selected="false" tabindex="-1">Adversarios</button>
+      </div>
+      <div id="panel-personajes" role="tabpanel" aria-labelledby="tab-personajes">
+      <section class="inicio-rapido" id="tutorial-inicial" aria-labelledby="titulo-inicio-rapido">
+        <button type="button" id="ocultar-tutorial" class="ocultar-tutorial" aria-label="Ocultar tutorial" title="Ocultar tutorial">×</button>
+        <h3 id="titulo-inicio-rapido">Crea tu primer personaje</h3>
+        <p>No hace falta configurar todo. Puedes dejar <strong>Nivel 1</strong>,
+          <strong>Ocupación</strong> y <strong>Especie</strong> en sus valores iniciales
+          y pulsar <strong>Generar personaje</strong>.</p>
+      </section>
+      <section class="resumen-creacion" aria-labelledby="titulo-resumen-creacion">
+        <h3 id="titulo-resumen-creacion">Opciones actuales</h3>
+        <dl>
+          <div><dt>Sistema</dt><dd id="resumen-sistema">Naufragio d20 · Fantasía Épica</dd></div>
+          <div><dt>Nivel</dt><dd id="resumen-nivel">Nivel 1</dd></div>
+          <div><dt>Ocupación</dt><dd id="resumen-ocupacion">Aleatoria</dd></div>
+          <div><dt>Especie</dt><dd id="resumen-especie">Aleatoria</dd></div>
+          <div><dt>Sexo</dt><dd id="resumen-sexo">Aleatorio</dd></div>
+          <div><dt>Nombre</dt><dd id="resumen-nombre">Nombres genéricos</dd></div>
+          <div><dt>Modo</dt><dd id="resumen-modo">Rápido</dd></div>
+          <div><dt>Fichas</dt><dd id="resumen-cantidad">1</dd></div>
+        </dl>
+      </section>
+      <button id="abrir-configuracion" type="button" class="configurar-creacion"
+        aria-haspopup="dialog" aria-controls="dialogo-configuracion">
+        <span class="icono-svg" aria-hidden="true"></span>
+        Configurar creación
+      </button>
+      <button class="principal" id="generar" type="submit" form="configuracion" disabled>Generar personaje</button>
+      <dialog id="dialogo-configuracion" class="dialogo-configuracion"
+        aria-labelledby="titulo-dialogo-configuracion">
+        <div class="cabecera-configuracion">
+          <h3 id="titulo-dialogo-configuracion">Configurar creación</h3>
+          <button id="cerrar-configuracion" type="button" aria-label="Cerrar configuración">✕</button>
+        </div>
+        <p class="ayuda-configuracion">Estos ajustes se aplicarán a la siguiente generación.</p>
+        <p id="aviso-configuracion" class="aviso-validacion" role="alert" aria-live="assertive" tabindex="-1"></p>
+      <form id="configuracion">
+        <div class="fila-campos fila-niveles">
+          <div class="campo">
+            <label for="nivel-min">Nivel mínimo <span id="rango-nivel">1–30</span></label>
+            <input id="nivel-min" name="nivel-min" type="number" value="1" min="1" max="30" step="1" required aria-describedby="aviso-nivel">
+          </div>
+          <div class="campo">
+            <label for="nivel-max">Nivel máximo</label>
+            <input id="nivel-max" name="nivel-max" type="number" value="1" min="1" max="30" step="1" required aria-describedby="aviso-nivel">
+          </div>
+        </div>
+        <p id="aviso-nivel" class="ayuda aviso-validacion-nivel" role="alert" aria-live="polite"></p>
+        <div class="fila-campos fila-identidad">
+        <div class="campo">
+          <label id="etiqueta-ocupacion" for="ocupacion">Ocupación / Clase</label>
+          <button type="button" id="abrir-selector-ocupacion" class="abrir-rejilla" aria-haspopup="dialog" aria-controls="dialogo-ocupacion"><span class="simbolo-rejilla" aria-hidden="true">▦</span><span id="valor-elegido-ocupacion">Aleatoria</span><span class="flecha-rejilla" aria-hidden="true">▾</span></button>
+          <select id="ocupacion" name="ocupacion"><option value="">Aleatoria</option></select>
+          <dialog id="dialogo-ocupacion" class="dialogo-eleccion" aria-labelledby="titulo-dialogo-ocupacion">
+            <div class="cabecera-dialogo-eleccion"><h3 id="titulo-dialogo-ocupacion">Elegir Ocupación / Clase</h3><button type="button" data-cerrar-selector="ocupacion" class="cerrar-rejilla" aria-label="Cerrar selección">✕</button></div>
+            <p class="leyenda-dialogo-eleccion" data-i18n="selector.indicacion">Elige una casilla; «Aleatoria» lo deja al generador.</p>
+            <div id="selector-visual-ocupacion" class="selector-visual" role="group" aria-labelledby="titulo-dialogo-ocupacion"></div>
+            <div class="pie-dialogo-eleccion"><p>Marca las opciones que pueden salir. Sin marcas: todas.</p><button type="button" class="principal" data-confirmar-selector="ocupacion">Confirmar</button></div>
+          </dialog>
+        </div>
+        <div class="campo">
+          <label id="etiqueta-especie" for="especie">Especie</label>
+          <button type="button" id="abrir-selector-especie" class="abrir-rejilla" aria-haspopup="dialog" aria-controls="dialogo-especie"><span class="simbolo-rejilla" aria-hidden="true">▦</span><span id="valor-elegido-especie">Aleatoria</span><span class="flecha-rejilla" aria-hidden="true">▾</span></button>
+          <select id="especie" name="especie"><option value="">Aleatoria</option></select>
+          <dialog id="dialogo-especie" class="dialogo-eleccion" aria-labelledby="titulo-dialogo-especie">
+            <div class="cabecera-dialogo-eleccion"><h3 id="titulo-dialogo-especie">Elegir Especie</h3><button type="button" data-cerrar-selector="especie" class="cerrar-rejilla" aria-label="Cerrar selección">✕</button></div>
+            <p class="leyenda-dialogo-eleccion" data-i18n="selector.indicacion">Elige una casilla; «Aleatoria» lo deja al generador.</p>
+            <div id="selector-visual-especie" class="selector-visual" role="group" aria-labelledby="titulo-dialogo-especie"></div>
+            <div class="pie-dialogo-eleccion"><p>Marca las opciones que pueden salir. Sin marcas: todas.</p><button type="button" class="principal" data-confirmar-selector="especie">Confirmar</button></div>
+          </dialog>
+        </div>
+        </div>
+        <fieldset id="opciones-dh" hidden>
+          <legend>Opciones de Dungeon Hack</legend>
+          <label class="casilla"><input id="con-especie" type="checkbox" checked> Aplicar especies</label>
+          <p class="ayuda">Procedencias permitidas para clases y especies</p>
+          <div id="origenes" class="origenes"></div>
+          <p id="aviso-origenes" class="aviso-validacion" role="alert" aria-live="polite"></p>
+        </fieldset>
+        <fieldset id="opciones-fuentes" aria-describedby="aviso-fuentes" hidden>
+          <legend>Fuentes permitidas · Naufragio d20</legend>
+          <p class="ayuda" id="aviso-alcance-drs" hidden>Solo DRS. Suplementos en revisión.</p>
+          <div id="fuentes-nd20" class="origenes"></div>
+          <p id="aviso-fuentes" class="aviso-validacion" role="alert" aria-live="polite"></p>
+        </fieldset>
+        <div class="campo" id="opciones-sexo">
+          <label for="sexo-pj">Sexo del personaje</label>
+          <select id="sexo-pj" name="sexo">
+            <option value="aleatorio">Aleatorio</option>
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+          </select>
+        </div>
+        <fieldset id="opciones-contexto-sexo">
+          <legend>Coherencia narrativa de Ocupaciones</legend>
+          <label class="casilla"><input id="respetar-contexto-sexo" type="checkbox" checked>
+            Respetar el trasfondo femenino de ciertas Ocupaciones</label>
+          <small data-i18n="ayuda.coherencia">Respeta las excepciones narrativas documentadas, sin añadir restricciones mecánicas.</small>
+        </fieldset>
+        <div class="campo" id="opciones-nombres-ylat">
+          <label for="modo-nombre">Generador de nombres</label>
+          <select id="modo-nombre" name="modo-nombre">
+            <option value="generico">Nombres genéricos</option>
+            <option value="ylat">Nombres de Ylat</option>
+          </select>
+          <small>Genéricos: dos formas distintas, igual probabilidad. Ylat: nombre y apellido combinados a partir de las fuentes, con apellidos excepcionales menos frecuentes. Ninguna combinación acredita parentesco.</small>
+        </div>
+        <div class="campo">
+          <label for="nombre-personaje">Nombre del personaje (opcional)</label>
+          <input id="nombre-personaje" name="nombre-personaje" type="text" maxlength="90" placeholder="Si quieres elegirlo tú">
+        </div>
+        <div class="campo">
+          <label for="semilla">Semilla de reproducción</label>
+          <input id="semilla" name="semilla" type="text" maxlength="90" placeholder="Escribe o pega una semilla para repetir una creación">
+          <small id="ayuda-semilla">Deja este campo vacío para utilizar azar nuevo en cada generación. Escribe una semilla fija para repetir el resultado con la misma configuración; no se conservan las ediciones posteriores.</small>
+        </div>
+        <details class="configuracion-avanzada" id="recuperar-reproduccion">
+          <summary>Recuperar configuración de reproducción</summary>
+          <label for="texto-reproduccion">Pega el JSON copiado de una generación anterior</label>
+          <textarea id="texto-reproduccion" rows="4" spellcheck="false"></textarea>
+          <button id="aplicar-reproduccion" type="button">Aplicar configuración de reproducción</button>
+          <p id="aviso-reproduccion" class="aviso-validacion" role="status" aria-live="polite"></p>
+          <small>Solo se recupera la configuración original: las elecciones manuales de Talentos y Poderes en modo Personalizado deben repetirse.</small>
+        </details>
+        <fieldset id="modos-creacion">
+          <legend>Modo de creación · Naufragio d20</legend>
+          <label class="casilla"><input type="radio" name="modo-creacion" value="rapido" checked> <strong>Rápido:</strong> elecciones automáticas reglamentarias</label>
+          <label class="casilla"><input type="radio" name="modo-creacion" value="personalizado"> <strong>Personalizado:</strong> elegir Talentos y Poderes paso a paso</label>
+        </fieldset>
+        <fieldset id="opciones-riqueza-nivel">
+          <legend>Riqueza adicional (opcional)</legend>
+          <label class="casilla"><input type="checkbox" id="riqueza-por-nivel">
+            Sumar 4d10 mo/cr por cada Nivel ganado después del primero</label>
+        </fieldset>
+        <div class="campo">
+          <label for="cantidad">Cuántas fichas</label>
+          <input id="cantidad" type="number" min="1" max="12" value="1" required>
+        </div>
+        <details id="configuracion-avanzada" class="configuracion-avanzada">
+          <summary>Configuración avanzada</summary>
+          <label class="casilla" for="informacion-avanzada">
+            <input id="informacion-avanzada" type="checkbox">
+            Mostrar detalles técnicos
+          </label>
+          <small>Por defecto, las fichas emergentes muestran el efecto y la fuente. Los metadatos, las magnitudes y las condiciones técnicas se pueden desplegar cuando hagan falta.</small>
+        </details>
+        <div class="pie-configuracion">
+          <button type="button" id="aplicar-configuracion" class="principal">Aplicar opciones</button>
+          <button type="submit" id="generar-dialogo" class="generar-desde-dialogo">Generar personaje</button>
+        </div>
+      </form>
+      </dialog>
+      </div>
+      <section id="panel-herramientas" role="tabpanel" aria-labelledby="tab-herramientas" class="herramientas" hidden>
+        <section id="resumen-seguidores" class="resumen-creacion resumen-seguidores"
+          aria-labelledby="titulo-resumen-seguidores">
+          <h4 id="titulo-resumen-seguidores">Opciones actuales</h4>
+          <dl>
+            <div><dt>Nivel</dt><dd id="resumen-seguidor-nivel">Nivel 1</dd></div>
+            <div><dt>Profesión</dt><dd id="resumen-seguidor-profesion">Aleatoria (d12)</dd></div>
+            <div><dt>Género</dt><dd id="resumen-seguidor-genero">Aleatorio</dd></div>
+            <div><dt>Nombres</dt><dd id="resumen-seguidor-nombres">Genéricos de Nd20</dd></div>
+            <div><dt>Cantidad</dt><dd id="resumen-seguidor-cantidad">1</dd></div>
+            <div><dt>Aventuras</dt><dd id="resumen-seguidor-aventuras">Según el DRS</dd></div>
+          </dl>
+        </section>
+        <button id="configurar-seguidores" type="button" class="configurar-creacion"
+          aria-label="Configurar seguidores" aria-haspopup="dialog" aria-controls="dialogo-seguidores">
+          <span class="icono-svg" aria-hidden="true"></span>
+          Configurar seguidores
+        </button>
+        <div class="botonera">
+          <button id="generar-seguidor" type="button" class="principal">Generar seguidor</button>
+        </div>
+      </section>
+      <section id="panel-criaturas" role="tabpanel" aria-labelledby="tab-criaturas" class="herramientas" hidden>
+        <section class="resumen-creacion resumen-adversarios" aria-labelledby="titulo-resumen-adversarios">
+          <h3 id="titulo-resumen-adversarios">Colección actual</h3>
+          <dl>
+            <div><dt>Sistema</dt><dd>Naufragio d20 · Fantasía Épica</dd></div>
+            <div><dt>Adversarios</dt><dd id="criaturas-contador-menu">0</dd></div>
+            <div><dt>Almacenamiento</dt><dd>Este navegador</dd></div>
+          </dl>
+        </section>
+        <button type="button" id="criaturas-nueva-panel" class="configurar-creacion principal"
+          aria-haspopup="dialog" aria-controls="criaturas-crear-dialogo">Generar adversario</button>
+        <div class="botonera">
+          <button type="button" id="criaturas-ir-importar">Importar desde texto</button>
+          <button type="button" id="criaturas-cargar-drs" aria-haspopup="dialog"
+            aria-controls="criaturas-selector-drs">Perfiles oficiales</button>
+        </div>
+        <small>Las fichas propias se guardan en este navegador y pueden exportarse en JSON.</small>
+      </section>
+    </aside>
+    <dialog id="dialogo-seguidores" class="dialogo-compras dialogo-seguidores"
+      aria-labelledby="titulo-seguidores">
+      <div class="cabecera-compras">
+        <div>
+          <h3 id="titulo-seguidores">Configurar seguidores · Naufragio d20</h3>
+          <p class="muted">Elige Nivel, nombre y profesión. Ataque y Defensa se calculan según el sistema seleccionado.</p>
+        </div>
+        <button type="button" id="cerrar-seguidores" class="cerrar-rejilla"
+          aria-label="Cerrar configuración de seguidores">✕</button>
+      </div>
+      <form id="form-seguidor-drs">
+        <div class="configuracion-seguidores">
+          <div class="campo"><label for="seguidor-nivel-min">Nivel mínimo</label>
+            <input id="seguidor-nivel-min" type="number" min="1" max="30" step="1" value="1" required></div>
+          <div class="campo"><label for="seguidor-nivel-max">Nivel máximo</label>
+            <input id="seguidor-nivel-max" type="number" min="1" max="30" step="1" value="1" required></div>
+          <div class="campo"><label for="seguidor-genero">Género</label>
+            <select id="seguidor-genero">
+              <option value="aleatorio">Aleatorio</option>
+              <option value="femenino">Femenino</option>
+              <option value="masculino">Masculino</option>
+            </select></div>
+          <div class="campo"><label for="seguidor-nombres">Lista de nombres</label>
+            <select id="seguidor-nombres">
+              <option value="generico">Nombres genéricos de Nd20</option>
+              <option value="ylat">Nombres de Ylat</option>
+            </select></div>
+          <div class="campo"><label for="seguidor-cantidad">Cantidad</label>
+            <input id="seguidor-cantidad" type="number" min="1" max="12" step="1" value="1" required></div>
+          <div class="campo"><label for="seguidor-aventuras">Aventuras cuando el DRS indica «Depende»</label>
+            <select id="seguidor-aventuras">
+              <option value="aleatorio">Resolver al azar</option>
+              <option value="si">Sí</option>
+              <option value="no">No</option>
+            </select></div>
+        </div>
+        <div id="selector-seguidor-drs" class="campo">
+          <label for="tipo-seguidor-drs">Profesión</label>
+          <select id="tipo-seguidor-drs"><option value="">Profesión aleatoria (d12)</option></select>
+          <div id="profesiones-seguidores" class="profesiones-seguidores"
+            role="group" aria-label="Profesiones de los seguidores"></div>
+        </div>
+        <p id="aviso-seguidores" class="ayuda" role="status" aria-live="polite"></p>
+        <div class="botonera">
+          <button type="button" id="aplicar-seguidores" class="principal">Aplicar opciones</button>
+          <button type="submit" id="crear-seguidores">Generar seguidores</button>
+          <button type="button" id="cancelar-seguidores">Cancelar</button>
+        </div>
+      </form>
+    </dialog>
+    <section id="resultados-personajes" class="resultados" aria-labelledby="titulo-resultados">
+      <section id="inicio-movil" class="inicio-movil" aria-labelledby="titulo-inicio-movil">
+        <button id="ocultar-inicio-movil" class="ocultar-tutorial" type="button" aria-label="Ocultar tutorial" title="Ocultar tutorial">×</button>
+        <p class="sobrelinea">PRIMER PASO</p>
+        <h2 id="titulo-inicio-movil">Crea tu primer personaje</h2>
+        <p>La Forja ya tiene opciones preparadas. Pulsa <strong>Empezar</strong>
+          para ver el resumen y pulsa <strong>Generar personaje</strong> o <strong>Configurar creación</strong>.
+          No necesitas configurar nada más.</p>
+        <button type="button" class="empezar-forja" aria-controls="panel-forja">Empezar</button>
+      </section>
+      <div class="barra-resultados">
+        <div>
+          <h2 id="titulo-resultados" tabindex="-1">Personajes y seguidores</h2>
+          
+          <p id="contador" class="muted" aria-live="polite" hidden></p>
+        </div>
+        <div class="acciones-resultados">
+          <button id="exportar" type="button" disabled>Exportar .txt</button>
+          <button id="borrar" type="button" disabled>Limpiar mesa</button>
+        </div>
+      </div>
+      <div id="estado" class="estado" role="status" aria-live="polite"></div>
+      <dialog id="dialogo-reproduccion" class="dialogo-compras dialogo-reproduccion"
+        aria-labelledby="titulo-dialogo-reproduccion" aria-describedby="reproduccion-personaje">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-dialogo-reproduccion">Semilla y reproducción</h3>
+            <p id="reproduccion-personaje" class="muted"></p>
+          </div>
+          <button id="cerrar-reproduccion" type="button" class="cerrar-rejilla" aria-label="Cerrar reproducción">✕</button>
+        </div>
+        <section id="reproduccion-resultados" class="reproduccion-resultados" aria-label="Reproducción de la ficha">
+          <p><strong>Semilla:</strong> <code id="semilla-resultado"></code></p>
+          <div class="reproduccion-acciones"><button type="button" id="copiar-semilla">Copiar semilla</button><button type="button" id="copiar-reproduccion">Copiar configuración de reproducción</button><button type="button" id="compartir-reproduccion">Compartir enlace de generación</button></div>
+          <p class="reproduccion-limite" role="note"><strong>La semilla no guarda cambios posteriores.</strong> <span id="reproduccion-aviso">Permite repetir la generación original con la misma configuración, no recuperar ediciones del personaje.</span></p>
+        </section>
+      </dialog>
+      <section id="editor-elecciones" class="editor-elecciones" hidden aria-label="Personalizar personaje">
+        <h3 id="editor-titulo">Personalizar personaje</h3>
+        <p id="editor-resumen" class="muted"></p>
+        <form id="form-elecciones">
+          <div id="grupos-elecciones"></div>
+          <div class="botonera">
+            <button type="submit" class="principal">Finalizar personaje</button>
+            <button type="button" id="cancelar-elecciones">Cancelar</button>
+          </div>
+        </form>
+      </section>
+      <dialog id="editor-revision-elecciones" class="dialogo-compras dialogo-revision-elecciones" hidden aria-labelledby="titulo-revision-elecciones">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-revision-elecciones">Elegir Talentos y Poderes</h3>
+            <p id="revision-resumen" class="muted"></p>
+          </div>
+          <button type="button" id="revision-cerrar" class="cerrar-rejilla" aria-label="Cerrar selección de Talentos y Poderes">✕</button>
+        </div>
+        <form id="form-revision-elecciones">
+          <p class="ayuda revision-aclaracion">Puedes revisar las elecciones correspondientes al Nivel de creación de este personaje. No se añaden plazas nuevas. Cada Conjuro conocido solo puede aprenderse una vez. «Guardar y preparar» aplica primero estos cambios y después abre los Espacios de Conjuro.</p>
+          <section id="revision-talentos" class="revision-grupo" aria-labelledby="revision-titulo-talentos">
+            <h4 id="revision-titulo-talentos">Talentos</h4>
+            <div id="revision-pasos-talentos"></div>
+          </section>
+          <section id="revision-poderes" class="revision-grupo" aria-labelledby="revision-titulo-poderes">
+            <h4 id="revision-titulo-poderes">Poderes conocidos</h4>
+            <div id="revision-pasos-poderes"></div>
+          </section>
+          <p id="revision-estado" class="ayuda" aria-live="polite"></p>
+          <div class="botonera">
+            <button type="submit" id="revision-confirmar" class="principal">Guardar elecciones</button>
+            <button type="button" id="revision-abrir-preparacion" hidden>Guardar y preparar</button>
+            <button type="button" id="revision-cancelar">Cancelar</button>
+          </div>
+        </form>
+      </dialog>
+      <dialog id="editor-preparacion" class="dialogo-compras dialogo-revision-elecciones dialogo-preparacion"
+        hidden aria-labelledby="titulo-preparacion">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-preparacion">Preparar Conjuros</h3>
+            <p id="preparacion-resumen" class="muted"></p>
+          </div>
+          <button type="button" id="preparacion-cerrar" class="cerrar-rejilla"
+            aria-label="Cerrar preparación de Conjuros">✕</button>
+        </div>
+        <form id="form-preparacion">
+          <p id="preparacion-reglas" class="ayuda revision-aclaracion"></p>
+          <p class="ayuda revision-aclaracion">Puedes cambiar cada Espacio dentro de su Círculo, repetir Conjuros o dejarlo sin preparar. No se modifican los Conjuros conocidos, Talentos, equipo ni compras.</p>
+          <div id="preparacion-circulos"></div>
+          <p id="preparacion-estado" class="ayuda" aria-live="polite"></p>
+          <div class="botonera">
+            <button type="submit" id="preparacion-confirmar" class="principal">Guardar preparaciones</button>
+            <button type="button" id="preparacion-cancelar">Cancelar</button>
+          </div>
+        </form>
+      </dialog>
+      <dialog id="editor-gestion-equipo" class="dialogo-compras dialogo-gestion-equipo" hidden aria-labelledby="titulo-gestion-equipo">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-gestion-equipo">Equipo del personaje</h3>
+            <p id="gestion-resumen" class="muted" aria-live="polite"></p>
+          </div>
+          <button type="button" id="gestion-cerrar" class="cerrar-rejilla" aria-label="Cerrar gestión de equipo">✕</button>
+        </div>
+        <section class="gestion-equipo-contenido" aria-label="Configuración de equipo">
+          <div class="campo">
+            <label for="gestion-arma">Arma equipada</label>
+            <select id="gestion-arma" aria-describedby="gestion-dano"></select>
+            <p id="gestion-dano" class="ayuda" aria-live="polite">Daño: —</p>
+            <small>Solo se muestra el Daño documentado del arma elegida. No se efectúan tiradas ni ataques.</small>
+          </div>
+          <div id="gestion-protecciones"></div>
+          <div id="gestion-reglas"></div>
+          <div class="gestion-equipo-compras" aria-label="Comprar o cambiar equipo">
+            <h4>Compras y cambios</h4>
+            <div class="botonera">
+              <button type="button" id="gestion-abrir-armamento" class="editar-armamento">Armas y protecciones</button>
+              <button type="button" id="gestion-abrir-utiles" class="comprar-utiles">Útiles y objetos</button>
+            </div>
+          </div>
+          <button type="button" id="gestion-terminar">Volver a la ficha</button>
+        </section>
+      </dialog>
+      <dialog id="editor-compras" class="dialogo-compras" hidden aria-labelledby="titulo-editor-compras">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-editor-compras">Comprar útiles del DRS</h3>
+            <p id="resumen-compras" class="muted" aria-live="polite"></p>
+          </div>
+          <button type="button" id="compras-cerrar" class="cerrar-rejilla"
+            aria-label="Cerrar compra">✕</button>
+        </div>
+        <form id="form-compra-utiles">
+          <div class="selectores-compra">
+            <div class="campo">
+              <label for="compras-grupo">Familia</label>
+              <div class="envoltura-select"><select id="compras-grupo" required></select></div>
+            </div>
+            <div class="campo">
+              <label for="compras-articulo">Artículo</label>
+              <div class="envoltura-select"><select id="compras-articulo" required></select></div>
+            </div>
+          </div>
+          <div class="campos-compra">
+            <div class="campo">
+              <label for="compras-cantidad">Cantidad</label>
+              <input id="compras-cantidad" type="number" min="1" max="10" step="1" value="1" required aria-describedby="compras-limite">
+              <small id="compras-limite">La Forja permite hasta 10 unidades por artículo; 5 monturas en total por personaje. Límite de interfaz, no del DRS.</small>
+            </div>
+            <div class="campo" id="compras-campo-nivel" hidden>
+              <label for="compras-nivel">Nivel del Antídoto o Veneno</label>
+              <input id="compras-nivel" type="number" min="1" max="30" step="1" value="1">
+            </div>
+          </div>
+          <details id="consulta-armadura-equina" class="consulta-precio-equino" hidden>
+            <summary>Consultar precio de armadura equina</summary>
+            <label for="compras-armadura-equina-base">Armadura común de referencia</label>
+            <div class="envoltura-select">
+              <select id="compras-armadura-equina-base">
+                <option value="">— Elige una armadura —</option>
+              </select>
+            </div>
+            <p id="compras-armadura-equina-resultado" aria-live="polite">Elige una armadura para consultar su precio.</p>
+            <small>Precio de referencia: armadura humana ×4. Solo consulta: no se compra ni se equipa automáticamente.</small>
+          </details>
+          <p id="compras-detalle" class="ayuda" aria-live="polite"></p>
+          <button type="button" id="compras-anadir">Añadir a la compra</button>
+          <h4>Artículos seleccionados</h4>
+          <ul id="compras-lista" class="lista-compra"></ul>
+          <p id="compras-total" aria-live="polite"></p>
+          <div class="botonera">
+            <button id="compras-confirmar" type="submit" class="principal" formnovalidate disabled>Confirmar compra</button>
+            <button id="compras-cancelar" type="button">Cancelar</button>
+          </div>
+        </form>
+      </dialog>
+      <dialog id="editor-armamento" class="dialogo-compras dialogo-armamento" hidden aria-labelledby="titulo-editor-armamento">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="titulo-editor-armamento">Gestionar armas y protecciones</h3>
+            <p id="armamento-saldo" class="muted" aria-live="polite"></p>
+          </div>
+          <button type="button" id="armamento-cerrar" class="cerrar-rejilla" aria-label="Cerrar editor de armamento">✕</button>
+        </div>
+        <form id="form-armamento">
+          <div class="campo">
+            <label for="armamento-modo">Operación</label>
+            <select id="armamento-modo">
+              <option value="cambiar">Cambiar equipo comprado inicialmente</option>
+              <option value="comprar">Comprar equipo adicional</option>
+            </select>
+          </div>
+          <section id="armamento-cambio">
+            <div class="campo">
+              <label for="armamento-origen">Pieza inicial que deseas sustituir</label>
+              <select id="armamento-origen"></select>
+            </div>
+            <div class="campo">
+              <label for="armamento-destino">Nueva pieza</label>
+              <select id="armamento-destino"></select>
+            </div>
+            <small>Solo se reembolsa el precio pagado por armas, armaduras, escudos y varitas de la compra inicial. Nunca se devuelven objetos de paquetes ni regalos.</small>
+          </section>
+          <section id="armamento-adicional" hidden>
+            <div class="campo">
+              <label for="armamento-grupo">Familia de equipo</label>
+              <select id="armamento-grupo"></select>
+            </div>
+            <div class="campo">
+              <label for="armamento-articulo">Artículo</label>
+              <select id="armamento-articulo"></select>
+            </div>
+            <div class="campo">
+              <label for="armamento-cantidad">Cantidad</label>
+              <input id="armamento-cantidad" type="number" min="1" max="10" step="1" value="1" aria-describedby="armamento-limite">
+              <small id="armamento-limite">Máximo 10 unidades del mismo artículo por personaje. Límite de La Forja, no del DRS.</small>
+            </div>
+            <small>Compra individual. Las Varitas requieren Competencia explícita; el resto del equipo sin Competencia conlleva las Desventajas del DRS.</small>
+          </section>
+          <p id="armamento-resumen" class="ayuda" aria-live="polite"></p>
+          <div class="botonera">
+            <button type="submit" id="armamento-confirmar" class="principal">Confirmar operación</button>
+            <button type="button" id="armamento-cancelar">Cancelar</button>
+          </div>
+        </form>
+      </dialog>
+      <div id="fichas" class="fichas" aria-live="off">
+        <div class="vacio" id="vacio">
+          <span class="emblema" aria-hidden="true">◇</span>
+          <p>La mesa está vacía</p>
+          <p class="muted">Genera un personaje o un seguidor para añadir la primera ficha.</p>
+        </div>
+      </div>
+      
+    </section>
+    <section id="editor-criaturas" class="resultados editor-criaturas" aria-labelledby="titulo-editor-criaturas" hidden>
+      <header class="criaturas-cabecera">
+        <h2 id="titulo-editor-criaturas" tabindex="-1">Adversarios</h2>
+        
+      </header>
+      <p id="criaturas-estado" class="estado" role="status" aria-live="polite"></p>
+      <section class="criaturas-bloque" id="criaturas-importacion" hidden aria-labelledby="criaturas-titulo-importacion">
+        <div class="criaturas-subcabecera"><h3 id="criaturas-titulo-importacion">Importar desde texto</h3><button type="button" id="criaturas-cerrar-importacion">Cerrar</button></div>
+        <p class="muted">Pega una ficha de Naufragio d20. Revisa el desglose antes de abrir el editor; no se guarda automáticamente.</p>
+        <label for="criaturas-texto">Texto completo del adversario</label>
+        <textarea id="criaturas-texto" rows="6" spellcheck="false" placeholder="Nombre del adversario&#10;Bestia de Nivel 4 [Moral 8], Salud 20&#10;Ataques: 2 garras (6) o mordisco (9)"></textarea>
+        <div class="criaturas-acciones">
+          <button type="button" id="criaturas-analizar" class="principal">Analizar ficha pegada</button>
+        </div>
+        <section id="criaturas-vista-previa" aria-labelledby="criaturas-titulo-previa" hidden>
+          <h4 id="criaturas-titulo-previa">Revisar desglose</h4>
+          <p class="muted">Revisa los campos dudosos antes de pasar al editor.</p>
+          <pre id="criaturas-resumen-previa"></pre>
+          <div id="criaturas-advertencias-previa" class="criaturas-avisos" aria-live="polite"></div>
+          <div class="criaturas-acciones">
+            <button type="button" id="criaturas-aplicar-previa" class="principal">Pasar al editor</button>
+            <button type="button" id="criaturas-descartar-previa">Descartar vista previa</button>
+          </div>
+        </section>
+      </section>
+      <section class="criaturas-bloque criaturas-mesa" id="criaturas-biblioteca" aria-labelledby="criaturas-titulo-biblioteca">
+        <div class="criaturas-subcabecera">
+          <h3 id="criaturas-titulo-biblioteca">Colección</h3>
+          <span id="criaturas-cantidad" class="muted">0 adversarios</span>
+        </div>
+        <div class="criaturas-coleccion-filtros" role="search" aria-label="Filtrar colección de adversarios">
+          <label for="criaturas-coleccion-busqueda">Buscar en la colección
+            <input id="criaturas-coleccion-busqueda" type="search" autocomplete="off" placeholder="Nombre, categoría o fuente…"></label>
+          <label for="criaturas-coleccion-origen">Mostrar
+            <select id="criaturas-coleccion-origen">
+              <option value="">Todos los adversarios</option>
+              <option value="propios">Solo fichas propias</option>
+              <option value="oficiales">Solo perfiles oficiales</option>
+            </select></label>
+          <button type="button" id="criaturas-coleccion-limpiar" hidden>Limpiar filtros</button>
+        </div>
+        <p id="criaturas-coleccion-resultado" class="muted" role="status" aria-live="polite"></p>
+        <div class="campo criaturas-sistema"><label for="criaturas-sistema">Sistema del bestiario</label>
+          <select id="criaturas-sistema"><option value="adversarios-drs">Naufragio d20 · Fantasía Épica</option></select></div>
+        <div class="criaturas-acciones">
+          <button type="button" id="criaturas-exportar-biblioteca" disabled>Exportar fichas propias (JSON)</button>
+          <button type="button" id="criaturas-exportar-pdf-coleccion" disabled>Exportar colección (PDF)</button>
+          <label class="criaturas-archivo" for="criaturas-archivo-json">Importar JSON
+            <input type="file" id="criaturas-archivo-json" accept=".json,application/json">
+          </label>
+        </div>
+        <p class="criaturas-ayuda-json">Los archivos JSON se validan antes de importarse y no sobrescriben fichas existentes.</p>
+        <div id="criaturas-lista" class="criaturas-lista" aria-live="polite">
+          <p class="muted">Crea un adversario o elige un perfil oficial para empezar la colección.</p>
+        </div>
+      </section>
+      <dialog id="criaturas-crear-dialogo" class="dialogo-compras dialogo-adversario-inicio"
+        aria-labelledby="criaturas-crear-titulo">
+        <div class="cabecera-compras">
+          <div><h3 id="criaturas-crear-titulo">Generar adversario</h3>
+            <p class="muted">Elige cómo quieres preparar la ficha de tu adversario.</p></div>
+          <button type="button" id="criaturas-crear-cerrar" class="cerrar-rejilla"
+            aria-label="Cerrar creación de adversario">✕</button>
+        </div>
+        <div class="criaturas-opciones-creacion" role="group" aria-label="Método de creación">
+          <button type="button" id="criaturas-crear-manual">
+            <strong>Crear manualmente</strong>
+            <small>Empieza con una ficha en blanco y añade sus datos.</small>
+          </button>
+          <button type="button" id="criaturas-crear-aleatorio">
+            <strong>Crear al azar</strong>
+            <small>Configura el sorteo de Nivel, categorías, Acciones y Talentos; después genera un adversario con nombre propio.</small>
+          </button>
+        </div>
+      </dialog>
+      <dialog id="criaturas-generar-dialogo" class="dialogo-compras dialogo-adversario-generador"
+        aria-labelledby="criaturas-generar-titulo">
+        <div class="cabecera-compras">
+          <div><h3 id="criaturas-generar-titulo">Configurar adversario aleatorio</h3>
+            <p class="muted">Elige las opciones de generación. Al continuar se creará la ficha completa, con nombre aleatorio, sin guardar automáticamente ni inventar reglas.</p></div>
+          <button type="button" id="criaturas-generar-cerrar" class="cerrar-rejilla"
+            aria-label="Cancelar y volver al menú de creación">✕</button>
+        </div>
+        <form id="criaturas-generar-form">
+          <div class="criaturas-generar-campos">
+            <div class="campo"><label for="criaturas-generar-min">Nivel mínimo</label>
+              <input id="criaturas-generar-min" type="number" min="0" max="100" step="1" value="1" required></div>
+            <div class="campo"><label for="criaturas-generar-max">Nivel máximo</label>
+              <input id="criaturas-generar-max" type="number" min="0" max="100" step="1" value="12" required></div>
+            <div class="campo"><label for="criaturas-generar-modo">Elección de Acciones y Talentos</label>
+              <select id="criaturas-generar-modo">
+                <option value="libre">Mezcla libre entre todos los componentes existentes</option>
+                <option value="restringido">Restringir a componentes de la categoría elegida</option>
+              </select></div>
+            <div class="campo"><label for="criaturas-generar-conector">Combinar Acciones como</label>
+              <select id="criaturas-generar-conector">
+                <option value="o">Alternativas (o)</option>
+                <option value="y">Simultáneas (y)</option>
+              </select></div>
+            <div class="campo"><label for="criaturas-generar-acciones">Número de Acciones</label>
+              <input id="criaturas-generar-acciones" type="number" min="0" max="8" step="1" value="2" required></div>
+            <div class="campo"><label for="criaturas-generar-talentos">Número de Talentos</label>
+              <input id="criaturas-generar-talentos" type="number" min="0" max="8" step="1" value="2" required></div>
+            <div class="campo criaturas-generar-semilla"><label for="criaturas-generar-semilla">Semilla reproducible (opcional)</label>
+              <input id="criaturas-generar-semilla" type="text" maxlength="128" autocomplete="off" placeholder="Vacía = crear semilla nueva">
+              <output id="criaturas-generar-nombre-previa" for="criaturas-generar-semilla" class="muted" role="status" aria-live="polite">Se sorteará un nombre al generar el adversario.</output></div>
+          </div>
+          <fieldset class="criaturas-generar-categorias">
+            <legend>Categorías posibles (elige una o varias)</legend>
+            <div class="criaturas-acciones">
+              <button type="button" id="criaturas-generar-todas">Todas</button>
+              <button type="button" id="criaturas-generar-ninguna">Ninguna</button>
+            </div>
+            <div id="criaturas-generar-categorias" class="criaturas-generar-rejilla"></div>
+          </fieldset>
+          <p class="muted">El nombre se compone de un sustantivo y un adjetivo concordantes (por ejemplo, «Topo tumefacto» o «Grulla acerada»). Es una combinación creativa, no una criatura nueva del canon. Puedes editarlo después.</p>
+          <p class="muted">El Nivel se sortea dentro del intervalo y la Salud usa la media documentada (Nivel × 4). La Moral se elige entre valores existentes de esa categoría cuando procede; los demás valores sin base quedan vacíos. Los conectores son una decisión de configuración, no una regla nueva.</p>
+          <p id="criaturas-generar-estado" class="estado" role="alert" aria-live="polite"></p>
+          <div class="criaturas-acciones criaturas-generar-pie">
+            <button type="button" id="criaturas-generar-cancelar">Cancelar</button>
+            <button type="submit" id="criaturas-generar-ejecutar" class="principal">Continuar</button>
+          </div>
+        </form>
+      </dialog>
+      <dialog class="criaturas-bloque dialogo-adversario" id="criaturas-edicion" aria-labelledby="criaturas-titulo-edicion">
+        <div class="criaturas-edicion-cabecera">
+          <div>
+            <h3 id="criaturas-titulo-edicion">Nuevo adversario</h3>
+            <p id="criaturas-edicion-nota" class="muted">Los campos sin datos pueden quedar vacíos.</p>
+          </div>
+          <div class="criaturas-acciones"><button type="button" id="criaturas-nueva">Nuevo adversario</button><button type="button" id="criaturas-cerrar-editor" class="cerrar-rejilla" aria-label="Cerrar editor de adversarios">✕</button></div>
+        </div>
+        <form id="criaturas-formulario" novalidate>
+          <section class="criaturas-editor-seccion criaturas-editor-identidad" aria-labelledby="criaturas-identidad-titulo">
+            <div class="criaturas-editor-datos">
+              <h4 id="criaturas-identidad-titulo">Identidad</h4>
+              <div class="criaturas-campos">
+            <div class="campo criaturas-nombre"><label for="criaturas-nombre">Nombre *</label>
+              <input id="criaturas-nombre" type="text" maxlength="160" required></div>
+            <div class="campo"><label for="criaturas-categoria">Categoría *</label>
+              <input id="criaturas-filtrar-categoria" type="search" autocomplete="off"
+                aria-label="Buscar entre las 16 categorías oficiales" placeholder="Buscar categoría…">
+              <select id="criaturas-categoria" required>
+                <option value="">Selecciona categoría</option>
+                <option value="Aberrante">Aberrante</option>
+                <option value="Alimaña">Alimaña</option>
+                <option value="Autómata">Autómata</option>
+                <option value="Bestia">Bestia</option>
+                <option value="Celestial">Celestial</option>
+                <option value="Demonio">Demonio</option>
+                <option value="Dragón">Dragón</option>
+                <option value="Elemental">Elemental</option>
+                <option value="Fata">Fata</option>
+                <option value="Gigante">Gigante</option>
+                <option value="Humanoide">Humanoide</option>
+                <option value="Monstruo">Monstruo</option>
+                <option value="Muerto viviente">Muerto viviente</option>
+                <option value="Limo">Limo</option>
+                <option value="Reptil">Reptil</option>
+                <option value="Vegetal">Vegetal</option>
+              </select><small>Clasificación oficial: una de las 16 categorías del DRS.</small></div>
+            <div class="campo"><label for="criaturas-subcategoria">Familia / subcategoría</label>
+              <input id="criaturas-subcategoria" type="text" maxlength="160" list="criaturas-subcategorias" autocomplete="off"><datalist id="criaturas-subcategorias"></datalist><small>Agrupación más concreta, solo si consta en la fuente o la defines para tu ficha.</small></div>
+            <div class="campo"><label for="criaturas-subtipo">Subtipo</label>
+              <input id="criaturas-subtipo" type="text" maxlength="160" autocomplete="off"><small>Variante particular dentro de la familia; puede quedar vacía.</small></div>
+              </div>
+            </div>
+            <div class="criaturas-editor-arte">
+              <h4>Ilustración (opcional)</h4>
+            <div class="campo criaturas-imagen-campo">
+              <div class="criaturas-imagen-controles">
+                <div id="criaturas-imagen-previa" class="criaturas-imagen-previa" role="img" aria-label="Sin ilustración">Sin ilustración</div>
+                <div class="criaturas-imagen-botones">
+                  <label class="criaturas-archivo" for="criaturas-imagen-archivo">Subir imagen
+                    <input id="criaturas-imagen-archivo" type="file" accept="image/jpeg,image/png,image/webp">
+                  </label>
+                  <button type="button" id="criaturas-imagen-quitar">Quitar imagen</button>
+                </div>
+              </div>
+              <small>Se ajusta a 16:9 con recorte o encaje y se guarda en este navegador. También viaja en su JSON. Máximo 5 MB de archivo.</small>
+            </div>
+            </div>
+          </section>
+          <section class="criaturas-editor-seccion" aria-labelledby="criaturas-puntuaciones-titulo">
+          <h4 id="criaturas-puntuaciones-titulo">Puntuaciones</h4>
+          <p class="muted">Deja vacíos los valores no documentados. La Salud nunca se calcula por importar una ficha: activa expresamente «Calcular media» si estás diseñando una criatura propia.</p>
+          <div class="criaturas-campos criaturas-numeros">
+            <div class="campo"><label for="criaturas-nivel">Nivel</label><input id="criaturas-nivel" type="number" min="0" max="100" step="1"></div>
+            <div class="campo"><label for="criaturas-moral">Moral</label><input id="criaturas-moral" type="number" min="0" step="1"></div>
+            <div class="campo"><label for="criaturas-salud">Salud</label><input id="criaturas-salud" type="number" min="0" step="1"></div>
+            <div class="campo"><label for="criaturas-salud-modo">Cálculo de Salud</label>
+              <select id="criaturas-salud-modo"><option value="manual">Valor manual/documentado (predeterminado)</option><option value="automatico">Calcular media (a petición)</option></select></div>
+            <div class="campo"><label for="criaturas-salud-ajuste">Ajuste de protección / Salud</label>
+              <input id="criaturas-salud-ajuste" type="number" step="1" value="0"></div>
+            <p id="criaturas-salud-desglose" class="muted criaturas-salud-desglose" aria-live="polite">Media: Nivel × 4 + ajuste × 4</p>
+            <div class="campo"><label for="criaturas-blindaje">Blindaje</label><input id="criaturas-blindaje" type="number" min="0" step="1"></div>
+            <div class="campo"><label for="criaturas-movimiento">Movimiento</label><input id="criaturas-movimiento" type="number" min="0" step="1"></div>
+            <div class="campo"><label for="criaturas-tamano">Tamaño</label><input id="criaturas-tamano" type="number" min="0" step="1"></div>
+          </div>
+          </section>
+          <section class="criaturas-editor-seccion" aria-label="Acciones">
+          <div class="criaturas-subcabecera">
+            <h4>Acciones</h4>
+            <button type="button" id="criaturas-anadir-ataque">Añadir acción</button>
+          </div>
+          <p class="muted">Añade una fila por ataque: «2 garras (4)» son dos garras de 4 de daño cada una. «y» une ataques simultáneos, «o» ofrece alternativas y la coma queda pendiente de revisión. Conservamos el daño tal como está escrito.</p>
+          <div class="campo"><label for="criaturas-buscar-ataque">Buscar acción documentada o propia</label>
+            <input id="criaturas-buscar-ataque" type="search" autocomplete="off" placeholder="Busca por nombre de acción…"></div>
+          <div id="criaturas-coincidencias-ataques" class="criaturas-coincidencias" aria-live="polite"></div>
+          <div class="criaturas-comp-accesos"><button id="criaturas-explorar-ataques" type="button">Explorar biblioteca de Acciones</button><button id="criaturas-crear-ataque" type="button">Crear acción propia</button></div>
+          <div id="criaturas-ataques" class="criaturas-repetidos"></div>
+          </section>
+          <section class="criaturas-editor-seccion" aria-label="Talentos y habilidades especiales">
+          <div class="criaturas-subcabecera">
+            <h4>Talentos y habilidades especiales</h4>
+            <button type="button" id="criaturas-anadir-talento">Añadir Talento</button>
+          </div>
+          <p class="muted">Introduce solo efectos documentados.</p>
+          <div class="campo"><label for="criaturas-buscar-talento">Buscar Talento o habilidad especial documentada</label>
+            <input id="criaturas-buscar-talento" type="search" autocomplete="off" placeholder="Busca por nombre de habilidad…"></div>
+          <div id="criaturas-coincidencias-talentos" class="criaturas-coincidencias" aria-live="polite"></div>
+          <div class="criaturas-comp-accesos"><button id="criaturas-explorar-talentos" type="button">Explorar biblioteca de Talentos</button><button id="criaturas-crear-talento" type="button">Crear Talento propio</button></div>
+          <div id="criaturas-talentos" class="criaturas-repetidos"></div>
+          </section>
+          <section class="criaturas-editor-seccion criaturas-editor-descripcion" aria-label="Descripción y notas">
+          <h4>Descripción y notas</h4>
+          <div class="campo"><label for="criaturas-descripcion">Descripción (opcional)</label>
+            <textarea id="criaturas-descripcion" rows="5"></textarea></div>
+          <div class="campo"><label for="criaturas-notas">Notas propias</label>
+            <textarea id="criaturas-notas" rows="3"></textarea></div>
+          <div class="campo"><label for="criaturas-pendientes">Fragmentos pendientes de interpretación (un fragmento por línea)</label>
+            <textarea id="criaturas-pendientes" rows="4"></textarea>
+            <small>Revisa estos fragmentos manualmente antes de guardarlos; siempre conservamos el texto original.</small></div>
+          <details class="criaturas-origen">
+            <summary>Ver texto original (sin modificar)</summary>
+            <label for="criaturas-original">Texto fuente conservado</label>
+            <textarea id="criaturas-original" rows="5" readonly spellcheck="false"></textarea>
+          </details>
+          </section>
+          <div id="criaturas-advertencias-formulario" class="criaturas-avisos" aria-live="polite"></div>
+          <div class="criaturas-acciones criaturas-guardar" role="group" aria-label="Guardar y gestionar el borrador">
+            <button type="submit" id="criaturas-guardar" class="principal accion-icono" title="Guardar adversario" aria-label="Guardar adversario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h13l3 3v15H4z"/><path d="M7 3v7h10V3M7 21v-8h10v8"/></svg></button>
+            <button type="button" id="criaturas-exportar-ficha" class="accion-icono" title="Exportar ficha JSON" aria-label="Exportar ficha JSON"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6m-10 4-2 2 2 2m4-4 2 2-2 2"/></svg></button>
+            <button type="button" id="criaturas-descartar-cambios" class="accion-icono" title="Descartar cambios" aria-label="Descartar cambios"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 5v7h7"/></svg></button>
+          </div>
+        </form>
+      </dialog>
+      <dialog id="criaturas-imagen-ajuste" class="dialogo-compras dialogo-adversario-imagen" aria-labelledby="criaturas-imagen-ajuste-titulo">
+        <div class="cabecera-compras">
+          <div><h3 id="criaturas-imagen-ajuste-titulo">Ajustar ilustración</h3><p class="muted">Arrastra la imagen para elegir el encuadre 16:9.</p></div>
+          <button type="button" id="criaturas-imagen-ajuste-cerrar" class="cerrar-rejilla" aria-label="Cancelar ajuste de imagen">✕</button>
+        </div>
+        <canvas id="criaturas-imagen-lienzo" width="960" height="540" role="img" aria-label="Vista previa del encuadre de la ilustración"></canvas>
+        <div class="criaturas-imagen-herramientas">
+          <div class="criaturas-imagen-modos" role="group" aria-label="Modo de encuadre">
+            <button type="button" id="criaturas-imagen-rellenar" aria-pressed="true">Rellenar y recortar</button>
+            <button type="button" id="criaturas-imagen-encajar" aria-pressed="false">Encajar completa</button>
+          </div>
+          <div class="campo"><label for="criaturas-imagen-zoom">Ampliación <output id="criaturas-imagen-zoom-valor" for="criaturas-imagen-zoom">100 %</output></label>
+            <input type="range" id="criaturas-imagen-zoom" min="1" max="3" step="0.05" value="1"></div>
+          <button type="button" id="criaturas-imagen-restablecer">Restablecer encuadre</button>
+        </div>
+        <div class="criaturas-imagen-pie">
+          <button type="button" id="criaturas-imagen-cancelar">Cancelar</button>
+          <button type="button" id="criaturas-imagen-confirmar" class="principal">Aplicar encuadre</button>
+        </div>
+      </dialog>
+      <dialog id="criaturas-elemento-propio" class="dialogo-compras dialogo-adversario-catalogo"
+        aria-labelledby="criaturas-elemento-titulo">
+        <div class="cabecera-compras">
+          <h3 id="criaturas-elemento-titulo">Crear entrada</h3>
+          <button id="criaturas-elemento-cerrar" type="button" class="cerrar-rejilla" aria-label="Cerrar creación de entrada">✕</button>
+        </div>
+        <form id="criaturas-elemento-form">
+          <div class="campo"><label for="criaturas-elemento-nombre">Nombre *</label>
+            <input id="criaturas-elemento-nombre" type="text" maxlength="200" required></div>
+          <div id="criaturas-elemento-campos-ataque">
+            <div class="campo"><label for="criaturas-elemento-dano">Daño literal (si está definido)</label>
+              <input id="criaturas-elemento-dano" type="text" maxlength="180"></div>
+            <div class="campo"><label for="criaturas-elemento-cantidad">Cantidad</label>
+              <input id="criaturas-elemento-cantidad" type="number" min="1" step="1" value="1" required></div>
+          </div>
+          <div class="campo"><label for="criaturas-elemento-descripcion">Descripción o notas (sin reglas inventadas)</label>
+            <textarea id="criaturas-elemento-descripcion" rows="4"></textarea></div>
+          <p id="criaturas-elemento-error" class="aviso-validacion" role="alert"></p>
+          <button type="submit" class="principal">Guardar e incorporar</button>
+        </form>
+      </dialog>
+
+      <dialog id="criaturas-componentes-dialogo" class="dialogo-compras dialogo-adversario-componentes"
+        aria-labelledby="criaturas-componentes-titulo">
+        <div class="cabecera-compras">
+          <div><h3 id="criaturas-componentes-titulo">Biblioteca de Acciones y Talentos</h3>
+            <p class="muted">Consulta y añade componentes documentados. Las relaciones se proponen, nunca se imponen.</p></div>
+          <button id="criaturas-componentes-cerrar" type="button" class="cerrar-rejilla" aria-label="Cerrar biblioteca de componentes">✕</button>
+        </div>
+        <div class="criaturas-comp-pestanas" role="group" aria-label="Tipo de componente">
+          <button type="button" id="criaturas-componentes-tab-ataques" aria-pressed="true">Acciones</button>
+          <button type="button" id="criaturas-componentes-tab-talentos" aria-pressed="false">Talentos</button>
+        </div>
+        <div class="criaturas-comp-filtros">
+          <div class="campo criaturas-comp-busqueda">
+            <label for="criaturas-componentes-busqueda">Buscar por nombre o descripción</label>
+            <input type="search" id="criaturas-componentes-busqueda" autocomplete="off" placeholder="Busca una acción, efecto o criatura…">
+          </div>
+          <div class="campo"><label for="criaturas-componentes-fuente">Fuente</label>
+            <select id="criaturas-componentes-fuente"><option value="">Todas</option></select></div>
+          <div class="campo"><label for="criaturas-componentes-origen">Origen</label>
+            <select id="criaturas-componentes-origen"><option value="">Todos</option></select></div>
+          <div class="campo criaturas-comp-clasificacion" id="criaturas-componentes-clasificacion-campo" hidden>
+            <label for="criaturas-componentes-clasificacion">Clasificación editorial</label>
+            <select id="criaturas-componentes-clasificacion"><option value="">Todas</option></select></div>
+          <label class="criaturas-comp-relacionados-filtro">
+            <input type="checkbox" id="criaturas-componentes-solo-relacionados"> Solo con relaciones documentadas
+          </label>
+        </div>
+        <p id="criaturas-componentes-estado" role="status" aria-live="polite" class="muted"></p>
+        <div id="criaturas-componentes-lista" class="criaturas-comp-lista"></div>
+        <section id="criaturas-componentes-vinculos" class="criaturas-comp-vinculos" aria-labelledby="criaturas-componentes-vinculos-titulo" hidden>
+          <h4 id="criaturas-componentes-vinculos-titulo">Elementos relacionados</h4>
+          <p class="muted">Elige cuáles incorporar. Los elementos existentes no se duplicarán.</p>
+          <div id="criaturas-componentes-vinculos-lista"></div>
+        </section>
+      </dialog>
+      <dialog id="criaturas-selector-drs" class="dialogo-compras dialogo-selector-drs"
+        aria-labelledby="criaturas-selector-titulo">
+        <div class="cabecera-compras">
+          <div>
+            <h3 id="criaturas-selector-titulo">Perfiles oficiales</h3>
+            <p class="muted">Selecciona perfiles publicados para incorporarlos a la colección. Los originales no se modifican.</p>
+          </div>
+          <button id="criaturas-selector-cerrar" type="button" class="cerrar-rejilla"
+            aria-label="Cerrar selector de adversarios">✕</button>
+        </div>
+        <div class="criaturas-selector-filtros">
+          <div class="campo"><label for="criaturas-selector-busqueda">Buscar adversario</label>
+            <input id="criaturas-selector-busqueda" type="search" autocomplete="off"
+              placeholder="Nombre, categoría o familia"></div>
+          <div class="campo"><label for="criaturas-selector-categoria">Categoría</label>
+            <select id="criaturas-selector-categoria"><option value="">Todas</option></select></div>
+          <div class="campo"><label for="criaturas-selector-subcategoria">Subcategoría</label>
+            <select id="criaturas-selector-subcategoria"><option value="">Todas</option></select></div>
+          <div class="campo"><label for="criaturas-selector-nivel-min">Nivel mínimo</label>
+            <input id="criaturas-selector-nivel-min" type="number" min="0" max="100" step="1" placeholder="Cualquiera"></div>
+          <div class="campo"><label for="criaturas-selector-nivel-max">Nivel máximo</label>
+            <input id="criaturas-selector-nivel-max" type="number" min="0" max="100" step="1" placeholder="Cualquiera"></div>
+          <div class="campo"><label for="criaturas-selector-fuente">Fuente</label>
+            <select id="criaturas-selector-fuente"><option value="">Todas</option></select></div>
+          <div class="campo"><label for="criaturas-selector-origen">Origen editorial</label>
+            <select id="criaturas-selector-origen"><option value="">Todos</option></select></div>
+          <button type="button" id="criaturas-selector-limpiar">Limpiar filtros</button>
+        </div>
+        <p id="criaturas-selector-estado" class="muted" role="status" aria-live="polite"></p>
+        <div id="criaturas-selector-lista" class="criaturas-selector-lista"></div>
+      </dialog>
+      <dialog id="criaturas-ficha-dialogo" class="dialogo-compras dialogo-ficha-adversario" aria-labelledby="criaturas-ficha-titulo">
+        <div class="cabecera-compras">
+          <h3 id="criaturas-ficha-titulo">Ficha de adversario</h3>
+          <div class="criaturas-ficha-navegador" role="group" aria-label="Navegar entre adversarios">
+            <button type="button" id="criaturas-ficha-anterior" class="accion-icono" title="Adversario anterior (←)" aria-label="Adversario anterior" aria-keyshortcuts="ArrowLeft"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+            <span id="criaturas-ficha-posicion" class="muted" aria-live="polite"></span>
+            <button type="button" id="criaturas-ficha-siguiente" class="accion-icono" title="Adversario siguiente (→)" aria-label="Adversario siguiente" aria-keyshortcuts="ArrowRight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+          </div>
+          <button type="button" id="criaturas-cerrar-ficha" class="cerrar-rejilla" aria-label="Cerrar ficha">✕</button>
+        </div>
+        <div id="criaturas-ficha-contenido"></div>
+        <div id="criaturas-ficha-ilustracion-acciones" class="criaturas-ilustracion-acciones" hidden>
+          <label class="criaturas-archivo" for="criaturas-ficha-ilustracion-archivo">Subir ilustración
+            <input type="file" id="criaturas-ficha-ilustracion-archivo" accept="image/jpeg,image/png,image/webp">
+          </label>
+          <button type="button" id="criaturas-ficha-ilustracion-quitar">Quitar ilustración</button>
+          <small>Imagen personal guardada en este navegador. La ficha oficial conserva intactos sus datos.</small>
+        </div>
+        <div class="criaturas-acciones criaturas-ficha-acciones" role="group" aria-label="Acciones de la ficha de adversario">
+          <button type="button" id="criaturas-ficha-editar" class="accion-icono accion-adversario-editar" title="Editar" aria-label="Editar"><svg class="criaturas-icono-accion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L9 17l-4 1 1-4Z"/></svg></button>
+          <button type="button" id="criaturas-ficha-duplicar" class="accion-icono" title="Duplicar adversario" aria-label="Duplicar adversario"><svg class="criaturas-icono-accion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg></button>
+          <button type="button" id="criaturas-ficha-json" class="accion-icono" title="Exportar JSON" aria-label="Exportar JSON"><svg class="criaturas-icono-accion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="m10 12-2 2 2 2m4-4 2 2-2 2"/></svg></button>
+          <button type="button" id="criaturas-ficha-compartir" class="accion-icono" title="Compartir enlace de adversario" aria-label="Compartir enlace de adversario"><svg class="criaturas-icono-accion" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.6 1.6"/><path d="M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.6-1.6"/></svg></button>
+          <button type="button" id="criaturas-ficha-pdf" class="accion-icono" title="Exportar PDF" aria-label="Exportar PDF"><span class="icono-accion accion-pdf" aria-hidden="true"></span></button>
+          <button type="button" id="criaturas-ficha-eliminar" class="accion-icono accion-adversario-peligro" title="Eliminar adversario" aria-label="Eliminar adversario"><svg class="criaturas-icono-accion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M5 6l1 15h12l1-15"/><path d="M10 11v6m4-6v6"/></svg></button>
+          <button type="button" id="criaturas-ficha-retirar" class="accion-icono" title="Retirar perfil oficial de la mesa" aria-label="Retirar perfil oficial de la mesa" hidden><svg class="criaturas-icono-accion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg></button>
+        </div>
+      </dialog>
+    </section>
+  </main>
+  <footer class="forja-pie" aria-label="Información y créditos de La Forja">
+    <p>La Forja es una herramienta para crear personajes, seguidores, antagonistas y gestionar listas de conjuros para Naufragio d20.</p>
+    <p><a href="https://naufragio.net/" target="_blank" rel="noopener noreferrer">El Naufragio</a>. Iconografía original de El Naufragio y otros iconos adaptados de <a href="assets/icons/CREDITOS-GAME-ICONS.txt" target="_blank" rel="noopener noreferrer">Game-icons.net — autoría y licencia CC BY 3.0</a>. Acciones de ficha: <a href="assets/icons/LICENCIA-TABLER.txt" target="_blank" rel="noopener noreferrer">Tabler Icons · MIT</a>.</p>
+  </footer>
+  <button id="generar-flotante" class="generar-flotante" type="button" disabled hidden
+    aria-controls="configuracion">Generar personaje <span aria-hidden="true">↗</span></button>
+</body>
+</html>

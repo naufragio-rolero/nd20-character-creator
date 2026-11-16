@@ -1,0 +1,1328 @@
+{
+  "version": 1,
+  "sistema": "nd20",
+  "fuenteId": "drs",
+  "procedencia": "Lista Criaturas Nd20 — Auditoría y normalización de Talentos",
+  "urlFuente": "https://docs.google.com/spreadsheets/d/1rI8gk0nmf4rboGHCRtlpyFcf60KohXVp6rBxAqNolfw/edit",
+  "documentoReglamentario": "NaufragioD20DRS",
+  "documentoUrl": "https://docs.google.com/document/d/1W69x5V_982IGg2AL0TltZ200aSt2khXu_VCa7gMI3zY/edit",
+  "nota": "ID de Talento, categoría y subcategoría editoriales para consulta. No alteran la regla ni sustituyen el texto literal. Asociación según [Table] Bridge Criaturas Talentos tras retirar dos variantes documentadas como incorrectas.",
+  "registros": [
+    {
+      "criaturaId": "aparicion_malevola",
+      "talentoId": "fantasmagorica_76",
+      "nombre": "Fantasmagórica",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "aparicion_malevola",
+      "talentoId": "toque_espectral_176",
+      "nombre": "Toque espectral",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Salvaciones"
+    },
+    {
+      "criaturaId": "arana_peluda",
+      "talentoId": "tela_arana_169",
+      "nombre": "Tela de araña",
+      "categoriaEditorial": "Acción",
+      "subcategoriaEditorial": "Salvaciones"
+    },
+    {
+      "criaturaId": "arbol_pugilista",
+      "talentoId": "inmovil_90",
+      "nombre": "Inmóvil",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "arbol_pugilista",
+      "talentoId": "planta_149",
+      "nombre": "Planta",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "arbusto_asesino",
+      "talentoId": "planta_149",
+      "nombre": "Planta",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "arcanista_errante",
+      "talentoId": "mago_104",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "arcanista_errante",
+      "talentoId": "rayo_energia_158",
+      "nombre": "Rayo de energía",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "asaltacaminos",
+      "talentoId": "ballesta_33",
+      "nombre": "Ballesta",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "avatar_elemental",
+      "talentoId": "afinidad_elemental_3",
+      "nombre": "Afinidad elemental",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "avatar_elemental",
+      "talentoId": "aniquilacion_elemental_19",
+      "nombre": "Aniquilación elemental",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "avatar_elemental",
+      "talentoId": "espiritu_los_elementos_73",
+      "nombre": "Espíritu de los elementos",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "avatar_elemental",
+      "talentoId": "mago_104",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "baluarte_piedra",
+      "talentoId": "automata_29",
+      "nombre": "Autómata",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "baluarte_piedra",
+      "talentoId": "estrujon_75",
+      "nombre": "Estrujón",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "bandada_craneos_fantasmales",
+      "talentoId": "aura_llameante_27",
+      "nombre": "Aura llameante",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "bandada_craneos_fantasmales",
+      "talentoId": "mordedura_maldita_125",
+      "nombre": "Mordedura maldita",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "caballo_guerra",
+      "talentoId": "lealtad_100",
+      "nombre": "Lealtad",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Ventaja"
+    },
+    {
+      "criaturaId": "calavera_ardiente",
+      "talentoId": "aura_llameante_28",
+      "nombre": "Aura llameante",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "calavera_ardiente",
+      "talentoId": "mordedura_maldita_125",
+      "nombre": "Mordedura maldita",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "cangrejo_hostil_gigante",
+      "talentoId": "acuatico_2",
+      "nombre": "Acuático",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "cangrejo_hostil_gigante",
+      "talentoId": "caparazon_46",
+      "nombre": "Caparazón",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "cantor_rata_punzante",
+      "talentoId": "laser_virulento_97",
+      "nombre": "Láser virulento",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "cantor_rata_punzante",
+      "talentoId": "mago_104",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "cantor_rata_punzante",
+      "talentoId": "tosigo_rata_179",
+      "nombre": "Tósigo de la Rata",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "capronio_defensor_trueno",
+      "talentoId": "embate_64",
+      "nombre": "Embate",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "capronio_guerrero",
+      "talentoId": "temerario_170",
+      "nombre": "Temerario",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Bonificación"
+    },
+    {
+      "criaturaId": "capronio_hostigador",
+      "talentoId": "arco_tribal_22",
+      "nombre": "Arco tribal",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "capronio_hostigador",
+      "talentoId": "brutalidad_38",
+      "nombre": "Brutalidad",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "cara_miseria",
+      "talentoId": "inmunidad_ignea_92",
+      "nombre": "Inmunidad ígnea",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "cara_miseria",
+      "talentoId": "vomito_acido_187",
+      "nombre": "Vómito ácido",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "catador_cerebros",
+      "talentoId": "festin_cerebral_78",
+      "nombre": "Festín cerebral",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Salvaciones"
+    },
+    {
+      "criaturaId": "catador_cerebros",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "catoblepas",
+      "talentoId": "carga_49",
+      "nombre": "Carga",
+      "categoriaEditorial": "Acción",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "catoblepas",
+      "talentoId": "halito_ponzonoso_82",
+      "nombre": "Hálito ponzoñoso",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "catoblepas",
+      "talentoId": "pestilencia_147",
+      "nombre": "Pestilencia",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "cobra_bifida",
+      "talentoId": "encefalofisura_67",
+      "nombre": "Encéfalofisura",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Icónica"
+    },
+    {
+      "criaturaId": "cobra_bifida",
+      "talentoId": "neuroveneno_143",
+      "nombre": "Neuroveneno",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "coloso_cristalino",
+      "talentoId": "automata_29",
+      "nombre": "Autómata",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "coloso_cristalino",
+      "talentoId": "caparazon_46",
+      "nombre": "Caparazón",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "coloso_cristalino",
+      "talentoId": "rayo_cristal_157",
+      "nombre": "Rayo de cristal",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "comensal_palido",
+      "talentoId": "mordisco_letal_127",
+      "nombre": "Mordisco letal",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "comensal_palido",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "comensal_palido",
+      "talentoId": "terror_inminente_174",
+      "nombre": "Terror inminente",
+      "categoriaEditorial": "Acción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "corcel_malefico",
+      "talentoId": "mago_104",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "corcel_malefico",
+      "talentoId": "quemadura_infernal_156",
+      "nombre": "Quemadura infernal",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Ventaja"
+    },
+    {
+      "criaturaId": "cria_dragon",
+      "talentoId": "afinidad_elemental_4",
+      "nombre": "Afinidad elemental",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "cria_dragon",
+      "talentoId": "aliento_15",
+      "nombre": "Aliento",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "culebra_rastrera",
+      "talentoId": "veneno_182",
+      "nombre": "Veneno",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "dragon_adolescente",
+      "talentoId": "afinidad_elemental_3",
+      "nombre": "Afinidad elemental",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "dragon_adolescente",
+      "talentoId": "aliento_16",
+      "nombre": "Aliento",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "dragon_adulto",
+      "talentoId": "afinidad_elemental_3",
+      "nombre": "Afinidad elemental",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "dragon_adulto",
+      "talentoId": "aliento_17",
+      "nombre": "Aliento",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "dragon_adulto",
+      "talentoId": "mago_108",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "dragon_adulto",
+      "talentoId": "pavor_draconico_144",
+      "nombre": "Pavor dracónico",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "dragon_anciano",
+      "talentoId": "afinidad_elemental_3",
+      "nombre": "Afinidad elemental",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "dragon_anciano",
+      "talentoId": "aliento_18",
+      "nombre": "Aliento",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "dragon_anciano",
+      "talentoId": "mago_109",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "dragon_anciano",
+      "talentoId": "pavor_draconico_145",
+      "nombre": "Pavor dracónico",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "el_segador",
+      "talentoId": "siervo_mortifero_166",
+      "nombre": "Siervo mortífero",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "el_segador",
+      "talentoId": "toque_muerte_175",
+      "nombre": "Toque de la muerte",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Salvaciones"
+    },
+    {
+      "criaturaId": "elemental_mayor",
+      "talentoId": "afinidad_elemental_3",
+      "nombre": "Afinidad elemental",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "elemental_mayor",
+      "talentoId": "mago_110",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "elemental_menor",
+      "talentoId": "afinidad_elemental_3",
+      "nombre": "Afinidad elemental",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "elemental_menor",
+      "talentoId": "mago_111",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "enredadera_sangrienta",
+      "talentoId": "agarre_10",
+      "nombre": "Agarre",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "enredadera_sangrienta",
+      "talentoId": "inmovil_91",
+      "nombre": "Inmóvil",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "enredadera_sangrienta",
+      "talentoId": "planta_149",
+      "nombre": "Planta",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "espectro_aullante",
+      "talentoId": "aranazo_espectral_20",
+      "nombre": "Arañazo espectral",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "espectro_aullante",
+      "talentoId": "fantasmagorica_76",
+      "nombre": "Fantasmagórica",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "esqueleto_arquero",
+      "talentoId": "flechazo_79",
+      "nombre": "Flechazo",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "esqueleto_arquero",
+      "talentoId": "huesudo_87",
+      "nombre": "Huesudo",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "esqueleto_arquero",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "esqueleto_crujiente",
+      "talentoId": "huesudo_87",
+      "nombre": "Huesudo",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "esqueleto_crujiente",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "estatua_roca",
+      "talentoId": "automata_29",
+      "nombre": "Autómata",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "estatua_roca",
+      "talentoId": "derribo_56",
+      "nombre": "Derribo",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "felino_famelico",
+      "talentoId": "acechador_1",
+      "nombre": "Acechador",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Ventaja"
+    },
+    {
+      "criaturaId": "goblin_con_tirachinas",
+      "talentoId": "chinazo_51",
+      "nombre": "Chinazo",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "guardian_gnomico",
+      "talentoId": "automata_29",
+      "nombre": "Autómata",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "guardian_gnomico",
+      "talentoId": "derribo_56",
+      "nombre": "Derribo",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "guardian_gnomico",
+      "talentoId": "rayo_laser_161",
+      "nombre": "Rayo láser",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "guerrero_esqueleto",
+      "talentoId": "escudo_72",
+      "nombre": "Escudo",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "guerrero_esqueleto",
+      "talentoId": "huesudo_87",
+      "nombre": "Huesudo",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "guerrero_esqueleto",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "guiverna_ala_bronce",
+      "talentoId": "inmunidad_toxica_93",
+      "nombre": "Inmunidad tóxica",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "guiverna_ala_bronce",
+      "talentoId": "veneno_183",
+      "nombre": "Veneno",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "guiverna_manto_azur",
+      "talentoId": "dardos_venenosos_53",
+      "nombre": "Dardos venenosos",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "guiverna_manto_azur",
+      "talentoId": "inmunidad_toxica_93",
+      "nombre": "Inmunidad tóxica",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "guiverna_manto_azur",
+      "talentoId": "veneno_184",
+      "nombre": "Veneno",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "hambriento",
+      "talentoId": "devorador_carne_61",
+      "nombre": "Devorador de carne",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "hambriento",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "heraldo_tormenta",
+      "talentoId": "descarga_tormentosa_60",
+      "nombre": "Descarga tormentosa",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "heraldo_tormenta",
+      "talentoId": "heraldo_83",
+      "nombre": "Heraldo",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "hidra_tornasolada",
+      "talentoId": "boca_solar_36",
+      "nombre": "Boca solar",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "hidra_tornasolada",
+      "talentoId": "encefalofisura_201",
+      "nombre": "Encéfalofisura",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "hombre_corrupto",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "hombre_lobo",
+      "talentoId": "brutalidad_38",
+      "nombre": "Brutalidad",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "hombre_lobo",
+      "talentoId": "teriantropo_171",
+      "nombre": "Teriántropo",
+      "categoriaEditorial": "Acción",
+      "subcategoriaEditorial": "Icónica"
+    },
+    {
+      "criaturaId": "hombre_oso",
+      "talentoId": "atrocidad_26",
+      "nombre": "Atrocidad",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "hombre_oso",
+      "talentoId": "teriantropo_172",
+      "nombre": "Teriántropo",
+      "categoriaEditorial": "Acción",
+      "subcategoriaEditorial": "Icónica"
+    },
+    {
+      "criaturaId": "hombre_rata",
+      "talentoId": "portador_plaga_155",
+      "nombre": "Portador de la plaga",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "hombre_rata",
+      "talentoId": "teriantropo_173",
+      "nombre": "Teriántropo",
+      "categoriaEditorial": "Acción",
+      "subcategoriaEditorial": "Icónica"
+    },
+    {
+      "criaturaId": "infectado_rabioso",
+      "talentoId": "corredor_52",
+      "nombre": "Corredor",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Movimiento"
+    },
+    {
+      "criaturaId": "infectado_rabioso",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "jefe_goblin",
+      "talentoId": "lanza_resorte_96",
+      "nombre": "Lanza resorte",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "jefe_troglodita",
+      "talentoId": "brutalidad_38",
+      "nombre": "Brutalidad",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "kobold_asaltante",
+      "talentoId": "somanta_167",
+      "nombre": "Somanta",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Ventaja"
+    },
+    {
+      "criaturaId": "kobold_chaman",
+      "talentoId": "heraldo_84",
+      "nombre": "Heraldo",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "kobold_chaman",
+      "talentoId": "vapor_dragon_181",
+      "nombre": "Vapor dragón",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "kobold_trampero",
+      "talentoId": "somanta_168",
+      "nombre": "Somanta",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Ventaja"
+    },
+    {
+      "criaturaId": "lobo_alfa",
+      "talentoId": "derribo_58",
+      "nombre": "Derribo",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "lobo_alfa",
+      "talentoId": "manada_120",
+      "nombre": "Manada",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Ventaja"
+    },
+    {
+      "criaturaId": "lobo_gris",
+      "talentoId": "manada_120",
+      "nombre": "Manada",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Ventaja"
+    },
+    {
+      "criaturaId": "lobo_terrible",
+      "talentoId": "derribo_59",
+      "nombre": "Derribo",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "lobo_terrible",
+      "talentoId": "manada_120",
+      "nombre": "Manada",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Ventaja"
+    },
+    {
+      "criaturaId": "maldito",
+      "talentoId": "entidad_sombria_71",
+      "nombre": "Entidad sombría",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Elemental"
+    },
+    {
+      "criaturaId": "maldito",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "mancebo_cornudo",
+      "talentoId": "bromista_37",
+      "nombre": "Bromista",
+      "categoriaEditorial": "Acción",
+      "subcategoriaEditorial": "Icónica"
+    },
+    {
+      "criaturaId": "mancebo_cornudo",
+      "talentoId": "demonio_54",
+      "nombre": "Demonio",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "mandamas_orco",
+      "talentoId": "ataque_salvaje_25",
+      "nombre": "Ataque salvaje",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Ventaja"
+    },
+    {
+      "criaturaId": "mandamas_orco",
+      "talentoId": "brutalidad_38",
+      "nombre": "Brutalidad",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "mandamas_orco",
+      "talentoId": "grito_batalla_81",
+      "nombre": "Grito de batalla",
+      "categoriaEditorial": "Acción",
+      "subcategoriaEditorial": "Bonificación"
+    },
+    {
+      "criaturaId": "moho_putrefacto",
+      "talentoId": "esporas_corrosivas_74",
+      "nombre": "Esporas corrosivas",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Recursos"
+    },
+    {
+      "criaturaId": "moho_putrefacto",
+      "talentoId": "planta_149",
+      "nombre": "Planta",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "necrototamo",
+      "talentoId": "mirada_petrea_124",
+      "nombre": "Mirada pétrea",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "necrototamo",
+      "talentoId": "pestilencia_148",
+      "nombre": "Pestilencia",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "ogro_tocado_magia",
+      "talentoId": "mago_104",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "opresor_sahumado",
+      "talentoId": "livido_101",
+      "nombre": "Lívido",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "opresor_sahumado",
+      "talentoId": "mago_113",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "opresor_sahumado",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "opresor_sahumado",
+      "talentoId": "rayo_panico_160",
+      "nombre": "Rayo de pánico",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "opresor_sahumado",
+      "talentoId": "relicario_164",
+      "nombre": "Relicario",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Icónica"
+    },
+    {
+      "criaturaId": "opresor_sahumado",
+      "talentoId": "toque_maldito_177",
+      "nombre": "Toque maldito",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "orco_batidor",
+      "talentoId": "flechazo_80",
+      "nombre": "Flechazo",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "orco_batidor",
+      "talentoId": "marcar_para_morir_123",
+      "nombre": "Marcar para morir",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Bonificación"
+    },
+    {
+      "criaturaId": "orco_soldado",
+      "talentoId": "ira_interna_95",
+      "nombre": "Ira interna",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Bonificación"
+    },
+    {
+      "criaturaId": "oso_grizzly",
+      "talentoId": "agarre_11",
+      "nombre": "Agarre",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "oso_negro",
+      "talentoId": "agarre_12",
+      "nombre": "Agarre",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "oso_pardo",
+      "talentoId": "agarre_13",
+      "nombre": "Agarre",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "oso_polar",
+      "talentoId": "agarre_14",
+      "nombre": "Agarre",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "paquidermo_acorazado",
+      "talentoId": "brutalidad_38",
+      "nombre": "Brutalidad",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "paquidermo_acorazado",
+      "talentoId": "caparazon_46",
+      "nombre": "Caparazón",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "presbitero_provinciano",
+      "talentoId": "heraldo_85",
+      "nombre": "Heraldo",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "rata_glotona",
+      "talentoId": "enfermedad_69",
+      "nombre": "Enfermedad",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "rata_mutante",
+      "talentoId": "tosigo_enfermizo_180",
+      "nombre": "Tósigo enfermizo",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "ratido_cuchillero",
+      "talentoId": "brutalidad_38",
+      "nombre": "Brutalidad",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "ratido_cuchillero",
+      "talentoId": "hoja_venenosa_86",
+      "nombre": "Hoja venenosa",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "ratido_tunelero",
+      "talentoId": "enfermedad_69",
+      "nombre": "Enfermedad",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "ratido_tunelero",
+      "talentoId": "nerviosismo_142",
+      "nombre": "Nerviosismo",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Ventaja"
+    },
+    {
+      "criaturaId": "rebano_vampirico",
+      "talentoId": "yugo_senor_188",
+      "nombre": "Yugo del señor",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "saurio_cazador_hombres",
+      "talentoId": "embate_65",
+      "nombre": "Embate",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "saurio_deslizante",
+      "talentoId": "latigazo_doloroso_98",
+      "nombre": "Latigazo doloroso",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "saurio_escama_plata",
+      "talentoId": "mago_114",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "senor_los_vampiros",
+      "talentoId": "bandada_murcielagos_sanguinos_34",
+      "nombre": "Bandada de murciélagos sanguinos",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "senor_los_vampiros",
+      "talentoId": "cambiaformas_44",
+      "nombre": "Cambiaformas",
+      "categoriaEditorial": "Acción",
+      "subcategoriaEditorial": "Icónica"
+    },
+    {
+      "criaturaId": "senor_los_vampiros",
+      "talentoId": "disparo_sangre_63",
+      "nombre": "Disparo de sangre",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "senor_los_vampiros",
+      "talentoId": "mago_115",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "senor_los_vampiros",
+      "talentoId": "maldicion_vampirica_118",
+      "nombre": "Maldición vampírica",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "senor_los_vampiros",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "senor_los_vampiros",
+      "talentoId": "ponzona_oscuridad_153",
+      "nombre": "Ponzoña de la oscuridad",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Icónica"
+    },
+    {
+      "criaturaId": "serpiente_venenosa",
+      "talentoId": "veneno_185",
+      "nombre": "Veneno",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "seta_alarmante",
+      "talentoId": "chillido_50",
+      "nombre": "Chillido",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "soldado_guardia",
+      "talentoId": "embate_66",
+      "nombre": "Embate",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "tentacion_alada",
+      "talentoId": "demonio_199",
+      "nombre": "Demonio",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "tentacion_alada",
+      "talentoId": "latigo_99",
+      "nombre": "Látigo",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "tentacion_alada",
+      "talentoId": "mago_116",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "tirano_espliego",
+      "talentoId": "archimago_21",
+      "nombre": "Archimago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "tirano_espliego",
+      "talentoId": "livido_101",
+      "nombre": "Lívido",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "tirano_espliego",
+      "talentoId": "llamada_condenacion_103",
+      "nombre": "Llamada de condenación",
+      "categoriaEditorial": "Acción",
+      "subcategoriaEditorial": "Invocación"
+    },
+    {
+      "criaturaId": "tirano_espliego",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "tirano_espliego",
+      "talentoId": "rayo_muerte_159",
+      "nombre": "Rayo de muerte",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "tirano_espliego",
+      "talentoId": "relicario_165",
+      "nombre": "Relicario",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Icónica"
+    },
+    {
+      "criaturaId": "tirano_espliego",
+      "talentoId": "toque_maldito_178",
+      "nombre": "Toque maldito",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "tiranosaurio",
+      "talentoId": "arrollar_23",
+      "nombre": "Arrollar",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "tiranosaurio",
+      "talentoId": "devorar_62",
+      "nombre": "Devorar",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "triceratops",
+      "talentoId": "arrollar_23",
+      "nombre": "Arrollar",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "troglodita_cazador",
+      "talentoId": "pedrada_146",
+      "nombre": "Pedrada",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "trol_oscuridad",
+      "talentoId": "regeneracion_162",
+      "nombre": "Regeneración",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Recursos"
+    },
+    {
+      "criaturaId": "trol_paramo",
+      "talentoId": "regeneracion_163",
+      "nombre": "Regeneración",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Recursos"
+    },
+    {
+      "criaturaId": "vampiro_adulto",
+      "talentoId": "bandada_murcielagos_sanguinos_34",
+      "nombre": "Bandada de murciélagos sanguinos",
+      "categoriaEditorial": "Ataque",
+      "subcategoriaEditorial": null
+    },
+    {
+      "criaturaId": "vampiro_adulto",
+      "talentoId": "cambiaformas_45",
+      "nombre": "Cambiaformas",
+      "categoriaEditorial": "Acción",
+      "subcategoriaEditorial": "Icónica"
+    },
+    {
+      "criaturaId": "vampiro_adulto",
+      "talentoId": "mago_117",
+      "nombre": "Mago",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Conjuros"
+    },
+    {
+      "criaturaId": "vampiro_adulto",
+      "talentoId": "maldicion_vampirica_119",
+      "nombre": "Maldición vampírica",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "vampiro_adulto",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    },
+    {
+      "criaturaId": "vampiro_adulto",
+      "talentoId": "ponzona_oscuridad_154",
+      "nombre": "Ponzoña de la oscuridad",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Icónica"
+    },
+    {
+      "criaturaId": "viuda_toxica",
+      "talentoId": "veneno_186",
+      "nombre": "Veneno",
+      "categoriaEditorial": "Reacción",
+      "subcategoriaEditorial": "Estados"
+    },
+    {
+      "criaturaId": "zombi_podrido",
+      "talentoId": "muerto_viviente_128",
+      "nombre": "Muerto viviente",
+      "categoriaEditorial": "Pasivo",
+      "subcategoriaEditorial": "Tipo de Monstruo"
+    }
+  ]
+}

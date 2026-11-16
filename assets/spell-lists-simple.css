@@ -1,0 +1,125 @@
+.pagina-conjuros .saltar-conjuros{position:absolute;left:-9999px;top:auto;padding:.6rem .9rem;background:var(--superficie);color:var(--texto);z-index:10}
+.pagina-conjuros .saltar-conjuros:focus-visible{left:10px;top:10px}
+/* Interfaz de Conjuros: reutiliza variables cromáticas y Exo de assets/styles.css. */
+.pagina-conjuros .encabezado{align-items:center;padding-top:2rem}
+.pagina-conjuros .marca{display:flex;gap:1.3rem;align-items:center}
+.pagina-conjuros .marca-logotipo{width:105px;height:auto}
+.pagina-conjuros .marca h1{font-size:clamp(1.9rem,3vw,2.65rem);margin:0}
+.pagina-conjuros .cabecera-enlaces{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.pagina-conjuros .cabecera-enlaces a{font-weight:700;text-decoration:none}
+.conjuros-simple{max-width:1120px;margin:auto;padding:2rem 2.4rem 5rem}
+.conjuros-simple .introduccion{font-size:.96rem;color:var(--secundario);max-width:780px}
+.conjuros-simple h2{font-size:1.42rem;font-weight:650;letter-spacing:-.015em;margin:0 0 1rem}
+.conjuros-simple .paso{color:var(--oro);font-size:.8rem;font-weight:850;letter-spacing:.09em;margin:0 0 .35rem}
+.conjuros-simple .panel-simple{background:var(--superficie);border:1px solid var(--borde);border-radius:12px;
+  padding:1.45rem;margin-bottom:1.1rem;box-shadow:0 12px 30px #0001;min-width:0}
+.conjuros-simple button{min-height:42px;background:var(--superficie2);border-color:var(--borde);color:var(--texto);border-radius:7px}
+.conjuros-simple button:hover:not(:disabled){background:var(--superficie);border-color:var(--oro)}
+.conjuros-simple .boton-principal,.conjuros-simple .anadir-conjuro{
+  background:var(--oro);color:var(--oscuro);border-color:var(--oro);font-weight:800}
+.conjuros-simple .boton-principal:hover:not(:disabled),
+.conjuros-simple .anadir-conjuro:hover:not(:disabled){
+  background:var(--oro2);border-color:var(--oro2);color:var(--oscuro)}
+.conjuros-simple label{display:flex;flex-direction:column;gap:.4rem;font-size:.92rem;font-weight:700;color:var(--texto)}
+.conjuros-simple input,.conjuros-simple select{
+  width:100%;min-width:0;min-height:44px;padding:.65rem .75rem;
+  background:var(--fondo);color:var(--texto);border:1px solid var(--borde);border-radius:8px;font:inherit}
+.conjuros-simple input::placeholder{color:var(--secundario);opacity:.85}
+.conjuros-simple .fila-nombre{display:grid;grid-template-columns:minmax(0,2fr) minmax(230px,1fr);gap:1rem;align-items:end}
+.conjuros-simple .fila-busqueda{display:grid;grid-template-columns:minmax(0,3fr) minmax(140px,1fr);gap:1rem;align-items:end}
+.conjuros-simple .acciones-listas{display:flex;gap:.55rem;align-items:end;flex-wrap:wrap}
+.conjuros-simple .acciones-listas button{white-space:nowrap}
+.conjuros-simple #panel-guardadas{margin-top:1rem}
+.conjuros-simple .ayuda-conjuros{font-size:.82rem;color:var(--secundario);margin:.5rem 0 0}
+.conjuros-simple .estado-conjuros{font-size:.86rem;color:var(--secundario);margin:0 0 1.15rem}
+.conjuros-simple .estado-conjuros.error,.conjuros-simple #estado-lista.error{color:var(--peligro)}
+.conjuros-simple .buscador-resultado{margin-top:1rem;border-top:1px solid var(--borde);padding-top:.75rem}
+.conjuros-simple .contador-busqueda{font-size:.8rem;color:var(--secundario);margin:0 0 .6rem}
+.conjuros-simple .resultados-busqueda{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;min-width:0}
+.conjuros-simple .resultado-conjuro{min-width:0;display:flex;align-items:center;gap:.8rem;justify-content:space-between;
+  border:1px solid var(--borde);background:var(--fondo2);padding:.8rem .9rem;border-radius:8px}
+.conjuros-simple .resultado-descripcion{min-width:0;overflow-wrap:anywhere}
+/* Los medallones son decorativos; el nombre y la Escuela siguen siendo texto. */
+.conjuros-simple .resultado-titulo{display:flex;align-items:center;gap:.48rem;min-width:0}
+.conjuros-simple .resultado-titulo strong{min-width:0;overflow-wrap:anywhere}
+.conjuros-simple .icono-escuela{display:block;width:1.375rem;height:1.375rem;
+  flex:0 0 1.375rem;object-fit:contain}
+.conjuros-simple .resultado-descripcion strong{display:block;font-size:.91rem}
+.conjuros-simple .resultado-descripcion small{font-size:.77rem;color:var(--secundario)}
+.conjuros-simple .anadir-conjuro{flex:0 0 auto;padding:.55rem .85rem}
+.conjuros-simple .conjuro-detalle{font-size:.8rem;margin:.35rem 0 0}
+.conjuros-simple .conjuro-detalle summary{cursor:pointer;color:var(--oro)}
+.conjuros-simple .conjuro-detalle p{font-size:.78rem;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;margin:.5rem 0 0}
+.conjuros-simple .lista-resultado{margin-top:.3rem}
+.conjuros-simple .cabecera-lista{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap;margin-bottom:.75rem}
+.conjuros-simple .cabecera-lista h2{margin:0;font-size:clamp(1.35rem,2.6vw,1.8rem);font-weight:700}
+.conjuros-simple .contador-lista{color:var(--oro);font-weight:850;white-space:nowrap}
+.conjuros-simple .lista-circulos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:1rem}
+.conjuros-simple .bloque-circulo{min-width:0;background:var(--fondo2);border:1px solid var(--borde);
+  padding:1rem 1.05rem;border-radius:10px}
+.conjuros-simple .bloque-circulo h3{font-size:1.07rem;color:var(--oro);border-bottom:1px solid var(--borde);
+  padding-bottom:.55rem;margin:0 0 .6rem}
+.conjuros-simple .conjuros-seleccionados{list-style:disc;margin:0;padding-left:1.1rem}
+.conjuros-simple .conjuro-seleccionado{padding:.35rem 0;overflow-wrap:anywhere}
+.conjuros-simple .conjuro-seleccionado::marker{color:var(--oro)}
+.conjuros-simple .conjuro-seleccionado{display:list-item}
+.conjuros-simple .conjuro-seleccionado span{font-weight:600}
+/* La lista conserva su viñeta y su único span textual para copiar/comparar. */
+.conjuros-simple .conjuro-seleccionado .icono-escuela{
+  display:inline-block;width:1.125rem;height:1.125rem;flex:none;
+  vertical-align:-.18rem;margin-right:.4rem}
+.conjuros-simple .quitar-conjuro{min-height:32px;margin-left:.5rem;padding:.2rem .5rem;font-size:.73rem;
+  background:transparent;color:var(--secundario);border:1px solid var(--borde)}
+.conjuros-simple .lista-vacia{margin:0;padding:1.1rem;border:1px dashed var(--borde);
+  border-radius:8px;color:var(--secundario);grid-column:1/-1}
+.conjuros-simple .pie-lista{border-top:1px solid var(--borde);margin-top:1.15rem;padding-top:1rem;
+  display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.conjuros-simple #estado-lista{flex-basis:100%;font-size:.83rem;color:var(--secundario);min-height:1.2rem}
+.conjuros-simple .mas-opciones{margin-top:1rem;font-size:.85rem}
+.conjuros-simple .mas-opciones summary{cursor:pointer;font-weight:700;color:var(--oro)}
+.conjuros-simple .mas-opciones p{margin:.7rem 0;color:var(--secundario);font-size:.8rem}
+.conjuros-simple .botones-extra{display:flex;flex-wrap:wrap;gap:.5rem;padding:.5rem 0}
+.conjuros-simple .boton-archivo{position:relative;display:inline-flex;align-items:center;justify-content:center;
+  cursor:pointer;padding:.65rem .9rem;border:1px solid var(--borde);border-radius:7px;color:var(--texto);
+  background:var(--superficie2);font-size:.85rem;font-weight:650}
+.conjuros-simple .boton-archivo:focus-within{outline:3px solid var(--foco);outline-offset:3px}
+.conjuros-simple .boton-archivo input{position:absolute;width:1px;height:1px;overflow:hidden;
+  clip-path:inset(50%);left:0;top:0}
+.conjuros-simple .nota-pie{font-size:.8rem;color:var(--secundario)}
+[hidden]{display:none!important}
+@media(max-width:850px){
+  .conjuros-simple .resultados-busqueda{grid-template-columns:1fr}
+  .conjuros-simple .fila-nombre{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .pagina-conjuros .encabezado{align-items:flex-start;flex-direction:column;padding:1.2rem 1rem}
+  .pagina-conjuros .marca-logotipo{width:70px}
+  .pagina-conjuros .marca{gap:.7rem}
+  .pagina-conjuros .cabecera-enlaces{width:100%;justify-content:space-between}
+  .conjuros-simple{padding:1rem 1rem 3rem}
+  .conjuros-simple .panel-simple{padding:1rem}
+  .conjuros-simple .fila-busqueda,.conjuros-simple .lista-circulos{grid-template-columns:1fr}
+  .conjuros-simple .boton-principal{flex:1 1 100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .conjuros-simple button{transition:none}
+}
+
+/* Opciones de copia y presentación: solo metadatos de las fichas DRS. */
+.conjuros-simple .formato-lista{
+  margin:.2rem 0 1rem;padding:.75rem .95rem;
+  background:var(--fondo2);border:1px solid var(--borde);border-radius:9px}
+.conjuros-simple .formato-lista>summary{
+  cursor:pointer;font-size:.9rem;color:var(--texto);font-weight:750}
+.conjuros-simple .formato-opciones{
+  display:flex;flex-wrap:wrap;align-items:center;gap:.55rem 1.2rem;margin-top:.8rem}
+.conjuros-simple .formato-casilla{
+  display:inline-flex;flex-direction:row;align-items:center;gap:.5rem;
+  min-height:40px;font-size:.86rem;font-weight:600;cursor:pointer}
+.conjuros-simple .formato-casilla input[type=checkbox]{
+  width:1.1rem;min-width:1.1rem;min-height:1.1rem;height:1.1rem;
+  margin:0;accent-color:var(--oro);cursor:pointer}
+.conjuros-simple .formato-lista .ayuda-conjuros{margin:.45rem 0 0}
+@media(max-width:480px){
+  .conjuros-simple .formato-opciones{flex-direction:column;align-items:flex-start;gap:.2rem}
+}

@@ -1,0 +1,247 @@
+{
+  "version": 2,
+  "fuente": "Lista Talentos Nd20 (hoja Talentos, origen Nd20); DRS para etiquetas ya formales",
+  "criterio": "Clasificación editorial de cinco categorías, nunca sustituye la redacción del DRS; las de Especie aún no son etiqueta formal del documento original.",
+  "registros": [
+    {
+      "id_talento": "talento-drs-especie-elfo-agreste-linaje-feerico",
+      "nombre": "Linaje feérico",
+      "tipo_origen": "Especie",
+      "propietario": "Elfo agreste",
+      "categoria": "Pasiva",
+      "id_excel": 1,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D2",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-elfo-agreste-rapidez",
+      "nombre": "Rapidez",
+      "tipo_origen": "Especie",
+      "propietario": "Elfo agreste",
+      "categoria": "Mejora",
+      "id_excel": 2,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D3",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-enano-montanes-corpulencia",
+      "nombre": "Corpulencia",
+      "tipo_origen": "Especie",
+      "propietario": "Enano montañés",
+      "categoria": "Mejora",
+      "id_excel": 3,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D4",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-enano-montanes-vision-en-la-oscuridad",
+      "nombre": "Visión en la oscuridad",
+      "tipo_origen": "Especie",
+      "propietario": "Enano montañés",
+      "categoria": "Pasiva",
+      "id_excel": 4,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D5",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-humano-comun-buen-desarrollo",
+      "nombre": "Buen desarrollo",
+      "tipo_origen": "Especie",
+      "propietario": "Humano común",
+      "categoria": "Mejora",
+      "id_excel": 5,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D6",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-mediano-amable-baja-estatura",
+      "nombre": "Baja estatura",
+      "tipo_origen": "Especie",
+      "propietario": "Mediano amable",
+      "categoria": "Pasiva",
+      "id_excel": 6,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D7",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-mediano-amable-salvese-quien-pueda",
+      "nombre": "¡Sálvese quien pueda!",
+      "tipo_origen": "Especie",
+      "propietario": "Mediano amable",
+      "categoria": "Reacción",
+      "id_excel": 7,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D8",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-gnomo-urbano-baja-estatura",
+      "nombre": "Baja estatura",
+      "tipo_origen": "Especie",
+      "propietario": "Gnomo urbano",
+      "categoria": "Pasiva",
+      "id_excel": 6,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D7",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-gnomo-urbano-vision-en-la-oscuridad",
+      "nombre": "Visión en la oscuridad",
+      "tipo_origen": "Especie",
+      "propietario": "Gnomo urbano",
+      "categoria": "Pasiva",
+      "id_excel": 4,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D5",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-semielfo-animo",
+      "nombre": "Ánimo",
+      "tipo_origen": "Especie",
+      "propietario": "Semielfo",
+      "categoria": "Acción",
+      "id_excel": 8,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D9",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-semielfo-herencia-dual-se",
+      "nombre": "Herencia dual (SE)",
+      "tipo_origen": "Especie",
+      "propietario": "Semielfo",
+      "categoria": "Especial",
+      "id_excel": 9,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D10",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-orco-comun-ira-interna",
+      "nombre": "Ira interna",
+      "tipo_origen": "Especie",
+      "propietario": "Orco común",
+      "categoria": "Reacción",
+      "id_excel": 41,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D42",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-orco-comun-sana-primitiva",
+      "nombre": "Saña primitiva",
+      "tipo_origen": "Especie",
+      "propietario": "Orco común",
+      "categoria": "Pasiva",
+      "id_excel": 42,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D43",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-semiorco-sed-de-sangre",
+      "nombre": "Sed de sangre",
+      "tipo_origen": "Especie",
+      "propietario": "Semiorco",
+      "categoria": "Reacción",
+      "id_excel": 43,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D44",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-especie-semiorco-herencia-dual-so",
+      "nombre": "Herencia dual (SO)",
+      "tipo_origen": "Especie",
+      "propietario": "Semiorco",
+      "categoria": "Especial",
+      "id_excel": 44,
+      "fuente_categoria": "Lista Talentos Nd20 · Talentos!D45",
+      "estado_categoria": "propuesta_para_edicion_DRS"
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes",
+      "nombre": "Expulsar muertos vivientes",
+      "tipo_origen": "Ocupación",
+      "propietario": "Clérigo",
+      "categoria": "Acción",
+      "id_excel": 10,
+      "fuente_categoria": "NaufragioD20DRS.docx · etiqueta formal",
+      "estado_categoria": "formal_original_DRS"
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-clerigo-fortaleza-piadosa",
+      "nombre": "Fortaleza piadosa",
+      "tipo_origen": "Ocupación",
+      "propietario": "Clérigo",
+      "categoria": "Pasiva",
+      "id_excel": 11,
+      "fuente_categoria": "NaufragioD20DRS.docx · etiqueta formal",
+      "estado_categoria": "formal_original_DRS"
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-guerrero-recuperacion",
+      "nombre": "Recuperación",
+      "tipo_origen": "Ocupación",
+      "propietario": "Guerrero",
+      "categoria": "Pasiva",
+      "id_excel": 12,
+      "fuente_categoria": "NaufragioD20DRS.docx · etiqueta formal",
+      "estado_categoria": "formal_original_DRS"
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-guerrero-brio-musculoso",
+      "nombre": "Brío musculoso",
+      "tipo_origen": "Ocupación",
+      "propietario": "Guerrero",
+      "categoria": "Pasiva",
+      "id_excel": 13,
+      "fuente_categoria": "NaufragioD20DRS.docx · etiqueta formal",
+      "estado_categoria": "formal_original_DRS"
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-guerrero-sacrificio-de-escudo",
+      "nombre": "Sacrificio de escudo",
+      "tipo_origen": "Ocupación",
+      "propietario": "Guerrero",
+      "categoria": "Reacción",
+      "id_excel": 14,
+      "fuente_categoria": "NaufragioD20DRS.docx · etiqueta formal",
+      "estado_categoria": "formal_original_DRS"
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-mago-bagaje-de-arcanista",
+      "nombre": "Bagaje de arcanista",
+      "tipo_origen": "Ocupación",
+      "propietario": "Mago",
+      "categoria": "Pasiva",
+      "id_excel": 15,
+      "fuente_categoria": "NaufragioD20DRS.docx · etiqueta formal",
+      "estado_categoria": "formal_original_DRS"
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-mago-meditacion",
+      "nombre": "Meditación",
+      "tipo_origen": "Ocupación",
+      "propietario": "Mago",
+      "categoria": "Acción",
+      "id_excel": 16,
+      "fuente_categoria": "NaufragioD20DRS.docx · etiqueta formal",
+      "estado_categoria": "formal_original_DRS"
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-ladron-preparacion",
+      "nombre": "Preparación",
+      "tipo_origen": "Ocupación",
+      "propietario": "Ladrón",
+      "categoria": "Pasiva",
+      "id_excel": 17,
+      "fuente_categoria": "NaufragioD20DRS.docx · etiqueta formal",
+      "estado_categoria": "formal_original_DRS"
+    },
+    {
+      "id_talento": "talento-drs-ocupacion-ladron-sutileza",
+      "nombre": "Sutileza",
+      "tipo_origen": "Ocupación",
+      "propietario": "Ladrón",
+      "categoria": "Pasiva",
+      "id_excel": 18,
+      "fuente_categoria": "NaufragioD20DRS.docx · etiqueta formal",
+      "estado_categoria": "formal_original_DRS"
+    }
+  ]
+}
