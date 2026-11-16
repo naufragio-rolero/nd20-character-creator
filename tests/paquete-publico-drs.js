@@ -300,7 +300,7 @@ for(const documento of [portal,html,paginaConjuros]){
 }
 assert.ok(fs.existsSync(path.join(salida,'assets','forja-header.css')));
 assert.ok(fs.existsSync(path.join(salida,'assets','theme-picker.js')));
-assert.ok(html.includes('<title>Forja de Naufragio d20 · El Naufragio</title>'));
+assert.ok(html.includes('<title>Personajes · La Forja · El Naufragio</title>'));
 assert.ok(html.includes('src="assets/branding/naufragio.svg"'));
 assert.ok(!html.includes('EL NAUFRAGIO / HERRAMIENTAS DE ROL'));
 assert.ok(!html.includes('<h1>Forja de personajes</h1>'));
