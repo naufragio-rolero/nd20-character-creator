@@ -24,21 +24,25 @@ assert.throws(()=>api.codificar('character','Nocturna',registro));
 assert.throws(()=>api.codificar('character','nd20',{s:'X'.repeat(13000)}));
 // La información de marca y licencias pertenece al pie global, no a las mesas.
 const creditos=[portal,characters,spells].map(html=>{
-  const pie=html.match(/<footer class="forja-pie"[\\s\\S]*?<\\/footer>/);
-  assert.ok(pie,'Las tres pantallas incluyen pie de créditos propio');
-  assert.ok(html.indexOf('class="forja-pie"')>html.indexOf('</main>'),
-    'El pie queda fuera de la mesa y bajo el contenido');
-  assert.match(pie[0],/La Forja es una herramienta para crear personajes, seguidores, antagonistas y gestionar listas de conjuros para Naufragio d20/);
-  assert.match(pie[0],/assets\\/icons\\/CREDITOS-GAME-ICONS\\.txt/);
-  assert.match(pie[0],/assets\\/icons\\/LICENCIA-TABLER\\.txt/);
-  assert.match(pie[0],/https:\\/\\/naufragio\\.net\\//);
-  return pie[0];
+  const inicio=html.indexOf('<footer class="forja-pie"');
+  const final=html.indexOf('</footer>',inicio);
+  assert.ok(inicio>=0&&final>inicio,'Las tres pantallas incluyen pie de créditos propio');
+  assert.ok(inicio>html.indexOf('</main>'),'El pie queda fuera de la mesa y bajo el contenido');
+  const pie=html.slice(inicio,final+'</footer>'.length);
+  for(const literal of [
+    'La Forja es una herramienta para crear personajes, seguidores, antagonistas y gestionar listas de conjuros para Naufragio d20',
+    'https://naufragio.net/',
+    'assets/icons/CREDITOS-GAME-ICONS.txt',
+    'assets/icons/LICENCIA-TABLER.txt'
+  ])assert.ok(pie.includes(literal),'Falta en el pie: '+literal);
+  return pie;
 });
 assert.equal(new Set(creditos).size,1,'El pie común es idéntico en las tres pantallas');
-assert.doesNotMatch(portal,/Las propuestas no se publican automáticamente/);
-assert.doesNotMatch(characters,/Las fichas generadas se reúnen aquí|Crea tus propias fichas o incorpora perfiles oficiales/);
-assert.doesNotMatch(spells,/Añadir un Conjuro no concede aprendizaje/);
-assert.match(read('assets/forja-header.css'),/\\.forja-pie\\{/);
+assert.ok(!portal.includes('Las propuestas no se publican automáticamente'));
+assert.ok(!characters.includes('Las fichas generadas se reúnen aquí'));
+assert.ok(!characters.includes('Crea tus propias fichas o incorpora perfiles oficiales'));
+assert.ok(!spells.includes('Añadir un Conjuro no concede aprendizaje'));
+assert.ok(read('assets/forja-header.css').includes('.forja-pie{'));
 
 assert.match(read('assets/app.js'),/NaufragioEnlaces\.decodificar/);
 console.log('OK: portal, rutas y enlaces portátiles');
