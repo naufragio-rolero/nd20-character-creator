@@ -41,8 +41,8 @@ async function probar(nombre,motor,url){
     assert.equal(indices,64,'El catálogo se presenta completo');
     for(let c=5;c<=8;c++){
       const bloque=page.locator('.grupo').filter({has:page.locator('summary', {hasText:'Círculo '+c})});
-      const check=await bloque.locator('input:checked').count();
-      if(check>0)await bloque.locator('input:checked').evaluateAll(xs=>xs.forEach(x=>x.click()));
+      while(await bloque.locator('input:checked').count())
+        await bloque.locator('input:checked').first().uncheck();
     }
     await page.locator('#filtro-escuela').selectOption('Divina');
     assert.ok((await page.locator('.conjuro').count())>0,'Filtro por Escuela');
