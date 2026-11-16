@@ -34,7 +34,7 @@ function pintarBiblioteca(){
     li.appendChild(btn);frag.appendChild(li);
   });
   lista.replaceChildren(frag);
-  $("duplicar-lista").disabled=!actual()&&!borrador;
+  $("duplicar-lista").disabled=!actual();
   $("eliminar-lista").disabled=!esPersonal(seleccionado)||!actual();
 }
 function seleccionar(id,forzar){
