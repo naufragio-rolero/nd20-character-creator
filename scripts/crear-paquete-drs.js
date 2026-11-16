@@ -338,6 +338,11 @@ for(const ruta of especificas){
     let dato=JSON.parse(fs.readFileSync(origen,'utf8'));
     if(transformaciones[ruta])dato=transformaciones[ruta](dato);
     escribir(ruta,JSON.stringify(dato,null,2)+'\n');
+  }else if(ruta==='spells/index.html'){
+    // El panel Control editorial es exclusivo del árbol de desarrollo.
+    const html=fs.readFileSync(origen,'utf8')
+      .replace('<a href="control.html">Control editorial</a>','');
+    escribir(ruta,html);
   }else if(ruta==='characters-nd20/index.html'){
     let html=fs.readFileSync(origen,'utf8');
     // Los sistemas pendientes no deben figurar ni en el HTML original.
