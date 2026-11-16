@@ -240,7 +240,7 @@ function abrirCompartida(){
     throw Error("El enlace no corresponde a esta versión del DRS.");
   var datos=link.contenido.lista;
   if(!datos||typeof datos!=="object")throw Error("El enlace no contiene una Lista válida.");
-  var validada=api.validarLista(Object.assign({id:nuevoId()},datos),catalogo);
+  var validada=api.validarLista(Object.assign({},datos,{id:nuevoId()}),catalogo);
   crearNueva();
   seleccionado=validada.id;borrador=validada;ultimoGuardado="";
   $("lista-nombre").value=validada.nombre;
@@ -295,14 +295,18 @@ async function cargar(){
     opciones($("filtro-escuela"),[["","Todas"]].concat(
       Array.from(new Set(catalogo.conjuros.map(function(s){return s.escuela;}))).sort()
         .map(function(s){return [s,s];})));
-    var sugeridas=Object.keys(ocupaciones).concat(["Centinela","Profeta"]);
+    var sugeridas=Object.keys(ocupaciones).concat(borradores.listas.map(function(b){return b.nombre;}));
     opciones($("ocupaciones-sugeridas"),sugeridas.map(function(s){return [s,s];}));
     conectar();poblarAsociaciones();seleccionar(catalogo.oficiales[0].id,true);
-    $("asoc-ocupacion").value="Centinela";
-    $("asoc-lista").value="propuesta:centinela-v5";
-    $("asoc-progresion").value="propuesta:centinela-v5";vistaPrevia();
+    if(borradores.listas.some(function(l){return l.id==="propuesta:centinela-v5";})){
+      $("asoc-ocupacion").value="Centinela";
+      $("asoc-lista").value="propuesta:centinela-v5";
+      $("asoc-progresion").value="propuesta:centinela-v5";
+    }
+    vistaPrevia();
     estado("DRS "+catalogo.versionDRS+" · "+catalogo.conjuros.length+" Conjuros verificados · "+
-      lib.listas.length+" listas personales guardadas. Centinela es una propuesta editorial.");
+      lib.listas.length+" listas personales guardadas."+
+      (borradores.listas.length?" Propuestas editoriales: sin aprobación para LIVE.":""));
     try{abrirCompartida();}catch(error){estado("No se pudo abrir el enlace compartido: "+error.message,true);}
   }catch(e){
     estado("No se pudo abrir el editor: "+e.message,true);
