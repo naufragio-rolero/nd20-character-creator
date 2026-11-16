@@ -94,7 +94,10 @@ const iconosForja=[
   'accion-equipo', 'accion-talentos', 'accion-pdf', 'accion-semilla', 'accion-copiar',
 ];
 const especificas=[
-  'index.html',
+  'index.html','characters-nd20/index.html','spells/index.html',
+  'assets/portal.css','assets/portal.js','assets/share-links.js',
+  'assets/spell-lists.js','assets/spell-lists-ui.js','assets/spell-lists.css',
+  'data/conjuros-drs-fichas.json','data/listas-conjuros-borradores.json',
   'assets/styles.css','assets/favicon.svg','assets/branding/naufragio.svg',
   'assets/icons/sistema-nd20-faep.webp','assets/icons/sistema-dh.webp',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
@@ -310,6 +313,12 @@ const transformaciones={
     d.politica='1422 formas únicas autorizadas por el autor. No implican personajes canónicos ni adscripción documentada de sexo, Especie, cultura o linaje.';
     return d;
   },
+  'data/listas-conjuros-borradores.json'(d){
+    // El Centinela es material editorial no aprobado: no viaja a LIVE.
+    if(!Array.isArray(d.listas)||!Array.isArray(d.progresiones))
+      throw Error('Borradores de Conjuros incompatibles.');
+    return {...d,listas:[],progresiones:[]};
+  },
   'data/alcance-drs-y-dlc.json'(d){
     delete d.paquetes_posteriores;
     d.estado='paquete_publico_drs_generado_no_desplegado';
@@ -329,7 +338,7 @@ for(const ruta of especificas){
     let dato=JSON.parse(fs.readFileSync(origen,'utf8'));
     if(transformaciones[ruta])dato=transformaciones[ruta](dato);
     escribir(ruta,JSON.stringify(dato,null,2)+'\n');
-  }else if(ruta==='index.html'){
+  }else if(ruta==='characters-nd20/index.html'){
     let html=fs.readFileSync(origen,'utf8');
     // Los sistemas pendientes no deben figurar ni en el HTML original.
     if(/data-juego="nd20_(?:cifi|nocturna)"|<option value="nd20_(?:cifi|nocturna)">/.test(html))
