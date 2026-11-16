@@ -88,10 +88,17 @@ async function probar(nombre,motor,url){
     await page.setViewportSize({width:375,height:812});
     assert.equal(await page.locator('#crear-lista').isVisible(),true);
     const desbordamiento=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
-    const elementosDesbordados=await page.evaluate(()=>Array.from(document.querySelectorAll('body *'))
-      .map(el=>({elemento:el.tagName.toLowerCase(),id:el.id,clase:typeof el.className==='string'?el.className:'',
-        derecha:Math.round(el.getBoundingClientRect().right),ancho:Math.round(el.getBoundingClientRect().width)}))
-      .filter(el=>el.derecha>window.innerWidth+2).slice(0,12));
+    const elementosDesbordados=await page.evaluate(()=>{
+      const elems=[document.documentElement,document.body,...Array.from(document.querySelectorAll('body *'))];
+      return {viewport:window.innerWidth,client:document.documentElement.clientWidth,
+        rootScroll:document.documentElement.scrollWidth,bodyScroll:document.body.scrollWidth,
+        cajas:elems.map(el=>({elemento:el.tagName.toLowerCase(),id:el.id,
+          clase:typeof el.className==='string'?el.className:'',
+          derecha:Math.round(el.getBoundingClientRect().right),ancho:Math.round(el.getBoundingClientRect().width),
+          scroll:el.scrollWidth,client:el.clientWidth}))
+        .filter(el=>el.derecha>window.innerWidth+2||el.scroll>el.client+2)
+        .slice(0,30)};
+    });
     assert.ok(desbordamiento<=2,'No debe haber desbordamiento horizontal móvil: '+desbordamiento+
       ' · '+JSON.stringify(elementosDesbordados));
     assert.deepEqual(errores,[],nombre+': sin excepciones JavaScript.');
