@@ -258,6 +258,14 @@ async function probar(nombre,motor,origen){
       'El SVG de la lista se carga desde la carpeta assets.');
     assert.equal(await hechizos.locator('#lista-circulos .conjuro-seleccionado span').count(),1,
       'La lista conserva un único span con el texto original del Conjuro.');
+    const borrar=hechizos.locator('#lista-circulos .quitar-conjuro');
+    assert.equal(await borrar.count(),1);
+    assert.equal(await borrar.getAttribute('aria-label'),'Quitar Dardo ígneo de la lista');
+    assert.equal(await borrar.locator('svg.icono-papelera[aria-hidden="true"]').count(),1,
+      'La acción Quitar es una papelera accesible sin texto decorativo.');
+    assert.equal((await borrar.evaluate(el=>getComputedStyle(el).color)).length>0,true);
+    assert.equal(await hechizos.locator('#lista-circulos .conjuro-metadatos').count(),0,
+      'La etiqueta secundaria desaparece si no se solicita Escuela ni Origen.');
     // Comprobar caja estable en los cinco temas existentes y sin desbordes en móvil.
     for(const tema of ['clasico','ebano','ceruleo','obsidiana','violeta']){
       await hechizos.setViewportSize({width:1320,height:900});
@@ -300,6 +308,14 @@ async function probar(nombre,motor,origen){
     await copiarYComprobar('Dardo ígneo [DRS]');
     await hechizos.locator('#mostrar-escuela').check();
     await copiarYComprobar('Dardo ígneo — Elemental [DRS]');
+    const metadata=hechizos.locator('#lista-circulos .conjuro-metadatos');
+    assert.equal(await metadata.count(),1);
+    assert.equal(await metadata.innerText(),' — Elemental [DRS]');
+    const pesos=await metadata.evaluate(el=>({meta:parseFloat(getComputedStyle(el).fontSize),
+      nombre:parseFloat(getComputedStyle(el.previousElementSibling).fontSize),
+      peso:getComputedStyle(el).fontWeight}));
+    assert.ok(pesos.meta<pesos.nombre,'Escuela y Origen son más pequeños que el nombre.');
+    assert.equal(pesos.peso,'400','Escuela y Origen no usan negrita.');
     await hechizos.locator('#mostrar-origen').uncheck();
     await copiarYComprobar('Dardo ígneo — Elemental');
     await hechizos.reload();

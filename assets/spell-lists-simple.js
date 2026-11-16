@@ -104,6 +104,19 @@ function crearIconoEscuela(escuela){
   imagen.decoding='async';
   return imagen;
 }
+// Papelera original en SVG; se crea mediante DOM para evitar HTML inyectado.
+function crearIconoPapelera(){
+  var ns='http://www.w3.org/2000/svg';
+  var svg=document.createElementNS(ns,'svg');
+  svg.setAttribute('class','icono-papelera');
+  svg.setAttribute('viewBox','0 0 24 24');
+  svg.setAttribute('aria-hidden','true');
+  svg.setAttribute('focusable','false');
+  var trazos=document.createElementNS(ns,'path');
+  trazos.setAttribute('d','M4.5 7h15 M9 7V4.8h6V7 M5.6 7l.9 13h11l.9-13 M10 10.5v6.2 M14 10.5v6.2');
+  svg.appendChild(trazos);
+  return svg;
+}
 function nombre(){return PREFIJO+$('lista-dueno').value.trim();}
 function idNuevo(){
   if(!crypto||!crypto.getRandomValues)throw Error('Para guardar se necesita HTTPS o localhost.');
@@ -162,10 +175,18 @@ function pintarLista(){
       // El medallón es decorativo y no altera el texto de la lista ni su copia.
       var icono=crearIconoEscuela(s.escuela);
       if(icono)li.appendChild(icono);
-      li.appendChild(crear('span','',presentarConjuro(s)));
-      var boton=crear('button','quitar-conjuro','Quitar');
+      // Misma cadena visible y copiable que antes; solo se separa visualmente
+      // el nombre de los metadatos para rebajar su peso tipográfico.
+      var texto=crear('span','conjuro-texto');
+      texto.appendChild(crear('strong','',s.nombre));
+      var metadatos=presentarConjuro(s).slice(s.nombre.length);
+      if(metadatos)texto.appendChild(crear('small','conjuro-metadatos',metadatos));
+      li.appendChild(texto);
+      var boton=crear('button','quitar-conjuro');
       boton.type='button';boton.dataset.id=s.id;
       boton.setAttribute('aria-label','Quitar '+s.nombre+' de la lista');
+      boton.title='Quitar '+s.nombre+' de la lista';
+      boton.appendChild(crearIconoPapelera());
       boton.addEventListener('click',function(){
         conjuros.delete(s.id);pintarLista();pintarResultados();editar();
       });

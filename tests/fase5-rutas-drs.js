@@ -116,8 +116,10 @@ for(const escuela of escuelas){
   assert.ok(!/<script\b|<foreignObject\b|\bon[a-z]+\s*=|\bhref\s*=/i.test(svg),
     'SVG activo o externo: '+archivo);
 }
-assert.ok(iconos.includes("li.appendChild(crear('span','',presentarConjuro(s)))"),
-  'La lista debe conservar el texto DRS sin iconos en el span');
+assert.ok(iconos.includes("var metadatos=presentarConjuro(s).slice(s.nombre.length)"),
+  'La vista separa visualmente los metadatos sin cambiar el serializador DRS');
+assert.ok(iconos.includes("li.appendChild(texto)"),
+  'La lista conserva un único contenedor de texto por Conjuro');
 assert.ok(iconos.includes("lineas.push('- '+presentarConjuro(s))"),
   'La copia sigue siendo texto plano');
 console.log('OK · Fase 5: rutas y proxy, redirección, enlaces, paquete aislado, 64 fichas y seis medallones.');
