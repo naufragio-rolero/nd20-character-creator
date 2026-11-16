@@ -27,6 +27,8 @@ jobs:
         run: node tests/browser-compatibilidad.js
       - name: Probar editor Nd20 en Firefox y WebKit
         run: node tests/browser-criaturas.cjs
+      - name: Probar editor de Listas de Conjuros (rama editorial)
+        run: node tests/browser-listas-conjuros.cjs
       - name: Adjuntar capturas de compatibilidad
         if: always()
         uses: actions/upload-artifact@v4
