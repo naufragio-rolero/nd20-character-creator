@@ -77,29 +77,49 @@ async function probar(nombre,motor,origen){
     assert.equal(await pjRecibido.locator('#semilla-resultado').innerText(),semilla,
       'La configuracion recibida reproduce la misma semilla.');
 
-    // Conjuros: copiar y abrir la biblioteca en un navegador sin localStorage previo.
+    // Conjuros: buscar, añadir y ver una lista por Círculos (sin asociar Ocupación).
     const hechizos=await pagina(origen+'/spells/');
     await hechizos.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
-    const listasIniciales=await hechizos.locator('#listas button').count();
-    assert.equal(listasIniciales,process.env.FORJA_PUBLIC_ROOT?2:3,
-      'El DRS publico no contiene propuestas editoriales.');
-    await hechizos.locator('#crear-lista').click();
-    await hechizos.locator('#lista-nombre').fill('Ensayo de enlace');
-    await hechizos.locator('#grupos-conjuros input[type=checkbox]').first().check();
+    assert.equal(await hechizos.locator('#lista-circulos .bloque-circulo').count(),0,
+      'Una lista nueva empieza vacía.');
+    assert.equal(await hechizos.locator('#form-asociacion').count(),0,
+      'No hay asociaciones ni progresiones en la pantalla simplificada.');
+    const colorInicial=await hechizos.evaluate(()=>
+      getComputedStyle(document.documentElement).getPropertyValue('--fondo').trim());
+    await hechizos.locator('#selector-tema').selectOption('violeta');
+    assert.equal(await hechizos.locator('html').getAttribute('data-tema'),'violeta');
+    const colorVioleta=await hechizos.evaluate(()=>
+      getComputedStyle(document.documentElement).getPropertyValue('--fondo').trim());
+    assert.notEqual(colorVioleta,colorInicial,
+      'Cambiar de tema debe modificar realmente las variables de La Forja.');
+    await hechizos.reload();
+    await hechizos.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    assert.equal(await hechizos.locator('#selector-tema').inputValue(),'violeta',
+      'El tema se conserva al recargar.');
+    await hechizos.locator('#lista-dueno').fill('Ensayo de enlace');
+    await hechizos.locator('#filtro-nombre').fill('Silencio');
+    assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),1);
+    await hechizos.locator('#resultados-busqueda .anadir-conjuro').click();
+    assert.equal(await hechizos.locator('#titulo-lista').innerText(),
+      'Lista de Conjuros de Ensayo de enlace');
+    assert.equal(await hechizos.locator('#lista-circulos .bloque-circulo').count(),1);
+    assert.match(await hechizos.locator('#lista-circulos').innerText(),/Silencio/);
     await hechizos.locator('#guardar-lista').click();
-    await hechizos.locator('#estado-lista').getByText('guardada localmente',{exact:false}).waitFor();
+    await hechizos.locator('#estado-lista').getByText('guardada en este navegador',{exact:false}).waitFor();
+    assert.equal(await hechizos.locator('#listas-guardadas option').count(),2,
+      'La lista personal se guarda y queda disponible en el selector.');
     const enlaceListas=await capturarEnlace(hechizos,'#compartir-listas','/spells/');
     const hechizosRecibidos=await pagina(enlaceListas);
     await hechizosRecibidos.locator('#estado-datos')
       .getByText('64 Conjuros verificados',{exact:false}).waitFor();
-    assert.equal(await hechizosRecibidos.locator('#listas button')
-      .filter({hasText:'Ensayo de enlace'}).count(),1);
-    await hechizosRecibidos.locator('#listas button')
-      .filter({hasText:'Ensayo de enlace'}).click();
-    assert.equal(await hechizosRecibidos.locator('#lista-nombre').inputValue(),
+    assert.equal(await hechizosRecibidos.locator('#lista-dueno').inputValue(),
       'Ensayo de enlace');
-    assert.equal(await hechizosRecibidos.locator('#grupos-conjuros input:checked').count(),1,
-      'La lista recibida mantiene exactamente sus referencias DRS.');
+    assert.equal(await hechizosRecibidos.locator('#lista-circulos .conjuro-seleccionado').count(),1,
+      'El enlace transporta las referencias DRS guardadas, no los textos de fichas.');
+    await hechizosRecibidos.setViewportSize({width:375,height:812});
+    const horizontal=await hechizosRecibidos.evaluate(()=>
+      document.documentElement.scrollWidth-document.documentElement.clientWidth);
+    assert.ok(horizontal<=2,'Conjuros: sin scroll horizontal móvil ('+horizontal+'px).');
 
     // Adversarios: ficha oficial inalterada, enlace a una instantanea no guardada.
     const adversarios=await pagina(origen+'/characters-nd20/');
