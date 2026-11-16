@@ -93,7 +93,7 @@ async function probar(nombre,motor,url){
       return {viewport:window.innerWidth,client:document.documentElement.clientWidth,
         rootScroll:document.documentElement.scrollWidth,bodyScroll:document.body.scrollWidth,
         cajas:elems.map(el=>({elemento:el.tagName.toLowerCase(),id:el.id,
-          clase:typeof el.className==='string'?el.className:'',
+          clase:typeof el.className==='string'?el.className:'',campo:el.querySelector('input,select')?.id||'',
           derecha:Math.round(el.getBoundingClientRect().right),ancho:Math.round(el.getBoundingClientRect().width),
           scroll:el.scrollWidth,client:el.clientWidth}))
         .filter(el=>el.derecha>window.innerWidth+2||el.scroll>el.client+2)
