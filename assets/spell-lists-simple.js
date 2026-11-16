@@ -104,6 +104,12 @@ function pintarResultados(){
   if(!catalogo)return;
   var f=normalizar($('filtro-nombre').value.trim());
   var circulo=Number($('filtro-circulo').value)||0;
+  if(!f&&!circulo){
+    $('cuenta-busqueda').textContent=catalogo.conjuros.length+' Conjuros disponibles';
+    $('resultados-busqueda').replaceChildren(crear('p','lista-vacia',
+      'Escribe el nombre de un Conjuro o elige un Círculo para empezar.'));
+    return;
+  }
   var resultados=catalogo.conjuros.filter(function(s){
     return (!circulo||s.circulo===circulo)&&(!f||normalizar(s.nombre).includes(f));
   }).sort(function(a,b){return a.nombre.localeCompare(b.nombre,'es');});
