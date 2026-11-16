@@ -1996,6 +1996,19 @@
     $('copiar-reproduccion').addEventListener('click',function(){
       if(reproduccionActiva)copiar(JSON.stringify(reproduccionActiva,null,2));
     });
+    $('compartir-reproduccion')?.addEventListener('click',function(){
+      try{
+        if(!reproduccionActiva)throw Error('No hay generación para compartir.');
+        var sistemas={nd20:'nd20-epica',dh:'dungeon-hack',
+          nd20_cifi:'nd20-cifi',nd20_nocturna:'nd20-nocturna'};
+        var sistema=sistemas[reproduccionActiva.config.juego];
+        if(!sistema)throw Error('El sistema no tiene un contrato de enlaces.');
+        var url=window.NaufragioEnlaces.enlace(
+          new URL('characters-nd20/',document.baseURI),
+          'characters-nd20',sistema,{registro:reproduccionActiva});
+        copiar(url);
+      }catch(error){aviso('No se pudo compartir la generación: '+error.message,true);}
+    });
     $('cerrar-reproduccion').addEventListener('click',cerrarReproduccion);
     $('dialogo-reproduccion').addEventListener('close',function(){
       var boton=document.querySelector('.ver-reproduccion[data-id="'+
@@ -2786,6 +2799,24 @@
     refrescarResumenCreacion();
     refrescarGenerarFlotante();
     aviso('Datos listos. Puedes empezar a generar personajes.');
+    // Recuperar enlaces portátiles después de cargar fuentes y enlazar los eventos.
+    // Un enlace de adversario abre su editor; nunca convierte la ficha en oficial.
+    try{
+      var enlace=window.NaufragioEnlaces?.leerDesdeHash(window.location.hash);
+      if(enlace&&enlace.tipo==='characters-nd20'){
+        if(!enlace.contenido.registro)throw Error('Falta el registro de generación.');
+        var mapa={nd20:'nd20-epica',dh:'dungeon-hack',
+          nd20_cifi:'nd20-cifi',nd20_nocturna:'nd20-nocturna'};
+        if(enlace.sistema!==mapa[enlace.contenido.registro.config?.juego])
+          throw Error('El enlace no corresponde al sistema documentado.');
+        aplicarReproduccion(JSON.stringify(enlace.contenido.registro));
+        $('configuracion').requestSubmit();
+      }else if(enlace&&enlace.tipo==='adversaries'){
+        $('tab-criaturas').click();
+      }else if(enlace){
+        throw Error('Esta sección no puede abrir este tipo de enlace.');
+      }
+    }catch(error){aviso('No se pudo cargar el enlace compartido: '+error.message,true);}
   }
   $('generar').disabled=true;
   $('generar-dialogo').disabled=true;
