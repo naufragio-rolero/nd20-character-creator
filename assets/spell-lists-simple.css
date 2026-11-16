@@ -39,6 +39,11 @@
 .conjuros-simple .resultado-conjuro{min-width:0;display:flex;align-items:center;gap:.8rem;justify-content:space-between;
   border:1px solid var(--borde);background:var(--fondo2);padding:.8rem .9rem;border-radius:8px}
 .conjuros-simple .resultado-descripcion{min-width:0;overflow-wrap:anywhere}
+/* Los medallones son decorativos; el nombre y la Escuela siguen siendo texto. */
+.conjuros-simple .resultado-titulo{display:flex;align-items:center;gap:.48rem;min-width:0}
+.conjuros-simple .resultado-titulo strong{min-width:0;overflow-wrap:anywhere}
+.conjuros-simple .icono-escuela{display:block;width:1.375rem;height:1.375rem;
+  flex:0 0 1.375rem;object-fit:contain}
 .conjuros-simple .resultado-descripcion strong{display:block;font-size:.91rem}
 .conjuros-simple .resultado-descripcion small{font-size:.77rem;color:var(--secundario)}
 .conjuros-simple .anadir-conjuro{flex:0 0 auto;padding:.55rem .85rem}

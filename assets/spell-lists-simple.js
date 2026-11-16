@@ -84,6 +84,26 @@ function crear(tipo,clase,texto){
   return el;
 }
 function normalizar(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
+// Correspondencias cerradas con los nombres oficiales de Escuela del DRS.
+// Los SVG son decorativos: el nombre y la Escuela permanecen en texto.
+var ICONOS_ESCUELA=Object.freeze({
+  'Arcana':'escuela-arcana.svg',
+  'Divina':'escuela-divina.svg',
+  'Nigromancia':'escuela-nigromancia.svg',
+  'Elemental':'escuela-elemental.svg',
+  'Demonología':'escuela-demonologia.svg',
+  'Naturaleza':'escuela-naturaleza.svg'
+});
+function crearIconoEscuela(escuela){
+  if(!Object.prototype.hasOwnProperty.call(ICONOS_ESCUELA,escuela))return null;
+  var imagen=crear('img','icono-escuela');
+  imagen.src='assets/icons/'+ICONOS_ESCUELA[escuela];
+  imagen.alt='';
+  imagen.setAttribute('aria-hidden','true');
+  imagen.width=24;imagen.height=24;
+  imagen.decoding='async';
+  return imagen;
+}
 function nombre(){return PREFIJO+$('lista-dueno').value.trim();}
 function idNuevo(){
   if(!crypto||!crypto.getRandomValues)throw Error('Para guardar se necesita HTTPS o localhost.');
@@ -177,7 +197,11 @@ function pintarResultados(){
   resultados.slice(0,limite).forEach(function(s){
     var fila=crear('article','resultado-conjuro');
     var texto=crear('div','resultado-descripcion');
-    texto.appendChild(crear('strong','',s.nombre));
+    var titulo=crear('div','resultado-titulo');
+    var icono=crearIconoEscuela(s.escuela);
+    if(icono)titulo.appendChild(icono);
+    titulo.appendChild(crear('strong','',s.nombre));
+    texto.appendChild(titulo);
     texto.appendChild(crear('small','', 'Círculo '+s.circulo+' · '+s.escuela));
     var detalle=crear('details','conjuro-detalle');
     detalle.appendChild(crear('summary','', 'Leer descripción'));
