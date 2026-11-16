@@ -311,9 +311,9 @@ async function probar(nombre,tipo,url){
           maxHeight:Math.max(...r.map(x=>x.height)),
           boxHeight:n.getBoundingClientRect().height,viewport:innerWidth};
       });
-      assert.equal(b.count,5,vista+': hay cinco acciones visibles.');
+      assert.equal(b.count,6,vista+': hay seis acciones visibles.');
       assert.ok(b.names.every(Boolean)&&b.icons.every(Boolean),
-        vista+': cinco iconos con etiquetas accesibles.');
+        vista+': seis iconos con etiquetas accesibles.');
       assert.ok(b.topRange<2&&b.maxHeight<=45&&b.boxHeight<=80,
         vista+': acciones en una sola fila compacta: '+JSON.stringify(b));
       assert.ok(b.minX>=0&&b.maxX<=b.viewport+1,
