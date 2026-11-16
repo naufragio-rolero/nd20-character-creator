@@ -11,3 +11,10 @@
   .campos-cuatro>label>input,.campos-cuatro>label>select{box-sizing:border-box;min-width:0;max-width:100%}
   .campos-cuatro>label>input:focus-visible,.campos-cuatro>label>select:focus-visible{outline-offset:-2px}
 }
+
+/* El selector nativo largo no debe ampliar el área de scroll en Firefox móvil. */
+#asoc-lista{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;appearance:none;background-image:none}
+label:has(> #asoc-lista){overflow:hidden}
+#asoc-lista:focus-visible{outline-offset:-2px}
+.boton-archivo{position:relative}
+.boton-archivo input[type="file"]{position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
