@@ -117,11 +117,13 @@ jobs:
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
               commit -m "PREVIEW DRS depurada desde ${GITHUB_SHA}"
           git push --force origin HEAD:refs/heads/forja-preview-pr142
+          echo "FORJA_PREVIEW_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - name: Comprobar acceso HTTP a la PREVIEW y su SHA vigente
         shell: bash
         run: |
           set -euo pipefail
-          base='https://raw.githack.com/naufragio-rolero/nd20-character-creator/forja-preview-pr142'
+          # Una URL vinculada al commit evita leer versiones antiguas en caché.
+          base="https://raw.githack.com/naufragio-rolero/nd20-character-creator/${FORJA_PREVIEW_COMMIT}"
           valido=0
           for intento in $(seq 1 18); do
             if curl -fsSL --connect-timeout 8 --max-time 20 "$base/PREVIEW.txt" -o "$RUNNER_TEMP/preview-remoto.txt" &&
@@ -145,4 +147,6 @@ jobs:
         run: |
           echo 'PREVIEW: https://raw.githack.com/naufragio-rolero/nd20-character-creator/forja-preview-pr142/index.html' >> "$GITHUB_STEP_SUMMARY"
           echo "Snapshot: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "Revisión exacta: https://raw.githack.com/naufragio-rolero/nd20-character-creator/${FORJA_PREVIEW_COMMIT}/index.html" >> "$GITHUB_STEP_SUMMARY"
+          echo "Conjuros: https://raw.githack.com/naufragio-rolero/nd20-character-creator/${FORJA_PREVIEW_COMMIT}/spells/index.html" >> "$GITHUB_STEP_SUMMARY"
           echo 'LIVE mantiene su workflow y SHA aprobados: aquí NO se invoca deploy-pages.' >> "$GITHUB_STEP_SUMMARY"
