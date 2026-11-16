@@ -1182,3 +1182,12 @@ require('./criaturas-generador.js');
 
 /* Listas de Conjuros DRS: catálogo único y asociaciones personalizadas. */
 require('./listas-conjuros.js');
+
+/* Contrato de portada y enlaces de datos, independiente del DRS. */
+require('./enlaces-portatiles.js');
+const portadaModular=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+for(const ruta of ['characters-nd20/','spells/'])assert(portadaModular.includes('href="'+ruta+'"'));
+for(const tipo of ['ico-portada-personajes.svg','ico-portada-conjuros.svg'])
+  assert(fs.existsSync(path.join(__dirname,'..','assets','icons',tipo)));
+assert(portadaModular.includes('selector-tema'));
+console.log('OK · Portada modular y enlaces portátiles con iconografía 1:1.');
