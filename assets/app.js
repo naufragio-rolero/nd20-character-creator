@@ -2798,11 +2798,18 @@
       var token=window.NaufragioEnlaces?.fragmento();
       if(token){
         var c=window.NaufragioEnlaces.decodificar(token);
-        if(c.tipo!=='character'||c.sistema!==c.datos?.config?.juego)
-          throw Error('Sistema incompatible con el enlace.');
-        aplicarReproduccion(JSON.stringify(c.datos));
-        history.replaceState(null,'',location.pathname+location.search);
-        $('configuracion').requestSubmit();
+        if(c.tipo==='character'){
+          if(c.sistema!==c.datos?.config?.juego)
+            throw Error('Sistema incompatible con el enlace.');
+          aplicarReproduccion(JSON.stringify(c.datos));
+          history.replaceState(null,'',location.pathname+location.search);
+          $('configuracion').requestSubmit();
+        }else if(c.tipo==='adversary'){
+          if(c.sistema!=='nd20')throw Error('Sistema de adversario no admitido.');
+          $('tab-criaturas').click();
+          window.NaufragioCriaturasUI.abrirCompartida(c.datos);
+          history.replaceState(null,'',location.pathname+location.search);
+        }else throw Error('Tipo de enlace incompatible con Personajes.');
       }
     }catch(error){aviso('Enlace compartido: '+error.message,true);}
 
