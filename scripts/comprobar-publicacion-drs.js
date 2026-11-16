@@ -128,8 +128,8 @@ for(const ruta of [
   if(fs.existsSync(archivo))
     afirmar(fs.statSync(archivo).size<8000,'Dependencia PDF truncada: '+ruta);
 }
-const encabezadoPdf=fs.existsSync(path.join(raiz,'index.html'))?
-  fs.readFileSync(path.join(raiz,'index.html'),'utf8'):'';
+const encabezadoPdf=fs.existsSync(path.join(raiz,'characters-nd20/index.html'))?
+  fs.readFileSync(path.join(raiz,'characters-nd20/index.html'),'utf8'):'';
 afirmar(!encabezadoPdf.includes('assets/pdf-export-browser.js'),
   'Falta módulo de descarga PDF A5 en el HTML público.');
 afirmar(!encabezadoPdf.includes('id="tab-criaturas"'),
@@ -140,8 +140,8 @@ for(const modulo of ['creatures.js','creatures-import.js',
     'Falta carga del módulo público del Editor: '+modulo);
 // El lanzamiento público habilita exclusivamente Fantasía DRS y Dungeon Hack.
 // No basta ocultar botones por CSS: tampoco deben existir opciones nativas.
-const indexHtml=fs.existsSync(path.join(raiz,'index.html'))?
-  fs.readFileSync(path.join(raiz,'index.html'),'utf8'):'';
+const indexHtml=fs.existsSync(path.join(raiz,'characters-nd20/index.html'))?
+  fs.readFileSync(path.join(raiz,'characters-nd20/index.html'),'utf8'):'';
 if(indexHtml){
   const botones=[...indexHtml.matchAll(/data-juego="([^"]+)"/g)].map(m=>m[1]);
   const opciones=[...indexHtml.matchAll(/<option value="(nd20(?:_cifi|_nocturna)?|dh)">/g)]
