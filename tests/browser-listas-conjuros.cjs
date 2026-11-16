@@ -42,7 +42,7 @@ async function probar(nombre,motor,url){
     for(let c=5;c<=8;c++){
       const bloque=page.locator('.grupo').filter({has:page.locator('summary', {hasText:'Círculo '+c})});
       while(await bloque.locator('input:checked').count())
-        await bloque.locator('input:checked').first().uncheck();
+        await bloque.locator('input:checked').first().click();
     }
     await page.locator('#filtro-escuela').selectOption('Divina');
     assert.ok((await page.locator('.conjuro').count())>0,'Filtro por Escuela');
