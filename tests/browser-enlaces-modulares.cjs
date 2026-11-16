@@ -34,7 +34,7 @@ async function probar(nombre,motor,origen){
   const contextos=[];
   const errores=[];
   async function pagina(ruta){
-    const contexto=await browser.newContext({viewport:{width:1320,height:900}});
+    const contexto=await browser.newContext({viewport:{width:1320,height:900},acceptDownloads:true});
     contextos.push(contexto);
     const p=await contexto.newPage();
     p.on('pageerror',e=>errores.push(e.message));
@@ -139,6 +139,26 @@ async function probar(nombre,motor,origen){
     assert.equal(await pjRecibido.locator('#semilla-resultado').innerText(),semilla,
       'La configuracion recibida reproduce la misma semilla.');
 
+    // Dungeon Hack: generar y compartir desde la ruta única, con identidad propia.
+    const dh=await pagina(origen+'/characters/');
+    await dh.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+    await dh.locator('#juego').evaluate(el=>{
+      el.value='dh';el.dispatchEvent(new Event('change',{bubbles:true}));
+    });
+    assert.equal(await dh.locator('#juego').inputValue(),'dh');
+    await dh.locator('#generar').click();
+    await dh.locator('#fichas .tarjeta').first().waitFor();
+    assert.match(await dh.locator('#fichas .tarjeta').first().innerText(),/Dungeon Hack/i);
+    await dh.locator('#fichas .ver-reproduccion').first().click();
+    const semillaDH=await dh.locator('#semilla-resultado').innerText();
+    const enlaceDH=await capturarEnlace(dh,'#compartir-reproduccion','/characters/');
+    const dhRecibido=await pagina(enlaceDH);
+    await dhRecibido.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+    await dhRecibido.locator('#fichas .ver-reproduccion').first().waitFor();
+    await dhRecibido.locator('#fichas .ver-reproduccion').first().click();
+    assert.equal(await dhRecibido.locator('#semilla-resultado').innerText(),semillaDH);
+    assert.match(await dhRecibido.locator('#fichas .tarjeta').first().innerText(),/Dungeon Hack/i);
+
     // Conjuros: buscar, añadir y ver una lista por Círculos (sin asociar Ocupación).
     const hechizos=await pagina(origen+'/spells/');
     await hechizos.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
@@ -177,6 +197,43 @@ async function probar(nombre,motor,origen){
     const anchoVentana=await hechizos.evaluate(()=>innerWidth);
     assert.ok(Math.abs(area.x-(anchoVentana-area.width)/2)<2,
       'El escritorio de Conjuros queda centrado horizontalmente.');
+    // Comprobar los 64 Conjuros, las seis Escuelas y los ocho Círculos DRS.
+    const fichas=await hechizos.evaluate(async()=>{
+      const respuesta=await fetch('data/conjuros-drs-fichas.json');
+      if(!respuesta.ok)throw Error('Catálogo DRS inaccesible');
+      return (await respuesta.json()).conjuros;
+    });
+    assert.equal(fichas.length,64);
+    assert.equal(new Set(fichas.map(s=>s.id)).size,64);
+    const escuelas={Arcana:'arcana',Divina:'divina',Nigromancia:'nigromancia',
+      Elemental:'elemental','Demonología':'demonologia',Naturaleza:'naturaleza'};
+    for(const [escuela,archivo] of Object.entries(escuelas)){
+      const muestra=fichas.find(s=>s.escuela===escuela);
+      assert.ok(muestra,'Escuela DRS ausente: '+escuela);
+      await hechizos.locator('#filtro-nombre').fill(muestra.nombre);
+      const resultados=hechizos.locator('#resultados-busqueda .resultado-conjuro');
+      const nombres=await resultados.locator('strong').allTextContents();
+      const indice=nombres.indexOf(muestra.nombre);
+      assert.ok(indice>=0,'No aparece el Conjuro de '+escuela);
+      const fila=resultados.nth(indice);
+      assert.equal(await fila.locator('.icono-escuela').getAttribute('src'),
+        'assets/icons/escuela-'+archivo+'.svg');
+      assert.match(await fila.locator('small').innerText(),new RegExp(escuela));
+      assert.equal(await fila.locator('.icono-escuela').evaluate(async img=>{
+        await img.decode();return img.naturalWidth>0;
+      }),true,'El SVG debe cargar: '+escuela);
+    }
+    await hechizos.locator('#filtro-nombre').fill('');
+    for(let circulo=1;circulo<=8;circulo++){
+      await hechizos.locator('#filtro-circulo').selectOption(String(circulo));
+      const esperados=fichas.filter(s=>s.circulo===circulo).length;
+      const resultados=hechizos.locator('#resultados-busqueda .resultado-conjuro');
+      assert.equal(await resultados.count(),esperados,
+        'Filtro por Círculo '+circulo+' no coincide con las fichas DRS');
+      assert.ok((await resultados.locator('small').allTextContents())
+        .every(s=>s.includes('Círculo '+circulo+' · ')));
+    }
+    await hechizos.locator('#filtro-circulo').selectOption('');
     await hechizos.locator('#lista-dueno').fill('Ensayo de enlace');
     await hechizos.locator('#filtro-nombre').fill('Dardo ígneo');
     assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),1);
@@ -258,6 +315,37 @@ async function probar(nombre,motor,origen){
     await hechizos.locator('#estado-lista').getByText('guardada en este navegador',{exact:false}).waitFor();
     assert.equal(await hechizos.locator('#listas-guardadas option').count(),2,
       'La lista personal se guarda y queda disponible en el selector.');
+    await hechizos.reload();
+    await hechizos.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    assert.equal(await hechizos.locator('#lista-circulos .conjuro-seleccionado').count(),1,
+      'La lista guardada persiste después de recargar.');
+    assert.equal(await hechizos.locator('#lista-dueno').inputValue(),'Ensayo de enlace');
+    await hechizos.locator('.mas-opciones summary').click();
+    const descarga=hechizos.waitForEvent('download');
+    await hechizos.locator('#exportar-listas').click();
+    const archivo=await descarga;
+    assert.equal(archivo.suggestedFilename(),'forja-listas-conjuros.json');
+    const exportado=fs.readFileSync(await archivo.path(),'utf8');
+    const biblioteca=JSON.parse(exportado);
+    assert.equal(biblioteca.listas.length,1);
+    assert.equal(biblioteca.listas[0].conjuros.length,1);
+    assert.ok(!exportado.includes('Lanzas una púa venenosa'),
+      'El JSON de listas no incorpora textos normativos.');
+    // Reimportar el JSON en otro contexto y una URL explícita de PREVIEW.
+    const importada=await pagina(origen+'/spells/index.html');
+    await importada.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    await importada.locator('#importar-archivo').setInputFiles({
+      name:'listas-importadas.json',mimeType:'application/json',buffer:Buffer.from(exportado,'utf8')
+    });
+    await importada.locator('#estado-lista')
+      .getByText('Biblioteca importada correctamente.',{exact:false}).waitFor();
+    assert.equal(await importada.locator('#lista-circulos .conjuro-seleccionado').count(),1,
+      'La importación recupera Conjuros en una sesión independiente.');
+    await capturarEnlace(importada,'#compartir-listas','/spells/index.html');
+    await importada.reload();
+    await importada.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    assert.equal(await importada.locator('#lista-circulos .conjuro-seleccionado').count(),1,
+      'La biblioteca importada persiste en localStorage.');
     const enlaceListas=await capturarEnlace(hechizos,'#compartir-listas','/spells/');
     const hechizosRecibidos=await pagina(enlaceListas);
     await hechizosRecibidos.locator('#estado-datos')

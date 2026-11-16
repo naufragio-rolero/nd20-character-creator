@@ -80,3 +80,10 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 - El Hub enlaza a `characters/`; los enlaces nuevos de personajes y adversarios usan `characters/` en Pages y `characters/index.html` cuando la página de origen es `/index.html` (proxy de archivos). El formato del token compartido no cambia.
 - El paquete candidato DRS incluye ambos documentos: la página única bajo la ruta nueva, y la redirección ligera bajo la ruta antigua. El filtrado de Fantasía DRS y Dungeon Hack se aplica **solo** al HTML nuevo.
 - La actualización del workflow PREVIEW, regresiones, lista blanca y auditoría de rutas se registra en las fases 4–5; no despliega ni fusiona ninguna PR.
+
+## Fase 5 — Auditoría integral y pruebas de contratos
+- Se añade `tests/fase5-rutas-drs.js` para comprobar las rutas del Hub, evitar referencias activas a `characters-nd20/` en los módulos CSS/JS, constatar que la ruta antigua solo redirige y que el generador se carga una sola vez.
+- El paquete y su guardia deben declarar tanto `characters/index.html` como `characters-nd20/index.html`, `spells/index.html` y los seis SVG; la PREVIEW contiene los mismos recursos sin usar `deploy-pages`.
+- La prueba contrasta los 64 ID de las fichas oficiales con `data/catalogo-poderes.json`, las seis Escuelas (18/12/10/9/8/7) y los ocho Círculos (12/10/10/10/8/6/4/4). No cambia ninguna regla.
+- Se amplía E2E real para comprobar búsqueda por Escuela a través de Conjuros concretos, los ocho filtros de Círculo, memoria local/importación y enlace de Dungeon Hack. Este test se ejecuta sobre archivos físicos y el paquete DRS, nunca en LIVE.
+- El cierre de esta fase **no** autoriza fusionar PR ni publicar la rama PREVIEW; esas tareas siguen en Fase 6.
