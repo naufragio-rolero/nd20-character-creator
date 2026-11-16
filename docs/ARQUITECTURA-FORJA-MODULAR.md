@@ -23,6 +23,16 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 - El almacenamiento local de Adversarios y Listas debe persistir; una URL nunca debe sobrescribirlo sin consentimiento.
 - La estética de `spells` debe integrarse en tokens de La Forja, evitando un tema visual independiente.
 
+## Entorno PREVIEW aislado (16 de noviembre de 2026)
+- **Limitación deliberada de LIVE:** GitHub Pages presenta un único sitio para este repositorio. Un segundo `deploy-pages` podría reemplazar el despliegue público existente. El workflow LIVE permanece en `main` y fija expresamente un SHA autorizado; **PREVIEW no invoca `deploy-pages`, no cambia Pages ni fusiona ninguna PR**.
+- `.github/workflows/forja-preview.yml` se ejecuta tras cambios en `feat/forja-modular-enlaces`; genera `dist/public-drs`, pasa el guardia DRS, valida el paquete filtrado y ejecuta un E2E de enlaces portátiles con Chromium.
+- Solo el contenido generado de la **lista blanca DRS** pasa a la rama huérfana `forja-preview-pr142`. No se copian `.github`, `control.html`, `scripts/`, huellas internas ni propuestas de Listas de Conjuros: `listas` y `progresiones` editoriales quedan vacías. Nunca se sirve el árbol de desarrollo.
+- La URL de prueba es [La Forja PREVIEW](https://raw.githack.com/naufragio-rolero/nd20-character-creator/forja-preview-pr142/index.html). Se utiliza el proxy estático **externo** raw.githack únicamente para pruebas de bajo tráfico; no es un segundo GitHub Pages, ni un entorno de producción, ni ofrece garantías de disponibilidad. En su primera visita puede pedir confirmación de seguridad.
+- El proxy no resuelve `/carpeta/` como Pages: **solo la copia PREVIEW** enlaza explícitamente `characters-nd20/index.html` y `spells/index.html`. Se añaden una marca visible de PREVIEW y metaetiquetas `noindex`; el código y las rutas de LIVE no cambian.
+- El CI prueba por HTTP los recursos remotos y comprueba que `PREVIEW.txt` corresponde al commit que ha generado el paquete. Conserva también un artefacto descargable durante siete días. Si la prueba remota falla, no declarar validada la URL aunque exista la rama.
+- **Privacidad:** el proxy es un dominio ajeno compartido entre distintos repositorios y esta PREVIEW es pública. Usar exclusivamente fichas y datos ficticios de prueba; no introducir secretos ni información personal real. Las bibliotecas y fichas se almacenan solo en el navegador.
+- La promoción a LIVE continúa requiriendo autorización expresa, QA y el procedimiento de SHA aprobado de `.github/workflows/forja-live.yml`.
+
 ## Estado
 - [x] Decisiones registradas en el repositorio.
 - [x] Preparación de portada modular y rutas de herramientas.
