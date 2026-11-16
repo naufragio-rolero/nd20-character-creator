@@ -43,6 +43,14 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 - Las dos listas oficiales de Mago y Clérigo y el borrador de Centinela permanecen en el modelo, no son reemplazados por las personales. En PREVIEW el Centinela se excluye físicamente.
 - Pruebas de paquete y E2E: búsqueda y adición, renderizado agrupado, guardado y enlace entre navegadores, aplicación/persistencia de tema y ausencia de scroll lateral móvil. No implica cambio de reglas, aprendizaje, Espacios ni preparación.
 
+## Cabecera y navegación unificadas (revisión de las tres pantallas)
+- El **Hub**, **Personajes/Seguidores/Adversarios** y **Conjuros** muestran el mismo logotipo y el mismo título visible **«La Forja»**, con una breve explicación contextual debajo. Se conserva el estilo de cabecera compacta de Personajes, su alineación y el ancho de 1550 px.
+- «← Volver al hub» pasa del espacio entre cabecera y contenido a la zona derecha de la propia cabecera, junto al control cromático, en las herramientas; el Hub no incluye un botón de retorno redundante. Se retira «Código y documentación» de la cabecera de Personajes, **sin borrar la documentación ni su repositorio**.
+- El selector de tema visible es un **botón que despliega horizontalmente cinco círculos de color** con muestras fieles a las paletas actuales: Clásico, Ébano, Cerúleo, Obsidiana y Violeta. No añade temas nuevos. Cada opción lleva nombre accesible, indica selección (\`aria-pressed\`), funciona con teclado (Tab, flechas, Inicio, Fin, Escape), se cierra al pulsar fuera y conserva \`forja-tema\` en \`localStorage\`.
+- El módulo compartido es \`assets/theme-picker.js\` + \`assets/forja-header.css\`. Un \`select\` nativo solo para compatibilidad conserva el contrato de \`assets/app.js\` y \`assets/portal.js\` sin reescribir la generación ni las reglas; no es el control mostrado al usuario.
+- El Hub y Conjuros utilizan el mismo eje de contenido que Personajes; cada herramienta mantiene su propia rejilla y anchura legible. El logotipo se adapta a pantallas pequeñas y sigue siendo legible en temas oscuros.
+- La PREVIEW conserva el paquete físico DRS filtrado y el workflow LIVE permanece intacto. Se amplía la regresión de UI para comprobar los títulos, retorno, selector horizontal, persistencia y coincidencia geométrica de cabeceras.
+
 ## Estado
 - [x] Decisiones registradas en el repositorio.
 - [x] Preparación de portada modular y rutas de herramientas.
