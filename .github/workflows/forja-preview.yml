@@ -7,8 +7,6 @@ on:
   push:
     branches:
       - feat/forja-modular-enlaces
-    paths:
-      - '.github/workflows/forja-preview.yml'
   workflow_dispatch:
 
 permissions:
@@ -119,6 +117,30 @@ jobs:
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
               commit -m "PREVIEW DRS depurada desde ${GITHUB_SHA}"
           git push --force origin HEAD:refs/heads/forja-preview-pr142
+      - name: Comprobar acceso HTTP a la PREVIEW y su SHA vigente
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://raw.githack.com/naufragio-rolero/nd20-character-creator/forja-preview-pr142'
+          valido=0
+          for intento in $(seq 1 18); do
+            if curl -fsSL --connect-timeout 8 --max-time 20 "$base/PREVIEW.txt" -o "$RUNNER_TEMP/preview-remoto.txt" &&
+               grep -Fq "Origen: $GITHUB_SHA" "$RUNNER_TEMP/preview-remoto.txt"; then
+              valido=1
+              break
+            fi
+            sleep 5
+          done
+          test "$valido" -eq 1
+          for recurso in index.html characters-nd20/index.html spells/index.html assets/styles.css assets/share-links.js data/listas-conjuros-borradores.json; do
+            curl -fsSL --connect-timeout 8 --max-time 30 "$base/$recurso" -o "$RUNNER_TEMP/preview-recurso"
+            test -s "$RUNNER_TEMP/preview-recurso"
+          done
+          curl -fsSL --connect-timeout 8 --max-time 30 "$base/index.html" -o "$RUNNER_TEMP/preview-portada.html"
+          grep -Fq 'PREVIEW · NO LIVE' "$RUNNER_TEMP/preview-portada.html"
+          grep -Fq 'href="characters-nd20/index.html"' "$RUNNER_TEMP/preview-portada.html"
+          grep -Fq 'href="spells/index.html"' "$RUNNER_TEMP/preview-portada.html"
+          echo 'HTTP remoto correcto: portada, Personajes, Conjuros, recursos y revisión exacta.'
       - name: Indicar enlace independiente, sin modificar LIVE
         run: |
           echo 'PREVIEW: https://raw.githack.com/naufragio-rolero/nd20-character-creator/forja-preview-pr142/index.html' >> "$GITHUB_STEP_SUMMARY"
