@@ -273,6 +273,14 @@ assert.ok(paginaConjuros.includes('assets/spell-lists-simple.css'));
 assert.ok(paginaConjuros.includes('assets/spell-lists-simple.js'));
 assert.ok(paginaConjuros.includes('id="filtro-nombre"'));
 assert.ok(paginaConjuros.includes('id="lista-circulos"'));
+for(const control of ['copiar-lista','mostrar-escuela','mostrar-origen'])
+  assert.ok(paginaConjuros.includes('id="'+control+'"'),
+    'El paquete DRS incluye el control de formato y copia '+control);
+for(const documento of [html,paginaConjuros]){
+  assert.ok(documento.includes('class="forja-icono-inicio"'),
+    'La navegación al hub emplea un SVG accesible.');
+  assert.ok(documento.includes('aria-label="Volver al hub"'));
+}
 assert.ok(!paginaConjuros.includes('id="form-asociacion"'),
   'El vínculo editorial no debe interrumpir la creación sencilla');
 assert.ok(!paginaConjuros.includes('control.html'),
