@@ -1386,7 +1386,7 @@ async function main(){
     server.listen(0,'127.0.0.1',resolve);
   });
   try{
-    const url='http://127.0.0.1:'+server.address().port+'/index.html';
+    const url='http://127.0.0.1:'+server.address().port+'/characters-nd20/index.html';
     for(const [nombre,tipo] of [['firefox',firefox],['webkit',webkit]])
       await probar(nombre,tipo,url);
   }finally{
