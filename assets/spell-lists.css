@@ -4,3 +4,10 @@
 .contenedor,.cabecera,.titulo,.titulo>div,.panel,.grupo,.conjuro,.vista-previa,.lista-vertical li,.lista-vertical button{min-width:0;max-width:100%}
 .lista-vertical button,.aviso,.vista-previa,.conjuro,.intro,.ayuda,.cabecera nav{overflow-wrap:anywhere}
 .conjuro details,.conjuro pre{min-width:0;max-width:100%}
+
+@media(max-width:420px){
+  /* Firefox puede dibujar el texto de una opción nativa fuera de su caja. */
+  .campos-cuatro>label{min-width:0;overflow-x:clip}
+  .campos-cuatro>label>input,.campos-cuatro>label>select{box-sizing:border-box;min-width:0;max-width:100%}
+  .campos-cuatro>label>input:focus-visible,.campos-cuatro>label>select:focus-visible{outline-offset:-2px}
+}
