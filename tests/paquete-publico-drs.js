@@ -266,7 +266,21 @@ assert.ok(portal.includes('href="characters-nd20/"'));
 assert.ok(portal.includes('href="spells/"'));
 assert.match(portal,/circle cx="32" cy="20"/);
 assert.match(portal,/M32 52c-7-6/);
-assert.ok(fs.existsSync(path.join(salida,'spells','index.html')));
+const paginaConjuros=fs.readFileSync(path.join(salida,'spells','index.html'),'utf8');
+assert.ok(paginaConjuros.includes('assets/styles.css'),
+  'Conjuros hereda los cinco temas reales de La Forja');
+assert.ok(paginaConjuros.includes('assets/spell-lists-simple.css'));
+assert.ok(paginaConjuros.includes('assets/spell-lists-simple.js'));
+assert.ok(paginaConjuros.includes('id="filtro-nombre"'));
+assert.ok(paginaConjuros.includes('id="lista-circulos"'));
+assert.ok(!paginaConjuros.includes('id="form-asociacion"'),
+  'El vínculo editorial no debe interrumpir la creación sencilla');
+assert.ok(!paginaConjuros.includes('control.html'),
+  'El paquete DRS no enlaza el editor editorial');
+assert.ok(fs.existsSync(path.join(salida,'assets','spell-lists-simple.js')));
+assert.ok(fs.existsSync(path.join(salida,'assets','spell-lists-simple.css')));
+assert.ok(!fs.existsSync(path.join(salida,'assets','spell-lists-ui.js')),
+  'No distribuir interfaz editorial avanzada en la PREVIEW pública');
 assert.ok(fs.existsSync(path.join(salida,'assets','share-links.js')));
 assert.equal(leer(salida,'listas-conjuros-borradores.json').listas.length,0,
   'No publicar propuesta Centinela en el catálogo DRS');
