@@ -57,6 +57,13 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 - El botón flotante «Generar personaje» detecta ahora la posición del pie `.forja-pie` compartido; ya no depende del antiguo pie incrustado en la mesa `.pie`. No se modifican las reglas ni la lógica de generación.
 - Prueba estática `tests/forja-modular.js` para las tres copias idénticas, su ubicación fuera del área de juego y las atribuciones conservadas. Las pruebas de navegador siguen comprobando la creación y las compras.
 
+## Revisión de cierre de PREVIEW: centrado, copia y acceso al Hub
+- Conjuros centra `#form-herramienta` y `#estado-datos` dentro de la rejilla compartida, sin cambiar las anchuras ni el diseño de Personajes o Hub.
+- El resultado añade **Copiar lista**: produce texto plano con título y Conjuros ordenados por Círculos; no es necesario guardar antes. El portapapeles tiene alternativa de selección manual si el navegador lo bloquea. Se preservan por separado Guardar y Compartir enlace.
+- «Configurar presentación de la lista» permite marcar independientemente **Mostrar escuela** y **Mostrar origen**. Los cuatro formatos son, usando metadatos reales de Dardo ígneo: `Dardo ígneo`, `Dardo ígneo [DRS]`, `Dardo ígneo — Elemental`, `Dardo ígneo — Elemental [DRS]`. **Elemental** procede de `escuela`; el indicador **DRS** solo aparece cuando `fuente` contiene DRS. Afecta a presentación y texto copiado, **no** al modelo de Conjuros, datos normativos, selección, ni JSON/enlace de listas; las preferencias se guardan por navegador en `forja-listas-conjuros-formato-v1`.
+- En Personajes y Conjuros el enlace al Hub pasa a ser un icono de casa **SVG inline** con `aria-label="Volver al hub"`, título accesible y foco de teclado; se conserva la URL de regreso y no se añade icono a la portada.
+- Regresión ampliada: centrado real del panel, botón Inicio, copia en cuatro combinaciones, saltos de línea, presentación/copia coincidentes y persistencia de opciones, con pruebas de navegadores y de paquete DRS. Sin tocar LIVE ni fusionar PRs.
+
 ## Estado
 - [x] Decisiones registradas en el repositorio.
 - [x] Preparación de portada modular y rutas de herramientas.
