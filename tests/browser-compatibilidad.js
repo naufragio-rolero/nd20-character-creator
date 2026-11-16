@@ -409,7 +409,7 @@ async function probar(nombre,tipo,url){
       desbordamiento:e.scrollWidth-e.clientWidth
     }));
     assert.ok(tablaMovil.ancho<390&&tablaMovil.desbordamiento<3,
-      nombre+': tabla DRS legible en móvil sin desbordamiento');
+      nombre+': tabla DRS legible en móvil sin desbordamiento · '+JSON.stringify(tablaMovil));
     await page.screenshot({path:path.join(capturas,nombre+'-tabla-calentar-metal-movil.png')});
     await page.setViewportSize({width:1440,height:900});
     // Técnicas y efectos no pertenecientes a Conjuros siguen siendo texto plano.
