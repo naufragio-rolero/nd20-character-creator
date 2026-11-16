@@ -407,7 +407,18 @@ assert.equal(templateA5.subarray(0,5).toString('ascii'),'%PDF-');
 assert.deepEqual(JSON.parse(fs.readFileSync(path.join(salida,'assets/pdf-a5/campos-ficha-a5.json'))).campos_fijos.length,32);
 const iconosPublicos=fs.readdirSync(path.join(salida,'assets','icons'))
   .filter(nombre=>nombre.endsWith('.svg'));
-assert.equal(iconosPublicos.length,40,'El paquete contiene exactamente 40 SVG (35 + 5 acciones)');
+assert.equal(iconosPublicos.length,46,
+  'El paquete contiene 40 SVG preexistentes y los seis medallones de Escuela');
+for(const escuela of ['arcana','divina','nigromancia','elemental','demonologia','naturaleza']){
+  const nombre='escuela-'+escuela+'.svg';
+  const ruta=path.join('assets','icons',nombre);
+  assert.ok(iconosPublicos.includes(nombre),'Medallón ausente en el paquete DRS: '+nombre);
+  const original=fs.readFileSync(path.join(raiz,ruta),'utf8');
+  const publicado=fs.readFileSync(path.join(salida,ruta),'utf8');
+  assert.equal(publicado,original,'Medallón DRS alterado: '+nombre);
+  assert.match(publicado,/<svg[^>]*viewBox="0 0 24 24"/);
+  assert.doesNotMatch(publicado,/<(?:script|foreignObject|iframe|object|embed)\\b|\\bon[a-z]+\\s*=|\\bhref\\s*=/i);
+}
 const cssAcciones=fs.readFileSync(path.join(salida,'assets/styles.css'),'utf8');
 for(const nombre of ['accion-equipo','accion-talentos','accion-pdf',
   'accion-semilla','accion-copiar']){

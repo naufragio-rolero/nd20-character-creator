@@ -35,6 +35,7 @@ const iconosForja=[
   'equipo-municion', 'ico-configurar', 'sexo-masculino', 'sexo-femenino', 'sexo-indeterminado',
   'accion-equipo', 'accion-talentos', 'accion-pdf', 'accion-semilla', 'accion-copiar',
 ];
+const iconosEscuelas=['arcana','divina','nigromancia','elemental','demonologia','naturaleza'];
 const iconosCategoriasAdversarios=[
   'aberrante','automata','bestia','celestial','demonio','dragon','elemental',
   'fata','humanoide','monstruo','muerto-viviente','vegetal'
@@ -47,6 +48,7 @@ const requeridos=[
   'data/conjuros-drs-fichas.json','data/listas-conjuros-borradores.json',
   'assets/styles.css',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
+  ...iconosEscuelas.map(id=>'assets/icons/escuela-'+id+'.svg'),
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/icons/LICENCIA-TABLER.txt',
   'assets/creatures.js','assets/creatures-import.js',
   'assets/creatures-library.js','assets/creatures-components.js','assets/creatures-random.js',

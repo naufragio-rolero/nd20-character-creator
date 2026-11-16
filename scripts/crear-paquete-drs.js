@@ -93,6 +93,7 @@ const iconosForja=[
   'equipo-municion', 'ico-configurar', 'sexo-masculino', 'sexo-femenino', 'sexo-indeterminado',
   'accion-equipo', 'accion-talentos', 'accion-pdf', 'accion-semilla', 'accion-copiar',
 ];
+const iconosEscuelas=['arcana','divina','nigromancia','elemental','demonologia','naturaleza'];
 const especificas=[
   'index.html','characters-nd20/index.html','spells/index.html',
   'assets/portal.css','assets/portal.js','assets/share-links.js',
@@ -102,6 +103,7 @@ const especificas=[
   'assets/styles.css','assets/favicon.svg','assets/branding/naufragio.svg',
   'assets/icons/sistema-nd20-faep.webp','assets/icons/sistema-dh.webp',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
+  ...iconosEscuelas.map(id=>'assets/icons/escuela-'+id+'.svg'),
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/icons/LICENCIA-TABLER.txt',
   'assets/equipment.js','assets/sex.js',
   'assets/rules.js','assets/names.js','assets/powers.js','assets/spell-magnitudes.js',
