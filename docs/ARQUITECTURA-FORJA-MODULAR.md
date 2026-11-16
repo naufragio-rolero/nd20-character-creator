@@ -12,7 +12,7 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 - Un ID aleatorio sin base de datos NO reconstruye una ficha arbitraria. Para compartir sin backend el enlace debe portar datos: `#share=<datos base64url>`.
 - Para Personajes se puede reutilizar el registro original `{version:1,semilla,config}` de La Forja y generar de manera determinista. No conserva compras, modificaciones, Talentos elegidos ni Conjuros preparados posteriores; en lotes se reproduce el lote.
 - Para Listas, compartir IDs de Conjuros y biblioteca personal validada, sin duplicar fichas normativas. Exportación JSON para bibliotecas demasiado grandes.
-- Para Adversarios manuales y fichas finales editadas hace falta compartir la instantánea completa, no solo una semilla.
+- Para Adversarios manuales y fichas editadas se comparte una instantánea de la ficha completa, validada al abrir como **borrador no guardado**; el tamaño puede impedir generar URL si incluye ilustraciones grandes. El usuario decide si guardarla en su biblioteca.
 - Los enlaces son instantáneas; no sincronización ni edición colaborativa. No incluir secretos en URLs. El fragmento no se envía normalmente al servidor, pero puede filtrarse mediante scripts, copias o capturas.
 - Cada enlace debe indicar módulo, sistema/suplemento, formato, versión y payload, con validación de tamaño, referencias y procedencia. Los suplementos no publicados deben seguir excluidos.
 
@@ -26,6 +26,7 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 ## Estado
 - [x] Decisiones registradas en el repositorio.
 - [x] Preparación de portada modular y rutas de herramientas.
-- [ ] Enlaces compartidos integrados y comprobados en navegador.
+- [x] Enlaces compartidos integrados en Personajes, Listas de Conjuros y Adversarios; requieren QA de navegador.
+- [ ] Enlaces y permisos comprobados en todos los navegadores.
 - [ ] Pruebas de E2E y flujo de publicación actualizadas.
 - [ ] Validación y publicación en LIVE.
