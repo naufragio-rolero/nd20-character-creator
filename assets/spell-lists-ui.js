@@ -213,6 +213,17 @@ function quitarAsociacion(){
   }catch(e){estado(e.message,true);}
 }
 function conectar(){
+  $('compartir-listas').addEventListener('click',function(){
+    try{
+      var token=window.NaufragioEnlaces.codificar('spell-list','nd20',lib);
+      var link=window.NaufragioEnlaces.crearUrl('spells/',token);
+      if(!navigator.clipboard?.writeText)throw Error('Copia no disponible. Utiliza Exportar JSON.');
+      navigator.clipboard.writeText(link).then(function(){
+        estado('Enlace de biblioteca copiado. Es una instantánea, no una sincronización.');
+      },function(){estado('No se pudo copiar el enlace.',true);});
+    }catch(e){estado(e.message,true);}
+  });
+
   $("crear-lista").addEventListener("click",crearNueva);
   $("duplicar-lista").addEventListener("click",duplicar);
   $("eliminar-lista").addEventListener("click",eliminar);
@@ -248,6 +259,18 @@ async function cargar(){
     }));
     catalogo=api.crearCatalogo(data[0],data[1]);
     borradores=api.leerBorradores(data[2],catalogo);progresiones=data[3];ocupaciones=data[4];
+    var token=window.NaufragioEnlaces?.fragmento();
+    if(token){
+      var enlace=window.NaufragioEnlaces.decodificar(token);
+      if(enlace.tipo!=='spell-list'||enlace.sistema!=='nd20')
+        throw Error('Este enlace no contiene una Lista de Conjuros compatible.');
+      var bibliotecaImportada=api.importar(JSON.stringify(enlace.datos),catalogo,borradores);
+      var existente=localStorage.getItem(KEY);
+      if(!existente||window.confirm('¿Importar la biblioteca de este enlace? Reemplazará tus listas personales locales.')){
+        localStorage.setItem(KEY,api.exportar(bibliotecaImportada,catalogo,borradores));
+      }
+      history.replaceState(null,'',location.pathname+location.search);
+    }
     var guardado=localStorage.getItem(KEY);
     lib=guardado?api.importar(guardado,catalogo,borradores):api.vacia(catalogo);
     var circulos=Array.from({length:8},function(_,i){return [String(i+1),"Círculo "+(i+1)];});
