@@ -130,3 +130,13 @@
 .forja-pie a{color:var(--oro);text-decoration:underline;text-underline-offset:2px}
 .forja-pie a:hover{color:var(--texto)}
 @media(max-width:830px){.forja-pie{padding:1.2rem 1rem 2rem}}
+
+/* El botón de Inicio ocupa exactamente el mismo hueco en Personajes y Conjuros. */
+.forja-cabecera .forja-volver{width:42px;height:42px;min-width:42px;min-height:42px;
+  padding:0;flex:none}
+.forja-icono-inicio{width:23px;height:23px;display:block}
+/* El escritorio de Conjuros se centra dentro del eje compartido de 1550 px. */
+.pagina-conjuros .conjuros-simple #form-herramienta{
+  width:100%;max-width:1120px;margin-inline:auto}
+.pagina-conjuros .conjuros-simple #estado-datos{
+  width:100%;max-width:1120px;margin:0 auto 1.15rem}
