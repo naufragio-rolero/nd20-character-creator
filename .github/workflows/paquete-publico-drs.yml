@@ -55,6 +55,7 @@ jobs:
           node tests/browser-compras.js
           node tests/browser-semillas-rangos.cjs chrome
           node tests/browser-criaturas.cjs chrome
+          node tests/browser-enlaces-modulares.cjs chrome
       - name: Exportar PDF real de personaje DRS en Chrome (paquete)
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
