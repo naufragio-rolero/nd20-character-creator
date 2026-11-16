@@ -556,7 +556,7 @@ async function run(name,origin){
 }
 (async()=>{
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-  const url='http://127.0.0.1:'+server.address().port+'/index.html';
+  const url='http://127.0.0.1:'+server.address().port+'/characters-nd20/index.html';
   try{for(const engine of engines)await run(engine,url);}
   finally{await new Promise(resolve=>server.close(resolve));}
 })().catch(e=>{console.error(e);process.exitCode=1;});
