@@ -23,12 +23,12 @@ jobs:
         run: npm install --no-save --no-package-lock playwright@1.56.1
       - name: Preparar motores Firefox y WebKit
         run: npx playwright install --with-deps firefox webkit
+      - name: Probar editor de Listas de Conjuros (rama editorial)
+        run: node tests/browser-listas-conjuros.cjs
       - name: Probar Forja en Gecko y WebKit
         run: node tests/browser-compatibilidad.js
       - name: Probar editor Nd20 en Firefox y WebKit
         run: node tests/browser-criaturas.cjs
-      - name: Probar editor de Listas de Conjuros (rama editorial)
-        run: node tests/browser-listas-conjuros.cjs
       - name: Adjuntar capturas de compatibilidad
         if: always()
         uses: actions/upload-artifact@v4
