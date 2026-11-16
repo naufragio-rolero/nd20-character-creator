@@ -59,3 +59,12 @@
 @media(max-width:1050px){.pagina-conjuros .campos-cuatro,.pagina-conjuros .filtros{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.pagina-conjuros .rejilla{grid-template-columns:1fr}.pagina-conjuros .grupos{max-height:none}.pagina-conjuros .contenedor{padding:1rem}.pagina-conjuros .panel{padding:1rem}}
 @media(max-width:420px){.pagina-conjuros .campos-dos,.pagina-conjuros .campos-cuatro,.pagina-conjuros .filtros{grid-template-columns:1fr}.pagina-conjuros .campos-cuatro>label{min-width:0;overflow-x:clip}.pagina-conjuros .campos-cuatro>label>select,.pagina-conjuros .campos-cuatro>label>input{max-width:100%}}
+
+/* El panel lateral plegable pertenece exclusivamente al generador de Personajes. */
+@media(max-width:830px){
+  .pagina-conjuros .panel:not(.panel-abierto){display:block}
+  .pagina-conjuros .marca{flex-wrap:wrap;min-width:0;gap:.75rem}
+  .pagina-conjuros .marca-logotipo{max-width:min(220px,100%);height:auto}
+  .pagina-conjuros .encabezado{min-width:0}
+  .pagina-conjuros .cabecera-acciones{flex-wrap:wrap;min-width:0}
+}
