@@ -141,7 +141,7 @@ async function main(){
     // de Chrome headless (780 px, que activa el menú de tableta).
     await cdp.enviar('Emulation.setDeviceMetricsOverride',{
       width:1440,height:900,deviceScaleFactor:1,mobile:false});
-    const base='http://127.0.0.1:'+server.address().port+'/index.html';
+    const base='http://127.0.0.1:'+server.address().port+'/characters-nd20/index.html';
     await cdp.enviar('Page.navigate',{url:base});
     // La aplicación solo habilita Generar al terminar de cargar los datos.
     // Esperar el mensaje real de carga evita carreras en la comprobación.
