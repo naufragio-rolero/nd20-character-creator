@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#112832">
+  <meta name="description" content="Editor de Listas de Conjuros de Naufragio d20, con catálogo DRS y asociaciones a Ocupaciones.">
+  <title>Listas de Conjuros · La Forja</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/spell-lists.css">
+  <script defer src="assets/spell-lists.js"></script>
+  <script defer src="assets/spell-lists-ui.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al editor</a>
+  <header class="cabecera">
+    <div class="titulo"><img src="assets/branding/naufragio.svg" alt="El Naufragio" width="100" height="40">
+      <div><p class="sobre">LA FORJA / HERRAMIENTAS</p><h1>Listas de Conjuros</h1></div>
+    </div>
+    <nav aria-label="Navegación principal"><a href="index.html">Volver a La Forja</a><a href="control.html">Control editorial</a></nav>
+  </header>
+  <main id="contenido" class="contenedor">
+    <p class="intro">Crea repertorios a partir de los Conjuros del <strong>DRS de Naufragio d20</strong>. Las listas no duplican los efectos ni conceden Espacios: la progresión de cada Ocupación se mantiene independiente.</p>
+    <p class="aviso" id="estado-datos" role="status" aria-live="polite">Cargando catálogo...</p>
+    <div class="rejilla">
+      <aside class="panel biblioteca" aria-labelledby="titulo-biblioteca">
+        <div class="cabecera-panel"><h2 id="titulo-biblioteca">Biblioteca de listas</h2><button type="button" id="crear-lista">Nueva lista</button></div>
+        <p class="ayuda">Oficiales y propuestas: solo lectura. Puedes duplicarlas para crear una versión personal.</p>
+        <ul id="listas" class="lista-vertical" aria-label="Listas disponibles"></ul>
+        <div class="botones">
+          <button id="duplicar-lista" type="button" disabled>Duplicar selección</button>
+          <button id="eliminar-lista" type="button" class="peligro" disabled>Eliminar personal</button>
+        </div>
+        <div class="botones">
+          <button id="exportar-listas" type="button">Exportar JSON</button>
+          <label class="boton-archivo" for="importar-archivo">Importar JSON<input id="importar-archivo" type="file" accept="application/json,.json"></label>
+        </div>
+        <p class="ayuda">Guardado local en este navegador. No modifica el DRS, los archivos oficiales ni la versión LIVE.</p>
+      </aside>
+      <section class="panel editor" aria-labelledby="titulo-editor">
+        <h2 id="titulo-editor">Editor de listas</h2>
+        <form id="form-lista" novalidate>
+          <div class="campos-dos">
+            <label>Nombre de la lista<input id="lista-nombre" type="text" maxlength="120" required></label>
+            <label>Círculo máximo<select id="lista-maximo"></select></label>
+          </div>
+          <label>Descripción<textarea id="lista-descripcion" rows="2" maxlength="2000"></textarea></label>
+          <p id="lista-origen" class="ayuda"></p>
+          <div class="separador">
+            <h3>Elegir Conjuros <span id="cuenta-conjuros" class="contador"></span></h3>
+            <div class="filtros" aria-label="Filtrar Conjuros">
+              <label>Nombre<input id="filtro-nombre" type="search" placeholder="Buscar Conjuro…"></label>
+              <label>Círculo<select id="filtro-circulo"><option value="">Todos</option></select></label>
+              <label>Escuela<select id="filtro-escuela"><option value="">Todas</option></select></label>
+              <label>Lista oficial<select id="filtro-origen"><option value="">Todas</option>
+                <option value="Mago">Mago</option><option value="Clérigo">Clérigo</option>
+                <option value="ambas">Mago y Clérigo</option></select></label>
+            </div>
+          </div>
+          <div id="grupos-conjuros" class="grupos" aria-label="Conjuros agrupados por Círculo"></div>
+          <div class="pie-editor">
+            <button type="submit" id="guardar-lista">Guardar lista personal</button>
+            <span id="estado-lista" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
+    </div>
+    <section class="panel asociaciones" aria-labelledby="titulo-ocupaciones">
+      <div class="cabecera-panel"><div><h2 id="titulo-ocupaciones">Asociar a Ocupaciones</h2>
+      <p class="ayuda">Una Lista determina los Conjuros permitidos. La progresión determina los Espacios por Nivel. Ninguna asociación altera automáticamente fichas existentes.</p></div></div>
+      <form id="form-asociacion">
+        <div class="campos-cuatro">
+          <label>Ocupación<input id="asoc-ocupacion" type="text" list="ocupaciones-sugeridas" maxlength="120" required placeholder="Ej.: Profeta"><datalist id="ocupaciones-sugeridas"></datalist></label>
+          <label>Lista de Conjuros<select id="asoc-lista" required></select></label>
+          <label>Tabla de progresión<select id="asoc-progresion"><option value="">Sin progresión documentada</option></select></label>
+          <label>Nivel para vista previa<input id="asoc-nivel" type="number" min="1" max="30" value="7" required></label>
+        </div>
+        <div class="botones">
+          <button type="submit">Guardar asociación local</button>
+          <button type="button" id="borrar-asociacion">Desvincular Ocupación</button>
+        </div>
+      </form>
+      <p class="ayuda"><strong>Importante:</strong> asociar una progresión del DRS o el borrador del Centinela a otra Ocupación es una simulación editorial; no la convierte en regla oficial.</p>
+      <div id="vista-asociacion" class="vista-previa" aria-live="polite"></div>
+      <ul id="asociaciones-guardadas" class="lista-vertical" aria-label="Asociaciones guardadas"></ul>
+    </section>
+  </main>
+</body>
+</html>
