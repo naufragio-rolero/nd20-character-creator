@@ -1,0 +1,97 @@
+/* Cabecera y selector de temas común a la portada, Personajes y Conjuros.
+   Se carga después de styles.css y de los CSS de cada herramienta. */
+.encabezado.forja-cabecera{
+  width:100%;max-width:1550px;margin:0 auto;padding:1.25rem 2.4rem 1.15rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem 1.5rem;
+  border-bottom:2px solid var(--oro2);
+}
+.forja-cabecera .marca.forja-marca{display:flex;flex:1 1 auto;align-items:center;
+  gap:1rem;min-width:0;flex-direction:row}
+.forja-cabecera .marca-logotipo{width:clamp(108px,11vw,150px);height:auto;
+  flex:0 0 auto;max-width:none}
+.forja-cabecera .forja-marca-texto{min-width:0}
+.forja-cabecera .marca h1{font:700 clamp(1.55rem,2.5vw,2.55rem)/1.14 "Exo",system-ui,sans-serif;
+  letter-spacing:-.035em;margin:0;color:var(--texto)}
+.forja-cabecera .forja-subtitulo{font-size:.94rem;line-height:1.38;
+  font-weight:400;color:var(--secundario);margin:.27rem 0 0}
+.forja-cabecera .cabecera-acciones.forja-cabecera-acciones{
+  display:flex;align-items:center;justify-content:flex-end;gap:.65rem;
+  flex-wrap:wrap;flex:0 0 auto;min-width:0}
+.forja-volver{display:inline-flex;align-items:center;justify-content:center;
+  min-height:42px;padding:.55rem .85rem;border:1px solid var(--borde);
+  border-radius:8px;background:var(--superficie);color:var(--texto);
+  font-size:.86rem;font-weight:700;text-decoration:none;white-space:nowrap}
+.forja-volver:hover,.forja-volver:focus-visible{color:var(--texto);
+  background:var(--superficie2);border-color:var(--oro)}
+.forja-temas{position:relative;display:inline-flex;align-items:center;flex-shrink:0}
+.forja-temas-abrir{display:inline-flex;align-items:center;justify-content:center;
+  min-height:42px;gap:.5rem;border:1px solid var(--borde);border-radius:8px;
+  color:var(--texto);background:var(--superficie);font:700 .86rem "Exo",system-ui,sans-serif;
+  padding:.48rem .75rem;white-space:nowrap}
+.forja-temas-abrir:hover,.forja-temas-abrir[aria-expanded="true"]{
+  border-color:var(--oro);background:var(--superficie2)}
+.forja-temas-abrir .forja-tema-nombre{color:var(--secundario);font-weight:600}
+.forja-temas-flecha{display:inline-block;width:.5rem;height:.5rem;
+  border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+  transform:rotate(45deg);margin:-.24rem .2rem 0 .1rem}
+.forja-temas-abrir[aria-expanded="true"] .forja-temas-flecha{transform:rotate(225deg);margin:.24rem .2rem -.1rem .1rem}
+.forja-temas-muestra,.forja-tema-circulo-muestra{
+  --muestra-fondo:#eff7ff;--muestra-superficie:#fff;--muestra-acento:#1151d3;
+  display:block;width:22px;height:22px;flex:none;border-radius:50%;
+  border:1px solid #7d8995;
+  background:radial-gradient(circle at 32% 29%,var(--muestra-superficie) 0 25%,transparent 27%),
+    linear-gradient(135deg,var(--muestra-fondo) 0 56%,var(--muestra-acento) 57% 100%);
+  box-shadow:0 0 0 1px #0001}
+.forja-temas[data-tema-actual="clasico"] .forja-temas-muestra,
+.forja-tema-circulo[data-tema-opcion="clasico"] .forja-tema-circulo-muestra{
+  --muestra-fondo:#eaf4fd;--muestra-superficie:#fff;--muestra-acento:#1151d3}
+.forja-temas[data-tema-actual="ebano"] .forja-temas-muestra,
+.forja-tema-circulo[data-tema-opcion="ebano"] .forja-tema-circulo-muestra{
+  --muestra-fondo:#eff1f3;--muestra-superficie:#fff;--muestra-acento:#2b3740}
+.forja-temas[data-tema-actual="ceruleo"] .forja-temas-muestra,
+.forja-tema-circulo[data-tema-opcion="ceruleo"] .forja-tema-circulo-muestra{
+  --muestra-fondo:#050150;--muestra-superficie:#000066;--muestra-acento:#33cccc}
+.forja-temas[data-tema-actual="obsidiana"] .forja-temas-muestra,
+.forja-tema-circulo[data-tema-opcion="obsidiana"] .forja-tema-circulo-muestra{
+  --muestra-fondo:#000;--muestra-superficie:#252525;--muestra-acento:#fff}
+.forja-temas[data-tema-actual="violeta"] .forja-temas-muestra,
+.forja-tema-circulo[data-tema-opcion="violeta"] .forja-tema-circulo-muestra{
+  --muestra-fondo:#514d5b;--muestra-superficie:#625b70;--muestra-acento:#d9b7ff}
+.forja-temas-opciones{position:absolute;top:calc(100% + .5rem);right:0;z-index:500;
+  display:flex;flex-direction:row;align-items:stretch;gap:.15rem;
+  padding:.65rem;border:1px solid var(--borde);border-radius:12px;
+  background:var(--superficie);color:var(--texto);box-shadow:0 18px 45px #0004;
+  max-width:calc(100vw - 1.6rem)}
+.forja-temas-opciones[hidden]{display:none!important}
+.forja-tema-circulo{min-width:58px;min-height:67px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:.36rem;padding:.35rem .25rem;
+  border:2px solid transparent;border-radius:8px;background:transparent;color:var(--texto);
+  font:600 .69rem "Exo",system-ui,sans-serif}
+.forja-tema-circulo:hover:not(:disabled){border-color:var(--borde);background:var(--superficie2)}
+.forja-tema-circulo[aria-pressed="true"]{border-color:var(--oro);background:var(--superficie2)}
+.forja-tema-circulo .forja-tema-circulo-muestra{width:32px;height:32px}
+.forja-tema-circulo[aria-pressed="true"] .forja-tema-circulo-muestra{
+  outline:2px solid var(--oro);outline-offset:2px}
+.forja-tema-circulo .forja-tema-etiqueta{white-space:nowrap}
+/* El select antiguo mantiene el contrato del motor, pero el control visible
+   y accesible es la paleta. No se elimina el listener que usa app.js. */
+.forja-temas-nativo{position:absolute!important;left:0!important;top:0!important;
+  width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;
+  opacity:0!important;pointer-events:none!important;clip-path:inset(50%)!important;
+  overflow:hidden!important;padding:0!important;border:0!important}
+@media(max-width:830px){
+  .encabezado.forja-cabecera{flex-wrap:wrap;align-items:center;
+    padding:1rem 1rem .85rem;gap:.8rem}
+  .forja-cabecera .marca.forja-marca{flex:1 1 100%;gap:.8rem;flex-direction:row}
+  .forja-cabecera .marca-logotipo{width:clamp(90px,24vw,118px)}
+  .forja-cabecera .marca h1{font-size:clamp(1.5rem,4.5vw,2rem)}
+  .forja-cabecera .forja-subtitulo{font-size:.84rem}
+  .forja-cabecera .cabecera-acciones.forja-cabecera-acciones{
+    width:100%;justify-content:flex-end;gap:.5rem}
+}
+@media(max-width:400px){
+  .forja-tema-circulo{min-width:51px;font-size:.62rem}
+  .forja-temas-opciones{padding:.4rem}
+  .forja-cabecera .marca-logotipo{width:85px}
+  .forja-cabecera .cabecera-acciones.forja-cabecera-acciones{justify-content:space-between}
+}
