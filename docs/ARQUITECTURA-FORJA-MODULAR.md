@@ -26,7 +26,8 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 ## Estado
 - [x] Decisiones registradas en el repositorio.
 - [x] Preparación de portada modular y rutas de herramientas.
-- [x] Enlaces compartidos integrados en Personajes, Listas de Conjuros y Adversarios; requieren QA de navegador.
-- [ ] Enlaces y permisos comprobados en todos los navegadores.
-- [ ] Pruebas de E2E y flujo de publicación actualizadas.
-- [ ] Validación y publicación en LIVE.
+- [x] Enlaces compartidos integrados en Personajes, Listas de Conjuros y Adversarios.
+- [x] E2E de enlaces en sesiones nuevas: Chromium sobre `dist/public-drs`, Firefox y WebKit sobre la rama editorial (`tests/browser-enlaces-modulares.cjs`).
+- [x] Pruebas de E2E y workflows del paquete candidato actualizados, sin desplegar.
+- [ ] Revisión manual de permisos reales del portapapeles y navegadores móviles físicos. Los E2E interceptan la escritura para no depender de permisos de CI.
+- [ ] Aprobación editorial, fusión coordinada de la PR #140 y posterior validación/publicación en LIVE.
