@@ -286,7 +286,20 @@ assert.equal(leer(salida,'listas-conjuros-borradores.json').listas.length,0,
   'No publicar propuesta Centinela en el catálogo DRS');
 assert.equal(leer(salida,'listas-conjuros-borradores.json').progresiones.length,0);
 assert.equal(leer(salida,'conjuros-drs-fichas.json').conjuros.length,64);
-assert.ok(html.includes('<h1>Forja de Naufragio d20</h1>'));
+assert.ok(html.includes('<h1>La Forja</h1>'));
+assert.ok(html.includes('Crea personajes, seguidores y adversarios.'));
+assert.ok(html.includes('class="forja-volver" href="index.html"'));
+assert.ok(!html.includes('Código y documentación'));
+assert.ok(portal.includes('<h1>La Forja</h1>'));
+assert.ok(paginaConjuros.includes('<h1>La Forja</h1>'));
+for(const documento of [portal,html,paginaConjuros]){
+  assert.ok(documento.includes('data-forja-temas'),'Las tres vistas comparten el selector cromático');
+  assert.ok(documento.includes('assets/forja-header.css'),'Cabecera visual común en las tres vistas');
+  assert.ok(documento.includes('assets/theme-picker.js'),'Control funcional de los temas en las tres vistas');
+  assert.ok(documento.includes('data-tema-opcion="violeta"'),'Cinco muestras cromáticas con nombres');
+}
+assert.ok(fs.existsSync(path.join(salida,'assets','forja-header.css')));
+assert.ok(fs.existsSync(path.join(salida,'assets','theme-picker.js')));
 assert.ok(html.includes('<title>Forja de Naufragio d20 · El Naufragio</title>'));
 assert.ok(html.includes('src="assets/branding/naufragio.svg"'));
 assert.ok(!html.includes('EL NAUFRAGIO / HERRAMIENTAS DE ROL'));
