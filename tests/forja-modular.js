@@ -27,6 +27,16 @@ assert.ok(jsConjuros.includes("lineas.push('Círculo '+(i+1))"));
 assert.ok(jsConjuros.includes("resultado+=' [DRS]'"));
 assert.ok(jsConjuros.includes("resultado+=' — '+s.escuela"));
 assert.ok(jsConjuros.includes("navigator.clipboard.writeText(texto)"));
+// La presentación añade medallones sin modificar el texto plano del DRS.
+for(const escuela of ['arcana','divina','nigromancia','elemental','demonologia','naturaleza']){
+  const recurso=read('assets/icons/escuela-'+escuela+'.svg');
+  assert.match(recurso,/viewBox="0 0 24 24"/,'Medallón uniforme: '+escuela);
+  assert.match(recurso,/<circle cx="12" cy="12" r="11"/,'Círculo centrado: '+escuela);
+}
+assert.match(jsConjuros,/li\\.appendChild\\(icono\\)/,'Medallón en las listas por Círculos');
+assert.match(jsConjuros,/crearIconoEscuela\\(s\\.escuela\\)/,'Escuela derivada del DRS');
+assert.match(read('assets/spell-lists-simple.css'),/\\.conjuro-seleccionado \\.icono-escuela/,
+  'Icono compacto en la lista agrupada');
 assert.ok(read('assets/forja-header.css').includes('margin-inline:auto'));
 const api=require('../assets/share-links.js');
 const registro={version:1,semilla:'ñá-2026',config:{juego:'nd20',cantidad:1,modo:'rapido'}};

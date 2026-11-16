@@ -36,3 +36,11 @@ En `assets/spell-lists-simple.js` se ha añadido un mapa cerrado Escuela → arc
 En `assets/spell-lists-simple.css`, `.resultado-titulo` usa flexbox y `.icono-escuela` mantiene la misma caja de **1.375rem × 1.375rem**, sin encoger ni desplazar el texto. El HTML conserva `<base href="../">`, así que la ruta `assets/icons/...` se resuelve desde la raíz tanto en `/spells/` como en `/spells/index.html`.
 
 No se ha modificado `presentarConjuro()`, `listaEnTexto()`, la lista agrupada, ni los datos DRS. El marcado de las listas por Círculos queda para la fase 3. Integración realizada en rama de trabajo, sin publicar PREVIEW ni LIVE.
+
+## Fase 3 — listas agrupadas por Círculos
+
+En `pintarLista()` se inserta `crearIconoEscuela(s.escuela)` **antes del `span` de texto existente**, conservando el texto generado por `presentarConjuro(s)`, el botón Quitar, la viñeta y la agrupación por Círculos. El SVG es decorativo (`alt=""`, `aria-hidden="true"`) y el texto sigue siendo legible con o sin la opción «Mostrar escuela» activada.
+
+En las listas el medallón ocupa **1.125rem × 1.125rem**, algo menor que los resultados de búsqueda (1.375rem), con margen y alineación de línea. No se añaden glifos al texto copiado ni al JSON; guardar, importar, compartir y enlaces `#share=` conservan sus funciones sin modificaciones.
+
+**Regresión añadida:** `tests/browser-enlaces-modulares.cjs` comprueba en el flujo actual los SVG cargados (resultado y lista), decoración accesible, los cinco temas, anchuras 1320 y 375 px, ausencia de desbordamiento horizontal y texto copiado libre de HTML; `tests/forja-modular.js` verifica los seis archivos y las referencias de la interfaz. La ejecución real multinavegador de estas pruebas queda reservada para QA/CI en la fase 6; esta fase incluye comprobación estructural y lógica de sus aserciones.

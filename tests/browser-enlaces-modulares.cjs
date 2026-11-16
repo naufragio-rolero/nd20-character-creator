@@ -144,11 +144,44 @@ async function probar(nombre,motor,origen){
     await hechizos.locator('#lista-dueno').fill('Ensayo de enlace');
     await hechizos.locator('#filtro-nombre').fill('Dardo ígneo');
     assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),1);
+    const medallonResultado=hechizos.locator('#resultados-busqueda .resultado-titulo .icono-escuela');
+    assert.equal(await medallonResultado.count(),1,'Cada resultado DRS tiene medallón de Escuela.');
+    assert.equal(await medallonResultado.getAttribute('src'),'assets/icons/escuela-elemental.svg');
+    assert.equal(await medallonResultado.getAttribute('alt'),'');
+    assert.equal(await medallonResultado.getAttribute('aria-hidden'),'true');
+    assert.equal(await medallonResultado.evaluate(async img=>{await img.decode();return img.naturalWidth>0;}),true,
+      'El SVG del buscador se carga correctamente con base href="../".');
     await hechizos.locator('#resultados-busqueda .anadir-conjuro').click();
     assert.equal(await hechizos.locator('#titulo-lista').innerText(),
       'Lista de Conjuros de Ensayo de enlace');
     assert.equal(await hechizos.locator('#lista-circulos .bloque-circulo').count(),1);
     assert.match(await hechizos.locator('#lista-circulos').innerText(),/Dardo ígneo/);
+    const medallonLista=hechizos.locator('#lista-circulos .conjuro-seleccionado > .icono-escuela');
+    assert.equal(await medallonLista.count(),1,'La lista por Círculos tiene medallón decorativo.');
+    assert.equal(await medallonLista.getAttribute('src'),'assets/icons/escuela-elemental.svg');
+    assert.equal(await medallonLista.getAttribute('alt'),'');
+    assert.equal(await medallonLista.getAttribute('aria-hidden'),'true');
+    assert.equal(await medallonLista.evaluate(async img=>{await img.decode();return img.naturalWidth>0;}),true,
+      'El SVG de la lista se carga desde la carpeta assets.');
+    assert.equal(await hechizos.locator('#lista-circulos .conjuro-seleccionado span').count(),1,
+      'La lista conserva un único span con el texto original del Conjuro.');
+    // Comprobar caja estable en los cinco temas existentes y sin desbordes en móvil.
+    for(const tema of ['clasico','ebano','ceruleo','obsidiana','violeta']){
+      await hechizos.setViewportSize({width:1320,height:900});
+      await hechizos.locator('.forja-temas-abrir').click();
+      await hechizos.locator('[data-tema-opcion="'+tema+'"]').click();
+      assert.equal(await hechizos.locator('html').getAttribute('data-tema'),tema);
+      for(const ancho of [1320,375]){
+        await hechizos.setViewportSize({width:ancho,height:812});
+        const caja=await medallonLista.boundingBox();
+        assert.ok(caja&&caja.width>=17&&caja.width<=19&&caja.height>=17&&caja.height<=19,
+          'Medallón legible y uniforme en '+tema+' con '+ancho+' px.');
+        const desborde=await hechizos.evaluate(()=>
+          document.documentElement.scrollWidth-document.documentElement.clientWidth);
+        assert.ok(desborde<=2,'Sin desbordamiento horizontal en '+tema+' a '+ancho+' px: '+desborde);
+      }
+    }
+    await hechizos.setViewportSize({width:1320,height:900});
     assert.equal(await hechizos.locator('#copiar-lista').isEnabled(),true,
       'Se puede copiar antes de guardar una lista.');
     await hechizos.evaluate(()=>{
@@ -163,6 +196,8 @@ async function probar(nombre,motor,origen){
       assert.equal(copiado,tituloCopia+sufijo,
         'La copia conserva el orden por Círculos y el formato seleccionado.');
       assert.ok(!copiado.includes('\\n'),'No se copian secuencias de escape literales.');
+      assert.ok(!copiado.includes('<img')&&!copiado.includes('escuela-elemental.svg'),
+        'El texto copiado no contiene HTML ni rutas a medallones.');
       assert.equal(await hechizos.locator('#lista-circulos .conjuro-seleccionado span').innerText(),
         sufijo,'La presentación visual coincide con el texto copiado.');
     }

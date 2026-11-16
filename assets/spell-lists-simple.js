@@ -159,6 +159,9 @@ function pintarLista(){
     var ul=crear('ul','conjuros-seleccionados');
     grupo.forEach(function(s){
       var li=crear('li','conjuro-seleccionado');
+      // El medallón es decorativo y no altera el texto de la lista ni su copia.
+      var icono=crearIconoEscuela(s.escuela);
+      if(icono)li.appendChild(icono);
       li.appendChild(crear('span','',presentarConjuro(s)));
       var boton=crear('button','quitar-conjuro','Quitar');
       boton.type='button';boton.dataset.id=s.id;

@@ -64,6 +64,10 @@
 .conjuros-simple .conjuro-seleccionado::marker{color:var(--oro)}
 .conjuros-simple .conjuro-seleccionado{display:list-item}
 .conjuros-simple .conjuro-seleccionado span{font-weight:600}
+/* La lista conserva su viñeta y su único span textual para copiar/comparar. */
+.conjuros-simple .conjuro-seleccionado .icono-escuela{
+  display:inline-block;width:1.125rem;height:1.125rem;flex:none;
+  vertical-align:-.18rem;margin-right:.4rem}
 .conjuros-simple .quitar-conjuro{min-height:32px;margin-left:.5rem;padding:.2rem .5rem;font-size:.73rem;
   background:transparent;color:var(--secundario);border:1px solid var(--borde)}
 .conjuros-simple .lista-vacia{margin:0;padding:1.1rem;border:1px dashed var(--borde);
