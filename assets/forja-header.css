@@ -107,3 +107,14 @@
   .pagina-portal .portal-contenido,.pagina-conjuros .conjuros-simple{
     padding:1.3rem 1rem 3rem}
 }
+
+/* En teléfonos, el retorno y los colores permanecen contiguos incluso
+   cuando Personajes necesita colocar el botón Menú en una segunda línea. */
+@media(max-width:560px){
+  .forja-cabecera .forja-volver{order:1;padding:.5rem .58rem;font-size:.78rem}
+  .forja-cabecera .forja-temas{order:2}
+  .forja-cabecera .forja-temas-abrir{padding:.5rem .55rem;font-size:.78rem}
+  .forja-cabecera .boton-menu{order:3}
+  .forja-cabecera .cabecera-acciones.forja-cabecera-acciones{
+    align-items:center;justify-content:flex-start}
+}
