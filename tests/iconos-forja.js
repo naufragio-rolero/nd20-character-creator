@@ -157,7 +157,7 @@ assert.ok(fs.readFileSync(path.join(dir,'ocu-mago.svg'),'utf8').includes('pointy
 assert.ok(fs.existsSync(path.join(rutaOrigen,'darkzaitzev','big-gear.svg')),
   'El SVG original big-gear se conserva como fuente');
 
-const index=fs.readFileSync(path.join(raiz,'index.html'),'utf8');
+const index=fs.readFileSync(path.join(raiz,'characters-nd20/index.html'),'utf8');
 assert.ok(index.includes('assets/icons/CREDITOS-GAME-ICONS.txt'),
   'Créditos Game-icons enlazados desde La Forja');
 assert.ok(index.includes('assets/icons/LICENCIA-TABLER.txt'),
@@ -165,4 +165,4 @@ assert.ok(index.includes('assets/icons/LICENCIA-TABLER.txt'),
 for(const nombre of Object.keys(acciones))
   assert.ok(appJs.includes('icono-accion '+nombre),nombre+': pie de ficha con pictograma');
 
-console.log('OK · 40 SVG 1:1 (35 anteriores + 5 Tabler MIT), licencias y máscaras CSS.');
+console.log('OK · 42 SVG 1:1 (35 anteriores, 5 Tabler MIT, 2 portada), licencias y máscaras CSS.');
