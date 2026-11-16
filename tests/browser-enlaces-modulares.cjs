@@ -114,8 +114,8 @@ async function probar(nombre,motor,origen){
     const enlaceAdversario=await capturarEnlace(
       adversarios,'#criaturas-ficha-compartir','/characters-nd20/');
     const adversarioRecibido=await pagina(enlaceAdversario);
-    await adversarioRecibido.locator('#estado')
-      .getByText('Datos listos',{exact:false}).waitFor();
+    // El estado general queda oculto cuando el enlace abre la pestaña Adversarios.
+    // La prueba espera el editor realmente visible, no un panel de otra pestaña.
     await adversarioRecibido.locator('#criaturas-edicion').waitFor({state:'visible'});
     assert.equal(await adversarioRecibido.locator('#criaturas-nombre').inputValue(),
       'Goblin con tirachinas');
