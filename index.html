@@ -5,13 +5,54 @@
 <title>La Forja · El Naufragio</title>
 <script>try{var t=localStorage.getItem('forja-tema');if(['clasico','ebano','ceruleo','obsidiana','violeta'].includes(t))document.documentElement.dataset.tema=t;}catch(e){}</script>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/styles.css"><link rel="stylesheet" href="assets/portal.css">
-<script defer src="assets/portal.js"></script></head>
+<link rel="stylesheet" href="assets/styles.css"><link rel="stylesheet" href="assets/portal.css"><link rel="stylesheet" href="assets/forja-header.css">
+<script defer src="assets/portal.js"></script><script defer src="assets/theme-picker.js"></script></head>
 <body class="pagina-portal">
-<header class="encabezado"><div class="marca">
-<img class="marca-logotipo" src="assets/branding/naufragio.svg" alt="El Naufragio" width="290" height="119">
-<div><p class="sobrelinea">EL NAUFRAGIO / HERRAMIENTAS</p><h1>La Forja</h1><p class="subtitulo">Elige la herramienta que necesitas.</p></div>
-</div><label class="tema-control" for="selector-tema">Tema <select id="selector-tema"><option value="clasico">Clásico</option><option value="ebano">Ébano</option><option value="ceruleo">Cerúleo</option><option value="obsidiana">Obsidiana</option><option value="violeta">Violeta</option></select></label></header>
+<header class="encabezado forja-cabecera">
+    <div class="marca forja-marca">
+      <img class="marca-logotipo" src="assets/branding/naufragio.svg"
+        alt="El Naufragio" width="290" height="119" decoding="async">
+      <div class="forja-marca-texto">
+        <h1>La Forja</h1>
+        <p class="forja-subtitulo">Herramientas de Naufragio d20 y Dungeon Hack.</p>
+      </div>
+    </div>
+    <div class="cabecera-acciones forja-cabecera-acciones">
+
+
+      <div class="forja-temas" data-forja-temas data-tema-actual="clasico">
+        <button type="button" class="forja-temas-abrir" aria-expanded="false" aria-controls="opciones-temas">
+          <span class="forja-temas-muestra" aria-hidden="true"></span>
+          <span>Tema</span><span class="forja-tema-nombre">Clásico</span>
+          <span class="forja-temas-flecha" aria-hidden="true"></span>
+        </button>
+        <div id="opciones-temas" class="forja-temas-opciones" role="group" aria-label="Paleta de temas" hidden>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="clasico" aria-label="Clásico" title="Clásico" aria-pressed="true">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Clásico</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ebano" aria-label="Ébano" title="Ébano" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Ébano</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ceruleo" aria-label="Cerúleo" title="Cerúleo" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Cerúleo</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="obsidiana" aria-label="Obsidiana" title="Obsidiana" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Obsidiana</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="violeta" aria-label="Violeta" title="Violeta" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Violeta</span>
+          </button>
+        </div>
+        <select id="selector-tema" class="forja-temas-nativo" aria-hidden="true" tabindex="-1" aria-label="Tema visual">
+          <option value="clasico">Clásico</option>
+          <option value="ebano">Ébano</option>
+          <option value="ceruleo">Cerúleo</option>
+          <option value="obsidiana">Obsidiana</option>
+          <option value="violeta">Violeta</option>
+        </select>
+      </div>
+    </div>
+  </header>
 <main class="portal-contenido"><h2>Herramientas</h2><div class="portal-tarjetas">
 <a class="portal-tarjeta" href="characters-nd20/" aria-label="Abrir Personajes">
 <svg class="portal-icono" aria-hidden="true" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><circle cx="32" cy="20" r="10"/><path d="M12 54v-6c0-11 9-18 20-18s20 7 20 18v6H12Z"/></svg>
