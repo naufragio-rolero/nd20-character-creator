@@ -41,6 +41,15 @@ async function probar(nombre,motor,origen){
     if(ruta)await p.goto(ruta,{waitUntil:'domcontentloaded'});
     return p;
   }
+  async function esperarCabeceraEstable(p){
+    // WebKit puede resolver DOMContentLoaded antes de fuentes y logotipo;
+    // comparar las dimensiones solamente después de su carga real.
+    await p.evaluate(async()=>{
+      await document.fonts.ready;
+      const img=document.querySelector('.forja-cabecera .marca-logotipo');
+      if(img)await img.decode();
+    });
+  }
   async function capturarEnlace(p,selector,sufijo){
     // El portapapeles no debe depender de permisos distintos por navegador.
     await p.evaluate(()=>{
@@ -74,6 +83,7 @@ async function probar(nombre,motor,origen){
     await portal.keyboard.press('Escape');
     assert.equal(await portal.locator('.forja-temas-opciones').isVisible(),false,
       'Escape cierra la paleta sin alterar el tema.');
+    await esperarCabeceraEstable(portal);
     const portada = await portal.locator('.forja-cabecera').boundingBox();
     const logoPortada = await portal.locator('.forja-cabecera .marca-logotipo').boundingBox();
     assert.equal(await portal.locator('.forja-cabecera h1').innerText(),'La Forja');
@@ -89,6 +99,7 @@ async function probar(nombre,motor,origen){
     assert.equal(await pj.locator('.forja-volver').getAttribute('aria-label'),'Volver al hub');
     assert.equal(await pj.locator('.enlace-github').count(),0,
       'No queda el botón Código y documentación en la cabecera.');
+    await esperarCabeceraEstable(pj);
     const pjHeader=await pj.locator('.forja-cabecera').boundingBox();
     const pjLogo=await pj.locator('.forja-cabecera .marca-logotipo').boundingBox();
     assert.ok(Math.abs(logoPortada.width-pjLogo.width)<2 &&
@@ -119,11 +130,14 @@ async function probar(nombre,motor,origen){
     assert.equal(await hechizos.locator('.forja-volver').getAttribute('href'),'index.html');
     assert.equal(await hechizos.locator('.forja-volver svg').count(),1,
       'Conjuros usa el mismo SVG accesible de Inicio.');
+    await esperarCabeceraEstable(hechizos);
     const spellHeader=await hechizos.locator('.forja-cabecera').boundingBox();
     const spellLogo=await hechizos.locator('.forja-cabecera .marca-logotipo').boundingBox();
     assert.ok(Math.abs(logoPortada.width-spellLogo.width)<2 &&
       Math.abs(portada.x-spellHeader.x)<2,
-      'Hub y Conjuros tienen la misma cabecera que Personajes.');
+      'Hub y Conjuros tienen la misma cabecera que Personajes: ' +
+      JSON.stringify({portadaX:portada.x,conjurosX:spellHeader.x,
+        logoPortada:logoPortada.width,logoConjuros:spellLogo.width}));
     await hechizos.locator('.forja-temas-abrir').click();
     await hechizos.locator('[data-tema-opcion="violeta"]').click();
     assert.equal(await hechizos.locator('html').getAttribute('data-tema'),'violeta');
