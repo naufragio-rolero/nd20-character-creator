@@ -1460,6 +1460,27 @@
       mostrarEstado('Biblioteca exportada como JSON.');
     } catch(error){mostrarEstado('No se pudo exportar: '+error.message,true);}
   }
+  async function compartirFichaIndividual(){
+    try{
+      var ficha=obtenerFichaConsulta(idConsulta);
+      if(!ficha)throw Error('No hay un Adversario seleccionado.');
+      ficha=modelo.nuevaCriatura(ficha);
+      if(!modelo.revisar(ficha,{paraExportar:true}).valida)
+        throw Error('La ficha debe ser válida para compartirla.');
+      var sinIlustracion=!!(ficha.imagen&&/^data:image\//.test(ficha.imagen));
+      if(sinIlustracion)ficha.imagen='';
+      var url=root.NaufragioEnlaces.enlace(
+        new URL('adversaries/',root.document.baseURI),
+        'adversaries','nd20-epica',{ficha:ficha});
+      if(root.navigator.clipboard&&root.navigator.clipboard.writeText){
+        try{await root.navigator.clipboard.writeText(url);
+          mostrarEstado('Enlace del Adversario copiado. '+(sinIlustracion?'La imagen local no se incluye.':''));return;
+        }catch(error){}
+      }
+      if(typeof root.prompt==='function')root.prompt('Copia el enlace de tu Adversario:',url);
+      mostrarEstado('Enlace del Adversario preparado. '+(sinIlustracion?'La imagen local no se incluye.':''));
+    }catch(error){mostrarEstado('No se pudo compartir: '+error.message,true);}
+  }
   async function exportarPdfIndividual(){
     try{
       var ficha=obtenerFichaConsulta(idConsulta);
@@ -1944,6 +1965,7 @@
     $('criaturas-exportar-biblioteca').addEventListener('click',exportarBiblioteca);
     $('criaturas-exportar-pdf-coleccion').addEventListener('click',exportarPdfColeccion);
     $('criaturas-ficha-pdf').addEventListener('click',exportarPdfIndividual);
+    $('criaturas-ficha-compartir')?.addEventListener('click',compartirFichaIndividual);
     $('criaturas-archivo-json').addEventListener('change',importarJson);
     $('criaturas-lista').addEventListener('click',gestionarLista);
     $('criaturas-descartar-cambios').addEventListener('click',descartarCambios);
@@ -1956,6 +1978,21 @@
     cargarIlustracionesOficiales();
     renderizarFicha(modelo.nuevaCriatura(),null);
     dibujarBiblioteca();
+    // Los enlaces recibidos se abren como borradores. No alteran ni la biblioteca
+    // personal ni las fichas DRS publicadas hasta un guardado explícito.
+    try{
+      var recibido=root.NaufragioEnlaces?.leerDesdeHash(root.location.hash,'adversaries');
+      if(recibido){
+        if(recibido.sistema!=='nd20-epica')
+          throw Error('Esta fuente no está publicada para este editor.');
+        var compartida=recibido.contenido.ficha;
+        if(!modelo.revisar(compartida,{paraExportar:true}).valida)
+          throw Error('La ficha compartida no supera la validación.');
+        renderizarFicha(modelo.nuevaCriatura(compartida),null);
+        cambios=true;avisarRevision();
+        mostrarEstado('Adversario recibido en el editor como borrador. Guarda una copia personal para conservarlo.');
+      }
+    }catch(error){mostrarEstado('Enlace compartido inválido: '+error.message,true);}
     cargarIconosGaleria();
     // No llenar la galería automáticamente: solo leer el catálogo para búsquedas
     // y recuperar los adversarios previamente seleccionados.
