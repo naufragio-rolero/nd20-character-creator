@@ -22,5 +22,23 @@ assert.throws(()=>api.decodificar('$hola'));
 assert.throws(()=>api.codificar('unknown','nd20',registro));
 assert.throws(()=>api.codificar('character','Nocturna',registro));
 assert.throws(()=>api.codificar('character','nd20',{s:'X'.repeat(13000)}));
+// La información de marca y licencias pertenece al pie global, no a las mesas.
+const creditos=[portal,characters,spells].map(html=>{
+  const pie=html.match(/<footer class="forja-pie"[\\s\\S]*?<\\/footer>/);
+  assert.ok(pie,'Las tres pantallas incluyen pie de créditos propio');
+  assert.ok(html.indexOf('class="forja-pie"')>html.indexOf('</main>'),
+    'El pie queda fuera de la mesa y bajo el contenido');
+  assert.match(pie[0],/La Forja es una herramienta para crear personajes, seguidores, antagonistas y gestionar listas de conjuros para Naufragio d20/);
+  assert.match(pie[0],/assets\\/icons\\/CREDITOS-GAME-ICONS\\.txt/);
+  assert.match(pie[0],/assets\\/icons\\/LICENCIA-TABLER\\.txt/);
+  assert.match(pie[0],/https:\\/\\/naufragio\\.net\\//);
+  return pie[0];
+});
+assert.equal(new Set(creditos).size,1,'El pie común es idéntico en las tres pantallas');
+assert.doesNotMatch(portal,/Las propuestas no se publican automáticamente/);
+assert.doesNotMatch(characters,/Las fichas generadas se reúnen aquí|Crea tus propias fichas o incorpora perfiles oficiales/);
+assert.doesNotMatch(spells,/Añadir un Conjuro no concede aprendizaje/);
+assert.match(read('assets/forja-header.css'),/\\.forja-pie\\{/);
+
 assert.match(read('assets/app.js'),/NaufragioEnlaces\.decodificar/);
 console.log('OK: portal, rutas y enlaces portátiles');
