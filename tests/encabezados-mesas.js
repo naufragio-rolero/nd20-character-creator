@@ -5,7 +5,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const raiz=path.resolve(__dirname,'..');
 const leer=x=>fs.readFileSync(path.join(raiz,x),'utf8');
-const html=leer('index.html'),app=leer('assets/app.js'),uiAdversarios=leer('assets/creatures-ui.js');
+const html=leer('characters-nd20/index.html'),app=leer('assets/app.js'),uiAdversarios=leer('assets/creatures-ui.js');
 const estilos=leer('assets/styles.css');
 assert.match(html,/<h2 id="titulo-resultados" tabindex="-1">Personajes y seguidores<\/h2>/);
 assert.match(html,/<h2 id="titulo-editor-criaturas" tabindex="-1">Adversarios<\/h2>/);
