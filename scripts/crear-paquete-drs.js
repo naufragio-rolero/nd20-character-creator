@@ -96,7 +96,7 @@ const iconosForja=[
 const especificas=[
   'index.html','characters-nd20/index.html','spells/index.html',
   'assets/portal.css','assets/portal.js','assets/share-links.js',
-  'assets/spell-lists.js','assets/spell-lists-ui.js','assets/spell-lists.css',
+  'assets/spell-lists.js','assets/spell-lists-simple.js','assets/spell-lists-simple.css',
   'data/conjuros-drs-fichas.json','data/listas-conjuros-borradores.json',
   'assets/styles.css','assets/favicon.svg','assets/branding/naufragio.svg',
   'assets/icons/sistema-nd20-faep.webp','assets/icons/sistema-dh.webp',
