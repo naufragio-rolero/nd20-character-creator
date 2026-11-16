@@ -83,7 +83,7 @@ async function probar(nombre,motor,url){
     assert.ok(!datos.includes('Generas una grieta'),'No exportar descripciones oficiales');
     await page.locator('#importar-archivo').setInputFiles({
       name:'bad.json',mimeType:'application/json',buffer:Buffer.from('{"esquema":"incorrecto"}')});
-    assert.match(await page.locator('#estado-datos').innerText(),/No se importó nada/);
+    await page.locator('#estado-datos').getByText('No se importó nada',{exact:false}).waitFor();
     assert.equal(await page.locator('#asociaciones-guardadas li').count(),2);
     await page.setViewportSize({width:375,height:812});
     assert.equal(await page.locator('#crear-lista').isVisible(),true);
