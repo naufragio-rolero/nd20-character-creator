@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#122532">
   <meta name="description" content="Forja de Naufragio d20: personajes, seguidores y adversarios para Naufragio d20 y Dungeon Hack.">
-  <title>Forja de Naufragio d20 · El Naufragio</title>
+  <title>Personajes · La Forja · El Naufragio</title>
   <script>
     // Antes del CSS y de la primera pintura: evita el destello del tema Clásico.
     (function(){
@@ -18,6 +18,7 @@
     })();
   </script>
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/forja-header.css">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <script defer src="assets/i18n.js"></script>
   <script defer src="assets/equipment.js"></script>
@@ -41,26 +42,58 @@
   <script defer src="assets/adversarios-pdf.js"></script>
   <script defer src="assets/share-links.js"></script>
   <script defer src="assets/app.js"></script>
+  <script defer src="assets/theme-picker.js"></script>
 </head>
 <body>
-  <header class="encabezado">
-    <div class="marca">
+  <header class="encabezado forja-cabecera">
+    <div class="marca forja-marca">
       <img class="marca-logotipo" src="assets/branding/naufragio.svg"
-        alt="Logotipo de El Naufragio" width="290" height="119" decoding="async">
-      <h1>Forja de Naufragio d20</h1>
+        alt="El Naufragio" width="290" height="119" decoding="async">
+      <div class="forja-marca-texto">
+        <h1>La Forja</h1>
+        <p class="forja-subtitulo">Crea personajes, seguidores y adversarios.</p>
+      </div>
     </div>
-    <div class="cabecera-acciones"><button id="alternar-menu" class="boton-menu" type="button" aria-controls="panel-forja" aria-expanded="false" aria-label="Abrir menú de la forja"><span class="lineas-menu" aria-hidden="true"><span></span><span></span><span></span></span><span>Menú</span></button><label class="tema-control" for="selector-tema">Tema
-      <select id="selector-tema" aria-label="Tema visual">
-        <option value="clasico">Clásico</option>
-        <option value="ebano">Ébano</option>
-        <option value="ceruleo">Cerúleo</option>
-        <option value="obsidiana">Obsidiana</option>
-        <option value="violeta">Violeta</option>
-      </select>
-    </label>
-    <a class="enlace-github" href="https://github.com/naufragio-rolero/nd20-character-creator" target="_blank" rel="noopener noreferrer">Código y documentación</a></div>
+    <div class="cabecera-acciones forja-cabecera-acciones">
+      <button id="alternar-menu" class="boton-menu" type="button"
+        aria-controls="panel-forja" aria-expanded="false" aria-label="Abrir menú de la forja">
+        <span class="lineas-menu" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>Menú</span>
+      </button>
+      <a class="forja-volver" href="index.html">← Volver al hub</a>
+      <div class="forja-temas" data-forja-temas data-tema-actual="clasico">
+        <button type="button" class="forja-temas-abrir" aria-expanded="false" aria-controls="opciones-temas">
+          <span class="forja-temas-muestra" aria-hidden="true"></span>
+          <span>Tema</span><span class="forja-tema-nombre">Clásico</span>
+          <span class="forja-temas-flecha" aria-hidden="true"></span>
+        </button>
+        <div id="opciones-temas" class="forja-temas-opciones" role="group" aria-label="Paleta de temas" hidden>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="clasico" aria-label="Clásico" title="Clásico" aria-pressed="true">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Clásico</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ebano" aria-label="Ébano" title="Ébano" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Ébano</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ceruleo" aria-label="Cerúleo" title="Cerúleo" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Cerúleo</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="obsidiana" aria-label="Obsidiana" title="Obsidiana" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Obsidiana</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="violeta" aria-label="Violeta" title="Violeta" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Violeta</span>
+          </button>
+        </div>
+        <select id="selector-tema" class="forja-temas-nativo" aria-hidden="true" tabindex="-1" aria-label="Tema visual">
+          <option value="clasico">Clásico</option>
+          <option value="ebano">Ébano</option>
+          <option value="ceruleo">Cerúleo</option>
+          <option value="obsidiana">Obsidiana</option>
+          <option value="violeta">Violeta</option>
+        </select>
+      </div>
+    </div>
   </header>
-  <nav class="retorno-portal"><a href="index.html">← La Forja · Inicio</a></nav>
   <main class="disposicion">
     <aside class="panel" id="panel-forja" aria-label="Opciones de generación">
       <div class="campo campo-sistema-global" id="selector-sistema-global">
