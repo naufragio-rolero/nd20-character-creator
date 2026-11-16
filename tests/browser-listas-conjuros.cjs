@@ -108,7 +108,7 @@ async function probar(nombre,motor,url){
 (async()=>{
   await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});
   try{
-    const url='http://127.0.0.1:'+server.address().port+'/listas-de-conjuros.html';
+    const url='http://127.0.0.1:'+server.address().port+'/spells/index.html';
     for(const [nombre,motor] of [['firefox',firefox],['webkit',webkit]])
       await probar(nombre,motor,url);
   }finally{await new Promise(resolve=>server.close(resolve));}
