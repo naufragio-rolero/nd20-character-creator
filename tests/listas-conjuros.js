@@ -96,4 +96,4 @@ assert.match(html,/asoc-progresion/);
 assert.match(ui,/textContent/);
 assert.match(css,/@media\(max-width:760px\)/);
 assert.deepEqual(c.oficiales,JSON.parse(proteger));
-console.log('OK · listas DRS, selección, edición, duplicación, validaciones, Centro de Hyrule, Ocupaciones e importación/exportación.');
+console.log('OK · listas DRS, selección, edición, duplicación, validaciones, Centinela de Hyrule, Ocupaciones e importación/exportación.');
