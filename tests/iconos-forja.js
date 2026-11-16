@@ -46,10 +46,19 @@ const acciones={
   'accion-semilla':'fingerprint',
   'accion-copiar':'copy'
 };
+const iconosPortada=['ico-portada-personajes','ico-portada-conjuros'];
 assert.deepEqual(
   fs.readdirSync(dir).filter(x=>x.endsWith('.svg')).sort(),
-  ids.concat(Object.keys(acciones)).map(x=>x+'.svg').sort(),
-  '40 SVG autónomos: 35 aprobados + 5 acciones MIT');
+  ids.concat(Object.keys(acciones),iconosPortada).map(x=>x+'.svg').sort(),
+  '42 SVG autónomos: 35 aprobados, 5 acciones MIT y 2 originales de la portada');
+for(const id of iconosPortada){
+  const svg=fs.readFileSync(path.join(dir,id+'.svg'),'utf8');
+  assert.match(svg,/viewBox="0 0 24 24"/,id+': cuadrado 1:1');
+  assert.ok(svg.includes('stroke="currentColor"'),id+': trazos temáticos');
+  assert.ok(!/<script\b|<image\b|<use\b|<foreignObject\b/i.test(svg),id+': SVG local sin recursos externos');
+}
+const portadaCss=fs.readFileSync(path.join(raiz,'assets/portal.css'),'utf8');
+for(const id of iconosPortada)assert.ok(portadaCss.includes(id+'.svg'),id+': icono de portada conectado');
 const originalesPropios=new Set(["ico-configurar","recurso-salud","recurso-esfuerzo","recurso-movimiento","recurso-potencia","recurso-esencia","recurso-blindaje"]);
 assert.equal(originalesPropios.size,7,'7 iconos originales propios en el catálogo');
 for(const id of ids){
