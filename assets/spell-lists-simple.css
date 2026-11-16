@@ -1,3 +1,5 @@
+.pagina-conjuros .saltar-conjuros{position:absolute;left:-9999px;top:auto;padding:.6rem .9rem;background:var(--superficie);color:var(--texto);z-index:10}
+.pagina-conjuros .saltar-conjuros:focus-visible{left:10px;top:10px}
 /* Interfaz de Conjuros: reutiliza variables cromáticas y Exo de assets/styles.css. */
 .pagina-conjuros .encabezado{align-items:center;padding-top:2rem}
 .pagina-conjuros .marca{display:flex;gap:1.3rem;align-items:center}
