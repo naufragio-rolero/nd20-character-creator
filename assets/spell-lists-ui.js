@@ -279,7 +279,7 @@ async function cargar(){
     opciones($("filtro-escuela"),[["","Todas"]].concat(
       Array.from(new Set(catalogo.conjuros.map(function(s){return s.escuela;}))).sort()
         .map(function(s){return [s,s];})));
-    var sugeridas=Object.keys(ocupaciones).concat(["Centinela","Profeta"]);
+    var sugeridas=Object.keys(ocupaciones);
     opciones($("ocupaciones-sugeridas"),sugeridas.map(function(s){return [s,s];}));
     conectar();poblarAsociaciones();seleccionar(catalogo.oficiales[0].id,true);
     if(borradores.listas.some(function(x){return x.id==="propuesta:centinela-v5";})){
