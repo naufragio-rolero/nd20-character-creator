@@ -412,6 +412,17 @@ const licenciaTabler=fs.readFileSync(
 assert.match(licenciaTabler,/MIT License/);
 assert.match(licenciaTabler,/Copyright \(c\) 2020-2026 Paweł Kuna/);
 assert.ok(html.includes('assets/icons/LICENCIA-TABLER.txt'),'Licencia MIT enlazada en público');
+for(const documento of [portal,html,paginaConjuros]){
+  const inicio=documento.indexOf('<footer class="forja-pie"');
+  const fin=documento.indexOf('</footer>',inicio);
+  assert.ok(inicio>documento.indexOf('</main>')&&fin>inicio,
+    'Pie institucional completo fuera de la mesa en las tres páginas públicas');
+  const pie=documento.slice(inicio,fin+9);
+  assert.ok(pie.includes('La Forja es una herramienta para crear personajes, seguidores, antagonistas y gestionar listas de conjuros para Naufragio d20'));
+  assert.ok(pie.includes('assets/icons/CREDITOS-GAME-ICONS.txt'));
+  assert.ok(pie.includes('assets/icons/LICENCIA-TABLER.txt'));
+}
+
 assert.ok(!html.includes('id="generar-mazmorra"'),'Sin herramienta legacy en DRS');
 // Logos de identidad de sistema: exactamente dos WebP locales, sin DLC.
 // Cada archivo distribuido debe ser idéntico al aprobado en la rama.
