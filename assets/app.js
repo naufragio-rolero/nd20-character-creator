@@ -1993,6 +1993,14 @@
     $('copiar-semilla').addEventListener('click',function(){
       if(reproduccionActiva)copiar(reproduccionActiva.semilla);
     });
+    $('compartir-reproduccion').addEventListener('click',function(){
+      try {
+        if(!reproduccionActiva)throw Error('No hay configuración que compartir.');
+        var token=window.NaufragioEnlaces.codificar('character',
+          reproduccionActiva.config.juego,reproduccionActiva);
+        copiar(window.NaufragioEnlaces.crearUrl('characters-nd20/',token));
+      }catch(error){aviso(error.message,true);}
+    });
     $('copiar-reproduccion').addEventListener('click',function(){
       if(reproduccionActiva)copiar(JSON.stringify(reproduccionActiva,null,2));
     });
@@ -2786,6 +2794,18 @@
     refrescarResumenCreacion();
     refrescarGenerarFlotante();
     aviso('Datos listos. Puedes empezar a generar personajes.');
+    try{
+      var token=window.NaufragioEnlaces?.fragmento();
+      if(token){
+        var c=window.NaufragioEnlaces.decodificar(token);
+        if(c.tipo!=='character'||c.sistema!==c.datos?.config?.juego)
+          throw Error('Sistema incompatible con el enlace.');
+        aplicarReproduccion(JSON.stringify(c.datos));
+        history.replaceState(null,'',location.pathname+location.search);
+        $('configuracion').requestSubmit();
+      }
+    }catch(error){aviso('Enlace compartido: '+error.message,true);}
+
   }
   $('generar').disabled=true;
   $('generar-dialogo').disabled=true;
