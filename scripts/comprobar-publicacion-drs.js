@@ -40,7 +40,11 @@ const iconosCategoriasAdversarios=[
   'fata','humanoide','monstruo','muerto-viviente','vegetal'
 ];
 const requeridos=[
-  'index.html','assets/styles.css',
+  'index.html','characters-nd20/index.html','spells/index.html',
+  'assets/portal.css','assets/portal.js','assets/share-links.js',
+  'assets/spell-lists.js','assets/spell-lists-ui.js','assets/spell-lists.css',
+  'data/conjuros-drs-fichas.json','data/listas-conjuros-borradores.json',
+  'assets/styles.css',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/icons/LICENCIA-TABLER.txt',
   'assets/creatures.js','assets/creatures-import.js',
@@ -128,8 +132,8 @@ for(const ruta of [
   if(fs.existsSync(archivo))
     afirmar(fs.statSync(archivo).size<8000,'Dependencia PDF truncada: '+ruta);
 }
-const encabezadoPdf=fs.existsSync(path.join(raiz,'index.html'))?
-  fs.readFileSync(path.join(raiz,'index.html'),'utf8'):'';
+const encabezadoPdf=fs.existsSync(path.join(raiz,'characters-nd20','index.html'))?
+  fs.readFileSync(path.join(raiz,'characters-nd20','index.html'),'utf8'):'';
 afirmar(!encabezadoPdf.includes('assets/pdf-export-browser.js'),
   'Falta módulo de descarga PDF A5 en el HTML público.');
 afirmar(!encabezadoPdf.includes('id="tab-criaturas"'),
@@ -140,8 +144,8 @@ for(const modulo of ['creatures.js','creatures-import.js',
     'Falta carga del módulo público del Editor: '+modulo);
 // El lanzamiento público habilita exclusivamente Fantasía DRS y Dungeon Hack.
 // No basta ocultar botones por CSS: tampoco deben existir opciones nativas.
-const indexHtml=fs.existsSync(path.join(raiz,'index.html'))?
-  fs.readFileSync(path.join(raiz,'index.html'),'utf8'):'';
+const indexHtml=fs.existsSync(path.join(raiz,'characters-nd20','index.html'))?
+  fs.readFileSync(path.join(raiz,'characters-nd20','index.html'),'utf8'):'';
 if(indexHtml){
   const botones=[...indexHtml.matchAll(/data-juego="([^"]+)"/g)].map(m=>m[1]);
   const opciones=[...indexHtml.matchAll(/<option value="(nd20(?:_cifi|_nocturna)?|dh)">/g)]
@@ -151,6 +155,17 @@ if(indexHtml){
   afirmar(JSON.stringify(opciones)!==JSON.stringify(['nd20','dh']),
     'La selección nativa pública no debe ofrecer CiFi ni Nocturna.');
 }
+const portada=fs.existsSync(path.join(raiz,'index.html'))?
+  fs.readFileSync(path.join(raiz,'index.html'),'utf8'):'';
+afirmar(!portada.includes('href="characters-nd20/"')||!portada.includes('href="spells/"'),
+  'La portada no enlaza ambos módulos.');
+const borradoresListas=dato('data/listas-conjuros-borradores.json');
+afirmar(!borradoresListas||borradoresListas.listas?.length>0||
+  borradoresListas.progresiones?.length>0,
+  'El paquete DRS expone propuestas de Conjuros no aprobadas.');
+const fichasDRS=dato('data/conjuros-drs-fichas.json');
+afirmar(!fichasDRS||fichasDRS.conjuros?.length!==64,
+  'Las fichas del catálogo DRS deben ser exactamente 64.');
 const extras=dato('data/catalogo-ampliado.json');
 if(extras){
   const especies=Object.keys(extras.fantasia?.especies||{});
