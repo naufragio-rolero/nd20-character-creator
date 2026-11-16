@@ -15,34 +15,59 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="stylesheet" href="assets/spell-lists-simple.css">
+  <link rel="stylesheet" href="assets/forja-header.css">
   <script defer src="assets/portal.js"></script>
+  <script defer src="assets/theme-picker.js"></script>
   <script defer src="assets/share-links.js"></script>
   <script defer src="assets/spell-lists.js"></script>
   <script defer src="assets/spell-lists-simple.js"></script>
 </head>
 <body class="pagina-conjuros">
   <a class="saltar-conjuros" href="#contenido">Saltar al contenido</a>
-  <header class="encabezado">
-    <div class="marca">
-      <img class="marca-logotipo" src="assets/branding/naufragio.svg" alt="El Naufragio" width="120" height="48">
-      <div>
-        <p class="sobrelinea">EL NAUFRAGIO / LA FORJA</p>
-        <h1>Conjuros</h1>
-        <p class="subtitulo">Crea tu Lista de Conjuros sin complicaciones.</p>
+  <header class="encabezado forja-cabecera">
+    <div class="marca forja-marca">
+      <img class="marca-logotipo" src="assets/branding/naufragio.svg"
+        alt="El Naufragio" width="290" height="119" decoding="async">
+      <div class="forja-marca-texto">
+        <h1>La Forja</h1>
+        <p class="forja-subtitulo">Busca Conjuros y crea tus propias listas.</p>
       </div>
     </div>
-    <nav class="cabecera-enlaces" aria-label="Navegación">
-      <a href="index.html">Volver a La Forja</a>
-      <label class="tema-control" for="selector-tema">Tema
-        <select id="selector-tema">
+    <div class="cabecera-acciones forja-cabecera-acciones">
+
+      <a class="forja-volver" href="index.html">← Volver al hub</a>
+      <div class="forja-temas" data-forja-temas data-tema-actual="clasico">
+        <button type="button" class="forja-temas-abrir" aria-expanded="false" aria-controls="opciones-temas">
+          <span class="forja-temas-muestra" aria-hidden="true"></span>
+          <span>Tema</span><span class="forja-tema-nombre">Clásico</span>
+          <span class="forja-temas-flecha" aria-hidden="true"></span>
+        </button>
+        <div id="opciones-temas" class="forja-temas-opciones" role="group" aria-label="Paleta de temas" hidden>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="clasico" aria-label="Clásico" title="Clásico" aria-pressed="true">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Clásico</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ebano" aria-label="Ébano" title="Ébano" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Ébano</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ceruleo" aria-label="Cerúleo" title="Cerúleo" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Cerúleo</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="obsidiana" aria-label="Obsidiana" title="Obsidiana" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Obsidiana</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="violeta" aria-label="Violeta" title="Violeta" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Violeta</span>
+          </button>
+        </div>
+        <select id="selector-tema" class="forja-temas-nativo" aria-hidden="true" tabindex="-1" aria-label="Tema visual">
           <option value="clasico">Clásico</option>
           <option value="ebano">Ébano</option>
           <option value="ceruleo">Cerúleo</option>
           <option value="obsidiana">Obsidiana</option>
           <option value="violeta">Violeta</option>
         </select>
-      </label>
-    </nav>
+      </div>
+    </div>
   </header>
   <main id="contenido" class="conjuros-simple">
     <p id="estado-datos" class="estado-conjuros" role="status" aria-live="polite">Cargando el catálogo de Conjuros…</p>
