@@ -221,7 +221,7 @@ const adalidVerificado=poderes.planificar({juego:'nd20',nivel:30,ocupacion:'Adal
   especie:'Humano común'},fantasiaExtendida,catalogoPoderes,progresiones);
 assert.ok(adalidVerificado.avisos.some(x=>x.includes('correspondencia de Escuelas')),
   'Adalid: tabla verificada, Conjuros ambiguos no inventados');
-const documento=fs.readFileSync(path.join(__dirname,'..','characters-nd20','index.html'),'utf8');
+const documento=fs.readFileSync(path.join(__dirname,'..','characters','index.html'),'utf8');
 for(const tag of ['data-juego="nd20"','data-juego="dh"','tab-herramientas','selector-tema'])
  assert.ok(documento.includes(tag),'Menú contiene '+tag);
 assert.ok(!/data-juego="nd20_(cifi|nocturna)"/.test(documento),
@@ -277,7 +277,7 @@ const nombreOriginal=reglas.crearNd20(fantasiaExtendida,
   {juego:'nd20',nivel:1,ocupacion:'Hurí',especie:'Humano común',modoNombre:'documentado',
     tesauroYlat,aplazarElecciones:true},reglas.aleatorioSemilla('canon'));
 assert.ok(tesauroYlat.entradas.some(x=>x.nombre===nombreOriginal.nombre&&x.tipo==='documentado'));
-const pag=fs.readFileSync(path.join(__dirname,'..','characters-nd20','index.html'),'utf8');
+const pag=fs.readFileSync(path.join(__dirname,'..','characters','index.html'),'utf8');
 assert.ok(pag.includes('id="modo-nombre"'),'Selector de nombres disponible');
 console.log('OK · Talentos, Hurí y tesauro Ylat validados.');
 
@@ -323,7 +323,7 @@ assert.throws(()=>reglas.eleccionDH(dh,{
 assert.throws(()=>reglas.eleccionDH(dh,{
   juego:'dh',nivel:1,origenes:[0],ocupacion:'cleric',especie:'dragonborn'
 },reglas.aleatorioSemilla('dh-especie-excluida')),/procedencias permitidas/i);
-const htmlForja=fs.readFileSync(path.join(__dirname,'..','characters-nd20','index.html'),'utf8');
+const htmlForja=fs.readFileSync(path.join(__dirname,'..','characters','index.html'),'utf8');
 assert.ok(htmlForja.includes('id="alternar-menu"')&&htmlForja.includes('aria-expanded="false"'));
 assert.ok(htmlForja.includes('id="opciones-fuentes"')&&htmlForja.includes('id="fuentes-nd20"'));
 const jsForja=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
@@ -922,7 +922,7 @@ assert.ok(uiApi.etiqueta('Hallar la verdad','talento','nd20').includes('data-glo
 assert.ok(!uiApi.etiqueta('Dato inexistente','talento','nd20').includes('button'));
 assert.ok(!uiApi.etiqueta('<img src=x onerror=alert(1)>','poder','nd20').includes('<img'),
   'Escapar HTML no confiable');
-const htmlTooltips=fs.readFileSync(path.join(__dirname,'..','characters-nd20','index.html'),'utf8');
+const htmlTooltips=fs.readFileSync(path.join(__dirname,'..','characters','index.html'),'utf8');
 const appTooltips=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
 const stylesTooltips=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'utf8');
 for(const token of ['assets/tooltips.js','assets/tooltip-ui.js'])
@@ -938,7 +938,7 @@ console.log('OK · categorías de Técnicas verificadas y fichas emergentes con 
 
 
 /* Regresión: tema sin FOUC, sistema visible en Herramientas, requisitos VA. */
-const htmlTemas=fs.readFileSync(path.join(__dirname,'..','characters-nd20','index.html'),'utf8');
+const htmlTemas=fs.readFileSync(path.join(__dirname,'..','characters','index.html'),'utf8');
 const cssTemas=fs.readFileSync(path.join(__dirname,'..','assets','styles.css'),'utf8');
 const appTemas=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
 assert.ok(htmlTemas.includes('<html lang="es" data-tema="clasico">'),
@@ -1131,7 +1131,7 @@ for(const sexo of ['femenino','masculino']){
   assert.equal(ficha.sexo,sexo,'Dungeon Hack también admite sexo explícito');
   assert.ok(sexoMotor.nombresDH(dh.classes.dwarf_class.names,sexo).includes(ficha.nombre));
 }
-const indexSexo=fs.readFileSync(path.join(__dirname,'..','characters-nd20','index.html'),'utf8');
+const indexSexo=fs.readFileSync(path.join(__dirname,'..','characters','index.html'),'utf8');
 const appSexo=fs.readFileSync(path.join(__dirname,'..','assets','app.js'),'utf8');
 for(const token of ['id="sexo-pj"','value="aleatorio"','value="femenino"',
   'value="masculino"','id="respetar-contexto-sexo"','assets/sex.js'])

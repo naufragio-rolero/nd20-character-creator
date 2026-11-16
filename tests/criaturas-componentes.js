@@ -121,7 +121,7 @@ const anterior=modelo.nuevaCriatura({nombre:'Ficha JSON anterior'});
 delete anterior.saludModo;delete anterior.saludAjuste;
 assert.equal(modelo.revisar(anterior,{paraExportar:true}).valida,true);
 assert.deepEqual(biblioteca.importarJson(JSON.stringify(anterior)).length,1);
-const html=fs.readFileSync(path.join(__dirname,'..','characters-nd20','index.html'),'utf8');
+const html=fs.readFileSync(path.join(__dirname,'..','characters','index.html'),'utf8');
 const ui=fs.readFileSync(path.join(__dirname,'..','assets/creatures-ui.js'),'utf8');
 for(const idHtml of ['criaturas-componentes-dialogo','criaturas-componentes-busqueda',
   'criaturas-explorar-ataques','criaturas-explorar-talentos',

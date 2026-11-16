@@ -69,7 +69,7 @@ async function probar(nombre,motor,origen){
   try{
     const portal=await pagina(origen+'/');
     assert.equal(await portal.locator('.portal-tarjeta').count(),2);
-    assert.equal(await portal.locator('a[href="characters-nd20/"]').count(),1);
+    assert.equal(await portal.locator('a[href="characters/"]').count(),1);
     assert.equal(await portal.locator('a[href="spells/"]').count(),1);
     assert.equal(await portal.locator('.forja-temas-abrir').count(),1);
     assert.equal(await portal.locator('.forja-temas-opciones').isVisible(),false);
@@ -90,7 +90,7 @@ async function probar(nombre,motor,origen){
 
 
     // Personajes: la semilla y la configuracion viajan; no se comparte un ID remoto.
-    const pj=await pagina(origen+'/characters-nd20/');
+    const pj=await pagina(origen+'/characters/');
     await pj.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
     assert.equal(await pj.locator('.forja-cabecera h1').innerText(),'La Forja');
     assert.equal(await pj.locator('.forja-volver').getAttribute('href'),'index.html');
@@ -109,7 +109,29 @@ async function probar(nombre,motor,origen){
     await pj.locator('#generar').click();
     await pj.locator('#fichas .ver-reproduccion').first().click();
     const semilla=await pj.locator('#semilla-resultado').innerText();
-    const enlacePJ=await capturarEnlace(pj,'#compartir-reproduccion','/characters-nd20/');
+    const enlacePJ=await capturarEnlace(pj,'#compartir-reproduccion','/characters/');
+    // El enlace histórico se abre con ambos estilos de ruta y conserva #share=.
+    for(const [antigua,nueva] of [
+      ['/characters-nd20/','/characters/'],
+      ['/characters-nd20/index.html','/characters/index.html']
+    ]){
+      const heredado=await pagina(origen+antigua+'?origen=antiguo'+new URL(enlacePJ).hash);
+      await heredado.waitForURL(url=>url.pathname===nueva&&
+        url.search==='?origen=antiguo'&&url.hash===new URL(enlacePJ).hash);
+      await heredado.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      await heredado.locator('#fichas .ver-reproduccion').first().waitFor();
+      await heredado.locator('#fichas .ver-reproduccion').first().click();
+      assert.equal(await heredado.locator('#semilla-resultado').innerText(),semilla,
+        'Redirección histórica preserva el personaje y su semilla: '+antigua);
+    }
+    // Un proxy de ficheros usa explícitamente /characters/index.html.
+    const pjExplicito=await pagina(origen+'/characters/index.html');
+    await pjExplicito.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+    await pjExplicito.locator('#generar').click();
+    await pjExplicito.locator('#fichas .ver-reproduccion').first().click();
+    const enlaceExplicito=await capturarEnlace(
+      pjExplicito,'#compartir-reproduccion','/characters/index.html');
+    assert.ok(enlaceExplicito.includes('#share='));
     const pjRecibido=await pagina(enlacePJ);
     await pjRecibido.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
     await pjRecibido.locator('#fichas .ver-reproduccion').first().waitFor();
@@ -250,7 +272,7 @@ async function probar(nombre,motor,origen){
     assert.ok(horizontal<=2,'Conjuros: sin scroll horizontal móvil ('+horizontal+'px).');
 
     // Adversarios: ficha oficial inalterada, enlace a una instantanea no guardada.
-    const adversarios=await pagina(origen+'/characters-nd20/');
+    const adversarios=await pagina(origen+'/characters/');
     await adversarios.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
     await adversarios.locator('#tab-criaturas').click();
     await adversarios.locator('#criaturas-cargar-drs').click();
@@ -260,7 +282,14 @@ async function probar(nombre,motor,origen){
     await adversarios.locator('#criaturas-selector-cerrar').click();
     await adversarios.locator('.criaturas-cromo[data-oficial="true"]').click();
     const enlaceAdversario=await capturarEnlace(
-      adversarios,'#criaturas-ficha-compartir','/characters-nd20/');
+      adversarios,'#criaturas-ficha-compartir','/characters/');
+    const adversarioAntiguo=await pagina(origen+'/characters-nd20/'+
+      '?origen=adversario'+new URL(enlaceAdversario).hash);
+    await adversarioAntiguo.waitForURL(url=>url.pathname==='/characters/'&&
+      url.search==='?origen=adversario'&&url.hash===new URL(enlaceAdversario).hash);
+    await adversarioAntiguo.locator('#criaturas-edicion').waitFor({state:'visible'});
+    assert.equal(await adversarioAntiguo.locator('#criaturas-nombre').inputValue(),
+      'Goblin con tirachinas','Redirección histórica conserva el adversario compartido.');
     const adversarioRecibido=await pagina(enlaceAdversario);
     // El estado general queda oculto cuando el enlace abre la pestaña Adversarios.
     // La prueba espera el editor realmente visible, no un panel de otra pestaña.

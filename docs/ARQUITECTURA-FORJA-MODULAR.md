@@ -3,7 +3,7 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 
 ## Identidad y navegación
 - `index.html` es la portada, inicialmente con **Personajes** (icono de persona) y **Conjuros** (icono de libro), reutilizando los cinco temas, tipografía Exo, estilos e iconos de La Forja.
-- `characters-nd20/` aloja el creador existente (incluyendo Seguidores y Adversarios). No reescribir motores ni cambiar reglas.
+- `characters/` aloja el único creador existente (Personajes, Seguidores y Adversarios, incluidos Nd20 y Dungeon Hack). `characters-nd20/` queda como redirección de compatibilidad sin ningún motor duplicado. No reescribir motores ni cambiar reglas.
 - `spells/` aloja el editor de Conjuros y Listas. `techs/` (Técnicas) y `songs/` (Canciones) son nombres reservados para herramientas futuras, no implementaciones ficticias.
 - Dungeon Hack y Naufragio d20 son sistemas distintos. Épica, Futura, Nocturna y demás suplementos son fuentes con identidad, reglas, estado editorial y versión propias.
 - Sin mezclas de catálogos, publicación implícita de suplementos ni modificación del DRS. El Centinela continúa como propuesta no aprobada.
@@ -28,7 +28,7 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 - `.github/workflows/forja-preview.yml` se ejecuta tras cambios en `feat/forja-modular-enlaces`; genera `dist/public-drs`, pasa el guardia DRS, valida el paquete filtrado y ejecuta un E2E de enlaces portátiles con Chromium.
 - Solo el contenido generado de la **lista blanca DRS** pasa a la rama huérfana `forja-preview-pr142`. No se copian `.github`, `control.html`, `scripts/`, huellas internas ni propuestas de Listas de Conjuros: `listas` y `progresiones` editoriales quedan vacías. Nunca se sirve el árbol de desarrollo.
 - La URL de prueba es [La Forja PREVIEW](https://raw.githack.com/naufragio-rolero/nd20-character-creator/forja-preview-pr142/index.html). Se utiliza el proxy estático **externo** raw.githack únicamente para pruebas de bajo tráfico; no es un segundo GitHub Pages, ni un entorno de producción, ni ofrece garantías de disponibilidad. En su primera visita puede pedir confirmación de seguridad.
-- El proxy no resuelve `/carpeta/` como Pages: **solo la copia PREVIEW** enlaza explícitamente `characters-nd20/index.html` y `spells/index.html`. Se añaden una marca visible de PREVIEW y metaetiquetas `noindex`; el código y las rutas de LIVE no cambian.
+- El proxy no resuelve `/carpeta/` como Pages: **solo la copia PREVIEW** enlaza explícitamente `characters/index.html` y `spells/index.html`. Se añaden una marca visible de PREVIEW y metaetiquetas `noindex`; el código y las rutas de LIVE no cambian.
 - El CI prueba por HTTP los recursos remotos y comprueba que `PREVIEW.txt` corresponde al commit que ha generado el paquete. Conserva también un artefacto descargable durante siete días. Si la prueba remota falla, no declarar validada la URL aunque exista la rama.
 - **Privacidad:** el proxy es un dominio ajeno compartido entre distintos repositorios y esta PREVIEW es pública. Usar exclusivamente fichas y datos ficticios de prueba; no introducir secretos ni información personal real. Las bibliotecas y fichas se almacenan solo en el navegador.
 - La promoción a LIVE continúa requiriendo autorización expresa, QA y el procedimiento de SHA aprobado de `.github/workflows/forja-live.yml`.
@@ -72,3 +72,11 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 - [x] Pruebas de E2E y workflows del paquete candidato actualizados, sin desplegar.
 - [ ] Revisión manual de permisos reales del portapapeles y navegadores móviles físicos. Los E2E interceptan la escritura para no depender de permisos de CI.
 - [ ] Aprobación editorial, fusión coordinada de la PR #140 y posterior validación/publicación en LIVE.
+
+## Migración de `characters-nd20/` a `characters/` — Fase 4 (#143)
+
+- El HTML único de Personajes pasa **sin cambios de contenido** de `characters-nd20/index.html` a `characters/index.html` y conserva `<base href="../">`, por lo que los activos siguen resolviendo desde la raíz común.
+- `characters-nd20/index.html` es ahora una página ligera que usa `location.replace()`, copia `search` y `hash` sin decodificar `#share=` y no añade una entrada al historial. Para una URL explícita `.../index.html` redirige a `characters/index.html`; para `.../characters-nd20/`, a `characters/`. El enlace de reserva sin JavaScript usa la ruta explícita.
+- El Hub enlaza a `characters/`; los enlaces nuevos de personajes y adversarios usan `characters/` en Pages y `characters/index.html` cuando la página de origen es `/index.html` (proxy de archivos). El formato del token compartido no cambia.
+- El paquete candidato DRS incluye ambos documentos: la página única bajo la ruta nueva, y la redirección ligera bajo la ruta antigua. El filtrado de Fantasía DRS y Dungeon Hack se aplica **solo** al HTML nuevo.
+- La actualización del workflow PREVIEW, regresiones, lista blanca y auditoría de rutas se registra en las fases 4–5; no despliega ni fusiona ninguna PR.

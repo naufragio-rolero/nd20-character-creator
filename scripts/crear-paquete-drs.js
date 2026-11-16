@@ -95,7 +95,7 @@ const iconosForja=[
 ];
 const iconosEscuelas=['arcana','divina','nigromancia','elemental','demonologia','naturaleza'];
 const especificas=[
-  'index.html','characters-nd20/index.html','spells/index.html',
+  'index.html','characters/index.html','characters-nd20/index.html','spells/index.html',
   'assets/portal.css','assets/portal.js','assets/share-links.js',
   'assets/forja-header.css','assets/theme-picker.js',
   'assets/spell-lists.js','assets/spell-lists-simple.js','assets/spell-lists-simple.css',
@@ -346,7 +346,7 @@ for(const ruta of especificas){
     const html=fs.readFileSync(origen,'utf8')
       .replace('<a href="control.html">Control editorial</a>','');
     escribir(ruta,html);
-  }else if(ruta==='characters-nd20/index.html'){
+  }else if(ruta==='characters/index.html'){
     let html=fs.readFileSync(origen,'utf8');
     // Los sistemas pendientes no deben figurar ni en el HTML original.
     if(/data-juego="nd20_(?:cifi|nocturna)"|<option value="nd20_(?:cifi|nocturna)">/.test(html))

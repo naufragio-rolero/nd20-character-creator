@@ -53,7 +53,7 @@ jobs:
           const fs = require('node:fs');
           const path = require('node:path');
           const raiz = path.resolve('dist/public-drs');
-          const paginas = ['index.html','characters-nd20/index.html','spells/index.html'];
+          const paginas = ['index.html','characters/index.html','characters-nd20/index.html','spells/index.html'];
           const css = '<style id="forja-preview-css">#forja-marca-preview{position:fixed;right:10px;bottom:10px;z-index:2147483647;padding:7px 11px;border-radius:7px;background:#171821;color:#fff;border:1px solid #ffce66;box-shadow:0 2px 12px #0008;font:600 12px/1.3 system-ui,sans-serif;pointer-events:none}</style>';
           const nota = '<div id="forja-marca-preview" role="status" aria-label="Versión de pruebas, no es LIVE">PREVIEW · NO LIVE · DATOS DE PRUEBA</div>';
           for (const nombre of paginas) {
@@ -67,11 +67,11 @@ jobs:
             // raw.githack es un proxy de ficheros, no GitHub Pages:
             // no resuelve /carpeta/ como /carpeta/index.html.
             if(nombre==='index.html'){
-              if(!html.includes('href="characters-nd20/"')||
+              if(!html.includes('href="characters/"')||
                  !html.includes('href="spells/"'))
                 throw Error('Han cambiado las rutas de la portada modular');
-              html=html.replace('href="characters-nd20/"',
-                'href="characters-nd20/index.html"');
+              html=html.replace('href="characters/"',
+                'href="characters/index.html"');
               html=html.replace('href="spells/"','href="spells/index.html"');
             }
             fs.writeFileSync(archivo,html);
@@ -107,6 +107,7 @@ jobs:
           git clean -fdx
           cp -a "$GITHUB_WORKSPACE/dist/public-drs/." .
           test -f index.html
+          test -f characters/index.html
           test -f characters-nd20/index.html
           test -f spells/index.html
           test ! -e .github
@@ -134,15 +135,15 @@ jobs:
             sleep 5
           done
           test "$valido" -eq 1
-          for recurso in index.html characters-nd20/index.html spells/index.html assets/styles.css assets/share-links.js data/listas-conjuros-borradores.json; do
+          for recurso in index.html characters/index.html characters-nd20/index.html spells/index.html assets/styles.css assets/share-links.js data/listas-conjuros-borradores.json; do
             curl -fsSL --connect-timeout 8 --max-time 30 "$base/$recurso" -o "$RUNNER_TEMP/preview-recurso"
             test -s "$RUNNER_TEMP/preview-recurso"
           done
           curl -fsSL --connect-timeout 8 --max-time 30 "$base/index.html" -o "$RUNNER_TEMP/preview-portada.html"
           grep -Fq 'PREVIEW · NO LIVE' "$RUNNER_TEMP/preview-portada.html"
-          grep -Fq 'href="characters-nd20/index.html"' "$RUNNER_TEMP/preview-portada.html"
+          grep -Fq 'href="characters/index.html"' "$RUNNER_TEMP/preview-portada.html"
           grep -Fq 'href="spells/index.html"' "$RUNNER_TEMP/preview-portada.html"
-          echo 'HTTP remoto correcto: portada, Personajes, Conjuros, recursos y revisión exacta.'
+          echo 'HTTP remoto correcto: portada, ruta de Personajes, redirección antigua, Conjuros y revisión exacta.'
       - name: Indicar enlace independiente, sin modificar LIVE
         run: |
           echo 'PREVIEW: https://raw.githack.com/naufragio-rolero/nd20-character-creator/forja-preview-pr142/index.html' >> "$GITHUB_STEP_SUMMARY"

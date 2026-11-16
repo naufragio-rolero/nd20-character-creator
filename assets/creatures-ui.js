@@ -1461,7 +1461,9 @@
       if(!rev.valida)throw Error('El adversario no está validado para compartir.');
       if(!root.NaufragioEnlaces)throw Error('Falta el módulo de enlaces compartibles.');
       var token=root.NaufragioEnlaces.codificar('adversary','nd20',datos);
-      var url=root.NaufragioEnlaces.crearUrl('characters-nd20/',token);
+      var rutaPersonajes=root.location.pathname.endsWith('/index.html')?
+        'characters/index.html':'characters/';
+      var url=root.NaufragioEnlaces.crearUrl(rutaPersonajes,token);
       if(!root.navigator.clipboard?.writeText)throw Error('Portapapeles no disponible. Utiliza Exportar JSON.');
       root.navigator.clipboard.writeText(url).then(function(){
         mostrarEstado('Enlace del adversario copiado. Contiene una instantánea de la ficha.');

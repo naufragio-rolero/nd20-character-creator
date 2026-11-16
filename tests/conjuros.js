@@ -166,7 +166,7 @@ assert.ok(tooltip.buscar(glosarioMagnitudes,'[C] Mano de mago (C1) · Nd20','pod
   .magnitudes,'Magnitudes integradas en fichas emergentes');
 assert.equal(tooltip.buscar(glosarioMagnitudes,'[C] Ira celestial (C3) · Nd20','poder','nd20'),null,
   'Círculo no documentado no se ofrece');
-const htmlIntegracion=fs.readFileSync(path.join(raiz,'characters-nd20','index.html'),'utf8');
+const htmlIntegracion=fs.readFileSync(path.join(raiz,'characters','index.html'),'utf8');
 const appIntegracion=fs.readFileSync(path.join(raiz,'assets/app.js'),'utf8');
 const uiIntegracion=fs.readFileSync(path.join(raiz,'assets/tooltip-ui.js'),'utf8');
 assert.ok(htmlIntegracion.includes('assets/spell-magnitudes.js'));

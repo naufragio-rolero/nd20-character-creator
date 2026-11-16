@@ -737,7 +737,7 @@ async function main(){
     server.once('error',reject);server.listen(0,'127.0.0.1',resolve);
   });
   try{
-    const url='http://127.0.0.1:'+server.address().port+'/characters-nd20/index.html';
+    const url='http://127.0.0.1:'+server.address().port+'/characters/index.html';
     const seleccion=process.argv.slice(2);
     const motores={chrome:chromium,chromium:chromium,firefox:firefox,webkit:webkit};
     const nombres=seleccion.length?seleccion:['firefox','webkit'];

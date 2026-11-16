@@ -2,8 +2,13 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
-const portal=read('index.html'),characters=read('characters-nd20/index.html'),spells=read('spells/index.html');
-assert.match(portal,/href="characters-nd20\/"/);
+const portal=read('index.html'),characters=read('characters/index.html'),spells=read('spells/index.html');
+assert.match(portal,/href="characters\/"/);
+const redirect=read('characters-nd20/index.html');
+assert.match(redirect,/window\.location\.replace\(destino\.href\)/);
+assert.match(redirect,/destino\.search=actual\.search/);
+assert.match(redirect,/destino\.hash=actual\.hash/);
+assert.ok(!redirect.includes('assets/app.js'),'Solo el nuevo módulo carga el motor');
 assert.match(portal,/href="spells\/"/);
 assert.match(portal,/<circle cx="32" cy="20"/);
 assert.match(portal,/M32 52c-7-6/);
