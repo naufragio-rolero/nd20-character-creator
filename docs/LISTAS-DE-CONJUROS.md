@@ -1,6 +1,6 @@
 # La Forja — Editor de Listas de Conjuros (candidato editorial)
 
-**Estado:** rama de desarrollo; no incorporado a la generación oficial de personajes, no publicado en LIVE, no altera el DRS.  
+**Estado:** rama de desarrollo, accesible en PREVIEW aislada; no incorporado a la generación oficial de personajes, no publicado en LIVE, no altera el DRS.  
 **Fuente normativa exclusiva:** [Naufragio d20 DRS v1.1.12](https://docs.google.com/document/d/1W69x5V_982IGg2AL0TltZ200aSt2khXu_VCa7gMI3zY/edit).  
 **Caso de prueba no aprobado:** [Centinela v5](https://github.com/naufragio-rolero/naufragio-d20/blob/main/suplementos/zelda/ocupaciones/centinela.md) y su [Lista provisional](https://github.com/naufragio-rolero/naufragio-d20/blob/main/suplementos/zelda/listas-de-conjuros/centinela.md).
 
