@@ -221,7 +221,7 @@ const adalidVerificado=poderes.planificar({juego:'nd20',nivel:30,ocupacion:'Adal
   especie:'Humano común'},fantasiaExtendida,catalogoPoderes,progresiones);
 assert.ok(adalidVerificado.avisos.some(x=>x.includes('correspondencia de Escuelas')),
   'Adalid: tabla verificada, Conjuros ambiguos no inventados');
-const documento=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+const documento=fs.readFileSync(path.join(__dirname,'..','characters-nd20','index.html'),'utf8');
 for(const tag of ['data-juego="nd20"','data-juego="dh"','tab-herramientas','selector-tema'])
  assert.ok(documento.includes(tag),'Menú contiene '+tag);
 assert.ok(!/data-juego="nd20_(cifi|nocturna)"/.test(documento),
@@ -1182,3 +1182,6 @@ require('./criaturas-generador.js');
 
 /* Listas de Conjuros DRS: catálogo único y asociaciones personalizadas. */
 require('./listas-conjuros.js');
+
+/* Portada y herramientas con enlaces sin servidor. */
+require('./forja-modular.js');
