@@ -233,7 +233,8 @@ function conectar(){
     $(id).addEventListener("input",vistaPrevia);$(id).addEventListener("change",vistaPrevia);
   });
   $("asoc-ocupacion").addEventListener("change",function(){
-    var a=lib.asociaciones.find(function(x){return x.ocupacion===this.value.trim();});
+    var ocupacion=this.value.trim();
+    var a=lib.asociaciones.find(function(x){return x.ocupacion===ocupacion;});
     if(a){$("asoc-lista").value=a.listaId;$("asoc-progresion").value=a.progresionId||"";vistaPrevia();}
   });
 }
