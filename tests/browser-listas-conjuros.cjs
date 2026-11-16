@@ -1,5 +1,5 @@
 'use strict';
-/* E2E en rama de trabajo: el editor NO forma parte del paquete público. */
+/* E2E editorial del editor avanzado; la web pública usa Conjuros sencillo. */
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
@@ -108,7 +108,7 @@ async function probar(nombre,motor,url){
 (async()=>{
   await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});
   try{
-    const url='http://127.0.0.1:'+server.address().port+'/spells/index.html';
+    const url='http://127.0.0.1:'+server.address().port+'/listas-de-conjuros.html';
     for(const [nombre,motor] of [['firefox',firefox],['webkit',webkit]])
       await probar(nombre,motor,url);
   }finally{await new Promise(resolve=>server.close(resolve));}
