@@ -282,11 +282,19 @@ async function cargar(){
     var sugeridas=Object.keys(ocupaciones).concat(["Centinela","Profeta"]);
     opciones($("ocupaciones-sugeridas"),sugeridas.map(function(s){return [s,s];}));
     conectar();poblarAsociaciones();seleccionar(catalogo.oficiales[0].id,true);
-    $("asoc-ocupacion").value="Centinela";
-    $("asoc-lista").value="propuesta:centinela-v5";
-    $("asoc-progresion").value="propuesta:centinela-v5";vistaPrevia();
+    if(borradores.listas.some(function(x){return x.id==="propuesta:centinela-v5";})){
+      $("asoc-ocupacion").value="Centinela";
+      $("asoc-lista").value="propuesta:centinela-v5";
+      $("asoc-progresion").value="propuesta:centinela-v5";
+    }else{
+      $("asoc-ocupacion").value="Mago";
+      $("asoc-lista").value=catalogo.oficiales.find(function(x){return x.nombre==="Mago";})?.id||catalogo.oficiales[0].id;
+      $("asoc-progresion").value="drs:Mago";
+    }
+    vistaPrevia();
     estado("DRS "+catalogo.versionDRS+" · "+catalogo.conjuros.length+" Conjuros verificados · "+
-      lib.listas.length+" listas personales guardadas. Centinela es una propuesta editorial.");
+      lib.listas.length+" listas personales guardadas."+
+      (borradores.listas.length?" Las propuestas siguen en revisión.":""));
   }catch(e){
     estado("No se pudo abrir el editor: "+e.message,true);
     $("form-lista").hidden=true;$("form-asociacion").hidden=true;
