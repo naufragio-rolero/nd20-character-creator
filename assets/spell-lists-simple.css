@@ -95,3 +95,22 @@
 @media(prefers-reduced-motion:reduce){
   .conjuros-simple button{transition:none}
 }
+
+/* Opciones de copia y presentación: solo metadatos de las fichas DRS. */
+.conjuros-simple .formato-lista{
+  margin:.2rem 0 1rem;padding:.75rem .95rem;
+  background:var(--fondo2);border:1px solid var(--borde);border-radius:9px}
+.conjuros-simple .formato-lista>summary{
+  cursor:pointer;font-size:.9rem;color:var(--texto);font-weight:750}
+.conjuros-simple .formato-opciones{
+  display:flex;flex-wrap:wrap;align-items:center;gap:.55rem 1.2rem;margin-top:.8rem}
+.conjuros-simple .formato-casilla{
+  display:inline-flex;flex-direction:row;align-items:center;gap:.5rem;
+  min-height:40px;font-size:.86rem;font-weight:600;cursor:pointer}
+.conjuros-simple .formato-casilla input[type=checkbox]{
+  width:1.1rem;min-width:1.1rem;min-height:1.1rem;height:1.1rem;
+  margin:0;accent-color:var(--oro);cursor:pointer}
+.conjuros-simple .formato-lista .ayuda-conjuros{margin:.45rem 0 0}
+@media(max-width:480px){
+  .conjuros-simple .formato-opciones{flex-direction:column;align-items:flex-start;gap:.2rem}
+}
