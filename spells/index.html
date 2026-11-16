@@ -21,7 +21,7 @@
   <script defer src="assets/spell-lists-simple.js"></script>
 </head>
 <body class="pagina-conjuros">
-  <a class="saltar" href="#contenido" style="position:absolute;left:-9999px;top:auto" onfocus="this.style.left='10px';this.style.top='10px'" onblur="this.style.left='-9999px'">Saltar al contenido</a>
+  <a class="saltar-conjuros" href="#contenido">Saltar al contenido</a>
   <header class="encabezado">
     <div class="marca">
       <img class="marca-logotipo" src="assets/branding/naufragio.svg" alt="El Naufragio" width="120" height="48">
@@ -54,18 +54,17 @@
           <input id="lista-dueno" type="text" maxlength="100" autocomplete="off" placeholder="Por ejemplo, el Profeta">
         </label>
         <p class="ayuda-conjuros">El título se crea automáticamente: «Lista de Conjuros de …».</p>
-        <div id="panel-guardadas" hidden>
-          <div class="fila-nombre">
+        <div class="fila-nombre">
+          <div id="panel-guardadas" hidden>
             <label for="listas-guardadas">Mis listas guardadas
               <select id="listas-guardadas"><option value="">Nueva lista</option></select>
             </label>
-            <div class="acciones-listas">
-              <button id="crear-lista" type="button">Nueva lista</button>
-              <button id="eliminar-lista" type="button" disabled>Eliminar esta lista</button>
-            </div>
+          </div>
+          <div class="acciones-listas">
+            <button id="crear-lista" type="button">Nueva lista</button>
+            <button id="eliminar-lista" type="button" disabled>Eliminar esta lista</button>
           </div>
         </div>
-        <button id="crear-lista" type="button" hidden aria-hidden="true" tabindex="-1"></button>
       </section>
       <section class="panel-simple" aria-labelledby="titulo-busqueda">
         <p class="paso">BUSCAR Y AÑADIR</p>
