@@ -1,0 +1,17 @@
+'use strict';
+const assert=require('node:assert/strict');
+const links=require('../assets/portable-links.js');
+const input={registro:{version:1,semilla:'Ñáufrago 42',config:{juego:'nd20',cantidad:1,fuentes:['DRS']}}};
+const p=links.codificar('characters-nd20','nd20-epica',input);
+assert.deepEqual(links.decodificar(p,'characters-nd20').contenido,input);
+assert.deepEqual(links.leerDesdeHash('#data='+p,'characters-nd20').contenido,input);
+assert.equal(links.leerDesdeHash('#otra=cosa','characters-nd20'),null);
+assert.match(links.enlace('https://ejemplo.test/forja/characters-nd20/','characters-nd20','nd20-epica',input),/#data=/);
+assert.throws(()=>links.decodificar(p,'spells'),/otra herramienta/);
+assert.throws(()=>links.codificar('no-existe','nd20-epica',input),/incompatible/);
+assert.throws(()=>links.codificar('spells','sistema-falso',input),/incompatible/);
+assert.throws(()=>links.decodificar('@@@@','spells'),/mal formados/);
+assert.throws(()=>links.decodificar('A'.repeat(26001),'spells'),/demasiado largo/);
+assert.throws(()=>links.codificar('spells','nd20-epica',{texto:'x'.repeat(20000)}),/supera el límite/);
+assert.deepEqual(links.decodificar(links.codificar('spells','nd20-futura',{lista:{conjuros:['conjuro-2']}}),'spells').contenido,{lista:{conjuros:['conjuro-2']}});
+console.log('OK: enlaces portátiles v1 (tipos, Unicode, versión, tamaño, rutas, restricciones)');
