@@ -103,7 +103,7 @@ jobs:
           case "$GITHUB_REF" in
             refs/heads/feat/forja-modular-enlaces|refs/heads/feat/escuelas-medallones-characters) ;;
             *) echo 'Ref no autorizada para PREVIEW'; exit 1;;
-          es
+          esac
           test -f dist/public-drs/PREVIEW.txt
           destino="$RUNNER_TEMP/forja-preview-worktree"
           git worktree add --detach "$destino" HEAD
