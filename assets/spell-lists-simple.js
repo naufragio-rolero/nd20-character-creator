@@ -52,7 +52,7 @@ function nombresGuardados(){
   $('eliminar-lista').disabled=!actualId;
 }
 function refrescarCabecera(){
-  $('titulo-lista').textContent=nombre().trim()||'Lista de Conjuros de…';
+  $('titulo-lista').textContent=$('lista-dueno').value.trim()?nombre():'Lista de Conjuros de…';
   $('cuenta-lista').textContent=conjuros.size+' Conjuros';
   $('eliminar-lista').disabled=!actualId;
 }
