@@ -81,6 +81,25 @@ async function probar(nombre,motor,url){
     assert.equal(JSON.parse(datos).listas.length,1);
     assert.equal(JSON.parse(datos).asociaciones.length,2);
     assert.ok(!datos.includes('Generas una grieta'),'No exportar descripciones oficiales');
+    // Un enlace transporta una Lista personal a OTRO navegador sin servidor.
+    await page.locator('#compartir-lista').click();
+    const enlace=await page.locator('#enlace-compartido').inputValue();
+    assert.match(enlace,/\/spells\/#data=/);
+    const otroContexto=await browser.newContext({viewport:{width:375,height:812}});
+    try{
+      const otraPagina=await otroContexto.newPage();
+      const erroresCompartida=[];
+      otraPagina.on('pageerror',e=>erroresCompartida.push(e.message));
+      await otraPagina.goto(enlace,{waitUntil:'domcontentloaded'});
+      await otraPagina.locator('#estado-datos').getByText('Lista compartida recibida',{exact:false}).waitFor();
+      assert.equal(await otraPagina.locator('#lista-nombre').inputValue(),'Ensayo personal');
+      assert.equal(await otraPagina.evaluate(()=>localStorage.getItem('forja-listas-conjuros-v1')),null,
+        'Abrir un enlace NO debe guardar la Lista del remitente automáticamente.');
+      await otraPagina.locator('#guardar-lista').click();
+      await otraPagina.locator('#estado-lista').getByText('guardada localmente',{exact:false}).waitFor();
+      assert.equal(await otraPagina.locator('#listas button').count(),4);
+      assert.deepEqual(erroresCompartida,[],'La Lista compartida se abre sin errores JS.');
+    }finally{await otroContexto.close();}
     await page.locator('#importar-archivo').setInputFiles({
       name:'bad.json',mimeType:'application/json',buffer:Buffer.from('{"esquema":"incorrecto"}')});
     assert.match(await page.locator('#estado-datos').innerText(),/No se importó nada/);
