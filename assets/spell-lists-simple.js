@@ -15,7 +15,7 @@ function presentarConjuro(s){
   var resultado=s.nombre;
   if(mostrarEscuela()&&s.escuela)resultado+=' — '+s.escuela;
   // No inferir la procedencia: la etiqueta se basa en la ficha DRS validada.
-  if(mostrarOrigen()&&typeof s.fuente==='string'&&/\\bDRS\\b/i.test(s.fuente))
+  if(mostrarOrigen()&&typeof s.fuente==='string'&&/\bDRS\b/i.test(s.fuente))
     resultado+=' [DRS]';
   return resultado;
 }
@@ -38,7 +38,7 @@ function listaEnTexto(){
     grupo.forEach(function(s){lineas.push('- '+presentarConjuro(s));});
     lineas.push('');
   });
-  return lineas.join('\\n').trim();
+  return lineas.join('\n').trim();
 }
 function guardarFormato(){
   try{localStorage.setItem(KEY_FORMATO,JSON.stringify({
