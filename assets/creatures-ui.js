@@ -1453,6 +1453,30 @@
       mostrarEstado('Ficha JSON exportada. La descarga no guarda los cambios en la biblioteca.');
     } catch(error) {mostrarEstado('No se pudo exportar: '+error.message,true);}
   }
+  function compartirAdversario(){
+    try {
+      var datos=obtenerFichaConsulta(idConsulta);
+      if(!datos)throw Error('No se encuentra este adversario.');
+      var rev=modelo.revisar(datos,{paraExportar:true});
+      if(!rev.valida)throw Error('El adversario no está validado para compartir.');
+      if(!root.NaufragioEnlaces)throw Error('Falta el módulo de enlaces compartibles.');
+      var token=root.NaufragioEnlaces.codificar('adversary','nd20',datos);
+      var url=root.NaufragioEnlaces.crearUrl('characters-nd20/',token);
+      if(!root.navigator.clipboard?.writeText)throw Error('Portapapeles no disponible. Utiliza Exportar JSON.');
+      root.navigator.clipboard.writeText(url).then(function(){
+        mostrarEstado('Enlace del adversario copiado. Contiene una instantánea de la ficha.');
+      },function(){mostrarEstado('No se pudo copiar el enlace.',true);});
+    }catch(error){mostrarEstado('No se pudo compartir: '+error.message,true);}
+  }
+  function abrirCompartida(datos){
+    if(!iniciado)iniciar();
+    var rev=modelo.revisar(datos,{paraExportar:true});
+    if(!rev.valida)throw Error('El adversario compartido no supera la validación.');
+    if(!permitirDescartar())return;
+    renderizarFicha(datos,null);
+    mostrarEstado('Adversario recibido por enlace; aún no está guardado en tu biblioteca.');
+    abrirEditor();
+  }
   function exportarBiblioteca() {
     try {
       if(!biblioteca)throw Error('No hay almacenamiento local disponible.');
@@ -1943,6 +1967,7 @@
     $('criaturas-exportar-ficha').addEventListener('click',exportarFicha);
     $('criaturas-exportar-biblioteca').addEventListener('click',exportarBiblioteca);
     $('criaturas-exportar-pdf-coleccion').addEventListener('click',exportarPdfColeccion);
+    $('criaturas-ficha-compartir').addEventListener('click',compartirAdversario);
     $('criaturas-ficha-pdf').addEventListener('click',exportarPdfIndividual);
     $('criaturas-archivo-json').addEventListener('change',importarJson);
     $('criaturas-lista').addEventListener('click',gestionarLista);
@@ -1961,5 +1986,5 @@
     // y recuperar los adversarios previamente seleccionados.
     asegurarCatalogoDRS().then(dibujarBiblioteca).catch(function(){});
   }
-  return {iniciar:iniciar,aEntero:aEntero};
+  return {iniciar:iniciar,abrirCompartida:abrirCompartida,aEntero:aEntero};
 });
