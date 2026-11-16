@@ -262,8 +262,8 @@ assert.ok(aclaracionesPublicas.registros.find(a=>a.nombre==='¡Sálvese quien pu
   .texto.includes('Parálisis o Miedo'));
 const html=fs.readFileSync(path.join(salida,'characters-nd20','index.html'),'utf8');
 const portal=fs.readFileSync(path.join(salida,'index.html'),'utf8');
-assert.match(portal,/href="characters-nd20\\/"/);
-assert.match(portal,/href="spells\\/"/);
+assert.ok(portal.includes('href="characters-nd20/"'));
+assert.ok(portal.includes('href="spells/"'));
 assert.match(portal,/circle cx="32" cy="20"/);
 assert.match(portal,/M32 52c-7-6/);
 assert.ok(fs.existsSync(path.join(salida,'spells','index.html')));
