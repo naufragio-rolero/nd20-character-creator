@@ -128,7 +128,7 @@ for(const entradas of [
 assert.throws(()=>motor.generar(catalogo,[fuente],[],{
   ...cfg,modo:'restringido',categorias:['Limo'],acciones:8,talentos:8
 }),/suficientes Acciones y Talentos/);
-const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');
+const html=fs.readFileSync(path.join(__dirname,'../characters-nd20/index.html'),'utf8');
 const ui=fs.readFileSync(path.join(__dirname,'../assets/creatures-ui.js'),'utf8');
 for(const id of ['criaturas-nueva-panel','criaturas-crear-dialogo',
   'criaturas-crear-manual','criaturas-crear-aleatorio','criaturas-crear-cerrar',
