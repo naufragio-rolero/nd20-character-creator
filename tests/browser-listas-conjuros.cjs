@@ -88,7 +88,12 @@ async function probar(nombre,motor,url){
     await page.setViewportSize({width:375,height:812});
     assert.equal(await page.locator('#crear-lista').isVisible(),true);
     const desbordamiento=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
-    assert.ok(desbordamiento<=2,'No debe haber desbordamiento horizontal móvil: '+desbordamiento);
+    const elementosDesbordados=await page.evaluate(()=>Array.from(document.querySelectorAll('body *'))
+      .map(el=>({elemento:el.tagName.toLowerCase(),id:el.id,clase:typeof el.className==='string'?el.className:'',
+        derecha:Math.round(el.getBoundingClientRect().right),ancho:Math.round(el.getBoundingClientRect().width)}))
+      .filter(el=>el.derecha>window.innerWidth+2).slice(0,12));
+    assert.ok(desbordamiento<=2,'No debe haber desbordamiento horizontal móvil: '+desbordamiento+
+      ' · '+JSON.stringify(elementosDesbordados));
     assert.deepEqual(errores,[],nombre+': sin excepciones JavaScript.');
     console.log('OK · '+nombre+': 64 fichas, lectura DRS, filtros, copia, local, export/import, asociación, móvil y protección.');
   }finally{await context.close();await browser.close();}
