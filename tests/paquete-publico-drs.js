@@ -11,6 +11,19 @@ function leer(base,ruta){
 }
 if(!fs.existsSync(path.join(salida,'index.html')))
   throw Error('Primero ejecutar node scripts/crear-paquete-drs.js');
+// La portada y los módulos existen en el candidato, pero ninguna propuesta
+// editorial de Conjuros se publica accidentalmente.
+const portada=fs.readFileSync(path.join(salida,'index.html'),'utf8');
+assert.ok(portada.includes('href="characters-nd20/"')&&portada.includes('href="spells/"'));
+for(const ruta of ['characters-nd20/index.html','spells/index.html','adversaries/index.html',
+  'assets/portal.css','assets/portal.js','assets/portable-links.js',
+  'assets/icons/ico-portada-personajes.svg','assets/icons/ico-portada-conjuros.svg']){
+  assert.ok(fs.existsSync(path.join(salida,ruta)),'Módulo público incompleto: '+ruta);
+}
+const borradoresPublicos=leer(salida,'listas-conjuros-borradores.json');
+assert.deepEqual(borradoresPublicos.listas,[]);
+assert.deepEqual(borradoresPublicos.progresiones,[]);
+assert.equal(leer(salida,'conjuros-drs-fichas.json').conjuros.length,64);
 const core=leer(salida,'catalogo-poderes.json');
 const original=leer(raiz,'catalogo-poderes.json');
 assert.equal(core.conjuros.length,64);
