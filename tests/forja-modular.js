@@ -14,6 +14,20 @@ assert.match(characters,/id="compartir-reproduccion"/);
 assert.match(characters,/id="criaturas-ficha-compartir"/);
 assert.match(read('assets/creatures-ui.js'),/abrirCompartida/);
 assert.match(spells,/id="compartir-listas"/);
+assert.match(spells,/id="copiar-lista"/);
+assert.match(spells,/id="mostrar-origen"/);
+assert.match(spells,/id="mostrar-escuela"/);
+for(const documento of [characters,spells]){
+  assert.ok(documento.includes('aria-label="Volver al hub"'));
+  assert.ok(documento.includes('class="forja-icono-inicio"'));
+  assert.ok(!documento.includes('← Volver al hub'));
+}
+const jsConjuros=read('assets/spell-lists-simple.js');
+assert.ok(jsConjuros.includes("lineas.push('Círculo '+(i+1))"));
+assert.ok(jsConjuros.includes("resultado+=' [DRS]'"));
+assert.ok(jsConjuros.includes("resultado+=' — '+s.escuela"));
+assert.ok(jsConjuros.includes("navigator.clipboard.writeText(texto)"));
+assert.ok(read('assets/forja-header.css').includes('margin-inline:auto'));
 const api=require('../assets/share-links.js');
 const registro={version:1,semilla:'ñá-2026',config:{juego:'nd20',cantidad:1,modo:'rapido'}};
 const token=api.codificar('character','nd20',registro);
