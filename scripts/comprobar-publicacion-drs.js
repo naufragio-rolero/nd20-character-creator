@@ -42,7 +42,7 @@ const iconosCategoriasAdversarios=[
 const requeridos=[
   'index.html','characters-nd20/index.html','spells/index.html',
   'assets/portal.css','assets/portal.js','assets/share-links.js',
-  'assets/spell-lists.js','assets/spell-lists-ui.js','assets/spell-lists.css',
+  'assets/spell-lists.js','assets/spell-lists-simple.js','assets/spell-lists-simple.css',
   'data/conjuros-drs-fichas.json','data/listas-conjuros-borradores.json',
   'assets/styles.css',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
