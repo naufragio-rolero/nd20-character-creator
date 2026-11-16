@@ -58,7 +58,7 @@ for(const escuela of escuelas){
   assert.match(svg,/<svg[^>]*viewBox="0 0 24 24"/,fichero+': lienzo 1:1');
   assert.match(svg,/<circle cx="12" cy="12" r="11"/,fichero+': medallón centrado');
   assert.ok(svg.includes('Diseño original de El Naufragio'),fichero+': autoría propia');
-  assert.ok(!/<script\\b|<foreignObject\\b|<iframe\\b|\\bon[a-z]+\\s*=|\\bhref\\s*=/i.test(svg),
+  assert.ok(!/<script\b|<foreignObject\b|<iframe\b|\bon[a-z]+\s*=|\bhref\s*=/i.test(svg),
     fichero+': sin contenido activo ni recursos externos');
 }
 const originalesPropios=new Set(["ico-configurar","recurso-salud","recurso-esfuerzo","recurso-movimiento","recurso-potencia","recurso-esencia","recurso-blindaje"]);

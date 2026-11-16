@@ -417,7 +417,7 @@ for(const escuela of ['arcana','divina','nigromancia','elemental','demonologia',
   const publicado=fs.readFileSync(path.join(salida,ruta),'utf8');
   assert.equal(publicado,original,'Medallón DRS alterado: '+nombre);
   assert.match(publicado,/<svg[^>]*viewBox="0 0 24 24"/);
-  assert.doesNotMatch(publicado,/<(?:script|foreignObject|iframe|object|embed)\\b|\\bon[a-z]+\\s*=|\\bhref\\s*=/i);
+  assert.doesNotMatch(publicado,/<(?:script|foreignObject|iframe|object|embed)\b|\bon[a-z]+\s*=|\bhref\s*=/i);
 }
 const cssAcciones=fs.readFileSync(path.join(salida,'assets/styles.css'),'utf8');
 for(const nombre of ['accion-equipo','accion-talentos','accion-pdf',

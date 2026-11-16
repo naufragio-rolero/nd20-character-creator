@@ -33,9 +33,11 @@ for(const escuela of ['arcana','divina','nigromancia','elemental','demonologia',
   assert.match(recurso,/viewBox="0 0 24 24"/,'Medallón uniforme: '+escuela);
   assert.match(recurso,/<circle cx="12" cy="12" r="11"/,'Círculo centrado: '+escuela);
 }
-assert.match(jsConjuros,/li\\.appendChild\\(icono\\)/,'Medallón en las listas por Círculos');
-assert.match(jsConjuros,/crearIconoEscuela\\(s\\.escuela\\)/,'Escuela derivada del DRS');
-assert.match(read('assets/spell-lists-simple.css'),/\\.conjuro-seleccionado \\.icono-escuela/,
+assert.ok(jsConjuros.includes('if(icono)li.appendChild(icono);'),
+  'Medallón en las listas por Círculos');
+assert.ok(jsConjuros.includes('crearIconoEscuela(s.escuela)'),
+  'Escuela derivada del DRS');
+assert.ok(read('assets/spell-lists-simple.css').includes('.conjuro-seleccionado .icono-escuela'),
   'Icono compacto en la lista agrupada');
 assert.ok(read('assets/forja-header.css').includes('margin-inline:auto'));
 const api=require('../assets/share-links.js');
