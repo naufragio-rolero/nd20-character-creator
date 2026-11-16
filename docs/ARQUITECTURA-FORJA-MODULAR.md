@@ -33,6 +33,16 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 - **Privacidad:** el proxy es un dominio ajeno compartido entre distintos repositorios y esta PREVIEW es pública. Usar exclusivamente fichas y datos ficticios de prueba; no introducir secretos ni información personal real. Las bibliotecas y fichas se almacenan solo en el navegador.
 - La promoción a LIVE continúa requiriendo autorización expresa, QA y el procedimiento de SHA aprobado de `.github/workflows/forja-live.yml`.
 
+## Conjuros — pantalla simplificada tras QA manual de PREVIEW
+- El usuario identificó que el editor anterior no parecía La Forja, que el cambio de tema no funcionaba y que asociar Listas a Ocupaciones no era su flujo deseado.
+- **Causa comprobada:** la página anterior de \`spells/\` utilizaba \`assets/spell-lists.css\` y variables cromáticas \`var(--fondo)\`, \`var(--texto)\`, etc., **sin cargar \`assets/styles.css\`**, donde se definen los temas de La Forja.
+- Ahora \`spells/index.html\` carga la hoja de estilos oficial, Exo y \`assets/portal.js\`. Comparte los cinco temas y la preferencia \`forja-tema\` con Personajes y la portada.
+- Flujo visible: **nombre de destinatario o concepto → buscar Conjuro por nombre (filtro opcional de Círculo) → Añadir → vista inmediata «Lista de Conjuros de {x}»**, con grupos Círculo 1–8 en dos columnas y una en móvil. Cada entrada puede retirarse. No hay formulario de progresiones ni vínculos en el recorrido habitual.
+- Guardar, volver a abrir, compartir mediante enlace, exportar/importar JSON mantienen el contrato \`naufragio.listas-conjuros/v1\` y la misma clave \`localStorage\`; no se duplican las fichas oficiales. **Guardar es explícito** para evitar que las listas a medio escribir se publiquen automáticamente. No hay backend ni sincronización.
+- El **editor avanzado original** continúa en \`listas-de-conjuros.html\` y \`assets/spell-lists-ui.js\` para pruebas editoriales y futuras decisiones, **pero no se incluye en la lista blanca pública**. Los vínculos y progresiones existentes se conservan en la biblioteca sin alterarse.
+- Las dos listas oficiales de Mago y Clérigo y el borrador de Centinela permanecen en el modelo, no son reemplazados por las personales. En PREVIEW el Centinela se excluye físicamente.
+- Pruebas de paquete y E2E: búsqueda y adición, renderizado agrupado, guardado y enlace entre navegadores, aplicación/persistencia de tema y ausencia de scroll lateral móvil. No implica cambio de reglas, aprendizaje, Espacios ni preparación.
+
 ## Estado
 - [x] Decisiones registradas en el repositorio.
 - [x] Preparación de portada modular y rutas de herramientas.
