@@ -288,7 +288,7 @@ async function cargar(){
       $("asoc-progresion").value="propuesta:centinela-v5";
     }else{
       $("asoc-ocupacion").value="Mago";
-      $("asoc-lista").value=catalogo.oficiales.find(function(x){return x.nombre==="Mago";})?.id||catalogo.oficiales[0].id;
+      $("asoc-lista").value=catalogo.oficiales.find(function(x){return x.id==="drs:Mago";})?.id||catalogo.oficiales[0].id;
       $("asoc-progresion").value="drs:Mago";
     }
     vistaPrevia();
