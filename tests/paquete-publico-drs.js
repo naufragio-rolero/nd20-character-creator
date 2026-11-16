@@ -260,7 +260,7 @@ assert.ok(aclaracionesPublicas.registros.find(a=>a.nombre==='Expulsar muertos vi
   .texto.includes('3 zombis y 2 esqueletos'));
 assert.ok(aclaracionesPublicas.registros.find(a=>a.nombre==='¡Sálvese quien pueda!')
   .texto.includes('Parálisis o Miedo'));
-const html=fs.readFileSync(path.join(salida,'index.html'),'utf8');
+const html=fs.readFileSync(path.join(salida,'characters-nd20/index.html'),'utf8');
 assert.ok(html.includes('<h1>Forja de Naufragio d20</h1>'));
 assert.ok(html.includes('<title>Forja de Naufragio d20 · El Naufragio</title>'));
 assert.ok(html.includes('src="assets/branding/naufragio.svg"'));
@@ -349,7 +349,7 @@ for(const file of pdfA5){
     'La exportación A5 requiere el activo local '+file);
   assert(fs.statSync(path.join(salida,file)).size>100,file+': archivo insuficiente');
 }
-const publicPdfIndex=fs.readFileSync(path.join(salida,'index.html'),'utf8');
+const publicPdfIndex=fs.readFileSync(path.join(salida,'characters-nd20/index.html'),'utf8');
 const publicPdfApp=fs.readFileSync(path.join(salida,'assets/app.js'),'utf8');
 assert(publicPdfIndex.includes('assets/pdf-export-browser.js'));
 assert(publicPdfApp.includes('exportar-pdf-ficha'));
