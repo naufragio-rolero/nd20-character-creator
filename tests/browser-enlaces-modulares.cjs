@@ -62,10 +62,36 @@ async function probar(nombre,motor,origen){
     assert.equal(await portal.locator('.portal-tarjeta').count(),2);
     assert.equal(await portal.locator('a[href="characters-nd20/"]').count(),1);
     assert.equal(await portal.locator('a[href="spells/"]').count(),1);
+    assert.equal(await portal.locator('.forja-temas-abrir').count(),1);
+    assert.equal(await portal.locator('.forja-temas-opciones').isVisible(),false);
+    await portal.locator('.forja-temas-abrir').click();
+    assert.equal(await portal.locator('.forja-tema-circulo').count(),5,
+      'El menú muestra los cinco temas existentes, no nuevas combinaciones.');
+    await portal.locator('[data-tema-opcion="ebano"]').click();
+    assert.equal(await portal.locator('html').getAttribute('data-tema'),'ebano');
+    assert.equal(await portal.locator('.forja-temas-abrir').getAttribute('aria-expanded'),'false');
+    await portal.locator('.forja-temas-abrir').click();
+    await portal.keyboard.press('Escape');
+    assert.equal(await portal.locator('.forja-temas-opciones').isVisible(),false,
+      'Escape cierra la paleta sin alterar el tema.');
+    const portada = await portal.locator('.forja-cabecera').boundingBox();
+    const logoPortada = await portal.locator('.forja-cabecera .marca-logotipo').boundingBox();
+    assert.equal(await portal.locator('.forja-cabecera h1').innerText(),'La Forja');
+
 
     // Personajes: la semilla y la configuracion viajan; no se comparte un ID remoto.
     const pj=await pagina(origen+'/characters-nd20/');
     await pj.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+    assert.equal(await pj.locator('.forja-cabecera h1').innerText(),'La Forja');
+    assert.equal(await pj.locator('.forja-volver').getAttribute('href'),'index.html');
+    assert.equal(await pj.locator('.enlace-github').count(),0,
+      'No queda el botón Código y documentación en la cabecera.');
+    const pjHeader=await pj.locator('.forja-cabecera').boundingBox();
+    const pjLogo=await pj.locator('.forja-cabecera .marca-logotipo').boundingBox();
+    assert.ok(Math.abs(logoPortada.width-pjLogo.width)<2 &&
+      Math.abs(portada.x-pjHeader.x)<2,
+      'La marca y el eje de cabecera coinciden entre Hub y Personajes.');
+
     await pj.locator('#generar').click();
     await pj.locator('#fichas .ver-reproduccion').first().click();
     const semilla=await pj.locator('#semilla-resultado').innerText();
@@ -86,7 +112,15 @@ async function probar(nombre,motor,origen){
       'No hay asociaciones ni progresiones en la pantalla simplificada.');
     const colorInicial=await hechizos.evaluate(()=>
       getComputedStyle(document.documentElement).getPropertyValue('--fondo').trim());
-    await hechizos.locator('#selector-tema').selectOption('violeta');
+    assert.equal(await hechizos.locator('.forja-cabecera h1').innerText(),'La Forja');
+    assert.equal(await hechizos.locator('.forja-volver').getAttribute('href'),'index.html');
+    const spellHeader=await hechizos.locator('.forja-cabecera').boundingBox();
+    const spellLogo=await hechizos.locator('.forja-cabecera .marca-logotipo').boundingBox();
+    assert.ok(Math.abs(logoPortada.width-spellLogo.width)<2 &&
+      Math.abs(portada.x-spellHeader.x)<2,
+      'Hub y Conjuros tienen la misma cabecera que Personajes.');
+    await hechizos.locator('.forja-temas-abrir').click();
+    await hechizos.locator('[data-tema-opcion="violeta"]').click();
     assert.equal(await hechizos.locator('html').getAttribute('data-tema'),'violeta');
     const colorVioleta=await hechizos.evaluate(()=>
       getComputedStyle(document.documentElement).getPropertyValue('--fondo').trim());
@@ -94,8 +128,10 @@ async function probar(nombre,motor,origen){
       'Cambiar de tema debe modificar realmente las variables de La Forja.');
     await hechizos.reload();
     await hechizos.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    assert.equal(await hechizos.locator('.forja-temas-abrir .forja-tema-nombre').innerText(),'Violeta',
+      'El tema visible se conserva al recargar.');
     assert.equal(await hechizos.locator('#selector-tema').inputValue(),'violeta',
-      'El tema se conserva al recargar.');
+      'El motor sigue sincronizado con los temas anteriores.');
     await hechizos.locator('#lista-dueno').fill('Ensayo de enlace');
     await hechizos.locator('#filtro-nombre').fill('Silencio');
     assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),1);
