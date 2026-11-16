@@ -206,9 +206,9 @@
     var rect=principal.getBoundingClientRect();
     var principalVisible=!$('panel-personajes').hidden&&
       rect.width>0&&rect.height>0&&rect.bottom>0&&rect.top<innerHeight;
-    var pie=document.querySelector('.pie').getBoundingClientRect();
-    // Retirar el flotante ANTES del pie (también en pantallas pequeñas).
-    var pieCerca=pie.top<=innerHeight+80&&pie.bottom>=0;
+    var pie=document.querySelector('.forja-pie')?.getBoundingClientRect();
+    // Retirar el flotante ANTES del pie institucional común.
+    var pieCerca=!!pie&&pie.top<=innerHeight+80&&pie.bottom>=0;
     // Con la mesa vacía, el CTA es accesible desde el primer momento
     // incluso con el panel móvil cerrado. Después respeta pie y botón principal.
     var mesaVacia=entradas.length===0;
