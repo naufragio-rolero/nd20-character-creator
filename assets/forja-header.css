@@ -118,3 +118,15 @@
   .forja-cabecera .cabecera-acciones.forja-cabecera-acciones{
     align-items:center;justify-content:flex-start}
 }
+
+/* Créditos institucionales comunes: fuera de las mesas de juego. */
+.forja-pie{
+  max-width:1550px;margin:0 auto;padding:1.35rem 2.4rem 1.9rem;
+  border-top:1px solid var(--borde);color:var(--secundario);
+  font-size:.8rem;line-height:1.6;overflow-wrap:anywhere;
+}
+.forja-pie p{margin:0 0 .35rem}
+.forja-pie p:last-child{margin-bottom:0}
+.forja-pie a{color:var(--oro);text-decoration:underline;text-underline-offset:2px}
+.forja-pie a:hover{color:var(--texto)}
+@media(max-width:830px){.forja-pie{padding:1.2rem 1rem 2rem}}
