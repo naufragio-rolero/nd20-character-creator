@@ -11,6 +11,8 @@ assert.match(characters,/<base href="\.\.\/">/);
 assert.match(spells,/<base href="\.\.\/">/);
 assert.match(characters,/id="tab-criaturas"/);
 assert.match(characters,/id="compartir-reproduccion"/);
+assert.match(characters,/id="criaturas-ficha-compartir"/);
+assert.match(read('assets/creatures-ui.js'),/abrirCompartida/);
 assert.match(spells,/id="compartir-listas"/);
 const api=require('../assets/share-links.js');
 const registro={version:1,semilla:'ñá-2026',config:{juego:'nd20',cantidad:1,modo:'rapido'}};
