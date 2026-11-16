@@ -33,9 +33,9 @@ async function probar(nombre,tipo,url){
     await page.goto(url,{waitUntil:'domcontentloaded'});
     await page.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
     // La cabecera de marca y el glosario son presentación, no cambios del modelo.
-    assert.equal(await page.title(),'Forja de Naufragio d20 · El Naufragio');
+    assert.equal(await page.title(),'Personajes · La Forja · El Naufragio');
     assert.equal(await page.locator('header.encabezado h1').innerText(),
-      'Forja de Naufragio d20');
+      'La Forja');
     assert.equal(await page.locator('header.encabezado .sobrelinea').count(),0);
     const logoMarca=page.locator('header.encabezado img.marca-logotipo');
     await logoMarca.evaluate(img=>img.decode());
