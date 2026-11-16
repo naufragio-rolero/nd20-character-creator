@@ -148,7 +148,7 @@ assert.ok(fs.readFileSync(path.join(dir,'ocu-mago.svg'),'utf8').includes('pointy
 assert.ok(fs.existsSync(path.join(rutaOrigen,'darkzaitzev','big-gear.svg')),
   'El SVG original big-gear se conserva como fuente');
 
-const index=fs.readFileSync(path.join(raiz,'index.html'),'utf8');
+const index=fs.readFileSync(path.join(raiz,'characters-nd20','index.html'),'utf8');
 assert.ok(index.includes('assets/icons/CREDITOS-GAME-ICONS.txt'),
   'Créditos Game-icons enlazados desde La Forja');
 assert.ok(index.includes('assets/icons/LICENCIA-TABLER.txt'),
