@@ -95,6 +95,12 @@ const iconosForja=[
 ];
 const especificas=[
   'index.html',
+  // Portada y herramientas aisladas, aprobables únicamente mediante QA de este paquete.
+  'characters-nd20/index.html','spells/index.html','adversaries/index.html',
+  'assets/portal.css','assets/portal.js','assets/portable-links.js',
+  'assets/spell-lists.js','assets/spell-lists-ui.js','assets/spell-lists.css',
+  'assets/icons/ico-portada-personajes.svg','assets/icons/ico-portada-conjuros.svg',
+  'data/conjuros-drs-fichas.json','data/listas-conjuros-borradores.json',
   'assets/styles.css','assets/favicon.svg','assets/branding/naufragio.svg',
   'assets/icons/sistema-nd20-faep.webp','assets/icons/sistema-dh.webp',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
@@ -183,6 +189,15 @@ for(const [clave,nombre] of Object.entries(iconosAdversarios.iconos)){
   especificas.push(ruta);
 }
 const transformaciones={
+  // Una lista provisional NO puede promocionarse por mera inclusión del editor.
+  'data/listas-conjuros-borradores.json'(d){
+    if(!d||d.esquema!=='naufragio.listas-borrador/v1'||
+       !Array.isArray(d.listas)||!Array.isArray(d.progresiones))
+      throw Error('Índice de propuestas de Conjuros incompatible.');
+    d.listas=[];d.progresiones=[];
+    d.nota='No existen propuestas editoriales aprobadas para el paquete DRS público.';
+    return d;
+  },
   // Aunque el editor pueda consumir ampliaciones futuras, el paquete
   // público actual solo publica la fuente DRS expresamente autorizada.
   'data/adversarios-fuentes.json'(d){
@@ -329,9 +344,9 @@ for(const ruta of especificas){
     let dato=JSON.parse(fs.readFileSync(origen,'utf8'));
     if(transformaciones[ruta])dato=transformaciones[ruta](dato);
     escribir(ruta,JSON.stringify(dato,null,2)+'\n');
-  }else if(ruta==='index.html'){
+  }else if(ruta==='characters-nd20/index.html'){
     let html=fs.readFileSync(origen,'utf8');
-    // Los sistemas pendientes no deben figurar ni en el HTML original.
+    // El editor de Personajes conserva únicamente los sistemas publicados en LIVE.
     if(/data-juego="nd20_(?:cifi|nocturna)"|<option value="nd20_(?:cifi|nocturna)">/.test(html))
       throw Error('Los selectores contienen CiFi/Nocturna no publicados.');
     if(!html.includes('class="juegos-compactos"'))
