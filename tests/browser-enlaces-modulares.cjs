@@ -84,6 +84,9 @@ async function probar(nombre,motor,origen){
     await pj.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
     assert.equal(await pj.locator('.forja-cabecera h1').innerText(),'La Forja');
     assert.equal(await pj.locator('.forja-volver').getAttribute('href'),'index.html');
+    assert.equal(await pj.locator('.forja-volver svg').count(),1,
+      'Personajes muestra el icono de casa para volver al Hub.');
+    assert.equal(await pj.locator('.forja-volver').getAttribute('aria-label'),'Volver al hub');
     assert.equal(await pj.locator('.enlace-github').count(),0,
       'No queda el botón Código y documentación en la cabecera.');
     const pjHeader=await pj.locator('.forja-cabecera').boundingBox();
@@ -114,6 +117,8 @@ async function probar(nombre,motor,origen){
       getComputedStyle(document.documentElement).getPropertyValue('--fondo').trim());
     assert.equal(await hechizos.locator('.forja-cabecera h1').innerText(),'La Forja');
     assert.equal(await hechizos.locator('.forja-volver').getAttribute('href'),'index.html');
+    assert.equal(await hechizos.locator('.forja-volver svg').count(),1,
+      'Conjuros usa el mismo SVG accesible de Inicio.');
     const spellHeader=await hechizos.locator('.forja-cabecera').boundingBox();
     const spellLogo=await hechizos.locator('.forja-cabecera .marca-logotipo').boundingBox();
     assert.ok(Math.abs(logoPortada.width-spellLogo.width)<2 &&
@@ -132,14 +137,52 @@ async function probar(nombre,motor,origen){
       'El tema visible se conserva al recargar.');
     assert.equal(await hechizos.locator('#selector-tema').inputValue(),'violeta',
       'El motor sigue sincronizado con los temas anteriores.');
+    const area=await hechizos.locator('#form-herramienta').boundingBox();
+    const anchoVentana=await hechizos.evaluate(()=>innerWidth);
+    assert.ok(Math.abs(area.x-(anchoVentana-area.width)/2)<2,
+      'El escritorio de Conjuros queda centrado horizontalmente.');
     await hechizos.locator('#lista-dueno').fill('Ensayo de enlace');
-    await hechizos.locator('#filtro-nombre').fill('Silencio');
+    await hechizos.locator('#filtro-nombre').fill('Dardo ígneo');
     assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),1);
     await hechizos.locator('#resultados-busqueda .anadir-conjuro').click();
     assert.equal(await hechizos.locator('#titulo-lista').innerText(),
       'Lista de Conjuros de Ensayo de enlace');
     assert.equal(await hechizos.locator('#lista-circulos .bloque-circulo').count(),1);
-    assert.match(await hechizos.locator('#lista-circulos').innerText(),/Silencio/);
+    assert.match(await hechizos.locator('#lista-circulos').innerText(),/Dardo ígneo/);
+    assert.equal(await hechizos.locator('#copiar-lista').isEnabled(),true,
+      'Se puede copiar antes de guardar una lista.');
+    await hechizos.evaluate(()=>{
+      Object.defineProperty(navigator,'clipboard',{configurable:true,value:{
+        writeText:async texto=>{window.__textoListaCopiado=texto;}
+      }});
+    });
+    const tituloCopia='Lista de Conjuros de Ensayo de enlace\n\nCírculo 1\n- ';
+    async function copiarYComprobar(sufijo){
+      await hechizos.locator('#copiar-lista').click();
+      const copiado=await hechizos.evaluate(()=>window.__textoListaCopiado);
+      assert.equal(copiado,tituloCopia+sufijo,
+        'La copia conserva el orden por Círculos y el formato seleccionado.');
+      assert.ok(!copiado.includes('\\n'),'No se copian secuencias de escape literales.');
+      assert.equal(await hechizos.locator('#lista-circulos .conjuro-seleccionado span').innerText(),
+        sufijo,'La presentación visual coincide con el texto copiado.');
+    }
+    await copiarYComprobar('Dardo ígneo');
+    await hechizos.locator('.formato-lista summary').click();
+    await hechizos.locator('#mostrar-origen').check();
+    await copiarYComprobar('Dardo ígneo [DRS]');
+    await hechizos.locator('#mostrar-escuela').check();
+    await copiarYComprobar('Dardo ígneo — Elemental [DRS]');
+    await hechizos.locator('#mostrar-origen').uncheck();
+    await copiarYComprobar('Dardo ígneo — Elemental');
+    await hechizos.reload();
+    await hechizos.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    assert.equal(await hechizos.locator('#mostrar-escuela').isChecked(),true,
+      'Se recuerda la preferencia visual aunque no altere el modelo de listas.');
+    assert.equal(await hechizos.locator('#mostrar-origen').isChecked(),false);
+    // Una recarga antes de guardar no conserva el borrador: el guardado sigue siendo explícito.
+    await hechizos.locator('#lista-dueno').fill('Ensayo de enlace');
+    await hechizos.locator('#filtro-nombre').fill('Dardo ígneo');
+    await hechizos.locator('#resultados-busqueda .anadir-conjuro').click();
     await hechizos.locator('#guardar-lista').click();
     await hechizos.locator('#estado-lista').getByText('guardada en este navegador',{exact:false}).waitFor();
     assert.equal(await hechizos.locator('#listas-guardadas option').count(),2,
