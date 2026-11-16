@@ -542,7 +542,12 @@ async function probar(nombre,tipo,url){
         const top=visible.map(x=>x.getBoundingClientRect().top);
         return {cantidad:visible.length,desfase:Math.max(...top)-Math.min(...top)};
       });
-      assert.equal(accionesOficiales.cantidad,5);
+      assert.equal(accionesOficiales.cantidad,6,
+        'La ficha oficial muestra seis acciones, incluido Compartir enlace.'); 
+      assert.equal(await segunda.locator('#criaturas-ficha-compartir').getAttribute('aria-label'),
+        'Compartir enlace de adversario');
+      assert.equal(await segunda.locator('#criaturas-ficha-compartir').isVisible(),true,
+        'Compartir está disponible también para perfiles oficiales.');
       assert.ok(accionesOficiales.desfase<2,'El perfil oficial usa la misma fila compacta.');
       assert.equal(await segunda.locator('.criaturas-metrica').count(),3);
       assert.doesNotMatch(await segunda.locator('#criaturas-ficha-contenido').innerText(),
