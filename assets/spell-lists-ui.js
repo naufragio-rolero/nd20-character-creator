@@ -36,6 +36,7 @@ function pintarBiblioteca(){
   lista.replaceChildren(frag);
   $("duplicar-lista").disabled=!actual();
   $("eliminar-lista").disabled=!esPersonal(seleccionado)||!actual();
+  if($("compartir-lista"))$("compartir-lista").disabled=!esPersonal(seleccionado)||!actual();
 }
 function seleccionar(id,forzar){
   if(!forzar&&!confirmarDescarte())return;
@@ -212,8 +213,46 @@ function quitarAsociacion(){
     poblarAsociaciones();vistaPrevia();estado("Ocupación desvinculada.");
   }catch(e){estado(e.message,true);}
 }
+function compartirSeleccion(){
+  try{
+    var actualLista=actual();
+    if(!esPersonal(seleccionado)||!actualLista)
+      throw Error("Guarda una lista personal antes de compartirla.");
+    if(sucio())throw Error("Guarda los cambios antes de compartir esta lista.");
+    var datos={versionDRS:catalogo.versionDRS,
+      lista:{nombre:actualLista.nombre,descripcion:actualLista.descripcion,
+        maxCirculo:actualLista.maxCirculo,conjuros:actualLista.conjuros.slice()}};
+    var url=window.NaufragioEnlaces.enlace(new URL("spells/",document.baseURI),
+      "spells","nd20-epica",datos);
+    $("enlace-compartido").value=url;
+    $("enlace-compartido-label").hidden=false;
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){mensaje("Enlace copiado. Incluye una copia de la lista, sin datos de servidor.");},
+        function(){mensaje("Enlace listo: selecciónalo y cópialo.");});
+    }else mensaje("Enlace listo: selecciónalo y cópialo.");
+    $("enlace-compartido").focus();$("enlace-compartido").select();
+  }catch(error){estado("No se pudo compartir: "+error.message,true);}
+}
+function abrirCompartida(){
+  var link=window.NaufragioEnlaces?.leerDesdeHash(window.location.hash,"spells");
+  if(!link)return;
+  if(link.sistema!=="nd20-epica"||link.contenido.versionDRS!==catalogo.versionDRS)
+    throw Error("El enlace no corresponde a esta versión del DRS.");
+  var datos=link.contenido.lista;
+  if(!datos||typeof datos!=="object")throw Error("El enlace no contiene una Lista válida.");
+  var validada=api.validarLista(Object.assign({id:nuevoId()},datos),catalogo);
+  crearNueva();
+  seleccionado=validada.id;borrador=validada;ultimoGuardado="";
+  $("lista-nombre").value=validada.nombre;
+  $("lista-descripcion").value=validada.descripcion;
+  $("lista-maximo").value=String(validada.maxCirculo);
+  pintarBiblioteca();pintarConjuros();
+  mensaje("Lista recibida como borrador personal. Pulsa «Guardar lista personal» para conservarla en este navegador.");
+  estado("Lista compartida recibida y validada. El DRS oficial no ha sido modificado.");
+}
 function conectar(){
   $("crear-lista").addEventListener("click",crearNueva);
+  if($("compartir-lista"))$("compartir-lista").addEventListener("click",compartirSeleccion);
   $("duplicar-lista").addEventListener("click",duplicar);
   $("eliminar-lista").addEventListener("click",eliminar);
   $("form-lista").addEventListener("submit",guardar);
@@ -264,6 +303,7 @@ async function cargar(){
     $("asoc-progresion").value="propuesta:centinela-v5";vistaPrevia();
     estado("DRS "+catalogo.versionDRS+" · "+catalogo.conjuros.length+" Conjuros verificados · "+
       lib.listas.length+" listas personales guardadas. Centinela es una propuesta editorial.");
+    try{abrirCompartida();}catch(error){estado("No se pudo abrir el enlace compartido: "+error.message,true);}
   }catch(e){
     estado("No se pudo abrir el editor: "+e.message,true);
     $("form-lista").hidden=true;$("form-asociacion").hidden=true;
