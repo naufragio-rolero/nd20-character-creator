@@ -51,6 +51,12 @@ Acuerdos de producto (16 de noviembre de 2026). Esta rama es candidata; no impli
 - El Hub y Conjuros utilizan el mismo eje de contenido que Personajes; cada herramienta mantiene su propia rejilla y anchura legible. El logotipo se adapta a pantallas pequeñas y sigue siendo legible en temas oscuros.
 - La PREVIEW conserva el paquete físico DRS filtrado y el workflow LIVE permanece intacto. Se amplía la regresión de UI para comprobar los títulos, retorno, selector horizontal, persistencia y coincidencia geométrica de cabeceras.
 
+## Pie de página común y limpieza editorial
+- Los tres módulos de PREVIEW (**Hub, Personajes y Conjuros**) tienen el mismo pie institucional fuera de la mesa, con la descripción de La Forja acordada por el autor y enlaces relativos a los créditos de Game-icons.net y la licencia de Tabler Icons. Los recursos y atribuciones siguen presentes en la lista blanca de publicación.
+- Se han retirado las explicaciones redundantes bajo **Personajes y seguidores** y **Adversarios**, la nota de publicación editorial del Hub y el aviso redundante situado al final de Conjuros. El estado del catálogo sigue mostrando la versión DRS y el número de Conjuros.
+- El botón flotante «Generar personaje» detecta ahora la posición del pie `.forja-pie` compartido; ya no depende del antiguo pie incrustado en la mesa `.pie`. No se modifican las reglas ni la lógica de generación.
+- Prueba estática `tests/forja-modular.js` para las tres copias idénticas, su ubicación fuera del área de juego y las atribuciones conservadas. Las pruebas de navegador siguen comprobando la creación y las compras.
+
 ## Estado
 - [x] Decisiones registradas en el repositorio.
 - [x] Preparación de portada modular y rutas de herramientas.
