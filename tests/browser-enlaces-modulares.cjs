@@ -76,6 +76,13 @@ async function probar(nombre,motor,origen){
       getComputedStyle(el).textAlign),'center');
     assert.equal(await portal.locator('.portal-tarjeta').first().evaluate(el=>
       getComputedStyle(el).alignItems),'center');
+    const centrado=await portal.evaluate(()=>{
+      const contenedor=document.querySelector('.portal-contenido').getBoundingClientRect();
+      const rejilla=document.querySelector('.portal-tarjetas').getBoundingClientRect();
+      return Math.abs((contenedor.left+contenedor.right)/2-
+        (rejilla.left+rejilla.right)/2);
+    });
+    assert.ok(centrado<3,'La rejilla de tarjetas debe estar centrada en la portada.');
     assert.equal(await portal.locator('a[href="characters/"]').count(),1);
     assert.equal(await portal.locator('a[href="spells/"]').count(),1);
     assert.equal(await portal.locator('.forja-temas-abrir').count(),1);
