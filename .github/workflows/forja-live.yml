@@ -86,7 +86,9 @@ jobs:
           test -s dist/public-drs/characters/index.html
           test -s dist/public-drs/spells/index.html
           test ! -e dist/public-drs/control.html
-          test ! -e dist/public-drs/data/especies_cifi.json
+          # Las fuentes CiFi autorizadas permanecen presentes, pero no se activan.
+          # El guardia DRS verifica que no haya selectores ni DLC no publicados.
+          test -s dist/public-drs/data/especies_cifi.json
       - name: Verificar Chrome, Firefox y WebKit sobre el paquete que se publica
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
