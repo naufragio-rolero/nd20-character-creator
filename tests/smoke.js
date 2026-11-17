@@ -1179,3 +1179,6 @@ require('./criaturas-biblioteca.js');
 
 require('./criaturas-ui.js');
 require('./criaturas-generador.js');
+
+/* Listas de Conjuros DRS: catálogo único y asociaciones personalizadas. */
+require('./listas-conjuros.js');
