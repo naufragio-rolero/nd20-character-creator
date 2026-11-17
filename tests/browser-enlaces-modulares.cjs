@@ -68,6 +68,8 @@ async function probar(nombre,motor,origen){
   }
   try{
     const portal=await pagina(origen+'/');
+    // WebKit puede disparar DOMContentLoaded antes de aplicar portal.css.
+    await portal.waitForLoadState('load');
     assert.equal(await portal.locator('.portal-tarjeta').count(),2);
     // Las tarjetas y su contenido están centrados en el Hub.
     assert.equal(await portal.locator('.portal-tarjeta').first().evaluate(el=>
