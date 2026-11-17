@@ -1,0 +1,166 @@
+name: La Forja PREVIEW PR146 — DRS aislado (nunca LIVE)
+
+# GitHub Pages tiene una sola web por repositorio: otro deploy-pages
+# reemplazaría LIVE. Publicamos un snapshot depurado en una rama separada
+# para visualizarlo mediante una URL externa de desarrollo, sin Pages.
+on:
+  push:
+    branches:
+      - feat/forja-conjuros-presets-progresion
+
+permissions:
+  contents: write
+
+concurrency:
+  group: forja-preview-pr146
+  cancel-in-progress: true
+
+jobs:
+  preparar-preview:
+    if: github.ref == 'refs/heads/feat/forja-conjuros-presets-progresion'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 22
+    steps:
+      - name: Obtener exclusivamente la rama candidata
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Preparar dependencias y activos del PDF A5
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts \
+            pdf-lib@1.17.1 @pdf-lib/fontkit@1.1.1 \
+            @expo-google-fonts/source-serif-4@0.4.1 playwright@1.56.1
+          node scripts/preparar-vendor-pdf-a5.cjs
+      - name: Construir exclusivamente el paquete autorizado DRS
+        run: |
+          node scripts/crear-paquete-drs.js
+          node scripts/comprobar-publicacion-drs.js dist/public-drs
+          node tests/paquete-publico-drs.js
+      - name: Probar los enlaces sin servidor en Chromium sobre el paquete filtrado
+        env:
+          FORJA_PUBLIC_ROOT: dist/public-drs
+        run: node tests/browser-enlaces-modulares.cjs chrome
+      - name: Adaptar solamente la COPIA de la preview a un servidor de archivos
+        shell: bash
+        run: |
+          node <<'NODE'
+          'use strict';
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const raiz = path.resolve('dist/public-drs');
+          const paginas = ['index.html','characters/index.html','characters-nd20/index.html','spells/index.html'];
+          const css = '<style id="forja-preview-css">#forja-marca-preview{position:fixed;right:10px;bottom:10px;z-index:2147483647;padding:7px 11px;border-radius:7px;background:#171821;color:#fff;border:1px solid #ffce66;box-shadow:0 2px 12px #0008;font:600 12px/1.3 system-ui,sans-serif;pointer-events:none}</style>';
+          const nota = '<div id="forja-marca-preview" role="status" aria-label="Versión de pruebas, no es LIVE">PREVIEW · NO LIVE · DATOS DE PRUEBA</div>';
+          for (const nombre of paginas) {
+            const archivo = path.join(raiz,nombre);
+            let html = fs.readFileSync(archivo,'utf8');
+            if (!/<\/head>/i.test(html)||!/<body\b[^>]*>/i.test(html))
+              throw Error('Falta estructura HTML del candidato: '+nombre);
+            html = html.replace(/<\/head>/i,
+              '<meta name="robots" content="noindex,nofollow,noarchive">'+css+'</head>');
+            html = html.replace(/<body\b[^>]*>/i,etiqueta=>etiqueta+nota);
+            // raw.githack es un proxy de ficheros, no GitHub Pages:
+            // no resuelve /carpeta/ como /carpeta/index.html.
+            if(nombre==='index.html'){
+              if(!html.includes('href="characters/"')||
+                 !html.includes('href="spells/"'))
+                throw Error('Han cambiado las rutas de la portada modular');
+              html=html.replace('href="characters/"',
+                'href="characters/index.html"');
+              html=html.replace('href="spells/"','href="spells/index.html"');
+            }
+            fs.writeFileSync(archivo,html);
+          }
+          // Solo se entrega la lista blanca: ni fuentes inéditas ni CI.
+          if(fs.existsSync(path.join(raiz,'.github'))||
+             fs.existsSync(path.join(raiz,'control.html'))||
+             fs.existsSync(path.join(raiz,'scripts')))
+            throw Error('El paquete de preview contiene fuentes de trabajo');
+          const referencia='#146';
+          fs.writeFileSync(path.join(raiz,'PREVIEW.txt'),
+            'La Forja PREVIEW de PR '+referencia+'; version de pruebas, no LIVE.\n'+
+            'Origen: '+process.env.GITHUB_SHA+'\n'+
+            'Paquete generado exclusivamente mediante scripts/crear-paquete-drs.js.\n');
+          console.log('PREVIEW: Hub, Personajes, redirección y Conjuros marcados; rutas explícitas, sin fuentes editoriales.');
+          NODE
+      - name: Conservar también una copia descargable
+        uses: actions/upload-artifact@v4
+        with:
+          name: forja-preview-pr146-drs
+          path: dist/public-drs/
+          retention-days: 7
+      - name: Crear rama huérfana con la lista blanca (NO deploy-pages)
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$GITHUB_REF" in
+            refs/heads/feat/forja-conjuros-presets-progresion) ;;
+            *) echo 'Ref no autorizada para PREVIEW'; exit 1;;
+          esac
+          test -f dist/public-drs/PREVIEW.txt
+          destino="$RUNNER_TEMP/forja-preview-worktree"
+          git worktree add --detach "$destino" HEAD
+          cd "$destino"
+          git switch --orphan vista-previa-construida
+          git rm -rfq . || true
+          git clean -fdx
+          cp -a "$GITHUB_WORKSPACE/dist/public-drs/." .
+          test -f index.html
+          test -f characters/index.html
+          test -f characters-nd20/index.html
+          test -f spells/index.html
+          test ! -e .github
+          test ! -e control.html
+          test ! -e scripts
+          git add -A
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m "PREVIEW DRS depurada desde ${GITHUB_SHA}"
+          git push --force origin HEAD:refs/heads/forja-preview-pr146
+          echo "FORJA_PREVIEW_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Comprobar acceso HTTP a la PREVIEW y su SHA vigente
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Una URL vinculada al commit evita leer versiones antiguas en caché.
+          base="https://raw.githack.com/naufragio-rolero/nd20-character-creator/${FORJA_PREVIEW_COMMIT}"
+          valido=0
+          for intento in $(seq 1 18); do
+            if curl -fsSL --connect-timeout 8 --max-time 20 "$base/PREVIEW.txt" -o "$RUNNER_TEMP/preview-remoto.txt" &&
+               grep -Fq "Origen: $GITHUB_SHA" "$RUNNER_TEMP/preview-remoto.txt"; then
+              valido=1
+              break
+            fi
+            sleep 5
+          done
+          test "$valido" -eq 1
+          for recurso in index.html characters/index.html characters-nd20/index.html spells/index.html assets/styles.css assets/share-links.js assets/spell-lists.js assets/spell-lists-simple.js assets/spell-lists-simple.css assets/icons/escuela-arcana.svg assets/icons/escuela-divina.svg assets/icons/escuela-nigromancia.svg assets/icons/escuela-elemental.svg assets/icons/escuela-demonologia.svg assets/icons/escuela-naturaleza.svg data/conjuros-drs-fichas.json data/listas-conjuros-borradores.json data/progresiones-oficiales.json; do
+            curl -fsSL --connect-timeout 8 --max-time 30 "$base/$recurso" -o "$RUNNER_TEMP/preview-recurso"
+            test -s "$RUNNER_TEMP/preview-recurso"
+          done
+          curl -fsSL --connect-timeout 8 --max-time 30 "$base/spells/index.html" -o "$RUNNER_TEMP/preview-conjuros.html"
+          grep -Fq 'id="exportar-trabajo"' "$RUNNER_TEMP/preview-conjuros.html"
+          grep -Fq 'id="progresion-modo"' "$RUNNER_TEMP/preview-conjuros.html"
+          grep -Fq 'PREVIEW · NO LIVE' "$RUNNER_TEMP/preview-conjuros.html"
+          grep -Fq 'noindex,nofollow,noarchive' "$RUNNER_TEMP/preview-conjuros.html"
+          grep -Fq 'PR #146' "$RUNNER_TEMP/preview-remoto.txt"
+          curl -fsSL --connect-timeout 8 --max-time 30 "$base/index.html" -o "$RUNNER_TEMP/preview-portada.html"
+          grep -Fq 'PREVIEW · NO LIVE' "$RUNNER_TEMP/preview-portada.html"
+          grep -Fq 'href="characters/index.html"' "$RUNNER_TEMP/preview-portada.html"
+          grep -Fq 'href="spells/index.html"' "$RUNNER_TEMP/preview-portada.html"
+          curl -fsSL --connect-timeout 8 --max-time 30 "$base/characters-nd20/index.html" -o "$RUNNER_TEMP/preview-redirect.html"
+          grep -Fq "destino.hash=actual.hash" "$RUNNER_TEMP/preview-redirect.html"
+          grep -Fq "destino.search=actual.search" "$RUNNER_TEMP/preview-redirect.html"
+          grep -Fq "window.location.replace(destino.href)" "$RUNNER_TEMP/preview-redirect.html"
+          echo 'HTTP remoto correcto: portada, ruta de Personajes, redirección antigua, Conjuros y revisión exacta.'
+      - name: Indicar enlace independiente, sin modificar LIVE
+        run: |
+          echo 'PREVIEW: https://raw.githack.com/naufragio-rolero/nd20-character-creator/forja-preview-pr146/index.html' >> "$GITHUB_STEP_SUMMARY"
+          echo "Snapshot de PR #146 en rama dedicada: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "Revisión exacta: https://raw.githack.com/naufragio-rolero/nd20-character-creator/${FORJA_PREVIEW_COMMIT}/index.html" >> "$GITHUB_STEP_SUMMARY"
+          echo "Conjuros: https://raw.githack.com/naufragio-rolero/nd20-character-creator/${FORJA_PREVIEW_COMMIT}/spells/index.html" >> "$GITHUB_STEP_SUMMARY"
+          echo 'Rama forja-preview-pr142 permanece intacta. LIVE mantiene su workflow y SHA aprobados: aquí NO se invoca deploy-pages.' >> "$GITHUB_STEP_SUMMARY"

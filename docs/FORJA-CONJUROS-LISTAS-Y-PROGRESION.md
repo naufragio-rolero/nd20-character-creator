@@ -135,10 +135,15 @@ Convertir el editor sencillo de Conjuros en una herramienta reutilizable para di
 
 Los valores ilustrativos de este ejemplo **no añaden contenido oficial** ni reglas: el archivo real se valida estrictamente antes de importarlo.
 
-### 7.6 — QA y PREVIEW **[pendiente]**
+### 7.6 — QA y PREVIEW aislada **[implementada en rama; resultados definitivos en issue #145]**
 
-- Suite Node + navegación real Chromium, Firefox y WebKit; temas Clásico, Ébano, Cerúleo, Obsidiana y Violeta; tamaños móvil y escritorio; teclado, accesibilidad, regresión de persistencia y comparaciones DRS.
-- Revisar frontera del paquete público y publicar solo una PREVIEW filtrada cuando se autorice; **LIVE y las PR anteriores permanecen sin modificar**.
+- Se repasan las suites de datos DRS, pruebas estáticas y recorridos Chromium/Firefox/WebKit; los cinco temas, 1320/375 píxeles, medallones, filtros, acciones sobre Listas, Copiar, tablas 30×8, exportación completa/v1, importaciones inválidas y enlaces `#share=` antiguos.
+- El test E2E de acceso por teclado comprueba el primer enlace «Saltar al contenido» mediante Tab/Enter, etiquetas de selectores, encabezados de tabla por columna/fila, desplazamiento horizontal acotado en móvil, «Duplicar para editar» y descarga JSON activados con Enter. **No equivale a una auditoría manual con lector de pantalla**, que seguirá siendo una comprobación editorial adicional antes de LIVE.
+- **Hallazgo y corrección:** `spells/index.html` emplea `<base href="../">`; el ancla `href="#contenido"` podía resolverse contra la portada. Se cambia a `href="spells/index.html#contenido"`, válida para la ruta modular y los proxies de archivos; E2E espera la URL de destino antes de comprobarla.
+- El workflow **`.github/workflows/forja-preview-pr146.yml`**, independiente del workflow de PR #144, solo responde a `feat/forja-conjuros-presets-progresion`. Empaqueta una **lista blanca de DRS**; ejecuta controles de contenido, E2E Chromium, HTML marcado `PREVIEW · NO LIVE` y `noindex,nofollow,noarchive`, publica en la **rama huérfana `forja-preview-pr146`** sin llamar a GitHub Pages y verifica la PREVIEW remotamente por SHA exacto.
+- Se verifica expresamente la presencia de `assets/spell-lists.js`, `assets/spell-lists-simple.js`, los seis medallones y `data/progresiones-oficiales.json` en el paquete, así como el botón `exportar-trabajo` y la tabla `progresion-modo`. Se excluyen `.github`, `scripts/`, `control.html`, fuentes inéditas y DLC no autorizados.
+- `forja-preview-pr142` se conserva; `main`, LIVE y las PR #140/#142/#144 no se publican ni fusionan. Las pruebas deben utilizar **datos ficticios**: la PREVIEW es una página pública a través de un proxy externo.
+- El registro verificable del workflow, el SHA publicado, las incidencias de QA y el enlace de commit a la PREVIEW quedan asentados en [issue #145](https://github.com/naufragio-rolero/nd20-character-creator/issues/145) una vez terminada la publicación. No promocionar a LIVE automáticamente.
 
 ## Registro de decisiones
 
