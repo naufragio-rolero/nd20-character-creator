@@ -7,7 +7,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const root=path.join(__dirname,'..');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
-const html=read('index.html');
+const html=read('characters-nd20/index.html');
 const app=read('assets/app.js');
 const browser=read('assets/pdf-export-browser.js');
 const engine=read('assets/pdf-export-v2.js');

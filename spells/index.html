@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es" data-tema="clasico">
+<head>
+  <base href="../">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Busca Conjuros del DRS y crea tu propia Lista de Conjuros en La Forja.">
+  <title>Conjuros · La Forja</title>
+  <script>
+    (function(){try{var t=localStorage.getItem('forja-tema');
+      if(['clasico','ebano','ceruleo','obsidiana','violeta'].includes(t))
+        document.documentElement.dataset.tema=t;
+    }catch(e){}})();
+  </script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/spell-lists-simple.css">
+  <link rel="stylesheet" href="assets/forja-header.css">
+  <script defer src="assets/portal.js"></script>
+  <script defer src="assets/theme-picker.js"></script>
+  <script defer src="assets/share-links.js"></script>
+  <script defer src="assets/spell-lists.js"></script>
+  <script defer src="assets/spell-lists-simple.js"></script>
+</head>
+<body class="pagina-conjuros">
+  <a class="saltar-conjuros" href="#contenido">Saltar al contenido</a>
+  <header class="encabezado forja-cabecera">
+    <div class="marca forja-marca">
+      <img class="marca-logotipo" src="assets/branding/naufragio.svg"
+        alt="El Naufragio" width="290" height="119" decoding="async">
+      <div class="forja-marca-texto">
+        <h1>La Forja</h1>
+        <p class="forja-subtitulo">Busca Conjuros y crea tus propias listas.</p>
+      </div>
+    </div>
+    <div class="cabecera-acciones forja-cabecera-acciones">
+
+      <a class="forja-volver" href="index.html" title="Volver al hub" aria-label="Volver al hub">
+        <svg class="forja-icono-inicio" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="m3 10 9-7 9 7"/>
+          <path d="M5 9.5V21h14V9.5"/>
+          <path d="M9 21v-7h6v7"/>
+        </svg>
+      </a>
+      <div class="forja-temas" data-forja-temas data-tema-actual="clasico">
+        <button type="button" class="forja-temas-abrir" aria-expanded="false" aria-controls="opciones-temas">
+          <span class="forja-temas-muestra" aria-hidden="true"></span>
+          <span>Tema</span><span class="forja-tema-nombre">Clásico</span>
+          <span class="forja-temas-flecha" aria-hidden="true"></span>
+        </button>
+        <div id="opciones-temas" class="forja-temas-opciones" role="group" aria-label="Paleta de temas" hidden>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="clasico" aria-label="Clásico" title="Clásico" aria-pressed="true">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Clásico</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ebano" aria-label="Ébano" title="Ébano" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Ébano</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ceruleo" aria-label="Cerúleo" title="Cerúleo" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Cerúleo</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="obsidiana" aria-label="Obsidiana" title="Obsidiana" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Obsidiana</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="violeta" aria-label="Violeta" title="Violeta" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Violeta</span>
+          </button>
+        </div>
+        <select id="selector-tema" class="forja-temas-nativo" aria-hidden="true" tabindex="-1" aria-label="Tema visual">
+          <option value="clasico">Clásico</option>
+          <option value="ebano">Ébano</option>
+          <option value="ceruleo">Cerúleo</option>
+          <option value="obsidiana">Obsidiana</option>
+          <option value="violeta">Violeta</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <main id="contenido" class="conjuros-simple">
+    <p id="estado-datos" class="estado-conjuros" role="status" aria-live="polite">Cargando el catálogo de Conjuros…</p>
+    <div id="form-herramienta">
+      <section class="panel-simple" aria-labelledby="titulo-nombre">
+        <p class="paso">TU LISTA</p>
+        <h2 id="titulo-nombre">¿De quién es la lista?</h2>
+        <label for="lista-dueno">Nombre del personaje, Ocupación o concepto
+          <input id="lista-dueno" type="text" maxlength="100" autocomplete="off" placeholder="Por ejemplo, el Profeta">
+        </label>
+        <p class="ayuda-conjuros">El título se crea automáticamente: «Lista de Conjuros de …».</p>
+        <div class="fila-nombre">
+          <div id="panel-guardadas" hidden>
+            <label for="listas-guardadas">Mis listas guardadas
+              <select id="listas-guardadas"><option value="">Nueva lista</option></select>
+            </label>
+          </div>
+          <div class="acciones-listas">
+            <button id="crear-lista" type="button">Nueva lista</button>
+            <button id="eliminar-lista" type="button" disabled>Eliminar esta lista</button>
+          </div>
+        </div>
+      </section>
+      <section class="panel-simple" aria-labelledby="titulo-busqueda">
+        <p class="paso">BUSCAR Y AÑADIR</p>
+        <h2 id="titulo-busqueda">Encuentra Conjuros</h2>
+        <div class="fila-busqueda">
+          <label for="filtro-nombre">Buscar por nombre
+            <input id="filtro-nombre" type="search" placeholder="Escribe el nombre de un Conjuro…" autocomplete="off">
+          </label>
+          <label for="filtro-circulo">Círculo
+            <select id="filtro-circulo"><option value="">Todos</option></select>
+          </label>
+        </div>
+        <div class="buscador-resultado">
+          <p id="cuenta-busqueda" class="contador-busqueda" role="status" aria-live="polite"></p>
+          <div id="resultados-busqueda" class="resultados-busqueda" aria-label="Conjuros encontrados"></div>
+        </div>
+      </section>
+      <section class="panel-simple lista-resultado" aria-labelledby="titulo-lista">
+        <p class="paso">TU RESULTADO</p>
+        <div class="cabecera-lista">
+          <h2 id="titulo-lista">Lista de Conjuros de…</h2>
+          <span id="cuenta-lista" class="contador-lista">0 Conjuros</span>
+        </div>
+        <details class="formato-lista">
+          <summary>Configurar presentación de la lista</summary>
+          <div class="formato-opciones" role="group" aria-label="Información que acompaña a los Conjuros">
+            <label for="mostrar-escuela" class="formato-casilla">
+              <input id="mostrar-escuela" type="checkbox">
+              Mostrar escuela
+            </label>
+            <label for="mostrar-origen" class="formato-casilla">
+              <input id="mostrar-origen" type="checkbox">
+              Mostrar origen
+            </label>
+          </div>
+          <p class="ayuda-conjuros">Ejemplo: Dardo ígneo — Elemental [DRS]. Estas opciones se aplican a la vista y al texto copiado.</p>
+        </details>
+        <div id="lista-circulos" class="lista-circulos" aria-live="polite" aria-label="Lista de Conjuros agrupada por Círculos"></div>
+        <div class="pie-lista">
+          <button id="guardar-lista" class="boton-principal" type="button">Guardar lista</button>
+          <button id="copiar-lista" type="button" disabled>Copiar lista</button>
+          <button id="compartir-listas" type="button">Compartir enlace</button>
+          <p id="estado-lista" role="status" aria-live="polite"></p>
+        </div>
+        <details class="mas-opciones">
+          <summary>Copias de seguridad (JSON)</summary>
+          <p>Exporta o importa tus listas guardadas. Importar puede reemplazar las listas personales anteriores, pero nunca modifica los Conjuros oficiales.</p>
+          <div class="botones-extra">
+            <button id="exportar-listas" type="button">Exportar mis listas</button>
+            <label class="boton-archivo" for="importar-archivo">Importar mis listas
+              <input id="importar-archivo" type="file" accept="application/json,.json">
+            </label>
+          </div>
+        </details>
+      </section>
+    </div>
+    
+  </main>
+  <footer class="forja-pie" aria-label="Información y créditos de La Forja">
+    <p>La Forja es una herramienta para crear personajes, seguidores, antagonistas y gestionar listas de conjuros para Naufragio d20.</p>
+    <p><a href="https://naufragio.net/" target="_blank" rel="noopener noreferrer">El Naufragio</a>. Iconografía original de El Naufragio y otros iconos adaptados de <a href="assets/icons/CREDITOS-GAME-ICONS.txt" target="_blank" rel="noopener noreferrer">Game-icons.net — autoría y licencia CC BY 3.0</a>. Acciones de ficha: <a href="assets/icons/LICENCIA-TABLER.txt" target="_blank" rel="noopener noreferrer">Tabler Icons · MIT</a>.</p>
+  </footer>
+</body>
+</html>

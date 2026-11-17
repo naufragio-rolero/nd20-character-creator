@@ -260,9 +260,55 @@ assert.ok(aclaracionesPublicas.registros.find(a=>a.nombre==='Expulsar muertos vi
   .texto.includes('3 zombis y 2 esqueletos'));
 assert.ok(aclaracionesPublicas.registros.find(a=>a.nombre==='¡Sálvese quien pueda!')
   .texto.includes('Parálisis o Miedo'));
-const html=fs.readFileSync(path.join(salida,'index.html'),'utf8');
-assert.ok(html.includes('<h1>Forja de Naufragio d20</h1>'));
-assert.ok(html.includes('<title>Forja de Naufragio d20 · El Naufragio</title>'));
+const html=fs.readFileSync(path.join(salida,'characters-nd20','index.html'),'utf8');
+const portal=fs.readFileSync(path.join(salida,'index.html'),'utf8');
+assert.ok(portal.includes('href="characters-nd20/"'));
+assert.ok(portal.includes('href="spells/"'));
+assert.match(portal,/circle cx="32" cy="20"/);
+assert.match(portal,/M32 52c-7-6/);
+const paginaConjuros=fs.readFileSync(path.join(salida,'spells','index.html'),'utf8');
+assert.ok(paginaConjuros.includes('assets/styles.css'),
+  'Conjuros hereda los cinco temas reales de La Forja');
+assert.ok(paginaConjuros.includes('assets/spell-lists-simple.css'));
+assert.ok(paginaConjuros.includes('assets/spell-lists-simple.js'));
+assert.ok(paginaConjuros.includes('id="filtro-nombre"'));
+assert.ok(paginaConjuros.includes('id="lista-circulos"'));
+for(const control of ['copiar-lista','mostrar-escuela','mostrar-origen'])
+  assert.ok(paginaConjuros.includes('id="'+control+'"'),
+    'El paquete DRS incluye el control de formato y copia '+control);
+for(const documento of [html,paginaConjuros]){
+  assert.ok(documento.includes('class="forja-icono-inicio"'),
+    'La navegación al hub emplea un SVG accesible.');
+  assert.ok(documento.includes('aria-label="Volver al hub"'));
+}
+assert.ok(!paginaConjuros.includes('id="form-asociacion"'),
+  'El vínculo editorial no debe interrumpir la creación sencilla');
+assert.ok(!paginaConjuros.includes('control.html'),
+  'El paquete DRS no enlaza el editor editorial');
+assert.ok(fs.existsSync(path.join(salida,'assets','spell-lists-simple.js')));
+assert.ok(fs.existsSync(path.join(salida,'assets','spell-lists-simple.css')));
+assert.ok(!fs.existsSync(path.join(salida,'assets','spell-lists-ui.js')),
+  'No distribuir interfaz editorial avanzada en la PREVIEW pública');
+assert.ok(fs.existsSync(path.join(salida,'assets','share-links.js')));
+assert.equal(leer(salida,'listas-conjuros-borradores.json').listas.length,0,
+  'No publicar propuesta Centinela en el catálogo DRS');
+assert.equal(leer(salida,'listas-conjuros-borradores.json').progresiones.length,0);
+assert.equal(leer(salida,'conjuros-drs-fichas.json').conjuros.length,64);
+assert.ok(html.includes('<h1>La Forja</h1>'));
+assert.ok(html.includes('Crea personajes, seguidores y adversarios.'));
+assert.ok(html.includes('class="forja-volver" href="index.html"'));
+assert.ok(!html.includes('Código y documentación'));
+assert.ok(portal.includes('<h1>La Forja</h1>'));
+assert.ok(paginaConjuros.includes('<h1>La Forja</h1>'));
+for(const documento of [portal,html,paginaConjuros]){
+  assert.ok(documento.includes('data-forja-temas'),'Las tres vistas comparten el selector cromático');
+  assert.ok(documento.includes('assets/forja-header.css'),'Cabecera visual común en las tres vistas');
+  assert.ok(documento.includes('assets/theme-picker.js'),'Control funcional de los temas en las tres vistas');
+  assert.ok(documento.includes('data-tema-opcion="violeta"'),'Cinco muestras cromáticas con nombres');
+}
+assert.ok(fs.existsSync(path.join(salida,'assets','forja-header.css')));
+assert.ok(fs.existsSync(path.join(salida,'assets','theme-picker.js')));
+assert.ok(html.includes('<title>Personajes · La Forja · El Naufragio</title>'));
 assert.ok(html.includes('src="assets/branding/naufragio.svg"'));
 assert.ok(!html.includes('EL NAUFRAGIO / HERRAMIENTAS DE ROL'));
 assert.ok(!html.includes('<h1>Forja de personajes</h1>'));
@@ -349,7 +395,7 @@ for(const file of pdfA5){
     'La exportación A5 requiere el activo local '+file);
   assert(fs.statSync(path.join(salida,file)).size>100,file+': archivo insuficiente');
 }
-const publicPdfIndex=fs.readFileSync(path.join(salida,'index.html'),'utf8');
+const publicPdfIndex=fs.readFileSync(path.join(salida,'characters-nd20','index.html'),'utf8');
 const publicPdfApp=fs.readFileSync(path.join(salida,'assets/app.js'),'utf8');
 assert(publicPdfIndex.includes('assets/pdf-export-browser.js'));
 assert(publicPdfApp.includes('exportar-pdf-ficha'));
@@ -374,6 +420,17 @@ const licenciaTabler=fs.readFileSync(
 assert.match(licenciaTabler,/MIT License/);
 assert.match(licenciaTabler,/Copyright \(c\) 2020-2026 Paweł Kuna/);
 assert.ok(html.includes('assets/icons/LICENCIA-TABLER.txt'),'Licencia MIT enlazada en público');
+for(const documento of [portal,html,paginaConjuros]){
+  const inicio=documento.indexOf('<footer class="forja-pie"');
+  const fin=documento.indexOf('</footer>',inicio);
+  assert.ok(inicio>documento.indexOf('</main>')&&fin>inicio,
+    'Pie institucional completo fuera de la mesa en las tres páginas públicas');
+  const pie=documento.slice(inicio,fin+9);
+  assert.ok(pie.includes('La Forja es una herramienta para crear personajes, seguidores, antagonistas y gestionar listas de conjuros para Naufragio d20'));
+  assert.ok(pie.includes('assets/icons/CREDITOS-GAME-ICONS.txt'));
+  assert.ok(pie.includes('assets/icons/LICENCIA-TABLER.txt'));
+}
+
 assert.ok(!html.includes('id="generar-mazmorra"'),'Sin herramienta legacy en DRS');
 // Logos de identidad de sistema: exactamente dos WebP locales, sin DLC.
 // Cada archivo distribuido debe ser idéntico al aprobado en la rama.
@@ -447,7 +504,8 @@ const esperados=new Set([
   'catalogo-ampliado.json','tesauro-ylat.json','nombres-historicos-ylat.json',
   'componentes-nombres-ylat.json',
   'sexo-personajes.json',
-  'catalogo-poderes.json','conjuros-revisados-001-225.json',
+  'catalogo-poderes.json','conjuros-drs-fichas.json','listas-conjuros-borradores.json',
+  'conjuros-revisados-001-225.json',
   'conjuros-revisados-226-434.json','conjuros-magnitudes-literales.json',
   'alcance-drs-y-dlc.json','conjuros-danio-compuesto.json',
   'progresiones-oficiales.json','equipo-inicial.json','fichas-documentales.json',

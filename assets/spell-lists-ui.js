@@ -213,6 +213,17 @@ function quitarAsociacion(){
   }catch(e){estado(e.message,true);}
 }
 function conectar(){
+  $('compartir-listas').addEventListener('click',function(){
+    try{
+      var token=window.NaufragioEnlaces.codificar('spell-list','nd20',lib);
+      var link=window.NaufragioEnlaces.crearUrl('spells/',token);
+      if(!navigator.clipboard?.writeText)throw Error('Copia no disponible. Utiliza Exportar JSON.');
+      navigator.clipboard.writeText(link).then(function(){
+        estado('Enlace de biblioteca copiado. Es una instantánea, no una sincronización.');
+      },function(){estado('No se pudo copiar el enlace.',true);});
+    }catch(e){estado(e.message,true);}
+  });
+
   $("crear-lista").addEventListener("click",crearNueva);
   $("duplicar-lista").addEventListener("click",duplicar);
   $("eliminar-lista").addEventListener("click",eliminar);
@@ -248,6 +259,18 @@ async function cargar(){
     }));
     catalogo=api.crearCatalogo(data[0],data[1]);
     borradores=api.leerBorradores(data[2],catalogo);progresiones=data[3];ocupaciones=data[4];
+    var token=window.NaufragioEnlaces?.fragmento();
+    if(token){
+      var enlace=window.NaufragioEnlaces.decodificar(token);
+      if(enlace.tipo!=='spell-list'||enlace.sistema!=='nd20')
+        throw Error('Este enlace no contiene una Lista de Conjuros compatible.');
+      var bibliotecaImportada=api.importar(JSON.stringify(enlace.datos),catalogo,borradores);
+      var existente=localStorage.getItem(KEY);
+      if(!existente||window.confirm('¿Importar la biblioteca de este enlace? Reemplazará tus listas personales locales.')){
+        localStorage.setItem(KEY,api.exportar(bibliotecaImportada,catalogo,borradores));
+      }
+      history.replaceState(null,'',location.pathname+location.search);
+    }
     var guardado=localStorage.getItem(KEY);
     lib=guardado?api.importar(guardado,catalogo,borradores):api.vacia(catalogo);
     var circulos=Array.from({length:8},function(_,i){return [String(i+1),"Círculo "+(i+1)];});
@@ -256,14 +279,22 @@ async function cargar(){
     opciones($("filtro-escuela"),[["","Todas"]].concat(
       Array.from(new Set(catalogo.conjuros.map(function(s){return s.escuela;}))).sort()
         .map(function(s){return [s,s];})));
-    var sugeridas=Object.keys(ocupaciones).concat(["Centinela","Profeta"]);
+    var sugeridas=Object.keys(ocupaciones);
     opciones($("ocupaciones-sugeridas"),sugeridas.map(function(s){return [s,s];}));
     conectar();poblarAsociaciones();seleccionar(catalogo.oficiales[0].id,true);
-    $("asoc-ocupacion").value="Centinela";
-    $("asoc-lista").value="propuesta:centinela-v5";
-    $("asoc-progresion").value="propuesta:centinela-v5";vistaPrevia();
+    if(borradores.listas.some(function(x){return x.id==="propuesta:centinela-v5";})){
+      $("asoc-ocupacion").value="Centinela";
+      $("asoc-lista").value="propuesta:centinela-v5";
+      $("asoc-progresion").value="propuesta:centinela-v5";
+    }else{
+      $("asoc-ocupacion").value="Mago";
+      $("asoc-lista").value=catalogo.oficiales.find(function(x){return x.id==="drs:Mago";})?.id||catalogo.oficiales[0].id;
+      $("asoc-progresion").value="drs:Mago";
+    }
+    vistaPrevia();
     estado("DRS "+catalogo.versionDRS+" · "+catalogo.conjuros.length+" Conjuros verificados · "+
-      lib.listas.length+" listas personales guardadas. Centinela es una propuesta editorial.");
+      lib.listas.length+" listas personales guardadas."+
+      (borradores.listas.length?" Las propuestas siguen en revisión.":""));
   }catch(e){
     estado("No se pudo abrir el editor: "+e.message,true);
     $("form-lista").hidden=true;$("form-asociacion").hidden=true;

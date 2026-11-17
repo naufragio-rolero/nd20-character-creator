@@ -206,9 +206,9 @@
     var rect=principal.getBoundingClientRect();
     var principalVisible=!$('panel-personajes').hidden&&
       rect.width>0&&rect.height>0&&rect.bottom>0&&rect.top<innerHeight;
-    var pie=document.querySelector('.pie').getBoundingClientRect();
-    // Retirar el flotante ANTES del pie (también en pantallas pequeñas).
-    var pieCerca=pie.top<=innerHeight+80&&pie.bottom>=0;
+    var pie=document.querySelector('.forja-pie')?.getBoundingClientRect();
+    // Retirar el flotante ANTES del pie institucional común.
+    var pieCerca=!!pie&&pie.top<=innerHeight+80&&pie.bottom>=0;
     // Con la mesa vacía, el CTA es accesible desde el primer momento
     // incluso con el panel móvil cerrado. Después respeta pie y botón principal.
     var mesaVacia=entradas.length===0;
@@ -1993,6 +1993,14 @@
     $('copiar-semilla').addEventListener('click',function(){
       if(reproduccionActiva)copiar(reproduccionActiva.semilla);
     });
+    $('compartir-reproduccion').addEventListener('click',function(){
+      try {
+        if(!reproduccionActiva)throw Error('No hay configuración que compartir.');
+        var token=window.NaufragioEnlaces.codificar('character',
+          reproduccionActiva.config.juego,reproduccionActiva);
+        copiar(window.NaufragioEnlaces.crearUrl('characters-nd20/',token));
+      }catch(error){aviso(error.message,true);}
+    });
     $('copiar-reproduccion').addEventListener('click',function(){
       if(reproduccionActiva)copiar(JSON.stringify(reproduccionActiva,null,2));
     });
@@ -2786,6 +2794,25 @@
     refrescarResumenCreacion();
     refrescarGenerarFlotante();
     aviso('Datos listos. Puedes empezar a generar personajes.');
+    try{
+      var token=window.NaufragioEnlaces?.fragmento();
+      if(token){
+        var c=window.NaufragioEnlaces.decodificar(token);
+        if(c.tipo==='character'){
+          if(c.sistema!==c.datos?.config?.juego)
+            throw Error('Sistema incompatible con el enlace.');
+          aplicarReproduccion(JSON.stringify(c.datos));
+          history.replaceState(null,'',location.pathname+location.search);
+          $('configuracion').requestSubmit();
+        }else if(c.tipo==='adversary'){
+          if(c.sistema!=='nd20')throw Error('Sistema de adversario no admitido.');
+          $('tab-criaturas').click();
+          window.NaufragioCriaturasUI.abrirCompartida(c.datos);
+          history.replaceState(null,'',location.pathname+location.search);
+        }else throw Error('Tipo de enlace incompatible con Personajes.');
+      }
+    }catch(error){aviso('Enlace compartido: '+error.message,true);}
+
   }
   $('generar').disabled=true;
   $('generar-dialogo').disabled=true;

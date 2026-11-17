@@ -1,5 +1,5 @@
 'use strict';
-/* E2E en rama de trabajo: el editor NO forma parte del paquete público. */
+/* E2E editorial del editor avanzado; la web pública usa Conjuros sencillo. */
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
@@ -83,7 +83,7 @@ async function probar(nombre,motor,url){
     assert.ok(!datos.includes('Generas una grieta'),'No exportar descripciones oficiales');
     await page.locator('#importar-archivo').setInputFiles({
       name:'bad.json',mimeType:'application/json',buffer:Buffer.from('{"esquema":"incorrecto"}')});
-    assert.match(await page.locator('#estado-datos').innerText(),/No se importó nada/);
+    await page.locator('#estado-datos').getByText('No se importó nada',{exact:false}).waitFor();
     assert.equal(await page.locator('#asociaciones-guardadas li').count(),2);
     await page.setViewportSize({width:375,height:812});
     assert.equal(await page.locator('#crear-lista').isVisible(),true);

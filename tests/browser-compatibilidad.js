@@ -409,7 +409,7 @@ async function probar(nombre,tipo,url){
       desbordamiento:e.scrollWidth-e.clientWidth
     }));
     assert.ok(tablaMovil.ancho<390&&tablaMovil.desbordamiento<3,
-      nombre+': tabla DRS legible en móvil sin desbordamiento');
+      nombre+': tabla DRS legible en móvil sin desbordamiento · '+JSON.stringify(tablaMovil));
     await page.screenshot({path:path.join(capturas,nombre+'-tabla-calentar-metal-movil.png')});
     await page.setViewportSize({width:1440,height:900});
     // Técnicas y efectos no pertenecientes a Conjuros siguen siendo texto plano.
@@ -1283,11 +1283,11 @@ async function probar(nombre,tipo,url){
     assert.equal(await page.locator('#editor-gestion-equipo').evaluate(e=>e.open),true);
     await page.locator('#gestion-cerrar').click();
     // Regresión de accesibilidad: el flotante no cubre el pie de página.
-    await page.locator('.pie').scrollIntoViewIfNeeded();
+    await page.locator('.forja-pie').scrollIntoViewIfNeeded();
     await page.waitForFunction(()=>document.querySelector('#generar-flotante').hidden);
     assert.equal(await page.locator('#generar-flotante').isHidden(),true,
       nombre+': el CTA flotante no debe tapar el pie de página en móvil');
-    const enlacePie=page.locator('.pie a').first();
+    const enlacePie=page.locator('.forja-pie a').first();
     assert.equal(await enlacePie.isVisible(),true);
     assert.equal(await enlacePie.isEnabled(),true);
     await page.screenshot({path:path.join(capturas,nombre+'-pie-despejado.png')});
@@ -1386,7 +1386,7 @@ async function main(){
     server.listen(0,'127.0.0.1',resolve);
   });
   try{
-    const url='http://127.0.0.1:'+server.address().port+'/index.html';
+    const url='http://127.0.0.1:'+server.address().port+'/characters-nd20/index.html';
     for(const [nombre,tipo] of [['firefox',firefox],['webkit',webkit]])
       await probar(nombre,tipo,url);
   }finally{

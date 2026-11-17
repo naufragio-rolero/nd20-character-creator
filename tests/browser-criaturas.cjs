@@ -33,9 +33,9 @@ async function probar(nombre,tipo,url){
     await page.goto(url,{waitUntil:'domcontentloaded'});
     await page.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
     // La cabecera de marca y el glosario son presentación, no cambios del modelo.
-    assert.equal(await page.title(),'Forja de Naufragio d20 · El Naufragio');
+    assert.equal(await page.title(),'Personajes · La Forja · El Naufragio');
     assert.equal(await page.locator('header.encabezado h1').innerText(),
-      'Forja de Naufragio d20');
+      'La Forja');
     assert.equal(await page.locator('header.encabezado .sobrelinea').count(),0);
     const logoMarca=page.locator('header.encabezado img.marca-logotipo');
     await logoMarca.evaluate(img=>img.decode());
@@ -311,9 +311,9 @@ async function probar(nombre,tipo,url){
           maxHeight:Math.max(...r.map(x=>x.height)),
           boxHeight:n.getBoundingClientRect().height,viewport:innerWidth};
       });
-      assert.equal(b.count,5,vista+': hay cinco acciones visibles.');
+      assert.equal(b.count,6,vista+': hay seis acciones visibles.');
       assert.ok(b.names.every(Boolean)&&b.icons.every(Boolean),
-        vista+': cinco iconos con etiquetas accesibles.');
+        vista+': seis iconos con etiquetas accesibles.');
       assert.ok(b.topRange<2&&b.maxHeight<=45&&b.boxHeight<=80,
         vista+': acciones en una sola fila compacta: '+JSON.stringify(b));
       assert.ok(b.minX>=0&&b.maxX<=b.viewport+1,
@@ -542,7 +542,12 @@ async function probar(nombre,tipo,url){
         const top=visible.map(x=>x.getBoundingClientRect().top);
         return {cantidad:visible.length,desfase:Math.max(...top)-Math.min(...top)};
       });
-      assert.equal(accionesOficiales.cantidad,5);
+      assert.equal(accionesOficiales.cantidad,6,
+        'La ficha oficial muestra seis acciones, incluido Compartir enlace.'); 
+      assert.equal(await segunda.locator('#criaturas-ficha-compartir').getAttribute('aria-label'),
+        'Compartir enlace de adversario');
+      assert.equal(await segunda.locator('#criaturas-ficha-compartir').isVisible(),true,
+        'Compartir está disponible también para perfiles oficiales.');
       assert.ok(accionesOficiales.desfase<2,'El perfil oficial usa la misma fila compacta.');
       assert.equal(await segunda.locator('.criaturas-metrica').count(),3);
       assert.doesNotMatch(await segunda.locator('#criaturas-ficha-contenido').innerText(),
@@ -732,7 +737,7 @@ async function main(){
     server.once('error',reject);server.listen(0,'127.0.0.1',resolve);
   });
   try{
-    const url='http://127.0.0.1:'+server.address().port+'/index.html';
+    const url='http://127.0.0.1:'+server.address().port+'/characters-nd20/index.html';
     const seleccion=process.argv.slice(2);
     const motores={chrome:chromium,chromium:chromium,firefox:firefox,webkit:webkit};
     const nombres=seleccion.length?seleccion:['firefox','webkit'];
