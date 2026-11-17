@@ -127,6 +127,26 @@ async function probar(nombre,tipo,url){
         .getAttribute('data-catalogo-id')!==null,true,
         'Conservar el ID de origen de las Acciones mezcladas.');
     }finally{await aleatorioPage.close();}
+    // Generar ya no abre la configuración y nunca guarda una ficha por sí solo.
+    const inmediato=await contexto.newPage();
+    try{
+      await inmediato.goto(url,{waitUntil:'domcontentloaded'});
+      await inmediato.locator('#estado').getByText('Datos listos',{exact:false}).waitFor();
+      await inmediato.locator('#tab-criaturas').click();
+      await inmediato.locator('#criaturas-nueva-panel').click();
+      assert.equal(await inmediato.locator('#criaturas-crear-ya').isVisible(),true);
+      await inmediato.locator('#criaturas-crear-ya').click();
+      await inmediato.locator('#criaturas-edicion').waitFor({state:'visible'});
+      assert.equal(await inmediato.locator('#criaturas-crear-dialogo').evaluate(x=>x.open),false);
+      assert.equal(await inmediato.locator('#criaturas-generar-dialogo').evaluate(x=>x.open),false);
+      assert.ok((await inmediato.locator('#criaturas-nombre').inputValue()).trim().length>0);
+      assert.match(await inmediato.locator('#criaturas-notas').inputValue(),
+        /semilla: [0-9a-f]{16}/);
+      const nivelInmediato=Number(await inmediato.locator('#criaturas-nivel').inputValue());
+      assert.ok(Number.isInteger(nivelInmediato)&&nivelInmediato>=0&&nivelInmediato<=100);
+      assert.equal(await inmediato.locator('#criaturas-lista .criaturas-lista-item').count(),0,
+        'La generación inmediata deja un borrador sin guardar.');
+    }finally{await inmediato.close();}
     // Regresión: una cabecera con Nivel pero sin Salud nunca recibe la media
     // durante el pegado. La descripción tampoco es requisito de las fichas.
     const sinSalud=await contexto.newPage();
