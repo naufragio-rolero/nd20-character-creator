@@ -1,0 +1,3021 @@
+{
+  "version": 1,
+  "titulo": "Componentes creativos de nombres de Ylat",
+  "politica": "El generador toma un nombre y un segundo componente documentados de forma independiente. No se acredita genealogía, filiación, sexo ni especie. Se conservan intactos los archivos de testimonios y el tesauro. Se han excluido títulos, apodos, ordinales y convenciones eladrines. Los pesos son una decisión técnica editorial, no una frecuencia canónica. Se omiten explícitamente los apodos individuales Violatesoros y Brasagorda como apellidos.",
+  "fuentes": [
+    "data/tesauro-ylat.json",
+    "data/onomastica-ylat.json",
+    "docs/investigacion-onomastica-ylat/clasificacion-segundos-componentes.md"
+  ],
+  "pesos": "Apellidos expresamente excepcionales Shadelgast, Bronnhum, Boll y Achgate: 1; otros linajes singularizados: 5; resto: pesos fijos deterministas de 10 a 100 según clasificación/forma. Todos son relativos.",
+  "nombres": [
+    {
+      "nombre": "Abdul",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Abelio",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Acathia",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Adaldust",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Addare",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Adhat",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Aerandil",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Aereth",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Aeromund",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Akestu",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Albert",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Alessia",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Alim",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Amadeus",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Amathur",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Anasthore",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Anfingrem",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Angus",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Aradale",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Arlia",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Arloth",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Armando",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Asharod",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Astrid",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Aurelius",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Awara",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Azael",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Balthyr",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Banelm",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Bankingar",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Baryn",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Belegur",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Belril",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Besyl",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Bianca",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Bram",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Branneth",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Branwen",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Bruto",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Cabal",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Caefyn",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Caelia",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Caeloen",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Caisadi",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Calotgero",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Car'rt",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Caramierda",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Celebriän",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Chrachack",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Chred",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Ciale",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Cromust",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Crujidor",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Cuthert",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Daeron",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Damien",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Dan",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Daniel",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Darelon",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Delril",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Demetrius",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Denhat",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Dianne",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Dora",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Draconio",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Drakabel",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Drazoath",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Drother",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Drut'Jaal",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Edward",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Eilinn",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Eld'mose",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Eldburg",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Elisia",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Elrohir",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Elthon",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Eman",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Engaw",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Enyra",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Eomdyn",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Essaetia",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Eurip",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Fabrizio",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Fëanáro",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Filotheus",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Findorian",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Francesca",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Fredián",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Galeshra",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Galibard",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Galothertus",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Gerad",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Gilraen",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Godogene",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Gorgan",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Góvan",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Grogtk",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Gulfrik",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Gustaffon",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Gwilherm",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Hadewig",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Hadrik",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Halor",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Hansus",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Harlend",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Hassad",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Havindrin",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Hermilda",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Hiller",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Hiyael",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Hyarion",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Idfaseya",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Ilythia",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Indalezius",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Inether",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Ingulph",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Iralde",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Isandra",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Iskadar",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Isspol",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Jaleba",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Jeremie",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Jérémie",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Jiggalen",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Jkoor",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Joan",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Josah",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Joseph",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Käbrius",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Kaelgor",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Kalzifer",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Kharan",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Kineyie",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Korgrán",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Kranthrom",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Kurzak",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Kutak",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Laevinë",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Lalis",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Lathandos",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Lazare",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Leandro",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Leezar",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Lisandra",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Lorif",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Loroohck",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Lorss",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Luresse",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Lyran",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Malthus",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Marco",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Mario",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Mark",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Marlak",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Marten",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Martius",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Mashera",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Máthair",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Maurice",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Maverae",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Mirethia",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Modestia",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Mogg'Shattoth",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Morgarath",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Morgendärr",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Muhammad",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Nabeel",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Naeis",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Nahr",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Naleale",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Narelmayl",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Narga",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Nathan",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Nebulashka",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Nêrra",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Nesaweyn",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Neurustho",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Neyney",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Nidrael",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Nilsea",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Nimara",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Norluth",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Noron",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Notorius",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Nulsärax",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Nyldryl",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Oelmi",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Oenogs",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Oiam",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Ophilia",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Ork",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Otho-Dekrll",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Pamela",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Paulina",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Petro",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Pietro",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Quamara",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Quaon",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Radinel",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Rargar",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Rewill",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Richerento",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Robin",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Roluj",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Ryn'Acki",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Sadyiya",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Saewig",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Sarata",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Sashka",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Scheziss",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Selvarn",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Señor",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Seruon",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Shadel",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Skörn",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Sodyd",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Stasi",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Sumaeryn",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Syssbel",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Tadeo",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Tanto",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Tayana",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Tegku",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Ternus",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Tharn",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Theren",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Thergan",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Thingrim",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Tomás",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Travis",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Treban",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Tuliëlle",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Tyvoz",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Ubale",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Uragana",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Vaelar",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Varlyna",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Velyn",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Viktor",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Vrymmir",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Vysoben",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Warsam",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Weeheem",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Werhilda",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Wilgils",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "William",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Xandor",
+      "fuentes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ]
+    },
+    {
+      "nombre": "Ybardonydd",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Ymobil",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Yuno",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Zack",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Zarkon",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Zarzik",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Zekogs",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    },
+    {
+      "nombre": "Zurari",
+      "fuentes": [
+        "onomastica-documentada"
+      ]
+    }
+  ],
+  "apellidos": [
+    {
+      "nombre": "Achgate",
+      "peso_relativo": 1,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Adorasol",
+      "peso_relativo": 5,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Alban",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Alcanzarríos",
+      "peso_relativo": 45,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Alogers",
+      "peso_relativo": 5,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Alswick",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Anverso",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Arianhrod",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Arper",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Asheishi",
+      "peso_relativo": 12,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Belardo",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Beld",
+      "peso_relativo": 20,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Boll",
+      "peso_relativo": 1,
+      "origenes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Borgernstâg",
+      "peso_relativo": 45,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "V"
+    },
+    {
+      "nombre": "Borney",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Bracco",
+      "peso_relativo": 30,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Brahemfor",
+      "peso_relativo": 100,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Brice",
+      "peso_relativo": 20,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Brillonuevo",
+      "peso_relativo": 85,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Brisaolvidada",
+      "peso_relativo": 45,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Bron",
+      "peso_relativo": 85,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Bronnhum",
+      "peso_relativo": 1,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Brosul",
+      "peso_relativo": 45,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Buelhorn",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Buenacerveza",
+      "peso_relativo": 85,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Burbridge",
+      "peso_relativo": 30,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Cabeza de Oso",
+      "peso_relativo": 100,
+      "origenes": [
+        "tesauro-isla-tormenta"
+      ],
+      "clasificacion": "combinacion-validada"
+    },
+    {
+      "nombre": "Calcetines",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Ceñóseo",
+      "peso_relativo": 20,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Ceolward",
+      "peso_relativo": 85,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Cianci",
+      "peso_relativo": 20,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Dreedmist",
+      "peso_relativo": 20,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Duthmor",
+      "peso_relativo": 45,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Ecala",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Eldarien",
+      "peso_relativo": 30,
+      "origenes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Engalei",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Fadel",
+      "peso_relativo": 65,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Falaz",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Feebil",
+      "peso_relativo": 85,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Felsaer",
+      "peso_relativo": 100,
+      "origenes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Festus",
+      "peso_relativo": 30,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Fiercespada",
+      "peso_relativo": 36,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Floricarpio",
+      "peso_relativo": 100,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Fluyeflauta",
+      "peso_relativo": 65,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Forjaplata",
+      "peso_relativo": 65,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Forneustone",
+      "peso_relativo": 65,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Fuegosombrío",
+      "peso_relativo": 27,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Fulgentis",
+      "peso_relativo": 33,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Giovanni",
+      "peso_relativo": 85,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Gomelera",
+      "peso_relativo": 18,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Grimaldi",
+      "peso_relativo": 20,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Gudrün",
+      "peso_relativo": 65,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Gull",
+      "peso_relativo": 30,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Haagenti",
+      "peso_relativo": 20,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Hassif",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Hermous",
+      "peso_relativo": 85,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Hiendeacero",
+      "peso_relativo": 85,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Hiervescarcha",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Holdt",
+      "peso_relativo": 45,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Hueso de Sangre",
+      "peso_relativo": 45,
+      "origenes": [
+        "tesauro-isla-tormenta"
+      ],
+      "clasificacion": "combinacion-validada"
+    },
+    {
+      "nombre": "Inversa",
+      "peso_relativo": 65,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "A"
+    },
+    {
+      "nombre": "Iraldsay",
+      "peso_relativo": 5,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Jacenty",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Keefe",
+      "peso_relativo": 25,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Kinistis",
+      "peso_relativo": 31,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Kultstein",
+      "peso_relativo": 12,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Leahein",
+      "peso_relativo": 65,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Leone",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Lobeth",
+      "peso_relativo": 5,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Lockbruck",
+      "peso_relativo": 65,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Lowees",
+      "peso_relativo": 45,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Mantodorado",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Maplewilde",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Martoni",
+      "peso_relativo": 100,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Masticadedos",
+      "peso_relativo": 45,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Maxley",
+      "peso_relativo": 65,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Morcrick",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Nerese",
+      "peso_relativo": 65,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Neulenthris",
+      "peso_relativo": 18,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Nichols",
+      "peso_relativo": 65,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Noccerado",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Noreesh",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Norvvind",
+      "peso_relativo": 39,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Nyser",
+      "peso_relativo": 45,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Olatheus",
+      "peso_relativo": 20,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Oq'uatee",
+      "peso_relativo": 85,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "V"
+    },
+    {
+      "nombre": "Orbem",
+      "peso_relativo": 20,
+      "origenes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Oroforte",
+      "peso_relativo": 30,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Orovecchio",
+      "peso_relativo": 85,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Pamphilos",
+      "peso_relativo": 20,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Pelocobre",
+      "peso_relativo": 45,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Petreius",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Pinnotix",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Porach",
+      "peso_relativo": 85,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Quiebrahielo",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Ranley",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Rocene",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Roerraíces",
+      "peso_relativo": 85,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Rowes",
+      "peso_relativo": 30,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Ryszard",
+      "peso_relativo": 20,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Samasi",
+      "peso_relativo": 65,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Samdaw",
+      "peso_relativo": 20,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Shadelgast",
+      "peso_relativo": 1,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Sierpercana",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Sigvald",
+      "peso_relativo": 32,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Silversea",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Sireg",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Skara",
+      "peso_relativo": 5,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Smoth",
+      "peso_relativo": 37,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Snave",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Solarys",
+      "peso_relativo": 20,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Sombralba",
+      "peso_relativo": 45,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Sonascama",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Soplotenue",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Sossei",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Swordkey",
+      "peso_relativo": 65,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Tasano",
+      "peso_relativo": 65,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Tepoel",
+      "peso_relativo": 20,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Thrathal",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Tonunt",
+      "peso_relativo": 40,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Torgal",
+      "peso_relativo": 85,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Travole",
+      "peso_relativo": 85,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Tugg",
+      "peso_relativo": 85,
+      "origenes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Ulvbane",
+      "peso_relativo": 45,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Ungesavia",
+      "peso_relativo": 20,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Valanthis",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Vardamir",
+      "peso_relativo": 5,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Verdimbre",
+      "peso_relativo": 65,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Verdiscente",
+      "peso_relativo": 65,
+      "origenes": [
+        "onomastica-documentada"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Veredron",
+      "peso_relativo": 14,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "F"
+    },
+    {
+      "nombre": "Vuelumbrío",
+      "peso_relativo": 30,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    },
+    {
+      "nombre": "Williams",
+      "peso_relativo": 100,
+      "origenes": [
+        "onomastica-documentada",
+        "tesauro-isla-tormenta"
+      ],
+      "clasificacion": "segundo-elemento"
+    },
+    {
+      "nombre": "Ysheasa",
+      "peso_relativo": 100,
+      "origenes": [
+        "clasificacion-segundos-componentes.md",
+        "onomastica-documentada"
+      ],
+      "clasificacion": "I"
+    }
+  ],
+  "identidades_documentadas": [
+    "Nilsea",
+    "Kalzifer",
+    "Oiam Orbem",
+    "Xandor Tugg",
+    "Noron Cabeza de Oso",
+    "Kharan Boll",
+    "Drakabel",
+    "Tanto",
+    "Gorgan Hueso de Sangre",
+    "Kutak",
+    "Abdul",
+    "Thingrim",
+    "Lazare Brice",
+    "Joseph Williams",
+    "Saewig Shadelgast",
+    "Jeremie Alban",
+    "Máthair Felsaer",
+    "Vaelar Eldarien",
+    "Pietro",
+    "Abdul Hassif",
+    "Abelio Floricarpio",
+    "Acathia Masticadedos",
+    "Adaldust Alogers",
+    "Addare Skara",
+    "Adhat la Tuerta",
+    "Aerandil del Atardecer Refulgente",
+    "Aereth, la del Alba Fría",
+    "Aeromund el Inquebrantable",
+    "Akestu Fiercespada",
+    "Albert Lobeth",
+    "Alessia Cianci",
+    "Alim de Mostagánem",
+    "Amadeus",
+    "Amathur",
+    "Anasthore del Atardecer Luciente",
+    "Anfingrem Sigvald",
+    "Angus Burbridge",
+    "Aradale Iraldsay",
+    "Arlia Brahemfor",
+    "Arloth",
+    "Armando Orovecchio",
+    "Asharod Nerese",
+    "Astrid Sombralba",
+    "Aurelius Ryszard",
+    "Awara Tonunt",
+    "Azael",
+    "Balthyr Maplewilde",
+    "Banelm Samdaw",
+    "Bankingar Sonascama",
+    "Baryn Violatesoros",
+    "Belegur Sigvald «Furia»",
+    "Belril Sierpercana",
+    "Besyl Noccerado",
+    "Bianca Leone",
+    "Bram Brasagorda",
+    "Branneth, el de la Larga Siembra",
+    "Branwen Sigvald «Discordia»",
+    "Bruto",
+    "Cabal Sireg",
+    "Caefyn Verdimbre",
+    "Caelia Fulgentis",
+    "Caeloen Leahein",
+    "Caisadi Fuegosombrío",
+    "Calotgero Oroforte",
+    "Car'rt Oq'uatee",
+    "Caramierda",
+    "Celebriän Brisaolvidada",
+    "Chrachack Fiercespada",
+    "Chred Nichols",
+    "Ciale Iraldsay",
+    "Cromust Fiercespada",
+    "Crujidor",
+    "Cuthert Achgate",
+    "Daeron Vardamir",
+    "Damien Holdt",
+    "Dan",
+    "Daniel Alswick",
+    "Darelon Thrathal",
+    "Delril Torgal",
+    "Demetrius Buelhorn",
+    "Denhat Lobeth",
+    "Dianne Smoth",
+    "Dora Verdiscente",
+    "Draconio «Drake» Orovecchio",
+    "Drazoath",
+    "Drother Tasano",
+    "Drut'Jaal",
+    "Edward Swordkey",
+    "Eilinn Brillonuevo",
+    "Eld'mose Kinistis",
+    "Eldburg Skara",
+    "Elisia Jacenty",
+    "Elrohir Vardamir",
+    "Elthon Travole",
+    "Eman Iraldsay",
+    "Engaw Brosul",
+    "Enyra Petreius",
+    "Eomdyn Noreesh",
+    "Essaetia Neulenthris",
+    "Eurip Shadelgast",
+    "Fabrizio Orovecchio",
+    "Fëanáro Vardamir",
+    "Filotheus Achgate",
+    "Findorian Alcanzarríos",
+    "Francesca Martoni",
+    "Fredián Alogers",
+    "Galeshra Adorasol",
+    "Galibard Shadelgast",
+    "Galibard Shadelgast II",
+    "Galothertus Porach",
+    "Gerad Orovecchio",
+    "Gerad Silversea",
+    "Gilraen Vardamir",
+    "Godogene Alogers",
+    "Góvan Gomelera",
+    "Grogtk",
+    "Gulfrik",
+    "Gustaffon Olatheus",
+    "Gwilherm Smoth",
+    "Hadewig Rocene",
+    "Hadrik Achgate",
+    "Halor Pelocobre",
+    "Hansus Bronnhum",
+    "Harlend Terrana, el Mediador",
+    "Hassad Fadel",
+    "Havindrin Mantodorado",
+    "Hermilda Shadelgast",
+    "Hijo de Pamela",
+    "Hiller Iraldsay",
+    "Hiyael el Huérfano",
+    "Hyarion Vardamir",
+    "Idfaseya Ysheasa",
+    "Ilythia",
+    "Indalezius Dreedmist",
+    "Inether Lowees",
+    "Ingulph Ceolward",
+    "Iralde Terrana, la del Arado Rojo",
+    "Isandra Bronnhum",
+    "Iskadar el Segundo",
+    "Isspol Tonunt",
+    "Jaleba Inversa",
+    "Jérémie Alban",
+    "Jiggalen Pamphilos",
+    "Jkoor Hiervescarcha",
+    "Joan Orovecchio",
+    "Josah Buelhorn",
+    "Kaart Oquati",
+    "Käbrius Festus",
+    "Kaelgor, el Estable",
+    "Kineyie Gudrün",
+    "Korgrán Nudillo Pétreo",
+    "Kranthrom Hiendeacero",
+    "Kurzak Sendero Severo",
+    "Laevinë Skara",
+    "Lalis Floricarpio",
+    "Lathandos Snave",
+    "Leandro Bracco",
+    "Leezar Lockbruck",
+    "Lisandra",
+    "Lorif Samasi",
+    "Loroohck Asheishi",
+    "Lorss Duthmor",
+    "Luresse Gomelera",
+    "Lyran",
+    "Malthus Haagenti",
+    "Marco",
+    "Mario Martoni",
+    "Mark Maxley",
+    "Marlak Fuegosombrío",
+    "Marten Lobeth",
+    "Martius Smoth",
+    "Mashera Skara",
+    "Maurice Martoni",
+    "Maverae Adorasol",
+    "Mirethia del Atardecer Coral",
+    "Modestia Jof «Esti»",
+    "Mogg'Shattoth",
+    "Morgarath Kultstein",
+    "Morgendärr",
+    "Muhammad Sossei",
+    "Nabeel Ungesavia",
+    "Naeis Shadelgast",
+    "Nahr Caelis, el Cortavientos",
+    "Naleale Iraldsay",
+    "Narelmayl",
+    "Narga Solarys",
+    "Nathan",
+    "Nebulashka",
+    "Nêrra",
+    "Nesaweyn Feebil",
+    "Neurustho Forneustone",
+    "Neyney sin Apellido",
+    "Nidrael Eldarien",
+    "Nimara Vuelumbrío",
+    "Norluth",
+    "Notorius Anverso",
+    "Nulsärax",
+    "Nyldryl",
+    "Oelmi Beld",
+    "Oenogs Roerraíces",
+    "Ophilia Morcrick",
+    "Ork",
+    "Otho-Dekrll",
+    "Pamela",
+    "Paulina Orovecchio",
+    "Petro Grimaldi",
+    "Quamara Rowes",
+    "Quaon Arianhrod",
+    "Radinel Soplotenue",
+    "Rargar Ecala",
+    "Rewill Borney",
+    "Richerento",
+    "Robin Ranley",
+    "Roluj Buenacerveza",
+    "Ryn'Acki",
+    "Sadyiya Falaz",
+    "Sarata Lobeth",
+    "Sashka Norvvind",
+    "Scheziss",
+    "Selvarn, el Nuboso",
+    "Señor Calcetines",
+    "Seruon el Esmeralda",
+    "Shadel",
+    "Skörn Norvvind",
+    "Sodyd Gomelera",
+    "Stasi Giovanni",
+    "Sumaeryn de las Mareas",
+    "Syssbel Valanthis",
+    "Tadeo Orovecchio",
+    "Tayana Pamphilos",
+    "Tegku Bagui Fénix",
+    "Ternus Arper",
+    "Tharn, el Viento Eterno",
+    "Theren Bron",
+    "Thergan Ulvbane",
+    "Thingrim Lockbruck",
+    "Tomás Belardo",
+    "Travis Engalei",
+    "Treban Tepoel",
+    "Tuliëlle Skara",
+    "Tyvoz Fluyeflauta",
+    "Ubale Keefe",
+    "Uragana Buelhorn",
+    "Varlyna, la Fundadora",
+    "Velyn Maren, la de los Ojos de Espuma",
+    "Viktor Kultstein",
+    "Vrymmir Borgenrstâg",
+    "Vrymmir Borgernstâg",
+    "Vysoben Veredron",
+    "Warsam Nyser",
+    "Weeheem Pinnotix",
+    "Werhilda Forjaplata",
+    "Wilgils Ceolward",
+    "William Gull",
+    "Ybardonydd Acomanydd Unerrannor",
+    "Ymobil",
+    "Yuno Lobeth",
+    "Zack Lobeth",
+    "Zarkon",
+    "Zarzik Ceñóseo",
+    "Zekogs Quiebrahielo",
+    "Zurari Hermous"
+  ],
+  "combinaciones_previas": [
+    "Nilsea Orbem",
+    "Tanto Cabeza de Oso",
+    "Abdul Boll",
+    "Saewig Hueso de Sangre",
+    "Vaelar Brice",
+    "Oiam Williams",
+    "Kharan Shadelgast",
+    "Kutak Alban",
+    "Lazare Felsaer",
+    "Máthair Eldarien",
+    "Noron Tugg",
+    "Thingrim Boll",
+    "Pietro Brice",
+    "Drakabel Shadelgast",
+    "Joseph Felsaer",
+    "Kalzifer Orbem",
+    "Gorgan Cabeza de Oso",
+    "Jeremie Hueso de Sangre",
+    "Xandor Williams",
+    "Abdul Alban",
+    "Kharan Tugg",
+    "Lazare Boll",
+    "Nilsea Brice",
+    "Tanto Shadelgast",
+    "Saewig Felsaer",
+    "Kutak Cabeza de Oso",
+    "Máthair Hueso de Sangre",
+    "Noron Williams",
+    "Thingrim Alban",
+    "Pietro Eldarien",
+    "Drakabel Tugg",
+    "Joseph Boll",
+    "Kalzifer Brice"
+  ]
+}

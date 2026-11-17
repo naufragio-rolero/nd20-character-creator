@@ -1,0 +1,1659 @@
+{
+  "version": 1,
+  "editorial": "Etiquetado de nombres para coherencia de la Forja; no implica restricción mecánica del reglamento.",
+  "ocupaciones_contexto_femenino": {},
+  "especies_preferencia_femenino": {},
+  "femeninos_por_especie": {
+    "Elfo agreste": [
+      "Thalindra",
+      "Lirelia",
+      "Arwen",
+      "Elariana",
+      "Galadriel",
+      "Aranel",
+      "Caladwen"
+    ],
+    "Enano montañés": [],
+    "Humano común": [
+      "Emily",
+      "Anna",
+      "Sarah",
+      "Sophia",
+      "Olivia",
+      "Ava",
+      "Emma",
+      "Mia",
+      "Ella",
+      "Grace"
+    ],
+    "Mediano amable": [
+      "Rosie",
+      "Primrose",
+      "Daisy",
+      "Rosa",
+      "Estella",
+      "Ruby",
+      "Gilly",
+      "Lily"
+    ],
+    "Gnomo urbano": [
+      "Engranajeza",
+      "Varitacentella",
+      "Ruecamolida",
+      "Cimacreante",
+      "Estallidochispa",
+      "Chisparreloj"
+    ],
+    "Semielfo": [
+      "Aria",
+      "Arwen",
+      "Alandria",
+      "Thalia",
+      "Eloria",
+      "Elariel",
+      "Caladwen",
+      "Elariana",
+      "Mirel"
+    ],
+    "Orco común": [
+      "Urga",
+      "Gorza"
+    ],
+    "Semiorco": [
+      "Kara",
+      "Gorza"
+    ],
+    "Humano natural": [
+      "Eva",
+      "Sarah",
+      "Emily",
+      "Abigail",
+      "Sophia",
+      "Olivia",
+      "Isabella",
+      "Emma",
+      "Ava",
+      "Mia",
+      "Clara Velsa",
+      "Lina Berov",
+      "Elia Cordes",
+      "Nora Vidalet",
+      "Tania Rosmel",
+      "Inés Dovira",
+      "Yara Montesín",
+      "Rebeca Soléz",
+      "Amira Costel",
+      "Julia Corbes",
+      "Nadia Castel"
+    ],
+    "Humano aumentado": [
+      "Aria",
+      "Athena",
+      "Gaia",
+      "Selene",
+      "Iris",
+      "Electra",
+      "Pandora",
+      "Daphne"
+    ],
+    "Sylph mindari": [
+      "Selene",
+      "Rhea",
+      "Cassiopeia",
+      "Theia",
+      "Eos"
+    ],
+    "Sylph zanshi": [
+      "Lyra",
+      "Astra",
+      "Vega",
+      "Andromeda",
+      "Bellatrix"
+    ],
+    "Humano arcano": [
+      "Mara Delvor",
+      "Yune Velasco",
+      "Ariadna Bresel",
+      "Lidia Orvella",
+      "Lara Nestri",
+      "Vera Ramiel",
+      "Sonia Altamar",
+      "Celia Vardés",
+      "Eva Morell",
+      "Noelia Terrán",
+      "Sara Lemón"
+    ],
+    "Strigoi": [
+      "Ilena Vost",
+      "Nara Vercen",
+      "Dámaris Solven",
+      "Silvia Noctel",
+      "Elvira Brezán",
+      "Iria Valdrés",
+      "Luz Damar",
+      "Renata Belmar",
+      "Cora Merlet",
+      "Estela Corvis",
+      "Marina Dolvet"
+    ],
+    "Jiangshi": [
+      "Naia Lerín",
+      "Mina Javert",
+      "Xia Merel",
+      "Marta Velin",
+      "Mei Darán",
+      "Dara Poves",
+      "Kira Sorcel",
+      "Linae Perot",
+      "Elsa Torrevi",
+      "Iria Montel"
+    ],
+    "Hombre lobo": [
+      "Brenda Velar",
+      "Violeta Neri",
+      "Alba Costera",
+      "Sandra Volper",
+      "Nerea Belén",
+      "Jana Corven",
+      "Elsa Tejer",
+      "Gala Montresa",
+      "Leire Toral",
+      "Paula Bernat"
+    ],
+    "Hombre cuervo": [
+      "Aldara Sorel",
+      "Sira Varden",
+      "Anaís Mervel",
+      "Aina Domarel",
+      "Vania Relmont",
+      "Dalia Mirvet",
+      "Noemí Saldres",
+      "Nora Belvera",
+      "Vega Carmes",
+      "Lía Dervés"
+    ],
+    "Sidhe": [
+      "Iria Faelven",
+      "Maela Virdan",
+      "Neria Doviel",
+      "Avela Darsiel",
+      "Ilenna Coriel",
+      "Vaela Merín",
+      "Esmira Theren",
+      "Aenor Velian",
+      "Rielma Arvon",
+      "Loriaen Mírel",
+      "Eirena Veldris",
+      "Nimriel Coren"
+    ],
+    "Ceniciento": [
+      "Dalia Tervén",
+      "Irene Rosval",
+      "Noa Cerel",
+      "Eva Vordel",
+      "Renée Tormes",
+      "Cleo Barnés",
+      "Vero Morís"
+    ]
+  },
+  "nombres_editoriales": {
+    "Enano montañés": {
+      "femenino": [
+        "Hilda",
+        "Brynja",
+        "Runa",
+        "Sigrid",
+        "Dís",
+        "Ástrid"
+      ]
+    },
+    "Gruul bruto": {
+      "femenino": []
+    },
+    "Gruul zángano": {
+      "femenino": []
+    }
+  },
+  "nombres_generales_femeninos": [
+    "Serafina",
+    "Marcella",
+    "Frida",
+    "Yara",
+    "Erika",
+    "Amparo",
+    "Lualhati",
+    "Cladinia",
+    "Tharia",
+    "Minara",
+    "Nilsea",
+    "Naxka",
+    "Máthair",
+    "Nara",
+    "Elvira",
+    "Lidia",
+    "Lucita",
+    "Cora",
+    "Dalia",
+    "Iria"
+  ],
+  "nombres_generales_masculinos": [
+    "Carmelo",
+    "Remigio",
+    "Lorenzo",
+    "Juan",
+    "Pedro",
+    "Lucio",
+    "Torben",
+    "Ram",
+    "Vladislav",
+    "Kaldun",
+    "Saelvion",
+    "Thalios",
+    "Eldrin",
+    "Triko",
+    "Kalzifer",
+    "Oiam",
+    "Xandor",
+    "Noron",
+    "Kharan",
+    "Gorgan",
+    "Kutak",
+    "Abdul",
+    "Thingrim",
+    "Lazare",
+    "Joseph",
+    "Saewig",
+    "Jeremie",
+    "Pietro",
+    "Tanto"
+  ],
+  "sexo_por_especie_neutral": [
+    "Gruul bruto",
+    "Gruul zángano",
+    "Gnomo urbano"
+  ],
+  "configuracion": {
+    "sexo_por_defecto": "aleatorio",
+    "respetar_contexto": true
+  },
+  "seguidores_profesiones_drs": {
+    "Arcanista": {
+      "masculino": "Arcanista",
+      "femenino": "Arcanista"
+    },
+    "Artesano": {
+      "masculino": "Artesano",
+      "femenino": "Artesana"
+    },
+    "Cazador": {
+      "masculino": "Cazador",
+      "femenino": "Cazadora"
+    },
+    "Escriba": {
+      "masculino": "Escriba",
+      "femenino": "Escriba"
+    },
+    "Escudero": {
+      "masculino": "Escudero",
+      "femenino": "Escudera"
+    },
+    "Guardia": {
+      "masculino": "Guardia",
+      "femenino": "Guardia"
+    },
+    "Ladrón": {
+      "masculino": "Ladrón",
+      "femenino": "Ladrona"
+    },
+    "Mensajero": {
+      "masculino": "Mensajero",
+      "femenino": "Mensajera"
+    },
+    "Mercenario": {
+      "masculino": "Mercenario",
+      "femenino": "Mercenaria"
+    },
+    "Portantorchas": {
+      "masculino": "Portantorchas",
+      "femenino": "Portantorchas"
+    },
+    "Porteador": {
+      "masculino": "Porteador",
+      "femenino": "Porteadora"
+    },
+    "Sacerdote": {
+      "masculino": "Sacerdote",
+      "femenino": "Sacerdotisa"
+    }
+  },
+  "ocupaciones_formas_genero": {
+    "Clérigo": {
+      "masculino": "Clérigo",
+      "femenino": "Clériga"
+    },
+    "Guerrero": {
+      "masculino": "Guerrero",
+      "femenino": "Guerrera"
+    },
+    "Mago": {
+      "masculino": "Mago",
+      "femenino": "Maga"
+    },
+    "Ladrón": {
+      "masculino": "Ladrón",
+      "femenino": "Ladrona"
+    },
+    "Arcanista": {
+      "masculino": "Arcanista",
+      "femenino": "Arcanista"
+    },
+    "Cazador de monstruos": {
+      "masculino": "Cazador de monstruos",
+      "femenino": "Cazadora de monstruos"
+    },
+    "Delincuente": {
+      "masculino": "Delincuente",
+      "femenino": "Delincuente"
+    },
+    "Espiritista": {
+      "masculino": "Espiritista",
+      "femenino": "Espiritista"
+    },
+    "Investigador": {
+      "masculino": "Investigador",
+      "femenino": "Investigadora"
+    },
+    "Mercenario": {
+      "masculino": "Mercenario",
+      "femenino": "Mercenaria"
+    },
+    "Operador": {
+      "masculino": "Operador",
+      "femenino": "Operadora"
+    },
+    "Pícaro": {
+      "masculino": "Pícaro",
+      "femenino": "Pícara"
+    },
+    "Diplomático": {
+      "masculino": "Diplomático",
+      "femenino": "Diplomática"
+    },
+    "Eudemonista": {
+      "masculino": "Eudemonista",
+      "femenino": "Eudemonista"
+    },
+    "Forajido": {
+      "masculino": "Forajido",
+      "femenino": "Forajida"
+    },
+    "Psion": {
+      "masculino": "Psion",
+      "femenino": "Psion"
+    },
+    "Soldado": {
+      "masculino": "Soldado",
+      "femenino": "Soldada"
+    },
+    "Tecnópata": {
+      "masculino": "Tecnópata",
+      "femenino": "Tecnópata"
+    }
+  },
+  "especies_formas_genero": {
+    "Elfo agreste": {
+      "masculino": "Elfo agreste",
+      "femenino": "Elfa agreste"
+    },
+    "Enano montañés": {
+      "masculino": "Enano montañés",
+      "femenino": "Enana montañesa"
+    },
+    "Humano común": {
+      "masculino": "Humano común",
+      "femenino": "Humana común"
+    },
+    "Mediano amable": {
+      "masculino": "Mediano amable",
+      "femenino": "Mediana amable"
+    },
+    "Gnomo urbano": {
+      "masculino": "Gnomo urbano",
+      "femenino": "Gnoma urbana"
+    },
+    "Semielfo": {
+      "masculino": "Semielfo",
+      "femenino": "Semielfa"
+    },
+    "Orco común": {
+      "masculino": "Orco común",
+      "femenino": "Orca común"
+    },
+    "Semiorco": {
+      "masculino": "Semiorco",
+      "femenino": "Semiorca"
+    },
+    "Humano natural": {
+      "masculino": "Humano natural",
+      "femenino": "Humana natural"
+    },
+    "Humano aumentado": {
+      "masculino": "Humano aumentado",
+      "femenino": "Humana aumentada"
+    },
+    "Gruul bruto": {
+      "masculino": "Gruul bruto",
+      "femenino": "Gruul bruta"
+    },
+    "Gruul zángano": {
+      "masculino": "Gruul zángano",
+      "femenino": "Gruul zángana"
+    },
+    "Sylph mindari": {
+      "masculino": "Sylph mindari",
+      "femenino": "Sylph mindari"
+    },
+    "Sylph zanshi": {
+      "masculino": "Sylph zanshi",
+      "femenino": "Sylph zanshi"
+    },
+    "Humano arcano": {
+      "masculino": "Humano arcano",
+      "femenino": "Humana arcana"
+    },
+    "Strigoi": {
+      "masculino": "Strigoi",
+      "femenino": "Strigoi"
+    },
+    "Jiangshi": {
+      "masculino": "Jiangshi",
+      "femenino": "Jiangshi"
+    },
+    "Hombre lobo": {
+      "masculino": "Hombre lobo",
+      "femenino": "Mujer loba"
+    },
+    "Hombre cuervo": {
+      "masculino": "Hombre cuervo",
+      "femenino": "Mujer cuervo"
+    },
+    "Sidhe": {
+      "masculino": "Sidhe",
+      "femenino": "Sidhe"
+    },
+    "Ceniciento": {
+      "masculino": "Ceniciento",
+      "femenino": "Cenicienta"
+    }
+  },
+  "conceptos_formas_genero": {
+    "Devoto de la luz": {
+      "masculino": "Devoto de la luz",
+      "femenino": "Devota de la luz"
+    },
+    "Guardián de los templos": {
+      "masculino": "Guardián de los templos",
+      "femenino": "Guardiana de los templos"
+    },
+    "Sanador de almas": {
+      "masculino": "Sanador de almas",
+      "femenino": "Sanadora de almas"
+    },
+    "Inquisidor de la fe": {
+      "masculino": "Inquisidor de la fe",
+      "femenino": "Inquisidora de la fe"
+    },
+    "Predicador itinerante": {
+      "masculino": "Predicador itinerante",
+      "femenino": "Predicadora itinerante"
+    },
+    "Orador sagrado": {
+      "masculino": "Orador sagrado",
+      "femenino": "Oradora sagrada"
+    },
+    "Misionero de la divinidad": {
+      "masculino": "Misionero de la divinidad",
+      "femenino": "Misionera de la divinidad"
+    },
+    "Custodio de reliquias": {
+      "masculino": "Custodio de reliquias",
+      "femenino": "Custodia de reliquias"
+    },
+    "Valiente defensor": {
+      "masculino": "Valiente defensor",
+      "femenino": "Valiente defensora"
+    },
+    "Cazador de monstruos": {
+      "masculino": "Cazador de monstruos",
+      "femenino": "Cazadora de monstruos"
+    },
+    "Espadachín errante": {
+      "masculino": "Espadachín errante",
+      "femenino": "Espadachina errante"
+    },
+    "Caballero en busca de honor": {
+      "masculino": "Caballero en busca de honor",
+      "femenino": "Caballera en busca de honor"
+    },
+    "Guardián de la justicia": {
+      "masculino": "Guardián de la justicia",
+      "femenino": "Guardiana de la justicia"
+    },
+    "Bárbaro implacable": {
+      "masculino": "Bárbaro implacable",
+      "femenino": "Bárbara implacable"
+    },
+    "Gladiador de la arena": {
+      "masculino": "Gladiador de la arena",
+      "femenino": "Gladiadora de la arena"
+    },
+    "Arquero de élite": {
+      "masculino": "Arquero de élite",
+      "femenino": "Arquera de élite"
+    },
+    "Maestro de la espada": {
+      "masculino": "Maestro de la espada",
+      "femenino": "Maestra de la espada"
+    },
+    "Maestro de las artes arcanas": {
+      "masculino": "Maestro de las artes arcanas",
+      "femenino": "Maestra de las artes arcanas"
+    },
+    "Investigador de lo desconocido": {
+      "masculino": "Investigador de lo desconocido",
+      "femenino": "Investigadora de lo desconocido"
+    },
+    "Manipulador de la realidad": {
+      "masculino": "Manipulador de la realidad",
+      "femenino": "Manipuladora de la realidad"
+    },
+    "Hechicero elemental": {
+      "masculino": "Hechicero elemental",
+      "femenino": "Hechicera elemental"
+    },
+    "Ilusionista astuto": {
+      "masculino": "Ilusionista astuto",
+      "femenino": "Ilusionista astuta"
+    },
+    "Nigromante oscuro": {
+      "masculino": "Nigromante oscuro",
+      "femenino": "Nigromante oscura"
+    },
+    "Invocador de criaturas": {
+      "masculino": "Invocador de criaturas",
+      "femenino": "Invocadora de criaturas"
+    },
+    "Guardián de conocimientos ancestrales": {
+      "masculino": "Guardián de conocimientos ancestrales",
+      "femenino": "Guardiana de conocimientos ancestrales"
+    },
+    "Ladrón de tesoros perdidos": {
+      "masculino": "Ladrón de tesoros perdidos",
+      "femenino": "Ladrona de tesoros perdidos"
+    },
+    "Maestro del engaño": {
+      "masculino": "Maestro del engaño",
+      "femenino": "Maestra del engaño"
+    },
+    "Espía maestro": {
+      "masculino": "Espía maestro",
+      "femenino": "Espía maestra"
+    },
+    "Pirata astuto": {
+      "masculino": "Pirata astuto",
+      "femenino": "Pirata astuta"
+    },
+    "Aventurero astuto": {
+      "masculino": "Aventurero astuto",
+      "femenino": "Aventurera astuta"
+    },
+    "Asesino en las sombras": {
+      "masculino": "Asesino en las sombras",
+      "femenino": "Asesina en las sombras"
+    },
+    "Forajido sin ley": {
+      "masculino": "Forajido sin ley",
+      "femenino": "Forajida sin ley"
+    },
+    "Saboteador hábil": {
+      "masculino": "Saboteador hábil",
+      "femenino": "Saboteadora hábil"
+    },
+    "Guardián del bosque": {
+      "masculino": "Guardián del bosque",
+      "femenino": "Guardiana del bosque"
+    },
+    "Cazador de criaturas mágicas": {
+      "masculino": "Cazador de criaturas mágicas",
+      "femenino": "Cazadora de criaturas mágicas"
+    },
+    "Embajador feérico": {
+      "masculino": "Embajador feérico",
+      "femenino": "Embajadora feérica"
+    },
+    "Maestro arquero": {
+      "masculino": "Maestro arquero",
+      "femenino": "Maestra arquera"
+    },
+    "Guardián de secretos antiguos": {
+      "masculino": "Guardián de secretos antiguos",
+      "femenino": "Guardiana de secretos antiguos"
+    },
+    "Explorador de bosques encantados": {
+      "masculino": "Explorador de bosques encantados",
+      "femenino": "Exploradora de bosques encantados"
+    },
+    "Sanador de la naturaleza": {
+      "masculino": "Sanador de la naturaleza",
+      "femenino": "Sanadora de la naturaleza"
+    },
+    "Domador de bestias": {
+      "masculino": "Domador de bestias",
+      "femenino": "Domadora de bestias"
+    },
+    "Artesano élfico": {
+      "masculino": "Artesano élfico",
+      "femenino": "Artesano élfica"
+    },
+    "Forjador de las profundidades": {
+      "masculino": "Forjador de las profundidades",
+      "femenino": "Forjadora de las profundidades"
+    },
+    "Explorador de las montañas": {
+      "masculino": "Explorador de las montañas",
+      "femenino": "Exploradora de las montañas"
+    },
+    "Defensor de las rutas comerciales": {
+      "masculino": "Defensor de las rutas comerciales",
+      "femenino": "Defensora de las rutas comerciales"
+    },
+    "Rey bajo la montaña": {
+      "masculino": "Rey bajo la montaña",
+      "femenino": "Reina bajo la montaña"
+    },
+    "Minero intrépido": {
+      "masculino": "Minero intrépido",
+      "femenino": "Minera intrépida"
+    },
+    "Explorador de grutas": {
+      "masculino": "Explorador de grutas",
+      "femenino": "Exploradora de grutas"
+    },
+    "Guardián de tesoros": {
+      "masculino": "Guardián de tesoros",
+      "femenino": "Guardiana de tesoros"
+    },
+    "Explorador de cavernas": {
+      "masculino": "Explorador de cavernas",
+      "femenino": "Exploradora de cavernas"
+    },
+    "Maestro herrero": {
+      "masculino": "Maestro herrero",
+      "femenino": "Maestra herrero"
+    },
+    "Héroe del pueblo": {
+      "masculino": "Héroe del pueblo",
+      "femenino": "Heroína del pueblo"
+    },
+    "Aventurero sin igual": {
+      "masculino": "Aventurero sin igual",
+      "femenino": "Aventurera sin igual"
+    },
+    "Guardián de la aldea": {
+      "masculino": "Guardián de la aldea",
+      "femenino": "Guardiana de la aldea"
+    },
+    "Caballero noble": {
+      "masculino": "Caballero noble",
+      "femenino": "Caballera noble"
+    },
+    "Comerciante próspero": {
+      "masculino": "Comerciante próspero",
+      "femenino": "Comerciante próspera"
+    },
+    "Intrépido viajero": {
+      "masculino": "Intrépido viajero",
+      "femenino": "Intrépida viajera"
+    },
+    "Músico ambulante": {
+      "masculino": "Músico ambulante",
+      "femenino": "Música ambulante"
+    },
+    "Explorador de tierras lejanas": {
+      "masculino": "Explorador de tierras lejanas",
+      "femenino": "Exploradora de tierras lejanas"
+    },
+    "Cocinero extraordinario": {
+      "masculino": "Cocinero extraordinario",
+      "femenino": "Cocinero extraordinaria"
+    },
+    "Guardián de la despensa": {
+      "masculino": "Guardián de la despensa",
+      "femenino": "Guardiana de la despensa"
+    },
+    "Narrador de cuentos": {
+      "masculino": "Narrador de cuentos",
+      "femenino": "Narradora de cuentos"
+    },
+    "Héroe del jardín": {
+      "masculino": "Héroe del jardín",
+      "femenino": "Heroína del jardín"
+    },
+    "Maestro de las festividades": {
+      "masculino": "Maestro de las festividades",
+      "femenino": "Maestra de las festividades"
+    },
+    "Defensor de la paz": {
+      "masculino": "Defensor de la paz",
+      "femenino": "Defensora de la paz"
+    },
+    "Embajador de la amistad": {
+      "masculino": "Embajador de la amistad",
+      "femenino": "Embajadora de la amistad"
+    },
+    "Buscador de la diversión": {
+      "masculino": "Buscador de la diversión",
+      "femenino": "Buscadora de la diversión"
+    },
+    "Hacedor de tratos": {
+      "masculino": "Hacedor de tratos",
+      "femenino": "Hacedora de tratos"
+    },
+    "Explorador curioso": {
+      "masculino": "Explorador curioso",
+      "femenino": "Exploradora curiosa"
+    },
+    "Ingeniero brillante": {
+      "masculino": "Ingeniero brillante",
+      "femenino": "Ingeniera brillante"
+    },
+    "Inventor de artilugios": {
+      "masculino": "Inventor de artilugios",
+      "femenino": "Inventora de artilugios"
+    },
+    "Explorador de alcantarillas": {
+      "masculino": "Explorador de alcantarillas",
+      "femenino": "Exploradora de alcantarillas"
+    },
+    "Maestro relojero": {
+      "masculino": "Maestro relojero",
+      "femenino": "Maestra relojero"
+    },
+    "Conocedor de máquinas": {
+      "masculino": "Conocedor de máquinas",
+      "femenino": "Conocedora de máquinas"
+    },
+    "Sabio de la ciudad": {
+      "masculino": "Sabio de la ciudad",
+      "femenino": "Sabia de la ciudad"
+    },
+    "Reciclador ingenioso": {
+      "masculino": "Reciclador ingenioso",
+      "femenino": "Recicladora ingeniosa"
+    },
+    "Diplomático de dos mundos": {
+      "masculino": "Diplomático de dos mundos",
+      "femenino": "Diplomática de dos mundos"
+    },
+    "Explorador de fronteras": {
+      "masculino": "Explorador de fronteras",
+      "femenino": "Exploradora de fronteras"
+    },
+    "Buscador de respuestas": {
+      "masculino": "Buscador de respuestas",
+      "femenino": "Buscadora de respuestas"
+    },
+    "Elegido de dos razas": {
+      "masculino": "Elegido de dos razas",
+      "femenino": "Elegida de dos razas"
+    },
+    "Guardián de la paz": {
+      "masculino": "Guardián de la paz",
+      "femenino": "Guardiana de la paz"
+    },
+    "Defensor de la armonía": {
+      "masculino": "Defensor de la armonía",
+      "femenino": "Defensora de la armonía"
+    },
+    "Rastreador de antaño": {
+      "masculino": "Rastreador de antaño",
+      "femenino": "Rastreadora de antaño"
+    },
+    "Negociador de alianzas": {
+      "masculino": "Negociador de alianzas",
+      "femenino": "Negociadora de alianzas"
+    },
+    "Maestro de los secretos": {
+      "masculino": "Maestro de los secretos",
+      "femenino": "Maestra de los secretos"
+    },
+    "Traductor de culturas": {
+      "masculino": "Traductor de culturas",
+      "femenino": "Traductora de culturas"
+    },
+    "Guerrero de la tribu": {
+      "masculino": "Guerrero de la tribu",
+      "femenino": "Guerrera de la tribu"
+    },
+    "Cazador de bestias": {
+      "masculino": "Cazador de bestias",
+      "femenino": "Cazadora de bestias"
+    },
+    "Devastador en batalla": {
+      "masculino": "Devastador en batalla",
+      "femenino": "Devastadora en batalla"
+    },
+    "Campeón de la arena": {
+      "masculino": "Campeón de la arena",
+      "femenino": "Campeona de la arena"
+    },
+    "Conquistador brutal": {
+      "masculino": "Conquistador brutal",
+      "femenino": "Conquistadora brutal"
+    },
+    "Destructor de fortalezas": {
+      "masculino": "Destructor de fortalezas",
+      "femenino": "Destructora de fortalezas"
+    },
+    "Cazador de trofeos": {
+      "masculino": "Cazador de trofeos",
+      "femenino": "Cazadora de trofeos"
+    },
+    "Guardián de las tierras salvajes": {
+      "masculino": "Guardián de las tierras salvajes",
+      "femenino": "Guardiana de las tierras salvajes"
+    },
+    "Campeón de la lucha libre": {
+      "masculino": "Campeón de la lucha libre",
+      "femenino": "Campeona de la lucha libre"
+    },
+    "Merodeador solitario": {
+      "masculino": "Merodeador solitario",
+      "femenino": "Merodeadora solitaria"
+    },
+    "Guardián de las ruinas": {
+      "masculino": "Guardián de las ruinas",
+      "femenino": "Guardiana de las ruinas"
+    },
+    "Jefe de la manada": {
+      "masculino": "Jefe de la manada",
+      "femenino": "Jefa de la manada"
+    },
+    "Ladrón de tesoros": {
+      "masculino": "Ladrón de tesoros",
+      "femenino": "Ladrona de tesoros"
+    },
+    "Explorador de desiertos": {
+      "masculino": "Explorador de desiertos",
+      "femenino": "Exploradora de desiertos"
+    },
+    "Guardián de las arenas": {
+      "masculino": "Guardián de las arenas",
+      "femenino": "Guardiana de las arenas"
+    },
+    "Infiltrado traicionero": {
+      "masculino": "Infiltrado traicionero",
+      "femenino": "Infiltrada traicionera"
+    },
+    "Destructor de imperios": {
+      "masculino": "Destructor de imperios",
+      "femenino": "Destructora de imperios"
+    },
+    "Embajador galáctico": {
+      "masculino": "Embajador galáctico",
+      "femenino": "Embajadora galáctica"
+    },
+    "Negociador interplanetario": {
+      "masculino": "Negociador interplanetario",
+      "femenino": "Negociadora interplanetario"
+    },
+    "Mensajero estelar": {
+      "masculino": "Mensajero estelar",
+      "femenino": "Mensajera estelar"
+    },
+    "Árbitro interestelar": {
+      "masculino": "Árbitro interestelar",
+      "femenino": "Árbitra interestelar"
+    },
+    "Diplomático de élite": {
+      "masculino": "Diplomático de élite",
+      "femenino": "Diplomática de élite"
+    },
+    "Facilitador de tratados": {
+      "masculino": "Facilitador de tratados",
+      "femenino": "Facilitadora de tratados"
+    },
+    "Mediador político": {
+      "masculino": "Mediador político",
+      "femenino": "Mediadora política"
+    },
+    "Representante diplomático": {
+      "masculino": "Representante diplomático",
+      "femenino": "Representante diplomática"
+    },
+    "Conciliador espacial": {
+      "masculino": "Conciliador espacial",
+      "femenino": "Conciliadora espacial"
+    },
+    "Guerrero errante": {
+      "masculino": "Guerrero errante",
+      "femenino": "Guerrera errante"
+    },
+    "Filósofo de combate": {
+      "masculino": "Filósofo de combate",
+      "femenino": "Filósofa de combate"
+    },
+    "Guardián de valores": {
+      "masculino": "Guardián de valores",
+      "femenino": "Guardiana de valores"
+    },
+    "Campeón de la justicia": {
+      "masculino": "Campeón de la justicia",
+      "femenino": "Campeona de la justicia"
+    },
+    "Paladín solitario": {
+      "masculino": "Paladín solitario",
+      "femenino": "Paladina solitaria"
+    },
+    "Defensor de la moral": {
+      "masculino": "Defensor de la moral",
+      "femenino": "Defensora de la moral"
+    },
+    "Custodio de la armonía": {
+      "masculino": "Custodio de la armonía",
+      "femenino": "Custodia de la armonía"
+    },
+    "Cazador de la oscuridad": {
+      "masculino": "Cazador de la oscuridad",
+      "femenino": "Cazadora de la oscuridad"
+    },
+    "Ladrón galáctico": {
+      "masculino": "Ladrón galáctico",
+      "femenino": "Ladrona galáctica"
+    },
+    "Mercenario despiadado": {
+      "masculino": "Mercenario despiadado",
+      "femenino": "Mercenaria despiadado"
+    },
+    "Estafador intergaláctico": {
+      "masculino": "Estafador intergaláctico",
+      "femenino": "Estafadora intergaláctica"
+    },
+    "Cazarrecompensas astuto": {
+      "masculino": "Cazarrecompensas astuto",
+      "femenino": "Cazarrecompensas astuta"
+    },
+    "Pistolero solitario": {
+      "masculino": "Pistolero solitario",
+      "femenino": "Pistolera solitaria"
+    },
+    "Telequinético prodigioso": {
+      "masculino": "Telequinético prodigioso",
+      "femenino": "Telequinética prodigioso"
+    },
+    "Sanador psíquico": {
+      "masculino": "Sanador psíquico",
+      "femenino": "Sanadora psíquica"
+    },
+    "Controlador mental": {
+      "masculino": "Controlador mental",
+      "femenino": "Controladora mental"
+    },
+    "Astrónomo mental": {
+      "masculino": "Astrónomo mental",
+      "femenino": "Astrónoma mental"
+    },
+    "Teletransportador cósmico": {
+      "masculino": "Teletransportador cósmico",
+      "femenino": "Teletransportadora cósmica"
+    },
+    "Telepático empático": {
+      "masculino": "Telepático empático",
+      "femenino": "Telepática empática"
+    },
+    "Manifestador de pesadillas": {
+      "masculino": "Manifestador de pesadillas",
+      "femenino": "Manifestadora de pesadillas"
+    },
+    "Maestro del tiempo": {
+      "masculino": "Maestro del tiempo",
+      "femenino": "Maestra del tiempo"
+    },
+    "Táctico experto": {
+      "masculino": "Táctico experto",
+      "femenino": "Táctica experto"
+    },
+    "Mercenario implacable": {
+      "masculino": "Mercenario implacable",
+      "femenino": "Mercenaria implacable"
+    },
+    "Francotirador letal": {
+      "masculino": "Francotirador letal",
+      "femenino": "Francotiradora letal"
+    },
+    "Instructor de combate": {
+      "masculino": "Instructor de combate",
+      "femenino": "Instructora de combate"
+    },
+    "Maestro del hackeo": {
+      "masculino": "Maestro del hackeo",
+      "femenino": "Maestra del hackeo"
+    },
+    "Ingeniero cibernético": {
+      "masculino": "Ingeniero cibernético",
+      "femenino": "Ingeniera cibernética"
+    },
+    "Pirata informático": {
+      "masculino": "Pirata informático",
+      "femenino": "Pirata informática"
+    },
+    "Técnico de drones": {
+      "masculino": "Técnico de drones",
+      "femenino": "Técnica de drones"
+    },
+    "Programador de élite": {
+      "masculino": "Programador de élite",
+      "femenino": "Programadora de élite"
+    },
+    "Hacker corporativo": {
+      "masculino": "Hacker corporativo",
+      "femenino": "Hacker corporativa"
+    },
+    "Guardián de la red": {
+      "masculino": "Guardián de la red",
+      "femenino": "Guardiana de la red"
+    },
+    "Cazarrecompensas tecnológico": {
+      "masculino": "Cazarrecompensas tecnológico",
+      "femenino": "Cazarrecompensas tecnológica"
+    },
+    "Infiltrador digital": {
+      "masculino": "Infiltrador digital",
+      "femenino": "Infiltradora digital"
+    },
+    "Controlador de IA": {
+      "masculino": "Controlador de IA",
+      "femenino": "Controladora de IA"
+    },
+    "Explorador de nuevos mundos": {
+      "masculino": "Explorador de nuevos mundos",
+      "femenino": "Exploradora de nuevos mundos"
+    },
+    "Defensor de la Tierra natal": {
+      "masculino": "Defensor de la Tierra natal",
+      "femenino": "Defensora de la Tierra natal"
+    },
+    "Pionero en la frontera estelar": {
+      "masculino": "Pionero en la frontera estelar",
+      "femenino": "Pionera en la frontera estelar"
+    },
+    "Diplomático intergaláctico": {
+      "masculino": "Diplomático intergaláctico",
+      "femenino": "Diplomática intergaláctica"
+    },
+    "Científico en busca de conocimiento": {
+      "masculino": "Científico en busca de conocimiento",
+      "femenino": "Científica en busca de conocimiento"
+    },
+    "Colono en planetas remotos": {
+      "masculino": "Colono en planetas remotos",
+      "femenino": "Colona en planetas remotos"
+    },
+    "Guerrero en la lucha por la humanidad": {
+      "masculino": "Guerrero en la lucha por la humanidad",
+      "femenino": "Guerrera en la lucha por la humanidad"
+    },
+    "Superviviente mejorado": {
+      "masculino": "Superviviente mejorado",
+      "femenino": "Superviviente mejorada"
+    },
+    "Custodio de la perfección genética": {
+      "masculino": "Custodio de la perfección genética",
+      "femenino": "Custodia de la perfección genética"
+    },
+    "Ingeniero de la evolución artificial": {
+      "masculino": "Ingeniero de la evolución artificial",
+      "femenino": "Ingeniera de la evolución artificial"
+    },
+    "Defensor de la superioridad genética": {
+      "masculino": "Defensor de la superioridad genética",
+      "femenino": "Defensora de la superioridad genética"
+    },
+    "Ejecutor de la voluntad biotecnológica": {
+      "masculino": "Ejecutor de la voluntad biotecnológica",
+      "femenino": "Ejecutora de la voluntad biotecnológica"
+    },
+    "Explorador de la inmortalidad artificial": {
+      "masculino": "Explorador de la inmortalidad artificial",
+      "femenino": "Exploradora de la inmortalidad artificial"
+    },
+    "Guardián de la nueva era de la humanidad": {
+      "masculino": "Guardián de la nueva era de la humanidad",
+      "femenino": "Guardiana de la nueva era de la humanidad"
+    },
+    "Guerrero feroz": {
+      "masculino": "Guerrero feroz",
+      "femenino": "Guerrera feroz"
+    },
+    "Cazador de recompensas estelares": {
+      "masculino": "Cazador de recompensas estelares",
+      "femenino": "Cazadora de recompensas estelares"
+    },
+    "Protector del linaje gruul": {
+      "masculino": "Protector del linaje gruul",
+      "femenino": "Protectora del linaje gruul"
+    },
+    "Exiliado en busca de redención": {
+      "masculino": "Exiliado en busca de redención",
+      "femenino": "Exiliada en busca de redención"
+    },
+    "Visionario exiliado": {
+      "masculino": "Visionario exiliado",
+      "femenino": "Visionaria exiliada"
+    },
+    "Explorador solitario de la galaxia": {
+      "masculino": "Explorador solitario de la galaxia",
+      "femenino": "Exploradora solitaria de la galaxia"
+    },
+    "Mente maestra desacreditada": {
+      "masculino": "Mente maestro desacreditada",
+      "femenino": "Mente maestra desacreditada"
+    },
+    "Científico gruul renegado": {
+      "masculino": "Científico gruul renegado",
+      "femenino": "Científica gruul renegada"
+    },
+    "Sabio consejero estelar": {
+      "masculino": "Sabio consejero estelar",
+      "femenino": "Sabia consejera estelar"
+    },
+    "Guardián de la armonía universal": {
+      "masculino": "Guardián de la armonía universal",
+      "femenino": "Guardiana de la armonía universal"
+    },
+    "Custodio de la biblioteca cósmica": {
+      "masculino": "Custodio de la biblioteca cósmica",
+      "femenino": "Custodia de la biblioteca cósmica"
+    },
+    "Elegido de los astros": {
+      "masculino": "Elegido de los astros",
+      "femenino": "Elegida de los astros"
+    },
+    "Explorador del espacio-tiempo": {
+      "masculino": "Explorador del espacio-tiempo",
+      "femenino": "Exploradora del espacio-tiempo"
+    },
+    "Protectora de la Unión sylph": {
+      "masculino": "Protector de la Unión sylph",
+      "femenino": "Protectora de la Unión sylph"
+    },
+    "Ejecutora de la voluntad cósmica": {
+      "masculino": "Ejecutor de la voluntad cósmica",
+      "femenino": "Ejecutora de la voluntad cósmica"
+    },
+    "Campeona de la justicia galáctica": {
+      "masculino": "Campeón de la justicia galáctica",
+      "femenino": "Campeona de la justicia galáctica"
+    },
+    "Guardiana de los portales dimensionales": {
+      "masculino": "Guardián de los portales dimensionales",
+      "femenino": "Guardiana de los portales dimensionales"
+    },
+    "Administrativa que oculta una deuda": {
+      "masculino": "Administrativo que oculta una deuda",
+      "femenino": "Administrativa que oculta una deuda"
+    },
+    "Enfermero que investiga desapariciones": {
+      "masculino": "Enfermero que investiga desapariciones",
+      "femenino": "Enfermera que investiga desapariciones"
+    },
+    "Vecina que oye pasos imposibles": {
+      "masculino": "Vecino que oye pasos imposibles",
+      "femenino": "Vecina que oye pasos imposibles"
+    },
+    "Estudiante obsesionada con el ocultismo": {
+      "masculino": "Estudiante obsesionado con el ocultismo",
+      "femenino": "Estudiante obsesionada con el ocultismo"
+    },
+    "Abogada perseguida por una pesadilla": {
+      "masculino": "Abogado perseguido por una pesadilla",
+      "femenino": "Abogada perseguida por una pesadilla"
+    },
+    "Desempleado que desea empezar de nuevo": {
+      "masculino": "Desempleado que desea empezar de nuevo",
+      "femenino": "Desempleada que desea empezar de nuevo"
+    },
+    "Padre que protege un secreto": {
+      "masculino": "Padre que protege un secreto",
+      "femenino": "Madre que protege un secreto"
+    },
+    "Camarera testigo de algo extraño": {
+      "masculino": "Camarero testigo de algo extraño",
+      "femenino": "Camarera testigo de algo extraño"
+    },
+    "Hechicera que oculta su sangre": {
+      "masculino": "Hechicero que oculta su sangre",
+      "femenino": "Hechicera que oculta su sangre"
+    },
+    "Vendedor perseguido por señales mágicas": {
+      "masculino": "Vendedor perseguido por señales mágicas",
+      "femenino": "Vendedor perseguida por señales mágicas"
+    },
+    "Médica fascinada por lo imposible": {
+      "masculino": "Médico fascinado por lo imposible",
+      "femenino": "Médica fascinada por lo imposible"
+    },
+    "Fugitivo incapaz de pasar inadvertido": {
+      "masculino": "Fugitivo incapaz de pasar inadvertido",
+      "femenino": "Fugitiva incapaz de pasar inadvertido"
+    },
+    "Heredera de un don indeseado": {
+      "masculino": "Heredero de un don indeseado",
+      "femenino": "Heredera de un don indeseado"
+    },
+    "Madre que protege sus secretos": {
+      "masculino": "Padre que protege sus secretos",
+      "femenino": "Madre que protege sus secretos"
+    },
+    "Escéptica marcada por magia": {
+      "masculino": "Escéptica marcado por magia",
+      "femenino": "Escéptica marcada por magia"
+    },
+    "Vecino de aura inconfundible": {
+      "masculino": "Vecino de aura inconfundible",
+      "femenino": "Vecina de aura inconfundible"
+    },
+    "Depredadora que añora el sol": {
+      "masculino": "Depredador que añora el sol",
+      "femenino": "Depredadora que añora el sol"
+    },
+    "Inmortal atrapado en un sótano": {
+      "masculino": "Inmortal atrapado en un sótano",
+      "femenino": "Inmortal atrapada en un sótano"
+    },
+    "Cazador nocturno de mala conciencia": {
+      "masculino": "Cazador nocturno de mala conciencia",
+      "femenino": "Cazadora nocturno de mala conciencia"
+    },
+    "Vecina que nunca abre persianas": {
+      "masculino": "Vecino que nunca abre persianas",
+      "femenino": "Vecina que nunca abre persianas"
+    },
+    "Condenado que rechaza alimentarse": {
+      "masculino": "Condenado que rechaza alimentarse",
+      "femenino": "Condenada que rechaza alimentarse"
+    },
+    "Vampira obsesionada con el amanecer": {
+      "masculino": "Vampiro obsesionado con el amanecer",
+      "femenino": "Vampira obsesionada con el amanecer"
+    },
+    "Seductor que teme la intimidad": {
+      "masculino": "Seductor que teme la intimidad",
+      "femenino": "Seductora que teme la intimidad"
+    },
+    "Superviviente perseguido por la madrugada": {
+      "masculino": "Superviviente perseguido por la madrugada",
+      "femenino": "Superviviente perseguida por la madrugada"
+    },
+    "Ladrón de almas con escrúpulos": {
+      "masculino": "Ladrón de almas con escrúpulos",
+      "femenino": "Ladrona de almas con escrúpulos"
+    },
+    "Retornado que teme los sellos": {
+      "masculino": "Retornado que teme los sellos",
+      "femenino": "Retornada que teme los sellos"
+    },
+    "Caminante perseguido por su pasado": {
+      "masculino": "Caminante perseguido por su pasado",
+      "femenino": "Caminante perseguida por su pasado"
+    },
+    "Muerta que busca a su familia": {
+      "masculino": "Muerto que busca a su familia",
+      "femenino": "Muerta que busca a su familia"
+    },
+    "Depredador incapaz de recordar": {
+      "masculino": "Depredador incapaz de recordar",
+      "femenino": "Depredadora incapaz de recordar"
+    },
+    "Viajera marcada por la reanimación": {
+      "masculino": "Viajero marcado por la reanimación",
+      "femenino": "Viajera marcada por la reanimación"
+    },
+    "Ser condenado a una existencia ajena": {
+      "masculino": "Ser condenado a una existencia ajena",
+      "femenino": "Ser condenada a una existencia ajena"
+    },
+    "Bombera que teme perder el control": {
+      "masculino": "Bombero que teme perder el control",
+      "femenino": "Bombera que teme perder el control"
+    },
+    "Lobezno que oculta sus heridas": {
+      "masculino": "Lobezno que oculta sus heridas",
+      "femenino": "Lobezna que oculta sus heridas"
+    },
+    "Mecánico obsesionado con la luna": {
+      "masculino": "Mecánico obsesionado con la luna",
+      "femenino": "Mecánica obsesionada con la luna"
+    },
+    "Protectora que rehúye la plata": {
+      "masculino": "Protector que rehúye la plata",
+      "femenino": "Protectora que rehúye la plata"
+    },
+    "Padre dividido entre dos formas": {
+      "masculino": "Padre dividido entre dos formas",
+      "femenino": "Madre dividida entre dos formas"
+    },
+    "Lobo que sueña con estabilidad": {
+      "masculino": "Lobo que sueña con estabilidad",
+      "femenino": "Loba que sueña con estabilidad"
+    },
+    "Conductora perseguida por sus instintos": {
+      "masculino": "Conductor perseguido por sus instintos",
+      "femenino": "Conductora perseguida por sus instintos"
+    },
+    "Joven enfrentado a su ferocidad": {
+      "masculino": "Joven enfrentado a su ferocidad",
+      "femenino": "Joven enfrentada a su ferocidad"
+    },
+    "Vidente perseguida por el sol": {
+      "masculino": "Vidente perseguido por el sol",
+      "femenino": "Vidente perseguida por el sol"
+    },
+    "Mensajero que desconfía del oro": {
+      "masculino": "Mensajero que desconfía del oro",
+      "femenino": "Mensajera que desconfía del oro"
+    },
+    "Observadora de presagios cotidianos": {
+      "masculino": "Observador de presagios cotidianos",
+      "femenino": "Observadora de presagios cotidianos"
+    },
+    "Corántropo aterrado por su reflejo": {
+      "masculino": "Corántropo aterrado por su reflejo",
+      "femenino": "Corántropa aterrada por su reflejo"
+    },
+    "Viajera enamorada de los tejados": {
+      "masculino": "Viajero enamorado de los tejados",
+      "femenino": "Viajera enamorada de los tejados"
+    },
+    "Investigador que teme ser observado": {
+      "masculino": "Investigador que teme ser observado",
+      "femenino": "Investigadora que teme ser observado"
+    },
+    "Solitaria que colecciona despedidas": {
+      "masculino": "Solitario que colecciona despedidas",
+      "femenino": "Solitaria que colecciona despedidas"
+    },
+    "Feérica exiliada de su hogar": {
+      "masculino": "Feérico exiliado de su hogar",
+      "femenino": "Feérica exiliada de su hogar"
+    },
+    "Viajero que teme el hierro": {
+      "masculino": "Viajero que teme el hierro",
+      "femenino": "Viajera que teme el hierro"
+    },
+    "Forastera con promesas imposibles": {
+      "masculino": "Forastero con promesas imposibles",
+      "femenino": "Forastera con promesas imposibles"
+    },
+    "Diplomática desconfiada de los mortales": {
+      "masculino": "Diplomático desconfiado de los mortales",
+      "femenino": "Diplomática desconfiada de los mortales"
+    },
+    "Heredero de una antigua tristeza": {
+      "masculino": "Heredero de una antigua tristeza",
+      "femenino": "Heredera de una antigua tristeza"
+    },
+    "Actor que olvidó su propio rostro": {
+      "masculino": "Actor que olvidó su propio rostro",
+      "femenino": "Actriz que olvidó su propio rostro"
+    },
+    "Imitadora que teme ser descubierta": {
+      "masculino": "Imitador que teme ser descubierta",
+      "femenino": "Imitadora que teme ser descubierta"
+    },
+    "Cenicienta atrapada en otra identidad": {
+      "masculino": "Ceniciento atrapado en otra identidad",
+      "femenino": "Cenicienta atrapada en otra identidad"
+    },
+    "Estafador que busca un nombre": {
+      "masculino": "Estafador que busca un nombre",
+      "femenino": "Estafadora que busca un nombre"
+    },
+    "Amiga de demasiadas versiones": {
+      "masculino": "Amigo de demasiadas versiones",
+      "femenino": "Amiga de demasiadas versiones"
+    },
+    "Viajera que cambia de oficio": {
+      "masculino": "Viajero que cambia de oficio",
+      "femenino": "Viajera que cambia de oficio"
+    },
+    "Forastero que ansía permanencia": {
+      "masculino": "Forastero que ansía permanencia",
+      "femenino": "Forastera que ansía permanencia"
+    },
+    "Heredera de una personalidad prestada": {
+      "masculino": "Heredero de una personalidad prestada",
+      "femenino": "Heredera de una personalidad prestada"
+    },
+    "Desconocido que huye de sí mismo": {
+      "masculino": "Desconocido que huye de sí mismo",
+      "femenino": "Desconocida que huye de sí mismo"
+    },
+    "Estudioso de una biblioteca prohibida": {
+      "masculino": "Estudioso de una biblioteca prohibida",
+      "femenino": "Estudiosa de una biblioteca prohibida"
+    },
+    "Conjuradora perseguida por su curiosidad": {
+      "masculino": "Conjuradora perseguido por su curiosidad",
+      "femenino": "Conjuradora perseguida por su curiosidad"
+    },
+    "Vecino que oculta sus rituales": {
+      "masculino": "Vecino que oculta sus rituales",
+      "femenino": "Vecina que oculta sus rituales"
+    },
+    "Escéptica convertida en hechicera": {
+      "masculino": "Escéptica convertido en hechicera",
+      "femenino": "Escéptica convertida en hechicera"
+    },
+    "Místico que busca una explicación": {
+      "masculino": "Místico que busca una explicación",
+      "femenino": "Mística que busca una explicación"
+    },
+    "Investigador obsesionado con la Gnosis": {
+      "masculino": "Investigador obsesionado con la Gnosis",
+      "femenino": "Investigadora obsesionada con la Gnosis"
+    },
+    "Hechicera que rechaza sacrificios": {
+      "masculino": "Hechicero que rechaza sacrificios",
+      "femenino": "Hechicera que rechaza sacrificios"
+    },
+    "Veterana que protege a sus presas": {
+      "masculino": "Veterano que protege a sus presas",
+      "femenino": "Veterana que protege a sus presas"
+    },
+    "Exorcista marcado por un encuentro": {
+      "masculino": "Exorcista marcado por un encuentro",
+      "femenino": "Exorcista marcada por un encuentro"
+    },
+    "Rastreadora de criaturas escurridizas": {
+      "masculino": "Rastreador de criaturas escurridizas",
+      "femenino": "Rastreadora de criaturas escurridizas"
+    },
+    "Cazador que ama a un monstruo": {
+      "masculino": "Cazador que ama a un monstruo",
+      "femenino": "Cazadora que ama a un monstruo"
+    },
+    "Mercenaria agotada por las persecuciones": {
+      "masculino": "Mercenario agotada por las persecuciones",
+      "femenino": "Mercenaria agotada por las persecuciones"
+    },
+    "Investigadora de huellas imposibles": {
+      "masculino": "Investigador de huellas imposibles",
+      "femenino": "Investigadora de huellas imposibles"
+    },
+    "Combatiente obsesionado con una presa": {
+      "masculino": "Combatiente obsesionado con una presa",
+      "femenino": "Combatiente obsesionada con una presa"
+    },
+    "Protectora de víctimas ignoradas": {
+      "masculino": "Protector de víctimas ignoradas",
+      "femenino": "Protectora de víctimas ignoradas"
+    },
+    "Falsificadora que añora una vida legal": {
+      "masculino": "Falsificador que añora una vida legal",
+      "femenino": "Falsificadora que añora una vida legal"
+    },
+    "Matón que protege a su barrio": {
+      "masculino": "Matón que protege a su barrio",
+      "femenino": "Matona que protege a su barrio"
+    },
+    "Ladrona atrapada por sus deudas": {
+      "masculino": "Ladrón atrapado por sus deudas",
+      "femenino": "Ladrona atrapada por sus deudas"
+    },
+    "Estafador que traicionó a su banda": {
+      "masculino": "Estafador que traicionó a su banda",
+      "femenino": "Estafadora que traicionó a su banda"
+    },
+    "Corredora de mercancías comprometidas": {
+      "masculino": "Corredor de mercancías comprometidas",
+      "femenino": "Corredora de mercancías comprometidas"
+    },
+    "Hampón que evita la violencia": {
+      "masculino": "Hampón que evita la violencia",
+      "femenino": "Hampona que evita la violencia"
+    },
+    "Jefa criminal perseguida por rivales": {
+      "masculino": "Jefe criminal perseguido por rivales",
+      "femenino": "Jefa criminal perseguida por rivales"
+    },
+    "Vidente perseguida por voces": {
+      "masculino": "Vidente perseguido por voces",
+      "femenino": "Vidente perseguida por voces"
+    },
+    "Investigador que conversa con difuntos": {
+      "masculino": "Investigador que conversa con difuntos",
+      "femenino": "Investigadora que conversa con difuntos"
+    },
+    "Intermediaria de secretos póstumos": {
+      "masculino": "Intermediario de secretos póstumos",
+      "femenino": "Intermediaria de secretos póstumos"
+    },
+    "Viajero guiado por un presagio": {
+      "masculino": "Viajero guiado por un presagio",
+      "femenino": "Viajera guiada por un presagio"
+    },
+    "Mística que busca un último adiós": {
+      "masculino": "Místico que busca un último adiós",
+      "femenino": "Mística que busca un último adiós"
+    },
+    "Consultora de familias afligidas": {
+      "masculino": "Consultor de familias afligidas",
+      "femenino": "Consultora de familias afligidas"
+    },
+    "Forense obsesionada con una fotografía": {
+      "masculino": "Forense obsesionado con una fotografía",
+      "femenino": "Forense obsesionada con una fotografía"
+    },
+    "Periodista perseguido por sus fuentes": {
+      "masculino": "Periodista perseguido por sus fuentes",
+      "femenino": "Periodista perseguida por sus fuentes"
+    },
+    "Cazadora de reliquias desaparecidas": {
+      "masculino": "Cazador de reliquias desaparecidas",
+      "femenino": "Cazadora de reliquias desaparecidas"
+    },
+    "Estudioso de desapariciones nocturnas": {
+      "masculino": "Estudioso de desapariciones nocturnas",
+      "femenino": "Estudiosa de desapariciones nocturnas"
+    },
+    "Investigadora sin licencia profesional": {
+      "masculino": "Investigador sin licencia profesional",
+      "femenino": "Investigadora sin licencia profesional"
+    },
+    "Rastreador de mentiras familiares": {
+      "masculino": "Rastreador de mentiras familiares",
+      "femenino": "Rastreadora de mentiras familiares"
+    },
+    "Veterana que rechaza nuevos contratos": {
+      "masculino": "Veterano que rechaza nuevos contratos",
+      "femenino": "Veterana que rechaza nuevos contratos"
+    },
+    "Exmilitar perseguido por una orden": {
+      "masculino": "Exmilitar perseguido por una orden",
+      "femenino": "Exmilitar perseguida por una orden"
+    },
+    "Conductor acostumbrado al peligro": {
+      "masculino": "Conductor acostumbrado al peligro",
+      "femenino": "Conductora acostumbrado al peligro"
+    },
+    "Mercenaria que desconfía del dinero": {
+      "masculino": "Mercenario que desconfía del dinero",
+      "femenino": "Mercenaria que desconfía del dinero"
+    },
+    "Combatiente marcado por un fracaso": {
+      "masculino": "Combatiente marcado por un fracaso",
+      "femenino": "Combatiente marcada por un fracaso"
+    },
+    "Técnica que escucha redes ajenas": {
+      "masculino": "Técnico que escucha redes ajenas",
+      "femenino": "Técnica que escucha redes ajenas"
+    },
+    "Saboteador arrepentido de un apagón": {
+      "masculino": "Saboteador arrepentido de un apagón",
+      "femenino": "Saboteadora arrepentida de un apagón"
+    },
+    "Informática perseguida por sus hallazgos": {
+      "masculino": "Informático perseguido por sus hallazgos",
+      "femenino": "Informática perseguida por sus hallazgos"
+    },
+    "Operador que investiga sistemas ocultos": {
+      "masculino": "Operador que investiga sistemas ocultos",
+      "femenino": "Operadora que investiga sistemas ocultos"
+    },
+    "Ingeniera que odia las pantallas": {
+      "masculino": "Ingeniero que odia las pantallas",
+      "femenino": "Ingeniera que odia las pantallas"
+    },
+    "Analista obsesionada con mensajes cifrados": {
+      "masculino": "Analista obsesionado con mensajes cifrados",
+      "femenino": "Analista obsesionada con mensajes cifrados"
+    },
+    "Intruso que protege la privacidad": {
+      "masculino": "Intruso que protege la privacidad",
+      "femenino": "Intrusa que protege la privacidad"
+    },
+    "Timador que engañó a su familia": {
+      "masculino": "Timador que engañó a su familia",
+      "femenino": "Timadora que engañó a su familia"
+    },
+    "Actriz experta en falsas identidades": {
+      "masculino": "Actor experta en falsas identidades",
+      "femenino": "Actriz experta en falsas identidades"
+    },
+    "Pícaro que sueña con sinceridad": {
+      "masculino": "Pícaro que sueña con sinceridad",
+      "femenino": "Pícara que sueña con sinceridad"
+    },
+    "Estafadora perseguida por acreedores": {
+      "masculino": "Estafador perseguido por acreedores",
+      "femenino": "Estafadora perseguida por acreedores"
+    },
+    "Charlatán enamorado de su víctima": {
+      "masculino": "Charlatán enamorado de su víctima",
+      "femenino": "Charlatán enamorada de su víctima"
+    },
+    "Jugador que nunca pierde limpiamente": {
+      "masculino": "Jugador que nunca pierde limpiamente",
+      "femenino": "Jugadora que nunca pierde limpiamente"
+    },
+    "Farsante atrapado en su papel": {
+      "masculino": "Farsante atrapado en su papel",
+      "femenino": "Farsante atrapada en su papel"
+    },
+    "Negociadora de moral flexible": {
+      "masculino": "Negociador de moral flexible",
+      "femenino": "Negociadora de moral flexible"
+    }
+  }
+}

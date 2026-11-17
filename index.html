@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es" data-tema="clasico"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="La Forja: herramientas de Naufragio d20 y Dungeon Hack.">
+<title>La Forja · El Naufragio</title>
+<script>try{var t=localStorage.getItem('forja-tema');if(['clasico','ebano','ceruleo','obsidiana','violeta'].includes(t))document.documentElement.dataset.tema=t;}catch(e){}</script>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/styles.css"><link rel="stylesheet" href="assets/portal.css"><link rel="stylesheet" href="assets/forja-header.css">
+<script defer src="assets/portal.js"></script><script defer src="assets/theme-picker.js"></script><meta name="robots" content="noindex,nofollow,noarchive"><style id="forja-preview-css">#forja-marca-preview{position:fixed;right:10px;bottom:10px;z-index:2147483647;padding:7px 11px;border-radius:7px;background:#171821;color:#fff;border:1px solid #ffce66;box-shadow:0 2px 12px #0008;font:600 12px/1.3 system-ui,sans-serif;pointer-events:none}</style></head>
+<body class="pagina-portal"><div id="forja-marca-preview" role="status" aria-label="Versión de pruebas, no es LIVE">PREVIEW · NO LIVE · DATOS DE PRUEBA</div>
+<header class="encabezado forja-cabecera">
+    <div class="marca forja-marca">
+      <img class="marca-logotipo" src="assets/branding/naufragio.svg"
+        alt="El Naufragio" width="290" height="119" decoding="async">
+      <div class="forja-marca-texto">
+        <h1>La Forja</h1>
+        <p class="forja-subtitulo">Herramientas de Naufragio d20 y Dungeon Hack.</p>
+      </div>
+    </div>
+    <div class="cabecera-acciones forja-cabecera-acciones">
+
+
+      <div class="forja-temas" data-forja-temas data-tema-actual="clasico">
+        <button type="button" class="forja-temas-abrir" aria-expanded="false" aria-controls="opciones-temas">
+          <span class="forja-temas-muestra" aria-hidden="true"></span>
+          <span>Tema</span><span class="forja-tema-nombre">Clásico</span>
+          <span class="forja-temas-flecha" aria-hidden="true"></span>
+        </button>
+        <div id="opciones-temas" class="forja-temas-opciones" role="group" aria-label="Paleta de temas" hidden>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="clasico" aria-label="Clásico" title="Clásico" aria-pressed="true">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Clásico</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ebano" aria-label="Ébano" title="Ébano" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Ébano</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="ceruleo" aria-label="Cerúleo" title="Cerúleo" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Cerúleo</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="obsidiana" aria-label="Obsidiana" title="Obsidiana" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Obsidiana</span>
+          </button>
+          <button type="button" class="forja-tema-circulo" data-tema-opcion="violeta" aria-label="Violeta" title="Violeta" aria-pressed="false">
+            <span class="forja-tema-circulo-muestra" aria-hidden="true"></span><span class="forja-tema-etiqueta">Violeta</span>
+          </button>
+        </div>
+        <select id="selector-tema" class="forja-temas-nativo" aria-hidden="true" tabindex="-1" aria-label="Tema visual">
+          <option value="clasico">Clásico</option>
+          <option value="ebano">Ébano</option>
+          <option value="ceruleo">Cerúleo</option>
+          <option value="obsidiana">Obsidiana</option>
+          <option value="violeta">Violeta</option>
+        </select>
+      </div>
+    </div>
+  </header>
+<main class="portal-contenido"><h2>Herramientas</h2><div class="portal-tarjetas">
+<a class="portal-tarjeta" href="characters/index.html" aria-label="Abrir Personajes">
+<svg class="portal-icono" aria-hidden="true" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><circle cx="32" cy="20" r="10"/><path d="M12 54v-6c0-11 9-18 20-18s20 7 20 18v6H12Z"/></svg>
+<h3>Personajes</h3><p>Generación de personajes de Naufragio d20 y Dungeon Hack, con Seguidores y Adversarios.</p><span class="portal-entrar">Abrir Personajes →</span>
+</a>
+<a class="portal-tarjeta" href="spells/index.html" aria-label="Abrir Conjuros">
+<svg class="portal-icono" aria-hidden="true" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"><path d="M32 52c-7-6-15-7-24-5V11c10-2 18 0 24 5 6-5 14-7 24-5v36c-9-2-17-1-24 5Z"/><path d="M32 16v36"/></svg>
+<h3>Conjuros</h3><p>Consulta el catálogo y construye Listas de Conjuros utilizando referencias del DRS.</p><span class="portal-entrar">Abrir Conjuros →</span>
+</a>
+</div></main>
+  <footer class="forja-pie" aria-label="Información y créditos de La Forja">
+    <p>La Forja es una herramienta para crear personajes, seguidores, antagonistas y gestionar listas de conjuros para Naufragio d20.</p>
+    <p><a href="https://naufragio.net/" target="_blank" rel="noopener noreferrer">El Naufragio</a>. Iconografía original de El Naufragio y otros iconos adaptados de <a href="assets/icons/CREDITOS-GAME-ICONS.txt" target="_blank" rel="noopener noreferrer">Game-icons.net — autoría y licencia CC BY 3.0</a>. Acciones de ficha: <a href="assets/icons/LICENCIA-TABLER.txt" target="_blank" rel="noopener noreferrer">Tabler Icons · MIT</a>.</p>
+  </footer>
+</body></html>

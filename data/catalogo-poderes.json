@@ -1,0 +1,1226 @@
+{
+  "version": 1,
+  "fuentes": {
+    "tecnicas": "NaufragioD20DRS y NaufragioD20CiFi",
+    "licencia": "CC BY-SA 4.0"
+  },
+  "conjuros": [
+    {
+      "id": "conjuro-0",
+      "nombre": "Aguijón impío",
+      "circulo": 1,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-1",
+      "nombre": "Atraer muertos vivientes",
+      "circulo": 1,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-2",
+      "nombre": "Caída de pluma",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-3",
+      "nombre": "Chispa curativa",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-4",
+      "nombre": "Dardo ígneo",
+      "circulo": 1,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-5",
+      "nombre": "Detectar magia",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-6",
+      "nombre": "Disipar magia",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-7",
+      "nombre": "Dormir",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-8",
+      "nombre": "Luz",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-9",
+      "nombre": "Mano de mago",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-10",
+      "nombre": "Mensaje lejano",
+      "circulo": 1,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-11",
+      "nombre": "Valentía",
+      "circulo": 1,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-12",
+      "nombre": "Amistad animal",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-13",
+      "nombre": "Apertura arcana",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-14",
+      "nombre": "Calentar metal",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-15",
+      "nombre": "Charco de aceite",
+      "circulo": 2,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-16",
+      "nombre": "Curación",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-17",
+      "nombre": "Fuego lunar",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-18",
+      "nombre": "Ilusión",
+      "circulo": 2,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-19",
+      "nombre": "Resistir los elementos",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-20",
+      "nombre": "Silencio",
+      "circulo": 2,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-21",
+      "nombre": "Toque eléctrico",
+      "circulo": 2,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-22",
+      "nombre": "Alzar hombre corrupto",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-23",
+      "nombre": "Arma elemental",
+      "circulo": 3,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-24",
+      "nombre": "Armadura de maná",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-25",
+      "nombre": "Aura de pestilencia",
+      "circulo": 3,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-26",
+      "nombre": "Bola de fuego",
+      "circulo": 3,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-27",
+      "nombre": "Hablar con los muertos",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-28",
+      "nombre": "Luz de luna",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-29",
+      "nombre": "Poza hedionda",
+      "circulo": 3,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-30",
+      "nombre": "Proyectil mágico",
+      "circulo": 3,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-31",
+      "nombre": "Quitar maldición",
+      "circulo": 3,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-32",
+      "nombre": "Contrato de fraternidad",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-33",
+      "nombre": "Detectar la mentira",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-34",
+      "nombre": "Espejo de sombras",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-35",
+      "nombre": "Hablar con las plantas",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-36",
+      "nombre": "Muro de fuego",
+      "circulo": 4,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-37",
+      "nombre": "Piel de piedra",
+      "circulo": 4,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-38",
+      "nombre": "Polimorfia",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-39",
+      "nombre": "Prelación",
+      "circulo": 4,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-40",
+      "nombre": "Tentáculos negros",
+      "circulo": 4,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-41",
+      "nombre": "Tormenta de espadas",
+      "circulo": 4,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-42",
+      "nombre": "Alzar maldito",
+      "circulo": 5,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-43",
+      "nombre": "Atravesar paredes",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-44",
+      "nombre": "Crear muertos vivientes",
+      "circulo": 5,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-45",
+      "nombre": "Forja arcana",
+      "circulo": 5,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-46",
+      "nombre": "Ira celestial",
+      "circulo": 5,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-47",
+      "nombre": "Marca del dador oscuro",
+      "circulo": 5,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-48",
+      "nombre": "Orbe elemental",
+      "circulo": 5,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-49",
+      "nombre": "Transfusión de dolor",
+      "circulo": 5,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-50",
+      "nombre": "Intercambio de almas",
+      "circulo": 6,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-51",
+      "nombre": "Lluvia de estrellas",
+      "circulo": 6,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Magia lunar"
+      ],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-52",
+      "nombre": "Petrificar",
+      "circulo": 6,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-53",
+      "nombre": "Protección contra la muerte",
+      "circulo": 6,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-54",
+      "nombre": "Rayo solar",
+      "circulo": 6,
+      "escuelas": [
+        "Elemental"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-55",
+      "nombre": "Recuperación divina",
+      "circulo": 6,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-56",
+      "nombre": "Cimitarra arcana",
+      "circulo": 7,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-57",
+      "nombre": "Control climático",
+      "circulo": 7,
+      "escuelas": [
+        "Naturaleza"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-58",
+      "nombre": "Niebla carmesí",
+      "circulo": 7,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-59",
+      "nombre": "Sino del Segador",
+      "circulo": 7,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [
+        "Invocación"
+      ],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-60",
+      "nombre": "Alterar el ser",
+      "circulo": 8,
+      "escuelas": [
+        "Demonología"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-61",
+      "nombre": "Palabra de Poder: Muerte",
+      "circulo": 8,
+      "escuelas": [
+        "Divina"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-62",
+      "nombre": "Resurrección",
+      "circulo": 8,
+      "escuelas": [
+        "Nigromancia"
+      ],
+      "etiquetas": [],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    },
+    {
+      "id": "conjuro-63",
+      "nombre": "Viaje espaciotemporal",
+      "circulo": 8,
+      "escuelas": [
+        "Arcana"
+      ],
+      "etiquetas": [
+        "Cronurgia"
+      ],
+      "fuente": "Tomo de Magia",
+      "origen": "Nd20"
+    }
+  ],
+  "tecnicas": [
+    {
+      "id": "tecnica-01",
+      "nombre": "Ataque certero",
+      "categoria": "Disciplina",
+      "requisito": "",
+      "coste": "",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-02",
+      "nombre": "Baluarte",
+      "categoria": "Disciplina",
+      "requisito": "no haberte movido esta Ronda, escudo grande equipado, Resistencia 13+",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-03",
+      "nombre": "Disparo aturdidor",
+      "categoria": "Disciplina",
+      "requisito": "arma a distancia, Intuición 8+",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-04",
+      "nombre": "Doble ataque",
+      "categoria": "Disciplina",
+      "requisito": "Agilidad 8+",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-05",
+      "nombre": "Impacto poderoso",
+      "categoria": "Fuerza bruta",
+      "requisito": "Fuerza 8+",
+      "coste": "",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-06",
+      "nombre": "Rajar",
+      "categoria": "Fuerza bruta",
+      "requisito": "Guerrero, Nivel 6+",
+      "ocupaciones_permitidas": [
+        "Guerrero"
+      ],
+      "requisitos_uso": [
+        {
+          "tipo": "nivel",
+          "minimo": 6
+        }
+      ],
+      "coste": "",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-07",
+      "nombre": "Matamagia",
+      "categoria": "Preternatural",
+      "requisito": "el objetivo ha de estar bajo un efecto mágico positivo, Mente 10+",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-08",
+      "nombre": "Reflejo mágico",
+      "categoria": "Preternatural",
+      "requisito": "debes llevar un escudo mediano o grande equipado, Resistencia 10+",
+      "coste": "1 punto de Esfuerzo",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-09",
+      "nombre": "Ataque sorpresa",
+      "categoria": "Trucos sucios",
+      "requisito": "Ladrón",
+      "ocupaciones_permitidas": [
+        "Ladrón"
+      ],
+      "requisitos_uso": [],
+      "coste": "",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-10",
+      "nombre": "Golpe de escudo",
+      "categoria": "Trucos sucios",
+      "requisito": "debes llevar un escudo equipado, Resistencia 8+",
+      "coste": "especial, ver descripción",
+      "fuente": "Naufragio d20 DRS"
+    },
+    {
+      "id": "tecnica-11",
+      "nombre": "Cobertura vengativa",
+      "categoria": "Disciplina",
+      "requisito": "arma de fuego a distancia",
+      "coste": "tu Turno",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "tecnica-12",
+      "nombre": "Pausa para fumar",
+      "categoria": "Disciplina",
+      "requisito": "Resistencia 8+, un paquete de cigarros",
+      "coste": "tirada DU de cigarros",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "tecnica-13",
+      "nombre": "Ataque explosivo",
+      "categoria": "Fuerza bruta",
+      "requisito": "pistolas, escopeta de plasma o rifles como arma",
+      "coste": "",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "tecnica-14",
+      "nombre": "Fuego automático",
+      "categoria": "Fuerza bruta",
+      "requisito": "boxeadora, metralleta láser, fusil de plasma o rotatoria láser como arma",
+      "coste": "",
+      "fuente": "Naufragio d20 CiFi"
+    }
+  ],
+  "poderes_psionicos": [
+    {
+      "id": "psionico-1",
+      "numero": 1,
+      "nombre": "Aparición lejana",
+      "impetu": 1,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-2",
+      "numero": 2,
+      "nombre": "Agresión psíquica",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-3",
+      "numero": 3,
+      "nombre": "Clariestesia",
+      "impetu": 2,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-4",
+      "numero": 4,
+      "nombre": "Combate precognitivo",
+      "impetu": 2,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-5",
+      "numero": 5,
+      "nombre": "Copiar conocimientos",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-6",
+      "numero": 6,
+      "nombre": "Discernir mentiras",
+      "impetu": 2,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-7",
+      "numero": 7,
+      "nombre": "Dominar el cuerpo",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-8",
+      "numero": 8,
+      "nombre": "Escrutar pensamientos",
+      "impetu": 2,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-9",
+      "numero": 9,
+      "nombre": "Invisibilidad psíquica",
+      "impetu": 1,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-10",
+      "numero": 10,
+      "nombre": "Manipular la memoria",
+      "impetu": 3,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-11",
+      "numero": 11,
+      "nombre": "Piroquinesia",
+      "impetu": 3,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-12",
+      "numero": 12,
+      "nombre": "Psicometría",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-13",
+      "numero": 13,
+      "nombre": "Sanación kinética",
+      "impetu": 1,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-14",
+      "numero": 14,
+      "nombre": "Proyección astral",
+      "impetu": 2,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-15",
+      "numero": 15,
+      "nombre": "Revivificar",
+      "impetu": 20,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-16",
+      "numero": 16,
+      "nombre": "Robo mental",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-17",
+      "numero": 17,
+      "nombre": "Sentidos aumentados",
+      "impetu": 1,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-18",
+      "numero": 18,
+      "nombre": "Telequinesis",
+      "impetu": 2,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-19",
+      "numero": 19,
+      "nombre": "Translocación",
+      "impetu": 3,
+      "atributo": "Mente",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "psionico-20",
+      "numero": 20,
+      "nombre": "Visión remota",
+      "impetu": 1,
+      "atributo": "Presencia",
+      "fuente": "Naufragio d20 CiFi"
+    }
+  ],
+  "argucias": [
+    {
+      "id": "argucia-1",
+      "nombre": "Chascarrillos",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "argucia-2",
+      "nombre": "Culo inquieto",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "argucia-3",
+      "nombre": "Desconfianza",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "argucia-4",
+      "nombre": "Mataxenos",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "argucia-5",
+      "nombre": "Menuda potra",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "argucia-6",
+      "nombre": "Ñapa",
+      "fuente": "Naufragio d20 CiFi"
+    }
+  ],
+  "listas_drs": {
+    "Clérigo": {
+      "1": [
+        "Atraer muertos vivientes",
+        "Chispa curativa",
+        "Detectar magia",
+        "Disipar magia",
+        "Luz",
+        "Mensaje lejano",
+        "Valentía"
+      ],
+      "2": [
+        "Amistad animal",
+        "Calentar metal",
+        "Curación",
+        "Fuego lunar",
+        "Resistir los elementos",
+        "Silencio"
+      ],
+      "3": [
+        "Aura de pestilencia",
+        "Hablar con los muertos",
+        "Luz de luna",
+        "Quitar maldición"
+      ],
+      "4": [
+        "Detectar la mentira",
+        "Hablar con las plantas",
+        "Piel de piedra",
+        "Prelación"
+      ],
+      "5": [
+        "Atravesar paredes",
+        "Crear muertos vivientes",
+        "Ira celestial",
+        "Marca del dador oscuro",
+        "Transfusión de dolor"
+      ],
+      "6": [
+        "Petrificar",
+        "Protección contra la muerte",
+        "Rayo solar",
+        "Recuperación divina"
+      ],
+      "7": [
+        "Control climático",
+        "Sino del Segador"
+      ],
+      "8": [
+        "Palabra de Poder: Muerte",
+        "Resurrección"
+      ]
+    },
+    "Mago": {
+      "1": [
+        "Aguijón impío",
+        "Caída de pluma",
+        "Dardo ígneo",
+        "Detectar magia",
+        "Disipar magia",
+        "Dormir",
+        "Mano de mago",
+        "Mensaje lejano"
+      ],
+      "2": [
+        "Apertura arcana",
+        "Calentar metal",
+        "Charco de aceite",
+        "Ilusión",
+        "Silencio",
+        "Toque eléctrico"
+      ],
+      "3": [
+        "Alzar hombre corrupto",
+        "Arma elemental",
+        "Armadura de maná",
+        "Bola de fuego",
+        "Poza hedionda",
+        "Proyectil mágico"
+      ],
+      "4": [
+        "Espejo de sombras",
+        "Muro de fuego",
+        "Polimorfia",
+        "Tentáculos negros",
+        "Tormenta de espadas"
+      ],
+      "5": [
+        "Alzar maldito",
+        "Atravesar paredes",
+        "Forja arcana",
+        "Transfusión de dolor"
+      ],
+      "6": [
+        "Intercambio de almas",
+        "Lluvia de estrellas",
+        "Petrificar",
+        "Rayo solar"
+      ],
+      "7": [
+        "Cimitarra arcana",
+        "Niebla carmesí"
+      ],
+      "8": [
+        "Alterar el ser",
+        "Viaje espaciotemporal"
+      ]
+    }
+  },
+  "scripts": [
+    {
+      "id": "script-1",
+      "nombre": "Gray Phantom",
+      "descripcion": "Reduce en 1d6 el Nivel de la Barrera de Identificación.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-2",
+      "nombre": "Stonebrick",
+      "descripcion": "Reduce en 1d4 el Nivel de la Barrera de Autentificación.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-3",
+      "nombre": "The Bulgarian Job",
+      "descripcion": "Supera de forma instantánea la Barrera de Identificación.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-4",
+      "nombre": "Dominion Blue",
+      "descripcion": "Supera de forma instantánea la Barrera de Autentificación.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-5",
+      "nombre": "Bubble",
+      "descripcion": "Reduce en 1d6 el Nivel de la Barrera de Autorización.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-6",
+      "nombre": "Nautical Defender",
+      "descripcion": "Obtén un +2 al resultado de una Tirada de hackeo.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-7",
+      "nombre": "Ophideus",
+      "descripcion": "Cancela inmediatamente el despliegue de Medidas defensivas si éstas se disparan en las Barreras de Identificación o Autentificación.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-8",
+      "nombre": "Donatello",
+      "descripcion": "Permite salir inmediatamente del sistema si saltan las Medidas defensivas en la Barrera de Autorización.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-9",
+      "nombre": "False Brain",
+      "descripcion": "Hace creer al sistema que ha sufrido un falso positivo de hackeo. El hacker puede continuar con el proceso, pero con un -2 a la próxima Tirada de hackeo.",
+      "fuente": "Naufragio d20 CiFi"
+    },
+    {
+      "id": "script-10",
+      "nombre": "Thursday Benefits",
+      "descripcion": "En lugar de utilizar las Medidas defensivas de la Barrera en la que se encuentra, el sistema utilizará las Medidas defensivas de la Barrera de Identificación (las más laxas).",
+      "fuente": "Naufragio d20 CiFi"
+    }
+  ],
+  "especiales": {
+    "version": 1
+  }
+}

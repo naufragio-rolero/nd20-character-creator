@@ -1,0 +1,1548 @@
+{
+  "version": 1,
+  "politica_talla": {
+    "origen": "Decisión editorial del 31/10/2026; no es un cambio del texto DRS",
+    "especies": [
+      "Mediano amable",
+      "Gnomo urbano"
+    ],
+    "armas_y_armaduras": "Todos los artículos del catálogo se ofrecen adaptados al tamaño de estas Especies, manteniendo precio y características y respetando las Competencias de Ocupación.",
+    "escudos": "Solo Escudo pequeño, si la Ocupación tiene competencia para usarlo."
+  },
+  "fuentes": {
+    "fantasia": "NaufragioD20DRS v1.1.12 · Equipo: Listas de equipo y Paquetes de equipo",
+    "cifi": "NaufragioD20CiFi v1.0.3 · Equipo (precios y competencias); capital inicial mediante decisión editorial del 28-10-2026, todavía no incorporada al manual"
+  },
+  "divisa": "mo",
+  "equivalencias": {
+    "mc": 0.01,
+    "mp": 0.1,
+    "mo": 1
+  },
+  "armas": [
+    {
+      "nombre": "Daga",
+      "precio": 2,
+      "tipo": "ligera",
+      "dano": "1d4",
+      "penetracion": 1,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Clava",
+      "precio": 0.1,
+      "tipo": "ligera",
+      "dano": "1d4",
+      "penetracion": 0,
+      "durabilidad": "d4"
+    },
+    {
+      "nombre": "Hoz",
+      "precio": 1,
+      "tipo": "ligera",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d4"
+    },
+    {
+      "nombre": "Martillo ligero",
+      "precio": 2,
+      "tipo": "ligera",
+      "dano": "1d4",
+      "penetracion": 2,
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Hacha de mano",
+      "precio": 5,
+      "tipo": "ligera",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Espada corta",
+      "precio": 10,
+      "tipo": "ligera",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Cimitarra",
+      "precio": 25,
+      "tipo": "ligera",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Bastón",
+      "precio": 0.2,
+      "tipo": "una_mano",
+      "dano": "1d6",
+      "penetracion": 0,
+      "durabilidad": "d4"
+    },
+    {
+      "nombre": "Lanza",
+      "precio": 1,
+      "tipo": "una_mano",
+      "dano": "1d6",
+      "penetracion": 2,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Maza",
+      "precio": 5,
+      "tipo": "una_mano",
+      "dano": "1d6",
+      "penetracion": 2,
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Hacha de batalla",
+      "precio": 10,
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 1,
+      "durabilidad": "d10"
+    },
+    {
+      "nombre": "Mayal",
+      "precio": 10,
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 3,
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Espada larga",
+      "precio": 15,
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 1,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Martillo de guerra",
+      "precio": 15,
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 2,
+      "durabilidad": "d10"
+    },
+    {
+      "nombre": "Espada ropera",
+      "precio": 25,
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 2,
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Gran clava",
+      "precio": 0.2,
+      "tipo": "dos_manos",
+      "dano": "1d8",
+      "penetracion": 1,
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Guadaña",
+      "precio": 10,
+      "tipo": "dos_manos",
+      "dano": "1d10",
+      "penetracion": 1,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Espadón",
+      "precio": 50,
+      "tipo": "dos_manos",
+      "dano": "1d12",
+      "penetracion": 1,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Arco corto",
+      "precio": 25,
+      "tipo": "distancia",
+      "municion": "Flechas",
+      "alcance": "48 m",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Arco largo",
+      "precio": 50,
+      "tipo": "distancia",
+      "municion": "Flechas",
+      "alcance": "90 m",
+      "dano": "1d8",
+      "penetracion": 1,
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Ballesta ligera",
+      "precio": 40,
+      "tipo": "distancia",
+      "municion": "Virotes",
+      "alcance": "48 m",
+      "dano": "1d8",
+      "penetracion": 1,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Ballesta de mano",
+      "precio": 75,
+      "tipo": "distancia",
+      "municion": "Virotes",
+      "alcance": "18 m",
+      "dano": "1d6",
+      "penetracion": 0,
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Cerbatana",
+      "precio": 1,
+      "tipo": "distancia",
+      "municion": "Dardos",
+      "alcance": "15 m",
+      "dano": "1d3",
+      "penetracion": 0,
+      "durabilidad": "d4"
+    },
+    {
+      "nombre": "Honda",
+      "precio": 0.1,
+      "tipo": "distancia",
+      "municion": "Balines",
+      "alcance": "18 m",
+      "dano": "1d4",
+      "penetracion": 1,
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Guantelete armado",
+      "precio": 18,
+      "tipo": "una_mano",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Látigo",
+      "precio": 2,
+      "tipo": "una_mano",
+      "dano": "1d4",
+      "penetracion": 1,
+      "durabilidad": "d10"
+    },
+    {
+      "nombre": "Tridente",
+      "precio": 5,
+      "tipo": "dos_manos",
+      "dano": "1d8",
+      "penetracion": 2,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Jabalina",
+      "precio": 0.5,
+      "tipo": "una_mano",
+      "dano": "1d6",
+      "penetracion": 2,
+      "durabilidad": "d4",
+      "arrojadiza_alcance": "12 m"
+    },
+    {
+      "nombre": "Lucero del alba",
+      "precio": 15,
+      "tipo": "una_mano",
+      "dano": "1d8",
+      "penetracion": 2,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Alabarda",
+      "precio": 20,
+      "tipo": "dos_manos",
+      "dano": "1d10",
+      "penetracion": 1,
+      "durabilidad": "d10",
+      "alcance": "4 m"
+    },
+    {
+      "nombre": "Almádena",
+      "precio": 60,
+      "tipo": "dos_manos",
+      "dano": "1d10",
+      "penetracion": 3,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Gran hacha",
+      "precio": 30,
+      "tipo": "dos_manos",
+      "dano": "1d12",
+      "penetracion": 1,
+      "durabilidad": "d12"
+    },
+    {
+      "nombre": "Guja",
+      "precio": 20,
+      "tipo": "dos_manos",
+      "dano": "1d10",
+      "penetracion": 2,
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Lanza de caballería",
+      "precio": 10,
+      "tipo": "dos_manos",
+      "dano": "1d12",
+      "penetracion": 3,
+      "durabilidad": "d6",
+      "alcance": "4 m",
+      "desventaja_distancia_corta": true
+    },
+    {
+      "nombre": "Ballesta de repetición",
+      "precio": 150,
+      "tipo": "distancia",
+      "dano": "1d6",
+      "penetracion": 1,
+      "durabilidad": "d6",
+      "alcance": "30 m",
+      "municion": "Virotes",
+      "proyectiles_por_turno": 3
+    },
+    {
+      "nombre": "Ballesta pesada",
+      "precio": 100,
+      "tipo": "distancia",
+      "dano": "1d10",
+      "penetracion": 2,
+      "durabilidad": "d8",
+      "alcance": "60 m",
+      "municion": "Virotes",
+      "no_mover_y_disparar": true
+    },
+    {
+      "nombre": "Yumi",
+      "precio": 200,
+      "tipo": "distancia",
+      "dano": "1d12",
+      "penetracion": 2,
+      "durabilidad": "d6",
+      "alcance": "75 m",
+      "municion": "Flechas",
+      "no_mover_y_disparar": true
+    },
+    {
+      "nombre": "Dardo",
+      "precio": 0.05,
+      "precio_editorial": "5 mc",
+      "tipo": "distancia",
+      "alcance": "9 m",
+      "dano": "1d4",
+      "penetracion": 0,
+      "durabilidad": "d4",
+      "municion": "Dardos"
+    }
+  ],
+  "municion": [
+    {
+      "nombre": "Flechas",
+      "precio": 2,
+      "du": "d8"
+    },
+    {
+      "nombre": "Virotes",
+      "precio": 2,
+      "du": "d8"
+    },
+    {
+      "nombre": "Dardos",
+      "precio": 0.2,
+      "du": "d4"
+    },
+    {
+      "nombre": "Balines",
+      "precio": 0.1,
+      "du": "d10"
+    }
+  ],
+  "armaduras": [
+    {
+      "nombre": "Armadura de tela",
+      "precio": 1,
+      "tipo": "tela",
+      "blindaje": "d4",
+      "durabilidad": "-"
+    },
+    {
+      "nombre": "Armadura acolchada",
+      "precio": 5,
+      "tipo": "ligera",
+      "blindaje": "d4",
+      "durabilidad": "d4"
+    },
+    {
+      "nombre": "Armadura de cuero",
+      "precio": 10,
+      "tipo": "ligera",
+      "blindaje": "d6",
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Cuero tachonado",
+      "precio": 30,
+      "tipo": "ligera",
+      "blindaje": "d6",
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Armadura de pieles",
+      "precio": 15,
+      "tipo": "intermedia",
+      "blindaje": "d6",
+      "durabilidad": "d6"
+    },
+    {
+      "nombre": "Camisote de mallas",
+      "precio": 50,
+      "tipo": "intermedia",
+      "blindaje": "d8",
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Cota de anillas",
+      "precio": 45,
+      "tipo": "intermedia",
+      "blindaje": "d8",
+      "durabilidad": "d10"
+    },
+    {
+      "nombre": "Coraza",
+      "precio": 100,
+      "tipo": "intermedia",
+      "blindaje": "d8",
+      "durabilidad": "d12"
+    },
+    {
+      "nombre": "Cota de mallas",
+      "precio": 75,
+      "tipo": "pesada",
+      "blindaje": "d10",
+      "durabilidad": "d8"
+    },
+    {
+      "nombre": "Pechera de algodón",
+      "precio": 0.5,
+      "tipo": "tela",
+      "blindaje": 1,
+      "durabilidad": null
+    },
+    {
+      "nombre": "Cota de escamas",
+      "precio": 70,
+      "tipo": "intermedia",
+      "blindaje": "d8",
+      "durabilidad": "d10"
+    },
+    {
+      "nombre": "Armadura de bandas",
+      "precio": 200,
+      "tipo": "pesada",
+      "blindaje": "d10",
+      "durabilidad": "d10"
+    },
+    {
+      "nombre": "Armadura parcial de placas",
+      "precio": 300,
+      "tipo": "pesada",
+      "blindaje": "d10",
+      "durabilidad": "d12"
+    },
+    {
+      "nombre": "Armadura completa de placas",
+      "precio": 1000,
+      "tipo": "pesada",
+      "blindaje": "d12",
+      "durabilidad": "d12"
+    }
+  ],
+  "escudos": [
+    {
+      "nombre": "Escudo pequeño",
+      "precio": 5,
+      "blindaje": "+1",
+      "durabilidad": "d6",
+      "dano": "d3"
+    },
+    {
+      "nombre": "Escudo mediano",
+      "precio": 10,
+      "blindaje": "+1",
+      "durabilidad": "d8",
+      "dano": "d4"
+    },
+    {
+      "nombre": "Escudo grande",
+      "precio": 12,
+      "blindaje": "+1",
+      "durabilidad": "d10",
+      "dano": "d6"
+    }
+  ],
+  "paquetes": [
+    {
+      "nombre": "Especial arcanistas",
+      "precio": 25,
+      "contenido": "Mochila; antorcha (DU d6); ración de alimento (DU d6); túnica; saco de dormir; yesquero; estuche de pergaminos vacío; tinta y pluma (DU d6); libro de conjuros en blanco"
+    },
+    {
+      "nombre": "Especial criminales",
+      "precio": 25,
+      "contenido": "Bolsa de cuero; odre de agua (DU d6); antorcha (DU d6); disfraz; ganzúas; kit de escalada; saco de dormir"
+    },
+    {
+      "nombre": "Especial devotos",
+      "precio": 10,
+      "contenido": "Mochila; odre de agua (DU d6); dos raciones de alimento (DU d6 cada una); túnica; vela (DU d4); saco de dormir; yesquero; sello de orden sagrada; símbolo sagrado"
+    },
+    {
+      "nombre": "Especial exploración",
+      "precio": 10,
+      "contenido": "Mochila; odre de agua (DU d6); tres raciones (DU d6); cuerda; kit de cocina; caña y aparejos; catalejo; ropa de viaje; tienda de campaña; yesquero"
+    },
+    {
+      "nombre": "Especial mazmorras",
+      "precio": 6,
+      "contenido": "Mochila; odre de agua (DU d6); ración (DU d6); antorcha (DU d6); tiza (DU d6); pértiga; ropa de viaje; manta; yesquero"
+    }
+  ],
+  "componentes_paquetes_editoriales": [
+    {
+      "nombre": "Mochila",
+      "descripcion_editorial": "Bolsa resistente con correas para llevarla a la espalda. Permite guardar y transportar las pertenencias durante un viaje.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
+    },
+    {
+      "nombre": "Bolsa de cuero",
+      "descripcion_editorial": "Bolsa flexible confeccionada en cuero, con un cierre sencillo. Sirve para reunir monedas, utensilios pequeños y otros enseres.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
+    },
+    {
+      "nombre": "Odre de agua",
+      "du": "d6",
+      "descripcion_editorial": "Recipiente de piel curtida destinado a transportar agua. Su abertura se cierra para evitar que se derrame durante el camino.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
+    },
+    {
+      "nombre": "Estuche de pergaminos vacío",
+      "descripcion_editorial": "Estuche alargado con tapa, pensado para guardar hojas de pergamino enrolladas y protegerlas durante el transporte. Se entrega vacío.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
+    },
+    {
+      "nombre": "Ropa de viaje",
+      "descripcion_editorial": "Conjunto de prendas sencillas y resistentes, adecuado para el camino y el desgaste de las jornadas de viaje.",
+      "origen_descripcion": "Redacción editorial autorizada el 01/11/2026; no es texto literal del DRS"
+    }
+  ],
+  "obsequios_cifi": {
+    "Eudemonista": {
+      "fuente": "NaufragioD20CiFi · Eudemonista · Armamento filosofal",
+      "opciones": [
+        "Espada láser",
+        "Hacha de derelictos",
+        "Vibrodaga",
+        "Vibromachete",
+        "Monocuchillo"
+      ]
+    }
+  },
+  "opciones_seguras": {
+    "nota": "El equipamiento se compra solo entre opciones compatibles; competencias ambiguas requieren revisión."
+  },
+  "cifi": {
+    "fuente": "NaufragioD20CiFi v1.0.3 · Equipo: listas de equipo",
+    "capital_inicial": {
+      "formula": "4d10 × 100 cr",
+      "dados": 4,
+      "caras": 10,
+      "multiplicador": 100,
+      "minimo": 400,
+      "maximo": 4000,
+      "naturaleza": "decisión editorial aprobada el 28-10-2026; pendiente de incorporar al DRS CiFi",
+      "equivalencia": "1 mo = 10 mp = 10 cr"
+    },
+    "armas": [
+      {
+        "nombre": "Monocuchillo",
+        "precio": 10,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Porra de contusión",
+        "precio": 50,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Vibrodaga",
+        "precio": 65,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Navaja gravitatoria",
+        "precio": 225,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Espada láser",
+        "precio": 200,
+        "categoria": "una_mano"
+      },
+      {
+        "nombre": "Hacha de derelictos",
+        "precio": 100,
+        "categoria": "una_mano"
+      },
+      {
+        "nombre": "Vibromachete",
+        "precio": 250,
+        "categoria": "una_mano"
+      },
+      {
+        "nombre": "Pistola láser",
+        "precio": 80,
+        "categoria": "fuego",
+        "municion": "Balas láser"
+      },
+      {
+        "nombre": "Cortadora de plasma",
+        "precio": 125,
+        "categoria": "fuego",
+        "municion": "Células de plasma"
+      },
+      {
+        "nombre": "Revolver iónico",
+        "precio": 250,
+        "categoria": "fuego"
+      },
+      {
+        "nombre": "Escopeta de plasma",
+        "precio": 300,
+        "categoria": "fuego",
+        "municion": "Cartuchos de plasma"
+      },
+      {
+        "nombre": "Rifle de precisión",
+        "precio": 500,
+        "categoria": "fuego",
+        "municion": "Células de plasma"
+      }
+    ],
+    "municion": [
+      {
+        "nombre": "Balas láser",
+        "precio": 20,
+        "du": "d6"
+      },
+      {
+        "nombre": "Células de plasma",
+        "precio": 10,
+        "du": "d8"
+      },
+      {
+        "nombre": "Cartuchos de plasma",
+        "precio": 50,
+        "du": "d6"
+      }
+    ],
+    "protecciones": [
+      {
+        "nombre": "Equipo de tecnópata",
+        "precio": 50,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Traje de polímero de carbono",
+        "precio": 150,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Coraza de asalto",
+        "precio": 350,
+        "categoria": "ligera"
+      },
+      {
+        "nombre": "Chaleco de corsario",
+        "precio": 500,
+        "categoria": "intermedia"
+      },
+      {
+        "nombre": "Armadura de seguridad",
+        "precio": 750,
+        "categoria": "intermedia"
+      },
+      {
+        "nombre": "Armadura militar",
+        "precio": 1000,
+        "categoria": "intermedia"
+      },
+      {
+        "nombre": "Equipo de diamantina",
+        "precio": 2500,
+        "categoria": "pesada"
+      }
+    ],
+    "ddp": [
+      {
+        "nombre": "Escudo portátil",
+        "precio": 50
+      },
+      {
+        "nombre": "Barrera de energía",
+        "precio": 100
+      },
+      {
+        "nombre": "Muro de plasma",
+        "precio": 200
+      }
+    ],
+    "utiles": [
+      {
+        "nombre": "Paquete de alimento",
+        "precio": 2
+      },
+      {
+        "nombre": "Batería",
+        "precio": 10,
+        "du": "d8"
+      },
+      {
+        "nombre": "Glowstick",
+        "precio": 1
+      },
+      {
+        "nombre": "Morfesaco",
+        "precio": 40
+      },
+      {
+        "nombre": "Cuerda sintética",
+        "precio": 15
+      },
+      {
+        "nombre": "Botiquín",
+        "precio": 50,
+        "du": "d6"
+      },
+      {
+        "nombre": "Ordenador personal",
+        "precio": 300
+      },
+      {
+        "nombre": "Smartcom",
+        "precio": 125
+      }
+    ],
+    "competencias": {
+      "Diplomático": {
+        "armas": [
+          "Monocuchillo",
+          "Porra de contusión",
+          "Vibrodaga",
+          "Navaja gravitatoria"
+        ],
+        "protecciones": [
+          "Equipo de tecnópata",
+          "Traje de polímero de carbono",
+          "Coraza de asalto"
+        ],
+        "ddp": [
+          "Escudo portátil"
+        ]
+      },
+      "Eudemonista": {
+        "armas": [],
+        "protecciones": [],
+        "ddp": [],
+        "gratuito": "Armamento filosofal: arma cuerpo a cuerpo elegida"
+      },
+      "Forajido": {
+        "armas": [
+          "Monocuchillo",
+          "Porra de contusión",
+          "Vibrodaga",
+          "Navaja gravitatoria",
+          "Espada láser",
+          "Hacha de derelictos",
+          "Vibromachete"
+        ],
+        "protecciones": [
+          "Equipo de tecnópata",
+          "Traje de polímero de carbono",
+          "Coraza de asalto",
+          "Chaleco de corsario",
+          "Armadura de seguridad",
+          "Armadura militar"
+        ],
+        "ddp": [
+          "Escudo portátil",
+          "Barrera de energía"
+        ],
+        "nota": "Los tipos de armas de fuego sencillas/militares deben clasificarse antes de sugerir armas de fuego a esta Ocupación."
+      },
+      "Psion": {
+        "armas": [
+          "Monocuchillo",
+          "Porra de contusión",
+          "Vibrodaga",
+          "Navaja gravitatoria"
+        ],
+        "protecciones": [],
+        "ddp": [
+          "Escudo portátil"
+        ]
+      },
+      "Soldado": {
+        "armas": [
+          "Monocuchillo",
+          "Porra de contusión",
+          "Vibrodaga",
+          "Navaja gravitatoria",
+          "Espada láser",
+          "Hacha de derelictos",
+          "Vibromachete",
+          "Pistola láser",
+          "Cortadora de plasma",
+          "Revolver iónico",
+          "Escopeta de plasma",
+          "Rifle de precisión"
+        ],
+        "protecciones": [
+          "Equipo de tecnópata",
+          "Traje de polímero de carbono",
+          "Coraza de asalto",
+          "Chaleco de corsario",
+          "Armadura de seguridad",
+          "Armadura militar",
+          "Equipo de diamantina"
+        ],
+        "ddp": [
+          "Escudo portátil",
+          "Barrera de energía",
+          "Muro de plasma"
+        ]
+      },
+      "Tecnópata": {
+        "armas": [
+          "Monocuchillo",
+          "Porra de contusión",
+          "Vibrodaga",
+          "Navaja gravitatoria",
+          "Pistola láser",
+          "Cortadora de plasma",
+          "Revolver iónico",
+          "Escopeta de plasma",
+          "Rifle de precisión"
+        ],
+        "protecciones": [
+          "Equipo de tecnópata",
+          "Traje de polímero de carbono",
+          "Coraza de asalto",
+          "Chaleco de corsario",
+          "Armadura de seguridad",
+          "Armadura militar"
+        ],
+        "ddp": [
+          "Escudo portátil"
+        ],
+        "gratuito": "Implante de Ordenador neuronal (competencia; sin coste indicado por el manual)"
+      }
+    },
+    "politica_compra": "Sugerencia de compra automática del generador, no lote gratuito del reglamento; equipamiento no incluido debe poder comprarse por separado"
+  },
+  "varitas_defensa": [
+    {
+      "nombre": "Varita de cerezo",
+      "tipo": "varita",
+      "alcance": "12 m",
+      "dano": "1d3",
+      "penetracion": 1,
+      "durabilidad": "d4",
+      "municion_du": "d6",
+      "precio": 100
+    },
+    {
+      "nombre": "Rama de cristal",
+      "tipo": "varita",
+      "alcance": "18 m",
+      "dano": "1d4",
+      "penetracion": 1,
+      "durabilidad": "d6",
+      "municion_du": "d8",
+      "precio": 350
+    },
+    {
+      "nombre": "Cetro de dracólita",
+      "tipo": "varita",
+      "alcance": "24 m",
+      "dano": "1d6",
+      "penetracion": 2,
+      "durabilidad": "d8",
+      "municion_du": "d8",
+      "precio": 700
+    },
+    {
+      "nombre": "Esceptro de sangreluna",
+      "tipo": "varita",
+      "alcance": "30 m",
+      "dano": "1d8",
+      "penetracion": 2,
+      "durabilidad": "d10",
+      "municion_du": "d6",
+      "precio": 1500
+    }
+  ],
+  "decisiones_editoriales": {
+    "dardo_precio": "Rectificación autoral del 03/11/2026: el Dardo cuesta 5 mc = 0,05 mo; el DRS original indicaba «—». La munición Dardos conserva su precio y DU del DRS. El valor se almacena en mo con precisión de 0,01 mo sin introducir una billetera multimoneda.",
+    "martillo_campamento": "Decisión editorial del 31/10/2026: el útil «Almádena» del listado de Campamento pasa a llamarse «Martillo de campamento». Conserva precio 2 mo y uso como Clava. El arma Almádena conserva su nombre y precio 60 mo. Se preserva el nombre literal DRS en nombre_original_drs."
+  },
+  "utiles_fantasia": {
+    "iluminacion": [
+      {
+        "id": "iluminacion-antorcha",
+        "nombre": "Antorcha",
+        "precio": 0.1,
+        "detalle": "Ilumina 6 metros alrededor con luz amarillenta.",
+        "du": "d6",
+        "fuente": "DRS"
+      },
+      {
+        "id": "iluminacion-lampara-aceite",
+        "nombre": "Lámpara de aceite",
+        "precio": 2,
+        "detalle": "Ilumina 4 metros alrededor.",
+        "du": "d6 (aceite)",
+        "fuente": "DRS"
+      },
+      {
+        "id": "iluminacion-linterna",
+        "nombre": "Linterna",
+        "precio": 10,
+        "detalle": "Ilumina 8 metros alrededor.",
+        "du": "d6 (aceite)",
+        "fuente": "DRS"
+      },
+      {
+        "id": "iluminacion-vela",
+        "nombre": "Vela",
+        "precio": 0.01,
+        "detalle": "Alumbra 2 metros alrededor con luz amarillenta y tenue.",
+        "du": "d4",
+        "fuente": "DRS"
+      }
+    ],
+    "aventura": [
+      {
+        "id": "aventura-aparejo-poleas",
+        "nombre": "Aparejo de poleas",
+        "precio": 3,
+        "detalle": "Se fija en un punto para usar la polea.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-bolsa-abrojos",
+        "nombre": "Bolsa de abrojos",
+        "precio": 1,
+        "detalle": "Pinchos que causan 1 de daño al pisar.",
+        "du": "d6",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-bolsa-canicas",
+        "nombre": "Bolsa de canicas",
+        "precio": 1,
+        "detalle": "Esferas para esparcir por el suelo.",
+        "du": "d6",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-cuerda",
+        "nombre": "Cuerda",
+        "precio": 1,
+        "detalle": "15 metros de cuerda de esparto.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-cuerda-seda",
+        "nombre": "Cuerda de seda",
+        "precio": 10,
+        "detalle": "15 metros de cuerda resistente de seda.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-espejo-acero",
+        "nombre": "Espejo de acero",
+        "precio": 5,
+        "detalle": "Superficie reflectante.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-gancho",
+        "nombre": "Gancho",
+        "precio": 2,
+        "detalle": "De tres puntas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-lupa",
+        "nombre": "Lupa",
+        "precio": 100,
+        "detalle": "No más grande que una mano.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-simbolo-sagrado",
+        "nombre": "Símbolo sagrado",
+        "precio": 5,
+        "detalle": "De un Espíritu deífico concreto.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "aventura-tiza",
+        "nombre": "Tiza",
+        "precio": 0.01,
+        "detalle": "Color blanco.",
+        "du": "d6",
+        "fuente": "DRS"
+      }
+    ],
+    "campamento": [
+      {
+        "id": "campamento-martillo",
+        "nombre": "Martillo de campamento",
+        "precio": 2,
+        "detalle": "Herramienta de campamento; puede utilizarse como Clava. En el DRS figura como «Almádena». No es el arma Almádena a dos manos (60 mo).",
+        "fuente": "DRS",
+        "nombre_original_drs": "Almádena"
+      },
+      {
+        "id": "campamento-manta",
+        "nombre": "Manta",
+        "precio": 0.5,
+        "detalle": "Unipersonal.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "campamento-saco-dormir",
+        "nombre": "Saco de dormir",
+        "precio": 1,
+        "detalle": "No soporta temperaturas extremas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "campamento-tienda",
+        "nombre": "Tienda de campaña",
+        "precio": 10,
+        "detalle": "Espacio para dos personas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "campamento-racion",
+        "nombre": "Ración de alimento",
+        "precio": 0.01,
+        "detalle": "Carne o fruta seca al sol.",
+        "du": "d6",
+        "fuente": "DRS"
+      },
+      {
+        "id": "campamento-yesquero",
+        "nombre": "Yesquero",
+        "precio": 0.5,
+        "detalle": "Para encender fuego.",
+        "fuente": "DRS"
+      }
+    ],
+    "ropa": [
+      {
+        "id": "ropa-abrigo-piel",
+        "nombre": "Abrigo de piel",
+        "precio": 20,
+        "detalle": "Protege del frío por debajo de 0º.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "ropa-atuendo-noble",
+        "nombre": "Atuendo de noble",
+        "precio": 30,
+        "detalle": "De colores vivos, con chorreras y gola.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "ropa-chaqueta-cuero",
+        "nombre": "Chaqueta de cuero",
+        "precio": 10,
+        "detalle": "Protege del frío por debajo de 10º.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "ropa-disfraz",
+        "nombre": "Disfraz",
+        "precio": 5,
+        "detalle": "Contiene maquillaje, peluca y bigote falso.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "ropa-traje-elegante",
+        "nombre": "Traje elegante",
+        "precio": 15,
+        "detalle": "Parece de buena calidad.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "ropa-tunica",
+        "nombre": "Túnica",
+        "precio": 1,
+        "detalle": "De color a elegir. Hecha de tela y esparto.",
+        "fuente": "DRS"
+      }
+    ],
+    "instrumentos": [
+      {
+        "id": "instrumento-arpa",
+        "nombre": "Arpa",
+        "precio": 40,
+        "detalle": "Instrumento de cuerda. Suena agradable.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "instrumento-flauta",
+        "nombre": "Flauta",
+        "precio": 2,
+        "detalle": "Instrumento de aire. Suena dulce.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "instrumento-laud",
+        "nombre": "Laúd",
+        "precio": 35,
+        "detalle": "Instrumento de cuerda. Suena antiguo.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "instrumento-tambor",
+        "nombre": "Tambor",
+        "precio": 6,
+        "detalle": "Instrumento de percusión. Suena estricto.",
+        "fuente": "DRS"
+      }
+    ],
+    "objetos_varios": [
+      {
+        "id": "varios-abaco",
+        "nombre": "Ábaco",
+        "precio": 2,
+        "detalle": "Permite realizar cuentas complejas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-balanza",
+        "nombre": "Balanza",
+        "precio": 15,
+        "detalle": "Permite pesar hasta 5 kg de material.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-baraja-cartas",
+        "nombre": "Baraja de cartas",
+        "precio": 0.5,
+        "detalle": "52 cartas, 4 palos con 12 figuras.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-dados",
+        "nombre": "Dados",
+        "precio": 0.2,
+        "detalle": "Seis cubos de seis caras cada uno.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-escalera-mano",
+        "nombre": "Escalera de mano",
+        "precio": 0.15,
+        "detalle": "Se extiende hasta 3 metros. De madera.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-pipa-tabaco",
+        "nombre": "Pipa de tabaco",
+        "precio": 5,
+        "detalle": "De madera tallada.",
+        "du": "d4 (tabaco)",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-reloj-arena",
+        "nombre": "Reloj de arena",
+        "precio": 25,
+        "detalle": "Cuenta atrás de 120 segundos.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "varios-tabaco",
+        "nombre": "Tabaco",
+        "precio": 0.12,
+        "detalle": "Planta machacada, adictiva.",
+        "fuente": "DRS"
+      }
+    ],
+    "monturas": [
+      {
+        "id": "montura-burro-mula",
+        "nombre": "Burro o mula",
+        "precio": 8,
+        "detalle": "",
+        "movimiento": "12 metros",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-caballo-guerra",
+        "nombre": "Caballo de guerra",
+        "precio": 400,
+        "detalle": "",
+        "movimiento": "18 metros",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-caballo-monta",
+        "nombre": "Caballo de monta",
+        "precio": 75,
+        "detalle": "",
+        "movimiento": "18 metros",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-escarabajo-gigante",
+        "nombre": "Escarabajo gigante",
+        "precio": 265,
+        "detalle": "",
+        "movimiento": "8 metros",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-mastin",
+        "nombre": "Mastín",
+        "precio": 25,
+        "detalle": "",
+        "movimiento": "12 metros",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-pony",
+        "nombre": "Pony",
+        "precio": 30,
+        "detalle": "",
+        "movimiento": "12 metros",
+        "fuente": "DRS"
+      }
+    ],
+    "equipo_monturas": [
+      {
+        "id": "montura-alforjas",
+        "nombre": "Alforjas",
+        "precio": 2.5,
+        "detalle": "Equivalen a dos mochilas de cuero.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-armadura-equina",
+        "nombre": "Armadura equina",
+        "detalle": "Protección corporal —» Precio x4.",
+        "precio_variable": "Precio de la protección corporal ×4",
+        "regla_precio_autoral": {
+          "estado": "aprobacion_autoral",
+          "fecha": "2026-11-01",
+          "texto": "Elegir una armadura común disponible para personas; el precio de la armadura equina es cuatro veces el precio de esa armadura.",
+          "catalogo_base": "data/equipo-inicial.json · armaduras",
+          "multiplicador": 4,
+          "alcance": "Cálculo informativo del precio; no implica compra, equipamiento automático ni conversión de Blindaje o Durabilidad."
+        },
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-bridas",
+        "nombre": "Bridas",
+        "precio": 1.5,
+        "detalle": "Para dirigir a la montura.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-comida",
+        "nombre": "Comida",
+        "precio": 0.1,
+        "detalle": "Alimento para caballos, etc. para 1 día.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-establos",
+        "nombre": "Establos",
+        "precio": 0.6,
+        "detalle": "Alojamiento para caballos. 1 día.",
+        "servicio_por_dia": true,
+        "fuente": "DRS"
+      },
+      {
+        "id": "montura-silla",
+        "nombre": "Silla",
+        "precio": 15,
+        "detalle": "Una silla de tamaño estándar.",
+        "fuente": "DRS"
+      }
+    ],
+    "vehiculos": [
+      {
+        "id": "vehiculo-carro",
+        "nombre": "Carro",
+        "precio": 20,
+        "detalle": "Necesita 1 caballo / montura.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "vehiculo-carro-guerra",
+        "nombre": "Carro de guerra",
+        "precio": 400,
+        "detalle": "Necesita 1 caballo / montura.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "vehiculo-carruaje",
+        "nombre": "Carruaje",
+        "precio": 125,
+        "detalle": "Necesita 2 caballos / monturas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "vehiculo-diligencia",
+        "nombre": "Diligencia",
+        "precio": 200,
+        "detalle": "Necesita 4 caballos / monturas.",
+        "fuente": "DRS"
+      }
+    ],
+    "consumibles": [
+      {
+        "id": "consumible-aceite-animal",
+        "nombre": "Aceite animal",
+        "precio": 0.1,
+        "detalle": "Grasa de animal para alimentar lámparas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-acido",
+        "nombre": "Ácido",
+        "precio": 25,
+        "detalle": "Ataque arrojadizo con alcance de 6 metros; 2d6 de daño.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-agua-bendita",
+        "nombre": "Agua bendita",
+        "precio": 30,
+        "detalle": "Ataque arrojadizo con alcance de 6 metros; 2d8 de daño a diablos y muertos vivientes.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-antidoto",
+        "nombre": "Antídoto",
+        "precio_por_nivel": 50,
+        "detalle": "Elimina un veneno de igual o menor Nivel si se toma a tiempo.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-fuego-alquimico",
+        "nombre": "Fuego alquímico",
+        "precio": 50,
+        "detalle": "Ataque arrojadizo con alcance de 6 metros; 2d6 de daño cada Turno durante 1d4 Turnos.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-pocion-curacion",
+        "nombre": "Poción de curación",
+        "precio": 40,
+        "detalle": "Recupera 1d8 de Salud al beberla; requiere una Acción.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "consumible-veneno",
+        "nombre": "Veneno",
+        "precio_por_nivel": 100,
+        "detalle": "Puede aplicarse en un arma, alimento o bebida. Su Nivel modifica precio y efectos.",
+        "fuente": "DRS"
+      }
+    ],
+    "herramientas": [
+      {
+        "id": "herramienta-alambique",
+        "nombre": "Alambique",
+        "precio": 100,
+        "detalle": "Pequeño laboratorio alquímico portátil.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-cana-aparejos",
+        "nombre": "Caña y aparejos",
+        "precio": 15,
+        "detalle": "Permite pescar en ríos o mares.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-catalejo",
+        "nombre": "Catalejo",
+        "precio": 1000,
+        "detalle": "Permite ver a lo lejos; 3 aumentos.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-ganzuas",
+        "nombre": "Ganzúas",
+        "precio": 25,
+        "detalle": "Lo necesario para forzar cerraduras.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-kit-cocina",
+        "nombre": "Kit de cocina",
+        "precio": 0.2,
+        "detalle": "Cubiertos varios, una sartén y una rejilla.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-kit-escalada",
+        "nombre": "Kit de escalada",
+        "precio": 25,
+        "detalle": "Alcayatas, un garfio, cuerdas y un arnés.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-kit-medicina",
+        "nombre": "Kit de medicina",
+        "precio": 5,
+        "detalle": "Gasas, alcohol, torniquetes y pinzas.",
+        "du": "d6",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-mortero",
+        "nombre": "Mortero",
+        "precio": 0.3,
+        "detalle": "Para moler hierbas e ingredientes.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-pala",
+        "nombre": "Pala",
+        "precio": 2,
+        "detalle": "Se puede usar como Gran clava.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-pertiga",
+        "nombre": "Pértiga",
+        "precio": 0.05,
+        "detalle": "Palo flexible de 3 metros de longitud.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-pico-minero",
+        "nombre": "Pico de minero",
+        "precio": 2,
+        "detalle": "Se puede usar como Hacha de mano.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "herramienta-piedra-afilar",
+        "nombre": "Piedra de afilar",
+        "precio": 0.01,
+        "detalle": "+1 daño a arma de filo durante 1 Intervalo.",
+        "du": "d6",
+        "fuente": "DRS"
+      }
+    ],
+    "escritura": [
+      {
+        "id": "escritura-lacre",
+        "nombre": "Lacre",
+        "precio": 0.5,
+        "detalle": "Varios colores.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "escritura-libro",
+        "nombre": "Libro",
+        "precio": 25,
+        "detalle": "En blanco; tomo de 180 páginas.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "escritura-libro-conjuros",
+        "nombre": "Libro de conjuros",
+        "precio": 50,
+        "detalle": "En blanco, desprende una pizca de poder.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "escritura-pergamino",
+        "nombre": "Pergamino",
+        "precio": 0.08,
+        "detalle": "En blanco, desprende una pizca de poder.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "escritura-sello",
+        "nombre": "Sello",
+        "precio": 5,
+        "detalle": "Personalizable.",
+        "fuente": "DRS"
+      },
+      {
+        "id": "escritura-tinta-pluma",
+        "nombre": "Tinta y pluma",
+        "precio": 10,
+        "detalle": "Preparados para escribir.",
+        "du": "d6",
+        "fuente": "DRS"
+      }
+    ]
+  },
+  "focos_conjuros_con_precio": [
+    {
+      "id": "foco-totem",
+      "nombre": "Tótem",
+      "precio": 25,
+      "escuelas": [
+        "Elemental",
+        "Naturaleza"
+      ],
+      "detalle": "Hecho de hueso, madera o piedra.",
+      "fuente": "DRS"
+    },
+    {
+      "id": "foco-orbe-cristal",
+      "nombre": "Orbe de cristal",
+      "precio": 75,
+      "escuelas": [
+        "Arcana",
+        "Demonología"
+      ],
+      "detalle": "Utilizado por adivinos.",
+      "fuente": "DRS"
+    }
+  ],
+  "notas_equipo_fantasia": "Los precios de los útiles se expresan en monedas de oro (1 mc = 0,01 mo; 1 mp = 0,1 mo). Antídoto y Veneno cuestan por Nivel, nunca se les atribuye precio fijo sin elegirlo. El Martillo de campamento (2 mo, llamado «Almádena» en el DRS) es distinto del arma Almádena (60 mo). La inclusión en este inventario no concede equipo gratuito ni Competencia por sí misma."
+}

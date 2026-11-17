@@ -1,0 +1,458 @@
+{
+  "Elfo agreste": {
+    "envejecimiento": "nunca envejecen",
+    "atributo_requisito": "Agilidad",
+    "atributo_valor": 7,
+    "talentos": [
+      "Linaje feérico",
+      "Rapidez"
+    ],
+    "talentos_descripcion": {
+      "Linaje feérico": "Inmunidad al estado Parálisis y Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir.",
+      "Rapidez": "Movimiento +1 (ya incluido en el Movimiento de la Especie)."
+    },
+    "conceptos": [
+      "Guardián del bosque",
+      "Cazador de criaturas mágicas",
+      "Embajador feérico",
+      "Maestro arquero",
+      "Guardián de secretos antiguos",
+      "Explorador de bosques encantados",
+      "Sanador de la naturaleza",
+      "Domador de bestias",
+      "Vidente de los árboles",
+      "Artesano élfico"
+    ],
+    "salud": "d8",
+    "movimiento": 7,
+    "objetos_emocionales": [
+      "Hoja de árbol ancestral",
+      "Colgante de cristal feérico",
+      "Piedra lunar misteriosa",
+      "Flor dorada del bosque",
+      "Reliquia de la tribu élfica"
+    ],
+    "nombres": [
+      "Thalindra",
+      "Aelarion",
+      "Lirelia",
+      "Faelar",
+      "Celeborn",
+      "Arwen",
+      "Legolas",
+      "Galen",
+      "Mithrandir",
+      "Elariana",
+      "Eldarion",
+      "Elandrin",
+      "Elorin",
+      "Galadriel",
+      "Arador",
+      "Lorien",
+      "Aranel",
+      "Thranduil",
+      "Caladwen",
+      "Galathil"
+    ]
+  },
+  "Enano montañés": {
+    "envejecimiento": "desde los 280 años",
+    "atributo_requisito": "Resistencia",
+    "atributo_valor": 7,
+    "talentos": [
+      "Corpulencia",
+      "Visión en la oscuridad"
+    ],
+    "talentos_descripcion": {
+      "Corpulencia": "Movimiento -1 (ya incluido). Puedes gastar 1 Punto de Esfuerzo para repetir una Tirada de Blindaje para reducir daño físico.",
+      "Visión en la oscuridad": "Distingues el entorno hasta 30 metros en oscuridad absoluta, en blanco y negro y con formas y detalles poco definidos."
+    },
+    "conceptos": [
+      "Forjador de las profundidades",
+      "Explorador de las montañas",
+      "Defensor de las rutas comerciales",
+      "Rey bajo la montaña",
+      "Minero intrépido",
+      "Constructor de fortalezas",
+      "Explorador de grutas",
+      "Guardián de tesoros",
+      "Explorador de cavernas",
+      "Maestro herrero"
+    ],
+    "salud": "d10",
+    "movimiento": 5,
+    "objetos_emocionales": [
+      "Hacha forjada por su abuelo",
+      "Piedra preciosa de las profundidades",
+      "Gema de la montaña",
+      "Martillo de guerra ancestral",
+      "Pergamino de runas enano"
+    ],
+    "nombres": [
+      "Thrain",
+      "Balin",
+      "Durin",
+      "Gimli",
+      "Dwalin",
+      "Borin",
+      "Oin",
+      "Fili",
+      "Kili",
+      "Thorin",
+      "Gloin",
+      "Bombur",
+      "Dori",
+      "Nori",
+      "Ori",
+      "Bifur",
+      "Bofur",
+      "Gimilkhad",
+      "Thrainin",
+      "Skaldir"
+    ]
+  },
+  "Humano común": {
+    "envejecimiento": "desde los 50 años",
+    "talentos": [
+      "Buen desarrollo"
+    ],
+    "talentos_descripcion": {
+      "Buen desarrollo": "Mejora uno de tus Atributos en 1 punto durante la Creación de PJ."
+    },
+    "conceptos": [
+      "Héroe del pueblo",
+      "Aventurero sin igual",
+      "Guardián de la aldea",
+      "Caballero noble",
+      "Comerciante próspero",
+      "Intrépido viajero",
+      "Vidente de sueños",
+      "Músico ambulante",
+      "Explorador de tierras lejanas",
+      "Artesano hábil"
+    ],
+    "salud": "d6",
+    "movimiento": 6,
+    "objetos_emocionales": [
+      "Reloj de bolsillo de la familia",
+      "Diario de viaje ancestral",
+      "Espada heredada de un antepasado",
+      "Medalla de honor de la aldea",
+      "Retrato de familia"
+    ],
+    "nombres": [
+      "John",
+      "Emily",
+      "David",
+      "Anna",
+      "Michael",
+      "Sarah",
+      "Daniel",
+      "Sophia",
+      "Matthew",
+      "Olivia",
+      "William",
+      "Ava",
+      "James",
+      "Emma",
+      "Benjamin",
+      "Mia",
+      "Jacob",
+      "Ella",
+      "Liam",
+      "Grace"
+    ]
+  },
+  "Mediano amable": {
+    "envejecimiento": "desde los 70 años",
+    "atributo_requisito": "Presencia",
+    "atributo_valor": 7,
+    "talentos": [
+      "Baja estatura",
+      "¡Sálvese quien pueda!"
+    ],
+    "talentos_descripcion": {
+      "Baja estatura": "Movimiento -1 (ya incluido). Solo puedes usar armas y armaduras adaptadas a tu tamaño, y escudos pequeños. Obtienes +1 a las Tiradas de Esquiva contra ataques a distancia.",
+      "¡Sálvese quien pueda!": "Si sufres Parálisis o Miedo, puedes gastar 1 Punto de Esfuerzo y una Acción para liberarte sin tirada."
+    },
+    "conceptos": [
+      "Cocinero extraordinario",
+      "Guardián de la despensa",
+      "Narrador de cuentos",
+      "Héroe del jardín",
+      "Maestro de las festividades",
+      "Defensor de la paz",
+      "Embajador de la amistad",
+      "Buscador de la diversión",
+      "Hacedor de tratos",
+      "Explorador curioso"
+    ],
+    "salud": "d4",
+    "movimiento": 5,
+    "objetos_emocionales": [
+      "Receta secreta de la abuela",
+      "Relato épico de su pueblo",
+      "Caja de pastelitos",
+      "Cuentos de hadas ilustrados",
+      "Piedra de la suerte"
+    ],
+    "nombres": [
+      "Frosko",
+      "Balbo",
+      "Samuel",
+      "Perryn",
+      "Merlungo",
+      "Rosie",
+      "Hamfast",
+      "Primrose",
+      "Daisy",
+      "Bungo",
+      "Hugo",
+      "Rosa",
+      "Estella",
+      "Ruby",
+      "Wilbur",
+      "Drogo",
+      "Gilly",
+      "Rory",
+      "Lily",
+      "Took"
+    ]
+  },
+  "Gnomo urbano": {
+    "envejecimiento": "desde los 350 años",
+    "atributo_requisito": "Intuición",
+    "atributo_valor": 7,
+    "requisitos": [
+      {
+        "atributo": "Mente",
+        "minimo": 7
+      }
+    ],
+    "talentos": [
+      "Baja estatura",
+      "Visión en la oscuridad"
+    ],
+    "talentos_descripcion": {
+      "Baja estatura": "Movimiento -1 (ya incluido). Solo puedes usar armas y armaduras adaptadas a tu tamaño, y escudos pequeños. Obtienes +1 a las Tiradas de Esquiva contra ataques a distancia.",
+      "Visión en la oscuridad": "Distingues el entorno hasta 30 metros en oscuridad absoluta, en blanco y negro y con formas y detalles poco definidos."
+    },
+    "conceptos": [
+      "Ingeniero brillante",
+      "Inventor de artilugios",
+      "Explorador de alcantarillas",
+      "Maestro relojero",
+      "Conocedor de máquinas",
+      "Sabio de la ciudad",
+      "Constructor de gadgets",
+      "Reciclador ingenioso",
+      "Navegante de alcantarillas",
+      "Experto en artilugios"
+    ],
+    "salud": "d4",
+    "movimiento": 5,
+    "objetos_emocionales": [
+      "Invento personalizado",
+      "Antiguo mapa de alcantarillas",
+      "Reloj de cuco encantado",
+      "Gafas de aumento mágicas",
+      "Bolígrafo de tinta inagotable"
+    ],
+    "nombres": [
+      "Engranajeza",
+      "Chispastrépito",
+      "Varitacentella",
+      "Explorrosivo",
+      "Dientorcido",
+      "Tuercaferoz",
+      "Silbichispa",
+      "Ruecamolida",
+      "Engranatillo",
+      "Cimacreante",
+      "Estallidochispa",
+      "Chisparreloj",
+      "Barbasvapor",
+      "Tuerbólido",
+      "Rayotuerca",
+      "Silbavibrato",
+      "Engranajante",
+      "Estallidofusión",
+      "Llamacandado",
+      "Remachemetal"
+    ]
+  },
+  "Semielfo": {
+    "envejecimiento": "desde los 100 años",
+    "talentos": [
+      "Ánimo",
+      "Herencia dual (SE)"
+    ],
+    "talentos_descripcion": {
+      "Ánimo": "Una vez al día, antes de la tirada, puedes otorgar +2 a la Tirada de Atributo de un aliado que pueda escucharte.",
+      "Buen desarrollo": "Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.",
+      "Linaje feérico": "Inmunidad al estado Parálisis y Ventaja en las Tiradas de Intuición para resistir el conjuro Dormir."
+    },
+    "herencia_dual": [
+      "Buen desarrollo",
+      "Linaje feérico"
+    ],
+    "conceptos": [
+      "Diplomático de dos mundos",
+      "Explorador de fronteras",
+      "Buscador de respuestas",
+      "Elegido de dos razas",
+      "Guardián de la paz",
+      "Defensor de la armonía",
+      "Rastreador de antaño",
+      "Negociador de alianzas",
+      "Maestro de los secretos",
+      "Traductor de culturas"
+    ],
+    "salud": "d6",
+    "movimiento": 6,
+    "objetos_emocionales": [
+      "Amuleto de doble herencia",
+      "Piedra de portal ancestral",
+      "Collar de conchas marinas",
+      "Mapa de explorador de dos mundos",
+      "Reliquia de sus padres"
+    ],
+    "nombres": [
+      "Aria",
+      "Eldarion",
+      "Arwen",
+      "Eldarian",
+      "Alandria",
+      "Thalia",
+      "Elendil",
+      "Galadran",
+      "Thalorin",
+      "Eloria",
+      "Elariel",
+      "Caladwen",
+      "Eldaril",
+      "Sylvaris",
+      "Elariana",
+      "Elorian",
+      "Arandil",
+      "Mirel",
+      "Elarion",
+      "Arandor"
+    ]
+  },
+  "Orco común": {
+    "envejecimiento": "desde los 35 años",
+    "atributo_requisito": "Fuerza",
+    "atributo_valor": 7,
+    "talentos": [
+      "Ira interna",
+      "Saña primitiva"
+    ],
+    "talentos_descripcion": {
+      "Ira interna": "Si tus Puntos de Salud llegan a 0 o menos, puedes gastar 1 Punto de Esfuerzo para ajustarlos a 1 y seguir combatiendo.",
+      "Saña primitiva": "Obtienes +1 a la Tirada de Daño con armas cuerpo a cuerpo."
+    },
+    "conceptos": [
+      "Guerrero de la tribu",
+      "Cazador de bestias",
+      "Devastador en batalla",
+      "Campeón de la arena",
+      "Líder de la horda",
+      "Conquistador brutal",
+      "Destructor de fortalezas",
+      "Sacrificio en el altar",
+      "Cazador de trofeos",
+      "Guardián de las tierras salvajes"
+    ],
+    "salud": "d10",
+    "movimiento": 6,
+    "objetos_emocionales": [
+      "Trofeo de caza gigante",
+      "Colmillo de bestia vencida",
+      "Piedra de ritual tribal",
+      "Colgante de huesos",
+      "Rocas pintadas de guerra"
+    ],
+    "nombres": [
+      "Grom",
+      "Thok",
+      "Drog",
+      "Urga",
+      "Gorruk",
+      "Gruk",
+      "Narok",
+      "Mogul",
+      "Karg",
+      "Ghork",
+      "Ruk",
+      "Skar",
+      "Gorza",
+      "Hrok",
+      "Thruk",
+      "Zorg",
+      "Druk",
+      "Kurzog",
+      "Krash",
+      "Lurzog"
+    ]
+  },
+  "Semiorco": {
+    "envejecimiento": "desde los 45 años",
+    "talentos": [
+      "Sed de sangre",
+      "Herencia dual (SO)"
+    ],
+    "talentos_descripcion": {
+      "Sed de sangre": "Antes de una Tirada de Ataque cuerpo a cuerpo puedes declarar un embate brutal: -2 a la Tirada de Ataque y +1 a la Penetración del arma.",
+      "Buen desarrollo": "Mejora uno de tus Atributos en 1 punto durante la Creación de PJ.",
+      "Ira interna": "Si tus Puntos de Salud llegan a 0 o menos, puedes gastar 1 Punto de Esfuerzo para ajustarlos a 1 y seguir combatiendo."
+    },
+    "herencia_dual": [
+      "Buen desarrollo",
+      "Ira interna"
+    ],
+    "conceptos": [
+      "Campeón de la lucha libre",
+      "Merodeador solitario",
+      "Guardián de las ruinas",
+      "Jefe de la manada",
+      "Ladrón de tesoros",
+      "Cazador de monstruos",
+      "Explorador de desiertos",
+      "Guardián de las arenas",
+      "Infiltrado traicionero",
+      "Destructor de imperios"
+    ],
+    "salud": "d8",
+    "movimiento": 6,
+    "objetos_emocionales": [
+      "Espada de su padre",
+      "Gema misteriosa de ruinas antiguas",
+      "Máscara de batalla",
+      "Reliquia de la lucha libre",
+      "Trofeo de gladiador"
+    ],
+    "nombres": [
+      "Grak",
+      "Kara",
+      "Hruk",
+      "Dorn",
+      "Gorruk",
+      "Ruk",
+      "Skar",
+      "Gorza",
+      "Hrok",
+      "Thruk",
+      "Zorg",
+      "Druk",
+      "Kurzog",
+      "Krash",
+      "Lurzog",
+      "Grog",
+      "Burz",
+      "Rog",
+      "Morg",
+      "Naz"
+    ]
+  }
+}
