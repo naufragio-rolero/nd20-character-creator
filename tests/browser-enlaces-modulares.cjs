@@ -201,6 +201,17 @@ async function probar(nombre,motor,origen){
     // Cada página creada por pagina() tiene su propio localStorage.
     const oficiales=await pagina(origen+'/spells/');
     await oficiales.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    // QA 7.6: acceso por teclado y etiquetas semánticas, sin ratón.
+    await oficiales.keyboard.press('Tab');
+    assert.equal(await oficiales.evaluate(()=>
+      document.activeElement?.classList.contains('saltar-conjuros')),true,
+      'La primera tabulación permite saltar al contenido.');
+    await oficiales.keyboard.press('Enter');
+    assert.equal(new URL(oficiales.url()).hash,'#contenido',
+      'El enlace de salto funciona mediante Enter.');
+    assert.equal(await oficiales.getByRole('combobox',{name:'Listas disponibles'}).count(),1);
+    assert.equal(await oficiales.getByRole('combobox',{name:'Círculo'}).count(),1);
+    assert.equal(await oficiales.getByRole('combobox',{name:'Escuela'}).count(),1);
     assert.equal(await oficiales.locator('#panel-guardadas').isVisible(),true,
       'Los presets oficiales están disponibles incluso sin listas personales.');
     assert.deepEqual(await oficiales.locator('#listas-guardadas option').evaluateAll(opciones=>
@@ -212,6 +223,21 @@ async function probar(nombre,motor,origen){
     assert.equal(await oficiales.locator('#tabla-progreso tbody tr').first().locator('td').first().innerText(),'1');
     assert.equal(await oficiales.locator('#tabla-progreso .espacios-personales').count(),0,
       'La progresión oficial se muestra exclusivamente como texto.');
+    assert.equal(await oficiales.getByRole('table').count(),1,
+      'La progresión se expone como una tabla semántica.');
+    assert.equal(await oficiales.locator('#tabla-progreso th[scope="col"]').count(),9);
+    assert.equal(await oficiales.locator('#tabla-progreso th[scope="row"]').count(),30);
+    await oficiales.setViewportSize({width:375,height:812});
+    const vistaMovil=await oficiales.locator('.tabla-progreso-desplazamiento').evaluate(el=>({
+      ancho:el.clientWidth,contenido:el.scrollWidth,tabindex:el.tabIndex
+    }));
+    assert.equal(vistaMovil.tabindex,0,'La tabla desplazable es accesible con teclado.');
+    assert.ok(vistaMovil.contenido>vistaMovil.ancho,
+      'La tabla ofrece su propio desplazamiento horizontal en móvil.');
+    const desbordamiento=await oficiales.evaluate(()=>
+      document.documentElement.scrollWidth-document.documentElement.clientWidth);
+    assert.ok(desbordamiento<=2,'La tabla no desborda la página móvil.');
+    await oficiales.setViewportSize({width:1320,height:900});
     assert.equal(await oficiales.locator('#selector-progresion').isVisible(),false);
     assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),37);
     assert.equal(await oficiales.locator('#titulo-lista').innerText(),
@@ -250,7 +276,9 @@ async function probar(nombre,motor,origen){
     assert.doesNotMatch(await oficiales.locator('#nota-lista-oficial').innerText(),
       /grimorio inicial/);
     await oficiales.locator('#listas-guardadas').selectOption('drs:Mago');
-    await oficiales.locator('#duplicar-oficial').click();
+    await oficiales.locator('#duplicar-oficial').focus();
+    await oficiales.keyboard.press('Enter');
+    // Activación con teclado equivale a pulsar «Duplicar para editar».
     assert.equal(await oficiales.locator('#progresion-modo').inputValue(),'drs:Mago',
       'La copia conserva la tabla oficial solo como referencia.');
     assert.equal(await oficiales.locator('#personalizar-progresion').isVisible(),true);
@@ -316,7 +344,8 @@ async function probar(nombre,motor,origen){
     });
     await oficiales.locator('.mas-opciones summary').click();
     const descargaCompleta=oficiales.waitForEvent('download');
-    await oficiales.locator('#exportar-trabajo').click();
+    await oficiales.locator('#exportar-trabajo').focus();
+    await oficiales.keyboard.press('Enter');
     const archivoCompleto=await descargaCompleta;
     assert.equal(archivoCompleto.suggestedFilename(),'forja-conjuros-trabajo.json');
     const jsonCompleto=fs.readFileSync(await archivoCompleto.path(),'utf8');
