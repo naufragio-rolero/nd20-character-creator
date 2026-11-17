@@ -205,7 +205,14 @@ async function probar(nombre,motor,origen){
       'Los presets oficiales están disponibles incluso sin listas personales.');
     assert.deepEqual(await oficiales.locator('#listas-guardadas option').evaluateAll(opciones=>
       opciones.map(o=>o.value)),['','drs:Clérigo','drs:Mago']);
+    await oficiales.locator('.progresion-lista summary').click();
+    assert.match(await oficiales.locator('#estado-progresion').innerText(),/Sin tabla asignada/);
     await oficiales.locator('#listas-guardadas').selectOption('drs:Mago');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').count(),30);
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').first().locator('td').first().innerText(),'1');
+    assert.equal(await oficiales.locator('#tabla-progreso .espacios-personales').count(),0,
+      'La progresión oficial se muestra exclusivamente como texto.');
+    assert.equal(await oficiales.locator('#selector-progresion').isVisible(),false);
     assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),37);
     assert.equal(await oficiales.locator('#titulo-lista').innerText(),
       'Lista de Conjuros del Mago (DRS)');
@@ -233,6 +240,9 @@ async function probar(nombre,motor,origen){
     assert.equal(await oficiales.locator('#resultados-busqueda .anadir-conjuro').isEnabled(),false,
       'No se permite añadir Conjuros al repertorio oficial.');
     await oficiales.locator('#listas-guardadas').selectOption('drs:Clérigo');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').count(),30);
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').first().locator('td').first().innerText(),'0',
+      'El Clérigo de Nivel 1 no recibe Espacios en su tabla oficial.');
     assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),34);
     assert.equal(await oficiales.locator('#lista-circulos .quitar-conjuro').count(),0);
     assert.match(await oficiales.locator('#nota-lista-oficial').innerText(),
@@ -241,6 +251,18 @@ async function probar(nombre,motor,origen){
       /grimorio inicial/);
     await oficiales.locator('#listas-guardadas').selectOption('drs:Mago');
     await oficiales.locator('#duplicar-oficial').click();
+    assert.equal(await oficiales.locator('#progresion-modo').inputValue(),'drs:Mago',
+      'La copia conserva la tabla oficial solo como referencia.');
+    assert.equal(await oficiales.locator('#personalizar-progresion').isVisible(),true);
+    await oficiales.locator('#personalizar-progresion').click();
+    assert.equal(await oficiales.locator('#progresion-modo').inputValue(),'personal');
+    assert.equal(await oficiales.locator('#tabla-progreso .espacios-personales').count(),240,
+      'Se puede editar explícitamente una tabla personal de 30 Niveles por ocho Círculos.');
+    const espacioUno=oficiales.locator('#tabla-progreso tbody tr').first().locator('input').first();
+    assert.equal(await espacioUno.inputValue(),'1',
+      'Personalizar una tabla copia los valores anteriores, no los recalcula.');
+    await espacioUno.fill('3');
+    assert.match(await oficiales.locator('#estado-lista').innerText(),/Cambios sin guardar/);
     assert.equal(await oficiales.locator('#lista-dueno').isEditable(),true);
     assert.equal(await oficiales.locator('#duplicar-oficial').isVisible(),false);
     assert.equal(await oficiales.locator('#guardar-lista').isEnabled(),true);
@@ -251,22 +273,33 @@ async function probar(nombre,motor,origen){
     assert.equal(copiaGuardada.listas[0].derivadaDe,'drs:Mago',
       'La copia personal conserva la procedencia oficial estructurada.');
     assert.equal(copiaGuardada.listas[0].conjuros.length,37);
+    assert.equal(copiaGuardada.listas[0].progresion.tipo,'oficial',
+      'La primera copia guardada mantiene la referencia DRS hasta editarla y guardar.');
     const idCopia=copiaGuardada.listas[0].id;
     await oficiales.locator('#lista-circulos .quitar-conjuro').first().click();
     assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),36);
     await oficiales.locator('#guardar-lista').click();
     await oficiales.locator('#estado-lista').getByText('Lista guardada en este navegador.').waitFor();
+    assert.equal(await oficiales.evaluate(()=>
+      JSON.parse(localStorage.getItem('forja-listas-conjuros-v1')).listas[0].progresion.niveles[0][0]),3,
+      'La tabla personal se guarda junto a esta Lista.');
     await oficiales.locator('#listas-guardadas').selectOption('drs:Mago');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').first().locator('td').first().innerText(),'1',
+      'La tabla oficial conserva su valor y no hereda cambios personales.');
     assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),37,
       'La copia editable nunca modifica la fuente oficial.');
     await oficiales.locator('#listas-guardadas').selectOption(idCopia);
     assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),36,
       'La copia editada sigue disponible con su propio ID de usuario.');
+    assert.equal(await oficiales.locator('#progresion-modo').inputValue(),'personal');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').first().locator('input').first().inputValue(),'3');
     assert.equal(await oficiales.locator('#listas-guardadas option').count(),4,
       'La biblioteca muestra Nueva, dos Listas oficiales y una copia personal.');
     await oficiales.reload();
     await oficiales.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
     assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),36);
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').first().locator('input').first().inputValue(),'3',
+      'La progresión personal persiste tras recarga.');
     assert.equal(await oficiales.evaluate(()=>
       JSON.parse(localStorage.getItem('forja-listas-conjuros-v1')).listas[0].derivadaDe),
       'drs:Mago','La procedencia sobrevive la recarga.');

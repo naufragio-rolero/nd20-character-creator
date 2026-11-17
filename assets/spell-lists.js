@@ -101,6 +101,8 @@
         error("La procedencia debe señalar una Lista oficial del DRS.");
       resultado.derivadaDe=d.derivadaDe;
     }
+    if(!opts.propuesta&&d.progresion!==undefined)
+      resultado.progresion=validarTablaDeLista(d.progresion);
     return resultado;
   }
   function validarProgresion(p){
@@ -112,6 +114,53 @@
       return f.slice();
     });
     return {id:p.id,nombre:texto(p.nombre,120,"Progresión"),niveles:filas};
+  }
+  // Una tabla de Lista es independiente de las asociaciones de Ocupación.
+  // No conceder Espacios sin selección explícita. Las tablas personales
+  // reutilizan el validador existente de 30 Niveles y ocho Círculos.
+  function validarTablaDeLista(p){
+    if(!objeto(p)||typeof p.tipo!=="string")
+      error("Formato de progresión de Lista inválido.");
+    if(p.tipo==="oficial"){
+      if(!["drs:Mago","drs:Clérigo"].includes(p.id))
+        error("Progresión oficial desconocida.");
+      return {tipo:"oficial",id:p.id};
+    }
+    if(p.tipo==="personal"){
+      var validada=validarProgresion({id:"usuario:tabla",nombre:"Tabla personal",
+        niveles:p.niveles});
+      return {tipo:"personal",niveles:validada.niveles};
+    }
+    error("Tipo de progresión de Lista desconocido.");
+  }
+  function tablasDRS(data){
+    if(!objeto(data)||!objeto(data.fantasia))
+      error("Faltan las tablas oficiales de progreso del DRS.");
+    var tablas={};
+    ["Mago","Clérigo"].forEach(function(nombre){
+      var origen=data.fantasia[nombre];
+      if(!objeto(origen)||!Array.isArray(origen.columnas)||
+        origen.columnas.join(",")!=="1,2,3,4,5,6,7,8")
+        error("Tabla DRS sin los ocho Círculos: "+nombre);
+      tablas["drs:"+nombre]=validarProgresion({
+        id:"drs:"+nombre,nombre:"Progreso del "+nombre,
+        niveles:origen.niveles
+      });
+    });
+    return tablas;
+  }
+  function tablaDeLista(lista,tablas){
+    if(!objeto(lista))error("Lista inexistente.");
+    var seleccion=lista.tipo==="oficial"?
+      {tipo:"oficial",id:lista.id}:lista.progresion;
+    if(!seleccion)return null;
+    var valida=validarTablaDeLista(seleccion);
+    if(valida.tipo==="oficial"){
+      if(!tablas||!tablas[valida.id])error("Tabla oficial no disponible.");
+      return {tipo:"oficial",id:valida.id,
+        niveles:tablas[valida.id].niveles.map(function(f){return f.slice();})};
+    }
+    return valida;
   }
   function listasDisponibles(catalogo,borradores,biblioteca){
     return catalogo.oficiales.concat(borradores.listas,biblioteca.listas);
@@ -155,6 +204,10 @@
     // La copia siempre es personal. Conservar la procedencia oficial al clonarla.
     var procedencia=obj.tipo==="oficial"?obj.id:obj.derivadaDe;
     if(procedencia)datos.derivadaDe=procedencia;
+    // Duplicar una Lista oficial conserva su tabla por referencia, y una
+    // copia personal conserva su progresión sin vincularla a otros objetos.
+    if(obj.tipo==="oficial")datos.progresion={tipo:"oficial",id:obj.id};
+    else if(obj.progresion)datos.progresion=validarTablaDeLista(obj.progresion);
     return guardarLista(lib,datos,catalogo,borradores);
   }
   function eliminarLista(lib,id,catalogo,borradores){
@@ -205,5 +258,5 @@
   }
   return {ESQUEMA,crearCatalogo,leerBorradores,validarLista,validarBiblioteca,
     vacia,guardarLista,duplicarLista,eliminarLista,vincular,desvincular,resolver,
-    listasDisponibles,exportar,importar};
+    listasDisponibles,validarTablaDeLista,tablasDRS,tablaDeLista,exportar,importar};
 });

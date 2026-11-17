@@ -96,6 +96,27 @@
   fill:none;stroke-linecap:round;stroke-linejoin:round}
 .conjuros-simple .lista-vacia{margin:0;padding:1.1rem;border:1px dashed var(--borde);
   border-radius:8px;color:var(--secundario);grid-column:1/-1}
+.conjuros-simple .progresion-lista{margin-top:1.1rem;padding:.85rem 1rem;
+  background:var(--fondo2);border:1px solid var(--borde);border-radius:9px;min-width:0}
+.conjuros-simple .progresion-lista>summary{cursor:pointer;color:var(--texto);font-weight:750}
+.conjuros-simple .configuracion-progresion{display:flex;align-items:end;flex-wrap:wrap;gap:.8rem;margin-top:.8rem}
+.conjuros-simple .configuracion-progresion label{min-width:min(100%,270px);flex:1 1 260px}
+.conjuros-simple #personalizar-progresion{flex:0 0 auto}
+.conjuros-simple .estado-progresion{font-size:.84rem;color:var(--secundario);margin:.8rem 0}
+.conjuros-simple .tabla-progreso-desplazamiento{overflow:auto;max-width:100%;max-height:490px;
+  border:1px solid var(--borde);border-radius:8px;scrollbar-gutter:stable}
+.conjuros-simple .tabla-progreso{border-collapse:separate;border-spacing:0;
+  width:100%;min-width:680px;text-align:center;font-size:.83rem}
+.conjuros-simple .tabla-progreso th,.conjuros-simple .tabla-progreso td{
+  border-bottom:1px solid var(--borde);padding:.38rem .4rem;white-space:nowrap}
+.conjuros-simple .tabla-progreso thead th{position:sticky;top:0;z-index:2;
+  background:var(--superficie2);color:var(--texto);font-weight:750}
+.conjuros-simple .tabla-progreso tbody th{position:sticky;left:0;background:var(--fondo2);
+  font-weight:750;color:var(--texto);z-index:1}
+.conjuros-simple .tabla-progreso thead th:first-child{left:0;z-index:3}
+.conjuros-simple .tabla-progreso tr:last-child>*{border-bottom:0}
+.conjuros-simple .tabla-progreso input.espacios-personales{width:3.9rem;min-width:3.9rem;
+  min-height:38px;padding:.3rem .4rem;margin:auto;text-align:center;font-size:.83rem}
 .conjuros-simple .pie-lista{border-top:1px solid var(--borde);margin-top:1.15rem;padding-top:1rem;
   display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
 .conjuros-simple #estado-lista{flex-basis:100%;font-size:.83rem;color:var(--secundario);min-height:1.2rem}

@@ -6,7 +6,8 @@ var enlaces=window.NaufragioEnlaces;
 var KEY='forja-listas-conjuros-v1';
 var PREFIJO='Lista de Conjuros de ';
 var $=function(id){return document.getElementById(id);};
-var catalogo,borradores,lib,actualId=null,oficialId=null,derivadaDe=null,maximo=8,descripcion='',conjuros=new Set();
+var catalogo,borradores,tablasOficiales,lib,actualId=null,oficialId=null,derivadaDe=null;
+var progresion=null,maximo=8,descripcion='',conjuros=new Set();
 var ultimoGuardado='',cargaCompleta=false;
 var KEY_FORMATO='forja-listas-conjuros-formato-v1';
 function mostrarEscuela(){return $('mostrar-escuela').checked;}
@@ -130,9 +131,12 @@ function candidato(){
   var datos={id:actualId||'usuario:pendiente0000',nombre:nombre(),descripcion:descripcion,
     maxCirculo:maximo,conjuros:Array.from(conjuros)};
   if(derivadaDe)datos.derivadaDe=derivadaDe;
+  if(progresion)datos.progresion=progresion;
   return datos;
 }
-function firma(){var c=candidato();return JSON.stringify([c.nombre,c.descripcion,c.maxCirculo,c.conjuros.slice().sort()]);}
+function firma(){var c=candidato();return JSON.stringify([
+  c.nombre,c.descripcion,c.maxCirculo,c.conjuros.slice().sort(),c.progresion||null
+]);}
 function hayCambios(){return firma()!==ultimoGuardado;}
 function aceptarDescarte(){
   return !hayCambios()||window.confirm('Tienes cambios sin guardar en esta lista. ¿Descartarlos?');
@@ -185,6 +189,89 @@ function editar(){
   refrescarCabecera();
   if(hayCambios())decir('Cambios sin guardar. Pulsa Guardar lista.');
   else decir('Lista guardada en este navegador.');
+}
+function seleccionProgresion(){
+  if(modoOficial())return {tipo:'oficial',id:oficialId};
+  return progresion;
+}
+function progresoEnPantalla(){
+  var seleccion=seleccionProgresion();
+  if(!seleccion)return null;
+  return api.tablaDeLista(modoOficial()?{tipo:'oficial',id:oficialId}:
+    {progresion:seleccion},tablasOficiales);
+}
+function pintarProgresion(){
+  var modo=seleccionProgresion();
+  var select=$('progresion-modo'),personalizable=$('personalizar-progresion');
+  $('selector-progresion').hidden=modoOficial();
+  select.value=!modo?'':modo.tipo==='personal'?'personal':modo.id;
+  personalizable.hidden=modoOficial()||!modo||modo.tipo!=='oficial';
+  var cont=$('tabla-progreso');
+  cont.replaceChildren();
+  var tabla=progresoEnPantalla();
+  if(!tabla){
+    $('estado-progresion').textContent='Sin tabla asignada: esta Lista no concede Espacios de Conjuro.';
+    cont.appendChild(crear('p','lista-vacia',
+      'Selecciona una tabla oficial o crea una tabla personal de 30 Niveles y ocho Círculos.'));
+    return;
+  }
+  var editable=!modoOficial()&&tabla.tipo==='personal';
+  $('estado-progresion').textContent=editable?
+    'Tabla personal editable. Los valores son Espacios definidos por ti, no reglas del DRS.':
+    'Tabla del '+tabla.id.slice(4)+' (DRS) · solo lectura. Los Espacios no se deducen del repertorio.';
+  var scroll=crear('div','tabla-progreso-desplazamiento');
+  scroll.setAttribute('role','region');
+  scroll.setAttribute('aria-label','Progreso de Conjuros, Niveles 1 a 30');
+  scroll.tabIndex=0;
+  var table=crear('table','tabla-progreso');
+  var thead=crear('thead'),head=crear('tr');
+  var nivelHead=crear('th','','Nivel');nivelHead.scope='col';head.appendChild(nivelHead);
+  for(var ci=1;ci<=8;ci++){
+    var titulo=crear('th','','Círculo '+ci);titulo.scope='col';head.appendChild(titulo);
+  }
+  thead.appendChild(head);table.appendChild(thead);
+  var tbody=crear('tbody');
+  tabla.niveles.forEach(function(fila,indice){
+    var tr=crear('tr');
+    var th=crear('th','',String(indice+1));th.scope='row';tr.appendChild(th);
+    fila.forEach(function(valor,columna){
+      var td=crear('td');
+      if(editable){
+        var input=crear('input','espacios-personales');
+        input.type='number';input.min='0';input.max='30';input.step='1';
+        input.value=String(valor);
+        input.setAttribute('aria-label','Nivel '+(indice+1)+
+          ', Círculo '+(columna+1)+': Espacios de Conjuro');
+        input.addEventListener('input',function(){
+          // Un campo vacío o inválido bloquea el guardado; nunca se trata como 0.
+          var v=this.value.trim();
+          progresion.niveles[indice][columna]=/^\d+$/.test(v)?Number(v):v;
+          editar();
+        });
+        td.appendChild(input);
+      }else td.textContent=String(valor);
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);scroll.appendChild(table);cont.appendChild(scroll);
+}
+function cambiarProgresion(){
+  if(modoOficial())return;
+  var seleccion=$('progresion-modo').value;
+  if(!seleccion)progresion=null;
+  else if(seleccion==='personal')progresion={tipo:'personal',
+    niveles:Array.from({length:30},function(){return Array(8).fill(0);})};
+  else progresion=api.validarTablaDeLista({tipo:'oficial',id:seleccion});
+  pintarProgresion();
+  editar();
+}
+function personalizarProgresion(){
+  if(modoOficial()||!progresion||progresion.tipo!=='oficial')return;
+  var origen=progresoEnPantalla();
+  progresion=api.validarTablaDeLista({tipo:'personal',niveles:origen.niveles});
+  pintarProgresion();
+  editar();
 }
 function pintarLista(){
   var cont=$('lista-circulos');
@@ -330,22 +417,23 @@ function pintarResultados(){
   $('resultados-busqueda').replaceChildren(frag);
 }
 function abrirNueva(){
-  actualId=null;oficialId=null;derivadaDe=null;maximo=8;descripcion='';conjuros=new Set();
+  actualId=null;oficialId=null;derivadaDe=null;progresion=null;
+  maximo=8;descripcion='';conjuros=new Set();
   $('lista-dueno').readOnly=false;
   $('lista-dueno').value='';
-  ultimoGuardado=JSON.stringify([PREFIJO,'',8,[]]);
-  nombresGuardados();pintarLista();pintarResultados();
+  ultimoGuardado=JSON.stringify([PREFIJO,'',8,[],null]);
+  nombresGuardados();pintarLista();pintarResultados();pintarProgresion();
   decir('Escribe un nombre, añade Conjuros y guarda tu lista.');
 }
 function seleccionarOficial(id){
   var l=catalogo.oficiales.find(function(x){return x.id===id;});
   if(!l){abrirNueva();return;}
-  actualId=null;oficialId=l.id;derivadaDe=null;
+  actualId=null;oficialId=l.id;derivadaDe=null;progresion=null;
   maximo=l.maxCirculo;descripcion=l.descripcion;conjuros=new Set(l.conjuros);
   $('lista-dueno').value=l.id.slice(4);
   $('lista-dueno').readOnly=true;
   ultimoGuardado=firma();
-  nombresGuardados();pintarLista();pintarResultados();
+  nombresGuardados();pintarLista();pintarResultados();pintarProgresion();
   decir('Referencia oficial del DRS. Puedes consultarla y copiarla, pero no modificarla.');
 }
 function seleccionar(id){
@@ -355,12 +443,13 @@ function seleccionar(id){
   var l=lib.listas.find(function(x){return x.id===id;});
   if(!l){abrirNueva();return;}
   actualId=l.id;oficialId=null;derivadaDe=l.derivadaDe||null;
+  progresion=l.progresion?api.validarTablaDeLista(l.progresion):null;
   maximo=l.maxCirculo;descripcion=l.descripcion;
   conjuros=new Set(l.conjuros);
   $('lista-dueno').readOnly=false;
   $('lista-dueno').value=l.nombre.startsWith(PREFIJO)?l.nombre.slice(PREFIJO.length):l.nombre;
   ultimoGuardado=firma();
-  nombresGuardados();pintarLista();pintarResultados();
+  nombresGuardados();pintarLista();pintarResultados();pintarProgresion();
   decir('Lista guardada en este navegador.');
 }
 function duplicarOficial(){
@@ -446,6 +535,8 @@ async function compartir(){
 function conectar(){
   $('crear-lista').addEventListener('click',function(){if(aceptarDescarte())abrirNueva();});
   $('duplicar-oficial').addEventListener('click',duplicarOficial);
+  $('progresion-modo').addEventListener('change',cambiarProgresion);
+  $('personalizar-progresion').addEventListener('click',personalizarProgresion);
   $('listas-guardadas').addEventListener('change',function(){
     var destino=this.value;
     if(!aceptarDescarte()){this.value=oficialId||actualId||'';return;}
@@ -476,7 +567,7 @@ function conectar(){
 async function cargar(){
   try{
     var rutas=['data/conjuros-drs-fichas.json','data/catalogo-poderes.json',
-      'data/listas-conjuros-borradores.json'];
+      'data/listas-conjuros-borradores.json','data/progresiones-oficiales.json'];
     var datos=await Promise.all(rutas.map(async function(ruta){
       var respuesta=await fetch(ruta,{cache:'no-cache'});
       if(!respuesta.ok)throw Error('No se pudo cargar '+ruta);
@@ -484,6 +575,7 @@ async function cargar(){
     }));
     catalogo=api.crearCatalogo(datos[0],datos[1]);
     borradores=api.leerBorradores(datos[2],catalogo);
+    tablasOficiales=api.tablasDRS(datos[3]);
     var token=enlaces.fragmento();
     if(token){
       var enlace=enlaces.decodificar(token);

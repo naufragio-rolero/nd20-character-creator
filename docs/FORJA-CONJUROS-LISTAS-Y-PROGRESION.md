@@ -66,12 +66,23 @@ Convertir el editor sencillo de Conjuros en una herramienta reutilizable para di
 - Compartir la lista oficial está inhabilitado porque `#share=` serializa solo la biblioteca personal; primero se debe duplicar para compartir una versión editable. El botón de exportación sigue respaldando solamente listas personales. La **exportación completa y las tablas** siguen pendientes para 7.4 y 7.5.
 - Pruebas: comparación exacta de las 34 y 37 referencias, protección de IDs oficiales, roundtrip de procedencia, recorrido real de las dos vistas oficiales, copia de texto, duplicación, edición sin alterar originales, persistencia tras recarga y continuidad de los cinco temas. Sin cambios en PREVIEW ni LIVE.
 
-### 7.4 — Tabla de progreso por Lista **[pendiente]**
+### 7.4 — Tabla de progreso por Lista **[completada en rama de desarrollo]**
 
 - Mostrar las tablas oficiales de Mago y Clérigo **de solo lectura** desde `data/progresiones-oficiales.json`.
 - Cada Lista editable podrá referenciar una tabla oficial o **una tabla personalizada declarada expresamente**, con filas 1–30 y Círculos 1–8.
 - Editar y validar la tabla personalizada sin inferir Espacios desde la Lista; un Conjuro disponible no implica automáticamente Espacios o aprendizaje.
 - Extender el modelo existente donde sea necesario, dejando explícito qué es regla oficial y qué es diseño personal.
+
+**Implementación 7.4 (17 de noviembre de 2026):**
+
+- La nueva sección **«Tabla de progreso por Nivel»** presenta los 30 Niveles por ocho Círculos, en una tabla desplazable con encabezados semánticos, controles etiquetados y diseño compatible con móvil y cinco temas.
+- Las listas oficiales `drs:Mago` y `drs:Clérigo` muestran sus progresiones de **solo lectura** tomadas literalmente de `data/progresiones-oficiales.json > fantasia.Mago/Clérigo.niveles`. Se comprueban treinta filas, ocho columnas y números enteros dentro de los límites que ya usa `validarProgresion()`. No se altera `data/progresiones-oficiales.json`.
+- En cada lista personal el editor permite **Sin tabla**, **Mago — DRS**, **Clérigo — DRS** o **Tabla personalizada**. Una tabla personalizada comienza explícitamente con **cero Espacios en todas las celdas**; solo el usuario modifica cantidades. Una referencia oficial se puede **Copiar tabla para editar**, convirtiendo sus valores en una tabla personal independiente sin modificar el DRS.
+- La progresión se asocia a la **Lista**, no a cada Conjuro: nuevo campo opcional `progresion` en el modelo `naufragio.listas-conjuros/v1`: `{tipo:"oficial",id:"drs:Mago"|"drs:Clérigo"}` o `{tipo:"personal",niveles:[[8 enteros],…]}` (30 filas). Sin este campo significa **sin Espacios definidos**. El modelo no calcula ni infiere una progresión a partir del Círculo máximo, Conjuros disponibles o Nivel.
+- Se reutiliza la validación estricta ya existente para 30×8: enteros en el intervalo 0–30, sin aceptar celdas vacías, fracciones ni números negativos. Los cambios en la tabla forman parte de **«Cambios sin guardar»**, del control de descarte, de la duplicación y de Guardar/recargar. El documento JSON actual ya preserva el campo opcional en la importación/exportación sin requerirlo en bibliotecas anteriores. La **exportación completa** con asociaciones, configuraciones y otras herramientas sigue siendo el objetivo de la Fase 7.5.
+- Duplicar una lista oficial asocia su tabla **por referencia `drs:`**, mientras que duplicar una lista personal hace una **copia defensiva** de su tabla privada. La presentación de una tabla oficial no modifica el documento fuente.
+- Se añade `tests/fase7-progresion.js` a CI y E2E en Chromium, Firefox y WebKit para tablas oficiales, personalización, edición, guardado, recarga e integridad del DRS. La pantalla mantiene el comportamiento de `Copiar lista` como texto plano **sin insertar tablas**.
+- **Sin publicación** de PREVIEW/LIVE ni fusión de PR. Se preservan las funciones ya existentes que asocian listas a Ocupaciones; la nueva opción por Lista no confiere lanzamientos automáticamente a una Ocupación ajena.
 
 ### 7.5 — Exportación/importación completas **[pendiente]**
 

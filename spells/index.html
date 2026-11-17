@@ -140,6 +140,25 @@
           <p class="ayuda-conjuros">Ejemplo: Dardo ígneo — Elemental [DRS]. Estas opciones se aplican a la vista y al texto copiado.</p>
         </details>
         <div id="lista-circulos" class="lista-circulos" aria-live="polite" aria-label="Lista de Conjuros agrupada por Círculos"></div>
+        <details class="progresion-lista">
+          <summary>Tabla de progreso por Nivel</summary>
+          <div id="selector-progresion" class="configuracion-progresion">
+            <label for="progresion-modo">Progresión de esta Lista
+              <select id="progresion-modo" aria-describedby="ayuda-progresion">
+                <option value="">Sin tabla de progreso</option>
+                <option value="drs:Mago">Mago — DRS (solo lectura)</option>
+                <option value="drs:Clérigo">Clérigo — DRS (solo lectura)</option>
+                <option value="personal">Tabla personalizada (30 Niveles)</option>
+              </select>
+            </label>
+            <button id="personalizar-progresion" type="button" hidden>Copiar tabla para editar</button>
+          </div>
+          <p id="ayuda-progresion" class="ayuda-conjuros">
+            La tabla de progreso no añade Conjuros al repertorio ni concede lanzamientos automáticamente.
+          </p>
+          <p id="estado-progresion" class="estado-progresion" role="status"></p>
+          <div id="tabla-progreso"></div>
+        </details>
         <div class="pie-lista">
           <button id="guardar-lista" class="boton-principal" type="button">Guardar lista</button>
           <button id="copiar-lista" type="button" disabled>Copiar lista</button>
