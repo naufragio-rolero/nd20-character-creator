@@ -61,7 +61,7 @@ for(const mutar of [
 ]){
   const mal=JSON.parse(json);mutar(mal);
   assert.throws(()=>api.importarTrabajo(JSON.stringify(mal),c,b),
-    /incompatib|versi[oó]n|inv[aá]lid|incorrect|proteg|progresi[oó]n|procedencia|desconocid|inexistente|no existe|ajeno|m[aá]ximo/i);
+    /incompatib|versi[oó]n|inv[aá]lid|incorrect|proteg|progresi[oó]n|procedencia|desconocid|inexistente|no existe|ajen[oa]|m[aá]ximo/i);
 }
 assert.throws(()=>api.importarTrabajo('no json',c,b),SyntaxError);
 assert.throws(()=>api.importarTrabajo(' '.repeat(1024*1024+1),c,b),/grande/);
