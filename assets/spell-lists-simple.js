@@ -6,7 +6,7 @@ var enlaces=window.NaufragioEnlaces;
 var KEY='forja-listas-conjuros-v1';
 var PREFIJO='Lista de Conjuros de ';
 var $=function(id){return document.getElementById(id);};
-var catalogo,borradores,lib,actualId=null,maximo=8,descripcion='',conjuros=new Set();
+var catalogo,borradores,lib,actualId=null,oficialId=null,derivadaDe=null,maximo=8,descripcion='',conjuros=new Set();
 var ultimoGuardado='',cargaCompleta=false;
 var KEY_FORMATO='forja-listas-conjuros-formato-v1';
 function mostrarEscuela(){return $('mostrar-escuela').checked;}
@@ -31,7 +31,8 @@ function gruposOrdenados(){
   return grupos;
 }
 function listaEnTexto(){
-  var lineas=[$('lista-dueno').value.trim()?nombre():'Lista de Conjuros',''];
+  var lineas=[$('lista-dueno').value.trim()?
+    (modoOficial()?tituloOficial():nombre()):'Lista de Conjuros',''];
   gruposOrdenados().forEach(function(grupo,i){
     if(!grupo.length)return;
     lineas.push('Círculo '+(i+1));
@@ -118,14 +119,18 @@ function crearIconoPapelera(){
   return svg;
 }
 function nombre(){return PREFIJO+$('lista-dueno').value.trim();}
+function modoOficial(){return !!oficialId;}
+function tituloOficial(){return 'Lista de Conjuros del '+oficialId.slice(4)+' (DRS)';}
 function idNuevo(){
   if(!crypto||!crypto.getRandomValues)throw Error('Para guardar se necesita HTTPS o localhost.');
   var b=new Uint8Array(16);crypto.getRandomValues(b);
   return 'usuario:'+Array.from(b,function(x){return x.toString(16).padStart(2,'0');}).join('');
 }
 function candidato(){
-  return {id:actualId||'usuario:pendiente0000',nombre:nombre(),descripcion:descripcion,
+  var datos={id:actualId||'usuario:pendiente0000',nombre:nombre(),descripcion:descripcion,
     maxCirculo:maximo,conjuros:Array.from(conjuros)};
+  if(derivadaDe)datos.derivadaDe=derivadaDe;
+  return datos;
 }
 function firma(){var c=candidato();return JSON.stringify([c.nombre,c.descripcion,c.maxCirculo,c.conjuros.slice().sort()]);}
 function hayCambios(){return firma()!==ultimoGuardado;}
@@ -134,25 +139,49 @@ function aceptarDescarte(){
 }
 function nombresGuardados(){
   var select=$('listas-guardadas');
-  var anterior=actualId||'';
+  var anterior=oficialId||actualId||'';
   select.replaceChildren();
   var opcion=crear('option','', 'Nueva lista');
   opcion.value='';select.appendChild(opcion);
-  lib.listas.forEach(function(l){
-    var opt=crear('option','',l.nombre);opt.value=l.id;select.appendChild(opt);
+  var oficiales=crear('optgroup');
+  oficiales.label='Listas oficiales DRS — solo lectura';
+  catalogo.oficiales.forEach(function(l){
+    var nombreOcupacion=l.id.slice(4);
+    var opt=crear('option','',nombreOcupacion+' — DRS (solo lectura)');
+    opt.value=l.id;oficiales.appendChild(opt);
   });
+  select.appendChild(oficiales);
+  if(lib.listas.length){
+    var personales=crear('optgroup');
+    personales.label='Mis listas guardadas';
+    lib.listas.forEach(function(l){
+      var opt=crear('option','',l.nombre);
+      opt.value=l.id;personales.appendChild(opt);
+    });
+    select.appendChild(personales);
+  }
   select.value=anterior;
-  $('panel-guardadas').hidden=lib.listas.length===0;
-  $('eliminar-lista').disabled=!actualId;
+  $('panel-guardadas').hidden=false;
 }
 function refrescarCabecera(){
-  $('titulo-lista').textContent=$('lista-dueno').value.trim()?nombre():'Lista de Conjuros de…';
+  $('titulo-lista').textContent=modoOficial()?tituloOficial():
+    ($('lista-dueno').value.trim()?nombre():'Lista de Conjuros de…');
   $('cuenta-lista').textContent=conjuros.size+' Conjuros';
   $('copiar-lista').disabled=conjuros.size===0;
-  $('eliminar-lista').disabled=!actualId;
+  $('guardar-lista').disabled=modoOficial();
+  $('eliminar-lista').disabled=modoOficial()||!actualId;
+  $('compartir-listas').disabled=modoOficial();
+  $('duplicar-oficial').hidden=!modoOficial();
+  var aviso=$('nota-lista-oficial');
+  aviso.hidden=!modoOficial();
+  if(modoOficial())aviso.textContent='Lista oficial del DRS: solo lectura. '+
+    (oficialId==='drs:Mago'?
+      'Este es el repertorio disponible, no el grimorio inicial: el Mago comienza con 2 Conjuros del Primer Círculo a elegir. ':
+      'Este es el repertorio disponible para el Clérigo. ')+
+    'Puedes copiar su texto o pulsar «Duplicar para editar» y trabajar en una copia personal.';
 }
 function editar(){
-  if(!cargaCompleta)return;
+  if(!cargaCompleta||modoOficial())return;
   refrescarCabecera();
   if(hayCambios())decir('Cambios sin guardar. Pulsa Guardar lista.');
   else decir('Lista guardada en este navegador.');
@@ -182,15 +211,18 @@ function pintarLista(){
       var metadatos=presentarConjuro(s).slice(s.nombre.length);
       if(metadatos)texto.appendChild(crear('small','conjuro-metadatos',metadatos));
       li.appendChild(texto);
-      var boton=crear('button','quitar-conjuro');
-      boton.type='button';boton.dataset.id=s.id;
-      boton.setAttribute('aria-label','Quitar '+s.nombre+' de la lista');
-      boton.title='Quitar '+s.nombre+' de la lista';
-      boton.appendChild(crearIconoPapelera());
-      boton.addEventListener('click',function(){
-        conjuros.delete(s.id);pintarLista();pintarResultados();editar();
-      });
-      li.appendChild(boton);ul.appendChild(li);
+      if(!modoOficial()){
+        var boton=crear('button','quitar-conjuro');
+        boton.type='button';boton.dataset.id=s.id;
+        boton.setAttribute('aria-label','Quitar '+s.nombre+' de la lista');
+        boton.title='Quitar '+s.nombre+' de la lista';
+        boton.appendChild(crearIconoPapelera());
+        boton.addEventListener('click',function(){
+          conjuros.delete(s.id);pintarLista();pintarResultados();editar();
+        });
+        li.appendChild(boton);
+      }
+      ul.appendChild(li);
     });
     seccion.appendChild(ul);frag.appendChild(seccion);
   });
@@ -279,12 +311,14 @@ function pintarResultados(){
     detalle.appendChild(crear('p','',s.texto_normativo));
     texto.appendChild(detalle);
     fila.appendChild(texto);
-    var incluido=conjuros.has(s.id);
-    var btn=crear('button','anadir-conjuro',incluido?'Añadido':'Añadir');
-    btn.type='button';btn.disabled=incluido;btn.dataset.id=s.id;
-    btn.setAttribute('aria-label',(incluido?'Conjuro ya añadido: ':'Añadir Conjuro: ')+s.nombre);
+    var incluido=conjuros.has(s.id),bloqueado=modoOficial();
+    var btn=crear('button','anadir-conjuro',bloqueado?'Solo lectura':(incluido?'Añadido':'Añadir'));
+    btn.type='button';btn.disabled=bloqueado||incluido;btn.dataset.id=s.id;
+    btn.setAttribute('aria-label',bloqueado?
+      'Lista oficial de solo lectura; duplica para añadir '+s.nombre:
+      (incluido?'Conjuro ya añadido: ':'Añadir Conjuro: ')+s.nombre);
     btn.addEventListener('click',function(){
-      if(!conjuros.has(s.id)){
+      if(!modoOficial()&&!conjuros.has(s.id)){
         conjuros.add(s.id);maximo=Math.max(maximo,s.circulo);
         pintarLista();pintarResultados();editar();
       }
@@ -296,23 +330,53 @@ function pintarResultados(){
   $('resultados-busqueda').replaceChildren(frag);
 }
 function abrirNueva(){
-  actualId=null;maximo=8;descripcion='';conjuros=new Set();
+  actualId=null;oficialId=null;derivadaDe=null;maximo=8;descripcion='';conjuros=new Set();
+  $('lista-dueno').readOnly=false;
   $('lista-dueno').value='';
   ultimoGuardado=JSON.stringify([PREFIJO,'',8,[]]);
   nombresGuardados();pintarLista();pintarResultados();
   decir('Escribe un nombre, añade Conjuros y guarda tu lista.');
 }
+function seleccionarOficial(id){
+  var l=catalogo.oficiales.find(function(x){return x.id===id;});
+  if(!l){abrirNueva();return;}
+  actualId=null;oficialId=l.id;derivadaDe=null;
+  maximo=l.maxCirculo;descripcion=l.descripcion;conjuros=new Set(l.conjuros);
+  $('lista-dueno').value=l.id.slice(4);
+  $('lista-dueno').readOnly=true;
+  ultimoGuardado=firma();
+  nombresGuardados();pintarLista();pintarResultados();
+  decir('Referencia oficial del DRS. Puedes consultarla y copiarla, pero no modificarla.');
+}
 function seleccionar(id){
+  if(catalogo.oficiales.some(function(l){return l.id===id;})){
+    seleccionarOficial(id);return;
+  }
   var l=lib.listas.find(function(x){return x.id===id;});
   if(!l){abrirNueva();return;}
-  actualId=l.id;maximo=l.maxCirculo;descripcion=l.descripcion;
+  actualId=l.id;oficialId=null;derivadaDe=l.derivadaDe||null;
+  maximo=l.maxCirculo;descripcion=l.descripcion;
   conjuros=new Set(l.conjuros);
+  $('lista-dueno').readOnly=false;
   $('lista-dueno').value=l.nombre.startsWith(PREFIJO)?l.nombre.slice(PREFIJO.length):l.nombre;
   ultimoGuardado=firma();
   nombresGuardados();pintarLista();pintarResultados();
   decir('Lista guardada en este navegador.');
 }
+function duplicarOficial(){
+  if(!modoOficial())return;
+  try{
+    var idOriginal=oficialId;
+    var id=idNuevo();
+    var nombreCopia=PREFIJO+idOriginal.slice(4)+' (copia)';
+    var nueva=api.duplicarLista(lib,idOriginal,id,nombreCopia,catalogo,borradores);
+    localStorage.setItem(KEY,api.exportar(nueva,catalogo,borradores));
+    lib=nueva;seleccionar(id);
+    decir('Copia personal creada y guardada: ahora puedes editarla.');
+  }catch(e){decir('No se pudo duplicar: '+e.message,true);}
+}
 function guardar(){
+  if(modoOficial()){decir('No se pueden modificar las Listas oficiales del DRS.',true);return;}
   try{
     var dueno=$('lista-dueno').value.trim();
     if(!dueno)throw Error('Escribe para quién es esta Lista de Conjuros.');
@@ -329,7 +393,7 @@ function guardar(){
   }catch(e){decir('No se pudo guardar: '+e.message,true);}
 }
 function eliminar(){
-  if(!actualId)return;
+  if(modoOficial()||!actualId)return;
   if(!window.confirm('¿Eliminar esta lista personal del navegador?'))return;
   try{
     var nueva=api.eliminarLista(lib,actualId,catalogo,borradores);
@@ -363,6 +427,7 @@ async function importar(archivo){
 }
 async function compartir(){
   try{
+    if(modoOficial())throw Error('Duplica primero la Lista oficial para compartir tu copia personal.');
     if(hayCambios())throw Error('Guarda antes los cambios de tu lista para compartirlos.');
     var token=enlaces.codificar('spell-list','nd20',lib);
     // En la PREVIEW el servidor externo requiere /spells/index.html;
@@ -380,9 +445,10 @@ async function compartir(){
 }
 function conectar(){
   $('crear-lista').addEventListener('click',function(){if(aceptarDescarte())abrirNueva();});
+  $('duplicar-oficial').addEventListener('click',duplicarOficial);
   $('listas-guardadas').addEventListener('change',function(){
     var destino=this.value;
-    if(!aceptarDescarte()){this.value=actualId||'';return;}
+    if(!aceptarDescarte()){this.value=oficialId||actualId||'';return;}
     if(destino)seleccionar(destino);else abrirNueva();
   });
   $('lista-dueno').addEventListener('input',editar);

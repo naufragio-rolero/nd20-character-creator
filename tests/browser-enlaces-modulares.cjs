@@ -197,6 +197,80 @@ async function probar(nombre,motor,origen){
     const anchoVentana=await hechizos.evaluate(()=>innerWidth);
     assert.ok(Math.abs(area.x-(anchoVentana-area.width)/2)<2,
       'El escritorio de Conjuros queda centrado horizontalmente.');
+    // Fase 7.3: listas DRS disponibles sin listas personales previas.
+    // Cada página creada por pagina() tiene su propio localStorage.
+    const oficiales=await pagina(origen+'/spells/');
+    await oficiales.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    assert.equal(await oficiales.locator('#panel-guardadas').isVisible(),true,
+      'Los presets oficiales están disponibles incluso sin listas personales.');
+    assert.deepEqual(await oficiales.locator('#listas-guardadas option').evaluateAll(opciones=>
+      opciones.map(o=>o.value)),['','drs:Clérigo','drs:Mago']);
+    await oficiales.locator('#listas-guardadas').selectOption('drs:Mago');
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),37);
+    assert.equal(await oficiales.locator('#titulo-lista').innerText(),
+      'Lista de Conjuros del Mago (DRS)');
+    assert.match(await oficiales.locator('#nota-lista-oficial').innerText(),
+      /repertorio disponible, no el grimorio inicial.*2 Conjuros del Primer Círculo/);
+    assert.equal(await oficiales.locator('#lista-dueno').isEditable(),false);
+    assert.equal(await oficiales.locator('#guardar-lista').isEnabled(),false);
+    assert.equal(await oficiales.locator('#eliminar-lista').isEnabled(),false);
+    assert.equal(await oficiales.locator('#compartir-listas').isEnabled(),false);
+    assert.equal(await oficiales.locator('#lista-circulos .quitar-conjuro').count(),0);
+    assert.equal(await oficiales.locator('#duplicar-oficial').isVisible(),true);
+    await oficiales.evaluate(()=>{
+      Object.defineProperty(navigator,'clipboard',{configurable:true,value:{
+        writeText:async texto=>{window.__copiaOficial=texto;}
+      }});
+    });
+    await oficiales.locator('#copiar-lista').click();
+    const textoMago=await oficiales.evaluate(()=>window.__copiaOficial);
+    assert.ok(textoMago.startsWith('Lista de Conjuros del Mago (DRS)'));
+    assert.equal(textoMago.split('\n').filter(x=>x.startsWith('- ')).length,37,
+      'Copiar referencia oficial produce 37 líneas de Conjuro y solo texto.');
+    assert.ok(!textoMago.includes('<img')&&!textoMago.includes('.svg'));
+    await oficiales.locator('#filtro-nombre').fill('Dardo ígneo');
+    assert.equal(await oficiales.locator('#resultados-busqueda .resultado-conjuro').count(),1);
+    assert.equal(await oficiales.locator('#resultados-busqueda .anadir-conjuro').isEnabled(),false,
+      'No se permite añadir Conjuros al repertorio oficial.');
+    await oficiales.locator('#listas-guardadas').selectOption('drs:Clérigo');
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),34);
+    assert.equal(await oficiales.locator('#lista-circulos .quitar-conjuro').count(),0);
+    assert.match(await oficiales.locator('#nota-lista-oficial').innerText(),
+      /repertorio disponible para el Clérigo/);
+    assert.doesNotMatch(await oficiales.locator('#nota-lista-oficial').innerText(),
+      /grimorio inicial/);
+    await oficiales.locator('#listas-guardadas').selectOption('drs:Mago');
+    await oficiales.locator('#duplicar-oficial').click();
+    assert.equal(await oficiales.locator('#lista-dueno').isEditable(),true);
+    assert.equal(await oficiales.locator('#duplicar-oficial').isVisible(),false);
+    assert.equal(await oficiales.locator('#guardar-lista').isEnabled(),true);
+    assert.equal(await oficiales.locator('#lista-circulos .quitar-conjuro').count(),37);
+    const copiaGuardada=await oficiales.evaluate(()=>
+      JSON.parse(localStorage.getItem('forja-listas-conjuros-v1')));
+    assert.equal(copiaGuardada.listas.length,1);
+    assert.equal(copiaGuardada.listas[0].derivadaDe,'drs:Mago',
+      'La copia personal conserva la procedencia oficial estructurada.');
+    assert.equal(copiaGuardada.listas[0].conjuros.length,37);
+    const idCopia=copiaGuardada.listas[0].id;
+    await oficiales.locator('#lista-circulos .quitar-conjuro').first().click();
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),36);
+    await oficiales.locator('#guardar-lista').click();
+    await oficiales.locator('#estado-lista').getByText('Lista guardada en este navegador.').waitFor();
+    await oficiales.locator('#listas-guardadas').selectOption('drs:Mago');
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),37,
+      'La copia editable nunca modifica la fuente oficial.');
+    await oficiales.locator('#listas-guardadas').selectOption(idCopia);
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),36,
+      'La copia editada sigue disponible con su propio ID de usuario.');
+    assert.equal(await oficiales.locator('#listas-guardadas option').count(),4,
+      'La biblioteca muestra Nueva, dos Listas oficiales y una copia personal.');
+    await oficiales.reload();
+    await oficiales.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),36);
+    assert.equal(await oficiales.evaluate(()=>
+      JSON.parse(localStorage.getItem('forja-listas-conjuros-v1')).listas[0].derivadaDe),
+      'drs:Mago','La procedencia sobrevive la recarga.');
+
     // Comprobar los 64 Conjuros, las seis Escuelas y los ocho Círculos DRS.
     const fichas=await hechizos.evaluate(async()=>{
       const respuesta=await fetch('data/conjuros-drs-fichas.json');
@@ -393,8 +467,8 @@ async function probar(nombre,motor,origen){
     await hechizos.locator('#resultados-busqueda .anadir-conjuro').click();
     await hechizos.locator('#guardar-lista').click();
     await hechizos.locator('#estado-lista').getByText('guardada en este navegador',{exact:false}).waitFor();
-    assert.equal(await hechizos.locator('#listas-guardadas option').count(),2,
-      'La lista personal se guarda y queda disponible en el selector.');
+    assert.equal(await hechizos.locator('#listas-guardadas option').count(),4,
+      'Nueva, las dos oficiales y la lista personal guardada están disponibles.');
     await hechizos.reload();
     await hechizos.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
     assert.equal(await hechizos.locator('#lista-circulos .conjuro-seleccionado').count(),1,

@@ -92,7 +92,16 @@
       if(ids.has(id))error("Conjuro repetido: "+s.nombre);
       ids.add(id);
     });
-    return {id:d.id,nombre,descripcion,maxCirculo:max,conjuros:Array.from(ids)};
+    var resultado={id:d.id,nombre,descripcion,maxCirculo:max,conjuros:Array.from(ids)};
+    // Campo opcional y retrocompatible con bibliotecas v1 preexistentes.
+    // Únicamente puede identificar una Lista oficial que exista en el catálogo DRS.
+    if(!opts.propuesta&&d.derivadaDe!==undefined){
+      if(typeof d.derivadaDe!=="string"||
+        !catalogo.oficiales.some(function(l){return l.id===d.derivadaDe;}))
+        error("La procedencia debe señalar una Lista oficial del DRS.");
+      resultado.derivadaDe=d.derivadaDe;
+    }
+    return resultado;
   }
   function validarProgresion(p){
     if(!objeto(p)||typeof p.id!=="string"||!Array.isArray(p.niveles)||
@@ -141,8 +150,12 @@
   function duplicarLista(lib,origen,id,nombre,catalogo,borradores){
     var obj=listasDisponibles(catalogo,borradores,lib).find(function(l){return l.id===origen;});
     if(!obj)error("Lista de origen inexistente.");
-    return guardarLista(lib,{id,nombre:nombre||obj.nombre+" (copia)",descripcion:obj.descripcion,
-      conjuros:obj.conjuros.slice(),maxCirculo:obj.maxCirculo},catalogo,borradores);
+    var datos={id,nombre:nombre||obj.nombre+" (copia)",descripcion:obj.descripcion,
+      conjuros:obj.conjuros.slice(),maxCirculo:obj.maxCirculo};
+    // La copia siempre es personal. Conservar la procedencia oficial al clonarla.
+    var procedencia=obj.tipo==="oficial"?obj.id:obj.derivadaDe;
+    if(procedencia)datos.derivadaDe=procedencia;
+    return guardarLista(lib,datos,catalogo,borradores);
   }
   function eliminarLista(lib,id,catalogo,borradores){
     var n=validarBiblioteca(lib,catalogo,borradores);

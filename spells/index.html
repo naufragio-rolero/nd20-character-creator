@@ -87,15 +87,17 @@
         <p class="ayuda-conjuros">El título se crea automáticamente: «Lista de Conjuros de …».</p>
         <div class="fila-nombre">
           <div id="panel-guardadas" hidden>
-            <label for="listas-guardadas">Mis listas guardadas
+            <label for="listas-guardadas">Listas disponibles
               <select id="listas-guardadas"><option value="">Nueva lista</option></select>
             </label>
           </div>
           <div class="acciones-listas">
             <button id="crear-lista" type="button">Nueva lista</button>
+            <button id="duplicar-oficial" type="button" hidden>Duplicar para editar</button>
             <button id="eliminar-lista" type="button" disabled>Eliminar esta lista</button>
           </div>
         </div>
+        <p id="nota-lista-oficial" class="nota-lista-oficial" role="note" hidden></p>
       </section>
       <section class="panel-simple" aria-labelledby="titulo-busqueda">
         <p class="paso">BUSCAR Y AÑADIR</p>

@@ -49,12 +49,22 @@ Convertir el editor sencillo de Conjuros en una herramienta reutilizable para di
 
 **No se ha publicado PREVIEW ni LIVE.** Este bloque no modifica fichas DRS, progresiones, listas oficiales ni las funciones de copia.
 
-### 7.3 — Listas oficiales de solo lectura **[pendiente]**
+### 7.3 — Listas oficiales de solo lectura **[completada en rama de desarrollo]**
 
 - Incorporar a la pantalla pública **Mago — DRS** y **Clérigo — DRS**, resueltas directamente de `catalogo-poderes.json`, bloqueadas para edición/eliminación, y con **Duplicar para editar**.
 - La lista del Mago es **un repertorio de Conjuros disponibles**, NO un grimorio inicial: el DRS indica que empieza con dos Conjuros de Primer Círculo elegidos por el jugador.
 - Las copias personales mantienen referencias de procedencia; no se permite guardar una modificación bajo un ID oficial.
 - **Verificar contra la fuente canónica** la clasificación de cada Conjuro y las diferencias entre fuentes históricas antes de promover listas oficiales a la pantalla. No completar automáticamente discrepancias.
+
+**Implementación 7.3 (17 de noviembre de 2026):**
+
+- El editor público presenta permanentemente `Clérigo — DRS (solo lectura)` y `Mago — DRS (solo lectura)` en el selector «Listas disponibles», incluso cuando no existen listas locales. Proceden de `catalogo.oficiales`, construido y reconciliado por `assets/spell-lists.js` a partir de `data/catalogo-poderes.json` y las 64 fichas DRS. **Clérigo tiene 34 Conjuros; Mago tiene 37.** No se ha creado ningún catálogo alternativo ni se ha modificado una ficha.
+- Al seleccionar una Lista oficial se bloquean el nombre, Guardar, Eliminar, Compartir y Añadir; no aparecen papeleras en la lista. Se permite **Copiar lista** como texto plano y consultar sus ocho Círculos.
+- Un aviso identifica el repertorio oficial y aclara específicamente que el **Mago empieza con dos Conjuros de Primer Círculo elegidos**, según `data/progresiones-oficiales.json > fantasia.Mago.aprendizaje.inicio`; sus 37 entradas **no** se conceden automáticamente como grimorio inicial.
+- «Duplicar para editar» usa `api.duplicarLista()`, asigna un nuevo ID `usuario:…`, guarda una copia independiente en `localStorage` y selecciona esa copia. Desde entonces se puede editar y eliminar sin afectar al original. Ni los originales ni sus IDs pasan a la biblioteca personal como registros editables.
+- **Procedencia retrocompatible:** en bibliotecas `naufragio.listas-conjuros/v1` se admite un campo **opcional `derivadaDe`**, estrictamente validado contra las dos listas oficiales del catálogo. Al duplicar una oficial, al editarla, importarla/exportarla o duplicar otra copia se preserva ese identificador. Las listas v1 antiguas sin ese campo mantienen exactamente el mismo formato.
+- Compartir la lista oficial está inhabilitado porque `#share=` serializa solo la biblioteca personal; primero se debe duplicar para compartir una versión editable. El botón de exportación sigue respaldando solamente listas personales. La **exportación completa y las tablas** siguen pendientes para 7.4 y 7.5.
+- Pruebas: comparación exacta de las 34 y 37 referencias, protección de IDs oficiales, roundtrip de procedencia, recorrido real de las dos vistas oficiales, copia de texto, duplicación, edición sin alterar originales, persistencia tras recarga y continuidad de los cinco temas. Sin cambios en PREVIEW ni LIVE.
 
 ### 7.4 — Tabla de progreso por Lista **[pendiente]**
 
@@ -90,4 +100,4 @@ Convertir el editor sencillo de Conjuros en una herramienta reutilizable para di
 
 ## Estado de publicación
 
-La fase 7.1 se desarrolla **solo en rama y PR de borrador**. Esta tarea no modifica `forja-preview-pr142`, GitHub Pages, `main` ni la rama de PR #144.
+Las fases 7.1, 7.2 y 7.3 se desarrollan **solo en rama y PR de borrador**. Esta tarea no modifica `forja-preview-pr142`, GitHub Pages, `main` ni la rama de PR #144.

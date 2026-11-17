@@ -31,6 +31,15 @@
   gap:1rem;align-items:end}
 .conjuros-simple .acciones-listas{display:flex;gap:.55rem;align-items:end;flex-wrap:wrap}
 .conjuros-simple .acciones-listas button{white-space:nowrap}
+.conjuros-simple #duplicar-oficial{
+  font-weight:750;background:var(--fondo2);border-color:var(--oro);color:var(--texto)}
+.conjuros-simple #duplicar-oficial:hover:not(:disabled){
+  background:var(--superficie2);border-color:var(--oro2)}
+.conjuros-simple #lista-dueno[readonly]{background:var(--superficie2);cursor:default}
+.conjuros-simple .nota-lista-oficial{
+  margin:1rem 0 0;padding:.85rem 1rem;border-left:3px solid var(--oro);
+  border-radius:7px;background:var(--fondo2);color:var(--texto);
+  font-size:.86rem;line-height:1.5}
 .conjuros-simple #panel-guardadas{margin-top:1rem}
 .conjuros-simple .ayuda-conjuros{font-size:.82rem;color:var(--secundario);margin:.5rem 0 0}
 .conjuros-simple .estado-conjuros{font-size:.86rem;color:var(--secundario);margin:0 0 1.15rem}
