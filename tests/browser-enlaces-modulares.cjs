@@ -207,8 +207,10 @@ async function probar(nombre,motor,origen){
       document.activeElement?.classList.contains('saltar-conjuros')),true,
       'La primera tabulación permite saltar al contenido.');
     await oficiales.keyboard.press('Enter');
+    await oficiales.waitForURL(url=>
+      url.pathname==='/spells/index.html'&&url.hash==='#contenido');
     assert.equal(new URL(oficiales.url()).hash,'#contenido',
-      'El enlace de salto funciona mediante Enter.');
+      'El salto con teclado permanece dentro del módulo y alcanza el contenido.');
     assert.equal(await oficiales.getByRole('combobox',{name:'Listas disponibles'}).count(),1);
     assert.equal(await oficiales.getByRole('combobox',{name:'Círculo'}).count(),1);
     assert.equal(await oficiales.getByRole('combobox',{name:'Escuela'}).count(),1);
