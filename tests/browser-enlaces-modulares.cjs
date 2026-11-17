@@ -68,7 +68,21 @@ async function probar(nombre,motor,origen){
   }
   try{
     const portal=await pagina(origen+'/');
+    // WebKit puede disparar DOMContentLoaded antes de aplicar portal.css.
+    await portal.waitForLoadState('load');
     assert.equal(await portal.locator('.portal-tarjeta').count(),2);
+    // Las tarjetas y su contenido están centrados en el Hub.
+    assert.equal(await portal.locator('.portal-tarjeta').first().evaluate(el=>
+      getComputedStyle(el).textAlign),'center');
+    assert.equal(await portal.locator('.portal-tarjeta').first().evaluate(el=>
+      getComputedStyle(el).alignItems),'center');
+    const centrado=await portal.evaluate(()=>{
+      const contenedor=document.querySelector('.portal-contenido').getBoundingClientRect();
+      const rejilla=document.querySelector('.portal-tarjetas').getBoundingClientRect();
+      return Math.abs((contenedor.left+contenedor.right)/2-
+        (rejilla.left+rejilla.right)/2);
+    });
+    assert.ok(centrado<3,'La rejilla de tarjetas debe estar centrada en la portada.');
     assert.equal(await portal.locator('a[href="characters/"]').count(),1);
     assert.equal(await portal.locator('a[href="spells/"]').count(),1);
     assert.equal(await portal.locator('.forja-temas-abrir').count(),1);
@@ -197,6 +211,225 @@ async function probar(nombre,motor,origen){
     const anchoVentana=await hechizos.evaluate(()=>innerWidth);
     assert.ok(Math.abs(area.x-(anchoVentana-area.width)/2)<2,
       'El escritorio de Conjuros queda centrado horizontalmente.');
+    // Fase 7.3: listas DRS disponibles sin listas personales previas.
+    // Cada página creada por pagina() tiene su propio localStorage.
+    const oficiales=await pagina(origen+'/spells/');
+    await oficiales.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    // QA 7.6: acceso por teclado y etiquetas semánticas, sin ratón.
+    await oficiales.keyboard.press('Tab');
+    assert.equal(await oficiales.evaluate(()=>
+      document.activeElement?.classList.contains('saltar-conjuros')),true,
+      'La primera tabulación permite saltar al contenido.');
+    await oficiales.keyboard.press('Enter');
+    await oficiales.waitForURL(url=>
+      url.pathname==='/spells/index.html'&&url.hash==='#contenido');
+    assert.equal(new URL(oficiales.url()).hash,'#contenido',
+      'El salto con teclado permanece dentro del módulo y alcanza el contenido.');
+    assert.equal(await oficiales.getByRole('combobox',{name:'Listas disponibles'}).count(),1);
+    assert.equal(await oficiales.getByRole('combobox',{name:'Círculo'}).count(),1);
+    assert.equal(await oficiales.getByRole('combobox',{name:'Escuela'}).count(),1);
+    assert.equal(await oficiales.locator('#panel-guardadas').isVisible(),true,
+      'Los presets oficiales están disponibles incluso sin listas personales.');
+    assert.deepEqual(await oficiales.locator('#listas-guardadas option').evaluateAll(opciones=>
+      opciones.map(o=>o.value)),['','drs:Clérigo','drs:Mago']);
+    await oficiales.locator('.progresion-lista summary').click();
+    assert.match(await oficiales.locator('#estado-progresion').innerText(),/Sin tabla asignada/);
+    await oficiales.locator('#listas-guardadas').selectOption('drs:Mago');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').count(),30);
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').first().locator('td').first().innerText(),'1');
+    assert.equal(await oficiales.locator('#tabla-progreso .espacios-personales').count(),0,
+      'La progresión oficial se muestra exclusivamente como texto.');
+    assert.equal(await oficiales.getByRole('table').count(),1,
+      'La progresión se expone como una tabla semántica.');
+    assert.equal(await oficiales.locator('#tabla-progreso th[scope="col"]').count(),9);
+    assert.equal(await oficiales.locator('#tabla-progreso th[scope="row"]').count(),30);
+    await oficiales.setViewportSize({width:375,height:812});
+    const vistaMovil=await oficiales.locator('.tabla-progreso-desplazamiento').evaluate(el=>({
+      ancho:el.clientWidth,contenido:el.scrollWidth,tabindex:el.tabIndex
+    }));
+    assert.equal(vistaMovil.tabindex,0,'La tabla desplazable es accesible con teclado.');
+    assert.ok(vistaMovil.contenido>vistaMovil.ancho,
+      'La tabla ofrece su propio desplazamiento horizontal en móvil.');
+    const desbordamiento=await oficiales.evaluate(()=>
+      document.documentElement.scrollWidth-document.documentElement.clientWidth);
+    assert.ok(desbordamiento<=2,'La tabla no desborda la página móvil.');
+    await oficiales.setViewportSize({width:1320,height:900});
+    assert.equal(await oficiales.locator('#selector-progresion').isVisible(),false);
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),37);
+    assert.equal(await oficiales.locator('#titulo-lista').innerText(),
+      'Lista de Conjuros del Mago (DRS)');
+    assert.match(await oficiales.locator('#nota-lista-oficial').innerText(),
+      /repertorio disponible, no el grimorio inicial.*2 Conjuros del Primer Círculo/);
+    assert.equal(await oficiales.locator('#lista-dueno').isEditable(),false);
+    assert.equal(await oficiales.locator('#guardar-lista').isEnabled(),false);
+    assert.equal(await oficiales.locator('#eliminar-lista').isEnabled(),false);
+    assert.equal(await oficiales.locator('#compartir-listas').isEnabled(),false);
+    assert.equal(await oficiales.locator('#lista-circulos .quitar-conjuro').count(),0);
+    assert.equal(await oficiales.locator('#duplicar-oficial').isVisible(),true);
+    await oficiales.evaluate(()=>{
+      Object.defineProperty(navigator,'clipboard',{configurable:true,value:{
+        writeText:async texto=>{window.__copiaOficial=texto;}
+      }});
+    });
+    await oficiales.locator('#copiar-lista').click();
+    const textoMago=await oficiales.evaluate(()=>window.__copiaOficial);
+    assert.ok(textoMago.startsWith('Lista de Conjuros del Mago (DRS)'));
+    assert.equal(textoMago.split('\n').filter(x=>x.startsWith('- ')).length,37,
+      'Copiar referencia oficial produce 37 líneas de Conjuro y solo texto.');
+    assert.ok(!textoMago.includes('<img')&&!textoMago.includes('.svg'));
+    await oficiales.locator('#filtro-nombre').fill('Dardo ígneo');
+    assert.equal(await oficiales.locator('#resultados-busqueda .resultado-conjuro').count(),1);
+    assert.equal(await oficiales.locator('#resultados-busqueda .anadir-conjuro').isEnabled(),false,
+      'No se permite añadir Conjuros al repertorio oficial.');
+    await oficiales.locator('#listas-guardadas').selectOption('drs:Clérigo');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').count(),30);
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').first().locator('td').first().innerText(),'0',
+      'El Clérigo de Nivel 1 no recibe Espacios en su tabla oficial.');
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),34);
+    assert.equal(await oficiales.locator('#lista-circulos .quitar-conjuro').count(),0);
+    assert.match(await oficiales.locator('#nota-lista-oficial').innerText(),
+      /repertorio disponible para el Clérigo/);
+    assert.doesNotMatch(await oficiales.locator('#nota-lista-oficial').innerText(),
+      /grimorio inicial/);
+    await oficiales.locator('#listas-guardadas').selectOption('drs:Mago');
+    await oficiales.locator('#duplicar-oficial').focus();
+    await oficiales.keyboard.press('Enter');
+    // Activación con teclado equivale a pulsar «Duplicar para editar».
+    assert.equal(await oficiales.locator('#progresion-modo').inputValue(),'drs:Mago',
+      'La copia conserva la tabla oficial solo como referencia.');
+    assert.equal(await oficiales.locator('#personalizar-progresion').isVisible(),true);
+    await oficiales.locator('#personalizar-progresion').click();
+    assert.equal(await oficiales.locator('#progresion-modo').inputValue(),'personal');
+    assert.equal(await oficiales.locator('#tabla-progreso .espacios-personales').count(),240,
+      'Se puede editar explícitamente una tabla personal de 30 Niveles por ocho Círculos.');
+    const espacioUno=oficiales.locator('#tabla-progreso tbody tr').first().locator('input').first();
+    assert.equal(await espacioUno.inputValue(),'1',
+      'Personalizar una tabla copia los valores anteriores, no los recalcula.');
+    await espacioUno.fill('3');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').nth(29)
+      .locator('input').first().inputValue(),'3',
+      'Editar Nivel 1 actualiza hasta Nivel 30 del mismo Círculo.');
+    const nivelTres=oficiales.locator('#tabla-progreso tbody tr').nth(2).locator('input').first();
+    await nivelTres.fill('5');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').nth(1)
+      .locator('input').first().inputValue(),'3',
+      'Los Niveles anteriores no deben modificarse.');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').nth(3)
+      .locator('input').first().inputValue(),'5',
+      'Editar Nivel 3 modifica Nivel 4.');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').nth(29)
+      .locator('input').first().inputValue(),'5',
+      'Los cambios se propagan hasta el último Nivel.');
+    assert.match(await oficiales.locator('#estado-lista').innerText(),/Cambios sin guardar/);
+    assert.equal(await oficiales.locator('#lista-dueno').isEditable(),true);
+    assert.equal(await oficiales.locator('#duplicar-oficial').isVisible(),false);
+    assert.equal(await oficiales.locator('#guardar-lista').isEnabled(),true);
+    assert.equal(await oficiales.locator('#lista-circulos .quitar-conjuro').count(),37);
+    const copiaGuardada=await oficiales.evaluate(()=>
+      JSON.parse(localStorage.getItem('forja-listas-conjuros-v1')));
+    assert.equal(copiaGuardada.listas.length,1);
+    assert.equal(copiaGuardada.listas[0].derivadaDe,'drs:Mago',
+      'La copia personal conserva la procedencia oficial estructurada.');
+    assert.equal(copiaGuardada.listas[0].conjuros.length,37);
+    assert.equal(copiaGuardada.listas[0].progresion.tipo,'oficial',
+      'La primera copia guardada mantiene la referencia DRS hasta editarla y guardar.');
+    const idCopia=copiaGuardada.listas[0].id;
+    await oficiales.locator('#lista-circulos .quitar-conjuro').first().click();
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),36);
+    await oficiales.locator('#guardar-lista').click();
+    await oficiales.locator('#estado-lista').getByText('Lista guardada en este navegador.').waitFor();
+    assert.equal(await oficiales.evaluate(()=>
+      JSON.parse(localStorage.getItem('forja-listas-conjuros-v1')).listas[0].progresion.niveles[0][0]),3,
+      'La tabla personal se guarda junto a esta Lista.');
+    await oficiales.locator('#listas-guardadas').selectOption('drs:Mago');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').first().locator('td').first().innerText(),'1',
+      'La tabla oficial conserva su valor y no hereda cambios personales.');
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),37,
+      'La copia editable nunca modifica la fuente oficial.');
+    await oficiales.locator('#listas-guardadas').selectOption(idCopia);
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),36,
+      'La copia editada sigue disponible con su propio ID de usuario.');
+    assert.equal(await oficiales.locator('#progresion-modo').inputValue(),'personal');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').first().locator('input').first().inputValue(),'3');
+    assert.equal(await oficiales.locator('#listas-guardadas option').count(),4,
+      'La biblioteca muestra Nueva, dos Listas oficiales y una copia personal.');
+    await oficiales.reload();
+    await oficiales.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    assert.equal(await oficiales.locator('#lista-circulos .conjuro-seleccionado').count(),36);
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').first().locator('input').first().inputValue(),'3',
+      'La progresión personal persiste tras recarga.');
+    assert.equal(await oficiales.evaluate(()=>
+      JSON.parse(localStorage.getItem('forja-listas-conjuros-v1')).listas[0].derivadaDe),
+      'drs:Mago','La procedencia sobrevive la recarga.');
+
+    // Fase 7.5: exportación completa transporta las preferencias, la
+    // selección activa, el progreso 30x8 y la biblioteca, sin reglas DRS.
+    await oficiales.locator('.formato-lista summary').click();
+    await oficiales.locator('#mostrar-escuela').check();
+    await oficiales.locator('#filtro-escuela').selectOption('Elemental');
+    await oficiales.locator('#filtro-circulo').selectOption('1');
+    await oficiales.locator('#filtro-nombre').fill('Dardo ígneo');
+    await oficiales.locator('#selector-tema').evaluate(el=>{
+      el.value='violeta';el.dispatchEvent(new Event('change',{bubbles:true}));
+    });
+    await oficiales.locator('.mas-opciones summary').click();
+    const descargaCompleta=oficiales.waitForEvent('download');
+    await oficiales.locator('#exportar-trabajo').focus();
+    await oficiales.keyboard.press('Enter');
+    const archivoCompleto=await descargaCompleta;
+    assert.equal(archivoCompleto.suggestedFilename(),'forja-conjuros-trabajo.json');
+    const jsonCompleto=fs.readFileSync(await archivoCompleto.path(),'utf8');
+    const trabajo=JSON.parse(jsonCompleto);
+    assert.equal(trabajo.esquema,'naufragio.forja-conjuros-trabajo/v1');
+    assert.equal(trabajo.biblioteca.listas.length,1);
+    assert.equal(trabajo.biblioteca.listas[0].progresion.niveles[0][0],3);
+    assert.equal(trabajo.biblioteca.listas[0].derivadaDe,'drs:Mago');
+    assert.deepEqual(trabajo.vista.presentacion,{
+      escuela:true,origen:false,tema:'violeta'});
+    assert.deepEqual(trabajo.vista.filtros,{
+      nombre:'Dardo ígneo',circulo:'1',escuela:'Elemental'});
+    assert.equal(trabajo.vista.listaActiva,idCopia);
+    assert.ok(!jsonCompleto.includes('texto_normativo')&&!jsonCompleto.includes('efectos'),
+      'El JSON completo no duplica el texto normativo de los Conjuros.');
+    const trabajoImportado=await pagina(origen+'/spells/index.html');
+    await trabajoImportado.locator('#estado-datos')
+      .getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    await trabajoImportado.locator('#importar-archivo').setInputFiles({
+      name:'trabajo.json',mimeType:'application/json',
+      buffer:Buffer.from(jsonCompleto,'utf8')
+    });
+    await trabajoImportado.locator('#estado-lista')
+      .getByText('Trabajo completo importado correctamente.',{exact:false}).waitFor();
+    assert.equal(await trabajoImportado.locator('#lista-circulos .conjuro-seleccionado').count(),36);
+    assert.equal(await trabajoImportado.locator('#tabla-progreso tbody tr')
+      .first().locator('input').first().inputValue(),'3');
+    assert.equal(await trabajoImportado.locator('#mostrar-escuela').isChecked(),true);
+    assert.equal(await trabajoImportado.locator('#filtro-nombre').inputValue(),'Dardo ígneo');
+    assert.equal(await trabajoImportado.locator('#filtro-circulo').inputValue(),'1');
+    assert.equal(await trabajoImportado.locator('#filtro-escuela').inputValue(),'Elemental');
+    assert.equal(await trabajoImportado.locator('html').getAttribute('data-tema'),'violeta');
+    const copiaAntes=await trabajoImportado.evaluate(()=>
+      localStorage.getItem('forja-listas-conjuros-v1'));
+    const incompatible=JSON.parse(jsonCompleto);
+    incompatible.version_drs='0.0.0';
+    await trabajoImportado.locator('#importar-archivo').setInputFiles({
+      name:'incompatible.json',mimeType:'application/json',
+      buffer:Buffer.from(JSON.stringify(incompatible),'utf8')
+    });
+    await trabajoImportado.locator('#estado-lista')
+      .getByText('Importación rechazada:',{exact:false}).waitFor();
+    assert.equal(await trabajoImportado.evaluate(()=>
+      localStorage.getItem('forja-listas-conjuros-v1')),copiaAntes,
+      'Una importación rechazada no cambia las Listas guardadas.');
+    await trabajoImportado.reload();
+    await trabajoImportado.locator('#estado-datos')
+      .getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    assert.equal(await trabajoImportado.locator('#lista-circulos .conjuro-seleccionado').count(),36);
+    assert.equal(await trabajoImportado.locator('#tabla-progreso tbody tr')
+      .first().locator('input').first().inputValue(),'3');
+    assert.equal(await trabajoImportado.locator('#filtro-escuela').inputValue(),'Elemental');
+    assert.equal(await trabajoImportado.locator('html').getAttribute('data-tema'),'violeta');
+
     // Comprobar los 64 Conjuros, las seis Escuelas y los ocho Círculos DRS.
     const fichas=await hechizos.evaluate(async()=>{
       const respuesta=await fetch('data/conjuros-drs-fichas.json');
@@ -224,8 +457,37 @@ async function probar(nombre,motor,origen){
       }),true,'El SVG debe cargar: '+escuela);
     }
     await hechizos.locator('#filtro-nombre').fill('');
+    const selectorEscuela=hechizos.locator('#filtro-escuela');
+    const selectorCirculo=hechizos.locator('#filtro-circulo');
+    const valores=async selector=>selector.locator('option').evaluateAll(opciones=>
+      opciones.map(opcion=>opcion.value));
+    const escuelasDRS=[...new Set(fichas.map(s=>s.escuela))]
+      .sort((a,b)=>a.localeCompare(b,'es'));
+    assert.deepEqual(await valores(selectorEscuela),['',...escuelasDRS],
+      'Se muestran exactamente las seis Escuelas presentes en el DRS.');
+    assert.deepEqual(await valores(selectorCirculo),['','1','2','3','4','5','6','7','8']);
+    for(const escuela of escuelasDRS){
+      await selectorEscuela.selectOption(escuela);
+      const circulosEscuela=[...new Set(fichas.filter(s=>s.escuela===escuela)
+        .map(s=>s.circulo))].sort((a,b)=>a-b).map(String);
+      assert.deepEqual(await valores(selectorCirculo),['',...circulosEscuela],
+        'Círculos restringidos a la Escuela '+escuela);
+      assert.equal(await selectorEscuela.inputValue(),escuela,
+        'La Escuela seleccionada no debe perderse al recalcular.');
+      assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),
+        fichas.filter(s=>s.escuela===escuela).length);
+      assert.ok((await hechizos.locator('#resultados-busqueda .resultado-conjuro small')
+        .allTextContents()).every(t=>t.endsWith(' · '+escuela)));
+      await selectorEscuela.selectOption('');
+    }
+    assert.deepEqual(await valores(selectorCirculo),['','1','2','3','4','5','6','7','8']);
     for(let circulo=1;circulo<=8;circulo++){
-      await hechizos.locator('#filtro-circulo').selectOption(String(circulo));
+      await selectorCirculo.selectOption(String(circulo));
+      const escuelasCirculo=[...new Set(fichas.filter(s=>s.circulo===circulo)
+        .map(s=>s.escuela))].sort((a,b)=>a.localeCompare(b,'es'));
+      assert.deepEqual(await valores(selectorEscuela),['',...escuelasCirculo],
+        'Escuelas restringidas al Círculo '+circulo);
+      assert.equal(await selectorCirculo.inputValue(),String(circulo));
       const esperados=fichas.filter(s=>s.circulo===circulo).length;
       const resultados=hechizos.locator('#resultados-busqueda .resultado-conjuro');
       assert.equal(await resultados.count(),esperados,
@@ -233,7 +495,42 @@ async function probar(nombre,motor,origen){
       assert.ok((await resultados.locator('small').allTextContents())
         .every(s=>s.includes('Círculo '+circulo+' · ')));
     }
-    await hechizos.locator('#filtro-circulo').selectOption('');
+    await selectorCirculo.selectOption('');
+    assert.deepEqual(await valores(selectorEscuela),['',...escuelasDRS]);
+
+    // Dos criterios simultáneos, seleccionados en ambos órdenes.
+    await selectorEscuela.selectOption('Naturaleza');
+    assert.ok(!(await valores(selectorCirculo)).includes('1'),
+      'Naturaleza no tiene Conjuros de Primer Círculo en el DRS.');
+    await selectorCirculo.selectOption('2');
+    assert.equal(await selectorEscuela.inputValue(),'Naturaleza');
+    assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),
+      fichas.filter(s=>s.escuela==='Naturaleza'&&s.circulo===2).length);
+    await hechizos.locator('#filtro-nombre').fill('charco de aceite');
+    assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),1,
+      'El nombre se combina con Escuela y Círculo.');
+    await hechizos.locator('#filtro-nombre').fill('dardo igneo');
+    assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),0);
+    assert.match(await hechizos.locator('#resultados-busqueda').innerText(),
+      /No se han encontrado Conjuros con estos filtros/);
+    assert.equal(await selectorEscuela.inputValue(),'Naturaleza',
+      'La búsqueda sin resultados no altera los selectores.');
+    await hechizos.locator('#filtro-nombre').fill('');
+    await selectorCirculo.selectOption('');
+    assert.equal(await selectorEscuela.inputValue(),'Naturaleza',
+      'Limpiar Círculo mantiene Escuela.');
+    await selectorEscuela.selectOption('');
+    await selectorCirculo.selectOption('4');
+    await selectorEscuela.selectOption('Demonología');
+    assert.equal(await selectorCirculo.inputValue(),'4',
+      'Seleccionar Escuela después de Círculo conserva el Círculo.');
+    assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),
+      fichas.filter(s=>s.circulo===4&&s.escuela==='Demonología').length);
+    await selectorEscuela.selectOption('');
+    assert.equal(await selectorCirculo.inputValue(),'4');
+    await selectorCirculo.selectOption('');
+    assert.deepEqual(await valores(selectorEscuela),['',...escuelasDRS]);
+
     await hechizos.locator('#lista-dueno').fill('Ensayo de enlace');
     await hechizos.locator('#filtro-nombre').fill('Dardo ígneo');
     assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),1);
@@ -258,6 +555,14 @@ async function probar(nombre,motor,origen){
       'El SVG de la lista se carga desde la carpeta assets.');
     assert.equal(await hechizos.locator('#lista-circulos .conjuro-seleccionado span').count(),1,
       'La lista conserva un único span con el texto original del Conjuro.');
+    const borrar=hechizos.locator('#lista-circulos .quitar-conjuro');
+    assert.equal(await borrar.count(),1);
+    assert.equal(await borrar.getAttribute('aria-label'),'Quitar Dardo ígneo de la lista');
+    assert.equal(await borrar.locator('svg.icono-papelera[aria-hidden="true"]').count(),1,
+      'La acción Quitar es una papelera accesible sin texto decorativo.');
+    assert.equal((await borrar.evaluate(el=>getComputedStyle(el).color)).length>0,true);
+    assert.equal(await hechizos.locator('#lista-circulos .conjuro-metadatos').count(),0,
+      'La etiqueta secundaria desaparece si no se solicita Escuela ni Origen.');
     // Comprobar caja estable en los cinco temas existentes y sin desbordes en móvil.
     for(const tema of ['clasico','ebano','ceruleo','obsidiana','violeta']){
       await hechizos.setViewportSize({width:1320,height:900});
@@ -300,6 +605,14 @@ async function probar(nombre,motor,origen){
     await copiarYComprobar('Dardo ígneo [DRS]');
     await hechizos.locator('#mostrar-escuela').check();
     await copiarYComprobar('Dardo ígneo — Elemental [DRS]');
+    const metadata=hechizos.locator('#lista-circulos .conjuro-metadatos');
+    assert.equal(await metadata.count(),1);
+    assert.equal(await metadata.innerText(),' — Elemental [DRS]');
+    const pesos=await metadata.evaluate(el=>({meta:parseFloat(getComputedStyle(el).fontSize),
+      nombre:parseFloat(getComputedStyle(el.previousElementSibling).fontSize),
+      peso:getComputedStyle(el).fontWeight}));
+    assert.ok(pesos.meta<pesos.nombre,'Escuela y Origen son más pequeños que el nombre.');
+    assert.equal(pesos.peso,'400','Escuela y Origen no usan negrita.');
     await hechizos.locator('#mostrar-origen').uncheck();
     await copiarYComprobar('Dardo ígneo — Elemental');
     await hechizos.reload();
@@ -313,8 +626,8 @@ async function probar(nombre,motor,origen){
     await hechizos.locator('#resultados-busqueda .anadir-conjuro').click();
     await hechizos.locator('#guardar-lista').click();
     await hechizos.locator('#estado-lista').getByText('guardada en este navegador',{exact:false}).waitFor();
-    assert.equal(await hechizos.locator('#listas-guardadas option').count(),2,
-      'La lista personal se guarda y queda disponible en el selector.');
+    assert.equal(await hechizos.locator('#listas-guardadas option').count(),4,
+      'Nueva, las dos oficiales y la lista personal guardada están disponibles.');
     await hechizos.reload();
     await hechizos.locator('#estado-datos').getByText('64 Conjuros verificados',{exact:false}).waitFor();
     assert.equal(await hechizos.locator('#lista-circulos .conjuro-seleccionado').count(),1,

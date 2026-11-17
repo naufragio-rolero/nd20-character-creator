@@ -5,7 +5,8 @@
   root.NaufragioListasConjuros=api;
 })(typeof globalThis!=="undefined"?globalThis:this,function(){
   "use strict";
-  var ESQUEMA="naufragio.listas-conjuros/v1", PREFIJO="usuario:";
+  var ESQUEMA="naufragio.listas-conjuros/v1",
+    ESQUEMA_TRABAJO="naufragio.forja-conjuros-trabajo/v1", PREFIJO="usuario:";
   function error(s){throw Error(s);}
   function texto(s,limite,etiqueta){
     if(typeof s!=="string")error(etiqueta+" debe ser texto.");
@@ -92,7 +93,18 @@
       if(ids.has(id))error("Conjuro repetido: "+s.nombre);
       ids.add(id);
     });
-    return {id:d.id,nombre,descripcion,maxCirculo:max,conjuros:Array.from(ids)};
+    var resultado={id:d.id,nombre,descripcion,maxCirculo:max,conjuros:Array.from(ids)};
+    // Campo opcional y retrocompatible con bibliotecas v1 preexistentes.
+    // Únicamente puede identificar una Lista oficial que exista en el catálogo DRS.
+    if(!opts.propuesta&&d.derivadaDe!==undefined){
+      if(typeof d.derivadaDe!=="string"||
+        !catalogo.oficiales.some(function(l){return l.id===d.derivadaDe;}))
+        error("La procedencia debe señalar una Lista oficial del DRS.");
+      resultado.derivadaDe=d.derivadaDe;
+    }
+    if(!opts.propuesta&&d.progresion!==undefined)
+      resultado.progresion=validarTablaDeLista(d.progresion);
+    return resultado;
   }
   function validarProgresion(p){
     if(!objeto(p)||typeof p.id!=="string"||!Array.isArray(p.niveles)||
@@ -103,6 +115,53 @@
       return f.slice();
     });
     return {id:p.id,nombre:texto(p.nombre,120,"Progresión"),niveles:filas};
+  }
+  // Una tabla de Lista es independiente de las asociaciones de Ocupación.
+  // No conceder Espacios sin selección explícita. Las tablas personales
+  // reutilizan el validador existente de 30 Niveles y ocho Círculos.
+  function validarTablaDeLista(p){
+    if(!objeto(p)||typeof p.tipo!=="string")
+      error("Formato de progresión de Lista inválido.");
+    if(p.tipo==="oficial"){
+      if(!["drs:Mago","drs:Clérigo"].includes(p.id))
+        error("Progresión oficial desconocida.");
+      return {tipo:"oficial",id:p.id};
+    }
+    if(p.tipo==="personal"){
+      var validada=validarProgresion({id:"usuario:tabla",nombre:"Tabla personal",
+        niveles:p.niveles});
+      return {tipo:"personal",niveles:validada.niveles};
+    }
+    error("Tipo de progresión de Lista desconocido.");
+  }
+  function tablasDRS(data){
+    if(!objeto(data)||!objeto(data.fantasia))
+      error("Faltan las tablas oficiales de progreso del DRS.");
+    var tablas={};
+    ["Mago","Clérigo"].forEach(function(nombre){
+      var origen=data.fantasia[nombre];
+      if(!objeto(origen)||!Array.isArray(origen.columnas)||
+        origen.columnas.join(",")!=="1,2,3,4,5,6,7,8")
+        error("Tabla DRS sin los ocho Círculos: "+nombre);
+      tablas["drs:"+nombre]=validarProgresion({
+        id:"drs:"+nombre,nombre:"Progreso del "+nombre,
+        niveles:origen.niveles
+      });
+    });
+    return tablas;
+  }
+  function tablaDeLista(lista,tablas){
+    if(!objeto(lista))error("Lista inexistente.");
+    var seleccion=lista.tipo==="oficial"?
+      {tipo:"oficial",id:lista.id}:lista.progresion;
+    if(!seleccion)return null;
+    var valida=validarTablaDeLista(seleccion);
+    if(valida.tipo==="oficial"){
+      if(!tablas||!tablas[valida.id])error("Tabla oficial no disponible.");
+      return {tipo:"oficial",id:valida.id,
+        niveles:tablas[valida.id].niveles.map(function(f){return f.slice();})};
+    }
+    return valida;
   }
   function listasDisponibles(catalogo,borradores,biblioteca){
     return catalogo.oficiales.concat(borradores.listas,biblioteca.listas);
@@ -141,8 +200,16 @@
   function duplicarLista(lib,origen,id,nombre,catalogo,borradores){
     var obj=listasDisponibles(catalogo,borradores,lib).find(function(l){return l.id===origen;});
     if(!obj)error("Lista de origen inexistente.");
-    return guardarLista(lib,{id,nombre:nombre||obj.nombre+" (copia)",descripcion:obj.descripcion,
-      conjuros:obj.conjuros.slice(),maxCirculo:obj.maxCirculo},catalogo,borradores);
+    var datos={id,nombre:nombre||obj.nombre+" (copia)",descripcion:obj.descripcion,
+      conjuros:obj.conjuros.slice(),maxCirculo:obj.maxCirculo};
+    // La copia siempre es personal. Conservar la procedencia oficial al clonarla.
+    var procedencia=obj.tipo==="oficial"?obj.id:obj.derivadaDe;
+    if(procedencia)datos.derivadaDe=procedencia;
+    // Duplicar una Lista oficial conserva su tabla por referencia, y una
+    // copia personal conserva su progresión sin vincularla a otros objetos.
+    if(obj.tipo==="oficial")datos.progresion={tipo:"oficial",id:obj.id};
+    else if(obj.progresion)datos.progresion=validarTablaDeLista(obj.progresion);
+    return guardarLista(lib,datos,catalogo,borradores);
   }
   function eliminarLista(lib,id,catalogo,borradores){
     var n=validarBiblioteca(lib,catalogo,borradores);
@@ -183,6 +250,67 @@
         fila.some(function(n,i){return n>0&&i+1>l.maxCirculo;})?
           "La progresión tiene Espacios para Círculos fuera de esta Lista; no amplían su repertorio.":""};
   }
+  // Archivo completo del espacio de Conjuros, envolviendo la biblioteca v1
+  // intacta. Los datos normativos se resuelven por ID desde el DRS local.
+  var TEMAS=["clasico","ebano","ceruleo","obsidiana","violeta"];
+  function validarVista(v,catalogo,biblioteca){
+    if(!objeto(v)||!objeto(v.filtros)||!objeto(v.presentacion))
+      error("Configuración del espacio de trabajo inválida.");
+    var presentacion=v.presentacion;
+    if(typeof presentacion.escuela!=="boolean"||
+       typeof presentacion.origen!=="boolean"||
+       !TEMAS.includes(presentacion.tema))
+      error("Presentación inválida: Escuela, Origen o tema visual.");
+    var f=v.filtros;
+    if(typeof f.nombre!=="string"||f.nombre.length>120||
+      /[\u0000-\u001F\u007F]/.test(f.nombre))
+      error("Filtro de nombre incorrecto.");
+    if(typeof f.circulo!=="string"||
+      (f.circulo!==""&&!/^[1-8]$/.test(f.circulo)))
+      error("Filtro de Círculo incorrecto.");
+    if(typeof f.escuela!=="string"||
+      (f.escuela!==""&&!catalogo.conjuros.some(function(s){
+        return s.escuela===f.escuela;
+      })))
+      error("Filtro de Escuela desconocida.");
+    if(f.circulo&&f.escuela&&!catalogo.conjuros.some(function(s){
+      return s.circulo===Number(f.circulo)&&s.escuela===f.escuela;
+    }))error("Combinación de filtros ajena al catálogo DRS.");
+    var activa=v.listaActiva;
+    if(typeof activa!=="string"||
+      (activa!==""&&!catalogo.oficiales.some(function(o){return o.id===activa;})&&
+        !biblioteca.listas.some(function(l){return l.id===activa;})))
+      error("La Lista activa no existe en este trabajo.");
+    return {
+      presentacion:{escuela:presentacion.escuela,origen:presentacion.origen,
+        tema:presentacion.tema},
+      filtros:{nombre:f.nombre.normalize("NFC"),circulo:f.circulo,escuela:f.escuela},
+      listaActiva:activa
+    };
+  }
+  function exportarTrabajo(lib,vista,catalogo,borradores){
+    var biblioteca=validarBiblioteca(lib,catalogo,borradores);
+    var valido=validarVista(vista,catalogo,biblioteca);
+    return JSON.stringify({esquema:ESQUEMA_TRABAJO,version_drs:catalogo.versionDRS,
+      biblioteca:biblioteca,vista:valido},null,2)+"\n";
+  }
+  function importarTrabajo(textoJson,catalogo,borradores){
+    if(typeof textoJson!=="string"||textoJson.length>1024*1024)
+      error("Archivo de importación demasiado grande.");
+    var dato=JSON.parse(textoJson);
+    if(!objeto(dato))error("Archivo de trabajo inválido.");
+    if(dato.esquema===ESQUEMA){
+      return {formato:"biblioteca-v1",biblioteca:validarBiblioteca(dato,catalogo,borradores),
+        vista:null};
+    }
+    if(dato.esquema!==ESQUEMA_TRABAJO)
+      error("Versión de trabajo no reconocida. No se han cambiado datos.");
+    if(dato.version_drs!==catalogo.versionDRS)
+      error("Versión del DRS incompatible. No se han cambiado datos.");
+    var biblioteca=validarBiblioteca(dato.biblioteca,catalogo,borradores);
+    return {formato:"trabajo-v1",biblioteca:biblioteca,
+      vista:validarVista(dato.vista,catalogo,biblioteca)};
+  }
   function exportar(lib,catalogo,borradores){
     return JSON.stringify(validarBiblioteca(lib,catalogo,borradores),null,2)+"\n";
   }
@@ -190,7 +318,8 @@
     if(typeof textoJson!=="string"||textoJson.length>1024*1024)error("Archivo de importación demasiado grande.");
     return validarBiblioteca(JSON.parse(textoJson),catalogo,borradores);
   }
-  return {ESQUEMA,crearCatalogo,leerBorradores,validarLista,validarBiblioteca,
+  return {ESQUEMA,ESQUEMA_TRABAJO,crearCatalogo,leerBorradores,validarLista,validarBiblioteca,
     vacia,guardarLista,duplicarLista,eliminarLista,vincular,desvincular,resolver,
-    listasDisponibles,exportar,importar};
+    listasDisponibles,validarTablaDeLista,tablasDRS,tablaDeLista,
+    validarVista,exportarTrabajo,importarTrabajo,exportar,importar};
 });

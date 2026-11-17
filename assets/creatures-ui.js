@@ -441,6 +441,8 @@
     });
   }
   function abrirMenuCrear(){
+    $('criaturas-crear-estado').textContent='';
+    $('criaturas-crear-estado').className='estado';
     if(!$('criaturas-crear-dialogo').open)$('criaturas-crear-dialogo').showModal();
     $('criaturas-crear-manual').focus({preventScroll:true});
   }
@@ -483,6 +485,32 @@
     $('criaturas-generar-nombre-previa').textContent=semilla?
       'Nombre propuesto: '+generador.nombreAleatorio(semilla):
       'Se sorteará un nombre al generar el adversario.';
+  }
+  async function generarYa(){
+    // Modalidad inmediata: reutilizar el motor existente de configuración aleatoria,
+    // sin aceptar valores persistidos de la configuración manual ni inventar reglas.
+    if(!permitirDescartar())return;
+    var boton=$('criaturas-crear-ya'),estado=$('criaturas-crear-estado');
+    estado.textContent='';estado.className='estado';
+    boton.disabled=true;
+    try{
+      var semilla=semillaNuevaGenerador();
+      var catalogo=await asegurarBibliotecaComponentes();
+      var propios=biblioteca?biblioteca.listar().map(function(r){
+        return {id:r.id,ficha:biblioteca.obtener(r.id)};
+      }):[];
+      var opciones=generador.opcionesAlAzar(catalogo,fuentesOficiales,propios,semilla);
+      var resultado=generador.generar(catalogo,fuentesOficiales,propios,opciones);
+      renderizarFicha(resultado.ficha,null);
+      cambios=true;
+      $('criaturas-crear-dialogo').close();
+      abrirEditor();
+      mostrarEstado('Adversario generado al azar con semilla '+semilla+
+        '. Es un borrador sin guardar; revisa la combinación antes de conservarla.');
+    }catch(error){
+      estado.textContent=error.message;
+      estado.className='estado error';
+    }finally{boton.disabled=false;}
   }
   async function generarAdversario(event){
     event.preventDefault();
@@ -1790,6 +1818,7 @@
     $('criaturas-nueva-panel').addEventListener('click',abrirMenuCrear);
     $('criaturas-crear-manual').addEventListener('click',crearManualDesdeMenu);
     $('criaturas-crear-aleatorio').addEventListener('click',abrirGenerador);
+    $('criaturas-crear-ya').addEventListener('click',generarYa);
     $('criaturas-crear-cerrar').addEventListener('click',function(){
       $('criaturas-crear-dialogo').close();
     });
