@@ -1,8 +1,7 @@
 name: Forja LIVE — publicación segura DRS
 
-# El punto de publicación se conserva en main. El código de Forja se
-# promueve únicamente mediante un SHA revisado y probado: NO se despliega
-# el árbol ni las fuentes inéditas del repositorio.
+# Publicar solo el SHA de aplicación auditado. El workflow puede evolucionar
+# sin convertir el árbol de desarrollo ni contenidos CiFi/Nocturna en LIVE.
 on:
   push:
     branches: [main]
@@ -23,964 +22,112 @@ jobs:
   publicar:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 30
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Obtener snapshot DRS aprobado - Menú unificado de creación de Adversarios (PR #138)
+      - name: Recuperar snapshot consolidado aprobado de La Forja
         uses: actions/checkout@v4
         with:
-          ref: 4ae26c028916965e77866088e7b3d5bc54d62c9e
+          ref: 82541b4c4729267a3e5ab31a69c0a75f86857929
           persist-credentials: false
-      - name: Comprobar la revisión exacta de la entrega
-        run: |
-          test "$(git rev-parse HEAD)" = "4ae26c028916965e77866088e7b3d5bc54d62c9e"
-      # Snapshot aprobado para LIVE: PR #138, tras QA Chrome, Firefox, WebKit, DRS y PDF. Acceso único a creación manual o aleatoria y generación directa con Continuar; perfiles DRS intactos.
-      # Daño efectivo según Potencia DRS en KPI, equipo y PDF; seguidores y Poderes sin cambio.
-      # Se conserva el catálogo DRS y la economía autorizados; no se publica DLC.
-      # No incluye CiFi ni Nocturna y solo distribuye dist/public-drs.
-      # Nunca se distribuye el árbol completo: únicamente dist/public-drs.
-      - name: Auditar iconografia y funcionalidades fijadas
+      - name: Verificar SHA exacto, Hub y las cuatro mejoras
         shell: bash
         run: |
           set -euo pipefail
+          test "$(git rev-parse HEAD)" = "82541b4c4729267a3e5ab31a69c0a75f86857929"
+          grep -Fq 'href="characters/"' index.html
+          grep -Fq 'href="spells/"' index.html
+          grep -Fq 'id="criaturas-crear-ya"' characters/index.html
+          grep -Fq 'id="criaturas-crear-aleatorio"' characters/index.html
+          grep -Fq 'id="criaturas-crear-manual"' characters/index.html
+          ! grep -Fq 'La tabla de progreso no añade Conjuros al repertorio' spells/index.html
+          grep -Fq 'for(var siguiente=indice+1;siguiente<progresion.niveles.length;siguiente++)' assets/spell-lists-simple.js
+          grep -Fq 'margin-inline:auto;justify-content:center' assets/portal.css
           test ! -e assets/icons-forja.svg
-          grep -Fq 'id="tab-criaturas"' index.html
-          grep -Fq 'id="editor-criaturas"' index.html
-          for modulo in creatures.js creatures-import.js creatures-library.js creatures-components.js creatures-random.js adversarios-formato.js creatures-ui.js adversarios-pdf.js; do
-            test -s "assets/${modulo}"
-            grep -Fq "assets/${modulo}" index.html
-          done
-          grep -Fq '>Adversarios</button>' index.html
-          grep -Fq 'id="criaturas-cargar-drs"' index.html
-          grep -Fq 'id="criaturas-coleccion-busqueda"' index.html
-          grep -Fq 'id="criaturas-nueva-panel"' index.html
-          grep -Fq 'id="criaturas-crear-dialogo"' index.html
-          grep -Fq 'id="criaturas-crear-manual"' index.html
-          grep -Fq 'id="criaturas-crear-aleatorio"' index.html
-          grep -Fq 'id="criaturas-generar-dialogo"' index.html
-          grep -Fq 'id="criaturas-generar-cancelar"' index.html
-          grep -Fq 'id="criaturas-generar-semilla"' index.html
-          grep -Fq 'id="criaturas-generar-nombre-previa"' index.html
-          ! grep -Fq 'id="criaturas-generar-panel"' index.html
-          ! grep -Fq 'id="criaturas-generar-aleatorizar"' index.html
-          node tests/criaturas-generador.js
-          grep -Fq 'id="criaturas-coleccion-origen"' index.html
-          grep -Fq 'id="criaturas-selector-drs"' index.html
-          grep -Fq 'id="criaturas-ficha-retirar"' index.html
-          grep -Fq 'Perfiles oficiales' index.html
-          grep -Fq 'id="criaturas-ficha-pdf"' index.html
-          grep -Fq 'Personajes y seguidores</h2>' index.html
-          grep -Fq 'id="criaturas-titulo-biblioteca">Colección</h3>' index.html
-          ! grep -Fq 'EDITOR DEL CRONISTA / NAUFRAGIO D20' index.html
-          grep -Fq 'assets/adversarios-categorias.js' index.html
-          test -s assets/adversarios-categorias.js
-          test "$(find assets/adversarios/iconos -maxdepth 1 -name 'categoria-*.svg' -type f | wc -l)" -eq 12
-          grep -Fq 'categoria-muerto-viviente.svg' assets/adversarios-categorias.js
-          grep -Fq 'categoria-vegetal.svg' assets/adversarios-categorias.js
-          grep -Fq 'categoria-humanoide.svg' assets/adversarios-categorias.js
-          grep -Fq 'class="criaturas-acciones criaturas-ficha-acciones" role="group"' index.html
-          grep -Fq 'id="criaturas-ficha-editar" class="accion-icono' index.html
-          grep -Fq 'id="criaturas-ficha-pdf" class="accion-icono' index.html
-          grep -Fq 'criaturas-ficha-acciones button.accion-icono' assets/styles.css
-          grep -Fq "ele('strong','criaturas-nombre-ataque',parte.nombre)" assets/creatures-ui.js
-          grep -Fq 'id="criaturas-ficha-ilustracion-archivo"' index.html
-          grep -Fq 'id="criaturas-selector-subcategoria"' index.html
-          grep -Fq 'id="criaturas-selector-fuente"' index.html
-          grep -Fq 'id="criaturas-componentes-dialogo"' index.html
-          grep -Fq '<h1>Forja de Naufragio d20</h1>' index.html
-          grep -Fq 'Biblioteca de Acciones y Talentos' index.html
-          grep -Fq 'id="criaturas-componentes-tab-ataques" aria-pressed="true">Acciones</button>' index.html
-          test -s assets/branding/naufragio.svg
-          echo '9389af421bd7006089dabe72c94834dabe9c3184dcbc595473b4b88e6c295874  assets/branding/naufragio.svg' | sha256sum -c -
-          grep -Fq 'id="criaturas-componentes-clasificacion"' index.html
-          grep -Fq 'id="criaturas-explorar-ataques"' index.html
-          grep -Fq 'id="criaturas-explorar-talentos"' index.html
-          node tests/criaturas-componentes.js
-          node -e "const m=require('./data/adversarios-talentos-indice-drs.json');if(m.registros.length!==188||new Set(m.registros.map(x=>x.criaturaId+'|'+x.talentoId)).size!==188)process.exit(1)"
-          node -e "const m=require('./data/adversarios-relaciones-drs.json');if(m.version!==1||m.sistema!=='nd20'||m.fuenteId!=='drs'||m.relaciones.length!==77)process.exit(1)"
-          node -e "const m=require('./data/adversarios-fuentes.json');if(m.version!==1||m.sistema!=='nd20'||m.fuentes.length!==1||m.fuentes[0].id!=='drs'||m.fuentes[0].total!==106)process.exit(1)"
-          node -e "const m=require('./assets/adversarios-iconos.json');if(m.version!==1||!m.iconos||Array.isArray(m.iconos))process.exit(1)"
-          grep -Fq 'lineasAtaque' assets/adversarios-formato.js
-          grep -Fq 'criaturas-metrica-icono' assets/creatures-ui.js
-          grep -Fq 'background:#0b0b0b' assets/styles.css
-          node -e "const c=require('./data/adversarios-drs.json');if(c.fuente!=='Naufragio d20 DRS'||c.registros.length!==106||c.registros.some(r=>r.fuente!=='Naufragio d20 DRS'))process.exit(1)"
-          test "$(find assets/icons -maxdepth 1 -name '*.svg' -type f | wc -l)" -eq 40
-          test "$(find assets/icons -maxdepth 1 -name '*.webp' -type f | wc -l)" -eq 2
-          # Mantener las 35 piezas históricas y verificar los cinco iconos nuevos de acciones.
-          for accion in accion-copiar accion-equipo accion-pdf accion-semilla accion-talentos; do
-            test -s "assets/icons/${accion}.svg"
-            grep -Fq 'viewBox="0 0 24 24"' "assets/icons/${accion}.svg"
-          done
-          for logo in sistema-nd20-faep.webp sistema-dh.webp; do
-            test -s "assets/icons/$logo"
-            test "$(head -c 4 "assets/icons/$logo")" = "RIFF"
-            test "$(dd if="assets/icons/$logo" bs=1 skip=8 count=4 status=none)" = "WEBP"
-            grep -Fq "src=\"assets/icons/$logo\"" index.html
-          done
-          grep -Fq 'Creador de personajes para Naufragio d20.' index.html
-          grep -Fq "items.push(['Daño',dano.valor])" assets/app.js
-          grep -Fq 'EFECTOS DE PODERES' assets/pdf-export-v2.js
-          grep -Fq 'function potenciaFicha(personaje)' assets/equipment.js
-          grep -Fq 'function danoConPotencia(dano,personaje)' assets/equipment.js
-          grep -Fq 'danoConPotencia:danoConPotencia' assets/equipment.js
-          grep -Fq 'danoConPotencia(x.dano,p)' assets/app.js
-          grep -Fq 'equipment.danoConPotencia(elegida.dano,out)' assets/pdf-export-v2.js
-          grep -Fq 'equipment.danoConPotencia(encontrado.dano,personaje)' assets/pdf-export-v2.js
-          grep -Fq 'EFECTOS DE TALENTOS' assets/pdf-export-v2.js
-          grep -Fq 'longitudNombreDestacado' assets/pdf-export-v2.js
-          grep -Fq 'function equipoSeguidor(oficio,catalogo,rng)' assets/rules.js
-          grep -Fq 'id="dialogo-seguidores"' index.html
-          grep -Fq 'id="configurar-seguidores"' index.html
-          grep -Fq 'id="resumen-seguidores"' index.html
-          grep -Fq 'id="aplicar-seguidores"' index.html
-          grep -Fq 'function generarSeguidoresActivos()' assets/app.js
-          grep -Fq "if(personaje?.tipo_ficha==='seguidor_drs')" assets/app.js
-          grep -Fq 'aventuras-seguidor' assets/app.js
-          grep -Fq 'function nombreProfesionSeguidor(tipo,genero)' assets/app.js
-          grep -Fq 'seguidores_profesiones_drs' data/sexo-personajes.json
-          grep -Fq 'ocupaciones_formas_genero' data/sexo-personajes.json
-          grep -Fq 'especies_formas_genero' data/sexo-personajes.json
-          grep -Fq 'conceptos_formas_genero' data/sexo-personajes.json
-          grep -Fq 'function ocupacionVisible(nombre,sexo,datos)' assets/sex.js
-          grep -Fq 'function especieVisible(nombre,sexo,datos)' assets/sex.js
-          grep -Fq 'function conceptoVisible(nombre,sexo,datos)' assets/sex.js
-          grep -Fq 'personaje.descripcion_mostrada=' assets/rules.js
-          grep -Fq 'personaje.concepto_mostrado=' assets/rules.js
-          grep -Fq '.tarjeta-seguidor .recursos.recursos-rejilla' assets/styles.css
-          grep -Fq '.tarjeta-seguidor .aventuras-seguidor{margin-top:.14rem}' assets/styles.css
-          grep -Fq 'function refrescarResumenSeguidores()' assets/app.js
-          grep -Fq 'id="seguidor-nivel-min"' index.html
-          grep -Fq 'id="seguidor-nivel-max"' index.html
-          grep -Fq 'id="seguidor-genero"' index.html
-          grep -Fq 'id="seguidor-nombres"' index.html
-          grep -Fq 'id="profesiones-seguidores"' index.html
-          grep -Fq 'PODERES CONOCIDOS' assets/pdf-export-v2.js
-          grep -Fq 'longitudNombreDestacado' assets/pdf-export-v2.js
-          grep -Fq 'SourceSerif4_700Bold.ttf' scripts/preparar-vendor-pdf-a5.cjs
-          grep -Fq 'function guardarRevision(continuarPreparacion)' assets/app.js
-          grep -Fq 'Guardar y preparar' index.html
-          grep -Fq 'La semilla no guarda cambios posteriores.' index.html
-          test -f assets/icons/CREDITOS-GAME-ICONS.txt
-          grep -Fq 'CC BY 3.0' assets/icons/CREDITOS-GAME-ICONS.txt
-          grep -Fq 'goblin-head.svg' assets/icons/CREDITOS-GAME-ICONS.txt
-          # Verificar la composicion exacta y la seleccion editorial de PR #50.
-          test "$(grep -l 'Icono original de Naufragio d20 aprobado' assets/icons/*.svg | wc -l)" -eq 7
-          test "$(grep -l 'Game-icons.net' assets/icons/*.svg | wc -l)" -eq 28
-          grep -Fq '28 son adaptaciones SVG' assets/icons/CREDITOS-GAME-ICONS.txt
-          grep -Fq '7 son diseños originales' assets/icons/CREDITOS-GAME-ICONS.txt
-          grep -Fq 'big-gear' assets/icons/esp-gnomo.svg
-          grep -Fq 'baby-face' assets/icons/esp-mediano.svg
-          grep -Fq 'pointy-hat' assets/icons/ocu-mago.svg
-          grep -Fq 'axe-sword' assets/icons/ocu-guerrero.svg
-          grep -Fq 'robin-hood-hat' assets/icons/ocu-ladron.svg
-          grep -Fq 'pope-crown' assets/icons/ocu-clerigo.svg
-          grep -Fq 'mitad-orco' assets/icons/esp-semiorco.svg
-          grep -Fq 'mitad-humano' assets/icons/esp-semiorco.svg
-          ! grep -Fq 'icons-forja.svg' assets/app.js
-          ! grep -Fq 'icons-forja.svg' index.html
-          grep -Fq "fonts.googleapis.com/css2?family=Exo" assets/styles.css
-          grep -Fq "dialogo.showModal();" assets/app.js
-          grep -Fq 'id="compras-grupo"' index.html
-          grep -Fq "if(contiene(c.utiles_fantasia?.monturas))return 'equipo-caballo';" assets/app.js
-          grep -Fq 'par[0]==="monturas"?"Montura"' assets/tooltips.js
-          ! grep -Fq 'Forma del generador histórico de nombres de Ylat.' assets/rules.js
-          ! grep -Fq 'Nombre del banco histórico sin clasificación documental de sexo;' assets/sex.js
-          grep -Fq "grupo==='talento'||grupo==='poder'||grupo==='equipo'" assets/app.js
-          # Archivo documental íntegro; la generación usa el nuevo banco independiente.
-          node - <<'NODE'
-          const assert=require('node:assert/strict');
-          const nombres=require('./data/tesauro-ylat.json').entradas;
-          assert.equal(nombres.length,295);
-          assert.equal(nombres.filter(x=>x.tipo==='documentado').length,262);
-          assert.equal(nombres.filter(x=>x.tipo==='combinado').length,33);
-          assert.equal(new Set(nombres.map(x=>x.nombre)).size,295);
-          NODE
-          grep -Fq '<option value="generico">Nombres genéricos</option>' index.html
-          grep -Fq '<option value="ylat">Nombres de Ylat</option>' index.html
-          ! grep -Fq 'id="buscar-nombre-ylat"' index.html
-          ! grep -Fq 'id="ambito-nombre"' index.html
-          ! grep -Fq '<option value="combinado"' index.html
-          ! grep -Fq '<option value="documentado"' index.html
-          grep -Fq 'assets/names.js' index.html
-          grep -Fq 'componentesYlat' assets/app.js
-          node - <<'NODE'
-          const assert=require('node:assert/strict');
-          const c=require('./data/componentes-nombres-ylat.json');
-          assert.equal(c.nombres.length,255);
-          assert.equal(c.apellidos.length,133);
-          for(const apellido of ['Shadelgast','Bronnhum','Boll'])
-            assert.equal(c.apellidos.find(x=>x.nombre===apellido).peso_relativo,1);
-          NODE
-          grep -Fq 'exportar-pdf-ficha' assets/app.js
-          ! grep -Eiq 'niguac|niguaz' data/tesauro-ylat.json
-          ! grep -Eiq 'niguac|niguaz' index.html
-          ! grep -Eiq 'niguac|niguaz' assets/rules.js
-          grep -Fq 'Cambió el repertorio onomástico de Ylat' scripts/crear-paquete-drs.js
-          grep -Fq 'function bloquesConjuroDRS(ficha)' assets/tooltips.js
-          grep -Fq 'bloques_conjuro' assets/tooltip-ui.js
-          grep -Fq '.info-tabla-conjuro{' assets/styles.css
-          grep -Fq 'if(x.blindaje!=null)' assets/tooltips.js
-          grep -Fq 'info.danioCompuesto?.dados_base' assets/tooltips.js
-          grep -Fq '"blindaje": "d4"' data/equipo-inicial.json
-          grep -Fq 'function blindajeFicha(personaje,catalogo)' assets/equipment.js
-          # Entrega PR #59/#60: controles funcionales del DRS, sin venta de regalos.
-          grep -Fq 'id="editor-armamento"' index.html
-          grep -Fq 'class="gestionar-equipo accion-icono"' assets/app.js
-          grep -Fq 'function intercambiarEquipoInicial(' assets/equipment.js
-          grep -Fq 'function comprarArmamentoFantasia(' assets/equipment.js
-          grep -Fq 'compras_iniciales_intercambiables' assets/rules.js
-          node - <<'NODE'
-          const assert=require('node:assert/strict');
-          const e=require('./data/equipo-inicial.json');
-          const dardo=e.armas.find(x=>x.nombre==='Dardo');
-          assert.equal(dardo.precio,0.05);
-          assert.equal(dardo.precio_editorial,'5 mc');
-          assert.equal(e.componentes_paquetes_editoriales.length,5);
-          assert.equal(e.utiles_fantasia.equipo_monturas.find(x=>
-            x.nombre==='Armadura equina').regla_precio_autoral.multiplicador,4);
-          NODE
-          grep -Fq 'class="recursos recursos-rejilla' assets/app.js
-          grep -Fq 'function iconoEquipo(nombre)' assets/app.js
-          grep -Fq 'function descripcionConSexo(personaje)' assets/app.js
-          grep -Fq 'function nombreEquipoVisible(nombre)' assets/app.js
-          grep -Fq "var ordenAtributos=['Fuerza','Mente','Agilidad','Intuición','Resistencia','Presencia'];" assets/app.js
-          grep -Fq "iluminacion:'Iluminación'" assets/app.js
-          grep -Fq "ropa:'Ropa'" assets/app.js
-          grep -Fq 'function claveEquipoDRS(nombre)' assets/tooltips.js
-          grep -Fq '"id": "ropa-disfraz"' data/equipo-inicial.json
-          grep -Fq '"id": "ropa-tunica"' data/equipo-inicial.json
-          grep -Fq '"id": "montura-armadura-equina"' data/equipo-inicial.json
-          grep -Fq '"id": "vehiculo-diligencia"' data/equipo-inicial.json
-          grep -Fq '"libro de conjuros en blanco":"libro de conjuros"' assets/tooltips.js
-          grep -Fq 'return !x.servicio_por_dia&&' assets/app.js
-          grep -Fq '"id": "iluminacion-antorcha"' data/equipo-inicial.json
-          grep -Fq 'id="dialogo-configuracion"' index.html
-          grep -Fq 'id="abrir-configuracion"' index.html
-          grep -Fq 'id="nivel-min"' index.html
-          grep -Fq 'id="nivel-max"' index.html
-          grep -Fq 'id="semilla"' index.html
-          ! grep -Fq 'id="abrir-matriz"' index.html
-          grep -Fq 'id="copiar-semilla"' index.html
-          grep -Fq 'id="dialogo-reproduccion"' index.html
-          grep -Fq 'id="cerrar-reproduccion"' index.html
-          grep -Fq 'aria-label="Reproducción de la ficha"' index.html
-          ! grep -Fq 'aria-label="Reproducción de la generación" hidden' index.html
-          ! grep -Fq 'id="usar-semilla"' index.html
-          ! grep -Fq 'id="estado-uso-semilla"' index.html
-          grep -Fq 'id="copiar-reproduccion"' index.html
-          grep -Fq 'id="ocultar-tutorial"' index.html
-          grep -Fq "html[data-tema=violeta]" assets/styles.css
-          ! grep -Fq 'var usarSemilla = false;' assets/app.js
-          grep -Fq 'var semillaUsada=semillaGeneracion()' assets/app.js
-          grep -Fq 'var registroGeneracion=mostrarReproduccion(semillaUsada,c);' assets/app.js
-          grep -Fq 'var registroPersonalizado=mostrarReproduccion(semillaUsada,c);' assets/app.js
-          grep -Fq 'function abrirReproduccion(entrada)' assets/app.js
-          grep -Fq 'class="ver-reproduccion accion-icono"' assets/app.js
-          ! grep -Fq 'function actualizarUsoSemilla()' assets/app.js
-          grep -Fq 'reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r' assets/app.js
-          grep -Fq "recurso-nota-escudo" assets/app.js
-          grep -Fq "info-primarios-objeto" assets/tooltip-ui.js
-          ! grep -Fq 'nth-child(5):last-child{grid-column:1/-1}' assets/styles.css
-          grep -Fq 'grid-template-columns:repeat(4,minmax(0,1fr))' assets/styles.css
-          grep -Fq 'function htmlProteccionesEquipadas(personaje,id)' assets/app.js
-          echo "OK: estadísticas oficiales, 64 Conjuros, Recursos y protecciones cotejados por hash."
-      - name: Preparar Node
+          test -s data/conjuros-drs-fichas.json
+          test -s data/progresiones-oficiales.json
+          test -s data/adversarios-drs.json
+      - name: Preparar Node y librerías de pruebas
         uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Preparar bibliotecas PDF A5 locales y licencias antes de empaquetar
+      - name: Instalar herramientas de prueba y PDF A5 (solo en runner)
         run: |
           npm install --no-save --no-package-lock --ignore-scripts \
             pdf-lib@1.17.1 @pdf-lib/fontkit@1.1.1 \
             @expo-google-fonts/source-serif-4@0.4.1 playwright@1.56.1
           node scripts/preparar-vendor-pdf-a5.cjs
-          test -s assets/pdf-a5/SourceSerif4_700Bold.ttf
-          node tests/pdf-a5-real.cjs
-          node tests/pdf-a5-etiquetas.js
-          node tests/pdf-a5-integracion.js
-          node tests/pdf-a5-editorial.js
-      - name: Regresión editorial de nombres y esquema DRS
+          npx playwright install --with-deps firefox webkit
+      - name: Regresiones funcionales, DRS y Conjuros
         run: |
           node tests/alcance-drs.js
-          node tests/armamento-edicion.js
-          node tests/limites-compra-ux.js
-          node tests/elecciones-poscreacion.js
           node tests/smoke.js
+          node tests/fase5-rutas-drs.js
+          node tests/fase7-visuales.js
+          node tests/fase7-filtros.js
+          node tests/fase7-presets.js
+          node tests/fase7-progresion.js
+          node tests/fase7-exportacion.js
           node tests/semillas-rangos.js
-          node tests/fichas-drs-ux.js
-          node tests/iconos-forja.js
-          node tests/encabezados-mesas.js
-          node tests/adversarios-categorias.js
+          node tests/criaturas-generador.js
           node tests/criaturas-ui.js
-      - name: Generar solo la carpeta DRS autorizada
-        run: node scripts/crear-paquete-drs.js
-      - name: Detener la publicación ante DLC o sistemas no autorizados
-        run: node scripts/comprobar-publicacion-drs.js dist/public-drs
-      - name: Auditar la distribución y sus textos de reglas
-        run: node tests/paquete-publico-drs.js
-      - name: Exportación A5 en Chrome sobre el paquete público DRS
-        env:
-          FORJA_PUBLIC_ROOT: dist/public-drs
-        run: node tests/pdf-a5-browser-e2e.cjs
-      - name: Verificar interacción real de Chrome y semillas/rangos en paquete público
+          node tests/adversarios-drs.js
+          node tests/adversarios-pdf.js
+          node tests/iconos-forja.js
+          node tests/pdf-a5-real.cjs
+      - name: Construir exclusivamente la distribución pública autorizada
+        run: |
+          node scripts/crear-paquete-drs.js
+          node scripts/comprobar-publicacion-drs.js dist/public-drs
+          node tests/paquete-publico-drs.js
+          test -s dist/public-drs/index.html
+          test -s dist/public-drs/characters/index.html
+          test -s dist/public-drs/spells/index.html
+          test ! -e dist/public-drs/control.html
+          test ! -e dist/public-drs/data/especies_cifi.json
+      - name: Verificar Chrome, Firefox y WebKit sobre el paquete que se publica
         env:
           FORJA_PUBLIC_ROOT: dist/public-drs
         run: |
           node tests/browser-compras.js
           node tests/browser-semillas-rangos.cjs chrome
           node tests/browser-criaturas.cjs chrome
-      - name: Preparar Firefox y WebKit conservando pdf-lib y fontkit
-        run: |
-          test -f node_modules/playwright/package.json
-          npx playwright install --with-deps firefox webkit
-      - name: Verificar la distribución en Firefox y WebKit (incluidos rangos y reproducción)
-        env:
-          FORJA_PUBLIC_ROOT: dist/public-drs
-        run: |
-          node tests/browser-compatibilidad.js
-          node tests/browser-semillas-rangos.cjs firefox webkit
-      - name: Probar Editor Nd20 sobre el paquete PUBLICO en Firefox y WebKit
-        env:
-          FORJA_PUBLIC_ROOT: dist/public-drs
-        run: node tests/browser-criaturas.cjs
-      - name: Exportación PDF A5 en Firefox y WebKit públicos
-        env:
-          FORJA_PUBLIC_ROOT: dist/public-drs
-        run: node tests/pdf-a5-multimotor.cjs
+          node tests/browser-enlaces-modulares.cjs chrome
+          node tests/browser-enlaces-modulares.cjs firefox webkit
+          node tests/pdf-a5-browser-e2e.cjs
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Subir exclusivamente el paquete depurado
+      - name: Subir solo dist/public-drs
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist/public-drs
-          # Nombre distinto en reintentos del mismo run para evitar colisiones.
           name: github-pages-${{ github.run_attempt }}
-      - name: Publicar Forja LIVE
+      - name: Publicar La Forja LIVE
         id: deployment
         uses: actions/deploy-pages@v4
         with:
           artifact_name: github-pages-${{ github.run_attempt }}
-      - name: Verificar el sitio público tras el despliegue
+      - name: Verificar Hub, Generar ya y Conjuros en la URL pública
         env:
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
         shell: bash
         run: |
           set -euo pipefail
-          # Pages/CDN puede devolver 503 mientras propaga activos; repetir
-          # solo descargas transitorias, sin relajar ninguna aserción.
-          curl() { command curl --retry 4 --retry-delay 2 --retry-connrefused "$@"; }
-          test -n "$PAGE_URL"
-          echo "Comprobando que Pages sirve la consulta DRS compacta desde SHA fijado"
-          # Verificar también la exportación A5 y su cadena de recursos sin CDN.
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-export-browser.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-pdf-browser.js
-          grep -Fq 'NaufragioPdfBrowser' /tmp/forja-pdf-browser.js
-          grep -Fq 'rasterizarIcono' /tmp/forja-pdf-browser.js
-          grep -Fq 'SourceSerif4_700Bold.ttf' /tmp/forja-pdf-browser.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-export-v2.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-pdf-engine.js
-          grep -Fq 'function prepararDatos' /tmp/forja-pdf-engine.js
-          grep -Fq 'detalleEquipo' /tmp/forja-pdf-engine.js
-          grep -Fq 'equipment.danoConPotencia(elegida.dano,out)' /tmp/forja-pdf-engine.js
-          grep -Fq 'EFECTOS DE PODERES' /tmp/forja-pdf-engine.js
-          grep -Fq 'EFECTOS DE TALENTOS' /tmp/forja-pdf-engine.js
-          grep -Fq 'PODERES CONOCIDOS' /tmp/forja-pdf-engine.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/pdf-a5/forja-fantasia-epica-a5.pdf?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-plantilla-a5.pdf
-          test "$(head -c 5 /tmp/forja-plantilla-a5.pdf)" = '%PDF-'
-          for activo in assets/vendor/pdf-lib.min.js assets/vendor/fontkit.umd.min.js assets/pdf-a5/SourceSerif4_400Regular.ttf assets/pdf-a5/SourceSerif4_700Bold.ttf assets/pdf-a5/OFL-SourceSerif4.txt; do
-            curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/${activo}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-recurso-pdf-a5
-            test -s /tmp/forja-recurso-pdf-a5
-          done
-          correcto=false
-          for intento in $(seq 1 16); do
-            if curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-live.html &&
-               grep -Fq 'id="selector-visual-especie"' /tmp/forja-live.html &&
-               grep -Fq 'id="generar-flotante"' /tmp/forja-live.html &&
-               grep -Fq 'id="dialogo-configuracion"' /tmp/forja-live.html &&
-               grep -Fq 'id="abrir-configuracion"' /tmp/forja-live.html &&
-               grep -Fq 'id="nivel-min"' /tmp/forja-live.html &&
-               grep -Fq 'id="nivel-max"' /tmp/forja-live.html &&
-               grep -Fq 'id="copiar-semilla"' /tmp/forja-live.html &&
-               grep -Fq 'Guardar y preparar' /tmp/forja-live.html &&
-               grep -Fq 'id="dialogo-seguidores"' /tmp/forja-live.html &&
-               grep -Fq 'id="configurar-seguidores"' /tmp/forja-live.html &&
-               grep -Fq 'id="resumen-seguidores"' /tmp/forja-live.html &&
-               grep -Fq 'id="aplicar-seguidores"' /tmp/forja-live.html &&
-               grep -Fq 'id="seguidor-nivel-min"' /tmp/forja-live.html &&
-               grep -Fq 'id="seguidor-nivel-max"' /tmp/forja-live.html &&
-               grep -Fq 'La semilla no guarda cambios posteriores.' /tmp/forja-live.html &&
-               grep -Fq 'id="dialogo-reproduccion"' /tmp/forja-live.html &&
-               grep -Fq 'id="cerrar-reproduccion"' /tmp/forja-live.html &&
-               grep -Fq 'aria-label="Reproducción de la ficha"' /tmp/forja-live.html &&
-               ! grep -Fq 'id="usar-semilla"' /tmp/forja-live.html &&
-               ! grep -Fq 'id="estado-uso-semilla"' /tmp/forja-live.html &&
-               grep -Fq 'id="copiar-reproduccion"' /tmp/forja-live.html &&
-               grep -Fq 'id="ocultar-tutorial"' /tmp/forja-live.html &&
-               grep -Fq 'id="informacion-avanzada"' /tmp/forja-live.html &&
-               grep -Fq 'id="inicio-movil"' /tmp/forja-live.html &&
-               grep -Fq 'assets/icons/sistema-nd20-faep.webp' /tmp/forja-live.html &&
-               grep -Fq 'assets/icons/sistema-dh.webp' /tmp/forja-live.html &&
-               grep -Fq 'Creador de personajes para Naufragio d20.' /tmp/forja-live.html &&
-               grep -Fq 'class="empezar-forja"' /tmp/forja-live.html &&
-               grep -Fq '<option value="generico">Nombres genéricos</option>' /tmp/forja-live.html &&
-               grep -Fq '<option value="ylat">Nombres de Ylat</option>' /tmp/forja-live.html; then
-              correcto=true
-              break
-            fi
-            sleep 5
-          done
-          test "$correcto" = true
-          grep -Fq 'id="tab-criaturas"' /tmp/forja-live.html
-          grep -Fq 'id="editor-criaturas"' /tmp/forja-live.html
-          for modulo in creatures.js creatures-import.js creatures-library.js creatures-components.js creatures-random.js adversarios-formato.js creatures-ui.js adversarios-pdf.js; do
-            curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/${modulo}?forja_release=${GITHUB_RUN_ID}" -o "/tmp/forja-${modulo}"
-            test -s "/tmp/forja-${modulo}"
-          done
-          grep -Fq '>Adversarios</button>' /tmp/forja-live.html
-          grep -Fq 'id="criaturas-cargar-drs"' /tmp/forja-live.html
-          grep -Fq 'id="criaturas-coleccion-busqueda"' /tmp/forja-live.html
-          grep -Fq 'id="criaturas-coleccion-origen"' /tmp/forja-live.html
-          grep -Fq 'id="criaturas-selector-drs"' /tmp/forja-live.html
-          grep -Fq 'id="criaturas-ficha-retirar"' /tmp/forja-live.html
-          grep -Fq 'Perfiles oficiales' /tmp/forja-live.html
-          grep -Fq 'id="criaturas-componentes-dialogo"' /tmp/forja-live.html
-          grep -Fq '<h1>Forja de Naufragio d20</h1>' /tmp/forja-live.html
-          grep -Fq 'Biblioteca de Acciones y Talentos' /tmp/forja-live.html
-          grep -Fq 'id="criaturas-componentes-tab-ataques" aria-pressed="true">Acciones</button>' /tmp/forja-live.html
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/branding/naufragio.svg?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-marca.svg
-          echo '9389af421bd7006089dabe72c94834dabe9c3184dcbc595473b4b88e6c295874  /tmp/forja-marca.svg' | sha256sum -c -
-          grep -Fq 'id="criaturas-componentes-clasificacion"' /tmp/forja-live.html
-          grep -Fq 'id="criaturas-explorar-ataques"' /tmp/forja-live.html
-          grep -Fq 'id="criaturas-explorar-talentos"' /tmp/forja-live.html
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/adversarios-iconos.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-iconos-adversarios.json
-          node -e "const m=require('/tmp/forja-iconos-adversarios.json');if(m.version!==1||!m.iconos||Array.isArray(m.iconos))process.exit(1)"
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/adversarios-fuentes.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-fuentes-adversarios.json
-          node -e "const m=require('/tmp/forja-fuentes-adversarios.json');if(m.version!==1||m.sistema!=='nd20'||m.fuentes.length!==1||m.fuentes[0].id!=='drs'||m.fuentes[0].total!==106)process.exit(1)"
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/adversarios-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-adversarios.json
-          node -e "const d=require('/tmp/forja-adversarios.json');if(d.fuente!=='Naufragio d20 DRS'||d.registros.length!==106||d.registros.some(x=>x.fuente!=='Naufragio d20 DRS'||x.ficha.puntuaciones.blindaje<0))process.exit(1)"
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/adversarios-relaciones-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-relaciones.json
-          node -e "const m=require('/tmp/forja-relaciones.json');if(m.version!==1||m.sistema!=='nd20'||m.fuenteId!=='drs'||m.relaciones.length!==77||m.relaciones.some(r=>!r.talentoFuenteId))process.exit(1)"
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/adversarios-talentos-indice-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-talentos-indice.json
-          node -e "const m=require('/tmp/forja-talentos-indice.json');if(m.version!==1||m.fuenteId!=='drs'||m.registros.length!==188||new Set(m.registros.map(x=>x.criaturaId+'|'+x.talentoId)).size!==188)process.exit(1)"
-          grep -Fq 'data/adversarios-talentos-indice-drs.json' /tmp/forja-creatures-ui.js
-          grep -Fq 'root.NaufragioCriaturasUI = api;' /tmp/forja-creatures-ui.js
-          grep -Fq "encabezadoApartado('Acciones'" /tmp/forja-creatures-ui.js
-          grep -Fq 'NaufragioComponentesCriaturas' /tmp/forja-creatures-components.js
-          for logo in sistema-nd20-faep.webp sistema-dh.webp; do
-            curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/${logo}?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-logo-webp
-            test "$(head -c 4 /tmp/forja-logo-webp)" = "RIFF"
-            test "$(dd if=/tmp/forja-logo-webp bs=1 skip=8 count=4 status=none)" = "WEBP"
-          done
-          ! grep -Fq 'data-juego="nd20_cifi"' /tmp/forja-live.html
-          ! grep -Fq 'data-juego="nd20_nocturna"' /tmp/forja-live.html
-          grep -Fq '<dialog id="editor-compras"' /tmp/forja-live.html
-          grep -Fq 'id="editor-armamento"' /tmp/forja-live.html
-          grep -Fq 'id="armamento-modo"' /tmp/forja-live.html
-          grep -Fq 'id="compras-grupo"' /tmp/forja-live.html
-          ! grep -Eiq 'niguac|niguaz' /tmp/forja-live.html
-          ! grep -Fq '<option value="documentado"' /tmp/forja-live.html
-          ! grep -Fq '<option value="combinado"' /tmp/forja-live.html
-          ! grep -Fq 'id="buscar-nombre-ylat"' /tmp/forja-live.html
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/tesauro-ylat.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-ylat-live.json
-          node - <<'NODE'
-          const assert=require('node:assert/strict');
-          const {entradas}=require('/tmp/forja-ylat-live.json');
-          assert.equal(entradas.filter(x=>x.tipo==='documentado').length,262);
-          assert.equal(entradas.filter(x=>x.tipo==='combinado').length,33);
-          assert.equal(entradas.length,295);
-          NODE
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/app.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-app.js
-          # El CTA también se ofrece cuando la mesa no contiene fichas.
-          grep -Fq "var mesaVacia=entradas.length===0;" /tmp/forja-app.js
-          grep -Fq "configurador.showModal();" /tmp/forja-app.js
-          grep -Fq 'function mostrarReproduccion(semilla,cfg)' /tmp/forja-app.js
-          ! grep -Fq 'var usarSemilla = false;' /tmp/forja-app.js
-          grep -Fq 'var semillaUsada=semillaGeneracion()' /tmp/forja-app.js
-          grep -Fq 'var registroGeneracion=mostrarReproduccion(semillaUsada,c);' /tmp/forja-app.js
-          grep -Fq 'var registroPersonalizado=mostrarReproduccion(semillaUsada,c);' /tmp/forja-app.js
-          grep -Fq 'function abrirReproduccion(entrada)' /tmp/forja-app.js
-          grep -Fq 'class="ver-reproduccion accion-icono"' /tmp/forja-app.js
-          ! grep -Fq 'function actualizarUsoSemilla()' /tmp/forja-app.js
-          grep -Fq 'reglas.nivelAleatorio(c.nivelMin,c.nivelMax,r' /tmp/forja-app.js
-          grep -Fq 'acciones-pie-ficha' /tmp/forja-app.js
-          grep -Fq 'danoConPotencia(x.dano,p)' /tmp/forja-app.js
-          grep -Fq 'function guardarRevision(continuarPreparacion)' /tmp/forja-app.js
-          grep -Fq 'dialogo-seguidores' /tmp/forja-app.js
-          grep -Fq 'function generarSeguidoresActivos()' /tmp/forja-app.js
-          grep -Fq 'aventuras-seguidor' /tmp/forja-app.js
-          grep -Fq 'function nombreProfesionSeguidor(tipo,genero)' /tmp/forja-app.js
-          grep -Fq 'function refrescarResumenSeguidores()' /tmp/forja-app.js
-          grep -Fq 'class="gestionar-equipo accion-icono"' /tmp/forja-app.js
-          grep -Fq 'componentesYlat' /tmp/forja-app.js
-          grep -Fq 'descripcion_mostrada||personaje.descripcion' /tmp/forja-app.js
-          grep -Fq 'concepto_mostrado||personaje.concepto' /tmp/forja-app.js
-          grep -Fq 'sexoApi?.especieVisible' /tmp/forja-app.js
-          grep -Fq 'sexoApi?.ocupacionVisible' /tmp/forja-app.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/sexo-personajes.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-sexo-live.json
-          node - <<'NODE'
-          const assert=require('node:assert/strict'),fs=require('node:fs');
-          const data=JSON.parse(fs.readFileSync('/tmp/forja-sexo-live.json','utf8'));
-          const forms=data.seguidores_profesiones_drs;
-          assert.equal(Object.keys(forms).length,12);
-          assert.equal(forms.Mensajero.femenino,'Mensajera');
-          assert.equal(forms.Mercenario.femenino,'Mercenaria');
-          assert.equal(forms.Sacerdote.femenino,'Sacerdotisa');
-          assert.equal(data.ocupaciones_formas_genero.Guerrero.femenino,'Guerrera');
-          assert.equal(data.especies_formas_genero['Elfo agreste'].femenino,'Elfa agreste');
-          assert.equal(data.especies_formas_genero['Enano montañés'].femenino,'Enana montañesa');
-          assert.equal(data.conceptos_formas_genero['Valiente defensor'].femenino,
-            'Valiente defensora');
-          assert.equal(data.conceptos_formas_genero['Guardián del bosque'].femenino,
-            'Guardiana del bosque');
-          assert(!Object.hasOwn(data.ocupaciones_formas_genero,'Truhán'));
-          assert(!Object.hasOwn(data.especies_formas_genero,'Dracónido'));
-          NODE
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/names.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-names.js
-          grep -Fq 'function generico(banco,rng)' /tmp/forja-names.js
-          grep -Fq 'function ylat(catalogo,rng)' /tmp/forja-names.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/componentes-nombres-ylat.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-componentes.json
-          node - <<'NODE'
-          const assert=require('node:assert/strict');
-          const d=require('/tmp/forja-componentes.json');
-          assert.equal(d.nombres.length,255);
-          assert.equal(d.apellidos.length,133);
-          assert.equal(d.identidades_documentadas.length,262);
-          assert.equal(d.combinaciones_previas.length,33);
-          NODE
-          grep -Fq 'exportar-pdf-ficha' /tmp/forja-app.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/tooltip-ui.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-tooltip-ui.js
-          grep -Fq "if(a&&e.pointerType===\"mouse\"&&!fija" /tmp/forja-tooltip-ui.js
-
-          # Comprobar funciones de PR #17 y no solo la presencia de los JSON.
-          grep -Fq "var avanzada=false,pulsacionReferencia=false;" /tmp/forja-tooltip-ui.js
-          grep -Fq "var categoriaVisible=talento?.categoria||objeto?.categoria;" /tmp/forja-tooltip-ui.js
-          grep -Fq "tecnicos.appendChild(nota);" /tmp/forja-tooltip-ui.js
-          ! grep -Fq "En pocas palabras" /tmp/forja-tooltip-ui.js
-          ! grep -Fq "Tipo de uso (guía editorial)" /tmp/forja-tooltip-ui.js
-          ! grep -Fq "Leer texto íntegro del DRS" /tmp/forja-tooltip-ui.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/tooltips.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-tooltips.js
-          grep -Fq "x.categoria_talento=g.categoria;" /tmp/forja-tooltips.js
-
-          # Insignias nuevas en código servido, además de los 24 Talentos.
-          grep -Fq "presentarEquipo:presentarEquipo" /tmp/forja-tooltips.js
-          grep -Fq "function bloquesConjuroDRS(ficha)" /tmp/forja-tooltips.js
-          grep -Fq 'if(x.blindaje!=null)' /tmp/forja-tooltips.js
-          grep -Fq 'info.danioCompuesto?.dados_base' /tmp/forja-tooltips.js
-          grep -Fq "info.bloques_conjuro" /tmp/forja-tooltip-ui.js
-          grep -Fq 'info-primarios-objeto' /tmp/forja-tooltip-ui.js
-          grep -Fq "escuelas:escuelas,circulo:circulo" /tmp/forja-tooltips.js
-          grep -Fq "info-escuela-" /tmp/forja-tooltip-ui.js
-          grep -Fq "info-circulo-valor" /tmp/forja-tooltip-ui.js
-          grep -Fq "textoVisible===undefined?t:textoVisible" /tmp/forja-tooltip-ui.js
-          grep -Fq "function presentarPoder(nombre)" /tmp/forja-app.js
-          grep -Fq "ico-conjuro" /tmp/forja-app.js
-          grep -Fq "grupo==='talento'||grupo==='poder'||grupo==='equipo'" /tmp/forja-app.js
-          grep -Fq 'function htmlProteccionesEquipadas(personaje,id)' /tmp/forja-app.js
-          grep -Fq 'class="recursos recursos-rejilla' /tmp/forja-app.js
-          grep -Fq 'function iconoEquipo(nombre)' /tmp/forja-app.js
-          grep -Fq "if(contiene(c.utiles_fantasia?.monturas))return 'equipo-caballo';" /tmp/forja-app.js
-          grep -Fq 'par[0]==="monturas"?"Montura"' /tmp/forja-tooltips.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/esp-semiorco.svg?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-semiorco.svg
-          grep -Fq 'id="esp-semiorco"' /tmp/forja-semiorco.svg
-          grep -Fq 'mitad-orco' /tmp/forja-semiorco.svg
-          grep -Fq 'mitad-humano' /tmp/forja-semiorco.svg
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/CREDITOS-GAME-ICONS.txt?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-creditos.txt
-          grep -Fq 'CC BY 3.0' /tmp/forja-creditos.txt
-          grep -Fq 'CREDITOS-GAME-ICONS.txt' /tmp/forja-live.html
-          grep -Fq 'function descripcionConSexo(personaje)' /tmp/forja-app.js
-          grep -Fq 'function nombreEquipoVisible(nombre)' /tmp/forja-app.js
-          grep -Fq "var ordenAtributos=['Fuerza','Mente','Agilidad','Intuición','Resistencia','Presencia'];" /tmp/forja-app.js
-          grep -Fq "iluminacion:'Iluminación'" /tmp/forja-app.js
-          grep -Fq "ropa:'Ropa'" /tmp/forja-app.js
-          grep -Fq "monturas:'Monturas'" /tmp/forja-app.js
-          grep -Fq "vehiculos:'Vagones y diligencias'" /tmp/forja-app.js
-          grep -Fq "recurso-nota-escudo" /tmp/forja-app.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/equipment.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-equipment.js
-          grep -Fq 'function blindajeFicha(personaje,catalogo)' /tmp/forja-equipment.js
-          grep -Fq 'proteccionesDisponibles:proteccionesDisponibles' /tmp/forja-equipment.js
-          grep -Fq 'function intercambiarEquipoInicial(' /tmp/forja-equipment.js
-          grep -Fq 'function comprarArmamentoFantasia(' /tmp/forja-equipment.js
-          grep -Fq 'function danoConPotencia(dano,personaje)' /tmp/forja-equipment.js
-          node - <<'NODE'
-          const assert=require('node:assert/strict');
-          const equipo=require('/tmp/forja-equipment.js');
-          const p={juego:'Naufragio d20 · Fantasía',recursos:[['Potencia',2]]};
-          assert.equal(equipo.danoConPotencia('1d8',p),'2d8');
-          p.recursos[0][1]=3;
-          assert.equal(equipo.danoConPotencia('1d6',p),'3d6');
-          p.recursos[0][1]=0;
-          assert.equal(equipo.danoConPotencia('1d12',p),'1d10');
-          p.recursos[0][1]=2;
-          p.tipo_ficha='seguidor_drs';
-          assert.equal(equipo.danoConPotencia('1d8',p),'1d8');
-          NODE
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/rules.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-rules.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/sex.js?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-sex.js
-          grep -Fq 'seguidores_profesiones_drs' /tmp/forja-rules.js
-          grep -Fq 'personaje.descripcion_mostrada=' /tmp/forja-rules.js
-          grep -Fq 'personaje.concepto_mostrado=' /tmp/forja-rules.js
-          grep -Fq 'function especieVisible(nombre,sexo,datos)' /tmp/forja-sex.js
-          ! grep -Fq 'Forma del generador histórico de nombres de Ylat.' /tmp/forja-rules.js
-          ! grep -Fq 'Nombre del banco histórico sin clasificación documental de sexo;' /tmp/forja-sex.js
-          ! grep -Eiq 'niguac|niguaz' /tmp/forja-rules.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/tesauro-ylat.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-ylat.json
-          ! grep -Eiq 'niguac|niguaz' /tmp/forja-ylat.json
-          node - <<'NODE'
-          const assert=require('node:assert/strict');
-          const j=require('/tmp/forja-ylat.json');
-          assert.equal(j.entradas.length,295);
-          assert.equal(j.entradas.filter(x=>x.tipo==='documentado').length,262);
-          assert.equal(j.entradas.filter(x=>x.tipo==='combinado').length,33);
-          assert.equal(new Set(j.entradas.map(x=>x.nombre)).size,295);
-          assert.ok(j.entradas.every(x=>
-            ['documentado','combinado'].includes(x.tipo)&&
-            ['Ylat','Isla Tormenta'].includes(x.ambito)));
-          console.log('OK: cero registros externos; 262 nombres para consulta y 33 variantes para sorteo.');
-          NODE
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/equipo-inicial.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-equipo.json
-          node - <<'NODE'
-          const assert=require('node:assert/strict');
-          const e=require('/tmp/forja-equipo.json');
-          assert.deepEqual([e.armas.length,e.armaduras.length,e.escudos.length,e.varitas_defensa.length],
-            [38,14,3,4]);
-          const dardo=e.armas.find(x=>x.nombre==='Dardo');
-          assert.equal(dardo.precio,0.05);
-          assert.equal(dardo.precio_editorial,'5 mc');
-          assert.equal(e.componentes_paquetes_editoriales.length,5);
-          assert.equal(e.utiles_fantasia.equipo_monturas.find(x=>
-            x.nombre==='Armadura equina').regla_precio_autoral.multiplicador,4);
-          const buscar=(familia,nombre)=>e[familia].find(x=>x.nombre===nombre);
-          const tela=buscar('armaduras','Armadura de tela');
-          const pieles=buscar('armaduras','Armadura de pieles');
-          const varita=buscar('varitas_defensa','Varita de cerezo');
-          const daga=buscar('armas','Daga');
-          assert.deepEqual([tela.blindaje,tela.durabilidad],['d4','-']);
-          assert.deepEqual([pieles.blindaje,pieles.durabilidad],['d6','d6']);
-          assert.deepEqual([varita.dano,varita.durabilidad,varita.municion_du],['1d3','d4','d6']);
-          assert.deepEqual([daga.dano,daga.penetracion,daga.durabilidad],['1d4',1,'d8']);
-          assert.deepEqual(e.utiles_fantasia.iluminacion.map(x=>[x.nombre,x.precio,x.du]),[
-            ['Antorcha',0.1,'d6'],['Lámpara de aceite',2,'d6 (aceite)'],
-            ['Linterna',10,'d6 (aceite)'],['Vela',0.01,'d4']
-          ]);
-          assert.deepEqual(e.utiles_fantasia.ropa.map(x=>[x.nombre,x.precio]),[
-            ['Abrigo de piel',20],['Atuendo de noble',30],
-            ['Chaqueta de cuero',10],['Disfraz',5],
-            ['Traje elegante',15],['Túnica',1]
-          ]);
-          assert.equal(e.utiles_fantasia.ropa.some(x=>x.nombre==='Ropa de viaje'),false);
-          const gruposNuevos=['instrumentos','objetos_varios','monturas',
-            'equipo_monturas','vehiculos'];
-          assert.deepEqual(gruposNuevos.map(k=>e.utiles_fantasia[k].length),[4,8,6,6,4]);
-          const armaduraEquina=e.utiles_fantasia.equipo_monturas.find(x=>x.nombre==='Armadura equina');
-          assert.equal(armaduraEquina.precio,undefined);
-          assert.equal(armaduraEquina.precio_variable,'Precio de la protección corporal ×4');
-          const establos=e.utiles_fantasia.equipo_monturas.find(x=>x.nombre==='Establos');
-          assert.equal(establos.precio,.6);
-          assert.equal(establos.servicio_por_dia,true);
-          assert.equal(e.utiles_fantasia.objetos_varios.find(x=>x.nombre==='Pipa de tabaco').du,
-            'd4 (tabaco)');
-          console.log('OK: atributos literales DRS de armas, varitas y armaduras en LIVE.');
-          NODE
-          ! grep -Fq "fuenteGlosa.textContent='Descripción: '" /tmp/forja-tooltip-ui.js
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/styles.css?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-estilos.css
-          for escuela in arcana demonologia divina elemental naturaleza nigromancia; do
-            grep -Fq ".info-escuela-${escuela}" /tmp/forja-estilos.css
-          done
-          # La web pública debe servir exactamente la nueva piel editorial,
-          # no una hoja antigua de Pages con el resto del paquete actualizado.
-          grep -Fq "fonts.googleapis.com/css2?family=Exo" /tmp/forja-estilos.css
-          grep -Fq -- "--fondo:#f3f8fc" /tmp/forja-estilos.css
-          grep -Fq "html[data-tema=clasico] .ficha-emergente" /tmp/forja-estilos.css
-          grep -Fq ".bloque-ficha ul.lista-dos-columnas" /tmp/forja-estilos.css
-          grep -Fq ".dialogo-compras{" /tmp/forja-estilos.css
-          grep -Fq ".info-tabla-conjuro{" /tmp/forja-estilos.css
-          grep -Fq ".recursos.recursos-rejilla{" /tmp/forja-estilos.css
-          grep -Fq '.tarjeta-seguidor .recursos.recursos-rejilla' /tmp/forja-estilos.css
-          grep -Fq '.tarjeta-seguidor .aventuras-seguidor{margin-top:.14rem}' /tmp/forja-estilos.css
-          grep -Fq ".dialogo-configuracion{" /tmp/forja-estilos.css
-          grep -Fq 'html[data-tema=violeta]' /tmp/forja-estilos.css
-          grep -Fq '.barra-resultados h2,.criaturas-cabecera h2{' /tmp/forja-estilos.css
-          grep -Fq '.dialogo-reproduccion{width:min(' /tmp/forja-estilos.css
-          grep -Fq ".info-primarios.info-primarios-objeto{" /tmp/forja-estilos.css
-          ! grep -Fq 'nth-child(5):last-child{grid-column:1/-1}' /tmp/forja-estilos.css
-          grep -Fq 'grid-template-columns:repeat(4,minmax(0,1fr))' /tmp/forja-estilos.css
-          grep -Fq ".protecciones-activas{" /tmp/forja-estilos.css
-          grep -Fq ".info-escuela-arcana{background:LightSkyBlue" /tmp/forja-estilos.css
-          grep -Fq ".info-categoria-objeto-armas{background:#ffa280" /tmp/forja-estilos.css
-          echo "OK: identidad Exo, azul del blog y categorías DRS en el CSS público."
-
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/glosas-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/glosas-talentos-drs.json
-          node - <<'NODE'
-          const assert=require('node:assert/strict');
-          const j=require('/tmp/glosas-talentos-drs.json');
-          const cinco=new Set(['Acción','Especial','Mejora','Pasiva','Reacción']);
-          assert.equal(j.registros.length,24);
-          assert.equal(j.registros.filter(x=>x.tipo_origen==='Especie').length,15);
-          assert.equal(j.registros.filter(x=>x.tipo_origen==='Ocupación').length,9);
-          assert.deepEqual(new Set(j.registros.map(x=>x.categoria)),cinco);
-          assert.ok(j.registros.every(x=>x.fuente_categoria&&cinco.has(x.categoria)&&
-            !('uso_editorial' in x)&&!('resumen_editorial' in x)));
-          const salvese=j.registros.find(x=>x.id_talento==='talento-drs-especie-mediano-amable-salvese-quien-pueda');
-          assert.equal(salvese.categoria,'Reacción');
-          const corpulencia=j.registros.find(x=>x.id_talento==='talento-drs-especie-enano-montanes-corpulencia');
-          assert.equal(corpulencia.categoria,'Mejora');
-          console.log('OK: categorías Excel con procedencia y sin glosas duplicadas.');
-          NODE
-          for par in 'tecnicas-drs-literales.json:10' 'glosas-talentos-drs.json:24' 'glosas-equipo-drs.json:111'; do
-            archivo="${par%%:*}"
-            total="${par##*:}"
-            curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/${archivo}?forja_release=${GITHUB_RUN_ID}" -o "/tmp/${archivo}"
-            node -e "const j=require('/tmp/${archivo}'); if(j.registros.length!==Number('${total}')) process.exit(1)"
-          done
-
-          # Los cuatro textos de varitas se sirven sin marcas metatextuales.
-          node - <<'NODE'
-          const assert=require('node:assert/strict');
-          const d=require('/tmp/glosas-equipo-drs.json');
-          const names=new Set(['Varita de cerezo','Rama de cristal','Cetro de dracólita','Esceptro de sangreluna']);
-          const varitas=d.registros.filter(x=>names.has(x.nombre));
-          assert.equal(varitas.length,4);
-          for(const v of varitas){
-            assert.match(v.descripcion_editorial,/Tirada de Mente/);
-            assert.doesNotMatch(v.descripcion_editorial,/según el DRS|descripción contextual|texto nuevo/i);
-          }
-          console.log('OK: cuatro varitas descriptivas y sin metatexto visible.');
-          NODE
-          grep -Fq 'data/tecnicas-drs-literales.json' /tmp/forja-app.js
-          grep -Fq 'data/glosas-talentos-drs.json' /tmp/forja-app.js
-          grep -Fq 'data/glosas-equipo-drs.json' /tmp/forja-app.js
-          # Auditar todos los SVG realmente servidos desde Pages (no desde main).
-          for id in esp-elfo esp-enano esp-humano esp-mediano esp-gnomo esp-semielfo esp-orco esp-semiorco ocu-clerigo ocu-guerrero ocu-mago ocu-ladron ico-conjuro ico-tecnica recurso-salud recurso-esfuerzo recurso-movimiento recurso-potencia recurso-esencia recurso-blindaje equipo-espada equipo-arco equipo-varita equipo-bolsa equipo-caballo equipo-mochila equipo-orbe equipo-libro equipo-armadura equipo-escudo equipo-municion ico-configurar sexo-masculino sexo-femenino sexo-indeterminado; do
-            curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/${id}.svg?forja_release=${GITHUB_RUN_ID}" -o "/tmp/forja-${id}.svg"
-            grep -Fq 'viewBox="0 0 24 24"' "/tmp/forja-${id}.svg"
-            grep -Fq "id=\"${id}\"" "/tmp/forja-${id}.svg"
-            # No exigir CC BY a los siete SVG originales de El Naufragio.
-            case "$id" in
-              ico-configurar|recurso-salud|recurso-esfuerzo|recurso-movimiento|recurso-potencia|recurso-esencia|recurso-blindaje)
-                grep -Fq 'Icono original de Naufragio d20 aprobado' "/tmp/forja-${id}.svg"
-                ;;
-              *)
-                grep -Fq 'Game-icons.net' "/tmp/forja-${id}.svg"
-                ;;
-            esac
-          done
-          # Los cinco iconos adicionales de las acciones de ficha también deben servirse.
-          for accion in accion-copiar accion-equipo accion-pdf accion-semilla accion-talentos; do
-            curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/assets/icons/${accion}.svg?forja_release=${GITHUB_RUN_ID}" -o "/tmp/forja-accion.svg"
-            grep -Fq 'viewBox="0 0 24 24"' /tmp/forja-accion.svg
-          done
-          # Asegurar que la web muestra los SVG definitivos de Gnomo, Mago y Mediano.
-          grep -Fq 'big-gear' /tmp/forja-esp-gnomo.svg
-          grep -Fq 'pointy-hat' /tmp/forja-ocu-mago.svg
-          grep -Fq 'baby-face' /tmp/forja-esp-mediano.svg
-          grep -Fq 'axe-sword' /tmp/forja-ocu-guerrero.svg
-          grep -Fq 'robin-hood-hat' /tmp/forja-ocu-ladron.svg
-          grep -Fq 'pope-crown' /tmp/forja-ocu-clerigo.svg
-          grep -Fq '28 son adaptaciones SVG' /tmp/forja-creditos.txt
-          grep -Fq '7 son diseños originales' /tmp/forja-creditos.txt
-          curl -fsSL "${PAGE_URL%/}/data/especies.json" -o /tmp/forja-especies.json
-          node -e "const e=require('/tmp/forja-especies.json');if(Object.keys(e).length!==8)process.exit(1)"
-          curl --connect-timeout 8 --max-time 15 -fsSL "${PAGE_URL%/}/data/aclaraciones-talentos-drs.json?forja_release=${GITHUB_RUN_ID}" -o /tmp/forja-aclaraciones.json
-          node -e "const a=require('/tmp/forja-aclaraciones.json');const ids=a.registros.map(x=>x.id_talento).sort();const expected=['talento-drs-especie-mediano-amable-salvese-quien-pueda','talento-drs-ocupacion-clerigo-expulsar-muertos-vivientes'].sort();if(a.estado!=='aprobacion_autoral'||JSON.stringify(ids)!==JSON.stringify(expected))process.exit(1)"
-          echo "OK: Forja DRS completa en vivo, 10 Técnicas, 24 Talentos, 111 descripciones, 8 Especies, 40 SVG, dos aclaraciones y CiFi/Nocturna excluidos."
-
-      - name: Verificar Editor LIVE mediante creación local en Firefox y WebKit
-        env:
-          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
-        run: |
-          node - <<'NODE'
-          const assert=require('node:assert/strict');
-          const {firefox,webkit}=require('playwright');
-          async function verificar(nombre,motor){
-            const browser=await motor.launch({headless:true});
-            try {
-              const context=await browser.newContext({viewport:{width:1280,height:900},acceptDownloads:true});
-              const page=await context.newPage();
-              const errores=[];
-              page.on('pageerror',err=>errores.push(err.message));
-              // Cada recurso se solicita a la revisión LIVE recién distribuida.
-              await page.route('**/*',route=>{
-                const url=new URL(route.request().url());
-                if(url.origin===new URL(process.env.PAGE_URL).origin &&
-                    !url.searchParams.has('forja_release')){
-                  url.searchParams.set('forja_release',process.env.GITHUB_RUN_ID);
-                  return route.continue({url:url.toString()});
-                }
-                return route.continue();
-              });
-              await page.goto(process.env.PAGE_URL,{waitUntil:'domcontentloaded'});
-              await page.locator('#estado').getByText('Datos listos',{exact:false})
-                .waitFor({timeout:45000});
-              await page.locator('#tab-criaturas').click();
-              assert.equal(await page.locator('.juegos-compactos [data-juego="nd20"]').isVisible(),true);
-              assert.equal(await page.locator('.juegos-compactos [data-juego="dh"]').isHidden(),true);
-              assert.equal((await page.locator('#tab-criaturas').innerText()).trim(),
-                'Adversarios');
-              assert.equal(await page.locator('#editor-criaturas').isVisible(),true);
-              assert.equal(await page.locator('#criaturas-lista .criaturas-cromo').count(),0);
-              await page.locator('#criaturas-nueva-panel').click();
-              assert.equal(await page.locator('#criaturas-crear-dialogo').evaluate(x=>x.open),true);
-              await page.locator('#criaturas-crear-manual').click();
-              await page.locator('#criaturas-edicion').waitFor({state:'visible'});
-              await page.locator('#criaturas-nombre').fill('Comprobación LIVE local');
-              await page.locator('#criaturas-categoria').selectOption('Bestia');
-              await page.locator('#criaturas-nivel').fill('4');
-              await page.locator('#criaturas-salud-ajuste').fill('-2');
-              assert.equal(await page.locator('#criaturas-salud').inputValue(),'',
-                'LIVE no debe inventar Salud al introducir Nivel.');
-              await page.locator('#criaturas-salud-modo').selectOption('automatico');
-              assert.equal(await page.locator('#criaturas-salud').inputValue(),'8');
-              await page.locator('#criaturas-descripcion').fill(
-                'Adversario creado durante la prueba pública de LIVE.');
-              await page.locator('#criaturas-guardar').click();
-              await page.locator('#criaturas-estado').getByText('guardado',{exact:false})
-                .waitFor({timeout:15000});
-              const barra=await page.locator('.criaturas-ficha-acciones').evaluate(el=>{
-                const botones=[...el.querySelectorAll('button')].filter(b=>!b.hidden&&
-                  getComputedStyle(b).display!=='none');
-                const cuadros=botones.map(b=>b.getBoundingClientRect());
-                return {cantidad:botones.length,iconos:botones.every(b=>b.querySelector('svg,.icono-accion')),
-                  etiquetas:botones.every(b=>b.getAttribute('aria-label')),
-                  diferencia:Math.max(...cuadros.map(r=>r.top))-Math.min(...cuadros.map(r=>r.top)),
-                  altura:el.getBoundingClientRect().height};
-              });
-              assert.equal(barra.cantidad,5,'Cinco acciones de adversario.');
-              assert.ok(barra.iconos&&barra.etiquetas,'Iconos accesibles.');
-              assert.ok(barra.diferencia<2&&barra.altura<80,
-                'Una sola fila compacta de iconos.');
-              const guardado=await page.evaluate(()=>JSON.parse(
-                localStorage.getItem('forja-criaturas-usuario-v1')));
-              assert.equal(guardado.criaturas.length,1);
-              assert.equal(guardado.criaturas[0].ficha.puntuaciones.nivel,4);
-              assert.equal(guardado.criaturas[0].ficha.puntuaciones.salud,8);
-              // PDF individual real desde los assets publicados de Pages.
-              const descarga=page.waitForEvent('download',{timeout:60000});
-              await page.locator('#criaturas-ficha-pdf').click();
-              const pdf=await descarga;
-              assert.ok(pdf.suggestedFilename().toLowerCase().endsWith('.pdf'));
-              await page.reload({waitUntil:'domcontentloaded'});
-              await page.locator('#estado').getByText('Datos listos',{exact:false})
-                .waitFor({timeout:45000});
-              await page.locator('#tab-criaturas').click();
-              assert.equal(await page.locator('#criaturas-lista .criaturas-cromo').count(),1);
-              // El catálogo es optativo: abrirlo no debe cargar ninguna ficha.
-              await page.locator('#criaturas-cargar-drs').click();
-              assert.equal(await page.locator('#criaturas-selector-drs').evaluate(x=>x.open),true);
-              assert.equal(await page.locator('.criaturas-selector-fila').count(),106);
-              assert.equal(await page.locator('.criaturas-cromo').count(),1);
-              await page.locator('#criaturas-selector-busqueda').fill('Goblin con tirachinas');
-              assert.equal(await page.locator('.criaturas-selector-fila').count(),1);
-              await page.locator('.criaturas-selector-fila button').click();
-              assert.equal(await page.locator('.criaturas-cromo[data-oficial="true"]').count(),1);
-              await page.locator('#criaturas-selector-cerrar').click();
-              await page.locator('.criaturas-cromo[data-oficial="true"]').click();
-              assert.equal((await page.locator('#criaturas-ficha-titulo').innerText()).trim(),
-                'Goblin con tirachinas');
-              assert.equal(await page.locator('#criaturas-ficha-editar').getAttribute('aria-label'),
-                'Crear copia editable');
-              assert.equal(await page.locator('#criaturas-ficha-editar svg').count(),1);
-              assert.equal(await page.locator('#criaturas-ficha-eliminar').isHidden(),true);
-              assert.equal(await page.locator('#criaturas-ficha-retirar').isVisible(),true);
-              assert.equal(await page.locator('.criaturas-metrica').count(),3);
-              assert.equal(await page.locator('.criaturas-metrica-icono').count(),3);
-              assert.equal((await page.locator('.criaturas-taxonomia').innerText()).trim(),
-                'Humanoide - Goblin');
-              assert.match(await page.locator('.criaturas-fuente').innerText(),
-                /Fuente: Naufragio d20 · Fantasía Épica · DRS/);
-              assert.match(await page.locator('#criaturas-ficha-contenido').innerText(),
-                /Chinazo - 6 de daño/);
-              assert.deepEqual(
-                await page.locator('.criaturas-ataques-consulta strong.criaturas-nombre-ataque').allTextContents(),
-                ['Chinazo'],'LIVE resalta exclusivamente el nombre del ataque.');
-              assert.doesNotMatch(await page.locator('#criaturas-ficha-contenido').innerText(),
-                /Protección|Habilidad relacionada|chinazo_51/);
-              assert.equal(await page.locator('.criaturas-icono-apartado').count(),2);
-              const icono=page.locator('.criaturas-cromo[data-oficial="true"] .criaturas-emblema');
-              assert.equal(await icono.innerText(),'');
-              const medidas=await icono.evaluate(x=>({
-                ancho:x.getBoundingClientRect().width,
-                alto:x.getBoundingClientRect().height,
-                fondo:getComputedStyle(x).backgroundColor
-              }));
-              assert.ok(medidas.ancho>medidas.alto,'La tarjeta oficial es panorámica.');
-              assert.ok(Math.abs(medidas.ancho/medidas.alto-16/9)<0.12,
-                'La ilustración de adversarios respeta el recorte 16:9.');
-              await page.locator('#criaturas-ficha-retirar').click();
-              assert.equal(await page.locator('.criaturas-cromo').count(),1);
-              await page.locator('#criaturas-cargar-drs').click();
-              await page.locator('#criaturas-selector-busqueda').fill('Necrotótamo');
-              await page.locator('.criaturas-selector-fila button').click();
-              await page.locator('#criaturas-selector-cerrar').click();
-              await page.locator('.criaturas-cromo[data-oficial="true"]').click();
-              assert.equal((await page.locator('#criaturas-ficha-titulo').innerText()).trim(),
-                'Necrotótamo');
-              assert.equal((await page.locator('.criaturas-taxonomia').innerText()).trim(),
-                'Monstruo - Bestias mitológicas');
-              assert.equal(await page.locator('.criaturas-ataques-consulta li').count(),2,
-                'Coletazos y mirada pétrea son dos alternativas.');
-              assert.doesNotMatch(await page.locator('.criaturas-ataques-consulta').innerText(),
-                /^\s*o Mirada/m);
-              await page.locator('#criaturas-ficha-retirar').click();
-              assert.equal(await page.locator('.criaturas-cromo').count(),1);
-              await page.reload({waitUntil:'domcontentloaded'});
-              await page.locator('#estado').getByText('Datos listos',{exact:false})
-                .waitFor({timeout:45000});
-              await page.locator('#tab-criaturas').click();
-              assert.equal(await page.locator('.criaturas-cromo').count(),1,
-                'La retirada de la ficha DRS persiste al recargar.');
-              await page.locator('#tab-herramientas').click();
-              const orden=await page.evaluate(()=>[
-                document.querySelector('#resumen-seguidores').compareDocumentPosition(
-                  document.querySelector('#configurar-seguidores'))&Node.DOCUMENT_POSITION_FOLLOWING,
-                document.querySelector('#configurar-seguidores').compareDocumentPosition(
-                  document.querySelector('#generar-seguidor'))&Node.DOCUMENT_POSITION_FOLLOWING
-              ]);
-              assert.deepEqual(orden,[4,4],'Configurar seguidores está entre resumen y generación.');
-              // Generación aleatoria sobre la versión LIVE real, sin persistir.
-              await page.locator('#tab-criaturas').click();
-              const guardadosPrevios=await page.evaluate(()=>JSON.parse(
-                localStorage.getItem('forja-criaturas-usuario-v1')).criaturas.length);
-              await page.locator('#criaturas-nueva-panel').click();
-              assert.equal(await page.locator('#criaturas-crear-dialogo').evaluate(x=>x.open),true);
-              await page.locator('#criaturas-crear-aleatorio').click();
-              assert.equal(await page.locator('#criaturas-generar-dialogo').evaluate(x=>x.open),true);
-              assert.equal(await page.locator('#criaturas-crear-dialogo').evaluate(x=>x.open),false);
-              assert.equal(await page.locator('#criaturas-generar-aleatorizar').count(),0);
-              await page.locator('#criaturas-generar-cancelar').click();
-              assert.equal(await page.locator('#criaturas-crear-dialogo').evaluate(x=>x.open),true,
-                'Cancelar la configuración debe regresar al menú, sin crear nada.');
-              await page.locator('#criaturas-crear-aleatorio').click();
-              await page.locator('#criaturas-generar-min').fill('12');
-              await page.locator('#criaturas-generar-max').fill('12');
-              await page.locator('#criaturas-generar-modo').selectOption('libre');
-              await page.locator('#criaturas-generar-acciones').fill('2');
-              await page.locator('#criaturas-generar-talentos').fill('2');
-              await page.locator('#criaturas-generar-semilla').fill('smoke-live-adversarios');
-              const nombrePrevisto=(await page.locator('#criaturas-generar-nombre-previa')
-                .innerText()).replace('Nombre propuesto: ','');
-              assert.match(nombrePrevisto,/^\S+ \S+$/);
-              await page.locator('#criaturas-generar-ejecutar').click();
-              await page.locator('#criaturas-edicion').waitFor({state:'visible'});
-              assert.equal(await page.locator('#criaturas-nivel').inputValue(),'12');
-              assert.equal(await page.locator('#criaturas-salud').inputValue(),'48');
-              assert.equal(await page.locator('#criaturas-nombre').inputValue(),nombrePrevisto,
-                'El nombre sorteado debe coincidir con la vista previa de LIVE.');
-              assert.equal(await page.locator('.criatura-ataque').count(),2);
-              assert.equal(await page.locator('.criatura-talento').count(),2);
-              assert.match(await page.locator('#criaturas-notas').inputValue(),
-                /semilla: smoke-live-adversarios/);
-              const guardadosDespues=await page.evaluate(()=>JSON.parse(
-                localStorage.getItem('forja-criaturas-usuario-v1')).criaturas.length);
-              assert.equal(guardadosDespues,guardadosPrevios,
-                'La generación aleatoria en LIVE no modifica la biblioteca.');
-
-              assert.deepEqual(errores,[],nombre+': errores JS en LIVE');
-              console.log('OK LIVE '+nombre+
-                ': KPI ilustrados, taxonomía, ataques opcionales, SVG, PDF y Seguidores');
-            } finally { await browser.close(); }
-          }
-          (async()=>{
-            await verificar('Firefox',firefox);
-            await verificar('WebKit',webkit);
-          })().catch(error=>{console.error(error);process.exitCode=1;});
-          NODE
+          raiz="${PAGE_URL%/}"
+          curl --fail --location --silent --show-error --retry 8 --retry-delay 5 \
+            "${raiz}/?forja_release=82541b4c4729267a3e5ab31a69c0a75f86857929" -o /tmp/forja-live-hub.html
+          grep -Fq 'href="characters/"' /tmp/forja-live-hub.html
+          grep -Fq 'href="spells/"' /tmp/forja-live-hub.html
+          curl --fail --location --silent --show-error --retry 8 --retry-delay 5 \
+            "${raiz}/characters/?forja_release=82541b4c4729267a3e5ab31a69c0a75f86857929" -o /tmp/forja-live-characters.html
+          grep -Fq 'id="criaturas-crear-ya"' /tmp/forja-live-characters.html
+          curl --fail --location --silent --show-error --retry 8 --retry-delay 5 \
+            "${raiz}/spells/?forja_release=82541b4c4729267a3e5ab31a69c0a75f86857929" -o /tmp/forja-live-spells.html
+          grep -Fq 'id="tabla-progreso"' /tmp/forja-live-spells.html
+          ! grep -Fq 'La tabla de progreso no añade Conjuros al repertorio' /tmp/forja-live-spells.html
+          curl --fail --location --silent --show-error --retry 8 --retry-delay 5 \
+            "${raiz}/assets/spell-lists-simple.js?forja_release=82541b4c4729267a3e5ab31a69c0a75f86857929" -o /tmp/forja-live-progress.js
+          grep -Fq 'for(var siguiente=indice+1;siguiente<progresion.niveles.length;siguiente++)' /tmp/forja-live-progress.js
+          echo "OK: Hub, adversarios y Conjuros sirven la nueva revisión en LIVE."
