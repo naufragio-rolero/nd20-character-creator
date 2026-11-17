@@ -306,6 +306,7 @@ async function probar(nombre,motor,origen){
 
     // Fase 7.5: exportación completa transporta las preferencias, la
     // selección activa, el progreso 30x8 y la biblioteca, sin reglas DRS.
+    await oficiales.locator('.formato-lista summary').click();
     await oficiales.locator('#mostrar-escuela').check();
     await oficiales.locator('#filtro-escuela').selectOption('Elemental');
     await oficiales.locator('#filtro-circulo').selectOption('1');
