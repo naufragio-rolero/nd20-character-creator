@@ -283,7 +283,17 @@ function pintarProgresion(){
         input.addEventListener('input',function(){
           // Un campo vacío o inválido bloquea el guardado; nunca se trata como 0.
           var v=this.value.trim();
-          progresion.niveles[indice][columna]=/^\d+$/.test(v)?Number(v):v;
+          var valido=/^\d+$/.test(v)&&Number(v)<=30;
+          var nuevo=valido?Number(v):v;
+          progresion.niveles[indice][columna]=nuevo;
+          // Propagar solo valores válidos a los Niveles posteriores del mismo Círculo.
+          // El origen de las otras columnas y las tablas oficiales no cambia.
+          if(valido){
+            for(var siguiente=indice+1;siguiente<progresion.niveles.length;siguiente++){
+              progresion.niveles[siguiente][columna]=nuevo;
+              tbody.rows[siguiente].cells[columna+1].querySelector('input').value=String(nuevo);
+            }
+          }
           editar();
         });
         td.appendChild(input);
