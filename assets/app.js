@@ -1998,7 +1998,9 @@
         if(!reproduccionActiva)throw Error('No hay configuración que compartir.');
         var token=window.NaufragioEnlaces.codificar('character',
           reproduccionActiva.config.juego,reproduccionActiva);
-        copiar(window.NaufragioEnlaces.crearUrl('characters-nd20/',token));
+        var rutaPersonajes=window.location.pathname.endsWith('/index.html')?
+          'characters/index.html':'characters/';
+        copiar(window.NaufragioEnlaces.crearUrl(rutaPersonajes,token));
       }catch(error){aviso(error.message,true);}
     });
     $('copiar-reproduccion').addEventListener('click',function(){

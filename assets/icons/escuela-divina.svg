@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <!-- Diseño original de El Naufragio para La Forja. Escuela: divina. Recurso visual, no canon. -->
+  <circle cx="12" cy="12" r="11" fill="#947000"/>
+  <circle cx="12" cy="12" r="10.55" fill="none" stroke="#fff" stroke-opacity=".34" stroke-width=".65"/>
+  <circle cx="12" cy="12" r="3.3" fill="#fff"/><path d="M12 4.3v2.6M12 17.1v2.6M4.3 12h2.6M17.1 12h2.6M6.55 6.55l1.86 1.86m7.18 7.18 1.86 1.86M17.45 6.55l-1.86 1.86m-7.18 7.18-1.86 1.86" fill="none" stroke="#fff" stroke-width="1.65" stroke-linecap="round"/>
+</svg>

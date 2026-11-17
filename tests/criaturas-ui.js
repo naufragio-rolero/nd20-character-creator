@@ -4,7 +4,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const raiz=path.resolve(__dirname,'..');
 const leer=p=>fs.readFileSync(path.join(raiz,p),'utf8');
-const html=leer('characters-nd20/index.html');
+const html=leer('characters/index.html');
 const ui=leer('assets/creatures-ui.js');
 const app=leer('assets/app.js');
 const css=leer('assets/styles.css');

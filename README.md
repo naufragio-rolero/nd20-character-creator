@@ -6,7 +6,7 @@
 
 ## Navegación modular (candidato en desarrollo)
 
-La portada `index.html` da acceso a **Personajes** (`characters-nd20/`) y **Conjuros** (`spells/`). Personajes conserva las pestañas de Seguidores y Adversarios. Los nombres `techs/` y `songs/` están reservados para futuras herramientas, todavía no implementadas. El aspecto comparte Exo y los temas Clásico, Ébano, Cerúleo, Obsidiana y Violeta.
+La portada `index.html` da acceso a **Personajes** (`characters/`) y **Conjuros** (`spells/`). La ruta histórica `characters-nd20/` se conserva solo como redirección, incluidos los enlaces con `#share=`. Personajes conserva las pestañas de Seguidores y Adversarios. Los nombres `techs/` y `songs/` están reservados para futuras herramientas, todavía no implementadas. El aspecto comparte Exo y los temas Clásico, Ébano, Cerúleo, Obsidiana y Violeta.
 
 Los enlaces portátiles `#share=` permiten reconstruir la generación original de un personaje a partir de semilla y configuración, consultar una biblioteca compartida de Listas de Conjuros o abrir un adversario como borrador validado. **No equivalen a almacenamiento remoto ni sincronización.** Tampoco guardan las ediciones posteriores al generar personajes. Más detalle en [Arquitectura modular](docs/ARQUITECTURA-FORJA-MODULAR.md).
 

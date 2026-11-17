@@ -23,6 +23,7 @@ jobs:
         run: |
           node tests/alcance-drs.js
           node tests/smoke.js
+          node tests/fase5-rutas-drs.js
           node tests/semillas-rangos.js
           node tests/fichas-drs-ux.js
           node tests/armamento-edicion.js

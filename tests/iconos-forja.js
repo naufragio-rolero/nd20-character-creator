@@ -39,6 +39,7 @@ const ids=[
   "sexo-femenino",
   "sexo-indeterminado"
 ];
+const escuelas=['arcana','divina','nigromancia','elemental','demonologia','naturaleza'];
 const acciones={
   'accion-equipo':'backpack',
   'accion-talentos':'sparkles',
@@ -48,8 +49,18 @@ const acciones={
 };
 assert.deepEqual(
   fs.readdirSync(dir).filter(x=>x.endsWith('.svg')).sort(),
-  ids.concat(Object.keys(acciones)).map(x=>x+'.svg').sort(),
-  '40 SVG autónomos: 35 aprobados + 5 acciones MIT');
+  ids.concat(Object.keys(acciones),escuelas.map(x=>'escuela-'+x))
+    .map(x=>x+'.svg').sort(),
+  '46 SVG autónomos: 35 anteriores + 5 acciones MIT + 6 Escuelas');
+for(const escuela of escuelas){
+  const fichero='escuela-'+escuela+'.svg';
+  const svg=fs.readFileSync(path.join(dir,fichero),'utf8');
+  assert.match(svg,/<svg[^>]*viewBox="0 0 24 24"/,fichero+': lienzo 1:1');
+  assert.match(svg,/<circle cx="12" cy="12" r="11"/,fichero+': medallón centrado');
+  assert.ok(svg.includes('Diseño original de El Naufragio'),fichero+': autoría propia');
+  assert.ok(!/<script\b|<foreignObject\b|<iframe\b|\bon[a-z]+\s*=|\bhref\s*=/i.test(svg),
+    fichero+': sin contenido activo ni recursos externos');
+}
 const originalesPropios=new Set(["ico-configurar","recurso-salud","recurso-esfuerzo","recurso-movimiento","recurso-potencia","recurso-esencia","recurso-blindaje"]);
 assert.equal(originalesPropios.size,7,'7 iconos originales propios en el catálogo');
 for(const id of ids){
@@ -148,7 +159,7 @@ assert.ok(fs.readFileSync(path.join(dir,'ocu-mago.svg'),'utf8').includes('pointy
 assert.ok(fs.existsSync(path.join(rutaOrigen,'darkzaitzev','big-gear.svg')),
   'El SVG original big-gear se conserva como fuente');
 
-const index=fs.readFileSync(path.join(raiz,'characters-nd20','index.html'),'utf8');
+const index=fs.readFileSync(path.join(raiz,'characters','index.html'),'utf8');
 assert.ok(index.includes('assets/icons/CREDITOS-GAME-ICONS.txt'),
   'Créditos Game-icons enlazados desde La Forja');
 assert.ok(index.includes('assets/icons/LICENCIA-TABLER.txt'),
@@ -156,4 +167,4 @@ assert.ok(index.includes('assets/icons/LICENCIA-TABLER.txt'),
 for(const nombre of Object.keys(acciones))
   assert.ok(appJs.includes('icono-accion '+nombre),nombre+': pie de ficha con pictograma');
 
-console.log('OK · 40 SVG 1:1 (35 anteriores + 5 Tabler MIT), licencias y máscaras CSS.');
+console.log('OK · 46 SVG 1:1 (35 anteriores + 5 Tabler MIT + 6 Escuelas originales), licencias y máscaras CSS.');

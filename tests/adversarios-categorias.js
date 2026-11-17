@@ -35,7 +35,7 @@ assert.equal(visual.obtener('Alimana').familia,'bestia');
 assert.equal(visual.obtener('MUERTO   VIVIENTE').familia,'muerto-viviente');
 assert.equal(visual.obtener('Clase desconocida'),null,'No inferir categorias.');
 const css=fs.readFileSync(path.join(raiz,'assets/styles.css'),'utf8');
-const html=fs.readFileSync(path.join(raiz,'characters-nd20','index.html'),'utf8');
+const html=fs.readFileSync(path.join(raiz,'characters','index.html'),'utf8');
 const ui=fs.readFileSync(path.join(raiz,'assets/creatures-ui.js'),'utf8');
 const pack=fs.readFileSync(path.join(raiz,'scripts/crear-paquete-drs.js'),'utf8');
 const credits=fs.readFileSync(path.join(raiz,'assets/icons/CREDITOS-GAME-ICONS.txt'),'utf8');

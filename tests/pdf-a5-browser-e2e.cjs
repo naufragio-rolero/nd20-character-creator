@@ -32,7 +32,7 @@ async function main(){
     const page=await context.newPage();
     const errores=[];
     page.on('pageerror',e=>errores.push(e.message));
-    await page.goto('http://127.0.0.1:'+server.address().port+'/characters-nd20/index.html',{waitUntil:'domcontentloaded'});
+    await page.goto('http://127.0.0.1:'+server.address().port+'/characters/index.html',{waitUntil:'domcontentloaded'});
     await page.waitForFunction(()=>!document.querySelector('#generar').disabled,{timeout:45000});
     await page.click('#generar');
     await page.waitForSelector('.exportar-pdf-ficha',{timeout:45000});

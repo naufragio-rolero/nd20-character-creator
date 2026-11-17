@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - feat/forja-modular-enlaces
+      - feat/escuelas-medallones-characters
   workflow_dispatch:
 
 permissions:
@@ -18,7 +19,7 @@ concurrency:
 
 jobs:
   preparar-preview:
-    if: github.ref == 'refs/heads/feat/forja-modular-enlaces'
+    if: github.ref == 'refs/heads/feat/forja-modular-enlaces' || github.ref == 'refs/heads/feat/escuelas-medallones-characters'
     runs-on: ubuntu-24.04
     timeout-minutes: 22
     steps:
@@ -53,7 +54,7 @@ jobs:
           const fs = require('node:fs');
           const path = require('node:path');
           const raiz = path.resolve('dist/public-drs');
-          const paginas = ['index.html','characters-nd20/index.html','spells/index.html'];
+          const paginas = ['index.html','characters/index.html','characters-nd20/index.html','spells/index.html'];
           const css = '<style id="forja-preview-css">#forja-marca-preview{position:fixed;right:10px;bottom:10px;z-index:2147483647;padding:7px 11px;border-radius:7px;background:#171821;color:#fff;border:1px solid #ffce66;box-shadow:0 2px 12px #0008;font:600 12px/1.3 system-ui,sans-serif;pointer-events:none}</style>';
           const nota = '<div id="forja-marca-preview" role="status" aria-label="Versión de pruebas, no es LIVE">PREVIEW · NO LIVE · DATOS DE PRUEBA</div>';
           for (const nombre of paginas) {
@@ -67,11 +68,11 @@ jobs:
             // raw.githack es un proxy de ficheros, no GitHub Pages:
             // no resuelve /carpeta/ como /carpeta/index.html.
             if(nombre==='index.html'){
-              if(!html.includes('href="characters-nd20/"')||
+              if(!html.includes('href="characters/"')||
                  !html.includes('href="spells/"'))
                 throw Error('Han cambiado las rutas de la portada modular');
-              html=html.replace('href="characters-nd20/"',
-                'href="characters-nd20/index.html"');
+              html=html.replace('href="characters/"',
+                'href="characters/index.html"');
               html=html.replace('href="spells/"','href="spells/index.html"');
             }
             fs.writeFileSync(archivo,html);
@@ -81,11 +82,13 @@ jobs:
              fs.existsSync(path.join(raiz,'control.html'))||
              fs.existsSync(path.join(raiz,'scripts')))
             throw Error('El paquete de preview contiene fuentes de trabajo');
+          const referencia=process.env.GITHUB_REF==='refs/heads/feat/escuelas-medallones-characters'
+            ? '#144' : '#142';
           fs.writeFileSync(path.join(raiz,'PREVIEW.txt'),
-            'La Forja PREVIEW de PR #142; version de pruebas, no LIVE.\n'+
+            'La Forja PREVIEW de PR '+referencia+'; version de pruebas, no LIVE.\n'+
             'Origen: '+process.env.GITHUB_SHA+'\n'+
             'Paquete generado exclusivamente mediante scripts/crear-paquete-drs.js.\n');
-          console.log('PREVIEW: tres vistas marcadas; rutas explicitas; sin fuentes editoriales.');
+          console.log('PREVIEW: Hub, Personajes, redirección y Conjuros marcados; rutas explícitas, sin fuentes editoriales.');
           NODE
       - name: Conservar también una copia descargable
         uses: actions/upload-artifact@v4
@@ -97,7 +100,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$GITHUB_REF" = 'refs/heads/feat/forja-modular-enlaces'
+          case "$GITHUB_REF" in
+            refs/heads/feat/forja-modular-enlaces|refs/heads/feat/escuelas-medallones-characters) ;;
+            *) echo 'Ref no autorizada para PREVIEW'; exit 1;;
+          esac
           test -f dist/public-drs/PREVIEW.txt
           destino="$RUNNER_TEMP/forja-preview-worktree"
           git worktree add --detach "$destino" HEAD
@@ -107,6 +113,7 @@ jobs:
           git clean -fdx
           cp -a "$GITHUB_WORKSPACE/dist/public-drs/." .
           test -f index.html
+          test -f characters/index.html
           test -f characters-nd20/index.html
           test -f spells/index.html
           test ! -e .github
@@ -134,19 +141,23 @@ jobs:
             sleep 5
           done
           test "$valido" -eq 1
-          for recurso in index.html characters-nd20/index.html spells/index.html assets/styles.css assets/share-links.js data/listas-conjuros-borradores.json; do
+          for recurso in index.html characters/index.html characters-nd20/index.html spells/index.html assets/styles.css assets/share-links.js assets/spell-lists-simple.js assets/spell-lists-simple.css assets/icons/escuela-arcana.svg assets/icons/escuela-divina.svg assets/icons/escuela-nigromancia.svg assets/icons/escuela-elemental.svg assets/icons/escuela-demonologia.svg assets/icons/escuela-naturaleza.svg data/conjuros-drs-fichas.json data/listas-conjuros-borradores.json; do
             curl -fsSL --connect-timeout 8 --max-time 30 "$base/$recurso" -o "$RUNNER_TEMP/preview-recurso"
             test -s "$RUNNER_TEMP/preview-recurso"
           done
           curl -fsSL --connect-timeout 8 --max-time 30 "$base/index.html" -o "$RUNNER_TEMP/preview-portada.html"
           grep -Fq 'PREVIEW · NO LIVE' "$RUNNER_TEMP/preview-portada.html"
-          grep -Fq 'href="characters-nd20/index.html"' "$RUNNER_TEMP/preview-portada.html"
+          grep -Fq 'href="characters/index.html"' "$RUNNER_TEMP/preview-portada.html"
           grep -Fq 'href="spells/index.html"' "$RUNNER_TEMP/preview-portada.html"
-          echo 'HTTP remoto correcto: portada, Personajes, Conjuros, recursos y revisión exacta.'
+          curl -fsSL --connect-timeout 8 --max-time 30 "$base/characters-nd20/index.html" -o "$RUNNER_TEMP/preview-redirect.html"
+          grep -Fq "destino.hash=actual.hash" "$RUNNER_TEMP/preview-redirect.html"
+          grep -Fq "destino.search=actual.search" "$RUNNER_TEMP/preview-redirect.html"
+          grep -Fq "window.location.replace(destino.href)" "$RUNNER_TEMP/preview-redirect.html"
+          echo 'HTTP remoto correcto: portada, ruta de Personajes, redirección antigua, Conjuros y revisión exacta.'
       - name: Indicar enlace independiente, sin modificar LIVE
         run: |
           echo 'PREVIEW: https://raw.githack.com/naufragio-rolero/nd20-character-creator/forja-preview-pr142/index.html' >> "$GITHUB_STEP_SUMMARY"
-          echo "Snapshot: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "Snapshot de PR #144/#142 según rama origen: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
           echo "Revisión exacta: https://raw.githack.com/naufragio-rolero/nd20-character-creator/${FORJA_PREVIEW_COMMIT}/index.html" >> "$GITHUB_STEP_SUMMARY"
           echo "Conjuros: https://raw.githack.com/naufragio-rolero/nd20-character-creator/${FORJA_PREVIEW_COMMIT}/spells/index.html" >> "$GITHUB_STEP_SUMMARY"
           echo 'LIVE mantiene su workflow y SHA aprobados: aquí NO se invoca deploy-pages.' >> "$GITHUB_STEP_SUMMARY"

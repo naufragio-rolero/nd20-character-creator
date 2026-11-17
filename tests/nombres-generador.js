@@ -69,7 +69,7 @@ for(const modoNombre of ['generico','ylat']){
     reglas.aleatorioSemilla('manual'));
   assert.equal(personal.nombre,'Nombre elegido','La edición manual prevalece');
 }
-const html=fs.readFileSync(path.join(raiz,'characters-nd20','index.html'),'utf8');
+const html=fs.readFileSync(path.join(raiz,'characters','index.html'),'utf8');
 assert.ok(html.includes('<option value="generico">Nombres genéricos</option>'));
 assert.ok(html.includes('<option value="ylat">Nombres de Ylat</option>'));
 assert.ok(!html.includes('<option value="combinado"'));

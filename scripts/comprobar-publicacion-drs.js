@@ -35,18 +35,20 @@ const iconosForja=[
   'equipo-municion', 'ico-configurar', 'sexo-masculino', 'sexo-femenino', 'sexo-indeterminado',
   'accion-equipo', 'accion-talentos', 'accion-pdf', 'accion-semilla', 'accion-copiar',
 ];
+const iconosEscuelas=['arcana','divina','nigromancia','elemental','demonologia','naturaleza'];
 const iconosCategoriasAdversarios=[
   'aberrante','automata','bestia','celestial','demonio','dragon','elemental',
   'fata','humanoide','monstruo','muerto-viviente','vegetal'
 ];
 const requeridos=[
-  'index.html','characters-nd20/index.html','spells/index.html',
+  'index.html','characters/index.html','characters-nd20/index.html','spells/index.html',
   'assets/portal.css','assets/portal.js','assets/share-links.js',
   'assets/forja-header.css','assets/theme-picker.js',
   'assets/spell-lists.js','assets/spell-lists-simple.js','assets/spell-lists-simple.css',
   'data/conjuros-drs-fichas.json','data/listas-conjuros-borradores.json',
   'assets/styles.css',
   ...iconosForja.map(id=>'assets/icons/'+id+'.svg'),
+  ...iconosEscuelas.map(id=>'assets/icons/escuela-'+id+'.svg'),
   'assets/icons/CREDITOS-GAME-ICONS.txt','assets/icons/LICENCIA-TABLER.txt',
   'assets/creatures.js','assets/creatures-import.js',
   'assets/creatures-library.js','assets/creatures-components.js','assets/creatures-random.js',
@@ -90,6 +92,15 @@ for(const ruta of requeridos)
   if(!fs.existsSync(path.join(raiz,ruta)))
     alertas.push('Falta archivo requerido por el arranque de Forja: '+ruta+
       '. No declarar publicable un paquete incompleto.');
+const redireccion=fs.existsSync(path.join(raiz,'characters-nd20','index.html'))?
+  fs.readFileSync(path.join(raiz,'characters-nd20','index.html'),'utf8'):'';
+afirmar(!redireccion.includes("new URL('../characters/'")||
+   !redireccion.includes('destino.search=actual.search')||
+   !redireccion.includes('destino.hash=actual.hash')||
+   !redireccion.includes('window.location.replace(destino.href)'),
+  'La URL antigua debe redirigir preservando búsqueda y fragmento compartido.');
+afirmar(redireccion.includes('assets/app.js')||redireccion.includes('assets/rules.js'),
+  'La URL antigua debe ser un redireccionador ligero, no otro generador.');
 const fuentesAdversarios=dato('data/adversarios-fuentes.json');
 if(fuentesAdversarios && (fuentesAdversarios.version!==1||
    fuentesAdversarios.sistema!=='nd20'||
@@ -133,8 +144,8 @@ for(const ruta of [
   if(fs.existsSync(archivo))
     afirmar(fs.statSync(archivo).size<8000,'Dependencia PDF truncada: '+ruta);
 }
-const encabezadoPdf=fs.existsSync(path.join(raiz,'characters-nd20','index.html'))?
-  fs.readFileSync(path.join(raiz,'characters-nd20','index.html'),'utf8'):'';
+const encabezadoPdf=fs.existsSync(path.join(raiz,'characters','index.html'))?
+  fs.readFileSync(path.join(raiz,'characters','index.html'),'utf8'):'';
 afirmar(!encabezadoPdf.includes('assets/pdf-export-browser.js'),
   'Falta módulo de descarga PDF A5 en el HTML público.');
 afirmar(!encabezadoPdf.includes('id="tab-criaturas"'),
@@ -145,8 +156,8 @@ for(const modulo of ['creatures.js','creatures-import.js',
     'Falta carga del módulo público del Editor: '+modulo);
 // El lanzamiento público habilita exclusivamente Fantasía DRS y Dungeon Hack.
 // No basta ocultar botones por CSS: tampoco deben existir opciones nativas.
-const indexHtml=fs.existsSync(path.join(raiz,'characters-nd20','index.html'))?
-  fs.readFileSync(path.join(raiz,'characters-nd20','index.html'),'utf8'):'';
+const indexHtml=fs.existsSync(path.join(raiz,'characters','index.html'))?
+  fs.readFileSync(path.join(raiz,'characters','index.html'),'utf8'):'';
 if(indexHtml){
   const botones=[...indexHtml.matchAll(/data-juego="([^"]+)"/g)].map(m=>m[1]);
   const opciones=[...indexHtml.matchAll(/<option value="(nd20(?:_cifi|_nocturna)?|dh)">/g)]
@@ -158,7 +169,7 @@ if(indexHtml){
 }
 const portada=fs.existsSync(path.join(raiz,'index.html'))?
   fs.readFileSync(path.join(raiz,'index.html'),'utf8'):'';
-afirmar(!portada.includes('href="characters-nd20/"')||!portada.includes('href="spells/"'),
+afirmar(!portada.includes('href="characters/"')||!portada.includes('href="spells/"'),
   'La portada no enlaza ambos módulos.');
 const borradoresListas=dato('data/listas-conjuros-borradores.json');
 afirmar(!borradoresListas||borradoresListas.listas?.length>0||

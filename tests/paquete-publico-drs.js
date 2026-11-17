@@ -260,9 +260,16 @@ assert.ok(aclaracionesPublicas.registros.find(a=>a.nombre==='Expulsar muertos vi
   .texto.includes('3 zombis y 2 esqueletos'));
 assert.ok(aclaracionesPublicas.registros.find(a=>a.nombre==='¡Sálvese quien pueda!')
   .texto.includes('Parálisis o Miedo'));
-const html=fs.readFileSync(path.join(salida,'characters-nd20','index.html'),'utf8');
+const html=fs.readFileSync(path.join(salida,'characters','index.html'),'utf8');
 const portal=fs.readFileSync(path.join(salida,'index.html'),'utf8');
-assert.ok(portal.includes('href="characters-nd20/"'));
+assert.ok(portal.includes('href="characters/"'));
+const redirect=fs.readFileSync(path.join(salida,'characters-nd20','index.html'),'utf8');
+assert.ok(redirect.includes('window.location.replace(destino.href)'),
+  'La ruta antigua se conserva solo como redirección.');
+assert.ok(redirect.includes('destino.search=actual.search')&&
+  redirect.includes('destino.hash=actual.hash'),
+  'El redireccionador preserva consultas y enlaces #share=.');
+assert.ok(!redirect.includes('assets/app.js'),'No duplicar generador en la ruta antigua.');
 assert.ok(portal.includes('href="spells/"'));
 assert.match(portal,/circle cx="32" cy="20"/);
 assert.match(portal,/M32 52c-7-6/);
@@ -395,7 +402,7 @@ for(const file of pdfA5){
     'La exportación A5 requiere el activo local '+file);
   assert(fs.statSync(path.join(salida,file)).size>100,file+': archivo insuficiente');
 }
-const publicPdfIndex=fs.readFileSync(path.join(salida,'characters-nd20','index.html'),'utf8');
+const publicPdfIndex=fs.readFileSync(path.join(salida,'characters','index.html'),'utf8');
 const publicPdfApp=fs.readFileSync(path.join(salida,'assets/app.js'),'utf8');
 assert(publicPdfIndex.includes('assets/pdf-export-browser.js'));
 assert(publicPdfApp.includes('exportar-pdf-ficha'));
@@ -407,7 +414,18 @@ assert.equal(templateA5.subarray(0,5).toString('ascii'),'%PDF-');
 assert.deepEqual(JSON.parse(fs.readFileSync(path.join(salida,'assets/pdf-a5/campos-ficha-a5.json'))).campos_fijos.length,32);
 const iconosPublicos=fs.readdirSync(path.join(salida,'assets','icons'))
   .filter(nombre=>nombre.endsWith('.svg'));
-assert.equal(iconosPublicos.length,40,'El paquete contiene exactamente 40 SVG (35 + 5 acciones)');
+assert.equal(iconosPublicos.length,46,
+  'El paquete contiene 40 SVG preexistentes y los seis medallones de Escuela');
+for(const escuela of ['arcana','divina','nigromancia','elemental','demonologia','naturaleza']){
+  const nombre='escuela-'+escuela+'.svg';
+  const ruta=path.join('assets','icons',nombre);
+  assert.ok(iconosPublicos.includes(nombre),'Medallón ausente en el paquete DRS: '+nombre);
+  const original=fs.readFileSync(path.join(raiz,ruta),'utf8');
+  const publicado=fs.readFileSync(path.join(salida,ruta),'utf8');
+  assert.equal(publicado,original,'Medallón DRS alterado: '+nombre);
+  assert.match(publicado,/<svg[^>]*viewBox="0 0 24 24"/);
+  assert.doesNotMatch(publicado,/<(?:script|foreignObject|iframe|object|embed)\b|\bon[a-z]+\s*=|\bhref\s*=/i);
+}
 const cssAcciones=fs.readFileSync(path.join(salida,'assets/styles.css'),'utf8');
 for(const nombre of ['accion-equipo','accion-talentos','accion-pdf',
   'accion-semilla','accion-copiar']){

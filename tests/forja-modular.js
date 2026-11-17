@@ -2,8 +2,13 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
-const portal=read('index.html'),characters=read('characters-nd20/index.html'),spells=read('spells/index.html');
-assert.match(portal,/href="characters-nd20\/"/);
+const portal=read('index.html'),characters=read('characters/index.html'),spells=read('spells/index.html');
+assert.match(portal,/href="characters\/"/);
+const redirect=read('characters-nd20/index.html');
+assert.match(redirect,/window\.location\.replace\(destino\.href\)/);
+assert.match(redirect,/destino\.search=actual\.search/);
+assert.match(redirect,/destino\.hash=actual\.hash/);
+assert.ok(!redirect.includes('assets/app.js'),'Solo el nuevo módulo carga el motor');
 assert.match(portal,/href="spells\/"/);
 assert.match(portal,/<circle cx="32" cy="20"/);
 assert.match(portal,/M32 52c-7-6/);
@@ -27,6 +32,18 @@ assert.ok(jsConjuros.includes("lineas.push('Círculo '+(i+1))"));
 assert.ok(jsConjuros.includes("resultado+=' [DRS]'"));
 assert.ok(jsConjuros.includes("resultado+=' — '+s.escuela"));
 assert.ok(jsConjuros.includes("navigator.clipboard.writeText(texto)"));
+// La presentación añade medallones sin modificar el texto plano del DRS.
+for(const escuela of ['arcana','divina','nigromancia','elemental','demonologia','naturaleza']){
+  const recurso=read('assets/icons/escuela-'+escuela+'.svg');
+  assert.match(recurso,/viewBox="0 0 24 24"/,'Medallón uniforme: '+escuela);
+  assert.match(recurso,/<circle cx="12" cy="12" r="11"/,'Círculo centrado: '+escuela);
+}
+assert.ok(jsConjuros.includes('if(icono)li.appendChild(icono);'),
+  'Medallón en las listas por Círculos');
+assert.ok(jsConjuros.includes('crearIconoEscuela(s.escuela)'),
+  'Escuela derivada del DRS');
+assert.ok(read('assets/spell-lists-simple.css').includes('.conjuro-seleccionado .icono-escuela'),
+  'Icono compacto en la lista agrupada');
 assert.ok(read('assets/forja-header.css').includes('margin-inline:auto'));
 const api=require('../assets/share-links.js');
 const registro={version:1,semilla:'ñá-2026',config:{juego:'nd20',cantidad:1,modo:'rapido'}};
