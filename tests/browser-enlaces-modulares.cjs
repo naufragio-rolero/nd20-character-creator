@@ -69,6 +69,11 @@ async function probar(nombre,motor,origen){
   try{
     const portal=await pagina(origen+'/');
     assert.equal(await portal.locator('.portal-tarjeta').count(),2);
+    // Las tarjetas y su contenido están centrados en el Hub.
+    assert.equal(await portal.locator('.portal-tarjeta').first().evaluate(el=>
+      getComputedStyle(el).textAlign),'center');
+    assert.equal(await portal.locator('.portal-tarjeta').first().evaluate(el=>
+      getComputedStyle(el).alignItems),'center');
     assert.equal(await portal.locator('a[href="characters/"]').count(),1);
     assert.equal(await portal.locator('a[href="spells/"]').count(),1);
     assert.equal(await portal.locator('.forja-temas-abrir').count(),1);
@@ -292,6 +297,20 @@ async function probar(nombre,motor,origen){
     assert.equal(await espacioUno.inputValue(),'1',
       'Personalizar una tabla copia los valores anteriores, no los recalcula.');
     await espacioUno.fill('3');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').nth(29)
+      .locator('input').first().inputValue(),'3',
+      'Editar Nivel 1 actualiza hasta Nivel 30 del mismo Círculo.');
+    const nivelTres=oficiales.locator('#tabla-progreso tbody tr').nth(2).locator('input').first();
+    await nivelTres.fill('5');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').nth(1)
+      .locator('input').first().inputValue(),'3',
+      'Los Niveles anteriores no deben modificarse.');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').nth(3)
+      .locator('input').first().inputValue(),'5',
+      'Editar Nivel 3 modifica Nivel 4.');
+    assert.equal(await oficiales.locator('#tabla-progreso tbody tr').nth(29)
+      .locator('input').first().inputValue(),'5',
+      'Los cambios se propagan hasta el último Nivel.');
     assert.match(await oficiales.locator('#estado-lista').innerText(),/Cambios sin guardar/);
     assert.equal(await oficiales.locator('#lista-dueno').isEditable(),true);
     assert.equal(await oficiales.locator('#duplicar-oficial').isVisible(),false);
