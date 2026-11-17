@@ -38,11 +38,15 @@ assert.match(html,/id="criaturas-nueva-panel"[^>]*aria-haspopup="dialog"[^>]*ari
 assert.match(html,/id="criaturas-crear-dialogo"[^>]*aria-labelledby="criaturas-crear-titulo"/);
 assert.match(html,/id="criaturas-crear-manual"/);
 assert.match(html,/id="criaturas-crear-aleatorio"/);
+assert.match(html,/id="criaturas-crear-ya"/);
+assert.match(html,/id="criaturas-crear-estado"[^>]*role="alert"/);
 assert.match(html,/id="criaturas-generar-cancelar"/);
 assert.match(html,/id="criaturas-generar-ejecutar"[^>]*>Continuar<\/button>/);
 assert.ok(!html.includes('id="criaturas-generar-aleatorizar"'));
 assert.ok(!html.includes('id="criaturas-generar-panel"'));
 assert.match(ui,/\$\('criaturas-crear-aleatorio'\)\.addEventListener\('click',abrirGenerador\)/);
+assert.match(ui,/\$\('criaturas-crear-ya'\)\.addEventListener\('click',generarYa\)/);
+assert.match(ui,/generador\.opcionesAlAzar\(catalogo,fuentesOficiales,propios,semilla\)/);
 assert.match(ui,/\$\('criaturas-generar-dialogo'\)\.addEventListener\('cancel'/);
 assert.match(html,/id="criaturas-coleccion-busqueda"/);
 assert.match(html,/id="criaturas-coleccion-origen"/);
