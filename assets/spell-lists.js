@@ -5,7 +5,8 @@
   root.NaufragioListasConjuros=api;
 })(typeof globalThis!=="undefined"?globalThis:this,function(){
   "use strict";
-  var ESQUEMA="naufragio.listas-conjuros/v1", PREFIJO="usuario:";
+  var ESQUEMA="naufragio.listas-conjuros/v1",
+    ESQUEMA_TRABAJO="naufragio.forja-conjuros-trabajo/v1", PREFIJO="usuario:";
   function error(s){throw Error(s);}
   function texto(s,limite,etiqueta){
     if(typeof s!=="string")error(etiqueta+" debe ser texto.");
@@ -249,6 +250,67 @@
         fila.some(function(n,i){return n>0&&i+1>l.maxCirculo;})?
           "La progresión tiene Espacios para Círculos fuera de esta Lista; no amplían su repertorio.":""};
   }
+  // Archivo completo del espacio de Conjuros, envolviendo la biblioteca v1
+  // intacta. Los datos normativos se resuelven por ID desde el DRS local.
+  var TEMAS=["clasico","ebano","ceruleo","obsidiana","violeta"];
+  function validarVista(v,catalogo,biblioteca){
+    if(!objeto(v)||!objeto(v.filtros)||!objeto(v.presentacion))
+      error("Configuración del espacio de trabajo inválida.");
+    var presentacion=v.presentacion;
+    if(typeof presentacion.escuela!=="boolean"||
+       typeof presentacion.origen!=="boolean"||
+       !TEMAS.includes(presentacion.tema))
+      error("Presentación inválida: Escuela, Origen o tema visual.");
+    var f=v.filtros;
+    if(typeof f.nombre!=="string"||f.nombre.length>120||
+      /[\u0000-\u001F\u007F]/.test(f.nombre))
+      error("Filtro de nombre incorrecto.");
+    if(typeof f.circulo!=="string"||
+      (f.circulo!==""&&!/^[1-8]$/.test(f.circulo)))
+      error("Filtro de Círculo incorrecto.");
+    if(typeof f.escuela!=="string"||
+      (f.escuela!==""&&!catalogo.conjuros.some(function(s){
+        return s.escuela===f.escuela;
+      })))
+      error("Filtro de Escuela desconocida.");
+    if(f.circulo&&f.escuela&&!catalogo.conjuros.some(function(s){
+      return s.circulo===Number(f.circulo)&&s.escuela===f.escuela;
+    }))error("Combinación de filtros ajena al catálogo DRS.");
+    var activa=v.listaActiva;
+    if(typeof activa!=="string"||
+      (activa!==""&&!catalogo.oficiales.some(function(o){return o.id===activa;})&&
+        !biblioteca.listas.some(function(l){return l.id===activa;})))
+      error("La Lista activa no existe en este trabajo.");
+    return {
+      presentacion:{escuela:presentacion.escuela,origen:presentacion.origen,
+        tema:presentacion.tema},
+      filtros:{nombre:f.nombre.normalize("NFC"),circulo:f.circulo,escuela:f.escuela},
+      listaActiva:activa
+    };
+  }
+  function exportarTrabajo(lib,vista,catalogo,borradores){
+    var biblioteca=validarBiblioteca(lib,catalogo,borradores);
+    var valido=validarVista(vista,catalogo,biblioteca);
+    return JSON.stringify({esquema:ESQUEMA_TRABAJO,version_drs:catalogo.versionDRS,
+      biblioteca:biblioteca,vista:valido},null,2)+"\n";
+  }
+  function importarTrabajo(textoJson,catalogo,borradores){
+    if(typeof textoJson!=="string"||textoJson.length>1024*1024)
+      error("Archivo de importación demasiado grande.");
+    var dato=JSON.parse(textoJson);
+    if(!objeto(dato))error("Archivo de trabajo inválido.");
+    if(dato.esquema===ESQUEMA){
+      return {formato:"biblioteca-v1",biblioteca:validarBiblioteca(dato,catalogo,borradores),
+        vista:null};
+    }
+    if(dato.esquema!==ESQUEMA_TRABAJO)
+      error("Versión de trabajo no reconocida. No se han cambiado datos.");
+    if(dato.version_drs!==catalogo.versionDRS)
+      error("Versión del DRS incompatible. No se han cambiado datos.");
+    var biblioteca=validarBiblioteca(dato.biblioteca,catalogo,borradores);
+    return {formato:"trabajo-v1",biblioteca:biblioteca,
+      vista:validarVista(dato.vista,catalogo,biblioteca)};
+  }
   function exportar(lib,catalogo,borradores){
     return JSON.stringify(validarBiblioteca(lib,catalogo,borradores),null,2)+"\n";
   }
@@ -256,7 +318,8 @@
     if(typeof textoJson!=="string"||textoJson.length>1024*1024)error("Archivo de importación demasiado grande.");
     return validarBiblioteca(JSON.parse(textoJson),catalogo,borradores);
   }
-  return {ESQUEMA,crearCatalogo,leerBorradores,validarLista,validarBiblioteca,
+  return {ESQUEMA,ESQUEMA_TRABAJO,crearCatalogo,leerBorradores,validarLista,validarBiblioteca,
     vacia,guardarLista,duplicarLista,eliminarLista,vincular,desvincular,resolver,
-    listasDisponibles,validarTablaDeLista,tablasDRS,tablaDeLista,exportar,importar};
+    listasDisponibles,validarTablaDeLista,tablasDRS,tablaDeLista,
+    validarVista,exportarTrabajo,importarTrabajo,exportar,importar};
 });

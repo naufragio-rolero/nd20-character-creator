@@ -304,6 +304,72 @@ async function probar(nombre,motor,origen){
       JSON.parse(localStorage.getItem('forja-listas-conjuros-v1')).listas[0].derivadaDe),
       'drs:Mago','La procedencia sobrevive la recarga.');
 
+    // Fase 7.5: exportación completa transporta las preferencias, la
+    // selección activa, el progreso 30x8 y la biblioteca, sin reglas DRS.
+    await oficiales.locator('#mostrar-escuela').check();
+    await oficiales.locator('#filtro-escuela').selectOption('Elemental');
+    await oficiales.locator('#filtro-circulo').selectOption('1');
+    await oficiales.locator('#filtro-nombre').fill('Dardo ígneo');
+    await oficiales.locator('#selector-tema').evaluate(el=>{
+      el.value='violeta';el.dispatchEvent(new Event('change',{bubbles:true}));
+    });
+    await oficiales.locator('.mas-opciones summary').click();
+    const descargaCompleta=oficiales.waitForEvent('download');
+    await oficiales.locator('#exportar-trabajo').click();
+    const archivoCompleto=await descargaCompleta;
+    assert.equal(archivoCompleto.suggestedFilename(),'forja-conjuros-trabajo.json');
+    const jsonCompleto=fs.readFileSync(await archivoCompleto.path(),'utf8');
+    const trabajo=JSON.parse(jsonCompleto);
+    assert.equal(trabajo.esquema,'naufragio.forja-conjuros-trabajo/v1');
+    assert.equal(trabajo.biblioteca.listas.length,1);
+    assert.equal(trabajo.biblioteca.listas[0].progresion.niveles[0][0],3);
+    assert.equal(trabajo.biblioteca.listas[0].derivadaDe,'drs:Mago');
+    assert.deepEqual(trabajo.vista.presentacion,{
+      escuela:true,origen:false,tema:'violeta'});
+    assert.deepEqual(trabajo.vista.filtros,{
+      nombre:'Dardo ígneo',circulo:'1',escuela:'Elemental'});
+    assert.equal(trabajo.vista.listaActiva,idCopia);
+    assert.ok(!jsonCompleto.includes('texto_normativo')&&!jsonCompleto.includes('efectos'),
+      'El JSON completo no duplica el texto normativo de los Conjuros.');
+    const trabajoImportado=await pagina(origen+'/spells/index.html');
+    await trabajoImportado.locator('#estado-datos')
+      .getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    await trabajoImportado.locator('#importar-archivo').setInputFiles({
+      name:'trabajo.json',mimeType:'application/json',
+      buffer:Buffer.from(jsonCompleto,'utf8')
+    });
+    await trabajoImportado.locator('#estado-lista')
+      .getByText('Trabajo completo importado correctamente.',{exact:false}).waitFor();
+    assert.equal(await trabajoImportado.locator('#lista-circulos .conjuro-seleccionado').count(),36);
+    assert.equal(await trabajoImportado.locator('#tabla-progreso tbody tr')
+      .first().locator('input').first().inputValue(),'3');
+    assert.equal(await trabajoImportado.locator('#mostrar-escuela').isChecked(),true);
+    assert.equal(await trabajoImportado.locator('#filtro-nombre').inputValue(),'Dardo ígneo');
+    assert.equal(await trabajoImportado.locator('#filtro-circulo').inputValue(),'1');
+    assert.equal(await trabajoImportado.locator('#filtro-escuela').inputValue(),'Elemental');
+    assert.equal(await trabajoImportado.locator('html').getAttribute('data-tema'),'violeta');
+    const copiaAntes=await trabajoImportado.evaluate(()=>
+      localStorage.getItem('forja-listas-conjuros-v1'));
+    const incompatible=JSON.parse(jsonCompleto);
+    incompatible.version_drs='0.0.0';
+    await trabajoImportado.locator('#importar-archivo').setInputFiles({
+      name:'incompatible.json',mimeType:'application/json',
+      buffer:Buffer.from(JSON.stringify(incompatible),'utf8')
+    });
+    await trabajoImportado.locator('#estado-lista')
+      .getByText('Importación rechazada:',{exact:false}).waitFor();
+    assert.equal(await trabajoImportado.evaluate(()=>
+      localStorage.getItem('forja-listas-conjuros-v1')),copiaAntes,
+      'Una importación rechazada no cambia las Listas guardadas.');
+    await trabajoImportado.reload();
+    await trabajoImportado.locator('#estado-datos')
+      .getByText('64 Conjuros verificados',{exact:false}).waitFor();
+    assert.equal(await trabajoImportado.locator('#lista-circulos .conjuro-seleccionado').count(),36);
+    assert.equal(await trabajoImportado.locator('#tabla-progreso tbody tr')
+      .first().locator('input').first().inputValue(),'3');
+    assert.equal(await trabajoImportado.locator('#filtro-escuela').inputValue(),'Elemental');
+    assert.equal(await trabajoImportado.locator('html').getAttribute('data-tema'),'violeta');
+
     // Comprobar los 64 Conjuros, las seis Escuelas y los ocho Círculos DRS.
     const fichas=await hechizos.evaluate(async()=>{
       const respuesta=await fetch('data/conjuros-drs-fichas.json');

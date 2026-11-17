@@ -10,6 +10,7 @@ var catalogo,borradores,tablasOficiales,lib,actualId=null,oficialId=null,derivad
 var progresion=null,maximo=8,descripcion='',conjuros=new Set();
 var ultimoGuardado='',cargaCompleta=false;
 var KEY_FORMATO='forja-listas-conjuros-formato-v1';
+var KEY_VISTA='forja-conjuros-vista-v1',restaurandoVista=false;
 function mostrarEscuela(){return $('mostrar-escuela').checked;}
 function mostrarOrigen(){return $('mostrar-origen').checked;}
 function presentarConjuro(s){
@@ -41,6 +42,43 @@ function listaEnTexto(){
     lineas.push('');
   });
   return lineas.join('\n').trim();
+}
+// Solo configura el editor, nunca modifica las fichas oficiales del DRS.
+function vistaActual(){
+  return {presentacion:{escuela:mostrarEscuela(),origen:mostrarOrigen(),
+      tema:document.documentElement.dataset.tema||'clasico'},
+    filtros:{nombre:$('filtro-nombre').value,circulo:$('filtro-circulo').value,
+      escuela:$('filtro-escuela').value},
+    listaActiva:oficialId||actualId||''};
+}
+function guardarVista(){
+  if(!cargaCompleta||restaurandoVista)return;
+  try{
+    var validada=api.validarVista(vistaActual(),catalogo,lib);
+    localStorage.setItem(KEY_VISTA,JSON.stringify(validada));
+  }catch(e){/* La configuración es accesoria; nunca impedir editar una Lista. */}
+}
+function restaurarVista(v){
+  var valida=api.validarVista(v,catalogo,lib);
+  restaurandoVista=true;
+  try{
+    $('mostrar-escuela').checked=valida.presentacion.escuela;
+    $('mostrar-origen').checked=valida.presentacion.origen;
+    guardarFormato();
+    $('selector-tema').value=valida.presentacion.tema;
+    $('selector-tema').dispatchEvent(new Event('change',{bubbles:true}));
+    if(valida.listaActiva)seleccionar(valida.listaActiva);else abrirNueva();
+    $('filtro-nombre').value=valida.filtros.nombre;
+    $('filtro-circulo').value='';
+    $('filtro-escuela').value='';
+    actualizarOpcionesFiltros();
+    $('filtro-escuela').value=valida.filtros.escuela;
+    actualizarOpcionesFiltros();
+    $('filtro-circulo').value=valida.filtros.circulo;
+    actualizarOpcionesFiltros();
+    pintarLista();pintarResultados();
+  }finally{restaurandoVista=false;}
+  guardarVista();
 }
 function guardarFormato(){
   try{localStorage.setItem(KEY_FORMATO,JSON.stringify({
@@ -423,6 +461,7 @@ function abrirNueva(){
   $('lista-dueno').value='';
   ultimoGuardado=JSON.stringify([PREFIJO,'',8,[],null]);
   nombresGuardados();pintarLista();pintarResultados();pintarProgresion();
+  guardarVista();
   decir('Escribe un nombre, añade Conjuros y guarda tu lista.');
 }
 function seleccionarOficial(id){
@@ -434,6 +473,7 @@ function seleccionarOficial(id){
   $('lista-dueno').readOnly=true;
   ultimoGuardado=firma();
   nombresGuardados();pintarLista();pintarResultados();pintarProgresion();
+  guardarVista();
   decir('Referencia oficial del DRS. Puedes consultarla y copiarla, pero no modificarla.');
 }
 function seleccionar(id){
@@ -450,6 +490,7 @@ function seleccionar(id){
   $('lista-dueno').value=l.nombre.startsWith(PREFIJO)?l.nombre.slice(PREFIJO.length):l.nombre;
   ultimoGuardado=firma();
   nombresGuardados();pintarLista();pintarResultados();pintarProgresion();
+  guardarVista();
   decir('Lista guardada en este navegador.');
 }
 function duplicarOficial(){
@@ -477,7 +518,7 @@ function guardar(){
     localStorage.setItem(KEY,serial);
     lib=nueva;actualId=data.id;
     ultimoGuardado=firma();
-    nombresGuardados();refrescarCabecera();
+    nombresGuardados();refrescarCabecera();guardarVista();
     decir('Lista guardada en este navegador.');
   }catch(e){decir('No se pudo guardar: '+e.message,true);}
 }
@@ -490,28 +531,69 @@ function eliminar(){
     lib=nueva;abrirNueva();decir('Lista eliminada.');
   }catch(e){decir('No se pudo eliminar: '+e.message,true);}
 }
+function descargarJSON(valor,nombreArchivo){
+  var url=URL.createObjectURL(new Blob([valor],{type:'application/json;charset=utf-8'}));
+  var a=crear('a');a.href=url;a.download=nombreArchivo;
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(function(){URL.revokeObjectURL(url);},1000);
+}
 function descargar(){
   try{
-    var valor=api.exportar(lib,catalogo,borradores);
-    var url=URL.createObjectURL(new Blob([valor],{type:'application/json;charset=utf-8'}));
-    var a=crear('a');a.href=url;a.download='forja-listas-conjuros.json';
-    document.body.appendChild(a);a.click();a.remove();
-    setTimeout(function(){URL.revokeObjectURL(url);},1000);
-    decir('Biblioteca exportada: puedes conservar una copia JSON.');
+    descargarJSON(api.exportar(lib,catalogo,borradores),'forja-listas-conjuros.json');
+    decir('Biblioteca exportada: puedes conservar una copia JSON v1.');
   }catch(e){decir(e.message,true);}
+}
+function descargarTrabajo(){
+  try{
+    if(!modoOficial()&&hayCambios())
+      throw Error('Guarda antes la Lista actual: la exportación completa conserva solo datos guardados.');
+    descargarJSON(api.exportarTrabajo(lib,vistaActual(),catalogo,borradores),
+      'forja-conjuros-trabajo.json');
+    decir('Trabajo completo exportado: Listas, progresiones, asociaciones y preferencias.');
+  }catch(e){decir('No se pudo exportar: '+e.message,true);}
+}
+function guardarImportacion(libNueva,vista){
+  // Guardar el conjunto con restauración defensiva si falla localStorage.
+  var nuevas=[[KEY,api.exportar(libNueva,catalogo,borradores)]];
+  if(vista){
+    nuevas.push([KEY_FORMATO,JSON.stringify({
+      escuela:vista.presentacion.escuela,origen:vista.presentacion.origen
+    })]);
+    nuevas.push(['forja-tema',vista.presentacion.tema]);
+    nuevas.push([KEY_VISTA,JSON.stringify(vista)]);
+  }else nuevas.push([KEY_VISTA,null]);
+  var anteriores=nuevas.map(function(par){return [par[0],localStorage.getItem(par[0])];});
+  try{
+    nuevas.forEach(function(par){
+      if(par[1]===null)localStorage.removeItem(par[0]);
+      else localStorage.setItem(par[0],par[1]);
+    });
+  }catch(e){
+    anteriores.forEach(function(par){
+      try{
+        if(par[1]===null)localStorage.removeItem(par[0]);
+        else localStorage.setItem(par[0],par[1]);
+      }catch(ignorar){}
+    });
+    throw e;
+  }
 }
 async function importar(archivo){
   if(!archivo)return;
   try{
     if(archivo.size>1024*1024)throw Error('El archivo supera 1 MB.');
-    var nueva=api.importar(await archivo.text(),catalogo,borradores);
+    // Validación integral ANTES de confirmar o modificar cualquier dato.
+    var recibida=api.importarTrabajo(await archivo.text(),catalogo,borradores);
     if(!aceptarDescarte())return;
     if((lib.listas.length||lib.asociaciones.length)&&
       !window.confirm('La importación reemplazará tus listas y asociaciones personales de este navegador. ¿Continuar?'))return;
-    localStorage.setItem(KEY,api.exportar(nueva,catalogo,borradores));
-    lib=nueva;
-    if(lib.listas.length)seleccionar(lib.listas[lib.listas.length-1].id);else abrirNueva();
-    decir('Biblioteca importada correctamente.');
+    guardarImportacion(recibida.biblioteca,recibida.vista);
+    lib=recibida.biblioteca;
+    if(recibida.vista)restaurarVista(recibida.vista);
+    else if(lib.listas.length)seleccionar(lib.listas[lib.listas.length-1].id);
+    else abrirNueva();
+    decir(recibida.vista?'Trabajo completo importado correctamente.':
+      'Biblioteca importada correctamente.');
   }catch(e){decir('Importación rechazada: '+e.message,true);}
 }
 async function compartir(){
@@ -543,22 +625,26 @@ function conectar(){
     if(destino)seleccionar(destino);else abrirNueva();
   });
   $('lista-dueno').addEventListener('input',editar);
-  $('filtro-nombre').addEventListener('input',pintarResultados);
+  $('filtro-nombre').addEventListener('input',function(){
+    pintarResultados();guardarVista();
+  });
   ['filtro-circulo','filtro-escuela'].forEach(function(id){
     $(id).addEventListener('change',function(){
       actualizarOpcionesFiltros();
-      pintarResultados();
+      pintarResultados();guardarVista();
     });
   });
   $('guardar-lista').addEventListener('click',guardar);
   $('copiar-lista').addEventListener('click',copiarLista);
   ['mostrar-escuela','mostrar-origen'].forEach(function(id){
     $(id).addEventListener('change',function(){
-      guardarFormato();pintarLista();
+      guardarFormato();pintarLista();guardarVista();
     });
   });
   $('eliminar-lista').addEventListener('click',eliminar);
   $('exportar-listas').addEventListener('click',descargar);
+  $('exportar-trabajo').addEventListener('click',descargarTrabajo);
+  $('selector-tema').addEventListener('change',guardarVista);
   $('importar-archivo').addEventListener('change',function(){
     importar(this.files[0]);this.value='';
   });
@@ -583,7 +669,9 @@ async function cargar(){
         throw Error('Este enlace no contiene Listas de Conjuros de Nd20.');
       var recibida=api.importar(JSON.stringify(enlace.datos),catalogo,borradores);
       if(!localStorage.getItem(KEY)||window.confirm('¿Importar las Listas del enlace? Reemplazará tu biblioteca actual.')){
+        // El enlace histórico sigue transportando solo la biblioteca v1.
         localStorage.setItem(KEY,api.exportar(recibida,catalogo,borradores));
+        localStorage.removeItem(KEY_VISTA);
       }
       history.replaceState(null,'',location.pathname+location.search);
     }
@@ -592,7 +680,15 @@ async function cargar(){
     actualizarOpcionesFiltros();
     recuperarFormato();
     cargaCompleta=true;conectar();
-    if(lib.listas.length)seleccionar(lib.listas[lib.listas.length-1].id);
+    var vistaGuardada=null;
+    try{
+      var textoVista=localStorage.getItem(KEY_VISTA);
+      if(textoVista)vistaGuardada=api.validarVista(JSON.parse(textoVista),catalogo,lib);
+    }catch(ignorar){
+      localStorage.removeItem(KEY_VISTA);
+    }
+    if(vistaGuardada)restaurarVista(vistaGuardada);
+    else if(lib.listas.length)seleccionar(lib.listas[lib.listas.length-1].id);
     else abrirNueva();
     mensajeCarga('DRS '+catalogo.versionDRS+' · '+catalogo.conjuros.length+' Conjuros verificados.');
   }catch(e){

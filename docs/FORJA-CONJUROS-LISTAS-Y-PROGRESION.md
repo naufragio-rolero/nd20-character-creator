@@ -84,12 +84,56 @@ Convertir el editor sencillo de Conjuros en una herramienta reutilizable para di
 - Se añade `tests/fase7-progresion.js` a CI y E2E en Chromium, Firefox y WebKit para tablas oficiales, personalización, edición, guardado, recarga e integridad del DRS. La pantalla mantiene el comportamiento de `Copiar lista` como texto plano **sin insertar tablas**.
 - **Sin publicación** de PREVIEW/LIVE ni fusión de PR. Se preservan las funciones ya existentes que asocian listas a Ocupaciones; la nueva opción por Lista no confiere lanzamientos automáticamente a una Ocupación ajena.
 
-### 7.5 — Exportación/importación completas **[pendiente]**
+### 7.5 — Exportación/importación completas **[completada en rama de desarrollo]**
 
 - Conservar `Copiar lista` como texto plano.
 - Exportar un documento JSON versionado con las Listas y sus IDs de Conjuros, referencias de catálogo/DRS, asociaciones a Ocupaciones, tablas personalizadas, origen de duplicación, configuración de presentación y datos de trabajo pertinentes.
 - Importar con validación estricta de versión, IDs, cardinalidades y referencias. Mantener compatibilidad de lectura para bibliotecas actuales `naufragio.listas-conjuros/v1`; **no romper `#share=`**.
 - No añadir textos normativos completos al JSON: se resuelven por ID en el catálogo oficial. No exportar datos ajenos al editor ni insertar automáticamente nuevo canon.
+
+**Implementación 7.5 (17 de noviembre de 2026):**
+
+- Nuevo contrato `naufragio.forja-conjuros-trabajo/v1`, además del **formato anterior intacto** `naufragio.listas-conjuros/v1`. El botón «Exportar trabajo completo» genera `forja-conjuros-trabajo.json`; el botón «Exportar biblioteca v1» mantiene `forja-listas-conjuros.json` para herramientas anteriores.
+- El trabajo completo contiene `version_drs`, `biblioteca` validada con Listas de usuario, referencias DRS por ID, procedencia `derivadaDe`, progresiones oficiales por referencia o matrices personales 30×8, asociaciones de Ocupaciones ya existentes, y `vista` con **mostrar Escuela/Origen, tema visual, filtros de Nombre/Círculo/Escuela y Lista activa**. No contiene textos normativos, efectos, claves de suplemento ni contenido de otros módulos de La Forja.
+- La importación acepta **ambos** contratos. El nuevo formato reconstruye también la presentación, tema, filtros, selección y estado de la Lista; una biblioteca v1 restaura solo sus Listas y asociaciones, sin sobrescribir las preferencias globales de presentación. La vista se guarda separadamente en `forja-conjuros-vista-v1`, y las opciones se conservan tras recargar.
+- La validación se realiza **antes de cualquier escritura**: versión de esquema/DRS, 200 Listas/asociaciones como máximo, IDs y Circulos oficiales, referencias existentes, tablas de progreso, temas permitidos, filtros compatibles y Lista activa existente. Un error rechaza el documento sin modificar los datos actuales; tras confirmación del usuario se sustituye la biblioteca personal, con restauración defensiva del almacenamiento ante errores.
+- Los cambios de la Lista que todavía **no se han guardado** bloquean «Exportar trabajo completo» con un mensaje explícito para evitar copias incompletas. Los criterios de búsqueda y la apariencia, por su parte, pueden guardarse y restaurarse independientemente. `Copiar lista` sigue siendo estrictamente texto plano, sin progresión ni etiquetas SVG.
+- El formato de enlace **`#share=` permanece sin modificación** y sigue transportando la biblioteca v1 existente, no el espacio de trabajo. Como el token tiene un límite de tamaño, se usa JSON completo para trabajos extensos; no se publica automáticamente ninguna Ocupación ni se alteran reglas del DRS. La vinculación actual a Ocupaciones se conserva sin hacer que una progresión personal conceda lanzamientos automáticamente.
+- Se añade `tests/fase7-exportacion.js` con ida y vuelta, protección de fuentes, compatibilidad v1 y batería de rechazos; E2E real incluye exportación nueva, importación aislada, vista/restauración, rechazo no destructivo, recarga y exportación clásica. La Fase 7.6 conserva la revisión final y eventual PREVIEW aislada.
+
+**Ejemplo esquemático del JSON exportado:**
+
+```json
+{
+  "esquema": "naufragio.forja-conjuros-trabajo/v1",
+  "version_drs": "1.1.12",
+  "biblioteca": {
+    "esquema": "naufragio.listas-conjuros/v1",
+    "version_drs": "1.1.12",
+    "listas": [
+      {
+        "id": "usuario:ejemplo1234",
+        "nombre": "Lista de Conjuros de ejemplo",
+        "descripcion": "",
+        "maxCirculo": 8,
+        "conjuros": ["conjuro-20"],
+        "derivadaDe": "drs:Mago",
+        "progresion": {"tipo": "oficial", "id": "drs:Mago"}
+      }
+    ],
+    "asociaciones": [
+      {"ocupacion": "Mi Ocupación", "listaId": "usuario:ejemplo1234", "progresionId": "drs:Mago"}
+    ]
+  },
+  "vista": {
+    "presentacion": {"escuela": true, "origen": false, "tema": "violeta"},
+    "filtros": {"nombre": "", "circulo": "", "escuela": ""},
+    "listaActiva": "usuario:ejemplo1234"
+  }
+}
+```
+
+Los valores ilustrativos de este ejemplo **no añaden contenido oficial** ni reglas: el archivo real se valida estrictamente antes de importarlo.
 
 ### 7.6 — QA y PREVIEW **[pendiente]**
 
@@ -111,4 +155,4 @@ Convertir el editor sencillo de Conjuros en una herramienta reutilizable para di
 
 ## Estado de publicación
 
-Las fases 7.1, 7.2 y 7.3 se desarrollan **solo en rama y PR de borrador**. Esta tarea no modifica `forja-preview-pr142`, GitHub Pages, `main` ni la rama de PR #144.
+Las fases 7.1 a 7.5 se desarrollan **solo en rama y PR de borrador**. Esta tarea no modifica `forja-preview-pr142`, GitHub Pages, `main` ni la rama de PR #144.

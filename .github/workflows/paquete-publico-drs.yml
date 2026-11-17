@@ -28,6 +28,7 @@ jobs:
           node tests/fase7-filtros.js
           node tests/fase7-presets.js
           node tests/fase7-progresion.js
+          node tests/fase7-exportacion.js
           node tests/semillas-rangos.js
           node tests/fichas-drs-ux.js
           node tests/armamento-edicion.js

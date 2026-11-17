@@ -104,7 +104,7 @@
         <h2 id="titulo-busqueda">Encuentra Conjuros</h2>
         <div class="fila-busqueda">
           <label for="filtro-nombre">Buscar por nombre
-            <input id="filtro-nombre" type="search" placeholder="Escribe el nombre de un Conjuro…" autocomplete="off">
+            <input id="filtro-nombre" type="search" maxlength="120" placeholder="Escribe el nombre de un Conjuro…" autocomplete="off">
           </label>
           <label for="filtro-circulo">Círculo
             <select id="filtro-circulo" aria-describedby="ayuda-filtros"><option value="">Todos</option></select>
@@ -167,10 +167,12 @@
         </div>
         <details class="mas-opciones">
           <summary>Copias de seguridad (JSON)</summary>
-          <p>Exporta o importa tus listas guardadas. Importar puede reemplazar las listas personales anteriores, pero nunca modifica los Conjuros oficiales.</p>
+          <p>«Exportar trabajo completo» conserva Listas, tablas de progreso, asociaciones a Ocupaciones, presentación, tema, filtros y Lista activa. La exportación clásica de biblioteca sigue disponible. Guarda los cambios pendientes antes de exportar el trabajo completo.</p>
+          <p>La importación acepta ambos formatos JSON y reemplaza los datos personales del navegador tras confirmarlo. Nunca modifica el DRS.</p>
           <div class="botones-extra">
-            <button id="exportar-listas" type="button">Exportar mis listas</button>
-            <label class="boton-archivo" for="importar-archivo">Importar mis listas
+            <button id="exportar-trabajo" type="button">Exportar trabajo completo</button>
+            <button id="exportar-listas" type="button">Exportar biblioteca v1</button>
+            <label class="boton-archivo" for="importar-archivo">Importar JSON
               <input id="importar-archivo" type="file" accept="application/json,.json">
             </label>
           </div>
