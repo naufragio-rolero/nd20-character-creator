@@ -224,8 +224,37 @@ async function probar(nombre,motor,origen){
       }),true,'El SVG debe cargar: '+escuela);
     }
     await hechizos.locator('#filtro-nombre').fill('');
+    const selectorEscuela=hechizos.locator('#filtro-escuela');
+    const selectorCirculo=hechizos.locator('#filtro-circulo');
+    const valores=async selector=>selector.locator('option').evaluateAll(opciones=>
+      opciones.map(opcion=>opcion.value));
+    const escuelasDRS=[...new Set(fichas.map(s=>s.escuela))]
+      .sort((a,b)=>a.localeCompare(b,'es'));
+    assert.deepEqual(await valores(selectorEscuela),['',...escuelasDRS],
+      'Se muestran exactamente las seis Escuelas presentes en el DRS.');
+    assert.deepEqual(await valores(selectorCirculo),['','1','2','3','4','5','6','7','8']);
+    for(const escuela of escuelasDRS){
+      await selectorEscuela.selectOption(escuela);
+      const circulosEscuela=[...new Set(fichas.filter(s=>s.escuela===escuela)
+        .map(s=>s.circulo))].sort((a,b)=>a-b).map(String);
+      assert.deepEqual(await valores(selectorCirculo),['',...circulosEscuela],
+        'Círculos restringidos a la Escuela '+escuela);
+      assert.equal(await selectorEscuela.inputValue(),escuela,
+        'La Escuela seleccionada no debe perderse al recalcular.');
+      assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),
+        fichas.filter(s=>s.escuela===escuela).length);
+      assert.ok((await hechizos.locator('#resultados-busqueda .resultado-conjuro small')
+        .allTextContents()).every(t=>t.endsWith(' · '+escuela)));
+      await selectorEscuela.selectOption('');
+    }
+    assert.deepEqual(await valores(selectorCirculo),['','1','2','3','4','5','6','7','8']);
     for(let circulo=1;circulo<=8;circulo++){
-      await hechizos.locator('#filtro-circulo').selectOption(String(circulo));
+      await selectorCirculo.selectOption(String(circulo));
+      const escuelasCirculo=[...new Set(fichas.filter(s=>s.circulo===circulo)
+        .map(s=>s.escuela))].sort((a,b)=>a.localeCompare(b,'es'));
+      assert.deepEqual(await valores(selectorEscuela),['',...escuelasCirculo],
+        'Escuelas restringidas al Círculo '+circulo);
+      assert.equal(await selectorCirculo.inputValue(),String(circulo));
       const esperados=fichas.filter(s=>s.circulo===circulo).length;
       const resultados=hechizos.locator('#resultados-busqueda .resultado-conjuro');
       assert.equal(await resultados.count(),esperados,
@@ -233,7 +262,42 @@ async function probar(nombre,motor,origen){
       assert.ok((await resultados.locator('small').allTextContents())
         .every(s=>s.includes('Círculo '+circulo+' · ')));
     }
-    await hechizos.locator('#filtro-circulo').selectOption('');
+    await selectorCirculo.selectOption('');
+    assert.deepEqual(await valores(selectorEscuela),['',...escuelasDRS]);
+
+    // Dos criterios simultáneos, seleccionados en ambos órdenes.
+    await selectorEscuela.selectOption('Naturaleza');
+    assert.ok(!(await valores(selectorCirculo)).includes('1'),
+      'Naturaleza no tiene Conjuros de Primer Círculo en el DRS.');
+    await selectorCirculo.selectOption('2');
+    assert.equal(await selectorEscuela.inputValue(),'Naturaleza');
+    assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),
+      fichas.filter(s=>s.escuela==='Naturaleza'&&s.circulo===2).length);
+    await hechizos.locator('#filtro-nombre').fill('charco de aceite');
+    assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),1,
+      'El nombre se combina con Escuela y Círculo.');
+    await hechizos.locator('#filtro-nombre').fill('dardo igneo');
+    assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),0);
+    assert.match(await hechizos.locator('#resultados-busqueda').innerText(),
+      /No se han encontrado Conjuros con estos filtros/);
+    assert.equal(await selectorEscuela.inputValue(),'Naturaleza',
+      'La búsqueda sin resultados no altera los selectores.');
+    await hechizos.locator('#filtro-nombre').fill('');
+    await selectorCirculo.selectOption('');
+    assert.equal(await selectorEscuela.inputValue(),'Naturaleza',
+      'Limpiar Círculo mantiene Escuela.');
+    await selectorEscuela.selectOption('');
+    await selectorCirculo.selectOption('4');
+    await selectorEscuela.selectOption('Demonología');
+    assert.equal(await selectorCirculo.inputValue(),'4',
+      'Seleccionar Escuela después de Círculo conserva el Círculo.');
+    assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),
+      fichas.filter(s=>s.circulo===4&&s.escuela==='Demonología').length);
+    await selectorEscuela.selectOption('');
+    assert.equal(await selectorCirculo.inputValue(),'4');
+    await selectorCirculo.selectOption('');
+    assert.deepEqual(await valores(selectorEscuela),['',...escuelasDRS]);
+
     await hechizos.locator('#lista-dueno').fill('Ensayo de enlace');
     await hechizos.locator('#filtro-nombre').fill('Dardo ígneo');
     assert.equal(await hechizos.locator('#resultados-busqueda .resultado-conjuro').count(),1);

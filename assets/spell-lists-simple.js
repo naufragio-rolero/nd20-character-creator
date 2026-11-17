@@ -201,19 +201,66 @@ function pintarLista(){
   cont.replaceChildren(frag);
   refrescarCabecera();
 }
+// Las facetas se calculan sobre el DRS: cada selector depende del OTRO,
+// no del suyo ni de la consulta de nombre, evitando estados imposibles.
+function facetasConjuros(fichas,circulo,escuela){
+  var circulos=Array.from(new Set(fichas.filter(function(s){
+    return !escuela||s.escuela===escuela;
+  }).map(function(s){return s.circulo;}))).sort(function(a,b){return a-b;});
+  var escuelas=Array.from(new Set(fichas.filter(function(s){
+    return !circulo||s.circulo===circulo;
+  }).map(function(s){return s.escuela;}))).sort(function(a,b){
+    return a.localeCompare(b,'es');
+  });
+  return {circulos:circulos,escuelas:escuelas};
+}
+function filtrarConjuros(fichas,nombre,circulo,escuela){
+  var buscar=normalizar(nombre.trim());
+  return fichas.filter(function(s){
+    return (!circulo||s.circulo===circulo)&&
+      (!escuela||s.escuela===escuela)&&
+      (!buscar||normalizar(s.nombre).includes(buscar));
+  });
+}
+function actualizarOpcionesFiltros(){
+  if(!catalogo)return;
+  var seleccionCirculo=$('filtro-circulo').value;
+  var seleccionEscuela=$('filtro-escuela').value;
+  var facetas=facetasConjuros(catalogo.conjuros,
+    Number(seleccionCirculo)||0,seleccionEscuela);
+  function opciones(selector,valores,etiquetaTodos,etiqueta){
+    var anterior=selector.value;
+    var siguientes=[''].concat(valores.map(String));
+    var existentes=Array.from(selector.options,function(o){return o.value;});
+    // Si no cambia el conjunto disponible, no reconstruir un <select> abierto.
+    if(existentes.length===siguientes.length&&
+      existentes.every(function(v,i){return v===siguientes[i];}))return;
+    var fragmento=document.createDocumentFragment();
+    var todos=crear('option','',etiquetaTodos);todos.value='';
+    fragmento.appendChild(todos);
+    valores.forEach(function(valor){
+      var opcion=crear('option','',etiqueta?etiqueta+valor:valor);
+      opcion.value=String(valor);fragmento.appendChild(opcion);
+    });
+    selector.replaceChildren(fragmento);
+    selector.value=siguientes.includes(anterior)?anterior:'';
+  }
+  opciones($('filtro-circulo'),facetas.circulos,'Todos','Círculo ');
+  opciones($('filtro-escuela'),facetas.escuelas,'Todas','');
+}
 function pintarResultados(){
   if(!catalogo)return;
-  var f=normalizar($('filtro-nombre').value.trim());
+  var nombre=$('filtro-nombre').value.trim();
   var circulo=Number($('filtro-circulo').value)||0;
-  if(!f&&!circulo){
+  var escuela=$('filtro-escuela').value;
+  if(!nombre&&!circulo&&!escuela){
     $('cuenta-busqueda').textContent=catalogo.conjuros.length+' Conjuros disponibles';
     $('resultados-busqueda').replaceChildren(crear('p','lista-vacia',
-      'Escribe el nombre de un Conjuro o elige un Círculo para empezar.'));
+      'Escribe el nombre de un Conjuro, elige un Círculo o selecciona una Escuela.'));
     return;
   }
-  var resultados=catalogo.conjuros.filter(function(s){
-    return (!circulo||s.circulo===circulo)&&(!f||normalizar(s.nombre).includes(f));
-  }).sort(function(a,b){return a.nombre.localeCompare(b.nombre,'es');});
+  var resultados=filtrarConjuros(catalogo.conjuros,nombre,circulo,escuela)
+    .sort(function(a,b){return a.nombre.localeCompare(b.nombre,'es');});
   var limite=18;
   $('cuenta-busqueda').textContent=resultados.length+' encontrados'+
     (resultados.length>limite?' · mostrando '+limite:'');
@@ -244,7 +291,8 @@ function pintarResultados(){
     });
     fila.appendChild(btn);frag.appendChild(fila);
   });
-  if(!resultados.length)frag.appendChild(crear('p','lista-vacia','No se han encontrado Conjuros con ese nombre.'));
+  if(!resultados.length)frag.appendChild(crear('p','lista-vacia',
+    'No se han encontrado Conjuros con estos filtros. Cambia el nombre, Círculo o Escuela.'));
   $('resultados-busqueda').replaceChildren(frag);
 }
 function abrirNueva(){
@@ -339,7 +387,12 @@ function conectar(){
   });
   $('lista-dueno').addEventListener('input',editar);
   $('filtro-nombre').addEventListener('input',pintarResultados);
-  $('filtro-circulo').addEventListener('change',pintarResultados);
+  ['filtro-circulo','filtro-escuela'].forEach(function(id){
+    $(id).addEventListener('change',function(){
+      actualizarOpcionesFiltros();
+      pintarResultados();
+    });
+  });
   $('guardar-lista').addEventListener('click',guardar);
   $('copiar-lista').addEventListener('click',copiarLista);
   ['mostrar-escuela','mostrar-origen'].forEach(function(id){
@@ -378,8 +431,7 @@ async function cargar(){
     }
     var guardado=localStorage.getItem(KEY);
     lib=guardado?api.importar(guardado,catalogo,borradores):api.vacia(catalogo);
-    var circulos=$('filtro-circulo');
-    for(var c=1;c<=8;c++){var opt=crear('option','', 'Círculo '+c);opt.value=String(c);circulos.appendChild(opt);}
+    actualizarOpcionesFiltros();
     recuperarFormato();
     cargaCompleta=true;conectar();
     if(lib.listas.length)seleccionar(lib.listas[lib.listas.length-1].id);

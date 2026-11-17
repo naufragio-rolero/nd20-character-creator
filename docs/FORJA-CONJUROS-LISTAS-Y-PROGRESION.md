@@ -30,12 +30,24 @@ Convertir el editor sencillo de Conjuros en una herramienta reutilizable para di
 
 **Archivos:** `assets/icons/escuela-nigromancia.svg`, `assets/icons/escuela-naturaleza.svg`, `assets/spell-lists-simple.js`, `assets/spell-lists-simple.css`, pruebas estáticas y E2E.
 
-### 7.2 — Filtros dependientes **[pendiente]**
+### 7.2 — Filtros dependientes **[completada en rama de desarrollo]**
 
 - Añadir `Escuela` al buscador existente. El conjunto de resultados será la intersección de nombre, Círculo y Escuela.
 - El selector de Círculo muestra solamente los Círculos con Conjuros de la Escuela seleccionada, y el de Escuela solamente las Escuelas presentes en el Círculo seleccionado.
 - Aclarar explícitamente en la interfaz cuándo no hay coincidencias, y recalcular opciones sin bucles entre cambios de ambos selectores. La búsqueda textual sigue operando sobre el subconjunto.
 - Probar las 64 fichas y todas las combinaciones no vacías y vacías, escritorio/móvil.
+
+**Implementación 7.2 (17 de noviembre de 2026):**
+
+- Se ha añadido un selector de **Escuela**, con los valores tomados exclusivamente de las 64 fichas DRS. No se introduce una taxonomía paralela ni se cambia el modelo de Conjuros.
+- `filtrarConjuros(fichas, nombre, circulo, escuela)` devuelve la intersección de los tres criterios. La búsqueda textual no distingue mayúsculas ni tildes, igual que antes.
+- `facetasConjuros(fichas, circulo, escuela)` calcula **qué Círculos existen en la Escuela seleccionada** y **qué Escuelas existen en el Círculo seleccionado**. Cada conjunto ignora únicamente su propia selección. El texto del nombre **no condiciona las opciones** de los selectores; se aplica exclusivamente a los resultados. Esto evita que una búsqueda temporal esconda opciones de progreso reales.
+- Las opciones `Todos` y `Todas` permiten levantar cualquiera de las restricciones. Los valores seleccionados se conservan al actualizar opciones. Se reconstruye el `select` solo si su conjunto cambia, sin emitir eventos sintéticos ni alterar el estado de listas guardadas.
+- Búsqueda sin criterios: permanece el mensaje de ayuda original ampliado a Escuela. Búsqueda sin coincidencias: mensaje específico de filtros incompatibles con el nombre escrito. Un único criterio de Escuela ya muestra resultados sin obligar a seleccionar un Círculo.
+- Diseño: tres columnas en escritorio; nombre en fila completa y filtros en dos columnas en tablet; una columna en móvil. Los dos selectores cuentan con etiquetas y una ayuda compartida mediante `aria-describedby`.
+- Pruebas: matriz de facetas/filtrado de las **64 fichas DRS**, comprobaciones E2E de valores realmente disponibles, combinaciones Escuela/Círculo en ambos sentidos, consulta textual con y sin coincidencias, y regresión de listas guardadas, `#share=`, temas y móviles.
+
+**No se ha publicado PREVIEW ni LIVE.** Este bloque no modifica fichas DRS, progresiones, listas oficiales ni las funciones de copia.
 
 ### 7.3 — Listas oficiales de solo lectura **[pendiente]**
 

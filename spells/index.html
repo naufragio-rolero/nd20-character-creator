@@ -105,9 +105,13 @@
             <input id="filtro-nombre" type="search" placeholder="Escribe el nombre de un Conjuro…" autocomplete="off">
           </label>
           <label for="filtro-circulo">Círculo
-            <select id="filtro-circulo"><option value="">Todos</option></select>
+            <select id="filtro-circulo" aria-describedby="ayuda-filtros"><option value="">Todos</option></select>
+          </label>
+          <label for="filtro-escuela">Escuela
+            <select id="filtro-escuela" aria-describedby="ayuda-filtros"><option value="">Todas</option></select>
           </label>
         </div>
+        <p id="ayuda-filtros" class="ayuda-conjuros">Los Círculos y las Escuelas disponibles se ajustan entre sí.</p>
         <div class="buscador-resultado">
           <p id="cuenta-busqueda" class="contador-busqueda" role="status" aria-live="polite"></p>
           <div id="resultados-busqueda" class="resultados-busqueda" aria-label="Conjuros encontrados"></div>
